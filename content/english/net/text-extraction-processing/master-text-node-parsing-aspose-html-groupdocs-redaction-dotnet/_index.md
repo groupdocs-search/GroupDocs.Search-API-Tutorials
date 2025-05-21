@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Text Node Parsing in .NET: A Guide to Using Aspose.HTML and GroupDocs.Redaction
 ## Introduction
 Are you facing challenges parsing text nodes from HTML documents within your .NET applications? This guide is designed to address these issues by utilizing the powerful capabilities of Aspose.HTML and GroupDocs.Redaction for .NET. Through a step-by-step tutorial, you'll learn how to initialize a text source, efficiently read characters, and traverse an HTML document to locate text nodes.
@@ -146,7 +144,3 @@ Ready to implement this solution? Dive into our resources, try out the code snip
 
 By following this guide, you'll be well-equipped to implement efficient text parsing in your .NET applications using Aspose.HTML and GroupDocs.Redaction. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

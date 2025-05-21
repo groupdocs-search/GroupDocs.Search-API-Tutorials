@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search in Java: A Complete Guide to Index Management and Document Search
 
 ## Introduction
@@ -258,7 +256,3 @@ This feature configures custom search options to increase the capacity of occurr
 ## Conclusion
 
 By following this guide, you've learned how to set up GroupDocs.Search for Java and implement various search functionalities. These tools can significantly enhance your document management system by improving search efficiency and accuracy.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

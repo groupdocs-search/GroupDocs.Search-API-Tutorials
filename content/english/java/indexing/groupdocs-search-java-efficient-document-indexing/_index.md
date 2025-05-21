@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Search with GroupDocs.Search Java: A Comprehensive Guide
 
 ## Introduction
@@ -126,7 +124,3 @@ import com.groupdocs.search.Index;
 import com.groupdocs.search.options.UpdateOptions;
 // Delete specific paths from the index
 DeleteResult deleteResult = index.delete(new String[] { "YOUR_DOCUMENT_DIRECTORY\
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

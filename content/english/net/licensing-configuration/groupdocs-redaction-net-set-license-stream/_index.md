@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing GroupDocs.Redaction License Management from Stream in .NET
 
 ## Introduction
@@ -154,7 +152,3 @@ In this tutorial, you've learned how to set a GroupDocs.Redaction license from a
 
 With these steps and resources, you're all set to implement secure license management in your .NET applications using GroupDocs.Redaction. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Attributes with GroupDocs.Search in Java
 
 ## Introduction
@@ -223,7 +221,3 @@ Experiment by integrating these features into your current projects or explore f
 - Temporary License: [License Page](https://purchase.groupdocs.com/temporary-license)
 
 Now that you've grasped the essentials of modifying and adding document attributes using GroupDocs.Search for Java, feel free to dive deeper into its capabilities and tailor solutions to your needs.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Password-Based Indexing in .NET Using GroupDocs.Search
 Unlock the potential of your password-protected documents and streamline search capabilities using GroupDocs.Search. This comprehensive guide will walk you through implementing password-based indexing in .NET, ensuring your protected files are easily searchable.
 
@@ -189,7 +187,3 @@ A5: Yes, its efficient indexing capabilities make it suitable for real-time sear
 - **Temporary License**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Embark on your journey to efficient document management with GroupDocs.Search, and transform how you handle password-protected documents.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

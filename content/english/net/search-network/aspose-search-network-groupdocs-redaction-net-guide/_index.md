@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Configuring Aspose.Search Network & Adding Document Attributes with GroupDocs.Redaction for .NET: A Comprehensive Guide
 
 ## Introduction
@@ -212,7 +210,3 @@ Ready to implement these powerful solutions? Start experimenting today!
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you’ll be well-equipped to leverage GroupDocs.Redaction for .NET in your document management systems. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

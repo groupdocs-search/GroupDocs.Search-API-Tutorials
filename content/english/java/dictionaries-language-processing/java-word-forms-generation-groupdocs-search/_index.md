@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Generate Word Forms in Java Using GroupDocs.Search API
 
 ## Introduction
@@ -197,7 +195,3 @@ As next steps, consider exploring more advanced features of the GroupDocs.Search
 
 **4. What are some common applications for this feature?**
    - Applications include search engines, text analysis tools, and content management systems (CMS) where linguistic transformations are required.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

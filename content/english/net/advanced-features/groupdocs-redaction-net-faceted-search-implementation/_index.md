@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Redaction .NET: Implement Faceted Search Efficiently
 
 ## Introduction
@@ -190,7 +188,3 @@ Visit the [GroupDocs Licensing Page](https://purchase.groupdocs.com/temporary-li
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/search/net/)
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

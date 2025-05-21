@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Efficient Index and Alias Management in GroupDocs.Search Java: A Comprehensive Guide
 
 Discover how to enhance your document search capabilities using GroupDocs.Search for Java. This tutorial guides you through setting up your environment, implementing essential features, and optimizing performance.
@@ -238,7 +236,3 @@ You've now mastered the essentials of using GroupDocs.Search for Java to manage 
 
 3. **How do aliases improve search efficiency?**
    - Aliases allow complex queries to be simplified, improving the speed and accuracy of searches.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

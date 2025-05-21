@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Enhance .NET Document Indexing with Aspose OCR & GroupDocs Redaction
 
 ## Introduction
@@ -266,7 +264,3 @@ SearchResult result = index.Search(query);
 2. **Data Compliance:** Securely redact sensitive information before indexing or sharing documents.
 3. **Legal Document Processing:** Efficiently handle large volumes of image-based legal documents by extracting and searching text content.
 4. **Archival Systems:** Improve access to historical records stored in non-text formats through OCR-driven indexing.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -4,9 +4,7 @@ description: "Learn to implement robust error handling, logging, and diagnostic 
 weight: 11
 url: "/java/exception-handling-logging/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Exception Handling and Logging Tutorials for GroupDocs.Search Java
 
 Learn how to build reliable search applications with our GroupDocs.Search exception handling and logging tutorials for Java. These practical guides demonstrate how to implement proper error handling strategies, configure comprehensive logging, process indexing and search events, generate diagnostic reports, and troubleshoot common issues. Each tutorial includes working Java code examples for creating robust applications that gracefully handle errors and provide clear diagnostic information for debugging and monitoring.
@@ -27,7 +25,3 @@ Learn how to create a custom logger using GroupDocs.Search for Java. Improve deb
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search Java: Configuring and Optimizing a Search Network
 
 ## Introduction
@@ -272,7 +270,3 @@ public class CloseNetworkNodes {
 - Monitor network performance to ensure efficient resource usage.
 - Regularly update and maintain the search index for optimal results.
 - Evaluate and adjust configurations based on real-world usage patterns.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

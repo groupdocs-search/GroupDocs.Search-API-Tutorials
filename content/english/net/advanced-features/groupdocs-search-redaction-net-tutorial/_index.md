@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs Search and Redaction in .NET: Advanced Document Management
 
 In the data-driven world of today, efficiently managing and searching through vast collections of documents can be a daunting task. That's where GroupDocs.Search and GroupDocs.Redaction come into play—powerful tools that simplify document management and search operations for developers working with .NET applications. This comprehensive tutorial dives deep into creating and managing an index using GroupDocs.Search in .NET, while also exploring how to integrate it seamlessly with GroupDocs.Redaction.
@@ -168,7 +166,3 @@ By following this guide, you've gained the skills needed to implement efficient 
 
 Feel free to explore these resources for further information and support as you continue your journey with GroupDocs.Search and Redaction in .NET. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

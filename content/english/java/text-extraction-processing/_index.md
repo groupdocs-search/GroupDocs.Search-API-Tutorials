@@ -4,9 +4,7 @@ description: "Step-by-step tutorials for custom text extraction, text segmentati
 weight: 14
 url: "/java/text-extraction-processing/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Text Extraction and Processing Tutorials for GroupDocs.Search Java
 
 Discover advanced text processing capabilities with our GroupDocs.Search tutorials for Java developers. These detailed guides demonstrate how to implement custom text extractors, text segmenters, character replacement rules, and specialized text processing logic. Each tutorial provides practical Java code examples for handling complex text extraction scenarios, helping you build applications that can effectively extract and process text from various document formats with precise control over the extraction process.
@@ -27,7 +25,3 @@ Efficiently manage and extract data from log files with GroupDocs.Search for Jav
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

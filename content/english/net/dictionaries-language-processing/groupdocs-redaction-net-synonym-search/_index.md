@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implement Synonym Search with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -170,7 +168,3 @@ By following this guide, you've learned how to set up a robust synonym search fe
 - **API Reference:** [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/net)
 - **Downloads:** [Latest GroupDocs Releases](https://releases.groupdocs.com/search/net/)
 - **Support:** [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

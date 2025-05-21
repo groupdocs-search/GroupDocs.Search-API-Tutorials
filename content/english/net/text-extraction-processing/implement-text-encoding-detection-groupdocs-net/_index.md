@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Comprehensive Tutorial: Text File Encoding Detection with GroupDocs in .NET
 
 ## Introduction
@@ -226,7 +224,3 @@ For any questions or assistance, don't hesitate to reach out via the [GroupDocs 
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs Libraries](https://releases.groupdocs.com/search/net/)
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

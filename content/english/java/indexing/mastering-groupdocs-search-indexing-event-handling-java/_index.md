@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Indexing Event Handling in GroupDocs.Search for Java
 
 ## Introduction
@@ -192,7 +190,3 @@ A: Utilize the `OperationProgressChangedEvent` to provide periodic updates on th
 
 Embark on your journey to mastering GroupDocs.Search for Java today and unlock the full potential of document search in your applications!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

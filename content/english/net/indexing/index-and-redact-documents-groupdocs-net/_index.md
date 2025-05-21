@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Indexing and Redacting Documents with GroupDocs in .NET: A Comprehensive Guide
 
 ## Introduction
@@ -194,7 +192,3 @@ Ready to start? Implement this solution today and take control of your document 
 - **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 Embark on your journey today and streamline how you handle documents with GroupDocs.Search and Redaction!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

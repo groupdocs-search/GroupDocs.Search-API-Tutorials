@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing .NET GroupDocs.Search: Efficient Document Indexing and Search Solutions
 
 ## Introduction
@@ -167,7 +165,3 @@ In this tutorial, you've learned how to set up GroupDocs.Search in a .NET enviro
 - **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
 - **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

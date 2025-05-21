@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering .NET Text Indexing and Redaction with GroupDocs
 
 ## Introduction
@@ -228,7 +226,3 @@ You've now learned how to leverage GroupDocs libraries to create powerful text i
 
 To continue exploring the capabilities of GroupDocs.Search and Redaction, consider experimenting with additional settings or integrating them into larger projects. For any questions, feel free to reach out through the [GroupDocs Support Forum](https://forum.groupdocs.com/c/search/10).
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -4,9 +4,7 @@ description: "Complete tutorials for managing documents in search indexes, inclu
 weight: 6
 url: "/net/document-management/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Document Management Tutorials for GroupDocs.Search .NET
 
 Learn how to effectively manage indexed documents with our GroupDocs.Search tutorials for .NET developers. These detailed guides demonstrate how to add new documents to existing indexes, update modified documents, remove obsolete documents, and optimize indexes for better performance. Each tutorial includes working C# code examples that show how to implement robust document management strategies, ensuring your search indexes remain current and performant as your document collection evolves.
@@ -78,7 +76,3 @@ Learn how to securely redact documents using GroupDocs.Redaction for .NET and se
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search for .NET: Implementing Fuzzy and Regex Subqueries
 
 In today's data-driven world, efficiently extracting information from vast document collections is crucial. Whether you're a developer enhancing search features or a business professional leveraging document intelligence, searching text effectively can be challenging. Enter **GroupDocs.Search** for .NET—a powerful library designed to simplify complex search operations with features like fuzzy and regex subqueries. This tutorial will guide you through harnessing these functionalities to create robust search solutions.
@@ -185,7 +183,3 @@ A: Regular index updates and efficient query configurations can help maintain op
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
 
 Now that you're equipped with the knowledge to implement fuzzy and regex searches using GroupDocs.Search for .NET, start enhancing your application's search capabilities today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

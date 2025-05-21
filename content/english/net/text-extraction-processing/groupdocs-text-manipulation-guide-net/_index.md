@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Text Manipulation in .NET with GroupDocs Tools: Redaction and Search Guide
 
 ## Introduction
@@ -160,7 +158,3 @@ By integrating GroupDocs.Search and GroupDocs.Redaction for .NET, you can signif
 - **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
 
 Ready to get started? Try implementing these powerful text manipulation tools in your next .NET project today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

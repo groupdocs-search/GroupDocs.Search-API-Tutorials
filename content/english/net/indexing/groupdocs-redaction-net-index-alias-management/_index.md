@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Redaction .NET: Efficient Index Creation and Alias Management for Advanced Document Search
 
 Are you struggling to manage large volumes of documents efficiently? Do you need a robust solution for advanced search operations, including alias management, within your document repositories using .NET? This tutorial will guide you through implementing index creation and managing an alias dictionary using GroupDocs.Search with GroupDocs.Redaction for .NET. By the end of this guide, you'll master these features and integrate them into your projects.
@@ -191,7 +189,3 @@ By following this guide, you've learned how to implement index creation and alia
 
 By integrating these powerful tools, you're setting the stage for more efficient and effective document management. Dive into the resources provided to explore even further possibilities with GroupDocs.Redaction and GroupDocs.Search!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

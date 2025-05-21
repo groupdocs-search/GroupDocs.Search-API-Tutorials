@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Alphabet Dictionary & Indexing Techniques with GroupDocs.Search for Java
 
 ## Introduction
@@ -189,7 +187,3 @@ In this tutorial, we’ve covered the essential techniques for managing and util
    - Yes, use `setRange` to define custom character types.
 4. **Is it possible to export and import the alphabet dictionary?**
    - Absolutely, using the `exportDictionary` and `importDictionary` methods.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

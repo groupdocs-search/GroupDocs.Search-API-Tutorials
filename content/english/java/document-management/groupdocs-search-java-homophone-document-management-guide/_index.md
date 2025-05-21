@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Document Management with GroupDocs.Search for Java: A Comprehensive Guide to Using Homophones
 
 ## Introduction
@@ -207,7 +205,3 @@ To ensure optimal performance while using GroupDocs.Search:
 ## Conclusion
 
 By now, you should have a solid understanding of how to implement and leverage the powerful features of GroupDocs.Search for managing homophones within your document indexes. These tools are invaluable in ensuring precise search results and improving document management efficiency.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

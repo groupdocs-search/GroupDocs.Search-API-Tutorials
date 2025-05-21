@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search Java for Phrase Searches with Wildcard Patterns
 
 ## Introduction
@@ -236,7 +234,3 @@ By mastering GroupDocs.Search for Java's phrase search with wildcard patterns, y
 
 5. **Can I integrate GroupDocs.Search into my existing Java application?**
    - Absolutely! The library is designed to seamlessly integrate with your projects.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

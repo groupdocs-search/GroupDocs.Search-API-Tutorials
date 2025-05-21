@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Index Creation and Merging with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -194,7 +192,3 @@ Explore more advanced features of GroupDocs.Redaction and Aspose.Search to furth
 
 Begin your journey with GroupDocs.Redaction and Aspose.Search today to revolutionize how you handle document indexing in .NET!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

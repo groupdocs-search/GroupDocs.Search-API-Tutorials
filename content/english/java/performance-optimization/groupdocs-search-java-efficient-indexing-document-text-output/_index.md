@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Efficient Document Search with GroupDocs.Search for Java
 
 In the world of document management, quickly finding specific content within numerous documents is crucial. Whether you're managing legal contracts or academic papers, efficient search capabilities can save hours of manual labor. This tutorial dives into using **GroupDocs.Search for Java**, a powerful tool that helps you create indices and extract text from your documents efficiently. By the end of this guide, you'll know how to set up indexing with custom settings and output document text in various formats.
@@ -217,7 +215,3 @@ public class FeatureOutputToStructure {
 
 ### Conclusion
 In this tutorial, we explored how to use GroupDocs.Search for Java to efficiently search documents. We covered creating indices with custom settings, outputting document texts in various formats, and optimizing performance. Implement these techniques in your projects to enhance document management capabilities.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

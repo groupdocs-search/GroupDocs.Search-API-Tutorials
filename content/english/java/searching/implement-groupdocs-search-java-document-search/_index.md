@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement GroupDocs.Search Java for Extracting and Highlighting Search Results
 
 ## Introduction
@@ -222,7 +220,3 @@ Try implementing these solutions in your own projects to see firsthand how they 
    - Yes, with a free trial that limits some features.
 4. **What file formats are supported?**
    - GroupDocs.Search supports a wide range of document formats such as PDF, DOCX, XLSX, and more.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

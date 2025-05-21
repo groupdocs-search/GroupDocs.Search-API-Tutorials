@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search Java: Fuzzy Search & Document Indexing Guide
 
 ## Introduction
@@ -206,7 +204,3 @@ As a next step, consider exploring more advanced features of GroupDocs.Search or
 
 Start implementing GroupDocs.Search for Java today and transform how you manage and search through your documents!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

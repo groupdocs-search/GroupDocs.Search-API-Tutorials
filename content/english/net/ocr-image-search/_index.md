@@ -4,9 +4,7 @@ description: "Step-by-step tutorials for implementing OCR capabilities and rever
 weight: 7
 url: "/net/ocr-image-search/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # OCR and Image Search Tutorials for GroupDocs.Search .NET
 
 Our OCR and image search tutorials show you how to extract and search text from images and implement reverse image search using GroupDocs.Search in .NET. These step-by-step guides cover integrating OCR engines, configuring recognition options, searching for similar images, and working with image metadata programmatically. Each tutorial includes practical C# code examples for common OCR and image search scenarios, helping you build applications that can efficiently process and search visual content.
@@ -27,7 +25,3 @@ Learn how to implement reverse image search using GroupDocs.Search for .NET. Enh
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

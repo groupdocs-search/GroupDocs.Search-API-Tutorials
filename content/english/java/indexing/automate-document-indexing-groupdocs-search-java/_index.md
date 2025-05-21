@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Automate Java Document Indexing and Renaming Using GroupDocs.Search
 
 ## Introduction
@@ -230,7 +228,3 @@ public class DirectoryCleaningAndFileCopying {
 ## Conclusion
 
 You’ve now mastered document indexing and renaming with GroupDocs.Search in Java. This powerful tool enhances your application’s ability to handle documents efficiently, providing robust search capabilities and improved document management.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

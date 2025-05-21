@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Optimize Search Index in Java with GroupDocs.Search
 
 ## Introduction
@@ -172,7 +170,3 @@ Ready to implement these powerful indexing features? Start integrating GroupDocs
 
 Embark on your journey to efficient document management with GroupDocs.Search for Java today!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

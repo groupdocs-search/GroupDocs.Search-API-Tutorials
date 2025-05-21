@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Management with GroupDocs.Search and GroupDocs.Redaction in .NET
 
 ## Introduction
@@ -182,7 +180,3 @@ To further explore the potential of these libraries, dive into their [documentat
 - [Documentation](https://docs.groupdocs.com/search/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download](https://www.groupdocs.com/products/search-net)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

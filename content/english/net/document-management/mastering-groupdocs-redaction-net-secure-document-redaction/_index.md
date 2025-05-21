@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Redaction .NET: Secure Document Redaction and Network Setup
 
 ## Introduction
@@ -192,7 +190,3 @@ Ready to take your document redaction skills to the next level? Implement these 
 - **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
 - **Temporary License**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

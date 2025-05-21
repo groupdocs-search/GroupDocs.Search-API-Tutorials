@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Custom Logging in Java with GroupDocs.Search
 ## Introduction
 
@@ -170,7 +168,3 @@ Ready to take it further? Implement this solution today, and experience enhanced
 
 Embark on your journey to efficient logging with GroupDocs.Search Java today!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

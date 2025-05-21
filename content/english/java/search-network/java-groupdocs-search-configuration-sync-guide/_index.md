@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Comprehensive Guide: Configuring and Synchronizing Java Search Networks with GroupDocs.Search
 
 ## Introduction
@@ -216,7 +214,3 @@ By following this guide, you've learned how to configure and deploy a search net
 2. **Can I customize node configurations in a search network?**
    - Yes, you can set custom paths and ports to suit your environment requirements.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

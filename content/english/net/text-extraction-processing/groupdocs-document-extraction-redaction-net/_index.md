@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Data Extraction and Redaction with GroupDocs in .NET
 
 ## Introduction
@@ -185,7 +183,3 @@ Next steps? Try integrating these functionalities into a real-world project or e
 - **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 Dive deeper into GroupDocs.Search and GroupDocs.Redaction to unlock the full potential of document management in your .NET applications!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

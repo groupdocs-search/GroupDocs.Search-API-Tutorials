@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Index & Search PDF/Word Documents by Subject with GroupDocs.Redaction in .NET
 
 ## Introduction
@@ -204,7 +202,3 @@ In this tutorial, we've covered how to leverage GroupDocs.Redaction for .NET to 
    - A library that allows redacting, indexing, and searching within various document formats in .NET applications.
 2. **How do I handle large volumes of documents for indexing?**
    - Use batching and optimize your indexing strategy to improve performance.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

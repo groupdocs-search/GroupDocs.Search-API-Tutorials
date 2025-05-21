@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement Document Subject Indexing with GroupDocs.Search in Java
 
 ## Introduction
@@ -128,7 +126,3 @@ index.getEvents().FileIndexing.add(new EventHandler<FileIndexingEventArgs>() {
         if (subject != null) {
             args.setAdditionalFields(new DocumentField[] {
                 new DocumentField("Subject\
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

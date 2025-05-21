@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Deploy GroupDocs.Search Java Network for Enhanced Search Capabilities
 
 ## Introduction
@@ -202,7 +200,3 @@ A3: Yes, GroupDocs.Search supports a wide range of document formats, making it v
 
 **Q4: What are some common issues when deploying nodes?**
 A4: Common issues include misconfigured directories, port conflicts, and insufficient permissions. Ensure all settings are correctly applied to avoid these problems.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

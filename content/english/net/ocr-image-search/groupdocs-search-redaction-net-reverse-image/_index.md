@@ -12,9 +12,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search and GroupDocs.Redaction in .NET: A Comprehensive Guide to Implementing Reverse Image Search
 
 ## Introduction
@@ -166,7 +164,3 @@ For further exploration, consider diving into advanced indexing techniques or in
 - **Temporary License:** [GroupDocs Purchase](https://purchase.groupdocs.com/temporary-license/)
 
 This guide is a stepping stone to mastering GroupDocs technologies in .NET, paving the way for more advanced implementations and integrations. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

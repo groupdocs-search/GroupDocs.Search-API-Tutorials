@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Case-Sensitive Word Matching with GroupDocs.Redaction for .NET
 
 ## Introduction
@@ -228,7 +226,3 @@ As next steps, consider exploring further functionalities of GroupDocs.Redaction
    - Other libraries like Aspose.Words offer similar functionalities but may vary in features and performance.
 5. **How can I get support if I encounter issues?**
    - Utilize GroupDocs’ free support forum or consult their comprehensive documentation.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Displaying Supported File Formats Using GroupDocs.Redaction in .NET
 
 ## Introduction
@@ -152,7 +150,3 @@ By following these steps, you've successfully implemented a feature to display s
 - [Temporary License Request](https://purchase.groupdocs.com/temporary-license/)
 
 By following this guide, you should now be able to integrate a feature that lists supported file formats into your .NET applications using GroupDocs.Redaction. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

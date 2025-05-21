@@ -12,9 +12,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Case-Sensitive Searches in .NET with GroupDocs
 
 ## Introduction
@@ -181,7 +179,3 @@ By following this guide, you have learned how to implement case-sensitive search
 - **Download GroupDocs Libraries**: Get started by downloading from [GroupDocs Releases](https://releases.groupdocs.com/search/net/)
 - **Free Support**: Engage with the community on their [Support Forum](https://forum.groupdocs.com/c/search/10)
 - **Temporary License**: Obtain a temporary license for full access to features at [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

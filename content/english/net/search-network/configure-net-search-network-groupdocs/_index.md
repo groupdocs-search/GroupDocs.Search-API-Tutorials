@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Configure a .NET Search Network Using GroupDocs.Search and Redaction
 
 ## Introduction
@@ -190,7 +188,3 @@ A: Yes, it can be integrated seamlessly with various systems for enhanced functi
 
 Take the leap today and harness the power of GroupDocs.Search to create a highly efficient search network. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

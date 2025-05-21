@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search Java: Efficient Document Search
 ## Introduction
 In today's data-driven world, efficiently searching through vast amounts of documents is crucial for businesses and developers alike. The challenge often lies in creating a search index that accurately captures the nuances of language and user queries. This tutorial dives into using **GroupDocs.Search for Java** to create and manage a search index while handling different word forms effectively.
@@ -168,7 +166,3 @@ Try implementing these solutions in your projects today, and experience enhanced
 - **API Reference**: Access comprehensive API details [here](https://reference.groupdocs.com/search/java)
 - **Download GroupDocs.Search**: Get the latest version from [GroupDocs Downloads](https://releases.groupdocs.com/search/java/)
 - **GitHub Repository**
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

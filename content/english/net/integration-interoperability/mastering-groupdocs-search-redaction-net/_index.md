@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master GroupDocs.Search and Redaction in .NET: Create Efficient Indexes and Enable Advanced Searches
 
 Welcome to this comprehensive guide where you'll learn how to harness the power of GroupDocs.Search and GroupDocs.Redaction within your .NET applications. Whether you're looking to optimize document search capabilities or ensure sensitive information remains secure, these tools provide robust solutions. By the end of this tutorial, you will be adept at creating indexes, enabling advanced word form searches, and implementing redaction techniques.
@@ -181,7 +179,3 @@ A: Ensure all dependencies are correctly installed. Check for any version mismat
 - **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
 
 Ready to enhance your document management system? Start implementing these powerful features today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

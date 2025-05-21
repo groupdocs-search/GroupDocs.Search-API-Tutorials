@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Fuzzy Search in Java Using GroupDocs.Search
 
 Enhance your Java applications' search capabilities using GroupDocs.Search. This comprehensive guide introduces fuzzy search algorithms, ensuring accurate results despite spelling mistakes or typing errors.
@@ -168,7 +166,3 @@ Leverage Java's garbage collection effectively, ensuring your application releas
 
 ## Conclusion
 You've now mastered the basics of implementing fuzzy search with GroupDocs.Search for Java! By configuring similarity levels and step functions, you can enhance search accuracy across varied document sets and applications. Continue exploring these techniques by integrating them into your projects.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

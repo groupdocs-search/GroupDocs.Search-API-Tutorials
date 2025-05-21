@@ -14,9 +14,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master File Filtering in .NET with GroupDocs.Redaction: Efficient Document Management Techniques
 
 In today's digital world, efficient file management is key to productivity. Whether organizing documents by type, date, or size, programmable file filtering saves time and resources. This tutorial guides you through using GroupDocs.Redaction for .NET to create powerful file filtering solutions that enhance your workflow.
@@ -260,7 +258,3 @@ This example combines filters to include files that are either .txt or within sp
 ## Conclusion
 
 By mastering these filtering techniques with GroupDocs.Redaction for .NET, you can significantly improve your document management workflow. Implement these strategies to organize and manage your files efficiently, saving both time and resources.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

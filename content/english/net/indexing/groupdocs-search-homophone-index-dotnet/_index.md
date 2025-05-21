@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search in .NET: Implement Indexing and Homophone Search
 
 ## Introduction
@@ -193,7 +191,3 @@ Why not try implementing this solution today to streamline your document managem
 
 This guide should help you implement GroupDocs.Search and Redaction in your .NET projects effectively, ensuring efficient document management and advanced search capabilities.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search Java: Implementing Homophone Search for Enhanced Document Retrieval
 
 In today's data-driven world, effectively searching through extensive text datasets is crucial. Whether managing legal documents or analyzing customer feedback, a robust search mechanism can transform overwhelming data into actionable insights. This tutorial will guide you through implementing GroupDocs.Search in Java to create an index and enable homophone searches, optimizing your document management process.
@@ -178,7 +176,3 @@ Explore further by integrating these features into larger applications or experi
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

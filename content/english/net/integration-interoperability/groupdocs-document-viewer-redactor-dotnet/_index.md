@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Comprehensive Document Viewer and Redactor with GroupDocs for .NET
 
 In today's digital landscape, securely handling sensitive documents while ensuring easy accessibility is paramount. Whether dealing with financial records, confidential contracts, or personal information, a robust system to view and redact these documents is essential. This tutorial guides you through setting up GroupDocs.Viewer for .NET to render documents as HTML pages and integrating GroupDocs.Redaction for secure document processing. By the end of this guide, you'll know how to create a comprehensive document viewer and redactor tailored to your needs.
@@ -189,7 +187,3 @@ A1: You can chain load options or implement logic to manage different credential
 
 **Q2: Can GroupDocs.Viewer render PDFs as HTML?**
 A2: Yes, it supports rendering PDFs along with other document formats into HTML pages.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

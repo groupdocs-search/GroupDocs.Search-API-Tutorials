@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Case-Insensitive Search in Java with GroupDocs.Search
 
 ## Introduction
@@ -185,7 +183,3 @@ By now, you should have a solid understanding of how to enable character replace
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you're now equipped to implement efficient case-insensitive searches in Java with GroupDocs.Search.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

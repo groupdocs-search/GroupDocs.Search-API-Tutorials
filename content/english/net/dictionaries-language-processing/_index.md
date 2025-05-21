@@ -4,9 +4,7 @@ description: "Learn to work with dictionaries, spelling correction, synonyms, an
 weight: 5
 url: "/net/dictionaries-language-processing/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Dictionary Management and Language Processing Tutorials with GroupDocs.Search for .NET
 
 Discover how to enhance search quality with our comprehensive GroupDocs.Search dictionary and language processing tutorials for .NET. These step-by-step guides teach you how to implement synonym dictionaries, spelling correction, homophone recognition, and custom alphabets. Each tutorial provides practical C# code examples for language processing tasks, helping you build more intelligent search applications that understand the nuances of human language and improve search relevance.
@@ -30,7 +28,3 @@ Learn how to effectively manage synonyms in your .NET applications using GroupDo
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

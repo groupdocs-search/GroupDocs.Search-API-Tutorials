@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Faceted & Complex Searches in Java with GroupDocs.Search
 
 ## Introduction
@@ -228,7 +226,3 @@ Here are some real-world use cases where faceted and complex searches can be inv
 ## Conclusion
 
 Implementing faceted and complex searches in Java with GroupDocs.Search can significantly enhance your application's search functionality. By following this guide, you've learned how to set up GroupDocs.Search, create indexes, add documents, and perform both simple and advanced queries. Apply these techniques in real-world scenarios to improve user experience and data retrieval efficiency.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

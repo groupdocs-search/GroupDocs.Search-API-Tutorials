@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Log File Extraction Using GroupDocs.Search in Java: A Comprehensive Guide
 
 ## Introduction
@@ -209,7 +207,3 @@ Next steps include experimenting with different configurations and exploring add
    - Use batch processing and optimize memory management in your JVM setup.
 4. **Can this solution be integrated with other logging frameworks?**
    - Yes, it can work alongside popular Java logging libraries for comprehensive log management.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master GroupDocs.Redaction .NET by Implementing a Custom Word Forms Provider
 ## Introduction
 In the realm of document redaction and search functionalities, handling variations between singular and plural word forms is crucial for accuracy and efficiency. This tutorial focuses on configuring a custom word forms provider with GroupDocs.Redaction for .NET to improve your application's text processing capabilities.
@@ -164,7 +162,3 @@ This tutorial guided you through setting up GroupDocs.Redaction for .NET and imp
 ## Resources
 - [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/search/net/)
 - [API Reference](https://apireference.groupdocs.com/redaction/net)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

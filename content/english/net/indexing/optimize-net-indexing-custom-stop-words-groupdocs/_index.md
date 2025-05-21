@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Optimize .NET Document Indexing with Custom Stop Words Using GroupDocs.Redaction
 
 ## Introduction
@@ -191,7 +189,3 @@ As next steps, consider exploring more advanced features of GroupDocs.Redaction 
 
 By following this guide, you're well on your way to mastering the art of optimized .NET indexing with custom stop words using GroupDocs.Redaction. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Password Management in .NET with GroupDocs Redaction
 
 ## Introduction
@@ -199,7 +197,3 @@ A4: Yes, once indexed with passwords, you can perform searches using GroupDocs.S
 
 **Q5: What are some common troubleshooting tips when setting up GroupDocs.Redaction?**
 A5: Ensure your licenses are active and paths to document directories are correctly specified. Refer to the [support forum](https://forum.groupdocs.com/) for further assistance.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

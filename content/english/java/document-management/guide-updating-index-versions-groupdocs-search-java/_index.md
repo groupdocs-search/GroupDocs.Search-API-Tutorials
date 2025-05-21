@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Update and Manage Index Versions in GroupDocs.Search for Java
 
 ## Introduction
@@ -206,7 +204,3 @@ This guide has provided you with a comprehensive overview of how to update and m
 ### Next Steps
 - Experiment with different configurations and updates.
 - Explore additional features offered by GroupDocs.Search to further enhance your project's capabilities.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

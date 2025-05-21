@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement Synchronous Indexing and Redaction in .NET with GroupDocs
 
 ## Introduction
@@ -211,7 +209,3 @@ You can define custom regex-based redactions to handle unique data masking needs
 
 This comprehensive guide should serve as your starting point for leveraging GroupDocs.Search and Redaction in .NET applications. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

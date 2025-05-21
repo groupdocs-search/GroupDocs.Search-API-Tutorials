@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master .NET Document Indexing with GroupDocs.Search: A Comprehensive Guide
 
 ## Introduction
@@ -169,7 +167,3 @@ For further exploration and support:
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 
 Now that you're equipped with the knowledge to implement .NET indexing using GroupDocs.Search, why not try it out in your next project? The possibilities are endless!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

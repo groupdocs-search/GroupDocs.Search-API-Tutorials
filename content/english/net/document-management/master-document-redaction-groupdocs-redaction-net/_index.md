@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Document Redaction with GroupDocs.Redaction .NET: Indexing and Managing Aliases for Secure Document Management
 
 ## Introduction
@@ -261,7 +259,3 @@ Consider partitioning your documents into smaller groups for indexing and ensure
 
 **5. Are there any limitations to the search capabilities with aliases?**
 Aliases can simplify complex queries but may not fully replace the need for direct query expressions in all cases.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Configuring Search and Highlighting Results with GroupDocs.Search for Java
 
 ## Introduction
@@ -240,7 +238,3 @@ for (SearchNetworkNode node : nodes) {
 ### Resource Usage Guidelines
 Monitor CPU and memory usage to ensure optimal performance during search operations.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

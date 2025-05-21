@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search in Java: Configuring and Deploying a Document Search Network
 
 ## Introduction
@@ -207,7 +205,3 @@ To maximize performance when using GroupDocs.Search:
 ## Conclusion
 
 You've now mastered the essentials of configuring and deploying a GroupDocs.Search network using Java. With this knowledge, you're well-equipped to implement robust document management solutions tailored to your specific needs.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

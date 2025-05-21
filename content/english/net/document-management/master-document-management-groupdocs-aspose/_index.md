@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Document Management with GroupDocs Redaction and Aspose Search for .NET
 
 ## Introduction
@@ -194,7 +192,3 @@ Consider implementing these techniques into your projects and explore further ca
 - **Temporary License**: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 This comprehensive guide ensures you're well-equipped to implement and manage an index repository using GroupDocs Redaction .NET and Aspose Search effectively. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

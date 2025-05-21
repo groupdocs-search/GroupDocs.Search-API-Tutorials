@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing Metadata Indexing in Java with GroupDocs.Search: A Comprehensive Guide
 
 ## Introduction to Metadata Indexing with GroupDocs.Search Java
@@ -201,7 +199,3 @@ By now, you should have a solid understanding of how to implement metadata index
 
 We hope this guide empowers you to effectively implement and leverage metadata indexing with GroupDocs.Search Java. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering .NET Logging with GroupDocs: Implementing a Custom Console Logger Guide
 
 ## Introduction
@@ -220,7 +218,3 @@ Ready to put this knowledge into practice? Dive deeper by experimenting with the
 
 Dive into these resources to expand your understanding and master .NET logging with GroupDocs.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

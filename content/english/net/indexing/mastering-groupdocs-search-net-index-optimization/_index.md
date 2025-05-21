@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search: Creating and Optimizing Indexes in .NET
 
 ## Introduction
@@ -160,7 +158,3 @@ Ready to take your document search solutions to the next level? Start implementi
 
 By following this comprehensive guide, you're well on your way to mastering document indexing and optimization with GroupDocs.Search in .NET applications. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

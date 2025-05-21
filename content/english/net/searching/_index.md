@@ -4,9 +4,7 @@ description: "Complete tutorials for implementing various search types including
 weight: 3
 url: "/net/searching/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Document Search Tutorials for GroupDocs.Search .NET
 
 Master document searching capabilities with our detailed GroupDocs.Search .NET tutorials. These step-by-step guides demonstrate how to implement different search types, handle search results, apply filters, and leverage advanced search features. Each tutorial includes working C# code examples, implementation notes, and best practices to help you build applications that efficiently search document content with powerful query capabilities.
@@ -54,7 +52,3 @@ Learn how to implement powerful wildcard searches using GroupDocs.Redaction for 
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

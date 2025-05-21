@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement Full-Text Search in Java Using GroupDocs.Search
 
 ## Introduction
@@ -212,7 +210,3 @@ A5: Review your index settings, optimize queries, and monitor resource usage.
 - **Temporary License**: [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 With this comprehensive guide, you're ready to harness the power of GroupDocs.Search for efficient document management.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

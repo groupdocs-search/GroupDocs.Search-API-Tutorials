@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Phrase Search in .NET with GroupDocs.Redaction and GroupDocs.Search
 
 ## Introduction
@@ -215,7 +213,3 @@ You've now mastered implementing phrase searches using GroupDocs.Search and wild
 
 Dive into these resources to further enhance your knowledge and application capabilities with GroupDocs.Search in .NET. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

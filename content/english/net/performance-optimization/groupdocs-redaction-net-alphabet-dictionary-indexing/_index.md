@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Document Indexing and Redaction Using GroupDocs.Redaction .NET
 
 ## Introduction
@@ -176,7 +174,3 @@ Try implementing these solutions today and experience a streamlined workflow!
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/search/net/)
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

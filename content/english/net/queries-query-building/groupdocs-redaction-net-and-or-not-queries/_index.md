@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering AND, OR, NOT Queries in .NET Using GroupDocs.Redaction
 
 ## Introduction
@@ -230,7 +228,3 @@ Ready to take the next step? Try implementing these solutions in your projects t
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

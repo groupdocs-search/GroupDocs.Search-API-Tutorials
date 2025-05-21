@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master GroupDocs Search and Redaction in .NET: A Comprehensive Guide for Document Management
 
 In today's digital world, managing vast amounts of data is crucial for businesses that require efficient ways to sift through documents quickly while protecting sensitive information. This tutorial guides you through setting up a robust search network using GroupDocs.Search and GroupDocs.Redaction for .NET. Learn how to configure your environment, deploy nodes effectively, and implement both basic and advanced search functionalities.
@@ -271,7 +269,3 @@ private static void AddDocsFromResult(List<NetworkFoundDocument> documents, Netw
 #### Integration Possibilities
 - Integrate with document management systems like SharePoint or Documentum.
 - Contribute to efficient data governance and compliance strategies.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

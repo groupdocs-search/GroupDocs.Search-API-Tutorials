@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Optimize GroupDocs.Redaction for .NET: Efficient Index & Spelling Management Guide
 
 In today's fast-paced digital world, efficiently managing large volumes of documents is crucial. Whether you're correcting spelling errors or redacting sensitive information, the right tools can make all the difference. This tutorial guides you through implementing GroupDocs.Redaction for .NET alongside efficient index and spelling correction management using GroupDocs.Search. By the end, you'll have mastered creating an optimized search index and managing a custom spelling corrector dictionary.
@@ -136,7 +134,3 @@ For further exploration, check out the following resources:
 - **Download**: Get the latest versions from [GroupDocs Releases](https://releases.groupdocs.com/search/net/)
 
 Now that you're equipped with this knowledge, go ahead and implement these solutions in your projects!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

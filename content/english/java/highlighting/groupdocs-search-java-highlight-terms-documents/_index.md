@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Comprehensive Tutorial on Highlighting Search Terms Using GroupDocs.Search for Java
 
 ## Introduction
@@ -208,7 +206,3 @@ In this tutorial, you've learned how to implement term highlighting using GroupD
 **3. What are common issues when using GroupDocs.Search, and how can they be resolved?**
 - Indexing errors: Ensure file paths and permissions are correctly set.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

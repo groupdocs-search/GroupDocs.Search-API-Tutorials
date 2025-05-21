@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Synonym Management in .NET with GroupDocs Search and Redaction
 
 ## Introduction
@@ -217,7 +215,3 @@ You've now explored how to implement .NET Synonym Management using GroupDocs.Sea
 A1: Begin by installing the necessary NuGet packages for GroupDocs.Search and GroupDocs.Redaction in your .NET project. Ensure you have a basic understanding of C# programming, particularly around concepts like indexing and search.
 
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

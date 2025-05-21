@@ -4,9 +4,7 @@ description: "Complete tutorials for proper licensing setup, configuration optio
 weight: 13
 url: "/net/licensing-configuration/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Licensing and Configuration Tutorials for GroupDocs.Search .NET
 
 Our licensing and configuration tutorials provide detailed guidance for properly setting up GroupDocs.Search in production environments. These comprehensive guides demonstrate how to apply standard and metered licenses, configure application settings, optimize for different deployment scenarios, and understand supported file formats. Each tutorial includes working C# code examples for common configuration tasks, helping you properly license and configure your .NET applications for optimal performance and compliance.
@@ -27,7 +25,3 @@ Learn how to manage licenses securely using streams with GroupDocs.Redaction for
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

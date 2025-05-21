@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implement Advanced Search Filters in .NET with GroupDocs.Redaction
 
 ## Introduction
@@ -194,7 +192,3 @@ A5: Visit the official documentation at [GroupDocs Documentation](https://docs.g
 - **Temporary License**: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 Implement these advanced search filters today and revolutionize how you handle document searches in your .NET applications!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

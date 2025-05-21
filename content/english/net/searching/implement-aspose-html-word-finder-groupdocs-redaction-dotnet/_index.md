@@ -12,9 +12,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement Aspose.HTML Word Finder with GroupDocs.Redaction in .NET: A Complete Guide
 
 Discover the steps to leverage GroupDocs.Redaction for .NET alongside Aspose.HTML to build a powerful word finding mechanism. This guide will walk you through setting up, implementing, and optimizing your application.
@@ -213,7 +211,3 @@ A: Explore the documentation and engage with community forums or open-source con
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download:** [GroupDocs Releases](https://releases.groupdocs.com/search/net/)
 - **Free Support:** [GroupDocs Forum](https://www.groupdocs.com/community/forums/groupdocs-redaction)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

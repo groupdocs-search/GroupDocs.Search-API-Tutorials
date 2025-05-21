@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Highlight Text in PDFs Using GroupDocs.Redaction .NET for HTML Conversion
 
 ## Introduction
@@ -231,7 +229,3 @@ Here are some real-world use cases:
 3. **Digital Publishing:** Use the highlighting feature in creating digital magazines or articles with enhanced visual appeal.
 
 These implementations can integrate seamlessly with other document management systems, providing a robust solution for handling and displaying PDF content effectively.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

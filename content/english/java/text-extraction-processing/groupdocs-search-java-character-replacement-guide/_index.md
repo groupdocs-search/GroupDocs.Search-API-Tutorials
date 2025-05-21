@@ -12,9 +12,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Character Replacement in GroupDocs.Search Java: A Comprehensive Guide
 
 ## Introduction
@@ -225,7 +223,3 @@ By leveraging GroupDocs.Search Java's character replacement features, you can si
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this comprehensive guide, you'll be well-equipped to implement character replacements in your indexing projects using GroupDocs.Search Java.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

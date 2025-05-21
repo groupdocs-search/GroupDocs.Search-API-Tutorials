@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implement GroupDocs.Search for Network Image Search in .NET: A Comprehensive Guide
 
 ## Introduction
@@ -238,7 +236,3 @@ To optimize performance:
 
 By following this comprehensive guide, you've learned how to implement and optimize a network image search system using GroupDocs.Search and GroupDocs.Redaction. This setup not only enhances your data management capabilities but also ensures scalable and efficient handling of multimedia content across networks.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
