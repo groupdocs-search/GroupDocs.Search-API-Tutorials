@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Efficient Document Search and Redaction with GroupDocs for .NET
 ## Performance Optimization Guide
 
@@ -191,7 +189,3 @@ Experiment further by integrating these features into larger applications or exp
 
 With this guide, you're well-equipped to implement and optimize document search functionalities using GroupDocs.Search and Redaction for .NET. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

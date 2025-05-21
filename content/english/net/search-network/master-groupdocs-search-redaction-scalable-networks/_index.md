@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search and GroupDocs.Redaction for Scalable Search Networks in .NET
 
 In today's data-driven world, the ability to efficiently search through vast amounts of information is critical. Whether you're handling enterprise-level document management or building a content-rich application, configuring and deploying scalable search networks can be daunting. This tutorial will guide you through setting up and optimizing search networks using GroupDocs.Search for .NET, integrated with GroupDocs.Redaction for enhanced security.
@@ -205,7 +203,3 @@ You've learned how to configure, deploy, and manage scalable search networks usi
 
 Embark on your journey to mastering scalable search networks today!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

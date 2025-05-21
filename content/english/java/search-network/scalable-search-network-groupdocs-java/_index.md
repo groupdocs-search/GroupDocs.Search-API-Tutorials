@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Configuring a Scalable Search Network Using GroupDocs.Search Java
 
 ## Introduction
@@ -213,7 +211,3 @@ By following this guide, you've learned how to configure a scalable GroupDocs.Se
 **Q4: What is the difference between NormalIndex and other index types?**
 - **A**: NormalIndex provides a balanced approach suitable for most use cases, while other indexes may be optimized for specific scenarios like high-speed retrieval or low-memory environments.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

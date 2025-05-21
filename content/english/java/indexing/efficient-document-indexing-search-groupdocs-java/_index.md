@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Efficient Document Indexing & Search with GroupDocs.Search Java
 
 ## Introduction
@@ -206,7 +204,3 @@ By now, you should have a comprehensive understanding of how to implement effici
 - Explore advanced features like faceted searches and metadata indexing.
 
 Ready to start your journey? Implement these techniques today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

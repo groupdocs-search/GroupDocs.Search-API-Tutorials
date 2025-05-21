@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Create a Search Index Using GroupDocs.Search in Java: A Comprehensive Guide
 
 ## Introduction
@@ -173,7 +171,3 @@ Experiment further by exploring additional features of GroupDocs.Search, such as
 
 With this guide, you're well-equipped to leverage GroupDocs.Search in your Java projects, enhancing search capabilities with efficiency and precision.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

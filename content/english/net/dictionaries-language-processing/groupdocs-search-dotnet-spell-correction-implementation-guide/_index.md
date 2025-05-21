@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing Spell Correction in .NET Applications Using GroupDocs.Search
 
 ## Introduction
@@ -166,7 +164,3 @@ For more information and support:
 
 By following this guide, you've taken an important step in enhancing your .NET applications with powerful search capabilities. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

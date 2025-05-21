@@ -4,9 +4,7 @@ description: "Learn how to index documents from various sources, handle password
 weight: 2
 url: "/java/indexing/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Document Indexing Tutorials with GroupDocs.Search for Java
 
 Our indexing tutorials provide comprehensive guidance for creating and managing search indexes in Java. Follow these step-by-step guides to learn how to index documents from various sources including file systems, streams, and archives, configure indexing options, handle password-protected documents, and implement advanced indexing strategies. These practical tutorials include complete code examples for building robust document indexing capabilities in your Java applications.
@@ -78,7 +76,3 @@ Learn how to effectively handle indexing events with GroupDocs.Search for Java, 
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

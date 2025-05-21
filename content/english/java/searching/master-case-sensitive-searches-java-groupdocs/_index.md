@@ -12,9 +12,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Case Sensitive Text and Object Query Searches in Java with GroupDocs
 
 In today’s digital age, retrieving precise information from vast amounts of text is not just a convenience—it's an imperative. Whether you're developing sophisticated document management systems or crafting intricate search functionalities for business applications, the ability to perform case-sensitive searches can significantly enhance data accuracy and user satisfaction. This tutorial will guide you through implementing case-sensitive text and object query searches using GroupDocs.Search Java, ensuring your projects meet the highest standards of precision.
@@ -183,7 +181,3 @@ A5: With proper indexing strategies, it can be optimized for near real-time sear
 - **Temporary License**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Dive into the world of precise search functionalities with GroupDocs.Search for Java, and revolutionize how your applications handle data retrieval. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

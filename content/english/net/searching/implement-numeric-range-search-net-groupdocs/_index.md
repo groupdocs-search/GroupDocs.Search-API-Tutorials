@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing Numeric Range Search in .NET with GroupDocs.Search and Redaction
 
 ## Introduction
@@ -186,7 +184,3 @@ You've learned how to set up and use GroupDocs.Search for indexing documents, pe
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you'll be well-equipped to integrate powerful document management features into your .NET applications with GroupDocs.Search and Redaction.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

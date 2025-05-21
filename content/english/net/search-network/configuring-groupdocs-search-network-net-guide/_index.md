@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Configuring GroupDocs.Search Network with .NET: A Comprehensive Guide
 
 ## Introduction
@@ -210,7 +208,3 @@ You've now mastered configuring and deploying a GroupDocs.Search network with .N
 ## Resources
 - **Documentation**: [GroupDocs Redaction .NET](https://docs.groupdocs.com/search/net/)
 - **API Reference**: [GroupDocs Redaction .NET API](https://reference.groupdocs.com/redaction/net)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

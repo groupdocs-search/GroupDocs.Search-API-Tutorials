@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search Java: Comprehensive Guide to Advanced Search Features
 
 ## Introduction
@@ -258,7 +256,3 @@ SearchResult result = index.search(query);
 ## Conclusion
 By mastering these advanced search features in GroupDocs.Search for Java, you can significantly improve data retrieval processes across various applications. Implementing error handling ensures robustness, while diverse query types offer flexibility and precision. Start integrating these powerful capabilities into your projects today!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

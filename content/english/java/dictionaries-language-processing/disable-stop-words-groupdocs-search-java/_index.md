@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Disable Stop Words in GroupDocs.Search Java for Enhanced Search Accuracy
 
 ## Introduction
@@ -195,7 +193,3 @@ In this tutorial, we explored how to configure index settings using GroupDocs.Se
 - **Temporary License**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 By following this tutorial, you'll be well-equipped to implement and optimize search functionalities in your Java applications using GroupDocs.Search.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

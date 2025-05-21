@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Deploy a Search Network Node in .NET Using GroupDocs: Efficient Document Indexing and Retrieval
 
 ## Introduction
@@ -206,7 +204,3 @@ Consider exploring more features of GroupDocs.Search and integrating it with oth
 **5. What are some best practices for managing large volumes of documents?**
    - Regularly archive old documents, use efficient indexing strategies, and keep your software up to date.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -12,9 +12,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Highlight HTML Terms with GroupDocs.Redaction .NET
 ## Introduction
 Struggling to effectively highlight specific terms or phrases within an HTML document? Whether you're looking to redact sensitive information or emphasize important keywords, managing text in HTML documents can be complex. This tutorial will guide you through using **GroupDocs.Redaction for .NET** alongside Aspose.HTML to efficiently identify and highlight elements within your HTML content.
@@ -166,7 +164,3 @@ By following this guide, you've learned how to implement HTML document handling 
 For further exploration and support, consider these resources:
 - **Documentation:** [GroupDocs Redaction Documentation](https://docs.groupdocs.com/search/net/)
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

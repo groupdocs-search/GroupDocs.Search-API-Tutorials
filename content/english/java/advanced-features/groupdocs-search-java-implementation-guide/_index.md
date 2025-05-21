@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search for Java: A Complete Guide
 
 ## Introduction
@@ -194,7 +192,3 @@ A5: Update your `pom.xml` or download the latest release from the official site 
 
 Start exploring the powerful features of GroupDocs.Search today and revolutionize your document handling capabilities!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

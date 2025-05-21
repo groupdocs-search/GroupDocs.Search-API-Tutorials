@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing Custom Exception Handling & Word Management in Phrases with GroupDocs.Redaction for .NET
 
 **Master custom exception handling and word management in .NET phrases using GroupDocs.Redaction for improved text processing.**
@@ -153,7 +151,3 @@ public class HandleWordFoundFeature
         var nextWord = phrase[nextWordIndex];
 
         var foundWord = new { Node = "TextNode\
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

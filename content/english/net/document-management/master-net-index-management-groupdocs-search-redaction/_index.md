@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master .NET Index Management and Document Redaction with GroupDocs
 
 Are you looking to enhance your document management system by creating efficient search indexes? This tutorial guides you through the essentials of utilizing GroupDocs.Search alongside GroupDocs.Redaction for .NET. By mastering these tools, you'll be able to create, manage, and optimize indexes seamlessly in your applications.
@@ -183,7 +181,3 @@ You now have a comprehensive understanding of managing document indexes using Gr
 
 Explore these resources to deepen your understanding and enhance your implementation of GroupDocs.Search and Redaction in .NET. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

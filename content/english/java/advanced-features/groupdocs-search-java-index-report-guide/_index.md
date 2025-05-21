@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implement GroupDocs.Search Java: Comprehensive Indexing and Reporting Guide
 
 In today's data-driven world, efficiently managing extensive document collections is crucial for businesses and developers. Whether you're handling legal files or customer records, the ability to swiftly search through vast datasets can greatly enhance productivity. This tutorial provides a step-by-step guide on how to implement GroupDocs.Search in Java for indexing and reporting functionalities.
@@ -207,7 +205,3 @@ In this tutorial, we explored how to implement GroupDocs.Search in Java for crea
 
 2. **How do I update an existing index?**
    - Use the `add()` method to include new documents or directories.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

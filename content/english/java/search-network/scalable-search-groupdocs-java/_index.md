@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Scalable Search Solutions with GroupDocs.Search for Java
 
 ## Introduction
@@ -206,7 +204,3 @@ A: Network connectivity and incorrect path settings are frequent culprits. Ensur
 
 By following this guide, you can effectively implement and manage a robust search network using GroupDocs.Search for Java. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

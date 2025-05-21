@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Wildcard Searches in Java with GroupDocs.Search
 
 Unlock the power of text-based and object-based wildcard searches using GroupDocs.Search for Java. This comprehensive guide will help you implement advanced search functionalities to enhance your application’s search capabilities.
@@ -194,7 +192,3 @@ A5: Visit the [GroupDocs documentation](https://docs.groupdocs.com/search/java/)
 - **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
 - **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

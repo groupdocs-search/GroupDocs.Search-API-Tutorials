@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implement Document Indexing & Merging in Java with GroupDocs.Search
 
 **Optimize your document management workflow using GroupDocs.Search Java for efficient document indexing and merging.**
@@ -202,7 +200,3 @@ In this tutorial, we explored how to use GroupDocs.Search Java for creating, ind
 - **Temporary License Application:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this tutorial, you're equipped to implement efficient document indexing and merging using GroupDocs.Search Java. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

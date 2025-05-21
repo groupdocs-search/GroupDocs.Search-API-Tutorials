@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Regex Searches in Java: A Comprehensive Guide to GroupDocs.Search for Text Document Analysis
 
 ## Introduction
@@ -215,7 +213,3 @@ For further exploration, consider these resources:
 
 Now that you have the tools and knowledge, why not try implementing GroupDocs.Search in your next Java project? Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

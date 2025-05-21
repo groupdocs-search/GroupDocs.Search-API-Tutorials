@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering File Filtering in Java with GroupDocs.Search: A Comprehensive Guide
 
 ## Introduction
@@ -258,7 +256,3 @@ Filter files based on their file paths to include only those located in specific
 ### Conclusion
 By mastering these filtering techniques using GroupDocs.Search for Java, you can efficiently manage and process large volumes of files. This guide provides a solid foundation for implementing advanced file filtering in your Java applications.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

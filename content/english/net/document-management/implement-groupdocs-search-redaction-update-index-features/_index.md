@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implement GroupDocs.Search & Redaction: Efficiently Update and Manage Document Indexes Using .NET
 
 ## Introduction
@@ -195,7 +193,3 @@ Ready to take your document management system to the next level? Try implementin
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/search/net/)
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

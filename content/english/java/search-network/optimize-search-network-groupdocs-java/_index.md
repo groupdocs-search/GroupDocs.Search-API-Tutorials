@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Optimize Your Search Network Using GroupDocs.Search for Java: A Comprehensive Guide
 
 ## Introduction
@@ -181,7 +179,3 @@ By following this comprehensive guide, you've learned how to set up and optimize
    - Yes, it can be seamlessly integrated by including the library dependency in your project.
 4. **What are some common issues faced during setup?**
    - Common issues include incorrect port configurations and missing dependencies; ensure you follow the prerequisites accurately.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

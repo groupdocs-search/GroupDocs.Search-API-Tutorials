@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Stop Words in GroupDocs Redaction .NET: A Comprehensive Guide to Index Management
 
 ## Introduction
@@ -223,7 +221,3 @@ Congratulations on mastering the basics of managing stop words using GroupDocs.R
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/search/net/)
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

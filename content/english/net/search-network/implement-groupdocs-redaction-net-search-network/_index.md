@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing GroupDocs.Redaction .NET for Efficient Document Redaction and Search Network Configuration
 
 ## Introduction
@@ -224,7 +222,3 @@ Ready to put this knowledge into practice? Dive deeper by exploring the [GroupDo
 - **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10) 
 
 Dive into these resources to further enhance your implementation.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Search with GroupDocs.Search for Java
 
 Discover the power of GroupDocs.Search for Java to configure and deploy efficient search networks, optimizing document retrieval processes.
@@ -204,7 +202,3 @@ To optimize your GroupDocs.Search implementation:
 - **Resource Management**: Monitor memory usage to prevent bottlenecks during indexing operations.
 - **Scalability**: Utilize multiple nodes to distribute the load and enhance performance.
 - **Index Optimization**: Regularly update and optimize indexes for faster search results.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Highlight Search Results in .NET Documents Using GroupDocs.Search and Redaction
 
 ## Introduction
@@ -261,7 +259,3 @@ Ready to start implementing? Dive into the resources below for further guidance.
    - It's a .NET library designed for full-text search in various document formats, allowing users to index and query documents efficiently.
 2. **Can I highlight results in PDFs using GroupDocs.Redaction?**
    - Yes, GroupDocs.Redaction supports highlighting text within PDFs, along with other document types.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

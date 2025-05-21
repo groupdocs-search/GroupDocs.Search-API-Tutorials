@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search for Java: Building an Efficient Image Indexing System
 
 In the digital age, efficiently managing and searching through vast amounts of document data is a common challenge faced by businesses and developers alike. Whether you're dealing with client documents, internal reports, or multimedia content, quickly locating specific images within these files can be invaluable. This tutorial guides you through using GroupDocs.Search for Java to create an efficient image indexing system. By the end of this guide, you'll understand how to set up and implement advanced image search capabilities in your applications.
@@ -206,7 +204,3 @@ for (int i = 0; i < imageCount; i++) {
 ## Practical Applications
 Here are some real-world scenarios where GroupDocs.Search for Java can be utilized:
 1. **Digital Asset Management (DAM):** Quickly locate specific assets within a large database of multimedia content, enhancing efficiency in managing digital libraries.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

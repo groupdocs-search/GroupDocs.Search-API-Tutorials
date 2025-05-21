@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master .NET Text Splitting and Highlighting with GroupDocs.Redaction
 
 ## Introduction
@@ -177,7 +175,3 @@ Explore further functionalities within GroupDocs.Redaction or delve into Aspose.
 - [Temporary License Application](https://purchase.groupdocs.com/temporary-license/) 
 
 Explore these resources to deepen your understanding and enhance your implementation. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

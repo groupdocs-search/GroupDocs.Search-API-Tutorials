@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master .NET Document Redaction and Indexing with GroupDocs
 ## Introduction
 In today's digital world, managing sensitive information within documents is crucial. Whether you're a business handling client data or an individual safeguarding personal records, ensuring your files are both accessible and secure can be challenging. Enter GroupDocs.Redaction for .NET: a powerful tool designed to streamline document redaction while supporting efficient indexing from the filesystem. This tutorial will guide you through setting up and using this feature to enhance your document management processes.
@@ -141,7 +139,3 @@ Ready to start? Try implementing these solutions in your next project!
 - **Temporary License**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Embark on your journey to mastering document management with these powerful tools today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

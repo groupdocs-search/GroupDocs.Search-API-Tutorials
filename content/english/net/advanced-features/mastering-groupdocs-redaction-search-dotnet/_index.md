@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs Redaction and Search in .NET: Efficient Document Management and Secure Searching
 
 ## Introduction
@@ -194,7 +192,3 @@ Ready to take on the challenge? Try implementing these features in your next pro
 ## FAQ Section
 1. **What is the primary benefit of using GroupDocs.Search and GroupDocs.Redaction together?
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

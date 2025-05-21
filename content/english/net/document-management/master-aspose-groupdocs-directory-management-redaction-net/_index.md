@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Aspose.GroupDocs Directory Management and Redaction with .NET
 
 ## Introduction
@@ -199,7 +197,3 @@ You've now learned how to effectively manage directories, create indices, handle
 
 By following this guide, you're well-equipped to integrate GroupDocs.Redaction into your .NET projects for efficient document management and indexing. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

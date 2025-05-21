@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Date Range Searches in .NET with GroupDocs
 
 ## Introduction
@@ -173,7 +171,3 @@ Take the leap and try implementing this solution in your projects today!
 - [Temporary License Request](https://purchase.groupdocs.com/temporary-license/)
 
 With these resources, you're well-equipped to dive deeper into the functionalities of GroupDocs.Search and Redaction for .NET. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

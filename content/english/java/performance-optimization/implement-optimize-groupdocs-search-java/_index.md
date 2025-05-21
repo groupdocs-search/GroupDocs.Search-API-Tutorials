@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implement & Optimize Search Networks with GroupDocs.Search for Java
 ## Performance Optimization
 
@@ -204,7 +202,3 @@ By following this guide, you've learned how to configure and optimize a search n
 ### FAQ Section
 1. **What is the primary use of GroupDocs.Search for Java?**
    - It provides full-text search capabilities, allowing users to index and search through various document formats efficiently.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

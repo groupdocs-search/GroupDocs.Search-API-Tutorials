@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Document Indexing and Advanced Query Techniques with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -242,7 +240,3 @@ SearchResult result = index.Search(query);
 ### Best Practices for .NET Memory Management
 - Dispose of objects properly to free up resources.
 - Utilize using statements for automatic disposal of resources.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

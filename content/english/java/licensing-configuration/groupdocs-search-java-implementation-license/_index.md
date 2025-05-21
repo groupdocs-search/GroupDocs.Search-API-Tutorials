@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing Set License from File in GroupDocs.Search for Java: A Step-by-Step Guide
 
 ## Introduction
@@ -198,7 +196,3 @@ Ready to implement this in your project? Try it out today!
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 
 By implementing the steps in this tutorial, you can effectively manage your licenses and leverage GroupDocs.Search for efficient document searching within your Java applications.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

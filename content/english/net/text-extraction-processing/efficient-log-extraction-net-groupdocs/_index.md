@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Efficient Log Extraction in .NET Using GroupDocs
 
 ## Introduction
@@ -176,7 +174,3 @@ To continue exploring the possibilities with GroupDocs libraries, consider delvi
 - [Temporary License Application](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this tutorial, you're well on your way to mastering log extraction in .NET with GroupDocs. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

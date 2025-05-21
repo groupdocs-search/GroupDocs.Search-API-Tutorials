@@ -4,9 +4,7 @@ description: "Step-by-step tutorials for GroupDocs.Search installation, licensin
 weight: 1
 url: "/net/getting-started/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # GroupDocs.Search Getting Started Tutorials for .NET Developers
 
 Begin your journey with these essential GroupDocs.Search tutorials that walk you through installation, licensing configuration, and creating your first document search applications in .NET. Our beginner-friendly guides demonstrate how to set up your development environment, initialize the GroupDocs.Search library, and perform fundamental search operations. Follow these tutorials to quickly master the basics and prepare for more advanced search functionality in your .NET applications.
@@ -23,7 +21,3 @@ Begin your journey with these essential GroupDocs.Search tutorials that walk you
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

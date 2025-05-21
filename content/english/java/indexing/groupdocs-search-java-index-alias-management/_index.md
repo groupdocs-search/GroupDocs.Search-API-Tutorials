@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Index Creation & Alias Management in GroupDocs.Search Java
 ## Introduction
 In today's data-driven world, efficiently managing large volumes of documents is crucial for businesses to enhance productivity and provide quick access to critical information. But how do you ensure that users can find the exact document they need without sifting through countless files? Enter GroupDocs.Search Java—a powerful library designed to simplify text search capabilities in your applications.
@@ -157,7 +155,3 @@ A: Yes, you can integrate GroupDocs.Search with various cloud storage solutions 
 
 **Q: What should I do if my searches are slow?**
 A: Check your index size and consider optimizing by removing unnecessary data or upgrading hardware.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

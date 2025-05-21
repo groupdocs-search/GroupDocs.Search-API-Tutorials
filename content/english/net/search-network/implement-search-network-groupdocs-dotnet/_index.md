@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement a Search Network with GroupDocs.Search in .NET
 
 ## Introduction
@@ -241,7 +239,3 @@ namespace GroupDocsSearchExamples
 In this tutorial, you've learned how to leverage GroupDocs.Search and Redaction for .NET to build a powerful search network. By following the steps outlined, you can configure, deploy, and manage nodes effectively while ensuring optimal performance.
 
 **Next Steps**: Experiment with different configurations to tailor the search network to your specific needs.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Configuring Character Recognition with GroupDocs.Search for Java
 
 ## Introduction
@@ -238,7 +236,3 @@ A: Yes, you can define specific character ranges that should be treated as regul
 
 ### Q4: What are blended characters?
 A: Blended characters, like hyphens, are those that might connect words or phrases and need special handling in text processing tasks.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Create a Powerful Search Application with GroupDocs.Search for Java
 
 ## Introduction
@@ -166,7 +164,3 @@ Consider exploring additional features offered by GroupDocs.Search, such as face
 
 **Q4: How can I troubleshoot search performance issues?**
 - Ensure your index is updated and consider optimizing query parameters. Review resource usage logs for potential bottlenecks.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

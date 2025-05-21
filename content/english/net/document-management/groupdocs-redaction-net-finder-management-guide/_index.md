@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implement GroupDocs.Redaction .NET for Document Finder Management and Highlighting
 
 ## Introduction
@@ -222,7 +220,3 @@ In this guide, we explored how GroupDocs.Redaction .NET can be leveraged to mana
 - [GroupDocs Redaction Documentation](https://docs.groupdocs.com/search/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download Latest Version](https://releases.groupdocs.com/redaction/net)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

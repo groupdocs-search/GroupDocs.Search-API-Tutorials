@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing Homophone Search with GroupDocs.Search in .NET
 
 ## Introduction
@@ -209,7 +207,3 @@ Integrating Homophone Search with GroupDocs.Search enhances text search depth an
    - Common challenges include configuration errors and resource management; ensure your environment is correctly set up.
 5. **Where can I get help if I encounter problems?**
    - Visit the [GroupDocs forum](https://forum.groupdocs.com/c/search/10) for support or consult the comprehensive documentation available online.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

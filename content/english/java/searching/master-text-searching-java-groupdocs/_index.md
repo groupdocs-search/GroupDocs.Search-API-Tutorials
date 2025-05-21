@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Text File Search in Java with GroupDocs.Search
 
 **Unlock Powerful Text Search Capabilities Using GroupDocs.Search for Java**
@@ -207,7 +205,3 @@ Consider expanding your implementation by exploring advanced features like phras
 - [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
 - [API Reference](https://reference.groupdocs.com/search/java)
 - [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Efficient Document Indexing and Keyboard Layout Correction Using GroupDocs.Search in .NET
 
 ## Introduction
@@ -172,7 +170,3 @@ By following this guide, you've learned how to create an efficient document inde
 - [Temporary License Request](https://purchase.groupdocs.com/temporary-license/)
 
 Try implementing these solutions in your projects to enhance document search functionalities effectively!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master .NET Indexing with GroupDocs: Custom Alphabets & Blended Searches for Enhanced Search Functionality
 
 ## Introduction
@@ -217,7 +215,3 @@ In this tutorial, you've learned how to configure custom alphabets and execute b
 ## Resources
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

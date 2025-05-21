@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Document Redaction and Metadata Indexing with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -182,7 +180,3 @@ A5: Regularly audit your document management processes and ensure compliance wit
 
 With these resources, you're well on your way to mastering document redaction and indexing using GroupDocs.Redaction for .NET. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

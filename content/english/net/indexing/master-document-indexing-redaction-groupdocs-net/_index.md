@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Indexing and Redaction with GroupDocs in .NET
 
 ## Introduction
@@ -239,7 +237,3 @@ index.Events.SearchPhaseCompleted += (sender, args) =>
 ## Conclusion
 By following this guide, you've learned how to efficiently manage document indexing and redaction using GroupDocs tools in .NET. These skills will help enhance both the security and accessibility of your documents. For further exploration, consider delving into more advanced features or exploring other functionalities offered by GroupDocs.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

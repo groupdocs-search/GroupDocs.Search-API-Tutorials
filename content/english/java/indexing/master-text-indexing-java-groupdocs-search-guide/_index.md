@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Text Indexing in Java with GroupDocs.Search: A Comprehensive Guide
 
 ## Introduction
@@ -214,7 +212,3 @@ By now, you should have a solid understanding of how to implement text indexing 
 - **API Reference**: [API Reference Guide](https://reference.groupdocs.com/search/java)
 - **Download GroupDocs.Search**: [Latest Releases](https://releases.groupdocs.com/search/java/) 
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

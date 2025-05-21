@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Redaction and Search Index Management in .NET with GroupDocs
 
 ## Introduction
@@ -178,7 +176,3 @@ By mastering the integration of GroupDocs.Redaction and GroupDocs.Search for .NE
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Explore these resources to deepen your understanding and enhance your implementation of GroupDocs.Redaction and GroupDocs.Search for .NET.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

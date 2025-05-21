@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing .NET Phrase Finder with GroupDocs.Redaction & Aspose: A Comprehensive Guide
 
 ## Introduction
@@ -235,7 +233,3 @@ When working with large-scale document processing, consider these tips for optim
 ## Conclusion
 
 In this guide, we've explored how to implement a .NET Phrase Finder using GroupDocs.Redaction for .NET and Aspose libraries. You now have the knowledge to set up your environment, implement custom phrase finding functionality, and optimize performance for large-scale document processing.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Optimize Document Indexing with GroupDocs.Redaction in .NET
 ### Introduction
 In today's fast-paced digital world, efficiently managing document redactions is crucial for professionals handling sensitive data. This tutorial explores advanced features of GroupDocs.Redaction for .NET to optimize your indexing process using Cancellation, Async operations, and Thread management.
@@ -150,7 +148,3 @@ By implementing these advanced features in GroupDocs.Redaction for .NET, you can
 - **Temporary License:** [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/) 
 
 With this guide, you're now equipped to optimize your document indexing operations using GroupDocs.Redaction for .NET. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

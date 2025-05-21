@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implement Synonym Dictionaries in Java Using GroupDocs.Search
 
 Welcome to our comprehensive guide on leveraging the power of GroupDocs.Search for Java to manage synonym dictionaries and perform efficient indexing. This tutorial will help you enhance your application's search functionality, whether you're a seasoned developer or new to search technologies.
@@ -220,7 +218,3 @@ By following this guide, you've learned how to create and manage an index with G
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/) 
 
 With this guide, you're well-equipped to implement advanced search capabilities in your Java applications.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

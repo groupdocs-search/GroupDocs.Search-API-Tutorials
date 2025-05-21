@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Search Java: Create and Manage a Search Index
 
 ## Introduction
@@ -218,7 +216,3 @@ For further exploration, consider diving deeper into the API's advanced features
    - Optimize your index periodically and manage resources effectively to ensure smooth operation.
 4. **What types of documents can be indexed?**
    - GroupDocs.Search supports various document formats including PDFs, Word documents, and more.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

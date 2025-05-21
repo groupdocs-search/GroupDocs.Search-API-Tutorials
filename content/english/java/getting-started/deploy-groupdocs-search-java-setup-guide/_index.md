@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Deploy GroupDocs.Search for Java: Comprehensive Setup Guide
 
 ## Introduction
@@ -243,7 +241,3 @@ class FileAdder {
 ### Conclusion
 In this tutorial, you've learned how to deploy and configure a scalable search network using GroupDocs.Search for Java. These steps enable efficient document management and retrieval in your projects. As you continue developing with GroupDocs.Search, consider exploring additional features like advanced query options and custom indexing strategies.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

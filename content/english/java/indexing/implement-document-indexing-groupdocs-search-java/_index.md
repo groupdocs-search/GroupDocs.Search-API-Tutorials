@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement Document Indexing with GroupDocs.Search for Java
 
 ## Introduction
@@ -158,7 +156,3 @@ By following this guide, you've learned how to set up GroupDocs.Search for Java 
 
 By implementing these steps and exploring the resources, you'll be well-equipped to harness the power of GroupDocs.Search in your Java applications. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

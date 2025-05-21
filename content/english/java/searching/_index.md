@@ -4,9 +4,7 @@ description: "Complete tutorials for implementing various search types including
 weight: 3
 url: "/java/searching/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Document Search Tutorials for GroupDocs.Search Java
 
 Master document searching capabilities with our detailed GroupDocs.Search Java tutorials. These step-by-step guides demonstrate how to implement different search types, handle search results, apply filters, and leverage advanced search features. Each tutorial includes working Java code examples, implementation notes, and best practices to help you build applications that efficiently search document content with powerful query capabilities.
@@ -81,7 +79,3 @@ Learn to implement powerful wildcard searches in Java using GroupDocs.Search. En
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement High Compression Text Storage & Data Redaction in .NET with GroupDocs
 
 ## Introduction
@@ -173,7 +171,3 @@ In this guide, we've explored how to implement high compression for text storage
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
 
 We hope this guide empowers you to effectively implement high compression text storage and data redaction in your applications. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

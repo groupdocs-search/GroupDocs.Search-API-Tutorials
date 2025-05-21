@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Set Up GroupDocs.Redaction .NET: A Comprehensive Licensing and Configuration Guide
 
 ## Introduction
@@ -207,7 +205,3 @@ We encourage you to implement this solution in your projects and explore the pow
 - **Temporary License:** [Request Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Embark on your journey with GroupDocs.Redaction for .NET and unlock its full potential.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

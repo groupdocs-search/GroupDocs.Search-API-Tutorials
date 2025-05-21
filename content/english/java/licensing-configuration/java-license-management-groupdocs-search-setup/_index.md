@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Java License Management with GroupDocs
 
 ## Introduction
@@ -178,7 +176,3 @@ By following this guide, you've learned how to manage licenses using InputStream
 - [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

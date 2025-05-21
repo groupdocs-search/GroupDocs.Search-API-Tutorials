@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Character Replacements with GroupDocs.Search in .NET
 
 ## Introduction
@@ -201,7 +199,3 @@ When implementing character replacements, consider these tips to optimize perfor
 ## Conclusion
 
 By now, you should have a solid understanding of how to implement character replacements with GroupDocs.Search in .NET. This capability will enhance the accuracy and consistency of your search operations, making it an invaluable tool for handling text data across various applications.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

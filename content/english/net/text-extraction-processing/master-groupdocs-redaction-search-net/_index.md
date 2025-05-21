@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering the Power of GroupDocs.Redaction and Search Network Integration in .NET
 
 In today's fast-paced digital environment, managing sensitive information while ensuring quick access to data is crucial. Integrating GroupDocs.Search and GroupDocs.Redaction offers a robust solution by enabling developers to build efficient search networks with advanced redaction capabilities directly within their .NET applications.
@@ -229,7 +227,3 @@ Next steps include experimenting with advanced features like custom synonym dict
 
 Dive into the world of powerful text processing and data management with GroupDocs.Redaction and Search in .NET.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

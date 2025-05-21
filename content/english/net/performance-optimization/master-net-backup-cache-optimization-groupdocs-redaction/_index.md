@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # .NET Backup & Cache Optimization Guide: Enhance Performance with GroupDocs.Redaction
 
 ## Introduction
@@ -229,7 +227,3 @@ Try implementing these solutions in your projects today!
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/search/net/)
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

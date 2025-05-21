@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Text Searching in Java with GroupDocs.Search: Optimizing Stop Word Dictionaries
 
 ## Introduction
@@ -133,7 +131,3 @@ Managing stop words can enhance search relevance by excluding commonly used but 
 
    ```java
    String[] words = { "a
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

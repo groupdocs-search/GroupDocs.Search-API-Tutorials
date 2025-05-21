@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Full-Text Search in Java: Implement Custom Text Extractors with GroupDocs
 
 Full-text search functionality is essential for applications that need to index and retrieve data from large document collections efficiently. This guide explores implementing full-text search using GroupDocs.Search for Java, focusing on creating an index with custom text extractors. By integrating this feature, you can customize the indexing process to suit your application's specific needs.
@@ -201,7 +199,3 @@ By now, you should have a solid understanding of how to implement GroupDocs.Sear
 4. **What is a temporary license, and how do I acquire one?**
    - A temporary license allows you to use the software without limitations for evaluation purposes. Apply through [GroupDocs’s website](https://purchase.groupdocs.com/temporary-license/).
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

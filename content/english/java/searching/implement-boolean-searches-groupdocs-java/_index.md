@@ -13,9 +13,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Boolean Searches in Java with GroupDocs.Search
 
 ## Introduction
@@ -282,7 +280,3 @@ By mastering boolean searches with GroupDocs.Search for Java, you can significan
 
   "keyword_recommendations": [
     "boolean searches in java
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

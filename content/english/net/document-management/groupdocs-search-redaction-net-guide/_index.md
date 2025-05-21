@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing GroupDocs.Search & Redaction in .NET
 
 ## Introduction
@@ -183,7 +181,3 @@ By integrating GroupDocs.Search with Redaction, you can create a powerful docume
 
 By following this guide, you're well-equipped to harness the full potential of GroupDocs.Search and Redaction within your .NET applications. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

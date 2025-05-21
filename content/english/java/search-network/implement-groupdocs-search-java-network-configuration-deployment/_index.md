@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement a GroupDocs.Search Java-Based Network Configuration and Deployment
 
 ## Introduction
@@ -209,7 +207,3 @@ public class ImageSearch {
 ##### Explanation
 - **imageSearch:** Executes an image search on the specified node with defined parameters.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -13,9 +13,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement .NET Search Using GroupDocs.Search and GroupDocs.Redaction for Enhanced Document Management
 
 ## Introduction
@@ -215,7 +213,3 @@ In this tutorial, you've learned how to set up a powerful document management sy
 - **Temporary License:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 By following this comprehensive guide, you are well-equipped to enhance your document management solutions with advanced search and redaction capabilities using GroupDocs tools.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

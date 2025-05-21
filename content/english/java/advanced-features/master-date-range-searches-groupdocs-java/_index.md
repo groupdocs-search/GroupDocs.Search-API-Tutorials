@@ -14,9 +14,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing Date Range Searches with GroupDocs.Search Java
 
 **Discover How to Master Creating and Specifying Date Range Search Queries Using GroupDocs.Search Java**
@@ -229,7 +227,3 @@ You have now learned how to implement date range searches using GroupDocs.Search
 - **GitHub Repository**: [View on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
 - **Free Support Forum**: [Join the discussion](https://forum.groupdocs.com/c/search/10)
 - **Temporary License**: [Acquire a temporary license here](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Comprehensive Guide to Implementing .NET Regex Search with GroupDocs.Search
 
 **Unlock the Power of Text Patterns: Master .NET Regex Search with GroupDocs.Search for Efficient Document Management**
@@ -179,7 +177,3 @@ Yes, you can use both text-based and object-based regex queries to find patterns
 **4. What are some common applications of regex searches in document management?**
 Regex searches are useful in legal document analysis, academic research, financial data extraction, content moderation, and HR documentation.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

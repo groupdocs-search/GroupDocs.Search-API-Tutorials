@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Create and Manage Indexes with GroupDocs.Search in Java: A Complete Guide
 
 ## Introduction
@@ -206,7 +204,3 @@ In this tutorial, you've learned how to create and manage a document index using
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
 
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

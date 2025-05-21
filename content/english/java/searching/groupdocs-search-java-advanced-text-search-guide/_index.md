@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master GroupDocs.Search Java: Advanced Text Search Techniques
 
 In today's digital world, efficiently managing and searching through vast amounts of text data is crucial. Whether you're a developer looking to enhance your application’s search capabilities or an IT professional aiming to optimize document retrieval processes, mastering the art of indexing and sophisticated searches can be transformative. In this comprehensive guide, we will explore how to leverage GroupDocs.Search for Java to create powerful search functionalities in your applications. We'll delve into creating and configuring indexes, adding documents, setting up word forms search options, and performing sophisticated searches.
@@ -186,7 +184,3 @@ A5: Yes, utilize the [GroupDocs Support Forum](https://forum.groupdocs.com/c/sea
 ## Resources
 - **Documentation**: Explore in-depth guides at [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
