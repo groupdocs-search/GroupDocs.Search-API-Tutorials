@@ -50,9 +50,6 @@ Learn how to set up, manage, and optimize document search using GroupDocs.Search
 ### [Master GroupDocs.Search Java&#58; Efficient Indexing & Search for Large Datasets](./master-groupdocs-search-java-indexing-search/)
 Learn how to use GroupDocs.Search in Java for efficient document indexing and search. Master creating index repositories, subscribing to events, and executing powerful queries.
 
-### [Master Text Searching in Java with GroupDocs.Search&#58; Optimize Stop Word Dictionaries for Efficient Searches](./master-text-searching-java-groupdocs-search-stop-words/)
-Learn how to manage stop words effectively using GroupDocs.Search for Java, enhancing your document search functionality. Create, configure indexes, and optimize searches efficiently.
-
 ### [Mastering Document Search in Java&#58; Synchronous and Asynchronous Indexing with GroupDocs.Search](./master-groupdocs-search-java-document-indexing/)
 Enhance your Java applications by mastering document search with synchronous and asynchronous indexing using GroupDocs.Search for Java. Learn setup, implementation, and optimization techniques.
 

@@ -17,9 +17,6 @@ Learn how to leverage advanced indexing features of GroupDocs.Search for Java, i
 ### [Automate Java Document Indexing and Renaming Using GroupDocs.Search](./automate-document-indexing-groupdocs-search-java/)
 Streamline your document management workflow by automating indexing and renaming with GroupDocs.Search for Java. Master efficient document handling in your applications.
 
-### [Comprehensive Guide to GroupDocs.Search Java for Indexing and Spelling Correction](./guide-groupdocs-search-java-index-spelling-correction/)
-Learn how to set up GroupDocs.Search for Java, manage indexes, handle spelling correction dictionaries, and perform spell check searches with this detailed guide.
-
 ### [Create and Manage Indexes with GroupDocs.Search in Java&#58; A Complete Guide](./create-manage-groupdocs-search-java-index/)
 Learn to create and manage indexes using GroupDocs.Search for Java, secure document passwords, and perform efficient searches. Ideal for developers enhancing search capabilities.
 
@@ -38,9 +35,6 @@ Learn how to implement efficient search indexing with GroupDocs.Search for Java,
 ### [How to Implement Document Indexing with GroupDocs.Search for Java](./implement-document-indexing-groupdocs-search-java/)
 Learn how to efficiently set up and use GroupDocs.Search for document indexing in Java. Optimize your search capabilities with this comprehensive guide.
 
-### [How to Implement Document Subject Indexing with GroupDocs.Search in Java&#58; A Complete Guide](./groupdocs-search-java-document-subject-indexing/)
-Learn how to efficiently organize and search document repositories using GroupDocs.Search for Java. Follow this guide to set up and implement subject indexing.
-
 ### [Implement Document Indexing and Merging in Java with GroupDocs.Search&#58; A Step-by-Step Guide](./implement-document-indexing-merging-java-groupdocs-search/)
 Learn how to efficiently implement document indexing and merging in Java using GroupDocs.Search. Follow this comprehensive guide for streamlined document management.
 
@@ -50,9 +44,6 @@ Master document indexing in Java using GroupDocs.Search. Learn how to create, in
 ### [Implementing Metadata Indexing in Java with GroupDocs.Search&#58; A Comprehensive Guide](./groupdocs-search-java-metadata-indexing/)
 Learn how to efficiently manage and search large document volumes using metadata indexing with GroupDocs.Search Java. Master index settings, create indexes, add documents, and execute searches.
 
-### [Master GroupDocs.Search Java&#58; Efficient Document Indexing and Search Capabilities](./groupdocs-search-java-efficient-document-indexing/)
-Learn how to efficiently index documents using GroupDocs.Search for Java, enhancing search capabilities in your applications. Follow this comprehensive guide for practical implementation.
-
 ### [Master Index Creation & Alias Management in GroupDocs.Search Java for Enhanced Search Capabilities](./groupdocs-search-java-index-alias-management/)
 Learn how to create and manage indexes, along with alias management using GroupDocs.Search Java. Boost your application's search functionality efficiently.
 
@@ -61,9 +52,6 @@ Learn how to master text indexing in Java using GroupDocs.Search. This guide cov
 
 ### [Mastering GroupDocs.Search Java&#58; Create and Manage a Search Index for Efficient Data Retrieval](./groupdocs-search-java-create-index-guide/)
 Learn how to efficiently create, manage, and search within a GroupDocs.Search index using Java. Perfect for document management systems and more.
-
-### [Mastering Image Indexing with GroupDocs.Search for Java&#58; Build an Efficient System](./groupdocs-search-java-image-indexing-system/)
-Learn how to set up and implement advanced image indexing capabilities in Java using GroupDocs.Search. Enhance your document management skills today.
 
 ### [Mastering Indexing Event Handling in GroupDocs.Search for Java&#58; A Comprehensive Guide](./mastering-groupdocs-search-indexing-event-handling-java/)
 Learn how to effectively handle indexing events with GroupDocs.Search for Java, from setup to advanced event handling.

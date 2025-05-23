@@ -79,11 +79,11 @@ IndexSettings settings = new IndexSettings();
 
 ## Implementation Guide
 
-### Configuring Stop Words (H2)
+### Configuring Stop Words
 
 **Overview**: This feature allows you to configure index settings and disable the use of stop words, enhancing search accuracy.
 
-#### Disabling Stop Words (H3)
+#### Disabling Stop Words
 
 ```java
 // Disable the use of stop words
@@ -93,11 +93,11 @@ tsettings.setUseStopWords(false);
 - **Parameters**: The `setUseStopWords` method takes a boolean value.
 - **Purpose**: This setting enhances search results by considering all words in queries, including those typically ignored.
 
-### Creating and Configuring an Index (H2)
+### Creating and Configuring an Index
 
 **Overview**: Create an index with specific settings to manage your documents effectively.
 
-#### Defining Output Directory (H3)
+#### Defining Output Directory
 
 ```java
 import com.groupdocs.search.Index;
@@ -112,11 +112,11 @@ Index index = new Index(indexFolder, settings);
 - **Parameters**: The `index` constructor takes a folder path and settings.
 - **Purpose**: Establishes a directory for storing indexed data.
 
-### Adding Documents to the Index (H2)
+### Adding Documents to the Index
 
 **Overview**: Add documents from your directories into the created index to make them searchable.
 
-#### Specifying Document Directory (H3)
+#### Specifying Document Directory
 
 ```java
 // Define the path to your document directory
@@ -129,11 +129,11 @@ index.add(documentsFolder);
 - **Parameters**: The `add` method takes a folder path.
 - **Purpose**: Incorporates documents into the search index for querying.
 
-### Searching the Index (H2)
+### Searching the Index
 
 **Overview**: Perform searches on your indexed data with customized queries, including previously ignored stop words.
 
-#### Performing a Search Query (H3)
+#### Performing a Search Query
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -154,7 +154,7 @@ SearchResult result = index.search(query);
 2. **E-commerce Platforms**: Improve product search accuracy for better customer satisfaction.
 3. **Legal Research Tools**: Enable comprehensive searches across legal documents without omitting vital keywords.
 
-## Performance Considerations (H2)
+## Performance Considerations
 
 - **Optimization Tips**: Regularly update and prune your index to maintain performance.
 - **Resource Usage Guidelines**: Monitor memory usage to prevent bottlenecks during indexing operations.

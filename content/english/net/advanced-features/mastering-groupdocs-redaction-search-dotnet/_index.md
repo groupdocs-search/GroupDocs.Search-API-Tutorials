@@ -187,8 +187,23 @@ We've explored how to create and configure a powerful index using GroupDocs.Sear
 - Experiment with different character configurations for unique use cases.
 - Explore additional functionalities offered by GroupDocs libraries to tailor them further to your needs.
 
-Ready to take on the challenge? Try implementing these features in your next project!
+## FAQ's
 
-## FAQ Section
-1. **What is the primary benefit of using GroupDocs.Search and GroupDocs.Redaction together?
+### 1. How do I customize character handling in my search index?  
 
+Set character types like letters or separators via `index.Dictionaries.Alphabet.SetRange()`.  
+### 2. Can I index multiple document formats?  
+
+Yes, GroupDocs.Search supports various formats, including PDFs, Word, and images.  
+
+### 3. How to handle special characters in search queries?  
+
+Escape special characters and replace separators with spaces, ensuring accurate search results.  
+
+### 4. Is redaction available during search?  
+
+Yes, GroupDocs.Redaction enables sensitive data redaction post-search or during document processing.  
+
+### 5. How often should I update or rebuild my index?  
+
+Regularly update your index after document changes to maintain search accuracy and performance. 

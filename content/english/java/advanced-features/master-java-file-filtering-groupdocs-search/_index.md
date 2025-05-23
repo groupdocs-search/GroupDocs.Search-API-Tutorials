@@ -87,7 +87,7 @@ Index index = new Index(indexFolder);
 ## Implementation Guide
 Now, let’s explore how to implement various file filtering features using GroupDocs.Search.
 
-### File Extension Filtering (H2)
+### File Extension Filtering
 Filter files by their extensions during indexing. This feature is useful for processing only specific document types like FB2, EPUB, and TXT.
 
 #### Overview
@@ -109,7 +109,7 @@ Filter documents based on file extension using a custom filter configuration.
     index.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Logical NOT Filter (H3)
+### Logical NOT Filter
 Exclude specific file extensions during indexing, such as HTM, HTML, and PDF.
 
 #### Implementation Steps
@@ -134,7 +134,7 @@ Exclude specific file extensions during indexing, such as HTM, HTML, and PDF.
     indexNot.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Logical AND Filter (H2)
+### Logical AND Filter
 Combine multiple criteria to include only files that meet all specified conditions.
 
 #### Overview
@@ -164,7 +164,7 @@ Use logical AND operations to filter files based on creation time, file extensio
     indexAnd.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Logical OR Filter (H2)
+### Logical OR Filter
 Include files that meet any of the specified criteria using logical OR operations.
 
 #### Implementation Steps
@@ -196,7 +196,7 @@ Include files that meet any of the specified criteria using logical OR operation
     indexOr.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Creation Time Filters (H2)
+### Creation Time Filters
 Filter files based on their creation time to include only those within a specified date range.
 
 #### Implementation Steps
@@ -215,7 +215,7 @@ Filter files based on their creation time to include only those within a specifi
     indexCTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Modification Time Filters (H2)
+### Modification Time Filters
 Exclude files modified after a specific date.
 
 #### Implementation Steps
@@ -234,7 +234,7 @@ Exclude files modified after a specific date.
     indexMTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### File Path Filtering (H3)
+### File Path Filtering
 Filter files based on their file paths to include only those located in specific directories.
 
 #### Implementation Steps

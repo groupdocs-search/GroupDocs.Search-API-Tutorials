@@ -276,7 +276,4 @@ Boolean searches are powerful tools with numerous real-world applications:
 
 ## Conclusion
 
-By mastering boolean searches with GroupDocs.Search for Java, you can significantly enhance your document retrieval capabilities. Start implementing these techniques today and streamline your search processes."
-
-  "keyword_recommendations": [
-    "boolean searches in java
+By mastering boolean searches with GroupDocs.Search for Java, you can significantly enhance your document retrieval capabilities. Start implementing these techniques today and streamline your search processes.

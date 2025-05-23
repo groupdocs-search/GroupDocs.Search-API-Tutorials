@@ -11,9 +11,6 @@ Learn how to build reliable search applications with our GroupDocs.Search except
 
 ## Available Tutorials
 
-### [Implement Custom Exception Handling & Word Management in .NET using GroupDocs.Redaction for Text Processing](./net-custom-exception-word-handling-groupdocs-redaction/)
-Learn to handle custom exceptions and manage words efficiently in .NET phrases with GroupDocs.Redaction. Enhance your application's text processing capabilities.
-
 ### [Mastering .NET Logging with GroupDocs&#58; Implementing a Custom Console Logger Guide](./mastering-logging-dotnet-groupdocs-custom-console-logger-guide/)
 Learn how to implement a custom console logger in .NET using GroupDocs for effective error tracking and application monitoring.
 
