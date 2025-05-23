@@ -198,10 +198,24 @@ In this tutorial, we explored how to implement GroupDocs.Search in Java for crea
 - Experiment with additional GroupDocs.Search features like advanced query options and synonym handling.
 - Explore integration possibilities with databases or cloud storage solutions.
 
-## FAQ Section
+## FAQ's
 
-1. **What is the primary function of GroupDocs.Search?**
-   - It enables efficient search capabilities across large document collections by creating and managing indexes.
+1. **Can I index different document formats with GroupDocs.Search?**  
 
-2. **How do I update an existing index?**
-   - Use the `add()` method to include new documents or directories.
+Yes, GroupDocs.Search supports multiple formats, including DOCX, PDF, TXT, HTML, and more.
+
+2. **Is there a way to update the index automatically when new documents are added?**  
+
+Yes, you can programmatically add new documents to the existing index as they arrive to keep search results current.
+
+3. **How can I optimize search performance for large datasets?**  
+
+Consider incremental indexing, optimizing memory settings, and periodically rebuilding the index for better performance.
+
+4. **Does GroupDocs.Search support multilingual document indexing?**  
+
+Yes, it can handle multiple languages, but ensure language-specific configurations are set for optimal results.
+
+5. **Is there a free trial available for GroupDocs.Search Java?**  
+
+Yes, you can sign up for a free trial on the GroupDocs website to explore its features before purchasing a license.

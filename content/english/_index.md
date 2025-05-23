@@ -17,7 +17,6 @@ Explore powerful document search capabilities in .NET with GroupDocs.Search tuto
 
 ### Essential .NET Search Tutorials
 
-- [Getting Started](./net/getting-started/)
 - [Indexing](./net/indexing/)
 - [Searching](./net/searching/)
 - [Highlighting](./net/highlighting/)
@@ -51,7 +50,5 @@ Discover comprehensive tutorials for GroupDocs.Search in Java. From basic indexi
 - [Search Network](./java/search-network/)
 - [Performance Optimization](./java/performance-optimization/)
 - [Exception Handling & Logging](./java/exception-handling-logging/)
-- [Integration & Interoperability](./java/integration-interoperability/)
 - [Licensing & Configuration](./java/licensing-configuration/)
 - [Text Extraction & Processing](./java/text-extraction-processing/)
-- [Queries & Query Building](./java/queries-query-building/)

@@ -82,7 +82,7 @@ Redactor redactor = new Redactor("path/to/document");
 
 ## Implementation Guide
 
-### Use Aspose OCR Connector for Indexing (H2)
+### Use Aspose OCR Connector for Indexing
 
 #### Overview:
 This feature demonstrates setting up and using the Aspose OCR connector for indexing documents, making it easier to search through scanned images within your document repositories.
@@ -144,7 +144,7 @@ private string RecognizePrivate(OcrContext context)
 
 - **Purpose:** Performs the actual OCR process using Aspose's capabilities.
 
-### Use Tesseract OCR Connector for Indexing (H2)
+### Use Tesseract OCR Connector for Indexing
 
 #### Overview:
 Tesseract, an open-source OCR engine, offers another way to extract text from images. This section covers setting up and using Tesseract with GroupDocs.Search.
@@ -178,7 +178,7 @@ public string Recognize(OcrContext context)
   
 - **Return Values:** Returns the text recognized by Tesseract.
 
-### Using Aspose OCR in Indexing (H2)
+### Using Aspose OCR in Indexing
 
 #### Overview:
 This feature demonstrates setting up and using the Aspose OCR connector to index documents containing images, enabling full-text search across your document repository.
@@ -218,7 +218,7 @@ SearchResult result = index.Search(query);
 
 - **Purpose:** Executes a search query against the indexed documents to find relevant text.
 
-### Using Tesseract OCR in Indexing (H2)
+### Using Tesseract OCR in Indexing
 
 #### Overview:
 Similar to Aspose, this section explains how to integrate Tesseract for indexing, allowing you to leverage its open-source OCR capabilities.
@@ -258,9 +258,35 @@ SearchResult result = index.Search(query);
 
 - **Purpose:** Searches the indexed documents using the configured Tesseract connector.
 
-## Practical Applications (H2)
+## Practical Applications
 
 1. **Document Management Systems:** Automate text extraction from scanned documents to enhance searchability and organization.
 2. **Data Compliance:** Securely redact sensitive information before indexing or sharing documents.
 3. **Legal Document Processing:** Efficiently handle large volumes of image-based legal documents by extracting and searching text content.
 4. **Archival Systems:** Improve access to historical records stored in non-text formats through OCR-driven indexing.
+
+## Conclusion 
+
+This tutorial demonstrates how to elevate your .NET document management systems by integrating Aspose OCR and GroupDocs.Redaction. You'll learn to implement OCR for better indexing, secure sensitive data, and optimize search capabilities across image-based documents. Leveraging these tools enhances automation, accuracy, and compliance in handling scanned files, making your workflows more efficient and secure.
+
+## FAQ's
+
+**1. Can I switch between Aspose OCR and Tesseract OCR for indexing?**  
+
+	- Yes, you can easily switch by configuring the desired OCR connector in your indexing options, allowing flexible OCR integration based on your needs.
+
+**2. Is the redaction feature fully automated with this setup?**  
+
+	- Redaction requires setting rules or manual input; automation can be achieved by scripting redaction tasks post-indexing for bulk sensitive data removal.
+
+**3. Does the tutorial support processing multi-language documents?**  
+
+	- Yes, both Aspose OCR and Tesseract can be configured for multiple languages by specifying language codes during recognition.
+
+**4. Can these OCR tools handle handwritten text?**  
+
+	- While primarily designed for printed text, some OCR engines may detect handwriting with reduced accuracy; Aspose OCR has limited support, Tesseract is less suited.
+
+**5. What are the licensing requirements for deploying these tools in production?**  
+
+	- Aspose OCR and GroupDocs.Redaction require valid licenses for production use. Trial versions with limitations are available; purchasing licenses ensures full features and support.

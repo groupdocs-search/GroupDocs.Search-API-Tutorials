@@ -46,17 +46,11 @@ Maximize search efficiency with techniques for optimizing index size, memory usa
 ### [Exception Handling & Logging](./exception-handling-logging/)
 Implement robust error management and logging to create reliable, production-ready search applications.
 
-### [Integration & Interoperability](./integration-interoperability/)
-Connect GroupDocs.Search with other document processing tools and systems for comprehensive workflow solutions.
-
 ### [Licensing & Configuration](./licensing-configuration/)
 Properly set up licensing and configure GroupDocs.Search for optimal performance in production environments.
 
 ### [Text Extraction & Processing](./text-extraction-processing/)
 Customize text extraction behavior with custom extractors, segmenters, and character replacement rules in Java.
-
-### [Queries & Query Building](./queries-query-building/)
-Master techniques for building sophisticated search queries programmatically for precise document retrieval.
 
 ## Java Document Search Features Overview
 

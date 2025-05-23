@@ -70,7 +70,7 @@ Once you have GroupDocs.Search ready, initialize it within your .NET project to 
 
 This section is divided into logical parts, each focusing on a specific feature of GroupDocs.Search.
 
-### Creating and Managing an Index (H2)
+### Creating and Managing an Index
 
 **Overview:**
 Creating an index allows you to efficiently manage and search through large collections of documents.
@@ -96,7 +96,7 @@ Index index = new Index(indexFolder);
 ```
 - **Purpose**: Adding documents populates your index, making them searchable.
 
-### Performing a Search Query (H2)
+### Performing a Search Query
 
 **Overview:**
 Search queries help retrieve relevant documents based on keywords or phrases.

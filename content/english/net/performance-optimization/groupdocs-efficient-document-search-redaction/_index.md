@@ -30,14 +30,15 @@ Let's start by ensuring you have the necessary prerequisites.
 Before proceeding, ensure that:
 
 - **Required Libraries**: Install the latest versions of GroupDocs.Search and GroupDocs.Redaction for .NET.
-  - **.NET CLI**
-    ```shell
+- **.NET CLI**
+    
+```shell
 dotnet add package GroupDocs.Redaction
 dotnet add package GroupDocs.Search
 ```
   
-  - **Package Manager**
-    ```shell
+- **Package Manager**
+```shell
 Install-Package GroupDocs.Redaction
 Install-Package GroupDocs.Search
 ```
@@ -52,7 +53,8 @@ Before diving into search functionalities, ensure your setup includes:
 2. **License Acquisition**:
    - Start with a free trial of GroupDocs.Redaction and consider purchasing a license for extended use.
 3. **Basic Initialization and Setup**: 
-   ```csharp
+
+```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with your document path
@@ -73,18 +75,18 @@ To perform efficient searches, first create an index for your documents to enabl
 
 #### Step-by-Step Guide
 1. **Specify Index Directory**: 
-   ```csharp
+```csharp
 string indexFolder = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/SearchResults";
 ```
 2. **Create an Index Instance**: 
-   ```csharp
+```csharp
 using GroupDocs.Search;
 
 // Create an instance of Index at the specified folder
 Index index = new Index(indexFolder);
 ```
 3. **Add Documents to the Index**: 
-   ```csharp
+```csharp
 // Add documents from a specific directory for searching
 index.Add("YOUR_DOCUMENT_DIRECTORY");
 ```
@@ -95,7 +97,7 @@ Fuzzy search helps find approximate matches, accommodating minor errors or varia
 
 #### Step-by-Step Guide
 1. **Create Search Options**: 
-   ```csharp
+```csharp
 using GroupDocs.Search.Options;
 
 // Configure fuzzy search options
@@ -104,7 +106,7 @@ options.FuzzySearch.Enabled = true;
 options.FuzzySearch.FuzzyAlgorithm = new TableDiscreteFunction(3);
 ```
 2. **Define and Execute the Query**: 
-   ```csharp
+```csharp
 string query = "water OR \"Lorem ipsum\"";
 
 // Perform search using configured options
@@ -117,7 +119,7 @@ After performing a search, extract relevant information from the results.
 
 #### Step-by-Step Guide
 1. **Iterate Over Each Document**: 
-   ```csharp
+```csharp
 using GroupDocs.Search.Results;
 using System;
 

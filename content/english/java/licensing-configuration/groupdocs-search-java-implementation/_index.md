@@ -235,6 +235,21 @@ for (SearchNetworkNode node : nodes) {
 - Use efficient data structures to store indexes in memory for faster access.
 - Distribute indexing tasks across multiple nodes to balance load.
 
-### Resource Usage Guidelines
-Monitor CPU and memory usage to ensure optimal performance during search operations.
+## Conclusion  
+Configuring search networks with GroupDocs.Search for Java enables scalable, efficient document searches with real-time highlighting. Proper setup enhances performance and user experience across various applications.
 
+## FAQs
+
+### 1. Can I deploy multiple search network nodes for load balancing?  
+Yes, deploying multiple nodes distributes search load, boosting performance and scalability.  
+### 2. How do I highlight multiple search terms in documents?  
+Use the `highlight()` method with customized `HighlightOptions` to specify terms before and after matches.  
+
+### 3. Is it possible to subscribe to real-time search events?  
+Yes, subscribing to node events allows monitoring and managing search activities dynamically.  
+
+### 4. What file formats are supported for indexing?  
+GroupDocs.Search supports a wide range of formats including DOCX, PDF, HTML, and more.  
+
+### 5. How can I improve search performance in large document collections?  
+Regularly update indexes, distribute them across nodes, and optimize search parameters for faster results.  

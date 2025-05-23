@@ -26,7 +26,7 @@ This tutorial guides you through setting up a network image search using GroupDo
 
 Let's explore how these powerful tools can streamline your workflows and elevate data management practices.
 
-### Prerequisites (H2)
+### Prerequisites
 
 Before we start, ensure you have the following:
 
@@ -42,7 +42,7 @@ Before we start, ensure you have the following:
 - Basic understanding of C# programming.
 - Familiarity with file directories and network configurations in a .NET context.
 
-## Setting Up GroupDocs.Redaction for .NET (H2)
+## Setting Up GroupDocs.Redaction for .NET
 
 To get started, install the necessary packages:
 
@@ -76,11 +76,11 @@ Redactor redactor = new Redactor("path/to/document");
 
 This setup prepares your environment to integrate powerful search and redaction functionalities.
 
-## Implementation Guide (H2)
+## Implementation Guide
 
 We'll break down the implementation into distinct features, each focusing on a specific functionality of our network image search system.
 
-### Configuration Setup (H3)
+### Configuration Setup
 
 **Overview:**
 Configuring the search network is crucial for setting up paths and ports essential for communication across nodes.
@@ -101,7 +101,7 @@ int basePort = 49120; // Choose an appropriate port
 Configuration configuration = ConfiguringSearchNetwork.Configure(basePath, basePort);
 ```
 
-### Network Deployment (H3)
+### Network Deployment
 
 **Overview:**
 Deploying your configured search network makes it operational and ready for indexing.
@@ -123,7 +123,7 @@ SearchNetworkNode[] nodes = SearchNetworkDeployment.Deploy(basePath, basePort, c
 SearchNetworkNode masterNode = nodes[0];
 ```
 
-### Event Subscription (H3)
+### Event Subscription
 
 **Overview:**
 Subscribing to events allows you to monitor and respond to changes within your search network.
@@ -139,7 +139,7 @@ using GroupDocs.Search.Scaling;
 SearchNetworkNodeEvents.Subscribe(masterNode);
 ```
 
-### Indexing Documents (H3)
+### Indexing Documents
 
 **Overview:**
 Indexing directories containing images is vital for efficient search operations.
@@ -155,7 +155,7 @@ using GroupDocs.Search.Scaling;
 IndexingDocuments.AddDirectories(masterNode, "@YOUR_DOCUMENT_DIRECTORY/YourImagesDirectory/");
 ```
 
-### Image Search Setup (H3)
+### Image Search Setup
 
 **Overview:**
 Setting up an image search involves preparing a query using specific options and target images.
@@ -177,7 +177,7 @@ int hashDifferences = 8; // Allowable hash differences during comparison
 ImageSearch(masterNode, searchImage, hashDifferences);
 ```
 
-### Performing Image Search (H3)
+### Performing Image Search
 
 **Overview:**
 Executing an image search involves querying the network and processing results.
@@ -217,7 +217,7 @@ public static void ImageSearch(
 }
 ```
 
-## Practical Applications (H2)
+## Practical Applications
 
 Here are some real-world use cases:
 1. **Digital Asset Management:** Streamline the organization and retrieval of digital assets across a distributed network.
@@ -226,7 +226,7 @@ Here are some real-world use cases:
 
 Integration possibilities include linking with CRM systems for enhanced customer data management or incorporating into cloud storage solutions for scalable access.
 
-## Performance Considerations (H2)
+## Performance Considerations
 
 To optimize performance:
 - **Efficient Indexing:** Regularly update your index to reflect new content changes.

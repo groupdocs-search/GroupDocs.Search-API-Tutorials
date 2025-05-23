@@ -87,7 +87,7 @@ public class SearchInitialization {
 
 ## Implementation Guide
 
-### Creating and Configuring an Index (H2)
+### Creating and Configuring an Index
 **Overview**: Setting up a document index involves defining specific character types within the alphabet dictionary, crucial for accurate search operations.
 
 #### Step 1: Initialize Index
@@ -106,7 +106,7 @@ index.getDictionaries().getAlphabet()
 ```
 - **Explanation**: Treat '&' as a letter and '-' as a separator for search accuracy.
 
-### Indexing Documents (H2)
+### Indexing Documents
 **Overview**: Add documents to the index, enabling efficient search operations.
 
 #### Step 3: Adding Documents
@@ -115,7 +115,7 @@ index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 - **Functionality**: Scans specified directory and adds all found documents into the index.
   
-### Preparing Search Query (H2)
+### Preparing Search Query
 **Overview**: Prepare your search query by modifying special characters to match configured dictionary settings.
 
 #### Step 4: Modify Special Characters
@@ -153,7 +153,7 @@ if (query.contains(" ")) {
 ```
 - **Explanation**: Escaping characters prevents misinterpretation during searches.
 
-### Executing the Search (H2)
+### Executing the Search
 **Overview**: Perform a search operation using the prepared query and retrieve results for further processing.
 
 #### Step 6: Execute Search

@@ -2,7 +2,7 @@
 title: Tutorials and Examples of GroupDocs.Search for Java 
 linktitle: GroupDocs.Search for Java Tutorials
 weight: 10
-url: /java/
+url: /net/
 description: Implement powerful document search capabilities in Java applications with GroupDocs.Search. Learn indexing, searching, highlighting, and advanced information retrieval techniques.
 is_root: true
 ---
@@ -10,8 +10,6 @@ is_root: true
 Welcome to GroupDocs.Search for Java tutorials! Our comprehensive API enables Java developers to integrate powerful document search capabilities into their applications with minimal effort. GroupDocs.Search provides high-performance indexing and searching functionality across multiple document formats including PDF, Microsoft Office, OpenDocument, HTML, and more. These tutorials guide you through essential features such as creating and managing indexes, implementing various search types, highlighting search results, and optimizing search performance. Whether you're building an enterprise document management system, a content repository, or enhancing existing applications with search capabilities, these step-by-step guides will help you implement efficient and accurate document search functionality in your Java projects.
 
 ## GroupDocs.Search for Java Tutorials
-### [Getting Started](./getting-started/)
-Learn the fundamentals of GroupDocs.Search for Java with our introductory tutorials covering installation, licensing, and creating your first search application.
 
 ### [Indexing](./indexing/)
 Master document indexing techniques including creating indexes, handling various document sources, and configuring options for optimal performance.
