@@ -1,15 +1,15 @@
 ---
-title: Tutorials and Examples of GroupDocs.Search for Java 
-linktitle: GroupDocs.Search for Java Tutorials
+title: Tutorials and Examples of GroupDocs.Search for .NET 
+linktitle: GroupDocs.Search for .NET Tutorials
 weight: 10
 url: /net/
-description: Implement powerful document search capabilities in Java applications with GroupDocs.Search. Learn indexing, searching, highlighting, and advanced information retrieval techniques.
+description: Implement powerful document search capabilities in .NET applications with GroupDocs.Search. Learn indexing, searching, highlighting, and advanced information retrieval techniques.
 is_root: true
 ---
-# Tutorials and Examples of GroupDocs.Search for Java
-Welcome to GroupDocs.Search for Java tutorials! Our comprehensive API enables Java developers to integrate powerful document search capabilities into their applications with minimal effort. GroupDocs.Search provides high-performance indexing and searching functionality across multiple document formats including PDF, Microsoft Office, OpenDocument, HTML, and more. These tutorials guide you through essential features such as creating and managing indexes, implementing various search types, highlighting search results, and optimizing search performance. Whether you're building an enterprise document management system, a content repository, or enhancing existing applications with search capabilities, these step-by-step guides will help you implement efficient and accurate document search functionality in your Java projects.
+# Tutorials and Examples of GroupDocs.Search for .NET
+Welcome to GroupDocs.Search for .NET tutorials! Our comprehensive API enables .NET developers to integrate powerful document search capabilities into their applications with minimal effort. GroupDocs.Search provides high-performance indexing and searching functionality across multiple document formats including PDF, Microsoft Office, OpenDocument, HTML, and more. These tutorials guide you through essential features such as creating and managing indexes, implementing various search types, highlighting search results, and optimizing search performance. Whether you're building an enterprise document management system, a content repository, or enhancing existing applications with search capabilities, these step-by-step guides will help you implement efficient and accurate document search functionality in your .NET projects.
 
-## GroupDocs.Search for Java Tutorials
+## GroupDocs.Search for .NET Tutorials
 
 ### [Indexing](./indexing/)
 Master document indexing techniques including creating indexes, handling various document sources, and configuring options for optimal performance.
@@ -36,7 +36,7 @@ Explore specialized search capabilities including faceted search, search reports
 Build scalable distributed search solutions with sharding, synchronization, and optimized network configurations.
 
 ### [Performance Optimization](./performance-optimization/)
-Maximize search efficiency with techniques for optimizing index size, memory usage, and search response time in Java environments.
+Maximize search efficiency with techniques for optimizing index size, memory usage, and search response time in .NET environments.
 
 ### [Exception Handling & Logging](./exception-handling-logging/)
 Implement robust error management and logging to create reliable, production-ready search applications.
@@ -48,7 +48,7 @@ Connect GroupDocs.Search with other document processing tools and systems for co
 Properly set up licensing and configure GroupDocs.Search for optimal performance in production environments.
 
 ### [Text Extraction & Processing](./text-extraction-processing/)
-Customize text extraction behavior with custom extractors, segmenters, and character replacement rules in Java.
+Customize text extraction behavior with custom extractors, segmenters, and character replacement rules in .NET.
 
 ### [Queries & Query Building](./queries-query-building/)
 Master techniques for building sophisticated search queries programmatically for precise document retrieval.
