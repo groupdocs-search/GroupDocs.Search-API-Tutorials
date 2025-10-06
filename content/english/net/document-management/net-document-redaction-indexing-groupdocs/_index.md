@@ -8,10 +8,8 @@ keywords:
 - .NET document redaction
 - GroupDocs indexing
 - secure document management
-
+type: docs
 ---
-
-
 # Master .NET Document Redaction and Indexing with GroupDocs
 ## Introduction
 In today's digital world, managing sensitive information within documents is crucial. Whether you're a business handling client data or an individual safeguarding personal records, ensuring your files are both accessible and secure can be challenging. Enter GroupDocs.Redaction for .NET: a powerful tool designed to streamline document redaction while supporting efficient indexing from the filesystem. This tutorial will guide you through setting up and using this feature to enhance your document management processes.

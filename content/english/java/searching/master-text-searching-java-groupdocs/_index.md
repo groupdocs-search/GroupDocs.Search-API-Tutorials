@@ -8,10 +8,8 @@ keywords:
 - text file search java
 - groupdocs.search java
 - java text indexing
-
+type: docs
 ---
-
-
 # Mastering Text File Search in Java with GroupDocs.Search
 
 **Unlock Powerful Text Search Capabilities Using GroupDocs.Search for Java**

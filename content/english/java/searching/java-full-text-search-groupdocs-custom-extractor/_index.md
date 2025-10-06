@@ -8,10 +8,8 @@ keywords:
 - full-text search Java GroupDocs
 - custom text extractor Java
 - GroupDocs.Search indexing
-
+type: docs
 ---
-
-
 # Master Full-Text Search in Java: Implement Custom Text Extractors with GroupDocs
 
 Full-text search functionality is essential for applications that need to index and retrieve data from large document collections efficiently. This guide explores implementing full-text search using GroupDocs.Search for Java, focusing on creating an index with custom text extractors. By integrating this feature, you can customize the indexing process to suit your application's specific needs.

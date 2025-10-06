@@ -8,10 +8,8 @@ keywords:
 - create index GroupDocs.Search Java
 - manage document passwords Java
 - efficient search indexed documents
-
+type: docs
 ---
-
-
 # Create and Manage Indexes with GroupDocs.Search in Java: A Complete Guide
 
 ## Introduction

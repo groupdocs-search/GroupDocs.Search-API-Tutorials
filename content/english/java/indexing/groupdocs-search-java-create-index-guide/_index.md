@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search Java: Create and Manage a Search Index
 
 ## Introduction

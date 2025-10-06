@@ -8,10 +8,8 @@ keywords:
 - Java document indexing
 - GroupDocs.Search for Java
 - automate document management
-
+type: docs
 ---
-
-
 # Automate Java Document Indexing and Renaming Using GroupDocs.Search
 
 ## Introduction

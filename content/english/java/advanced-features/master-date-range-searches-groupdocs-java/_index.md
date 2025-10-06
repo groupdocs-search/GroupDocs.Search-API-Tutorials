@@ -11,10 +11,8 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-
+type: docs
 ---
-
-
 # Implementing Date Range Searches with GroupDocs.Search Java
 
 **Discover How to Master Creating and Specifying Date Range Search Queries Using GroupDocs.Search Java**

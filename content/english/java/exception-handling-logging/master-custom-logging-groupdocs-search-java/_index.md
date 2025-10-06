@@ -8,10 +8,8 @@ keywords:
 - custom logging in Java
 - GroupDocs.Search for Java
 - error handling in Java
-
+type: docs
 ---
-
-
 # Master Custom Logging in Java with GroupDocs.Search
 ## Introduction
 

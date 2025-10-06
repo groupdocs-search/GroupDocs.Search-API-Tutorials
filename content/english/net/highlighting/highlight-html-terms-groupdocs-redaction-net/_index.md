@@ -9,10 +9,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - HTML document handling
 - Aspose.HTML integration
-
+type: docs
 ---
-
-
 # Highlight HTML Terms with GroupDocs.Redaction .NET
 ## Introduction
 Struggling to effectively highlight specific terms or phrases within an HTML document? Whether you're looking to redact sensitive information or emphasize important keywords, managing text in HTML documents can be complex. This tutorial will guide you through using **GroupDocs.Redaction for .NET** alongside Aspose.HTML to efficiently identify and highlight elements within your HTML content.

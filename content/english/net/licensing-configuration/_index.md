@@ -3,8 +3,8 @@ title: "Licensing and Configuration Tutorials for GroupDocs.Search .NET"
 description: "Complete tutorials for proper licensing setup, configuration options, and deployment best practices for GroupDocs.Search in .NET applications."
 weight: 13
 url: "/net/licensing-configuration/"
+type: docs
 ---
-
 # Licensing and Configuration Tutorials for GroupDocs.Search .NET
 
 Our licensing and configuration tutorials provide detailed guidance for properly setting up GroupDocs.Search in production environments. These comprehensive guides demonstrate how to apply standard and metered licenses, configure application settings, optimize for different deployment scenarios, and understand supported file formats. Each tutorial includes working C# code examples for common configuration tasks, helping you properly license and configure your .NET applications for optimal performance and compliance.

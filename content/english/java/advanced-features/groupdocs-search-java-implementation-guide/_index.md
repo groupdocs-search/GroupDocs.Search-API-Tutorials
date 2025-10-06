@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for Java
 - document indexing in Java
 - text extraction with GroupDocs
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search for Java: A Complete Guide
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - Java OCR character recognition
 - search library Java
-
+type: docs
 ---
-
-
 # Configuring Character Recognition with GroupDocs.Search for Java
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - index management
 - alias dictionary
-
+type: docs
 ---
-
-
 # Efficient Index and Alias Management in GroupDocs.Search Java: A Comprehensive Guide
 
 Discover how to enhance your document search capabilities using GroupDocs.Search for Java. This tutorial guides you through setting up your environment, implementing essential features, and optimizing performance.

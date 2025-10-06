@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - document indexing
 - search reporting
-
+type: docs
 ---
-
-
 # Implement GroupDocs.Search Java: Comprehensive Indexing and Reporting Guide
 
 In today's data-driven world, efficiently managing extensive document collections is crucial for businesses and developers. Whether you're handling legal files or customer records, the ability to swiftly search through vast datasets can greatly enhance productivity. This tutorial provides a step-by-step guide on how to implement GroupDocs.Search in Java for indexing and reporting functionalities.

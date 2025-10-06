@@ -8,10 +8,8 @@ keywords:
 - spell correction .NET
 - GroupDocs.Search for .NET spell correction
 - search index .NET
-
+type: docs
 ---
-
-
 # Implementing Spell Correction in .NET Applications Using GroupDocs.Search
 
 ## Introduction

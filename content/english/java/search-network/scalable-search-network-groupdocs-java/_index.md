@@ -8,10 +8,8 @@ keywords:
 - scalable search network
 - GroupDocs.Search Java configuration
 - multi-node search setup
-
+type: docs
 ---
-
-
 # Configuring a Scalable Search Network Using GroupDocs.Search Java
 
 ## Introduction

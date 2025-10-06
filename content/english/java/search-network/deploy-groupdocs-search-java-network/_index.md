@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java network
 - search performance enhancement
 - distributed search architecture
-
+type: docs
 ---
-
-
 # Deploy GroupDocs.Search Java Network for Enhanced Search Capabilities
 
 ## Introduction

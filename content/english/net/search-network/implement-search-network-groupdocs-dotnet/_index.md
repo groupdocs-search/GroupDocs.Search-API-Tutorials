@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search
 - document management system
 - search capabilities
-
+type: docs
 ---
-
-
 # How to Implement a Search Network with GroupDocs.Search in .NET
 
 ## Introduction

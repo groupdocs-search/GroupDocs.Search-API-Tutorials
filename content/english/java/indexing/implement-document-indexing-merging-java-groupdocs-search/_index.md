@@ -8,10 +8,8 @@ keywords:
 - document indexing in Java
 - merging documents with GroupDocs
 - GroupDocs.Search Java tutorial
-
+type: docs
 ---
-
-
 # Implement Document Indexing & Merging in Java with GroupDocs.Search
 
 **Optimize your document management workflow using GroupDocs.Search Java for efficient document indexing and merging.**

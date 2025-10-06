@@ -3,8 +3,8 @@ title: "Search Performance Optimization Tutorials for GroupDocs.Search .NET"
 description: "Complete tutorials for optimizing search performance, memory usage, and index size with GroupDocs.Search for .NET."
 weight: 10
 url: "/net/performance-optimization/"
+type: docs
 ---
-
 # Search Performance Optimization Tutorials for GroupDocs.Search .NET
 
 Our performance optimization tutorials provide comprehensive guidance for maximizing search efficiency using GroupDocs.Search in .NET. These step-by-step guides demonstrate techniques for optimizing index size, reducing memory consumption, improving search speed, implementing chunked searching, and configuring indexing for better performance. Each tutorial includes detailed C# code examples and best practices for building high-performance search applications that remain responsive even with large document collections.

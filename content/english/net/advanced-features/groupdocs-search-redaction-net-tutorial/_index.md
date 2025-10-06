@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Search .NET
 - Document Indexing .NET
 - Redaction in .NET
-
+type: docs
 ---
-
-
 # Mastering GroupDocs Search and Redaction in .NET: Advanced Document Management
 
 In the data-driven world of today, efficiently managing and searching through vast collections of documents can be a daunting task. That's where GroupDocs.Search and GroupDocs.Redaction come into play—powerful tools that simplify document management and search operations for developers working with .NET applications. This comprehensive tutorial dives deep into creating and managing an index using GroupDocs.Search in .NET, while also exploring how to integrate it seamlessly with GroupDocs.Redaction.

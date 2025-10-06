@@ -3,8 +3,8 @@ title: "Document Management Tutorials for GroupDocs.Search Java"
 description: "Complete tutorials for managing documents in search indexes, including adding, updating, and removing documents with GroupDocs.Search for Java."
 weight: 6
 url: "/java/document-management/"
+type: docs
 ---
-
 # Document Management Tutorials for GroupDocs.Search Java
 
 Learn how to effectively manage indexed documents with our GroupDocs.Search tutorials for Java developers. These detailed guides demonstrate how to add new documents to existing indexes, update modified documents, remove obsolete documents, and optimize indexes for better performance. Each tutorial includes working Java code examples that show how to implement robust document management strategies, ensuring your search indexes remain current and performant as your document collection evolves.

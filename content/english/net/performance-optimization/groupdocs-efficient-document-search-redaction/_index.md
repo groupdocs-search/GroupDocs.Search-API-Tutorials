@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Search .NET
 - Fuzzy search .NET
 - Document redaction .NET
-
+type: docs
 ---
-
-
 # Efficient Document Search and Redaction with GroupDocs for .NET
 ## Performance Optimization Guide
 

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - document indexing .NET
 - advanced search .NET
-
+type: docs
 ---
-
-
 # Implement GroupDocs.Redaction .NET for Efficient Document Indexing
 
 ## Introduction

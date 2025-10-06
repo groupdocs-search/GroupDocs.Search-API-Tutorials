@@ -9,10 +9,8 @@ keywords:
 - GroupDocs.Search Java tutorial
 - Java text query search
 - object query search in Java
-
+type: docs
 ---
-
-
 # Mastering Case Sensitive Text and Object Query Searches in Java with GroupDocs
 
 In today’s digital age, retrieving precise information from vast amounts of text is not just a convenience—it's an imperative. Whether you're developing sophisticated document management systems or crafting intricate search functionalities for business applications, the ability to perform case-sensitive searches can significantly enhance data accuracy and user satisfaction. This tutorial will guide you through implementing case-sensitive text and object query searches using GroupDocs.Search Java, ensuring your projects meet the highest standards of precision.

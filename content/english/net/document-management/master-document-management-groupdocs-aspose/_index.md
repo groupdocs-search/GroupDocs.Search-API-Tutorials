@@ -8,10 +8,8 @@ keywords:
 - document management
 - Aspose Search
 - GroupDocs Redaction
-
+type: docs
 ---
-
-
 # Master Document Management with GroupDocs Redaction and Aspose Search for .NET
 
 ## Introduction

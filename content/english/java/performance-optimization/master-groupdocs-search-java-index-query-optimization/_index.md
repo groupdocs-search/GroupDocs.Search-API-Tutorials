@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - document index optimization
 - search query performance
-
+type: docs
 ---
-
-
 # Master GroupDocs.Search Java: Optimize Index & Query Performance
 
 ## Introduction

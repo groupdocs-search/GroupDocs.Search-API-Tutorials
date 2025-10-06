@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - document attribute modification
 - Java indexing techniques
-
+type: docs
 ---
-
-
 # Mastering Document Attributes with GroupDocs.Search in Java
 
 ## Introduction

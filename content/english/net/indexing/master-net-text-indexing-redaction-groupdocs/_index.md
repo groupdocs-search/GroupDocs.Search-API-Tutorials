@@ -8,10 +8,8 @@ keywords:
 - .NET text indexing
 - GroupDocs.Search .NET
 - text redaction in .NET
-
+type: docs
 ---
-
-
 # Mastering .NET Text Indexing and Redaction with GroupDocs
 
 ## Introduction

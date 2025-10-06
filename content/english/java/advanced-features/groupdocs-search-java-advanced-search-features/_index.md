@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - advanced search features Java
 - Java indexing errors
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search Java: Comprehensive Guide to Advanced Search Features
 
 ## Introduction

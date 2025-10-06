@@ -8,10 +8,8 @@ keywords:
 - fuzzy search in Java
 - GroupDocs.Search for Java
 - implement fuzzy search with GroupDocs
-
+type: docs
 ---
-
-
 # Mastering Fuzzy Search in Java Using GroupDocs.Search
 
 Enhance your Java applications' search capabilities using GroupDocs.Search. This comprehensive guide introduces fuzzy search algorithms, ensuring accurate results despite spelling mistakes or typing errors.

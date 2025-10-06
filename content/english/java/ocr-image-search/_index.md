@@ -3,8 +3,8 @@ title: "OCR and Image Search Tutorials for GroupDocs.Search Java"
 description: "Step-by-step tutorials for implementing OCR capabilities and reverse image search functionality with GroupDocs.Search for Java."
 weight: 7
 url: "/java/ocr-image-search/"
+type: docs
 ---
-
 # OCR and Image Search Tutorials for GroupDocs.Search Java
 
 Our OCR and image search tutorials show you how to extract and search text from images and implement reverse image search using GroupDocs.Search in Java. These step-by-step guides cover integrating OCR engines, configuring recognition options, searching for similar images, and working with image metadata programmatically. Each tutorial includes practical Java code examples for common OCR and image search scenarios, helping you build applications that can efficiently process and search visual content.

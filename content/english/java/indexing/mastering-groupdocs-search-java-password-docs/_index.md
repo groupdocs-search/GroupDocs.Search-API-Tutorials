@@ -8,10 +8,8 @@ keywords:
 - indexing password-protected documents Java
 - GroupDocs.Search Java API
 - document management workflow
-
+type: docs
 ---
-
-
 # Efficiently Index Password-Protected Documents with GroupDocs.Search for Java
 
 In today's digital age, securing sensitive information is paramount. However, managing vast amounts of password-protected documents efficiently presents a challenge: how to index and search these files without compromising security? Enter **GroupDocs.Search for Java**, a powerful tool that simplifies the indexing of password-protected documents through innovative methods. In this comprehensive tutorial, you'll learn how to harness its capabilities to enhance document management workflows.

@@ -3,8 +3,8 @@ title: "Advanced Search Features Tutorials for GroupDocs.Search Java"
 description: "Learn to implement faceted search, search reports, document filtering, and other advanced search features with these GroupDocs.Search Java tutorials."
 weight: 8
 url: "/java/advanced-features/"
+type: docs
 ---
-
 # Advanced Search Features Tutorials for GroupDocs.Search Java
 
 Explore advanced search capabilities with our comprehensive GroupDocs.Search tutorials for Java developers. These detailed guides cover implementing faceted search, generating search reports, applying document filters, working with metadata attributes, and leveraging other specialized search features. Each tutorial provides working Java code examples for sophisticated document search scenarios, helping you build powerful search applications that offer precise control and deep insight into document collections.

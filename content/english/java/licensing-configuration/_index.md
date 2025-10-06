@@ -3,8 +3,8 @@ title: "Licensing and Configuration Tutorials for GroupDocs.Search Java"
 description: "Complete tutorials for proper licensing setup, configuration options, and deployment best practices for GroupDocs.Search in Java applications."
 weight: 13
 url: "/java/licensing-configuration/"
+type: docs
 ---
-
 # Licensing and Configuration Tutorials for GroupDocs.Search Java
 
 Our licensing and configuration tutorials provide detailed guidance for properly setting up GroupDocs.Search in production environments. These comprehensive guides demonstrate how to apply standard and metered licenses, configure application settings, optimize for different deployment scenarios, and understand supported file formats. Each tutorial includes working Java code examples for common configuration tasks, helping you properly license and configure your Java applications for optimal performance and compliance.

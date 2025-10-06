@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for .NET
 - document indexing in .NET
 - optimize index segments
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search: Creating and Optimizing Indexes in .NET
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - synonym management .net
 - GroupDocs Search .NET
 - GroupDocs Redaction .NET
-
+type: docs
 ---
-
-
 # Mastering Synonym Management in .NET with GroupDocs Search and Redaction
 
 ## Introduction

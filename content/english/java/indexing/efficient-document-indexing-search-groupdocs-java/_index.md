@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - document indexing
 - Java document search
-
+type: docs
 ---
-
-
 # Efficient Document Indexing & Search with GroupDocs.Search Java
 
 ## Introduction

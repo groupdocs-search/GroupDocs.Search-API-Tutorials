@@ -8,10 +8,8 @@ keywords:
 - spelling correction Java
 - GroupDocs.Search tutorial
 - Java search functionality
-
+type: docs
 ---
-
-
 # Mastering Spelling Correction in Java Using GroupDocs.Search
 Discover how to integrate powerful spelling correction features using GroupDocs.Search for Java, ideal for improving search functionalities in your applications.
 

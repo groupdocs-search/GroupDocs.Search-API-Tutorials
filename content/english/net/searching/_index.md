@@ -3,8 +3,8 @@ title: "Document Search Tutorials for GroupDocs.Search .NET"
 description: "Complete tutorials for implementing various search types including boolean, fuzzy, phrase, wildcard, and regular expression searches using GroupDocs.Search for .NET."
 weight: 3
 url: "/net/searching/"
+type: docs
 ---
-
 # Document Search Tutorials for GroupDocs.Search .NET
 
 Master document searching capabilities with our detailed GroupDocs.Search .NET tutorials. These step-by-step guides demonstrate how to implement different search types, handle search results, apply filters, and leverage advanced search features. Each tutorial includes working C# code examples, implementation notes, and best practices to help you build applications that efficiently search document content with powerful query capabilities.

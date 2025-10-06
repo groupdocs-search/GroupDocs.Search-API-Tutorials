@@ -8,10 +8,8 @@ keywords:
 - metadata indexing java
 - GroupDocs Search Java
 - document management with metadata
-
+type: docs
 ---
-
-
 # Implementing Metadata Indexing in Java with GroupDocs.Search: A Comprehensive Guide
 
 ## Introduction to Metadata Indexing with GroupDocs.Search Java

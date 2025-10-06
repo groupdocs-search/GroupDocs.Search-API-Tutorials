@@ -6,6 +6,7 @@ description: Discover comprehensive tutorials for GroupDocs.Search across platfo
 weight: 11
 url: /
 is_root: true
+type: docs
 ---
 # Unlocking Document Search Power with GroupDocs.Search
 Explore a comprehensive collection of GroupDocs.Search tutorials tailored for both .NET and Java developers. Dive into the world of document search and indexing with step-by-step guides, covering a wide range of topics from basic indexing to advanced search techniques. Elevate your skills in document search implementation regardless of your preferred programming language.

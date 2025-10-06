@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search in .NET
 - deploy search network node .NET
 - index and retrieve documents with GroupDocs
-
+type: docs
 ---
-
-
 # Deploy a Search Network Node in .NET Using GroupDocs: Efficient Document Indexing and Retrieval
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for Java
 - search network nodes
 - document management system
-
+type: docs
 ---
-
-
 # Mastering Search Network Nodes with GroupDocs.Search for Java
 
 ## Introduction

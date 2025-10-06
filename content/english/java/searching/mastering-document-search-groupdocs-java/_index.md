@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - document search network
 - Java document retrieval
-
+type: docs
 ---
-
-
 # Mastering Document Search with GroupDocs.Search for Java
 
 Discover the power of GroupDocs.Search for Java to configure and deploy efficient search networks, optimizing document retrieval processes.

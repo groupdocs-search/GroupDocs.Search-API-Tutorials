@@ -8,10 +8,8 @@ keywords:
 - synchronous indexing with GroupDocs
 - document redaction using GroupDocs.Redaction
 - indexing and redaction integration
-
+type: docs
 ---
-
-
 # How to Implement Synchronous Indexing and Redaction in .NET with GroupDocs
 
 ## Introduction

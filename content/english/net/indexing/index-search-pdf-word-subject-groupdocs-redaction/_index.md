@@ -8,10 +8,8 @@ keywords:
 - index PDF/Word by subject
 - GroupDocs.Redaction .NET
 - search documents by subject
-
+type: docs
 ---
-
-
 # How to Index & Search PDF/Word Documents by Subject with GroupDocs.Redaction in .NET
 
 ## Introduction

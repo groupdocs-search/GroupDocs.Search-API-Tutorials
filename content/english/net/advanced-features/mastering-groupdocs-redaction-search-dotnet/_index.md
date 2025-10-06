@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Search .NET
 - document redaction .NET
 - search index creation .NET
-
+type: docs
 ---
-
-
 # Mastering GroupDocs Redaction and Search in .NET: Efficient Document Management and Secure Searching
 
 ## Introduction

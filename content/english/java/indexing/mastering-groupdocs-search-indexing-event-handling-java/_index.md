@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for Java
 - indexing event handling
 - Java indexing events
-
+type: docs
 ---
-
-
 # Mastering Indexing Event Handling in GroupDocs.Search for Java
 
 ## Introduction

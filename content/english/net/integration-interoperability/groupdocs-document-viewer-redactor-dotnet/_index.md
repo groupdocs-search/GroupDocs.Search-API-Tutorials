@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Viewer .NET
 - .NET document viewer and redactor
 - secure document processing in .NET
-
+type: docs
 ---
-
-
 # Comprehensive Document Viewer and Redactor with GroupDocs for .NET
 
 In today's digital landscape, securely handling sensitive documents while ensuring easy accessibility is paramount. Whether dealing with financial records, confidential contracts, or personal information, a robust system to view and redact these documents is essential. This tutorial guides you through setting up GroupDocs.Viewer for .NET to render documents as HTML pages and integrating GroupDocs.Redaction for secure document processing. By the end of this guide, you'll know how to create a comprehensive document viewer and redactor tailored to your needs.

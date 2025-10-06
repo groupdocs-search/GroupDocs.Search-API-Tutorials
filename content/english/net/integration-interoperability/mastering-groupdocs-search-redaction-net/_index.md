@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search .NET
 - document indexing in .NET
 - advanced search techniques
-
+type: docs
 ---
-
-
 # Master GroupDocs.Search and Redaction in .NET: Create Efficient Indexes and Enable Advanced Searches
 
 Welcome to this comprehensive guide where you'll learn how to harness the power of GroupDocs.Search and GroupDocs.Redaction within your .NET applications. Whether you're looking to optimize document search capabilities or ensure sensitive information remains secure, these tools provide robust solutions. By the end of this tutorial, you will be adept at creating indexes, enabling advanced word form searches, and implementing redaction techniques.

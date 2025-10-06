@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search
 - character replacements .NET
 - text search optimization
-
+type: docs
 ---
-
-
 # Mastering Character Replacements with GroupDocs.Search in .NET
 
 ## Introduction

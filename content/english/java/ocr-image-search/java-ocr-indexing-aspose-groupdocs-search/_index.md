@@ -8,10 +8,8 @@ keywords:
 - Java OCR indexing
 - document searchability
 - OCR with GroupDocs
-
+type: docs
 ---
-
-
 # Java OCR Indexing Guide with Aspose and GroupDocs
 ## Introduction
 Enhance your document management system by adding powerful search capabilities, including text recognition from images. This guide will help you implement OCR (Optical Character Recognition) indexing using the GroupDocs.Search for Java library integrated with Aspose.OCR. We'll cover creating and managing indexes that support image content within documents.

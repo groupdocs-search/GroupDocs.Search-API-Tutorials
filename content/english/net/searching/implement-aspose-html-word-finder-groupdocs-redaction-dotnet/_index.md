@@ -9,10 +9,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - Word finding in .NET
 - Document redaction with Aspose and GroupDocs
-
+type: docs
 ---
-
-
 # How to Implement Aspose.HTML Word Finder with GroupDocs.Redaction in .NET: A Complete Guide
 
 Discover the steps to leverage GroupDocs.Redaction for .NET alongside Aspose.HTML to build a powerful word finding mechanism. This guide will walk you through setting up, implementing, and optimizing your application.

@@ -11,10 +11,8 @@ keywords:
 - document management
 - file extension filter
 - creation time filter
-
+type: docs
 ---
-
-
 # Master File Filtering in .NET with GroupDocs.Redaction: Efficient Document Management Techniques
 
 In today's digital world, efficient file management is key to productivity. Whether organizing documents by type, date, or size, programmable file filtering saves time and resources. This tutorial guides you through using GroupDocs.Redaction for .NET to create powerful file filtering solutions that enhance your workflow.

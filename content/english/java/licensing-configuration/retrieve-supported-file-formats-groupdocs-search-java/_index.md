@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for Java
 - retrieve supported file formats
 - Java document processing
-
+type: docs
 ---
-
-
 # Retrieve Supported File Formats with GroupDocs.Search for Java
 
 ## Introduction

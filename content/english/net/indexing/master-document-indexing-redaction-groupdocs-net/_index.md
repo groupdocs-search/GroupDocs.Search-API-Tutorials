@@ -8,10 +8,8 @@ keywords:
 - document indexing with GroupDocs
 - secure document management
 - GroupDocs.Redaction in .NET
-
+type: docs
 ---
-
-
 # Mastering Document Indexing and Redaction with GroupDocs in .NET
 
 ## Introduction

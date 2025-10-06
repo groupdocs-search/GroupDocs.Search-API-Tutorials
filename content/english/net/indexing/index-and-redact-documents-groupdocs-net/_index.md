@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search
 - document indexing .NET
 - redact sensitive information .NET
-
+type: docs
 ---
-
-
 # Indexing and Redacting Documents with GroupDocs in .NET: A Comprehensive Guide
 
 ## Introduction

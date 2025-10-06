@@ -8,10 +8,8 @@ keywords:
 - chunk-based search
 - GroupDocs.Search Java
 - document search implementation
-
+type: docs
 ---
-
-
 # Chunk-Based Document Search in Java with GroupDocs.Search
 
 In the current data-driven landscape, efficiently searching through vast amounts of documents is a significant challenge faced by developers and organizations. Whether managing customer records, legal documents, or research papers, quickly finding relevant information can greatly enhance productivity and decision-making processes. This comprehensive guide will walk you through implementing chunk-based searches using GroupDocs.Search for Java, an essential feature for handling large datasets seamlessly.

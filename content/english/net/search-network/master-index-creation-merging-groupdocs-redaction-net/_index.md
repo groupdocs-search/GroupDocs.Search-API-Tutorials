@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET index creation
 - document management with GroupDocs
 - merge indexes with Aspose
-
+type: docs
 ---
-
-
 # Mastering Index Creation and Merging with GroupDocs.Redaction .NET
 
 ## Introduction

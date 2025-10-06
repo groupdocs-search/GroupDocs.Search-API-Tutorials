@@ -9,10 +9,8 @@ keywords:
 - GroupDocs.Search .NET
 - document security GroupDocs.Redaction
 - precision document search
-
+type: docs
 ---
-
-
 # Mastering Case-Sensitive Searches in .NET with GroupDocs
 
 ## Introduction

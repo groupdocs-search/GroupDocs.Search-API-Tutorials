@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-
+type: docs
 ---
-
-
 # How to Update and Manage Index Versions in GroupDocs.Search for Java
 
 ## Introduction

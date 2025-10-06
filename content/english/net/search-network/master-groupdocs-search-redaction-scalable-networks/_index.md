@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search .NET
 - scalable search network deployment
 - secure document redaction
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search and GroupDocs.Redaction for Scalable Search Networks in .NET
 
 In today's data-driven world, the ability to efficiently search through vast amounts of information is critical. Whether you're handling enterprise-level document management or building a content-rich application, configuring and deploying scalable search networks can be daunting. This tutorial will guide you through setting up and optimizing search networks using GroupDocs.Search for .NET, integrated with GroupDocs.Redaction for enhanced security.

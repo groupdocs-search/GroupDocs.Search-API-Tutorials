@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Redaction .NET
 - stop words management
 - indexing documents
-
+type: docs
 ---
-
-
 # Mastering Stop Words in GroupDocs Redaction .NET: A Comprehensive Guide to Index Management
 
 ## Introduction

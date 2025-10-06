@@ -8,10 +8,8 @@ keywords:
 - efficient log extraction
 - GroupDocs.Search .NET
 - log file management
-
+type: docs
 ---
-
-
 # Efficient Log Extraction in .NET Using GroupDocs
 
 ## Introduction

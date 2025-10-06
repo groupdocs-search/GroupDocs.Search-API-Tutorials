@@ -3,8 +3,8 @@ title: "Search Query Building Tutorials for GroupDocs.Search .NET"
 description: "Learn to build complex search queries, combine different query types, and implement query preprocessing with GroupDocs.Search .NET tutorials."
 weight: 15
 url: "/net/queries-query-building/"
+type: docs
 ---
-
 # Search Query Building Tutorials for GroupDocs.Search .NET
 
 Master search query construction with our comprehensive GroupDocs.Search tutorials for query building in .NET. These step-by-step guides demonstrate how to create and combine different query types, implement query preprocessing, build queries programmatically, and convert between text and object forms. Each tutorial includes detailed C# code examples for creating sophisticated search expressions, helping you build applications that can construct powerful queries for precise document retrieval based on complex search criteria.

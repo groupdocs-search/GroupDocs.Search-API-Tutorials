@@ -8,10 +8,8 @@ keywords:
 - Java Search Network Configuration
 - GroupDocs.Search for Java
 - Document Indexing and Retrieval
-
+type: docs
 ---
-
-
 # Comprehensive Guide: Configuring and Synchronizing Java Search Networks with GroupDocs.Search
 
 ## Introduction

@@ -3,8 +3,8 @@ title: "Document Indexing Tutorials with GroupDocs.Search for Java"
 description: "Learn how to index documents from various sources, handle password-protected files, and configure indexing options with these GroupDocs.Search for Java tutorials."
 weight: 2
 url: "/java/indexing/"
+type: docs
 ---
-
 # Document Indexing Tutorials with GroupDocs.Search for Java
 
 Our indexing tutorials provide comprehensive guidance for creating and managing search indexes in Java. Follow these step-by-step guides to learn how to index documents from various sources including file systems, streams, and archives, configure indexing options, handle password-protected documents, and implement advanced indexing strategies. These practical tutorials include complete code examples for building robust document indexing capabilities in your Java applications.

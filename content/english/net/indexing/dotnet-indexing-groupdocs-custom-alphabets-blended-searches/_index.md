@@ -8,10 +8,8 @@ keywords:
 - .NET indexing
 - custom alphabets
 - blended searches
-
+type: docs
 ---
-
-
 # Master .NET Indexing with GroupDocs: Custom Alphabets & Blended Searches for Enhanced Search Functionality
 
 ## Introduction

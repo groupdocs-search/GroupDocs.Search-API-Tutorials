@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Search .NET
 - document redaction .NET
 - search network deployment .NET
-
+type: docs
 ---
-
-
 # Master GroupDocs Search and Redaction in .NET: A Comprehensive Guide for Document Management
 
 In today's digital world, managing vast amounts of data is crucial for businesses that require efficient ways to sift through documents quickly while protecting sensitive information. This tutorial guides you through setting up a robust search network using GroupDocs.Search and GroupDocs.Redaction for .NET. Learn how to configure your environment, deploy nodes effectively, and implement both basic and advanced search functionalities.

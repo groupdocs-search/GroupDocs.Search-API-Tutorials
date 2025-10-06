@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - index creation in GroupDocs
 - alias management in search
-
+type: docs
 ---
-
-
 # Master Index Creation & Alias Management in GroupDocs.Search Java
 ## Introduction
 In today's data-driven world, efficiently managing large volumes of documents is crucial for businesses to enhance productivity and provide quick access to critical information. But how do you ensure that users can find the exact document they need without sifting through countless files? Enter GroupDocs.Search Java—a powerful library designed to simplify text search capabilities in your applications.

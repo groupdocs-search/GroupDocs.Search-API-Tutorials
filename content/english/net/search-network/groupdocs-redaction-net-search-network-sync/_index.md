@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - configure search network
 - synchronize search network
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Redaction .NET: Configuring and Synchronizing a Search Network for Optimal Data Management
 ## Introduction
 In today's digital era, efficiently managing vast amounts of data is crucial. Whether handling legal documents, corporate records, or personal archives, ensuring that your search network is responsive and synchronized can be challenging. This comprehensive guide walks you through configuring and synchronizing a search network using GroupDocs.Redaction .NET, addressing these complexities head-on.

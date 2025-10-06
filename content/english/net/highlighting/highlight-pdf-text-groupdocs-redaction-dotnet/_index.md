@@ -8,10 +8,8 @@ keywords:
 - highlight text in PDFs
 - GroupDocs.Redaction .NET
 - HTML conversion from PDF
-
+type: docs
 ---
-
-
 # How to Highlight Text in PDFs Using GroupDocs.Redaction .NET for HTML Conversion
 
 ## Introduction

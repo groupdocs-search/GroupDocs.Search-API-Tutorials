@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction for .NET
 - .NET document search
 - AND, OR, NOT queries in .NET
-
+type: docs
 ---
-
-
 # Mastering AND, OR, NOT Queries in .NET Using GroupDocs.Redaction
 
 ## Introduction

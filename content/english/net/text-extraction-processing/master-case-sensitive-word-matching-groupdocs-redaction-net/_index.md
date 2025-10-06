@@ -8,10 +8,8 @@ keywords:
 - case-sensitive word matching
 - GroupDocs.Redaction .NET
 - document processing with .NET
-
+type: docs
 ---
-
-
 # Mastering Case-Sensitive Word Matching with GroupDocs.Redaction for .NET
 
 ## Introduction

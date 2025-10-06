@@ -8,10 +8,8 @@ keywords:
 - full-text search in Java
 - GroupDocs.Search for Java
 - implement full-text search
-
+type: docs
 ---
-
-
 # How to Implement Full-Text Search in Java Using GroupDocs.Search
 
 ## Introduction

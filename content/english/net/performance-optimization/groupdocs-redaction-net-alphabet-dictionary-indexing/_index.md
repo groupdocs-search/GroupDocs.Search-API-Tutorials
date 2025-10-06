@@ -8,10 +8,8 @@ keywords:
 - document indexing
 - alphabet dictionary management
 - GroupDocs.Redaction .NET
-
+type: docs
 ---
-
-
 # Master Document Indexing and Redaction Using GroupDocs.Redaction .NET
 
 ## Introduction

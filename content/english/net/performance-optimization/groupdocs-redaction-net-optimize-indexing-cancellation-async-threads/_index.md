@@ -8,10 +8,8 @@ keywords:
 - document indexing optimization
 - asynchronous indexing with GroupDocs
 - thread management in .NET
-
+type: docs
 ---
-
-
 # Optimize Document Indexing with GroupDocs.Redaction in .NET
 ### Introduction
 In today's fast-paced digital world, efficiently managing document redactions is crucial for professionals handling sensitive data. This tutorial explores advanced features of GroupDocs.Redaction for .NET to optimize your indexing process using Cancellation, Async operations, and Thread management.

@@ -8,10 +8,8 @@ keywords:
 - Aspose.Search Network configuration
 - GroupDocs.Redaction for .NET
 - document attributes addition
-
+type: docs
 ---
-
-
 # Configuring Aspose.Search Network & Adding Document Attributes with GroupDocs.Redaction for .NET: A Comprehensive Guide
 
 ## Introduction

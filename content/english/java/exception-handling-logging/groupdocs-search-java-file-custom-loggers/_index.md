@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for Java
 - file logger implementation
 - custom loggers
-
+type: docs
 ---
-
-
 # How to Implement File and Custom Loggers with GroupDocs.Search for Java
 
 ## Introduction

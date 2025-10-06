@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - secure document redaction
 - scalable search network
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Redaction .NET: Secure Document Redaction and Network Setup
 
 ## Introduction

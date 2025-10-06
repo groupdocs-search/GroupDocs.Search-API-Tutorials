@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - document redaction
 - indexing documents
-
+type: docs
 ---
-
-
 # Master Document Redaction with GroupDocs.Redaction .NET: Indexing and Managing Aliases for Secure Document Management
 
 ## Introduction

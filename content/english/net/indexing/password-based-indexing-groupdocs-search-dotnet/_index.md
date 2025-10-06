@@ -8,10 +8,8 @@ keywords:
 - password-based indexing .NET
 - GroupDocs.Search for .NET
 - document search .NET
-
+type: docs
 ---
-
-
 # Password-Based Indexing in .NET Using GroupDocs.Search
 Unlock the potential of your password-protected documents and streamline search capabilities using GroupDocs.Search. This comprehensive guide will walk you through implementing password-based indexing in .NET, ensuring your protected files are easily searchable.
 

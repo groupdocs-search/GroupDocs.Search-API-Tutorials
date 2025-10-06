@@ -8,10 +8,8 @@ keywords:
 - .NET Search Network
 - GroupDocs.Search for .NET
 - distributed searching
-
+type: docs
 ---
-
-
 # How to Configure a .NET Search Network Using GroupDocs.Search and Redaction
 
 ## Introduction

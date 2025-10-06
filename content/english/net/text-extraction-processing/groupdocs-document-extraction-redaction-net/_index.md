@@ -8,10 +8,8 @@ keywords:
 - GroupDocs data extraction
 - document redaction .NET
 - GroupDocs indexing
-
+type: docs
 ---
-
-
 # Mastering Document Data Extraction and Redaction with GroupDocs in .NET
 
 ## Introduction

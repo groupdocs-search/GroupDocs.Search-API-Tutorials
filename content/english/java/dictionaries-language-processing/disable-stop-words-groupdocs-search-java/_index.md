@@ -8,10 +8,8 @@ keywords:
 - disable stop words
 - GroupDocs Search Java
 - configure index settings
-
+type: docs
 ---
-
-
 # Disable Stop Words in GroupDocs.Search Java for Enhanced Search Accuracy
 
 ## Introduction

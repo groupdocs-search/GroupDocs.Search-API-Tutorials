@@ -3,8 +3,8 @@ title: "Dictionary Management and Language Processing Tutorials with GroupDocs.S
 description: "Learn to work with dictionaries, spelling correction, synonyms, and advanced language processing in document searches with GroupDocs.Search Java tutorials."
 weight: 5
 url: "/java/dictionaries-language-processing/"
+type: docs
 ---
-
 # Dictionary Management and Language Processing Tutorials with GroupDocs.Search for Java
 
 Discover how to enhance search quality with our comprehensive GroupDocs.Search dictionary and language processing tutorials for Java. These step-by-step guides teach you how to implement synonym dictionaries, spelling correction, homophone recognition, and custom alphabets. Each tutorial provides practical Java code examples for language processing tasks, helping you build more intelligent search applications that understand the nuances of human language and improve search relevance.

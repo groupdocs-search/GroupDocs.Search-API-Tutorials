@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction
 - document indexing
 - advanced search queries
-
+type: docs
 ---
-
-
 # Master Document Indexing and Advanced Query Techniques with GroupDocs.Redaction .NET
 
 ## Introduction

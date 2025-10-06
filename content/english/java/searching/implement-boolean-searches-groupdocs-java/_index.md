@@ -10,10 +10,8 @@ keywords:
 - AND OR NOT queries Java
 - GroupDocs Java search
 - Java boolean search implementation
-
+type: docs
 ---
-
-
 # Master Boolean Searches in Java with GroupDocs.Search
 
 ## Introduction

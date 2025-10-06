@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction for .NET
 - Set License from Stream
 - License Management .NET
-
+type: docs
 ---
-
-
 # Implementing GroupDocs.Redaction License Management from Stream in .NET
 
 ## Introduction

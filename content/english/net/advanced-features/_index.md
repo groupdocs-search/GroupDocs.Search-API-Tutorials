@@ -3,8 +3,8 @@ title: "Advanced Search Features Tutorials for GroupDocs.Search .NET"
 description: "Learn to implement faceted search, search reports, document filtering, and other advanced search features with these GroupDocs.Search .NET tutorials."
 weight: 8
 url: "/net/advanced-features/"
+type: docs
 ---
-
 # Advanced Search Features Tutorials for GroupDocs.Search .NET
 
 Explore advanced search capabilities with our comprehensive GroupDocs.Search tutorials for .NET developers. These detailed guides cover implementing faceted search, generating search reports, applying document filters, working with metadata attributes, and leveraging other specialized search features. Each tutorial provides working C# code examples for sophisticated document search scenarios, helping you build powerful search applications that offer precise control and deep insight into document collections.

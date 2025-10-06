@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search in .NET
 - implementing document search
 - secure data redaction
-
+type: docs
 ---
-
-
 # Implementing GroupDocs.Search & Redaction in .NET
 
 ## Introduction

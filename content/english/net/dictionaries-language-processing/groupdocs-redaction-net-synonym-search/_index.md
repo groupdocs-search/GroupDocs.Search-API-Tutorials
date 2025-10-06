@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - synonym search implementation
 - document management system
-
+type: docs
 ---
-
-
 # Implement Synonym Search with GroupDocs.Redaction .NET
 
 ## Introduction

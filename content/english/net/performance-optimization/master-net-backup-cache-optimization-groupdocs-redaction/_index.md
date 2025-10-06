@@ -8,10 +8,8 @@ keywords:
 - .NET backup optimization
 - GroupDocs.Redaction .NET
 - cache management in .NET
-
+type: docs
 ---
-
-
 # .NET Backup & Cache Optimization Guide: Enhance Performance with GroupDocs.Redaction
 
 ## Introduction

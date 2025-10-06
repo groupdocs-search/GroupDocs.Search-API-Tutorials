@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for Java
 - deploy GroupDocs.Search
 - Java search network setup
-
+type: docs
 ---
-
-
 # Deploy GroupDocs.Search for Java: Comprehensive Setup Guide
 
 ## Introduction

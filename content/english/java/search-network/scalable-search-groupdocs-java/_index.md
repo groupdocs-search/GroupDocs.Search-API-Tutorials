@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for Java
 - scalable search solution
 - search network deployment
-
+type: docs
 ---
-
-
 # Scalable Search Solutions with GroupDocs.Search for Java
 
 ## Introduction

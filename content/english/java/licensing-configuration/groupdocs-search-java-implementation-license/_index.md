@@ -8,10 +8,8 @@ keywords:
 - Set License from File
 - GroupDocs.Search for Java
 - Java Licensing
-
+type: docs
 ---
-
-
 # Implementing Set License from File in GroupDocs.Search for Java: A Step-by-Step Guide
 
 ## Introduction

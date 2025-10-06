@@ -8,10 +8,8 @@ keywords:
 - advanced search filters
 - text file filtering
 - file path filtering
-
+type: docs
 ---
-
-
 # Implement Advanced Search Filters in .NET with GroupDocs.Redaction
 
 ## Introduction

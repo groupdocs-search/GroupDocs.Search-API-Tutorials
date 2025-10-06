@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Network
 - search network configuration
 - secure document handling
-
+type: docs
 ---
-
-
 # Configuring GroupDocs.Search Network with .NET: A Comprehensive Guide
 
 ## Introduction

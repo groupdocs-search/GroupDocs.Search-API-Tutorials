@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for .NET
 - Homophone Search in .NET
 - Indexing with GroupDocs
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search in .NET: Implement Indexing and Homophone Search
 
 ## Introduction

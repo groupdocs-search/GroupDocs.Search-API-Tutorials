@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for Java
 - phrase searches
 - wildcard patterns
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search Java for Phrase Searches with Wildcard Patterns
 
 ## Introduction

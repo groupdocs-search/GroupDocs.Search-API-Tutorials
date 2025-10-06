@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search .NET
 - .NET regex search
 - document management with GroupDocs
-
+type: docs
 ---
-
-
 # Comprehensive Guide to Implementing .NET Regex Search with GroupDocs.Search
 
 **Unlock the Power of Text Patterns: Master .NET Regex Search with GroupDocs.Search for Efficient Document Management**

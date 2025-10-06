@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - distributed searching Java
 - highlight search results Java
-
+type: docs
 ---
-
-
 # Configuring Search and Highlighting Results with GroupDocs.Search for Java
 
 ## Introduction

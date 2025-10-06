@@ -8,10 +8,8 @@ keywords:
 - faceted searches Java
 - complex search Java
 - GroupDocs.Search for Java
-
+type: docs
 ---
-
-
 # Faceted & Complex Searches in Java with GroupDocs.Search
 
 ## Introduction

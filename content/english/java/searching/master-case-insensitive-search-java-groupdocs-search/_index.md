@@ -8,10 +8,8 @@ keywords:
 - case-insensitive search in Java
 - character replacement during indexing
 - GroupDocs.Search setup
-
+type: docs
 ---
-
-
 # Mastering Case-Insensitive Search in Java with GroupDocs.Search
 
 ## Introduction

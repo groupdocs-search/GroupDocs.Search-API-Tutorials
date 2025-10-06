@@ -8,10 +8,8 @@ keywords:
 - date range searches in .NET
 - GroupDocs.Search implementation
 - customizing date formats .NET
-
+type: docs
 ---
-
-
 # Mastering Date Range Searches in .NET with GroupDocs
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for .NET
 - fuzzy search implementation
 - regex search in C#
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search for .NET: Implementing Fuzzy and Regex Subqueries
 
 In today's data-driven world, efficiently extracting information from vast document collections is crucial. Whether you're a developer enhancing search features or a business professional leveraging document intelligence, searching text effectively can be challenging. Enter **GroupDocs.Search** for .NET—a powerful library designed to simplify complex search operations with features like fuzzy and regex subqueries. This tutorial will guide you through harnessing these functionalities to create robust search solutions.

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - document management in .NET
 - search and highlight with GroupDocs
-
+type: docs
 ---
-
-
 # Mastering Document Management with GroupDocs.Redaction in .NET
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search .NET
 - .NET document indexing
 - document search solutions
-
+type: docs
 ---
-
-
 # Implementing .NET GroupDocs.Search: Efficient Document Indexing and Search Solutions
 
 ## Introduction

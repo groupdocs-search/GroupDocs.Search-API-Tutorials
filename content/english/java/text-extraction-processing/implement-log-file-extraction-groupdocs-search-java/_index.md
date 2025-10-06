@@ -8,10 +8,8 @@ keywords:
 - log file extraction
 - GroupDocs.Search Java
 - Java log analysis
-
+type: docs
 ---
-
-
 # Log File Extraction Using GroupDocs.Search in Java: A Comprehensive Guide
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - document indexing with Java
 - homophone recognition
-
+type: docs
 ---
-
-
 # Master Document Management with GroupDocs.Search for Java: A Comprehensive Guide to Using Homophones
 
 ## Introduction

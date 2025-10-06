@@ -8,10 +8,8 @@ keywords:
 - .NET document indexing
 - Aspose OCR integration
 - GroupDocs Redaction
-
+type: docs
 ---
-
-
 # Enhance .NET Document Indexing with Aspose OCR & GroupDocs Redaction
 
 ## Introduction

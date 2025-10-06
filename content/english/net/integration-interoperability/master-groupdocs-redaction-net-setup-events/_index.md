@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - search network configuration
 - document redaction events
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Redaction .NET: Setup & Event Handling for Secure Document Management
 
 ## Introduction

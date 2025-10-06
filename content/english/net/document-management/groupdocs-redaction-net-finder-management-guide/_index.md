@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - document finder management
 - text highlighting in documents
-
+type: docs
 ---
-
-
 # Implement GroupDocs.Redaction .NET for Document Finder Management and Highlighting
 
 ## Introduction

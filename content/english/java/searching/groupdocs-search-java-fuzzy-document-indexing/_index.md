@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - fuzzy search Java
 - document indexing Java
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search Java: Fuzzy Search & Document Indexing Guide
 
 ## Introduction

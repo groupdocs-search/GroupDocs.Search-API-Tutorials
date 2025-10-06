@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - .NET text splitting
 - HTML span creation
-
+type: docs
 ---
-
-
 # Master .NET Text Splitting and Highlighting with GroupDocs.Redaction
 
 ## Introduction

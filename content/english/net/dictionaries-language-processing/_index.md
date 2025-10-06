@@ -3,8 +3,8 @@ title: "Dictionary Management and Language Processing Tutorials with GroupDocs.S
 description: "Learn to work with dictionaries, spelling correction, synonyms, and advanced language processing in document searches with GroupDocs.Search .NET tutorials."
 weight: 5
 url: "/net/dictionaries-language-processing/"
+type: docs
 ---
-
 # Dictionary Management and Language Processing Tutorials with GroupDocs.Search for .NET
 
 Discover how to enhance search quality with our comprehensive GroupDocs.Search dictionary and language processing tutorials for .NET. These step-by-step guides teach you how to implement synonym dictionaries, spelling correction, homophone recognition, and custom alphabets. Each tutorial provides practical C# code examples for language processing tasks, helping you build more intelligent search applications that understand the nuances of human language and improve search relevance.

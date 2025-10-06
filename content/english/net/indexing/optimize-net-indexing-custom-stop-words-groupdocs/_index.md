@@ -8,10 +8,8 @@ keywords:
 - optimize .NET indexing
 - custom stop words
 - GroupDocs.Redaction
-
+type: docs
 ---
-
-
 # Optimize .NET Document Indexing with Custom Stop Words Using GroupDocs.Redaction
 
 ## Introduction

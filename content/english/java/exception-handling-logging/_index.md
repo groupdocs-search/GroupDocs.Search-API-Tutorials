@@ -3,8 +3,8 @@ title: "Exception Handling and Logging Tutorials for GroupDocs.Search Java"
 description: "Learn to implement robust error handling, logging, and diagnostic features in search applications with GroupDocs.Search Java tutorials."
 weight: 11
 url: "/java/exception-handling-logging/"
+type: docs
 ---
-
 # Exception Handling and Logging Tutorials for GroupDocs.Search Java
 
 Learn how to build reliable search applications with our GroupDocs.Search exception handling and logging tutorials for Java. These practical guides demonstrate how to implement proper error handling strategies, configure comprehensive logging, process indexing and search events, generate diagnostic reports, and troubleshoot common issues. Each tutorial includes working Java code examples for creating robust applications that gracefully handle errors and provide clear diagnostic information for debugging and monitoring.

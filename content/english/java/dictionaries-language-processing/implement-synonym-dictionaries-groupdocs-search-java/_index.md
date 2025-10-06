@@ -8,10 +8,8 @@ keywords:
 - synonym dictionaries java
 - groupdocs.search synonym implementation
 - java search functionality enhancement
-
+type: docs
 ---
-
-
 # Implement Synonym Dictionaries in Java Using GroupDocs.Search
 
 Welcome to our comprehensive guide on leveraging the power of GroupDocs.Search for Java to manage synonym dictionaries and perform efficient indexing. This tutorial will help you enhance your application's search functionality, whether you're a seasoned developer or new to search technologies.

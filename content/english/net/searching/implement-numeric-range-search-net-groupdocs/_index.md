@@ -8,10 +8,8 @@ keywords:
 - numeric range search in .NET
 - GroupDocs.Search implementation
 - document indexing with GroupDocs
-
+type: docs
 ---
-
-
 # Implementing Numeric Range Search in .NET with GroupDocs.Search and Redaction
 
 ## Introduction

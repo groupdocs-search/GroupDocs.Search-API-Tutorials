@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - set license file
 - configure GroupDocs.Redaction
-
+type: docs
 ---
-
-
 # How to Set Up GroupDocs.Redaction .NET: A Comprehensive Licensing and Configuration Guide
 
 ## Introduction

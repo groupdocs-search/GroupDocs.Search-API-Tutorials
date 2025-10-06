@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - index creation in .NET
 - alias dictionary management
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Redaction .NET: Efficient Index Creation and Alias Management for Advanced Document Search
 
 Are you struggling to manage large volumes of documents efficiently? Do you need a robust solution for advanced search operations, including alias management, within your document repositories using .NET? This tutorial will guide you through implementing index creation and managing an alias dictionary using GroupDocs.Search with GroupDocs.Redaction for .NET. By the end of this guide, you'll master these features and integrate them into your projects.

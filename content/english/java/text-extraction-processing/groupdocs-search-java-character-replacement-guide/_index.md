@@ -9,10 +9,8 @@ keywords:
 - text indexing
 - search optimization
 - GroupDocs.Search Java
-
+type: docs
 ---
-
-
 # Character Replacement in GroupDocs.Search Java: A Comprehensive Guide
 
 ## Introduction

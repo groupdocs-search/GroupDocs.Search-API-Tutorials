@@ -3,8 +3,8 @@ title: "Search Network Tutorials for GroupDocs.Search .NET"
 description: "Step-by-step tutorials for implementing distributed search networks, managing shards, and configuring search nodes with GroupDocs.Search for .NET."
 weight: 9
 url: "/net/search-network/"
+type: docs
 ---
-
 # Search Network Tutorials for GroupDocs.Search .NET
 
 Master distributed search with our detailed GroupDocs.Search network tutorials for .NET. These practical guides demonstrate how to deploy search nodes, configure distributed search networks, manage index shards, synchronize data across nodes, and optimize network performance. Each tutorial includes working C# code examples for implementing scalable search solutions that can handle large document collections across multiple servers, ensuring high availability and efficient resource utilization.

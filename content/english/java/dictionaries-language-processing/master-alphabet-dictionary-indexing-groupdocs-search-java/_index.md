@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for Java
 - alphabet dictionary indexing
 - Java document search
-
+type: docs
 ---
-
-
 # Master Alphabet Dictionary & Indexing Techniques with GroupDocs.Search for Java
 
 ## Introduction

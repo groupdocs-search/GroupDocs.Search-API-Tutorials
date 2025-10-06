@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Redaction .NET
 - search network integration .NET
 - text extraction .NET
-
+type: docs
 ---
-
-
 # Mastering the Power of GroupDocs.Redaction and Search Network Integration in .NET
 
 In today's fast-paced digital environment, managing sensitive information while ensuring quick access to data is crucial. Integrating GroupDocs.Search and GroupDocs.Redaction offers a robust solution by enabling developers to build efficient search networks with advanced redaction capabilities directly within their .NET applications.

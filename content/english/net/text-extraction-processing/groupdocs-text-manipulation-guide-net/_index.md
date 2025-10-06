@@ -8,10 +8,8 @@ keywords:
 - text manipulation
 - .NET applications
 - character replacement
-
+type: docs
 ---
-
-
 # Mastering Text Manipulation in .NET with GroupDocs Tools: Redaction and Search Guide
 
 ## Introduction

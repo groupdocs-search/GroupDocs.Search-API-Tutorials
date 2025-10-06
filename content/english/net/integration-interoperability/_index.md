@@ -3,8 +3,8 @@ title: "GroupDocs.Search Integration Tutorials for .NET Applications"
 description: "Step-by-step tutorials for integrating GroupDocs.Search with other GroupDocs products, third-party libraries, and external systems in .NET."
 weight: 12
 url: "/net/integration-interoperability/"
+type: docs
 ---
-
 # GroupDocs.Search Integration Tutorials for .NET Applications
 
 Our integration tutorials show you how to combine GroupDocs.Search with other systems to create comprehensive document management solutions in .NET. These step-by-step guides demonstrate integration with other GroupDocs products, third-party .NET libraries, and external services. Each tutorial includes practical C# code examples for implementing cross-format workflows and data exchange between different document processing components, helping you build connected applications that leverage the full power of the GroupDocs document processing ecosystem.

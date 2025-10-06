@@ -8,10 +8,8 @@ keywords:
 - text indexing in Java
 - GroupDocs.Search setup
 - index compression settings
-
+type: docs
 ---
-
-
 # Master Text Indexing in Java with GroupDocs.Search: A Comprehensive Guide
 
 ## Introduction

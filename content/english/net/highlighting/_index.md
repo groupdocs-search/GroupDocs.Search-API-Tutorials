@@ -3,8 +3,8 @@ title: "Search Result Highlighting Tutorials for GroupDocs.Search .NET"
 description: "Step-by-step tutorials for highlighting search results in various document formats using GroupDocs.Search for .NET."
 weight: 4
 url: "/net/highlighting/"
+type: docs
 ---
-
 # Search Result Highlighting Tutorials for GroupDocs.Search .NET
 
 Our highlighting tutorials provide detailed guidance for visualizing search results in documents with .NET. Follow these practical guides to learn how to highlight matched terms in original documents, generate HTML previews with highlighted text, customize highlight styling, and work with different document formats. These tutorials include complete C# code examples for common highlighting scenarios, helping you build applications that visually emphasize search matches for better user experience.

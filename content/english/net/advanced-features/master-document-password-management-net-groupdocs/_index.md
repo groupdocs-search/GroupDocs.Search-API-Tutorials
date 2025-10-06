@@ -8,10 +8,8 @@ keywords:
 - document password management .NET
 - GroupDocs Redaction password dictionary
 - secure document indexing with passwords
-
+type: docs
 ---
-
-
 # Mastering Document Password Management in .NET with GroupDocs Redaction
 
 ## Introduction

@@ -10,10 +10,8 @@ keywords:
 - .NET document management
 - custom text segmenter
 - redaction features
-
+type: docs
 ---
-
-
 # How to Implement .NET Search Using GroupDocs.Search and GroupDocs.Redaction for Enhanced Document Management
 
 ## Introduction

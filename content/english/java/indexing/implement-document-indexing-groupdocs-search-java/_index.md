@@ -8,10 +8,8 @@ keywords:
 - document indexing with GroupDocs.Search for Java
 - setting up GroupDocs.Search
 - Java document management
-
+type: docs
 ---
-
-
 # How to Implement Document Indexing with GroupDocs.Search for Java
 
 ## Introduction

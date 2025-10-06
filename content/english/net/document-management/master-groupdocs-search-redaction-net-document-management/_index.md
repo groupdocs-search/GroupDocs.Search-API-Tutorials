@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search
 - document management
 - fuzzy search
-
+type: docs
 ---
-
-
 # Mastering Document Management with GroupDocs.Search and GroupDocs.Redaction in .NET
 
 ## Introduction

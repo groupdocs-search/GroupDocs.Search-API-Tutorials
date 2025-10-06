@@ -3,8 +3,8 @@ title: "Search Performance Optimization Tutorials for GroupDocs.Search Java"
 description: "Complete tutorials for optimizing search performance, memory usage, and index size with GroupDocs.Search for Java."
 weight: 10
 url: "/java/performance-optimization/"
+type: docs
 ---
-
 # Search Performance Optimization Tutorials for GroupDocs.Search Java
 
 Our performance optimization tutorials provide comprehensive guidance for maximizing search efficiency using GroupDocs.Search in Java. These step-by-step guides demonstrate techniques for optimizing index size, reducing memory consumption, improving search speed, implementing chunked searching, and configuring indexing for better performance. Each tutorial includes detailed Java code examples and best practices for building high-performance search applications that remain responsive even with large document collections.

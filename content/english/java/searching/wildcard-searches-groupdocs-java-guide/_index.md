@@ -8,10 +8,8 @@ keywords:
 - wildcard searches in Java
 - text-based wildcard search
 - object-based wildcard search
-
+type: docs
 ---
-
-
 # Mastering Wildcard Searches in Java with GroupDocs.Search
 
 Unlock the power of text-based and object-based wildcard searches using GroupDocs.Search for Java. This comprehensive guide will help you implement advanced search functionalities to enhance your application’s search capabilities.

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search .NET
 - document indexing .NET
 - keyboard layout correction search
-
+type: docs
 ---
-
-
 # Efficient Document Indexing and Keyboard Layout Correction Using GroupDocs.Search in .NET
 
 ## Introduction

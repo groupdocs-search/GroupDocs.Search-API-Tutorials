@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search .NET
 - highlight search results .NET
 - .NET document highlighting
-
+type: docs
 ---
-
-
 # How to Highlight Search Results in .NET Documents Using GroupDocs.Search and Redaction
 
 ## Introduction

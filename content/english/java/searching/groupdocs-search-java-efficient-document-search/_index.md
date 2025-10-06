@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - document search index management
 - custom word forms handling
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search Java: Efficient Document Search
 ## Introduction
 In today's data-driven world, efficiently searching through vast amounts of documents is crucial for businesses and developers alike. The challenge often lies in creating a search index that accurately captures the nuances of language and user queries. This tutorial dives into using **GroupDocs.Search for Java** to create and manage a search index while handling different word forms effectively.

@@ -8,10 +8,8 @@ keywords:
 - high compression .NET
 - GroupDocs.Search implementation
 - redact sensitive data
-
+type: docs
 ---
-
-
 # How to Implement High Compression Text Storage & Data Redaction in .NET with GroupDocs
 
 ## Introduction

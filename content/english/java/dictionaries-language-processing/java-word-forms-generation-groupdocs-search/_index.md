@@ -8,10 +8,8 @@ keywords:
 - word forms generation
 - GroupDocs.Search Java API
 - linguistic transformation
-
+type: docs
 ---
-
-
 # Generate Word Forms in Java Using GroupDocs.Search API
 
 ## Introduction

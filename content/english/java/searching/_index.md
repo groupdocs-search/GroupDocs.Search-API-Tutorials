@@ -3,8 +3,8 @@ title: "Document Search Tutorials for GroupDocs.Search Java"
 description: "Complete tutorials for implementing various search types including boolean, fuzzy, phrase, wildcard, and regular expression searches using GroupDocs.Search for Java."
 weight: 3
 url: "/java/searching/"
+type: docs
 ---
-
 # Document Search Tutorials for GroupDocs.Search Java
 
 Master document searching capabilities with our detailed GroupDocs.Search Java tutorials. These step-by-step guides demonstrate how to implement different search types, handle search results, apply filters, and leverage advanced search features. Each tutorial includes working Java code examples, implementation notes, and best practices to help you build applications that efficiently search document content with powerful query capabilities.

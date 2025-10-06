@@ -8,10 +8,8 @@ keywords:
 - .NET Logging
 - GroupDocs Custom Logger
 - ConsoleLogger Implementation
-
+type: docs
 ---
-
-
 # Mastering .NET Logging with GroupDocs: Implementing a Custom Console Logger Guide
 
 ## Introduction

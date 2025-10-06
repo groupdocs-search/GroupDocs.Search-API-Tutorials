@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for .NET
 - update indexed documents
 - maintain index versions
-
+type: docs
 ---
-
-
 # Implement GroupDocs.Search & Redaction: Efficiently Update and Manage Document Indexes Using .NET
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction optimization
 - efficient index management .NET
 - spelling correction dictionary
-
+type: docs
 ---
-
-
 # How to Optimize GroupDocs.Redaction for .NET: Efficient Index & Spelling Management Guide
 
 In today's fast-paced digital world, efficiently managing large volumes of documents is crucial. Whether you're correcting spelling errors or redacting sensitive information, the right tools can make all the difference. This tutorial guides you through implementing GroupDocs.Redaction for .NET alongside efficient index and spelling correction management using GroupDocs.Search. By the end, you'll have mastered creating an optimized search index and managing a custom spelling corrector dictionary.

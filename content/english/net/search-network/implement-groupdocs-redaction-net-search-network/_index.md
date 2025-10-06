@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - search network configuration
 - document redaction
-
+type: docs
 ---
-
-
 # Implementing GroupDocs.Redaction .NET for Efficient Document Redaction and Search Network Configuration
 
 ## Introduction

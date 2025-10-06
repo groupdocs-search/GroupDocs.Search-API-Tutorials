@@ -8,10 +8,8 @@ keywords:
 - text file encoding detection
 - GroupDocs.Search for .NET
 - automatic encoding detection
-
+type: docs
 ---
-
-
 # Comprehensive Tutorial: Text File Encoding Detection with GroupDocs in .NET
 
 ## Introduction

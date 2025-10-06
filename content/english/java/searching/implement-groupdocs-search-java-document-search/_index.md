@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - document search with GroupDocs
 - highlighting search results in documents
-
+type: docs
 ---
-
-
 # How to Implement GroupDocs.Search Java for Extracting and Highlighting Search Results
 
 ## Introduction

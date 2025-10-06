@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search for Java
 - efficient document search
 - index creation in Java
-
+type: docs
 ---
-
-
 # Mastering Efficient Document Search with GroupDocs.Search for Java
 
 In the world of document management, quickly finding specific content within numerous documents is crucial. Whether you're managing legal contracts or academic papers, efficient search capabilities can save hours of manual labor. This tutorial dives into using **GroupDocs.Search for Java**, a powerful tool that helps you create indices and extract text from your documents efficiently. By the end of this guide, you'll know how to set up indexing with custom settings and output document text in various formats.

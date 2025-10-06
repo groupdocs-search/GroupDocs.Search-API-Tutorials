@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - Faceted Search
 - Document Management
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Redaction .NET: Implement Faceted Search Efficiently
 
 ## Introduction

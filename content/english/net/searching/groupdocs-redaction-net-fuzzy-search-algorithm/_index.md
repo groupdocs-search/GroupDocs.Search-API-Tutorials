@@ -8,10 +8,8 @@ keywords:
 - fuzzy search with GroupDocs Redaction
 - implementing fuzzy search in .NET
 - GroupDocs.Redaction similarity levels
-
+type: docs
 ---
-
-
 # Implement Fuzzy Search with GroupDocs Redaction in .NET
 ## Mastering GroupDocs Redaction .NET: A Complete Guide to Fuzzy Search Algorithms
 In today's data-driven world, efficiently searching through vast amounts of text is a common challenge. Whether you're trying to find specific information buried within documents or need to ensure sensitive data remains secure, the right tools can make all the difference. This tutorial guides you on implementing fuzzy search algorithms using GroupDocs.Redaction for .NET, enhancing your search capabilities with advanced similarity levels and step function configurations.

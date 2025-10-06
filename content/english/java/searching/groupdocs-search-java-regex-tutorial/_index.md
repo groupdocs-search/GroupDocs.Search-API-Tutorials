@@ -8,10 +8,8 @@ keywords:
 - regex searches
 - GroupDocs.Search for Java
 - Java text document analysis
-
+type: docs
 ---
-
-
 # Mastering Regex Searches in Java: A Comprehensive Guide to GroupDocs.Search for Text Document Analysis
 
 ## Introduction

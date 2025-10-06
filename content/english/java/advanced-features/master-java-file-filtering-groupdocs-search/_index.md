@@ -8,10 +8,8 @@ keywords:
 - Java File Filtering
 - GroupDocs.Search
 - Logical AND OR NOT Filters
-
+type: docs
 ---
-
-
 # Mastering File Filtering in Java with GroupDocs.Search: A Comprehensive Guide
 
 ## Introduction

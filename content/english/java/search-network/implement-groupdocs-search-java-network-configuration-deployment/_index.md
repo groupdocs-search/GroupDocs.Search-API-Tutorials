@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java Network
 - Java-based document search network
 - configuring and deploying GroupDocs.Search
-
+type: docs
 ---
-
-
 # How to Implement a GroupDocs.Search Java-Based Network Configuration and Deployment
 
 ## Introduction

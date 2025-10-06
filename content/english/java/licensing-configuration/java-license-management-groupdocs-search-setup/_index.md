@@ -8,10 +8,8 @@ keywords:
 - Java License Management
 - GroupDocs Search Integration
 - InputStream License Setup
-
+type: docs
 ---
-
-
 # Java License Management with GroupDocs
 
 ## Introduction

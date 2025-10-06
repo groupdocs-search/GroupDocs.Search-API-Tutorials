@@ -9,10 +9,8 @@ keywords:
 - image management
 - GroupDocs.Search
 - .NET application
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search and GroupDocs.Redaction in .NET: A Comprehensive Guide to Implementing Reverse Image Search
 
 ## Introduction

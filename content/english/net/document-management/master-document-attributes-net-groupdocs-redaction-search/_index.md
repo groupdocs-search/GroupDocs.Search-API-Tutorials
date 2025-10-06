@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction
 - document attribute management
 - .NET applications
-
+type: docs
 ---
-
-
 # Mastering Document Attribute Management in .NET with GroupDocs
 
 Welcome to the ultimate guide on leveraging the powerful features of **GroupDocs.Redaction** and **GroupDocs.Search** within your .NET applications. Whether you're a seasoned developer or just starting, this tutorial will empower you with the skills needed to modify document attributes seamlessly, enhancing both functionality and efficiency in handling indexed documents.

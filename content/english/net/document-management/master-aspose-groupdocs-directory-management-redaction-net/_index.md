@@ -8,10 +8,8 @@ keywords:
 - Aspose.GroupDocs directory management
 - GroupDocs.Redaction.NET
 - document redaction
-
+type: docs
 ---
-
-
 # Mastering Aspose.GroupDocs Directory Management and Redaction with .NET
 
 ## Introduction

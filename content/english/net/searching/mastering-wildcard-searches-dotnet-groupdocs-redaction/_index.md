@@ -8,10 +8,8 @@ keywords:
 - wildcard searches .NET
 - GroupDocs Redaction setup
 - implementing wildcard search .NET
-
+type: docs
 ---
-
-
 # Mastering Wildcard Searches in .NET with GroupDocs Redaction
 
 ## Introduction

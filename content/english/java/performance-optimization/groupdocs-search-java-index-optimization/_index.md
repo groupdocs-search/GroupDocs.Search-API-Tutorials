@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Search Java
 - create search index Java
 - optimize search index Java
-
+type: docs
 ---
-
-
 # Optimize Search Index in Java with GroupDocs.Search
 
 ## Introduction

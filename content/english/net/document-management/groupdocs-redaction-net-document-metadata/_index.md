@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - document metadata indexing
 - metadata management
-
+type: docs
 ---
-
-
 # Master Document Redaction and Metadata Indexing with GroupDocs.Redaction .NET
 
 ## Introduction

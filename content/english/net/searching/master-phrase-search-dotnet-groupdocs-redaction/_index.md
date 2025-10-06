@@ -8,10 +8,8 @@ keywords:
 - phrase search .net
 - GroupDocs Redaction API
 - wildcard phrase search
-
+type: docs
 ---
-
-
 # Mastering Phrase Search in .NET with GroupDocs.Redaction and GroupDocs.Search
 
 ## Introduction

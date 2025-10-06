@@ -8,10 +8,8 @@ keywords:
 - document search
 - synchronous indexing
 - asynchronous indexing
-
+type: docs
 ---
-
-
 # Mastering Document Search in Java: Implementing Synchronous and Asynchronous Indexing with GroupDocs.Search
 ## Introduction
 Are you looking to enhance your Java applications with powerful document search capabilities? Whether it's managing vast repositories of text files or delivering precise query results, efficient indexing is essential. This tutorial delves into implementing both synchronous and asynchronous indexing using **GroupDocs.Search for Java**, a robust library designed for high-performance search functionalities.

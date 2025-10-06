@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - search network configuration
 - document indexing
-
+type: docs
 ---
-
-
 # Optimize Your Search Network Using GroupDocs.Search for Java: A Comprehensive Guide
 
 ## Introduction

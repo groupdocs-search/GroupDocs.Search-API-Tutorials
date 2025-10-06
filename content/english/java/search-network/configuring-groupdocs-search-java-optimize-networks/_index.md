@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search Java
 - search network configuration
 - distributed searching
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Search Java: Configuring and Optimizing a Search Network
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Search .NET
 - network image search in .NET
 - image search with hashing
-
+type: docs
 ---
-
-
 # Implement GroupDocs.Search for Network Image Search in .NET: A Comprehensive Guide
 
 ## Introduction

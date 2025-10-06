@@ -8,10 +8,8 @@ keywords:
 - .NET Phrase Finder
 - GroupDocs.Redaction
 - Aspose Libraries
-
+type: docs
 ---
-
-
 # Implementing .NET Phrase Finder with GroupDocs.Redaction & Aspose: A Comprehensive Guide
 
 ## Introduction
