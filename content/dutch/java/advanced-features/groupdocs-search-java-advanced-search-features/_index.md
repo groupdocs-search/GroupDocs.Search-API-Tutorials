@@ -1,14 +1,16 @@
 ---
-title: "GroupDocs.Search Java: Date Range Search & Advanced Features"
-description: "Learn how to perform date range search and other advanced search features like faceted search Java using GroupDocs.Search for Java, including error handling and performance optimization."
-date: "2025-12-16"
-weight: 1
-url: "/java/advanced-features/groupdocs-search-java-advanced-search-features/"
+date: '2025-12-16'
+description: Leer hoe je een datumreeks‑zoekopdracht en andere geavanceerde zoekfuncties
+  zoals faceted search in Java kunt uitvoeren met GroupDocs.Search voor Java, inclusief
+  foutafhandeling en prestatieoptimalisatie.
 keywords:
 - GroupDocs.Search Java
 - advanced search features Java
 - Java indexing errors
+title: 'GroupDocs.Search Java: Zoeken op datumbereik & Geavanceerde functies'
 type: docs
+url: /nl/java/advanced-features/groupdocs-search-java-advanced-search-features/
+weight: 1
 ---
 
 # Mastering GroupDocs.Search Java: Date Range Search & Advanced Features
