@@ -2,7 +2,7 @@
 date: 2025-12-16
 description: Erfahren Sie, wie Sie einen Suchindex erstellen und Datumsbereich, facettierte
   Suche und Dokumentenfilterung mit den GroupDocs.Search Java‑Tutorials implementieren.
-title: 'Suchindex erstellen: GroupDocs.Search Java‑Tutorials'
+title: 'Suchindex erstellen - GroupDocs.Search Java‑Tutorials'
 type: docs
 url: /de/java/advanced-features/
 weight: 8

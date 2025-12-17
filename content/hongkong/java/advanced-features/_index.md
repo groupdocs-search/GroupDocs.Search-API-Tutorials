@@ -1,7 +1,7 @@
 ---
 date: 2025-12-16
 description: 學習如何建立搜尋索引，並透過 GroupDocs.Search Java 教學實作日期範圍、分面搜尋及文件篩選。
-title: 建立搜尋索引：GroupDocs.Search Java 教學
+title: 建立搜尋索引 - GroupDocs.Search Java 教學
 type: docs
 url: /zh-hant/java/advanced-features/
 weight: 8

@@ -1,5 +1,5 @@
 ---
-title: "Create Search Index: GroupDocs.Search Java Tutorials"
+title: "Create Search Index - GroupDocs.Search Java Tutorials"
 description: "Learn how to create search index and implement date range, faceted search, and document filtering with GroupDocs.Search Java tutorials."
 weight: 8
 url: "/java/advanced-features/"

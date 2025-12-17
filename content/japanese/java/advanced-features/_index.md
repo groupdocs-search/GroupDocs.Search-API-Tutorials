@@ -1,7 +1,7 @@
 ---
 date: 2025-12-16
 description: GroupDocs.Search の Java チュートリアルで、検索インデックスの作成方法や日付範囲検索、ファセット検索、ドキュメントフィルタリングの実装方法を学びましょう。
-title: '検索インデックスの作成: GroupDocs.Search Java チュートリアル'
+title: '検索インデックスの作成 - GroupDocs.Search Java チュートリアル'
 type: docs
 url: /ja/java/advanced-features/
 weight: 8
@@ -42,7 +42,7 @@ GroupDocs.Search Java のコードチュートリアル
 ### [Mastering GroupDocs.Search for Java&#58; Your Complete Guide to Document Indexing and Search](./groupdocs-search-java-implementation-guide/)
 包括的なガイドで GroupDocs.Search を Java に実装する方法を学びます。堅牢なテキスト抽出、シリアライズ、インデックス作成、検索機能を発見してください。
 
-## Additional Resources
+## 추가 자료
 
 - [GroupDocs.Search for Java Documentation](https://docs.groupdocs.com/search/java/)
 - [GroupDocs.Search for Java API Reference](https://reference.groupdocs.com/search/java/)

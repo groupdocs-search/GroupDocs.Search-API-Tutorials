@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Search Java
 - advanced search features Java
 - Java indexing errors
-title: 'GroupDocs.Search Java: Tìm kiếm theo khoảng ngày & Các tính năng nâng cao'
+title: 'GroupDocs.Search Java - Tìm kiếm theo khoảng ngày & Các tính năng nâng cao'
 type: docs
 url: /vi/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1

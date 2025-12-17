@@ -1,5 +1,5 @@
 ---
-title: "GroupDocs.Search Java: Date Range Search & Advanced Features"
+title: "GroupDocs.Search Java - Date Range Search & Advanced Features"
 description: "Learn how to perform date range search and other advanced search features like faceted search Java using GroupDocs.Search for Java, including error handling and performance optimization."
 date: "2025-12-16"
 weight: 1

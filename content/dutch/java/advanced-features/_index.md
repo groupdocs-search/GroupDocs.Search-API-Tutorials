@@ -2,7 +2,7 @@
 date: 2025-12-16
 description: Leer hoe u een zoekindex maakt en een datumbereik, gefacetteerd zoeken
   en documentfiltering implementeert met GroupDocs.Search Java‑tutorials.
-title: 'Zoekindex maken: GroupDocs.Search Java‑tutorials'
+title: 'Zoekindex maken - GroupDocs.Search Java‑tutorials'
 type: docs
 url: /nl/java/advanced-features/
 weight: 8

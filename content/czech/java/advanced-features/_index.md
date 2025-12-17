@@ -2,7 +2,7 @@
 date: 2025-12-16
 description: Naučte se, jak vytvořit vyhledávací index a implementovat časový rozsah,
   faceted vyhledávání a filtrování dokumentů pomocí Java tutoriálů GroupDocs.Search.
-title: 'Vytvořit vyhledávací index: GroupDocs.Search Java tutoriály'
+title: 'Vytvořit vyhledávací index - GroupDocs.Search Java tutoriály'
 type: docs
 url: /cs/java/advanced-features/
 weight: 8

@@ -5,7 +5,7 @@ keywords:
 - GroupDocs.Search Java
 - advanced search features Java
 - Java indexing errors
-title: 'GroupDocs.Search Java: 日付範囲検索と高度な機能'
+title: 'GroupDocs.Search Java - 日付範囲検索と高度な機能'
 type: docs
 url: /ja/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1

@@ -3,7 +3,7 @@ date: 2025-12-16
 description: Узнайте, как создать поисковый индекс и реализовать поиск по диапазону
   дат, фасетный поиск и фильтрацию документов с помощью учебных материалов GroupDocs.Search
   Java.
-title: 'Создать поисковый индекс: учебные материалы GroupDocs.Search Java'
+title: 'Создать поисковый индекс - учебные материалы GroupDocs.Search Java'
 type: docs
 url: /ru/java/advanced-features/
 weight: 8

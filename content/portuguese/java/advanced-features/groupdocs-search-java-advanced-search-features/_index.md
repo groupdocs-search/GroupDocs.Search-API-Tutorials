@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Search Java
 - advanced search features Java
 - Java indexing errors
-title: 'GroupDocs.Search Java: Busca por Intervalo de Datas e Recursos Avançados'
+title: 'GroupDocs.Search Java - Busca por Intervalo de Datas e Recursos Avançados'
 type: docs
 url: /pt/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1

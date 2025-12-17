@@ -3,7 +3,7 @@ date: 2025-12-16
 description: Apprenez à créer un index de recherche et à implémenter la recherche
   par plage de dates, la recherche à facettes et le filtrage de documents avec les
   tutoriels GroupDocs.Search Java.
-title: 'Créer un index de recherche : Tutoriels Java GroupDocs.Search'
+title: 'Créer un index de recherche - Tutoriels Java GroupDocs.Search'
 type: docs
 url: /fr/java/advanced-features/
 weight: 8

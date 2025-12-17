@@ -3,7 +3,7 @@ date: 2025-12-16
 description: Aprende cómo crear un índice de búsqueda e implementar rango de fechas,
   búsqueda facetada y filtrado de documentos con los tutoriales de GroupDocs.Search
   para Java.
-title: 'Crear índice de búsqueda: tutoriales de Java de GroupDocs.Search'
+title: 'Crear índice de búsqueda - tutoriales de Java de GroupDocs.Search'
 type: docs
 url: /es/java/advanced-features/
 weight: 8

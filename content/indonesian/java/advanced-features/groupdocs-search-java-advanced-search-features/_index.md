@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Search Java
 - advanced search features Java
 - Java indexing errors
-title: 'GroupDocs.Search Java: Pencarian Rentang Tanggal & Fitur Lanjutan'
+title: 'GroupDocs.Search Java - Pencarian Rentang Tanggal & Fitur Lanjutan'
 type: docs
 url: /id/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1

@@ -6,7 +6,7 @@ keywords:
 - GroupDocs.Search Java
 - advanced search features Java
 - Java indexing errors
-title: 'GroupDocs.Search Java: 날짜 범위 검색 및 고급 기능'
+title: 'GroupDocs.Search Java - 날짜 범위 검색 및 고급 기능'
 type: docs
 url: /ko/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1
@@ -222,20 +222,20 @@ SearchResult result = index.search(query);
 
 ## 자주 묻는 질문
 
-**Q: Can I mix date range search with other query types?**  
-A: 물론입니다. 날짜 범위 절을 Boolean 연산자, faceted 필터 또는 regex 패턴과 결합해 단일 쿼리 문자열에 사용할 수 있습니다.
+**Q: 기간 검색을 다른 검색어 유형과 혼합할 수 있나요?**
+A: 물론입니다. 날짜 범위 조정을 부울 반대, 패싯 필터링 또는 정규식 패턴과 결합해 단일 쿼리 문자열을 사용할 수 있습니다.
 
-**Q: Do I need to rebuild the index after changing date formats?**  
-A: 예. 인덱스는 토큰화된 용어를 저장하므로 `SearchOptions`만 업데이트해도 기존 데이터가 재토큰화되지 않습니다. 형식을 변경한 후에는 문서를 다시 인덱싱해야 합니다.
+**Q: 날짜 형식을 변경한 후 인덱스를 다시 작성해야 합니까?**
+답: 예. 따라서 `SearchOptions`만 업데이트해도 기존 데이터가 큰 화를 내지 않을 것입니다. 형식을 변경한 후에는 문서를 다시 가져와야 합니다.
 
-**Q: How does GroupDocs.Search handle large indexes?**  
-A: 증분 인덱싱 및 디스크 기반 저장소를 사용하여 메모리 사용량을 낮게 유지하면서 수백만 개의 문서까지 확장할 수 있습니다.
+**Q: GroupDocs.Search는 대규모 색인을 어떻게 처리합니까?**
+A: 증분 인덱싱 및 디스크 기반 외장을 사용하여 메모리 입력을 유지하면서 수백만 개의 문서까지 확장할 수 있습니다.
 
-**Q: Is there a limit to the number of wildcard characters?**  
-A: 와일드카드는 효율적으로 처리되지만, 선행 와일드카드(`*term` 등)를 많이 사용하면 성능이 저하될 수 있습니다. 접두사 또는 접미사 와일드카드를 우선 사용하세요.
+**Q: 와일드카드 문자 수에 제한이 있나요?**
+A: 라이더 라이더는 처리를 거부하고, 라이더 카드('*term' 등)를 많이 사용하면 기능이 완화될 수 있습니다. 열려두사 또는 열려미사 몬스터를 우선 사용하세요.
 
-**Q: What licensing model is recommended for production?**  
-A: 영구 라이선스 또는 구독 라이선스를 선택하면 업데이트, 지원 및 체험판 제한 없이 배포할 수 있습니다.
+**Q: 프로덕션에는 어떤 라이선스 모델이 권장됩니까?**
+A: 영구 인스턴스 또는 구독권을 선택하면 업데이트, 지원 및 체험판 제한 없이 배포할 수 있습니다.
 
 ## 결론
 By mastering **date range search** and the full suite of advanced query types offered by GroupDocs.Search for Java, you can build highly responsive, feature‑rich search experiences. Implement robust error handling, fine‑tune your index, and combine queries to meet virtually any retrieval scenario. Start experimenting today and elevate your application's data‑access capabilities.

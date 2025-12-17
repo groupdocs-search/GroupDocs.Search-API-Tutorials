@@ -1,7 +1,7 @@
 ---
 date: 2025-12-16
 description: 学习如何使用 GroupDocs.Search Java 教程创建搜索索引并实现日期范围、分面搜索和文档过滤。
-title: 创建搜索索引：GroupDocs.Search Java 教程
+title: 创建搜索索引 - GroupDocs.Search Java 教程
 type: docs
 url: /zh/java/advanced-features/
 weight: 8

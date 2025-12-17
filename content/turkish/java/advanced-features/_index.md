@@ -2,7 +2,7 @@
 date: 2025-12-16
 description: GroupDocs.Search Java eğitimleriyle arama dizini oluşturmayı ve tarih
   aralığı, faceted arama ve belge filtrelemeyi nasıl uygulayacağınızı öğrenin.
-title: 'Arama Dizini Oluşturma: GroupDocs.Search Java Öğreticileri'
+title: 'Arama Dizini Oluşturma - GroupDocs.Search Java Öğreticileri'
 type: docs
 url: /tr/java/advanced-features/
 weight: 8

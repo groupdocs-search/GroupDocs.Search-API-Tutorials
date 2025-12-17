@@ -2,7 +2,7 @@
 date: 2025-12-16
 description: GroupDocs.Search Java 튜토리얼을 통해 검색 인덱스를 생성하고 날짜 범위, 파싯 검색 및 문서 필터링을 구현하는
   방법을 배워보세요.
-title: '검색 인덱스 만들기: GroupDocs.Search Java 튜토리얼'
+title: '검색 인덱스 만들기 - GroupDocs.Search Java 튜토리얼'
 type: docs
 url: /ko/java/advanced-features/
 weight: 8

@@ -3,7 +3,7 @@ date: 2025-12-16
 description: Scopri come creare un indice di ricerca e implementare l'intervallo di
   date, la ricerca a faccette e il filtraggio dei documenti con i tutorial Java di
   GroupDocs.Search.
-title: 'Crea indice di ricerca: tutorial Java di GroupDocs.Search'
+title: 'Crea indice di ricerca - tutorial Java di GroupDocs.Search'
 type: docs
 url: /it/java/advanced-features/
 weight: 8

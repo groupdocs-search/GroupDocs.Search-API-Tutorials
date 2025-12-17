@@ -2,7 +2,7 @@
 date: 2025-12-16
 description: Tìm hiểu cách tạo chỉ mục tìm kiếm và triển khai phạm vi ngày, tìm kiếm
   phân lớp và lọc tài liệu với các hướng dẫn GroupDocs.Search Java.
-title: 'Tạo chỉ mục tìm kiếm: Hướng dẫn Java GroupDocs.Search'
+title: 'Tạo chỉ mục tìm kiếm - Hướng dẫn Java GroupDocs.Search'
 type: docs
 url: /vi/java/advanced-features/
 weight: 8

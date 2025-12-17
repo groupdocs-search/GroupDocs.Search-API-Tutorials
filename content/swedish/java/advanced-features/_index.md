@@ -2,7 +2,7 @@
 date: 2025-12-16
 description: Lär dig hur du skapar ett sökindex och implementerar datumintervall,
   facetterad sökning och dokumentfiltrering med GroupDocs.Search Java‑handledning.
-title: 'Skapa sökindex: GroupDocs.Search Java-handledningar'
+title: 'Skapa sökindex - GroupDocs.Search Java-handledningar'
 type: docs
 url: /sv/java/advanced-features/
 weight: 8

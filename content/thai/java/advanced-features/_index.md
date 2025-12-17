@@ -2,7 +2,7 @@
 date: 2025-12-16
 description: เรียนรู้วิธีสร้างดัชนีการค้นหาและใช้งานช่วงวันที่ การค้นหาแบบ faceted
   และการกรองเอกสารด้วยบทเรียน GroupDocs.Search Java.
-title: 'สร้างดัชนีการค้นหา: บทเรียน GroupDocs.Search Java'
+title: 'สร้างดัชนีการค้นหา - บทเรียน GroupDocs.Search Java'
 type: docs
 url: /th/java/advanced-features/
 weight: 8

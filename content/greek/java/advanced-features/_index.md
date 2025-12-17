@@ -3,7 +3,7 @@ date: 2025-12-16
 description: Μάθετε πώς να δημιουργήσετε ευρετήριο αναζήτησης και να εφαρμόσετε εύρος
   ημερομηνιών, αναζήτηση με πτυχές και φιλτράρισμα εγγράφων με τα μαθήματα Java του
   GroupDocs.Search.
-title: 'Δημιουργία Δείκτη Αναζήτησης: Οδηγοί Java του GroupDocs.Search'
+title: 'Δημιουργία Δείκτη Αναζήτησης - Οδηγοί Java του GroupDocs.Search'
 type: docs
 url: /el/java/advanced-features/
 weight: 8

@@ -2,7 +2,7 @@
 date: 2025-12-16
 description: Pelajari cara membuat indeks pencarian dan menerapkan rentang tanggal,
   pencarian berfaset, serta penyaringan dokumen dengan tutorial GroupDocs.Search Java.
-title: 'Buat Indeks Pencarian: Tutorial Java GroupDocs.Search'
+title: 'Buat Indeks Pencarian - Tutorial Java GroupDocs.Search'
 type: docs
 url: /id/java/advanced-features/
 weight: 8

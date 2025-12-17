@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Search Java
 - advanced search features Java
 - Java indexing errors
-title: 'GroupDocs.Search Java: Vyhledávání v rozmezí dat a pokročilé funkce'
+title: 'GroupDocs.Search Java - Vyhledávání v rozmezí dat a pokročilé funkce'
 type: docs
 url: /cs/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1

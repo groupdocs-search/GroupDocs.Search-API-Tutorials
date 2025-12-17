@@ -3,7 +3,7 @@ date: 2025-12-16
 description: Tanulja meg, hogyan hozhat létre keresési indexet, és valósíthat meg
   dátumtartományt, facettált keresést és dokumentumszűrést a GroupDocs.Search Java
   oktatóanyagok segítségével.
-title: 'Keresési index létrehozása: GroupDocs.Search Java oktatóanyagok'
+title: 'Keresési index létrehozása - GroupDocs.Search Java oktatóanyagok'
 type: docs
 url: /hu/java/advanced-features/
 weight: 8

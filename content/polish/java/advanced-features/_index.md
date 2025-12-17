@@ -3,7 +3,7 @@ date: 2025-12-16
 description: Dowiedz się, jak utworzyć indeks wyszukiwania i wdrożyć zakres dat, wyszukiwanie
   fasetowe oraz filtrowanie dokumentów za pomocą samouczków GroupDocs.Search w języku
   Java.
-title: 'Utwórz indeks wyszukiwania: samouczki GroupDocs.Search Java'
+title: 'Utwórz indeks wyszukiwania - samouczki GroupDocs.Search Java'
 type: docs
 url: /pl/java/advanced-features/
 weight: 8

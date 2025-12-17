@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Search Java
 - advanced search features Java
 - Java indexing errors
-title: 'GroupDocs.Search Java: Dátumtartomány keresés és fejlett funkciók'
+title: 'GroupDocs.Search Java - Dátumtartomány keresés és fejlett funkciók'
 type: docs
 url: /hu/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1

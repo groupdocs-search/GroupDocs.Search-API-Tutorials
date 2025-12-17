@@ -2,7 +2,7 @@
 date: 2025-12-16
 description: GroupDocs.Search Java ट्यूटोरियल्स के साथ सर्च इंडेक्स बनाना और डेट रेंज,
   फेसटेड सर्च, तथा डॉक्यूमेंट फ़िल्टरिंग को लागू करना सीखें।
-title: 'सर्च इंडेक्स बनाएं: GroupDocs.Search जावा ट्यूटोरियल्स'
+title: 'सर्च इंडेक्स बनाएं - GroupDocs.Search जावा ट्यूटोरियल्स'
 type: docs
 url: /hi/java/advanced-features/
 weight: 8

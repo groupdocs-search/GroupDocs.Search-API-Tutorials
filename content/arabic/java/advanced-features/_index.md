@@ -2,7 +2,7 @@
 date: 2025-12-16
 description: تعلم كيفية إنشاء فهرس بحث وتطبيق نطاق التاريخ والبحث المتعدد الأوجه وتصفية
   المستندات باستخدام دروس GroupDocs.Search للغة Java.
-title: 'إنشاء فهرس بحث: دروس GroupDocs.Search بلغة Java'
+title: 'إنشاء فهرس بحث - دروس GroupDocs.Search بلغة Java'
 type: docs
 url: /ar/java/advanced-features/
 weight: 8

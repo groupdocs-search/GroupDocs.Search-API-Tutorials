@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Search Java
 - advanced search features Java
 - Java indexing errors
-title: 'GroupDocs.Search Java: البحث عن نطاق التاريخ والميزات المتقدمة'
+title: 'GroupDocs.Search Java - البحث عن نطاق التاريخ والميزات المتقدمة'
 type: docs
 url: /ar/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1
