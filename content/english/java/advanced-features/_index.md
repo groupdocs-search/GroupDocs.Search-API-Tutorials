@@ -1,13 +1,22 @@
 ---
-title: "Advanced Search Features Tutorials for GroupDocs.Search Java"
-description: "Learn to implement faceted search, search reports, document filtering, and other advanced search features with these GroupDocs.Search Java tutorials."
+title: "Create Search Index - GroupDocs.Search Java Tutorials"
+description: "Learn how to create search index and implement date range, faceted search, and document filtering with GroupDocs.Search Java tutorials."
 weight: 8
 url: "/java/advanced-features/"
 type: docs
+date: 2025-12-16
 ---
-# Advanced Search Features Tutorials for GroupDocs.Search Java
+# Create Search Index: GroupDocs.Search Java Tutorials
 
-Explore advanced search capabilities with our comprehensive GroupDocs.Search tutorials for Java developers. These detailed guides cover implementing faceted search, generating search reports, applying document filters, working with metadata attributes, and leveraging other specialized search features. Each tutorial provides working Java code examples for sophisticated document search scenarios, helping you build powerful search applications that offer precise control and deep insight into document collections.
+Welcome to the hub for **creating a search index** and unlocking advanced search capabilities with GroupDocs.Search for Java. Whether you’re looking to **implement date range** queries, apply **file extension filtering Java**, or build **complex search Java** solutions, these tutorials give you step‑by‑step guidance, real‑world examples, and ready‑to‑run code. By the end of this guide you’ll understand how to design powerful search experiences that scale with large document collections.
+
+## How to create search index with GroupDocs.Search Java?
+Building a robust search index is the foundation for any sophisticated search feature. In the tutorials below you’ll see how to:
+
+* Set up an index and add documents efficiently.  
+* Use metadata and attributes to enrich search results.  
+* Apply filters such as **document filtering java** and **file extension filtering java** to narrow down results.  
+* Execute **complex search java** queries that combine multiple criteria, including **implement date range** constraints.
 
 ## Available Tutorials
 
@@ -26,7 +35,7 @@ A code tutorial for GroupDocs.Search Java
 ### [Master GroupDocs.Search Java&#58; Advanced Search Features for Efficient Data Retrieval](./groupdocs-search-java-advanced-search-features/)
 Learn to master advanced search features in GroupDocs.Search for Java, including error handling, various query types, and performance optimization.
 
-### [Master Java File Filtering Using GroupDocs.Search&#58; A Step-by-Step Guide](./master-java-file-filtering-groupdocs-search/)
+### [Master Java File Filtering Using GroupDocs.Search&#58; A Step‑By‑Step Guide](./master-java-file-filtering-groupdocs-search/)
 Learn how to efficiently manage and filter files in Java using GroupDocs.Search, including file extension, logical operators, and more.
 
 ### [Mastering GroupDocs.Search for Java&#58; Your Complete Guide to Document Indexing and Search](./groupdocs-search-java-implementation-guide/)
@@ -40,3 +49,8 @@ Learn how to implement GroupDocs.Search in Java with this comprehensive guide. D
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-16  
+**Author:** GroupDocs
