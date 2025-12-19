@@ -1,17 +1,18 @@
 ---
-title: "How to Add Synonyms in Java Using GroupDocs.Search – A Comprehensive Guide"
-description: "Learn how to add synonyms, search with synonyms, and manage synonym groups in Java using GroupDocs.Search. Boost your search index performance and reliability."
-date: "2025-12-19"
-weight: 1
-url: "/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/"
+date: '2025-12-19'
+description: GroupDocs.Search를 사용하여 Java에서 동의어를 추가하고, 동의어로 검색하며, 동의어 그룹을 관리하는 방법을
+  배워보세요. 검색 인덱스 성능과 신뢰성을 향상시킵니다.
 keywords:
 - synonym dictionaries java
 - groupdocs.search synonym implementation
 - java search functionality enhancement
+title: GroupDocs.Search를 사용하여 Java에서 동의어 추가하는 방법 – 포괄적인 가이드
 type: docs
+url: /ko/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/
+weight: 1
 ---
 
-# How to Add Synonyms in Java Using GroupDocs.Search
+# Java에서 GroupDocs.Search를 사용하여 동의어 추가하기
 
 Welcome to our comprehensive guide on **how to add synonyms** in Java with GroupDocs.Search. Whether you’re building a content‑rich CMS, an e‑commerce catalog, or a document repository, enabling synonym support can dramatically improve the discoverability of your data. In this tutorial you’ll learn to create and manage synonym dictionaries, import synonym dictionary files, and optimize your search index for fast, accurate results.
 
@@ -205,6 +206,4 @@ A: Verify that the dictionary is correctly imported, that `setUseSynonymSearch(t
 - [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
-- [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/) 
-
----
+- [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
