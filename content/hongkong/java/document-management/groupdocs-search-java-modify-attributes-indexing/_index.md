@@ -1,40 +1,40 @@
 ---
-title: "Search by Attribute Java with GroupDocs.Search Guide"
-description: "Learn how to search by attribute java using GroupDocs.Search. This guide shows batch update document attributes, adding and modifying attributes during indexing."
-date: "2025-12-24"
-weight: 1
-url: "/java/document-management/groupdocs-search-java-modify-attributes-indexing/"
+date: '2025-12-24'
+description: 了解如何使用 GroupDocs.Search 以 Java 進行屬性搜尋。本指南展示了批次更新文件屬性，以及在索引過程中新增和修改屬性。
 keywords:
 - GroupDocs.Search Java
 - document attribute modification
 - Java indexing techniques
+title: 使用 GroupDocs.Search 的屬性搜尋 Java 指南
 type: docs
+url: /zh-hant/java/document-management/groupdocs-search-java-modify-attributes-indexing/
+weight: 1
 ---
 
 # Search by Attribute Java with GroupDocs.Search Guide
 
-Are you looking to enhance your document management system by dynamically modifying and indexing document attributes using Java? You're in the right place! This tutorial dives deep into leveraging the powerful GroupDocs.Search for Java library to **search by attribute java**, change indexed document attributes, and add them during the indexing process. Whether you're building a search solution or optimizing document workflows, mastering these techniques is key.
+您是否想透過 Java 動態修改與索引文件屬性，提升文件管理系統的效能？您來對地方了！本教學深入探討如何利用功能強大的 GroupDocs.Search for Java 套件來 **search by attribute java**、變更已索引文件的屬性，並在索引過程中加入屬性。無論您是要建置搜尋解決方案或優化文件工作流程，掌握這些技巧都是關鍵。
 
 ## Quick Answers
-- **What is “search by attribute java”?** It’s the ability to filter search results using custom metadata attached to each document.  
-- **Can I modify attributes after indexing?** Yes—use `AttributeChangeBatch` to batch update document attributes.  
-- **How do I add attributes while indexing?** Subscribe to the `FileIndexing` event and set attributes programmatically.  
-- **Do I need a license?** A free trial works for evaluation; a permanent license is required for production.  
-- **Which Java version is required?** Java 8 or later is recommended.
+- **什麼是 “search by attribute java”？** 這是利用附加在每個文件上的自訂中繼資料（屬性）來篩選搜尋結果的能力。  
+- **索引後可以修改屬性嗎？** 可以——使用 `AttributeChangeBatch` 以批次方式更新文件屬性。  
+- **如何在索引時加入屬性？** 訂閱 `FileIndexing` 事件，並以程式方式設定屬性。  
+- **需要授權嗎？** 免費試用可用於評估；正式環境須購買永久授權。  
+- **需要哪個 Java 版本？** 建議使用 Java 8 或更新版本。
 
 ## What is “search by attribute java”?
-**Search by attribute java** lets you query documents based on their metadata (attributes) rather than just their content. By attaching key‑value pairs like `public`, `main`, or `key` to each file, you can quickly narrow down results to the most relevant subset.
+**Search by attribute java** 讓您可以根據文件的中繼資料（屬性）而非僅內容來查詢文件。只要為每個檔案附加 `public`、`main`、`key` 等鍵值對，即可快速縮小結果至最相關的子集合。
 
 ## Why modify or add attributes?
-- **Dynamic categorization** – keep metadata in sync with business rules.  
-- **Faster filtering** – attribute filters are evaluated before full‑text search, improving performance.  
-- **Compliance tracking** – tag documents for retention policies or audit requirements.  
+- **動態分類** – 讓中繼資料與業務規則保持同步。  
+- **更快的篩選** – 屬性過濾在全文搜尋之前先行評估，提升效能。  
+- **合規追蹤** – 為文件加上保留政策或稽核需求的標籤。  
 
 ## Prerequisites
 
-- **Java 8+** (JDK 8 or newer)  
-- **GroupDocs.Search for Java** library (see Maven setup below)  
-- Basic understanding of Java and indexing concepts  
+- **Java 8+**（JDK 8 或更新）  
+- **GroupDocs.Search for Java** 套件（請參考下方 Maven 設定）  
+- 具備基本的 Java 與索引概念  
 
 ## Setting Up GroupDocs.Search for Java
 
@@ -200,6 +200,4 @@ A: Visit the [official documentation](https://docs.groupdocs.com/search/java/) o
 
 **Last Updated:** 2025-12-24  
 **Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
----
+**Author:** GroupDocs
