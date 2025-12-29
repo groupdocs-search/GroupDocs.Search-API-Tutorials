@@ -1,17 +1,18 @@
 ---
-title: "Clean Directory Java – Automate Indexing & Renaming"
-description: "Learn how to clean directory java, automate document management automation, and rename files using GroupDocs.Search for Java. Boost efficiency in your applications."
-date: "2025-12-29"
-weight: 1
-url: "/java/indexing/automate-document-indexing-groupdocs-search-java/"
+date: '2025-12-29'
+description: Java 디렉터리를 정리하고, 문서 관리 자동화를 구현하며, GroupDocs.Search for Java를 사용하여 파일
+  이름을 바꾸는 방법을 배우세요. 애플리케이션의 효율성을 높이세요.
 keywords:
 - Java document indexing
 - GroupDocs.Search for Java
 - automate document management
+title: Clean Directory Java – 인덱싱 및 이름 변경 자동화
 type: docs
+url: /ko/java/indexing/automate-document-indexing-groupdocs-search-java/
+weight: 1
 ---
 
-# Clean Directory Java – Automate Document Indexing and Renaming Using GroupDocs.Search
+# Clean Directory Java – GroupDocs.Search를 사용한 문서 인덱싱 및 이름 바꾸기 자동화
 
 If you need to **clean directory java** while automating document indexing and renaming, you’ve come to the right place. Manually handling file moves, deletions, and index updates is error‑prone and time‑consuming. In this tutorial we’ll show you how to let Java do the heavy lifting, using **GroupDocs.Search for Java** to create a searchable index, rename files, and keep the index in sync automatically.
 
