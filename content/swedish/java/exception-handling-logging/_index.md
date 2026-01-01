@@ -3,7 +3,7 @@ date: 2025-12-22
 description: Lär dig hur du implementerar loggning, skapar en anpassad logger och
   genererar diagnostiska rapporter samtidigt som du hanterar undantag i GroupDocs.Search
   Java‑applikationer.
-title: 'Hur man implementerar loggning: Handledning i undantagshantering och loggning
+title: 'Hur man implementerar loggning - Handledning i undantagshantering och loggning
   för GroupDocs.Search Java'
 type: docs
 url: /sv/java/exception-handling-logging/

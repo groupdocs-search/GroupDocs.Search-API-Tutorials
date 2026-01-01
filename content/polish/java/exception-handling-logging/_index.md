@@ -3,7 +3,7 @@ date: 2025-12-22
 description: Dowiedz się, jak wdrażać logowanie, tworzyć własny logger i generować
   raporty diagnostyczne, obsługując jednocześnie wyjątki w aplikacjach GroupDocs.Search
   Java.
-title: 'Jak wdrożyć logowanie: samouczki obsługi wyjątków i logowania dla GroupDocs.Search
+title: 'Jak wdrożyć logowanie - samouczki obsługi wyjątków i logowania dla GroupDocs.Search
   Java'
 type: docs
 url: /pl/java/exception-handling-logging/

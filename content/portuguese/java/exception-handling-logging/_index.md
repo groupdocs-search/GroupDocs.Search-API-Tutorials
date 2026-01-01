@@ -3,7 +3,7 @@ date: 2025-12-22
 description: Aprenda a implementar registro de logs, criar um logger personalizado
   e gerar relatórios de diagnóstico enquanto lida com exceções em aplicações Java
   do GroupDocs.Search.
-title: 'Como Implementar o Registro de Logs: Tutoriais de Tratamento de Exceções e
+title: 'Como Implementar o Registro de Logs - Tutoriais de Tratamento de Exceções e
   Registro de Logs para GroupDocs.Search Java'
 type: docs
 url: /pt/java/exception-handling-logging/

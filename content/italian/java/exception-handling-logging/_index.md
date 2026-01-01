@@ -2,7 +2,7 @@
 date: 2025-12-22
 description: Scopri come implementare il logging, creare un logger personalizzato
   e generare report diagnostici gestendo le eccezioni nelle applicazioni Java di GroupDocs.Search.
-title: 'Come implementare il logging: tutorial su gestione delle eccezioni e logging
+title: 'Come implementare il logging - tutorial su gestione delle eccezioni e logging
   per GroupDocs.Search Java'
 type: docs
 url: /it/java/exception-handling-logging/

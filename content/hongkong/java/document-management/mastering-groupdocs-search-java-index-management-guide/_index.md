@@ -5,13 +5,13 @@ keywords:
 - GroupDocs.Search in Java
 - document index management
 - Java document search
-title: 如何在 Java 中使用 GroupDocs.Search 建立索引：完整指南
+title: 如何在 Java 中使用 GroupDocs.Search 建立索引 - 完整指南
 type: docs
 url: /zh-hant/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# 精通 GroupDocs.Search（Java）: 索引管理與文件搜尋完整指南
+# 精通 GroupDocs.Search（Java） - 索引管理與文件搜尋完整指南
 
 ## 簡介
 

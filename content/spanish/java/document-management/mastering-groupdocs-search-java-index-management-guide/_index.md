@@ -7,13 +7,13 @@ keywords:
 - GroupDocs.Search in Java
 - document index management
 - Java document search
-title: 'Cómo crear un índice con GroupDocs.Search en Java: una guía completa'
+title: 'Cómo crear un índice con GroupDocs.Search en Java - una guía completa'
 type: docs
 url: /es/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# Dominando GroupDocs.Search en Java: Guía Completa de Gestión de Índices y Búsqueda de Documentos
+# Dominando GroupDocs.Search en Java - Guía Completa de Gestión de Índices y Búsqueda de Documentos
 
 ## Introducción
 

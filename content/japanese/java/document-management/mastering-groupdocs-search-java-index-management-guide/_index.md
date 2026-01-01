@@ -5,13 +5,13 @@ keywords:
 - GroupDocs.Search in Java
 - document index management
 - Java document search
-title: JavaでGroupDocs.Searchを使用してインデックスを作成する方法：完全ガイド
+title: JavaでGroupDocs.Searchを使用してインデックスを作成する方法 - 完全ガイド
 type: docs
 url: /ja/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# JavaでのGroupDocs.Searchマスター: インデックス管理とドキュメント検索の完全ガイド
+# JavaでのGroupDocs.Searchマスター - インデックス管理とドキュメント検索の完全ガイド
 
 ## はじめに
 

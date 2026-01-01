@@ -2,7 +2,7 @@
 date: 2025-12-22
 description: Naučte se, jak implementovat logování, vytvořit vlastní logger a generovat
   diagnostické zprávy při zpracování výjimek v aplikacích GroupDocs.Search pro Javu.
-title: 'Jak implementovat logování: návody na zpracování výjimek a logování pro GroupDocs.Search
+title: 'Jak implementovat logování - návody na zpracování výjimek a logování pro GroupDocs.Search
   Java'
 type: docs
 url: /cs/java/exception-handling-logging/

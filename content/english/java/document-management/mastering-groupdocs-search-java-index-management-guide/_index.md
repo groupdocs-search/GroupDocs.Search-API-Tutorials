@@ -1,5 +1,5 @@
 ---
-title: "How to Create Index with GroupDocs.Search in Java: A Complete Guide"
+title: "How to Create Index with GroupDocs.Search in Java - A Complete Guide"
 description: "Learn how to create index and add documents to index using GroupDocs.Search for Java. Boost your search capabilities across legal, academic, and business documents."
 date: "2025-12-22"
 weight: 1
@@ -11,7 +11,7 @@ keywords:
 type: docs
 ---
 
-# Mastering GroupDocs.Search in Java: A Complete Guide to Index Management and Document Search
+# Mastering GroupDocs.Search in Java - A Complete Guide to Index Management and Document Search
 
 ## Introduction
 

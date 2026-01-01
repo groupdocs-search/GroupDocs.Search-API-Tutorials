@@ -6,13 +6,13 @@ keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-title: 使用 GroupDocs.Search 管理 Java 索引版本：完整指南
+title: 使用 GroupDocs.Search 管理 Java 索引版本 - 完整指南
 type: docs
 url: /zh-hant/java/document-management/guide-updating-index-versions-groupdocs-search-java/
 weight: 1
 ---
 
-# 如何使用 GroupDocs.Search 管理 Java 索引版本：完整指南
+# 如何使用 GroupDocs.Search 管理 Java 索引版本 - 完整指南
 
 在快速變化的資料管理領域，**manage index versions java** 是確保搜尋體驗快速且可靠的關鍵。使用 GroupDocs.Search for Java，您可以無縫更新與管理已索引的文件與版本，確保每一次查詢都返回最新的結果。
 

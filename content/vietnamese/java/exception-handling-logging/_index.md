@@ -2,7 +2,7 @@
 date: 2025-12-22
 description: Tìm hiểu cách triển khai ghi log, tạo logger tùy chỉnh và tạo báo cáo
   chẩn đoán khi xử lý ngoại lệ trong các ứng dụng GroupDocs.Search Java.
-title: 'Cách triển khai ghi log: Hướng dẫn xử lý ngoại lệ và ghi log cho GroupDocs.Search
+title: 'Cách triển khai ghi log - Hướng dẫn xử lý ngoại lệ và ghi log cho GroupDocs.Search
   Java'
 type: docs
 url: /vi/java/exception-handling-logging/

@@ -1,7 +1,7 @@
 ---
 date: 2025-12-22
 description: GroupDocs.Search Java アプリケーションで例外を処理しながら、ロギングの実装方法、カスタムロガーの作成、診断レポートの生成を学びます。
-title: ロギングの実装方法：GroupDocs.Search Java の例外処理とロギングチュートリアル
+title: ロギングの実装方法 - GroupDocs.Search Java の例外処理とロギングチュートリアル
 type: docs
 url: /ja/java/exception-handling-logging/
 weight: 11

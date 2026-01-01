@@ -1,7 +1,7 @@
 ---
 date: 2025-12-22
 description: 了解如何在 GroupDocs.Search Java 应用程序中实现日志记录、创建自定义日志记录器以及在处理异常时生成诊断报告。
-title: 如何实现日志记录：GroupDocs.Search Java 的异常处理与日志记录教程
+title: 如何实现日志记录 - GroupDocs.Search Java 的异常处理与日志记录教程
 type: docs
 url: /zh/java/exception-handling-logging/
 weight: 11

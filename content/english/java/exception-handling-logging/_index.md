@@ -1,5 +1,5 @@
 ---
-title: "How to Implement Logging: Exception Handling and Logging Tutorials for GroupDocs.Search Java"
+title: "How to Implement Logging - Exception Handling and Logging Tutorials for GroupDocs.Search Java"
 description: "Learn how to implement logging, create custom logger, and generate diagnostic reports while handling exceptions in GroupDocs.Search Java applications."
 weight: 11
 url: "/java/exception-handling-logging/"

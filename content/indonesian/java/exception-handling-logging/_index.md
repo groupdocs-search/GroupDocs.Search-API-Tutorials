@@ -3,7 +3,7 @@ date: 2025-12-22
 description: Pelajari cara mengimplementasikan pencatatan, membuat logger khusus,
   dan menghasilkan laporan diagnostik sambil menangani pengecualian dalam aplikasi
   GroupDocs.Search Java.
-title: 'Cara Menerapkan Logging: Tutorial Penanganan Pengecualian dan Logging untuk
+title: 'Cara Menerapkan Logging - Tutorial Penanganan Pengecualian dan Logging untuk
   GroupDocs.Search Java'
 type: docs
 url: /id/java/exception-handling-logging/

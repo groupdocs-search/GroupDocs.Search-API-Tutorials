@@ -2,7 +2,7 @@
 date: 2025-12-22
 description: GroupDocs.Search Java 애플리케이션에서 예외를 처리하면서 로깅을 구현하고, 사용자 정의 로거를 생성하며, 진단
   보고서를 생성하는 방법을 배웁니다.
-title: '로깅 구현 방법: GroupDocs.Search Java용 예외 처리 및 로깅 튜토리얼'
+title: '로깅 구현 방법 - GroupDocs.Search Java용 예외 처리 및 로깅 튜토리얼'
 type: docs
 url: /ko/java/exception-handling-logging/
 weight: 11

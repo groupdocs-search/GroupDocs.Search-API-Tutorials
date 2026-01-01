@@ -6,13 +6,13 @@ keywords:
 - GroupDocs.Search in Java
 - document index management
 - Java document search
-title: 'كيفية إنشاء الفهرس باستخدام GroupDocs.Search في Java: دليل شامل'
+title: 'كيفية إنشاء الفهرس باستخدام GroupDocs.Search في Java - دليل شامل'
 type: docs
 url: /ar/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# إتقان GroupDocs.Search في Java: دليل كامل لإدارة الفهارس والبحث في المستندات
+# إتقان GroupDocs.Search في Java - دليل كامل لإدارة الفهارس والبحث في المستندات
 
 ## المقدمة
 

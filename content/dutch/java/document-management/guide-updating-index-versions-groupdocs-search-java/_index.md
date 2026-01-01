@@ -7,13 +7,13 @@ keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-title: 'Hoe beheer je indexversies in Java met GroupDocs.Search: Een uitgebreide gids'
+title: 'Hoe beheer je indexversies in Java met GroupDocs.Search - Een uitgebreide gids'
 type: docs
 url: /nl/java/document-management/guide-updating-index-versions-groupdocs-search-java/
 weight: 1
 ---
 
-# Hoe indexversies beheren in Java met GroupDocs.Search: Een uitgebreide gids
+# Hoe indexversies beheren in Java met GroupDocs.Search - Een uitgebreide gids
 
 In de snel veranderende wereld van gegevensbeheer is **manage index versions java** essentieel om uw zoekervaring vlot en betrouwbaar te houden. Met GroupDocs.Search voor Java kunt u naadloos geïndexeerde documenten en versies bijwerken en beheren, zodat elke query de meest actuele resultaten oplevert.
 

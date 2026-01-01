@@ -3,7 +3,7 @@ date: 2025-12-22
 description: Tanulja meg, hogyan valósítsa meg a naplózást, hozzon létre egy egyéni
   naplózót, és generáljon diagnosztikai jelentéseket, miközben a kivételeket kezeli
   a GroupDocs.Search Java alkalmazásokban.
-title: 'Hogyan valósítsuk meg a naplózást: Kivételkezelés és naplózási útmutatók a
+title: 'Hogyan valósítsuk meg a naplózást - Kivételkezelés és naplózási útmutatók a
   GroupDocs.Search Java-hoz'
 type: docs
 url: /hu/java/exception-handling-logging/

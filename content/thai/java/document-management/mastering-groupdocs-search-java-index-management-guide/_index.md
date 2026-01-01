@@ -6,13 +6,13 @@ keywords:
 - GroupDocs.Search in Java
 - document index management
 - Java document search
-title: 'วิธีสร้างดัชนีด้วย GroupDocs.Search ใน Java: คู่มือฉบับสมบูรณ์'
+title: 'วิธีสร้างดัชนีด้วย GroupDocs.Search ใน Java - คู่มือฉบับสมบูรณ์'
 type: docs
 url: /th/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# การเชี่ยวชาญ GroupDocs.Search ใน Java: คู่มือครบวงจรสำหรับการจัดการดัชนีและการค้นหาเอกสาร
+# การเชี่ยวชาญ GroupDocs.Search ใน Java - คู่มือครบวงจรสำหรับการจัดการดัชนีและการค้นหาเอกสาร
 
 ## บทนำ
 

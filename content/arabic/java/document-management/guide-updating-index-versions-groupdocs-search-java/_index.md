@@ -6,13 +6,13 @@ keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-title: 'كيفية إدارة إصدارات الفهرس في Java باستخدام GroupDocs.Search: دليل شامل'
+title: 'كيفية إدارة إصدارات الفهرس في Java باستخدام GroupDocs.Search - دليل شامل'
 type: docs
 url: /ar/java/document-management/guide-updating-index-versions-groupdocs-search-java/
 weight: 1
 ---
 
-# كيفية إدارة إصدارات الفهرس Java باستخدام GroupDocs.Search: دليل شامل
+# كيفية إدارة إصدارات الفهرس Java باستخدام GroupDocs.Search - دليل شامل
 
 في عالم إدارة البيانات سريع الوتيرة، **manage index versions java** أمر أساسي للحفاظ على تجربة البحث سريعة وموثوقة. باستخدام GroupDocs.Search for Java، يمكنك تحديث وإدارة المستندات المفهرسة والإصدارات بسلاسة، مما يضمن أن كل استعلام يُعيد أحدث النتائج.
 

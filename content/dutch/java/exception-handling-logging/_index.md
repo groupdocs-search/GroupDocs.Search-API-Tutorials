@@ -2,7 +2,7 @@
 date: 2025-12-22
 description: Leer hoe je logging implementeert, een aangepaste logger maakt en diagnostische
   rapporten genereert terwijl je uitzonderingen afhandelt in GroupDocs.Search Java-toepassingen.
-title: 'Hoe Logging te Implementeren: Exception Handling‑ en Logging‑tutorials voor
+title: 'Hoe Logging te Implementeren - Exception Handling‑ en Logging‑tutorials voor
   GroupDocs.Search Java'
 type: docs
 url: /nl/java/exception-handling-logging/

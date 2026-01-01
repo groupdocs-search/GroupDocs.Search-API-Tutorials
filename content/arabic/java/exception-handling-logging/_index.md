@@ -2,7 +2,7 @@
 date: 2025-12-22
 description: تعرّف على كيفية تنفيذ التسجيل، وإنشاء مسجّل مخصص، وتوليد تقارير تشخيصية
   أثناء معالجة الاستثناءات في تطبيقات GroupDocs.Search بلغة Java.
-title: 'كيفية تنفيذ التسجيل: دروس معالجة الاستثناءات والتسجيل لـ GroupDocs.Search
+title: 'كيفية تنفيذ التسجيل - دروس معالجة الاستثناءات والتسجيل لـ GroupDocs.Search
   Java'
 type: docs
 url: /ar/java/exception-handling-logging/

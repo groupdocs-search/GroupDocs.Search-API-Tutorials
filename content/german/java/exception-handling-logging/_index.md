@@ -3,7 +3,7 @@ date: 2025-12-22
 description: Erfahren Sie, wie Sie Logging implementieren, einen benutzerdefinierten
   Logger erstellen und Diagnoseberichte generieren, während Sie Ausnahmen in GroupDocs.Search‑Java‑Anwendungen
   behandeln.
-title: 'Wie man Logging implementiert: Tutorials zu Ausnahmebehandlung und Logging
+title: 'Wie man Logging implementiertं - Tutorials zu Ausnahmebehandlung und Logging
   für GroupDocs.Search Java'
 type: docs
 url: /de/java/exception-handling-logging/

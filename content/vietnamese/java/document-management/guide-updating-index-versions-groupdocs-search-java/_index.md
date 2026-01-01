@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-title: 'Cách Quản Lý Phiên Bản Chỉ Mục Java với GroupDocs.Search: Hướng Dẫn Toàn Diện'
+title: 'Cách Quản Lý Phiên Bản Chỉ Mục Java với GroupDocs.Search - Hướng Dẫn Toàn Diện'
 type: docs
 url: /vi/java/document-management/guide-updating-index-versions-groupdocs-search-java/
 weight: 1

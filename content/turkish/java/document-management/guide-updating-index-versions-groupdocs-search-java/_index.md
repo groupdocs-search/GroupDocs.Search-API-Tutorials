@@ -7,13 +7,13 @@ keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-title: 'GroupDocs.Search ile Java’da Dizin Sürümlerini Yönetme: Kapsamlı Bir Rehber'
+title: 'GroupDocs.Search ile Java’da Dizin Sürümlerini Yönetme - Kapsamlı Bir Rehber'
 type: docs
 url: /tr/java/document-management/guide-updating-index-versions-groupdocs-search-java/
 weight: 1
 ---
 
-# Java ile GroupDocs.Search Kullanarak Dizin Sürümlerini Yönetme: Kapsamlı Bir Rehber
+# Java ile GroupDocs.Search Kullanarak Dizin Sürümlerini Yönetme - Kapsamlı Bir Rehber
 
 Veri yönetiminin hızlı tempolu dünyasında, **manage index versions java** arama deneyiminizin hızlı ve güvenilir kalması için çok önemlidir. Java için GroupDocs.Search ile indekslenmiş belgeleri ve sürümleri sorunsuz bir şekilde güncelleyebilir ve yönetebilirsiniz; böylece her sorgu en güncel sonuçları döndürür.
 

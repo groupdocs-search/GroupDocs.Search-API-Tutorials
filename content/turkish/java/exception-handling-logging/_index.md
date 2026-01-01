@@ -2,7 +2,7 @@
 date: 2025-12-22
 description: GroupDocs.Search Java uygulamalarında istisnaları ele alırken günlük
   kaydı uygulamayı, özel bir logger oluşturmayı ve tanı raporları üretmeyi öğrenin.
-title: 'Günlükleme Nasıl Uygulanır: GroupDocs.Search Java için İstisna Yönetimi ve
+title: 'Günlükleme Nasıl Uygulanır - GroupDocs.Search Java için İstisna Yönetimi ve
   Günlükleme Eğitimleri'
 type: docs
 url: /tr/java/exception-handling-logging/

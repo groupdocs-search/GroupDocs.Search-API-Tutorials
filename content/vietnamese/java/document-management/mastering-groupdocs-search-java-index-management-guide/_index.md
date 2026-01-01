@@ -7,13 +7,13 @@ keywords:
 - GroupDocs.Search in Java
 - document index management
 - Java document search
-title: 'Cách tạo chỉ mục với GroupDocs.Search trong Java: Hướng dẫn toàn diện'
+title: 'Cách tạo chỉ mục với GroupDocs.Search trong Java - Hướng dẫn toàn diện'
 type: docs
 url: /vi/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# Thành thạo GroupDocs.Search trong Java: Hướng dẫn toàn diện về Quản lý chỉ mục và Tìm kiếm tài liệu
+# Thành thạo GroupDocs.Search trong Java - Hướng dẫn toàn diện về Quản lý chỉ mục và Tìm kiếm tài liệu
 
 ## Giới thiệu
 

@@ -1,7 +1,7 @@
 ---
 date: 2025-12-22
 description: 學習如何在 GroupDocs.Search Java 應用程式中實作記錄、建立自訂記錄器，並在處理例外時產生診斷報告。
-title: 如何實作日誌記錄：GroupDocs.Search Java 的例外處理與日誌教學
+title: 如何實作日誌記錄 - GroupDocs.Search Java 的例外處理與日誌教學
 type: docs
 url: /zh-hant/java/exception-handling-logging/
 weight: 11

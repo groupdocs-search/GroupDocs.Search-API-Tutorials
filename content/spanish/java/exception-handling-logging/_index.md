@@ -2,7 +2,7 @@
 date: 2025-12-22
 description: Aprende a implementar registro, crear un logger personalizado y generar
   informes de diagnóstico mientras manejas excepciones en aplicaciones Java de GroupDocs.Search.
-title: 'Cómo implementar el registro: tutoriales de manejo de excepciones y registro
+title: 'Cómo implementar el registro - tutoriales de manejo de excepciones y registro
   para GroupDocs.Search Java'
 type: docs
 url: /es/java/exception-handling-logging/

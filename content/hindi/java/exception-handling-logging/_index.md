@@ -2,7 +2,7 @@
 date: 2025-12-22
 description: GroupDocs.Search Java अनुप्रयोगों में अपवादों को संभालते हुए लॉगिंग को
   लागू करना, कस्टम लॉगर बनाना, और डायग्नोस्टिक रिपोर्ट उत्पन्न करना सीखें।
-title: 'लॉगिंग को कैसे लागू करें: GroupDocs.Search Java के लिए अपवाद हैंडलिंग और लॉगिंग
+title: 'लॉगिंग को कैसे लागू करें - GroupDocs.Search Java के लिए अपवाद हैंडलिंग और लॉगिंग
   ट्यूटोरियल'
 type: docs
 url: /hi/java/exception-handling-logging/

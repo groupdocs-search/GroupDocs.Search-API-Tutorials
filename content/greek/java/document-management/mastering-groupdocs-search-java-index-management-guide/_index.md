@@ -7,14 +7,14 @@ keywords:
 - GroupDocs.Search in Java
 - document index management
 - Java document search
-title: 'Πώς να δημιουργήσετε ευρετήριο με το GroupDocs.Search σε Java: Ένας πλήρης
+title: 'Πώς να δημιουργήσετε ευρετήριο με το GroupDocs.Search σε Javaं - Ένας πλήρης
   οδηγός'
 type: docs
 url: /el/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# Αποκτώντας την Επικράτηση του GroupDocs.Search σε Java: Ένας Πλήρης Οδηγός για Διαχείριση Δεικτών και Αναζήτηση Εγγράφων
+# Αποκτώντας την Επικράτηση του GroupDocs.Search σε Javaं - Ένας Πλήρης Οδηγός για Διαχείριση Δεικτών και Αναζήτηση Εγγράφων
 
 ## Εισαγωγή
 

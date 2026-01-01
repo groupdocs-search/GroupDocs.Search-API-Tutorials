@@ -3,7 +3,7 @@ date: 2025-12-22
 description: Apprenez comment implémenter la journalisation, créer un logger personnalisé
   et générer des rapports de diagnostic tout en gérant les exceptions dans les applications
   Java GroupDocs.Search.
-title: 'Comment implémenter la journalisation : tutoriels sur la gestion des exceptions
+title: 'Comment implémenter la journalisation - tutoriels sur la gestion des exceptions
   et la journalisation pour GroupDocs.Search Java'
 type: docs
 url: /fr/java/exception-handling-logging/

@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-title: 'Hogyan kezeljük az indexverziókat Java-ban a GroupDocs.Search segítségével:
+title: 'Hogyan kezeljük az indexverziókat Java-ban a GroupDocs.Search segítségével
   Átfogó útmutató'
 type: docs
 url: /hu/java/document-management/guide-updating-index-versions-groupdocs-search-java/

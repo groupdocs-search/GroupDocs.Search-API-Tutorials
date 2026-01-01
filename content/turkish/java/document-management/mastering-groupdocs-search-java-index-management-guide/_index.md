@@ -6,13 +6,13 @@ keywords:
 - GroupDocs.Search in Java
 - document index management
 - Java document search
-title: 'Java''da GroupDocs.Search ile İndeks Oluşturma: Tam Bir Kılavuz'
+title: 'Java''da GroupDocs.Search ile İndeks Oluşturma - Tam Bir Kılavuz'
 type: docs
 url: /tr/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# GroupDocs.Search'i Java'da Ustalıkla Kullanma: Dizin Yönetimi ve Belge Arama İçin Tam Kılavuz
+# GroupDocs.Search'i Java'da Ustalıkla Kullanma - Dizin Yönetimi ve Belge Arama İçin Tam Kılavuz
 
 ## Giriş
 
