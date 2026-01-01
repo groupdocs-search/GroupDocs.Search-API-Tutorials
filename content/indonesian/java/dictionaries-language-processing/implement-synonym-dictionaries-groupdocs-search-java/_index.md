@@ -195,12 +195,6 @@ J: Bagi data menjadi batch logis, pantau penggunaan heap, dan jadwalkan pemeliha
 **T: Saya tidak melihat kecocokan sinonim yang diharapkan—apa yang harus saya periksa?**  
 J: Pastikan kamus telah diimpor dengan benar, `setUseSynonymSearch(true)` aktif, dan istilah-istilah ada dalam grup sinonim.
 
----
-
-**Terakhir Diperbarui:** 2025-12-19  
-**Diuji Dengan:** GroupDocs.Search 25.4 for Java  
-**Penulis:** GroupDocs  
-
 **Sumber Daya**  
 - [Documentation](https://docs.groupdocs.com/search/java/)  
 - [API Reference](https://reference.groupdocs.com/search/java)  
@@ -208,3 +202,9 @@ J: Pastikan kamus telah diimpor dengan benar, `setUseSynonymSearch(true)` aktif,
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Terakhir Diperbarui:** 2025-12-19  
+**Diuji Dengan:** GroupDocs.Search 25.4 for Java  
+**Penulis:** GroupDocs  

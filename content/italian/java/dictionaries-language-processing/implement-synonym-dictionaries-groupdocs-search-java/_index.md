@@ -195,12 +195,6 @@ A: Suddividi i dati in batch logici, monitora l'uso dell'heap e programma manute
 **Q: Non vedo corrispondenze di sinonimi previste — cosa dovrei controllare?**  
 A: Verifica che il dizionario sia stato importato correttamente, che `setUseSynonymSearch(true)` sia attivo e che i termini siano presenti nei gruppi di sinonimi.
 
----
-
-**Last Updated:** 2025-12-19  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
 **Risorse**  
 - [Documentazione](https://docs.groupdocs.com/search/java/)  
 - [Riferimento API](https://reference.groupdocs.com/search/java)  
@@ -208,3 +202,9 @@ A: Verifica che il dizionario sia stato importato correttamente, che `setUseSyno
 - [Repository GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Forum di supporto gratuito](https://forum.groupdocs.com/c/search/10)  
 - [Acquisizione licenza temporanea](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-19  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  

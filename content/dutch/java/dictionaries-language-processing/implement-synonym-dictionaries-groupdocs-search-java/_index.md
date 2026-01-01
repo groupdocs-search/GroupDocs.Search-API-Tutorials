@@ -195,12 +195,6 @@ A: Splits data in logische batches, houd heap‑gebruik in de gaten, en plan reg
 **Q: Ik zie niet de verwachte synoniem‑matches — wat moet ik controleren?**  
 A: Controleer of het woordenboek correct is geïmporteerd, of `setUseSynonymSearch(true)` actief is, en of de termen aanwezig zijn in de synoniemengroepen.
 
----
-
-**Laatst Bijgewerkt:** 2025-12-19  
-**Getest Met:** GroupDocs.Search 25.4 for Java  
-**Auteur:** GroupDocs  
-
 **Bronnen**  
 - [Documentatie](https://docs.groupdocs.com/search/java/)  
 - [API-referentie](https://reference.groupdocs.com/search/java)  
@@ -208,3 +202,9 @@ A: Controleer of het woordenboek correct is geïmporteerd, of `setUseSynonymSear
 - [GitHub-repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Gratis ondersteuningsforum](https://forum.groupdocs.com/c/search/10)  
 - [Tijdelijke licentie‑acquisitie](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Laatst Bijgewerkt:** 2025-12-19  
+**Getest Met:** GroupDocs.Search 25.4 for Java  
+**Auteur:** GroupDocs  

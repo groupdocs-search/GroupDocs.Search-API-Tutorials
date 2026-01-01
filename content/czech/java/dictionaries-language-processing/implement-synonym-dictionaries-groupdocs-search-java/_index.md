@@ -195,12 +195,6 @@ A: Split data into logical batches, monitor heap usage, and schedule regular ind
 **Q: Nevidím očekávané shody synonym – co mám zkontrolovat?**  
 A: Verify that the dictionary is correctly imported, that `setUseSynonymSearch(true)` is active, and that the terms are present in the synonym groups.
 
----
-
-**Last Updated:** 2025-12-19  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
 **Zdroje**  
 - [Dokumentace](https://docs.groupdocs.com/search/java/)  
 - [API reference](https://reference.groupdocs.com/search/java)  
@@ -208,3 +202,9 @@ A: Verify that the dictionary is correctly imported, that `setUseSynonymSearch(t
 - [GitHub repozitář](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Bezplatné fórum podpory](https://forum.groupdocs.com/c/search/10)  
 - [Získání dočasné licence](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-19  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  

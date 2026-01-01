@@ -193,12 +193,6 @@ SearchResult result = index.search(query, options);
 **问：我没有看到预期的同义词匹配，应该检查什么？**  
 答：确认字典已正确导入，`setUseSynonymSearch(true)` 已激活，并且相关术语已存在于同义词组中。
 
----
-
-**最后更新：** 2025-12-19  
-**测试环境：** GroupDocs.Search 25.4 for Java  
-**作者：** GroupDocs  
-
 **资源**  
 - [Documentation](https://docs.groupdocs.com/search/java/)  
 - [API Reference](https://reference.groupdocs.com/search/java)  
@@ -206,3 +200,9 @@ SearchResult result = index.search(query, options);
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**最后更新：** 2025-12-19  
+**测试环境：** GroupDocs.Search 25.4 for Java  
+**作者：** GroupDocs  

@@ -195,12 +195,6 @@ A: Daten in logische Batches aufteilen, den Heap‑Verbrauch überwachen und reg
 **F: Ich sehe keine erwarteten Synonym‑Treffer – was sollte ich prüfen?**  
 A: Stellen Sie sicher, dass das Wörterbuch korrekt importiert wurde, dass `setUseSynonymSearch(true)` aktiv ist und dass die Begriffe in den Synonym‑Gruppen enthalten sind.
 
----
-
-**Zuletzt aktualisiert:** 2025-12-19  
-**Getestet mit:** GroupDocs.Search 25.4 für Java  
-**Autor:** GroupDocs  
-
 **Ressourcen**  
 - [Documentation](https://docs.groupdocs.com/search/java/)  
 - [API Reference](https://reference.groupdocs.com/search/java)  
@@ -208,3 +202,9 @@ A: Stellen Sie sicher, dass das Wörterbuch korrekt importiert wurde, dass `setU
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Zuletzt aktualisiert:** 2025-12-19  
+**Getestet mit:** GroupDocs.Search 25.4 für Java  
+**Autor:** GroupDocs  

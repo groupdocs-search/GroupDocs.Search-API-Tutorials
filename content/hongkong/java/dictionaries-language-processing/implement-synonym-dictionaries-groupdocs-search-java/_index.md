@@ -193,12 +193,6 @@ A: 將資料分批處理，監控堆積使用，並排程定期的索引維護�
 **Q: 為何同義詞匹配不到預期結果？我該檢查什麼？**  
 A: 確認字典已正確匯入、`setUseSynonymSearch(true)` 已啟用，且相關詞彙已存在於同義詞群組中。
 
----
-
-**最後更新：** 2025-12-19  
-**測試環境：** GroupDocs.Search 25.4 for Java  
-**作者：** GroupDocs  
-
 **資源**  
 - [Documentation](https://docs.groupdocs.com/search/java/)  
 - [API Reference](https://reference.groupdocs.com/search/java)  
@@ -206,3 +200,9 @@ A: 確認字典已正確匯入、`setUseSynonymSearch(true)` 已啟用，且相�
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**最後更新：** 2025-12-19  
+**測試環境：** GroupDocs.Search 25.4 for Java  
+**作者：** GroupDocs  

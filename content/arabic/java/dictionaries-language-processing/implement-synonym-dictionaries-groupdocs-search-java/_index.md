@@ -195,12 +195,6 @@ SearchResult result = index.search(query, options);
 **س: لا أحصل على مطابقة المرادفات المتوقعة—ما الذي يجب التحقق منه؟**  
 ج: تأكد من أن القاموس تم استيراده بشكل صحيح، وأن `setUseSynonymSearch(true)` مفعّل، وأن المصطلحات موجودة في مجموعات المرادفات.
 
----
-
-**آخر تحديث:** 2025-12-19  
-**تم الاختبار مع:** GroupDocs.Search 25.4 لجافا  
-**المؤلف:** GroupDocs  
-
 **الموارد**  
 - [التوثيق](https://docs.groupdocs.com/search/java/)  
 - [مرجع API](https://reference.groupdocs.com/search/java)  
@@ -208,3 +202,9 @@ SearchResult result = index.search(query, options);
 - [مستودع GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [منتدى الدعم المجاني](https://forum.groupdocs.com/c/search/10)  
 - [الحصول على ترخيص مؤقت](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**آخر تحديث:** 2025-12-19  
+**تم الاختبار مع:** GroupDocs.Search 25.4 لجافا  
+**المؤلف:** GroupDocs  

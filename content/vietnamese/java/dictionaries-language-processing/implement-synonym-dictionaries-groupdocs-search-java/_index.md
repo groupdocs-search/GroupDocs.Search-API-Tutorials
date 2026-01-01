@@ -196,10 +196,6 @@ A: Chia dữ liệu thành các lô hợp lý, giám sát việc sử dụng hea
 **Q: Tôi không thấy các kết quả đồng nghĩa như mong đợi—cần kiểm tra gì?**  
 A: Xác nhận rằng từ điển đã được nhập đúng, `setUseSynonymSearch(true)` đang hoạt động, và các thuật ngữ có trong các nhóm đồng nghĩa.
 
-**Cập nhật lần cuối:** 2025-12-19  
-**Kiểm tra với:** GroupDocs.Search 25.4 cho Java  
-**Tác giả:** GroupDocs  
-
 **Tài nguyên**  
 - [Tài liệu](https://docs.groupdocs.com/search/java/)  
 - [Tham chiếu API](https://reference.groupdocs.com/search/java)  
@@ -207,3 +203,9 @@ A: Xác nhận rằng từ điển đã được nhập đúng, `setUseSynonymSe
 - [Kho GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Diễn đàn Hỗ trợ Miễn phí](https://forum.groupdocs.com/c/search/10)  
 - [Mua Giấy phép Tạm thời](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Cập nhật lần cuối:** 2025-12-19  
+**Kiểm tra với:** GroupDocs.Search 25.4 cho Java  
+**Tác giả:** GroupDocs  

@@ -195,12 +195,6 @@ A: Divida los datos en lotes lógicos, monitoree el uso del heap y programe mant
 **Q: No estoy viendo coincidencias de sinónimos esperadas—¿qué debo verificar?**  
 A: Verifique que el diccionario esté importado correctamente, que `setUseSynonymSearch(true)` esté activo y que los términos estén presentes en los grupos de sinónimos.
 
----
-
-**Última actualización:** 2025-12-19  
-**Probado con:** GroupDocs.Search 25.4 for Java  
-**Autor:** GroupDocs  
-
 **Recursos**  
 - [Documentación](https://docs.groupdocs.com/search/java/)  
 - [Referencia de API](https://reference.groupdocs.com/search/java)  
@@ -208,3 +202,9 @@ A: Verifique que el diccionario esté importado correctamente, que `setUseSynony
 - [Repositorio en GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Foro de soporte gratuito](https://forum.groupdocs.com/c/search/10)  
 - [Adquisición de licencia temporal](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Última actualización:** 2025-12-19  
+**Probado con:** GroupDocs.Search 25.4 for Java  
+**Autor:** GroupDocs  

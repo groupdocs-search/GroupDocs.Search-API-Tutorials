@@ -195,10 +195,6 @@ A: Dela upp data i logiska batcher, övervaka heap‑användning och schemalägg
 **Q: Jag får inte de förväntade synonymträffarna—vad bör jag kontrollera?**  
 A: Verifiera att ordboken har importerats korrekt, att `setUseSynonymSearch(true)` är aktivt, och att termerna finns i synonymgrupperna.
 
-**Senast uppdaterad:** 2025-12-19  
-**Testad med:** GroupDocs.Search 25.4 for Java  
-**Författare:** GroupDocs  
-
 **Resurser**  
 - [Documentation](https://docs.groupdocs.com/search/java/)  
 - [API Reference](https://reference.groupdocs.com/search/java)  
@@ -206,3 +202,9 @@ A: Verifiera att ordboken har importerats korrekt, att `setUseSynonymSearch(true
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Senast uppdaterad:** 2025-12-19  
+**Testad med:** GroupDocs.Search 25.4 for Java  
+**Författare:** GroupDocs  

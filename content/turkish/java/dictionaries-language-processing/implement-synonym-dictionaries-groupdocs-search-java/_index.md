@@ -196,12 +196,6 @@ C: Veriyi mantıksal partisyonlara bölün, yığın kullanımını izleyin ve d
 **S: Beklediğim eş anlamlı eşleşmeler gelmiyor – ne kontrol etmeliyim?**  
 C: Sözlüğün doğru içe aktarıldığını, `setUseSynonymSearch(true)`’in etkin olduğunu ve terimlerin eş anlamlı gruplarında bulunduğunu doğrulayın.
 
----
-
-**Son Güncelleme:** 2025-12-19  
-**Test Edilen Sürüm:** GroupDocs.Search 25.4 for Java  
-**Yazar:** GroupDocs  
-
 **Kaynaklar**  
 - [Documentation](https://docs.groupdocs.com/search/java/)  
 - [API Reference](https://reference.groupdocs.com/search/java)  
@@ -209,3 +203,9 @@ C: Sözlüğün doğru içe aktarıldığını, `setUseSynonymSearch(true)`’in
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Son Güncelleme:** 2025-12-19  
+**Test Edilen Sürüm:** GroupDocs.Search 25.4 for Java  
+**Yazar:** GroupDocs  

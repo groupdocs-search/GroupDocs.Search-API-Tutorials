@@ -196,10 +196,6 @@ SearchResult result = index.search(query, options);
 **Ε: Δεν βλέπω τις αναμενόμενες αντιστοιχίες συνωνύμων—τι πρέπει να ελέγξω;**  
 Α: Επαληθεύστε ότι το λεξικό έχει εισαχθεί σωστά, ότι το `setUseSynonymSearch(true)` είναι ενεργό και ότι οι όροι υπάρχουν στις ομάδες συνωνύμων.
 
-**Τελευταία ενημέρωση:** 2025-12-19  
-**Δοκιμάστηκε με:** GroupDocs.Search 25.4 for Java  
-**Συγγραφέας:** GroupDocs  
-
 **Πόροι**  
 - [Τεκμηρίωση](https://docs.groupdocs.com/search/java/)  
 - [Αναφορά API](https://reference.groupdocs.com/search/java)  
@@ -207,3 +203,9 @@ SearchResult result = index.search(query, options);
 - [Αποθετήριο GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Δωρεάν Φόρουμ Υποστήριξης](https://forum.groupdocs.com/c/search/10)  
 - [Απόκτηση Προσωρινής Άδειας](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Τελευταία ενημέρωση:** 2025-12-19  
+**Δοκιμάστηκε με:** GroupDocs.Search 25.4 for Java  
+**Συγγραφέας:** GroupDocs  

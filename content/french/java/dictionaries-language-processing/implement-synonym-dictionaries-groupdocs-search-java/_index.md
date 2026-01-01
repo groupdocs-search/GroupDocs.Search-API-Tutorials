@@ -195,12 +195,6 @@ R : Divisez les données en lots logiques, surveillez l’utilisation du tas e
 **Q : Je ne vois pas les correspondances attendues avec les synonymes—que vérifier ?**  
 R : Vérifiez que le dictionnaire est correctement importé, que `setUseSynonymSearch(true)` est actif, et que les termes sont présents dans les groupes de synonymes.
 
----
-
-**Dernière mise à jour :** 2025-12-19  
-**Testé avec :** GroupDocs.Search 25.4 for Java  
-**Auteur :** GroupDocs  
-
 **Ressources**  
 - [Documentation](https://docs.groupdocs.com/search/java/)  
 - [Référence API](https://reference.groupdocs.com/search/java)  
@@ -208,3 +202,9 @@ R : Vérifiez que le dictionnaire est correctement importé, que `setUseSynony
 - [Dépôt GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Forum d’assistance gratuit](https://forum.groupdocs.com/c/search/10)  
 - [Acquisition de licence temporaire](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Dernière mise à jour :** 2025-12-19  
+**Testé avec :** GroupDocs.Search 25.4 for Java  
+**Auteur :** GroupDocs  

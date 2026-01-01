@@ -196,12 +196,6 @@ A: Ossza fel az adatokat logikai kötegekre, figyelje a heap használatát, és 
 **Q: Nem látom a várt szinonima egyezéseket – mit ellenőrizze?**  
 A: Ellenőrizze, hogy a szótár helyesen importálva van, hogy a `setUseSynonymSearch(true)` aktív, és hogy a kifejezések jelen vannak a szinonima‑csoportokban.
 
----
-
-**Legutóbb frissítve:** 2025-12-19  
-**Tesztelve:** GroupDocs.Search 25.4 for Java  
-**Szerző:** GroupDocs  
-
 **Erőforrások**  
 - [Dokumentáció](https://docs.groupdocs.com/search/java/)  
 - [API Referencia](https://reference.groupdocs.com/search/java)  
@@ -209,5 +203,11 @@ A: Ellenőrizze, hogy a szótár helyesen importálva van, hogy a `setUseSynonym
 - [GitHub tároló](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Ingyenes támogat fórum](https://forum.groupdocs.com/c/search/10)  
 - [Ideiglenes licenc beszerzése](https://purchase.groupdocs.com/temporary-license/) 
+
+---
+
+**Legutóbb frissítve:** 2025-12-19  
+**Tesztelve:** GroupDocs.Search 25.4 for Java  
+**Szerző:** GroupDocs  
 
 ---

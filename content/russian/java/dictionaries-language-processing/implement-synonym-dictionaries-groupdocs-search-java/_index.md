@@ -195,12 +195,6 @@ A: Разделяйте данные на логические партии, к�
 **Q: Я не получаю ожидаемых совпадений по синонимам — что проверить?**  
 A: Убедитесь, что словарь правильно импортирован, что `setUseSynonymSearch(true)` активен, и что нужные термины присутствуют в группах синонимов.
 
----
-
-**Last Updated:** 2025-12-19  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
 **Resources**  
 - [Documentation](https://docs.groupdocs.com/search/java/)  
 - [API Reference](https://reference.groupdocs.com/search/java)  
@@ -208,3 +202,9 @@ A: Убедитесь, что словарь правильно импортир
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-19  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  

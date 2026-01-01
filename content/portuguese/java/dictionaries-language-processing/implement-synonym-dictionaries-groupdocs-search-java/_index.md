@@ -195,12 +195,6 @@ A: Divida os dados em lotes lógicos, monitore o uso de heap e agende manutenç�
 **Q: Não estou obtendo as correspondências de sinônimos esperadas—o que devo verificar?**  
 A: Verifique se o dicionário foi importado corretamente, se `setUseSynonymSearch(true)` está ativo e se os termos estão presentes nos grupos de sinônimos.
 
----
-
-**Last Updated:** 2025-12-19  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
 **Recursos**  
 - [Documentação](https://docs.groupdocs.com/search/java/)  
 - [Referência da API](https://reference.groupdocs.com/search/java)  
@@ -208,3 +202,9 @@ A: Verifique se o dicionário foi importado corretamente, se `setUseSynonymSearc
 - [Repositório no GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Fórum de Suporte Gratuito](https://forum.groupdocs.com/c/search/10)  
 - [Aquisição de Licença Temporária](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-19  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  

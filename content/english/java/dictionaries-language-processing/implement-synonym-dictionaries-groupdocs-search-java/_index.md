@@ -193,12 +193,6 @@ A: Split data into logical batches, monitor heap usage, and schedule regular ind
 **Q: I’m not seeing expected synonym matches—what should I check?**  
 A: Verify that the dictionary is correctly imported, that `setUseSynonymSearch(true)` is active, and that the terms are present in the synonym groups.
 
----
-
-**Last Updated:** 2025-12-19  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
 **Resources**  
 - [Documentation](https://docs.groupdocs.com/search/java/)  
 - [API Reference](https://reference.groupdocs.com/search/java)  
@@ -206,5 +200,11 @@ A: Verify that the dictionary is correctly imported, that `setUseSynonymSearch(t
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/) 
+
+---
+
+**Last Updated:** 2025-12-19  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  
 
 ---

@@ -195,12 +195,6 @@ A: Dziel dane na logiczne partie, monitoruj zużycie pamięci i planuj regularn�
 **Q: Nie widzę oczekiwanych dopasowań synonimów – co sprawdzić?**  
 A: Upewnij się, że słownik został poprawnie zaimportowany, że `setUseSynonymSearch(true)` jest aktywne oraz że terminy znajdują się w grupach synonimów.
 
----
-
-**Ostatnia aktualizacja:** 2025-12-19  
-**Testowano z:** GroupDocs.Search 25.4 for Java  
-**Autor:** GroupDocs  
-
 **Zasoby**  
 - [Documentation](https://docs.groupdocs.com/search/java/)  
 - [API Reference](https://reference.groupdocs.com/search/java)  
@@ -208,3 +202,9 @@ A: Upewnij się, że słownik został poprawnie zaimportowany, że `setUseSynony
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Ostatnia aktualizacja:** 2025-12-19  
+**Testowano z:** GroupDocs.Search 25.4 for Java  
+**Autor:** GroupDocs  
