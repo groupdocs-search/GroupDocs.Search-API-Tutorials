@@ -2,13 +2,13 @@
 date: 2025-12-29
 description: Postupný návod, jak nakonfigurovat GroupDocs.Search pro vývojáře Java,
   zahrnující instalaci, licencování a vytvoření vašeho prvního vyhledávacího řešení.
-title: 'Jak konfigurovat GroupDocs.Search: Úvodní tutoriály pro Javu'
+title: 'Jak konfigurovat GroupDocs.Search - Úvodní tutoriály pro Javu'
 type: docs
 url: /cs/java/getting-started/
 weight: 1
 ---
 
-# Jak nakonfigurovat GroupDocs.Search: Úvodní tutoriály pro Java
+# Jak nakonfigurovat GroupDocs.Search - Úvodní tutoriály pro Java
 
 Vítejte v dokonalém průvodci **jak nakonfigurovat GroupDocs.Search** pro Java aplikace. V tomto tutoriálu se naučíte základní kroky k instalaci knihovny, nastavení licencování a vytvoření vašeho prvního řešení pro prohledávatelné dokumenty. Ať už začínáte nový projekt nebo integrujete vyhledávání do existujícího kódu, tento návod vám poskytne vše, co potřebujete k rychlému spuštění.
 

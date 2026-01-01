@@ -3,13 +3,13 @@ date: 2025-12-29
 description: Panduan langkah demi langkah tentang cara mengkonfigurasi GroupDocs.Search
   untuk pengembang Java, mencakup instalasi, lisensi, dan pembuatan solusi pencarian
   pertama Anda.
-title: 'Cara Mengonfigurasi GroupDocs.Search: Tutorial Memulai untuk Java'
+title: 'Cara Mengonfigurasi GroupDocs.Search - Tutorial Memulai untuk Java'
 type: docs
 url: /id/java/getting-started/
 weight: 1
 ---
 
-# Cara Mengonfigurasi GroupDocs.Search: Tutorial Memulai untuk Java
+# Cara Mengonfigurasi GroupDocs.Search - Tutorial Memulai untuk Java
 
 Selamat datang di panduan lengkap tentang **cara mengonfigurasi GroupDocs.Search** untuk aplikasi Java. Dalam tutorial ini Anda akan mempelajari langkah‑langkah penting untuk menginstal pustaka, menyiapkan lisensi, dan membangun solusi dokumen yang dapat dicari pertama Anda. Baik Anda memulai proyek baru maupun mengintegrasikan pencarian ke dalam basis kode yang sudah ada, panduan ini memberikan semua yang Anda perlukan untuk memulai dengan cepat.
 

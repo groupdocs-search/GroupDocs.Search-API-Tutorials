@@ -1,13 +1,13 @@
 ---
 date: 2025-12-29
 description: 逐步指南：如何為 Java 開發人員配置 GroupDocs.Search，涵蓋安裝、授權及建立您的第一個搜尋解決方案。
-title: 如何設定 GroupDocs.Search：Java 入門教學
+title: 如何設定 GroupDocs.Search - Java 入門教學
 type: docs
 url: /zh-hant/java/getting-started/
 weight: 1
 ---
 
-# 如何設定 GroupDocs.Search：Java 入門教學
+# 如何設定 GroupDocs.Search - Java 入門教學
 
 歡迎閱讀關於 **how to configure GroupDocs.Search** 的終極指南，適用於 Java 應用程式。於本教學中，您將學習安裝函式庫、設定授權以及建立第一個可搜尋的文件解決方案的必要步驟。無論是開啟新專案或將搜尋功能整合至現有程式碼庫，本步驟說明都會提供您快速上手所需的一切。
 

@@ -3,13 +3,13 @@ date: 2025-12-29
 description: Lépésről-lépésre útmutató arról, hogyan konfiguráljuk a GroupDocs.Search-t
   Java fejlesztők számára, beleértve a telepítést, a licencelést és az első keresési
   megoldás létrehozását.
-title: 'Hogyan konfiguráljuk a GroupDocs.Search‑t: Kezdő útmutatók Java‑hoz'
+title: 'Hogyan konfiguráljuk a GroupDocs.Search - Kezdő útmutatók Java‑hoz'
 type: docs
 url: /hu/java/getting-started/
 weight: 1
 ---
 
-# Hogyan konfiguráljuk a GroupDocs.Search-t: Kezdő útmutatók Java-hoz
+# Hogyan konfiguráljuk a GroupDocs.Search - Kezdő útmutatók Java-hoz
 
 Üdvözöljük a **GroupDocs.Search konfigurálásának** Java alkalmazásokhoz készült átfogó útmutatójában. Ebben a tutorialban megtanulja a könyvtár telepítésének, a licenc beállításának és az első kereshető dokumentummegoldás felépítésének alapvető lépéseit. Akár új projektet indít, akár keresést szeretne integrálni egy meglévő kódbázisba, ez a bemutató mindent biztosít, amire gyorsan elinduláshoz szüksége van.
 

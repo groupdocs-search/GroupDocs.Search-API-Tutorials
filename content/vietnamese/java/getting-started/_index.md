@@ -2,13 +2,13 @@
 date: 2025-12-29
 description: Hướng dẫn từng bước cách cấu hình GroupDocs.Search cho các nhà phát triển
   Java, bao gồm cài đặt, cấp phép và tạo giải pháp tìm kiếm đầu tiên của bạn.
-title: 'Cách cấu hình GroupDocs.Search: Hướng dẫn bắt đầu cho Java'
+title: 'Cách cấu hình GroupDocs.Search - Hướng dẫn bắt đầu cho Java'
 type: docs
 url: /vi/java/getting-started/
 weight: 1
 ---
 
-# Cách cấu hình GroupDocs.Search: Hướng dẫn bắt đầu cho Java
+# Cách cấu hình GroupDocs.Search - Hướng dẫn bắt đầu cho Java
 
 Chào mừng bạn đến với hướng dẫn toàn diện về **cách cấu hình GroupDocs.Search** cho các ứng dụng Java. Trong tutorial này, bạn sẽ học các bước cần thiết để cài đặt thư viện, thiết lập giấy phép, và xây dựng giải pháp tài liệu có khả năng tìm kiếm đầu tiên của mình. Dù bạn đang bắt đầu một dự án mới hay tích hợp tìm kiếm vào một codebase hiện có, hướng dẫn này cung cấp mọi thứ bạn cần để nhanh chóng khởi động và vận hành.
 

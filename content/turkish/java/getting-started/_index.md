@@ -2,13 +2,13 @@
 date: 2025-12-29
 description: 'Java geliştiricileri için GroupDocs.Search''ü yapılandırma adım adım
   rehberi: kurulum, lisanslama ve ilk arama çözümünüzü oluşturma.'
-title: 'GroupDocs.Search Nasıl Yapılandırılır: Java İçin Başlangıç Öğreticileri'
+title: 'GroupDocs.Search Nasıl Yapılandırılır - Java İçin Başlangıç Öğreticileri'
 type: docs
 url: /tr/java/getting-started/
 weight: 1
 ---
 
-# GroupDocs.Search'i Yapılandırma: Java için Başlangıç Öğreticileri
+# GroupDocs.Search'i Yapılandırma - Java için Başlangıç Öğreticileri
 
 Java uygulamaları için **GroupDocs.Search'i nasıl yapılandıracağınız** konusunda nihai rehbere hoş geldiniz. Bu öğreticide, kütüphaneyi kurma, lisanslamayı ayarlama ve ilk aranabilir belge çözümünüzü oluşturma adımlarını öğreneceksiniz. Yeni bir projeye başlıyor olun ya da aramayı mevcut bir kod tabanına entegre ediyor olun, bu rehber hızlı bir şekilde çalışmaya başlamanız için ihtiyacınız olan her şeyi sunar.
 

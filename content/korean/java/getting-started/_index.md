@@ -2,13 +2,13 @@
 date: 2025-12-29
 description: Java 개발자를 위한 GroupDocs.Search 구성 방법에 대한 단계별 가이드로, 설치, 라이선스 및 첫 번째 검색
   솔루션 만들기를 다룹니다.
-title: 'GroupDocs.Search 구성 방법: Java 시작 튜토리얼'
+title: 'GroupDocs.Search 구성 방법 - Java 시작 튜토리얼'
 type: docs
 url: /ko/java/getting-started/
 weight: 1
 ---
 
-# GroupDocs.Search 구성 방법: Java 시작 튜토리얼
+# GroupDocs.Search 구성 방법 - Java 시작 튜토리얼
 
 Java 애플리케이션용 **GroupDocs.Search 구성 방법**에 대한 궁극적인 가이드에 오신 것을 환영합니다. 이 튜토리얼에서는 라이브러리 설치, 라이선스 설정 및 첫 번째 검색 가능한 문서 솔루션 구축에 필요한 핵심 단계를 배웁니다. 새 프로젝트를 시작하든 기존 코드베이스에 검색을 통합하든, 이 안내서는 빠르게 시작하고 실행하는 데 필요한 모든 것을 제공합니다.
 

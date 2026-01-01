@@ -3,13 +3,13 @@ date: 2025-12-29
 description: Przewodnik krok po kroku, jak skonfigurować GroupDocs.Search dla programistów
   Java, obejmujący instalację, licencjonowanie i tworzenie pierwszego rozwiązania
   wyszukiwania.
-title: 'Jak skonfigurować GroupDocs.Search: samouczki wprowadzające dla Javy'
+title: 'Jak skonfigurować GroupDocs.Search - samouczki wprowadzające dla Javy'
 type: docs
 url: /pl/java/getting-started/
 weight: 1
 ---
 
-# Jak skonfigurować GroupDocs.Search: Samouczki wprowadzające dla Javy
+# Jak skonfigurować GroupDocs.Search - Samouczki wprowadzające dla Javy
 
 Welcome to the ultimate guide on **how to configure GroupDocs.Search** for Java applications. In this tutorial you’ll learn the essential steps to install the library, set up licensing, and build your first searchable document solution. Whether you’re starting a new project or integrating search into an existing codebase, this walkthrough gives you everything you need to get up and running quickly.
 

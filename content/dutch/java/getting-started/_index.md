@@ -2,13 +2,13 @@
 date: 2025-12-29
 description: Stapsgewijze handleiding over hoe je GroupDocs.Search configureert voor
   Java‑ontwikkelaars, met installatie, licenties en het maken van je eerste zoekoplossing.
-title: 'Hoe GroupDocs.Search te configureren: Aan de slag‑tutorials voor Java'
+title: 'Hoe GroupDocs.Search te configureren - Aan de slag‑tutorials voor Java'
 type: docs
 url: /nl/java/getting-started/
 weight: 1
 ---
 
-# Hoe GroupDocs.Search te configureren: Aan de slag tutorials voor Java
+# Hoe GroupDocs.Search te configureren - Aan de slag tutorials voor Java
 
 Welkom bij de ultieme gids over **hoe GroupDocs.Search te configureren** voor Java‑toepassingen. In deze tutorial leer je de essentiële stappen om de bibliotheek te installeren, licenties in te stellen en je eerste doorzoekbare documentoplossing te bouwen. Of je nu een nieuw project start of zoeken integreert in een bestaande codebase, deze walkthrough geeft je alles wat je nodig hebt om snel aan de slag te gaan.
 

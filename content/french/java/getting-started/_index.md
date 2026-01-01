@@ -3,13 +3,13 @@ date: 2025-12-29
 description: Guide étape par étape sur la façon de configurer GroupDocs.Search pour
   les développeurs Java, couvrant l'installation, la licence et la création de votre
   première solution de recherche.
-title: 'Comment configurer GroupDocs.Search : tutoriels de démarrage pour Java'
+title: 'Comment configurer GroupDocs.Search - tutoriels de démarrage pour Java'
 type: docs
 url: /fr/java/getting-started/
 weight: 1
 ---
 
-# Comment configurer GroupDocs.Search : Tutoriels de démarrage pour Java
+# Comment configurer GroupDocs.Search - Tutoriels de démarrage pour Java
 
 Bienvenue dans le guide ultime sur **comment configurer GroupDocs.Search** pour les applications Java. Dans ce tutoriel, vous apprendrez les étapes essentielles pour installer la bibliothèque, configurer la licence et créer votre première solution de recherche de documents. Que vous démarriez un nouveau projet ou que vous intégriez la recherche dans une base de code existante, ce guide vous fournit tout ce dont vous avez besoin pour être opérationnel rapidement.
 

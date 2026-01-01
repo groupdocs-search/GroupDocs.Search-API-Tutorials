@@ -1,13 +1,13 @@
 ---
 date: 2025-12-29
 description: Java開発者向けにGroupDocs.Searchの設定方法をステップバイステップで解説し、インストール、ライセンス、そして最初の検索ソリューションの作成について説明します。
-title: GroupDocs.Search の設定方法：Java 用入門チュートリアル
+title: GroupDocs.Search の設定方法 - Java 用入門チュートリアル
 type: docs
 url: /ja/java/getting-started/
 weight: 1
 ---
 
-# GroupDocs.Search の設定方法：Java 用入門チュートリアル
+# GroupDocs.Search の設定方法 - Java 用入門チュートリアル
 
 Java アプリケーション向けに **GroupDocs.Search の設定方法** を解説する究極のガイドへようこそ。このチュートリアルでは、ライブラリのインストール、ライセンス設定、最初の検索可能ドキュメントソリューションの構築手順を学びます。新規プロジェクトを開始する場合でも、既存コードベースに検索機能を統合する場合でも、すぐに使い始めるために必要なすべてがここにあります。
 

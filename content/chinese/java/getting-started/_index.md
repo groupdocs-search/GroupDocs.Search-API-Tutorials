@@ -1,13 +1,13 @@
 ---
 date: 2025-12-29
 description: 针对 Java 开发者的 GroupDocs.Search 配置分步指南，涵盖安装、授权以及创建您的第一个搜索解决方案。
-title: 如何配置 GroupDocs.Search：Java 入门教程
+title: 如何配置 GroupDocs.Search - Java 入门教程
 type: docs
 url: /zh/java/getting-started/
 weight: 1
 ---
 
-# 如何配置 GroupDocs.Search：Java 入门教程
+# 如何配置 GroupDocs.Search - Java 入门教程
 
 欢迎阅读关于 **如何配置 GroupDocs.Search** 的终极指南，适用于 Java 应用程序。在本教程中，您将学习安装库、设置授权以及构建首个可搜索文档解决方案的关键步骤。无论是启动新项目还是将搜索功能集成到现有代码库，此指南都能帮助您快速上手。
 

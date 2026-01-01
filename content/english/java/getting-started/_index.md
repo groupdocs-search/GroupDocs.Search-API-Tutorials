@@ -1,5 +1,5 @@
 ---
-title: "How to Configure GroupDocs.Search: Getting Started Tutorials for Java"
+title: "How to Configure GroupDocs.Search - Getting Started Tutorials for Java"
 description: "Step-by-step guide on how to configure GroupDocs.Search for Java developers, covering installation, licensing, and creating your first search solution."
 weight: 1
 url: "/java/getting-started/"
@@ -7,7 +7,7 @@ type: docs
 date: 2025-12-29
 ---
 
-# How to Configure GroupDocs.Search: Getting Started Tutorials for Java
+# How to Configure GroupDocs.Search - Getting Started Tutorials for Java
 
 Welcome to the ultimate guide on **how to configure GroupDocs.Search** for Java applications. In this tutorial you’ll learn the essential steps to install the library, set up licensing, and build your first searchable document solution. Whether you’re starting a new project or integrating search into an existing codebase, this walkthrough gives you everything you need to get up and running quickly.
 
