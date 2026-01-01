@@ -7,14 +7,14 @@ keywords:
 - GroupDocs.Search Java
 - document indexing
 - search reporting
-title: 'Index létrehozása Java-ban a GroupDocs.Search segítségével: Átfogó indexelési
+title: 'Index létrehozása Java-ban a GroupDocs.Search segítségével | Átfogó indexelési
   és jelentési útmutató'
 type: docs
 url: /hu/java/advanced-features/groupdocs-search-java-index-report-guide/
 weight: 1
 ---
 
-# Create Index Java with GroupDocs.Search: Comprehensive Indexing and Reporting Guide
+# Create Index Java with GroupDocs.Search | Comprehensive Indexing and Reporting Guide
 
 A mai adat‑központú világban a **create index java** alapvető lépés a gyors, megbízható keresési élmények kiépítéséhez. Akár jogi szerződéseket, ügyfélnyilvántartásokat vagy bármilyen nagy dokumentumtárat kezel, egy jól megtervezett index lehetővé teszi az információk ezredmásodpercenkénti lekérdezését. Ebben az útmutatóban végigvezetünk a GroupDocs.Search beállításán, egy index létrehozásán, dokumentumok hozzáadásán és részletes jelentések generálásán – mindeközben a teljesítményre és a skálázhatóságra is figyelünk.
 

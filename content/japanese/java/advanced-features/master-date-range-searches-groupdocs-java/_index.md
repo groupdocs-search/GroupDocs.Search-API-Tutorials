@@ -8,13 +8,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: カスタム日付形式 Java：GroupDocs を使用した日付範囲検索
+title: カスタム日付形式 Java | GroupDocs を使用した日付範囲検索
 type: docs
 url: /ja/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Custom Date Format Java: GroupDocs を使用した日付範囲検索
+# Custom Date Format Java | GroupDocs を使用した日付範囲検索
 
 日付で文書を検索することは頻繁な要件です—アーカイブシステム、財務レポートツール、またはコンテンツ管理ポータルを構築する場合でも。本チュートリアルでは GroupDocs.Search を使用した **custom date format java** のテクニックを学び、日付範囲クエリ、カスタムパターン定義、そして **optimize search performance** のヒントをカバーします。最後まで読むと、ユーザーが使用する形式に関係なく、任意の日付区間に該当するレコードを取得できるようになります。
 
@@ -25,7 +25,7 @@ weight: 1
 - **必要な Maven 座標は何ですか？** `com.groupdocs:groupdocs-search:25.4` (or newer).  
 - **開発にライセンスは必要ですか？** A free trial or temporary license is sufficient for testing; a commercial license is required for production.
 
-## **custom date format java** とは？
+## **Javaのカスタム日付形式** とは？
 
 **custom date format java** は、デフォルトの ISO パターン (YYYY‑MM‑DD) に従わない日付文字列を GroupDocs.Search がどのように解釈するかを指示します。`MM/dd/yyyy` や `dd‑MM‑yyyy` のように独自のパターンを定義することで、地域固有やレガシー形式の日付が埋め込まれた文書をエンジンが認識できるようになります。
 
@@ -35,7 +35,7 @@ weight: 1
 - **柔軟性:** テキストベースとオブジェクトベースのクエリ作成の両方をサポートします。  
 - **マルチフォーマットサポート:** PDF、Word、Excel、プレーンテキストなどを追加コードなしで処理します。
 
-## GroupDocs.Search を使用した **search documents by date** の方法
+## GroupDocs.Search を使用した **日付で文書を検索** の方法
 
 以下に、ライブラリのセットアップ、ファイルのインデックス作成、シンプルおよび高度な日付範囲検索の実行手順をステップバイステップで示します。
 

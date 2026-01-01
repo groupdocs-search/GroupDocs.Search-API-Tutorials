@@ -10,13 +10,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'Vlastní formát data v Javě: Vyhledávání v rozmezí dat pomocí GroupDocs'
+title: 'Vlastní formát data v Javě | Vyhledávání v rozmezí dat pomocí GroupDocs'
 type: docs
 url: /cs/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Vlastní formát data Java: Vyhledávání v rozmezí dat s GroupDocs
+# Vlastní formát data Java | Vyhledávání v rozmezí dat s GroupDocs
 
 Vyhledávání dokumentů podle data je častý požadavek — ať už vytváříte archivní systém, nástroj pro finanční výkaznictví nebo portál pro správu obsahu. V tomto tutoriálu se naučíte techniky **custom date format java** pomocí GroupDocs.Search, zahrnující dotazy na rozmezí dat, definice vlastních vzorů a tipy na **optimalizaci výkonu vyhledávání**. Na konci budete schopni umožnit uživatelům získat záznamy spadající do libovolného časového intervalu, bez ohledu na použité formátování.
 

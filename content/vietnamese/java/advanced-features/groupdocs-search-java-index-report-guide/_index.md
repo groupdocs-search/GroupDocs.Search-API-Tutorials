@@ -7,14 +7,14 @@ keywords:
 - GroupDocs.Search Java
 - document indexing
 - search reporting
-title: 'Tạo chỉ mục Java với GroupDocs.Search: Hướng dẫn toàn diện về lập chỉ mục
+title: 'Tạo chỉ mục Java với GroupDocs.Search | Hướng dẫn toàn diện về lập chỉ mục
   và báo cáo'
 type: docs
 url: /vi/java/advanced-features/groupdocs-search-java-index-report-guide/
 weight: 1
 ---
 
-# Tạo Index Java với GroupDocs.Search: Hướng Dẫn Toàn Diện về Indexing và Báo Cáo
+# Tạo Index Java với GroupDocs.Search | Hướng Dẫn Toàn Diện về Indexing và Báo Cáo
 
 Trong thế giới dựa trên dữ liệu ngày nay, **create index java** là bước nền tảng để xây dựng các trải nghiệm tìm kiếm nhanh chóng và đáng tin cậy. Dù bạn đang quản lý hợp đồng pháp lý, hồ sơ khách hàng, hay bất kỳ kho tài liệu lớn nào, một index được xây dựng tốt cho phép bạn truy xuất thông tin trong vài mili giây. Trong hướng dẫn này, bạn sẽ thực hiện các bước thiết lập GroupDocs.Search, tạo một index, thêm tài liệu, và tạo các báo cáo chi tiết — đồng thời chú ý đến hiệu suất và khả năng mở rộng.
 

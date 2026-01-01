@@ -10,13 +10,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'Format Tanggal Kustom Java: Pencarian Rentang Tanggal dengan GroupDocs'
+title: 'Format Tanggal Kustom Java | Pencarian Rentang Tanggal dengan GroupDocs'
 type: docs
 url: /id/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Format Tanggal Kustom Java: Pencarian Rentang Tanggal dengan GroupDocs
+# Format Tanggal Kustom Java | Pencarian Rentang Tanggal dengan GroupDocs
 
 Mencari dokumen berdasarkan tanggal adalah kebutuhan yang sering—baik Anda membangun sistem arsip, alat pelaporan keuangan, atau portal manajemen konten. Dalam tutorial ini Anda akan mempelajari teknik **custom date format java** menggunakan GroupDocs.Search, mencakup kueri rentang tanggal, definisi pola kustom, dan tips untuk **mengoptimalkan kinerja pencarian**. Pada akhir tutorial, Anda dapat memungkinkan pengguna mengambil catatan yang berada dalam interval tanggal apa pun, terlepas dari format yang mereka gunakan.
 

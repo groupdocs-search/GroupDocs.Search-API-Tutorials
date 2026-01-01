@@ -9,13 +9,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: '맞춤 날짜 형식 Java: GroupDocs를 사용한 날짜 범위 검색'
+title: '맞춤 날짜 형식 Java | GroupDocs를 사용한 날짜 범위 검색'
 type: docs
 url: /ko/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# 맞춤 날짜 형식 Java: GroupDocs를 사용한 날짜 범위 검색
+# 맞춤 날짜 형식 Java | GroupDocs를 사용한 날짜 범위 검색
 
 날짜로 문서를 검색하는 것은 흔한 요구 사항입니다—아카이브 시스템, 재무 보고 도구, 혹은 콘텐츠 관리 포털을 구축하든 말이죠. 이 튜토리얼에서는 GroupDocs.Search를 활용한 **맞춤 날짜 형식 Java** 기술을 배우게 되며, 날짜 범위 쿼리, 맞춤 패턴 정의, 그리고 **검색 성능 최적화** 팁을 다룹니다. 끝까지 읽으면 사용자가 어떤 형식이든 관계없이 원하는 날짜 구간에 해당하는 레코드를 검색할 수 있게 됩니다.
 

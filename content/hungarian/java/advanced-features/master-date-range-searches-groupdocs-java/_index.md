@@ -1,4 +1,4 @@
----
+ ---
 date: '2025-12-18'
 description: Tanulja meg, hogyan valósíthat meg egyedi dátumformátumú Java-kereséseket
   a GroupDocs.Search segítségével, beleértve a dátumtartomány-kereséseket, egyedi
@@ -10,13 +10,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'Egyéni dátumformátum Java: Dátumtartomány keresés a GroupDocs-szal'
+title: 'Egyéni dátumformátum Java | Dátumtartomány keresés a GroupDocs-szal'
 type: docs
 url: /hu/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Egyedi dátumformátum Java: Dátumtartomány keresés a GroupDocs-szal
+# Egyedi dátumformátum Java | Dátumtartomány keresés a GroupDocs-szal
 
 A dokumentumok dátum szerinti keresése gyakori követelmény—legyen szó archiválási rendszerről, pénzügyi jelentéskészítő eszközről vagy tartalomkezelő portálról. Ebben az útmutatóban a **custom date format java** technikákat tanulod meg a GroupDocs.Search használatával, beleértve a dátumtartomány lekérdezéseket, egyedi mintadefiníciókat és tippeket a **search performance** optimalizálásához. A végére képes leszel arra, hogy a felhasználók bármilyen dátumintervallumba eső rekordokat lekérjék, függetlenül a használt formátumtól.
 

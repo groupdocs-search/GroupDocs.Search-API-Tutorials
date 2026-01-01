@@ -8,13 +8,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 自訂日期格式 Java：使用 GroupDocs 進行日期範圍搜尋
+title: 自訂日期格式 Java | 使用 GroupDocs 進行日期範圍搜尋
 type: docs
 url: /zh-hant/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# 自訂日期格式 Java：使用 GroupDocs 的日期範圍搜尋
+# 自訂日期格式 Java | 使用 GroupDocs 的日期範圍搜尋
 
 依日期搜尋文件是常見需求——無論您是在建構檔案保存系統、財務報表工具，或是內容管理平台。在本教學中，您將學習使用 GroupDocs.Search 的 **custom date format java** 技術，涵蓋日期範圍查詢、自訂模式定義，以及 **optimize search performance** 的技巧。完成後，您即可讓使用者取得落在任何日期區間的記錄，無論其使用的格式為何。
 

@@ -9,13 +9,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'कस्टम तिथि प्रारूप जावा: ग्रुपडॉक्स के साथ तिथि सीमा खोज'
+title: 'कस्टम तिथि प्रारूप जावा | ग्रुपडॉक्स के साथ तिथि सीमा खोज'
 type: docs
 url: /hi/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Custom Date Format Java: ग्रुपडॉक्स के साथ डेट रेंज सर्च
+# Custom Date Format Java | ग्रुपडॉक्स के साथ डेट रेंज सर्च
 
 डेट के आधार पर दस्तावेज़ों की खोज एक सामान्य आवश्यकता है—चाहे आप एक अभिलेखीय प्रणाली, एक वित्तीय रिपोर्टिंग टूल, या एक कंटेंट‑मैनेजमेंट पोर्टल बना रहे हों। इस ट्यूटोरियल में आप GroupDocs.Search का उपयोग करके **custom date format java** तकनीकों को सीखेंगे, जिसमें डेट रेंज क्वेरीज़, कस्टम पैटर्न परिभाषाएँ, और **optimize search performance** को अनुकूलित करने के टिप्स शामिल हैं। अंत तक, आप उपयोगकर्ताओं को किसी भी डेट अंतराल में पड़ने वाले रिकॉर्ड्स को पुनः प्राप्त करने में सक्षम होंगे, चाहे वे कोई भी फ़ॉर्मेट उपयोग करें।
 

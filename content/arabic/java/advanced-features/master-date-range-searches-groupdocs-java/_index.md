@@ -9,13 +9,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'تنسيق تاريخ مخصص في جافا: البحث عن نطاق التاريخ باستخدام GroupDocs'
+title: 'تنسيق تاريخ مخصص في جافا | البحث عن نطاق التاريخ باستخدام GroupDocs'
 type: docs
 url: /ar/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# تنسيق التاريخ المخصص في جافا: البحث عن نطاق التاريخ باستخدام GroupDocs
+# تنسيق التاريخ المخصص في جافا | بحث عن نطاق التاريخ باستخدام GroupDocs
 
 البحث عن المستندات حسب التاريخ هو متطلب شائع — سواء كنت تبني نظام أرشفة، أداة تقارير مالية، أو بوابة إدارة محتوى. في هذا البرنامج التعليمي ستتعلم **custom date format java** باستخدام GroupDocs.Search، تغطي استعلامات نطاق التاريخ، تعريف الأنماط المخصصة، ونصائح **optimize search performance**. في النهاية، ستكون قادرًا على السماح للمستخدمين باسترجاع السجلات التي تقع ضمن أي فترة زمنية، بغض النظر عن الصيغة التي يستخدمونها.
 

@@ -10,13 +10,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'Пользовательский формат даты в Java: поиск диапазона дат с GroupDocs'
+title: 'Пользовательский формат даты в Java | поиск диапазона дат с GroupDocs'
 type: docs
 url: /ru/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Пользовательский формат даты Java: Поиск диапазона дат с GroupDocs
+# Пользовательский формат даты Java | Поиск диапазона дат с GroupDocs
 
 Поиск документов по дате — частое требование, будь то создание архивной системы, инструмента финансовой отчетности или портала управления контентом. В этом руководстве вы изучите **custom date format java** техники с использованием GroupDocs.Search, охватывающие запросы диапазона дат, определения пользовательских шаблонов и советы по **optimize search performance**. К концу вы сможете позволить пользователям получать записи, попадающие в любой интервал дат, независимо от используемого формата.
 

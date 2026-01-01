@@ -7,13 +7,13 @@ keywords:
 - GroupDocs.Search Java
 - document indexing
 - search reporting
-title: 'Crear índice en Java con GroupDocs.Search: Guía completa de indexación e informes'
+title: 'Crear índice en Java con GroupDocs.Search | Guía completa de indexación e informes'
 type: docs
 url: /es/java/advanced-features/groupdocs-search-java-index-report-guide/
 weight: 1
 ---
 
-# Crear índice Java con GroupDocs.Search: Guía completa de indexación e informes
+# Crear índice Java con GroupDocs.Search | Guía completa de indexación e informes
 
 En el mundo impulsado por datos de hoy, **create index java** es un paso fundamental para crear experiencias de búsqueda rápidas y confiables. Ya sea que administres contratos legales, registros de clientes o cualquier repositorio grande de documentos, un índice bien elaborado te permite recuperar información en milisegundos. En este tutorial recorrerás la configuración de GroupDocs.Search, la creación de un índice, la adición de documentos y la generación de informes detallados, todo mientras mantienes la atención en el rendimiento y la escalabilidad.
 

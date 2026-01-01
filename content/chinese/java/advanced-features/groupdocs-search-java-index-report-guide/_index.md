@@ -5,13 +5,13 @@ keywords:
 - GroupDocs.Search Java
 - document indexing
 - search reporting
-title: 使用 GroupDocs.Search 在 Java 中创建索引：全面的索引与报告指南
+title: 使用 GroupDocs.Search 在 Java 中创建索引 | 全面的索引与报告指南
 type: docs
 url: /zh/java/advanced-features/groupdocs-search-java-index-report-guide/
 weight: 1
 ---
 
-# 使用 GroupDocs.Search 创建 Java 索引：全面的索引与报告指南
+# 使用 GroupDocs.Search 创建 Java 索引 | 全面的索引与报告指南
 
 在当今数据驱动的世界，**create index java** 是构建快速、可靠搜索体验的基础步骤。无论您在管理法律合同、客户记录，还是任何大型文档库，精心构建的索引都能让您在毫秒级检索信息。在本教程中，您将学习如何设置 GroupDocs.Search、创建索引、添加文档以及生成详细报告——同时关注性能与可扩展性。
 

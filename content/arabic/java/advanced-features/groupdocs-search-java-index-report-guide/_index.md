@@ -6,13 +6,13 @@ keywords:
 - GroupDocs.Search Java
 - document indexing
 - search reporting
-title: 'إنشاء فهرس Java باستخدام GroupDocs.Search: دليل شامل للفهرسة وإعداد التقارير'
+title: 'إنشاء فهرس Java باستخدام GroupDocs.Search | دليل شامل للفهرسة وإعداد التقارير'
 type: docs
 url: /ar/java/advanced-features/groupdocs-search-java-index-report-guide/
 weight: 1
 ---
 
-# إنشاء فهرس Java باستخدام GroupDocs.Search: دليل شامل للفهرسة وإعداد التقارير
+# إنشاء فهرس Java باستخدام GroupDocs.Search | دليل شامل للفهرسة وإعداد التقارير
 
 في عالم اليوم القائم على البيانات، **create index java** هو خطوة أساسية لبناء تجارب بحث سريعة وموثوقة. سواء كنت تدير عقودًا قانونية، سجلات عملاء، أو أي مستودع مستندات كبير، فإن الفهرس المصمم جيدًا يتيح لك استرجاع المعلومات في أجزاء من الثانية. في هذا البرنامج التعليمي ستتبع إعداد GroupDocs.Search، إنشاء فهرس، إضافة مستندات، وتوليد تقارير مفصلة — مع مراعاة الأداء والقابلية للتوسع.
 

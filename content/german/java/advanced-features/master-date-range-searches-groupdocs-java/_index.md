@@ -10,13 +10,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'Benutzerdefiniertes Datumsformat Java: Datumsbereichssuche mit GroupDocs'
+title: 'Benutzerdefiniertes Datumsformat Java | Datumsbereichssuche mit GroupDocs'
 type: docs
 url: /de/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Benutzerdefiniertes Datumsformat Java: Datumsbereichssuche mit GroupDocs
+# Benutzerdefiniertes Datumsformat Java | Datumsbereichssuche mit GroupDocs
 
 Die Suche nach Dokumenten nach Datum ist ein häufiges Anliegen – egal, ob Sie ein Archivsystem, ein Finanzberichts‑Tool oder ein Content‑Management‑Portal erstellen. In diesem Tutorial lernen Sie **custom date format java** Techniken mit GroupDocs.Search, einschließlich Datumsbereich‑Abfragen, benutzerdefinierter MusterdDefinitionen und Tipps zur **Optimierung der Suchleistung**. Am Ende können Sie Benutzern ermöglichen, Datensätze abzurufen, die in ein beliebiges Datumsintervall fallen, unabhängig vom verwendeten Format.
 

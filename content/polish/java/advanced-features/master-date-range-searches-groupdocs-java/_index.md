@@ -10,13 +10,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'Niestandardowy format daty w Javie: wyszukiwanie zakresu dat z GroupDocs'
+title: 'Niestandardowy format daty w Javie | wyszukiwanie zakresu dat z GroupDocs'
 type: docs
 url: /pl/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Custom Date Format Java: Date Range Search with GroupDocs
+# Custom Date Format Java | Date Range Search with GroupDocs
 
 Wyszukiwanie dokumentów według daty jest częstym wymaganiem — niezależnie od tego, czy tworzysz system archiwizacji, narzędzie do raportowania finansowego, czy portal zarządzania treścią. W tym samouczku poznasz techniki **custom date format java** przy użyciu GroupDocs.Search, obejmujące zapytania zakresu dat, definicje własnych wzorców oraz wskazówki, jak **optimize search performance**. Po zakończeniu będziesz mógł umożliwić użytkownikom pobieranie rekordów mieszczących się w dowolnym przedziale dat, niezależnie od używanego formatu.
 

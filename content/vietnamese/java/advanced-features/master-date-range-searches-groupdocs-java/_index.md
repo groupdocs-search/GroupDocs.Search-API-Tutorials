@@ -9,13 +9,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'Định dạng ngày tùy chỉnh Java: Tìm kiếm phạm vi ngày với GroupDocs'
+title: 'Định dạng ngày tùy chỉnh Java | Tìm kiếm phạm vi ngày với GroupDocs'
 type: docs
 url: /vi/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Định dạng ngày tùy chỉnh Java: Tìm kiếm khoảng ngày với GroupDocs
+# Định dạng ngày tùy chỉnh Java | Tìm kiếm khoảng ngày với GroupDocs
 
 Việc tìm kiếm tài liệu theo ngày là một yêu cầu thường gặp—cho dù bạn đang xây dựng hệ thống lưu trữ, công cụ báo cáo tài chính, hoặc cổng thông tin quản lý nội dung. Trong hướng dẫn này, bạn sẽ học các kỹ thuật **custom date format java** bằng cách sử dụng GroupDocs.Search, bao gồm các truy vấn khoảng ngày, định nghĩa mẫu tùy chỉnh, và các mẹo để **optimize search performance**. Khi hoàn thành, bạn sẽ có thể cho phép người dùng truy xuất các bản ghi nằm trong bất kỳ khoảng thời gian nào, bất kể định dạng họ sử dụng.
 

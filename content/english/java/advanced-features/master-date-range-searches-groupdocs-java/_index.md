@@ -1,5 +1,5 @@
 ---
-title: "Custom Date Format Java: Date Range Search with GroupDocs"
+title: "Custom Date Format Java | Date Range Search with GroupDocs"
 description: "Learn how to implement custom date format Java searches with GroupDocs.Search, including date range queries, custom patterns, and performance tips."
 date: "2025-12-18"
 weight: 1
@@ -14,7 +14,7 @@ keywords:
 type: docs
 ---
 
-# Custom Date Format Java: Date Range Search with GroupDocs
+# Custom Date Format Java | Date Range Search with GroupDocs
 
 Searching for documents by date is a frequent requirement—whether you’re building an archival system, a financial reporting tool, or a content‑management portal. In this tutorial you’ll learn **custom date format java** techniques using GroupDocs.Search, covering date range queries, custom pattern definitions, and tips to **optimize search performance**. By the end, you’ll be able to let users retrieve records that fall within any date interval, regardless of the format they use.
 

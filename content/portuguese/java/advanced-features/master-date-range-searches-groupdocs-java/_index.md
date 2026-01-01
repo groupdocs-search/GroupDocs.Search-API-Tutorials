@@ -10,13 +10,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'Formato de Data Personalizado Java: Busca por Intervalo de Datas com GroupDocs'
+title: 'Formato de Data Personalizado Java | Busca por Intervalo de Datas com GroupDocs'
 type: docs
 url: /pt/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Formato de Data Personalizado Java: Busca por Intervalo de Datas com GroupDocs
+# Formato de Data Personalizado Java | Busca por Intervalo de Datas com GroupDocs
 
 Buscar documentos por data é uma necessidade frequente—seja ao construir um sistema de arquivamento, uma ferramenta de relatórios financeiros ou um portal de gerenciamento de conteúdo. Neste tutorial você aprenderá **custom date format java** usando GroupDocs.Search, abordando consultas por intervalo de datas, definições de padrões personalizados e dicas para **optimize search performance**. Ao final, você poderá permitir que os usuários recuperem registros que se enquadram em qualquer intervalo de datas, independentemente do formato que utilizam.
 

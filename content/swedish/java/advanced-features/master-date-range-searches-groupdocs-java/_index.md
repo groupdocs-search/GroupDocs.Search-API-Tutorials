@@ -9,13 +9,13 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'Anpassat datumformat Java: Datumintervallssökning med GroupDocs'
+title: 'Anpassat datumformat Java | Datumintervallssökning med GroupDocs'
 type: docs
 url: /sv/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Anpassat datumformat Java: Sökning efter datumintervall med GroupDocs
+# Anpassat datumformat Java | Sökning efter datumintervall med GroupDocs
 
 Att söka efter dokument efter datum är ett vanligt krav—oavsett om du bygger ett arkiveringssystem, ett finansiellt rapporteringsverktyg eller en innehållshanteringsportal. I den här handledningen kommer du att lära dig **custom date format java**‑tekniker med GroupDocs.Search, som täcker datumintervallfrågor, anpassade mönsterdefinitioner och tips för att **optimize search performance**. I slutet kommer du att kunna låta användare hämta poster som faller inom vilket datumintervall som helst, oavsett vilket format de använder.
 

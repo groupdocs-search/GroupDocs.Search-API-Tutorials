@@ -5,22 +5,22 @@ keywords:
 - GroupDocs.Search Java
 - document indexing
 - search reporting
-title: GroupDocs.Search を使用した Java のインデックス作成：包括的なインデックス作成とレポート作成ガイド
+title: GroupDocs.Search を使用した Java のインデックス作成 | 包括的なインデックス作成とレポート作成ガイド
 type: docs
 url: /ja/java/advanced-features/groupdocs-search-java-index-report-guide/
 weight: 1
 ---
 
-# GroupDocs.Search を使用した Java のインデックス作成: 包括的なインデックス作成とレポートガイド
+# GroupDocs.Search を使用した Java のインデックス作成 | 包括的なインデックス作成とレポートガイド
 
 今日のデータ駆動型の世界では、**create index java** は高速で信頼性の高い検索体験を構築するための基礎的なステップです。法務契約書、顧客レコード、あるいは大規模な文書リポジトリを管理する場合でも、適切に作成されたインデックスにより情報をミリ秒単位で取得できます。このチュートリアルでは、GroupDocs.Search の設定、インデックスの作成、文書の追加、詳細レポートの生成を順に解説し、パフォーマンスとスケーラビリティにも配慮します。
 
-## Quick Answers
-- **What is the first step to create index java?** Initialize an `Index` object pointing to a folder for index files.  
-- **Which library provides java document indexing?** GroupDocs.Search for Java.  
-- **How can I add documents java to an existing index?** Use the `index.add(path)` method for each folder.  
-- **What tool helps optimize search performance?** Regular incremental indexing and proper memory settings.  
-- **Is there a sample java search example?** The code snippets below demonstrate a full end‑to‑end workflow.
+## クイックアンサー
+- **Javaでインデックスを作成する最初の手順は何ですか？** インデックスファイル用のフォルダを指す`Index`オブジェクトを初期化します。
+- **Javaドキュメントのインデックス作成機能を提供するライブラリはどれですか？** Javaの場合はGroupDocs.Searchです。
+- **既存のインデックスにJavaドキュメントを追加するにはどうすればよいですか？** 各フォルダに対して`index.add(path)`メソッドを使用します。
+- **検索パフォーマンスを最適化するのに役立つツールは何ですか？** 定期的な増分インデックス作成と適切なメモリ設定です。
+- **Java検索のサンプル例はありますか？** 以下のコードスニペットは、エンドツーエンドのワークフロー全体を示しています。
 
 ## 学習内容
 - GroupDocs.Search を使用した **create index java** の方法  
@@ -180,20 +180,20 @@ GroupDocs.Search は多くの実装シナリオに組み込むことができま
 
 ## FAQ
 
-**Q: Can I index different document formats with GroupDocs.Search?**  
-A: Yes, it supports DOCX, PDF, TXT, HTML, and many other common formats.
+**Q: GroupDocs.Search で異なる形式のドキュメントをインデックスできますか？**
+A: はい、DOCX、PDF、TXT、HTML など、多くの一般的な形式をサポートしています。
 
-**Q: Is there a way to update the index automatically when new documents arrive?**  
-A: Absolutely—use the `add()` method in an automated job (e.g., a scheduled task) for **incremental indexing java**.
+**Q: 新しいドキュメントが届いたときにインデックスを自動的に更新する方法はありますか？**
+A: もちろんです。自動化されたジョブ（スケジュールされたタスクなど）で `add()` メソッドを使用して、**増分インデックス Java** を実行してください。
 
-**Q: How do I improve search speed for very large datasets?**  
-A: Combine **incremental indexing java** with proper JVM memory settings and regularly review the indexing reports to fine‑tune performance.
+**Q: 非常に大規模なデータセットの検索速度を向上させるにはどうすればよいですか？**
+A: **増分インデックス Java** と適切な JVM メモリ設定を組み合わせ、インデックス作成レポートを定期的に確認してパフォーマンスを微調整してください。
 
-**Q: Does GroupDocs.Search handle multilingual content?**  
-A: Yes, it can index multiple languages; just ensure the appropriate language analyzers are enabled.
+**Q: GroupDocs.Search は多言語コンテンツを処理できますか？**
+A: はい、複数の言語をインデックスできます。適切な言語アナライザーが有効になっていることを確認してください。
 
-**Q: Is a free trial available for GroupDocs.Search Java?**  
-A: Yes, you can sign up for a free trial on the GroupDocs website to evaluate all features before purchasing.
+**Q: GroupDocs.Search Java の無料トライアルはありますか？**
+A: はい、GroupDocs の Web サイトで無料トライアルにサインアップして、購入前にすべての機能を評価することができます。
 
 ## 結論
 上記の手順に従うことで、**create index java** の方法、文書の追加、そして GroupDocs.Search を用いた有益なレポートの生成ができるようになりました。この基盤により、強力な検索体験を構築し、インデックスを常に最新に保ち、文書コレクションが拡大しても高いパフォーマンスを維持できます。
@@ -205,6 +205,6 @@ A: Yes, you can sign up for a free trial on the GroupDocs website to evaluate al
 
 ---
 
-**Last Updated:** 2025-12-18  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**最終更新日:** 2025年12月18日
+**テスト環境:** GroupDocs.Search 25.4 for Java
+**作成者:** GroupDocs
