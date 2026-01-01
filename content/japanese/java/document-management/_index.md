@@ -87,12 +87,6 @@ A: ライブラリには同音異義語や類似音の単語の精度を向上�
 **Q: 最新の GroupDocs.Search に必要な Java バージョンは何ですか？**  
 A: Java 8 以降が必要です。ライブラリは Java 11 以降の LTS リリースと完全に互換性があります。
 
----
-
-**最終更新日:** 2025-12-20  
-**テスト環境:** GroupDocs.Search for Java 23.11  
-**作者:** GroupDocs  
-
 ## 利用可能なチュートリアル
 
 ### [GroupDocs.Search for Java のインデックスバージョンを更新および管理する方法：包括的ガイド](./guide-updating-index-versions-groupdocs-search-java/)
@@ -115,3 +109,9 @@ GroupDocs.Search for Java を使用してドキュメントインデックスを
 - [GroupDocs.Search フォーラム](https://forum.groupdocs.com/c/search)
 - [無料サポート](https://forum.groupdocs.com/)
 - [一時ライセンス](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**最終更新日:** 2025-12-20  
+**テスト環境:** GroupDocs.Search for Java 23.11  
+**作者:** GroupDocs  

@@ -87,12 +87,6 @@ weight: 6
 **س: ما نسخة Java المطلوبة لأحدث نسخة من GroupDocs.Search؟**  
 ج: يلزم Java 8 أو أحدث؛ المكتبة متوافقة بالكامل مع Java 11 والإصدارات LTS الأحدث.
 
----
-
-**آخر تحديث:** 2025-12-20  
-**تم الاختبار مع:** GroupDocs.Search للـ Java 23.11  
-**المؤلف:** GroupDocs  
-
 ## الدروس المتاحة
 
 ### [كيفية تحديث وإدارة إصدارات الفهرس في GroupDocs.Search للـ Java&#58; دليل شامل](./guide-updating-index-versions-groupdocs-search-java/)
@@ -114,3 +108,9 @@ weight: 6
 - [منتدى GroupDocs.Search](https://forum.groupdocs.com/c/search)
 - [دعم مجاني](https://forum.groupdocs.com/)
 - [ترخيص مؤقت](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**آخر تحديث:** 2025-12-20  
+**تم الاختبار مع:** GroupDocs.Search للـ Java 23.11  
+**المؤلف:** GroupDocs  

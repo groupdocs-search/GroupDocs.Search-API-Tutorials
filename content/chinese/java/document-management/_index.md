@@ -87,12 +87,6 @@ weight: 6
 **问：最新的 GroupDocs.Search 需要哪个版本的 Java？**  
 答：需要 Java 8 或更高版本；库完全兼容 Java 11 及更新的 LTS 发行版。
 
----
-
-**最后更新：** 2025-12-20  
-**测试环境：** GroupDocs.Search for Java 23.11  
-**作者：** GroupDocs  
-
 ## 可用教程
 
 ### [如何在 GroupDocs.Search for Java 中更新和管理索引版本&#58; 全面指南](./guide-updating-index-versions-groupdocs-search-java/)
@@ -115,5 +109,11 @@ weight: 6
 - [GroupDocs.Search 论坛](https://forum.groupdocs.com/c/search)
 - [免费支持](https://forum.groupdocs.com/)
 - [临时许可证](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**最后更新：** 2025-12-20  
+**测试环境：** GroupDocs.Search for Java 23.11  
+**作者：** GroupDocs  
 
 ---

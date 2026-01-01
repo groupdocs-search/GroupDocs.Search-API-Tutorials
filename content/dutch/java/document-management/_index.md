@@ -88,12 +88,6 @@ A: De bibliotheek bevat linguïstische functies die de nauwkeurigheid voor homof
 **Q: Welke Java‑versie is vereist voor de nieuwste GroupDocs.Search?**  
 A: Java 8 of hoger is vereist; de bibliotheek is volledig compatibel met Java 11 en nieuwere LTS‑releases.
 
----
-
-**Last Updated:** 2025-12-20  
-**Tested With:** GroupDocs.Search for Java 23.11  
-**Author:** GroupDocs  
-
 ## Beschikbare tutorials
 
 ### [Hoe indexversies bij te werken en te beheren in GroupDocs.Search voor Java&#58; Een uitgebreide gids](./guide-updating-index-versions-groupdocs-search-java/)
@@ -112,3 +106,9 @@ A: Java 8 of hoger is vereist; de bibliotheek is volledig compatibel met Java�
 - [GroupDocs.Search‑forum](https://forum.groupdocs.com/c/search)  
 - [Gratis ondersteuning](https://forum.groupdocs.com/)  
 - [Tijdelijke licentie](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-20  
+**Tested With:** GroupDocs.Search for Java 23.11  
+**Author:** GroupDocs  

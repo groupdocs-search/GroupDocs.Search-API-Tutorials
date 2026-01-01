@@ -88,12 +88,6 @@ A: Knihovna obsahuje jazykové funkce, které zlepšují přesnost u homofonů a
 **Q: Jaká verze Javy je vyžadována pro nejnovější GroupDocs.Search?**  
 A: Je vyžadována Java 8 nebo novější; knihovna je plně kompatibilní s Java 11 a novějšími LTS verzemi.
 
----
-
-**Poslední aktualizace:** 2025-12-20  
-**Testováno s:** GroupDocs.Search for Java 23.11  
-**Autor:** GroupDocs  
-
 ## Dostupné tutoriály
 
 ### [Jak aktualizovat a spravovat verze indexu v GroupDocs.Search pro Java&#58; Kompletní průvodce](./guide-updating-index-versions-groupdocs-search-java/)
@@ -116,3 +110,8 @@ Naučte se efektivně spravovat indexy dokumentů pomocí GroupDocs.Search pro J
 - [Fórum GroupDocs.Search](https://forum.groupdocs.com/c/search)
 - [Bezplatná podpora](https://forum.groupdocs.com/)
 - [Dočasná licence](https://purchase.groupdocs.com/temporary-license/)
+---
+
+**Poslední aktualizace:** 2025-12-20  
+**Testováno s:** GroupDocs.Search for Java 23.11  
+**Autor:** GroupDocs  

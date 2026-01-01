@@ -88,12 +88,6 @@ A: Thư viện bao gồm các tính năng ngôn ngữ giúp cải thiện độ 
 **Q: Phiên bản Java nào cần thiết cho GroupDocs.Search mới nhất?**  
 A: Yêu cầu Java 8 hoặc cao hơn; thư viện hoàn toàn tương thích với Java 11 và các bản phát hành LTS mới hơn.
 
----
-
-**Cập nhật lần cuối:** 2025-12-20  
-**Kiểm thử với:** GroupDocs.Search cho Java 23.11  
-**Tác giả:** GroupDocs  
-
 ## Các hướng dẫn có sẵn
 
 ### [How to Update and Manage Index Versions in GroupDocs.Search for Java&#58; A Comprehensive Guide](./guide-updating-index-versions-groupdocs-search-java/)
@@ -116,3 +110,9 @@ Tìm hiểu cách quản lý chỉ mục tài liệu một cách hiệu quả v�
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Cập nhật lần cuối:** 2025-12-20  
+**Kiểm thử với:** GroupDocs.Search cho Java 23.11  
+**Tác giả:** GroupDocs  

@@ -88,12 +88,6 @@ A: Perpustakaan ini mencakup fitur linguistik yang meningkatkan akurasi untuk ho
 **Q: Versi Java apa yang diperlukan untuk GroupDocs.Search terbaru?**  
 A: Java 8 atau lebih baru diperlukan; perpustakaan ini sepenuhnya kompatibel dengan Java 11 dan rilis LTS yang lebih baru.
 
----
-
-**Terakhir Diperbarui:** 2025-12-20  
-**Diuji Dengan:** GroupDocs.Search untuk Java 23.11  
-**Penulis:** GroupDocs  
-
 ## Tutorial yang Tersedia
 
 ### [Cara Memperbarui dan Mengelola Versi Indeks dalam GroupDocs.Search untuk Java: Panduan Komprehensif](./guide-updating-index-versions-groupdocs-search-java/)
@@ -112,3 +106,9 @@ A: Java 8 atau lebih baru diperlukan; perpustakaan ini sepenuhnya kompatibel d
 - [Forum GroupDocs.Search](https://forum.groupdocs.com/c/search)
 - [Dukungan Gratis](https://forum.groupdocs.com/)
 - [Lisensi Sementara](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Terakhir Diperbarui:** 2025-12-20  
+**Diuji Dengan:** GroupDocs.Search untuk Java 23.11  
+**Penulis:** GroupDocs  

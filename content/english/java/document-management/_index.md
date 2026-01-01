@@ -87,12 +87,6 @@ A: The library includes linguistic features that improve accuracy for homophones
 **Q: What version of Java is required for the latest GroupDocs.Search?**  
 A: Java 8 or later is required; the library is fully compatible with Java 11 and newer LTS releases.
 
----
-
-**Last Updated:** 2025-12-20  
-**Tested With:** GroupDocs.Search for Java 23.11  
-**Author:** GroupDocs  
-
 ## Available Tutorials
 
 ### [How to Update and Manage Index Versions in GroupDocs.Search for Java&#58; A Comprehensive Guide](./guide-updating-index-versions-groupdocs-search-java/)
@@ -115,5 +109,11 @@ Learn how to effectively manage document indices with GroupDocs.Search for Java.
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-20  
+**Tested With:** GroupDocs.Search for Java 23.11  
+**Author:** GroupDocs  
 
 ---

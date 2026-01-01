@@ -88,12 +88,6 @@ A: La biblioteca incluye características lingüísticas que mejoran la precisi�
 **Q: ¿Qué versión de Java se requiere para la última versión de GroupDocs.Search?**  
 A: Se requiere Java 8 o posterior; la biblioteca es totalmente compatible con Java 11 y versiones LTS más recientes.
 
----
-
-**Última actualización:** 2025-12-20  
-**Probado con:** GroupDocs.Search for Java 23.11  
-**Autor:** GroupDocs  
-
 ## Tutoriales disponibles
 
 ### [Cómo actualizar y gestionar versiones de índices en GroupDocs.Search para Java&#58; Guía completa](./guide-updating-index-versions-groupdocs-search-java/)
@@ -116,3 +110,9 @@ Aprenda a gestionar eficazmente índices de documentos con GroupDocs.Search para
 - [Foro de GroupDocs.Search](https://forum.groupdocs.com/c/search)
 - [Soporte gratuito](https://forum.groupdocs.com/)
 - [Licencia temporal](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Última actualización:** 2025-12-20  
+**Probado con:** GroupDocs.Search for Java 23.11  
+**Autor:** GroupDocs  

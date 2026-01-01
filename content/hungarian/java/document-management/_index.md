@@ -88,10 +88,6 @@ A: A könyvtár nyelvi funkciókat tartalmaz, amelyek javítják a homofónok é
 **Q: Melyik Java verzió szükséges a legújabb GroupDocs.Search-hez?**  
 A: Java 8 vagy újabb szükséges; a könyvtár teljes mértékben kompatibilis a Java 11‑el és a későbbi LTS kiadásokkal.
 
-**Utolsó frissítés:** 2025-12-20  
-**Tesztelve ezzel:** GroupDocs.Search for Java 23.11  
-**Szerző:** GroupDocs  
-
 ## Elérhető útmutatók
 
 ### [Hogyan frissítsük és kezeljük az index verziókat a GroupDocs.Search for Java‑ban: Átfogó útmutató](./guide-updating-index-versions-groupdocs-search-java/)
@@ -114,3 +110,9 @@ Tanulja meg, hogyan kezelje hatékonyan a dokumentum indexeket a GroupDocs.Searc
 - [GroupDocs.Search fórum](https://forum.groupdocs.com/c/search)
 - [Ingyenes támogatás](https://forum.groupdocs.com/)
 - [Ideiglenes licenc](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Utolsó frissítés:** 2025-12-20  
+**Tesztelve ezzel:** GroupDocs.Search for Java 23.11  
+**Szerző:** GroupDocs  

@@ -88,12 +88,6 @@ C: Kütüphane, homofonlar ve benzer sesli kelimeler için doğruluğu artıran 
 **S: En yeni GroupDocs.Search için hangi Java sürümü gerekiyor?**  
 C: Java 8 veya üzeri gereklidir; kütüphane Java 11 ve daha yeni LTS sürümleriyle tam uyumludur.
 
----
-
-**Son Güncelleme:** 2025-12-20  
-**Test Edilen Sürüm:** GroupDocs.Search for Java 23.11  
-**Yazar:** GroupDocs  
-
 ## Mevcut Eğitimler
 
 ### [GroupDocs.Search for Java&#58; Dizin Sürümlerini Güncelleme ve Yönetme – Kapsamlı Rehber](./guide-updating-index-versions-groupdocs-search-java/)
@@ -116,3 +110,9 @@ GroupDocs.Search for Java ile belge indekslerini etkili bir şekilde yönetmeyi 
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Son Güncelleme:** 2025-12-20  
+**Test Edilen Sürüm:** GroupDocs.Search for Java 23.11  
+**Yazar:** GroupDocs  

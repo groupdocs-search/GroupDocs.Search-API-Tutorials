@@ -86,12 +86,6 @@ A: 此程式庫具備語言學功能，可提升同音字與相似發音詞彙�
 **Q: 最新的 GroupDocs.Search 需要哪個版本的 Java？**  
 A: 需要 Java 8 或更高版本；此程式庫完全相容於 Java 11 及更新的 LTS 版本。
 
----
-
-**最後更新：** 2025-12-20  
-**測試環境：** GroupDocs.Search for Java 23.11  
-**作者：** GroupDocs  
-
 ## 可用教學
 
 ### [如何在 GroupDocs.Search for Java&#58; 更新與管理索引版本：完整指南](./guide-updating-index-versions-groupdocs-search-java/)
@@ -114,3 +108,9 @@ A: 需要 Java 8 或更高版本；此程式庫完全相容於 Java 11 及�
 - [GroupDocs.Search 論壇](https://forum.groupdocs.com/c/search)
 - [免費支援](https://forum.groupdocs.com/)
 - [臨時授權](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**最後更新：** 2025-12-20  
+**測試環境：** GroupDocs.Search for Java 23.11  
+**作者：** GroupDocs  
