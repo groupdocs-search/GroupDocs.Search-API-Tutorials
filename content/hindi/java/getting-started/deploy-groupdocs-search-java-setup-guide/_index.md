@@ -1,0 +1,248 @@
+---
+date: '2025-12-26'
+description: GroupDocs.Search for Java का उपयोग करके खोज योग्य इंडेक्स जावा बनाना,
+  फ़ाइलों को खोज में जोड़ना और नोड में डायरेक्टरी जोड़ना सीखें।
+keywords:
+- GroupDocs.Search for Java
+- deploy GroupDocs.Search
+- Java search network setup
+title: सर्चेबल इंडेक्स जावा बनाएं – ग्रुपडॉक्स.सर्च फॉर जावा को डिप्लॉय करें
+type: docs
+url: /hi/java/getting-started/deploy-groupdocs-search-java-setup-guide/
+weight: 1
+---
+
+# खोज योग्य इंडेक्स जावा बनाएं – GroupDocs.Search for Java को डिप्लॉय करें
+
+आज के डेटा‑चालित विश्व में, **creating a searchable index java** एप्लिकेशन को बड़े दस्तावेज़ संग्रहों को कुशलतापूर्वक संभालना चाहिए। चाहे आप एंटरप्राइज़‑ग्रेड सर्च सर्विस बना रहे हों या छोटा प्रोजेक्ट, एक अच्छी तरह से कॉन्फ़िगर किया गया सर्च नेटवर्क पुनर्प्राप्ति गति और प्रासंगिकता को काफी बढ़ा सकता है। इस गाइड में हम **GroupDocs.Search for Java** को सेट अप करने की पूरी प्रक्रिया बताएँगे, फ़ाइलों को सर्च में जोड़ने से लेकर डायरेक्टरी को नोड में जोड़ने तक, ताकि आप तुरंत अपने दस्तावेज़ों को इंडेक्स करना शुरू कर सकें।
+
+## त्वरित उत्तर
+- **GroupDocs.Search का मुख्य उद्देश्य क्या है?** यह वितरित नेटवर्क में दस्तावेज़ों को इंडेक्स और सर्च करने के लिए एक स्केलेबल, Java‑आधारित इंजन प्रदान करता है।  
+- **मैं कौन सा संस्करण उपयोग करूँ?** नवीनतम स्थिर रिलीज़ (जैसे, 25.4) नए प्रोजेक्ट्स के लिए अनुशंसित है।  
+- **क्या मुझे लाइसेंस चाहिए?** 30‑दिन का फ्री ट्रायल उपलब्ध है; प्रोडक्शन उपयोग के लिए स्थायी लाइसेंस आवश्यक है।  
+- **क्या मैं फ़ाइलें और पूरी डायरेक्टरी दोनों जोड़ सकता हूँ?** हाँ – सामग्री को इन्जेस्ट करने के लिए `addFiles` और `addDirectories` हेल्पर्स का उपयोग करें।  
+- **कौन सा Java संस्करण आवश्यक है?** Java 8 या उससे ऊपर, और डिपेंडेंसी मैनेजमेंट के लिए Maven।
+
+## “create searchable index java” क्या है?
+जावा में एक खोज योग्य इंडेक्स बनाना मतलब एक डेटा स्ट्रक्चर बनाना है जो शब्दों को उन दस्तावेज़ों से मैप करता है जिनमें वे मौजूद हैं, जिससे तेज़ फुल‑टेक्स्ट क्वेरी संभव हो सके। GroupDocs.Search भारी काम को एब्स्ट्रैक्ट करता है, जिससे आप दस्तावेज़ फीड करने और सर्च व्यवहार को ट्यून करने पर ध्यान केंद्रित कर सकते हैं।
+
+## GroupDocs.Search for Java का उपयोग क्यों करें?
+- **स्केलेबल नेटवर्क आर्किटेक्चर** – कई नोड्स डिप्लॉय करें जो इंडेक्सिंग वर्कलोड साझा करते हैं।  
+- **समृद्ध दस्तावेज़ फ़ॉर्मेट समर्थन** – PDFs, Word, Excel, PowerPoint, इमेजेज़, और अधिक।  
+- **इवेंट‑ड्रिवेन अपडेट्स** – रियल‑टाइम में इंडेक्स को ताज़ा रखने के लिए नोड इवेंट्स की सदस्यता लें।  
+- **सरल Maven इंटीग्रेशन** – `pom.xml` में कुछ लाइनों को जोड़ें और इंडेक्सिंग शुरू करें।
+
+## पूर्वापेक्षाएँ
+- **JDK 8+** आपके विकास मशीन पर इंस्टॉल होना चाहिए।  
+- **IntelliJ IDEA** या **Eclipse** जैसे IDE।  
+- **Java** और **Maven** का बुनियादी ज्ञान।  
+- **GroupDocs.Search for Java** लाइब्रेरी तक पहुँच (डाउनलोड या Maven)।
+
+## GroupDocs.Search for Java सेट अप करना
+
+### Maven डिपेंडेंसी
+`pom.xml` में रिपॉज़िटरी और डिपेंडेंसी जोड़ें:
+
+```xml
+<repositories>
+   <repository>
+      <id>repository.groupdocs.com</id>
+      <name>GroupDocs Repository</name>
+      <url>https://releases.groupdocs.com/search/java/</url>
+   </repository>
+</repositories>
+
+<dependencies>
+   <dependency>
+      <groupId>com.groupdocs</groupId>
+      <artifactId>groupdocs-search</artifactId>
+      <version>25.4</version>
+   </dependency>
+</dependencies>
+```
+
+> **Pro tip:** आधिकारिक रिलीज़ पेज चेक करके संस्करण संख्या को अद्यतित रखें।
+
+आप आधिकारिक साइट से JAR सीधे डाउनलोड भी कर सकते हैं: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+
+### लाइसेंस प्राप्ति
+- **फ्री ट्रायल:** 30‑दिन का मूल्यांकन।  
+- **टेम्पररी लाइसेंस:** विस्तारित परीक्षण के लिए अनुरोध करें।  
+- **खरीद:** प्रोडक्शन डिप्लॉयमेंट के लिए आवश्यक।
+
+### बेसिक इनिशियलाइज़ेशन
+एक कॉन्फ़िगरेशन ऑब्जेक्ट बनाएं जो उस फ़ोल्डर की ओर इशारा करता है जहाँ इंडेक्स फ़ाइलें संग्रहीत होंगी और बेस कम्युनिकेशन पोर्ट को परिभाषित करता है:
+
+```java
+import com.groupdocs.search.Configuration;
+
+class InitializeSearch {
+    public static void main(String[] args) {
+        String basePath = "your/base/path";
+        int basePort = 8080;
+        
+        Configuration config = new ConfiguringSearchNetwork().configure(basePath, basePort);
+        // Use this configuration for subsequent operations
+    }
+}
+```
+
+## GroupDocs.Search के साथ searchable index java कैसे बनाएं?
+
+नीचे हम मुख्य फीचर को तोड़कर दिखाते हैं जो आपको **add files to search** और **add directories to node** करने के लिए चाहिए, साथ ही एक स्केलेबल नेटवर्क डिप्लॉय करने के लिए।
+
+### फीचर 1 – कॉन्फ़िगरेशन और नेटवर्क सेटअप
+सर्च नेटवर्क को कॉन्फ़िगर करना एक खोज योग्य इंडेक्स बनाने की पहली कदम है।
+
+```java
+import com.groupdocs.search.Configuration;
+import com.groupdocs.search.scaling.*;
+
+class ConfiguringSearchNetwork {
+    public static Configuration configure(String basePath, int basePort) {
+        // Configure the search network with specified base path and port
+        return new Configuration(basePath, basePort);
+    }
+}
+```
+
+- **`basePath`** – वह डायरेक्टरी जहाँ इंडेक्स डेटा संग्रहीत होगा।  
+- **`basePort`** – प्रारंभिक पोर्ट; प्रत्येक नोड इस मान से बढ़ेगा।
+
+### फीचर 2 – सर्च नेटवर्क नोड्स डिप्लॉय करना
+नोड्स को डिप्लॉय करने से इंडेक्सिंग वर्कलोड कई मशीनों या प्रोसेसेस में वितरित हो जाता है।
+
+```java
+import com.groupdocs.search.scaling.*;
+
+class SearchNetworkDeployment {
+    public static SearchNetworkNode[] deploy(String basePath, int basePort, Configuration configuration) {
+        // Deploy nodes based on the provided configuration
+        return new SearchNetworkNode[]{new SearchNetworkNode()};
+    }
+}
+```
+
+प्रत्येक `SearchNetworkNode` अपना इंडेक्सिंग सर्विस चलाता है, जिससे आप **create a searchable index java** को क्षैतिज रूप से स्केल कर सकते हैं।
+
+### फीचर 3 – नोड इवेंट्स की सदस्यता लेना
+रियल‑टाइम अपडेट्स इंडेक्स को फ़ाइल सिस्टम बदलावों के साथ सिंक्रोनाइज़ रखती हैं।
+
+```java
+import com.groupdocs.search.scaling.*;
+
+class SearchNetworkNodeEvents {
+    public static void subscribe(SearchNetworkNode node) {
+        // Logic to subscribe to the specified node's events
+    }
+}
+```
+
+इवेंट्स को सुनकर, आप नई फ़ाइलों के आने पर स्वचालित रूप से री‑इंडेक्सिंग ट्रिगर कर सकते हैं।
+
+### फीचर 4 – नेटवर्क नोड में डायरेक्टरी जोड़ना
+इस हेल्पर का उपयोग करके **add directories to node** करें, सभी समर्थित दस्तावेज़ों को पुनरावृत्त रूप से एकत्रित करें।
+
+```java
+import java.io.File;
+import java.util.ArrayList;
+
+class DirectoryAdder {
+    public static void addDirectories(SearchNetworkNode node, String... directoryPaths) {
+        ArrayList<String> files = new ArrayList<>();
+        for (String directoryPath : directoryPaths) {
+            final File folder = new File(directoryPath);
+            listFiles(folder, files);
+        }
+        addFiles(node, files.toArray(new String[0]));
+    }
+
+    private static void listFiles(final File folder, ArrayList<String> list) {
+        for (final File fileEntry : folder.listFiles()) {
+            if (fileEntry.isDirectory()) {
+                listFiles(fileEntry, list);
+            } else {
+                list.add(fileEntry.getPath());
+            }
+        }
+    }
+}
+```
+
+### फीचर 5 – नेटवर्क नोड में फ़ाइलें जोड़ना
+जब आपको सूक्ष्म नियंत्रण चाहिए, तो **add files to search** को व्यक्तिगत रूप से जोड़ें:
+
+```java
+import com.groupdocs.search.Document;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Date;
+import org.apache.commons.io.FilenameUtils;
+import com.groupdocs.search.Indexer;
+import com.groupdocs.search.options.*;
+
+class FileAdder {
+    public static void addFiles(SearchNetworkNode node, String... filePaths) {
+        try {
+            InputStream[] streams = new FileInputStream[filePaths.length];
+            Document[] documents = new Document[filePaths.length];
+            for (int i = 0; i < filePaths.length; i++) {
+                String filePath = filePaths[i];
+                InputStream stream = new FileInputStream(filePath);
+                streams[i] = stream;
+                
+                // Create a document from the input stream
+                String fileName = FilenameUtils.getName(filePath);
+                String extension = "." + FilenameUtils.getExtension(filePath);
+                Document document = Document.createFromStream(
+                    fileName,
+                    new Date(),
+                    extension,
+                    stream);
+                documents[i] = document;
+            }
+
+            // Initialize the indexer and configure options
+            Indexer indexer = node.getIndexer();
+            IndexingOptions options = new IndexingOptions();
+            options.setUseRawTextExtraction(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+यह मेथड आपको स्ट्रीम्स, क्लाउड स्टोरेज, या टेम्पररी लोकेशन्स से आने वाली फ़ाइलों को इंडेक्स करने की लचीलापन देता है।
+
+## सामान्य समस्याएँ और समाधान
+
+| समस्या | कारण | समाधान |
+|-------|--------|-----|
+| **कोई दस्तावेज़ सर्च परिणामों में नहीं दिखता** | इंडेक्स कमिट नहीं किया गया | `node.getIndexer().commit()` को फ़ाइलें जोड़ने के बाद कॉल करें। |
+| **पोर्ट कॉन्फ्लिक्ट एरर** | कोई अन्य सर्विस `basePort` का उपयोग कर रही है | एक अलग `basePort` चुनें या मुक्त पोर्ट्स की जाँच करें। |
+| **असमर्थित फ़ाइल फ़ॉर्मेट** | लाइब्रेरी में पार्सर नहीं है | फ़ाइल एक्सटेंशन समर्थित है यह सुनिश्चित करें या कस्टम एक्सट्रैक्टर जोड़ें। |
+
+## अक्सर पूछे जाने वाले प्रश्न
+
+**Q: क्या मैं GroupDocs.Search को क्लाउड‑आधारित Java एप्लिकेशन पर उपयोग कर सकता हूँ?**  
+A: हाँ। लाइब्रेरी किसी भी Java रनटाइम के साथ काम करती है, और आप `basePath` को नेटवर्क‑माउंटेड फ़ोल्डर या स्थानीय रूप से माउंटेड क्लाउड स्टोरेज की ओर इशारा कर सकते हैं।
+
+**Q: जब फ़ाइल बदलती है तो मैं इंडेक्स को कैसे अपडेट करूँ?**  
+A: नोड इवेंट्स की सदस्यता लें (फ़ीचर 3 देखें) और संशोधित पाथ्स के लिए फिर से `addFiles` या `addDirectories` कॉल करें।
+
+**Q: मैं कितने नोड्स डिप्लॉय कर सकता हूँ, क्या इसकी कोई सीमा है?**  
+A: व्यावहारिक रूप से, सीमा आपके हार्डवेयर और नेटवर्क बैंडविड्थ पर निर्भर करती है। API स्वयं कोई कठोर सीमा नहीं लगाता।
+
+**Q: नई फ़ाइलें जोड़ने के बाद क्या मुझे नोड्स को रीस्टार्ट करना चाहिए?**  
+A: नहीं। फ़ाइलें जोड़ने से इंडेक्सिंग स्वचालित रूप से ट्रिगर होती है; यदि आप ऑपरेशन को देर से लागू करते हैं तो केवल कमिट करना आवश्यक है।
+
+**Q: डिफ़ॉल्ट रूप से कौन से दस्तावेज़ फ़ॉर्मेट समर्थित हैं?**  
+A: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, और कई इमेज प्रकार। पूरी सूची के लिए आधिकारिक दस्तावेज़ देखें।
+
+---
+
+**अंतिम अपडेट:** 2025-12-26  
+**परीक्षित संस्करण:** GroupDocs.Search for Java 25.4  
+**लेखक:** GroupDocs

@@ -1,43 +1,43 @@
 ---
-title: "Search and Highlight Text with GroupDocs.Search for Java"
-description: "Learn how to search and highlight text in documents using GroupDocs.Search for Java. Explore techniques for full‑document and fragment highlighting."
-date: "2025-12-26"
-weight: 1
-url: "/java/highlighting/groupdocs-search-java-highlight-terms-documents/"
+date: '2025-12-26'
+description: GroupDocs.Search for Java を使用して、ドキュメント内のテキストを検索しハイライトする方法を学びましょう。全文書およびフラグメントのハイライト手法を探求します。
 keywords:
 - GroupDocs.Search for Java
 - highlight search terms in documents
 - document highlighting
+title: GroupDocs.Search for Javaでテキストを検索しハイライトする
 type: docs
+url: /ja/java/highlighting/groupdocs-search-java-highlight-terms-documents/
+weight: 1
 ---
 
-# Search and Highlight Text in Documents Using GroupDocs.Search for Java
+# GroupDocs.Search for Java を使用したドキュメント内のテキスト検索とハイライト
 
-In today's digital age, **search and highlight text** across massive document collections is a common requirement. Whether you're building a legal review tool, an academic research portal, or a customer‑support dashboard, being able to instantly locate and emphasize key terms dramatically improves usability. In this comprehensive guide, you'll discover how to implement **search and highlight text** with GroupDocs.Search for Java—covering both full‑document highlighting and fragment‑level highlighting for focused context.
+今日のデジタル時代において、膨大なドキュメントコレクションに対する **search and highlight text** は一般的な要件です。法務レビューツール、学術研究ポータル、カスタマーサポートダッシュボードのいずれを構築する場合でも、キー用語を瞬時に検索し強調表示できることは、ユーザビリティを大幅に向上させます。この包括的ガイドでは、GroupDocs.Search for Java を使用した **search and highlight text** の実装方法を紹介します—全文書のハイライトと、コンテキストに焦点を当てたフラグメントレベルのハイライトの両方をカバーします。
 
-## Quick Answers
-- **What does “search and highlight text” mean?** It refers to locating query terms in a document and visually emphasizing them (e.g., with background color).  
-- **Which library provides this capability?** GroupDocs.Search for Java.  
-- **Do I need a license?** A free trial works for evaluation; a full license is required for production.  
-- **Can I customize highlight colors?** Yes—any RGB color can be set via `HighlightOptions`.  
-- **Is fragment highlighting supported?** Absolutely; you can define terms before/after the match to create concise snippets.
+## クイック回答
+- **“search and highlight text” とは何ですか？** ドキュメント内でクエリ語句を検索し、視覚的に強調表示（例：背景色）することを指します。  
+- **どのライブラリがこの機能を提供しますか？** GroupDocs.Search for Java。  
+- **ライセンスは必要ですか？** 無料トライアルで評価できますが、本番環境ではフルライセンスが必要です。  
+- **ハイライト色はカスタマイズできますか？** はい—任意の RGB 色を `HighlightOptions` で設定できます。  
+- **フラグメントハイライトはサポートされていますか？** もちろんです。マッチ前後の語句数を指定して簡潔なスニペットを作成できます。
 
-## What Is Search and Highlight Text?
-Search and highlight text is the process of scanning a document index for a given query, retrieving matching documents, and then marking each occurrence of the query term within the document output (HTML, PDF, etc.). This visual cue helps end‑users spot relevant information instantly.
+## Search and Highlight Text とは？
+Search and highlight text は、指定されたクエリに対してドキュメントインデックスをスキャンし、一致するドキュメントを取得した後、ドキュメント出力（HTML、PDF など）内のクエリ語句のすべての出現箇所にマークを付けるプロセスです。この視覚的な手がかりにより、エンドユーザーは関連情報を瞬時に見つけることができます。
 
-## Why Use GroupDocs.Search for Java?
+## なぜ GroupDocs.Search for Java を使用するのか？
 - **High‑performance indexing** with configurable compression.  
 - **Rich highlighting API** that works on whole documents and on custom fragments.  
 - **Cross‑format support** (DOCX, PDF, PPTX, TXT, and more).  
 - **Easy Maven integration** and clear Java‑centric API.
 
-## Prerequisites
+## 前提条件
 - Java Development Kit (JDK) 8 or newer.  
 - Maven for dependency management.  
-- An IDE such as IntelliJ IDEA or Eclipse.  
-- Basic familiarity with Java syntax.
+- IntelliJ IDEA や Eclipse などの IDE。  
+- Java 文法に関する基本的な知識。
 
-## Setting Up GroupDocs.Search for Java
+## GroupDocs.Search for Java のセットアップ
 
 Add the GroupDocs repository and dependency to your `pom.xml`:
 
@@ -61,14 +61,14 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 
 You can also download the latest JAR directly from the official site: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
+### ライセンス取得
 Start with a free trial or obtain a temporary license for evaluation. For production deployments, purchase a full license to unlock all features.
 
-## Implementation Guide
+## 実装ガイド
 
 The implementation is split into two practical sections: **highlighting in entire documents** and **highlighting in fragments**. Both sections include the essential steps for **how to highlight Java** documents using GroupDocs.Search.
 
-### Configuring Index Settings
+### インデックス設定の構成
 Before indexing, configure the storage to use high compression—this reduces disk usage while preserving search speed.
 
 ```java
@@ -76,9 +76,9 @@ IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-### Highlighting in Entire Documents
+### 全文書のハイライト
 
-#### Step 1: Create and Populate the Index
+#### 手順 1: インデックスの作成とデータの投入
 Create an index folder and add all source files you want to search.
 
 ```java
@@ -87,7 +87,7 @@ Index index = new Index(indexFolder, settings);
 index.add("/path/to/your/documents");
 ```
 
-#### Step 2: Perform Search and Apply Highlighting
+#### 手順 2: 検索の実行とハイライトの適用
 Search for the term (e.g., `ipsum`) and generate an HTML file with highlighted matches.
 
 ```java
@@ -111,9 +111,9 @@ if (result.getDocumentCount() > 0) {
 - **HighlightColor** – set any RGB value to match your UI palette.  
 - **UseInlineStyles** – `false` generates clean HTML that can be styled globally with CSS.
 
-### Highlighting in Fragments
+### フラグメントのハイライト
 
-#### Step 1: Index and Search (same as above)
+#### 手順 1: インデックス作成と検索（上記と同様）
 ```java
 String indexFolder = "/path/to/your/document/directory/HighlightingInFragments";
 Index index = new Index(indexFolder, settings);
@@ -122,7 +122,7 @@ index.add("/path/to/your/documents");
 SearchResult result = index.search("ipsum");
 ```
 
-#### Step 2: Define Fragment Context and Highlight
+#### 手順 2: フラグメントコンテキストの定義とハイライト
 Specify how many terms before and after the match should appear in each fragment.
 
 ```java
@@ -138,7 +138,7 @@ FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.Html);
 index.highlight(document, highlighter, options);
 ```
 
-#### Step 3: Retrieve and Write Highlighted Fragments
+#### 手順 3: ハイライトされたフラグメントの取得と書き出し
 Collect the generated fragments and write them to an HTML file.
 
 ```java
@@ -164,22 +164,22 @@ try {
 }
 ```
 
-## Practical Applications
+## 実用的な活用例
 1. **Legal Document Review** – instantly highlight statutes, clauses, or case references.  
 2. **Academic Research** – surface key terminology across dozens of PDFs and Word files.  
 3. **Customer Support** – pinpoint order numbers or error codes within ticket histories.
 
-## Performance Considerations
+## パフォーマンス考慮事項
 - **Index Size** – high compression (`Compression.High`) reduces disk footprint.  
 - **Fragment Context** – larger `termsBefore/After` values increase accuracy but may affect speed.  
 - **Memory Management** – monitor JVM heap when indexing large corpora; consider incremental indexing for very large sets.
 
-## Common Issues and Solutions
+## よくある問題と解決策
 - **Indexing Errors** – verify file paths and ensure the application has read/write permissions.  
 - **No Highlights Appear** – confirm that `UseInlineStyles` matches your output format (HTML vs. PDF).  
 - **Color Not Applied** – make sure the RGB values are within 0‑255 range and that the HTML viewer supports the style.
 
-## Frequently Asked Questions
+## よくある質問
 
 **Q: What are the benefits of using GroupDocs.Search for Java?**  
 A: It offers fast, scalable indexing, customizable highlighting, and support for many document formats.
@@ -198,6 +198,6 @@ A: The code was validated against GroupDocs.Search 25.4.
 
 ---
 
-**Last Updated:** 2025-12-26  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+**最終更新日:** 2025-12-26  
+**テスト環境:** GroupDocs.Search 25.4  
+**作成者:** GroupDocs
