@@ -1,21 +1,22 @@
 ---
-title: "Create Word Forms Provider in Java Using GroupDocs.Search API"
-description: "Learn how to create word forms provider in Java with GroupDocs.Search. Generate singular and plural forms for search, text analysis, and more."
-date: "2025-12-20"
-weight: 1
-url: "/java/dictionaries-language-processing/java-word-forms-generation-groupdocs-search/"
+date: '2025-12-20'
+description: Lär dig hur du skapar en ordformsleverantör i Java med GroupDocs.Search.
+  Generera singular- och pluralformer för sökning, textanalys och mer.
 keywords:
 - word forms generation
 - GroupDocs.Search Java API
 - linguistic transformation
+title: Skapa Word Forms Provider i Java med GroupDocs.Search API
 type: docs
+url: /sv/java/dictionaries-language-processing/java-word-forms-generation-groupdocs-search/
+weight: 1
 ---
 
-# Create Word Forms Provider in Java Using GroupDocs.Search API
+# Skapa Word Forms Provider i Java med GroupDocs.Search API
 
-Transforming words from singular to plural—or the other way around—is a frequent hurdle when building language‑aware applications. In this guide you’ll **create word forms provider** using the GroupDocs.Search Java API, giving your search engine or text‑analysis tool the ability to understand and match different word variations automatically.
+Att omvandla ord från singular till plural—eller tvärtom—är ett vanligt hinder när man bygger språkmedvetna applikationer. I den här guiden kommer du att **create word forms provider** med GroupDocs.Search Java API, vilket ger din sökmotor eller text‑analysverktyg förmågan att automatiskt förstå och matcha olika ordvarianter.
 
-Whether you’re developing a search engine, a content‑management system, or any Java application that processes natural language, mastering word‑form generation will make your results more accurate and your users happier. Let’s explore the prerequisites needed before we begin.
+Oavsett om du utvecklar en sökmotor, ett content‑management‑system eller någon Java‑applikation som bearbetar naturligt språk, kommer behärskning av ordforms‑generering att göra dina resultat mer exakta och dina användare nöjdare. Låt oss gå igenom förutsättningarna som behövs innan vi börjar.
 
 ## Quick Answers
 - **What does a word forms provider do?** It generates alternative forms (singular, plural, etc.) of a given word so searches can match all variants.  
