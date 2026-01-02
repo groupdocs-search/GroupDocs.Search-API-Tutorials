@@ -1,19 +1,20 @@
 ---
-title: "search query java - Mastering GroupDocs.Search Java – Create and Manage a Search Index"
-description: "Learn how to execute a search query java, add documents to index, and build a full text search java solution with GroupDocs.Search for Java."
-date: "2026-01-01"
-weight: 1
-url: "/java/indexing/groupdocs-search-java-create-index-guide/"
+date: '2026-01-01'
+description: เรียนรู้วิธีการดำเนินการค้นหาใน Java, เพิ่มเอกสารลงในดัชนี, และสร้างโซลูชันการค้นหาข้อความเต็มรูปแบบด้วย
+  GroupDocs.Search สำหรับ Java.
 keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
+title: 'search query java - เชี่ยวชาญ GroupDocs.Search Java – สร้างและจัดการดัชนีการค้นหา'
 type: docs
+url: /th/java/indexing/groupdocs-search-java-create-index-guide/
+weight: 1
 ---
 
-# search query java - Mastering GroupDocs.Search Java – Create and Manage a Search Index
+# search query java - การเชี่ยวชาญ GroupDocs.Search Java – สร้างและจัดการดัชนีการค้นหา
 
-In today's data‑driven applications, running an efficient **search query java** against large document collections is a must‑have capability. Whether you're building an internal document portal, an e‑commerce catalog, or a content‑heavy CMS, a well‑structured search index powers fast, accurate results. This tutorial shows you, step by step, how to set up GroupDocs.Search for Java, create a searchable index, **add documents to index**, and run a **full text search java** query—all with clear, conversational explanations.
+ในแอปพลิเคชันที่ขับเคลื่อนด้วยข้อมูลในยุคปัจจุบัน การรัน **search query java** ที่มีประสิทธิภาพบนชุดเอกสารขนาดใหญ่เป็นความสามารถที่ต้องมี ไม่ว่าคุณจะสร้างพอร์ทัลเอกสารภายใน, แคตตาล็อกอี‑คอมเมิร์ซ, หรือ CMS ที่มีเนื้อหาจำนวนมาก ดัชนีการค้นหาที่ออกแบบอย่างดีจะทำให้ได้ผลลัพธ์ที่เร็วและแม่นยำ บทแนะนำนี้จะแสดงขั้นตอนทีละขั้นตอนในการตั้งค่า GroupDocs.Search สำหรับ Java, สร้างดัชนีที่สามารถค้นหา, **add documents to index**, และรัน **full text search java** query—ทั้งหมดด้วยคำอธิบายที่เป็นกันเองและชัดเจน
 
 ## Quick Answers
 - **What does “search query java” mean?** Running a text‑based search against an index built with GroupDocs.Search in a Java application.  
@@ -198,14 +199,14 @@ A: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many more common office fo
 **Q: Can I run a search query java on a remote server?**  
 A: Yes. Build the index on the server and expose a REST endpoint that forwards the query to the Java service.
 
-**Q: How do I update the index when a document changes?**  
+**Q: How do I update when a document changes?**  
 A: Use `index.update("path/to/changed/file")` to replace the old entry without rebuilding the whole index.
 
 **Q: Is there a way to limit search results to a specific folder?**  
 A: After obtaining `SearchResult`, filter `result.getDocuments()` by their original path.
 
 **Q: Does GroupDocs.Search support fuzzy or wildcard searches?**  
-A: The library includes built‑in support for fuzzy matching (`~`) and wildcard (`*`) operators in query strings.
+A: The includes built‑in support for fuzzy matching (`~`) and wildcard (`*`) operators in query strings.
 
 ---
 
