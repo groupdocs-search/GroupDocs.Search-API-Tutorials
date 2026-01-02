@@ -7,14 +7,14 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 'pencarian query java: Menguasai GroupDocs.Search Java – Membuat dan Mengelola
+title: 'pencarian query java - Menguasai GroupDocs.Search Java – Membuat dan Mengelola
   Indeks Pencarian'
 type: docs
 url: /id/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# search query java: Menguasai GroupDocs.Search Java – Membuat dan Mengelola Indeks Pencarian
+# search query java - Menguasai GroupDocs.Search Java – Membuat dan Mengelola Indeks Pencarian
 
 Dalam aplikasi yang berbasis data saat ini, menjalankan **search query java** yang efisien terhadap koleksi dokumen besar adalah kemampuan yang wajib dimiliki. Baik Anda membangun portal dokumen internal, katalog e‑commerce, atau CMS yang kaya konten, indeks pencarian yang terstruktur dengan baik memberikan hasil yang cepat dan akurat. Tutorial ini menunjukkan, langkah demi langkah, cara menyiapkan GroupDocs.Search untuk Java, membuat indeks yang dapat dicari, **menambahkan dokumen ke indeks**, dan menjalankan kueri **full text search java**—semua dengan penjelasan yang jelas dan bersahabat.
 

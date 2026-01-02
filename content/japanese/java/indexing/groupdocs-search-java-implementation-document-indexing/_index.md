@@ -179,19 +179,19 @@ if (documents.length > 0) {
 
 ## よくある質問
 
-1. **What is GroupDocs.Search for Java?**  
+1. **Java版GroupDocs.Searchとは何ですか？**  
    開発者が Java アプリケーションに効率的に全文検索機能を追加できる強力なライブラリです。  
 
-2. **How do I handle large datasets with GroupDocs.Search?**  
+2. **GroupDocs.Searchで大規模なデータセットを処理するにはどうすればよいですか？** 
    バッチ処理を利用し、インデックス設定を最適化してリソースを効果的に管理します。  
 
-3. **Can I customize the compression level in text storage settings?**  
+3. **テキストストレージ設定で圧縮レベルをカスタマイズできますか？**  
    はい、`Compression.High` や `Compression.Low` など、さまざまな圧縮レベルを設定できます。  
 
-4. **What types of documents does GroupDocs.Search support?**  
+4. **GroupDocs.Searchはどのような種類のドキュメントをサポートしていますか？**
    PDF、Word、Excel、PowerPoint など、幅広いフォーマットに対応しています。  
 
-5. **Is there community support for GroupDocs.Search?**  
+5. **GroupDocs.Searchにはコミュニティサポートがありますか？**
    はい、[GroupDocs Forum](https://forum.groupdocs.com/c/search/10) で無料サポートが利用できます。
 
 ## リソース

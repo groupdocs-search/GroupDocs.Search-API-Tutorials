@@ -7,14 +7,14 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 'Vyhledávací dotaz Java: Mistrovství v GroupDocs.Search Java – Vytvoření a
+title: 'Vyhledávací dotaz Java - Mistrovství v GroupDocs.Search Java – Vytvoření a
   správa vyhledávacího indexu'
 type: docs
 url: /cs/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# search query java: Ovládání GroupDocs.Search Java – Vytvoření a správa vyhledávacího indexu
+# search query java - Ovládání GroupDocs.Search Java – Vytvoření a správa vyhledávacího indexu
 
 V dnešních aplikacích řízených daty je spouštění efektivního **search query java** nad velkými kolekcemi dokumentů nezbytnou schopností. Ať už budujete interní dokumentový portál, e‑commerce katalog nebo obsahově náročný CMS, dobře strukturovaný vyhledávací index umožňuje rychlé a přesné výsledky. Tento tutoriál vám krok za krokem ukáže, jak nastavit GroupDocs.Search pro Java, vytvořit prohledávatelný index, **add documents to index**, a spustit **full text search java** dotaz – vše s jasnými, konverzačními vysvětleními.
 

@@ -6,14 +6,14 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 'arama sorgusu java: GroupDocs.Search Java''ı Ustalaştırma – Bir Arama Dizini
+title: 'arama sorgusu java - GroupDocs.Search Java''ı Ustalaştırma – Bir Arama Dizini
   Oluşturma ve Yönetme'
 type: docs
 url: /tr/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# arama sorgusu java: GroupDocs.Search Java’yı Ustalıkla Kullanma – Bir Arama Dizini Oluşturma ve Yönetme
+# arama sorgusu java - GroupDocs.Search Java’yı Ustalıkla Kullanma – Bir Arama Dizini Oluşturma ve Yönetme
 
 Günümüzün veri odaklı uygulamalarında, büyük belge koleksiyonları üzerinde etkili bir **search query java** çalıştırmak zorunlu bir yetenektir. İster dahili bir belge portalı, ister bir e‑ticaret kataloğu, ister içerik ağırlıklı bir CMS inşa ediyor olun, iyi yapılandırılmış bir arama dizini hızlı ve doğru sonuçlar sağlar. Bu öğreticide, adım adım GroupDocs.Search for Java’yı nasıl kuracağınızı, aranabilir bir dizin oluşturacağınızı, **dizine belge ekleme**, ve **full text search java** sorgusunu nasıl çalıştıracağınızı net, konuşma dili açıklamalarla göstereceğiz.
 

@@ -6,14 +6,14 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 'truy vấn tìm kiếm java: Thành thạo GroupDocs.Search Java – Tạo và Quản lý
+title: 'truy vấn tìm kiếm java - Thành thạo GroupDocs.Search Java – Tạo và Quản lý
   Chỉ mục Tìm kiếm'
 type: docs
 url: /vi/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# search query java: Làm chủ GroupDocs.Search Java – Tạo và Quản lý Chỉ mục Tìm kiếm
+# search query java - Làm chủ GroupDocs.Search Java – Tạo và Quản lý Chỉ mục Tìm kiếm
 
 Trong các ứng dụng dựa trên dữ liệu ngày nay, việc chạy một **search query java** hiệu quả trên các bộ sưu tập tài liệu lớn là một khả năng không thể thiếu. Dù bạn đang xây dựng một cổng tài liệu nội bộ, một danh mục thương mại điện tử, hay một CMS chứa nhiều nội dung, một chỉ mục tìm kiếm được cấu trúc tốt sẽ mang lại kết quả nhanh chóng và chính xác. Hướng dẫn này sẽ chỉ cho bạn, từng bước, cách thiết lập GroupDocs.Search cho Java, tạo một chỉ mục có thể tìm kiếm, **add documents to index**, và chạy một truy vấn **full text search java** — tất cả với các giải thích rõ ràng, thân thiện.
 

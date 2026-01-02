@@ -6,7 +6,7 @@ keywords:
 - document indexing
 - GroupDocs.Search for Java
 - Java application search
-title: 'GroupDocs.Search for Java के साथ सर्च इंडेक्स बनाएं: एक पूर्ण मार्गदर्शिका'
+title: 'GroupDocs.Search for Java के साथ सर्च इंडेक्स बनाएं - एक पूर्ण मार्गदर्शिका'
 type: docs
 url: /hi/java/indexing/groupdocs-search-java-implementation-document-indexing/
 weight: 1

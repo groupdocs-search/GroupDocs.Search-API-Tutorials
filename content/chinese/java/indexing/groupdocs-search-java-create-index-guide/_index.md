@@ -5,13 +5,13 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 搜索查询 Java：精通 GroupDocs.Search Java – 创建和管理搜索索引
+title: 搜索查询 Java - 精通 GroupDocs.Search Java – 创建和管理搜索索引
 type: docs
 url: /zh/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# search query java: Mastering GroupDocs.Search Java – Create and Manage a Search Index
+# search query java - Mastering GroupDocs.Search Java – Create and Manage a Search Index
 
 在当今数据驱动的应用中，对大型文档集合执行高效的 **search query java** 是必备能力。无论您是在构建内部文档门户、电子商务目录，还是内容丰富的 CMS，结构良好的搜索索引都能提供快速、准确的结果。本教程将一步步演示如何为 Java 设置 GroupDocs.Search，创建可搜索的索引，**add documents to index**，以及运行 **full text search java** 查询——全部配以清晰、对话式的说明。
 

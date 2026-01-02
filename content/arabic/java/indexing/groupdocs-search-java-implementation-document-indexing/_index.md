@@ -6,7 +6,7 @@ keywords:
 - document indexing
 - GroupDocs.Search for Java
 - Java application search
-title: 'إنشاء فهرس بحث GroupDocs باستخدام GroupDocs.Search للغة Java: دليل شامل'
+title: 'إنشاء فهرس بحث GroupDocs باستخدام GroupDocs.Search للغة Java - دليل شامل'
 type: docs
 url: /ar/java/indexing/groupdocs-search-java-implementation-document-indexing/
 weight: 1

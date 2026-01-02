@@ -6,14 +6,14 @@ keywords:
 - document indexing
 - GroupDocs.Search for Java
 - Java application search
-title: 'Créer un index de recherche GroupDocs avec GroupDocs.Search pour Java : guide
+title: 'Créer un index de recherche GroupDocs avec GroupDocs.Search pour Java - guide
   complet'
 type: docs
 url: /fr/java/indexing/groupdocs-search-java-implementation-document-indexing/
 weight: 1
 ---
 
-# Créer un index de recherche GroupDocs avec GroupDocs.Search pour Java : Guide complet
+# Créer un index de recherche GroupDocs avec GroupDocs.Search pour Java - Guide complet
 
 ## Introduction
 Si vous devez **create search index groupdocs** dans une application Java, vous êtes au bon endroit. Dans ce tutoriel, nous parcourrons l’ensemble du processus de configuration de GroupDocs.Search, de création d’un index, d’ajout de fichiers et de récupération du texte des documents — le tout avec du code clair, étape par étape, que vous pouvez copier directement dans votre projet. À la fin, vous saurez exactement **how to index documents java**‑style et serez prêt à intégrer des capacités de recherche puissantes dans n’importe quelle solution d’entreprise.

@@ -6,13 +6,13 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 'search query java: เชี่ยวชาญ GroupDocs.Search Java – สร้างและจัดการดัชนีการค้นหา'
+title: 'search query java - เชี่ยวชาญ GroupDocs.Search Java – สร้างและจัดการดัชนีการค้นหา'
 type: docs
 url: /th/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# search query java: การเชี่ยวชาญ GroupDocs.Search Java – สร้างและจัดการดัชนีการค้นหา
+# search query java - การเชี่ยวชาญ GroupDocs.Search Java – สร้างและจัดการดัชนีการค้นหา
 
 ในแอปพลิเคชันที่ขับเคลื่อนด้วยข้อมูลในยุคปัจจุบัน การรัน **search query java** ที่มีประสิทธิภาพบนชุดเอกสารขนาดใหญ่เป็นความสามารถที่ต้องมี ไม่ว่าคุณจะสร้างพอร์ทัลเอกสารภายใน, แคตตาล็อกอี‑คอมเมิร์ซ, หรือ CMS ที่มีเนื้อหาจำนวนมาก ดัชนีการค้นหาที่ออกแบบอย่างดีจะทำให้ได้ผลลัพธ์ที่เร็วและแม่นยำ บทแนะนำนี้จะแสดงขั้นตอนทีละขั้นตอนในการตั้งค่า GroupDocs.Search สำหรับ Java, สร้างดัชนีที่สามารถค้นหา, **add documents to index**, และรัน **full text search java** query—ทั้งหมดด้วยคำอธิบายที่เป็นกันเองและชัดเจน
 

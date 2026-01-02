@@ -6,13 +6,13 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: '검색 쿼리 Java: GroupDocs.Search Java 마스터하기 – 검색 인덱스 생성 및 관리'
+title: '검색 쿼리 Java - GroupDocs.Search Java 마스터하기 – 검색 인덱스 생성 및 관리'
 type: docs
 url: /ko/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# search query java: GroupDocs.Search Java 마스터하기 – 검색 인덱스 생성 및 관리
+# search query java - GroupDocs.Search Java 마스터하기 – 검색 인덱스 생성 및 관리
 
 오늘날 데이터 중심 애플리케이션에서는 대규모 문서 컬렉션에 대해 효율적인 **search query java**를 실행하는 것이 필수 기능입니다. 내부 문서 포털, 전자상거래 카탈로그, 혹은 콘텐츠가 풍부한 CMS를 구축하든, 잘 구조화된 검색 인덱스는 빠르고 정확한 결과를 제공합니다. 이 튜토리얼에서는 GroupDocs.Search for Java를 설정하고, 검색 가능한 인덱스를 생성하며, **add documents to index**를 수행하고, **full text search java** 쿼리를 실행하는 방법을 단계별로 명확하고 대화식으로 설명합니다.
 

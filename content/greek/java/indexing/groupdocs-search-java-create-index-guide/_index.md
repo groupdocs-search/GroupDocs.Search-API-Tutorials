@@ -7,14 +7,14 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 'ερώτημα αναζήτησης java: Κατακτώντας το GroupDocs.Search Java – Δημιουργία
+title: 'ερώτημα αναζήτησης java - Κατακτώντας το GroupDocs.Search Java – Δημιουργία
   και Διαχείριση Δείκτη Αναζήτησης'
 type: docs
 url: /el/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# search query java: Κατακτώντας το GroupDocs.Search Java – Δημιουργία και Διαχείριση Δείκτη Αναζήτησης
+# search query java - Κατακτώντας το GroupDocs.Search Java – Δημιουργία και Διαχείριση Δείκτη Αναζήτησης
 
 Στις σύγχρονες εφαρμογές που βασίζονται στα δεδομένα, η εκτέλεση μιας αποδοτικής **search query java** εναντίον μεγάλων συλλογών εγγράφων είναι μια απαραίτητη δυνατότητα. Είτε δημιουργείτε ένα εσωτερικό portal εγγράφων, έναν κατάλογο e‑commerce, είτε ένα CMS με μεγάλο όγκο περιεχομένου, ένας καλά δομημένος δείκτης αναζήτησης παρέχει γρήγορα, ακριβή αποτελέσματα. Αυτό το εκπαιδευτικό υλικό σας δείχνει, βήμα προς βήμα, πώς να ρυθμίσετε το GroupDocs.Search για Java, να δημιουργήσετε έναν αναζητήσιμο δείκτη, **add documents to index**, και να εκτελέσετε ένα ερώτημα **full text search java** — όλα με σαφείς, συνομιλιακούς επεξηγήσεις.
 

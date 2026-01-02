@@ -6,14 +6,14 @@ keywords:
 - document indexing
 - GroupDocs.Search for Java
 - Java application search
-title: 'Tạo chỉ mục tìm kiếm GroupDocs với GroupDocs.Search cho Java: Hướng dẫn toàn
+title: 'Tạo chỉ mục tìm kiếm GroupDocs với GroupDocs.Search cho Java - Hướng dẫn toàn
   diện'
 type: docs
 url: /vi/java/indexing/groupdocs-search-java-implementation-document-indexing/
 weight: 1
 ---
 
-# Tạo Chỉ mục Tìm kiếm GroupDocs với GroupDocs.Search cho Java: Hướng dẫn Toàn diện
+# Tạo Chỉ mục Tìm kiếm GroupDocs với GroupDocs.Search cho Java - Hướng dẫn Toàn diện
 
 ## Giới thiệu
 Nếu bạn cần **tạo chỉ mục tìm kiếm groupdocs** trong một ứng dụng Java, bạn đã đến đúng nơi. Trong hướng dẫn này, chúng tôi sẽ đi qua toàn bộ quy trình thiết lập GroupDocs.Search, tạo chỉ mục, thêm tệp và truy xuất văn bản tài liệu — tất cả với mã từng bước rõ ràng mà bạn có thể sao chép ngay vào dự án. Khi hoàn thành, bạn sẽ biết chính xác **cách lập chỉ mục tài liệu java** và sẵn sàng tích hợp khả năng tìm kiếm mạnh mẽ vào bất kỳ giải pháp doanh nghiệp nào.

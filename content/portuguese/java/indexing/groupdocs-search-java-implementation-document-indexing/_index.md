@@ -6,7 +6,7 @@ keywords:
 - document indexing
 - GroupDocs.Search for Java
 - Java application search
-title: 'Criar Índice de Pesquisa GroupDocs com GroupDocs.Search para Java: Um Guia
+title: 'Criar Índice de Pesquisa GroupDocs com GroupDocs.Search para Java - Um Guia
   Completo'
 type: docs
 url: /pt/java/indexing/groupdocs-search-java-implementation-document-indexing/

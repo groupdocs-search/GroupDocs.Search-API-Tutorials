@@ -7,14 +7,14 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 'zapytanie wyszukiwania java: Opanowanie GroupDocs.Search Java – Tworzenie
+title: 'zapytanie wyszukiwania java - Opanowanie GroupDocs.Search Java – Tworzenie
   i zarządzanie indeksem wyszukiwania'
 type: docs
 url: /pl/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# zapytanie wyszukiwania java: Opanowanie GroupDocs.Search Java – Tworzenie i zarządzanie indeksem wyszukiwania
+# zapytanie wyszukiwania java - Opanowanie GroupDocs.Search Java – Tworzenie i zarządzanie indeksem wyszukiwania
 
 W dzisiejszych aplikacjach opartych na danych, uruchamianie wydajnego **zapytania wyszukiwania java** w dużych zbiorach dokumentów jest niezbędną funkcją. Niezależnie od tego, czy budujesz wewnętrzny portal dokumentów, katalog e‑commerce, czy system CMS z dużą ilością treści, dobrze skonstruowany indeks wyszukiwania zapewnia szybkie i dokładne wyniki. Ten samouczek pokazuje krok po kroku, jak skonfigurować GroupDocs.Search dla Javy, utworzyć indeks przeszukiwalny, **dodać dokumenty do indeksu** oraz wykonać **zapytanie pełnotekstowe java** – wszystko w przystępnych, konwersacyjnych wyjaśnieniach.
 

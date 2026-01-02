@@ -6,13 +6,13 @@ keywords:
 - document indexing
 - GroupDocs.Search for Java
 - Java application search
-title: 'สร้างดัชนีการค้นหา GroupDocs ด้วย GroupDocs.Search สำหรับ Java: คู่มือฉบับสมบูรณ์'
+title: 'สร้างดัชนีการค้นหา GroupDocs ด้วย GroupDocs.Search สำหรับ Java - คู่มือฉบับสมบูรณ์'
 type: docs
 url: /th/java/indexing/groupdocs-search-java-implementation-document-indexing/
 weight: 1
 ---
 
-# สร้าง Search Index GroupDocs ด้วย GroupDocs.Search สำหรับ Java: คู่มือฉบับสมบูรณ์
+# สร้าง Search Index GroupDocs ด้วย GroupDocs.Search สำหรับ Java -  ู่มือฉบับสมบูรณ์
 
 ## บทนำ
 หากคุณต้องการ **สร้าง search index groupdocs** ภายในแอปพลิเคชัน Java คุณมาถูกที่แล้ว ในบทแนะนำนี้เราจะพาคุณผ่านกระบวนการทั้งหมดตั้งแต่การตั้งค่า GroupDocs.Search การสร้างดัชนี การเพิ่มไฟล์ และการดึงข้อความจากเอกสาร—ทั้งหมดด้วยโค้ดขั้นตอน‑ตามขั้นตอนที่คุณสามารถคัดลอกไปใช้ในโปรเจกต์ของคุณได้ทันที เมื่อจบคุณจะรู้ **วิธีทำ index เอกสารแบบ java**‑style อย่างชัดเจนและพร้อมผสานความสามารถการค้นหาที่ทรงพลังเข้าไปในโซลูชันระดับองค์กรใดก็ได้

@@ -5,13 +5,13 @@ keywords:
 - document indexing
 - GroupDocs.Search for Java
 - Java application search
-title: 使用 GroupDocs.Search for Java 建立搜尋索引：完整指南
+title: 使用 GroupDocs.Search for Java 建立搜尋索引 - 完整指南
 type: docs
 url: /zh-hant/java/indexing/groupdocs-search-java-implementation-document-indexing/
 weight: 1
 ---
 
-# 使用 GroupDocs.Search for Java 建立搜尋索引 GroupDocs：完整指南
+# 使用 GroupDocs.Search for Java 建立搜尋索引 GroupDocs - 完整指南
 
 ## 介紹
 如果您需要在 Java 應用程式中 **create search index groupdocs**，您來對地方了。在本教學中，我們將逐步說明設定 GroupDocs.Search、建立索引、加入檔案以及擷取文件文字的完整流程——所有程式碼皆可直接複製到您的專案中。完成後，您將清楚了解 **how to index documents java** 的作法，並能將強大的搜尋功能整合至任何企業解決方案。

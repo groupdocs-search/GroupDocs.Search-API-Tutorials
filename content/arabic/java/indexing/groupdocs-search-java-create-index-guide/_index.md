@@ -6,7 +6,7 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 'استعلام البحث جافا: إتقان GroupDocs.Search Java – إنشاء وإدارة فهرس البحث'
+title: 'استعلام البحث جافا - إتقان GroupDocs.Search Java – إنشاء وإدارة فهرس البحث'
 type: docs
 url: /ar/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1

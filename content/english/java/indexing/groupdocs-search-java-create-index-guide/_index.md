@@ -1,5 +1,5 @@
 ---
-title: "search query java: Mastering GroupDocs.Search Java – Create and Manage a Search Index"
+title: "search query java - Mastering GroupDocs.Search Java – Create and Manage a Search Index"
 description: "Learn how to execute a search query java, add documents to index, and build a full text search java solution with GroupDocs.Search for Java."
 date: "2026-01-01"
 weight: 1
@@ -11,7 +11,7 @@ keywords:
 type: docs
 ---
 
-# search query java: Mastering GroupDocs.Search Java – Create and Manage a Search Index
+# search query java - Mastering GroupDocs.Search Java – Create and Manage a Search Index
 
 In today's data‑driven applications, running an efficient **search query java** against large document collections is a must‑have capability. Whether you're building an internal document portal, an e‑commerce catalog, or a content‑heavy CMS, a well‑structured search index powers fast, accurate results. This tutorial shows you, step by step, how to set up GroupDocs.Search for Java, create a searchable index, **add documents to index**, and run a **full text search java** query—all with clear, conversational explanations.
 

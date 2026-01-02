@@ -5,13 +5,13 @@ keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 搜尋查詢 Java：精通 GroupDocs.Search Java – 建立與管理搜尋索引
+title: 搜尋查詢 Java - 精通 GroupDocs.Search Java – 建立與管理搜尋索引
 type: docs
 url: /zh-hant/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# search query java: 精通 GroupDocs.Search Java – 建立與管理搜尋索引
+# search query java - 精通 GroupDocs.Search Java – 建立與管理搜尋索引
 
 在當今以資料為驅動的應用程式中，對大型文件集合執行高效的 **search query java** 是必備功能。無論您是建立內部文件入口網站、電子商務目錄，或是內容豐富的 CMS，良好結構的搜尋索引都能提供快速、精確的結果。本教學將一步步示範如何設定 GroupDocs.Search for Java、建立可搜尋的索引、**add documents to index**，以及執行 **full text search java** 查詢——全部以清晰、對話式的說明呈現。
 
