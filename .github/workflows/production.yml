@@ -89,4 +89,3 @@ jobs:
             -H "X-Api-Key: ${{ secrets.BUNNY_API_KEY }}" \
             --data-urlencode "url=https://tutorials.groupdocs.com/search" \
             "https://api.dynabic.com/bn/purge?async=true"
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS }}
