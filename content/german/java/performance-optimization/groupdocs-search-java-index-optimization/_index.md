@@ -1,15 +1,17 @@
 ---
-title: "Optimize Search Index Java with GroupDocs.Search Guide"
-description: "Learn how to optimize search index java using GroupDocs.Search, a powerful java full‑text search library for efficient document management."
-date: "2026-01-14"
-weight: 1
-url: "/java/performance-optimization/groupdocs-search-java-index-optimization/"
+date: '2026-01-14'
+description: Erfahren Sie, wie Sie den Suchindex in Java mit GroupDocs.Search optimieren,
+  einer leistungsstarken Java‑Volltextsuchbibliothek für effizientes Dokumentenmanagement.
 keywords:
 - GroupDocs Search Java
 - create search index Java
 - optimize search index Java
+title: Suchindex in Java optimieren mit dem GroupDocs.Search-Leitfaden
 type: docs
+url: /de/java/performance-optimization/groupdocs-search-java-index-optimization/
+weight: 1
 ---
+
 # Optimize Search Index Java with GroupDocs.Search Guide
 
 ## Introduction
