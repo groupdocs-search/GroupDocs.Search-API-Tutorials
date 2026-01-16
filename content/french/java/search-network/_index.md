@@ -1,21 +1,23 @@
 ---
-title: "Create Distributed Index Java: GroupDocs.Search Tutorials"
-description: "Learn how to create distributed index Java with GroupDocs.Search, covering scalable network deployment, shard management, and node configuration."
-weight: 9
-url: "/java/search-network/"
-type: docs
 date: 2026-01-16
+description: Apprenez à créer un index distribué en Java avec GroupDocs.Search, en
+  couvrant le déploiement réseau évolutif, la gestion des fragments et la configuration
+  des nœuds.
+title: 'Créer un index distribué Java : Tutoriels GroupDocs.Search'
+type: docs
+url: /fr/java/search-network/
+weight: 9
 ---
 
-# Create Distributed Index Java: GroupDocs.Search Tutorials
+# Créer un Index Distribué Java : Tutoriels GroupDocs.Search
 
-If you're looking to **create distributed index Java** solutions that scale across multiple servers, you’ve come to the right place. This hub gathers the most comprehensive, step‑by‑step guides for building, deploying, and optimizing GroupDocs.Search networks in Java. Whether you need to configure shards, synchronize nodes, or boost query performance, the tutorials below walk you through every essential detail with real‑world examples.
+Si vous cherchez à **créer un index distribué Java** qui s'étend sur plusieurs serveurs, vous êtes au bon endroit. Ce hub rassemble les guides les plus complets, étape par étape, pour construire, déployer et optimiser les réseaux GroupDocs.Search en Java. Que vous ayez besoin de configurer des shards, de synchroniser des nœuds ou d'améliorer les performances des requêtes, les tutoriels ci‑dessous vous accompagnent dans chaque détail essentiel avec des exemples concrets.
 
-## How to Create Distributed Index Java with GroupDocs.Search
+## Comment créer un index distribué Java avec GroupDocs.Search
 
-Below is a curated list of tutorials that walk you through the entire lifecycle of a distributed search index in Java—from initial setup to advanced optimization. Each guide includes ready‑to‑run Java code, configuration snippets, and best‑practice recommendations.
+Vous trouverez ci‑dessous une liste sélectionnée de tutoriels qui vous guident à travers le cycle complet d’un index de recherche distribué en Java — de la configuration initiale à l’optimisation avancée. Chaque guide comprend du code Java prêt à l’emploi, des extraits de configuration et des recommandations de bonnes pratiques.
 
-### Available Tutorials
+### Tutoriels disponibles
 
 #### Configuring a Scalable Search Network with GroupDocs.Search Java&#58; A Comprehensive Guide
 [Configuring a Scalable Search Network with GroupDocs.Search Java&#58; A Comprehensive Guide](./scalable-search-network-groupdocs-java/)
@@ -41,7 +43,7 @@ Below is a curated list of tutorials that walk you through the entire lifecycle 
 #### Scalable Search Solutions in Java&#58; Implementing GroupDocs.Search for Efficient Network Deployment
 [Scalable Search Solutions in Java&#58; Implementing GroupDocs.Search for Efficient Network Deployment](./scalable-search-groupdocs-java/)
 
-### Additional Resources
+### Ressources supplémentaires
 
 - [GroupDocs.Search for Java Documentation](https://docs.groupdocs.com/search/java/)
 - [GroupDocs.Search for Java API Reference](https://reference.groupdocs.com/search/java/)
@@ -52,6 +54,6 @@ Below is a curated list of tutorials that walk you through the entire lifecycle 
 
 ---
 
-**Last Updated:** 2026-01-16  
-**Tested With:** GroupDocs.Search for Java (latest release)  
-**Author:** GroupDocs
+**Dernière mise à jour :** 2026-01-16  
+**Testé avec :** GroupDocs.Search for Java (dernière version)  
+**Auteur :** GroupDocs
