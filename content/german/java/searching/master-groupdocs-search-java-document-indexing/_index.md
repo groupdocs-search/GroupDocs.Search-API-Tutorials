@@ -1,14 +1,16 @@
 ---
-title: "Highlight Search Results Java – Synchronous & Async Indexing"
-description: "Learn how to highlight search results Java and how to index documents java using GroupDocs.Search for Java with synchronous and asynchronous indexing."
-date: "2026-02-08"
-weight: 1
-url: "/java/searching/master-groupdocs-search-java-document-indexing/"
+date: '2026-02-08'
+description: Erfahren Sie, wie Sie Suchergebnisse in Java hervorheben und wie Sie
+  Dokumente in Java mit GroupDocs.Search für Java mittels synchroner und asynchroner
+  Indizierung indexieren.
 keywords:
 - document search
 - synchronous indexing
 - asynchronous indexing
+title: Hervorhebung von Suchergebnissen Java – Synchrone & asynchrone Indexierung
 type: docs
+url: /de/java/searching/master-groupdocs-search-java-document-indexing/
+weight: 1
 ---
 
 # Highlight Search Results Java – Synchronous & Async Indexing
