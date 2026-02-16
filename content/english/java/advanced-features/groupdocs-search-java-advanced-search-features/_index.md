@@ -1,7 +1,7 @@
 ---
-title: "GroupDocs.Search Java - Date Range Search & Advanced Features"
-description: "Learn how to perform date range search and other advanced search features like faceted search Java using GroupDocs.Search for Java, including error handling and performance optimization."
-date: "2025-12-16"
+title: "Wildcard Search Java with GroupDocs.Search – Advanced Features"
+description: "Learn how to implement wildcard search java, date range search, and custom date format java using GroupDocs.Search for Java, including error handling and performance optimization."
+date: "2026-02-16"
 weight: 1
 url: "/java/advanced-features/groupdocs-search-java-advanced-search-features/"
 keywords:
@@ -11,22 +11,22 @@ keywords:
 type: docs
 ---
 
-# Mastering GroupDocs.Search Java: Date Range Search & Advanced Features
+# Wildcard Search Java with GroupDocs.Search – Advanced Features
 
-In today's data‑driven applications, **date range search** is a core capability that lets you filter documents by time periods, dramatically improving relevance and speed. Whether you’re building a compliance portal, an e‑commerce catalog, or a content‑management system, mastering date range search alongside other powerful query types will make your solution both flexible and robust. This guide walks you through error handling, a full suite of query types, and performance tips, all with real Java code you can copy‑paste.
+In modern, data‑driven applications **wildcard search java** is one of the most flexible ways to let users find information even when they only know part of a word. Whether you’re building a compliance portal, an e‑commerce catalog, or a content‑management system, combining wildcard search with date range, faceted, numeric, regex, and boolean queries gives you a truly powerful search engine. This tutorial walks you through every advanced feature, shows how to handle indexing errors, and offers performance‑tuning tips—all with ready‑to‑copy Java code.
 
 ## Quick Answers
-- **What is date range search?** Filtering documents that contain dates within a specified start‑to‑end interval.  
+- **What is wildcard search java?** A query that uses `?` or `*` placeholders to match one or many characters in a term.  
 - **Which library provides it?** GroupDocs.Search for Java.  
 - **Do I need a license?** A free trial works for development; a production license is required for commercial use.  
-- **Can I combine it with other queries?** Yes—mix date ranges with boolean, faceted, or regex queries.  
-- **Is it fast for large datasets?** When indexed correctly, searches run in sub‑second time even on millions of records.
+- **Can I combine it with date range queries?** Yes—mix wildcard, date range, faceted, and boolean clauses in a single query.  
+- **Is it fast for large datasets?** When indexed correctly, searches run in sub‑second time even on millions of documents.  
 
-## What is date range search?
-Date range search lets you locate documents that include dates falling between two boundaries, such as “2023‑01‑01 ~~ 2023‑12‑31”. It’s essential for reports, audit logs, and any scenario where time‑based filtering matters.
+## What is wildcard search java?
+Wildcard search java lets you locate documents where a term matches a pattern, such as `?ffect` (matching *affect* or *effect*) or `prod*` (matching *product*, *production*, etc.). It’s ideal for misspellings, partial inputs, or when the exact wording isn’t known.
 
 ## Why use GroupDocs.Search for Java?
-GroupDocs.Search offers a unified API for many query types—simple, wildcard, faceted, numeric, date range, regex, boolean, and phrase—so you can build sophisticated search experiences without juggling multiple libraries. Its event‑driven error handling also keeps your indexing pipeline resilient.
+GroupDocs.Search offers a unified API for many query types—simple, **wildcard search java**, faceted, numeric, date range, regex, boolean, and phrase—so you can build sophisticated search experiences without juggling multiple libraries. Its event‑driven error handling also keeps your indexing pipeline resilient.
 
 ## Prerequisites
 - **GroupDocs.Search Java library** (v25.4 or newer).  
@@ -113,7 +113,7 @@ SearchResult result = index.search(query);
 *Result*: Returns every document containing the term **volutpat**.
 
 ### Feature 3: Wildcard Search Query
-#### How does wildcard search work?
+#### How does wildcard search java work?
 
 ```java
 String query = "?ffect";
@@ -123,7 +123,7 @@ SearchResult result = index.search(query);
 *Result*: Matches both **affect** and **effect**, showing the power of the `?` placeholder.
 
 ### Feature 4: Faceted Search Query
-#### How to perform faceted search Java
+#### How to perform faceted search java
 
 ```java
 String query = "Content: magna";
@@ -143,7 +143,7 @@ SearchResult result = index.search(query);
 *Result*: Retrieves documents where numeric values fall between 2000 and 3000.
 
 ### Feature 6: Date Range Search Query
-#### How to execute date range search
+#### How to execute date range search (custom date format java)
 
 ```java
 import com.groupdocs.search.options.*;
@@ -170,7 +170,7 @@ SearchResult result = index.search(query, options);
 *Explanation*: By customizing `SearchOptions`, you tell the engine to recognize dates in **MM/DD/YYYY** format, then retrieve all records between January 1 2000 and June 15 2001.
 
 ### Feature 7: Regular Expression Search Query
-#### How to run regex search Java
+#### How to run regex search java
 
 ```java
 String query = "^(.)\\1{2,}";
@@ -180,7 +180,7 @@ SearchResult result = index.search(query);
 *Result*: Finds sequences of three or more identical characters (e.g., “aaa”, “111”).
 
 ### Feature 8: Boolean Search Query
-#### How to combine conditions with boolean search Java
+#### How to combine conditions with boolean search java
 
 ```java
 String query = "justo AND NOT 3456";
@@ -210,19 +210,20 @@ SearchResult result = index.search(query);
 *Result*: Retrieves only documents that contain the exact phrase **ipsum dolor sit amet**.
 
 ## Practical Applications
-1. **E‑commerce Platforms** – Use faceted search Java to filter products by size, color, and brand.  
-2. **Content Management Systems** – Combine boolean search Java with phrase search to power sophisticated editorial tools.  
-3. **Data Analysis Tools** – Leverage date range search to generate time‑based reports and dashboards.
+1. **E‑commerce Platforms** – Use **faceted search java** to filter products by size, color, and brand.  
+2. **Content Management Systems** – Combine **boolean search java** with phrase search to power sophisticated editorial tools.  
+3. **Data Analysis Tools** – Leverage **date range search** and **custom date format java** to generate time‑based reports and dashboards.  
 
 ## Common Issues & Solutions
 - **No results for date range search** – Verify that the date format in your documents matches the custom `DateFormat` you added.  
 - **Regex queries return too many hits** – Refine the pattern or limit the search scope with additional field qualifiers.  
-- **Indexing errors not captured** – Ensure the event handler is attached **before** calling `index.add(...)`.
+- **Indexing errors not captured** – Ensure the event handler is attached **before** calling `index.add(...)`.  
+- **Wildcard search appears slow** – Avoid leading wildcards (`*term`) on very large indexes; prefer suffix or infix patterns.  
 
 ## Frequently Asked Questions
 
 **Q: Can I mix date range search with other query types?**  
-A: Absolutely. You can combine a date range clause with boolean operators, faceted filters, or regex patterns in a single query string.
+A: Absolutely. You can combine a date range clause with wildcard, boolean, faceted, or regex patterns in a single query string.
 
 **Q: Do I need to rebuild the index after changing date formats?**  
 A: Yes. The index stores tokenized terms; updating `SearchOptions` alone won’t re‑tokenize existing data. Re‑index the documents after changing formats.
@@ -237,10 +238,10 @@ A: Wildcards are processed efficiently, but using many leading wildcards (e.g., 
 A: A perpetual or subscription license from GroupDocs ensures you receive updates, support, and the ability to deploy without trial limitations.
 
 ## Conclusion
-By mastering **date range search** and the full suite of advanced query types offered by GroupDocs.Search for Java, you can build highly responsive, feature‑rich search experiences. Implement robust error handling, fine‑tune your index, and combine queries to meet virtually any retrieval scenario. Start experimenting today and elevate your application's data‑access capabilities.
+By mastering **wildcard search java** and the full suite of advanced query types offered by GroupDocs.Search for Java, you can build highly responsive, feature‑rich search experiences. Implement robust error handling, fine‑tune your index, and combine queries to meet virtually any retrieval scenario. Start experimenting today and elevate your application’s data‑access capabilities.
 
 ---
 
-**Last Updated:** 2025-12-16  
+**Last Updated:** 2026-02-16  
 **Tested With:** GroupDocs.Search 25.4 (Java)  
 **Author:** GroupDocs

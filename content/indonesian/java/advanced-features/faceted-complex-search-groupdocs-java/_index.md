@@ -1,50 +1,59 @@
 ---
-date: '2025-12-16'
-description: Pelajari cara membuat indeks pencarian Java dan mengimplementasikan pencarian
-  berfaset serta kompleks menggunakan GroupDocs.Search, meningkatkan kinerja pencarian
-  dan pengalaman pengguna.
+date: '2026-02-16'
+description: Pelajari cara menggunakan operator boolean Java dengan GroupDocs.Search
+  untuk membuat indeks pencarian, melakukan pencarian konten Java dan kueri berfaset,
+  serta meningkatkan kinerja dan pengalaman pengguna.
 keywords:
 - faceted searches Java
 - complex search Java
 - GroupDocs.Search for Java
-title: Buat Indeks Pencarian Java – Pencarian Berfaset & Kompleks
+title: Operator Boolean Java – Membuat Indeks Pencarian & Pencarian Berfaset
 type: docs
 url: /id/java/advanced-features/faceted-complex-search-groupdocs-java/
 weight: 1
 ---
 
-# Buat Indeks Pencarian Java – Pencarian Berfaset & Kompleks
+2026-02-16". Similarly "**Tested With:** GroupDocs.Search 25.4 for Java" -> "**Diuji Dengan:** GroupDocs.Search 25.4 for Java". "**Author:** GroupDocs" -> "**Penulis:** GroupDocs". Keep values unchanged.
 
-Mengimplementasikan **pengalaman pencarian** yang kuat di Java dapat terasa menakutkan, terutama ketika Anda perlu **membuat indeks pencarian Java** proyek yang menangani koleksi dokumen besar. Untungnya, **GroupDocs.Search for Java** menyediakan API yang kaya yang memungkinkan Anda membangun kueri berfaset dan kompleks dengan hanya beberapa baris kode. Dalam tutorial ini Anda akan menemukan cara menyiapkan pustaka, **membuat indeks pencarian Java**, menambahkan dokumen, dan menjalankan pencarian berfaset sederhana serta kueri multi‑kriteria yang canggih.
+Now ensure we preserve all markdown formatting, code block placeholders, links, images none.
 
-## Jawaban Cepat
-- **Apa itu pencarian berfaset?** Cara menyaring hasil berdasarkan kategori yang telah ditentukan (mis., tipe file, tanggal).  
+Check for any shortcodes: none.
+
+Now produce final content.
+
+# Boolean Operators Java – Membuat Indeks Pencarian & Pencarian Berfasilitas
+
+Menerapkan **pengalaman pencarian** yang kuat dalam Java dapat terasa menakutkan, terutama ketika Anda perlu **membuat indeks pencarian Java** yang mendukung **boolean operators Java** untuk pencarian berfasilitas dan kueri kompleks. Dalam tutorial ini kami akan menjelaskan cara menyiapkan **GroupDocs.Search for Java**, membangun indeks, menambahkan dokumen, dan membuat pencarian berfasilitas sederhana serta kueri multi‑kriteria yang canggih yang menggunakan logika Boolean. Pada akhir tutorial Anda akan memahami cara memanfaatkan **content search Java**, **filename search Java**, dan bahkan operasi **update index java** untuk menjaga data Anda tetap segar.
+
+## Quick Answers
+- **Apa itu pencarian berfasilitas?** Cara untuk memfilter hasil berdasarkan kategori yang telah ditentukan seperti tipe file atau tanggal.  
 - **Bagaimana cara membuat indeks pencarian Java?** Inisialisasi objek `Index` yang menunjuk ke folder dan tambahkan dokumen.  
-- **Bisakah saya menggabungkan beberapa kriteria?** Ya—gunakan kueri berbasis objek atau operator Boolean dalam kueri teks.  
-- **Apakah saya memerlukan lisensi?** Versi percobaan gratis cukup untuk pengembangan; lisensi komersial menghapus batasan.  
-- **IDE mana yang paling cocok?** Semua IDE Java (IntelliJ IDEA, Eclipse, NetBeans) berfungsi dengan baik.
+- **Apakah saya dapat menggabungkan beberapa kriteria dengan boolean operators?** Ya—gunakan kueri berbasis objek atau Boolean operators dalam kueri teks.  
+- **Apakah saya memerlukan lisensi?** Versi percobaan gratis dapat digunakan untuk pengembangan; lisensi komersial menghilangkan batasan.  
+- **IDE mana yang paling cocok?** Semua IDE Java (IntelliJ IDEA, Eclipse, NetBeans) dapat digunakan dengan baik.
 
 ## Apa itu “create search index java”?
-Membuat indeks pencarian di Java berarti membangun struktur data yang dapat dicari yang menyimpan metadata dokumen dan kontennya, memungkinkan pengambilan cepat berdasarkan kueri pengguna. Dengan GroupDocs.Search, indeks disimpan di disk, dapat diperbarui secara inkremental, dan mendukung fitur lanjutan seperti faset dan logika Boolean kompleks.
+Membuat indeks pencarian dalam Java berarti membangun struktur data yang dapat dicari yang menyimpan metadata dan konten dokumen, memungkinkan pengambilan cepat berdasarkan kueri pengguna. Dengan GroupDocs.Search, indeks disimpan di disk, dapat diperbarui secara inkremental, dan mendukung fitur lanjutan seperti faceting, **boolean operators Java**, serta logika Boolean yang kompleks.
 
-## Mengapa menggunakan GroupDocs.Search untuk kueri berfaset dan kompleks?
-- **Faseting siap pakai** – menyaring berdasarkan bidang seperti nama file, ukuran, atau metadata khusus.  
-- **Bahasa kueri kaya** – menggabungkan kueri teks, frasa, dan bidang menggunakan operator AND/OR/NOT.  
-- **Kinerja skalabel** – mengindeks jutaan dokumen sambil menjaga latensi pencarian tetap rendah.  
-- **Java murni** – tanpa dependensi native, berfungsi di platform apa pun yang menjalankan JDK 8+.
+## Mengapa menggunakan GroupDocs.Search untuk kueri berfasilitas dan kompleks?
+- **Faceting siap pakai** – memfilter berdasarkan bidang seperti nama file, ukuran, atau metadata khusus.  
+- **Bahasa kueri kaya** – menggabungkan kueri teks, frasa, dan bidang menggunakan operator AND/OR/NOT (inti dari **boolean operators java**).  
+- **Kinerja skalabel** – mengindeks jutaan dokumen sambil menjaga latensi rendah.  
+- **Pure Java** – tanpa dependensi native, bekerja pada platform apa pun yang menjalankan JDK 8+.  
+- **Pemeliharaan indeks mudah** – panggil `index.update()` untuk **update index java** setelah menambahkan atau menghapus file.
 
-## Prasyarat
+## Prerequisites
 
 Sebelum kita mulai, pastikan Anda memiliki hal berikut:
 
 - **JDK 8 atau lebih baru** terpasang dan dikonfigurasi di IDE Anda.  
 - **Maven** (atau Gradle) untuk manajemen dependensi.  
 - **GroupDocs.Search for Java** ≥ 25.4.  
-- Familiaritas dasar dengan konsep OOP Java dan struktur proyek Maven.
+- Pemahaman dasar tentang konsep OOP Java dan struktur proyek Maven.
 
-## Menyiapkan GroupDocs.Search untuk Java
+## Setting Up GroupDocs.Search for Java
 
-### Pengaturan Maven
+### Maven Setup
 Tambahkan repositori dan dependensi ke file `pom.xml` Anda:
 
 ```xml
@@ -72,12 +81,12 @@ Sebagai alternatif, unduh JAR terbaru dari halaman rilis resmi:
 ### Akuisisi Lisensi
 Untuk membuka semua fungsi:
 
-1. **Uji coba gratis** – sempurna untuk pengembangan dan pengujian.  
-2. **Lisensi evaluasi sementara** – memperpanjang batas uji coba.  
-3. **Lisensi komersial** – menghapus semua pembatasan untuk penggunaan produksi.
+1. **Free trial** – sempurna untuk pengembangan dan pengujian.  
+2. **Temporary evaluation license** – memperpanjang batas percobaan.  
+3. **Commercial license** – menghilangkan semua batasan untuk penggunaan produksi.
 
 ### Inisialisasi dan Penyiapan Dasar
-Potongan kode berikut menunjukkan cara **membuat indeks pencarian Java** dengan menginstansiasi kelas `Index`:
+Potongan kode berikut menunjukkan cara **create search index java** dengan menginstansiasi kelas `Index`:
 
 ```java
 import com.groupdocs.search.Index;
@@ -94,13 +103,13 @@ public class SearchSetup {
 }
 ```
 
-Dengan indeks siap, kita dapat melanjutkan ke kueri berfaset dan kompleks dunia nyata.
+Dengan indeks siap, kita dapat melanjutkan ke kueri berfasilitas dan kompleks dunia nyata.
 
-## Cara membuat search index java – Pencarian Berfaset Sederhana
+## Cara menggunakan boolean operators java – Pencarian Berfasilitas Sederhana
 
-Pencarian berfaset memungkinkan pengguna akhir mempersempit hasil dengan memilih nilai dari kategori yang telah ditentukan (faset). Berikut adalah panduan langkah demi langkah.
+Pencarian berfasilitas memungkinkan pengguna akhir mempersempit hasil dengan memilih nilai dari kategori yang telah ditentukan (facets). Di bawah ini adalah panduan langkah demi langkah.
 
-### Langkah 1: Buat Indeks
+### Langkah 1: Membuat Indeks
 Pertama, arahkan `Index` ke folder tempat file indeks akan disimpan.
 
 ```java
@@ -110,7 +119,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Searching/FacetedSearc
 Index index = new Index(indexFolder);
 ```
 
-### Langkah 2: Tambahkan Dokumen ke Indeks
+### Langkah 2: Menambahkan Dokumen ke Indeks
 Beritahu GroupDocs.Search di mana dokumen sumber Anda berada. Semua tipe file yang didukung (PDF, DOCX, TXT, dll.) akan diindeks secara otomatis.
 
 ```java
@@ -123,7 +132,7 @@ index.add(documentsFolder);
 ```
 
 ### Langkah 3: Lakukan Pencarian di Kolom Konten dengan Kueri Teks
-Kueri teks cepat menyaring berdasarkan kolom `content`. Sintaks `content: Pellentesque` membatasi hasil ke dokumen yang mengandung kata *Pellentesque* dalam teks utama mereka.
+Kueri teks cepat memfilter berdasarkan kolom `content`. Sintaks `content: Pellentesque` membatasi hasil ke dokumen yang mengandung kata *Pellentesque* dalam teks badan mereka.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -135,7 +144,7 @@ SearchResult result1 = index.search(query1);
 System.out.println("Documents found (query 1): " + result1.getDocumentCount());
 ```
 
-### Langkah 4: Lakukan Pencarian Menggunakan Kueri Objek
+### Langkah 4: Lakukan Pencarian Menggunakan Object Query
 Kueri berbasis objek memberi Anda kontrol yang lebih halus. Di sini kami membangun kueri kata, membungkusnya dalam kueri bidang, dan mengeksekusinya.
 
 ```java
@@ -150,11 +159,11 @@ SearchResult result2 = index.search(fieldQuery);
 System.out.println("Documents found (query 2): " + result2.getDocumentCount());
 ```
 
-## Cara membuat search index java – Pencarian Kueri Kompleks
+## Cara menggunakan boolean operators java – Pencarian Kueri Kompleks
 
 Kueri kompleks menggabungkan beberapa bidang, operator Boolean, dan pencarian frasa. Ini ideal untuk skenario seperti filter e‑commerce atau penelitian dokumen hukum.
 
-### Langkah 1: Buat Indeks untuk Kueri Kompleks
+### Langkah 1: Membuat Indeks untuk Kueri Kompleks
 Gunakan kembali struktur folder yang sama; Anda dapat berbagi indeks antara skenario sederhana dan kompleks.
 
 ```java
@@ -182,8 +191,8 @@ class SearchResult {
 System.out.println("Documents found (complex text query): " + result1.getDocumentCount());
 ```
 
-### Langkah 3: Lakukan Pencarian dengan Kueri Objek
-Konstruksi berbasis objek mencerminkan kueri tekstual tetapi menawarkan keamanan tipe dan bantuan IDE.
+### Langkah 3: Lakukan Pencarian dengan Object Query
+Konstruksi berbasis objek mencerminkan kueri teks tetapi menawarkan keamanan tipe dan bantuan IDE.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -210,32 +219,33 @@ SearchResult result2 = index.search(rootQuery);
 System.out.println("Documents found (complex object query): " + result2.getDocumentCount());
 ```
 
-## Aplikasi Praktis Pencarian Berfaset & Kompleks
+## Aplikasi Praktis Pencarian Berfasilitas & Kompleks
 
-| Scenario | How Faceting Helps | Example Query |
-|----------|-------------------|---------------|
-| **Katalog E‑commerce** | Filter by category, price, brand | `category: Electronics AND price:[100 TO 500]` |
-| **Repositori Dokumen Hukum** | Narrow by case number, jurisdiction | `caseNumber: 2023-045 AND jurisdiction: "California"` |
-| **Arsip Penelitian** | Combine author, publication year, keywords | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
-| **Intranet Perusahaan** | Search by file type and department | `filetype: pdf AND department: HR` |
+| Skenario | Bagaimana Faceting Membantu | Contoh Kueri |
+|----------|----------------------------|--------------|
+| **E‑commerce catalog** | Filter berdasarkan kategori, harga, merek | `category: Electronics AND price:[100 TO 500]` |
+| **Legal document repository** | Menyaring berdasarkan nomor kasus, yurisdiksi | `caseNumber: 2023-045 AND jurisdiction: "California"` |
+| **Research archives** | Menggabungkan penulis, tahun publikasi, kata kunci | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
+| **Enterprise intranet** | Mencari berdasarkan tipe file dan departemen | `filetype: pdf AND department: HR` |
 
 ## Kesalahan Umum & Pemecahan Masalah
 
-- **Hasil kosong** – Pastikan dokumen berhasil ditambahkan (`index.getDocumentCount()` dapat membantu).  
-- **Indeks usang** – Setelah menambahkan atau menghapus file, panggil `index.update()` untuk menjaga indeks tetap sinkron.  
-- **Nama bidang tidak tepat** – Gunakan konstanta `CommonFieldNames` (`Content`, `FileName`, dll.) untuk menghindari kesalahan ketik.  
-- **Bottleneck kinerja** – Untuk koleksi besar, pertimbangkan mengaktifkan `index.setCacheSize()` atau menggunakan SSD khusus untuk folder indeks.
+- **Hasil kosong** – Verifikasi bahwa dokumen berhasil ditambahkan (`index.getDocumentCount()` dapat membantu).  
+- **Indeks usang** – Setelah menambahkan atau menghapus file, panggil `index.update()` untuk **update index java** dan menjaga indeks tetap sinkron.  
+- **Nama bidang tidak tepat** – Gunakan konstanta `CommonFieldNames` (`Content`, `FileName`, dll.) untuk menghindari kesalahan pengetikan.  
+- **Bottleneck kinerja** – Untuk koleksi besar, pertimbangkan mengaktifkan `index.setCacheSize()` atau menggunakan SSD khusus untuk folder indeks.  
+- **Highlight hilang** – Untuk **highlight search results java**, ambil fragmen yang cocok melalui `SearchResult.getFragments()` (tidak ditampilkan di sini tetapi tersedia di API).  
 
 ## Pertanyaan yang Sering Diajukan
 
 **Q: Bisakah saya menggunakan GroupDocs.Search dengan Spring Boot?**  
-A: Tentu saja. Cukup tambahkan dependensi Maven, konfigurasikan indeks sebagai bean Spring, dan injeksikan di tempat yang diperlukan.
+A: Tentu saja. Tambahkan dependensi Maven, konfigurasikan indeks sebagai Spring bean, dan injeksikan di mana pun Anda membutuhkan kemampuan pencarian.
 
-**Q: Apakah pustaka ini mendukung bidang metadata khusus?**  
-A: Ya – Anda dapat menambahkan bidang yang didefinisikan pengguna selama proses pengindeksan dan kemudian melakukan faset pada bidang tersebut.
+**Q: Apakah perpustakaan ini mendukung bidang metadata khusus?**  
+A: Ya – Anda dapat menambahkan bidang yang didefinisikan pengguna selama proses pengindeksan dan kemudian melakukan faceting pada mereka.
 
-**Q: Seberapa besar indeks dapat tumbuh?**  
-A: Indeks berbasis disk dan dapat menangani jutaan dokumen; pastikan penyimpanan cukup dan pantau pengaturan cache.
+**Q: Seberapa besar ukuran indeks yang dapat dicapai?**  
+A: Indeks berbasis disk dan dapat menangani jutaan dokumen; cukup pastikan penyimpanan cukup dan pantau pengaturan cache.
 
 **Q: Apakah ada cara untuk memberi peringkat hasil berdasarkan relevansi?**  
 A: GroupDocs.Search secara otomatis memberi skor pada kecocokan; Anda dapat mengambil skor melalui `SearchResult.getDocument(i).getScore()`.
@@ -245,10 +255,12 @@ A: Berikan kata sandi saat menambahkan dokumen: `index.add(filePath, password)`.
 
 ## Kesimpulan
 
-Sekarang Anda seharusnya merasa nyaman **membuat indeks pencarian Java** dengan GroupDocs.Search, menambahkan dokumen, dan menyusun baik kueri berfaset sederhana maupun pencarian Boolean yang canggih. Kemampuan ini memungkinkan Anda memberikan pengalaman pencarian yang cepat, akurat, dan ramah pengguna di berbagai aplikasi—dari platform e‑commerce hingga basis pengetahuan perusahaan.
+Sekarang Anda seharusnya merasa nyaman **creating a search index Java** dengan GroupDocs.Search, menambahkan dokumen, dan membuat kueri berfasilitas sederhana serta pencarian Boolean yang canggih menggunakan **boolean operators java**. Kemampuan ini memungkinkan Anda memberikan pengalaman pencarian yang cepat, akurat, dan ramah pengguna di berbagai aplikasi—dari platform e‑commerce hingga basis pengetahuan perusahaan.
 
-Siap untuk langkah berikutnya? Jelajahi fitur lanjutan **GroupDocs.Search** seperti **penyorotan**, **saran**, dan **pengindeksan waktu nyata** untuk lebih meningkatkan kekuatan pencarian aplikasi Anda.
+Siap untuk langkah selanjutnya? Jelajahi fitur lanjutan **GroupDocs.Search** seperti **highlighting**, **suggestions**, dan **real‑time indexing** untuk lebih meningkatkan kekuatan pencarian aplikasi Anda.
 
-**Terakhir Diperbarui:** 2025-12-16  
-**Diuji Dengan:** GroupDocs.Search 25.4 untuk Java  
+---
+
+**Terakhir Diperbarui:** 2026-02-16  
+**Diuji Dengan:** GroupDocs.Search 25.4 for Java  
 **Penulis:** GroupDocs

@@ -1,8 +1,8 @@
 ---
 additionalTitle: GroupDocs API References
-date: 2025-12-16
-description: GroupDocs.Search öğretici koleksiyonunu .NET ve Java geliştiricileri
-  için keşfedin. Belge indeksleme, arama yetenekleri ve gelişmiş özelliklerde zahmetsizce
+date: 2026-02-16
+description: GroupDocs.Search .NET ve Java geliştiricileri için öğretici koleksiyonunu
+  keşfedin. Belge indeksleme, arama yetenekleri ve gelişmiş özelliklerde zahmetsizce
   uzmanlaşın.
 is_root: true
 linktitle: GroupDocs.Search Tutorials
@@ -12,22 +12,28 @@ url: /tr/
 weight: 11
 ---
 
-# GroupDocs.Search Eğitimi – Belge Arama Gücünü Açığa Çıkarın
+# GroupDocs.Search Tutorial – Belge Arama Gücünü Açığa Çıkarın
 
-**GroupDocs.Search eğitimi** merkezine hoş geldiniz, .NET ve Java platformları üzerinde belge arama ve indekslemeyi ustalaşmanız için tek durak noktanız. Küçük bir iç araç ya da büyük ölçekli bir kurumsal çözüm geliştiriyor olun, bu adım‑adım rehberler hızlı, doğru ve ölçeklenebilir arama işlevselliğini uygulamanıza yardımcı olacak. Temel indekslemeden sofistike sorgu oluşturma tekniklerine kadar her şeyi öğrenecek ve GroupDocs.Search'in tam gücünden yararlanacaksınız.
+**GroupDocs.Search tutorial** hub'ına hoş geldiniz, .NET ve Java platformları üzerinde belge arama ve indeksleme konusunda uzmanlaşmanız için tek durak noktanız. Hızlı bir iç araç mı yoksa büyük ölçekli bir kurumsal çözüm mü inşa ediyor olursanız olun, bu adım‑adım kılavuzlar hızlı, doğru ve ölçeklenebilir arama işlevselliğini uygulamanıza yardımcı olacak. GroupDocs.Search tutorial koleksiyonunu keşfederek, herhangi bir uygulamaya güçlü arama özellikleri ekleme konusunda hızlıca güven kazanacaksınız.
 
-## Neden GroupDocs.Search Eğitimi Kullanmalısınız?
+## Neden GroupDocs.Search Eğitimini Kullanmalısınız?
 
-- **document indexing** tekniklerine sağlam bir anlayış kazanın.  
-- Büyük belge koleksiyonlarını işleyebilen verimli **search capabilities** oluşturmayı öğrenin.  
-- fuzzy search, highlighting ve dağıtılmış arama ağları gibi gelişmiş özellikleri keşfedin.  
+Eğitim serisi gerçek‑dünya senaryoları düşünülerek tasarlanmıştır, böylece öğrendiklerinizi projelerinize hızlıca uygulayabilirsiniz. Bu kılavuzları izleyerek şunları yapacaksınız:
+
+- Belge indeksleme **document indexing** teknikleri konusunda sağlam bir anlayış kazanın.  
+- Büyük belge koleksiyonlarını yöneten verimli **search capabilities** oluşturmayı öğrenin.  
+- Bulanık arama, vurgulama ve dağıtık arama ağları gibi gelişmiş özellikleri keşfedin.  
 - .NET ve Java ortamları için net, örnek‑odaklı talimatlarla geliştirme süresini azaltın.
 
 {{% alert color="primary" %}}
-.NET'te güçlü belge arama yeteneklerini GroupDocs.Search eğitimleriyle keşfedin. Temel indekslemeden gelişmiş arama tekniklerine kadar, eğitimlerimiz tüm beceri seviyelerindeki geliştiricilere kapsamlı rehberlik sunar. Boolean search, fuzzy search, highlighting, sözlük yönetimi ve dağıtılmış arama çözümleri gibi çeşitli konulara dalın ve .NET için GroupDocs.Search'in tam potansiyelini ortaya çıkarın. Uygulamanızın arama işlevselliğini yükseltin ve belge keşfini kolay‑takip edilebilir eğitimlerimizle hızlandırın.
+.NET'te GroupDocs.Search eğitimleriyle güçlü belge arama yeteneklerini keşfedin. Temel indekslemeden gelişmiş arama tekniklerine kadar, eğitimlerimiz tüm beceri seviyelerindeki geliştiricilere kapsamlı rehberlik sunar. Boolean arama, fuzzy search, highlighting, dictionary management ve dağıtık arama çözümleri gibi çeşitli konulara dalın, .NET için GroupDocs.Search'ün tam potansiyelini ortaya çıkarın. Uygulamanızın arama işlevselliğini yükseltin ve belge keşfini kolay‑takip edilebilir eğitimlerimizle sadeleştirin.
 {{% /alert %}}
 
-## .NET için GroupDocs.Search Eğitimleri
+## Bu Hub'da Neler Bulacaksınız
+
+Bu hub, her iki platform için en temel eğitimleri gruplar, böylece ihtiyacınız olan konuya doğrudan atlayabilirsiniz. Her bağlantı, kurulum, kod parçacıkları ve en iyi uygulama ipuçlarıyla sizi yönlendiren özel bir kılavuz açar. Aşağıdaki gezinmeyi kullanarak mevcut sorununuzla eşleşen alanı seçin—indeks oluşturma, sorgu performansını ince ayar yapma ya da OCR tabanlı görüntü aramayı ele alma olsun.
+
+## GroupDocs.Search for .NET Eğitimleri
 
 ### Temel .NET Arama Eğitimleri
 
@@ -47,10 +53,10 @@ weight: 11
 - [Sorgular & Sorgu Oluşturma](./net/queries-query-building/)
 
 {{% alert color="primary" %}}
-Java için GroupDocs.Search kapsamlı eğitimlerini keşfedin. Temel indeksleme tekniklerinden gelişmiş arama işlevselliğine kadar, adım‑adım rehberlerimiz Java geliştiricilerine güçlü belge arama çözümlerini uygulama bilgisi sağlar. PDF, Word, Excel, sunumlar ve daha fazlası dahil çeşitli belge formatlarıyla çalışmayı öğrenin. İndeks oluşturma, farklı arama türlerini gerçekleştirme, sonuçları vurgulama ve performansı optimize etme tekniklerinde uzmanlaşarak Java uygulamalarınızı sağlam arama yetenekleriyle geliştirin.
+Java'da GroupDocs.Search için kapsamlı eğitimleri keşfedin. Temel indeksleme tekniklerinden gelişmiş arama işlevselliğine kadar, adım‑adım kılavuzlarımız Java geliştiricilerine güçlü belge arama çözümlerini uygulama bilgisi sağlar. PDF, Word, Excel, sunumlar ve daha fazlası dahil çeşitli belge formatlarıyla çalışmayı öğrenin. İndeks oluşturma, farklı arama türlerini gerçekleştirme, sonuçları vurgulama ve performansı optimize etme tekniklerinde uzmanlaşarak Java uygulamalarınızı sağlam arama yetenekleriyle geliştirin.
 {{% /alert %}}
 
-## Java için GroupDocs.Search Eğitimleri
+## GroupDocs.Search for Java Eğitimleri
 
 ### Temel Java Arama Eğitimleri
 
@@ -70,5 +76,6 @@ Java için GroupDocs.Search kapsamlı eğitimlerini keşfedin. Temel indeksleme 
 
 ---
 
-**Son Güncelleme:** 2025-12-16  
-**Yazar:** GroupDocs
+**Son Güncelleme:** 2026-02-16  
+**Yazar:** GroupDocs  
+**Test Edilen:** GroupDocs.Search latest stable release (as of 2026)

@@ -1,6 +1,6 @@
 ---
 additionalTitle: GroupDocs API References
-date: 2025-12-16
+date: 2026-02-16
 description: Jelajahi koleksi tutorial GroupDocs.Search untuk pengembang .NET dan
   Java. Kuasai pengindeksan dokumen, kemampuan pencarian, dan fitur lanjutan dengan
   mudah.
@@ -14,20 +14,24 @@ weight: 11
 
 # Tutorial GroupDocs.Search – Membuka Kekuatan Pencarian Dokumen
 
-Selamat datang di hub **tutorial GroupDocs.Search**, tujuan satu‑hentian Anda untuk menguasai pencarian dokumen dan pengindeksan di platform .NET dan Java. Baik Anda membangun alat internal kecil maupun solusi perusahaan berskala besar, panduan langkah‑demi‑langkah ini akan membantu Anda menerapkan fungsi pencarian yang cepat, akurat, dan dapat diskalakan. Anda akan mempelajari segala hal mulai dari pengindeksan dasar hingga pembuatan kueri yang canggih, sambil memanfaatkan kekuatan penuh GroupDocs.Search.
+Selamat datang di hub **GroupDocs.Search tutorial**, tujuan satu‑henti Anda untuk menguasai pencarian dokumen dan pengindeksan di platform .NET dan Java. Baik Anda sedang membuat alat internal cepat atau solusi perusahaan berskala besar, panduan langkah‑demi‑langkah ini akan membantu Anda mengimplementasikan fungsi pencarian yang cepat, akurat, dan dapat diskalakan. Dengan menjelajahi koleksi tutorial GroupDocs.Search, Anda akan dengan cepat memperoleh kepercayaan diri untuk menambahkan fitur pencarian yang kuat ke aplikasi apa pun.
 
 ## Mengapa Menggunakan Tutorial GroupDocs.Search?
 
-Seri tutorial ini dirancang dengan skenario dunia nyata, sehingga Anda dapat dengan cepat menerapkan apa yang Anda pelajari ke proyek Anda. Dengan mengikuti panduan ini Anda akan:
+Seri tutorial ini dirancang dengan skenario dunia nyata, sehingga Anda dapat dengan cepat menerapkan apa yang dipelajari ke proyek Anda. Dengan mengikuti panduan ini Anda akan:
 
-- Mendapatkan pemahaman yang kuat tentang teknik **pengindeksan dokumen**.  
-- Mempelajari cara membuat **kemampuan pencarian** yang efisien untuk menangani koleksi dokumen besar.  
-- Menjelajahi fitur lanjutan seperti pencarian fuzzy, penyorotan, dan jaringan pencarian terdistribusi.  
+- Memperoleh pemahaman yang solid tentang teknik **document indexing**.  
+- Mempelajari cara membuat **search capabilities** yang efisien untuk menangani koleksi dokumen besar.  
+- Menjelajahi fitur lanjutan seperti fuzzy search, highlighting, dan jaringan pencarian terdistribusi.  
 - Mengurangi waktu pengembangan dengan instruksi yang jelas dan berbasis contoh untuk lingkungan .NET dan Java.
 
 {{% alert color="primary" %}}
-Jelajahi kemampuan pencarian dokumen yang kuat di .NET dengan tutorial GroupDocs.Search. Dari pengindeksan dasar hingga teknik pencarian lanjutan, tutorial kami menawarkan panduan komprehensif untuk pengembang di semua tingkat keahlian. Selami berbagai topik seperti pencarian boolean, pencarian fuzzy, penyorotan, manajemen kamus, dan solusi pencarian terdistribusi, membuka potensi penuh GroupDocs.Search untuk .NET. Tingkatkan fungsi pencarian aplikasi Anda dan permudah penemuan dokumen dengan tutorial kami yang mudah diikuti.
+Jelajahi kemampuan pencarian dokumen yang kuat di .NET dengan tutorial GroupDocs.Search. Dari pengindeksan dasar hingga teknik pencarian lanjutan, tutorial kami menawarkan panduan komprehensif untuk pengembang di semua tingkat keahlian. Selami berbagai topik seperti boolean search, fuzzy search, highlighting, manajemen kamus, dan solusi pencarian terdistribusi, membuka potensi penuh GroupDocs.Search untuk .NET. Tingkatkan fungsi pencarian aplikasi Anda dan permudah penemuan dokumen dengan tutorial kami yang mudah diikuti.
 {{% /alert %}}
+
+## Apa yang Akan Anda Temukan di Hub Ini
+
+Hub ini mengelompokkan tutorial paling penting untuk kedua platform, disusun sehingga Anda dapat langsung melompat ke topik yang dibutuhkan. Setiap tautan membuka panduan khusus yang memandu Anda melalui pengaturan, potongan kode, dan tip praktik terbaik. Gunakan navigasi di bawah ini untuk memilih area yang sesuai dengan tantangan Anda saat ini—apakah itu membuat indeks, menyempurnakan kinerja query, atau menangani pencarian gambar berbasis OCR.
 
 ## Tutorial GroupDocs.Search untuk .NET
 
@@ -35,21 +39,21 @@ Jelajahi kemampuan pencarian dokumen yang kuat di .NET dengan tutorial GroupDocs
 
 - [Pengindeksan](./net/indexing/)
 - [Pencarian](./net/searching/)
-- [Penyorotan](./net/highlighting/)
-- [Kamus & Pemrosesan Bahasa](./net/dictionaries-language-processing/)
-- [Manajemen Dokumen](./net/document-management/)
-- [OCR & Pencarian Gambar](./net/ocr-image-search/)
-- [Fitur Lanjutan](./net/advanced-features/)
-- [Jaringan Pencarian](./net/search-network/)
-- [Optimasi Kinerja](./net/performance-optimization/)
-- [Penanganan Eksepsi & Logging](./net/exception-handling-logging/)
-- [Integrasi & Interoperabilitas](./net/integration-interoperability/)
-- [Lisensi & Konfigurasi](./net/licensing-configuration/)
-- [Ekstraksi & Pemrosesan Teks](./net/text-extraction-processing/)
-- [Kueri & Pembuatan Kueri](./net/queries-query-building/)
+- [Highlighting](./net/highlighting/)
+- [Dictionaries & Language Processing](./net/dictionaries-language-processing/)
+- [Document Management](./net/document-management/)
+- [OCR & Image Search](./net/ocr-image-search/)
+- [Advanced Features](./net/advanced-features/)
+- [Search Network](./net/search-network/)
+- [Performance Optimization](./net/performance-optimization/)
+- [Exception Handling & Logging](./net/exception-handling-logging/)
+- [Integration & Interoperability](./net/integration-interoperability/)
+- [Licensing & Configuration](./net/licensing-configuration/)
+- [Text Extraction & Processing](./net/text-extraction-processing/)
+- [Queries & Query Building](./net/queries-query-building/)
 
 {{% alert color="primary" %}}
-Temukan tutorial komprehensif untuk GroupDocs.Search di Java. Dari teknik pengindeksan dasar hingga fungsi pencarian lanjutan, panduan langkah‑demi‑langkah kami memberikan pengembang Java pengetahuan untuk mengimplementasikan solusi pencarian dokumen yang kuat. Pelajari cara bekerja dengan berbagai format dokumen termasuk PDF, Word, Excel, presentasi, dan lainnya. Kuasai teknik pembuatan indeks, melakukan berbagai jenis pencarian, menyorot hasil, dan mengoptimalkan kinerja untuk meningkatkan aplikasi Java Anda dengan kemampuan pencarian yang tangguh.
+Temukan tutorial komprehensif untuk GroupDocs.Search di Java. Dari teknik pengindeksan dasar hingga fungsionalitas pencarian lanjutan, panduan langkah‑demi‑langkah kami memberikan pengetahuan kepada pengembang Java untuk mengimplementasikan solusi pencarian dokumen yang kuat. Pelajari cara bekerja dengan berbagai format dokumen termasuk PDF, Word, Excel, presentasi, dan lainnya. Kuasai teknik membuat indeks, melakukan berbagai jenis pencarian, highlighting hasil, dan mengoptimalkan kinerja untuk meningkatkan aplikasi Java Anda dengan kemampuan pencarian yang tangguh.
 {{% /alert %}}
 
 ## Tutorial GroupDocs.Search untuk Java
@@ -59,18 +63,19 @@ Temukan tutorial komprehensif untuk GroupDocs.Search di Java. Dari teknik pengin
 - [Memulai](./java/getting-started/)
 - [Pengindeksan](./java/indexing/)
 - [Pencarian](./java/searching/)
-- [Penyorotan](./java/highlighting/)
-- [Kamus & Pemrosesan Bahasa](./java/dictionaries-language-processing/)
-- [Manajemen Dokumen](./java/document-management/)
-- [OCR & Pencarian Gambar](./java/ocr-image-search/)
-- [Fitur Lanjutan](./java/advanced-features/)
-- [Jaringan Pencarian](./java/search-network/)
-- [Optimasi Kinerja](.//performance-optimization/)
-- [Penanganan Eksepsi & Logging](./java/exception-handling-logging/)
-- [Lisensi & Konfigurasi](./java/licensing-configuration/)
-- [Ekstraksi & Pemrosesan Teks](./java/text-extraction-processing/)
+- [Highlighting](./java/highlighting/)
+- [Dictionaries & Language Processing](./java/dictionaries-language-processing/)
+- [Document Management](./java/document-management/)
+- [OCR & Image Search](./java/ocr-image-search/)
+- [Advanced Features](./java/advanced-features/)
+- [Search Network](./java/search-network/)
+- [Performance Optimization](./java/performance-optimization/)
+- [Exception Handling & Logging](./java/exception-handling-logging/)
+- [Licensing & Configuration](./java/licensing-configuration/)
+- [Text Extraction & Processing](./java/text-extraction-processing/)
 
 ---
 
-**Terakhir Diperbarui:** 2025-12-16  
-**Penulis:** GroupDocs
+**Terakhir Diperbarui:** 2026-02-16  
+**Penulis:** GroupDocs  
+**Diuji Dengan:** GroupDocs.Search rilis stabil terbaru (per 2026)
