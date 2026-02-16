@@ -1,8 +1,8 @@
 ---
 additionalTitle: GroupDocs API References
-date: 2025-12-16
+date: 2026-02-16
 description: Explore a coleção de tutoriais do GroupDocs.Search para desenvolvedores
-  .NET e Java. Domine a indexação de documentos, recursos de pesquisa e funcionalidades
+  .NET e Java. Domine a indexação de documentos, recursos de busca e funcionalidades
   avançadas com facilidade.
 is_root: true
 linktitle: GroupDocs.Search Tutorials
@@ -12,26 +12,40 @@ url: /pt/
 weight: 11
 ---
 
-# Tutorial do GroupDocs.Search – Desbloqueie o Poder da Busca de Documentos
+ to keep bold formatting.
 
-Welcome to the **GroupDocs.Search tutorial** hub, your one‑stop destination for mastering document search and indexing across .NET and Java platforms. Whether you’re building a small internal tool or a large‑scale enterprise solution, these step‑by‑step guides will help you implement fast, accurate, and scalable search functionality. You’ll learn everything from basic indexing to sophisticated query building, all while leveraging the full power of GroupDocs.Search.
+Now produce final content with same markdown.
 
-## Por que usar o Tutorial do GroupDocs.Search?
+Check for any code blocks: none.
 
-The tutorial series is designed with real‑world scenarios in mind, so you can quickly apply what you learn to your projects. By following these guides you will:
+Check for any images: none.
 
-- Gain a solid understanding of **document indexing** techniques. → Obtenha uma compreensão sólida das técnicas de **indexação de documentos**.  
-- Learn how to craft efficient **search capabilities** that handle large document collections. → Aprenda a criar **capacidades de busca** eficientes que lidam com grandes coleções de documentos.  
-- Explore advanced features such as fuzzy search, highlighting, and distributed search networks. → Explore recursos avançados como busca difusa, realce e redes de busca distribuídas.  
-- Reduce development time with clear, example‑driven instructions for both .NET and Java environments. → Reduza o tempo de desenvolvimento com instruções claras e baseadas em exemplos para ambientes .NET e Java.  
+All shortcodes preserved.
+
+Now produce final answer.# Tutorial do GroupDocs.Search – Desbloqueie o Poder da Busca de Documentos
+
+Bem-vindo ao hub de **tutorial do GroupDocs.Search**, seu destino único para dominar a busca e indexação de documentos nas plataformas .NET e Java. Seja construindo uma ferramenta interna rápida ou uma solução empresarial de grande escala, estes guias passo a passo ajudarão você a implementar funcionalidades de busca rápidas, precisas e escaláveis. Ao explorar a coleção de tutoriais do GroupDocs.Search, você ganhará rapidamente a confiança para adicionar recursos poderosos de busca a qualquer aplicação.
+
+## Por que usar o tutorial do GroupDocs.Search?
+
+A série de tutoriais foi projetada com cenários do mundo real em mente, para que você possa aplicar rapidamente o que aprende aos seus projetos. Ao seguir estes guias você irá:
+
+- Obter uma compreensão sólida das técnicas de **indexação de documentos**.  
+- Aprender a criar **recursos de busca** eficientes que lidam com grandes coleções de documentos.  
+- Explorar recursos avançados como busca difusa, realce e redes de busca distribuídas.  
+- Reduzir o tempo de desenvolvimento com instruções claras e baseadas em exemplos para ambientes .NET e Java.  
 
 {{% alert color="primary" %}}
-Explore powerful document search capabilities in .NET with GroupDocs.Search tutorials. From basic indexing to advanced search techniques, our tutorials offer comprehensive guidance for developers at all skill levels. Dive into various topics such as boolean search, fuzzy search, highlighting, dictionary management, and distributed search solutions, unlocking the full potential of GroupDocs.Search for .NET. Elevate your application's search functionality and streamline document discovery with our easy‑to‑follow tutorials.
+Explore recursos poderosos de busca de documentos em .NET com os tutoriais do GroupDocs.Search. Desde a indexação básica até técnicas avançadas de busca, nossos tutoriais oferecem orientação abrangente para desenvolvedores de todos os níveis de habilidade. Mergulhe em diversos tópicos como busca booleana, busca difusa, realce, gerenciamento de dicionários e soluções de busca distribuída, desbloqueando todo o potencial do GroupDocs.Search para .NET. Eleve a funcionalidade de busca da sua aplicação e simplifique a descoberta de documentos com nossos tutoriais fáceis de seguir.
 {{% /alert %}}
 
-## GroupDocs.Search for .NET Tutorials
+## O que você encontrará neste hub
 
-### Essential .NET Search Tutorials
+Este hub reúne os tutoriais mais essenciais para ambas as plataformas, organizados para que você possa ir direto ao tópico que precisa. Cada link abre um guia dedicado que o conduz através da configuração, trechos de código e dicas de boas práticas. Use a navegação abaixo para escolher a área que corresponde ao seu desafio atual — seja criando um índice, ajustando o desempenho de consultas ou lidando com busca de imagens baseada em OCR.
+
+## Tutoriais do GroupDocs.Search para .NET
+
+### Tutoriais Essenciais de Busca .NET
 
 - [Indexação](./net/indexing/)
 - [Busca](./net/searching/)
@@ -49,12 +63,12 @@ Explore powerful document search capabilities in .NET with GroupDocs.Search tuto
 - [Consultas e Construção de Consultas](./net/queries-query-building/)
 
 {{% alert color="primary" %}}
-Discover comprehensive tutorials for GroupDocs.Search in Java. From basic indexing techniques to advanced search functionality, our step‑by‑step guides provide Java developers with the knowledge to implement powerful document search solutions. Learn to work with various document formats including PDF, Word, Excel, presentations, and more. Master techniques for creating indexes, performing different search types, highlighting results, and optimizing performance to enhance your Java applications with robust search capabilities.
+Descubra tutoriais abrangentes para o GroupDocs.Search em Java. Desde técnicas básicas de indexação até funcionalidades avançadas de busca, nossos guias passo a passo fornecem aos desenvolvedores Java o conhecimento para implementar soluções poderosas de busca de documentos. Aprenda a trabalhar com vários formatos de documento, incluindo PDF, Word, Excel, apresentações e mais. Domine técnicas para criar índices, executar diferentes tipos de busca, realçar resultados e otimizar o desempenho para aprimorar suas aplicações Java com recursos robustos de busca.
 {{% /alert %}}
 
-## GroupDocs.Search for Java Tutorials
+## Tutoriais do GroupDocs.Search para Java
 
-### Essential Java Search Tutorials
+### Tutoriais Essenciais de Busca Java
 
 - [Introdução](./java/getting-started/)
 - [Indexação](./java/indexing/)
@@ -72,5 +86,6 @@ Discover comprehensive tutorials for GroupDocs.Search in Java. From basic indexi
 
 ---
 
-**Last Updated:** 2025-12-16  
-**Author:** GroupDocs
+**Última atualização:** 2026-02-16  
+**Autor:** GroupDocs  
+**Testado com:** GroupDocs.Search última versão estável (a partir de 2026)

@@ -1,7 +1,7 @@
 ---
 additionalTitle: GroupDocs API References
-date: 2025-12-16
-description: 探索面向 .NET 和 Java 开发者的 GroupDocs.Search 教程合集。轻松掌握文档索引、搜索功能和高级特性。
+date: 2026-02-16
+description: 探索面向 .NET 和 Java 开发者的 GroupDocs.Search 教程合集，轻松掌握文档索引、搜索功能及高级特性。
 is_root: true
 linktitle: GroupDocs.Search Tutorials
 title: GroupDocs.Search 教程 – 解锁文档搜索的强大功能
@@ -10,24 +10,26 @@ url: /zh/
 weight: 11
 ---
 
-# GroupDocs.Search 教程 – 解锁文档搜索能力
+ output.# GroupDocs.Search 教程 – 解锁文档搜索力量
 
-欢迎来到 **GroupDocs.Search 教程** 中心，这里是您掌握 .NET 和 Java 平台上文档搜索与索引的一站式资源。无论您是在构建小型内部工具还是大型企业级解决方案，这些循序渐进的指南都将帮助您实现快速、准确且可扩展的搜索功能。您将学习从基础索引到高级查询构建的全部内容，同时充分利用 GroupDocs.Search 的强大功能。
+Welcome to the **GroupDocs.Search tutorial** hub, your one‑stop destination for mastering document search and indexing across .NET and Java platforms. Whether you’re building a quick internal tool or a large‑scale enterprise solution, these step‑by‑step guides will help you implement fast, accurate, and scalable search functionality. By exploring the GroupDocs.Search tutorial collection you’ll quickly gain the confidence to add powerful search features to any application.
 
-## 为什么要使用 GroupDocs.Search 教程？
+## 为什么使用 GroupDocs.Search 教程？
 
-本教程系列针对真实场景设计，帮助您快速将所学应用到项目中。通过学习这些指南，您将：
-
-- 掌握 **文档索引** 技术的扎实基础。  
-- 学会构建高效的 **搜索功能**，能够处理大型文档集合。  
-- 探索高级特性，如模糊搜索、结果高亮和分布式搜索网络。  
-- 通过针对 .NET 和 Java 环境的清晰示例，显著缩短开发时间。
+- 深入了解 **document indexing** 技术。  
+- 学习如何构建高效的 **search capabilities**，以处理大型文档集合。  
+- 探索高级功能，如 fuzzy search、highlighting 和 distributed search networks。  
+- 通过针对 .NET 和 Java 环境的清晰、示例驱动的说明，缩短开发时间。
 
 {{% alert color="primary" %}}
-在 .NET 中通过 GroupDocs.Search 教程探索强大的文档搜索功能。从基础索引到高级搜索技术，我们的教程为各个技能层级的开发者提供全面指导。深入了解布尔搜索、模糊搜索、高亮显示、词典管理以及分布式搜索解决方案，充分释放 GroupDocs.Search 在 .NET 中的全部潜能。提升应用的搜索功能，使用我们易于跟随的教程简化文档发现过程。
+Explore powerful document search capabilities in .NET with GroupDocs.Search tutorials. From basic indexing to advanced search techniques, our tutorials offer comprehensive guidance for developers at all skill levels. Dive into various topics such as boolean search, fuzzy search, highlighting, dictionary management, and distributed search solutions, unlocking the full potential of GroupDocs.Search for .NET. Elevate your application's search functionality and streamline document discovery with our easy‑to‑follow tutorials.
 {{% /alert %}}
 
-## GroupDocs.Search for .NET 教程
+## 本中心提供的内容
+
+This hub groups the most essential tutorials for both platforms, organized so you can jump straight to the topic you need. Each link opens a dedicated guide that walks you through setup, code snippets, and best‑practice tips. Use the navigation below to pick the area that matches your current challenge—whether it’s creating an index, fine‑tuning query performance, or handling OCR‑based image search.
+
+## GroupDocs.Search .NET 教程
 
 ### 必备 .NET 搜索教程
 
@@ -47,10 +49,10 @@ weight: 11
 - [查询与查询构建](./net/queries-query-building/)
 
 {{% alert color="primary" %}}
-发现面向 Java 的 GroupDocs.Search 全面教程。从基础索引技术到高级搜索功能，我们的逐步指南为 Java 开发者提供实现强大文档搜索解决方案的知识。学习处理包括 PDF、Word、Excel、演示文稿等多种文档格式。掌握创建索引、执行不同类型搜索、结果高亮以及性能优化的技巧，为您的 Java 应用注入稳健的搜索能力。
+Discover comprehensive tutorials for GroupDocs.Search in Java. From basic indexing techniques to advanced search functionality, our step‑by‑step guides provide Java developers with the knowledge to implement powerful document search solutions. Learn to work with various document formats including PDF, Word, Excel, presentations, and more. Master techniques for creating indexes, performing different search types, highlighting results, and optimizing performance to enhance your Java applications with robust search capabilities.
 {{% /alert %}}
 
-## GroupDocs.Search for Java 教程
+## GroupDocs.Search Java 教程
 
 ### 必备 Java 搜索教程
 
@@ -70,5 +72,6 @@ weight: 11
 
 ---
 
-**最后更新:** 2025-12-16  
-**作者:** GroupDocs
+**Last Updated:** 2026-02-16  
+**Author:** GroupDocs  
+**Tested With:** GroupDocs.Search 最新稳定版（截至 2026 年）

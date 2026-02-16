@@ -1,35 +1,39 @@
 ---
 additionalTitle: GroupDocs API References
-date: 2025-12-16
+date: 2026-02-16
 description: Fedezze fel a GroupDocs.Search oktatóanyag-gyűjteményt .NET és Java fejlesztők
-  számára. Sajátítsa el a dokumentum-indexelést, a keresési képességeket és a fejlett
-  funkciókat könnyedén.
+  számára. Könnyedén sajátíthatja el a dokumentum-indexelést, a keresési képességeket
+  és a fejlett funkciókat.
 is_root: true
 linktitle: GroupDocs.Search Tutorials
-title: GroupDocs.Search oktató – Szabadítsa fel a dokumentumkeresés erejét
+title: GroupDocs.Search oktatóanyag – Szabadítsa fel a dokumentumkeresés erejét
 type: docs
 url: /hu/
 weight: 11
 ---
 
-# GroupDocs.Search oktató – A dokumentumkeresés erejének feloldása
+codes.
 
-Üdvözöljük a **GroupDocs.Search oktató** központjában, amely egyetlen helyen kínálja a dokumentumkeresés és indexelés elsajátítását a .NET és Java platformokon. Akár egy kis belső eszközt, akár egy nagyszabású vállalati megoldást épít, ezek a lépésről‑lépésre útmutatók segítenek gyors, pontos és skálázható keresési funkció megvalósításában. Mindent megtanulhat az alapvető indexeléstől a kifinomult lekérdezésépítésig, miközben a GroupDocs.Search teljes erejét kihasználja.
+Let's construct final content.# GroupDocs.Search oktató – Engedje szabadjára a dokumentumkeresés erejét
+
+Welcome to the **GroupDocs.Search tutorial** hub, your one‑stop destination for mastering document search and indexing across .NET and Java platforms. Whether you’re building a quick internal tool or a large‑scale enterprise solution, these step‑by‑step guides will help you implement fast, accurate, and scalable search functionality. By exploring the GroupDocs.Search tutorial collection you’ll quickly gain the confidence to add powerful search features to any application.
 
 ## Miért használja a GroupDocs.Search oktatót?
 
-Az oktatósorozat valós helyzetekre épül, így gyorsan alkalmazhatja a tanultakat projektjeiben. Az útmutatók követésével Ön:
-
-- Megerősíti a **dokumentum indexelés** technikákkal kapcsolatos alapos megértését.  
-- Megtanulja, hogyan alakítson ki hatékony **keresési képességeket**, amelyek nagy dokumentumgyűjteményeket kezelnek.  
-- Felfedezi a fejlett funkciókat, mint a fuzzy keresés, kiemelés és az elosztott keresési hálózatok.  
-- Csökkenti a fejlesztési időt világos, példákkal alátámasztott útmutatókkal mind .NET, mind Java környezetben.
+- Szerezzen alapos megértést a **document indexing** technikákról.  
+- Tanulja meg, hogyan készítsen hatékony **search capabilities**-t, amelyek nagy dokumentumgyűjteményeket kezelnek.  
+- Fedezze fel a fejlett funkciókat, mint a fuzzy search, a highlighting és a distributed search networks.  
+- Csökkentse a fejlesztési időt világos, példákon alapuló útmutatókkal mind .NET, mind Java környezetekhez.
 
 {{% alert color="primary" %}}
-Fedezze fel a .NET-ben elérhető erőteljes dokumentumkeresési képességeket a GroupDocs.Search oktatóival. Az alapvető indexeléstől a fejlett keresési technikákig, oktatóink átfogó útmutatást nyújtanak minden szintű fejlesztő számára. Merüljön el különböző témákban, mint a logikai (boolean) keresés, fuzzy keresés, kiemelés, szótárkezelés és az elosztott keresési megoldások, felszabadítva a GroupDocs.Search teljes potenciálját .NET-hez. Emelje alkalmazása keresési funkcióját, és egyszerűsítse a dokumentumok felfedezését könnyen követhető oktatóinkkal.
+Explore powerful document search capabilities in .NET with GroupDocs.Search tutorials. From basic indexing to advanced search techniques, our tutorials offer comprehensive guidance for developers at all skill levels. Dive into various topics such as boolean search, fuzzy search, highlighting, dictionary management, and distributed search solutions, unlocking the full potential of GroupDocs.Search for .NET. Elevate your application's search functionality and streamline document discovery with our easy‑to‑follow tutorials.
 {{% /alert %}}
 
-## GroupDocs.Search .NET oktatók
+## Mit talál ebben a központban
+
+Ez a központ a legfontosabb oktatóanyagokat gyűjti össze mindkét platformhoz, úgy szervezve, hogy közvetlenül a szükséges témához ugorhasson. Minden link egy dedikált útmutatót nyit meg, amely lépésről‑lépésre bemutatja a beállítást, kódrészleteket és a legjobb gyakorlatokat. Használja az alábbi navigációt a jelenlegi kihívásának megfelelő terület kiválasztásához – legyen szó index létrehozásáról, a lekérdezés teljesítményének finomhangolásáról vagy OCR‑alapú képkeresés kezeléséről.
+
+## GroupDocs.Search .NET-hez oktatók
 
 ### Alapvető .NET kereső oktatók
 
@@ -39,7 +43,7 @@ Fedezze fel a .NET-ben elérhető erőteljes dokumentumkeresési képességeket 
 - [Szótárak és nyelvi feldolgozás](./net/dictionaries-language-processing/)
 - [Dokumentumkezelés](./net/document-management/)
 - [OCR és képkeresés](./net/ocr-image-search/)
-- [Fejlett funkciók](./net/advanced-features/)
+- [Haladó funkciók](./net/advanced-features/)
 - [Keresési hálózat](./net/search-network/)
 - [Teljesítményoptimalizálás](./net/performance-optimization/)
 - [Kivételkezelés és naplózás](./net/exception-handling-logging/)
@@ -49,10 +53,10 @@ Fedezze fel a .NET-ben elérhető erőteljes dokumentumkeresési képességeket 
 - [Lekérdezések és lekérdezésépítés](./net/queries-query-building/)
 
 {{% alert color="primary" %}}
-Fedezze fel a GroupDocs.Search Java számára készült átfogó oktatóit. Az alapvető indexelési technikáktól a fejlett keresési funkciókig, lépésről‑lépésre útmutatóink a Java fejlesztőknek nyújtanak tudást erőteljes dokumentumkeresési megoldások megvalósításához. Tanulja meg különböző dokumentumformátumok kezelését, beleértve a PDF, Word, Excel, prezentációk és egyebek. Sajátítsa el a technikákat indexek létrehozásához, különböző kereséstípusok végrehajtásához, eredmények kiemeléséhez és a teljesítmény optimalizálásához, hogy Java alkalmazásait robusztus keresési képességekkel lássa el.
+Discover comprehensive tutorials for GroupDocs.Search in Java. From basic indexing techniques to advanced search functionality, our step‑by‑step guides provide Java developers with the knowledge to implement powerful document search solutions. Learn to work with various document formats including PDF, Word, Excel, presentations, and more. Master techniques for creating indexes, performing different search types, highlighting results, and optimizing performance to enhance your Java applications with robust search capabilities.
 {{% /alert %}}
 
-## GroupDocs.Search Java oktatók
+## GroupDocs.Search Java-hoz oktatók
 
 ### Alapvető Java kereső oktatók
 
@@ -63,7 +67,7 @@ Fedezze fel a GroupDocs.Search Java számára készült átfogó oktatóit. Az a
 - [Szótárak és nyelvi feldolgozás](./java/dictionaries-language-processing/)
 - [Dokumentumkezelés](./java/document-management/)
 - [OCR és képkeresés](./java/ocr-image-search/)
-- [Fejlett funkciók](./java/advanced-features/)
+- [Haladó funkciók](./java/advanced-features/)
 - [Keresési hálózat](./java/search-network/)
 - [Teljesítményoptimalizálás](./java/performance-optimization/)
 - [Kivételkezelés és naplózás](./java/exception-handling-logging/)
@@ -72,5 +76,6 @@ Fedezze fel a GroupDocs.Search Java számára készült átfogó oktatóit. Az a
 
 ---
 
-**Last Updated:** 2025-12-16  
-**Author:** GroupDocs
+**Utoljára frissítve:** 2026-02-16  
+**Szerző:** GroupDocs  
+**Tesztelve:** GroupDocs.Search legújabb stabil kiadás (2026-ig)
