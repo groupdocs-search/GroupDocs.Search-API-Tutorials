@@ -1,43 +1,42 @@
 ---
-date: '2025-12-19'
-description: เรียนรู้วิธีเพิ่มเอกสารลงในดัชนีและปิดการใช้งานคำหยุดใน GroupDocs.Search
-  สำหรับ Java เพื่อปรับปรุงความแม่นยำของการค้นหาและความถูกต้องของคำค้นหา
+date: '2026-02-19'
+description: เรียนรู้วิธีปิดการใช้งานคำหยุดในการค้นหาและเพิ่มเอกสารเข้าสู่ดัชนีด้วย
+  GroupDocs.Search สำหรับ Java เพื่อเพิ่มความแม่นยำของการค้นหา.
 keywords:
 - add documents to index
 - disable stop words java
 - configure index settings
-title: เพิ่มเอกสารลงในดัชนีและปิดการใช้งานคำหยุดใน GroupDocs.Search Java เพื่อเพิ่มความแม่นยำในการค้นหา
+title: 'คำหยุดในการค้นหา: เพิ่มเอกสารลงในดัชนีด้วย GroupDocs.Search Java'
 type: docs
 url: /th/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/
 weight: 1
 ---
 
-# เพิ่มเอกสารไปยังดัชนีและปิดการใช้งานคำหยุดใน GroupDocs.Search Java เพื่อความแม่นยำในการค้นหาที่ดีขึ้น
+# คำหยุดในการค้นหา: เพิ่มเอกสารลงในดัชนีด้วย GroupDocs.Search Java
 
-คุณกำลังมุ่งหมายที่จะ **add documents to index** พร้อมกับทำให้แน่ใจว่าไม่มีคำสำคัญใด ๆ ถูกมองข้ามหรือไม่? บทแนะนำนี้จะพาคุณผ่านการปรับแต่งประสบการณ์การค้นหาโดยใช้ GroupDocs.Search for Java. โดยการเรียนรู้วิธี **disable stop words java** คุณจะได้ผลการค้นหาที่แม่นยำยิ่งขึ้นและใช้ประโยชน์สูงสุดจากเอกสารที่ทำดัชนีทุกฉบับ.
+หากคุณต้องการ **add documents to index** พร้อมกับมั่นใจว่าไม่มีคำสำคัญใด ๆ—โดยเฉพาะคำที่พบบ่อย—ถูกละเลย คุณมาถูกที่แล้ว ในคู่มือนี้เราจะสาธิตวิธี **disable stop words in search** ด้วย GroupDocs.Search for Java เพื่อให้โทเคนทุกตัว (แม้กระทั่ง “on”, “by”, หรือ “the”) สามารถค้นหาได้และผลลัพธ์ของคุณจะแม่นยำมากขึ้น
 
-## คำตอบด่วน
-- **What does “add documents to index” mean?** หมายถึงการโหลดไฟล์ต้นทางของคุณเข้าสู่ดัชนีที่สามารถค้นหาได้เพื่อให้สามารถทำการสอบถามได้อย่างมีประสิทธิภาพ.  
+## คำตอบอย่างรวดเร็ว
+- **What does “add documents to index” mean?** หมายถึงการโหลดไฟล์ต้นฉบับของคุณเข้าสู่ดัชนีที่สามารถค้นหาได้เพื่อให้สามารถสอบถามได้อย่างมีประสิทธิภาพ.  
 - **Why would I disable stop words?** เพื่อรวมคำทั่วไป (เช่น “on”, “the”) ในการค้นหาเมื่อคำเหล่านั้นมีความหมายสำคัญต่อโดเมนของคุณ.  
 - **Which library version is required?** GroupDocs.Search for Java 25.4 หรือใหม่กว่า.  
-- **Do I need a license?** การทดลองใช้ฟรีทำงานได้สำหรับการประเมิน; จำเป็นต้องมีลิขสิทธิ์ถาวรสำหรับการใช้งานในสภาพแวดล้อมจริง.  
+- **Do I need a license?** การทดลองใช้ฟรีสามารถใช้เพื่อประเมินผลได้; จำเป็นต้องมีลิขสิทธิ์ถาวรสำหรับการใช้งานจริง.  
 - **Can I use this in a Maven project?** ใช่ – เพียงเพิ่ม repository และ dependency ตามที่แสดงด้านล่าง.
 
-## “add documents to index” คืออะไรใน GroupDocs.Search?
-การเพิ่มเอกสารไปยังดัชนีหมายถึงการนำเข้าไฟล์จากโฟลเดอร์ (หรือสตรีม) ไปยังโครงสร้างข้อมูลที่เครื่องมือค้นหาสามารถสอบถามได้อย่างรวดเร็ว. เมื่อทำดัชนีแล้ว คำแต่ละคำ—including those normally treated as stop words—จะสามารถค้นหาได้.
+## คำหยุดในการค้นคืออะไรและทำไมคุณอาจต้องการปิดการใช้งานมัน?
+คำหยุดคือคำที่พบบ่อยซึ่งเครื่องมือค้นหาหลายแห่งจะกรองออกโดยอัตโนมัติเพื่อเร่งความเร็วของการสอบถาม แม้ว่าจะช่วยเพิ่มประสิทธิภาพสำหรับการค้นหาเว็บทั่วไป แต่ก็อาจทำให้ความแม่นยำลดลงในโดเมนเฉพาะ—เช่น สัญญากฎหมาย, แคตาล็อกอี‑คอมเมิร์ซ, หรือคู่มือเทคนิค—ที่คำเช่น “on”, “by”, หรือ “as” มีความหมายจริง การปิดการใช้งานคำหยุดทำให้คุณถือทุกคำว่าเป็นสำคัญ เพื่อให้แน่ใจว่าไม่มีเอกสารที่เกี่ยวข้องถูกพลาด
 
-## ทำไมต้องปิดการใช้งานคำหยุดใน Java?
-การปิดการใช้งานคำหยุดทำให้คุณพิจารณาทุกโทเคนว่าเป็นสำคัญ. สิ่งนี้สำคัญสำหรับโดเมนเช่นการวิจัยกฎหมาย, แคตาล็อกสินค้าอี‑คอมเมิร์ซ, หรือสถานการณ์ใด ๆ ที่คำเช่น “on” หรือ “by” มีความหมาย.
+## การเพิ่มเอกสารลงในดัชนีทำงานอย่างไรใน GroupDocs.Search?
+เมื่อคุณเพิ่มเอกสาร ไลบรารีจะอ่านไฟล์แต่ละไฟล์, แยกโทเคนจากเนื้อหา, และเก็บโทเคนเหล่านั้นในโครงสร้างข้อมูลที่ปรับแต่ง (ดัชนี) หลังจากทำดัชนีแล้ว เอนจินสามารถดึงเอกสารที่ตรงกันได้ในระดับมิลลิวินาที แม้สำหรับคอลเลกชันขนาดใหญ่
 
 ## ข้อกำหนดเบื้องต้น
 - **Required Libraries**: GroupDocs.Search for Java 25.4 (หรือใหม่กว่า).  
-- **Development Environment**: IntelliJ IDEA, Eclipse, หรือ IDE Java ใด ๆ ที่คุณชอบ.  
+- **Development Environment**: IntelliJ IDEA, Eclipse, หรือ IDE ของ Java ที่คุณชอบ.  
 - **Basic Knowledge**: ความคุ้นเคยกับไวยากรณ์ Java และแนวคิดของการทำดัชนี.
 
 ## การตั้งค่า GroupDocs.Search สำหรับ Java
 
 ### การติดตั้งด้วย Maven
-
 หากคุณใช้ Maven ให้เพิ่มส่วนต่อไปนี้ในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
@@ -59,16 +58,14 @@ weight: 1
 ```
 
 ### ดาวน์โหลดโดยตรง
-
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดได้จาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### ขั้นตอนการรับลิขสิทธิ์
 - **Free Trial** – เริ่มทดสอบได้ทันที.  
-- **Temporary License** – รับคีย์ที่มีระยะเวลาจำกัดเพื่อฟังก์ชันเต็ม.  
-- **Purchase** – ซื้อลิขสิทธิ์ถาวรสำหรับการใช้งานในสภาพแวดล้อมจริง.
+- **Temporary License** – รับคีย์ที่มีระยะเวลาจำกัดเพื่อใช้งานเต็มรูปแบบ.  
+- **Purchase** – ซื้อเพื่อให้ได้ลิขสิทธิ์ถาวรสำหรับการใช้งานจริง.
 
 ## การเริ่มต้นและตั้งค่าเบื้องต้น
-
 สร้างอินสแตนซ์ของ `IndexSettings` เพื่อควบคุมการทำงานของดัชนี:
 
 ```java
@@ -78,22 +75,20 @@ import com.groupdocs.search.IndexSettings;
 IndexSettings settings = new IndexSettings();
 ```
 
-## วิธีปิดการใช้งานคำหยุดใน Java
-
-บรรทัดต่อไปนี้จะปิดตัวกรองคำหยุดที่มีมาในตัว:
+## วิธีการปิดการใช้งานคำหยุดในการค้นหา (Java)
+บรรทัดต่อไปนี้จะปิดฟิลเตอร์คำหยุดที่มาพร้อมในระบบ:
 
 ```java
 // Disable the use of stop words
 tsettings.setUseStopWords(false);
 ```
 
-*Parameters*: `setUseStopWords` รับค่า boolean.  
-*Purpose*: รับประกันว่าคำทุกคำ—including common stop words—จะถูกทำดัชนีและสามารถค้นหาได้.
+*Parameters*: `setUseStopWords` รับค่าแบบ boolean.  
+*Purpose*: รับประกันว่าทุกคำ—รวมถึงคำหยุดทั่วไป—จะถูกทำดัชนีและสามารถค้นหาได้.
 
-## วิธีเพิ่มเอกสารไปยังดัชนี
+## วิธีการเพิ่มเอกสารลงในดัชนี
 
 ### การกำหนดไดเรกทอรีผลลัพธ์
-
 ```java
 import com.groupdocs.search.Index;
 
@@ -105,7 +100,6 @@ Index index = new Index(indexFolder, settings);
 ```
 
 ### การระบุไดเรกทอรีเอกสาร
-
 ```java
 // Define the path to your document directory
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
@@ -116,8 +110,7 @@ index.add(documentsFolder);
 
 ตอนนี้ไฟล์ทุกไฟล์ใน `YOUR_DOCUMENT_DIRECTORY` จะ **added documents to index** และพร้อมสำหรับการสอบถาม.
 
-## การทำคิวรีการค้นหา
-
+## การทำการค้นหา
 ```java
 import com.groupdocs.search.results.SearchResult;
 
@@ -128,60 +121,54 @@ tString query = "on";
 SearchResult result = index.search(query);
 ```
 
-เนื่องจากคำหยุดถูกปิดการใช้งาน คำว่า `"on"` จะถูกพิจารณาในระหว่างการค้นหาและจะคืนผลลัพธ์ที่โดยปกติจะถูกละเลย.
+เนื่องจากคำหยุดถูกปิดการใช้งาน คำว่า `"on"` จะถูกพิจารณาในการค้นหาและจะคืนผลลัพธ์ที่อาจถูกละเลยในกรณีปกติ.
 
 ## การประยุกต์ใช้งานจริง
-
-1. **Enterprise Document Search** – รับรองว่าคำศัพท์สำคัญไม่ถูกกรองออก.  
+1. **Enterprise Document Search** – รับประกันว่าคำศัพท์สำคัญจะไม่ถูกกรองออก.  
 2. **E‑commerce Platforms** – ปรับปรุงการค้นหาผลิตภัณฑ์โดยทำดัชนีทุกคำในคำอธิบายสินค้า.  
-3. **Legal Research Tools** – จับทุกคำศัพท์ทางกฎหมาย แม้คำที่มักถือเป็นคำหยุด.
+3. **Legal Research Tools** – จับคำศัพท์กฎหมายทุกคำ แม้กระทั่งคำที่มักถือเป็นคำหยุด.
 
-## พิจารณาด้านประสิทธิภาพ
-
-- **Optimization Tips**: อัปเดตและทำความสะอาดดัชนีเป็นประจำเพื่อรักษาความเร็วในการค้นหา.  
+## ข้อควรพิจารณาด้านประสิทธิภาพ
+- **Optimization Tips**: ปรับปรุงและทำความสะอาดดัชนีเป็นประจำเพื่อรักษาความเร็วในการค้นหาให้สูง.  
 - **Resource Usage**: ตรวจสอบขนาด heap ของ JVM; ดัชนีขนาดใหญ่อาจต้องปรับการตั้งค่า garbage collection.  
 - **Java Memory Management**: ใช้โครงสร้างข้อมูลที่มีประสิทธิภาพและพิจารณาเก็บข้อมูลแบบ off‑heap สำหรับคอร์ปัสขนาดใหญ่มาก.
 
 ## ปัญหาทั่วไปและวิธีแก้
-
 | อาการ | สาเหตุที่เป็นไปได้ | วิธีแก้ |
 |---|---|---|
-| ไม่มีผลลัพธ์สำหรับคำทั่วไป | `setUseStopWords(true)` (default) | เรียก `setUseStopWords(false)` ตามที่แสดงด้านบน. |
+| ไม่มีผลลัพธ์สำหรับคำทั่วไป | `setUseStopWords(true)` (ค่าเริ่มต้น) | เรียก `setUseStopWords(false)` ตามที่แสดงด้านบน. |
 | ข้อผิดพลาด Out‑of‑memory ระหว่างการทำดัชนี | ทำดัชนีไฟล์ขนาดใหญ่จำนวนมากพร้อมกัน | ทำดัชนีไฟล์เป็นชุด; เพิ่มตัวเลือก JVM `-Xmx`. |
-| การค้นหาส่งคืนข้อมูลล้าสมัย | ดัชนีไม่ได้อัปเดตหลังจากเพิ่มไฟล์ใหม่ | เรียก `index.update()` หรือทำการเพิ่มเอกสารที่เปลี่ยนแปลงใหม่. |
+| การค้นหาคืนข้อมูลล้าสมัย | ดัชนีไม่ได้รีเฟรชหลังจากเพิ่มไฟล์ใหม่ | เรียก `index.update()` หรือเพิ่มเอกสารที่เปลี่ยนแปลงใหม่อีกครั้ง. |
 
 ## คำถามที่พบบ่อย
 
 **Q: What are stop words?**  
-A: Stop words คือคำทั่วไป (เช่น “the”, “is”, “on”) ที่เครื่องมือค้นหาหลายตัวมักละเลยเพื่อเร่งความเร็วของการสอบถาม. การปิดการใช้งานทำให้คุณพิจารณาทุกโทเคนว่าเป็นที่ค้นหาได้.
+A: คำหยุดคือคำทั่วไป (เช่น “the”, “is”, “on”) ที่เครื่องมือค้นหาหลายแห่งละเลยเพื่อเร่งความเร็วของการสอบถาม การปิดการใช้งานทำให้คุณถือทุกโทเคนว่าเป็นที่ค้นหาได้.
 
 **Q: Why disable stop words in search indexes?**  
-A: เมื่อจำเป็นต้องจับคู่วลีอย่างแม่นยำ—เช่นในเอกสารกฎหมายหรือเทคนิค—ทุกคำมีความหมาย ดังนั้นคุณต้องรวมคำหยุดด้วย.
+A: เมื่อจำเป็นต้องจับคู่ประโยคอย่างแม่นยำ—เช่นในเอกสารกฎหมายหรือเทคนิค—ทุกคำมีความหมาย ดังนั้นคุณต้องรวมคำหยุดด้วย.
 
 **Q: How does GroupDocs.Search handle large datasets?**  
-A: ไลบรารีใช้โครงสร้างข้อมูลที่ปรับให้เหมาะสมและการทำดัชนีแบบเพิ่มขึ้นเพื่อรักษาการใช้หน่วยความจำน้อย แม้กับเอกสารหลายล้านฉบับ.
+A: ไลบรารีใช้โครงสร้างข้อมูลที่ปรับแต่งและการทำดัชนีแบบเพิ่มส่วนเพื่อรักษาการใช้หน่วยความจำน้อย แม้กับเอกสารหลายล้านรายการ.
 
 **Q: Can I integrate GroupDocs.Search with other Java applications?**  
 A: ใช่, API ถูกออกแบบให้ฝังง่ายในระบบใด ๆ ที่ใช้ Java ไม่ว่าจะเป็นเว็บเซอร์วิสหรือแอปพลิเคชันเดสก์ท็อป.
 
 **Q: What should I do if my search results are not accurate?**  
-A: ตรวจสอบว่าดัชนีรวมเอกสารที่ต้องการทั้งหมด (`add documents to index`), ยืนยันว่าการกรองคำหยุดถูกปิดใช้งานหากจำเป็น, และพิจารณาการสร้างดัชนีใหม่หลังจากการเปลี่ยนแปลงใหญ่.
+A: ตรวจสอบว่าดัชนีรวมเอกสารที่ต้องการทั้งหมด (`add documents to index`), ยืนยันว่าการกรองคำหยุดถูกปิดใช้งานหากจำเป็น, และพิจารณาสร้างดัชนีใหม่หลังจากการเปลี่ยนแปลงใหญ่.
 
-## แหล่งข้อมูล
-
-- **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
-- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-- **Download**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
-- **GitHub Repository**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Free Support**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
+## แหล่งข้อมูลเพิ่มเติม
+- **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
+- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
+- **Download**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
+- **GitHub Repository**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Free Support**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
 - **Temporary License**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
-โดยทำตามคำแนะนำนี้ คุณจะรู้วิธี **add documents to index** และ **disable stop words java** เพื่อให้ได้ผลลัพธ์การค้นหาที่แม่นยำยิ่งขึ้นในแอปพลิเคชัน Java ของคุณ.
+โดยการทำตามคู่มือนี้ คุณจะรู้วิธี **add documents to index** และ **disable stop words in search** เพื่อให้ได้ผลลัพธ์ที่แม่นยำยิ่งขึ้นในแอปพลิเคชัน Java ของคุณ.
 
 ---
 
-**อัปเดตล่าสุด:** 2025-12-19  
+**อัปเดตล่าสุด:** 2026-02-19  
 **ทดสอบด้วย:** GroupDocs.Search for Java 25.4  
-**ผู้เขียน:** GroupDocs  
-
----
+**ผู้เขียน:** GroupDocs

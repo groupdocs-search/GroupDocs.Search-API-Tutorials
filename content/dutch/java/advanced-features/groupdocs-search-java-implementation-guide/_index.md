@@ -1,40 +1,43 @@
 ---
-date: '2025-12-18'
-description: Leer hoe je een documentindex maakt met GroupDocs.Search voor Java, met
-  aandacht voor tekstelextractie, serialisatie en de full‑text zoekmogelijkheden van
-  Java.
+date: '2026-02-19'
+description: Leer hoe je tekst uit PDF Java kunt extraheren, deze kunt serialiseren
+  en een doorzoekbare documentindex kunt maken met GroupDocs.Search voor Java.
 keywords:
 - GroupDocs.Search for Java
 - document indexing in Java
 - text extraction with GroupDocs
-title: Documentindex maken met GroupDocs.Search voor Java
+title: 'Tekst uit PDF Java extraheren: Index bouwen met GroupDocs.Search'
 type: docs
 url: /nl/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-# Documentindex maken met GroupDocs.Search voor Java: Een volledige gids
+ are just placeholders. That's fine.
 
-In het digitale tijdperk van vandaag is het kunnen **documentindex maken** snel en er efficiënt doorheen zoeken een game‑changer voor elke organisatie. Of je nu een documentbeheersysteem of een aangepaste zoekmachine bouwt, GroupDocs.Search voor Java biedt je de tools om tekst te extraheren, gegevens te serialiseren en full‑text zoek‑Java‑bewerkingen moeiteloos uit te voeren. Deze tutorial leidt je door elke stap — van het extraheren van PDF‑tekst tot het toevoegen van gegevens aan de index en het doorzoeken van geïndexeerde documenten.
+Make sure no URLs changed.
+
+Now produce final content.# Tekst extraheren uit PDF Java: Documentindex bouwen met GroupDocs.Search
+
+In deze praktische gids ontdek je **hoe je tekst uit PDF Java** applicaties kunt extraheren en die ruwe inhoud kunt omzetten in een snelle, full‑text doorzoekbare index. Of je nu een interne kennisbank, een contract‑zoekportaal of een aangepaste zoekmachine bouwt, de onderstaande stappen leiden je door alles—van het halen van tekst uit PDF's tot het serialiseren van de gegevens, het maken van de index en uiteindelijk het uitvoeren van queries. Laten we beginnen en zien waarom GroupDocs.Search het hele proces soepel en schaalbaar maakt.
 
 ## Snelle antwoorden
-- **Wat is het belangrijkste doel?** Een doorzoekbare documentindex maken met GroupDocs.Search voor Java.  
+- **Wat is het belangrijkste doel?** Tekst extraheren uit PDF Java‑bestanden en een doorzoekbare documentindex maken met GroupDocs.Search.  
 - **Welke bibliotheekversie?** GroupDocs.Search 25.4 (of de nieuwste release).  
 - **Heb ik een licentie nodig?** Een gratis proefversie werkt voor ontwikkeling; een volledige licentie is vereist voor productie.  
-- **Kan ik PDF's indexeren?** Ja — pdf‑tekst extraheren en toevoegen aan de index.  
+- **Kan ik PDF's indexeren?** Ja—extrait PDF‑tekst en voeg deze toe aan de index.  
 - **Hoe voer ik een zoekopdracht uit?** Gebruik de `index.search(query)`‑methode na het toevoegen van gegevens.
 
 ## Wat is een documentindex?
 Een documentindex is een gestructureerde verzameling doorzoekbare termen die uit je bestanden zijn geëxtraheerd. Door een documentindex te maken, kun je snelle full‑text zoekopdrachten uitvoeren over grote repositories, waardoor de snelheid en nauwkeurigheid van het ophalen aanzienlijk verbetert.
 
 ## Waarom GroupDocs.Search voor Java gebruiken?
-- **Robuuste extractie** – Verwerkt PDF's, Word, Excel en meer.  
+- **Robuuste extractie** – Ondersteunt PDF's, Word, Excel en meer.  
 - **Eenvoudige serialisatie** – Sla geëxtraheerde gegevens op als byte‑arrays voor later hergebruik.  
 - **Schaalbare indexering** – Indexeer efficiënt miljoenen documenten.  
-- **Krachtige query‑taal** – Ondersteunt complexe full‑text zoek‑Java‑queries.
+- **Krachtige querytaal** – Ondersteunt complexe full‑text zoek‑Java‑queries.
 
 ## Vereisten
-- **GroupDocs.Search voor Java** (Versie 25.4 of nieuwer).  
+- **GroupDocs.Search voor Java** (Versie 25.4 of nieuwer).  
 - **Java Development Kit (JDK)** compatibel met je GroupDocs‑versie.  
 - Een IDE zoals IntelliJ IDEA of Eclipse.  
 - Maven voor afhankelijkheidsbeheer.
@@ -43,7 +46,7 @@ Een documentindex is een gestructureerde verzameling doorzoekbare termen die uit
 Voeg eerst de bibliotheek toe aan je project.
 
 **Maven‑configuratie**  
-Include the following in your `pom.xml` file:
+Voeg het volgende toe aan je `pom.xml`‑bestand:
 
 ```xml
 <repositories>
@@ -66,14 +69,14 @@ Include the following in your `pom.xml` file:
 **Directe download**  
 Alternatief kun je de nieuwste versie downloaden van [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Licentie‑acquisitie
+### Licentie verkrijgen
 - **Gratis proefversie** – Test alle functies met een tijdelijke licentie.  
 - **Aankoop** – Verkrijg volledige toegang en prioriteitsondersteuning.
 
 ## Stapsgewijze implementatie
 
 ### Hoe tekst uit PDF's (en andere documenten) te extraheren
-Het extraheren van ruwe of opgemaakte tekst is de eerste stap naar het maken van een documentindex.
+Het extraheren van ruwe of opgemaakte tekst is de eerste stap naar het maken van een documentindex. Wanneer je **tekst uit PDF Java** extraheert, geef je de zoekmachine iets dat het kan begrijpen.
 
 ```java
 String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
@@ -107,15 +110,15 @@ ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 ```
 
 ### Hoe een documentindex te maken
-Nu je `deserializedData` hebt, kun je de index maken die de doorzoekbare termen zal bevatten.
+Nu je `deserializedData` hebt, kun je de index maken die doorzoekbare termen bevat.
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
 
-### Hoe gegevens toe te voegen aan de index en een zoekopdracht uit te voeren
-Gegevens toevoegen en de index doorzoeken voltooit de workflow voor **documentindex maken**.
+### Hoe gegevens aan de index toe te voegen en een zoekopdracht uit te voeren
+Het toevoegen van gegevens en het bevragen van de index voltooit de **tekst uit PDF Java extraheren** workflow.
 
 ```java
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
@@ -127,16 +130,16 @@ String query = "ipsum";
 SearchResult result = index.search(query);
 ```
 
-> **Pro‑tip:** Gebruik `index.search("your query", SearchOptions)` om de relevantiescore nauwkeurig af te stemmen.
+> **Pro tip:** Gebruik `index.search("your query", SearchOptions)` om de relevantiesortering fijn af te stemmen.
 
 ## Veelvoorkomende gebruikssituaties
-1. **Documentbeheersystemen** – Snel contracten, facturen of beleidsdocumenten vinden.  
+1. **Document Management Systemen** – Snel contracten, facturen of beleidsdocumenten vinden.  
 2. **Content‑gebaseerde zoekmachines** – Voorzie interne kennisbanken van full‑text zoek‑Java‑mogelijkheden.  
 3. **Data‑archiveringsoplossingen** – Indexeer historische records voor directe ophalen.
 
 ## Prestatie‑overwegingen
-- **Geheugenbeheer:** Pas de JVM‑heap‑grootte aan voor grote document‑batches.  
-- **Indexeringsopties:** Schakel onnodige functies (bijv. term‑vectors) uit om het indexeren te versnellen.  
+- **Geheugenbeheer:** Pas de JVM‑heap‑grootte aan voor grote documentbatches.  
+- **Indexeringsopties:** Schakel onnodige functies uit (bijv. term‑vectors) om het indexeren te versnellen.  
 - **Regelmatige updates:** Houd GroupDocs.Search up‑to‑date om te profiteren van prestatie‑patches.
 
 ## Veelgestelde vragen
@@ -145,18 +148,18 @@ SearchResult result = index.search(query);
 A: Stream het bestand met `Extractor` en verwerk het in delen; vergroot ook de JVM‑heap indien nodig.
 
 **Q: Kan ik de zoek‑query‑syntaxis aanpassen?**  
-A: Ja — GroupDocs.Search ondersteunt Booleaanse operatoren, wildcards en nabijheidszoekopdrachten.
+A: Ja—GroupDocs.Search ondersteunt Booleaanse operatoren, wildcards en nabijheidszoekopdrachten.
 
 **Q: Wat moet ik doen als serialisatie mislukt?**  
 A: Controleer of alle objecten `Serializable` implementeren en vang `IOException` om details te loggen.
 
 **Q: Is het mogelijk om alleen specifieke secties van een document te indexeren?**  
-A: Absoluut — configureer `ExtractionOptions` om pagina's of secties te filteren vóór het indexeren.
+A: Absoluut—configureer `ExtractionOptions` om pagina's of secties te filteren vóór het indexeren.
 
 **Q: Hoe upgrade ik naar een nieuwere GroupDocs.Search‑versie?**  
 A: Werk het versienummer bij in je `pom.xml` en voer `mvn clean install` uit; bekijk de migratie‑gids voor breaking changes.
 
-## Resources
+## Bronnen
 - **Documentatie:** [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)  
 - **API‑referentie:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
 - **Download:** [GroupDocs Downloads](https://releases.groupdocs.com/search/java/)  
@@ -166,6 +169,6 @@ A: Werk het versienummer bij in je `pom.xml` en voer `mvn clean install` uit; be
 
 ---
 
-**Laatst bijgewerkt:** 2025-12-18  
+**Laatst bijgewerkt:** 2026-02-19  
 **Getest met:** GroupDocs.Search 25.4 for Java  
 **Auteur:** GroupDocs

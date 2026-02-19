@@ -1,34 +1,34 @@
 ---
-date: '2025-12-19'
-description: Pelajari cara menambahkan dokumen ke indeks dan menonaktifkan kata berhenti
-  di GroupDocs.Search untuk Java, meningkatkan presisi pencarian dan akurasi kueri.
+date: '2026-02-19'
+description: Pelajari cara menonaktifkan stop words dalam pencarian dan menambahkan
+  dokumen ke indeks dengan GroupDocs.Search untuk Java, meningkatkan akurasi kueri.
 keywords:
 - add documents to index
 - disable stop words java
 - configure index settings
-title: Tambahkan Dokumen ke Indeks dan Nonaktifkan Stop Words di GroupDocs.Search
-  Java untuk Meningkatkan Akurasi Pencarian
+title: 'Kata Henti dalam Pencarian: Tambahkan Dokumen ke Indeks dengan GroupDocs.Search
+  Java'
 type: docs
 url: /id/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/
 weight: 1
 ---
 
-# Tambahkan Dokumen ke Indeks dan Nonaktifkan Stop Words di GroupDocs.Search Java untuk Akurasi Pencarian yang Lebih Baik
+# Stop Words dalam Pencarian: Tambahkan Dokumen ke Indeks dengan GroupDocs.Search Java
 
-Apakah Anda ingin **add documents to index** sambil memastikan tidak ada istilah penting yang terlewat? Tutorial ini akan memandu Anda menyesuaikan pengalaman pencarian menggunakan GroupDocs.Search untuk Java. Dengan mempelajari cara **disable stop words java**, Anda akan mendapatkan kueri pencarian yang lebih tepat dan memanfaatkan setiap dokumen yang diindeks seoptimal mungkin.
+Jika Anda perlu **menambahkan dokumen ke indeks** sambil memastikan bahwa tidak ada istilah penting—terutama yang umum—yang diabaikan, Anda berada di tempat yang tepat. Dalam panduan ini kami akan menunjukkan cara **menonaktifkan stop words dalam pencarian** menggunakan GroupDocs.Search untuk Java, sehingga setiap token (bahkan “on”, “by”, atau “the”) menjadi dapat dicari dan hasil Anda jauh lebih akurat.
 
 ## Jawaban Cepat
-- **Apa arti “add documents to index”?** Itu berarti memuat file sumber Anda ke dalam indeks yang dapat dicari sehingga dapat dipertanyakan secara efisien.  
-- **Mengapa saya harus menonaktifkan stop words?** Untuk memasukkan kata umum (misalnya, “on”, “the”) dalam pencarian ketika istilah‑istilah tersebut bermakna bagi domain Anda.  
+- **Apa arti “menambahkan dokumen ke indeks”?** Artinya memuat file sumber Anda ke dalam indeks yang dapat dicari sehingga dapat dipertanyakan secara efisien.  
+- **Mengapa saya harus menonaktifkan stop words?** Untuk menyertakan kata umum (misalnya “on”, “the”) dalam pencarian ketika istilah tersebut bermakna bagi domain Anda.  
 - **Versi perpustakaan apa yang diperlukan?** GroupDocs.Search untuk Java 25.4 atau yang lebih baru.  
 - **Apakah saya memerlukan lisensi?** Versi percobaan gratis dapat digunakan untuk evaluasi; lisensi permanen diperlukan untuk produksi.  
 - **Bisakah saya menggunakan ini dalam proyek Maven?** Ya – cukup tambahkan repositori dan dependensi yang ditunjukkan di bawah ini.
 
-## Apa itu “add documents to index” di GroupDocs.Search?
-Menambahkan dokumen ke indeks berarti mengimpor file dari folder (atau aliran) ke dalam struktur data yang dapat dipertanyakan dengan cepat oleh mesin pencari. Setelah diindeks, setiap kata—termasuk yang biasanya diperlakukan sebagai stop words—menjadi dapat dicari.
+## Apa itu stop words dalam pencarian dan mengapa Anda mungkin ingin menonaktifkannya?
+Stop words adalah istilah yang sering muncul yang banyak mesin pencari secara otomatis saring untuk mempercepat kueri. Meskipun ini meningkatkan kinerja untuk pencarian web umum, hal itu dapat menurunkan presisi dalam domain khusus—kontrak hukum, katalog e‑commerce, atau manual teknis—di mana kata seperti “on”, “by”, atau “as” memiliki makna nyata. Menonaktifkan stop words memungkinkan Anda memperlakukan setiap kata sebagai signifikan, memastikan tidak ada dokumen relevan yang terlewat.
 
-## Mengapa menonaktifkan stop words Java?
-Menonaktifkan stop words memungkinkan Anda memperlakukan setiap token sebagai signifikan. Hal ini penting untuk domain seperti riset hukum, katalog produk e‑commerce, atau skenario apa pun di mana kata seperti “on” atau “by” memiliki makna.
+## Bagaimana cara kerja penambahan dokumen ke indeks di GroupDocs.Search?
+Saat Anda menambahkan dokumen, perpustakaan membaca setiap file, melakukan tokenisasi kontennya, dan menyimpan token-token tersebut dalam struktur data yang dioptimalkan (indeks). Setelah diindeks, mesin dapat mengambil dokumen yang cocok dalam hitungan milidetik, bahkan untuk koleksi yang besar.
 
 ## Prasyarat
 
@@ -40,7 +40,7 @@ Menonaktifkan stop words memungkinkan Anda memperlakukan setiap token sebagai si
 
 ### Instalasi Maven
 
-Jika Anda menggunakan Maven, sertakan yang berikut dalam `pom.xml` Anda:
+Jika Anda menggunakan Maven, sertakan berikut ini dalam `pom.xml` Anda:
 
 ```xml
 <repositories>
@@ -64,14 +64,14 @@ Jika Anda menggunakan Maven, sertakan yang berikut dalam `pom.xml` Anda:
 
 Sebagai alternatif, unduh versi terbaru dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-#### Langkah‑langkah Akuisisi Lisensi
-- **Free Trial** – mulai menguji segera.  
-- **Temporary License** – dapatkan kunci berjangka waktu untuk fungsionalitas penuh.  
-- **Purchase** – amankan lisensi permanen untuk penggunaan produksi.
+#### Langkah-langkah Akuisisi Lisensi
+- **Percobaan Gratis** – mulai menguji segera.  
+- **Lisensi Sementara** – dapatkan kunci berjangka waktu untuk fungsionalitas penuh.  
+- **Pembelian** – amankan lisensi permanen untuk penggunaan produksi.
 
 ## Inisialisasi dan Pengaturan Dasar
 
-Buat sebuah instance `IndexSettings` untuk mengontrol bagaimana indeks berperilaku:
+Buat sebuah instance `IndexSettings` untuk mengontrol cara kerja indeks:
 
 ```java
 import com.groupdocs.search.IndexSettings;
@@ -80,7 +80,7 @@ import com.groupdocs.search.IndexSettings;
 IndexSettings settings = new IndexSettings();
 ```
 
-## Cara menonaktifkan stop words Java
+## Cara menonaktifkan stop words dalam pencarian (Java)
 
 Baris berikut mematikan filter stop‑word bawaan:
 
@@ -90,7 +90,7 @@ tsettings.setUseStopWords(false);
 ```
 
 *Parameter*: `setUseStopWords` menerima nilai boolean.  
-*Tujuan*: Menjamin bahwa setiap kata—termasuk stop words umum—diindeks dan dapat dicari.
+*Tujuan*: Menjamin setiap kata—termasuk stop words umum—diindeks dan dapat dicari.
 
 ## Cara menambahkan dokumen ke indeks
 
@@ -116,9 +116,9 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-Sekarang setiap file di `YOUR_DOCUMENT_DIRECTORY` **added documents to index** dan siap untuk dipertanyakan.
+Sekarang setiap file di `YOUR_DOCUMENT_DIRECTORY` **ditambahkan dokumen ke indeks** dan siap untuk dipertanyakan.
 
-## Menjalankan Kueri Pencarian
+## Melakukan Kueri Pencarian
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -134,9 +134,9 @@ Karena stop words dinonaktifkan, istilah `"on"` akan dipertimbangkan selama penc
 
 ## Aplikasi Praktis
 
-1. **Enterprise Document Search** – Pastikan terminologi penting tidak disaring.  
-2. **E‑commerce Platforms** – Tingkatkan penemuan produk dengan mengindeks setiap kata dalam deskripsi produk.  
-3. **Legal Research Tools** – Tangkap setiap istilah hukum, bahkan yang biasanya diperlakukan sebagai stop words.
+1. **Pencarian Dokumen Perusahaan** – Pastikan terminologi penting tidak disaring.  
+2. **Platform E‑commerce** – Tingkatkan penemuan produk dengan mengindeks setiap kata dalam deskripsi produk.  
+3. **Alat Riset Hukum** – Tangkap setiap istilah hukum, bahkan yang biasanya diperlakukan sebagai stop words.
 
 ## Pertimbangan Kinerja
 
@@ -149,40 +149,40 @@ Karena stop words dinonaktifkan, istilah `"on"` akan dipertimbangkan selama penc
 | Gejala | Penyebab Kemungkinan | Solusi |
 |---|---|---|
 | Tidak ada hasil untuk kata umum | `setUseStopWords(true)` (default) | Panggil `setUseStopWords(false)` seperti yang ditunjukkan di atas. |
-| Kesalahan out‑of‑memory saat mengindeks | Mengindeks terlalu banyak file besar sekaligus | Indeks file secara bertahap; tingkatkan opsi JVM `-Xmx`. |
+| Kesalahan out‑of‑memory saat mengindeks | Mengindeks terlalu banyak file besar sekaligus | Indeks file secara batch; tingkatkan opsi JVM `-Xmx`. |
 | Pencarian mengembalikan data usang | Indeks tidak diperbarui setelah menambahkan file baru | Panggil `index.update()` atau tambahkan kembali dokumen yang berubah. |
 
 ## Pertanyaan yang Sering Diajukan
 
 **T: Apa itu stop words?**  
-J: Stop words adalah istilah umum (misalnya, “the”, “is”, “on”) yang banyak mesin pencari abaikan untuk mempercepat kueri. Menonaktifkannya memungkinkan Anda memperlakukan setiap token sebagai dapat dicari.
+J: Stop words adalah istilah umum (misalnya “the”, “is”, “on”) yang banyak mesin pencari abaikan untuk mempercepat kueri. Menonaktifkannya memungkinkan Anda memperlakukan setiap token sebagai dapat dicari.
 
 **T: Mengapa menonaktifkan stop words dalam indeks pencarian?**  
-J: Ketika pencocokan frasa tepat diperlukan—seperti pada dokumen hukum atau teknis—setiap kata memiliki makna, sehingga Anda perlu menyertakan stop words.
+J: Ketika pencocokan frasa tepat diperlukan—seperti pada dokumen hukum atau teknis—setiap kata memiliki makna, sehingga Anda harus menyertakan stop words.
 
 **T: Bagaimana GroupDocs.Search menangani dataset besar?**  
-J: Perpustakaan ini menggunakan struktur data yang dioptimalkan dan pengindeksan inkremental untuk menjaga penggunaan memori tetap rendah, bahkan dengan jutaan dokumen.
+J: Perpustakaan menggunakan struktur data yang dioptimalkan dan pengindeksan inkremental untuk menjaga penggunaan memori tetap rendah, bahkan dengan jutaan dokumen.
 
 **T: Bisakah saya mengintegrasikan GroupDocs.Search dengan aplikasi Java lain?**  
-J: Ya, API dirancang untuk mudah disematkan ke dalam sistem berbasis Java apa pun, mulai dari layanan web hingga aplikasi desktop.
+J: Ya, API dirancang untuk mudah disematkan ke sistem berbasis Java apa pun, mulai dari layanan web hingga aplikasi desktop.
 
 **T: Apa yang harus saya lakukan jika hasil pencarian tidak akurat?**  
-J: Pastikan indeks mencakup semua dokumen yang diperlukan (`add documents to index`), pastikan penyaringan stop‑word dinonaktifkan bila diperlukan, dan pertimbangkan membangun ulang indeks setelah perubahan besar.
+J: Pastikan indeks mencakup semua dokumen yang diperlukan (`add documents to index`), pastikan filter stop‑word dinonaktifkan bila diperlukan, dan pertimbangkan membangun ulang indeks setelah perubahan besar.
 
-## Sumber Daya
+## Sumber Daya Tambahan
 
-- **Dokumentasi**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
-- **Referensi API**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-- **Unduhan**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
-- **Repositori GitHub**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Dukungan Gratis**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
+- **Dokumentasi**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
+- **Referensi API**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
+- **Unduhan**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
+- **Repositori GitHub**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Dukungan Gratis**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
 - **Lisensi Sementara**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
-Dengan mengikuti panduan ini, Anda kini tahu cara **add documents to index** dan **disable stop words java** untuk memberikan hasil pencarian yang lebih akurat dalam aplikasi Java Anda.
+Dengan mengikuti panduan ini, Anda kini tahu cara **menambahkan dokumen ke indeks** dan **menonaktifkan stop words dalam pencarian** untuk memberikan hasil yang lebih akurat dalam aplikasi Java Anda.
 
 ---
 
-**Terakhir Diperbarui:** 2025-12-19  
+**Terakhir Diperbarui:** 2026-02-19  
 **Diuji Dengan:** GroupDocs.Search untuk Java 25.4  
 **Penulis:** GroupDocs  
 
