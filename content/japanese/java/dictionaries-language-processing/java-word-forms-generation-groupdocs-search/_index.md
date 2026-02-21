@@ -1,50 +1,47 @@
 ---
-date: '2025-12-20'
-description: GroupDocs.Search を使用して Java で単語形プロバイダーの作成方法を学びましょう。検索やテキスト分析などのために単数形と複数形を生成します。
+date: '2026-02-21'
+description: GroupDocs.Search API を使用して Java で単数形・複数形を生成する方法を学びましょう。正確な検索とテキスト分析のためにカスタム単語形プロバイダーを作成します。
 keywords:
 - word forms generation
 - GroupDocs.Search Java API
 - linguistic transformation
-title: GroupDocs.Search API を使用して Java で Word Forms Provider を作成する
+title: GroupDocs.Search を使用して Java で単数形と複数形を生成する
 type: docs
 url: /ja/java/dictionaries-language-processing/java-word-forms-generation-groupdocs-search/
 weight: 1
 ---
 
-# JavaでGroupDocs.Search APIを使用して単語形プロバイダーを作成する
+# Generate Singular Plural Forms in Java with GroupDocs.Search
 
-単数形から複数形へ、あるいはその逆に変換することは、言語対応アプリケーションを構築する際に頻繁に直面する課題です。このガイドでは GroupDocs.Search Java API を使用して **create word forms provider** を作成し、検索エンジンやテキスト分析ツールが異なる単語の変形を自動的に理解しマッチさせる機能を提供します。
-
-検索エンジン、コンテンツ管理システム、または自然言語を処理する任意の Java アプリケーションを開発している場合でも、単語形生成をマスターすれば結果の精度が向上し、ユーザーの満足度も高まります。では、開始する前に必要な前提条件を確認しましょう。
+Javaで**単数・複数形を生成**したい場合、カスタム word‑forms プロバイダーが検索やテキスト解析エンジンにすべてのバリエーションを認識させる鍵となります。このチュートリアルでは、GroupDocs.Search Java API を使用してそのプロバイダーを構築する手順を解説します。これにより、アプリケーションは「cat」「cats」「city」「citis」などを追加の手間なく自動的にマッチさせられます。
 
 ## Quick Answers
-- **What does a word forms provider do?** 与えられた単語の代替形（単数形、複数形など）を生成し、検索がすべてのバリエーションにマッチできるようにします。  
-- **Which library is required?** GroupDocs.Search for Java（バージョン 25.4 以降）。  
-- **Do I need a license?** 評価用の無料トライアルは利用可能です。製品版では永続ライセンスが必要です。  
-- **What Java version is supported?** JDK 8 以上。  
-- **How many lines of code are needed?** シンプルなプロバイダー実装で約30行程度です。
+- **What does a word forms provider do?** It generates alternative forms (singular, plural, etc.) of a given word so searches can match all variants.  
+- **Which library is required?** GroupDocs.Search for Java (version 25.4 or newer).  
+- **Do I need a license?** A free trial works for evaluation; a permanent license is required for production.  
+- **What Java version is supported?** JDK 8 or higher.  
+- **How many lines of code are needed?** About 30 lines for a simple provider implementation.
 
 ## What is a “Create Word Forms Provider” feature?
-**create word forms provider** コンポーネントは `IWordFormsProvider` を実装したカスタムクラスです。単語を受け取り、定義したルールに基づいて単数形、複数形、その他の言語的変形の配列を返します。これにより検索インデックスは “cat” と “cats” を同等とみなすことができ、精度を犠牲にせずリコールを向上させます。
+A **create word forms provider** component is a custom class that implements `IWordFormsProvider`. It receives a word and returns an array of possible forms—singular, plural, or other linguistic variations—based on rules you define. This enables the search index to treat “cat” and “cats” as equivalent, improving recall without sacrificing precision.
 
 ## Why use GroupDocs.Search for word‑form generation?
-- **Built‑in extensibility:** 独自のプロバイダーをインデックス作成パイプラインに直接組み込めます。  
-- **Performance‑optimized:** 大規模インデックスでも効率的に処理でき、結果をキャッシュすればさらに高速化できます。  
-- **Cross‑language support:** 本チュートリアルは Java に焦点を当てていますが、同様の概念は .NET など他のプラットフォームでも適用可能です。
+- **Built‑in extensibility:** Plug your own provider directly into the indexing pipeline.  
+- **Performance‑optimized:** Handles large indexes efficiently, and you can cache results for extra speed.  
+- **Cross‑language support:** Concepts apply to .NET and other platforms as well.
 
 ## Prerequisites
+Before implementing the **create word forms provider**, make sure you have:
 
-**create word forms provider** を実装する前に、以下を準備してください。
-
-- **Maven** がインストールされており、JDK 8 以上が環境に設定されていること。  
-- Java 開発と Maven の `pom.xml` 設定に関する基本的な知識。  
-- GroupDocs.Search Java ライブラリ（バージョン 25.4 以降）へのアクセス。
+- **Maven** installed and a JDK 8 or newer set up on your machine.  
+- Basic familiarity with Java development and Maven’s `pom.xml` configuration.  
+- Access to the GroupDocs.Search Java library (version 25.4 or later).  
 
 ## Setting Up GroupDocs.Search for Java
 
 ### Maven Configuration
 
-以下のように `pom.xml` にリポジトリと依存関係を追加してください。
+Add the repository and dependency to your `pom.xml` file exactly as shown below:
 
 ```xml
 <repositories>
@@ -66,19 +63,17 @@ weight: 1
 
 ### Direct Download
 
-あるいは、公式リリースページから最新の JAR をダウンロードしてください: [GroupDocs.Search for Java リリース](https://releases.groupdocs.com/search/java/)。
+Alternatively, download the latest JAR from the official releases page: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### License Acquisition Steps
 
-GroupDocs.Search を制限なく使用するには次の手順を実行します。
-
-1. **Free Trial:** コア機能を試すためにトライアルにサインアップします。  
-2. **Temporary License:** 長期テスト用に一時キーをリクエストします。  
-3. **Purchase:** 本番環境での無制限使用のために商用ライセンスを取得します。
+1. **Free Trial:** Sign up for a trial to explore core features.  
+2. **Temporary License:** Request a temporary key for extended testing.  
+3. **Purchase:** Obtain a commercial license for unrestricted production use.
 
 ### Basic Initialization and Setup
 
-以下のスニペットはインデックス作成方法を示しています。インデックスはドキュメントや単語形ロジックを追加する出発点です。
+The following snippet demonstrates how to create an index—your starting point for adding documents and word‑form logic:
 
 ```java
 import com.groupdocs.search.*;
@@ -95,21 +90,20 @@ public class SearchSetup {
 
 ## Implementation Guide
 
-ここでは、シンプルな単数‑複数変換と複数‑単数変換を処理する **create word forms provider** の実装手順を解説します。
+Below we walk through the steps to **create word forms provider** that handles simple singular‑to‑plural and plural‑to‑singular transformations.
 
 ### Implementing the SimpleWordFormsProvider
 
 #### Overview
+Our custom provider will：
 
-カスタムプロバイダーは次の処理を行います。
-
-- 末尾の “es” または “s” を除去して単数形を推測。  
-- 末尾が “y” の場合は “is” に置き換えて複数形を生成（例: “city” → “citis”）。  
-- 基本的な複数形候補として “s” と “es” を付加。
+- Strip trailing “es” or “s” to guess a singular form.  
+- Change a trailing “y” to “is” to produce a plural form (e.g., “city” → “citis”).  
+- Append “s” and “es” to generate basic plural candidates.
 
 #### Step 1 – Create the Class Skeleton
 
-`IWordFormsProvider` を実装するクラスを定義します。インポート文は変更しないでください。
+Start by defining a class that implements `IWordFormsProvider`. Keep the import statements unchanged：
 
 ```java
 import com.groupdocs.search.dictionaries.IWordFormsProvider;
@@ -120,7 +114,7 @@ public class SimpleWordFormsProvider implements IWordFormsProvider {
 
 #### Step 2 – Implement `getWordForms`
 
-可能性のある形態リストを構築するメソッドを追加します。このブロックがコアロジックを含んでおり、後でより複雑なルールを追加することができます。
+Add the method that builds the list of possible forms. This block contains the core logic; you can extend it later to cover more complex rules.
 
 ```java
     @Override
@@ -154,69 +148,67 @@ public class SimpleWordFormsProvider implements IWordFormsProvider {
 ```
 
 #### Explanation of the Logic
-
-- **Singularization:** 一般的な複数形サフィックス（`es`, `s`）を検出し、基礎語を推測するために除去します。  
-- **Pluralization:** `y` で終わる名詞を `is` に置き換えるシンプルな規則で複数形を生成します。  
-- **Suffix Appending:** 以前のチェックでカバーできない規則的な複数形を対象に、`s` と `es` を付加します。
+- **Singularization:** Detects common plural suffixes (`es`, `s`) and removes them to approximate the base word.  
+- **Pluralization:** Handles nouns ending in `y` by swapping it for `is`, a simple rule that works for many English words.  
+- **Suffix Appending:** Adds `s` and `es` to cover regular plural forms that may not be captured by the earlier checks.
 
 #### Troubleshooting Tips
-
-- **Case Sensitivity:** メソッドは比較の際に `toLowerCase()` を使用するため、“Cats” と “cats” が同様に扱われます。  
-- **Edge Cases:** サフィックスの長さ未満の単語は空文字列が返らないように無視します。  
-- **Performance:** 大規模語彙の場合は `ConcurrentHashMap` に結果をキャッシュすることを検討してください。
+- **Case Sensitivity:** The method uses `toLowerCase()` for comparison, ensuring “Cats” and “cats” behave the same.  
+- **Edge Cases:** Words shorter than the suffix length are ignored to avoid returning empty strings.  
+- **Performance:** For large vocabularies, consider caching results in a `ConcurrentHashMap`.
 
 ## Practical Applications
 
-**create word forms provider** を実装すると、以下のような実務シナリオで効果が期待できます。
+Implementing a **create word forms provider** can boost several real‑world scenarios：
 
-1. **Search Engines:** ユーザーが “mouse” と入力した場合でも “mice” を含む文書がヒットするように、非規則的形態を生成できます。  
-2. **Text Analysis Tools:** すべての単語バリエーションが認識されるため、感情分析やエンティティ抽出の信頼性が向上します。  
-3. **Content Management Systems:** 自動タグ生成時に複数形の同義語を含められ、SEO と内部リンクの効果が高まります。
+1. **Search Engines:** Users typing “mouse” should also find documents containing “mice”. A provider can generate such irregular forms.  
+2. **Text Analysis Tools:** Sentiment or entity extraction becomes more reliable when all word variants are recognized.  
+3. **Content Management Systems:** Automatic tag generation can include plural synonyms, improving SEO and internal linking.
 
 ## Performance Considerations
 
-プロダクションシステムにプロバイダーを組み込む際は次の点に留意してください。
+When you embed the provider into a production system, keep these tips in mind：
 
-- **Cache Frequently Used Forms:** 同一単語の再計算を防ぐために結果をメモリに保持します。  
-- **Monitor JVM Heap:** 大規模インデックスはメモリ圧迫を招く可能性があるため、`-Xmx` 設定で調整します。  
-- **Use Efficient Collections:** 小規模セットには `ArrayList` が適していますが、数千件の形態を扱う場合は重複排除が速い `HashSet` の使用を検討してください。
+- **Cache Frequently Used Forms:** Store results in memory to avoid recomputing the same word repeatedly.  
+- **Monitor JVM Heap:** Large indexes may increase memory pressure; tune `-Xmx` accordingly.  
+- **Use Efficient Collections:** `ArrayList` works for small sets, but for thousands of forms consider `HashSet` to eliminate duplicates quickly.
 
 **Best Practices**
 
-- ライブラリは常に最新バージョンに保ち、パフォーマンス向上パッチを取り入れます。  
-- 実際のクエリ負荷でプロバイダーをプロファイルし、ボトルネックを早期に特定します。
+- Keep the library up‑to‑date to benefit from performance patches.  
+- Profile the provider with realistic query loads to spot bottlenecks early.  
 
 ## Conclusion
 
-これで GroupDocs.Search for Java を用いた **create word forms provider** の作成方法が理解できました。この軽量コンポーネントは検索結果の関連性と多言語解析の精度を大幅に向上させ、さまざまなアプリケーションで活用できます。
+You’ve now learned how to **generate singular plural forms in Java** using a custom `SimpleWordFormsProvider` with GroupDocs.Search. This lightweight component can dramatically improve the relevance of search results and the accuracy of linguistic analysis across many applications.
 
 **Next steps:**  
-- 不規則複数形やステミングなど、より高度な言語規則を試してみましょう。  
-- プロバイダーをインデックスパイプラインに統合し、リコール向上を測定します。  
-- 同義語辞書やカスタムアナライザーなど、他の GroupDocs.Search 機能も探索してください。
+- Experiment with more sophisticated linguistic rules (irregular plurals, stemming).  
+- Integrate the provider into an indexing pipeline and measure recall improvements.  
+- Explore other GroupDocs.Search features such as synonym dictionaries and custom analyzers.
 
-**Call to Action:** 今すぐ `SimpleWordFormsProvider` をプロジェクトに追加し、検索体験がどれだけ豊かになるかをご確認ください！
+**Call to Action:** Try adding the `SimpleWordFormsProvider` to your own project today and see how it enriches your search experience!
 
 ## FAQ Section
 
 **1. What is GroupDocs.Search for Java?**  
-フルテキスト検索、インデックス作成、言語機能を提供する強力なライブラリで、カスタム単語形プロバイダーを組み込むことができます。
+It’s a powerful library that offers full‑text search, indexing, and linguistic features—including the ability to plug in custom word‑form providers.
 
 **2. How does the SimpleWordFormsProvider work?**  
-シンプルなサフィックスベースの規則（“s/es” の除去、“y” → “is” の変換、そして “s/es” の付加）を適用して代替形態を生成します。
+It generates alternative forms by applying simple suffix‑based rules (removing “s/es”, converting “y” to “is”, and appending “s/es”).
 
 **3. Can I customize the word form generation rules?**  
-もちろんです。`getWordForms` メソッドを変更して、非規則形、ロケール固有の規則、外部辞書との連携などを組み込んでください。
+Absolutely. Modify the `getWordForms` method to include irregular forms, locale‑specific rules, or integration with external dictionaries.
 
 **4. What are some common applications for this feature?**  
-検索エンジン、テキスト分析パイプライン、CMS などで単数形・複数形の認識が有用です。
+Search engines, text‑analysis pipelines, and CMS platforms benefit from recognizing singular/plural variants.
 
 **5. Do I need a commercial license for production use?**  
-はい。トライアルで API を試すことは可能ですが、製品版では商用ライセンスが必要となり、使用制限が解除されサポートが受けられます。
+Yes—while a trial lets you explore the API, a purchased license removes usage limits and grants support.
 
 ---
 
-**Last Updated:** 2025-12-20  
+**Last Updated:** 2026-02-21  
 **Tested With:** GroupDocs.Search 25.4 (Java)  
 **Author:** GroupDocs  
 

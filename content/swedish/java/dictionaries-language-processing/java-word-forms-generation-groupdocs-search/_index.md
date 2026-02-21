@@ -1,50 +1,46 @@
 ---
-date: '2025-12-20'
-description: Lär dig hur du skapar en ordformsleverantör i Java med GroupDocs.Search.
-  Generera singular- och pluralformer för sökning, textanalys och mer.
+date: '2026-02-21'
+description: Lär dig hur du genererar singular‑ och pluralformer i Java med GroupDocs.Search
+  API. Skapa en anpassad leverantör av ordformer för exakt sökning och textanalys.
 keywords:
 - word forms generation
 - GroupDocs.Search Java API
 - linguistic transformation
-title: Skapa Word Forms Provider i Java med GroupDocs.Search API
+title: Generera singular‑pluralformer i Java med GroupDocs.Search
 type: docs
 url: /sv/java/dictionaries-language-processing/java-word-forms-generation-groupdocs-search/
 weight: 1
 ---
 
-# Skapa Word Forms Provider i Java med GroupDocs.Search API
+# Generera singular‑pluralformer i Java med GroupDocs.Search
 
-Att omvandla ord från singular till plural—eller tvärtom—är ett vanligt hinder när man bygger språkmedvetna applikationer. I den här guiden kommer du att **create word forms provider** med GroupDocs.Search Java API, vilket ger din sökmotor eller text‑analysverktyg förmågan att automatiskt förstå och matcha olika ordvarianter.
+Om du behöver **generera singular‑pluralformer i Java**, är en anpassad word‑forms‑provider nyckeln till att få din sök‑ eller textanalys‑motor att förstå varje variation av ett begrepp. I den här handledningen går vi igenom hur du bygger en sådan provider med GroupDocs.Search Java‑API, så att din applikation automatiskt kan matcha “cat”, “cats”, “city” och “citis” utan extra ansträngning.
 
-Oavsett om du utvecklar en sökmotor, ett content‑management‑system eller någon Java‑applikation som bearbetar naturligt språk, kommer behärskning av ordforms‑generering att göra dina resultat mer exakta och dina användare nöjdare. Låt oss gå igenom förutsättningarna som behövs innan vi börjar.
+## Snabba svar
+- **Vad gör en word forms provider?** Den genererar alternativa former (singular, plural osv.) av ett givet ord så att sökningar kan matcha alla varianter.  
+- **Vilket bibliotek krävs?** GroupDocs.Search for Java (version 25.4 or newer).  
+- **Behöver jag en licens?** En gratis provperiod fungerar för utvärdering; en permanent licens krävs för produktion.  
+- **Vilken Java‑version stöds?** JDK 8 or higher.  
+- **Hur många kodrader behövs?** Ungefär 30 lines for a simple provider implementation.
 
-## Quick Answers
-- **What does a word forms provider do?** It generates alternative forms (singular, plural, etc.) of a given word so searches can match all variants.  
-- **Which library is required?** GroupDocs.Search for Java (version 25.4 or newer).  
-- **Do I need a license?** A free trial works for evaluation; a permanent license is required for production.  
-- **What Java version is supported?** JDK 8 or higher.  
-- **How many lines of code are needed?** About 30 lines for a simple provider implementation.
+## Vad är en “Create Word Forms Provider”-funktion?
+En **create word forms provider**‑komponent är en anpassad klass som implementerar `IWordFormsProvider`. Den tar emot ett ord och returnerar en array av möjliga former — singular, plural eller andra språkliga variationer — baserat på regler du definierar. Detta gör att sökindexet behandlar “cat” och “cats” som ekvivalenta, vilket förbättrar återkallning utan att offra precision.
 
-## What is a “Create Word Forms Provider” feature?
-A **create word forms provider** component is a custom class that implements `IWordFormsProvider`. It receives a word and returns an array of possible forms—singular, plural, or other linguistic variations—based on rules you define. This enables the search index to treat “cat” and “cats” as equivalent, improving recall without sacrificing precision.
+## Varför använda GroupDocs.Search för word‑form‑generering?
+- **Inbyggd extensibilitet:** Anslut din egen provider direkt i indexerings‑pipeline.  
+- **Prestandaoptimerad:** Hanterar stora index effektivt, och du kan cache‑lagra resultat för extra hastighet.  
+- **Stöd för flera språk:** Koncepten gäller även för .NET och andra plattformar.
 
-## Why use GroupDocs.Search for word‑form generation?
-- **Built‑in extensibility:** You can plug your own provider directly into the indexing pipeline.  
-- **Performance‑optimized:** The library handles large indexes efficiently, and you can cache results for extra speed.  
-- **Cross‑language support:** Although this tutorial focuses on Java, the same concepts apply to .NET and other platforms.
+## Förutsättningar
+Innan du implementerar **create word forms provider**, se till att du har:
 
-## Prerequisites
+- **Maven** installerat och en JDK 8 eller nyare konfigurerad på din maskin.  
+- Grundläggande kunskap om Java‑utveckling och Maven‑konfigurationen `pom.xml`.  
+- Tillgång till GroupDocs.Search Java‑biblioteket (version 25.4 eller senare).  
 
-Before implementing the **create word forms provider**, make sure you have:
+## Konfigurera GroupDocs.Search för Java
 
-- **Maven** installed and a JDK 8 or newer set up on your machine.  
-- Basic familiarity with Java development and Maven’s `pom.xml` configuration.  
-- Access to the GroupDocs.Search Java library (version 25.4 or later).  
-
-## Setting Up GroupDocs.Search for Java
-
-### Maven Configuration
-
+### Maven‑konfiguration
 Add the repository and dependency to your `pom.xml` file exactly as shown below:
 
 ```xml
@@ -65,20 +61,15 @@ Add the repository and dependency to your `pom.xml` file exactly as shown below:
 </dependencies>
 ```
 
-### Direct Download
+### Direktnedladdning
+Alternativt, ladda ner den senaste JAR‑filen från den officiella releases‑sidan: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-Alternatively, download the latest JAR from the official releases page: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### Steg för att skaffa licens
+1. **Free Trial:** Registrera dig för en provperiod för att utforska huvudfunktionerna.  
+2. **Temporary License:** Begär en tillfällig nyckel för utökad testning.  
+3. **Purchase:** Skaffa en kommersiell licens för obegränsad produktionsanvändning.
 
-### License Acquisition Steps
-
-To use GroupDocs.Search without limitations:
-
-1. **Free Trial:** Sign up for a trial to explore core features.  
-2. **Temporary License:** Request a temporary key for extended testing.  
-3. **Purchase:** Obtain a commercial license for unrestricted production use.
-
-### Basic Initialization and Setup
-
+### Grundläggande initiering och konfiguration
 The following snippet demonstrates how to create an index—your starting point for adding documents and word‑form logic:
 
 ```java
@@ -94,22 +85,18 @@ public class SearchSetup {
 }
 ```
 
-## Implementation Guide
+## Implementationsguide
+Nedan går vi igenom stegen för att **create word forms provider** som hanterar enkla singular‑till‑plural och plural‑till‑singular‑omvandlingar.
 
-Below we walk through the steps to **create word forms provider** that handles simple singular‑to‑plural and plural‑to‑singular transformations.
-
-### Implementing the SimpleWordFormsProvider
-
-#### Overview
-
+### Implementering av SimpleWordFormsProvider
+#### Översikt
 Our custom provider will:
 
-- Strip trailing “es” or “s” to guess a singular form.  
-- Change a trailing “y” to “is” to produce a plural form (e.g., “city” → “citis”).  
-- Append “s” and “es” to generate basic plural candidates.
+- Ta bort avslutande “es” eller “s” för att gissa en singularform.  
+- Ändra ett avslutande “y” till “is” för att skapa en pluralform (t.ex. “city” → “citis”).  
+- Lägg till “s” och “es” för att generera grundläggande plural‑kandidater.
 
-#### Step 1 – Create the Class Skeleton
-
+#### Steg 1 – Skapa klass‑skelettet
 Start by defining a class that implements `IWordFormsProvider`. Keep the import statements unchanged:
 
 ```java
@@ -119,8 +106,7 @@ import java.util.ArrayList;
 public class SimpleWordFormsProvider implements IWordFormsProvider {
 ```
 
-#### Step 2 – Implement `getWordForms`
-
+#### Steg 2 – Implementera `getWordForms`
 Add the method that builds the list of possible forms. This block contains the core logic; you can extend it later to cover more complex rules.
 
 ```java
@@ -154,71 +140,63 @@ Add the method that builds the list of possible forms. This block contains the c
 }
 ```
 
-#### Explanation of the Logic
+#### Förklaring av logiken
+- **Singularisering:** Upptäcker vanliga plural‑suffix (`es`, `s`) och tar bort dem för att approximera grundordet.  
+- **Pluralisering:** Hanterar substantiv som slutar på `y` genom att byta ut det mot `is`, en enkel regel som fungerar för många engelska ord.  
+- **Suffix‑tillägg:** Lägger till `s` och `es` för att täcka vanliga pluralformer som kanske inte fångas av de tidigare kontrollerna.
 
-- **Singularization:** Detects common plural suffixes (`es`, `s`) and removes them to approximate the base word.  
-- **Pluralization:** Handles nouns ending in `y` by swapping it for `is`, a simple rule that works for many English words.  
-- **Suffix Appending:** Adds `s` and `es` to cover regular plural forms that may not be captured by the earlier checks.
+#### Felsökningstips
+- **Skiftlägeskänslighet:** Metoden använder `toLowerCase()` för jämförelse, vilket säkerställer att “Cats” och “cats” beter sig likadant.  
+- **Edge Cases:** Ord kortare än suffixets längd ignoreras för att undvika att returnera tomma strängar.  
+- **Prestanda:** För stora vokabulärer, överväg att cache‑lagra resultat i en `ConcurrentHashMap`.
 
-#### Troubleshooting Tips
+## Praktiska tillämpningar
+Att implementera en **create word forms provider** kan förbättra flera verkliga scenarier:
 
-- **Case Sensitivity:** The method uses `toLowerCase()` for comparison, ensuring “Cats” and “cats” behave the same.  
-- **Edge Cases:** Words shorter than the suffix length are ignored to avoid returning empty strings.  
-- **Performance:** For large vocabularies, consider caching results in a `ConcurrentHashMap`.
+1. **Sökmotorer:** Användare som skriver “mouse” bör också hitta dokument som innehåller “mice”. En provider kan generera sådana oregelbundna former.  
+2. **Textanalysverktyg:** Sentiment‑ eller entitetsutvinning blir mer pålitlig när alla ordvarianter känns igen.  
+3. **Content Management Systems:** Automatisk tag‑generering kan inkludera plural‑synonymer, vilket förbättrar SEO och intern länkning.
 
-## Practical Applications
+## Prestandaöverväganden
+När du integrerar providern i ett produktionssystem, ha dessa tips i åtanke:
 
-Implementing a **create word forms provider** can boost several real‑world scenarios:
+- **Cachea ofta använda former:** Lagra resultat i minnet för att undvika att beräkna samma ord upprepade gånger.  
+- **Övervaka JVM‑heap:** Stora index kan öka minnesbelastningen; justera `-Xmx` därefter.  
+- **Använd effektiva samlingar:** `ArrayList` fungerar för små mängder, men för tusentals former överväg `HashSet` för att snabbt eliminera dubbletter.
 
-1. **Search Engines:** Users typing “mouse” should also find documents containing “mice”. A provider can generate such irregular forms.  
-2. **Text Analysis Tools:** Sentiment or entity extraction becomes more reliable when all word variants are recognized.  
-3. **Content Management Systems:** Automatic tag generation can include plural synonyms, improving SEO and internal linking.
+**Bästa praxis**
+- Håll biblioteket uppdaterat för att dra nytta av prestandaförbättringar.  
+- Profilera providern med realistiska frågelaster för att tidigt identifiera flaskhalsar.
 
-## Performance Considerations
+## Slutsats
+Du har nu lärt dig hur du **genererar singular‑pluralformer i Java** med en anpassad `SimpleWordFormsProvider` i GroupDocs.Search. Denna lätta komponent kan avsevärt förbättra relevansen i sökresultat och noggrannheten i språkanalys i många applikationer.
 
-When you embed the provider into a production system, keep these tips in mind:
+**Nästa steg:**  
+- Experimentera med mer avancerade språkliga regler (oregelbundna pluralformer, stemming).  
+- Integrera providern i en indexerings‑pipeline och mät förbättringar i återkallning.  
+- Utforska andra GroupDocs.Search‑funktioner som synonym‑ordböcker och anpassade analysverktyg.
 
-- **Cache Frequently Used Forms:** Store results in memory to avoid recomputing the same word repeatedly.  
-- **Monitor JVM Heap:** Large indexes may increase memory pressure; tune `-Xmx` accordingly.  
-- **Use Efficient Collections:** `ArrayList` works for small sets, but for thousands of forms consider `HashSet` to eliminate duplicates quickly.
+**Uppmaning:** Prova att lägga till `SimpleWordFormsProvider` i ditt eget projekt idag och se hur det berikar din sökupplevelse!
 
-**Best Practices**
+## FAQ‑avsnitt
 
-- Keep the library up‑to‑date to benefit from performance patches.  
-- Profile the provider with realistic query loads to spot bottlenecks early.  
+**1. Vad är GroupDocs.Search för Java?**  
+Det är ett kraftfullt bibliotek som erbjuder fulltextsökning, indexering och språkliga funktioner — inklusive möjligheten att ansluta anpassade word‑form‑providers.
 
-## Conclusion
+**2. Hur fungerar SimpleWordFormsProvider?**  
+Den genererar alternativa former genom att tillämpa enkla suffix‑baserade regler (ta bort “s/es”, konvertera “y” till “is” och lägga till “s/es”).
 
-You’ve now learned how to **create word forms provider** using GroupDocs.Search for Java. This lightweight component can dramatically improve the relevance of search results and the accuracy of linguistic analysis across many applications.  
+**3. Kan jag anpassa reglerna för word‑form‑generering?**  
+Absolut. Modifiera `getWordForms`‑metoden för att inkludera oregelbundna former, lokalspecifika regler eller integration med externa ordböcker.
 
-**Next steps:**  
-- Experiment with more sophisticated linguistic rules (irregular plurals, stemming).  
-- Integrate the provider into an indexing pipeline and measure recall improvements.  
-- Explore other GroupDocs.Search features such as synonym dictionaries and custom analyzers.
+**4. Vilka är vanliga tillämpningar för denna funktion?**  
+Sökmotorer, textanalys‑pipelines och CMS‑plattformar drar nytta av att känna igen singular‑/plural‑varianter.
 
-**Call to Action:** Try adding the `SimpleWordFormsProvider` to your own project today and see how it enriches your search experience!
-
-## FAQ Section
-
-**1. What is GroupDocs.Search for Java?**  
-It’s a powerful library that offers full‑text search, indexing, and linguistic features—including the ability to plug in custom word‑form providers.
-
-**2. How does the SimpleWordFormsProvider work?**  
-It generates alternative forms by applying simple suffix‑based rules (removing “s/es”, converting “y” to “is”, and appending “s/es”).
-
-**3. Can I customize the word form generation rules?**  
-Absolutely. Modify the `getWordForms` method to include irregular forms, locale‑specific rules, or integration with external dictionaries.
-
-**4. What are some common applications for this feature?**  
-Search engines, text‑analysis pipelines, and CMS platforms benefit from recognizing singular/plural variants.
-
-**5. Do I need a commercial license for production use?**  
-Yes—while a trial lets you explore the API, a purchased license removes usage limits and grants support.
+**5. Behöver jag en kommersiell licens för produktionsanvändning?**  
+Ja — även om en provperiod låter dig utforska API‑et, tar en köpt licens bort användningsgränser och ger support.
 
 ---
 
-**Last Updated:** 2025-12-20  
-**Tested With:** GroupDocs.Search 25.4 (Java)  
-**Author:** GroupDocs  
-
----
+**Senast uppdaterad:** 2026-02-21  
+**Testat med:** GroupDocs.Search 25.4 (Java)  
+**Författare:** GroupDocs
