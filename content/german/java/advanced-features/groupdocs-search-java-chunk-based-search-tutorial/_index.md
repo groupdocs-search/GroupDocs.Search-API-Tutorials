@@ -1,13 +1,13 @@
 ---
-date: '2025-12-19'
-description: Erfahren Sie, wie Sie Dokumente zum Index hinzufügen und die Chunk‑basierte
-  Suche in Java mit GroupDocs.Search aktivieren, um die Leistung bei großen Dokumentensammlungen
-  zu steigern.
+date: '2026-02-21'
+description: Erfahren Sie, wie Sie Dokumente zum Index hinzufügen und die Suchleistung
+  mit Chunk‑basierter Suche in Java mithilfe von GroupDocs.Search steigern, indem
+  Sie den Speicher des Java‑Suchindexes für große Dokumentensätze optimieren.
 keywords:
 - chunk-based search
 - GroupDocs.Search Java
 - document search implementation
-title: Dokumente zum Index hinzufügen mit chunkbasierter Suche in Java
+title: Dokumente zum Index hinzufügen mit Chunk-basierter Suche in Java
 type: docs
 url: /de/java/advanced-features/groupdocs-search-java-chunk-based-search-tutorial/
 weight: 1
@@ -15,30 +15,28 @@ weight: 1
 
 # Dokumente zum Index hinzufügen mit Chunk-basierter Suche in Java
 
-In der heutigen datengetriebenen Welt ist es entscheidend, **add documents to index** schnell durchführen zu können und anschließend Chunk‑basierte Suchen auszuführen. Das ist für jede Anwendung wichtig, die große Dateisammlungen verarbeitet. Egal, ob Sie mit Rechtsverträgen, Kunden‑Support‑Archiven oder riesigen Forschungsbibliotheken arbeiten – dieses Tutorial zeigt Ihnen genau, wie Sie GroupDocs.Search für Java einrichten, um Dokumente effizient zu indexieren und relevante Informationen in handlichen Chunks abzurufen.
+In modernen Anwendungen, die **Dokumente zum Index hinzufügen** schnell benötigen und dann schnelle, chunk‑basierte Abfragen ausführen wollen, benötigen Sie eine Lösung, die skaliert, ohne den Speicher zu sprengen. Dieses Tutorial führt Sie durch die Einrichtung von GroupDocs.Search für Java, das Hinzufügen mehrerer Dokumentenordner und die Konfiguration der Engine, um **die Suchleistung zu erhöhen**, während die **java search index memory** Nutzung unter Kontrolle bleibt. Egal, ob Sie rechtliche Verträge, Support‑Tickets oder Forschungsarbeiten indexieren, die nachfolgenden Schritte bieten Ihnen eine produktionsreife Implementierung.
 
-## Was Sie lernen werden
-- Wie man einen Such‑Index in einem angegebenen Ordner erstellt.  
-- Schritte zum **add documents to index** aus mehreren Quellen.  
-- Konfiguration von Suchoptionen, um Chunk‑basierte Suche zu aktivieren.  
-- Durchführung einer ersten und nachfolgenden Chunk‑basierter Suche.  
-- Praxisbeispiele, bei denen Chunk‑basierte Dokumentensuche glänzt.
-
-## Schnellantworten
-- **Was ist der erste Schritt?** Einen Such‑Index‑Ordner erstellen.  
-- **Wie füge ich viele Dateien hinzu?** `index.add()` für jeden Dokumenten‑Ordner verwenden.  
+## Schnelle Antworten
+- **Was ist der erste Schritt?** Erstellen Sie einen Suchindex‑Ordner.  
+- **Wie kann ich viele Dateien einbinden?** Verwenden Sie `index.add()` für jeden Dokumentenordner.  
 - **Welche Option aktiviert die Chunk‑Suche?** `options.setChunkSearch(true)`.  
 - **Kann ich nach dem ersten Chunk weiter suchen?** Ja, rufen Sie `index.searchNext()` mit dem Token auf.  
-- **Benötige ich eine Lizenz?** Eine kostenlose Test‑ oder temporäre Lizenz reicht für die Entwicklung; für die Produktion ist eine Voll‑Lizenz erforderlich.
+- **Benötige ich eine Lizenz?** Eine kostenlose Testversion oder eine temporäre Lizenz reicht für die Entwicklung; für die Produktion ist eine Voll‑Lizenz erforderlich.  
+
+## Was Sie lernen werden
+- Wie man einen Suchindex in einem angegebenen Ordner erstellt.  
+- Schritte, um **Dokumente zum Index hinzufügen** aus mehreren Quellen.  
+- Konfiguration der Suchoptionen, um Chunk‑basierte Suche zu aktivieren.  
+- Durchführung initialer und nachfolgender Chunk‑basierter Suchen.  
+- Praxisbeispiele, bei denen Chunk‑basierte Dokumentensuche glänzt.  
 
 ## Voraussetzungen
-Um diesem Leitfaden zu folgen, stellen Sie sicher, dass Sie:
+- **Required Libraries**: GroupDocs.Search for Java 25.4 or later.  
+- **Environment Setup**: A compatible Java Development Kit (JDK) installed.  
+- **Knowledge Prerequisites**: Basic Java programming and Maven familiarity.
 
-- **Erforderliche Bibliotheken**: GroupDocs.Search für Java 25.4 oder neuer.  
-- **Umgebungs‑Setup**: Ein kompatibles Java Development Kit (JDK) installiert.  
-- **Kenntnis‑Voraussetzungen**: Grundlegende Java‑Programmierung und Maven‑Kenntnisse.
-
-## GroupDocs.Search für Java einrichten
+## Einrichtung von GroupDocs.Search für Java
 Um zu beginnen, integrieren Sie GroupDocs.Search in Ihr Projekt mittels Maven:
 
 ```xml
@@ -64,11 +62,11 @@ Alternativ laden Sie die neueste Version von [GroupDocs.Search for Java releases
 ### Lizenzbeschaffung
 Um GroupDocs.Search auszuprobieren:
 
-- **Free Trial** – Kernfunktionen ohne Verpflichtung testen.  
-- **Temporary License** – Erweiterter Zugriff für die Entwicklung.  
+- **Free Trial** – testen Sie Kernfunktionen ohne Verpflichtung.  
+- **Temporary License** – erweiterter Zugriff für die Entwicklung.  
 - **Purchase** – Voll‑Lizenz für den Produktionseinsatz.
 
-### Grundlegende Initialisierung und Setup
+### Grundlegende Initialisierung und Einrichtung
 Erstellen Sie einen Index in dem Ordner, in dem die durchsuchbaren Daten gespeichert werden sollen:
 
 ```java
@@ -84,10 +82,10 @@ public class CreateIndex {
 ```
 
 ## Wie man Dokumente zum Index hinzufügt
-Jetzt, wo der Index existiert, ist der nächste logische Schritt, **add documents to index** aus den Speicherorten Ihrer Dateien hinzuzufügen.
+Jetzt, wo der Index existiert, ist der nächste logische Schritt, **Dokumente zum Index hinzufügen** aus den Speicherorten, an denen Ihre Dateien liegen.
 
 ### 1. Erstellen eines Index
-**Übersicht**: Ein Verzeichnis für den Such‑Index einrichten.
+**Übersicht**: Richten Sie ein Verzeichnis für den Suchindex ein.
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\SearchByChunks";
@@ -98,7 +96,7 @@ Index index = new Index(indexFolder);
 ```
 
 ### 2. Dokumente zum Index hinzufügen
-**Übersicht**: Dateien aus mehreren Quellordnern einbinden.
+**Übersicht**: Laden Sie Dateien aus mehreren Quellordnern.
 
 ```java
 String documentsFolder1 = "YOUR_DOCUMENT_DIRECTORY";
@@ -112,7 +110,7 @@ index.add(documentsFolder2);
 index.add(documentsFolder3);
 ```
 
-### 3. Suchoptionen für Chunk‑Suche konfigurieren
+### 3. Konfiguration der Suchoptionen für Chunk‑Suche
 Aktivieren Sie die Chunk‑basierte Suche, indem Sie das Options‑Objekt anpassen.
 
 ```java
@@ -123,7 +121,7 @@ SearchOptions options = new SearchOptions();
 options.setChunkSearch(true);
 ```
 
-### 4. Erste Chunk‑basierte Suche durchführen
+### 4. Ausführen einer initialen Chunk‑basierten Suche
 Führen Sie die erste Abfrage mit den aktivierten Chunk‑Optionen aus.
 
 ```java
@@ -134,7 +132,7 @@ String query = "invitation";
 SearchResult result = index.search(query, options);
 ```
 
-### 5. Chunk‑basierte Suche fortsetzen
+### 5. Fortsetzen der Chunk‑basierten Suche
 Iterieren Sie über die verbleibenden Chunks, bis die Suche abgeschlossen ist.
 
 ```java
@@ -144,40 +142,60 @@ while (result.getNextChunkSearchToken() != null) {
 ```
 
 ## Warum Chunk‑basierte Suche verwenden?
-Chunk‑basierte Suche zerlegt massive Dokumentensammlungen in handhabbare Stücke, reduziert den Speicherverbrauch und beschleunigt die Antwortzeiten. Besonders vorteilhaft ist sie, wenn:
+Chunk‑basierte Suche zerlegt massive Dokumentensammlungen in handhabbare Stücke, reduziert den Speicherbedarf und beschleunigt die Antwortzeiten. Besonders vorteilhaft ist sie, wenn:
 
-1. **Legal Teams** spezifische Klauseln in Tausenden von Verträgen finden müssen.  
-2. **Customer Support Portale** sofort relevante Knowledge‑Base‑Artikel bereitstellen sollen.  
-3. **Researchers** umfangreiche Datensätze durchsuchen, ohne ganze Dateien in den Speicher zu laden.
+1. **Legal teams** need to locate specific clauses across thousands of contracts.  
+2. **Customer support portals** must surface relevant knowledge‑base articles instantly.  
+3. **Researchers** sift through extensive datasets without loading entire files into memory.
+
+## Wie dieser Ansatz **die Suchleistung erhöht**
+Durch das Durchsuchen kleinerer Chunks statt ganzer Dateien kann die Engine:
+
+- Irrelevante Abschnitte frühzeitig überspringen und CPU‑Zyklen sparen.  
+- Nur den aktiven Chunk im Speicher halten, wodurch der **java search index memory** Verbrauch direkt sinkt.  
+- Chunk‑Verarbeitung auf Mehrkernmaschinen parallelisieren für schnellere Ergebnisse.
+
+## Verwaltung von **java search index memory**
+Obwohl Chunk‑basierte Suche bereits den Speicherbedarf reduziert, können Sie die JVM weiter optimieren:
+
+- Genügend Heap zuweisen (`-Xmx2g` oder höher) abhängig von der Indexgröße.  
+- `index.optimize()` nach Masseneinfügungen ausführen, um die Indexstruktur zu komprimieren.  
+- GC‑Pausen mit Tools wie VisualVM überwachen, um Latenzspitzen zu vermeiden.
 
 ## Leistungsüberlegungen
-- **Speicherverwaltung** – Weisen Sie ausreichend Heap‑Speicher (`-Xmx`) für große Indizes zu.  
-- **Ressourcen‑Monitoring** – Behalten Sie die CPU‑Auslastung während Index‑ und Suchvorgängen im Auge.  
-- **Index‑Wartung** – Rebuilden oder bereinigen Sie den Index regelmäßig, um veraltete Daten zu entfernen.
+- **Memory Management** – Genügend Heap‑Speicher (`-Xmx`) für große Indexe bereitstellen.  
+- **Resource Monitoring** – CPU‑Auslastung während Indexierung und Suche im Auge behalten.  
+- **Index Maintenance** – Index regelmäßig neu aufbauen oder bereinigen, um veraltete Daten zu entfernen.
 
-## Häufige Stolperfallen & Fehlersuche
+## Häufige Fallstricke & Fehlersuche
 | Problem | Warum es passiert | Lösung |
 |-------|----------------|-----|
-| `OutOfMemoryError` während des Indexierens | Heap‑Größe zu klein | JVM‑Heap erhöhen (`-Xmx2g` oder höher) |
-| Keine Ergebnisse | Chunk‑Token nicht verarbeitet | Sicherstellen, dass die `while`‑Schleife bis `getNextChunkSearchToken()` `null` läuft |
-| Langsame Suchleistung | Index nicht optimiert | `index.optimize()` nach Bulk‑Additionen ausführen |
+| `OutOfMemoryError` during indexing | Heap size too low | Increase JVM heap (`-Xmx2g` or higher) |
+| No results returned | Chunk token not processed | Ensure the `while` loop runs until `getNextChunkSearchToken()` is `null` |
+| Slow search performance | Index not optimized | Run `index.optimize()` after bulk additions |
 
 ## Häufig gestellte Fragen
 
-**F: Was ist Chunk‑basierte Suche?**  
-A: Chunk‑basierte Suche teilt den Datensatz in kleinere Stücke, wodurch effiziente Abfragen über große Datenmengen möglich sind, ohne gesamte Dokumente in den Speicher zu laden.
+**Q: Was ist Chunk‑basierte Suche?**  
+A: Chunk‑basierte Suche teilt den Datensatz in kleinere Stücke, wodurch effiziente Abfragen über große Datenmengen möglich sind, ohne ganze Dokumente in den Speicher zu laden.
 
-**F: Wie aktualisiere ich meinen Index mit neuen Dateien?**  
+**Q: Wie aktualisiere ich meinen Index mit neuen Dateien?**  
 A: Rufen Sie einfach `index.add()` mit dem Pfad zu den neuen Dokumenten auf; der Index integriert sie automatisch.
 
-**F: Kann GroupDocs.Search verschiedene Dateiformate verarbeiten?**  
+**Q: Kann GroupDocs.Search verschiedene Dateiformate verarbeiten?**  
 A: Ja, es unterstützt PDFs, DOCX, XLSX, PPTX und viele andere gängige Formate.
 
-**F: Was sind typische Leistungsengpässe?**  
-A: Speicherbeschränkungen und nicht optimierte Indizes sind die häufigsten; ausreichend Heap zuweisen und den Index regelmäßig optimieren.
+**Q: Was sind typische Leistungsengpässe?**  
+A: Speicherbeschränkungen und nicht optimierte Indexe sind die häufigsten; weisen Sie ausreichend Heap zu und optimieren Sie den Index regelmäßig.
 
-**F: Wo finde ich ausführlichere Dokumentation?**  
+**Q: Wo finde ich ausführlichere Dokumentation?**  
 A: Besuchen Sie die offizielle [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/) für detaillierte Anleitungen und API‑Referenzen.
+
+**Q: Funktioniert Chunk‑basierte Suche mit verschlüsselten PDFs?**  
+A: Ja, solange Sie das Passwort über die entsprechende API‑Überladung bereitstellen.
+
+**Q: Wie kann ich den Fortschritt der Indexierung überwachen?**  
+A: Verwenden Sie die `Index.add()`‑Überladung, die ein `Progress`‑Objekt zurückgibt, oder binden Sie Logging‑Callbacks ein.
 
 ## Ressourcen
 - **Documentation**: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)  
@@ -189,8 +207,6 @@ A: Besuchen Sie die offizielle [GroupDocs.Search Documentation](https://docs.gro
 
 ---
 
-**Zuletzt aktualisiert:** 2025-12-19  
-**Getestet mit:** GroupDocs.Search 25.4 für Java  
-**Autor:** GroupDocs  
-
----
+**Zuletzt aktualisiert:** 2026-02-21  
+**Getestet mit:** GroupDocs.Search 25.4 for Java  
+**Autor:** GroupDocs
