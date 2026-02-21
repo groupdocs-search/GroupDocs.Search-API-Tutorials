@@ -1,41 +1,42 @@
 ---
-date: '2025-12-20'
+date: '2026-02-21'
 description: Tìm hiểu cách bật tính năng sửa lỗi chính tả trong Java bằng GroupDocs.Search,
-  thêm tài liệu vào chỉ mục và đặt số lỗi tối đa để cải thiện độ chính xác tìm kiếm.
+  thêm tài liệu vào chỉ mục và đặt số lượng lỗi tối đa để cải thiện độ chính xác của
+  tìm kiếm.
 keywords:
 - spelling correction Java
 - GroupDocs.Search tutorial
 - Java search functionality
-title: Cách bật tính năng kiểm tra chính tả trong Java với GroupDocs.Search
+title: Cách bật tính năng chính tả trong Java với GroupDocs.Search
 type: docs
 url: /vi/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/
 weight: 1
 ---
 
-# Cách bật tính năng chính tả trong Java bằng GroupDocs.Search
+# Cách Bật Kiểm Tra Chính Tả trong Java Sử Dụng GroupDocs.Search
 
-Kết quả tìm kiếm chính xác là yếu tố quan trọng đối với bất kỳ ứng dụng hiện đại nào. Trong hướng dẫn này, bạn sẽ học **cách bật tính năng chính tả** trong Java với GroupDocs.Search, giúp người dùng nhận được kết quả đúng ngay cả khi họ gõ sai truy vấn. Chúng ta sẽ đi qua việc tạo chỉ mục, **thêm tài liệu vào chỉ mục**, cấu hình các tùy chọn chính tả, và thực hiện tìm kiếm tự động sửa lỗi.
+Kết quả tìm kiếm chính xác là yếu tố quan trọng đối với bất kỳ ứng dụng hiện đại nào. Trong hướng dẫn này, bạn sẽ học **cách bật tính năng kiểm tra chính tả** trong Java với GroupDocs.Search, giúp người dùng nhận được kết quả đúng ngay cả khi nhập sai truy vấn. Chúng ta sẽ đi qua các bước tạo chỉ mục, **thêm tài liệu vào chỉ mục**, cấu hình tùy chọn chính tả, và thực hiện tìm kiếm tự động sửa lỗi.
 
 ## Câu trả lời nhanh
-- **“cách bật tính năng chính tả” có nghĩa là gì?** Nó kích hoạt bộ kiểm tra chính tả tích hợp, tự động sửa lỗi người dùng trong quá trình tìm kiếm.  
+- **“cách bật kiểm tra chính tả” có nghĩa là gì?** Nó kích hoạt bộ kiểm tra chính tả tích hợp, tự động sửa lỗi gõ của người dùng trong quá trình tìm kiếm.  
 - **Thư viện nào cung cấp tính năng này?** GroupDocs.Search cho Java.  
 - **Tôi có cần giấy phép không?** Giấy phép dùng thử miễn phí đủ cho việc đánh giá; giấy phép đầy đủ cần thiết cho môi trường sản xuất.  
-- **Tôi có thể kiểm soát độ chịu lỗi không?** Có – dùng `setMaxMistakeCount` để xác định số lượng lỗi cho phép.  
-- **Có phù hợp với các chỉ mục lớn không?** Hoàn toàn – engine được tối ưu cho việc lập chỉ mục và tìm kiếm hiệu suất cao.
+- **Tôi có thể kiểm soát mức độ chịu lỗi không?** Có – dùng `setMaxMistakeCount` để định nghĩa số lượng lỗi cho phép.  
+- **Tính năng này có phù hợp với chỉ mục lớn không?** Hoàn toàn – engine được tối ưu cho việc lập chỉ mục và tìm kiếm hiệu năng cao.
 
-## “cách bật tính năng chính tả” trong GroupDocs.Search là gì?
-Bật tính năng chính tả yêu cầu công cụ tìm kiếm tìm các thuật ngữ đúng nhất khi truy vấn chứa lỗi. Tính năng này cải thiện đáng kể trải nghiệm người dùng bằng cách trả về các kết quả liên quan ngay cả khi đầu vào bị viết sai.
+## “cách bật kiểm tra chính tả” trong GroupDocs.Search là gì?
+Bật kiểm tra chính tả yêu cầu engine tìm kiếm tra cứu các từ đúng gần nhất khi truy vấn chứa lỗi. Tính năng này cải thiện đáng kể trải nghiệm người dùng bằng cách trả về kết quả liên quan ngay cả khi nhập sai.
 
-## Tại sao nên bật tính năng sửa lỗi chính tả trong các ứng dụng Java?
-- **Tăng sự hài lòng của người dùng** – người dùng không cần phải gõ chính xác tuyệt đối.  
-- **Giảm tỷ lệ thoát trang** – kết quả chính xác hơn giữ người truy cập ở lại lâu hơn.  
-- **Áp dụng đa lĩnh vực** – từ danh mục thư viện đến tìm kiếm sản phẩm thương mại điện tử.
+## Tại sao nên bật kiểm tra chính tả trong các ứng dụng Java?
+- **Tăng sự hài lòng của người dùng** – người dùng không cần phải gõ chính xác từng ký tự.  
+- **Giảm tỷ lệ thoát** – kết quả chính xác hơn giữ người truy cập ở lại lâu hơn.  
+- **Áp dụng đa lĩnh vực** – từ danh mục thư viện đến tìm kiếm sản phẩm trong thương mại điện tử.
 
 ## Yêu cầu trước
-- Đã cài đặt Java Development Kit (JDK).  
+- Java Development Kit (JDK) đã được cài đặt.  
 - Kiến thức cơ bản về Java và Maven.  
-- Hiểu biết về các khái niệm lập chỉ mục.  
-- Có bản dùng thử hoặc key giấy phép GroupDocs.Search.
+- Hiểu biết về khái niệm lập chỉ mục.  
+- Một bản dùng thử hoặc khóa giấy phép của GroupDocs.Search.
 
 ### Cài đặt GroupDocs.Search cho Java
 Tích hợp thư viện vào dự án Maven của bạn.
@@ -65,9 +66,9 @@ Thêm repository và dependency vào file `pom.xml` của bạn:
 Hoặc tải phiên bản mới nhất từ [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Nhận giấy phép
-Lấy giấy phép dùng thử miễn phí để đánh giá. Đối với môi trường sản xuất, mua giấy phép đầy đủ hoặc yêu cầu key tạm thời từ trang chính thức.
+Lấy giấy phép dùng thử miễn phí để đánh giá. Đối với môi trường sản xuất, mua giấy phép đầy đủ hoặc yêu cầu khóa tạm thời từ trang chính thức.
 
-## Cách thêm tài liệu vào chỉ mục
+## Cách Thêm Tài Liệu vào Chỉ Mục
 Tạo chỉ mục là nền tảng cho bất kỳ ứng dụng hỗ trợ tìm kiếm nào. Dưới đây là ví dụ tối thiểu **thêm tài liệu vào chỉ mục** từ một thư mục.
 
 ```java
@@ -90,10 +91,10 @@ public class FeatureIndexAndAddDocuments {
 }
 ```
 
-*Lưu ý:* Kiểm tra lại các đường dẫn và đảm bảo ứng dụng có quyền ghi vào thư mục chỉ mục.
+*Lưu ý:* Kiểm tra đường dẫn có đúng không và ứng dụng có quyền ghi vào thư mục chỉ mục hay không.
 
-## Cách cấu hình sửa lỗi chính tả (đặt số lỗi tối đa)
-Bạn có thể tinh chỉnh bộ kiểm tra chính tả bằng cách bật nó và đặt mức chịu lỗi.
+## Cách Cấu Hình Kiểm Tra Chính Tả (đặt số lỗi tối đa)
+Bạn có thể tinh chỉnh bộ kiểm tra chính tả bằng cách bật nó và thiết lập mức chịu lỗi.
 
 ```java
 import com.groupdocs.search.*;
@@ -116,10 +117,10 @@ public class FeatureSpellingCorrectionOptions {
 }
 ```
 
-*Tại sao `setMaxMistakeCount` quan trọng:* Nó xác định số lượng lỗi mà engine sẽ chấp nhận. Điều chỉnh giá trị này dựa trên các mẫu lỗi thường gặp trong lĩnh vực của bạn.
+*Tại sao `setMaxMistakeCount` quan trọng:* Nó xác định số lượng lỗi mà engine sẽ chấp nhận. Điều chỉnh giá trị này dựa trên mẫu lỗi thường gặp trong lĩnh vực của bạn.
 
-## Cách thực hiện tìm kiếm có sửa lỗi chính tả
-Khi chỉ mục đã sẵn sàng và các tùy chọn chính tả đã được cấu hình, chạy truy vấn có thể chứa lỗi.
+## Cách Thực Hiện Tìm Kiếm Với Kiểm Tra Chính Tả
+Khi chỉ mục đã sẵn sàng và tùy chọn chính tả đã được cấu hình, thực hiện truy vấn có thể chứa lỗi.
 
 ```java
 import com.groupdocs.search.*;
@@ -147,22 +148,29 @@ public class FeatureSpellingCorrectionSearch {
 }
 ```
 
-Lệnh `search()` trả về một `SearchResult` chứa các thuật ngữ đã được sửa và các tài liệu có liên quan nhất.
+Lệnh `search()` trả về một `SearchResult` chứa các từ đã được sửa và các tài liệu có liên quan nhất.
 
-## Ứng dụng thực tiễn
-1. **Hệ thống thư viện:** Sửa lỗi chính tả tiêu đề sách hoặc tên tác giả.  
-2. **Nền tảng thương mại điện tử:** Sửa lỗi người dùng trong tìm kiếm sản phẩm để tăng tỷ lệ chuyển đổi.  
-3. **Hệ thống quản lý nội dung:** Cải thiện việc truy xuất bài viết cho nhân viên biên tập.
+## Ứng Dụng Thực Tiễn
+1. **Hệ thống Thư viện:** Sửa lỗi chính tả tiêu đề sách hoặc tên tác giả.  
+2. **Nền tảng Thương mại điện tử:** Sửa lỗi gõ của người dùng trong tìm kiếm sản phẩm để tăng tỷ lệ chuyển đổi.  
+3. **Hệ thống Quản lý Nội dung:** Cải thiện việc truy xuất bài viết cho nhân viên biên tập.
 
-## Các lưu ý về hiệu năng
+## Các Yếu Tố Ảnh Hưởng Đến Hiệu Suất
 - **Giữ chỉ mục luôn cập nhật** – lập chỉ mục lại các tệp mới hoặc đã thay đổi thường xuyên.  
-- **Tinh chỉnh cài đặt bộ nhớ JVM** – cấp phát đủ heap cho các chỉ mục lớn.  
-- **Giám sát việc sử dụng tài nguyên** – điều chỉnh các flag của garbage collector nếu cần.
+- **Tinh chỉnh cấu hình bộ nhớ JVM** – cấp phát heap đủ cho các chỉ mục lớn.  
+- **Giám sát sử dụng tài nguyên** – điều chỉnh các flag của garbage‑collector nếu cần.
 
-## Câu hỏi thường gặp
+## Các Vấn Đề Thường Gặp & Khắc Phục
+| Triệu chứng | Nguyên nhân có thể | Cách khắc phục |
+|------------|--------------------|----------------|
+| Không có kết quả trả về sau khi bật kiểm tra chính tả | Đường dẫn thư mục chỉ mục sai hoặc trống | Kiểm tra `indexFolder` trỏ tới một chỉ mục hợp lệ và `index.add()` đã thành công |
+| Bộ kiểm tra chính tả không sửa các lỗi rõ ràng | `setMaxMistakeCount` được đặt quá thấp | Tăng giá trị lên 2 hoặc 3 để cho phép sửa lỗi linh hoạt hơn |
+| Ứng dụng bị sập khi xử lý tập tài liệu lớn | Heap JVM không đủ | Tăng tùy chọn `-Xmx` (ví dụ: `-Xmx4g`) |
+
+## Câu Hỏi Thường Gặp
 
 **H: GroupDocs.Search là gì?**  
-Đ: Đây là thư viện Java cung cấp khả năng lập chỉ mục nhanh, các tính năng tìm kiếm nâng cao, và sửa lỗi chính tả tích hợp.
+Đ: Đây là thư viện Java cung cấp khả năng lập chỉ mục nhanh, tính năng tìm kiếm nâng cao và kiểm tra chính tả tích hợp.
 
 **H: Làm sao để lấy giấy phép cho GroupDocs.Search?**  
 Đ: Truy cập trang chính thức để tải giấy phép dùng thử miễn phí hoặc mua giấy phép đầy đủ.
@@ -170,22 +178,22 @@ Lệnh `search()` trả về một `SearchResult` chứa các thuật ngữ đã
 **H: Tôi có thể tích hợp GroupDocs.Search với các framework Java khác không?**  
 Đ: Có, nó hoạt động với Spring, Jakarta EE và bất kỳ ứng dụng Java tiêu chuẩn nào.
 
-**H: Những vấn đề thường gặp khi thiết lập chỉ mục là gì?**  
-Đ: Đường dẫn thư mục không đúng, quyền truy cập tệp không đủ, hoặc thiếu dependency trong `pom.xml`.
+**H: Những vấn đề phổ biến khi thiết lập chỉ mục là gì?**  
+Đ: Đường dẫn thư mục không đúng, quyền truy cập tệp không đủ, hoặc thiếu các dependency trong `pom.xml`.
 
-**H: Sửa lỗi chính tả cải thiện kết quả tìm kiếm như thế nào?**  
-Đ: Nó tự động chuyển đổi các truy vấn viết sai thành các thuật ngữ đúng nhất, trả về các kết quả phù hợp hơn.
+**H: Kiểm tra chính tả cải thiện kết quả tìm kiếm như thế nào?**  
+Đ: Nó tự động chuyển đổi các truy vấn sai chính tả thành các từ đúng gần nhất, trả về các kết quả phù hợp hơn.
 
-## Tài nguyên bổ sung
-- [Documentation](https://docs.groupdocs.com/search/java/)  
-- [API Reference](https://reference.groupdocs.com/search/java)  
-- [Download](https://releases.groupdocs.com/search/java/)  
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
+## Tài Nguyên Bổ Sung
+- [Documentation](https://docs.groupdocs.com/search/java/)
+- [API Reference](https://reference.groupdocs.com/search/java)
+- [Download](https://releases.groupdocs.com/search/java/)
+- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Cập nhật lần cuối:** 2025-12-20  
-**Kiểm tra với:** GroupDocs.Search 25.4  
+**Cập nhật lần cuối:** 2026-02-21  
+**Đã kiểm tra với:** GroupDocs.Search 25.4  
 **Tác giả:** GroupDocs
