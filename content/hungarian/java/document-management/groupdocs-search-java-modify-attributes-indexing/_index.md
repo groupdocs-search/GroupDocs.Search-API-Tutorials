@@ -1,7 +1,7 @@
 ---
-date: '2025-12-24'
-description: Ismerje meg, hogyan kereshet attribútumok alapján Java-ban a GroupDocs.Search
-  segítségével. Ez az útmutató bemutatja a dokumentumattribútumok kötegelt frissítését,
+date: '2026-02-24'
+description: Ismerje meg, hogyan kereshet attribútumok szerint Java nyelven a GroupDocs.Search
+  használatával. Ez az útmutató bemutatja a dokumentum attribútumok kötegelt frissítését,
   valamint az attribútumok hozzáadását és módosítását az indexelés során.
 keywords:
 - GroupDocs.Search Java
@@ -13,30 +13,31 @@ url: /hu/java/document-management/groupdocs-search-java-modify-attributes-indexi
 weight: 1
 ---
 
-# Search by Attribute Java a GroupDocs.Search útmutató
+# Search by Attribute Java with GroupDocs.Search útmutató
 
-Szeretné fejleszteni dokumentumkezelő rendszerét úgy, hogy dinamikusan módosítja és indexeli a dokumentum attribútumait Java használatával? Jó helyen jár! Ez az útmutató mélyen bemutatja, hogyan használhatja a hatékony GroupDocs.Search for Java könyvtárat a **search by attribute java** végrehajtásához, az indexelt dokumentum attribútumok módosításához, és azok hozzáadásához az indexelés során. Akár keresési megoldást épít, akár a dokumentumfolyamatokat optimalizálja, ezen technikák elsajátítása kulcsfontosságú.
+Szeretné fejleszteni dokumentumkezelő rendszerét úgy, hogy Java-val dinamikusan módosítja és indexeli a dokumentum attribútumokat? Jó helyen jár! Ez az útmutató mélyen bemutatja a hatékony GroupDocs.Search for Java könyvtár használatát a **search by attribute java** végrehajtásához, az indexelt dokumentum attribútumok módosításához és azok hozzáadásához az indexelés során. Akár kereshető portált, megfelelőségi archívumot vagy intelligens, tartalom‑vezérelt alkalmazást épít, ezeknek a technikáknak a elsajátítása időt takarít meg és javítja a teljesítményt.
 
 ## Gyors válaszok
-- **Mi az a “search by attribute java”?** Ez a képesség, hogy a keresési eredményeket egyedi metaadatokkal szűrje, amelyeket minden dokumentumhoz csatolnak.  
-- **Módosíthatok attribútumokat az indexelés után?** Igen – használja az `AttributeChangeBatch`-t a dokumentum attribútumok kötegelt frissítéséhez.  
+- **Mi az a “search by attribute java”?** Ez a képesség, hogy a keresési eredményeket egyedi metaadatok alapján szűrje, amelyeket minden dokumentumhoz csatolnak.  
+- **Módosíthatok-e attribútumokat az indexelés után?** Igen – használja az `AttributeChangeBatch`-t a dokumentum attribútumok kötegelt frissítéséhez.  
 - **Hogyan adhatok attribútumokat az indexelés közben?** Iratkozzon fel a `FileIndexing` eseményre, és állítsa be az attribútumokat programozottan.  
-- **Szükségem van licencre?** Egy ingyenes próba a kiértékeléshez megfelelő; a termeléshez állandó licenc szükséges.  
+- **Szükségem van licencre?** Egy ingyenes próbaidőszak elegendő a kiértékeléshez; a termeléshez állandó licenc szükséges.  
 - **Melyik Java verzió szükséges?** A Java 8 vagy újabb ajánlott.
 
 ## Mi az a “search by attribute java”?
-**Search by attribute java** lehetővé teszi, hogy a dokumentumokat a metaadataik (attribútumok) alapján kérdezze le, nem csak a tartalmuk alapján. Kulcs‑érték párok, például `public`, `main` vagy `key` csatolásával minden fájlhoz gyorsan szűkítheti a találatokat a legrelevánsabb részhalmazra.
+**Search by attribute java** lehetővé teszi, hogy a dokumentumokat a metaadataik (attribútumok) alapján kérdezze le, nem csak a tartalmuk szerint. Kulcs‑érték párok, például `public`, `main` vagy `key` csatolásával minden fájlhoz gyorsan szűkítheti a találatokat a legrelevánsabb részhalmazra.
 
-## Miért módosítsuk vagy adjuk hozzá az attribútumokat?
-- **Dinamikus kategorizálás** – a metaadatok szinkronban tartása az üzleti szabályokkal.  
-- **Gyorsabb szűrés** – az attribútum szűrőket a teljes szöveges keresés előtt értékelik ki, ez javítja a teljesítményt.  
-- **Megfelelőség nyomon követése** – címkézze a dokumentumokat megőrzési szabályzatok vagy auditkövetelmények szerint.  
+## Miért használjunk dinamikus metaadat címkézést?
+- **Dinamikus kategorizálás** – tartsa a metaadatokat szinkronban a változó üzleti szabályokkal.  
+- **Gyorsabb szűrés** – az attribútum szűrőket a teljes szöveges keresés előtt értékelik ki, ezáltal növelve a válaszidőt.  
+- **Megfelelőségi nyomon követés** – címkézze a dokumentumokat megőrzési szabályok vagy auditkövetelmények szerint.  
+- **Kötegelt attribútum frissítés** – sok dokumentumot módosítson egy műveletben anélkül, hogy mindent újra indexelne.
 
-## Előkövetelmények
+## Előfeltételek
 
 - **Java 8+** (JDK 8 vagy újabb)  
-- **GroupDocs.Search for Java** könyvtár (lásd az alábbi Maven beállítást)  
-- Alapvető ismeretek a Java és az indexelés fogalmairól  
+- **GroupDocs.Search for Java** könyvtár (lásd a Maven beállítást alább)  
+- Alapvető Java és indexelési koncepciók ismerete  
 
 ## A GroupDocs.Search for Java beállítása
 
@@ -63,12 +64,12 @@ Szeretné fejleszteni dokumentumkezelő rendszerét úgy, hogy dinamikusan módo
 ### Közvetlen letöltés
 
 Alternatívaként töltse le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.  
-Ha nem szeretne build eszközt, például Maven-t használni, töltse le a JAR-t a [GroupDocs weboldalról](https://releases.groupdocs.com/search/java/).
+Ha nem szeretne építőeszközt, például Maven-t használni, töltse le a JAR-t a [GroupDocs weboldalról](https://releases.groupdocs.com/search/java/).
 
 ### Licenc beszerzése
 
-- Kezdje egy ingyenes próba verzióval a funkciók felfedezéséhez.  
-- Kiterjesztett használathoz szerezzen be ideiglenes vagy teljes licencet a [licenc oldalon](https://purchase.groupdocs.com/temporary-license).
+- Kezdje egy ingyenes próbaidőszakkal a funkciók felfedezéséhez.  
+- Kiterjesztett használathoz szerezzen ideiglenes vagy teljes licencet a [licenc oldal](https://purchase.groupdocs.com/temporary-license) segítségével.
 
 ### Alap inicializálás
 
@@ -79,14 +80,13 @@ import com.groupdocs.search.Index;
 Index index = new Index("YOUR_OUTPUT_DIRECTORY/ChangeAttributes");
 ```
 
-## Implementációs útmutató
+## Hogyan módosítsuk a dokumentum attribútumokat (Kötegelt frissítés)
 
 ### Search by Attribute Java – Dokumentum attribútumok módosítása
 
-#### Áttekintés
-Már indexelt dokumentumokhoz hozzáadhat, eltávolíthat vagy cserélhet attribútumokat, lehetővé téve a **batch update document attributes** végrehajtását a teljes gyűjtemény újraindexelése nélkül.
+Már indexelt dokumentumokon attribútumokat adhat hozzá, eltávolíthat vagy cserélhet, lehetővé téve a **batch update document attributes** végrehajtását anélkül, hogy az egész gyűjteményt újra indexelné.
 
-#### Lépésről‑lépésre
+### Lépésről‑lépésre
 
 **1. lépés: Dokumentumok hozzáadása az indexhez**  
 
@@ -94,7 +94,7 @@ Már indexelt dokumentumokhoz hozzáadhat, eltávolíthat vagy cserélhet attrib
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-**2. lépés: Indexelt dokumentum információk lekérdezése**  
+**2. lépés: Indexelt dokumentum információk lekérése**  
 
 ```java
 import com.groupdocs.search.results.DocumentInfo;
@@ -128,15 +128,16 @@ String query = "length";
 SearchResult result = index.search(query, options); // Perform the search
 ```
 
-### Dokumentum attribútumok kötegelt frissítése az AttributeChangeBatch segítségével
-Az `AttributeChangeBatch` osztály a **batch update document attributes** központi eszköze. A változások egyetlen kötegbe csoportosításával csökkenti az I/O terhelést és az index konzisztens marad.
+### Dokumentum attribútumok kötegelt frissítése az AttributeChangeBatch használatával
+Az `AttributeChangeBatch` osztály a **batch update document attributes** központi eszköze. A változások egy kötegbe csoportosításával csökkenti az I/O terhelést és az index konzisztenciáját biztosítja.
 
-### Search by Attribute Java – Attribútumok hozzáadása indexelés közben
+## Hogyan adjunk attribútumokat az indexelés során
 
-#### Áttekintés
-Kapcsolódjon a `FileIndexing` eseményhez, hogy egyedi attribútumokat rendeljék minden fájlhoz, amikor az indexhez kerül.
+### Search by Attribute Java – Attribútumok hozzáadása az indexelés során
 
-#### Lépésről‑lépésre
+Kapcsolódjon a `FileIndexing` eseményhez, hogy egyedi attribútumokat rendelje minden fájlhoz, amikor az indexhez kerül.
+
+### Lépésről‑lépésre
 
 **1. lépés: Feliratkozás a FileIndexing eseményre**  
 
@@ -162,32 +163,41 @@ index.add("YOUR_DOCUMENT_DIRECTORY");
 
 ## Gyakorlati alkalmazások
 
-1. **Dokumentumkezelő rendszerek** – Automatizálja a kategorizálást metaadatok hozzáadásával a felvétel során.  
+1. **Dokumentumkezelő rendszerek** – Automatizálja a kategorizálást metaadatok hozzáadásával a befogadás során.  
 2. **Nagy tartalomarchívumok** – Használjon attribútum szűrőket a keresések szűkítéséhez, jelentősen csökkentve a válaszidőt.  
 3. **Megfelelőség és jelentéskészítés** – Dinamikusan címkézze a dokumentumokat a megőrzési ütemtervek vagy audit nyomvonalak szerint.
 
 ## Teljesítmény szempontok
 
-- **Memória kezelés** – Figyelje a JVM heap-et és állítsa be a `-Xmx`-et szükség szerint.  
-- **Kötegelt feldolgozás** – Csoportosítsa az attribútum változásokat az `AttributeChangeBatch` segítségével az indexírások minimalizálása érdekében.  
-- **Könyvtár frissítések** – Tartsa a GroupDocs.Search legfrissebb verzióját a teljesítményjavító javítások érdekében.
+- **Memória kezelés** – Figyelje a JVM heap-et és állítsa be a `-Xmx` értéket szükség szerint.  
+- **Kötegelt feldolgozás** – Csoportosítsa az attribútum változásokat az `AttributeChangeBatch`-kel az indexírások minimalizálása érdekében.  
+- **Könyvtár frissítések** – Tartsa a GroupDocs.Search legújabb verzióját a teljesítményjavító javítások érdekében.
+
+## Gyakori problémák és megoldások
+
+| Probléma | Miért fordul elő | Hogyan javítsuk |
+|----------|------------------|-----------------|
+| **Attribútumok nem alkalmazva** | Az eseménykezelő nincs regisztrálva az indexelés előtt | Győződjön meg róla, hogy a `index.getEvents().FileIndexing.add(...)` fut az `index.add(...)` előtt. |
+| **A keresés nem ad eredményt** | Az attribútum név eltérése (kis- és nagybetű érzékeny) | Használjon pontos attribútum neveket a szűrők létrehozásakor (`createAttribute(\"main\")`). |
+| **Out‑of‑memory hibák** nagy kötegeknél | Túl sok változás egyetlen kötegben | Ossza fel a nagy frissítéseket kisebb `AttributeChangeBatch` példányokra. |
+| **Licenc nem ismerhető fel** | Próba JAR használata licencfájl alkalmazása nélkül | Hívja meg a `License license = new License(); license.setLicense(\"path/to/license.file\");` kódot minden index művelet előtt. |
 
 ## Gyakran ismételt kérdések
 
-**Q: Mik a előkövetelmények a GroupDocs.Search Java használatához?**  
-A: Szüksége van Java 8+, a GroupDocs.Search könyvtárra, és alapvető ismeretekre az indexelés fogalmairól.
+**K: Melyek a előfeltételek a GroupDocs.Search Java-ban való használatához?**  
+V: Szüksége van Java 8+, a GroupDocs.Search könyvtárra, és az indexelési koncepciók alapvető ismeretére.
 
-**Q: Hogyan telepíthetem a GroupDocs.Search-t Maven-en keresztül?**  
-A: Adja hozzá a Maven Setup szakaszban bemutatott tárolót és függőséget a `pom.xml` fájlhoz.
+**K: Hogyan telepíthetem a GroupDocs.Search-t Maven-en keresztül?**  
+V: Adja hozzá a Maven beállítási szakaszban bemutatott tárolót és függőséget a `pom.xml`-hez.
 
-**Q: Módosíthatok attribútumokat a dokumentumok indexelése után**  
-A: Igen, használja az `AttributeChangeBatch`-t a dokumentum attribútumok kötegelt frissítéséhez újraindexelés nélkül.
+**K: Módosíthatok-e attribútumokat a dokumentumok indexelése után?**  
+V: Igen, használja az `AttributeChangeBatch`-t a dokumentum attribútumok kötegelt frissítéséhez anélkül, hogy újra indexelne.
 
-**Q: Mi a teendő, ha az indexelési folyamat lassú?**  
-A: Optimalizálja a JVM memória beállításait, használjon kötegelt frissítéseket, és győződjön meg róla, hogy a legújabb könyvtár verziót használja.
+**K: Mi a teendő, ha az indexelési folyamat lassú?**  
+V: Optimalizálja a JVM memória beállításait, használjon kötegelt frissítéseket, és győződjön meg róla, hogy a legújabb könyvtárverziót használja.
 
-**Q: Hol találok további forrásokat a GroupDocs.Search for Java-hoz?**  
-A: Látogassa meg a [hivatalos dokumentációt](https://docs.groupdocs.com/search/java/) vagy böngéssze a közösségi fórumokat.
+**K: Hol találok további forrásokat a GroupDocs.Search for Java-hoz?**  
+V: Látogassa meg a [hivatalos dokumentációt](https://docs.groupdocs.com/search/java/) vagy böngéssze a közösségi fórumokat.
 
 ## Források
 
@@ -200,6 +210,6 @@ A: Látogassa meg a [hivatalos dokumentációt](https://docs.groupdocs.com/searc
 
 ---
 
-**Utolsó frissítés:** 2025-12-24  
-**Tesztelve:** GroupDocs.Search 25.4 for Java  
+**Utoljára frissítve:** 2026-02-24  
+**Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs

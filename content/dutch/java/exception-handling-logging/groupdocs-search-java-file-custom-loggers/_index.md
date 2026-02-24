@@ -1,36 +1,40 @@
 ---
-date: '2025-12-24'
-description: Leer hoe u de grootte van logbestanden kunt beperken en de console‑logger
-  in Java kunt gebruiken met GroupDocs.Search voor Java. Deze gids behandelt logconfiguraties,
-  probleemoplossingstips en prestatie‑optimalisatie.
+date: '2026-02-24'
+description: Leer hoe u een aangepaste logger maakt, de maximale loggrootte instelt
+  en een console‑ of bestandslogger configureert in GroupDocs.Search voor Java.
 keywords:
 - GroupDocs.Search for Java
 - file logger implementation
 - custom loggers
-title: Beperk de logbestandsgrootte met GroupDocs.Search Java-logger
+title: Hoe een aangepaste logger te maken en de logbestandsgrootte te beperken met
+  GroupDocs.Search Java
 type: docs
 url: /nl/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/
 weight: 1
 ---
 
-# Beperk logbestandsgrootte met GroupDocs.Search Java Loggers
+Let's translate.
 
-Efficiënt loggen is essentieel bij het beheren van grote documentcollecties, vooral wanneer u de **logbestandsgrootte moet beperken** om de opslag onder controle te houden. **GroupDocs.Search for Java** biedt robuuste oplossingen voor het verwerken van logs via zijn krachtige zoekfunctionaliteit. Deze tutorial leidt u bij het implementeren van bestands- en aangepaste loggers met GroupDocs.Search, waardoor de mogelijkheid van uw applicatie om gebeurtenissen bij te houden en problemen te debuggen wordt verbeterd.
+Will produce final content.
+
+# Beperk de grootte van logbestanden met GroupDocs.Search Java Loggers
+
+In deze gids **maak je aangepaste logger**‑implementaties en leer je hoe je de **grootte van logbestanden kunt beperken** tijdens het gebruik van GroupDocs.Search voor Java. Het beheersen van loggroei is cruciaal voor grootschalige documentindexering, en de ingebouwde loggers laten je **maximale loggrootte instellen**, **logbestand roteren**, of overschakelen naar een **gebruik console logger** voor directe feedback. Laten we de volledige configuratie doorlopen, van Maven‑instelling tot het uitvoeren van een zoekquery, en zien hoe je **documenten aan de index toevoegt** met de logger in place.
 
 ## Snelle antwoorden
-- **Wat betekent “logbestandsgrootte beperken”?** Het stelt een maximale grootte voor een logbestand in, waardoor ongecontroleerde groei op de schijf wordt voorkomen.  
-- **Welke logger laat u de logbestandsgrootte beperken?** De ingebouwde `FileLogger` accepteert een max‑size parameter.  
-- **Hoe gebruik ik console logger java?** Maak een instantie van `ConsoleLogger` en stel deze in op `IndexSettings`.  
+- **Wat betekent “grootte van logbestand beperken”?** Het stelt een maximale grootte van een logbestand in, waardoor ongecontroleerde groei op de schijf wordt voorkomen.  
+- **Welke logger laat je de grootte van het logbestand beperken?** De ingebouwde `FileLogger` accepteert een max‑size‑parameter.  
+- **Hoe gebruik ik console logger java?** Instantieer `ConsoleLogger` en stel deze in op `IndexSettings`.  
 - **Heb ik een licentie nodig voor GroupDocs.Search?** Een proefversie werkt voor evaluatie; een commerciële licentie is vereist voor productie.  
-- **Wat is de eerste stap?** Voeg de GroupDocs.Search‑dependency toe aan uw Maven‑project.
+- **Wat is de eerste stap?** Voeg de GroupDocs.Search‑dependency toe aan je Maven‑project.  
 
-## Wat betekent logbestandsgrootte beperken?
-Het beperken van de logbestandsgrootte betekent dat u de logger configureert zodat, zodra het bestand een vooraf gedefinieerde drempel bereikt (bijv. 4 MB), het niet meer groeit of rolt over. Dit houdt de opslagvoetafdruk van uw applicatie voorspelbaar en voorkomt prestatie‑degradatie.
+## Wat betekent het beperken van de grootte van een logbestand?
+Het beperken van de grootte van een logbestand betekent dat je de logger zo configureert dat, zodra het bestand een vooraf gedefinieerde drempel bereikt (bijv. 4 MB), het niet meer groeit of rolt. Dit houdt de opslagvoetafdruk van je applicatie voorspelbaar en voorkomt prestatie‑degradatie.
 
-## Waarom bestands‑ en aangepaste loggers gebruiken met GroupDocs.Search?
-- **Auditbaarheid:** Houd een permanent register bij van index‑ en zoekgebeurtenissen.  
+## Waarom bestanden‑ en aangepaste loggers gebruiken met GroupDocs.Search?
+- **Auditability:** Houd een permanent register bij van index‑ en zoekgebeurtenissen.  
 - **Debugging:** Lokaliseer snel problemen door beknopte logs te bekijken.  
-- **Flexibiliteit:** Kies tussen permanente bestandslogs en directe console‑output (`use console logger java`).  
+- **Flexibility:** Kies tussen persistente bestandslogs en directe console‑output (`gebruik console logger`).  
 
 ## Vereisten
 - **GroupDocs.Search for Java** ≥ 25.4.  
@@ -39,9 +43,9 @@ Het beperken van de logbestandsgrootte betekent dat u de logger configureert zod
 
 ## GroupDocs.Search voor Java instellen
 
-Voeg de bibliotheek toe aan uw project met een van de onderstaande methoden.
+Voeg de bibliotheek toe aan je project met een van de onderstaande methoden.
 
-**Maven‑configuratie:**
+**Maven‑instelling:**
 
 ```xml
 <repositories>
@@ -61,22 +65,25 @@ Voeg de bibliotheek toe aan uw project met een van de onderstaande methoden.
 </dependencies>
 ```
 
-**Directe download:**  
+**Direct downloaden:**  
 Download de nieuwste JAR van de officiële site: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Licentie‑acquisitie
-Verkrijg een proefversie of koop een licentie via de [licentiepagina](https://purchase.groupdocs.com/temporary-license/).
+Vraag een proeflicentie aan of koop een licentie via de [licentiepagina](https://purchase.groupdocs.com/temporary-license/).
 
-## Hoe logbestandsgrootte beperken met File Logger
-Hieronder vindt u een stapsgewijze handleiding die laat zien hoe u `FileLogger` configureert zodat het logbestand nooit de door u opgegeven grootte overschrijdt.
+## Hoe maak je een aangepaste logger voor GroupDocs.Search
+GroupDocs.Search stelt je in staat om elke implementatie van de `ILogger`‑interface in te pluggen. Door `FileLogger` of `ConsoleLogger` uit te breiden, kun je extra gedrag toevoegen — zoals het roteren van het logbestand of het doorsturen van berichten naar een externe bewakingsservice. Deze flexibiliteit is de reden waarom veel teams **aangepaste logger**‑oplossingen creëren die passen bij hun operationele behoeften.
 
-### 1️⃣ Importeer benodigde pakketten
+## Hoe de grootte van een logbestand beperken met File Logger
+Hieronder vind je een stap‑voor‑stap‑gids die laat zien hoe je de **file logger** configureert zodat het logbestand nooit groter wordt dan de door jou opgegeven grootte.
+
+### 1️⃣ Vereiste pakketten importeren
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
 
-### 2️⃣ Stel IndexSettings in met File Logger
+### 2️⃣ Indexinstellingen configureren met File Logger
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/IndexFolder";
 String documentsFolder = Utils.DocumentsPath; // Directory containing documents
@@ -87,33 +94,33 @@ IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
 
-### 3️⃣ Maak de index aan of laad deze
+### 3️⃣ De index maken of laden
 ```java
 Index index = new Index(indexFolder, settings);
 ```
 
-### 4️⃣ Voeg documenten toe aan de index
+### 4️⃣ Documenten aan de index toevoegen
 ```java
 index.add(documentsFolder);
 ```
 
-### 5️⃣ Voer een zoekopdracht uit
+### 5️⃣ Een zoekquery uitvoeren
 ```java
 SearchResult result = index.search(query);
 ```
 
-**Belangrijk punt:** Het tweede argument (`4.0`) van de `FileLogger`‑constructor definieert de maximale logbestandsgrootte in megabytes, en voldoet direct aan de **logbestandsgrootte beperken**‑vereiste.
+**Belangrijk punt:** Het tweede argument (`4.0`) van de `FileLogger`‑constructor definieert de **maximale loggrootte** in megabytes, waarmee direct wordt voldaan aan de eis om de **grootte van logbestand te beperken**.
 
-## Hoe console logger java te gebruiken
-Als u directe feedback in de terminal wilt, vervang dan de file logger door een console logger.
+## Hoe console logger java gebruiken
+Als je directe feedback in de terminal wilt, vervang je de file logger door een console logger.
 
-### 1️⃣ Importeer de Console Logger
+### 1️⃣ De Console Logger importeren
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
 
-### 2️⃣ Stel IndexSettings in met Console Logger
+### 2️⃣ Indexinstellingen configureren met Console Logger
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/CustomLoggerIndexFolder";
 String documentsFolder = Utils.DocumentsPath; // Directory containing documents
@@ -123,50 +130,50 @@ IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
 
-### 3️⃣ Maak de index aan of laad deze
+### 3️⃣ De index maken of laden
 ```java
 Index index = new Index(indexFolder, settings);
 ```
 
-### 4️⃣ Voeg documenten toe en voer een zoekopdracht uit
+### 4️⃣ Documenten toevoegen en een zoekopdracht uitvoeren
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
 ```
 
-**Tip:** De console logger is ideaal tijdens ontwikkeling omdat deze elke logvermelding direct afdrukt, waardoor u kunt verifiëren dat indexeren en zoeken zich gedragen zoals verwacht.
+**Tip:** De console logger is ideaal tijdens ontwikkeling omdat hij elke logvermelding onmiddellijk afdrukt, waardoor je kunt verifiëren dat indexeren en zoeken zich gedragen zoals verwacht.
 
 ## Praktische toepassingen
-1. **Document Management Systemen:** Houd audit‑trails bij van elk geïndexeerd document.  
+1. **Document Management Systems:** Houd audit‑trails bij van elk geïndexeerd document.  
 2. **Enterprise Search Engines:** Monitor query‑prestaties en foutpercentages in realtime.  
-3. **Legal & Compliance Software:** Leg zoektermen vast voor regelgeving‑rapportage.  
+3. **Legal & Compliance Software:** Registreer zoektermen voor wettelijke rapportage.
 
 ## Prestatie‑overwegingen
-- **Loggrootte:** Door de logbestandsgrootte te beperken, voorkomt u overmatig schijfgebruik dat uw applicatie kan vertragen.  
-- **Asynchrone logging:** Als u een hogere doorvoer nodig heeft, overweeg dan de logger in een async‑wachtrij te plaatsen (buiten de reikwijdte van deze gids).  
-- **Geheugenbeheer:** Maak grote `Index`‑objecten vrij wanneer ze niet meer nodig zijn om de JVM‑voetafdruk laag te houden.  
+- **Loggrootte:** Door **maximale loggrootte in te stellen**, vermijd je overmatig schijfgebruik dat je applicatie kan vertragen.  
+- **Asynchrone logging:** Als je een hogere doorvoersnelheid nodig hebt, overweeg dan de logger in een async‑queue te plaatsen (buiten de scope van deze gids).  
+- **Geheugenbeheer:** Maak grote `Index`‑objecten vrij zodra ze niet meer nodig zijn om de JVM‑voetafdruk laag te houden.
 
 ## Veelvoorkomende problemen & oplossingen
 - **Logpad niet toegankelijk:** Controleer of de map bestaat en of de applicatie schrijfrechten heeft.  
-- **Logger wordt niet geactiveerd:** Zorg ervoor dat u `settings.setLogger(...)` *voordat* u het `Index`‑object maakt, aanroept.  
-- **Console‑output ontbreekt:** Controleer of u de applicatie uitvoert in een terminal die `System.out` weergeeft.  
+- **Logger wordt niet geactiveerd:** Zorg ervoor dat je `settings.setLogger(...)` *voordat* je het `Index`‑object maakt, aanroept.  
+- **Console‑output ontbreekt:** Controleer of je de applicatie uitvoert in een terminal die `System.out` weergeeft.
 
 ## Veelgestelde vragen
 
 **Q: Wat regelt de tweede parameter van `FileLogger`?**  
-A: Het stelt de maximale grootte van het logbestand in megabytes in, waardoor u de logbestandsgrootte kunt beperken.
+A: Hij stelt de maximale grootte van het logbestand in megabytes in, waardoor je de **maximale loggrootte kunt instellen**.
 
-**Q: Kan ik bestands‑ en console‑loggers combineren?**  
+**Q: Kan ik file‑ en console‑loggers combineren?**  
 A: Ja, door een aangepaste logger te maken die berichten naar beide bestemmingen doorstuurt.
 
 **Q: Hoe voeg ik documenten toe aan de index na de initiële creatie?**  
 A: Roep `index.add(pathToNewDocs)` op op elk moment; de logger registreert de bewerking.
 
 **Q: Is `ConsoleLogger` thread‑safe?**  
-A: Het schrijft direct naar `System.out`, wat door de JVM gesynchroniseerd wordt, waardoor het veilig is voor de meeste gebruikssituaties.
+A: Hij schrijft direct naar `System.out`, wat door de JVM gesynchroniseerd wordt, waardoor hij veilig is voor de meeste gebruikssituaties.
 
-**Q: Heeft het beperken van de logbestandsgrootte invloed op de hoeveelheid opgeslagen informatie?**  
-A: Zodra de grootte‑limiet is bereikt, kunnen nieuwe vermeldingen worden weggegooid of kan het bestand roteren, afhankelijk van de logger‑implementatie.
+**Q: Heeft het beperken van de loggrootte invloed op de hoeveelheid opgeslagen informatie?**  
+A: Zodra de limiet is bereikt, kunnen nieuwe vermeldingen worden weggegooid of kan het bestand **logbestand roteren**, afhankelijk van de logger‑implementatie.
 
 ## Resources
 - [Documentation](https://docs.groupdocs.com/search/java/)
@@ -174,7 +181,7 @@ A: Zodra de grootte‑limiet is bereikt, kunnen nieuwe vermeldingen worden wegge
 
 ---
 
-**Laatst bijgewerkt:** 2025-12-24  
+**Laatst bijgewerkt:** 2026-02-24  
 **Getest met:** GroupDocs.Search for Java 25.4  
 **Auteur:** GroupDocs  
 

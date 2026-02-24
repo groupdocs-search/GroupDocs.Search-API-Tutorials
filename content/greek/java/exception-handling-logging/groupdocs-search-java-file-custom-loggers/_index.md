@@ -1,15 +1,14 @@
 ---
-date: '2025-12-24'
-description: Μάθετε πώς να περιορίζετε το μέγεθος του αρχείου καταγραφής και να χρησιμοποιείτε
-  τον κονσολικό καταγραφέα Java με το GroupDocs.Search για Java. Αυτός ο οδηγός καλύπτει
-  τις ρυθμίσεις καταγραφής, συμβουλές αντιμετώπισης προβλημάτων και βελτιστοποίηση
-  απόδοσης.
+date: '2026-02-24'
+description: Μάθετε πώς να δημιουργήσετε προσαρμοσμένο καταγραφέα, να ορίσετε το μέγιστο
+  μέγεθος αρχείου καταγραφής και να διαμορφώσετε καταγραφέα κονσόλας ή αρχείου στο
+  GroupDocs.Search για Java.
 keywords:
 - GroupDocs.Search for Java
 - file logger implementation
 - custom loggers
-title: Περιορίστε το μέγεθος του αρχείου καταγραφής με τους καταγραφείς GroupDocs.Search
-  Java
+title: Πώς να δημιουργήσετε προσαρμοσμένο καταγραφέα και να περιορίσετε το μέγεθος
+  του αρχείου καταγραφής με το GroupDocs.Search Java
 type: docs
 url: /el/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/
 weight: 1
@@ -17,29 +16,29 @@ weight: 1
 
 # Περιορισμός μεγέθους αρχείου καταγραφής με τους GroupDocs.Search Java Loggers
 
-Η αποτελεσματική καταγραφή είναι απαραίτητη όταν διαχειρίζεστε μεγάλες συλλογές εγγράφων, ειδικά όταν χρειάζεται να **περιορισμός μεγέθους αρχείου καταγραφής** για να διατηρείτε τον αποθηκευτικό χώρο υπό έλεγχο. **GroupDocs.Search for Java** προσφέρει ισχυρές λύσεις για τη διαχείριση των logs μέσω των δυνατότητων αναζήτησής του. Αυτό το tutorial σας καθοδηγεί στην υλοποίηση αρχείων και προσαρμοσμένων logger χρησιμοποιώντας το GroupDocs.Search, ενισχύοντας την ικανότητα της εφαρμογής σας να παρακολουθεί συμβάντα και να εντοπίζει σφάλματα.
+Σε αυτόν τον οδηγό θα **δημιουργήσετε προσαρμοσμένες υλοποιήσεις logger** και θα μάθετε πώς να **περιορίζετε το μέγεθος του αρχείου καταγραφής** ενώ χρησιμοποιείτε το GroupDocs.Search για Java. Ο έλεγχος της ανάπτυξης των καταγραφών είναι κρίσιμος για την ευρετηρίαση εγγράφων μεγάλης κλίμακας, και οι ενσωματωμένοι logger σας επιτρέπουν να **ορίσετε μέγιστο μέγεθος καταγραφής**, **ανακυκλώσετε το αρχείο καταγραφής**, ή να χρησιμοποιήσετε **console logger** για άμεση ανάδραση. Ας περάσουμε από τη πλήρη ρύθμιση, από τη διαμόρφωση Maven μέχρι την εκτέλεση ερωτήματος αναζήτησης, και δούμε πώς να **προσθέσετε έγγραφα στο ευρετήριο** με τον logger σε λειτουργία.
 
-## Γρήγορες Απαντήσεις
-- **Τι σημαίνει “περιορισμός μεγέθους αρχείου καταγραφής”;** Περιορίζει το μέγιστο μέγεθος ενός αρχείου καταγραφής, αποτρέποντας την ανεξέλεγκτη αύξηση στο δίσκο.  
-- **Ποιος logger επιτρέπει τον περιορισμό μεγέθους αρχείου καταγραφής;** Ο ενσωματωμένος `FileLogger` δέχεται μια παράμετρο μέγιστου μεγέθους.  
-- **Πώς χρησιμοποιώ τον console logger java;** Δημιουργήστε ένα αντικείμενο `ConsoleLogger` και ορίστε το στο `IndexSettings`.  
-- **Χρειάζομαι άδεια για το GroupDocs.Search;** Μια δοκιμαστική άδεια λειτουργεί για αξιολόγηση· απαιτείται εμπορική άδεια για παραγωγή.  
-- **Ποιο είναι το πρώτο βήμα;** Προσθέστε την εξάρτηση GroupDocs.Search στο Maven project σας.
+## Quick Answers
+- **Τι σημαίνει “limit log file size”;** Περιορίζει το μέγιστο μέγεθος ενός αρχείου καταγραφής, αποτρέποντας την ανεξέλεγκτη αύξηση στο δίσκο.  
+- **Ποιος logger σας επιτρέπει να περιορίσετε το μέγεθος του αρχείου καταγραφής;** Ο ενσωματωμένος `FileLogger` δέχεται μια παράμετρο max‑size.  
+- **Πώς χρησιμοποιώ το console logger java;** Δημιουργήστε ένα στιγμιότυπο του `ConsoleLogger` και ορίστε το στο `IndexSettings`.  
+- **Χρειάζομαι άδεια για το GroupDocs.Search;** Μια δοκιμαστική έκδοση λειτουργεί για αξιολόγηση· απαιτείται εμπορική άδεια για παραγωγή.  
+- **Ποιο είναι το πρώτο βήμα;** Προσθέστε την εξάρτηση GroupDocs.Search στο Maven project σας.  
 
-## Τι είναι ο περιορισμός μεγέθους αρχείου καταγραφής;
-Ο περιορισμός του μεγέθους του αρχείου καταγραφής σημαίνει τη ρύθμιση του logger ώστε, όταν το αρχείο φτάσει σε ένα προκαθορισμένο όριο (π.χ. 4 MB), να σταματήσει να μεγαλώνει ή να κάνει rollover. Αυτό διατηρεί το αποθηκευτικό αποτύπωμα της εφαρμογής προβλέψιμο και αποτρέπει την υποβάθμιση της απόδοσης.
+## What is limit log file size?
+Ο περιορισμός του μεγέθους του αρχείου καταγραφής σημαίνει τη διαμόρφωση του logger έτσι ώστε, όταν το αρχείο φτάσει σε ένα προκαθορισμένο όριο (π.χ., 4 MB), να σταματήσει να μεγαλώνει ή να ανακυκλώνεται. Αυτό διατηρεί το αποτύπωμα αποθήκευσης της εφαρμογής προβλέψιμο και αποτρέπει τη μείωση της απόδοσης.
 
-## Γιατί να χρησιμοποιήσετε αρχεία και προσαρμοσμένους logger με το GroupDocs.Search;
+## Why use file and custom loggers with GroupDocs.Search?
 - **Auditability:** Διατηρεί μόνιμο αρχείο των γεγονότων ευρετηρίασης και αναζήτησης.  
-- **Debugging:** Εντοπίζει γρήγορα προβλήματα ανασκοπώντας σύντομα logs.  
-- **Flexibility:** Επιλέξτε μεταξύ μόνιμων αρχείων log και άμεσης εξόδου στην κονσόλα (`use console logger java`).  
+- **Debugging:** Εντοπίζει γρήγορα προβλήματα εξετάζοντας συνοπτικές καταγραφές.  
+- **Flexibility:** Επιλέξτε μεταξύ μόνιμων αρχείων καταγραφής και άμεσης εξόδου στην κονσόλα (`use console logger`).  
 
-## Προαπαιτούμενα
+## Prerequisites
 - **GroupDocs.Search for Java** ≥ 25.4.  
-- JDK 8 ή νεότερο, IDE (IntelliJ IDEA, Eclipse κ.λπ.).  
+- JDK 8 ή νεότερο, IDE (IntelliJ IDEA, Eclipse, κ.λπ.).  
 - Βασικές γνώσεις Java και Maven.  
 
-## Ρύθμιση του GroupDocs.Search for Java
+## Setting Up GroupDocs.Search for Java
 
 Προσθέστε τη βιβλιοθήκη στο project σας χρησιμοποιώντας μία από τις παρακάτω μεθόδους.
 
@@ -64,21 +63,24 @@ weight: 1
 ```
 
 **Direct Download:**  
-Κατεβάστε το τελευταίο JAR από την επίσημη ιστοσελίδα: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Κατεβάστε το πιο πρόσφατο JAR από την επίσημη ιστοσελίδα: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Απόκτηση Άδειας
-Αποκτήστε δοκιμαστική ή αγοράστε άδεια μέσω της [licensing page](https://purchase.groupdocs.com/temporary-license/).
+### License Acquisition
+Αποκτήστε μια δοκιμαστική άδεια ή αγοράστε άδεια μέσω της [licensing page](https://purchase.groupdocs.com/temporary-license/).
 
-## Πώς να περιορίσετε το μέγεθος αρχείου καταγραφής με τον File Logger
-Παρακάτω είναι ένας οδηγός βήμα‑βήμα που δείχνει πώς να ρυθμίσετε το `FileLogger` ώστε το αρχείο καταγραφής να μην ξεπερνά ποτέ το μέγεθος που ορίζετε.
+## How to create custom logger for GroupDocs.Search
+Το GroupDocs.Search σας επιτρέπει να ενσωματώσετε οποιαδήποτε υλοποίηση της διεπαφής `ILogger`. Επεκτείνοντας το `FileLogger` ή το `ConsoleLogger`, μπορείτε να προσθέσετε επιπλέον συμπεριφορά—όπως η ανακύκλωση του αρχείου καταγραφής ή η προώθηση μηνυμάτων σε απομακρυσμένη υπηρεσία παρακολούθησης. Αυτή η ευελιξία είναι ο λόγος που πολλές ομάδες **δημιουργούν προσαρμοσμένους logger** που ταιριάζουν στις επιχειρησιακές τους ανάγκες.
 
-### 1️⃣ Εισαγωγή Απαραίτητων Πακέτων
+## How to limit log file size with File Logger
+Παρακάτω βρίσκεται ένας οδηγός βήμα‑βήμα που δείχνει πώς να **διαμορφώσετε file logger** ώστε το αρχείο καταγραφής να μην υπερβαίνει ποτέ το μέγεθος που καθορίζετε.
+
+### 1️⃣ Import Necessary Packages
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
 
-### 2️⃣ Ρύθμιση Index Settings με File Logger
+### 2️⃣ Set Up Index Settings with File Logger
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/IndexFolder";
 String documentsFolder = Utils.DocumentsPath; // Directory containing documents
@@ -89,33 +91,33 @@ IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
 
-### 3️⃣ Δημιουργία ή Φόρτωση του Index
+### 3️⃣ Create or Load the Index
 ```java
 Index index = new Index(indexFolder, settings);
 ```
 
-### 4️⃣ Προσθήκη Εγγράφων στο Index
+### 4️⃣ Add Documents to the Index
 ```java
 index.add(documentsFolder);
 ```
 
-### 5️⃣ Εκτέλεση Ερωτήματος Αναζήτησης
+### 5️⃣ Perform a Search Query
 ```java
 SearchResult result = index.search(query);
 ```
 
-**Κύριο σημείο:** Το δεύτερο όρισμα του κατασκευαστή `FileLogger` (`4.0`) ορίζει το μέγιστο μέγεθος του αρχείου καταγραφής σε megabytes, καλύπτοντας άμεσα την απαίτηση **περιορισμού μεγέθους αρχείου καταγραφής**.
+**Key point:** Το δεύτερο όρισμα του κατασκευαστή `FileLogger` (`4.0`) ορίζει το **set max log size** σε megabytes, αντιμετωπίζοντας άμεσα την απαίτηση **limit log file size**.
 
-## Πώς να χρησιμοποιήσετε τον console logger java
+## How to use console logger java
 Αν προτιμάτε άμεση ανάδραση στο τερματικό, αντικαταστήστε τον file logger με έναν console logger.
 
-### 1️⃣ Εισαγωγή του Console Logger
+### 1️⃣ Import the Console Logger
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
 
-### 2️⃣ Ρύθμιση Index Settings με Console Logger
+### 2️⃣ Set Up Index Settings with Console Logger
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/CustomLoggerIndexFolder";
 String documentsFolder = Utils.DocumentsPath; // Directory containing documents
@@ -125,59 +127,59 @@ IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
 
-### 3️⃣ Δημιουργία ή Φόρτωση του Index
+### 3️⃣ Create or Load the Index
 ```java
 Index index = new Index(indexFolder, settings);
 ```
 
-### 4️⃣ Προσθήκη Εγγράφων και Εκτέλεση Αναζήτησης
+### 4️⃣ Add Documents and Perform a Search
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
 ```
 
-**Συμβουλή:** Ο console logger είναι ιδανικός κατά την ανάπτυξη επειδή εκτυπώνει κάθε καταγραφή αμέσως, βοηθώντας σας να επαληθεύσετε ότι η ευρετηρίαση και η αναζήτηση λειτουργούν όπως αναμένεται.
+**Tip:** Ο console logger είναι ιδανικός κατά την ανάπτυξη επειδή εκτυπώνει κάθε καταγραφή άμεσα, βοηθώντας σας να επαληθεύσετε ότι η ευρετηρίαση και η αναζήτηση λειτουργούν όπως αναμένεται.
 
-## Πρακτικές Εφαρμογές
-1. **Συστήματα Διαχείρισης Εγγράφων:** Διατηρείτε audit trails για κάθε έγγραφο που ευρετηριάζεται.  
-2. **Επιχειρησιακές Μηχανές Αναζήτησης:** Παρακολουθείτε την απόδοση ερωτημάτων και τα ποσοστά σφαλμάτων σε πραγματικό χρόνο.  
-3. **Νομικό & Συμμορφωτικό Λογισμικό:** Καταγράφετε όρους αναζήτησης για κανονιστική αναφορά.
+## Practical Applications
+1. **Document Management Systems:** Διατηρεί αρχεία ελέγχου για κάθε έγγραφο που ευρετηριάζεται.  
+2. **Enterprise Search Engines:** Παρακολουθεί την απόδοση των ερωτημάτων και τα ποσοστά σφαλμάτων σε πραγματικό χρόνο.  
+3. **Legal & Compliance Software:** Καταγράφει όρους αναζήτησης για κανονιστική αναφορά.
 
-## Σκέψεις για την Απόδοση
-- **Log Size:** Με τον περιορισμό του μεγέθους του αρχείου καταγραφής, αποφεύγετε την υπερβολική χρήση δίσκου που μπορεί να επιβραδύνει την εφαρμογή σας.  
+## Performance Considerations
+- **Log Size:** Με το **set max log size**, αποφεύγετε την υπερβολική χρήση δίσκου που μπορεί να επιβραδύνει την εφαρμογή σας.  
 - **Asynchronous Logging:** Αν χρειάζεστε υψηλότερη διαπερατότητα, σκεφτείτε να τυλίξετε τον logger σε μια async ουρά (εκτός του πεδίου αυτού του οδηγού).  
-- **Memory Management:** Απελευθερώστε μεγάλα αντικείμενα `Index` όταν δεν χρειάζονται πια, ώστε να διατηρείται το αποτύπωμα της JVM χαμηλό.
+- **Memory Management:** Απελευθερώστε μεγάλα αντικείμενα `Index` όταν δεν χρειάζονται πια, ώστε το αποτύπωμα της JVM να παραμένει χαμηλό.
 
-## Συχνά Προβλήματα & Λύσεις
+## Common Issues & Solutions
 - **Log path not accessible:** Επαληθεύστε ότι ο φάκελος υπάρχει και ότι η εφαρμογή έχει δικαιώματα εγγραφής.  
 - **Logger not firing:** Βεβαιωθείτε ότι καλείτε `settings.setLogger(...)` *πριν* δημιουργήσετε το αντικείμενο `Index`.  
 - **Console output missing:** Επιβεβαιώστε ότι εκτελείτε την εφαρμογή σε τερματικό που εμφανίζει το `System.out`.
 
-## Συχνές Ερωτήσεις
+## Frequently Asked Questions
 
-**Q: Τι ελέγχει η δεύτερη παράμετρος του `FileLogger`;**  
-A: Ορίζει το μέγιστο μέγεθος του αρχείου καταγραφής σε megabytes, επιτρέποντάς σας να περιορίσετε το μέγεθος του log file.
+**Q: What does the second parameter of `FileLogger` control?**  
+A: It sets the maximum size of the log file in megabytes, allowing you to **set max log size**.
 
-**Q: Μπορώ να συνδυάσω file και console loggers;**  
-A: Ναι, δημιουργώντας έναν προσαρμοσμένο logger που προωθεί τα μηνύματα και στις δύο προορισμούς.
+**Q: Can I combine file and console loggers?**  
+A: Yes, by creating a custom logger that forwards messages to both destinations.
 
-**Q: Πώς προσθέτω έγγραφα στο index μετά τη δημιουργία του;**  
-A: Καλέστε `index.add(pathToNewDocs)` οποιαδήποτε στιγμή· ο logger θα καταγράψει τη λειτουργία.
+**Q: How do I add documents to index after the initial creation?**  
+A: Call `index.add(pathToNewDocs)` at any time; the logger will record the operation.
 
-**Q: Είναι το `ConsoleLogger` thread‑safe;**  
-A: Γράφει απευθείας στο `System.out`, το οποίο συγχρονίζεται από το JVM, καθιστώντας το ασφαλές για τις περισσότερες περιπτώσεις.
+**Q: Is `ConsoleLogger` thread‑safe?**  
+A: It writes directly to `System.out`, which is synchronized by the JVM, making it safe for most use cases.
 
-**Q: Θα επηρεάσει ο περιορισμός του μεγέθους του αρχείου καταγραφής την ποσότητα των αποθηκευμένων πληροφοριών;**  
-A: Μόλις φτάσει το όριο μεγέθους, νέες καταγραφές μπορεί να απορριφθούν ή το αρχείο μπορεί να κάνει rollover, ανάλογα με την υλοποίηση του logger.
+**Q: Will limiting the log file size affect the amount of information stored?**  
+A: Once the size limit is reached, new entries may be discarded or the file may **roll over log file**, depending on the logger implementation.
 
-## Πόροι
+## Resources
 - [Documentation](https://docs.groupdocs.com/search/java/)
 - [API Reference](https://reference.groupdocs.com/search/java/)
 
 ---
 
-**Τελευταία Ενημέρωση:** 2025-12-24  
-**Δοκιμασμένο Με:** GroupDocs.Search for Java 25.4  
-**Συγγραφέας:** GroupDocs  
+**Last Updated:** 2026-02-24  
+**Tested With:** GroupDocs.Search for Java 25.4  
+**Author:** GroupDocs  
 
 ---
