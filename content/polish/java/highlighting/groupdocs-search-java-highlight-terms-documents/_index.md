@@ -1,44 +1,56 @@
 ---
-date: '2025-12-26'
-description: Dowiedz się, jak wyszukiwać i podświetlać tekst w dokumentach przy użyciu
-  GroupDocs.Search dla Javy. Poznaj techniki podświetlania całych dokumentów i fragmentów.
+date: '2026-02-27'
+description: Dowiedz się, jak podświetlać tekst w języku Java przy użyciu GroupDocs.Search
+  for Java, obejmując wyszukiwanie dokumentów w Javie, indeksowanie dokumentów w Javie
+  oraz podświetlanie fragmentów.
 keywords:
 - GroupDocs.Search for Java
 - highlight search terms in documents
 - document highlighting
-title: Wyszukiwanie i podświetlanie tekstu z GroupDocs.Search dla Javy
+title: Podświetlanie tekstu w Javie przy użyciu GroupDocs.Search
 type: docs
 url: /pl/java/highlighting/groupdocs-search-java-highlight-terms-documents/
 weight: 1
 ---
 
-# Wyszukiwanie i podświetlanie tekstu w dokumentach przy użyciu GroupDocs.Search dla Javy
+ them.
 
-W dzisiejszej erze cyfrowej **wyszukiwanie i podświetlanie tekstu** w ogromnych zbiorach dokumentów jest powszechnym wymaganiem. Niezależnie od tego, czy tworzysz narzędzie do przeglądu prawnego, portal badań akademickich, czy pulpit wsparcia klienta, możliwość natychmiastowego zlokalizowania i podkreślenia kluczowych terminów znacząco poprawia użyteczność. W tym kompleksowym przewodniku dowiesz się, jak zaimplementować **wyszukiwanie i podświetlanie tekstu** przy użyciu GroupDocs.Search dla Javy — obejmując zarówno podświetlanie całego dokumentu, jak i podświetlanie na poziomie fragmentów dla skoncentrowanego kontekstu.
+Now write final answer.# Wyróżnianie tekstu Java za pomocą GroupDocs.Search
+
+W dzisiejszym szybkim środowisku cyfrowym możliwość **highlight text java** w dużych zbiorach plików jest niezbędną funkcją. Niezależnie od tego, czy tworzysz platformę do przeglądu prawnego, silnik badań akademickich, czy konsolę wsparcia klienta, natychmiastowe wykrywanie terminów, których szukają użytkownicy, znacznie zwiększa efektywność. Ten samouczek przeprowadzi Cię przez użycie **GroupDocs.Search for Java** do **search documents java**, **index documents java**, oraz zastosowania bogatego wyróżniania — zarówno dla całych dokumentów, jak i wybranych fragmentów.
 
 ## Szybkie odpowiedzi
-- **Co oznacza „wyszukiwanie i podświetlanie tekstu”?** Odnosi się do znajdowania terminów zapytania w dokumencie i wizualnego podkreślania ich (np. za pomocą koloru tła).  
-- **Która biblioteka zapewnia tę funkcjonalność?** GroupDocs.Search for Java.  
-- **Czy potrzebna jest licencja?** Darmowa wersja próbna wystarcza do oceny; pełna licencja jest wymagana w środowisku produkcyjnym.  
-- **Czy mogę dostosować kolory podświetlenia?** Tak — dowolny kolor RGB można ustawić za pomocą `HighlightOptions`.  
-- **Czy obsługiwane jest podświetlanie fragmentów?** Absolutnie; możesz określić liczbę terminów przed i po dopasowaniu, aby utworzyć zwięzłe fragmenty.
+- **What does “search and highlight text” mean?** Oznacza to lokalizowanie terminów zapytania w dokumencie i wizualne podkreślanie ich (np. kolorem tła).  
+- **Which library provides this capability?** GroupDocs.Search for Java.  
+- **Do I need a license?** Darmowa wersja próbna wystarczy do oceny; pełna licencja jest wymagana w środowisku produkcyjnym.  
+- **Can I customize highlight colors?** Tak — dowolny kolor RGB można ustawić za pomocą `HighlightOptions`.  
+- **Is fragment highlighting supported?** Absolutnie; możesz określić liczbę terminów przed i po dopasowaniu, aby stworzyć zwięzłe fragmenty.
 
-## Co to jest wyszukiwanie i podświetlanie tekstu?
-Wyszukiwanie i podświetlanie tekstu to proces skanowania indeksu dokumentów pod kątem określonego zapytania, pobierania pasujących dokumentów oraz oznaczania każdego wystąpienia terminu zapytania w wyjściu dokumentu (HTML, PDF itp.). Ten wizualny sygnał pomaga użytkownikom szybko zauważyć istotne informacje.
+## Jak wyróżniać tekst Java w dokumentach
+Wyróżnianie tekstu Java obejmuje trzy podstawowe kroki:
 
-## Dlaczego warto używać GroupDocs.Search dla Javy?
-- **Wysokowydajne indeksowanie** z konfigurowalną kompresją.  
-- **Bogate API podświetlania** działające na całych dokumentach oraz na niestandardowych fragmentach.  
-- **Obsługa wielu formatów** (DOCX, PDF, PPTX, TXT i inne).  
-- **Łatwa integracja z Maven** oraz przejrzyste API skoncentrowane na Javie.
+1. **Index the source files** tak, aby można je było szybko przeszukiwać.  
+2. **Run a query** przeciwko indeksowi, aby znaleźć pasujące dokumenty.  
+3. **Render the results with visual cues** przy użyciu API highlightera.
+
+Poniżej omawiamy każdy krok szczegółowo, najpierw dla wyjścia całego dokumentu, a następnie dla fragmentów.
+
+## Co to jest wyszukiwanie i wyróżnianie tekstu?
+Wyszukiwanie i wyróżnianie tekstu to proces skanowania indeksu dokumentów pod kątem podanego zapytania, pobierania pasujących dokumentów i oznaczania każdego wystąpienia terminu zapytania w wyjściu dokumentu (HTML, PDF itp.). Ten wizualny sygnał pomaga użytkownikom natychmiast zauważyć istotne informacje.
+
+## Dlaczego używać GroupDocs.Search for Java?
+- **High‑performance indexing** z konfigurowalną kompresją (`index documents java`).  
+- **Rich highlighting API** działające na całych dokumentach i na niestandardowych fragmentach (`highlight search terms java`).  
+- **Cross‑format support** (DOCX, PDF, PPTX, TXT i inne).  
+- **Simple Maven integration** oraz czysty, Java‑centric design.
 
 ## Wymagania wstępne
 - Java Development Kit (JDK) 8 lub nowszy.  
 - Maven do zarządzania zależnościami.  
 - IDE, takie jak IntelliJ IDEA lub Eclipse.  
-- Podstawowa znajomość składni Javy.
+- Podstawowa znajomość składni Java.
 
-## Konfiguracja GroupDocs.Search dla Javy
+## Konfiguracja GroupDocs.Search for Java
 
 Dodaj repozytorium GroupDocs i zależność do swojego `pom.xml`:
 
@@ -63,13 +75,13 @@ Dodaj repozytorium GroupDocs i zależność do swojego `pom.xml`:
 Możesz także pobrać najnowszy plik JAR bezpośrednio z oficjalnej strony: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Uzyskanie licencji
-Rozpocznij od wersji próbnej lub uzyskaj tymczasową licencję do oceny. W przypadku wdrożeń produkcyjnych zakup pełnej licencji, aby odblokować wszystkie funkcje.
+Rozpocznij od wersji próbnej lub uzyskaj tymczasową licencję do oceny. W przypadku wdrożeń produkcyjnych zakup pełnej licencji odblokuje wszystkie funkcje.
 
-## Przewodnik implementacji
+## Przewodnik po implementacji
 
-Implementacja podzielona jest na dwie praktyczne sekcje: **podświetlanie w całych dokumentach** oraz **podświetlanie w fragmentach**. Obie sekcje zawierają niezbędne kroki, jak **podświetlać dokumenty Java** przy użyciu GroupDocs.Search.
+Implementacja podzielona jest na dwie praktyczne sekcje: **highlighting in entire documents** oraz **highlighting in fragments**. Obie sekcje zawierają niezbędne kroki do **how to highlight Java** dokumentów przy użyciu GroupDocs.Search.
 
-### Konfigurowanie ustawień indeksu
+### Konfiguracja ustawień indeksu
 Przed indeksowaniem skonfiguruj magazyn, aby używał wysokiej kompresji — zmniejsza to zużycie dysku przy zachowaniu szybkości wyszukiwania.
 
 ```java
@@ -77,7 +89,7 @@ IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-### Podświetlanie w całych dokumentach
+### Wyróżnianie w całych dokumentach
 
 #### Krok 1: Utwórz i wypełnij indeks
 Utwórz folder indeksu i dodaj wszystkie pliki źródłowe, które chcesz przeszukiwać.
@@ -88,8 +100,8 @@ Index index = new Index(indexFolder, settings);
 index.add("/path/to/your/documents");
 ```
 
-#### Krok 2: Wykonaj wyszukiwanie i zastosuj podświetlanie
-Wyszukaj termin (np. `ipsum`) i wygeneruj plik HTML z podświetlonymi dopasowaniami.
+#### Krok 2: Wykonaj wyszukiwanie i zastosuj wyróżnianie
+Wyszukaj termin (np. `ipsum`) i wygeneruj plik HTML z wyróżnionymi dopasowaniami.
 
 ```java
 SearchResult result = index.search("ipsum");
@@ -107,12 +119,12 @@ if (result.getDocumentCount() > 0) {
 }
 ```
 
-**Wyjaśnienie kluczowych opcji**
+**Key options explained**  
 - **Compression** – wysoka kompresja oszczędza miejsce na dysku.  
-- **HighlightColor** – ustaw dowolną wartość RGB, aby dopasować do palety UI.  
-- **UseInlineStyles** – `false` generuje czysty HTML, który można stylować globalnie przy użyciu CSS.
+- **HighlightColor** – ustaw dowolną wartość RGB, aby dopasować ją do palety UI.  
+- **UseInlineStyles** – `false` generuje czysty HTML, który można stylować globalnie za pomocą CSS.  
 
-### Podświetlanie w fragmentach
+### Wyróżnianie w fragmentach
 
 #### Krok 1: Indeksowanie i wyszukiwanie (takie same jak powyżej)
 ```java
@@ -123,7 +135,7 @@ index.add("/path/to/your/documents");
 SearchResult result = index.search("ipsum");
 ```
 
-#### Krok 2: Zdefiniuj kontekst fragmentu i podświetl
+#### Krok 2: Zdefiniuj kontekst fragmentu i wyróżnij
 Określ, ile terminów przed i po dopasowaniu ma się pojawić w każdym fragmencie.
 
 ```java
@@ -139,7 +151,7 @@ FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.Html);
 index.highlight(document, highlighter, options);
 ```
 
-#### Krok 3: Pobierz i zapisz podświetlone fragmenty
+#### Krok 3: Pobierz i zapisz wyróżnione fragmenty
 Zbierz wygenerowane fragmenty i zapisz je do pliku HTML.
 
 ```java
@@ -166,39 +178,45 @@ try {
 ```
 
 ## Praktyczne zastosowania
-1. **Legal Document Review** – natychmiastowe podświetlanie ustaw, klauzul lub odniesień do spraw.  
-2. **Academic Research** – wyświetlanie kluczowej terminologii wśród dziesiątek plików PDF i Word.  
-3. **Customer Support** – wskazywanie numerów zamówień lub kodów błędów w historii zgłoszeń.
+1. **Legal Document Review** – natychmiastowe wyróżnianie ustaw, klauzul lub odniesień do spraw.  
+2. **Academic Research** – wyświetlanie kluczowej terminologii w dziesiątkach plików PDF i Word.  
+3. **Customer Support** – szybkie odnajdywanie numerów zamówień lub kodów błędów w historii zgłoszeń.
 
 ## Rozważania dotyczące wydajności
-- **Index Size** – wysoka kompresja (`Compression.High`) zmniejsza rozmiar na dysku.  
-- **Fragment Context** – większe wartości `termsBefore/After` zwiększają dokładność, ale mogą wpływać na szybkość.  
-- **Memory Management** – monitoruj pamięć JVM podczas indeksowania dużych korpusów; rozważ indeksowanie przyrostowe dla bardzo dużych zestawów.
+- **Index Size** – wysoka kompresja (`Compression.High`) zmniejsza rozmiar dysku.  
+- **Fragment Context** – większe wartości `termsBefore/After` zwiększają precyzję, ale mogą wpływać na szybkość.  
+- **Memory Management** – monitoruj pamięć JVM przy indeksowaniu dużych korpusów; rozważ indeksowanie przyrostowe dla bardzo dużych zestawów.
 
-## Typowe problemy i rozwiązania
+## Częste problemy i rozwiązania
 - **Indexing Errors** – sprawdź ścieżki plików i upewnij się, że aplikacja ma uprawnienia do odczytu/zapisu.  
-- **No Highlights Appear** – potwierdź, że `UseInlineStyles` odpowiada formatowi wyjściowemu (HTML vs. PDF).  
-- **Color Not Applied** – upewnij się, że wartości RGB mieszczą się w zakresie 0‑255 i że przeglądarka HTML obsługuje styl.
+- **No Highlights Appear** – potwierdź, że `UseInlineStyles` jest zgodny z formatem wyjściowym (HTML vs. PDF).  
+- **Color Not Applied** – upewnij się, że wartości RGB mieszczą się w przedziale 0‑255 oraz że przeglądarka HTML obsługuje dany styl.
 
 ## Najczęściej zadawane pytania
 
-**Q: Jakie są korzyści z używania GroupDocs.Search dla Javy?**  
-A: Oferuje szybkie, skalowalne indeksowanie, konfigurowalne podświetlanie oraz obsługę wielu formatów dokumentów.
+**Q: What are the benefits of using GroupDocs.Search for Java?**  
+A: Oferuje szybkie, skalowalne indeksowanie, konfigurowalne wyróżnianie oraz wsparcie dla wielu formatów dokumentów.
 
-**Q: Jak mogę zintegrować GroupDocs.Search z API REST?**  
-A: Udostępnij metody wyszukiwania i podświetlania poprzez kontrolery Spring Boot, zwracając ładunki HTML lub JSON.
+**Q: How can I integrate GroupDocs.Search with a REST API?**  
+A: Udostępnij metody wyszukiwania i wyróżniania poprzez kontrolery Spring Boot, zwracając ładunki HTML lub JSON.
 
-**Q: Czy biblioteka obsługuje pliki zabezpieczone hasłem?**  
+**Q: Does the library handle password‑protected files?**  
 A: Tak — podaj hasło przy dodawaniu dokumentu do indeksu.
 
-**Q: Czy mogę dostosować znacznik podświetlenia poza kolorem?**  
-A: Oczywiście; możesz wstrzyknąć klasy CSS za pomocą `HighlightOptions` lub zmodyfikować HTML po wygenerowaniu.
+**Q: Can I customize the highlight markup beyond color?**  
+A: Oczywiście; możesz wstrzykiwać klasy CSS za pomocą `HighlightOptions` lub modyfikować HTML po wygenerowaniu.
 
-**Q: Jaką wersję testowano w tym przewodniku?**  
+**Q: What version was tested for this guide?**  
 A: Kod został zweryfikowany pod kątem GroupDocs.Search 25.4.
+
+**Q: How do I set highlight options java to use a CSS class instead of inline styles?**  
+A: Ustaw `options.setUseInlineStyles(false)` i dodaj regułę CSS dla klasy, którą przypiszesz poprzez `options.setCssClass("myHighlight")`.
+
+**Q: Is there a way to highlight terms pdf java directly when the source is a PDF?**  
+A: Tak — GroupDocs.Search działa z wejściem PDF, a highlighter wygeneruje HTML, który możesz osadzić w przeglądarce PDF lub przekonwertować z powrotem do PDF przy użyciu GroupDocs.Conversion.
 
 ---
 
-**Ostatnia aktualizacja:** 2025-12-26  
-**Testowano z:** GroupDocs.Search 25.4  
-**Autor:** GroupDocs
+**Last Updated:** 2026-02-27  
+**Tested With:** GroupDocs.Search 25.4  
+**Author:** GroupDocs

@@ -1,9 +1,9 @@
 ---
-date: 2025-12-26
-description: Krok po kroku tutorial dotyczący podświetlania wyników wyszukiwania w
-  Javie przy użyciu GroupDocs.Search for Java, obejmujący formaty dokumentów, podglądy
-  HTML oraz niestandardowe stylowanie.
-title: Podświetlanie wyników wyszukiwania – samouczek Java z GroupDocs.Search
+date: 2026-02-27
+description: Dowiedz się, jak podświetlać wyniki wyszukiwania w Javie przy użyciu
+  GroupDocs.Search. Ten przewodnik krok po kroku opisuje podświetlanie terminów w
+  formatach PDF, Word i innych, z niestandardowym stylem.
+title: Podświetlanie wyników wyszukiwania w Javie przy użyciu GroupDocs.Search
 type: docs
 url: /pl/java/highlighting/
 weight: 4
@@ -11,90 +11,100 @@ weight: 4
 
 # Wyróżnianie wyników wyszukiwania w Javie z GroupDocs.Search
 
-Jeśli potrzebujesz **search result highlighting java** w swoich aplikacjach, trafiłeś we właściwe miejsce. Ten przewodnik przeprowadzi Cię przez proces wizualnego podkreślania dopasowanych terminów w oryginalnych dokumentach i podglądach HTML przy użyciu GroupDocs.Search dla Javy. Niezależnie od tego, czy tworzysz portal wyszukiwania dokumentów, korporacyjną bazę wiedzy, czy prosty eksplorator plików, techniki opisane tutaj pomogą Ci zapewnić jaśniejsze i bardziej intuicyjne doświadczenie użytkownika.
+Jeśli potrzebujesz **highlight search results java** w swoich aplikacjach, trafiłeś we właściwe miejsce. Ten przewodnik przeprowadzi Cię przez proces wizualnego podkreślania dopasowanych terminów w oryginalnych dokumentach oraz podglądach HTML przy użyciu GroupDocs.Search for Java. Niezależnie od tego, czy tworzysz portal wyszukiwania dokumentów, korporacyjną bazę wiedzy, czy prosty eksplorator plików, techniki opisane tutaj pomogą Ci zapewnić jaśniejsze i bardziej intuicyjne doświadczenie użytkownika.
 
-## Szybkie odpowiedzi
-- **Co robi “search result highlighting java”?**  
-  Wizualnie oznacza każde wystąpienie terminu zapytania w dokumencie lub podglądzie, ułatwiając zauważenie dopasowań.
-- **Jakie typy plików są obsługiwane?**  
-  Word, PDF, Excel, PowerPoint, plain text, and many more via GroupDocs.Search.
-- **Czy potrzebuję licencji?**  
-  Tymczasowa licencja działa w środowisku deweloperskim; pełna licencja jest wymagana w produkcji.
-- **Czy mogę dostosować styl podświetlenia?**  
-  Tak — kolory, czcionki i przezroczystość można ustawić programowo.
-- **Czy wymagana jest dodatkowa konfiguracja?**  
-  Wystarczy dodać bibliotekę GroupDocs.Search for Java do projektu i odwołać się do API.
+## Quick Answers
+- **What does “highlight search results java” do?**  
+  It visually marks every occurrence of a query term inside a document or preview, making matches easy to spot.  
+- **Which file types are supported?**  
+  Word, PDF, Excel, PowerPoint, plain text, and many more via GroupDocs.Search.  
+- **Do I need a license?**  
+  A temporary license works for development; a full license is required for production use.  
+- **Can I customize the highlight style?**  
+  Yes—colors, fonts, and opacity can be set programmatically.  
+- **Is any additional setup required?**  
+  Just add the GroupDocs.Search for Java library to your project and reference the API.
 
-## Czym jest Search Result Highlighting Java?
-Search result highlighting Java to technika programowego stosowania wizualnych znaczników (zazwyczaj kolorów tła) do każdego wystąpienia terminu wyszukiwania znalezionego przez GroupDocs.Search w dokumencie. Umożliwia to użytkownikom łatwe odnalezienie istotnych informacji bez ręcznego przeglądania całego pliku.
+## How to Highlight Search Results Java
+Przejdźmy przez kompletny przepływ pracy. Zachowamy kroki zwięzłe, ale pełne praktycznych wskazówek, abyś mógł skopiować i wkleić logikę do własnej bazy kodu.
 
-## Dlaczego warto używać GroupDocs.Search dla Java do podświetlania?
-- **Instant visual feedback:** Użytkownicy widzą dopasowania od razu, skracając czas uzyskania wglądu.  
-- **Cross‑format consistency:** Ta sama logika podświetlania działa w formatach DOCX, PDF, XLSX, PPTX i innych.  
-- **Customizable appearance:** Dostosuj kolory i style, aby pasowały do Twojej marki lub motywu UI.  
-- **Scalable performance:** Optymalizowane pod kątem dużych zbiorów dokumentów i scenariuszy wyszukiwania o wysokiej przepustowości.
+## What Is Search Result Highlighting Java?
+Search result highlighting Java is the technique of programmatically applying visual markers (typically background colors) to every instance of a search term found by GroupDocs.Search within a document. This makes it straightforward for end‑users to locate relevant information without manually scanning the entire file.
 
-## Wymagania wstępne
-- Zainstalowany Java 8 lub nowszy.  
-- Biblioteka GroupDocs.Search for Java dodana do projektu (zależność Maven/Gradle).  
-- Plik tymczasowej lub pełnej licencji GroupDocs.Search.
+## Why Use GroupDocs.Search for Java Highlighting?
+- **Instant visual feedback:** Users see matches immediately, reducing time‑to‑insight.  
+- **Cross‑format consistency:** The same highlighting logic works across DOCX, PDF, XLSX, PPTX, and more.  
+- **Customizable appearance:** Tailor colors and styles to match your brand or UI theme.  
+- **Scalable performance:** Optimized for large document collections and high‑throughput search scenarios.
 
-## Przewodnik krok po kroku
+## Prerequisites
+- Java 8 or higher installed.  
+- GroupDocs.Search for Java library added to your project (Maven/Gradle dependency).  
+- A temporary or full GroupDocs.Search license file.
 
-### Krok 1: Inicjalizacja silnika wyszukiwania
-Utwórz instancję `SearchEngine` i załaduj indeks zawierający dokumenty, które chcesz przeszukać.
+## Step‑by‑Step Guide
 
-> *Uwaga: Kod dla tego kroku jest dostępny w poniższym kompleksowym przewodniku.*
+### Step 1: Initialize the Search Engine
+Create an instance of `SearchEngine` and load the index that contains the documents you want to search.
 
-### Krok 2: Wykonaj zapytanie wyszukiwania
-Wywołaj metodę `search` z ciągiem zapytania użytkownika. Metoda zwraca kolekcję obiektów `SearchResult`, z których każdy reprezentuje dokument zawierający dopasowania.
+> *Note: The code for this step is provided in the linked comprehensive guide below.*
 
-### Krok 3: Podświetl dopasowania w oryginalnym dokumencie
-Dla każdego `SearchResult` wywołaj API podświetlania, aby wstawić wizualne znaczniki bezpośrednio do pliku źródłowego. Możesz określić kolor podświetlenia, przezroczystość oraz czy podświetlać cały fragment, czy tylko dokładny termin.
+### Step 2: Perform a Search Query
+Invoke the `search` method with the user’s query string. The method returns a collection of `SearchResult` objects, each representing a document that contains matches.
 
-### Krok 4: Wygeneruj podgląd HTML (opcjonalnie)
-Jeśli wolisz wyświetlać podgląd w przeglądarce zamiast oryginalnego pliku, użyj klasy `HighlightResult`, aby wygenerować fragment HTML z podświetlonymi terminami. Jest to przydatne w przeglądarkowych podglądaczach lub lekkich aplikacjach mobilnych.
+### Step 3: Highlight Matches in the Original Document
+For each `SearchResult`, call the highlighting API to embed visual markers directly into the source file. You can specify highlight color, opacity, and whether to highlight the whole fragment or just the exact term.
 
-### Krok 5: Zapisz lub strumieniuj podświetlony wynik
-Po podświetleniu możesz nadpisać oryginalny dokument, zapisać nową podświetloną kopię lub strumieniowo przesłać wynik bezpośrednio do przeglądarki klienta.
+### Step 4: Generate an HTML Preview (Optional)
+If you prefer to display a web‑based preview instead of the original file, use the `HighlightResult` class to produce an HTML snippet with highlighted terms. This is useful for browser‑based viewers or lightweight mobile apps.
 
-## Typowe problemy i rozwiązania
-- **No highlights appear:** Upewnij się, że format dokumentu jest obsługiwany i że zapytanie rzeczywiście znajduje dopasowania w pliku.  
-- **Performance slowdown on large files:** Włącz asynchroniczne indeksowanie lub przetwarzaj dokumenty w partiach.  
-- **Incorrect colors:** Sprawdź, czy używasz prawidłowych wartości wyliczenia `HighlightColor` i czy styl nie jest nadpisany przez CSS w Twoim UI.
+### Step 5: Save or Stream the Highlighted Output
+After highlighting, you can either overwrite the original document, save a new highlighted copy, or stream the result directly to the client’s browser.
 
-## Dostępne samouczki
+## How to Highlight Terms in PDF
+Highlighting terms in PDF follows the same API calls; just ensure the document format is recognized as PDF. The `HighlightOptions` class lets you pick a `HighlightColor` that works well on PDF backgrounds (e.g., bright yellow with 30 % opacity).
 
-### [GroupDocs.Search for Java: Podświetlanie terminów wyszukiwania w dokumentach | Kompleksowy przewodnik](./groupdocs-search-java-highlight-terms-documents/)
-Dowiedz się, jak używać GroupDocs.Search for Java do podświetlania terminów wyszukiwania w dokumentach. Odkryj techniki podświetlania w całych dokumentach oraz w konkretnych fragmentach.
+## Highlight Matches in Word Documents
+When dealing with Word files, the same `HighlightResult` logic applies, but you may want to use the `HighlightColor` that respects Word’s native styling. This prevents the highlight from being stripped out when the document is opened in Microsoft Word.
 
-## Dodatkowe zasoby
-- [Dokumentacja GroupDocs.Search for Java](https://docs.groupdocs.com/search/java/)
-- [Referencja API GroupDocs.Search for Java](https://reference.groupdocs.com/search/java/)
-- [Pobierz GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
-- [Forum GroupDocs.Search](https://forum.groupdocs.com/c/search)
-- [Bezpłatne wsparcie](https://forum.groupdocs.com/)
-- [Licencja tymczasowa](https://purchase.groupdocs.com/temporary-license/)
+## Common Issues and Solutions
+- **No highlights appear:** Ensure the document format is supported and that the search query actually matches content in the file.  
+- **Performance slowdown on large files:** Enable asynchronous indexing or process documents in batches.  
+- **Incorrect colors:** Verify that you’re using the correct `HighlightColor` enum values and that the style is not overridden by CSS in your UI.
 
-## Najczęściej zadawane pytania
+## Available Tutorials
 
-**Q: Czy mogę podświetlać wyniki wyszukiwania w zabezpieczonych hasłem plikach PDF?**  
-A: Tak. Podaj hasło podczas ładowania dokumentu, a następnie zastosuj te same metody podświetlania.
+### [GroupDocs.Search for Java&#58; Highlight Search Terms in Documents | Comprehensive Guide](./groupdocs-search-java-highlight-terms-documents/)
+Learn how to use GroupDocs.Search for Java to highlight search terms in documents. Discover techniques for highlighting across entire documents and specific fragments.
 
-**Q: Czy podświetlanie modyfikuje oryginalny plik na stałe?**  
-A: Domyślnie tworzy nową kopię, ale możesz wybrać nadpisanie źródła, jeśli tego potrzebujesz.
+## Additional Resources
 
-**Q: Czy można podświetlić wiele terminów zapytania jednocześnie?**  
-A: Oczywiście. Przekaż listę terminów do silnika wyszukiwania; każdy termin zostanie podświetlony przy użyciu skonfigurowanego stylu.
+- [GroupDocs.Search for Java Documentation](https://docs.groupdocs.com/search/java/)
+- [GroupDocs.Search for Java API Reference](https://reference.groupdocs.com/search/java/)
+- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
+- [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
+- [Free Support](https://forum.groupdocs.com/)
+- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
-**Q: Jak zmienić kolor podświetlenia dla różnych terminów?**  
-A: Użyj klasy `HighlightOptions`, aby przypisać różne wartości `HighlightColor` dla każdego terminu przed wywołaniem metody podświetlania.
+## Frequently Asked Questions
 
-**Q: Co zrobić, jeśli dokument zawiera miliony stron?**  
-A: Przetwarzaj dokument w fragmentach i używaj API strumieniowego, aby uniknąć ładowania całego pliku do pamięci.
+**Q: Can I highlight search results in password‑protected PDFs?**  
+A: Yes. Provide the password when loading the document, then apply the same highlighting methods.
+
+**Q: Does the highlighting modify the original file permanently?**  
+A: By default it creates a new copy, but you can choose to overwrite the source if desired.
+
+**Q: Is it possible to highlight multiple query terms at once?**  
+A: Absolutely. Pass a list of terms to the search engine; each term will be highlighted using the configured style.
+
+**Q: How do I change the highlight color for different terms?**  
+A: Use the `HighlightOptions` class to assign distinct `HighlightColor` values per term before invoking the highlight method.
+
+**Q: What if a document contains millions of pages?**  
+A: Process the document in chunks and use streaming APIs to avoid loading the entire file into memory.
 
 ---
 
-**Ostatnia aktualizacja:** 2025-12-26  
-**Testowano z:** GroupDocs.Search for Java 23.11  
-**Autor:** GroupDocs
+**Last Updated:** 2026-02-27  
+**Tested With:** GroupDocs.Search for Java 23.11  
+**Author:** GroupDocs
