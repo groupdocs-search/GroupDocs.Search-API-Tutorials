@@ -169,12 +169,6 @@ A: Teljesen – integrálható a GroupDocs.Viewer, GroupDocs.Conversion stb. kö
 ## Következtetés
 Az útmutató követésével most már tudja, hogyan **add documents to index**, hogyan konfigurálja az egyesítési viselkedést, és hogyan állítsa le biztonságosan a **cancel merge operation**-t, ha szükséges – mindezt egy robusztus **document management java** munkafolyamaton belül. Kísérletezzen nagyobb adatállományokkal, fedezze fel az egyedi tokenizálókat, vagy kombinálja a GroupDocs.Search-t más GroupDocs termékekkel, hogy valóban vállalati szintű megoldást építsen.
 
----
-
-**Last Updated:** 2026-01-03  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
 **Erőforrások**
 - **Documentation:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -182,3 +176,9 @@ Az útmutató követésével most már tudja, hogyan **add documents to index**,
 - **GitHub Repository:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Free Support Forum:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **Temporary License Application:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-01-03  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  

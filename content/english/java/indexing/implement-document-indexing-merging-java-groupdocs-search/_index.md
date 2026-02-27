@@ -165,12 +165,6 @@ A: Absolutely—you can integrate it with GroupDocs.Viewer, GroupDocs.Conversion
 ## Conclusion
 By following this guide you now know how to **add documents to index**, configure merge behavior, and safely **cancel merge operation** when needed—all within a robust **document management java** workflow. Experiment with larger datasets, explore custom tokenizers, or combine GroupDocs.Search with other GroupDocs products to build a truly enterprise‑grade solution.
 
----
-
-**Last Updated:** 2026-01-03  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
 **Resources**
 - **Documentation:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -178,5 +172,11 @@ By following this guide you now know how to **add documents to index**, configur
 - **GitHub Repository:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Free Support Forum:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **Temporary License Application:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+
+---
+
+**Last Updated:** 2026-01-03  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  
 
 ---

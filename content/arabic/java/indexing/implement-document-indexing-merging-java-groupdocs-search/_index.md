@@ -166,12 +166,6 @@ index1.merge(index2, options);
 ## الخلاصة
 باتباعك لهذا الدليل، أصبحت الآن تعرف **كيفية إضافة المستندات إلى الفهرس**، تكوين سلوك الدمج، وإلغاء **عملية الدمج** بأمان عند الحاجة—كل ذلك ضمن سير عمل **document management java** قوي. جرّب مجموعات بيانات أكبر، استكشف محللات رموز مخصصة، أو اجمع GroupDocs.Search مع منتجات GroupDocs الأخرى لبناء حل مؤسسي حقيقي.
 
----
-
-**آخر تحديث:** 2026-01-03  
-**تم الاختبار مع:** GroupDocs.Search 25.4 للـ Java  
-**المؤلف:** GroupDocs  
-
 **الموارد**
 - **الوثائق:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **مرجع API:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -179,3 +173,9 @@ index1.merge(index2, options);
 - **مستودع GitHub:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **منتدى الدعم المجاني:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **طلب ترخيص مؤقت:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**آخر تحديث:** 2026-01-03  
+**تم الاختبار مع:** GroupDocs.Search 25.4 للـ Java  
+**المؤلف:** GroupDocs  

@@ -167,12 +167,6 @@ index1.merge(index2, options);
 ## Conclusão
 Seguindo este guia, você agora sabe como **adicionar documentos ao índice**, configurar o comportamento de mesclagem e **cancelar operação de mesclagem** com segurança — tudo dentro de um fluxo de trabalho robusto de **document management java**. Experimente com conjuntos de dados maiores, explore tokenizadores personalizados ou combine GroupDocs.Search com outros produtos GroupDocs para construir uma solução verdadeiramente corporativa.
 
----
-
-**Última atualização:** 2026-01-03  
-**Testado com:** GroupDocs.Search 25.4 for Java  
-**Autor:** GroupDocs  
-
 **Recursos**
 - **Documentação:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **Referência da API:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -180,3 +174,9 @@ Seguindo este guia, você agora sabe como **adicionar documentos ao índice**, c
 - **Repositório no GitHub:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Fórum de suporte gratuito:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **Aplicação de licença temporária:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Última atualização:** 2026-01-03  
+**Testado com:** GroupDocs.Search 25.4 for Java  
+**Autor:** GroupDocs  

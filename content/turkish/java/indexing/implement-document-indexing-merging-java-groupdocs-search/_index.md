@@ -167,12 +167,6 @@ index1.merge(index2, options);
 ## Sonuç
 Bu kılavuzu izleyerek artık **indekse belge ekleme**, birleştirme davranışını yapılandırma ve gerektiğinde güvenli bir şekilde **birleştirme işlemini iptal et** konularını biliyorsunuz—hepsi sağlam bir **document management java** iş akışı içinde. Daha büyük veri setleriyle deney yapın, özel tokenleştiricileri keşfedin veya GroupDocs.Search'ı diğer GroupDocs ürünleriyle birleştirerek gerçek bir kurumsal çözüm oluşturun.
 
----
-
-**Last Updated:** 2026-01-03  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
 ## Kaynaklar
 - **Documentation:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -180,3 +174,9 @@ Bu kılavuzu izleyerek artık **indekse belge ekleme**, birleştirme davranış�
 - **GitHub Repository:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Free Support Forum:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **Temporary License Application:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-01-03  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  

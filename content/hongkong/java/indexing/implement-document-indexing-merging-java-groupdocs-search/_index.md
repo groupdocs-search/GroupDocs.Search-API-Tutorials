@@ -166,12 +166,6 @@ A: 當然可以——您可以將其與 GroupDocs.Viewer、GroupDocs.Conversion 
 ## 結論
 透過本指南，您現在已了解如何**添加文件至索引**、設定合併行為，並在需要時安全地**取消合併操作**——全部在強大的**document management java**工作流程中。可嘗試更大的資料集、探索自訂分詞器，或將 GroupDocs.Search 與其他 GroupDocs 產品結合，打造真正的企業級解決方案。
 
----
-
-**最後更新：** 2026-01-03  
-**測試版本：** GroupDocs.Search 25.4 for Java  
-**作者：** GroupDocs  
-
 **資源**
 - **文件說明：** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API 參考：** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -179,3 +173,9 @@ A: 當然可以——您可以將其與 GroupDocs.Viewer、GroupDocs.Conversion 
 - **GitHub 倉庫：** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **免費支援論壇：** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **臨時授權申請：** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**最後更新：** 2026-01-03  
+**測試版本：** GroupDocs.Search 25.4 for Java  
+**作者：** GroupDocs  

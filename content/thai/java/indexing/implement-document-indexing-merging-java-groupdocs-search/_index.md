@@ -167,12 +167,6 @@ index1.merge(index2, options);
 ## สรุป
 โดยทำตามคู่มือนี้คุณจะรู้วิธี **add documents to index**, กำหนดค่าการรวม, และปลอดภัย **cancel merge operation** เมื่อจำเป็น — ทั้งหมดนี้อยู่ในกระบวนการ **document management java** ที่แข็งแกร่ง ทดลองกับชุดข้อมูลขนาดใหญ่ สำรวจตัวแยกโทเคนแบบกำหนดเอง หรือรวม GroupDocs.Search กับผลิตภัณฑ์ GroupDocs อื่นเพื่อสร้างโซลูชันระดับองค์กรที่แท้จริง.
 
----
-
-**Last Updated:** 2026-01-03  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
 **Resources**
 - **Documentation:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -180,3 +174,9 @@ index1.merge(index2, options);
 - **GitHub Repository:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Free Support Forum:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **Temporary License Application:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-01-03  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  

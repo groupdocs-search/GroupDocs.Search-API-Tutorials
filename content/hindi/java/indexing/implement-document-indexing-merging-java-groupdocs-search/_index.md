@@ -168,12 +168,6 @@ A: बिल्कुल—आप इसे GroupDocs.Viewer, GroupDocs.Conversi
 ## निष्कर्ष
 इस गाइड को फॉलो करके अब आप जानते हैं कि कैसे **add documents to index** किया जाता है, मर्ज व्यवहार को कॉन्फ़िगर किया जाता है, और आवश्यकता पड़ने पर सुरक्षित रूप से **cancel merge operation** किया जाता है—सभी एक मजबूत **document management java** वर्कफ़्लो के भीतर। बड़े डेटा सेट के साथ प्रयोग करें, कस्टम टोकनाइज़र एक्सप्लोर करें, या GroupDocs.Search को अन्य GroupDocs प्रोडक्ट्स के साथ मिलाकर एक वास्तविक एंटरप्राइज़‑ग्रेड सॉल्यूशन बनाएं।
 
----
-
-**अंतिम अपडेट:** 2026-01-03  
-**परीक्षित संस्करण:** GroupDocs.Search 25.4 for Java  
-**लेखक:** GroupDocs  
-
 **संसाधन**
 - **डॉक्यूमेंटेशन:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API रेफ़रेंस:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -181,3 +175,9 @@ A: बिल्कुल—आप इसे GroupDocs.Viewer, GroupDocs.Conversi
 - **GitHub रिपॉजिटरी:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **फ़्री सपोर्ट फ़ोरम:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **टेम्पररी लाइसेंस एप्लिकेशन:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**अंतिम अपडेट:** 2026-01-03  
+**परीक्षित संस्करण:** GroupDocs.Search 25.4 for Java  
+**लेखक:** GroupDocs  

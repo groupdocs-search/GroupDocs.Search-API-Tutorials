@@ -166,12 +166,6 @@ A: もちろんです — GroupDocs.Viewer、GroupDocs.Conversion などと統�
 ## 結論
 このガイドに従うことで、**add documents to index** の方法、マージ動作の設定、必要に応じて安全に **cancel merge operation** を行う方法を理解できました — すべて堅牢な **document management java** ワークフロー内で実現できます。より大規模なデータセットで実験したり、カスタムトークナイザーを検討したり、GroupDocs.Search を他の GroupDocs 製品と組み合わせて、真にエンタープライズ向けのソリューションを構築してください。
 
----
-
-**最終更新日:** 2026-01-03  
-**テスト環境:** GroupDocs.Search 25.4 for Java  
-**作者:** GroupDocs  
-
 **リソース**
 - **ドキュメント:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API リファレンス:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -179,3 +173,9 @@ A: もちろんです — GroupDocs.Viewer、GroupDocs.Conversion などと統�
 - **GitHub リポジトリ:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **無料サポートフォーラム:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **一時ライセンス申請:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**最終更新日:** 2026-01-03  
+**テスト環境:** GroupDocs.Search 25.4 for Java  
+**作者:** GroupDocs  

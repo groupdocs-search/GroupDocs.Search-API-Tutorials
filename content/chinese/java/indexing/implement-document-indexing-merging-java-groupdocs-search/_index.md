@@ -166,12 +166,6 @@ A: 绝对兼容——您可以将其与 GroupDocs.Viewer、GroupDocs.Conversion 
 ## 结论
 通过本指南，您现在了解如何 **add documents to index**、配置合并行为，并在需要时安全地 **cancel merge operation**——全部在强大的 **document management java** 工作流中。尝试更大的数据集，探索自定义分词器，或将 GroupDocs.Search 与其他 GroupDocs 产品结合，构建真正的企业级解决方案。
 
----
-
-**最后更新:** 2026-01-03  
-**测试环境:** GroupDocs.Search 25.4 for Java  
-**作者:** GroupDocs  
-
 **资源**
 - **文档:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -179,3 +173,9 @@ A: 绝对兼容——您可以将其与 GroupDocs.Viewer、GroupDocs.Conversion 
 - **GitHub Repository:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Free Support Forum:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **Temporary License Application:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**最后更新:** 2026-01-03  
+**测试环境:** GroupDocs.Search 25.4 for Java  
+**作者:** GroupDocs  

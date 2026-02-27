@@ -168,10 +168,6 @@ A: Абсолютно — вы можете интегрировать его с
 ## Заключение
 Следуя этому руководству, вы теперь знаете, как **add documents to index**, настроить поведение объединения и безопасно **cancel merge operation**, когда это необходимо — всё в рамках надёжного рабочего процесса **document management java**. Экспериментируйте с более крупными наборами данных, исследуйте пользовательские токенизаторы или комбинируйте GroupDocs.Search с другими продуктами GroupDocs, чтобы построить действительно корпоративное решение.
 
-**Последнее обновление:** 2026-01-03  
-**Тестировано с:** GroupDocs.Search 25.4 for Java  
-**Автор:** GroupDocs  
-
 ## Ресурсы
 - **Документация:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **Ссылка на API:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -179,3 +175,7 @@ A: Абсолютно — вы можете интегрировать его с
 - **Репозиторий GitHub:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Форум бесплатной поддержки:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **Заявка на временную лицензию:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+**Последнее обновление:** 2026-01-03  
+**Тестировано с:** GroupDocs.Search 25.4 for Java  
+**Автор:** GroupDocs  

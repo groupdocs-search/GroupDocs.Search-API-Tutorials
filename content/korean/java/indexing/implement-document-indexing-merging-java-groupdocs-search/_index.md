@@ -166,12 +166,6 @@ A: 물론입니다—GroupDocs.Viewer, GroupDocs.Conversion 등과 통합해 전
 ## 결론
 이 가이드를 통해 **문서를 인덱스에 추가**하고, 병합 동작을 구성하며, 필요 시 **병합 작업 취소**를 안전하게 수행하는 방법을 익혔습니다. 이제 견고한 **document management java** 워크플로 안에서 이를 활용할 수 있습니다. 더 큰 데이터셋을 실험하고, 커스텀 토크나이저를 탐색하거나 GroupDocs.Search를 다른 GroupDocs 제품과 결합해 진정한 엔터프라이즈급 솔루션을 구축해 보세요.
 
----
-
-**마지막 업데이트:** 2026-01-03  
-**테스트 환경:** GroupDocs.Search 25.4 for Java  
-**작성자:** GroupDocs  
-
 **리소스**
 - **문서:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API 레퍼런스:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -179,3 +173,9 @@ A: 물론입니다—GroupDocs.Viewer, GroupDocs.Conversion 등과 통합해 전
 - **GitHub 저장소:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **무료 지원 포럼:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **임시 라이선스 신청:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**마지막 업데이트:** 2026-01-03  
+**테스트 환경:** GroupDocs.Search 25.4 for Java  
+**작성자:** GroupDocs  

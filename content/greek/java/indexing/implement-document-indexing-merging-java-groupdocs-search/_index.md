@@ -167,12 +167,6 @@ A: Απόλυτα—μπορείτε να το ενσωματώσετε με τ�
 ## Συμπέρασμα
 Ακολουθώντας αυτόν τον οδηγό, τώρα γνωρίζετε πώς να **προσθέτετε έγγραφα στο ευρετήριο**, να διαμορφώνετε τη συμπεριφορά της συγχώνευσης και να **ακυρώνετε τη λειτουργία συγχώνευσης** με ασφάλεια όταν χρειάζεται—όλα μέσα σε μια ισχυρή ροή εργασίας **διαχείρισης εγγράφων java**. Πειραματιστείτε με μεγαλύτερα σύνολα δεδομένων, εξερευνήστε προσαρμοσμένους tokenizers ή συνδυάστε το GroupDocs.Search με άλλα προϊόντα GroupDocs για να δημιουργήσετε μια πραγματικά επιχειρησιακής κλάσης λύση.
 
----
-
-**Last Updated:** 2026-01-03  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
 **Πόροι**
 - **Τεκμηρίωση:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **Αναφορά API:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -180,3 +174,9 @@ A: Απόλυτα—μπορείτε να το ενσωματώσετε με τ�
 - **Αποθετήριο GitHub:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Δωρεάν Φόρουμ Υποστήριξης:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **Αίτηση για Προσωρινή Άδεια:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-01-03  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  

@@ -168,12 +168,6 @@ A: Tentu—Anda dapat mengintegrasikannya dengan GroupDocs.Viewer, GroupDocs.Con
 ## Kesimpulan
 Dengan mengikuti panduan ini Anda kini mengetahui cara **menambahkan dokumen ke indeks**, mengonfigurasi perilaku penggabungan, dan dengan aman **membatalkan operasi penggabungan** bila diperlukan—semua dalam alur kerja **document management java** yang kuat. Bereksperimenlah dengan dataset yang lebih besar, jelajahi tokenizer khusus, atau gabungkan GroupDocs.Search dengan produk GroupDocs lainnya untuk membangun solusi kelas perusahaan yang sesungguhnya.
 
----
-
-**Last Updated:** 2026-01-03  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
 ## Sumber Daya
 - **Documentation:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
@@ -181,3 +175,9 @@ Dengan mengikuti panduan ini Anda kini mengetahui cara **menambahkan dokumen ke 
 - **GitHub Repository:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Free Support Forum:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **Temporary License Application:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-01-03  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  
