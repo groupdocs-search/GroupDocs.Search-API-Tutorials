@@ -27,8 +27,6 @@ A licenc beállítása a **java licensing tutorial** elengedhetetlen része. Egy
 
 A GroupDocs.Search képes indexelni és keresni számos dokumentumtípusban. A **list supported formats** ismerete segít olyan adatfelvételi folyamatokat tervezni, amelyek elkerülik a nem támogatott fájlokat, és csökkentik a futásidejű hibákat. A könyvtár jelenleg támogatja a PDF-eket, a Microsoft Office fájlokat (Word, Excel, PowerPoint), az OpenDocument formátumokat, a egyszerű szöveget, a HTML-t és még sok mást.
 
----
-
 ## Elérhető útmutatók
 
 ### [Search konfigurálása és az eredmények kiemelése a GroupDocs.Search for Java segítségével](./groupdocs-search-java-implementation/)

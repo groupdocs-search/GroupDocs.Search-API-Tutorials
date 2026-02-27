@@ -25,8 +25,6 @@ weight: 13
 
 GroupDocs.Search 能夠索引與搜尋多種文件類型。了解 **list supported formats** 有助於設計資料匯入流程，避免不支援的檔案，減少執行時錯誤。該函式庫目前支援 PDF、Microsoft Office 檔案（Word、Excel、PowerPoint）、OpenDocument 格式、純文字、HTML 等多種格式。
 
----
-
 ## 可用教學
 
 ### [在 Java 中使用 GroupDocs.Search 配置搜尋與結果標示](./groupdocs-search-java-implementation/)

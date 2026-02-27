@@ -6,7 +6,7 @@ keywords:
 - GroupDocs.Search for Java
 - configure search network in Java
 - deploying nodes in search network
-title: 'كيفية تكوين البحث باستخدام GroupDocs.Search في جافا: دليل التكوين والنشر'
+title: 'كيفية تكوين البحث باستخدام GroupDocs.Search في جافا - دليل التكوين والنشر'
 type: docs
 url: /ar/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/
 weight: 1

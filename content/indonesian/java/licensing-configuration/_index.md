@@ -26,8 +26,6 @@ Menetapkan lisensi adalah bagian penting dari setiap **java licensing tutorial**
 
 GroupDocs.Search dapat mengindeks dan mencari berbagai jenis dokumen. Mengetahui **list supported formats** membantu Anda merancang pipeline ingest yang menghindari file yang tidak didukung dan mengurangi kesalahan runtime. Perpustakaan saat ini mendukung PDF, file Microsoft Office (Word, Excel, PowerPoint), format OpenDocument, teks biasa, HTML, dan banyak lagi.
 
----
-
 ## Tutorial yang Tersedia
 
 ### [Mengonfigurasi Pencarian dan Menyorot Hasil dengan GroupDocs.Search untuk Java](./groupdocs-search-java-implementation/)

@@ -26,8 +26,6 @@ Het instellen van de licentie is een cruciaal onderdeel van elke **java licensin
 
 GroupDocs.Search kan een breed scala aan documenttypen indexeren en doorzoeken. Het kennen van de **list supported formats** helpt je bij het ontwerpen van ingest pipelines die ongeondersteunde bestanden vermijden en runtime‑fouten verminderen. De bibliotheek ondersteunt momenteel PDF’s, Microsoft Office‑bestanden (Word, Excel, PowerPoint), OpenDocument‑formaten, platte tekst, HTML en nog veel meer.
 
----
-
 ## Beschikbare tutorials
 
 ### [Zoeken configureren en resultaten markeren met GroupDocs.Search voor Java](./groupdocs-search-java-implementation/)

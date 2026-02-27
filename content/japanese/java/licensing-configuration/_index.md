@@ -25,8 +25,6 @@ Java アプリケーションに **GroupDocs.Search** を統合する場合、�
 
 GroupDocs.Search は、さまざまなドキュメントタイプのインデックス作成と検索が可能です。**list supported formats** を把握することで、未サポートのファイルを回避し、ランタイムエラーを減らすインジェストパイプラインを設計できます。現在、このライブラリは PDF、Microsoft Office ファイル（Word、Excel、PowerPoint）、OpenDocument 形式、プレーンテキスト、HTML など多数をサポートしています。
 
----
-
 ## 利用可能なチュートリアル
 
 ### [Java 用 GroupDocs.Search で検索と結果ハイライトを構成する](./groupdocs-search-java-implementation/)

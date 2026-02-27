@@ -27,8 +27,6 @@ Ustawienie licencji jest kluczową częścią każdego **poradnika dotyczącego 
 
 GroupDocs.Search może indeksować i przeszukiwać szeroką gamę typów dokumentów. Znajomość **listy obsługiwanych formatów** pomaga projektować potoki przetwarzania, które unikają nieobsługiwanych plików i zmniejszają liczbę błędów w czasie wykonywania. Biblioteka obecnie obsługuje pliki PDF, pliki Microsoft Office (Word, Excel, PowerPoint), formaty OpenDocument, zwykły tekst, HTML i wiele innych.
 
----
-
 ## Dostępne poradniki
 
 ### [Konfigurowanie wyszukiwania i podświetlanie wyników przy użyciu GroupDocs.Search dla Java](./groupdocs-search-java-implementation/)

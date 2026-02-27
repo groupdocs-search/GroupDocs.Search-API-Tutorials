@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Search for Java
 - configure search network in Java
 - deploying nodes in search network
-title: 'Como Configurar a Busca com GroupDocs.Search em Java: Guia de Configuração
+title: 'Como Configurar a Busca com GroupDocs.Search em Java - Guia de Configuração
   e Implantação'
 type: docs
 url: /pt/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/

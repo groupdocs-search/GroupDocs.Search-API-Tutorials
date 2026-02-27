@@ -26,22 +26,22 @@ Se você está cansado de vasculhar documentos intermináveis manualmente, **hig
 ## O que é Highlight Search Results Java?
 **Highlight search results java** é o processo de receber uma consulta de busca, localizar fragmentos correspondentes em seus documentos e enfatizar visualmente esses fragmentos (por exemplo, envolvendo‑os com marcadores ou retornando‑os como trechos realçados). Isso facilita para os usuários finais ver o contexto de cada correspondência sem abrir o arquivo inteiro.
 
-## Por que Usar GroupDocs.Search para Realçar?
-GroupDocs.Search fornece um motor pronto‑para‑uso e de alto desempenho que suporta dezenas de formatos de arquivo, indexação distribuída e realçadores de fragmentos integrados. Ele elimina a necessidade de escrever analisadores personalizados ou gerenciar infraestrutura de busca de baixo nível, permitindo que você se concentre em oferecer uma experiência de usuário fluida.
+## Por que usar GroupDocs.Search para Realçar?
+GroupDocs.Search fornece um motor pronto para uso e de alto desempenho que suporta pequenos formatos de arquivo, indexação distribuída e realçadores de fragmentos integrados. Ele eliminou a necessidade de escrever análises personalizadas ou gerenciar infraestrutura de busca de baixo nível, permitindo que você se concentre em oferecer uma experiência de usuário fluida.
 
 ## Pré‑requisitos
-- **Java Development Kit (JDK) 8+** – certifique‑se de que `java -version` exibe 1.8 ou superior.  
-- **Maven** – para gerenciamento de dependências.  
-- **GroupDocs.Search for Java 25.4** – a versão usada ao longo deste guia.  
-- Uma IDE como **IntelliJ IDEA** ou **Eclipse** (opcional, mas recomendada).  
+- **Java Development Kit (JDK) 8+** – demonstra‑se que `java -version` exibe 1.8 ou superior.
+- **Maven** – para gerenciamento de dependências.
+- **GroupDocs.Search for Java 25.4** – a versão usada ao longo deste guia.
+- Um IDE como **IntelliJ IDEA** ou **Eclipse** (opcional, mas recomendado).
 - Conhecimento básico de Java e conceitos de rede.
 
 ## Configurando GroupDocs.Search para Java
 
 Você pode adicionar a biblioteca ao seu projeto via Maven ou baixando o JAR diretamente.
 
-### Configuração Maven
-Add the repository and dependency to your `pom.xml`:
+###Configuração Maven
+Adicione o repositório e a dependência ao seu `pom.xml`:
 
 ```xml
 <repositories>
@@ -61,16 +61,16 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-### Download Direto
+### Baixar Direto
 Alternativamente, baixe o JAR mais recente em [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Etapas de Aquisição de Licença
-- **Free Trial:** Comece com uma avaliação para explorar os recursos principais.  
-- **Temporary License:** Obtenha uma licença de teste estendida em [this page](https://purchase.groupdocs.com/temporary-license/).  
-- **Purchase:** Adquira uma licença completa para implantações em produção.
+- **Teste Gratuito:** Comece com uma avaliação para explorar os recursos principais.
+- **Licença Temporária:** Obtenha uma licença de teste contínua em [esta página](https://purchase.groupdocs.com/temporary-license/).
+- **Compra:** Adquira uma licença completa para implantações em produção.
 
-### Inicialização e Configuração Básicas
-Create an `Index` instance that points to a folder where the search index will be stored:
+### Inicialização e Configuração Básica
+Crie uma instância `Index` que aponta para uma pasta onde o índice de pesquisa será armazenado:
 
 ```java
 import com.groupdocs.search.*;
@@ -89,7 +89,7 @@ public class SearchSetup {
 ### Como Realçar Resultados de Busca Java em uma Rede Distribuída
 
 #### Configurando a Rede de Busca
-First, define where your documents live and which port the network will use.
+Primeiro, defina onde seus documentos estão armazenados e qual porta a rede utilizará.
 
 ```java
 import com.groupdocs.search.common.*;
@@ -105,7 +105,7 @@ Configuration configuration = ConfiguringSearchNetwork.configure(basePath, baseP
 - **`basePort`** – a porta TCP para comunicação entre nós; escolha uma que não esteja em uso.
 
 #### Implantando Nós da Rede de Busca
-Deploy one or more nodes based on the configuration. The first node becomes the master.
+Implante um ou mais nós com base na configuração. O primeiro nó se tornará o mestre.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -118,7 +118,7 @@ SearchNetworkNode masterNode = nodes[0];
 - **`masterNode`** – coordena a indexação e a distribuição de consultas.
 
 #### Inscrevendo‑se em Eventos dos Nós da Rede de Busca
-Attach listeners to the master node to receive real‑time notifications (e.g., when indexing completes).
+Conecte ouvintes ao nó mestre para receber notificações em tempo real (por exemplo, quando a indexação for concluída).
 
 ```java
 import com.groupdocs.search.scaling.events.*;
@@ -127,7 +127,7 @@ SearchNetworkNodeEvents.subscribe(masterNode);
 ```
 
 #### Indexando Diretórios no Nó da Rede
-Point the node to the folder(s) you want to index. The helper class `Utils.DocumentsPath` resolves to the sample data folder.
+Aponte o nó para a(s) pasta(s) que você deseja indexar. A classe auxiliar `Utils.DocumentsPath` resolve para a pasta de dados de exemplo.
 
 ```java
 import com.groupdocs.search.examples.Utils;
@@ -137,7 +137,7 @@ IndexingDocuments.addDirectories(masterNode, Utils.DocumentsPath);
 ```
 
 #### Pesquisando Texto em Todos os Nós da Rede
-Run a query against **all** nodes and retrieve the matching documents.
+Execute uma consulta em **todos** os nós e recupere os documentos correspondentes.
 
 ```java
 import java.util.ArrayList;
@@ -190,7 +190,7 @@ public static void highlightInDocument(
 - **`maxFragments`** – limita o número de trechos que você exibe por documento.
 
 #### Encerrando Nós da Rede
-When you’re done, shut down every node to free resources.
+Ao concluir, desligue todos os nós para liberar recursos.
 
 ```java
 for (SearchNetworkNode node : nodes) {
@@ -198,49 +198,49 @@ for (SearchNetworkNode node : nodes) {
 }
 ```
 
-## Aplicações Práticas
-- **Enterprise Document Management:** Centralize arquivos corporativos e permita que os funcionários localizem instantaneamente contratos ou políticas relevantes.  
-- **Legal Case Files:** Rapidamente encontre documentos de precedentes realçando termos jurídicos chave.  
-- **R&D Knowledge Bases:** Pesquisadores podem buscar patentes ou artigos técnicos e ver trechos realçados.  
-- **E‑commerce Catalogs:** Permita que compradores encontrem produtos por palavra‑chave com correspondências realçadas nas descrições.  
-- **Library Systems:** Usuários podem buscar entre milhares de livros e visualizar trechos realçados sem abrir cada arquivo.
+##Práticas Aplicações
+- **Gerenciamento de documentos empresariais:** Centralize arquivos corporativos e permita que os funcionários localizem imediatamente contratos ou políticas relevantes.
+- **Arquivos de Processos Jurídicos:** Encontre rapidamente documentos de realçando termos jurídicos chave.
+- **Bases de Conhecimento de P&D:** Pesquisadores podem buscar patentes ou artigos técnicos e ver trechos reais.
+- **Catálogos de comércio eletrônico:** Permita que os compradores encontrem produtos por palavra-chave com correspondências realçadas nas autoridades.
+- **Sistemas de Bibliotecas:** Os usuários podem pesquisar entre milhares de livros e visualizar trechos reais sem abrir cada arquivo.
 
 ## Considerações de Desempenho
-- **Mantenha os índices atualizados:** Re‑indexe arquivos alterados diariamente ou use atualizações incrementais.  
-- **Aproveite múltiplos nós:** Distribua a carga de indexação e consultas para evitar gargalos.  
+- **Mantenha os índices atualizados:** Reindexe arquivos alterados diariamente ou use atualizações incrementais.
+- **Aproveite múltiplos nós:** Distribua a carga de indexação e consultas para evitar gargalos.
 - **Ajuste `HighlightOptions`:** Reduzir `termsBefore/After` diminui o uso de memória para documentos muito grandes.
 
-## Problemas Comuns & Solução de Problemas
+## Problemas Comuns e Solução de Problemas
 
 | Sintoma | Causa Provável | Correção |
-|---------|----------------|----------|
-| Nenhum resultado retornado | Índice não construído ou apontando para a pasta errada | Verifique `Utils.DocumentsPath` e execute `IndexingDocuments.addDirectories` novamente |
-| Saída de realce está vazia | Limites de `HighlightOptions` muito baixos ou problema de codificação do documento | Aumente `termsTotal` ou garanta que a codificação do documento seja suportada |
+|--------|----------------|----------|
+| Nenhum resultado retornado | Índice não construído ou apontado para a pasta errada | Verifique `Utils.DocumentsPath` e execute `IndexingDocuments.addDirectories` novamente |
+| A saída de real está vazia | Limites de `HighlightOptions` muito baixos ou problema de negociação do documento | Aumente `termsTotal` ou garanta que a confirmação do documento seja suportada |
 | Erro de conflito de porta | `basePort` já está em uso | Escolha um número de porta diferente (ex.: 49117) |
 | Exceção de licença | Arquivo de licença ausente ou expirado | Coloque um arquivo `GroupDocs.Search.lic` válido na raiz da aplicação |
 
 ## Perguntas Frequentes
 
-**Q: Posso implantar vários nós da rede de busca para balanceamento de carga?**  
-A: Sim, implantar vários nós distribui o trabalho de indexação e consultas, melhorando a escalabilidade e o tempo de resposta.
+**P: Posso implantar vários nós da rede de busca para balanceamento de carga?**
+R: Sim, implantar vários nós distribui o trabalho de indexação e consultas, melhorando a escalabilidade e o tempo de resposta.
 
-**Q: Como realço vários termos de busca no mesmo documento?**  
-A: Passe uma lista de termos ao método `highlight` e configure `HighlightOptions` para mostrar palavras circundantes para cada correspondência.
+**P: Como realço vários termos de busca no mesmo documento?**
+R: Passe uma lista de termos ao método `highlight` e configure `HighlightOptions` para mostrar palavras adjacentes para cada correspondência.
 
-**Q: É possível inscrever‑se em eventos de busca em tempo real?**  
-A: Absolutamente. Use `SearchNetworkNodeEvents.subscribe(masterNode)` para receber callbacks de progresso de indexação, execução de consultas e erros.
+**P: É possível se inscrever em eventos de busca em tempo real?**
+R: Absolutamente. Use `SearchNetworkNodeEvents.subscribe(masterNode)` para receber callbacks de progresso de indexação, execução de consultas e erros.
 
-**Q: Quais formatos de arquivo o GroupDocs.Search suporta para indexação e realce?**  
-A: Mais de 50 formatos, incluindo DOCX, PDF, HTML, TXT, PPTX e mais.
+**P: Quais formatos de arquivo o GroupDocs.Search são suportados para indexação e real?**
+R: Mais de 50 formatos, incluindo DOCX, PDF, HTML, TXT, PPTX e mais.
 
-**Q: Como posso melhorar a velocidade de busca em coleções muito grandes?**  
-A: Atualize os índices regularmente, distribua‑os entre nós e ajuste finamente `HighlightOptions` para limitar o tamanho dos fragmentos.
+**P: Como posso melhorar a velocidade de busca em coleções muito grandes?**
+R: Atualize os índices regularmente, distribua-os entre nós e ajuste finamente `HighlightOptions` para limitar o tamanho dos fragmentos.
 
 ## Conclusão
-Seguindo este guia, você agora tem uma configuração completa e pronta para produção de **highlight search results java** usando o GroupDocs.Search. Você pode escalar a solução em uma rede, indexar qualquer tipo de documento suportado, executar consultas rápidas e retornar trechos realçados que ajudam os usuários a encontrar exatamente o que precisam. Explore os próximos passos — integrar os resultados em uma interface web, adicionar busca facetada ou combinar com OCR para PDFs escaneados.
+Seguindo este guia, você agora tem uma configuração completa e pronta para produzir **highlight search results java** usando o GroupDocs.Search. Você pode escalar uma solução em uma rede, indexar qualquer tipo de documento suportado, executar consultas rápidas e retornar trechos reais que ajudam os usuários a encontrar exatamente o que precisam. Explore os próximos passos — integrar os resultados em uma interface web, adicionar busca facetada ou combinar com OCR para PDFs escaneados.
 
 ---
 
-**Última atualização:** 2026-01-08  
-**Testado com:** GroupDocs.Search for Java 25.4  
+**Última atualização:** 08/01/2026
+**Testado com:** GroupDocs.Search for Java 25.4
 **Autor:** GroupDocs

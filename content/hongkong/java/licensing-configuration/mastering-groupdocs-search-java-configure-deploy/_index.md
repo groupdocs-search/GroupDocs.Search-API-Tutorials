@@ -5,7 +5,7 @@ keywords:
 - GroupDocs.Search for Java
 - configure search network in Java
 - deploying nodes in search network
-title: 如何在 Java 中使用 GroupDocs.Search 設定搜尋：設定與部署指南
+title: 如何在 Java 中使用 GroupDocs.Search 設定搜尋 - 設定與部署指南
 type: docs
 url: /zh-hant/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/
 weight: 1

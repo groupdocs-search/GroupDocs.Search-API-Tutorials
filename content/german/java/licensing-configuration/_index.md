@@ -26,8 +26,6 @@ Das Festlegen der Lizenz ist ein entscheidender Teil jedes **java licensing tuto
 
 GroupDocs.Search kann eine breite Palette von Dokumenttypen indizieren und durchsuchen. Das Wissen über die **list supported formats** hilft Ihnen, Eingabepipelines zu entwerfen, die nicht unterstützte Dateien vermeiden, und reduziert Laufzeitfehler. Die Bibliothek unterstützt derzeit PDFs, Microsoft‑Office‑Dateien (Word, Excel, PowerPoint), OpenDocument‑Formate, Nur‑Text, HTML und vieles mehr.
 
----
-
 ## Verfügbare Tutorials
 
 ### [Konfiguration der Suche und Hervorhebung von Ergebnissen mit GroupDocs.Search für Java](./groupdocs-search-java-implementation/)

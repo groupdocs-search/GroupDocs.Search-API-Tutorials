@@ -28,20 +28,20 @@ Nếu bạn đã chán ngấy việc phải lọc qua vô số tài liệu một
 **Highlight search results java** là quá trình lấy một truy vấn tìm kiếm, xác định các đoạn khớp trong tài liệu của bạn và làm nổi bật trực quan các đoạn đó (ví dụ, bằng cách bao quanh chúng bằng dấu hiệu hoặc trả về chúng dưới dạng đoạn trích đã được làm nổi bật). Điều này giúp người dùng cuối dễ dàng xem ngữ cảnh của mỗi kết quả mà không cần mở toàn bộ tệp.
 
 ## Tại sao nên sử dụng GroupDocs.Search để làm nổi bật?
-GroupDocs.Search cung cấp một engine đã sẵn sàng, hiệu suất cao, hỗ trợ hàng chục định dạng tệp, lập chỉ mục phân tán và bộ làm nổi bật đoạn tích hợp. Nó loại bỏ nhu cầu viết trình phân tích tùy chỉnh hoặc quản lý hạ tầng tìm kiếm cấp thấp, cho phép bạn tập trung vào việc cung cấp trải nghiệm người dùng mượt mà.
+GroupDocs.Search cung cấp một công cụ đã có sẵn, hiệu suất cao, hỗ trợ định dạng tệp sáng tạo, lập chỉ mục phân tán và hợp nhất các đoạn tích nổi bật. Nó loại bỏ nhu cầu viết tùy chỉnh phân tích hoặc quản lý tầng tìm kiếm cấp thấp, cho phép bạn tập trung vào việc cung cấp trải nghiệm người dùng mượt mà.
 
 ## Yêu cầu trước
-- **Java Development Kit (JDK) 8+** – đảm bảo `java -version` trả về 1.8 hoặc cao hơn.  
-- **Maven** – để quản lý phụ thuộc.  
-- **GroupDocs.Search for Java 25.4** – phiên bản được sử dụng trong toàn bộ hướng dẫn này.  
-- Một IDE như **IntelliJ IDEA** hoặc **Eclipse** (tùy chọn nhưng được khuyến nghị).  
-- Kiến thức cơ bản về Java và các khái niệm mạng.
+- **Bộ công cụ phát triển Java (JDK) 8+** – đảm bảo `java -version` trả về 1.8 hoặc cao hơn.
+- **Maven** – để quản lý phụ thuộc.
+- **GroupDocs.Search for Java 25.4** – phiên bản được sử dụng trong toàn bộ hướng dẫn này.
+- Một IDE như **IntelliJ IDEA** hoặc **Eclipse** (tùy chọn được khuyến nghị).
+- Kiến trúc cơ bản về Java và các khái niệm mạng.
 
 ## Cài đặt GroupDocs.Search cho Java
 Bạn có thể đưa thư viện vào dự án của mình thông qua Maven hoặc tải JAR trực tiếp.
 
 ### Cấu hình Maven
-Add the repository and dependency to your `pom.xml`:
+Thêm kho lưu trữ và phần phụ thuộc vào `pom.xml` của bạn:
 
 ```xml
 <repositories>
@@ -70,7 +70,7 @@ Hoặc tải JAR mới nhất từ [GroupDocs.Search for Java releases](https://
 - **Purchase:** Mua giấy phép đầy đủ cho triển khai sản xuất.
 
 ### Khởi tạo và cấu hình cơ bản
-Create an `Index` instance that points to a folder where the search index will be stored:
+Tạo một phiên bản `Index` trỏ đến thư mục nơi chỉ mục tìm kiếm sẽ được lưu trữ:
 
 ```java
 import com.groupdocs.search.*;
@@ -89,7 +89,7 @@ public class SearchSetup {
 ### Cách làm nổi bật kết quả tìm kiếm Java trong mạng phân tán
 
 #### Cấu hình mạng tìm kiếm
-First, define where your documents live and which port the network will use.
+Trước tiên, hãy xác định vị trí lưu trữ tài liệu và cổng mà mạng sẽ sử dụng.
 
 ```java
 import com.groupdocs.search.common.*;
@@ -105,7 +105,8 @@ Configuration configuration = ConfiguringSearchNetwork.configure(basePath, baseP
 - **`basePort`** – cổng TCP để giao tiếp giữa các nút; chọn một cổng chưa được sử dụng.
 
 #### Triển khai các nút mạng tìm kiếm
-Deploy one or more nodes based on the configuration. The first node becomes the master.
+Triển khai một hoặc nhiều node dựa trên cấu hình. Node đầu tiên trở thành node chính.
+
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -118,7 +119,7 @@ SearchNetworkNode masterNode = nodes[0];
 - **`masterNode`** – điều phối việc lập chỉ mục và phân phối truy vấn.
 
 #### Đăng ký sự kiện nút mạng tìm kiếm
-Attach listeners to the master node to receive real‑time notifications (e.g., when indexing completes).
+Gắn các listener vào node chính để nhận thông báo theo thời gian thực (ví dụ: khi quá trình lập chỉ mục hoàn tất).
 
 ```java
 import com.groupdocs.search.scaling.events.*;
@@ -127,7 +128,7 @@ SearchNetworkNodeEvents.subscribe(masterNode);
 ```
 
 #### Lập chỉ mục các thư mục trong nút mạng
-Point the node to the folder(s) you want to index. The helper class `Utils.DocumentsPath` resolves to the sample data folder.
+Chỉ định node đến thư mục (các thư mục) bạn muốn lập chỉ mục. Lớp hỗ trợ `Utils.DocumentsPath` sẽ trỏ đến thư mục dữ liệu mẫu.
 
 ```java
 import com.groupdocs.search.examples.Utils;
@@ -137,7 +138,7 @@ IndexingDocuments.addDirectories(masterNode, Utils.DocumentsPath);
 ```
 
 #### Tìm kiếm văn bản trên các nút mạng
-Run a query against **all** nodes and retrieve the matching documents.
+Chạy truy vấn trên **tất cả** các node và truy xuất các tài liệu phù hợp.
 
 ```java
 import java.util.ArrayList;
@@ -190,7 +191,7 @@ public static void highlightInDocument(
 - **`maxFragments`** – giới hạn số đoạn trích bạn hiển thị cho mỗi tài liệu.
 
 #### Đóng các nút mạng
-When you’re done, shut down every node to free resources.
+Khi hoàn tất, hãy tắt tất cả các node để giải phóng tài nguyên.
 
 ```java
 for (SearchNetworkNode node : nodes) {

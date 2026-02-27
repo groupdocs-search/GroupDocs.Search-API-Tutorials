@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Search for Java
 - configure search network in Java
 - deploying nodes in search network
-title: 'วิธีกำหนดค่าการค้นหาด้วย GroupDocs.Search ใน Java: คู่มือการกำหนดค่าและการปรับใช้'
+title: 'วิธีกำหนดค่าการค้นหาด้วย GroupDocs.Search ใน Java - คู่มือการกำหนดค่าและการปรับใช้'
 type: docs
 url: /th/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/
 weight: 1

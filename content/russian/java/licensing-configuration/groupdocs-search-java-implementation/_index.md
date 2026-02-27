@@ -42,7 +42,7 @@ GroupDocs.Search предоставляет готовый, высокопрои
 Вы можете добавить библиотеку в ваш проект либо через Maven, либо загрузив JAR напрямую.
 
 ### Настройка Maven
-Add the repository and dependency to your `pom.xml`:
+Добавьте репозиторий и зависимость в ваш файл `pom.xml`:
 
 ```xml
 <repositories>
@@ -71,7 +71,7 @@ Add the repository and dependency to your `pom.xml`:
 - **Purchase:** Приобретите полную лицензию для продакшн‑развёртываний.
 
 ### Базовая инициализация и настройка
-Create an `Index` instance that points to a folder where the search index will be stored:
+Создайте экземпляр Index, указывающий на папку, в которой будет храниться индекс поиска:
 
 ```java
 import com.groupdocs.search.*;
@@ -90,7 +90,7 @@ public class SearchSetup {
 ### Как выделять результаты поиска Java в распределённой сети
 
 #### Настройка поисковой сети
-First, define where your documents live and which port the network will use.
+Сначала определите местоположение ваших документов и порт, который будет использоваться сетью.
 
 ```java
 import com.groupdocs.search.common.*;
@@ -106,7 +106,7 @@ Configuration configuration = ConfiguringSearchNetwork.configure(basePath, baseP
 - **`basePort`** — TCP‑порт для связи узлов; выберите свободный.
 
 #### Развёртывание узлов поисковой сети
-Deploy one or more nodes based on the configuration. The first node becomes the master.
+Разверните один или несколько узлов в зависимости от конфигурации. Первый узел станет главным.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -119,7 +119,7 @@ SearchNetworkNode masterNode = nodes[0];
 - **`masterNode`** — координирует индексацию и распределение запросов.
 
 #### Подписка на события узлов поисковой сети
-Attach listeners to the master node to receive real‑time notifications (e.g., when indexing completes).
+Прикрепите к главному узлу слушатели для получения уведомлений в реальном времени (например, о завершении индексирования).
 
 ```java
 import com.groupdocs.search.scaling.events.*;
@@ -128,7 +128,7 @@ SearchNetworkNodeEvents.subscribe(masterNode);
 ```
 
 #### Индексация каталогов в узле сети
-Point the node to the folder(s) you want to index. The helper class `Utils.DocumentsPath` resolves to the sample data folder.
+Укажите узлу папку (или папки), которые вы хотите проиндексировать. Вспомогательный класс `Utils.DocumentsPath` разрешается в папку с примерами данных.
 
 ```java
 import com.groupdocs.search.examples.Utils;
@@ -138,7 +138,7 @@ IndexingDocuments.addDirectories(masterNode, Utils.DocumentsPath);
 ```
 
 #### Поиск текста по узлам сети
-Run a query against **all** nodes and retrieve the matching documents.
+Выполните запрос ко **всем** узлам и получите соответствующие документы.
 
 ```java
 import java.util.ArrayList;
@@ -191,7 +191,7 @@ public static void highlightInDocument(
 - **`maxFragments`** — ограничивает количество фрагментов, отображаемых для каждого документа.
 
 #### Закрытие узлов сети
-When you’re done, shut down every node to free resources.
+После завершения выключите все узлы, чтобы освободить ресурсы.
 
 ```java
 for (SearchNetworkNode node : nodes) {

@@ -25,8 +25,6 @@ Setting the license is a crucial part of any **java licensing tutorial**. A vali
 
 GroupDocs.Search can index and search a wide range of document types. Knowing the **list supported formats** helps you design ingestion pipelines that avoid unsupported files and reduces runtime errors. The library currently supports PDFs, Microsoft Office files (Word, Excel, PowerPoint), OpenDocument formats, plain text, HTML, and many more.
 
----
-
 ## Available Tutorials
 
 ### [Configuring Search and Highlighting Results with GroupDocs.Search for Java](./groupdocs-search-java-implementation/)

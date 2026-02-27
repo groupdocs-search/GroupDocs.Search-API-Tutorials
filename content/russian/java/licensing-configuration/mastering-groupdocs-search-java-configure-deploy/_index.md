@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Search for Java
 - configure search network in Java
 - deploying nodes in search network
-title: 'Как настроить поиск с помощью GroupDocs.Search в Java: руководство по конфигурации
+title: 'Как настроить поиск с помощью GroupDocs.Search в Java - руководство по конфигурации
   и развертыванию'
 type: docs
 url: /ru/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/
@@ -34,15 +34,15 @@ weight: 1
 - **Лёгкость интеграции:** Простая настройка Maven и понятные Java API.  
 - **Готово для предприятий:** Обрабатывает большие корпусы и сложные запросы.
 
-## Prerequisites
-- **Java Development Kit (JDK) 8+** установлен.  
-- **Maven** для управления зависимостями.  
-- Базовые знания Java, Maven и концепций поиска.  
+## Предварительные условия
+- **Комплект разработки Java (JDK)8+** установлен.
+- **Maven** для управления зависимостями.
+- Базовые знания Java, Maven и определение концепций.
 
-## Setting Up GroupDocs.Search for Java
+## Настройка GroupDocs.Search для Java
 
-### Maven Dependency
-Add the repository and dependency to your `pom.xml`:
+### Зависимость Maven
+Добавьте репозиторий и зависимость в ваш pom.xml:
 
 ```xml
 <repositories>
@@ -64,12 +64,12 @@ Add the repository and dependency to your `pom.xml`:
 
 **Прямая загрузка:** Вы также можете получить библиотеку из [выпусков GroupDocs.Search для Java](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
-- **Бесплатная пробная версия:** Получите пробную лицензию, чтобы изучить все функции.  
-- **Временная лицензия:** Запросите для длительных периодов оценки.  
+### Получение лицензии
+- **Бесплатная пробная версия:** Получите пробную лицензию, чтобы изучить все функции.
+- **Временная лицензия:** Запросите оценку длительных периодов.
 - **Коммерческая лицензия:** Требуется для продакшн‑развертываний.
 
-### Basic Initialization
+### Базовая инициализация
 ```java
 import com.groupdocs.search.Configuration;
 // Initialize configuration with your document path and port
@@ -79,15 +79,15 @@ int basePort = 49112;
 Configuration config = new Configuration(basePath, basePort);
 ```
 
-## How to configure search network in Java
+## Как настроить поисковую сеть в Java
 
-### Step 1: Import Required Packages
+### Шаг 1: Импорт необходимых пакетов
 ```java
 import com.groupdocs.search.scaling.ConfiguringSearchNetwork;
 import com.groupdocs.search.scaling.Configuration;
 ```
 
-### Step 2: Configure the Network
+### Шаг 2: Настройка сети
 ```java
 String basePath = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Scaling/GettingDocumentsInNetwork/";
 int basePort = 49112;
@@ -96,58 +96,58 @@ Configuration configuration = ConfiguringSearchNetwork.configure(basePath, baseP
 ```
 - **Параметры:** `basePath` указывает на папку с вашими документами; `basePort` — TCP‑порт, используемый для связи узлов.
 
-## Deploying Search Network Nodes
+## Развертывание узлов поисковой сети
 
-### Step 1: Import Deployment Package
+### Шаг 1: Импорт пакета развертывания
 ```java
 import com.groupdocs.search.scaling.SearchNetworkDeployment;
 import com.groupdocs.search.scaling.SearchNetworkNode;
 ```
 
-### Step 2: Deploy Nodes
+### Шаг 2: Развертывание узлов
 ```java
 String[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, configuration);
 SearchNetworkNode masterNode = nodes[0]; // Designate the first node as the master node
 ```
 - **Главный узел:** Координирует поиск и индексацию на всех узлах.
 
-## Subscribing to Node Events for Real Time Search Updates
+## Подписка на события узлов для получения обновлений поиска в реальном времени
 
-### Step 1: Import Event Package
+### Шаг 1: Импорт пакета событий
 ```java
 import com.groupdocs.search.scaling.SearchNetworkNodeEvents;
 ```
 
-### Step 2: Subscribe to Master Node Events
+### Шаг 2: Подписка на события главного узла
 ```java
 SearchNetworkNodeEvents.subscribe(masterNode);
 ```
 - **Обработка событий:** Включает **обновления поиска в реальном времени** при добавлении, обновлении или удалении документов.
 
-## Adding Directories for Indexing
+## Добавление каталогов для индексирования
 
-### Step 1: Import Indexer Package
+### Шаг 1: Импорт пакета индексатора
 ```java
 import com.groupdocs.search.examples.Utils;
 import com.groupdocs.search.scaling.Indexer;
 ```
 
-### Step 2: Add Document Directories
+### Шаг 2: Добавление каталогов документов
 ```java
 Indexer indexer = masterNode.getIndexer();
 indexer.addDirectories("YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
 - **Динамическая индексация:** Добавляйте столько папок, сколько нужно; сеть будет индексировать их автоматически.
 
-## Retrieving Indexed Documents
+## Получение индексированных документов
 
-### Step 1: Import Searcher Package
+### Шаг 1: Импорт пакета поиска
 ```java
 import com.groupdocs.search.scaling.Searcher;
 import com.groupdocs.search.scaling.NetworkDocumentInfo;
 ```
 
-### Step 2: Retrieve Document Information
+### Шаг 2: Получение информации о документе
 ```java
 Searcher searcher = masterNode.getSearcher();
 int[] shardIndices = masterNode.getShardIndices();
@@ -172,46 +172,46 @@ for (int i = 0; i < shardIndices.length; i++) {
 ```
 - **Управление шардами:** Эффективно обрабатывает большие наборы данных, распределяя документы по шартам.
 
-## Practical Applications
-1. **Корпоративное управление документами:** Централизованный поиск по миллионам файлов.  
-2. **Юридические фирмы:** Быстро находить судебные дела, контракты и доказательства.  
+## Практическое применение
+1. **Корпоративное управление документами:** Централизованный поиск по миллионам файлов.
+2. **Юридические фирмы:** Быстро находить юридические дела, контракты и доказательства.
 3. **Академические исследования:** Индексировать журналы и статьи для мгновенного доступа.
 
-## Performance Considerations
-- **Оптимизировать индексацию:** Планировать регулярные обновления индекса и удалять устаревшие данные.  
-- **Управление памятью:** Следить за кучей JVM, особенно при работе с большими шардами.  
-- **Планирование масштабируемости:** Добавлять узлы по мере роста корпуса; сеть автоматически балансирует нагрузку.
+## Вопросы производительности
+- **Оптимизировать индексацию:** Планировать регулярные обновления индекса и удалять устаревшие данные.
+- **Управление памятью:** Следить за кучей JVM, особенно при работе с определенными шардами.
+- **Планирование масштабируемости:** Добавлены узлы по мере роста корпуса; сеть автоматически балансирует нагрузку.
 
-## Common Issues & Solutions
+## Распространенные проблемы и решения
 
 | Проблема | Причина | Решение |
 |-------|-------|-----|
-| Узлы не могут подключиться | Конфликт портов или брандмауэр | Убедитесь, что `basePort` открыт и не используется другими сервисами |
+| Узлы не могут быть подключены | Конфликт портов или брандмауэр | Убедитесь, что `basePort` открыт и не используется другими сервисами |
 | Индекс не обновляется | Отсутствует подписка на события | Вызовите `SearchNetworkNodeEvents.subscribe(masterNode)` после развертывания |
-| Ошибки «Out‑of‑memory» | Слишком много больших шардов загружено | Уменьшите размер шарда или увеличьте кучу JVM (`-Xmx` флаг) |
+| Ошибки «Недостаточно памяти» | Слишком много больших шардов загружено | Уменьшите размер шарда или увеличьте государственный JVM (флаг `-Xmx`) |
 
-## Frequently Asked Questions
+## Часто задаваемые вопросы
 
-**В: Можно ли добавить новые каталоги после запуска сети?**  
-О: Да — используйте метод `indexer.addDirectories()`; подписанные события будут распространять обновления в реальном времени.
+**В: Можно ли добавить новые каталоги после запуска сети?**
+О: Да — вскормите метод `indexer.addDirectories()`; подписанные события будут распространять обновления в первое время.
 
-**В: Как контролировать состояние узлов?**  
-О: Каждый `SearchNetworkNode` предоставляет API статуса; интегрируйте их с выбранным инструментом мониторинга.
+**В: Как контролировать состояние узлов?**
+О: Каждый `SearchNetworkNode` обеспечивает API-требование; Интегрируйте их выбранным прибором «Диптихи».
 
-**В: Можно ли запустить главный узел на отдельной машине?**  
-О: Да. Просто убедитесь, что все узлы используют один и тот же `basePort` и могут связываться друг с другом по сети.
+**В: Можно ли включить главный узел на отдельном компьютере?**
+О: Да. Просто убедитесь, что все узлы используют один и тот же `basePort` и могут соединяться друг с другом по сети.
 
-**В: Какие форматы файлов поддерживаются?**  
+**В: Какие форматы файлов применяются?**
 О: GroupDocs.Search поддерживает PDF, Word, Excel, PowerPoint, обычный текст и многие другие форматы сразу же.
 
-**В: Нужно ли перезапускать сеть после добавления нового узла?**  
-О: Нет — узлы можно добавлять или удалять динамически; главный узел автоматически перераспределит шарды.
+**В: Нужно ли перезапускать сеть после добавления нового узла?**
+О: Нет — узлы можно подключать или удалять управления; Главный узел автоматически перераспределяет шарды.
 
-## Conclusion
-Теперь у вас есть полное пошаговое понимание **настройки поиска** с использованием GroupDocs.Search для Java, от начальной установки до обновлений в реальном времени и распределённой индексации. Применяйте эти шаблоны для создания быстрых, масштабируемых и надёжных решений поиска документов для любой отрасли.
+## Заключение
+Теперь у вас есть полное пошаговое понимание **настройки** с использованием GroupDocs.Search для Java, от первоначальной установки до обновлений в первое время и распределенной индексации. Применяйте эти шаблоны для создания быстрых, масштабируемых и надёжных решений поиска документов для любой отрасли.
 
 ---
 
-**Last Updated:** 2026-01-08  
-**Tested With:** GroupDocs.Search for Java 25.4  
-**Author:** GroupDocs
+**Последнее обновление:** 08.01.2026
+**Протестировано с:** GroupDocs.Search для Java 25.4
+**Автор:** GroupDocs

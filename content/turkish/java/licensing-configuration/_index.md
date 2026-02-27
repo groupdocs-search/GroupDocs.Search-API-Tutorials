@@ -27,8 +27,6 @@ Lisansı ayarlamak, herhangi bir **java licensing tutorial** için kritik bir ad
 
 GroupDocs.Search, geniş bir belge türü yelpazesini indeksleyebilir ve arayabilir. **list supported formats** bilgisinin bilinmesi, desteklenmeyen dosyaları önleyen ve çalışma zamanı hatalarını azaltan bir veri alma hattı tasarlamanıza yardımcı olur. Kütüphane şu anda PDF’ler, Microsoft Office dosyaları (Word, Excel, PowerPoint), OpenDocument formatları, düz metin, HTML ve daha birçok formatı desteklemektedir.
 
----
-
 ## Mevcut Eğitimler
 
 ### [Configuring Search and Highlighting Results with GroupDocs.Search for Java](./groupdocs-search-java-implementation/)

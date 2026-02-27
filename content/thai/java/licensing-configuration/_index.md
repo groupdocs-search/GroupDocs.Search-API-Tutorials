@@ -26,8 +26,6 @@ weight: 13
 
 GroupDocs.Search สามารถทำดัชนีและค้นหาประเภทเอกสารที่หลากหลายได้ การรู้จัก **list supported formats** จะช่วยให้คุณออกแบบ pipeline การนำเข้าเพื่อหลีกเลี่ยงไฟล์ที่ไม่รองรับและลดข้อผิดพลาดขณะรันไทม์ ไลบรารีในปัจจุบันรองรับ PDF, ไฟล์ Microsoft Office (Word, Excel, PowerPoint), รูปแบบ OpenDocument, ข้อความธรรมดา, HTML และอื่น ๆ อีกมาก
 
----
-
 ## บทเรียนที่พร้อมใช้งาน
 
 ### [การกำหนดค่า Search และการไฮไลท์ผลลัพธ์ด้วย GroupDocs.Search สำหรับ Java](./groupdocs-search-java-implementation/)

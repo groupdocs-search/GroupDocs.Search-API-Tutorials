@@ -26,8 +26,6 @@ weight: 13
 
 يمكن لـ GroupDocs.Search فهرسة والبحث في مجموعة واسعة من أنواع المستندات. معرفة **list supported formats** يساعدك على تصميم خطوط إدخال تتجنب الملفات غير المدعومة وتقلل من أخطاء وقت التشغيل. المكتبة تدعم حاليًا ملفات PDF، ملفات Microsoft Office (Word، Excel، PowerPoint)، صيغ OpenDocument، النص العادي، HTML، والعديد غيرها.
 
----
-
 ## الدروس المتاحة
 
 ### [تنفيذ تعيين الترخيص من ملف في GroupDocs.Search لـ Java: دليل خطوة بخطوة](./groupdocs-search-java-implementation-license/)

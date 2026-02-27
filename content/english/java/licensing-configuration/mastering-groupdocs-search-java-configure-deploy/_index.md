@@ -1,5 +1,5 @@
 ---
-title: "How to Configure Search with GroupDocs.Search in Java: Configuration & Deployment Guide"
+title: "How to Configure Search with GroupDocs.Search in Java - Configuration & Deployment Guide"
 description: "Learn how to configure search and enable real time search updates using GroupDocs.Search for Java. Step‑by‑step guide on network setup, node deployment, and indexing."
 date: "2026-01-08"
 weight: 1

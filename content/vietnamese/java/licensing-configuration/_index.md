@@ -26,8 +26,6 @@ Việc đặt giấy phép là một phần quan trọng của bất kỳ **java
 
 GroupDocs.Search có thể lập chỉ mục và tìm kiếm một loạt các loại tài liệu. Biết **list supported formats** giúp bạn thiết kế các pipeline nhập liệu tránh các tệp không được hỗ trợ và giảm lỗi thời gian chạy. Thư viện hiện đang hỗ trợ PDF, các tệp Microsoft Office (Word, Excel, PowerPoint), định dạng OpenDocument, văn bản thuần, HTML và nhiều hơn nữa.
 
----
-
 ## Các Hướng Dẫn Có Sẵn
 
 ### [Cấu hình Tìm kiếm và Làm nổi bật Kết quả với GroupDocs.Search cho Java](./groupdocs-search-java-implementation/)

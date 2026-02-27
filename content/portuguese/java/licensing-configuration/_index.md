@@ -26,8 +26,6 @@ Definir a licença é uma parte crucial de qualquer **tutorial de licenciamento 
 
 O GroupDocs.Search pode indexar e pesquisar uma ampla variedade de tipos de documentos. Conhecer a **lista de formatos suportados** ajuda a projetar pipelines de ingestão que evitam arquivos não suportados e reduzem erros em tempo de execução. Atualmente, a biblioteca suporta PDFs, arquivos Microsoft Office (Word, Excel, PowerPoint), formatos OpenDocument, texto simples, HTML e muitos outros.
 
----
-
 ## Tutoriais Disponíveis
 
 ### [Configurando Pesquisa e Realce de Resultados com GroupDocs.Search para Java](./groupdocs-search-java-implementation/)

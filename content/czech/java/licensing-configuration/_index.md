@@ -26,8 +26,6 @@ Nastavení licence je klíčovou součástí jakéhokoli **java licensing tutori
 
 GroupDocs.Search může indexovat a prohledávat širokou škálu typů dokumentů. Znalost **list supported formats** vám pomáhá navrhovat ingestní pipeline, které se vyhýbají nepodporovaným souborům a snižují chyby za běhu. Knihovna v současnosti podporuje PDF, soubory Microsoft Office (Word, Excel, PowerPoint), formáty OpenDocument, prostý text, HTML a mnoho dalších.
 
----
-
 ## Dostupné tutoriály
 
 ### [Konfigurace vyhledávání a zvýraznění výsledků pomocí GroupDocs.Search pro Java](./groupdocs-search-java-implementation/)

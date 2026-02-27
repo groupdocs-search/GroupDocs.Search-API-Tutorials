@@ -27,8 +27,6 @@ Impostare la licenza è una parte fondamentale di qualsiasi **java licensing tut
 
 GroupDocs.Search può indicizzare e ricercare un'ampia gamma di tipi di documento. Conoscere la **list supported formats** ti aiuta a progettare pipeline di ingestione che evitino file non supportati e riducono gli errori a runtime. Attualmente la libreria supporta PDF, file Microsoft Office (Word, Excel, PowerPoint), formati OpenDocument, testo semplice, HTML e molti altri.
 
----
-
 ## Tutorial disponibili
 
 ### [Configurare la ricerca e l'evidenziazione dei risultati con GroupDocs.Search per Java](./groupdocs-search-java-implementation/)
