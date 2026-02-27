@@ -1,39 +1,48 @@
 ---
-date: '2025-12-26'
-description: Pelajari cara mencari dan menyorot teks dalam dokumen menggunakan GroupDocs.Search
-  untuk Java. Jelajahi teknik untuk penyorotan dokumen penuh dan fragmen.
+date: '2026-02-27'
+description: Pelajari cara menyorot teks Java menggunakan GroupDocs.Search untuk Java,
+  mencakup pencarian dokumen Java, pengindeksan dokumen Java, dan penyorotan fragmen.
 keywords:
 - GroupDocs.Search for Java
 - highlight search terms in documents
 - document highlighting
-title: Cari dan Sorot Teks dengan GroupDocs.Search untuk Java
+title: Sorot Teks Java dengan GroupDocs.Search
 type: docs
 url: /id/java/highlighting/groupdocs-search-java-highlight-terms-documents/
 weight: 1
 ---
 
-# Cari dan Sorot Teks dalam Dokumen Menggunakan GroupDocs.Search untuk Java
+# Sorot Teks Java dengan GroupDocs.Search
 
-Di era digital saat ini, **search and highlight text** di seluruh koleksi dokumen besar merupakan kebutuhan umum. Baik Anda sedang membangun alat tinjauan hukum, portal riset akademik, atau dasbor dukungan pelanggan, kemampuan untuk langsung menemukan dan menekankan istilah kunci secara signifikan meningkatkan kegunaan. Dalam panduan komprehensif ini, Anda akan menemukan cara mengimplementasikan **search and highlight text** dengan GroupDocs.Search untuk Java—mencakup sorotan seluruh dokumen dan sorotan tingkat fragmen untuk konteks yang terfokus.
+Di lingkungan digital yang bergerak cepat saat ini, kemampuan untuk **highlight text java** di seluruh koleksi file yang besar merupakan fitur yang wajib dimiliki. Baik Anda sedang membangun platform peninjauan hukum, mesin riset akademik, atau konsol dukungan pelanggan, menemukan istilah yang dicari pengguna secara instan membuat pengalaman jauh lebih efisien. Tutorial ini memandu Anda menggunakan **GroupDocs.Search for Java** untuk **search documents java**, **index documents java**, dan menerapkan sorotan kaya—baik untuk seluruh dokumen maupun untuk fragmen terfokus.
 
 ## Jawaban Cepat
 - **Apa arti “search and highlight text”?** Ini merujuk pada menemukan istilah kueri dalam dokumen dan menekankannya secara visual (misalnya, dengan warna latar belakang).  
-- **Library mana yang menyediakan kemampuan ini?** GroupDocs.Search untuk Java.  
+- **Perpustakaan mana yang menyediakan kemampuan ini?** GroupDocs.Search for Java.  
 - **Apakah saya memerlukan lisensi?** Versi percobaan gratis dapat digunakan untuk evaluasi; lisensi penuh diperlukan untuk produksi.  
-- **Apakah saya dapat menyesuaikan warna sorotan?** Ya—warna RGB apa pun dapat diatur melalui `HighlightOptions`.  
-- **Apakah sorotan fragmen didukung?** Tentu; Anda dapat menentukan istilah sebelum/setelah kecocokan untuk membuat potongan singkat.
+- **Bisakah saya menyesuaikan warna sorotan?** Ya—warna RGB apa pun dapat diatur melalui `HighlightOptions`.  
+- **Apakah sorotan fragmen didukung?** Tentu saja; Anda dapat menentukan istilah sebelum/setelah kecocokan untuk membuat potongan singkat.
+
+## Cara Menyorot Teks Java dalam Dokumen
+Menyorot teks Java melibatkan tiga langkah inti:
+
+1. **Indeks file sumber** sehingga dapat dicari dengan cepat.  
+2. **Jalankan kueri** terhadap indeks untuk menemukan dokumen yang cocok.  
+3. **Render hasil dengan petunjuk visual** menggunakan API highlighter.
+
+Di bawah ini kami menjelajahi setiap langkah secara detail, pertama untuk output seluruh dokumen dan kemudian untuk potongan tingkat fragmen.
 
 ## Apa Itu Search and Highlight Text?
-Search and highlight text adalah proses memindai indeks dokumen untuk kueri tertentu, mengambil dokumen yang cocok, dan kemudian menandai setiap kemunculan istilah kueri dalam output dokumen (HTML, PDF, dll.). Petunjuk visual ini membantu pengguna akhir menemukan informasi yang relevan secara instan.
+Search and highlight text adalah proses memindai indeks dokumen untuk kueri tertentu, mengambil dokumen yang cocok, dan kemudian menandai setiap kemunculan istilah kueri dalam output dokumen (HTML, PDF, dll.). Petunjuk visual ini membantu pengguna akhir menemukan informasi relevan secara instan.
 
 ## Mengapa Menggunakan GroupDocs.Search untuk Java?
-- **High‑performance indexing** dengan kompresi yang dapat dikonfigurasi.  
-- **Rich highlighting API** yang bekerja pada seluruh dokumen dan fragmen khusus.  
-- **Cross‑format support** (DOCX, PDF, PPTX, TXT, dan lainnya).  
-- **Easy Maven integration** dan API berorientasi Java yang jelas.
+- **Pengindeksan berperforma tinggi** dengan kompresi yang dapat dikonfigurasi (`index documents java`).  
+- **API sorotan kaya** yang bekerja pada seluruh dokumen dan fragmen khusus (`highlight search terms java`).  
+- **Dukungan lintas format** (DOCX, PDF, PPTX, TXT, dan lainnya).  
+- **Integrasi Maven yang sederhana** dan desain yang berfokus pada Java.
 
 ## Prasyarat
-- Java Development Kit (JDK) 8 atau lebih baru.  
+- Java Development Kit (JDK) 8 atau yang lebih baru.  
 - Maven untuk manajemen dependensi.  
 - IDE seperti IntelliJ IDEA atau Eclipse.  
 - Familiaritas dasar dengan sintaks Java.
@@ -60,14 +69,14 @@ Tambahkan repositori GroupDocs dan dependensi ke `pom.xml` Anda:
 </dependencies>
 ```
 
-Anda juga dapat mengunduh JAR terbaru secara langsung dari situs resmi: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Anda juga dapat mengunduh JAR terbaru secara langsung dari situs resmi: [Rilis GroupDocs.Search untuk Java](https://releases.groupdocs.com/search/java/).
 
 ### Akuisisi Lisensi
 Mulailah dengan percobaan gratis atau dapatkan lisensi sementara untuk evaluasi. Untuk penerapan produksi, beli lisensi penuh untuk membuka semua fitur.
 
 ## Panduan Implementasi
 
-Implementasi dibagi menjadi dua bagian praktis: **highlighting in entire documents** dan **highlighting in fragments**. Kedua bagian mencakup langkah-langkah penting untuk **how to highlight Java** dokumen menggunakan GroupDocs.Search.
+Implementasi dibagi menjadi dua bagian praktis: **menyorot dalam seluruh dokumen** dan **menyorot dalam fragmen**. Kedua bagian mencakup langkah penting untuk **cara menyorot Java** dokumen menggunakan GroupDocs.Search.
 
 ### Mengonfigurasi Pengaturan Indeks
 Sebelum mengindeks, konfigurasikan penyimpanan untuk menggunakan kompresi tinggi—ini mengurangi penggunaan disk sambil mempertahankan kecepatan pencarian.
@@ -77,7 +86,7 @@ IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-### Highlighting in Entire Documents
+### Menyorot dalam Seluruh Dokumen
 
 #### Langkah 1: Buat dan Isi Indeks
 Buat folder indeks dan tambahkan semua file sumber yang ingin Anda cari.
@@ -89,7 +98,7 @@ index.add("/path/to/your/documents");
 ```
 
 #### Langkah 2: Lakukan Pencarian dan Terapkan Sorotan
-Cari istilah (mis., `ipsum`) dan hasilkan file HTML dengan kecocokan yang disorot.
+Cari istilah (misalnya `ipsum`) dan hasilkan file HTML dengan kecocokan yang disorot.
 
 ```java
 SearchResult result = index.search("ipsum");
@@ -107,14 +116,14 @@ if (result.getDocumentCount() > 0) {
 }
 ```
 
-**Opsi utama dijelaskan**
+**Opsi utama dijelaskan**  
 - **Compression** – kompresi tinggi menghemat penyimpanan.  
 - **HighlightColor** – atur nilai RGB apa pun untuk menyesuaikan palet UI Anda.  
-- **UseInlineStyles** – `false` menghasilkan HTML bersih yang dapat ditata secara global dengan CSS.
+- **UseInlineStyles** – `false` menghasilkan HTML bersih yang dapat ditata secara global dengan CSS.  
 
-### Highlighting in Fragments
+### Menyorot dalam Fragmen
 
-#### Langkah 1: Indeks dan Cari (sama seperti di atas)
+#### Langkah 1: Indeks dan Pencarian (sama seperti di atas)
 ```java
 String indexFolder = "/path/to/your/document/directory/HighlightingInFragments";
 Index index = new Index(indexFolder, settings);
@@ -124,7 +133,7 @@ SearchResult result = index.search("ipsum");
 ```
 
 #### Langkah 2: Tentukan Konteks Fragmen dan Sorot
-Tentukan berapa banyak istilah sebelum dan sesudah kecocokan yang harus muncul di setiap fragmen.
+Tentukan berapa banyak istilah sebelum dan setelah kecocokan yang harus muncul dalam setiap fragmen.
 
 ```java
 HighlightOptions options = new HighlightOptions();
@@ -166,14 +175,14 @@ try {
 ```
 
 ## Aplikasi Praktis
-1. **Legal Document Review** – secara instan menyorot undang‑undang, klausul, atau referensi kasus.  
-2. **Academic Research** – menampilkan terminologi kunci di ratusan PDF dan file Word.  
-3. **Customer Support** – menemukan nomor pesanan atau kode error dalam riwayat tiket.
+1. **Peninjauan Dokumen Hukum** – secara instan menyorot undang‑undang, klausul, atau referensi kasus.  
+2. **Penelitian Akademik** – menampilkan terminologi kunci di ratusan PDF dan file Word.  
+3. **Dukungan Pelanggan** – menemukan nomor pesanan atau kode error dalam riwayat tiket.
 
 ## Pertimbangan Kinerja
 - **Index Size** – kompresi tinggi (`Compression.High`) mengurangi jejak disk.  
 - **Fragment Context** – nilai `termsBefore/After` yang lebih besar meningkatkan akurasi tetapi dapat memengaruhi kecepatan.  
-- **Memory Management** – pantau heap JVM saat mengindeks korpus besar; pertimbangkan indeks inkremental untuk set yang sangat besar.
+- **Memory Management** – pantau heap JVM saat mengindeks korpus besar; pertimbangkan pengindeksan inkremental untuk set yang sangat besar.
 
 ## Masalah Umum dan Solusinya
 - **Indexing Errors** – verifikasi jalur file dan pastikan aplikasi memiliki izin baca/tulis.  
@@ -183,22 +192,28 @@ try {
 ## Pertanyaan yang Sering Diajukan
 
 **Q: Apa manfaat menggunakan GroupDocs.Search untuk Java?**  
-A: Ia menawarkan pengindeksan cepat dan skalabel, sorotan yang dapat disesuaikan, serta dukungan untuk banyak format dokumen.
+A: Menawarkan pengindeksan cepat dan skalabel, sorotan yang dapat disesuaikan, serta dukungan untuk banyak format dokumen.
 
-**Q: Bagaimana saya dapat mengintegrasikan GroupDocs.Search dengan REST API?**  
-A: Ekspose metode pencarian dan sorotan melalui kontroler Spring Boot, mengembalikan payload HTML atau JSON.
+**Q: Bagaimana cara mengintegrasikan GroupDocs.Search dengan REST API?**  
+A: Ekspose metode pencarian dan sorotan melalui controller Spring Boot, mengembalikan payload HTML atau JSON.
 
-**Q: Apakah perpustakaan ini menangani file yang dilindungi password?**  
-A: Ya—berikan password saat menambahkan dokumen ke indeks.
+**Q: Apakah perpustakaan menangani file yang dilindungi kata sandi?**  
+A: Ya—berikan kata sandi saat menambahkan dokumen ke indeks.
 
 **Q: Bisakah saya menyesuaikan markup sorotan selain warna?**  
-A: Tentu; Anda dapat menyuntikkan kelas CSS melalui `HighlightOptions` atau memodifikasi HTML setelah dibuat.
+A: Tentu saja; Anda dapat menyuntikkan kelas CSS via `HighlightOptions` atau memodifikasi HTML setelah dibuat.
 
 **Q: Versi apa yang diuji untuk panduan ini?**  
 A: Kode telah divalidasi terhadap GroupDocs.Search 25.4.
 
+**Q: Bagaimana cara set highlight options java untuk menggunakan kelas CSS alih-alih gaya inline?**  
+A: Atur `options.setUseInlineStyles(false)` dan tambahkan aturan CSS untuk kelas yang Anda tetapkan via `options.setCssClass("myHighlight")`.
+
+**Q: Apakah ada cara untuk highlight terms pdf java langsung ketika sumbernya PDF?**  
+A: Ya—GroupDocs.Search bekerja dengan input PDF, dan highlighter akan menghasilkan HTML yang dapat Anda sematkan dalam penampil PDF atau konversi kembali ke PDF menggunakan GroupDocs.Conversion.
+
 ---
 
-**Terakhir Diperbarui:** 2025-12-26  
+**Terakhir Diperbarui:** 2026-02-27  
 **Diuji Dengan:** GroupDocs.Search 25.4  
 **Penulis:** GroupDocs
