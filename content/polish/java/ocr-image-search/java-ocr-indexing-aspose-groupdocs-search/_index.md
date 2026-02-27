@@ -60,15 +60,15 @@ Dodaj repozytorium i zależność do swojego `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
+### Bezpośrednie pobieranie
 Alternatywnie, pobierz najnowszą wersję GroupDocs.Search dla Java z [wydania GroupDocs](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
-- **Bezpłatna wersja próbna** – przetestuj wszystkie funkcje bez kosztów.  
-- **Licencja tymczasowa** – wydłużony okres testowy.  
-- **Zakup** – wymagany przy wdrożeniach produkcyjnych.
+### Nabycie licencji
+- **Bezpłatna wersja próbna** – przetestuj wszystkie funkcje bez kosztów.
+- **Licencja tymczasowa** – wydłużony okres testowy.
+- **Zakup** – wymagany przy stosowaniu produkcji.
 
-### Basic Initialization and Setup
+### Podstawowa inicjalizacja i konfiguracja
 Utwórz folder indeksu i zainicjalizuj obiekt `Index`:
 
 ```java
@@ -88,7 +88,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/OcrSupport";
 Index index = new Index(indexFolder);
 ```
 
-### Setting OCR Indexing Options
+### Ustawianie opcji indeksowania OCR
 Włącz OCR zarówno dla osobnych, jak i osadzonych obrazów oraz podłącz własny łącznik OCR:
 
 ```java
@@ -100,7 +100,7 @@ options.getOcrIndexingOptions().setEnabledForEmbeddedImages(true);
 options.getOcrIndexingOptions().setOcrConnector(new OcrConnector());
 ```
 
-### Indexing Documents
+### Indeksowanie dokumentów
 Dodaj swoje dokumenty źródłowe (PDF, pliki Word, obrazy itp.) do indeksu:
 
 ```java
@@ -108,7 +108,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder, options);
 ```
 
-### Searching in an Index
+### Wyszukiwanie w indeksie
 Uruchom zapytanie wyszukiwania na zindeksowanej zawartości:
 
 ```java
@@ -117,7 +117,7 @@ String query = "water";
 SearchResult result = index.search(query);
 ```
 
-### Implementing an OCR Connector
+### Implementacja łącznika OCR
 Użyj Aspose.OCR do rozpoznawania tekstu z obrazów. Zaimplementuj interfejs `IOcrConnector` jak pokazano:
 
 ```java
@@ -174,7 +174,7 @@ A: Sprawdź dokładnie ścieżki katalogów, upewnij się, że wszystkie zależn
 **P: Jak mogę zintegrować Aspose.OCR z istniejącą aplikacją Java?**  
 A: Zaimplementuj interfejs `IOcrConnector` jak pokazano powyżej, zapewniając prawidłowe obsłużenie wejścia obrazu.
 
-## Resources
+## Zasoby
 - [Dokumentacja GroupDocs.Search](https://docs.groupdocs.com/search/java/)
 - [Referencja API](https://reference.groupdocs.com/search/java/)
 

@@ -25,23 +25,23 @@ Bu rehberde **GroupDocs'i nasıl kullanacağınızı** keşfedecek ve Java uygul
 - **Çoklu iş parçacığı (multi‑threading) destekleniyor mu?** Yes, you can parallelize indexing for large data sets.
 
 ## GroupDocs ile OCR İndekslemesi Nedir?
-OCR indekslemesi, görüntülerden (tar scanned PDF'ler dahil) metin çıkarır ve bunu aranabilir bir indeks içinde saklar. GroupDocs.Search indeksleme ve sorgu yürütmeyi yönetirken, Aspose.OCR gerçek karakter tanıma işlemini gerçekleştirir.
+OCR indekslemesi, görüntülerden (taranmış PDF'ler dahil) metin çıkarır ve saklar içinde bir indeks aranabilir. GroupDocs.Search indeksleme ve sorgu yürütmeyi yönetirken, Aspose.OCR gerçek karakter tanıma işlemlerini gerçekleştirir.
 
 ## Java OCR indekslemesi için GroupDocs'i neden kullanmalısınız?
-- **Yüksek doğruluk** Aspose'un gelişmiş OCR motoru sayesinde.  
-- **Sorunsuz Java entegrasyonu** Maven veya doğrudan JAR'lar aracılığıyla.  
-- **Esnek yapılandırma** ayrı veya gömülü görüntüler için.  
-- **Ölçeklenebilir performans** çoklu iş parçacığı ve bellek optimizasyonlarıyla.
+- **Yüksek doğruluk** Aspose'un gelişmiş OCR motoru sayesinde.
+- **Sorunsuz Java Bağlantısı** Maven veya doğrudan JAR'lar aracılığıyla.
+- **Esnek kurulum** ayrı veya gömülü görüntüler için.
+- **Ölçeklenebilir performans** çoklu iş parçacığı ve bellek değişiklikleriyle.
 
-## Prerequisites
-- **GroupDocs.Search** ≥ 25.4  
-- **Aspose.OCR** (latest version)  
-- JDK 8+ and an IDE (IntelliJ, Eclipse, NetBeans)  
+## Önkoşullar
+- **GrupDocs.Arama**≥25,4
+- **Aspose.OCR** ​​(en son sürüm)
+- JDK8+ ve bir IDE (IntelliJ, Eclipse, NetBeans)
 - Temel Java bilgisi; Maven faydalı ancak zorunlu değil
 
 ## GroupDocs.Search'ü Java için Kurma
-### Using Maven
-`pom.xml` dosyanıza depoyu ve bağımlılığı ekleyin:
+### Maven'i Kullanmak
+`pom.xml` dosyanıza depoyu ve miktarı ekleyin:
 
 ```xml
 <repositories>
@@ -60,16 +60,16 @@ OCR indekslemesi, görüntülerden (tar scanned PDF'ler dahil) metin çıkarır 
 </dependencies>
 ```
 
-### Direct Download
-Alternatif olarak, GroupDocs.Search'ün Java için en son sürümünü [GroupDocs releases](https://releases.groupdocs.com/search/java/) adresinden indirin.
+### Doğrudan İndirme
+Alternatif olarak, GroupDocs.Search'ün Java için en son indirmesi [GroupDocs sürümleri](https://releases.groupdocs.com/search/java/) adresinden indirilir.
 
-### License Acquisition
-- **Ücretsiz Deneme** – tüm özellikleri ücretsiz keşfedin.  
-- **Geçici Lisans** – uzatılmış test süresi.  
-- **Satın Alma** – üretim dağıtımları için gereklidir.
+### Lisans Alma
+- **Ücretsiz Deneme** – tüm özellikler ücretsiz kiralama.
+- **Geçici Lisans** – uzatılmış test süresi.
+- **Satın Alma** – üretim çıktıları için gereklidir.
 
-### Basic Initialization and Setup
-Bir indeks klasörü oluşturun ve `Index` nesnesini başlatın:
+### Temel Başlatma ve Kurulum
+Bir indeks bileşenlerini birleştirin ve `Index` nesnesini başlatın:
 
 ```java
 import com.groupdocs.search.Index;
@@ -80,15 +80,15 @@ Index index = new Index(indexFolder);
 ```
 
 ## OCR İndekslemesi için GroupDocs Nasıl Kullanılır
-### Creating an Index
-İlk olarak, indeks dosyalarını tutacak klasörü ayarlayın:
+### Dizin Oluşturma
+İlk olarak, indeks aralıklarını muhafaza eden birimler ayarlar:
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/OcrSupport";
 Index index = new Index(indexFolder);
 ```
 
-### Setting OCR Indexing Options
+### OCR İndeksleme Seçeneklerinin Ayarlanması
 Ayrı ve gömülü görüntüler için OCR'ı etkinleştirin ve özel bir OCR bağlayıcısı ekleyin:
 
 ```java
@@ -100,7 +100,7 @@ options.getOcrIndexingOptions().setEnabledForEmbeddedImages(true);
 options.getOcrIndexingOptions().setOcrConnector(new OcrConnector());
 ```
 
-### Indexing Documents
+### Belgelerin İndekslenmesi
 Kaynak belgelerinizi (PDF'ler, Word dosyaları, görüntüler vb.) indeks'e ekleyin:
 
 ```java
@@ -108,7 +108,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder, options);
 ```
 
-### Searching in an Index
+### İndekste Arama
 İndekslenmiş içerik üzerinde bir arama sorgusu çalıştırın:
 
 ```java
@@ -117,7 +117,7 @@ String query = "water";
 SearchResult result = index.search(query);
 ```
 
-### Implementing an OCR Connector
+### OCR Bağlayıcısının Uygulanması
 Görüntülerden metin tanımak için Aspose.OCR'ı kullanın. Aşağıda gösterildiği gibi `IOcrConnector` arayüzünü uygulayın:
 
 ```java
@@ -143,43 +143,43 @@ public class OcrConnector implements IOcrConnector {
 ```
 
 ## Pratik Uygulamalar
-1. **Belge Yönetim Sistemleri** – taranmış görüntüler içeren belgelerin hızlı alınması.  
-2. **Arşiv Erişimi** – büyük arşivlerde tarihsel kayıtları bulma.  
-3. **Hukuki Belge Analizi** – taranmış imzalar veya diyagramlar içeren sözleşme ve delilleri arama.  
+1. **Belge Yönetim Sistemleri** – taranmış görüntüleri içeren belgeleri hızlı bir şekilde toplar.
+2. **Arşiv Erişimi** – büyük arşivlerde mevcut olanları bulma.
+3. **Hukuki Belge Analizi** – taranmış imzalar veya diyagramlar içeren sözleşme ve delilleri arama.
 4. **Tıbbi Kayıt Arama** – hasta formları, laboratuvar sonuçları ve röntgen notlarını indeksleme.
 
 ## Performans Düşünceleri
-- **İndeks Boyutu** – indeksin hafif kalması için gereksiz meta verileri dışarıda bırakın.  
-- **Çoklu İş Parçacığı** – indekslemeyi hızlandırmak için büyük partileri paralel işleyin.  
-- **Bellek Yönetimi** – yüksek çözünürlüklü görüntülerle çalışırken JVM yığınını izleyin.
+- **İndeks Boyutu** – indeksin hafif kalması için dışarıda gereksiz meta verileri bırakın.
+- **Çoklu İş Parçacığı** – indekslemeyi hızlandırmak için büyük partileri paralel işleyin.
+- **Bellek Yönetimi** – yüksek verimli ekranlarla çalışırken JVM yığınını izleyin.
 
 ## Yaygın Sorunlar ve Çözümler
-- **Lisans Hataları** – doğru lisans dosyasının uygulamanın çalışma dizinine yerleştirildiğinden emin olun.  
-- **Eksik Görüntüler** – görüntü yollarının erişilebilir ve desteklenen formatlarda (PNG, JPEG, BMP) olduğundan emin olun.  
+- **Lisans Hataları** – doğru lisans sürümünün sunulduğu çalışma dizinine yerleştirildiğinden emin olun.
+- **Eksik Görüntüler** – görüntü yollarının erişilebilir ve erişilebilir formatlarda (PNG, JPEG, BMP) olduğundan emin olun.
 - **Bellek Yetersizliği** – JVM yığınını (`-Xmx`) artırın veya belgeleri daha küçük partilerde işleyin.
 
 ## Sıkça Sorulan Sorular
-**Q: GroupDocs.Search ile lisans sorunlarını nasıl çözerim?**  
-**A:** Tam özellikleri açmak için [GroupDocs web sitesinden](https://purchase.groupdocs.com/temporary-license/) geçici bir lisans edinin.
+**S: GroupDocs.Search ile lisans çözümleri nasıl çözerim?**
+**A:** Tam özellikleri açmak için [GroupDocs web ülkesinde](https://purchase.groupdocs.com/temporary-license/) geçici bir lisans belgesidir.
 
-**Q: Büyük belge indekslemesini yönetmenin en iyi yolu nedir?**  
-**A:** Performansı artırmak ve bellek baskısını azaltmak için çoklu iş parçacığı ve toplu işleme kullanın.
+**S: Büyük belge indekslemesini yönetmenin en iyi yolu nedir?**
+**A:** Performansı artırma ve bellek baskısını azaltmak için çoklu iş parçacığı ve toplu işleme kullanın.
 
-**Q: GroupDocs.Search içinde OCR ayarlarını daha da özelleştirebilir miyim?**  
-**A:** Evet, `IndexingOptions` OCR davranışını, dil seçimi ve görüntü ön işleme gibi detayları ayarlamanıza izin verir.
+**S: GroupDocs.Search içinde OCR özelliklerini daha da özelleştirebilir miyim?**
+**A:** Evet, `IndexingOptions` OCR davranışını, dil seçimi ve görüntü ön işleme gibi detayları düzenlemenize izin verir.
 
-**Q: GroupDocs.Search kullanırken yaygın sorun giderme ipuçları nelerdir?**  
-**A:** Dizin yollarını iki kez kontrol edin, tüm bağımlılıkların mevcut olduğunu doğrulayın ve eksik dosyalar için günlük çıktısını inceleyin.
+**S: GroupDocs.Search sırasında yaygın sorunların çözümleri neler oluyor?**
+**A:** Dizin yollarını iki kez kontrol edin, tüm ilişkilerin mevcut olup olmadığını doğrulayın ve eksik dosyaları günlük olarak inceleyin.
 
-**Q: Aspose.OCR'ı mevcut Java uygulamama nasıl entegre edebilirim?**  
-**A:** Yukarıda gösterildiği gibi `IOcrConnector` arayüzünü uygulayın ve görüntü girişini doğru şekilde işlediğinizden emin olun.
+**S: Aspose.OCR'ı mevcut Java uygulamasına nasıl entegre edebilirim?**
+**A:** Yukarıda gösterildiği gibi `IOcrConnector` tanıtımını modüle edin ve görüntü girişini doğru şekilde yaptığınızdan emin olun.
 
-## Resources
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java/)
+## Kaynaklar
+- [GroupDocs.Arama Belgeleri](https://docs.groupdocs.com/search/java/)
+- [API Referansı](https://reference.groupdocs.com/search/java/)
 
 ---
 
-**Son Güncelleme:** 2026-01-11  
-**Test Edilen Versiyon:** GroupDocs.Search 25.4, Aspose.OCR son sürüm  
+**Son Güncelleme:** 2026-01-11
+**Edilen Sürümünü Test Edin:** GroupDocs.Search 25.4, Aspose.OCR son sürümü
 **Yazar:** GroupDocs

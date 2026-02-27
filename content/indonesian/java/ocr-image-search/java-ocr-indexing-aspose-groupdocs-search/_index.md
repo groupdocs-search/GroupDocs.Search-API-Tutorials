@@ -18,29 +18,29 @@ weight: 1
 Dalam panduan ini Anda akan menemukan **cara menggunakan GroupDocs** untuk menambahkan pencarian berbasis OCR ke aplikasi Java Anda. Dengan menggabungkan GroupDocs.Search dengan Aspose.OCR, Anda dapat mengubah konten berbasis gambar menjadi teks yang dapat dicari, membuat sistem manajemen dokumen jauh lebih berguna. Kami akan membahas langkah-langkah penyiapan, pengindeksan, pencarian, dan integrasi OCR khusus, semuanya dengan contoh langkah demi langkah yang jelas.
 
 ## Jawaban Cepat
-- **Perpustakaan apa yang menyediakan OCR indexing?** GroupDocs.Search dipasangkan dengan Aspose.OCR.  
-- **Versi Java apa yang diperlukan?** JDK 8 atau lebih tinggi.  
-- **Apakah saya memerlukan lisensi?** Versi percobaan gratis tersedia; lisensi berbayar diperlukan untuk produksi.  
-- **Bisakah saya mengindeks gambar terpisah dan tersemat?** Ya, aktifkan kedua opsi di `IndexingOptions`.  
+- **Perpustakaan apa yang menyediakan pengindeksan OCR?** GroupDocs.Search dipasangkan dengan Aspose.OCR.
+- **Versi Java apa yang diperlukan?** JDK8 atau lebih tinggi.
+- **Apakah saya memerlukan lisensi?** Versi percobaan gratis tersedia; lisensi berbayar diperlukan untuk produksi.
+- ** menghubungi saya mengindeks gambar terpisah dan tersemat?** Ya, aktifkan kedua opsi di `IndexingOptions`.
 - **Apakah multi‑threading didukung?** Ya, Anda dapat memparalelkan pengindeksan untuk kumpulan data besar.
 
-## Apa itu OCR Indexing dengan GroupDocs?
-OCR indexing mengekstrak teks dari gambar (termasuk PDF yang dipindai) dan menyimpannya dalam indeks yang dapat dicari. GroupDocs.Search menangani proses pengindeksan dan eksekusi kueri, sementara Aspose.OCR melakukan pengenalan karakter sebenarnya.
+## Apa itu Pengindeksan OCR dengan GroupDocs?
+Pengindeksan OCR mengekstrak teks dari gambar (termasuk PDF yang diinginkan) dan menyimpannya dalam indeks yang dapat dicari. GroupDocs.Search menangani proses pengindeksan dan eksekusi kueri, sementara Aspose.OCR melakukan pengenalan karakter sebenarnya.
 
-## Mengapa menggunakan GroupDocs untuk OCR indexing Java?
-- **Akurasi tinggi** berkat mesin OCR canggih dari Aspose.  
-- **Integrasi Java yang mulus** melalui Maven atau JAR langsung.  
-- **Konfigurasi fleksibel** untuk gambar terpisah atau tersemat.  
-- **Kinerja skalabel** dengan multi‑threading dan optimasi memori.
+## Mengapa menggunakan GroupDocs untuk mengindeks OCR Java?
+- **Akurasi tinggi** berkat mesin OCR canggih dari Aspose.
+- **Integrasi Java yang mulus** melalui Maven atau JAR langsung.
+- **Konfigurasi fleksibel** untuk gambar terpisah atau tersemat.
+- **Kinerja skalabel** dengan multi-threading dan optimalisasi memori.
 
-## Prerequisites
-- **GroupDocs.Search** ≥ 25.4  
-- **Aspose.OCR** (latest version)  
-- JDK 8+ and an IDE (IntelliJ, Eclipse, NetBeans)  
-- Basic Java knowledge; Maven is helpful but not mandatory
+## Prasyarat
+- **GroupDocs.Search**≥25.4
+- **Aspose.OCR** ​​(versi terbaru)
+- JDK8+ dan IDE (IntelliJ, Eclipse, NetBeans)
+- Pengetahuan dasar Java; Maven bermanfaat tetapi tidak wajib
 
 ## Menyiapkan GroupDocs.Search untuk Java
-### Using Maven
+### Menggunakan Maven
 Tambahkan repositori dan dependensi ke `pom.xml` Anda:
 
 ```xml
@@ -60,15 +60,15 @@ Tambahkan repositori dan dependensi ke `pom.xml` Anda:
 </dependencies>
 ```
 
-### Direct Download
+### Unduh Langsung
 Atau, unduh versi terbaru GroupDocs.Search untuk Java dari [GroupDocs releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
-- **Free Trial** – jelajahi semua fitur tanpa biaya.  
-- **Temporary License** – periode pengujian yang diperpanjang.  
-- **Purchase** – diperlukan untuk penyebaran produksi.
+### Akuisisi Lisensi
+- **Uji Coba Gratis** – menjelajahi semua fitur tanpa biaya.
+- **Lisensi Sementara** – periode pengujian yang diperpanjang.
+- **Pembelian** – diperlukan untuk penyebaran produksi.
 
-### Basic Initialization and Setup
+### Inisialisasi dan Pengaturan Dasar
 Buat folder indeks dan inisialisasi objek `Index`:
 
 ```java
@@ -79,8 +79,8 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/OcrSupport";
 Index index = new Index(indexFolder);
 ```
 
-## Cara Menggunakan GroupDocs untuk OCR Indexing
-### Creating an Index
+## Cara Menggunakan GroupDocs untuk Pengindeksan OCR
+### Membuat Indeks
 Pertama, siapkan folder yang akan menyimpan file indeks:
 
 ```java
@@ -88,7 +88,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/OcrSupport";
 Index index = new Index(indexFolder);
 ```
 
-### Setting OCR Indexing Options
+### Mengatur Opsi Pengindeksan OCR
 Aktifkan OCR untuk gambar terpisah dan tersemat, serta sambungkan konektor OCR khusus:
 
 ```java
@@ -100,7 +100,7 @@ options.getOcrIndexingOptions().setEnabledForEmbeddedImages(true);
 options.getOcrIndexingOptions().setOcrConnector(new OcrConnector());
 ```
 
-### Indexing Documents
+### Mengindeks Dokumen
 Tambahkan dokumen sumber Anda (PDF, file Word, gambar, dll.) ke indeks:
 
 ```java
@@ -108,7 +108,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder, options);
 ```
 
-### Searching in an Index
+### Mencari dalam Indeks
 Jalankan kueri pencarian terhadap konten yang diindeks:
 
 ```java
@@ -117,7 +117,7 @@ String query = "water";
 SearchResult result = index.search(query);
 ```
 
-### Implementing an OCR Connector
+### Mengimplementasikan Konektor OCR
 Gunakan Aspose.OCR untuk mengenali teks dari gambar. Implementasikan antarmuka `IOcrConnector` seperti yang ditunjukkan:
 
 ```java
@@ -143,43 +143,43 @@ public class OcrConnector implements IOcrConnector {
 ```
 
 ## Aplikasi Praktis
-1. **Sistem Manajemen Dokumen** – pengambilan cepat dokumen yang berisi gambar yang dipindai.  
-2. **Pengambilan Arsip** – menemukan catatan historis dalam arsip besar.  
-3. **Analisis Dokumen Hukum** – mencari kontrak dan bukti yang mencakup tanda tangan atau diagram yang dipindai.  
-4. **Pencarian Rekam Medis** – mengindeks formulir pasien, hasil laboratorium, dan anotasi X‑ray.
+1. **Sistem Manajemen Dokumen** – pengambilan cepat dokumen yang berisi gambar yang diizinkan.
+2. **Pengambilan Arsip** – menemukan catatan sejarah dalam arsip besar.
+3. **Analisis Dokumen Hukum** – mencari kontrak dan bukti yang mencakup tanda tangan atau diagram yang membukanya.
+4. **Pencarian Rekam Medis** – mengindeks formulir pasien, hasil laboratorium, dan anotasi X-ray.
 
 ## Pertimbangan Kinerja
-- **Ukuran Indeks** – kecualikan metadata yang tidak diperlukan untuk menjaga indeks tetap ringan.  
-- **Multi‑Threading** – proses batch besar secara paralel untuk mempercepat pengindeksan.  
+- **Ukuran Indeks** – kecualikan metadata yang tidak diperlukan untuk menjaga indeks tetap ringan.
+- **Multi‑Threading** – proses batch besar secara paralel untuk mempercepat pengindeksan.
 - **Manajemen Memori** – pantau heap JVM saat menangani gambar resolusi tinggi.
 
 ## Masalah Umum dan Solusinya
-- **Kesalahan Lisensi** – pastikan file lisensi yang benar ditempatkan di direktori kerja aplikasi.  
-- **Gambar Hilang** – verifikasi jalur gambar dapat diakses dan format yang didukung (PNG, JPEG, BMP).  
+- **Kesalahan Lisensi** – pastikan file lisensi yang benar ditempatkan di direktori kerja aplikasi.
+- **Gambar Hilang** – verifikasi jalur gambar dapat diakses dan format yang didukung (PNG, JPEG, BMP).
 - **Out‑Of‑Memory** – tingkatkan heap JVM (`-Xmx`) atau proses dokumen dalam batch yang lebih kecil.
 
 ## Pertanyaan yang Sering Diajukan
-**Q: Bagaimana cara mengatasi masalah lisensi dengan GroupDocs.Search?**  
+**Q: Bagaimana cara mengatasi masalah lisensi dengan GroupDocs.Search?**
 A: Dapatkan lisensi sementara dari [situs GroupDocs](https://purchase.groupdocs.com/temporary-license/) untuk membuka semua fitur.
 
-**Q: Apa cara terbaik menangani pengindeksan dokumen besar?**  
-A: Manfaatkan multi‑threading dan pemrosesan batch untuk meningkatkan kinerja dan mengurangi tekanan memori.
+**Q: Apa cara terbaik menangani pengindeksan dokumen besar?**
+A: Manfaatkan multi-threading dan pemrosesan batch untuk meningkatkan kinerja dan mengurangi tekanan memori.
 
-**Q: Bisakah saya menyesuaikan pengaturan OCR lebih lanjut di GroupDocs.Search?**  
+**Q: Bisakah saya menyesuaikan pengaturan OCR lebih lanjut di GroupDocs.Search?**
 A: Ya, `IndexingOptions` memungkinkan Anda menyesuaikan perilaku OCR, seperti pemilihan bahasa dan pra‑pemrosesan gambar.
 
-**Q: Apa saja tips pemecahan masalah umum saat menggunakan GroupDocs.Search?**  
+**Q: Apa saja tips pemecahan masalah umum saat menggunakan GroupDocs.Search?**
 A: Periksa kembali jalur direktori, pastikan semua dependensi ada, dan tinjau output log untuk file yang hilang.
 
-**Q: Bagaimana cara mengintegrasikan Aspose.OCR dengan aplikasi Java saya yang ada?**  
-A: Implementasikan antarmuka `IOcrConnector` seperti yang ditunjukkan di atas, pastikan Anda menangani input gambar dengan benar.
+**Q: Bagaimana cara mengintegrasikan Aspose.OCR dengan aplikasi Java saya yang ada?**
+A: Implementasikan antarmuka `IOcrConnector` seperti yang ditampilkan di atas, pastikan Anda menangani input gambar dengan benar.
 
-## Resources
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java/)
+## Sumber daya
+- [Dokumentasi GroupDocs.Search](https://docs.groupdocs.com/search/java/)
+- [Referensi API](https://reference.groupdocs.com/search/java/)
 
 ---
 
-**Last Updated:** 2026-01-11  
-**Tested With:** GroupDocs.Search 25.4, Aspose.OCR latest release  
-**Author:** GroupDocs
+**Terakhir Diperbarui:** 11-01-2026
+**Diuji Dengan:** GroupDocs.Search 25.4, rilis terbaru Aspose.OCR
+**Penulis:** GroupDocs
