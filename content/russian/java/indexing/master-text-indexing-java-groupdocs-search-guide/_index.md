@@ -39,7 +39,7 @@ weight: 1
 ## Настройка GroupDocs.Search для Java
 
 ### Настройка Maven
-Add the repository and dependency to your `pom.xml` file:
+Добавьте репозиторий и зависимость в файл `pom.xml`:
 
 ```xml
 <repositories>
@@ -89,14 +89,14 @@ public class InitializeSearch {
 ## Как индексировать текст с пользовательской компрессией
 
 ### Шаг 1: Определите папку индекса
-Choose a directory where the index files will reside:
+Выберите каталог, где будут располагаться индексные файлы:
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\StoringTextOfIndexedDocuments";
 ```
 
 ### Шаг 2: Настройте параметры индекса
-Set up high‑compression text storage to reduce disk usage:
+Настройте хранилище текста с высоким уровнем сжатия для уменьшения использования дискового пространства:
 
 ```java
 import com.groupdocs.search.Index;
@@ -109,7 +109,7 @@ settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
 ### Шаг 3: Создайте индекс с пользовательскими настройками
-Instantiate the index using the configuration defined above:
+Создайте индекс, используя описанную выше конфигурацию:
 
 ```java
 Index index = new Index(indexFolder, settings);
@@ -119,7 +119,7 @@ System.out.println("Index created with high compression.");
 ## Как добавить документы в индекс
 
 ### Шаг 1: Инициализируйте индекс (если еще не сделано)
-Assuming the index folder and settings are prepared:
+Предполагая, что папка индекса и настройки подготовлены:
 
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Replace with actual document path.
@@ -127,7 +127,7 @@ Index index = new Index(indexFolder);
 ```
 
 ### Шаг 2: Добавьте документы из папки
-Index all supported files in the given directory:
+Проиндексируйте все поддерживаемые файлы в указанном каталоге:
 
 ```java
 index.add(documentsFolder);
@@ -137,14 +137,14 @@ System.out.println("Documents added successfully.");
 ## Как искать по индексированным документам
 
 ### Шаг 1: Определите поисковый запрос
-Specify the term you want to locate:
+Укажите термин, который вы хотите найти:
 
 ```java
 String query = "Lorem";  
 ```
 
 ### Шаг 2: Выполните поиск
-Run the query against the index and retrieve results:
+Выполните запрос к индексу и получите результаты:
 
 ```java
 import com.groupdocs.search.results.SearchResult;

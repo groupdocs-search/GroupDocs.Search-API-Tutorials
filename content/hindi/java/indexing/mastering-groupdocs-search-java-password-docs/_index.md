@@ -18,31 +18,37 @@ weight: 1
 आधुनिक उद्यमों में, पासवर्ड के साथ संवेदनशील डेटा की सुरक्षा आवश्यक है, लेकिन यह अक्सर तेज़ पुनर्प्राप्ति के लिए **create document index java** को कठिन बना देता है। यह ट्यूटोरियल आपको दिखाता है कि GroupDocs.Search for Java का उपयोग करके पासवर्ड‑सुरक्षित फ़ाइलों का खोज योग्य इंडेक्स कैसे बनाएं, जबकि आपका कार्यप्रवाह सुरक्षित और कुशल बना रहे।
 
 ## Quick Answers
-- **इस ट्यूटोरियल में क्या कवर किया गया है?** पासवर्ड‑सुरक्षित दस्तावेज़ों को पासवर्ड डिक्शनरी और इवेंट लिस्नर के साथ इंडेक्स करना।  
-- **कौन सी लाइब्रेरी आवश्यक है?** GroupDocs.Search for Java (नवीनतम संस्करण)।  
-- **क्या मुझे लाइसेंस चाहिए?** मूल्यांकन के लिए एक अस्थायी मुफ्त ट्रायल लाइसेंस उपलब्ध है।  
-- **क्या मैं अन्य फ़ाइल प्रकारों को इंडेक्स कर सकता हूँ?** हाँ, GroupDocs.Search कई फ़ॉर्मेट जैसे PDF, DOCX, XLSX आदि को सपोर्ट करता है।  
-- **कौन सा जावा संस्करण चाहिए?** JDK 8 या उसके बाद का।
+- **इस Tutorial में क्या कवर किया गया है?** Password‑ Save Documents को Password Dictionary और Event lisner के साथ लिंक करना।
+- **कौन सी Library ज़रूरी है?** GroupDocs.Search for Java (नवीनतम संस्करण)।
+- **क्या मुझे License चाहिए?** मूल्यांकन के लिए एक temporary free trial license उपलब्ध है।
+- **क्या मैं अन्य File Embedded Data Structure को Link कर सकता हूँ?** हाँ, GroupDocs.Search कई Formset जैसे PDF, DOCX, XLSX आदि को Support करता है।
+- **कौन सा Java संस्करण चाहिए?** JDK8 या उसके बाद का।
+## “create document index java” क्या है?
+Java में Document Embedded Documents बनाना मतलब एक Search योग्य Data Structure बनाना है जो शब्दों को उन उदाहरणों से जोड़ता है जहाँ वे मौजूद हैं। GroupDocs.Search के साथ, यह प्रोसेस ऑटोमैटिक रूप से क्लोज्ड डॉक्यूमेंट्स को हैंडल कर सकती है, इसलिए आपको हर फ़ाइल को असाइन रूप से प्रोसेस करने की ज़रूरत नहीं है।
 
-## What is “create document index java”?
-जावा में दस्तावेज़ इंडेक्स बनाना मतलब एक खोज योग्य डेटा संरचना बनाना है जो शब्दों को उन फ़ाइलों से जोड़ती है जहाँ वे मौजूद हैं। GroupDocs.Search के साथ, यह प्रक्रिया स्वचालित रूप से एन्क्रिप्टेड दस्तावेज़ों को संभाल सकती है, इसलिए आपको प्रत्येक फ़ाइल को मैन्युअल रूप से अनलॉक करने की आवश्यकता नहीं है।
+## पासवर्ड-प्रोटेक्टेड फ़ाइलों के लिए GroupDocs.Search का इस्तेमाल क्यों करें?
 
-## Why use GroupDocs.Search for password‑protected files?
-- **Zero‑touch अनलॉकिंग** – पासवर्ड एक बार डिक्शनरी या इवेंट हैंडलर के माध्यम से प्रदान करें।  
-- **उच्च प्रदर्शन** – अनुकूलित इंडेक्सिंग इंजन जो लाखों दस्तावेज़ों तक स्केल करता है।  
-- **समृद्ध क्वेरी भाषा** – बूलियन ऑपरेटर, वाइल्डकार्ड और फ़ज़ी सर्च का समर्थन।  
-- **क्रॉस‑फ़ॉर्मेट समर्थन** – बॉक्स से बाहर 100 से अधिक फ़ाइल प्रकारों के साथ काम करता है।
+- **Zero‑touch प्रोसेस** – पासवर्ड एक बार डिक्शनरी या इवेंट हैंडलर के ज़रिए दें।
 
-## Prerequisites
-1. **Java Development Kit (JDK) 8+** – आपके PATH में स्थापित और कॉन्फ़िगर किया गया।  
-2. **IDE** – IntelliJ IDEA, Eclipse, या कोई भी जावा‑संगत एडिटर।  
-3. **Maven** – डिपेंडेंसी प्रबंधन के लिए।  
-4. **GroupDocs.Search for Java** – Maven के माध्यम से लाइब्रेरी जोड़ें (नीचे देखें)।  
+- **हाई परफॉरमेंस** – इंटीग्रेटेड मैपिंग इंजन जो लाखों डॉक्यूमेंट्स तक स्केल करता है।
 
-## Setting Up GroupDocs.Search for Java
+- **समृद्ध क्वेरी भाषा** – बूलियन ऑपरेटर, वाइल्डकार्ड और फ़ज़ी सर्च का सपोर्ट।
 
-### Using Maven
-Add the repository and dependency to your `pom.xml` file:
+- **क्रॉस-फॉर्मेट सपोर्ट** – बॉक्स से बाहर 100 से ज़्यादा फ़ाइल स्टोरेज के साथ काम करता है।
+
+## ज़रूरी शर्तें
+
+1. **Java Development Kit (JDK) 8+** – आपके PATH में इंस्टॉल और स्विच किया गया।
+
+2. **IDE** – IntelliJ IDEA, Eclipse, या कोई भी Java‑constant एडिटर।
+
+3. **Maven** – डिपेंडेंसी मैनेजमेंट के लिए।
+4. **GroupDocs.Search for Java** – Maven के ज़रिए लाइब्रेरी जोड़ें (नीचे देखें)।
+
+## GroupDocs.Search for Java सेट अप करना
+
+### Maven का इस्तेमाल करना
+अपनी `pom.xml` फ़ाइल में रिपॉजिटरी और डिपेंडेंसी जोड़ें:
 
 ```xml
 <repositories>
@@ -62,33 +68,33 @@ Add the repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-### Direct Download
+### डायरेक्ट डाउनलोड
 वैकल्पिक रूप से, आप नवीनतम संस्करण सीधे [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) से डाउनलोड कर सकते हैं।
 
-ट्रायल लाइसेंस शुरू करने के लिए, [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/) पर जाएँ और मुफ्त ट्रायल प्राप्त करने के निर्देशों का पालन करें।
+ट्रायल लाइसेंस शुरू करने के लिए, [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/) पर जाएँ और मुफ़्त ट्रायल प्राप्त करने के सर्टिफिकेट का पालन करें।
 
-## How to create document index java using GroupDocs.Search
+## GroupDocs.Search का उपयोग करके डॉक्यूमेंट इंडेक्स जावा कैसे बनाएं
 
 नीचे दो व्यावहारिक दृष्टिकोण दिए गए हैं। दोनों आपको पासवर्ड को स्वचालित रूप से संभालते हुए **create document index java** करने देते हैं।
 
-### Approach 1 – Indexing Using a Password Dictionary
+### अप्रोच 1 – पासवर्ड डिक्शनरी का उपयोग करके इंडेक्सिंग
 
-#### Overview
-दस्तावेज़ पासवर्ड को एक डिक्शनरी में संग्रहीत करें ताकि इंजन फ़ाइलों को तुरंत अनलॉक कर सके।
+#### ओवरव्यू
+दस्तावेज़ पासवर्ड को एक डिक्शनरी में जांचें करें ताकि इंजन असाइनमेंट को तुरंत सफल कर सके।
 
-#### Step 1: Define the Index and Documents Folder
+#### स्टेप 1: इंडेक्स और डॉक्यूमेंट्स फोल्डर को परिभाषित करें
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordDictionary";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Step 2: Create an Index
+#### स्टेप 2: इंडेक्स बनाएं
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Step 3: Add Document Passwords
+#### स्टेप 3: डॉक्यूमेंट पासवर्ड जोड़ें
 ```java
 // Add passwords for specific files using their absolute paths
 String path1 = new File(documentsFolder + "/English.docx").getAbsolutePath();
@@ -98,13 +104,13 @@ String path2 = new File(documentsFolder + "/Lorem ipsum.docx").getAbsolutePath()
 index.getDictionaries().getDocumentPasswords().add(path2, "123456");
 ```
 
-#### Step 4: Index Documents
+#### स्टेप 4: डॉक्यूमेंट इंडेक्स करें
 ```java
 // Automatically retrieve passwords from the dictionary during indexing
 index.add(documentsFolder);
 ```
 
-#### Step 5: Search in the Index
+#### स्टेप 5: इंडेक्स में सर्च करें
 ```java
 String query = "ipsum OR increasing";
 SearchResult result = index.search(query);
@@ -112,30 +118,31 @@ SearchResult result = index.search(query);
 // Handle search results (e.g., display or process them)
 ```
 
-**Tip:** यदि आपके पास कई फ़ाइलें हैं, तो पासवर्ड को हार्ड‑कोड करने के बजाय सुरक्षित स्टोर (डेटाबेस, Azure Key Vault आदि) से लोड करने पर विचार करें।
+**टिप:** अगर आपके पास कई फाइलें हैं, तो पासवर्ड को हार्ड-कोड करने के बजाय सुरक्षित स्टोर (डेटाबेस, Azure Key Vault आदि) से लोड करने पर विचार करें।
 
-#### Troubleshooting
-- सुनिश्चित करें कि प्रत्येक पासवर्ड फ़ाइल के वास्तविक सुरक्षा पासवर्ड से मेल खाता है।  
-- फ़ाइल पाथ दोबारा जांचें; गलत पाथ `FileNotFoundException` को ट्रिगर करता है।
+#### समस्या निवारण
+- सुनिश्चित करें कि हर पासवर्ड फ़ाइल के असली सुरक्षा पासवर्ड से मेल खाता है।
 
-### Approach 2 – Indexing Using an Event Listener for Password Requirement
+- फ़ाइल पाथ दोबारा भरें; गलत पाथ `FileNotFoundException` को ट्रिगर करता है।
 
-#### Overview
-जब इंजन पासवर्ड‑आवश्यक इवेंट उठाता है, तब पासवर्ड को डायनामिक रूप से प्रदान करें।
+### अप्रोच 2 – पासवर्ड की ज़रूरत के लिए इवेंट लिसनर का इस्तेमाल करके इंडेक्सिंग
 
-#### Step 1: Define the Index and Documents Folder
+#### ओवरव्यू
+जब इंजन पासवर्ड-ज़रूरी इवेंट अपलोड होता है, तब पासवर्ड को डायनामिक रूप से प्रोवाइड करें।
+
+#### स्टेप 1: इंडेक्स और डॉक्यूमेंट्स फोल्डर को डिफाइन करें
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordEvent";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Step 2: Create an Index
+#### स्टेप 2: एक इंडेक्स बनाएं
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Step 3: Subscribe to Password‑Required Event
+#### स्टेप 3: पासवर्ड-रिक्वायर्ड इवेंट को सब्सक्राइब करें
 ```java
 index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArgs>() {
     @Override
@@ -148,13 +155,13 @@ index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArg
 });
 ```
 
-#### Step 4: Index Documents
+#### स्टेप 4: डॉक्यूमेंट्स को इंडेक्स करें
 ```java
 // The event handler will supply passwords as required during indexing
 index.add(documentsFolder);
 ```
 
-#### Step 5: Search in the Index
+#### स्टेप 5: इंडेक्स में सर्च करें
 ```java
 String query = "ipsum OR increasing";
 SearchResult result = index.search(query);
@@ -162,38 +169,36 @@ SearchResult result = index.search(query);
 // Handle search results (e.g., display or process them)
 ```
 
-#### Troubleshooting
-- सुनिश्चित करें कि इवेंट हैंडलर उन सभी फ़ाइल एक्सटेंशन को कवर करता है जिन्हें आप इंडेक्स करना चाहते हैं।  
-- पहले कुछ नमूना फ़ाइलों के साथ परीक्षण करें ताकि यह पुष्टि हो सके कि पासवर्ड लागू हो रहा है।
-
-## Practical Applications
-1. **एंटरप्राइज़ दस्तावेज़ प्रबंधन:** गोपनीय अनुबंधों, HR फ़ाइलों और वित्तीय रिपोर्टों का इंडेक्सिंग स्वचालित करें।  
-2. **लीगल आर्काइव्स:** केस फ़ाइलों को तेज़ी से पुनः प्राप्त करें जबकि उन्हें स्थिर अवस्था में एन्क्रिप्टेड रखें।  
-3. **हेल्थकेयर रिकॉर्ड्स:** रोगी PDFs और Word दस्तावेज़ों को इंडेक्स करें बिना PHI को उजागर किए।
-
-## Performance Considerations
-- **मेमोरी आवंटन:** बड़े बैचों के लिए पर्याप्त हीप मेमोरी (`-Xmx2g` या अधिक) आवंटित करें।  
-- **पैरेलल इंडेक्सिंग:** तेज़ थ्रूपुट के लिए `index.addAsync(...)` का उपयोग करें या कई इंडेक्सिंग थ्रेड चलाएँ।  
+#### समस्या निवारण
+- सुनिश्चित करें कि इवेंट हैंडलर उन सभी फ़ाइल एक्सटेंशन को कवर करता है जिन्हें आप पंजीकृत करना चाहते हैं।
+- पहले कुछ मॉडल असाइनमेंट के साथ परीक्षण करें ताकि यह पुष्टि हो सके कि पासवर्ड लागू हो रहा है।
+## व्यावहारिक अनुप्रयोग
+1. **एंटरप्राइज़ डॉक्यूमेंट मैनेजमेंट:** गोपनीय कॉन्ट्रैक्ट्स, एचआर असाइनमेंट और फाइनेंशियल स्टेटमेंट का असाइनमेंट ऑटोमैटिक करें।
+2. **लीगल आर्काइव्स:** केस असाइनमेंट को तेज़ी से पुनः प्राप्त करें जबकि उन्हें स्थिर अवस्था में प्रबंधित रखें।
+3. **हेल्थकेयर रिकॉर्ड्स:** रोगी PDF और वर्ड डॉक्यूमेंट्स को असाइनमेंट करें बिना PHI को उजागर किए।
+## प्रदर्शन संबंधी विचार
+- **मेमोरी असाइनमेंट:** बड़े बैचों के लिए पर्याप्त हीप मेमोरी (`-Xmx2g` या अधिक) असाइन करें।
+- **पैरेलल असाइनमेंट:** तेज़ थ्रूपुट के लिए `index.addAsync(...)` का उपयोग करें या कई असाइनमेंट थ्रेड चलाएँ।
 - **इंडेक्स रखरखाव:** समय-समय पर `index.optimize()` कॉल करें ताकि इंडेक्स को कॉम्पैक्ट किया जा सके और क्वेरी गति सुधरे।
 
-## Frequently Asked Questions
+## अक्सर पूछे जाने वाले प्रश्न
 
-**Q: विभिन्न फ़ाइल फ़ॉर्मेट को कैसे संभालूँ?**  
-A: GroupDocs.Search PDF, DOCX, XLSX, PPTX और कई अन्य को सपोर्ट करता है। यदि आवश्यक हो तो उपयुक्त फ़ॉर्मेट प्लगइन्स इंस्टॉल करें।
+**Q: विभिन्न फ़ाइल फ़ॉर्मेट को कैसे संभालूँ?**
+A: GroupDocs.Search PDF, DOCX, XLSX, PPTX और कई अन्य को सपोर्ट करता है। यदि आवश्यक हो तो उपयुक्त फ़ॉर्मेट डेटाबेस इंस्टॉल करें।
 
-**Q: यदि पासवर्ड गलत हो तो क्या होता है?**  
-A: दस्तावेज़ को छोड़ दिया जाता है, और एक चेतावनी लॉग की जाती है। अपने पासवर्ड डिक्शनरी या इवेंट हैंडलर लॉजिक को दोबारा जांचें।
+**Q: यदि पासवर्ड गलत हो तो क्या होता है?**
+A: डॉक्यूमेंट को छोड़ दिया जाता है, और एक चेतावनी लॉग की जाती है। अपने पासवर्ड डिक्शनरी या इवेंट हैंडलर लॉजिक को दोबारा इंस्टॉल करें।
 
-**Q: क्या मैं क्लाउड में संग्रहीत फ़ाइलों को इंडेक्स कर सकता हूँ?**  
-A: हाँ, लेकिन उन्हें पहले स्थानीय अस्थायी फ़ोल्डर में डाउनलोड करना होगा, क्योंकि इंजन फ़ाइल सिस्टम पाथ के साथ काम करता है।
+**Q: क्या मैं क्लाउड में इंडेक्स सबमिशन को इंडेक्स कर सकता हूँ?**
+A: हाँ, लेकिन उन्हें पहले लोकल अस्थायी फ़ोल्डर में डाउनलोड करना होगा, क्योंकि इंजन फ़ाइल सिस्टम पाथ के साथ काम करता है।
 
-**Q: सर्च प्रासंगिकता कैसे बढ़ाऊँ?**  
-A: `IndexOptions` के माध्यम से स्कोरिंग सेटिंग्स समायोजित करें, समानार्थक शब्द उपयोग करें, और उन्नत क्वेरी सिंटैक्स (`field:term~` फ़ज़ी मैचिंग के लिए) का लाभ उठाएँ।
+**Q: सर्च आउटपुट कैसे बढ़ाएं?**
+A: `IndexOptions` के ज़रिए स्कोरिंग सेटिंग एडजस्ट करें, समानार्थी शब्द इस्तेमाल करें, और एडवांस क्वेरी सिंटैक्स (`field:term~` फ़ज़ी मैचिंग के लिए) का फ़ायदा उठाएँ।
 
-**Q: यदि कुछ फ़ाइलों के लिए इंडेक्सिंग विफल हो जाए तो क्या करें?**  
-A: लॉग आउटपुट की समीक्षा करें; सामान्य कारणों में पासवर्ड की कमी, भ्रष्ट फ़ाइलें, या असमर्थित फ़ॉर्मेट शामिल हैं।
+**Q: अगर कुछ इंडेक्स के लिए इंडेक्सिंग फेल हो जाए तो क्या करें?**
+A: लॉग आउटपुट की रिव्यू करें; आम वजहों में पासवर्ड की कमी, भ्रष्ट फ़ाइलें, या असमर्थित फ़ॉर्मेट शामिल हैं।
 
-## Resources
+## रिसोर्स
 - [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
 - [API Reference](https://reference.groupdocs.com/search/java)
 - [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)

@@ -67,20 +67,20 @@ Dołącz GroupDocs.Search jako zależność. Dla użytkowników Maven, dodaj tę
 </dependencies>
 ```
 
-For direct downloads, visit the [GroupDocs.Search for Java releases page](https://releases.groupdocs.com/search/java/).
+Aby pobrać bezpośrednio, odwiedź [stronę GroupDocs.Search for Java Releases](https://releases.groupdocs.com/search/java/).
 
-### Environment Setup
-- JDK 8 lub nowszy.  
+### Konfiguracja środowiska
+- JDK8 lub nowszy.
 - IDE, takie jak IntelliJ IDEA lub Eclipse.
 
-### Knowledge Prerequisites
-Podstawowa znajomość programowania w Javie i projektowania opartego na zdarzeniach będzie przydatna, ale nie wymagana; każdy krok jest wyjaśniony prostym językiem.
+### Wymagania wstępne dotyczące wiedzy
+Podstawowa obsługa programowania w Javie i projektowanie na zdarzeniach będzie, ale nie wymagana; Każdy krok jest wyjaśniony prostym językiem urzędowym.
 
-## Setting Up GroupDocs.Search for Java
+## Konfigurowanie GroupDocs.Search dla języka Java
 
-### Installation Information
-#### Maven Setup
-Dodaj następujące wpisy do pliku `pom.xml`:
+### Informacje dotyczące instalacji
+#### Konfiguracja Mavena
+Dodaj dodatkowy wpis do pliku `pom.xml`:
 
 ```xml
 <repositories>
@@ -100,17 +100,17 @@ Dodaj następujące wpisy do pliku `pom.xml`:
 </dependencies>
 ```
 
-#### Direct Download
-Alternatively, download the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+#### Bezpośrednie pobieranie
+Możesz też pobrać najnowszą wersję z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
-Aby skutecznie korzystać z GroupDocs.Search:
-- **Bezpłatna wersja próbna** – Rozpocznij od wersji próbnej, aby poznać funkcje.  
-- **Tymczasowa licencja** – Uzyskaj tymczasową licencję do oceny bez ograniczeń.  
-- **Zakup** – Rozważ zakup, jeśli narzędzie spełnia potrzeby produkcyjne.
+### Nabycie licencji
+Aby efektywnie korzystać z GroupDocs.Search:
+- **Bezpłatna wersja próbna** – Rozpocznij od wersji próbnej, aby poznać funkcje.
+- **Tymczasowa licencjat** – posiadanie tymczasowej przeszkody bez ograniczeń.
+- **Zakup** – Rozważ zakup, narzędzie służące do celów produkcyjnych.
 
-### Basic Initialization and Setup
-Oto jak zainicjalizować i skonfigurować indeks:
+### Podstawowa inicjalizacja i konfiguracja
+Oto jak zainicjalizować i udostępniać indeks:
 
 ```java
 import com.groupdocs.search.Index;
@@ -122,14 +122,14 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/YourIndex";
 Index index = new Index(indexFolder);
 ```
 
-## Implementation Guide
-Poniżej przechodzimy przez najczęstsze zdarzenia, które będziesz chciał obsłużyć, gdy **obsługujesz zdarzenia indeksowania w Javie**.
+## Przewodnik wdrażania
+Poniżej przechodzimy przez najczęstsze zdarzenia, które chcesz obsłużyć, gdy **obsługujesz zdarzenie indeksowania w Javie**.
 
-### FEATURE: OperationFinishedEvent
-#### Overview
-`OperationFinishedEvent` wyzwala się po zakończeniu operacji indeksowania, umożliwiając zapisanie wyniku lub uruchomienie kolejnego procesu.
+### FUNKCJA: Zdarzenie OperationFinishedEvent
+#### Przegląd
+`OperationFinishedEvent` wyzwala się po wyeliminowaniu operacji indeksowania, zapisując wynik lub generując proces.
 
-#### Implementation Steps
+#### Kroki wdrożenia
 **Krok 1: Utwórz indeks**
 
 ```java
@@ -163,53 +163,53 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-### Troubleshooting Tips
-- Upewnij się, że katalog wyjściowy jest zapisywalny, aby uniknąć błędów uprawnień.  
-- Używaj ścieżek bezwzględnych dla katalogów, aby zapobiec problemom ze ścieżkami względnymi.
+### Wskazówki dotyczące rozwiązywania problemów
+- rozszerzenie się, że katalog wyjściowy jest zapisany, aby uzyskać dostęp do błędów uprawnień.
+- Używanie sterylnych dla katalogów, aby zapobiec problemom ze ścieżkami względnymi.
 
-*(Kontynuuj podobną strukturę dla innych zdarzeń, takich jak `ErrorOccurredEvent`, `OperationProgressChangedEvent` itp., każde w osobnej podsekcji.)*
+*(Kontynuuj strukturę dla innych zdarzeń, takich jak `ErrorOccurredEvent`, `OperationProgressChangedEvent` itp., każde w zastosowanej podsekcji.)*
 
-## Practical Applications
-Te możliwości obsługi zdarzeń błyszczą w wielu rzeczywistych scenariuszach:
-1. **Systemy zarządzania dokumentami** – Automatycznie rejestruj status indeksowania i obsługuj błędy, aby poprawić doświadczenie użytkownika.  
-2. **Portale treści** – Wyświetlaj bieżący postęp indeksowania, aby użytkownicy wiedzieli, kiedy wyszukiwanie jest gotowe.  
-3. **Bezpieczne repozytoria** – Bezproblemowo żądaj haseł do chronionych plików za pomocą wywołań zwrotnych zdarzeń.
+## Praktyczne zastosowania
+Możliwość obsługi zdarzeń pojawia się w wielu niezależnych scenariuszach:
+1. **System zarządzania dokumentami** – Automatycznie rejestruje status indeksowania i obsługuj błędy, aby zgłosić doświadczenie użytkownika.
+2. **Portale treści** – Wyświetlanie postępu indeksowania, aby użytkownicy mogli skorzystać, kiedy wyszukiwanie jest gotowe.
+3. **Bezpieczne repozytoria** – Bezproblemowo dostępne haseł do plików za pomocą wywołań zwrotnych zdarzeń.
 
-## Performance Considerations
-Podczas obsługi dużych zbiorów dokumentów:
-- Preferuj asynchroniczne indeksowanie, aby UI było responsywne.  
-- Monitoruj zużycie pamięci i zwalniaj zasoby po indeksowaniu.  
-- Wyklucz niepotrzebne typy plików za pomocą `FileFilter` w `IndexSettings`.
+## Względy wydajności
+Podczas obsługi dużych dokumentów dokumentalnych:
+- Preferuj asynchroniczne indeksowanie, aby interfejs użytkownika był responsywny.
+- Monitoruj pamięć i uwalniaj zasoby po indeksowaniu.
+- Wykluczenie typów plików za pomocą `FileFilter` w `IndexSettings`.
 
-## Frequently Asked Questions
+## Często zadawane pytania
 
-**P: Jak skutecznie obsługiwać błędy indeksowania?**  
-O: Subskrybuj `ErrorOccurredEvent` i zaimplementuj logikę, aby rejestrować szczegóły błędu lub powiadamiać administratorów.
+**P: Jak skutecznie usunąć błędy indeksowania?**
+O: Subskrybuj `ErrorOccurredEvent` i zaimplementuj logikę, aby rejestrować szczegóły wyniku lub kontrolera administratorów.
 
-**P: Czy mogę dostosować, które pliki są indeksowane?**  
-O: Tak — użyj opcji `FileFilter` w `IndexSettings`, aby określić wzorce włączania lub wykluczania.
+**P: Czy można dostosować, które pliki są indeksowane?**
+O: Tak — opcja `FileFilter` w `IndexSettings`, aby wyodrębnić wzorce odłączania lub wyłączania.
 
-**P: Co zrobić, jeśli potrzebuję aktualizacji postępu w czasie rzeczywistym dla dużego zestawu dokumentów?**  
-O: Skorzystaj z `OperationProgressChangedEvent`, aby otrzymywać okresowe procenty postępu i odpowiednio aktualizować UI.
+**P: Co oznacza, że ​​zastosowanie następuje w czasie dostępu do zestawu dokumentów?**
+O: zastosowanie z `OperationProgressChangedEvent`, aby zakończyć okres procentowo i odpowiednio zaktualizować UI.
 
-**P: Czy można indeksować dokumenty chronione hasłem bez ręcznego wprowadzania?**  
-O: Tak — obsłuż zdarzenie żądania hasła i podaj hasło programowo.
+**P: Czy można indeksować dokumenty chronione hasłem bez ręcznego dostosowania?**
+O: Tak — obsłuż rozwiązanie hasła i poddaj hasło programowo.
 
-**P: Czy GroupDocs.Search obsługuje asynchroniczne indeksowanie od razu po instalacji?**  
-O: Absolutnie. Użyj metod asynchronicznego API, aby rozpocząć indeksowanie w osobnym wątku i utrzymać aplikację responsywną.
+**P: Czy GroupDocs.Search obsługuje asynchroniczne indeksowanie od razu po instalacji?**
+O: Absolutnie. Wykorzystanie metody asynchronicznej API, aby odkryć indeksowanie w aplikacji i aplikacji, która jest responsywną.
 
-## Resources
-- **Dokumentacja**: [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
-- **Referencja API**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-- **Pobierz**: [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- **GitHub**: [GroupDocs.Search for Java Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Bezpłatne wsparcie**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **Tymczasowa licencja**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+## Zasoby
+- **Dokumentacja**: [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)
+- **Referencja API**: [Dokumentacja API GroupDocs](https://reference.groupdocs.com/search/java)
+- **Pobierz**: [Najnowsze wydania](https://releases.groupdocs.com/search/java/)
+- **GitHub**: [GroupDocs.Search for Java Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Bezpłatne wsparcie**: [Forum GroupDocs](https://forum.groupdocs.com/c/search/10)
+- **Tymczasowa licencjat**: [Zdobądź tytuł tymczasowy Licencja](https://purchase.groupdocs.com/temporary-license/)
 
-Gotowy, aby zrobić kolejny krok? Przeglądaj pełne API, eksperymentuj z dodatkowymi zdarzeniami i integruj te wzorce w własnych aplikacjach skoncentrowanych na dokumentach.
+Gotowy, aby powtórzyć krok? Przeglądaj pełne API, eksperymentuj z urządzeniami i zdarzeniami i integruj te wzorce w urządzeniach mobilnych skoncentrowanych na dokumentach.
 
 ---
 
-**Last Updated:** 2026-01-06  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**Ostatnia aktualizacja:** 2026-01-06
+**Testowano z:** GroupDocs.Search 25.4 dla Java
+**Autor:** GroupDocs

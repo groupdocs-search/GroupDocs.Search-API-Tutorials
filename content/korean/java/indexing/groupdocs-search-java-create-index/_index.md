@@ -39,8 +39,8 @@ Java에서 인덱스 디렉터리를 생성하면 GroupDocs.Search가 역인덱�
 
 ## Java용 GroupDocs.Search 설정
 
-### Maven Setup
-Add the GroupDocs repository and the library dependency to your project’s `pom.xml`:
+### Maven 설정
+프로젝트의 `pom.xml` 파일에 GroupDocs 저장소와 라이브러리 종속성을 추가하세요.
 
 ```xml
 <repositories>
@@ -60,14 +60,14 @@ Add the GroupDocs repository and the library dependency to your project’s `pom
 </dependencies>
 ```
 
-### Direct Download (optional)
+### 직접 다운로드(선택 사항)
 Maven을 사용하고 싶지 않은 경우, 라이브러리를 직접 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)에서 다운로드할 수 있습니다.
 
-### License Acquisition
-- 전체 기능을 체험하려면 [여기](https://purchase.groupdocs.com/temporary-license/)에서 무료 체험 또는 임시 라이선스를 획득하십시오.  
-- 운영 환경에서는 GroupDocs를 통해 상용 라이선스를 구매하십시오.
+### 라이선스 취득
+- 전체 기능을 체험하려면 [여기](https://purchase.groupdocs.com/temporary-license/)에서 무료로 체험해 보십시오.
+- 운영 환경에서는 GroupDocs를 통해 인스턴스를 구매하세요.
 
-## Basic Initialization and Setup
+## 기본 초기화 및 설정
 다음 Java 코드 조각은 `Index` 객체를 초기화하여 **create index directory java**를 수행하는 방법을 보여줍니다:
 
 ```java
@@ -86,20 +86,20 @@ public class SearchApp {
 }
 ```
 
-### Explanation
-- **indexFolder** – 인덱스 파일이 저장될 절대 경로나 상대 경로입니다.  
-- **new Index(indexFolder)** – 인덱스를 생성하며, 디렉터리가 없을 경우 새로 만듭니다.
+### 설명
+- **indexFolder** – 나만의 파일이 저장될 수 없습니다.
+- **new Index(indexFolder)** – 유일하게 생성하게 되었을 경우에 새로 시작됩니다.
 
-## Implementation Guide
+## 구현 가이드
 
-### Step 1: Specify the Index Directory
+### 1단계: 색인 디렉터리 지정
 인덱스 파일을 위한 명확하고 쓰기 가능한 위치를 정의합니다:
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\KeyboardLayoutCorrection";
 ```
 
-### Step 2: Create an Index Instance
+### 2단계: 인덱스 인스턴스 생성
 위에서 정의한 경로를 사용하여 `Index` 클래스를 인스턴스화합니다:
 
 ```java
@@ -107,65 +107,65 @@ Index index = new Index(indexFolder);
 system.out.println("Index created successfully at: " + indexFolder);
 ```
 
-> **Note:** `system.out.println` 라인은 원본 예제와 일치하도록 의도적으로 그대로 두었습니다. 실제 코드에서는 `System.out.println` 으로 교체하십시오.
+> **참고:** `system.out.println` 라인은 원본 예제와 일치하도록 완전히 포함되었습니다. 실제 코드에서 `System.out.println`을 교체하시기 바랍니다.
 
-### Parameters & Methods Overview
-- **indexFolder** – 인덱스 데이터가 저장될 대상 폴더.  
-- **Index(indexFolder)** – 디스크에 인덱스 구조를 구축합니다.
+### 매개변수 및 방법 개요
+- **indexFolder** – 데이터가 저장될 대상 폴더입니다.
+- **인덱스(indexFolder)** – 디스크를 구축하려는 경우.
 
-### Troubleshooting Tips
-- 대상 폴더가 존재하고 실행 중인 사용자가 쓰기 권한을 가지고 있는지 확인하십시오.  
-- `AccessDeniedException`이 발생하면 폴더 ACL을 조정하거나 다른 위치를 선택하십시오.  
-- Windows에서는 이중 백슬래시(`\\`), Linux/macOS에서는 슬래시(`/`)를 사용하도록 경로를 확인하십시오.
+### 문제 해결 팁
+- 대상 폴더가 존재하고 실행 중인 사용자가 권한을 가지고 있는지 확인하십시오.
+- `AccessDeniedException`이 발생하면 폴더 ACL을 조정하거나 다른 위치를 선택하세요.
+- Windows에서는 백 더블슬래시(`\\`), Linux/macOS에서는 슬래시(`/`)를 사용하도록 표시하십시오.
 
-## Practical Applications
-1. **문서 관리 시스템** – 기업 저장소 전반에 걸친 검색을 가속화합니다.  
-2. **콘텐츠가 많은 웹사이트** – 블로그나 지식 베이스에 대한 전체 텍스트 검색을 제공합니다.  
-3. **아카이브 솔루션** – 각 파일을 스캔하지 않고도 과거 기록을 신속하게 검색합니다.
+## 실제 적용
+1. **문서 관리 시스템** – 기업의 도장을 관리합니다.
+2. **콘텐츠가 많은 웹사이트** – 블로그 지식에 대한 전체 텍스트 검색을 제공합니다.
+3. **아카이브 솔루션** – 각 파일을 스캔하지 않고 기록의 역사를 신속하게 검색합니다.
 
-## Performance Considerations
-- **증분 업데이트**: 변경된 문서만 재인덱싱하여 인덱스를 최신 상태로 유지하고 CPU 부하를 감소시킵니다.  
-- **메모리 관리**: 매우 큰 컬렉션의 경우 JVM 힙을 모니터링하고 필요에 따라 `-Xmx` 옵션을 늘리는 것을 고려하십시오.  
-- **배치 인덱싱**: 대량 임포트 시 긴 일시 정지를 방지하기 위해 파일을 배치로 처리합니다.
+## 성능 고려 사항
+- **증분 업데이트**: 변경된 문서만 업데이트하여 최신 상태를 유지하고 CPU를 저장하는 경우.
+- **메모리 관리**: 매우 큰 컬렉션의 경우 JVM 힙을 모니터링하고 필요에 따라 `-Xmx` 옵션을 사용하는 것을 고려하십시오.
+- **배치 인화물싱**: 많은 임포트 시 긴 정지를 방지하기 위해 파일을 배치로 처리합니다.
 
-## Common Issues and Solutions
+## 일반적인 문제 및 해결 방법
 
-| 문제 | 원인 | 해결책 |
-|-------|-------|----------|
-| **디렉터리를 찾을 수 없음** | 잘못된 경로나 폴더가 없음 | 폴더를 수동으로 생성하거나 `Index` 초기화 전에 `new File(indexFolder).mkdirs();` 를 사용하십시오. |
-| **권한 거부** | 운영체제 권한 부족 | 적절한 사용자 권한으로 애플리케이션을 실행하거나 다른 디렉터리를 선택하십시오. |
-| **OutOfMemoryError** | 증분 인덱싱 없이 대용량 문서 집합 | 작은 청크로 인덱스 업데이트를 활성화하고 JVM 힙 크기를 늘리십시오. |
+| 문제 | 원인 | 해결 |
+|---------|-------|----------|
+| **디렉터리를 찾을 수 없음** | 잘못된 폴더가 없습니다 | 폴더를 수동으로 생성하거나 `Index`를 호출하기 전에 `new File(indexFolder).mkdirs();`를 사용하세요. |
+| **권한 있어요** | 각자의 권한이 없습니다 | 적절한 사용자 권한으로 실행하거나 다른 추가를 선택하십시오. |
+| **메모리 부족 오류** | 증분 인화물 없이 보관함 서류함 | 작은 청춘 크로스 업데이트를 활성화하고 JVM 힙 크기를 사용하시기 바랍니다. |
 
-## Frequently Asked Questions
+## 자주 묻는 질문
 
-**Q: 검색 인덱스란 무엇인가요?**  
-A: 문서를 검색 가능한 토큰으로 사전 처리하는 데이터 구조로, 쿼리 응답 시간을 크게 단축합니다.
+**Q: 검색할 대상이 무엇입니까?**
+A: 문서를 검색할 수 있도록 사전 처리하는 데이터 구조로 쿼리 응답 시간을 크게 단축합니다.
 
-**Q: GroupDocs.Search가 비영어권 언어를 처리할 수 있나요?**  
+**Q: GroupDocs.Search가 비영어권 언어를 처리할 수 있나요?**
 A: 네, 기본적으로 다중 언어와 문자 집합을 지원합니다.
 
-**Q: 인덱스를 얼마나 자주 재구축하거나 업데이트해야 하나요?**  
-A: 문서가 추가, 수정, 삭제될 때마다 인덱스를 업데이트하고, 대규모 저장소의 경우 정기적인 증분 업데이트를 예약하십시오.
+**Q: 당신이 당신을 어떻게 재구축하거나 업데이트해야 할까요?**
+A: 문서가 추가, 수정, 삭제될 때마다 유일하게 업데이트하고, 해당하는 경우에만 신규 분 업데이트를 예약하십시오.
 
-**Q: Java에서 인덱스 디렉터리를 생성할 때 흔히 발생하는 함정은 무엇인가요?**  
-A: 일반적인 문제로는 잘못된 폴더 경로, 충분하지 않은 쓰기 권한, 대용량 파일 집합을 효율적으로 처리하지 못하는 경우가 있습니다.
+**Q: Java에서 작성을 생성할 때 흔히 발생하는 것은 무엇입니까?**
+A: 일반적인 문제에서는 잘못된 폴더가 있고, 제한되지 않은 권한이 있는 경우, 디스플레이 파일 회의를 처리하지 않는 경우가 있습니다.
 
-**Q: 자세한 문서는 어디에서 찾을 수 있나요?**  
-A: 포괄적인 가이드와 API 레퍼런스를 보려면 [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)을 방문하십시오.
+**Q: 고유 문서는 어디에서 찾을 수 있습니까?**
+A: 전체인과 가이드 API 회의를 참석하시려면 [GroupDocs 문서](https://docs.groupdocs.com/search/java/)를 방문하시기 바랍니다.
 
-## Resources
+## 자원
 
-- **문서**: [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
-- **API 레퍼런스**: [GroupDocs Search API](https://reference.groupdocs.com/search/java)  
-- **다운로드**: [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- **GitHub**: [GroupDocs.Search for Java Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **무료 지원**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **임시 라이선스**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **문서**: [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)
+- **API API**: [GroupDocs 검색 API](https://reference.groupdocs.com/search/java)
+- **다운로드**: [최신 릴리스](https://releases.groupdocs.com/search/java/)
+- **GitHub**: [GroupDocs.Java 저장소 검색](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **무료 지원**: [GroupDocs 포럼](https://forum.groupdocs.com/c/search/10)
+- **임시권**: [임시 라이선스 취득](https://purchase.groupdocs.com/temporary-license/)
 
-이 가이드를 따라 하면 이제 빠르고 신뢰할 수 있는 검색 기능이 필요한 모든 Java 애플리케이션에 통합할 수 있는 실용적인 **create index directory java** 구현을 갖추게 됩니다.
+이 가이드를 따라서 이제 빠르고 신뢰할 수 있는 검색 기능이 필요합니다. 모든 Java 기능을 통합할 수 있습니다. 그 실질적인 **인덱스 디렉터리를 생성합니다.** java**를 구현합니다.
 
 ---
 
-**마지막 업데이트:** 2026-01-06  
-**테스트 환경:** GroupDocs.Search 25.4 for Java  
+**마지막 업데이트:** 2026-01-06
+**테스트 환경:** Java용 GroupDocs.Search 25.4
 **작성자:** GroupDocs

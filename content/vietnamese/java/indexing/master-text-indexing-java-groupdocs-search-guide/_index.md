@@ -28,17 +28,17 @@ Chỉ mục văn bản chuyển đổi các tài liệu thô thành một cấu 
 
 ## Yêu cầu trước
 
-Before you begin, make sure you have:
+Trước khi bắt đầu, hãy đảm bảo bạn có:
 
-- **GroupDocs.Search for Java** (phiên bản 25.4 hoặc mới hơn)  
-- **JDK 8+** installed and configured  
-- **Maven** for dependency management  
-- Một IDE như IntelliJ IDEA hoặc Eclipse  
+- **GroupDocs.Search for Java** (phiên bản 25.4 hoặc mới hơn)
+- **JDK8+** đã được cài đặt và định cấu hình
+- **Maven** để quản lý phần phụ thuộc
+- Một IDE như IntelliJ IDEA hoặc Eclipse
 
 ## Cài đặt GroupDocs.Search cho Java
 
 ### Cài đặt Maven
-Add the repository and dependency to your `pom.xml` file:
+Thêm kho lưu trữ và phần phụ thuộc vào tệp `pom.xml` của bạn:
 
 ```xml
 <repositories>
@@ -59,15 +59,15 @@ Add the repository and dependency to your `pom.xml` file:
 ```
 
 ### Tải xuống trực tiếp
-Alternatively, download the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Ngoài ra, hãy tải xuống phiên bản mới nhất từ ​​[GroupDocs.Search for Java Releases](https://releases.groupdocs.com/search/java/).
 
 #### Nhận giấy phép
-- **Free Trial** – khám phá tất cả tính năng mà không cần cam kết.  
-- **Temporary License** – thời gian thử nghiệm kéo dài.  
-- **Purchase** – mở khóa đầy đủ khả năng sản xuất.  
+- **Dùng thử miễn phí** – khám phá tất cả các tính năng không cần cam kết.
+- **Giấy phép tạm thời** – thời gian thử nghiệm kéo dài.
+- **Mua** – mở khóa đầy đủ khả năng sản xuất.
 
-### Khởi tạo và Cài đặt Cơ bản
-Create a simple Java class to initialize the search engine:
+### Khởi tạo và cài đặt cơ sở
+Tạo một lớp Java đơn giản để khởi tạo công cụ tìm kiếm:
 
 ```java
 import com.groupdocs.search.Index;
@@ -88,14 +88,15 @@ public class InitializeSearch {
 ## Cách lập chỉ mục văn bản với Nén tùy chỉnh
 
 ### Bước 1: Xác định thư mục chỉ mục
-Choose a directory where the index files will reside:
+Chọn thư mục nơi lưu trữ các tệp chỉ mục:
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\StoringTextOfIndexedDocuments";
 ```
 
 ### Bước 2: Cấu hình cài đặt chỉ mục
-Set up high‑compression text storage to reduce disk usage:
+Thiết lập lưu trữ văn bản nén cao để giảm dung lượng ổ đĩa:
+
 
 ```java
 import com.groupdocs.search.Index;
@@ -108,7 +109,7 @@ settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
 ### Bước 3: Tạo chỉ mục với Cài đặt tùy chỉnh
-Instantiate the index using the configuration defined above:
+Khởi tạo chỉ mục bằng cấu hình đã định nghĩa ở trên:
 
 ```java
 Index index = new Index(indexFolder, settings);
@@ -118,7 +119,7 @@ System.out.println("Index created with high compression.");
 ## Cách thêm tài liệu vào chỉ mục
 
 ### Bước 1: Khởi tạo chỉ mục (nếu chưa thực hiện)
-Assuming the index folder and settings are prepared:
+Giả sử thư mục chỉ mục và các cài đặt đã được chuẩn bị:
 
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Replace with actual document path.
@@ -126,7 +127,7 @@ Index index = new Index(indexFolder);
 ```
 
 ### Bước 2: Thêm tài liệu từ thư mục
-Index all supported files in the given directory:
+Lập chỉ mục tất cả các tệp được hỗ trợ trong thư mục đã cho:
 
 ```java
 index.add(documentsFolder);
@@ -136,14 +137,14 @@ System.out.println("Documents added successfully.");
 ## Cách tìm kiếm tài liệu đã lập chỉ mục
 
 ### Bước 1: Xác định truy vấn tìm kiếm
-Specify the term you want to locate:
+Chỉ định thuật ngữ bạn muốn tìm kiếm:
 
 ```java
 String query = "Lorem";  
 ```
 
 ### Bước 2: Thực hiện tìm kiếm
-Run the query against the index and retrieve results:
+Chạy truy vấn trên chỉ mục và lấy kết quả:
 
 ```java
 import com.groupdocs.search.results.SearchResult;
