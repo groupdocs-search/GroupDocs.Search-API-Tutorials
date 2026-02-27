@@ -1,18 +1,20 @@
 ---
-title: "How to create index java with GroupDocs.Search for Java"
-description: "Learn how to create index java and extract text java efficiently using GroupDocs.Search for Java. Optimize document search, output text to file, and handle structured text extraction."
-date: "2026-01-14"
-weight: 1
-url: "/java/performance-optimization/groupdocs-search-java-efficient-indexing-document-text-output/"
+date: '2026-01-14'
+description: GroupDocs.Search for Java를 사용하여 인덱스를 생성하고 텍스트를 효율적으로 추출하는 방법을 배워보세요.
+  문서 검색을 최적화하고, 텍스트를 파일로 출력하며, 구조화된 텍스트 추출을 처리합니다.
 keywords:
 - GroupDocs.Search for Java
 - efficient document search
 - index creation in Java
+title: GroupDocs.Search for Java를 사용하여 인덱스를 만드는 방법
 type: docs
+url: /ko/java/performance-optimization/groupdocs-search-java-efficient-indexing-document-text-output/
+weight: 1
 ---
+
 # Mastering Efficient Document Search with GroupDocs.Search for Java
 
-In the world of document management, quickly finding specific content within numerous documents is crucial. Whether you're managing legal contracts or academic papers, **create index java** capabilities can save hours of manual labor. This tutorial dives into using **GroupDocs.Search for Java**, a powerful **java search library** that helps you create indices, **add documents to index**, and **extract text java** from your files efficiently. By the end of this guide, you'll know how to set up indexing with custom settings and output document text in various formats, including structured text extraction.
+문서 관리 분야에서는 수많은 문서 중에서 특정 내용을 빠르게 찾는 것이 매우 중요합니다. 법률 계약서든 학술 논문이든, **create index java** 기능을 활용하면 수작업 시간을 크게 절감할 수 있습니다. 이 튜토리얼에서는 강력한 **java search library**인 **GroupDocs.Search for Java**를 사용하여 인덱스를 생성하고, **add documents to index**하며, 파일에서 **extract text java**를 효율적으로 추출하는 방법을 살펴봅니다. 이 가이드를 마치면 사용자 정의 설정으로 인덱싱을 설정하고 구조화된 텍스트 추출을 포함한 다양한 형식으로 문서 텍스트를 출력하는 방법을 알게 됩니다.
 
 ## Quick Answers
 - **What is the primary purpose?** To **create index java** and retrieve document content quickly.  
