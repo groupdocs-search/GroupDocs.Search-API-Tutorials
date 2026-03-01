@@ -1,41 +1,42 @@
 ---
-date: '2025-12-29'
-description: Tanulja meg, hogyan optimalizálhatja a keresési teljesítményt a GroupDocs.Search
-  for Java fejlett indexelési funkcióinak használatával, beleértve a leállítást, az
-  aszinkron műveleteket, a több szálú feldolgozást és a metaadat testreszabását.
+date: '2026-03-01'
+description: Tanulja meg, hogyan optimalizálja a keresési teljesítményt és javítsa
+  a keresési késleltetést a GroupDocs.Search for Java fejlett indexelési funkcióinak
+  használatával, beleértve a leállítást, az aszinkron műveleteket, a több szálas feldolgozást
+  és a metaadatok testreszabását.
 keywords:
 - GroupDocs.Search Java
 - advanced indexing features
 - asynchronous operations
-title: Keresési teljesítmény optimalizálása fejlett indexelési technikákkal a GroupDocs.Search
-  for Java-ban
+title: A keresési teljesítmény optimalizálása fejlett indexelési technikákkal a GroupDocs.Search
+  for Java‑ban
 type: docs
 url: /hu/java/indexing/groupdocs-search-java-advanced-indexing/
 weight: 1
 ---
 
-# Keresési teljesítmény optimalizálása fejlett indexelési technikákkal a GroupDocs.Search for Java-ban
+# Optimalizálja a keresési teljesítményt fejlett indexelési technikákkal a GroupDocs.Search for Java-ban
 
-A mai gyors tempójú digitális környezetben a **keresési teljesítmény optimalizálása** elengedhetetlen a felhasználók számára azonnali eredmények biztosításához. Akár egy egyedi keresőmotort építesz, akár egy meglévő dokumentumkezelő rendszert fejlesztesz, a megfelelő indexelési stratégia drámaian csökkentheti a késleltetést és az erőforrás-felhasználást. Ebben az útmutatóban a GroupDocs.Search for Java legfontosabb funkcióit—annulálás, aszinkron indexelés, több szálas feldolgozás és metaadat testreszabás—végigvezetjük, hogy **add documents index** gyorsabban és hatékonyabban tudj.
+A mai gyors tempójú digitális környezetben a **keresési teljesítmény optimalizálása** elengedhetetlen a felhasználók azonnali eredményeinek biztosításához. Akár egy egyedi keresőmotort épít, akár egy meglévő dokumentumkezelő rendszert fejleszt, a megfelelő indexelési stratégia drámaian csökkentheti a késleltetést, csökkentheti az erőforrás-felhasználást, és **javíthatja a keresési késleltetést** minden szinten. Ebben az útmutatóban a GroupDocs.Search for Java legfontosabb funkcióit mutatjuk be – megszakítás, aszinkron indexelés, több szálas feldolgozás és metaadat testreszabás – hogy **dokumentumok indexelését** gyorsabban és hatékonyabban végezhesse.
 
-**Mit fogsz megtanulni**
+**Mit fog megtanulni**
 
-- Hogyan lehet egy indexelési műveletet egy megadott idő után leállítani
-- Aszinkron indexelési műveletek végrehajtása és az állapotváltozások kezelése
-- Többszálas konfigurálása a gyorsabb indexeléshez
-- Metaadat indexelési beállítások testreszabása
+- Hogyan lehet megszakítani egy indexelési műveletet egy meghatározott idő után  
+- Aszinkron indexelési műveletek végrehajtása és az állapotváltozások kezelése  
+- Több szálas konfigurálása a gyorsabb indexeléshez  
+- Metaadat indexelési beállítások testreszabása  
 
-Győződj meg róla, hogy minden szükséges eszközöd megvan, mielőtt a kódba merülnénk.
+Győződjön meg róla, hogy minden szükséges eszköz megvan, mielőtt a kódba merülünk.
 
-## Előfeltételek
+## Prerequisites
 
-- **GroupDocs.Search Library** – 25.4 vagy újabb verzió.  
-- **Java Development Environment** – JDK 8 vagy újabb ajánlott.  
-- Alapvető ismeretek a Java-val és az indexelés koncepciójával kapcsolatban.
+- **GroupDocs.Search Library** – 25.4 vagy újabb verzió.  
+- **Java Development Environment** – JDK 8 vagy újabb ajánlott.  
+- Alapvető ismeretek a Java nyelvről és az indexelés koncepciójáról.
 
-### A GroupDocs.Search for Java beállítása
+### Setting Up GroupDocs.Search for Java
 
-#### Maven telepítés
+#### Maven Installation
 
 Add the repository and dependency to your `pom.xml` file:
 
@@ -57,13 +58,13 @@ Add the repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-#### Közvetlen letöltés
+#### Direct Download
 
-Alternatívaként töltsd le a legújabb JAR-t a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
+Alternatively, download the latest JAR from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-**License Acquisition** – Kezd egy ingyenes próbaverzióval, vagy kérj ideiglenes licencet a teljes funkciókészlet feloldásához.
+**License Acquisition** – Kezdje egy ingyenes próbaverzióval, vagy kérjen ideiglenes licencet a teljes funkciók eléréséhez.
 
-### Alapvető inicializálás és beállítás
+### Basic Initialization and Setup
 
 ```java
 import com.groupdocs.search.*;
@@ -79,31 +80,34 @@ public class IndexSetup {
 }
 ```
 
-## Gyors válaszok
+## Quick Answers
+- **Mi a megszakítás funkciója?** Leállítja az indexelést egy beállított idő után, hogy felszabadítsa az erőforrásokat.  
+- **Indexelhetek dokumentumokat aszinkron módon?** Igen – állítsa be a `options.setAsync(true)` értéket.  
+- **Hány szálat használhatok?** Bármely pozitív egész szám; a tipikus érték 2‑4 a legtöbb szerveren.  
+- **A metaadat indexelés opcionális?** Teljesen – engedélyezheti vagy finomhangolhatja mezőnként.  
+- **Szükségem van licencre ezekhez a funkciókhoz?** A próba verzió tesztelésre elegendő; a teljes licenc a termeléshez kötelező.
 
-- **Mi a leállítás funkciója?** Leállítja az indexelést egy beállított idő után, hogy felszabadítsa az erőforrásokat.  
-- **Indexelhetek dokumentumokat aszinkron módon?** Igen – állítsd be a `options.setAsync(true)` értéket.  
-- **Hány szálat használhatok?** Bármely pozitív egész szám; a legtöbb szerveren a tipikus érték 2‑4.  
-- **A metaadat indexelés opcionális?** Teljesen – engedélyezheted vagy finomhangolhatod mezőnként.  
-- **Szükségem van licencre ezekhez a funkciókhoz?** A próba verzió teszteléshez megfelelő; a termeléshez teljes licenc szükséges.
+## What Is “Optimize Search Performance” in This Context?
 
-## Mit jelent a „Keresési teljesítmény optimalizálása” ebben a kontextusban?
+A keresési teljesítmény optimalizálása azt jelenti, hogy az indexelési folyamatot úgy konfiguráljuk, hogy a megfelelő mennyiségű CPU-t, memóriát és időt használja, miközben azonnal a legrelevánsabb eredményeket szolgáltatja. A megszakítás, az aszinkron végrehajtás, a szálkezelés és a metaadatok kezelése szabályozásával közvetlenül befolyásolhatja, milyen gyorsan képes a motor **dokumentumok indexelését** végrehajtani és a lekérdezésekre válaszolni.
 
-A keresési teljesítmény optimalizálása azt jelenti, hogy az indexelési folyamatot úgy konfiguráljuk, hogy a megfelelő mennyiségű CPU-t, memóriát és időt használja, miközben azonnal a legrelevánsabb eredményeket szolgáltatja. A leállítás, az aszinkron végrehajtás, a szálkezelés és a metaadatok kezelése szabályozásával közvetlenül befolyásolod, milyen gyorsan tudja a motor **add documents index** és válaszolni a lekérdezésekre.
+## Why Use Advanced Indexing Features?
 
-## Miért használjunk fejlett indexelési funkciókat?
-
-- **Csökkentett késleltetés** – Az aszinkron és több szálas indexelés az alkalmazásod válaszkész maradását biztosítja.  
-- **Jobb erőforrás-kezelés** – A leállítás megakadályozza a szabadon futó folyamatokat.  
+- **Csökkentett késleltetés** – Az aszinkron és több szálas indexelés az alkalmazást válaszkésznek tartja.  
+- **Jobb erőforrás-kezelés** – A megszakítás megakadályozza a szabadon futó folyamatokat.  
 - **Testreszabott keresési relevancia** – A metaadat beállítások lehetővé teszik a legfontosabb információk kiemelését.  
 
-## Implementációs útmutató
+## How to improve search latency with advanced indexing?
 
-### Annulálás tulajdonság
+Amikor **javítania kell a keresési késleltetést**, fontolja meg a bemutatott funkciók kombinálását: szakítsa meg a hosszú futású feladatokat, futtassa az indexelést a háttérben, és ossza szét a munkát több CPU mag között. Ez a többirányú megközelítés gyakran a legnagyobb sebességnyereséget hozza.
 
-**Áttekintés** – Az indexelés leállítása egy megadott időtartam után, hogy elkerüld az erőforrások túlzott fogyasztását.
+## Implementation Guide
 
-#### 1. lépés: A környezet beállítása
+### Cancellation Property
+
+**Overview** – Cancel indexing after a specified duration to avoid over‑consumption of resources.
+
+#### Step 1: Set Up the Environment
 
 ```java
 import com.groupdocs.search.*;
@@ -113,7 +117,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\CancellationProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### 2. lépés: Indexelési beállítások létrehozása leállítással
+#### Step 2: Create Indexing Options with Cancellation
 
 ```java
 // Create an instance of Index and IndexingOptions
@@ -128,16 +132,16 @@ options.getCancellation().cancelAfter(3000);
 index.add(documentFolder, options);
 ```
 
-**Kulcspontok**
+**Key Points**
 
 - `setCancellation()` aktiválja a funkciót.  
-- `cancelAfter(int milliseconds)` meghatározza a timeout-ot (ebben a példában 3 másodperc).
+- `cancelAfter(int milliseconds)` határozza meg a timeout-ot (ebben a példában 3 másodperc).
 
-### Aszinkron tulajdonság
+### Asynchronous Property
 
-**Áttekintés** – Az indexelés futtatása háttérszálon, és a státuszváltozások figyelése.
+**Overview** – Run indexing on a background thread and listen for status changes.
 
-#### 1. lépés: A környezet beállítása
+#### Step 1: Set Up the Environment
 
 ```java
 import com.groupdocs.search.*;
@@ -147,7 +151,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\IsAsyncProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### 2. lépés: Eseménykezelő feliratkozása a státuszváltozásra
+#### Step 2: Subscribe to Status Changed Event
 
 ```java
 Index index = new Index(indexFolder);
@@ -163,7 +167,7 @@ index.getEvents().StatusChanged.add(new EventHandler<BaseIndexEventArgs>() {
 });
 ```
 
-#### 3. lépés: Aszinkron beállítások konfigurálása
+#### Step 3: Configure Asynchronous Options
 
 ```java
 IndexingOptions options = new IndexingOptions();
@@ -172,11 +176,11 @@ options.setAsync(true);
 index.add(documentFolder, options);
 ```
 
-### Szálak tulajdonság
+### Threads Property
 
-**Áttekintés** – Az indexelés felgyorsítása több CPU mag kihasználásával.
+**Overview** – Speed up indexing by leveraging multiple CPU cores.
 
-#### 1. lépés: A környezet beállítása
+#### Step 1: Set Up Environment
 
 ```java
 import com.groupdocs.search.*;
@@ -186,7 +190,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\ThreadsProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### 2. lépés: Többszálas konfigurálása
+#### Step 2: Configure Multi‑threading
 
 ```java
 Index index = new Index(indexFolder);
@@ -198,11 +202,11 @@ options.setThreads(2);
 index.add(documentFolder, options);
 ```
 
-### Metaadat indexelési beállítások tulajdonság
+### Metadata Indexing Options Property
 
-**Áttekintés** – Finomhangolni, hogy mely dokumentum metaadatok kerülnek indexelésre és hogyan tárolódnak.
+**Overview** – Fine‑tune which document metadata gets indexed and how it’s stored.
 
-#### 1. lépés: A környezet beállítása
+#### Step 1: Set Up Environment
 
 ```java
 import com.groupdocs.search.*;
@@ -212,7 +216,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\MetadataIndexingOptionsProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### 2. lépés: Metaadat beállítások konfigurálása
+#### Step 2: Configure Metadata Options
 
 ```java
 Index index = new Index(indexFolder);
@@ -229,50 +233,50 @@ options.getMetadataIndexingOptions().setMaxDoublesToIndexField(10);
 index.add(documentFolder, options);
 ```
 
-## Gyakorlati alkalmazások
+## Practical Applications
 
-1. **Dokumentumkezelő rendszerek** – Aszinkron indexelés használata a felhasználói felület válaszkészségének megőrzéséhez, miközben nagy kötegek a háttérben kerülnek feldolgozásra.  
-2. **Tartalomkereső motorok** – Leállítás alkalmazása, hogy a hosszú futású feladatok ne terheljék a szerver erőforrásait a csúcsforgalom során.  
-3. **Nagy léptékű ingestiós csővezetékek** – Többszálas feldolgozás kihasználása a **add documents index** nagy méretekben, ami drámai módon csökkenti a feldolgozási időt.  
+1. **Dokumentumkezelő rendszerek** – Használjon aszinkron indexelést, hogy a felhasználói felület válaszkész maradjon, miközben nagy kötegeket dolgoz fel a háttérben.  
+2. **Tartalomkereső motorok** – Alkalmazzon megszakítást, hogy a hosszú futású feladatok ne terheljék a szerver erőforrásait csúcsforgalom alatt.  
+3. **Nagy léptékű befogadó csővezetékek** – Használjon több szálas feldolgozást a **dokumentumok indexelésének** nagy mennyiségben történő hozzáadásához, drámai módon csökkentve a feldolgozási időt.
 
-## Teljesítmény szempontok
+## Performance Considerations
 
-- **Szálkezelés** – Figyeld a CPU használatát; a túl sok szál kontextusváltási terhet okozhat.  
-- **Memória lábnyoma** – A metaadat korlátok (pl. `setMaxBytesToIndexField`) segítenek a memóriahasználat kiszámíthatóvá tételében.  
-- **Garbage Collection** – Használj megfelelő JVM flag-eket (`-Xmx`, `-XX:+UseG1GC`) hatalmas korpuszok indexelésekor.  
+- **Szálkezelés** – Figyelje a CPU használatot; túl sok szál kontextusváltási terhet okozhat.  
+- **Memóriahasználat** – A metaadat korlátok (pl. `setMaxBytesToIndexField`) segítenek a memóriahasználat előre jelezhetővé tételében.  
+- **Garbage Collection** – Használjon megfelelő JVM zászlókat (`-Xmx`, `-XX:+UseG1GC`) nagy mennyiségű korpusz indexelésekor.
 
-## Gyakori problémák és megoldások
+## Common Issues and Solutions
 
 | Tünet | Valószínű ok | Megoldás |
 |-------|--------------|----------|
-| Az indexelés soha nem fejeződik be | A leállítás túl alacsonyra van állítva | `cancelAfter` érték növelése vagy a leállítás eltávolítása hosszú feladatoknál |
-| Nincs státuszfrissítés aszinkron módban | Az eseménykezelő nincs megfelelően csatolva | Győződj meg róla, hogy a `index.getEvents().StatusChanged.add(...)` hívás megtörténik a `index.add` előtt |
-| Memóriahiányos hibák | Túl sok szál vagy magas metaadat korlátok | `options.setThreads` csökkentése és a metaadat mezőkorlátok alacsonyabbra állítása |
-| Hiányzó metaadatok az eredményekben | A metaadat indexelés le van tiltva | Ellenőrizd, hogy a `options.getMetadataIndexingOptions()` konfigurálva van, és nem állították be a mezők figyelmen kívül hagyására |
+| Az indexelés soha nem fejeződik be | Cancellation set too low | Növelje a `cancelAfter` értékét, vagy távolítsa el a megszakítást hosszú feladatoknál |
+| No status updates in async mode | Event handler not attached correctly | Győződjön meg róla, hogy a `index.getEvents().StatusChanged.add(...)` hívás a `index.add` előtt történik |
+| Out‑of‑memory errors | Too many threads or high metadata limits | Csökkentse a `options.setThreads` értékét, és alacsonyabb metaadatmező‑korlátokat állítson be |
+| Missing metadata in results | Metadata indexing disabled | Ellenőrizze, hogy a `options.getMetadataIndexingOptions()` megfelelően konfigurált, és nem állították be a mezők figyelmen kívül hagyását |
 
-## Gyakran ismételt kérdések
+## Frequently Asked Questions
 
-**K: Hogyan szerezhetek ideiglenes licencet a GroupDocs.Search-hez?**  
-A: Látogasd meg a [GroupDocs ideiglenes licenc oldalát](https://purchase.groupdocs.com/temporary-license/).
+**Q: Hogyan szerezhetek ideiglenes licencet a GroupDocs.Search-hez?**  
+A: Látogassa meg a [GroupDocs ideiglenes licenc oldalát](https://purchase.groupdocs.com/temporary-license/).
 
-**K: Leállíthatok egy indexelési műveletet közben?**  
-A: Igen – használd a leállítási tulajdonságot a `cancelAfter()`-val, vagy programozottan hívd a `Cancellation.cancel()`-t.
+**Q: Megszakíthatok egy indexelési műveletet közben?**  
+A: Igen – használja a megszakítási tulajdonságot a `cancelAfter()`‑val, vagy hívja meg programozottan a `Cancellation.cancel()`‑t.
 
-**K: Milyen felhasználási esetek vannak az aszinkron indexelésre?**  
-A: A valós‑idő dokumentum lekérdezés, a háttérben futó kötegelt feldolgozás és a UI‑válaszkész alkalmazások profitálnak az aszinkron indexelésből.
+**Q: Milyen felhasználási esetek vannak az aszinkron indexelésre?**  
+A: Valós idejű dokumentumlekérdezés, háttérben futó kötegelt feldolgozás és UI‑válaszkész alkalmazások profitálnak az aszinkron indexelésből.
 
-**K: Biztonságos a szálak számát növelni egy megosztott szerveren?**  
-A: Növeld fokozatosan és figyeld a CPU terhelést; erősen megosztott környezetben tartsd a szálak számát mérsékelt szinten (2‑4).
+**Q: Biztonságos-e növelni a szálak számát megosztott szerveren?**  
+A: Növelje fokozatosan, és figyelje a CPU terhelést; erősen megosztott környezetben tartsa a szálak számát mérsékelt szinten (2‑4).
 
-**K: Hogyan befolyásolja a metaadat indexelés a keresési relevanciát?**  
-A: A megfelelően indexelt metaadatok (szerző, létrehozás dátuma, címkék) magasabb súlyt kaphatnak a lekérdezésekben, ezáltal javítva az eredmények pontosságát.
+**Q: Hogyan befolyásolja a metaadat indexelés a keresési relevanciát?**  
+A: A megfelelően indexelt metaadatok (szerző, létrehozás dátuma, címkék) nagyobb súlyt kaphatnak a lekérdezésekben, ezáltal javítva az eredmények pontosságát.
 
-## Következtetés
+## Conclusion
 
-A GroupDocs.Search for Java fejlett funkcióinak alkalmazásával **optimalizálni fogod a keresési teljesítményt** különféle helyzetekben – a gyors dokumentumfelvételtől a finomhangolt metaadat-vezérlésig. Kísérletezz különböző konfigurációkkal, figyeld az erőforrás-használatot, és a beállításokat a saját munkaterhelésedhez igazítsd a legjobb eredmények eléréséhez.
+Azáltal, hogy ezeket a fejlett funkciókat alkalmazza a GroupDocs.Search for Java-ban, **optimalizálni fogja a keresési teljesítményt** különféle szituációkban – a gyors dokumentumbefogadástól a finomhangolt metaadatkezelésig. Kísérletezzen különböző konfigurációkkal, figyelje az erőforrás-felhasználást, és szabja testre a beállításokat a saját munkaterheléséhez, hogy a legjobb eredményeket érje el.
 
 ---
 
-**Utolsó frissítés:** 2025-12-29  
-**Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
-**Szerző:** GroupDocs
+**Last Updated:** 2026-03-01  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs

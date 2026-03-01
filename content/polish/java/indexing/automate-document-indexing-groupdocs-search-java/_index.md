@@ -1,13 +1,14 @@
 ---
-date: '2025-12-29'
+date: '2026-03-01'
 description: Dowiedz się, jak wyczyścić katalog w Javie, zautomatyzować zarządzanie
-  dokumentami i zmieniać nazwy plików przy użyciu GroupDocs.Search dla Javy. Zwiększ
-  wydajność swoich aplikacji.
+  dokumentami, zmienić nazwę plików w Javie oraz kopiować pliki w Javie, tworząc jednocześnie
+  indeks przeszukiwalny przy użyciu GroupDocs.Search dla Javy.
 keywords:
 - Java document indexing
 - GroupDocs.Search for Java
 - automate document management
-title: Czyszczenie katalogu w Javie – Automatyzacja indeksowania i zmiany nazw
+title: Clean Directory Java – Automatyzuj indeksowanie i zmianę nazw dokumentów przy
+  użyciu GroupDocs.Search
 type: docs
 url: /pl/java/indexing/automate-document-indexing-groupdocs-search-java/
 weight: 1
@@ -15,33 +16,34 @@ weight: 1
 
 # Clean Directory Java – Automate Document Indexing and Renaming Using GroupDocs.Search
 
-Jeśli potrzebujesz **clean directory java** przy automatyzacji indeksowania dokumentów i zmiany ich nazw, trafiłeś we właściwe miejsce. Ręczne obsługiwanie przenoszenia plików, usuwania i aktualizacji indeksu jest podatne na błędy i czasochłonne. W tym poradniku pokażemy, jak pozwolić Javie wykonać ciężką pracę, używając **GroupDocs.Search for Java** do tworzenia przeszukiwalnego indeksu, zmiany nazw plików i automatycznego utrzymywania indeksu w synchronizacji.
+If you need to **clean directory java** while automating document indexing and renaming, you’ve come to the right place. Manually handling file moves, deletions, and index updates is error‑prone and time‑consuming. In this tutorial we’ll show you how to let Java do the heavy lifting, using **GroupDocs.Search for Java** to create a searchable index, rename files, and keep the index in sync automatically.
 
 ## Szybkie odpowiedzi
 - **Co oznacza „clean directory java”?** Usuwanie wszystkich plików/katalogów wewnątrz docelowego katalogu przy użyciu kodu Java.  
-- **Która biblioteka tworzy przeszukiwalny indeks?** GroupDocs.Search for Java.  
+- **Która biblioteka tworzy indeks przeszukiwalny?** GroupDocs.Search for Java.  
 - **Jak zmienić nazwę dokumentu i utrzymać indeks aktualny?** Użyj `File.renameTo()`, a następnie powiadom indeks za pomocą `Notification.createRenameNotification`.  
 - **Czy mogę kopiować pliki po wyczyszczeniu folderu?** Tak – Java Streams mogą kopiować pliki, zachowując indeks.  
 - **Czy wymagana jest licencja do produkcji?** Wymagana jest ważna licencja GroupDocs.Search do użytku komercyjnego.
 
 ## Co to jest „clean directory java”?
-Czyszczenie katalogu w Javie oznacza programowe usuwanie każdego pliku i podkatalogu wewnątrz określonego folderu. Często jest to wstępny krok przed kopiowaniem nowych plików lub odbudową indeksu, zapewniając, że przestarzałe dane nie będą zakłócać wyników wyszukiwania.
+Czyszczenie katalogu w Javie oznacza programowe usuwanie każdego pliku i podkatalogu wewnątrz określonego folderu. Często jest to wstępny krok przed kopiowaniem nowych plików lub odbudową indeksu, zapewniając, że przestarzałe dane nie zakłócą wyników wyszukiwania.
 
 ## Dlaczego automatyzować indeksowanie dokumentów i zmianę nazw?
-- **Automatyzacja zarządzania dokumentami** zmniejsza ręczny wysiłek i eliminuje błędy ludzkie.  
-- Krok **tworzenia przeszukiwalnego indeksu** pozwala natychmiast znaleźć dowolny dokument po jego zawartości.  
-- Zmiana nazw plików bez aktualizacji indeksu zepsuje dokładność wyszukiwania; automatyzacja utrzymuje wszystko spójne.  
+- **Document management automation** zmniejsza ręczny wysiłek i eliminuje błędy ludzkie.  
+- **Create searchable index** umożliwia natychmiastowe odnalezienie dowolnego dokumentu po jego treści.  
+- Zmiana nazw plików bez aktualizacji indeksu zaburzyłaby dokładność wyszukiwania; automatyzacja utrzymuje wszystko spójne.  
+- Operacje **Rename files java** i **copy files java** stają się powtarzalne i niezawodne, szczególnie w środowiskach dużej skali.
 
 ## Wymagania wstępne
 
-- **GroupDocs.Search for Java** (Wersja 25.4 lub nowsza)  
-- JDK 8 + oraz IDE, takie jak IntelliJ IDEA lub Eclipse  
-- Podstawowa znajomość Javy, szczególnie I/O plików  
+- **GroupDocs.Search for Java** (Version 25.4 or later)  
+- JDK 8 + i IDE, takie jak IntelliJ IDEA lub Eclipse  
+- Podstawowa znajomość Javy, szczególnie operacji I/O na plikach  
 
 ## Konfiguracja GroupDocs.Search for Java
 
-### Maven Dependency
-Dodaj repozytorium i zależność do swojego `pom.xml`:
+### Zależność Maven
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -61,14 +63,14 @@ Dodaj repozytorium i zależność do swojego `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
+### Bezpośrednie pobranie
 Alternatywnie, pobierz najnowszą wersję z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License
-Uzyskaj darmową wersję próbną, tymczasową licencję ewaluacyjną lub zakup pełną licencję do użytku produkcyjnego.
+### Licencja
+Uzyskaj bezpłatną wersję próbną, tymczasową licencję ewaluacyjną lub zakup pełną licencję do użytku produkcyjnego.
 
-### Basic Initialization
-Utwórz instancję `Index`, która będzie przechowywać przeszukiwalne dane:
+### Podstawowa inicjalizacja
+Create an `Index` instance that will hold the searchable data:
 
 ```java
 import com.groupdocs.search.Index;
@@ -106,7 +108,7 @@ public class DocumentIndexingAndRenaming {
 - `indexFolder` – miejsce, w którym przechowywane są pliki indeksu.  
 - `documentFolder` – folder źródłowy zawierający pliki, które chcesz udostępnić do przeszukiwania.  
 
-### 2. Zmień nazwę dokumentu i powiadom indeks
+### 2. Zmień nazwę dokumentu i powiadom indeks (rename files java)
 
 ```java
 import com.groupdocs.search.Notification;
@@ -138,9 +140,9 @@ public class DocumentIndexingAndRenaming {
 
 ## Clean Directory Java – Czyszczenie katalogu i kopiowanie plików
 
-Utrzymanie porządku w folderze przed masowym kopiowaniem zapobiega duplikatom lub osieroconym plikom. Poniżej znajdują się dwa wielokrotnego użytku fragmenty kodu.
+Utrzymanie porządku w folderze przed masowym kopiowaniem zapobiega duplikatom lub osieroconym plikom. Poniżej znajdują się dwa wielokrotnego użytku fragmenty kodu, które demonstrują **java delete files recursively** i **copy files java**.
 
-### Krok 1: Usuń zawartość folderu (delete folder contents)
+### Krok 1: Usuń zawartość folderu (java delete files recursively)
 
 ```java
 import java.io.File;
@@ -162,7 +164,7 @@ public class DirectoryCleaningAndFileCopying {
 
 *Wyjaśnienie*:  
 - `Files.walk()` przegląda każdy plik i podfolder.  
-- Sortowanie w odwrotnej kolejności zapewnia usunięcie plików przed ich katalogami nadrzędnymi, skutecznie **delete folder contents**.
+- Sortowanie w kolejności odwróconej zapewnia usunięcie plików przed ich katalogami nadrzędnymi, skutecznie **delete folder contents**.
 
 ### Krok 2: Kopiuj pliki (copy files java)
 
@@ -194,53 +196,53 @@ public class DirectoryCleaningAndFileCopying {
 ```
 
 *Wyjaśnienie*:  
-- Strumień filtruje tylko zwykłe pliki, a następnie kopiuje każdy do katalogu docelowego, nadpisując istniejące pliki w razie potrzeby.  
+- Strumień filtruje tylko zwykłe pliki, a następnie kopiuje każdy do docelowego katalogu, nadpisując istniejące pliki w razie potrzeby.  
 
 ## Praktyczne zastosowania
 
 - **Enterprise Document Management** – Automatyzuj indeksowanie tysięcy umów i utrzymuj nazwy plików w synchronizacji.  
-- **Legal Firms** – Szybko zmieniaj nazwy akt spraw, zachowując przeszukiwalną zawartość.  
+- **Legal Firms** – Szybko zmieniaj nazwy akt spraw, zachowując przeszukiwalną treść.  
 - **Content Management Systems** – Użyj wzorca clean‑directory do odświeżania folderów mediów bez ręcznego czyszczenia.  
 
 ## Rozważania dotyczące wydajności
 
-- **Rozmiar indeksu** – Okresowo kompaktuj indeks, jeśli rośnie.  
-- **Użycie pamięci** – Przetwarzaj pliki w partiach, aby uniknąć `OutOfMemoryError`.  
-- **Współbieżność** – W przypadku operacji masowych rozważ użycie `ExecutorService` w Javie do równoległego czyszczenia i kopiowania.  
+- **Index Size** – Okresowo kompaktuj indeks, jeśli rośnie.  
+- **Memory Usage** – Przetwarzaj pliki w partiach, aby uniknąć `OutOfMemoryError`.  
+- **Concurrency** – W przypadku operacji masowych rozważ użycie `ExecutorService` w Javie do równoległego czyszczenia i kopiowania.  
 
 ## Typowe problemy i wskazówki
 
 | Problem | Przyczyna | Rozwiązanie |
-|---------|-----------|-------------|
+|-------|-------|-----|
 | Zmiana nazwy nie powiodła się | Plik jest zablokowany lub ścieżka jest nieprawidłowa | Upewnij się, że plik nie jest otwarty w innym miejscu; użyj `Files.move` dla bardziej niezawodnych zmian nazw. |
-| Indeks nie aktualizuje się | Powiadomienie nie zostało wysłane | Zawsze wywołuj `index.notifyIndex(notification)`, a następnie `index.update()`. |
-| Przestarzałe wyniki wyszukiwania po kopiowaniu | Indeks nadal wskazuje na stare pliki | Ponownie dodaj folder docelowy do indeksu lub wywołaj `index.update()` po kopiowaniu. |
+| Indeks nie aktualizuje się | Powiadomienie nie zostało wysłane | Zawsze wywołuj `index.notifyIndex(notification)` a następnie `index.update()`. |
+| Przestarzałe wyniki wyszukiwania po kopiowaniu | Indeks nadal wskazuje na stare pliki | Ponownie dodaj docelowy folder do indeksu lub wywołaj `index.update()` po kopiowaniu. |
+| Wolne czyszczenie w dużych folderach | Jednowątkowe przeglądanie | Użyj równoległych strumieni lub podziel folder na mniejsze partie. |
+| Błędy uprawnień | Niewystarczające uprawnienia systemu operacyjnego | Uruchom JVM z odpowiednimi uprawnieniami lub dostosuj ACL folderu. |
 
 ## Najczęściej zadawane pytania
 
 **Q: Czy mogę wyczyścić katalog zawierający podfoldery?**  
-A: Tak. Podejście `Files.walk()` rekurencyjnie usuwa wszystkie zagnieżdżone pliki i foldery.
+A: Tak. Podejście `Files.walk()` usuwa rekurencyjnie wszystkie zagnieżdżone pliki i foldery.
 
-**Q: Czy muszę przebudowywać cały indeks po każdej zmianie nazwy?**  
+**Q: Czy muszę odbudować cały indeks po każdej zmianie nazwy?**  
 A: Nie. Wysłanie powiadomienia o zmianie nazwy i wywołanie `index.update()` jest wystarczające.
 
-**Q: Jak duży katalog mogę wyczyścić, zanim napotkam ograniczenia wydajności?**  
-A: To zależy od pamięci JVM; przetwarzanie w mniejszych partiach lub używanie strumieni pomaga zarządzać dużymi zestawami danych.
+**Q: Jak duży folder mogę wyczyścić, zanim napotkam limity wydajności?**  
+A: To zależy od pamięci JVM; przetwarzanie w mniejszych partiach lub użycie strumieni pomaga zarządzać dużymi zestawami danych.
 
 **Q: Czy GroupDocs.Search jest darmowy do rozwoju?**  
-A: Dostępna jest darmowa wersja próbna, ale płatna licencja jest wymagana do użytku produkcyjnego.
+A: Dostępna jest bezpłatna wersja próbna, ale do użytku produkcyjnego wymagana jest płatna licencja.
 
 **Q: Czy mogę używać tego podejścia z innymi typami plików (np. PDF, DOCX)?**  
 A: Oczywiście. GroupDocs.Search obsługuje wiele formatów; wystarczy dodać folder zawierający te pliki do indeksu.
 
 ## Zakończenie
 
-Masz teraz kompletną, gotową do produkcji rozwiązanie dla **clean directory java**, umożliwiające dodawanie dokumentów do przeszukiwalnego indeksu, zmianę nazw plików i utrzymywanie wszystkiego w synchronizacji z GroupDocs.Search. Zastosuj te wzorce, aby zautomatyzować przepływ pracy zarządzania dokumentami i cieszyć się szybszymi, bardziej niezawodnymi doświadczeniami wyszukiwania.
+Masz teraz kompletną, gotową do produkcji rozwiązanie dla **clean directory java**, dodające dokumenty do przeszukiwalnego indeksu, zmieniające nazwy plików i utrzymujące wszystko zsynchronizowane z GroupDocs.Search. Zastosuj te wzorce, aby zautomatyzować przepływ pracy zarządzania dokumentami i cieszyć się szybszymi, bardziej niezawodnymi wynikami wyszukiwania.
 
 ---
 
-**Ostatnia aktualizacja:** 2025-12-29  
+**Ostatnia aktualizacja:** 2026-03-01  
 **Testowano z:** GroupDocs.Search 25.4  
-**Autor:** GroupDocs  
-
----
+**Autor:** GroupDocs

@@ -1,34 +1,37 @@
 ---
-date: '2025-12-29'
-description: Tìm hiểu cách quản lý mật khẩu tài liệu Java với GroupDocs.Search, tạo
-  chỉ mục có thể tìm kiếm và tìm kiếm hiệu quả trên nhiều tài liệu.
+date: '2026-03-01'
+description: Tìm hiểu cách xóa mật khẩu tài liệu trong Java bằng GroupDocs.Search,
+  tạo các chỉ mục có thể tìm kiếm và bật tính năng lập chỉ mục tăng dần trong Java
+  để thực hiện tìm kiếm đa tài liệu hiệu quả.
 keywords:
+- remove document password
+- incremental indexing java
 - manage document passwords java
 - search across multiple documents
-title: Quản lý mật khẩu tài liệu Java bằng GroupDocs.Search
+title: Xóa mật khẩu tài liệu trong Java bằng GroupDocs.Search
 type: docs
 url: /vi/java/indexing/create-manage-groupdocs-search-java-index/
 weight: 1
 ---
 
-# Quản lý mật khẩu tài liệu Java bằng GroupDocs.Search
+# Xóa mật khẩu tài liệu trong Java bằng GroupDocs.Search
 
-Trong các ứng dụng doanh nghiệp hiện đại, **quản lý mật khẩu tài liệu Java** là một bước quan trọng để giữ an toàn cho các tệp nhạy cảm đồng thời vẫn cho phép tìm kiếm nhanh chóng và đáng tin cậy. Trong hướng dẫn này, chúng tôi sẽ chỉ cho bạn cách tạo và quản lý các chỉ mục với GroupDocs.Search, lưu mật khẩu một cách an toàn trong từ điển chỉ mục, và sau đó **tìm kiếm trên nhiều tài liệu** một cách dễ dàng. Dù bạn đang xây dựng hệ thống quản lý tài liệu hay thêm tính năng tìm kiếm vào một ứng dụng Java hiện có, các bước dưới đây sẽ giúp bạn nhanh chóng khởi động.
+Trong các ứng dụng doanh nghiệp hiện đại, **remove document password** là một bước quan trọng để giữ an toàn cho các tệp nhạy cảm đồng thời vẫn cho phép tìm kiếm nhanh chóng và đáng tin cậy. Trong hướng dẫn này, chúng tôi sẽ chỉ cho bạn cách tạo và quản lý các chỉ mục với GroupDocs.Search, lưu mật khẩu một cách an toàn trong từ điển chỉ mục, và sau đó **search across multiple documents** một cách dễ dàng. Dù bạn đang xây dựng hệ thống quản lý tài liệu hay thêm chức năng tìm kiếm vào một ứng dụng Java hiện có, các bước dưới đây sẽ giúp bạn nhanh chóng khởi động.
 
 ## Câu trả lời nhanh
-- **“Quản lý mật khẩu tài liệu Java” có nghĩa là gì?** Nó đề cập đến việc lưu và truy xuất mật khẩu cho các tệp được bảo vệ trực tiếp trong chỉ mục tìm kiếm.  
-- **Tôi có thể lập chỉ mục các tệp được bảo vệ bằng mật khẩu không?** Có — chỉ cần thêm mật khẩu vào từ điển chỉ mục trước khi lập chỉ mục.  
-- **Tôi có thể tìm kiếm bao nhiêu tài liệu cùng một lúc?** GroupDocs.Search có thể **tìm kiếm trên nhiều tài liệu** trong một truy vấn duy nhất.  
-- **Tôi có cần giấy phép cho môi trường sản xuất không?** Giấy phép là bắt buộc cho việc sử dụng trong môi trường sản xuất; bản dùng thử miễn phí có sẵn để đánh giá.  
-- **Yêu cầu phiên bản Java nào?** JDK 8 hoặc cao hơn.
+- **remove document password** có nghĩa là gì? Nó đề cập đến việc lưu trữ và truy xuất mật khẩu cho các tệp được bảo vệ trực tiếp trong chỉ mục tìm kiếm.  
+- **Can I index password‑protected files?** Có—thêm mật khẩu vào từ điển chỉ mục trước khi lập chỉ mục.  
+- **How many documents can I search at once?** GroupDocs.Search có thể **search across multiple documents** trong một truy vấn duy nhất.  
+- **Do I need a license for production?** Cần có giấy phép để sử dụng trong môi trường sản xuất; một bản dùng thử miễn phí có sẵn để đánh giá.  
+- **What Java version is required?** JDK 8 hoặc cao hơn.  
 
-## “Quản lý mật khẩu tài liệu Java” là gì?
-Việc lưu mật khẩu tài liệu bên trong chỉ mục tìm kiếm cho phép engine tự động mở các tệp được bảo vệ trong quá trình lập chỉ mục và tìm kiếm, loại bỏ nhu cầu nhập mật khẩu thủ công mỗi lần.
+## “remove document password” là gì?
+Việc lưu mật khẩu tài liệu trong chỉ mục tìm kiếm cho phép engine tự động mở các tệp được bảo vệ trong quá trình lập chỉ mục và tìm kiếm, loại bỏ nhu cầu nhập mật khẩu thủ công mỗi lần.
 
 ## Tại sao nên sử dụng GroupDocs.Search cho nhiệm vụ này?
-- **Từ điển mật khẩu tích hợp** – giữ mật khẩu gắn với đường dẫn tệp.  
-- **Lập chỉ mục hiệu năng cao** – xử lý hàng ngàn tệp nhanh chóng.  
-- **Ngôn ngữ truy vấn phong phú** – hỗ trợ các tìm kiếm phức tạp trên nhiều loại tài liệu.  
+- **Built‑in password dictionary** – giữ mật khẩu gắn với đường dẫn tệp.  
+- **High‑performance indexing** – xử lý hàng nghìn tệp nhanh chóng.  
+- **Rich query language** – hỗ trợ các truy vấn phức tạp trên nhiều loại tài liệu.  
 
 ## Yêu cầu trước
 - **JDK 8+** đã được cài đặt.  
@@ -37,7 +40,7 @@ Việc lưu mật khẩu tài liệu bên trong chỉ mục tìm kiếm cho phé
 
 ## Cài đặt GroupDocs.Search cho Java
 
-Thêm kho và phụ thuộc vào file `pom.xml` của bạn:
+Thêm repository và dependency vào file `pom.xml` của bạn:
 
 ```xml
 <repositories>
@@ -74,28 +77,28 @@ public class SearchSetup {
 }
 ```
 
-## Cách quản lý mật khẩu tài liệu Java?
+## Cách xóa mật khẩu tài liệu trong Java?
 
-### 1. Định nghĩa thư mục chỉ mục và tạo chỉ mục
+### 1. Define the Index Folder and Create the Index
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/Index";
 Index index = new Index(indexFolder);
 ```
 
-### 2. Xóa các mật khẩu hiện có (nếu có)
+### 2. Clear Existing Passwords (if any)
 ```java
 if (index.getDictionaries().getDocumentPasswords().getCount() > 0) {
     index.getDictionaries().getDocumentPasswords().clear();
 }
 ```
 
-### 3. Thêm mật khẩu cho một tài liệu cụ thể
+### 3. Add a Password for a Specific Document
 ```java
 String documentPath = new File("YOUR_DOCUMENT_DIRECTORY/English.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(documentPath, "123456");
 ```
 
-### 4. Truy xuất và xóa mật khẩu
+### 4. Retrieve and Remove a Password
 ```java
 if (index.getDictionaries().getDocumentPasswords().contains(documentPath)) {
     String retrievedPassword = index.getDictionaries().getDocumentPasswords().getPassword(documentPath);
@@ -103,67 +106,81 @@ if (index.getDictionaries().getDocumentPasswords().contains(documentPath)) {
 }
 ```
 
-### 5. Thêm mật khẩu cho nhiều tài liệu
+### 5. Add Passwords to Multiple Documents
 ```java
 index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/English.docx", "123456");
 index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.docx", "123456");
 ```
 
-## Cách lập chỉ mục tài liệu có mật khẩu?
+## How to index documents with passwords?
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-## Cách tìm kiếm trên nhiều tài liệu?
+## How to search across multiple documents?
 ```java
 String searchQuery = "ipsum OR increasing";
 SearchResult searchResult = index.search(searchQuery);
 ```
 
-## Ứng dụng thực tiễn
-- **Quản lý tài liệu doanh nghiệp** – lưu trữ an toàn, có thể tìm kiếm.  
-- **Nền tảng quản lý nội dung** – truy xuất nhanh các tài sản được bảo vệ.  
-- **Kho lưu trữ tài liệu pháp lý** – duy trì tính bảo mật đồng thời cho phép tìm kiếm toàn văn.
+## Lập chỉ mục tăng dần java với GroupDocs.Search
+GroupDocs.Search hỗ trợ **incremental indexing java**, cho phép bạn thêm các tệp mới hoặc đã cập nhật vào một chỉ mục hiện có mà không cần xây dựng lại từ đầu. Sau khi bạn đã xóa hoặc cập nhật mật khẩu tài liệu, chỉ cần gọi `index.add(newDocumentPath)` để thêm các thay đổi.
 
-## Các cân nhắc về hiệu năng
-- **Lập chỉ mục song song** – sử dụng nhiều luồng cho các lô dữ liệu lớn.  
-- **Giám sát bộ nhớ** – theo dõi heap JVM khi nhập khẩu số lượng lớn.  
-- **Bảo trì chỉ mục định kỳ** – tái lập chỉ mục khi tệp thay đổi hoặc mật khẩu được cập nhật.
+## Ứng dụng thực tiễn
+- **Enterprise Document Management** – lưu trữ an toàn, có thể tìm kiếm.  
+- **Content Management Platforms** – truy xuất nhanh các tài sản được bảo vệ.  
+- **Legal Document Repositories** – duy trì tính bảo mật đồng thời cho phép tìm kiếm toàn văn.  
+
+## Các yếu tố ảnh hưởng đến hiệu suất
+- **Parallel Indexing** – sử dụng đa luồng cho các lô lớn.  
+- **Memory Monitoring** – giám sát bộ nhớ heap của JVM trong quá trình nhập khẩu lớn.  
+- **Regular Index Maintenance** – lập chỉ mục lại khi tệp thay đổi hoặc mật khẩu được cập nhật.  
+
+## Các vấn đề thường gặp và giải pháp
+| Issue | Solution |
+|-------|----------|
+| **Mật khẩu không được áp dụng** | Đảm bảo mật khẩu đã được thêm vào từ điển **before** khi gọi `index.add(...)`. |
+| **Lỗi hết bộ nhớ** | Tăng bộ nhớ heap của JVM (`-Xmx2g`) hoặc bật lập chỉ mục song song với kích thước lô nhỏ hơn. |
+| **Tìm kiếm không trả về kết quả** | Xác minh rằng tài liệu đã được lập chỉ mục thành công và cú pháp truy vấn là đúng. |
+| **Không thể xóa mật khẩu** | Xác nhận đường dẫn tệp chính xác đã dùng khi thêm mật khẩu; đường dẫn phải khớp hoàn toàn. |
 
 ## Kết luận
-Bây giờ bạn đã biết cách **quản lý mật khẩu tài liệu Java** với GroupDocs.Search, tạo các chỉ mục mạnh mẽ và thực hiện **tìm kiếm trên nhiều tài liệu** hiệu quả. Khi tích hợp các bước này vào ứng dụng của bạn, bạn sẽ cung cấp trải nghiệm tìm kiếm an toàn, nhanh chóng và có khả năng mở rộng.
+Bạn đã biết cách **remove document password** với GroupDocs.Search, tạo các chỉ mục mạnh mẽ và thực hiện **search across multiple documents** mạnh mẽ. Bằng cách tích hợp các bước này vào ứng dụng của mình, bạn sẽ cung cấp trải nghiệm tìm kiếm an toàn, nhanh chóng và mở rộng.
 
-**Bước tiếp theo**
+**Next Steps**
 - Thử các toán tử truy vấn nâng cao (wildcards, fuzzy search).  
-- Khám phá lập chỉ mục gia tăng cho các cập nhật thời gian thực.  
-- Kết hợp với các sản phẩm GroupDocs khác để chuyển đổi PDF hoặc chú thích.
+- Khám phá lập chỉ mục tăng dần cho các cập nhật thời gian thực.  
+- Kết hợp với các sản phẩm GroupDocs khác để chuyển đổi PDF hoặc chú thích.  
 
 ## Câu hỏi thường gặp
 
-**H: Tôi có thể lập chỉ mục một khối lượng lớn tài liệu không?**  
-Đ: Có, GroupDocs.Search được thiết kế để xử lý các bộ sưu tập quy mô lớn một cách hiệu quả.
+**Q: Tôi có thể lập chỉ mục một lượng lớn tài liệu không?**  
+A: Có, GroupDocs.Search được thiết kế để xử lý các bộ sưu tập lớn một cách hiệu quả.
 
-**H: Có thể cập nhật chỉ mục hiện có với các tài liệu mới không?**  
-Đ: Chắc chắn! Bạn có thể thêm hoặc xóa tài liệu khỏi chỉ mục khi cần.
+**Q: Có thể cập nhật một chỉ mục hiện có với các tài liệu mới không?**  
+A: Chắc chắn! Bạn có thể thêm hoặc xóa tài liệu khỏi chỉ mục của mình khi cần.
 
-**H: Làm sao để đảm bảo an toàn cho dữ liệu đã lập chỉ mục?**  
-Đ: Sử dụng từ điển mật khẩu tài liệu và lưu chỉ mục trong thư mục được bảo vệ.
+**Q: Làm thế nào để tôi đảm bảo bảo mật cho dữ liệu đã lập chỉ mục?**  
+A: Sử dụng từ điển document‑password và lưu chỉ mục trong thư mục được bảo vệ.
 
-**H: GroupDocs.Search có hỗ trợ các định dạng tệp khác nhau không?**  
-Đ: Có, nó hỗ trợ PDF, Word, Excel và nhiều định dạng phổ biến khác.
+**Q: GroupDocs.Search có thể xử lý các định dạng tệp khác nhau không?**  
+A: Có, nó hỗ trợ PDFs, tệp Word, bảng tính Excel và nhiều định dạng phổ biến khác.
 
-**H: Nếu gặp vấn đề về hiệu năng khi lập chỉ mục thì phải làm gì?**  
-Đ: Xem xét bật xử lý song song, tăng kích thước heap hoặc tinh chỉnh các thiết lập chỉ mục.
+**Q: Nếu tôi gặp vấn đề về hiệu suất trong quá trình lập chỉ mục thì sao?**  
+A: Hãy cân nhắc bật xử lý song song, tăng kích thước heap, hoặc tinh chỉnh các thiết lập chỉ mục.
+
+**Q: Lập chỉ mục tăng dần java có hoạt động với các chỉ mục hiện có đã chứa mật khẩu không?**  
+A: Có—chỉ cần thêm hoặc cập nhật mật khẩu trong từ điển và gọi `index.add(...)` cho các tệp mới.
 
 ---
 
-**Cập nhật lần cuối:** 2025-12-29  
-**Đã kiểm tra với:** GroupDocs.Search 25.4 cho Java  
-**Tác giả:** GroupDocs  
+**Last Updated:** 2026-03-01  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  
 
-**Tài nguyên**  
-- [Documentation](https://docs.groupdocs.com/search/java/)  
-- [API Reference](https://reference.groupdocs.com/search/java)  
-- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+**Resources**  
+- [Tài liệu](https://docs.groupdocs.com/search/java/)  
+- [Tham chiếu API](https://reference.groupdocs.com/search/java)  
+- [Tải xuống GroupDocs.Search cho Java](https://releases.groupdocs.com/search/java/)  
+- [Kho GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)

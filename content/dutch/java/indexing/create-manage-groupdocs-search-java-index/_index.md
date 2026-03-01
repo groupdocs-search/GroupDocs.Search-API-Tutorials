@@ -1,43 +1,46 @@
 ---
-date: '2025-12-29'
-description: Leer hoe u documentwachtwoorden in Java beheert met GroupDocs.Search,
-  doorzoekbare indexen maakt en efficiënt zoekt in meerdere documenten.
+date: '2026-03-01'
+description: Leer hoe u documentwachtwoorden kunt verwijderen in Java met GroupDocs.Search,
+  doorzoekbare indexen kunt maken en incrementele indexering in Java kunt inschakelen
+  voor efficiënte zoekopdrachten over meerdere documenten.
 keywords:
+- remove document password
+- incremental indexing java
 - manage document passwords java
 - search across multiple documents
-title: Beheer documentwachtwoorden in Java met GroupDocs.Search
+title: Documentwachtwoord verwijderen in Java met GroupDocs.Search
 type: docs
 url: /nl/java/indexing/create-manage-groupdocs-search-java-index/
 weight: 1
 ---
 
-# Manage Document Passwords Java using GroupDocs.Search
+# Documentwachtwoord verwijderen in Java met GroupDocs.Search
 
-In moderne bedrijfsapplicaties is **manage document passwords Java** een cruciale stap om gevoelige bestanden veilig te houden terwijl snelle, betrouwbare zoekfunctionaliteit behouden blijft. In deze gids laten we zien hoe je indexen maakt en beheert met GroupDocs.Search, wachtwoorden veilig opslaat in het indexwoordenboek, en vervolgens **search across multiple documents** met gemak. Of je nu een document‑beheersysteem bouwt of zoekfunctionaliteit toevoegt aan een bestaande Java‑applicatie, de onderstaande stappen helpen je snel van start.
+In moderne bedrijfsapplicaties is **documentwachtwoord verwijderen** een cruciale stap om gevoelige bestanden veilig te houden terwijl snelle, betrouwbare zoekfunctionaliteit behouden blijft. In deze gids laten we zien hoe je indexen maakt en beheert met GroupDocs.Search, wachtwoorden veilig opslaat in het indexwoordenboek, en vervolgens moeiteloos **zoeken over meerdere documenten** uitvoert. Of je nu een document‑beheersysteem bouwt of zoekfunctionaliteit toevoegt aan een bestaande Java‑app, de onderstaande stappen helpen je snel van start.
 
-## Quick Answers
-- **What does “manage document passwords Java” mean?** Het verwijst naar het opslaan en ophalen van wachtwoorden voor beveiligde bestanden direct in de zoekindex.  
-- **Can I index password‑protected files?** Ja—voeg de wachtwoorden toe aan het indexwoordenboek voordat je indexeert.  
-- **How many documents can I search at once?** GroupDocs.Search kan **search across multiple documents** in één enkele query.  
-- **Do I need a license for production?** Een licentie is vereist voor productiegebruik; een gratis proefversie is beschikbaar voor evaluatie.  
-- **What Java version is required?** JDK 8 of hoger.
+## Snelle antwoorden
+- **Wat betekent “documentwachtwoord verwijderen”?** Het verwijst naar het opslaan en ophalen van wachtwoorden voor beveiligde bestanden direct in de zoekindex.  
+- **Kan ik wachtwoord‑beveiligde bestanden indexeren?** Ja—voeg de wachtwoorden toe aan het indexwoordenboek vóór het indexeren.  
+- **Hoeveel documenten kan ik tegelijk doorzoeken?** GroupDocs.Search kan **zoeken over meerdere documenten** in één query.  
+- **Heb ik een licentie nodig voor productie?** Een licentie is vereist voor productiegebruik; een gratis proefversie is beschikbaar voor evaluatie.  
+- **Welke Java‑versie is vereist?** JDK 8 of hoger.
 
-## What is “manage document passwords Java”?
-Het opslaan van documentwachtwoorden binnen de zoekindex laat de engine beveiligde bestanden automatisch openen tijdens het indexeren en zoeken, waardoor handmatige invoer van wachtwoorden elke keer overbodig wordt.
+## Wat is “documentwachtwoord verwijderen”?
+Het opslaan van documentwachtwoorden in de zoekindex laat de engine beschermde bestanden automatisch openen tijdens het indexeren en zoeken, waardoor handmatige invoer van wachtwoorden elke keer overbodig wordt.
 
-## Why use GroupDocs.Search for this task?
-- **Built‑in password dictionary** – houd wachtwoorden gekoppeld aan bestandspaden.  
-- **High‑performance indexing** – verwerk duizenden bestanden snel.  
-- **Rich query language** – ondersteunt complexe zoekopdrachten over vele documenttypen.  
+## Waarom GroupDocs.Search voor deze taak gebruiken?
+- **Ingebouwd wachtwoordwoordenboek** – houd wachtwoorden gekoppeld aan bestandspaden.  
+- **Hoge‑prestaties indexering** – verwerk duizenden bestanden snel.  
+- **Rijke query‑taal** – ondersteunt complexe zoekopdrachten over veel documenttypen.  
 
-## Prerequisites
+## Vereisten
 - **JDK 8+** geïnstalleerd.  
-- **Maven** voor dependency‑beheer.  
-- Basiskennis van Java (bestandsverwerking, klassen).  
+- **Maven** voor afhankelijkheidsbeheer.  
+- Basiskennis van Java (bestandsafhandeling, klassen).  
 
-## Setting Up GroupDocs.Search for Java
+## GroupDocs.Search voor Java instellen
 
-Add the repository and dependency to your `pom.xml`:
+Voeg de repository en afhankelijkheid toe aan je `pom.xml`:
 
 ```xml
 <repositories>
@@ -57,9 +60,9 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-You can also download the library directly from the official release page: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Je kunt de bibliotheek ook direct downloaden van de officiële release‑pagina: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Initialize the Index
+### Index initialiseren
 
 ```java
 import com.groupdocs.search.Index;
@@ -74,28 +77,28 @@ public class SearchSetup {
 }
 ```
 
-## How to manage document passwords Java?
+## Hoe documentwachtwoord te verwijderen in Java?
 
-### 1. Define the Index Folder and Create the Index
+### 1. Definieer de indexmap en maak de index aan
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/Index";
 Index index = new Index(indexFolder);
 ```
 
-### 2. Clear Existing Passwords (if any)
+### 2. Verwijder bestaande wachtwoorden (indien aanwezig)
 ```java
 if (index.getDictionaries().getDocumentPasswords().getCount() > 0) {
     index.getDictionaries().getDocumentPasswords().clear();
 }
 ```
 
-### 3. Add a Password for a Specific Document
+### 3. Voeg een wachtwoord toe voor een specifiek document
 ```java
 String documentPath = new File("YOUR_DOCUMENT_DIRECTORY/English.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(documentPath, "123456");
 ```
 
-### 4. Retrieve and Remove a Password
+### 4. Haal een wachtwoord op en verwijder het
 ```java
 if (index.getDictionaries().getDocumentPasswords().contains(documentPath)) {
     String retrievedPassword = index.getDictionaries().getDocumentPasswords().getPassword(documentPath);
@@ -103,62 +106,76 @@ if (index.getDictionaries().getDocumentPasswords().contains(documentPath)) {
 }
 ```
 
-### 5. Add Passwords to Multiple Documents
+### 5. Voeg wachtwoorden toe aan meerdere documenten
 ```java
 index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/English.docx", "123456");
 index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.docx", "123456");
 ```
 
-## How to index documents with passwords?
+## Hoe documenten met wachtwoorden te indexeren?
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-## How to search across multiple documents?
+## Hoe zoeken over meerdere documenten?
 ```java
 String searchQuery = "ipsum OR increasing";
 SearchResult searchResult = index.search(searchQuery);
 ```
 
-## Practical Applications
+## Incrementele indexering java met GroupDocs.Search
+GroupDocs.Search ondersteunt **incrementele indexering java**, waardoor je nieuwe of bijgewerkte bestanden kunt toevoegen aan een bestaande index zonder deze opnieuw op te bouwen. Nadat je een documentwachtwoord hebt verwijderd of bijgewerkt, roep je simpelweg `index.add(newDocumentPath)` aan om de wijzigingen toe te voegen.
+
+## Praktische toepassingen
 - **Enterprise Document Management** – veilige, doorzoekbare archieven.  
-- **Content Management Platforms** – snelle terugwinning van beveiligde assets.  
+- **Content Management Platforms** – snelle ophalen van beveiligde assets.  
 - **Legal Document Repositories** – vertrouwelijkheid behouden terwijl volledige‑tekst zoeken mogelijk is.
 
-## Performance Considerations
-- **Parallel Indexing** – gebruik meerdere threads voor grote batches.  
-- **Memory Monitoring** – houd de JVM‑heap in de gaten tijdens massale imports.  
-- **Regular Index Maintenance** – her‑indexeer wanneer bestanden veranderen of wachtwoorden worden bijgewerkt.
+## Prestatieoverwegingen
+- **Parallelle indexering** – gebruik meerdere threads voor grote batches.  
+- **Geheugenmonitoring** – houd de JVM‑heap in de gaten tijdens massale imports.  
+- **Regelmatig indexonderhoud** – re‑index wanneer bestanden veranderen of wachtwoorden worden bijgewerkt.
 
-## Conclusion
-Je weet nu hoe je **manage document passwords Java** kunt uitvoeren met GroupDocs.Search, robuuste indexen kunt maken en krachtige **search across multiple documents** kunt uitvoeren. Door deze stappen in je applicatie te integreren, lever je veilige, snelle en schaalbare zoekervaringen.
+## Veelvoorkomende problemen en oplossingen
+| Probleem | Oplossing |
+|----------|-----------|
+| **Wachtwoord niet toegepast** | Zorg ervoor dat het wachtwoord aan het woordenboek wordt toegevoegd **voordat** `index.add(...)` wordt aangeroepen. |
+| **Out‑of‑memory fouten** | Verhoog de JVM‑heap (`-Xmx2g`) of schakel parallelle indexering in met een kleinere batch‑grootte. |
+| **Zoekopdracht geeft geen resultaten** | Controleer of het document succesvol is geïndexeerd en of de query‑syntaxis correct is. |
+| **Kan wachtwoord niet verwijderen** | Bevestig het exacte bestandspad dat is gebruikt bij het toevoegen van het wachtwoord; paden moeten exact overeenkomen. |
 
-**Next Steps**
+## Conclusie
+Je weet nu hoe je **documentwachtwoord kunt verwijderen** met GroupDocs.Search, robuuste indexen kunt maken en krachtige **zoekopdrachten over meerdere documenten** kunt uitvoeren. Door deze stappen in je applicatie te integreren, lever je veilige, snelle en schaalbare zoekervaringen.
+
+**Volgende stappen**
 - Probeer geavanceerde query‑operatoren (wildcards, fuzzy search).  
-- Verken incrementeel indexeren voor realtime updates.  
+- Verken incrementele indexering voor realtime updates.  
 - Combineer met andere GroupDocs‑producten voor PDF‑conversie of annotatie.
 
-## Frequently Asked Questions
+## Veelgestelde vragen
 
-**Q: Can I index large volumes of documents?**  
-A: Ja, GroupDocs.Search is ontworpen om uitgebreide collecties efficiënt te verwerken.
+**V: Kan ik grote hoeveelheden documenten indexeren?**  
+A: Ja, GroupDocs.Search is ontworpen om grote collecties efficiënt te verwerken.
 
-**Q: Is it possible to update an existing index with new documents?**  
-A: Absoluut! Je kunt documenten toevoegen of verwijderen uit je index wanneer dat nodig is.
+**V: Is het mogelijk een bestaande index bij te werken met nieuwe documenten?**  
+A: Absoluut! Je kunt documenten toevoegen of verwijderen uit je index naar behoefte.
 
-**Q: How do I ensure the security of my indexed data?**  
-A: Gebruik het document‑password dictionary en sla de index op in een beveiligde map.
+**V: Hoe zorg ik voor de beveiliging van mijn geïndexeerde gegevens?**  
+A: Gebruik het document‑wachtwoordwoordenboek en sla de index op in een beveiligde map.
 
-**Q: Can GroupDocs.Search handle different file formats?**  
+**V: Kan GroupDocs.Search verschillende bestandsformaten aan?**  
 A: Ja, het ondersteunt PDF’s, Word‑bestanden, Excel‑bladen en vele andere gangbare formaten.
 
-**Q: What if I encounter performance issues during indexing?**  
-A: Overweeg parallel processing in te schakelen, de heap‑grootte te vergroten of de indexinstellingen te optimaliseren.
+**V: Wat als ik prestatieproblemen ondervind tijdens het indexeren?**  
+A: Overweeg parallel processing in te schakelen, de heap‑grootte te verhogen, of de indexinstellingen te optimaliseren.
+
+**V: Werkt incrementele indexering java met bestaande indexen die al wachtwoorden bevatten?**  
+A: Ja—voeg simpelweg wachtwoorden toe of werk ze bij in het woordenboek en roep `index.add(...)` aan voor de nieuwe bestanden.
 
 ---
 
-**Last Updated:** 2025-12-29  
+**Last Updated:** 2026-03-01  
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs  
 
