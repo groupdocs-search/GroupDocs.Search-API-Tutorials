@@ -1,46 +1,48 @@
 ---
-date: '2025-12-29'
+date: '2026-03-01'
 description: Pelajari cara membersihkan direktori Java, mengotomatisasi manajemen
-  dokumen, dan mengganti nama file menggunakan GroupDocs.Search untuk Java. Tingkatkan
-  efisiensi aplikasi Anda.
+  dokumen, mengganti nama file Java, dan menyalin file Java sambil membuat indeks
+  yang dapat dicari menggunakan GroupDocs.Search untuk Java.
 keywords:
 - Java document indexing
 - GroupDocs.Search for Java
 - automate document management
-title: Bersihkan Direktori Java – Otomatisasi Pengindeksan & Penamaan Ulang
+title: Bersihkan Direktori Java – Otomatisasi Pengindeksan & Penamaan Ulang Dokumen
+  dengan GroupDocs.Search
 type: docs
 url: /id/java/indexing/automate-document-indexing-groupdocs-search-java/
 weight: 1
 ---
 
-# Clean Directory Java – Mengotomatisasi Pengindeksan Dokumen dan Penamaan Ulang Menggunakan GroupDocs.Search
+# Bersihkan Direktori Java – Otomatisasi Pengindeksan Dokumen dan Penggantian Nama Menggunakan GroupDocs.Search
 
-Jika Anda perlu **clean directory java** sambil mengotomatisasi pengindeksan dokumen dan penamaan ulang, Anda berada di tempat yang tepat. Menangani pemindahan file, penghapusan, dan pembaruan indeks secara manual rawan kesalahan dan memakan waktu. Dalam tutorial ini kami akan menunjukkan cara membiarkan Java melakukan pekerjaan berat, menggunakan **GroupDocs.Search for Java** untuk membuat indeks yang dapat dicari, menamai ulang file, dan menjaga indeks tetap sinkron secara otomatis.
+Jika Anda perlu **clean directory java** sambil mengotomatisasi pengindeksan dokumen dan penggantian nama, Anda berada di tempat yang tepat. Menangani pemindahan file, penghapusan, dan pembaruan indeks secara manual rawan kesalahan dan memakan waktu. Pada tutorial ini kami akan menunjukkan cara membiarkan Java melakukan pekerjaan berat, menggunakan **GroupDocs.Search for Java** untuk membuat indeks yang dapat dicari, mengganti nama file, dan menjaga indeks tetap sinkron secara otomatis.
 
 ## Jawaban Cepat
 - **Apa arti “clean directory java”?** Menghapus semua file/folder di dalam direktori target menggunakan kode Java.  
 - **Library mana yang membuat indeks yang dapat dicari?** GroupDocs.Search for Java.  
-- **Bagaimana cara menamai ulang dokumen dan menjaga indeks tetap terbarui?** Gunakan `File.renameTo()` lalu beri tahu indeks dengan `Notification.createRenameNotification`.  
-- **Bisakah saya menyalin file setelah membersihkan folder?** Ya – Java Streams dapat menyalin file sambil mempertahankan indeks.  
+- **Bagaimana cara mengganti nama dokumen dan memperbarui indeks?** Gunakan `File.renameTo()` lalu beri tahu indeks dengan `Notification.createRenameNotification`.  
+- **Apakah saya dapat menyalin file setelah membersihkan folder?** Ya – Java Streams dapat menyalin file sambil mempertahankan indeks.  
 - **Apakah lisensi diperlukan untuk produksi?** Lisensi GroupDocs.Search yang valid diperlukan untuk penggunaan komersial.
 
 ## Apa itu “clean directory java”?
-Membersihkan direktori di Java berarti secara programatik menghapus setiap file dan sub‑folder di dalam folder yang ditentukan. Ini sering menjadi langkah prasyarat sebelum menyalin file baru atau membangun ulang indeks, memastikan data usang tidak mengganggu hasil pencarian.
+Membersihkan direktori dalam Java berarti secara programatik menghapus setiap file dan sub‑folder di dalam folder yang ditentukan. Ini biasanya menjadi langkah prasyarat sebelum menyalin file baru atau membangun ulang indeks, memastikan data usang tidak mengganggu hasil pencarian.
 
-## Mengapa mengotomatisasi pengindeksan dokumen dan penamaan ulang?
+## Mengapa mengotomatisasi pengindeksan dokumen dan penggantian nama?
 - **Otomatisasi manajemen dokumen** mengurangi upaya manual dan menghilangkan kesalahan manusia.  
-- Langkah **membuat indeks yang dapat dicari** memungkinkan Anda menemukan dokumen apa pun secara instan berdasarkan kontennya.  
-- Menamai ulang file tanpa memperbarui indeks akan merusak akurasi pencarian; otomatisasi menjaga semuanya konsisten.  
+- Langkah **membuat indeks yang dapat dicari** memungkinkan Anda menemukan dokumen apa pun secara instan berdasarkan isinya.  
+- Mengganti nama file tanpa memperbarui indeks akan merusak akurasi pencarian; otomatisasi menjaga semuanya konsisten.  
+- Operasi **rename files java** dan **copy files java** menjadi dapat diulang dan dapat diandalkan, terutama dalam lingkungan berskala besar.
 
-## Prerequisites
+## Prasyarat
 
-- **GroupDocs.Search for Java** (Version 25.4 or later)  
-- JDK 8 + and an IDE such as IntelliJ IDEA or Eclipse  
-- Basic Java knowledge, especially file I/O  
+- **GroupDocs.Search for Java** (Versi 25.4 atau lebih baru)  
+- JDK 8 + dan IDE seperti IntelliJ IDEA atau Eclipse  
+- Pengetahuan dasar Java, terutama I/O file  
 
-## Menyiapkan GroupDocs.Search untuk Java
+## Menyiapkan GroupDocs.Search for Java
 
-### Maven Dependency
+### Dependensi Maven
 Tambahkan repositori dan dependensi ke `pom.xml` Anda:
 
 ```xml
@@ -61,13 +63,13 @@ Tambahkan repositori dan dependensi ke `pom.xml` Anda:
 </dependencies>
 ```
 
-### Direct Download
-Sebagai alternatif, unduh versi terbaru dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### Unduhan Langsung
+Sebagai alternatif, unduh versi terbaru dari [rilis GroupDocs.Search untuk Java](https://releases.groupdocs.com/search/java/).
 
-### License
+### Lisensi
 Dapatkan percobaan gratis, lisensi evaluasi sementara, atau beli lisensi penuh untuk penggunaan produksi.
 
-### Basic Initialization
+### Inisialisasi Dasar
 Buat instance `Index` yang akan menyimpan data yang dapat dicari:
 
 ```java
@@ -106,7 +108,7 @@ public class DocumentIndexingAndRenaming {
 - `indexFolder` – tempat file indeks disimpan.  
 - `documentFolder` – folder sumber yang berisi file yang ingin Anda jadikan dapat dicari.  
 
-### 2. Menamai Ulang Dokumen dan Memberi Tahu Indeks
+### 2. Ganti Nama Dokumen dan Beri Tahu Indeks (rename files java)
 
 ```java
 import com.groupdocs.search.Notification;
@@ -133,14 +135,14 @@ public class DocumentIndexingAndRenaming {
 ```
 
 *Penjelasan*:  
-- `File.renameTo()` Java melakukan penamaan ulang fisik.  
-- `Notification.createRenameNotification()` memberi tahu GroupDocs.Search bahwa nama file berubah, menjaga indeks tetap akurat.  
+- `File.renameTo()` milik Java melakukan penggantian nama secara fisik.  
+- `Notification.createRenameNotification()` memberi tahu GroupDocs.Search bahwa nama file telah berubah, sehingga indeks tetap akurat.  
 
 ## Clean Directory Java – Pembersihan Direktori dan Penyalinan File
 
-Menjaga folder tetap rapi sebelum penyalinan massal mencegah file duplikat atau terabaikan. Berikut dua potongan kode yang dapat digunakan kembali.
+Menjaga folder tetap rapi sebelum penyalinan massal mencegah file duplikat atau terabaikan. Di bawah ini ada dua cuplikan kode yang dapat digunakan kembali yang menunjukkan **java delete files recursively** dan **copy files java**.
 
-### Langkah 1: Hapus Isi Folder (delete folder contents)
+### Langkah 1: Hapus Konten Folder (java delete files recursively)
 
 ```java
 import java.io.File;
@@ -194,17 +196,17 @@ public class DirectoryCleaningAndFileCopying {
 ```
 
 *Penjelasan*:  
-- Stream memfilter hanya file reguler, kemudian menyalin masing‑masing ke direktori target, menimpa file yang ada jika diperlukan.  
+- Stream menyaring hanya file reguler, lalu menyalin masing‑masing ke direktori target, menimpa file yang ada jika diperlukan.  
 
 ## Aplikasi Praktis
 
-- **Manajemen Dokumen Perusahaan** – Mengotomatisasi pengindeksan ribuan kontrak dan menjaga nama file tetap sinkron.  
-- **Firma Hukum** – Menamai ulang file kasus dengan cepat sambil mempertahankan konten yang dapat dicari.  
+- **Manajemen Dokumen Perusahaan** – Otomatisasi pengindeksan untuk ribuan kontrak dan menjaga nama file tetap sinkron.  
+- **Firma Hukum** – Cepat mengganti nama file kasus sambil mempertahankan konten yang dapat dicari.  
 - **Sistem Manajemen Konten** – Gunakan pola clean‑directory untuk menyegarkan folder media tanpa pembersihan manual.  
 
 ## Pertimbangan Kinerja
 
-- **Ukuran Indeks** – Secara periodik kompakkan indeks jika menjadi besar.  
+- **Ukuran Indeks** – Secara periodik kompak indeks jika ukurannya menjadi besar.  
 - **Penggunaan Memori** – Proses file dalam batch untuk menghindari `OutOfMemoryError`.  
 - **Konkruensi** – Untuk operasi massal, pertimbangkan `ExecutorService` Java untuk memparalelkan pembersihan dan penyalinan.  
 
@@ -212,35 +214,35 @@ public class DirectoryCleaningAndFileCopying {
 
 | Masalah | Penyebab | Solusi |
 |-------|-------|-----|
-| Gagal menamai ulang | File terkunci atau path tidak valid | Pastikan file tidak terbuka di tempat lain; gunakan `Files.move` untuk penamaan ulang yang lebih dapat diandalkan. |
-| Indeks tidak terbarui | Notifikasi tidak dikirim | Selalu panggil `index.notifyIndex(notification)` diikuti dengan `index.update()`. |
-| Hasil pencarian usang setelah penyalinan | Indeks masih mengarah ke file lama | Tambahkan kembali folder target ke indeks atau panggil `index.update()` setelah menyalin. |
+| Gagal mengganti nama | File terkunci atau path tidak valid | Pastikan file tidak terbuka di tempat lain; gunakan `Files.move` untuk penggantian nama yang lebih dapat diandalkan. |
+| Indeks tidak diperbarui | Notifikasi tidak dikirim | Selalu panggil `index.notifyIndex(notification)` diikuti dengan `index.update()`. |
+| Hasil pencarian usang setelah penyalinan | Indeks masih mengacu pada file lama | Tambahkan kembali folder target ke indeks atau panggil `index.update()` setelah penyalinan. |
+| Pembersihan lambat pada folder besar | Walk single‑threaded | Gunakan parallel streams atau bagi folder menjadi batch yang lebih kecil. |
+| Kesalahan izin | Hak OS tidak cukup | Jalankan JVM dengan izin yang tepat atau sesuaikan ACL folder. |
 
 ## Pertanyaan yang Sering Diajukan
 
-**Q: Bisakah saya membersihkan direktori yang berisi sub‑folder?**  
-A: Ya. Pendekatan `Files.walk()` secara rekursif menghapus semua file dan folder yang bersarang.
+**T: Bisakah saya membersihkan direktori yang berisi sub‑folder?**  
+J: Ya. Pendekatan `Files.walk()` menghapus secara rekursif semua file dan folder yang bersarang.
 
-**Q: Apakah saya perlu membangun ulang seluruh indeks setelah setiap penamaan ulang?**  
-A: Tidak. Mengirim notifikasi penamaan ulang dan memanggil `index.update()` sudah cukup.
+**T: Apakah saya perlu membangun ulang seluruh indeks setelah setiap penggantian nama?**  
+J: Tidak. Mengirim notifikasi penggantian nama dan memanggil `index.update()` sudah cukup.
 
-**Q: Seberapa besar folder yang dapat saya bersihkan sebelum mencapai batas kinerja?**  
-A: Itu tergantung pada memori JVM; memproses dalam batch lebih kecil atau menggunakan streams membantu mengelola kumpulan data besar.
+**T: Seberapa besar folder yang dapat saya bersihkan sebelum mencapai batas kinerja?**  
+J: Tergantung pada memori JVM; memproses dalam batch lebih kecil atau menggunakan streams membantu mengelola data berukuran besar.
 
-**Q: Apakah GroupDocs.Search gratis untuk pengembangan?**  
-A: Versi percobaan gratis tersedia, tetapi lisensi berbayar diperlukan untuk penggunaan produksi.
+**T: Apakah GroupDocs.Search gratis untuk pengembangan?**  
+J: Versi percobaan gratis tersedia, namun lisensi berbayar diperlukan untuk penggunaan produksi.
 
-**Q: Bisakah saya menggunakan pendekatan ini dengan tipe file lain (mis., PDF, DOCX)?**  
-A: Tentu saja. GroupDocs.Search mendukung banyak format; cukup tambahkan folder yang berisi file tersebut ke indeks.
+**T: Bisakah saya menggunakan pendekatan ini dengan tipe file lain (misalnya PDF, DOCX)?**  
+J: Tentu saja. GroupDocs.Search mendukung banyak format; cukup tambahkan folder yang berisi file tersebut ke indeks.
 
 ## Kesimpulan
 
-Anda kini memiliki solusi lengkap yang siap produksi untuk **clean directory java**, menambahkan dokumen ke indeks yang dapat dicari, menamai ulang file, dan menjaga semuanya tersinkronisasi dengan GroupDocs.Search. Terapkan pola ini untuk mengotomatisasi alur kerja manajemen dokumen Anda dan nikmati pengalaman pencarian yang lebih cepat dan lebih dapat diandalkan.
+Anda kini memiliki solusi lengkap yang siap produksi untuk **clean directory java**, menambahkan dokumen ke indeks yang dapat dicari, mengganti nama file, dan menjaga semuanya sinkron dengan GroupDocs.Search. Terapkan pola ini untuk mengotomatisasi alur kerja manajemen dokumen Anda dan nikmati pengalaman pencarian yang lebih cepat serta dapat diandalkan.
 
 ---
 
-**Last Updated:** 2025-12-29  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs  
-
----
+**Terakhir Diperbarui:** 2026-03-01  
+**Diuji Dengan:** GroupDocs.Search 25.4  
+**Penulis:** GroupDocs
