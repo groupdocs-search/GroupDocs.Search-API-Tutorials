@@ -1,47 +1,47 @@
 ---
-date: '2025-12-22'
-description: Tìm hiểu cách quản lý các phiên bản chỉ mục Java bằng GroupDocs.Search
-  cho Java. Hướng dẫn này giải thích cách cập nhật chỉ mục, thiết lập phụ thuộc Maven
-  cho GroupDocs và tối ưu hoá hiệu suất.
+date: '2026-03-04'
+description: Tìm hiểu cách cập nhật chỉ mục Java bằng GroupDocs.Search cho Java. Hướng
+  dẫn này bao gồm việc thêm tài liệu vào chỉ mục, nâng cấp chỉ mục tìm kiếm, thiết
+  lập Maven và các mẹo về hiệu suất.
 keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-title: 'Cách Quản Lý Phiên Bản Chỉ Mục Java với GroupDocs.Search - Hướng Dẫn Toàn Diện'
+title: Cách Cập Nhật Chỉ Mục Java với GroupDocs.Search – Hướng Dẫn Toàn Diện
 type: docs
 url: /vi/java/document-management/guide-updating-index-versions-groupdocs-search-java/
 weight: 1
 ---
 
-# Cách Quản Lý Phiên Bản Chỉ Mục Java với GroupDocs.Search: Hướng Dẫn Toàn Diện
+# Cách Cập Nhật Index Java với GroupDocs.Search – Hướng Dẫn Toàn Diện
 
-Trong thế giới quản lý dữ liệu nhanh chóng, **manage index versions java** là điều thiết yếu để giữ trải nghiệm tìm kiếm của bạn luôn nhanh chóng và đáng tin cậy. Với GroupDocs.Search cho Java, bạn có thể cập nhật và quản lý tài liệu đã lập chỉ mục và các phiên bản một cách liền mạch, đảm bảo mọi truy vấn đều trả về kết quả mới nhất.
+Việc duy trì chỉ mục tìm kiếm luôn cập nhật là nền tảng của bất kỳ ứng dụng hiệu năng cao nào. Trong hướng dẫn này, bạn sẽ học **cách cập nhật index java** với GroupDocs.Search, bao gồm mọi thứ từ việc thêm tài liệu vào chỉ mục, nâng cấp phiên bản chỉ mục tìm kiếm, và tinh chỉnh hiệu năng. Dù bạn đang quản lý một CMS, một kho lưu trữ pháp lý, hay một kho dữ liệu quy mô lớn, các bước dưới đây sẽ giúp bạn giữ kết quả tìm kiếm nhanh và chính xác.
 
-## Câu Trả Lời Nhanh
-- **What does “manage index versions java” mean?** Nó đề cập đến việc cập nhật và duy trì phiên bản của chỉ mục tìm kiếm để nó luôn tương thích với các bản phát hành thư viện mới hơn.  
-- **Which Maven artifact is required?** Artifact `groupdocs-search`, được thêm thông qua một phụ thuộc Maven.  
-- **Do I need a license to try it?** Có — một giấy phép dùng thử miễn phí có sẵn để đánh giá.  
-- **Can I update indexes in parallel?** Chắc chắn — sử dụng `UpdateOptions` để bật cập nhật đa luồng.  
-- **Is this approach memory‑efficient?** Khi được sử dụng với cài đặt luồng phù hợp và việc dọn dẹp định kỳ, nó giảm thiểu việc tiêu thụ heap Java.
+## Câu trả lời nhanh
+- **“update index java” có nghĩa là gì?** Đó là quá trình làm mới chỉ mục trên đĩa để nó phản ánh các thay đổi tài liệu mới nhất và phiên bản thư viện.  
+- **Tôi cần artifact Maven nào?** Thêm dependency `groupdocs-search` vào file `pom.xml` của bạn.  
+- **Tôi có cần giấy phép để thử không?** Có – một giấy phép dùng thử miễn phí có sẵn để đánh giá.  
+- **Tôi có thể cập nhật các chỉ mục song song không?** Chắc chắn – cấu hình `UpdateOptions` với nhiều luồng.  
+- **Cách tiếp cận này có tiết kiệm bộ nhớ không?** Cài đặt luồng phù hợp và việc dọn dẹp định kỳ giữ mức sử dụng heap Java thấp.
 
-## “manage index versions java” là gì?
-Quản lý phiên bản chỉ mục trong Java có nghĩa là giữ cho cấu trúc chỉ mục trên đĩa đồng bộ với phiên bản của thư viện GroupDocs.Search mà bạn đang sử dụng. Khi thư viện phát triển, các chỉ mục cũ có thể cần được nâng cấp để vẫn có thể tìm kiếm được.
+## “update index java” là gì?
+Cập nhật một chỉ mục trong Java có nghĩa là đồng bộ cấu trúc chỉ mục trên đĩa với tập hợp hiện tại của các tài liệu nguồn và phiên bản của thư viện GroupDocs.Search mà bạn đang sử dụng. Khi thư viện phát triển, bạn cũng có thể cần **nâng cấp search index** để duy trì tính tương thích.
 
 ## Tại sao nên sử dụng GroupDocs.Search cho Java?
-- **Robust full‑text search** trên nhiều định dạng tài liệu.  
-- **Easy integration** với các dự án Maven và Gradle.  
-- **Built‑in version management** bảo vệ khoản đầu tư của bạn khi thư viện được cập nhật.  
-- **Scalable performance** với việc lập chỉ mục và cập nhật đa luồng.
+- **Tìm kiếm toàn văn mạnh mẽ** trên hàng chục định dạng tài liệu.  
+- **Tích hợp Maven/Gradle liền mạch** cho các bản dựng tự động.  
+- **Quản lý phiên bản tích hợp** bảo vệ khoản đầu tư của bạn khi thư viện được cập nhật.  
+- **Chỉ mục đa luồng mở rộng** cho các bộ dữ liệu lớn.
 
-## Yêu Cầu Trước
+## Yêu cầu trước
 - Java Development Kit (JDK) 8 hoặc cao hơn.  
 - Một IDE như IntelliJ IDEA hoặc Eclipse.  
 - Kiến thức cơ bản về Java và Maven.
 
-## Phụ Thuộc Maven GroupDocs
-Để làm việc với GroupDocs.Search, bạn cần các tọa độ Maven chính xác. Thêm kho lưu trữ và phụ thuộc được hiển thị bên dưới vào tệp `pom.xml` của bạn.
+## Maven Dependency GroupDocs
+Để làm việc với GroupDocs.Search, bạn cần các tọa độ Maven chính xác. Thêm repository và dependency được hiển thị bên dưới vào file `pom.xml` của bạn.
 
-**Cấu Hình Maven:**
+**Cấu hình Maven:**
 ```xml
 <repositories>
     <repository>
@@ -61,16 +61,16 @@ Quản lý phiên bản chỉ mục trong Java có nghĩa là giữ cho cấu tr
 ```
 Ngoài ra, bạn có thể [tải xuống phiên bản mới nhất trực tiếp](https://releases.groupdocs.com/search/java/).
 
-## Cài Đặt GroupDocs.Search cho Java
+## Cài đặt GroupDocs.Search cho Java
 
-### Installation Instructions
-1. **Maven Setup** – Thêm kho lưu trữ và phụ thuộc vào `pom.xml` của bạn như đã trình bày ở trên.  
-2. **Direct Download** – Nếu bạn không muốn sử dụng Maven, tải JAR từ [trang tải xuống GroupDocs](https://releases.groupdocs.com/search/java/).
+### Hướng dẫn cài đặt
+1. **Cài đặt Maven** – Thêm repository và dependency vào file `pom.xml` của bạn như đã trình bày ở trên.  
+2. **Tải trực tiếp** – Nếu bạn không muốn sử dụng Maven, tải JAR từ [trang tải xuống GroupDocs](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
-GroupDocs cung cấp giấy phép dùng thử miễn phí cho phép bạn khám phá tất cả các tính năng mà không bị giới hạn. Nhận giấy phép tạm thời từ [cổng mua hàng](https://purchase.groupdocs.com/temporary-license/). Đối với môi trường sản xuất, mua giấy phép đầy đủ.
+### Cách lấy giấy phép
+GroupDocs cung cấp giấy phép dùng thử miễn phí cho phép bạn khám phá mọi tính năng mà không bị hạn chế. Nhận giấy phép tạm thời từ [cổng mua hàng](https://purchase.groupdocs.com/temporary-license/). Đối với môi trường sản xuất, mua giấy phép đầy đủ.
 
-### Basic Initialization and Setup
+### Khởi tạo và cài đặt cơ bản
 ```java
 import com.groupdocs.search.Index;
 
@@ -81,138 +81,146 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/UpdateIndexedDocuments/Index";
 Index index = new Index(indexFolder);
 ```
 
-## Hướng Dẫn Triển Khai
+## Hướng dẫn triển khai
 
-### Update Indexed Documents
-Giữ cho chỉ mục của bạn đồng bộ với các tệp nguồn là một phần cốt lõi của **manage index versions java**.
+### Cập nhật tài liệu đã lập chỉ mục – **thêm tài liệu vào chỉ mục**
+Giữ chỉ mục của bạn đồng bộ với các tệp nguồn là một phần cốt lõi của **update index java**.
 
-#### Triển Khai Từng Bước
-**1. Xác Định Đường Dẫn Thư Mục**  
+#### Thực hiện từng bước
+**1. Xác định đường dẫn thư mục**  
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/UpdateIndexedDocuments/Index";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY/Documents";
 ```
 
-**2. Chuẩn Bị Dữ Liệu**  
+**2. Chuẩn bị dữ liệu**  
 ```java
 Utils.cleanDirectory(documentFolder);
 Utils.copyFiles(Utils.DocumentsPath, documentFolder);
 ```
 
-**3. Tạo Chỉ Mục**  
+**3. Tạo một chỉ mục**  
 ```java
 Index index = new Index(indexFolder);
 ```
 
-**4. Thêm Tài Liệu Vào Chỉ Mục**  
+**4. Thêm tài liệu vào chỉ mục**  
 ```java
 index.add(documentFolder);
 ```
 
-**5. Thực Hiện Tìm Kiếm Ban Đầu**  
+**5. Thực hiện tìm kiếm ban đầu**  
 ```java
 String query = "son";
 SearchResult searchResult = index.search(query);
 ```
 
-**6. Mô Phỏng Thay Đổi Tài Liệu**  
+**6. Mô phỏng thay đổi tài liệu**  
 ```java
 Utils.copyFiles(Utils.DocumentsPath4, documentFolder);
 ```
 
-**7. Đặt Tùy Chọn Cập Nhật**  
+**7. Đặt tùy chọn cập nhật**  
 ```java
 UpdateOptions options = new UpdateOptions();
 options.setThreads(2); // Using two threads for faster indexing
 ```
 
-**8. Cập Nhật Chỉ Mục**  
+**8. Cập nhật chỉ mục**  
 ```java
 index.update(options);
 ```
 
-**9. Xác Nhận Cập Nhật Bằng Một Tìm Kiếm Khác**  
+**9. Xác minh cập nhật bằng một tìm kiếm khác**  
 ```java
 SearchResult searchResult2 = index.search(query);
 ```
 
-**Mẹo Khắc Phục Sự Cố**
+**Mẹo khắc phục sự cố**
 - Xác minh rằng tất cả các đường dẫn tệp đều đúng và có thể truy cập.  
 - Đảm bảo quá trình có quyền đọc/ghi trên thư mục chỉ mục.  
 - Giám sát việc sử dụng CPU và bộ nhớ khi tăng số lượng luồng.
 
-### Update Index Version
-Khi bạn nâng cấp GroupDocs.Search, bạn có thể cần **manage index versions java** để giữ các chỉ mục hiện có có thể sử dụng được.
+### Cập nhật phiên bản chỉ mục – **nâng cấp search index**
+Khi bạn nâng cấp GroupDocs.Search, bạn có thể cần **nâng cấp search index** để giữ các chỉ mục hiện có có thể sử dụng.
 
-#### Triển Khai Từng Bước
-**1. Xác Định Đường Dẫn Thư Mục**  
+#### Thực hiện từng bước
+**1. Xác định đường dẫn thư mục**  
 ```java
 String oldIndexFolder = Utils.OldIndexPath;
 String sourceIndexFolder = "YOUR_DOCUMENT_DIRECTORY/SourceIndex";
 String targetIndexFolder = "YOUR_OUTPUT_DIRECTORY/TargetIndex";
 ```
 
-**2. Chuẩn Bị Dữ Liệu**  
+**2. Chuẩn bị dữ liệu**  
 ```java
 Utils.cleanDirectory(sourceIndexFolder);
 Utils.cleanDirectory(targetIndexFolder);
 Utils.copyFiles(oldIndexFolder, sourceIndexFolder);
 ```
 
-**3. Tạo Trình Cập Nhật Chỉ Mục**  
+**3. Tạo một Index Updater**  
 ```java
 IndexUpdater updater = new IndexUpdater();
 ```
 
-**4. Kiểm Tra và Cập Nhật Phiên Bản**  
+**4. Kiểm tra và cập nhật phiên bản**  
 ```java
 if (updater.canUpdateVersion(sourceIndexFolder)) {
     VersionUpdateResult result = updater.updateVersion(sourceIndexFolder, targetIndexFolder);
 }
 ```
 
-**Mẹo Khắc Phục Sự Cố**
+**Mẹo khắc phục sự cố**
 - Xác nhận rằng chỉ mục nguồn được tạo bằng một phiên bản cũ được hỗ trợ.  
-- Đảm bảo đủ không gian đĩa cho thư mục chỉ mục đích.  
-- Cập nhật tất cả các phụ thuộc Maven lên cùng một phiên bản để tránh các vấn đề tương thích.
+- Đảm bảo có đủ không gian đĩa cho thư mục chỉ mục đích.  
+- Cập nhật tất cả các dependency Maven lên cùng một phiên bản để tránh các vấn đề tương thích.
 
-## Ứng Dụng Thực Tế
-1. **Content Management Systems** – Giữ chỉ mục tìm kiếm luôn mới khi các bài viết, PDF và hình ảnh được thêm hoặc chỉnh sửa.  
-2. **Legal Document Repositories** – Tự động phản ánh các sửa đổi đối với hợp đồng, luật và hồ sơ vụ án.  
-3. **Enterprise Data Warehousing** – Thường xuyên làm mới dữ liệu đã lập chỉ mục để phân tích và báo cáo chính xác.
+## Ứng dụng thực tiễn
+1. **Hệ thống quản lý nội dung** – Giữ chỉ mục tìm kiếm luôn mới khi các bài viết, PDF và hình ảnh được thêm hoặc chỉnh sửa.  
+2. **Kho lưu trữ tài liệu pháp lý** – Tự động phản ánh các sửa đổi đối với hợp đồng, luật và hồ sơ vụ án.  
+3. **Kho dữ liệu doanh nghiệp** – Thường xuyên làm mới dữ liệu đã lập chỉ mục để phân tích và báo cáo chính xác.
 
-## Các Yếu Tố Hiệu Suất
-- **Thread Management** – Sử dụng đa luồng một cách hợp lý; quá nhiều luồng có thể gây áp lực cho GC.  
-- **Memory Monitoring** – Thỉnh thoảng gọi `System.gc()` hoặc sử dụng công cụ profiling để theo dõi việc sử dụng heap.  
-- **Query Optimization** – Viết các chuỗi tìm kiếm ngắn gọn và tận dụng bộ lọc để giảm kích thước tập kết quả.
+## Các cân nhắc về hiệu năng
+- **Quản lý luồng** – Sử dụng đa luồng một cách hợp lý; quá nhiều luồng có thể gây áp lực cho GC.  
+- **Giám sát bộ nhớ** – Thỉnh thoảng gọi `System.gc()` hoặc sử dụng công cụ profiling để theo dõi việc sử dụng heap.  
+- **Tối ưu hóa truy vấn** – Viết các chuỗi tìm kiếm ngắn gọn và tận dụng bộ lọc để giảm kích thước tập kết quả.
 
-## Câu Hỏi Thường Gặp
+## Các vấn đề thường gặp và giải pháp
+| Triệu chứng | Nguyên nhân có thể | Cách khắc phục |
+|------------|--------------------|----------------|
+| `Index not found` error | Đường dẫn thư mục sai | Kiểm tra lại `indexFolder` và đảm bảo thư mục tồn tại. |
+| Out‑of‑memory during update | Số luồng quá nhiều | Giảm `options.setThreads()` hoặc tăng heap (`-Xmx`). |
+| No results after version upgrade | Chỉ mục cũ không tương thích | Xác minh `updater.canUpdateVersion()` trả về `true` trước khi tiếp tục. |
+| License exception | Giấy phép dùng thử đã hết hạn | Yêu cầu dùng thử mới hoặc áp dụng khóa giấy phép đã mua. |
 
-**Q: Tôi có thể nâng cấp một chỉ mục được tạo bằng phiên bản rất cũ của GroupDocs.Search không?**  
-A: Có, miễn là chỉ mục cũ vẫn có thể đọc được bởi thư viện; phương thức `canUpdateVersion` sẽ xác nhận tính tương thích.
+## Câu hỏi thường gặp
 
-**Q: Tôi có cần tạo lại chỉ mục sau mỗi lần cập nhật thư viện không?**  
-A: Không nhất thiết. Cập nhật phiên bản chỉ mục là đủ trong hầu hết các trường hợp, giúp tiết kiệm thời gian và tài nguyên.
+**Hỏi: Tôi có thể nâng cấp một chỉ mục được tạo bằng phiên bản rất cũ của GroupDocs.Search không?**  
+**Đáp:** Có, miễn là chỉ mục cũ vẫn có thể đọc được bởi thư viện; phương thức `canUpdateVersion` sẽ xác nhận tính tương thích.
 
-**Q: Tôi nên sử dụng bao nhiêu luồng cho các chỉ mục lớn?**  
-A: Bắt đầu với 2‑4 luồng và giám sát việc sử dụng CPU; chỉ tăng nếu hệ thống có các lõi và bộ nhớ dư thừa.
+**Hỏi: Tôi có cần tạo lại chỉ mục sau mỗi lần cập nhật thư viện không?**  
+**Đáp:** Không nhất thiết. Cập nhật phiên bản chỉ mục là đủ trong hầu hết các trường hợp, tiết kiệm thời gian và tài nguyên.
 
-**Q: Giấy phép dùng thử có đủ cho việc kiểm thử sản xuất không?**  
-A: Giấy phép dùng thử loại bỏ các giới hạn tính năng, làm cho nó trở nên lý tưởng cho môi trường phát triển và QA.
+**Hỏi: Tôi nên sử dụng bao nhiêu luồng cho các chỉ mục lớn?**  
+**Đáp:** Bắt đầu với 2‑4 luồng và giám sát việc sử dụng CPU; chỉ tăng nếu hệ thống có lõi và bộ nhớ dư thừa.
 
-**Q: Điều gì xảy ra với các kết quả tìm kiếm hiện có sau khi cập nhật phiên bản chỉ mục?**  
-A: Cấu trúc chỉ mục được di chuyển, nhưng nội dung có thể tìm kiếm vẫn không thay đổi, vì vậy kết quả vẫn nhất quán.
+**Hỏi: Giấy phép dùng thử có đủ cho việc kiểm thử sản xuất không?**  
+**Đáp:** Giấy phép dùng thử loại bỏ các giới hạn tính năng, làm cho nó trở nên lý tưởng cho môi trường phát triển và QA.
 
-## Kết Luận
-Bằng cách thực hiện các bước trên, bạn đã có hiểu biết vững chắc về cách **manage index versions java** với GroupDocs.Search cho Java. Việc cập nhật cả nội dung tài liệu và phiên bản chỉ mục đảm bảo trải nghiệm tìm kiếm của bạn luôn nhanh, chính xác và tương thích với các phiên bản thư viện trong tương lai.
+**Hỏi: Điều gì xảy ra với các kết quả tìm kiếm hiện có sau khi cập nhật phiên bản chỉ mục?**  
+**Đáp:** Cấu trúc chỉ mục được di chuyển, nhưng nội dung có thể tìm kiếm vẫn không thay đổi, vì vậy kết quả vẫn nhất quán.
 
-### Các Bước Tiếp Theo
+## Kết luận
+Bằng cách thực hiện các bước trên, bạn đã có hiểu biết vững chắc về cách **cập nhật index java** với GroupDocs.Search cho Java. Việc làm mới cả nội dung tài liệu và phiên bản chỉ mục đảm bảo trải nghiệm tìm kiếm của bạn luôn nhanh, chính xác và tương thích với các phiên bản thư viện trong tương lai.
+
+### Các bước tiếp theo
 - Thử nghiệm các cấu hình `UpdateOptions` khác nhau để tìm điểm cân bằng cho khối lượng công việc của bạn.  
-- Khám phá các tính năng truy vấn nâng cao như phân lớp và đánh dấu được cung cấp bởi GroupDocs.Search.  
+- Khám phá các tính năng truy vấn nâng cao như faceting và highlighting do GroupDocs.Search cung cấp.  
 - Tích hợp quy trình lập chỉ mục vào pipeline CI/CD của bạn để tự động cập nhật.
 
 ---
 
-**Cập Nhật Lần Cuối:** 2025-12-22  
-**Đã Kiểm Tra Với:** GroupDocs.Search 25.4 for Java  
-**Tác Giả:** GroupDocs
+**Cập nhật lần cuối:** 2026-03-04  
+**Kiểm tra với:** GroupDocs.Search 25.4 for Java  
+**Tác giả:** GroupDocs
