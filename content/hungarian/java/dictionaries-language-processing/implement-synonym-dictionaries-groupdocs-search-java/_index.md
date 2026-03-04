@@ -1,58 +1,58 @@
 ---
-date: '2025-12-19'
-description: Tanulja meg, hogyan adhat hozzá szinonimákat, kereshet szinonimákkal,
-  és kezelheti a szinonima csoportokat Java-ban a GroupDocs.Search segítségével. Növelje
-  keresési indexe teljesítményét és megbízhatóságát.
+date: '2026-03-04'
+description: Tanulja meg, hogyan kereshet szinonimákkal Java-ban a GroupDocs.Search
+  használatával, importáljon szinonima szótárakat, kezelje a szinonima csoportokat,
+  és optimalizálja keresési indexét a jobb eredmények érdekében.
 keywords:
 - synonym dictionaries java
 - groupdocs.search synonym implementation
 - java search functionality enhancement
-title: Hogyan adhatunk szinonimákat Java-ban a GroupDocs.Search használatával – Átfogó
-  útmutató
+title: Hogyan kereshetünk szinonimákkal Java-ban a GroupDocs.Search segítségével –
+  Átfogó útmutató
 type: docs
 url: /hu/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/
 weight: 1
 ---
 
-# Hogyan adjunk hozzá szinonimákat Java-ban a GroupDocs.Search használatával
+# Hogyan keresünk szinonimákkal Java-ban a GroupDocs.Search használatával
 
-Üdvözöljük átfogó útmutatónkban, amely a **szinonimák hozzáadásáról** szól Java-ban a GroupDocs.Search segítségével. Akár tartalomgazdag CMS-t, e‑kereskedelmi katalógust vagy dokumentumtárat épít, a szinonima‑támogatás engedélyezése drámaian javíthatja adatai felfedezhetőségét. Ebben az oktatóanyagról megtanulja, hogyan hozhat létre és kezelhet szinonima‑szótárakat, importálhat szinonima‑szótár fájlokat, és optimalizálhatja keresési indexét a gyors, pontos eredményekért.
+Ha azt szeretné, hogy felhasználói a megfelelő tartalmat megtalálják még akkor is, ha különböző szavakat gépelnek, a **search with synonyms** a megoldás. Ebben az útmutatóban végigvezetjük mindent, amit tudnia kell – szinonima szótár létrehozása, importálása/exportálása, szinonima csoportok kezelése, és végül egy keresés futtatása, amely automatikusan kibővíti a lekérdezéseket a szinonimák használatával. Akár CMS-t, e‑commerce katalógust vagy jogi dokumentumtárat épít, a szinonima támogatás hozzáadása drámaian növelheti a relevanciát és a konverziós arányokat.
 
 ## Gyors válaszok
-- **Mi a fő lépés a szinonimák hozzáadásához?** Hozzon létre egy `Index`‑et, és használja a `SynonymDictionary` API‑t.  
-- **Importálhatok szinonima‑szótárat?** Igen – használja az `importDictionary(path)`‑t egy előre elkészített fájl betöltéséhez.  
-- **Hogyan engedélyezhetem a szinonimákkal történő keresést?** Állítsa be a `SearchOptions.setUseSynonymSearch(true)`‑t.  
-- **Lehetőség van szinonima‑csoportok kezelésére?** Természetesen – a szótár API‑n keresztül törölhet, hozzáadhat vagy lekérdezhet csoportokat.  
-- **Mire kell figyelni a keresési index optimalizálásakor?** Rendszeresen távolítsa el a nem használt bejegyzéseket, és hangolja a JVM heap‑et nagy adathalmazokhoz.  
+- **Mi a legfontosabb lépés a szinonimák hozzáadásához?** Hozzon létre egy `Index` példányt, és használja a `SynonymDictionary` API-t.  
+- **Importálhatok szinonima szótárat?** Igen – használja a `importDictionary(path)` függvényt egy előre elkészített fájl betöltéséhez.  
+- **Hogyan engedélyezhetem a szinonimákkal történő keresést?** Állítsa be a `SearchOptions.setUseSynonymSearch(true)` értéket.  
+- **Lehetőség van szinonima csoportok kezelésére?** Természetesen – a szótár API-n keresztül törölhet, hozzáadhat vagy lekérdezheti a csoportokat.  
+- **Mire kell figyelni a keresési index optimalizálásakor?** Rendszeresen távolítsa el a nem használt bejegyzéseket, és hangolja a JVM heap méretét nagy adathalmazokhoz.  
 
-## Mi az a „Hogyan adjunk hozzá szinonimákat”?
-A szinonimák hozzáadása azt jelenti, hogy alternatív szavakat vagy kifejezéseket definiálunk, amelyeket a keresőmotor egyenértékűnek tekint. Ez lehetővé teszi, hogy egy **„better”** (jobb) lekérdezés olyan dokumentumokra is illeszkedjen, amelyek **„improve”**, **„enhance”** vagy **„upgrade”** (javít, fokoz, frissít) szavakat tartalmaznak.
+## Mi az a Search with Synonyms?
+A “Search with synonyms” azt jelenti, hogy a motor egy szavak vagy kifejezések halmazát felcserélhetőnek tekinti. Amikor a felhasználó beírja a **„better”** szót, a motor a **„improve”**, **„enhance”**, vagy bármely más, ugyanabban a szinonima csoportban definiált kifejezést is keres, gazdagabb eredményeket nyújtva anélkül, hogy megváltoztatná a felhasználó lekérdezését.
 
-## Miért használjunk szinonima‑támogatást a GroupDocs.Search‑ben?
-- **Javított felhasználói élmény:** A felhasználók releváns tartalmat találnak még akkor is, ha eltérő terminológiát használnak.  
-- **Magasabb konverziós arány:** Az e‑kereskedelmi oldalak több eladást érnek el, ha a változatos terméklekérdezéseket is egyeztetik.  
-- **Csökkentett karbantartás:** Egy szótár több alkalmazást is kiszolgálhat, egyszerűsítve a frissítéseket.  
+## Miért engedélyezzük a szinonima támogatást a GroupDocs.Search-ben?
+- **Jobb felhasználói élmény:** A látogatók releváns dokumentumokat találnak még akkor is, ha eltérő terminológiát használnak.  
+- **Magasabb konverziós arányok:** Az e‑commerce platformok több eladást érnek el a változatos termék kifejezések egyezésével.  
+- **Egyszerűsített karbantartás:** Egy központi szótár több alkalmazást is kiszolgálhat, így a frissítések gond nélkül végezhetők.  
 
-## Előkövetelmények
-- **GroupDocs.Search for Java** 25.4 vagy újabb verzió.  
+## Előfeltételek
+- GroupDocs.Search for Java 25.4 vagy újabb verzió.  
 - Java IDE (IntelliJ IDEA, Eclipse, stb.) Maven támogatással.  
 - Alap Java ismeretek és a Maven projekt struktúrájának ismerete.
 
 ### Szükséges könyvtárak és verziók
-- GroupDocs.Search for Java 25.4 vagy újabb.
+- GroupDocs.Search for Java 25.4 vagy magasabb verzió.
 
 ### Környezet beállítása
 - A választott IDE (IntelliJ IDEA, Eclipse, stb.).  
 - Maven a függőségek kezeléséhez.
 
-### Tudáskövetelmények
-- Objektum‑orientált programozás Java‑ban.  
+### Tudás követelmények
+- Objektum‑orientált programozás Java-ban.  
 - Alap fájl I/O műveletek.
 
-## A GroupDocs.Search for Java beállítása
+## A GroupDocs.Search beállítása Java-hoz
 
 ### Telepítési információk
-Adja hozzá a tárolót és a függőséget a `pom.xml`‑hez:
+Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
 
 ```xml
 <repositories>
@@ -72,12 +72,12 @@ Adja hozzá a tárolót és a függőséget a `pom.xml`‑hez:
 </dependencies>
 ```
 
-**Közvetlen letöltés** – a legújabb JAR‑t letöltheti innen: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+**Direct Download** – letöltheti a legújabb JAR-t a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
 ### Licenc beszerzése
-- **Ingyenes próba:** A fő funkciók tesztelése licenc nélkül.  
-- **Ideiglenes licenc:** A próba képességeinek kiterjesztése értékelés közben.  
-- **Vásárlás:** Szükséges a termelésben való használathoz és a teljes funkciókészlethez.
+- **Free Trial:** A fő funkciók tesztelése licenc nélkül.  
+- **Temporary License:** A próbaverzió képességeinek kiterjesztése értékelés közben.  
+- **Purchase:** Szükséges a termelési használathoz és a teljes funkciókészlethez.  
 
 #### Alap inicializálás és beállítás
 Hozzon létre egy `Index` példányt, majd adja hozzá a kereshető dokumentumokat:
@@ -95,8 +95,8 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-## Hogyan adjunk szinonimákat a keresési indexhez
-Az index létrehozása az alap. Az alábbiakban végigvezetjük a lényeges lépéseken, mindegyikhez a pontos kóddal.
+## Hogyan adjon szinonimákat a keresési indexhez
+Az index létrehozása az alap. Az alábbiakban végigvezetjük a lényeges lépéseket, mindegyikhez a szükséges pontos kóddal.
 
 ### 1. funkció: Index létrehozása és indexelése
 ```java
@@ -107,17 +107,17 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-### 2. funkció: Szinonimák lekérdezése egy szóhoz
+### 2. funkció: Szó szinonimáinak lekérdezése
 ```java
 String[] synonyms = index.getDictionaries().getSynonymDictionary().getSynonyms("make");
 ```
 
-### 3. funkció: Szinonima‑csoportok lekérdezése
+### 3. funkció: Szinonima csoportok lekérdezése
 ```java
 String[][] synonymGroups = index.getDictionaries().getSynonymDictionary().getSynonymGroups("make");
 ```
 
-### 4. funkció: Szinonima‑szótár bejegyzéseinek kezelése
+### 4. funkció: Szinonima szótár bejegyzéseinek kezelése
 ```java
 if (index.getDictionaries().getSynonymDictionary().getCount() > 0) {
     index.getDictionaries().getSynonymDictionary().clear();
@@ -143,7 +143,7 @@ index.getDictionaries().getSynonymDictionary().exportDictionary(exportFilePath);
 index.getDictionaries().getSynonymDictionary().importDictionary(exportFilePath);
 ```
 
-### 7. funkció: Keresés végrehajtása szinonima‑támogatással
+### 7. funkció: Keresés végrehajtása szinonima támogatással
 ```java
 String query = "better";
 SearchOptions options = new SearchOptions();
@@ -153,61 +153,63 @@ SearchResult result = index.search(query, options);
 ```
 
 ## Hogyan keressünk szinonimákkal
-A `setUseSynonymSearch(true)` engedélyezésével a motor automatikusan kibővíti a lekérdezést a létrehozott vagy importált szinonima‑szótár segítségével. Ez a lépés elengedhetetlen a gazdagabb eredmények biztosításához anélkül, hogy megváltoztatná a felhasználó keresési viselkedését.
+A `setUseSynonymSearch(true)` engedélyezésével a motor automatikusan kibővíti a lekérdezést a létrehozott vagy importált szinonima szótár használatával. Ez a lépés kulcsfontosságú a gazdagabb eredmények biztosításához anélkül, hogy megváltoztatná a felhasználó keresési viselkedését.
 
-## Hogyan importáljunk szinonima‑szótárat
-Ha már rendelkezik egy másik környezet által előkészített `.dat` fájllal, egyszerűen hívja meg az `importDictionary(path)`‑t. Ez ideális a szótárak szinkronizálásához a fejlesztési, teszt és termelési szerverek között.
+## Hogyan importáljunk szinonima szótárat
+Ha már rendelkezik egy másik környezet által előkészített `.dat` fájllal, egyszerűen hívja meg az `importDictionary(path)` metódust. Ideális a szótárak szinkronizálásához a fejlesztési, teszt és termelési szerverek között.
 
-## Hogyan kezeljünk szinonima‑csoportokat
-A szinonima‑csoportok lehetővé teszik, hogy egy kifejezéssorozatot egyetlen logikai egységként kezeljünk. A csoportok hozzáadása, törlése vagy lekérdezése a `SynonymDictionary` API‑n keresztül történik, ahogyan a fenti kódrészletekben látható.
+## Hogyan kezeljünk szinonima csoportokat
+A szinonima csoportok lehetővé teszik, hogy egy kifejezéssorozatot egyetlen logikai egységként kezeljünk. A csoportok hozzáadása, törlése vagy lekérdezése a `SynonymDictionary` API-n keresztül történik, ahogyan a fenti kódrészletekben látható.
 
 ## Hogyan optimalizáljuk a keresési indexet
-- **Rendszeresen távolítsa el a nem használt bejegyzéseket:** Használja a `clear()`‑t a tömeges frissítések előtt.  
-- **Állítsa be a JVM heap‑et:** Nagy szótárak több memóriát igényelhetnek.  
-- **Tartsa a könyvtárat naprakészen:** Az új kiadások teljesítményjavításokat tartalmaznak.
+- **Rendszeresen távolítsa el a nem használt bejegyzéseket:** Használja a `clear()` metódust a tömeges frissítések előtt.  
+- **Állítsa be a JVM heap-et:** Nagy szótárak több memóriát igényelhetnek.  
+- **Tartsa a könyvtárat naprakészen:** Az új kiadások teljesítményjavításokat tartalmaznak.  
 
 ## Gyakorlati alkalmazások
-1. **Tartalomkezelő rendszerek (CMS):** A felhasználók cikkeket találnak, még ha alternatív terminológiát is használnak.  
-2. **E‑kereskedelmi platformok:** A termékkeresések toleránsak lesznek a „laptop” és a „notebook” szinonimákra.  
-3. **Dokumentumtárak:** A jogi vagy orvosi archívumok előnyét veszik a domain‑specifikus szinonima‑csoportok.
+1. **Content Management Systems (CMS):** A felhasználók cikkeket találnak még akkor is, ha alternatív terminológiát használnak.  
+2. **E‑commerce Platforms:** A termékkeresés toleráns lesz a szinonimákkal, például a „laptop” és a „notebook” között.  
+3. **Document Repositories:** A jogi vagy orvosi archívumok előnyét húzzák a domain‑specifikus szinonima csoportok.  
 
-## Teljesítményfontosságú szempontok
+## Teljesítmény szempontok
 - **Az index tárolásának optimalizálása:** Időnként építse újra az indexet a régi adatok eltávolításához.  
-- **Memóriahasználat kezelése:** Figyelje a heap fogyasztást nagy szinonima‑fájlok betöltésekor.  
-- **Rendszeres frissítések:** Maradjon a legújabb GroupDocs.Search verzión a hibajavítások és a sebességjavulás érdekében.
+- **Memóriahasználat kezelése:** Figyelje a heap fogyasztást nagy szinonima fájlok betöltésekor.  
+- **Rendszeres frissítések:** Maradjon a legújabb GroupDocs.Search verzión a hibajavítások és a sebesség növekedés érdekében.  
 
-## Következtetés
-Most már rendelkezik egy teljes, lépésről‑lépésre útmutatóval a **szinonimák hozzáadásához**, szinonima‑szótár fájlok importálásához, szinonima‑csoportok kezeléséhez, és a **szinonimákkal történő kereséshez** a GroupDocs.Search for Java használatával. Alkalmazza ezeket a technikákat a relevancia növelésére, a felhasználói elégedettség javítására, és a keresési index legjobb teljesítményének fenntartására.
+## Gyakori problémák és megoldások
+| Probléma | Valószínű ok | Megoldás |
+|----------|--------------|----------|
+| Nincsenek szinonima egyezések | `setUseSynonymSearch(true)` nincs beállítva vagy a szótár nincs importálva | Ellenőrizze, hogy a beállítás engedélyezve van-e, és a szótárfájl létezik. |
+| Memóriahiányos hibák importálás közben | Nagyon nagy `.dat` fájl meghaladja a JVM heap-et | Növelje a `-Xmx` heap méretét, vagy importáljon kisebb adagokban. |
+| Duplikált bejegyzések az eredményekben | Ugyanaz a kifejezés több szinonima csoportban is megjelenik | Konszolidálja az átfedő csoportokat a `clear()` majd `addRange()` használatával. |
 
-## Gyakran Ismételt Kérdések
+## Gyakran feltett kérdések
 
 **Q: Mi a minimális rendszerkövetelmény a GroupDocs.Search használatához?**  
-A: Bármely modern operációs rendszer egy kompatibilis JDK‑val (Java 8 vagy újabb) elegendő.
+A: Bármely modern operációs rendszer kompatibilis JDK-val (Java 8 vagy újabb) elegendő.
 
-**Q: Milyen gyakran kell frissíteni a szinonima‑szótárat?**  
-A: Frissítse, amikor új terminológia jelenik meg – használja a `clear()`‑t, majd az `addRange()`‑t egy tiszta frissítéshez.
+**Q: Milyen gyakran frissítsem a szinonima szótáramat?**  
+A: Frissítse, amikor új terminológia jelenik meg – használja a `clear()`-t, majd az `addRange()`-t a tiszta frissítéshez.
 
-**Q: Futtatható a GroupDocs.Search licenc vásárlása nélkül?**  
-A: Az ingyenes próba működik értékelésre, de a termelési bevetéshez licenc szükséges.
+**Q: Futtathatom a GroupDocs.Search-t licenc vásárlása nélkül?**  
+A: A ingyenes próba verzió értékelésre működik, de a termelési környezethez licenc szükséges.
 
 **Q: Mik a legjobb gyakorlatok nagy adathalmazok indexeléséhez?**  
-A: Ossza fel az adatokat logikai kötegekre, figyelje a heap használatát, és ütemezzen rendszeres indexkarbantartást.
+A: Ossza fel az adatokat logikai adagokra, figyelje a heap használatát, és ütemezzen rendszeres index karbantartást.
 
 **Q: Nem látom a várt szinonima egyezéseket – mit ellenőrizze?**  
-A: Ellenőrizze, hogy a szótár helyesen importálva van, hogy a `setUseSynonymSearch(true)` aktív, és hogy a kifejezések jelen vannak a szinonima‑csoportokban.
+A: Ellenőrizze, hogy a szótár helyesen importálva van-e, hogy a `setUseSynonymSearch(true)` aktív-e, és hogy a kifejezések jelen vannak-e a szinonima csoportokban.
 
-**Erőforrások**  
+## Források
 - [Dokumentáció](https://docs.groupdocs.com/search/java/)  
 - [API Referencia](https://reference.groupdocs.com/search/java)  
 - [GroupDocs.Search for Java letöltése](https://releases.groupdocs.com/search/java/)  
 - [GitHub tároló](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- [Ingyenes támogat fórum](https://forum.groupdocs.com/c/search/10)  
+- [Ingyenes támogatási fórum](https://forum.groupdocs.com/c/search/10)  
 - [Ideiglenes licenc beszerzése](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Legutóbb frissítve:** 2025-12-19  
-**Tesztelve:** GroupDocs.Search 25.4 for Java  
-**Szerző:** GroupDocs  
-
----
+**Utolsó frissítés:** 2026-03-04  
+**Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
+**Szerző:** GroupDocs

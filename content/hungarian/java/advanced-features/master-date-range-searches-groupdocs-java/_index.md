@@ -1,6 +1,6 @@
- ---
-date: '2025-12-18'
-description: Tanulja meg, hogyan valósíthat meg egyedi dátumformátumú Java-kereséseket
+---
+date: '2026-03-04'
+description: Tanulja meg, hogyan valósítható meg egyedi dátumformátumú Java-keresés
   a GroupDocs.Search segítségével, beleértve a dátumtartomány-kereséseket, egyedi
   mintákat és a teljesítményre vonatkozó tippeket.
 keywords:
@@ -10,7 +10,7 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'Egyéni dátumformátum Java | Dátumtartomány keresés a GroupDocs-szal'
+title: Egyéni dátumformátum Java | Dátumtartomány keresés a GroupDocs-szal
 type: docs
 url: /hu/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
@@ -18,34 +18,34 @@ weight: 1
 
 # Egyedi dátumformátum Java | Dátumtartomány keresés a GroupDocs-szal
 
-A dokumentumok dátum szerinti keresése gyakori követelmény—legyen szó archiválási rendszerről, pénzügyi jelentéskészítő eszközről vagy tartalomkezelő portálról. Ebben az útmutatóban a **custom date format java** technikákat tanulod meg a GroupDocs.Search használatával, beleértve a dátumtartomány lekérdezéseket, egyedi mintadefiníciókat és tippeket a **search performance** optimalizálásához. A végére képes leszel arra, hogy a felhasználók bármilyen dátumintervallumba eső rekordokat lekérjék, függetlenül a használt formátumtól.
+A dokumentumok dátum szerinti keresése gyakori igény—legyen szó archiváló rendszerről, pénzügyi jelentéskészítő eszközről vagy tartalomkezelő portálról. Ebben az útmutatóban **custom date format java** technikákat tanul meg a GroupDocs.Search használatával, beleértve a dátumtartomány lekérdezéseket, egyedi minták definiálását és tippeket a **optimize search performance** javításához. A végére képes lesz arra, hogy a felhasználók bármilyen dátumintervallumba eső rekordokat lekérjék, függetlenül a használt formátumtól.
 
 ## Gyors válaszok
-- **Mi a fő osztály az indexeléshez?** `Index` from the `com.groupdocs.search` package.  
-- **Hogyan definiálhat egy egyedi dátummintát?** Use `DateFormat` with `DateFormatElement` objects and a separator.  
-- **Kereshetek szöveges lekérdezéssel?** Yes, the `daterange(start ~~ end)` syntax works directly in the query string.  
-- **Mely Maven koordináták szükségesek?** `com.groupdocs:groupdocs-search:25.4` (or newer).  
-- **Szükségem van licencre a fejlesztéshez?** A free trial or temporary license is sufficient for testing; a commercial license is required for production.
+- **Mi a fő osztály az indexeléshez?** `Index` a `com.groupdocs.search` csomagból.  
+- **Hogyan definiálhatok egy egyedi dátummintát?** Használja a `DateFormat`-ot `DateFormatElement` objektumokkal és egy elválasztóval.  
+- **Kereshetek szöveges lekérdezéssel?** Igen, a `daterange(start ~~ end)` szintaxis közvetlenül a lekérdezés karakterláncában működik.  
+- **Mely Maven koordináták szükségesek?** `com.groupdocs:groupdocs-search:25.4` (vagy újabb).  
+- **Szükségem van licencre fejlesztéshez?** Egy ingyenes próba vagy ideiglenes licenc elegendő a teszteléshez; a termeléshez kereskedelmi licenc szükséges.
 
-## Mi az a **custom date format java**?
-A **custom date format java** megmondja a GroupDocs.Search-nek, hogyan értelmezze a dátumkarakterláncokat, amelyek nem követik az alapértelmezett ISO mintát (YYYY‑MM‑DD). Saját minta definiálásával—például `MM/dd/yyyy` vagy `dd‑MM‑yyyy`—lehetővé teszi a motor számára, hogy felismerje a dokumentumokban beágyazott dátumokat, amelyek regionális vagy régi formátumokat használnak.
+## Mi az **custom date format java**?
+A **custom date format java** megmondja a GroupDocs.Search-nek, hogyan értelmezze azokat a dátumkarakterláncokat, amelyek nem követik az alapértelmezett ISO mintát (YYYY‑MM‑DD). Saját minta definiálásával—például `MM/dd/yyyy` vagy `dd‑MM‑yyyy`—lehetővé teszi, hogy a motor felismerje a regionális vagy régi formátumú dokumentumokban található dátumokat.
 
-## Miért használja a GroupDocs.Search-t dátumtartomány lekérdezésekhez?
+## Miért használjuk a GroupDocs.Search-t dátumtartomány lekérdezésekhez?
 - **Sebesség:** A beépített indexelés O(log n) kereséseket tesz lehetővé.  
-- **Rugalmasság:** Támogatja a szöveges és objektumalapú lekérdezéskészítést is.  
-- **Többformátumú támogatás:** Kezeli a PDF-eket, Word, Excel, egyszerű szöveget és egyebeket extra kód nélkül.
+- **Rugalmasság:** Támogatja a szöveges és objektumalapú lekérdezés létrehozását.  
+- **Több formátum támogatása:** Kezeli a PDF-eket, Word, Excel, egyszerű szöveget és egyebeket extra kód nélkül.  
 
-## Hogyan **keressen dokumentumokat dátum szerint** a GroupDocs.Search-szel
-Az alábbiakban egy lépésről‑lépésre útmutatót találsz, amely végigvezet a könyvtár beállításán, a fájlok indexelésén és az egyszerű és fejlett dátumtartomány keresések végrehajtásán.
+## Hogyan **search documents by date** a GroupDocs.Search-szel
+Az alábbiakban egy lépésről‑lépésre útmutatót talál, amely végigvezeti a könyvtár beállításán, a fájlok indexelésén és egyszerű, valamint fejlett dátumtartomány keresések végrehajtásán.
 
-### Előkövetelmények
+### Prerequisites
 - Java 8 vagy újabb telepítve.  
 - Maven a függőségkezeléshez.  
-- Hozzáférés egy GroupDocs.Search licenchez (próba vagy ideiglenes licenc a fejlesztéshez megfelelő).
+- Hozzáférés egy GroupDocs.Search licenchez (próba vagy ideiglenes licenc fejlesztéshez).  
 
-### A GroupDocs.Search beállítása Java-hoz
+### Setting Up GroupDocs.Search for Java
 
-#### Telepítés Maven használatával
+#### Installation Using Maven
 Adja hozzá a tárolót és a függőséget a `pom.xml`-hez:
 
 ```xml
@@ -66,11 +66,11 @@ Adja hozzá a tárolót és a függőséget a `pom.xml`-hez:
 </dependencies>
 ```
 
-#### Közvetlen letöltés
+#### Direct Download
 Alternatívaként letöltheti a legújabb verziót közvetlenül a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
-#### Alap inicializálás és beállítás
-Hozzon létre egy `Index` példányt, és adja hozzá a dokumentumait:
+#### Basic Initialization and Setup
+Hozzon létre egy `Index` példányt, és adja hozzá a dokumentumokat:
 
 ```java
 import com.groupdocs.search.*;
@@ -85,9 +85,9 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-## 1. funkció: Dátumtartomány keresési lekérdezések létrehozása
+## Feature 1: Creating Date Range Search Queries
 
-### Szöveges forma lekérdezés használata
+### Using Text Form Query
 A legegyszerűbb mód, ha a dátumtartományt közvetlenül a lekérdezés karakterláncába ágyazza:
 
 ```java
@@ -104,9 +104,9 @@ String query1 = "daterange(2017-01-01 ~~ 2019-12-31)";
 SearchResult result1 = index.search(query1);
 ```
 
-**Magyarázat**: A `daterange` szintaxis a dátumokat `YYYY‑MM‑DD` formátumban várja. Az összes olyan dokumentumot visszaadja, amelynek indexelt dátuma az intervallumba esik.
+**Magyarázat**: A `daterange` szintaxis `YYYY‑MM‑DD` formátumú dátumokat vár. Visszaadja az összes dokumentumot, amelynek indexelt dátuma az intervallumba esik.
 
-### Lekérdezés objektum használata
+### Using Query Object
 Programozott vezérléshez és egyedi feldolgozáshoz építsen egy `SearchQuery` objektumot:
 
 ```java
@@ -124,11 +124,11 @@ SearchQuery query2 = SearchQuery.createDateRangeQuery(Utils.createDate(2017, 1, 
 SearchResult result2 = index.search(query2);
 ```
 
-**Magyarázat**: A `createDateRangeQuery` lehetővé teszi, hogy `java.util.Date` objektumokat adjon meg, teljes rugalmasságot biztosítva az időzónák és a helyspecifikus kezelés tekintetében.
+**Magyarázat**: A `createDateRangeQuery` lehetővé teszi `java.util.Date` objektumok megadását, teljes rugalmasságot biztosítva az időzónák és a helyspecifikus kezelések felett.
 
-## 2. funkció: **custom date format java** minták megadása
+## Feature 2: Specifying **custom date format java** Patterns
 
-### Egyedi dátumformátumok beállítása
+### Setting Custom Date Formats
 Definiáljon egy `DateFormat`-ot, amely megfelel a dokumentum dátumábrázolásának:
 
 ```java
@@ -161,56 +161,61 @@ String query = "daterange(01/01/2017 ~~ 12/31/2019)";
 SearchResult result = index.search(query, options);
 ```
 
-**Magyarázat**: Az alapértelmezett formátumok törlésével és egy `/` elválasztót használó `DateFormat` hozzáadásával a motor most már érti a `MM/dd/yyyy` formátumú dátumokat. Ez elengedhetetlen a **search documents by date** funkcióhoz olyan régiókban, ahol a hónap‑első jelölés a preferált.
+**Magyarázat**: Az alapértelmezett formátumok törlésével és egy `/` elválasztót használó `DateFormat` hozzáadásával a motor most már érti a `MM/dd/yyyy` formátumban írt dátumokat. Ez elengedhetetlen a **search documents by date** funkcióhoz olyan régiókban, ahol a hónap‑előtti jelölést részesítik előnyben.
 
-## Tippek a **search performance** optimalizálásához
-- **Indexelés fokozatosan**: Új fájlokat adjon a meglévő indexhez ahelyett, hogy a semmiből újraépítené.  
-- **Elavult adatok tisztítása**: Időnként távolítsa el a már nem szükséges dokumentumokat.  
-- **Memória beállítások módosítása**: Növelje a JVM heap méretét (`-Xmx`), ha nagy indexekkel dolgozik.
+## Tips to **optimize search performance**
+- **Index Incrementally**: Új fájlok hozzáadása a meglévő indexhez ahelyett, hogy a semmiből újraépítené.  
+- **Prune Stale Data**: Időnként távolítsa el a már nem szükséges dokumentumokat.  
+- **Adjust Memory Settings**: Növelje a JVM heap méretét (`-Xmx`) nagy indexek esetén.  
 
-## Gyakori problémák és megoldások
-- **Dátumfeldolgozási hibák**: Ellenőrizze, hogy a dokumentum dátumkarakterláncai pontosan egyeznek-e a definiált egyedi mintával.  
-- **Hiányzó eredmények**: Győződjön meg arról, hogy az indexelt mezők tartalmazzák a dátum metaadatokat; ellenkező esetben a motor nem tudja egyeztetni a dátum lekérdezéseket.  
-- **Index hozzáférési kivételek**: Ellenőrizze, hogy az `indexFolder` útvonal írható-e, és nincs-e más folyamat által zárolva.
+## Common Issues and Solutions
+- **Date Parsing Errors**: Ellenőrizze, hogy a dokumentum dátumkarakterláncai pontosan egyeznek-e a definiált egyedi mintával.  
+- **Missing Results**: Győződjön meg róla, hogy az indexelt mezők tartalmazzák a dátum metaadatait; egyébként a motor nem tud dátum lekérdezéseket egyezni.  
+- **Index Access Exceptions**: Ellenőrizze, hogy az `indexFolder` útvonal írható-e, és nincs-e más folyamat által zárolva.  
 
-## Gyakorlati alkalmazások
-1. **Archiválási rendszerek** – Rekordok lekérdezése egy adott történelmi időszakból.  
-2. **Tartalomkezelés** – Regionális dátumformátumok támogatása, például `dd/MM/yyyy` az európai felhasználók számára.  
-3. **Pénzügyi szoftver** – Tranzakciók gyors szűrése pénzügyi negyedév vagy év szerint.
+## Practical Applications
+1. **Archival Systems** – Rekordok lekérdezése egy adott történelmi időszakból.  
+2. **Content Management** – Regionális dátumformátumok támogatása, például `dd/MM/yyyy` az európai felhasználók számára.  
+3. **Financial Software** – Tranzakciók gyors szűrése pénzügyi negyedév vagy év szerint.  
 
-## Következtetés
-Most már rendelkezik egy teljes **custom date format java** eszköztárral a hatékony dátumtartomány keresések felépítéséhez a GroupDocs.Search segítségével. Alkalmazza ezeket a mintákat, finomhangolja a teljesítményt, és alkalmazása gyors, pontos eredményeket fog nyújtani bármely időbeli lekérdezéshez.
+## Why This Matters
+A **custom date format java** kezelés bevezetése megszünteti a különböző dátumábrázolások közti súrlódást a dokumentumokban. Lehetővé teszi, hogy egyetlen indexben több dátumformátumot kezeljen, biztosítva, hogy a végfelhasználók pontos eredményeket kapjanak, függetlenül attól, hogyan rögzítették a dátumokat eredetileg.
 
-## Gyakran Ismételt Kérdések
+## Next Steps
+- Fedezze fel a fejlettebb lekérdezés kombinációkat az `AND`, `OR` és `NOT` operátorokkal.  
+- Kísérletezzen egyedi elemzőkkel, ha további időbeli metaadatokat kell indexelni.  
+- Tekintse át a teljesítményhangolási útmutatót a hivatalos dokumentációban, hogy megoldását millió dokumentumra skálázza.
 
-**Q: Mi a különbség a szöveges forma és az objektumalapú dátum lekérdezések között?**  
+## Frequently Asked Questions
+
+**Q: Mi a különbség a szöveges és az objektumalapú dátumlekérdezések között?**  
 A: A szöveges forma gyors és egyszerű, de csak az alapértelmezett ISO formátumra korlátozódik; az objektumalapú lekérdezések lehetővé teszik `Date` objektumok és egyedi formátumok megadását a nagyobb rugalmasság érdekében.
 
 **Q: Kereshetek több dátumtartományt egyetlen lekérdezésben?**  
-A: Igen, kombinálja a `daterange` feltételeket logikai operátorokkal, például `AND` vagy `OR`, hogy összetett lekérdezéseket építsen.
+Igen, kombinálja a `daterange` klauzulákat logikai operátorokkal, például `AND` vagy `OR`, összetett lekérdezések építéséhez.
 
 **Q: Lassítják-e az egyedi dátumformátumok a keresést?**  
-A: Van egy kisebb többletterhelés a további feldolgozás miatt, de a hatás elhanyagolható a tipikus munkaterhelések esetén, és felülmúlja a pontosság növekedése.
+Van egy kisebb többletterhelés a további elemzés miatt, de a hatás elhanyagolható a tipikus munkaterhelések esetén, és felülmúlja a pontosságnövekedés előnye.
 
-**Q: Alkalmas a GroupDocs.Search nagy léptékű telepítésekhez?**  
-A: Teljes mértékben. Megfelelő indexelési stratégiákkal és JVM hangolással több millió dokumentumra is skálázható.
+**Q: Alkalmas a GroupDocs.Search nagy‑léptékű telepítésekhez?**  
+Abszolút. Megfelelő indexelési stratégiákkal és JVM hangolással millió dokumentumra is skálázható.
 
-**Q: Hol találhatok további Java példákat?**  
-A: Tekintse meg a [GroupDocs GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) oldalt további minták és felhasználási esetek megvalósításaiért.
-
----
-
-**Erőforrások**
-
-- **Dokumentáció**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
-- **API referencia**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
-- **Letöltés**: [Get the latest version here](https://releases.groupdocs.com/search/java/)
-- **GitHub tároló**: [View on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- **Ingyenes támogatási fórum**: [Join the discussion](https://forum.groupdocs.com/c/search/10)
-- **Ideiglenes licenc**: [Acquire a temporary license here](https://purchase.groupdocs.com/temporary-license/)
+**Q: Hol találok további Java példákat?**  
+Fedezze fel a [GroupDocs GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) oldalt további minták és felhasználási esetek megtekintéséhez.
 
 ---
 
-**Utolsó frissítés:** 2025-12-18  
-**Tesztelve a következővel:** GroupDocs.Search Java 25.4  
-**Szerző:** GroupDocs
+**Resources**
+
+- **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
+- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
+- **Download**: [Get the latest version here](https://releases.groupdocs.com/search/java/)
+- **GitHub Repository**: [View on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Free Support Forum**: [Join the discussion](https://forum.groupdocs.com/c/search/10)
+- **Temporary License**: [Acquire a temporary license here](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-03-04  
+**Tested With:** GroupDocs.Search Java 25.4  
+**Author:** GroupDocs

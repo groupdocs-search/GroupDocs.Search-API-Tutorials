@@ -1,47 +1,47 @@
 ---
-date: '2025-12-22'
-description: Leer hoe je indexversies in Java beheert met GroupDocs.Search voor Java.
-  Deze gids legt uit hoe je indexen bijwerkt, de Maven‑dependency van GroupDocs instelt
-  en de prestaties optimaliseert.
+date: '2026-03-04'
+description: Leer hoe je de index in Java bijwerkt met GroupDocs.Search voor Java.
+  Deze gids behandelt het toevoegen van documenten aan de index, het upgraden van
+  de zoekindex, Maven-configuratie en prestatie‑tips.
 keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-title: 'Hoe beheer je indexversies in Java met GroupDocs.Search - Een uitgebreide gids'
+title: Hoe de Java-index bij te werken met GroupDocs.Search – Een uitgebreide gids
 type: docs
 url: /nl/java/document-management/guide-updating-index-versions-groupdocs-search-java/
 weight: 1
 ---
 
-# Hoe indexversies beheren in Java met GroupDocs.Search - Een uitgebreide gids
+# Hoe Index Java bijwerken met GroupDocs.Search – Een uitgebreide gids
 
-In de snel veranderende wereld van gegevensbeheer is **manage index versions java** essentieel om uw zoekervaring vlot en betrouwbaar te houden. Met GroupDocs.Search voor Java kunt u naadloos geïndexeerde documenten en versies bijwerken en beheren, zodat elke query de meest actuele resultaten oplevert.
+Het actueel houden van uw zoekindex is een hoeksteen van elke high‑performance applicatie. In deze tutorial leert u **how to update index java** met GroupDocs.Search, waarbij alles wordt behandeld van documenten aan de index toevoegen, tot het upgraden van zoekindexversies, en het fijn afstellen van de prestaties. Of u nu een CMS, een juridisch archief of een grootschalig datawarehouse onderhoudt, de onderstaande stappen helpen u de zoekresultaten snel en nauwkeurig te houden.
 
 ## Snelle antwoorden
-- **Wat betekent “manage index versions java”?** Het verwijst naar het bijwerken en onderhouden van de versie van een zoekindex zodat deze compatibel blijft met nieuwere bibliotheekreleases.  
-- **Welk Maven‑artifact is vereist?** Het `groupdocs-search`‑artifact, toegevoegd via een Maven‑dependency.  
+- **Wat betekent “update index java”?** Het is het proces van het vernieuwen van de on‑disk index zodat deze de nieuwste documentwijzigingen en bibliotheekversie weerspiegelt.  
+- **Welk Maven‑artifact heb ik nodig?** Voeg de `groupdocs-search` afhankelijkheid toe aan uw `pom.xml`.  
 - **Heb ik een licentie nodig om het te proberen?** Ja – er is een gratis proeflicentie beschikbaar voor evaluatie.  
-- **Kan ik indexen parallel bijwerken?** Absoluut – gebruik `UpdateOptions` om multi‑threaded updates in te schakelen.  
-- **Is deze aanpak geheugen‑efficiënt?** Bij gebruik met juiste thread‑instellingen en regelmatige opruimingen minimaliseert het het Java‑heap‑verbruik.
+- **Kan ik indexen parallel bijwerken?** Absoluut – configureer `UpdateOptions` met meerdere threads.  
+- **Is deze aanpak geheugen‑efficiënt?** Juiste thread‑instellingen en regelmatige opruimingen houden het Java‑heapgebruik laag.
 
-## Wat is “manage index versions java”?
-Het beheren van indexversies in Java betekent dat de indexstructuur op schijf gesynchroniseerd blijft met de versie van de GroupDocs.Search‑bibliotheek die u gebruikt. Wanneer de bibliotheek evolueert, moeten oudere indexen mogelijk worden geüpgraded om doorzoekbaar te blijven.
+## Wat is “update index java”?
+Een index bijwerken in Java betekent het synchroniseren van de on‑disk indexstructuur met de huidige set bronbestanden en de versie van de GroupDocs.Search‑bibliotheek die u gebruikt. Wanneer de bibliotheek evolueert, moet u mogelijk ook **upgrade search index** uitvoeren om compatibiliteit te behouden.
 
 ## Waarom GroupDocs.Search voor Java gebruiken?
-- **Robuuste full‑text search** over vele documentformaten.  
-- **Eenvoudige integratie** met Maven‑ en Gradle‑builds.  
+- **Robuuste full‑text search** over tientallen documentformaten.  
+- **Naadloze Maven/Gradle integratie** voor geautomatiseerde builds.  
 - **Ingebouwde versie‑beheer** dat uw investering beschermt wanneer de bibliotheek wordt bijgewerkt.  
-- **Schaalbare prestaties** met multi‑threaded indexeren en bijwerken.
+- **Schaalbare multi‑threaded indexing** voor grote datasets.
 
 ## Vereisten
 - Java Development Kit (JDK) 8 of hoger.  
 - Een IDE zoals IntelliJ IDEA of Eclipse.  
 - Basiskennis van Java en Maven.  
 
-## Maven‑dependency GroupDocs
-Om met GroupDocs.Search te werken, heeft u de juiste Maven‑coördinaten nodig. Voeg de repository en dependency hieronder toe aan uw `pom.xml`‑bestand.
+## Maven‑afhankelijkheid GroupDocs
+Om met GroupDocs.Search te werken, heeft u de juiste Maven‑coördinaten nodig. Voeg de repository en afhankelijkheid hieronder toe aan uw `pom.xml`‑bestand.
 
-**Maven Configuration:**
+**Maven‑configuratie:**
 ```xml
 <repositories>
     <repository>
@@ -64,13 +64,13 @@ U kunt ook [de nieuwste versie direct downloaden](https://releases.groupdocs.com
 ## GroupDocs.Search voor Java instellen
 
 ### Installatie‑instructies
-1. **Maven‑setup** – Voeg de repository en dependency toe aan uw `pom.xml` zoals hierboven weergegeven.  
+1. **Maven‑setup** – Voeg de repository en afhankelijkheid toe aan uw `pom.xml` zoals hierboven weergegeven.  
 2. **Directe download** – Als u liever geen Maven gebruikt, haal de JAR van de [GroupDocs‑downloadpagina](https://releases.groupdocs.com/search/java/).
 
-### Licentie‑acquisitie
+### Licentie‑verwerving
 GroupDocs biedt een gratis proeflicentie waarmee u alle functies zonder beperkingen kunt verkennen. Verkrijg een tijdelijke licentie via het [aankoopportaal](https://purchase.groupdocs.com/temporary-license/). Voor productie, koop een volledige licentie.
 
-### Basisinitialisatie en -setup
+### Basisinitialisatie en -configuratie
 ```java
 import com.groupdocs.search.Index;
 
@@ -83,8 +83,8 @@ Index index = new Index(indexFolder);
 
 ## Implementatie‑gids
 
-### Geïndexeerde documenten bijwerken
-Het synchroniseren van uw index met bronbestanden is een kernonderdeel van **manage index versions java**.
+### Geïndexeerde documenten bijwerken – **add documents to index**
+Het synchroniseren van uw index met bronbestanden is een kernonderdeel van **update index java**.
 
 #### Stapsgewijze implementatie
 **1. Definieer directory‑paden**  
@@ -93,7 +93,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/UpdateIndexedDocuments/Index";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY/Documents";
 ```
 
-**2. Bereid gegevens voor**  
+**2. Bereid data voor**  
 ```java
 Utils.cleanDirectory(documentFolder);
 Utils.copyFiles(Utils.DocumentsPath, documentFolder);
@@ -131,7 +131,7 @@ options.setThreads(2); // Using two threads for faster indexing
 index.update(options);
 ```
 
-**9. Verifieer updates met een nieuwe zoekopdracht**  
+**9. Verifieer updates met een andere zoekopdracht**  
 ```java
 SearchResult searchResult2 = index.search(query);
 ```
@@ -141,8 +141,8 @@ SearchResult searchResult2 = index.search(query);
 - Zorg ervoor dat het proces lees‑/schrijfrechten heeft op de indexmap.  
 - Houd CPU‑ en geheugengebruik in de gaten bij het verhogen van het aantal threads.
 
-### Indexversie bijwerken
-Wanneer u GroupDocs.Search upgrade, moet u mogelijk **manage index versions java** uitvoeren om bestaande indexen bruikbaar te houden.
+### Indexversie bijwerken – **upgrade search index**
+Wanneer u GroupDocs.Search upgrade, moet u mogelijk **upgrade search index** uitvoeren om bestaande indexen bruikbaar te houden.
 
 #### Stapsgewijze implementatie
 **1. Definieer directory‑paden**  
@@ -152,7 +152,7 @@ String sourceIndexFolder = "YOUR_DOCUMENT_DIRECTORY/SourceIndex";
 String targetIndexFolder = "YOUR_OUTPUT_DIRECTORY/TargetIndex";
 ```
 
-**2. Bereid gegevens voor**  
+**2. Bereid data voor**  
 ```java
 Utils.cleanDirectory(sourceIndexFolder);
 Utils.cleanDirectory(targetIndexFolder);
@@ -164,7 +164,7 @@ Utils.copyFiles(oldIndexFolder, sourceIndexFolder);
 IndexUpdater updater = new IndexUpdater();
 ```
 
-**4. Controleer en werk versie bij**  
+**4. Controleer en update versie**  
 ```java
 if (updater.canUpdateVersion(sourceIndexFolder)) {
     VersionUpdateResult result = updater.updateVersion(sourceIndexFolder, targetIndexFolder);
@@ -172,39 +172,47 @@ if (updater.canUpdateVersion(sourceIndexFolder)) {
 ```
 
 **Probleemoplossingstips**
-- Bevestig dat de bron‑index is aangemaakt met een ondersteunde oudere versie.  
+- Bevestig dat de bron‑index is gemaakt met een ondersteunde oudere versie.  
 - Zorg voor voldoende schijfruimte voor de doel‑indexmap.  
-- Werk alle Maven‑dependencies bij naar dezelfde versie om compatibiliteitsproblemen te voorkomen.
+- Werk alle Maven‑afhankelijkheden bij naar dezelfde versie om compatibiliteitsproblemen te voorkomen.
 
 ## Praktische toepassingen
-1. **Content Management Systemen** – Houd zoekindexen actueel wanneer artikelen, PDF‑s en afbeeldingen worden toegevoegd of bewerkt.  
-2. **Juridische documentopslag** – Reflecteer automatisch wijzigingen in contracten, wetgeving en dossiers.  
-3. **Enterprise Data Warehousing** – Vernieuw regelmatig geïndexeerde gegevens voor nauwkeurige analyses en rapportages.
+1. **Content Management Systems** – Houd zoekindexen actueel wanneer artikelen, PDF‑s en afbeeldingen worden toegevoegd of bewerkt.  
+2. **Legal Document Repositories** – Reflecteer automatisch wijzigingen in contracten, wetgeving en dossiers.  
+3. **Enterprise Data Warehousing** – Vernieuw regelmatig geïndexeerde data voor nauwkeurige analyses en rapportages.
 
 ## Prestatie‑overwegingen
 - **Thread‑beheer** – Gebruik multi‑threading verstandig; te veel threads kunnen GC‑druk veroorzaken.  
-- **Geheugenmonitoring** – Roep periodiek `System.gc()` aan of gebruik profiling‑tools om heap‑gebruik te bewaken.  
-- **Query‑optimalisatie** – Schrijf beknopte zoekstrings en maak gebruik van filters om de resultaatsgrootte te verkleinen.
+- **Geheugenmonitoring** – Roep periodiek `System.gc()` aan of gebruik profiling‑tools om heap‑gebruik te bekijken.  
+- **Query‑optimalisatie** – Schrijf beknopte zoekstrings en gebruik filters om de grootte van de resultset te verkleinen.
+
+## Veelvoorkomende problemen en oplossingen
+| Symptom | Likely Cause | Fix |
+|---------|--------------|-----|
+| `Index not found`‑fout | Verkeerd mappad | Controleer `indexFolder` en zorg dat de map bestaat. |
+| Out‑of‑memory tijdens update | Te veel threads | Verminder `options.setThreads()` of vergroot de heap (`-Xmx`). |
+| Geen resultaten na versie‑upgrade | Oude index incompatibel | Controleer dat `updater.canUpdateVersion()` `true` retourneert voordat u doorgaat. |
+| Licentie‑exception | Proeflicentie verlopen | Vraag een nieuwe proeflicentie aan of gebruik een aangeschafte licentiesleutel. |
 
 ## Veelgestelde vragen
 
-**V: Kan ik een index upgraden die is aangemaakt met een zeer oude versie van GroupDocs.Search?**  
+**Q: Kan ik een index upgraden die is gemaakt met een zeer oude versie van GroupDocs.Search?**  
 A: Ja, zolang de oude index nog leesbaar is voor de bibliotheek; de `canUpdateVersion`‑methode bevestigt de compatibiliteit.
 
-**V: Moet ik de index na elke bibliotheekupdate opnieuw aanmaken?**  
-A: Niet per se. Het bijwerken van de indexversie is in de meeste gevallen voldoende, waardoor tijd en middelen worden bespaard.
+**Q: Moet ik de index opnieuw maken na elke bibliotheek‑update?**  
+A: Niet per se. Het bijwerken van de indexversie is in de meeste gevallen voldoende, waardoor tijd en middelen bespaard worden.
 
-**V: Hoeveel threads moet ik gebruiken voor grote indexen?**  
-A: Begin met 2‑4 threads en houd het CPU‑gebruik in de gaten; verhoog alleen als het systeem over vrije cores en geheugen beschikt.
+**Q: Hoeveel threads moet ik gebruiken voor grote indexen?**  
+A: Begin met 2‑4 threads en houd het CPU‑gebruik in de gaten; verhoog alleen als het systeem vrije cores en geheugen heeft.
 
-**V: Is een proeflicentie voldoende voor productietesten?**  
+**Q: Is een proeflicentie voldoende voor productietesten?**  
 A: De proeflicentie verwijdert functielimieten, waardoor deze ideaal is voor ontwikkelings‑ en QA‑omgevingen.
 
-**V: Wat gebeurt er met bestaande zoekresultaten na een update van de indexversie?**  
-A: De indexstructuur wordt gemigreerd, maar de doorzoekbare inhoud blijft ongewijzigd, waardoor de resultaten consistent blijven.
+**Q: Wat gebeurt er met bestaande zoekresultaten na een update van de indexversie?**  
+A: De indexstructuur wordt gemigreerd, maar de doorzoekbare inhoud blijft ongewijzigd, dus resultaten blijven consistent.
 
 ## Conclusie
-Door de bovenstaande stappen te volgen, heeft u nu een solide begrip van hoe **manage index versions java** uit te voeren met GroupDocs.Search voor Java. Het bijwerken van zowel documentinhoud als indexversies zorgt ervoor dat uw zoekervaring snel, nauwkeurig en compatibel blijft met toekomstige bibliotheekreleases.
+Door de bovenstaande stappen te volgen, heeft u nu een solide begrip van hoe **update index java** met GroupDocs.Search voor Java. Het vernieuwen van zowel documentinhoud als indexversies zorgt ervoor dat uw zoekervaring snel, nauwkeurig en compatibel blijft met toekomstige bibliotheekreleases.
 
 ### Volgende stappen
 - Experimenteer met verschillende `UpdateOptions`‑configuraties om de optimale instelling voor uw werklast te vinden.  
@@ -213,6 +221,6 @@ Door de bovenstaande stappen te volgen, heeft u nu een solide begrip van hoe **m
 
 ---
 
-**Laatst bijgewerkt:** 2025-12-22  
-**Getest met:** GroupDocs.Search 25.4 voor Java  
+**Laatst bijgewerkt:** 2026-03-04  
+**Getest met:** GroupDocs.Search 25.4 for Java  
 **Auteur:** GroupDocs
