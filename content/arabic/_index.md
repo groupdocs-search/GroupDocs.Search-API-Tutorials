@@ -1,6 +1,6 @@
 ---
 additionalTitle: GroupDocs API References
-date: 2025-12-16
+date: 2026-02-16
 description: استكشف مجموعة دروس GroupDocs.Search للمطورين .NET و Java. اتقن فهرسة
   المستندات، وقدرات البحث، والميزات المتقدمة بسهولة.
 is_root: true
@@ -13,63 +13,68 @@ weight: 11
 
 # دليل GroupDocs.Search – إطلاق قوة البحث في المستندات
 
-مرحبًا بك في **دليل GroupDocs.Search**، وجهتك الشاملة لإتقان البحث في المستندات والفهرسة عبر منصتي .NET و Java. سواءً كنت تبني أداة داخلية صغيرة أو حلًا مؤسسيًا واسع النطاق، فإن هذه الأدلة خطوة بخطوة ستساعدك على تنفيذ وظائف بحث سريعة، دقيقة وقابلة للتوسع. ستتعلم كل شيء من الفهرسة الأساسية إلى بناء الاستعلامات المتقدمة، مع الاستفادة الكاملة من قوة GroupDocs.Search.
+مرحبًا بكم في مركز **GroupDocs.Search tutorial**، وجهتكم الشاملة لإتقان البحث في المستندات وفهرستها عبر منصتي .NET و Java. سواءً كنتم تبنون أداة داخلية سريعة أو حلاً مؤسسيًا واسع النطاق، ستساعدكم هذه الأدلة خطوة بخطوة على تنفيذ وظيفة بحث سريعة ودقيقة وقابلة للتوسع. من خلال استكشاف مجموعة دروس GroupDocs.Search ستحصلون بسرعة على الثقة لإضافة ميزات بحث قوية إلى أي تطبيق.
 
 ## لماذا تستخدم دليل GroupDocs.Search؟
 
-تم تصميم سلسلة الأدلة مع مراعاة السيناريوهات الواقعية، حتى تتمكن من تطبيق ما تتعلمه بسرعة على مشاريعك. باتباعك لهذه الأدلة ستحصل على:
+تم تصميم سلسلة الدروس مع مراعاة السيناريوهات الواقعية، بحيث يمكنك تطبيق ما تتعلمه بسرعة على مشاريعك. باتباع هذه الأدلة ستتمكن من:
 
-- فهم قوي لتقنيات **فهرسة المستندات**.  
-- تعلم كيفية إنشاء **قدرات بحث** فعّالة تتعامل مع مجموعات مستندات ضخمة.  
-- استكشاف ميزات متقدمة مثل البحث الضبابي، التمييز، وشبكات البحث الموزعة.  
-- تقليل وقت التطوير من خلال إرشادات واضحة مدعومة بالأمثلة لكل من بيئات .NET و Java.
-
-{{% alert color="primary" %}}
-استكشف قدرات البحث القوية في المستندات على .NET مع أدلة GroupDocs.Search. من الفهرسة الأساسية إلى تقنيات البحث المتقدمة، تقدم أدلتنا إرشادات شاملة للمطورين على جميع مستويات الخبرة. تعمق في مواضيع مختلفة مثل البحث البولياني، البحث الضبابي، التمييز، إدارة القواميس، وحلول البحث الموزعة، لتستفيد من الإمكانات الكاملة لـ GroupDocs.Search على .NET. ارتقِ بوظيفة البحث في تطبيقك وسهّل اكتشاف المستندات من خلال أدلتنا السهلة المتابعة.
-{{% /alert %}}
-
-## أدلة GroupDocs.Search لـ .NET
-
-### أدلة البحث الأساسية على .NET
-
-- [Indexing](./net/indexing/)
-- [Searching](./net/searching/)
-- [Highlighting](./net/highlighting/)
-- [Dictionaries & Language Processing](./net/dictionaries-language-processing/)
-- [Document Management](./net/document-management/)
-- [OCR & Image Search](./net/ocr-image-search/)
-- [Advanced Features](./net/advanced-features/)
-- [Search Network](./net/search-network/)
-- [Performance Optimization](./net/performance-optimization/)
-- [Exception Handling & Logging](./net/exception-handling-logging/)
-- [Integration & Interoperability](./net/integration-interoperability/)
-- [Licensing & Configuration](./net/licensing-configuration/)
-- [Text Extraction & Processing](./net/text-extraction-processing/)
-- [Queries & Query Building](./net/queries-query-building/)
+- اكتساب فهم قوي لتقنيات **document indexing**.  
+- تعلم كيفية إنشاء **search capabilities** فعّالة تتعامل مع مجموعات مستندات كبيرة.  
+- استكشاف الميزات المتقدمة مثل fuzzy search، highlighting، وشبكات البحث الموزعة.  
+- تقليل وقت التطوير من خلال إرشادات واضحة مدفوعة بالأمثلة لكل من بيئات .NET و Java.
 
 {{% alert color="primary" %}}
-اكتشف أدلة شاملة لـ GroupDocs.Search في Java. من تقنيات الفهرسة الأساسية إلى وظائف البحث المتقدمة، توفر أدلتنا خطوة بخطوة للمطورين بلغة Java المعرفة اللازمة لتنفيذ حلول بحث قوية في المستندات. تعلم العمل مع صيغ مستندات متعددة تشمل PDF، Word، Excel، العروض التقديمية، وغير ذلك. إتقان تقنيات إنشاء الفهارس، تنفيذ أنواع مختلفة من البحث، تمييز النتائج، وتحسين الأداء لتعزيز تطبيقات Java الخاصة بك بقدرات بحث قوية.
+استكشف قدرات البحث القوية في المستندات على .NET مع دروس GroupDocs.Search. من الفهرسة الأساسية إلى تقنيات البحث المتقدمة، تقدم دروسنا إرشادات شاملة للمطورين على جميع مستويات المهارة. غص في مواضيع مختلفة مثل Boolean search، fuzzy search، highlighting، إدارة القواميس، وحلول البحث الموزعة، لتفعيل الإمكانات الكاملة لـ GroupDocs.Search على .NET. ارتق بوظيفة البحث في تطبيقك وسهّل اكتشاف المستندات من خلال دروسنا السهلة المتابعة.
 {{% /alert %}}
 
-## أدلة GroupDocs.Search لـ Java
+## ما ستجده في هذا المركز
 
-### أدلة البحث الأساسية على Java
+يجمع هذا المركز أهم الدروس لكل من المنصتين، منظمةً بحيث يمكنك القفز مباشرة إلى الموضوع الذي تحتاجه. يفتح كل رابط دليلًا مخصصًا يمر بك عبر الإعداد، مقتطفات الشيفرة، ونصائح الممارسات المثلى. استخدم التنقل أدناه لاختيار المجال الذي يتطابق مع التحدي الحالي—سواءً كان إنشاء فهرس، تحسين أداء الاستعلام، أو التعامل مع البحث عن الصور المستندة إلى OCR.
 
-- [Getting Started](./java/getting-started/)
-- [Indexing](./java/indexing/)
-- [Searching](./java/searching/)
-- [Highlighting](./java/highlighting/)
-- [Dictionaries & Language Processing](./java/dictionaries-language-processing/)
-- [Document Management](./java/document-management/)
-- [OCR & Image Search](./java/ocr-image-search/)
-- [Advanced Features](./java/advanced-features/)
-- [Search Network](./java/search-network/)
-- [Performance Optimization](./java/performance-optimization/)
-- [Exception Handling & Logging](./java/exception-handling-logging/)
-- [Licensing & Configuration](./java/licensing-configuration/)
-- [Text Extraction & Processing](./java/text-extraction-processing/)
+## دروس GroupDocs.Search لـ .NET
+
+### دروس البحث الأساسية لـ .NET
+
+- [الفهرسة](./net/indexing/)
+- [البحث](./net/searching/)
+- [التظليل](./net/highlighting/)
+- [القواميس ومعالجة اللغة](./net/dictionaries-language-processing/)
+- [إدارة المستندات](./net/document-management/)
+- [OCR والبحث عن الصور](./net/ocr-image-search/)
+- [الميزات المتقدمة](./net/advanced-features/)
+- [شبكة البحث](./net/search-network/)
+- [تحسين الأداء](./net/performance-optimization/)
+- [معالجة الاستثناءات والتسجيل](./net/exception-handling-logging/)
+- [التكامل والتشغيل البيني](./net/integration-interoperability/)
+- [الترخيص والتكوين](./net/licensing-configuration/)
+- [استخراج النص ومعالجته](./net/text-extraction-processing/)
+- [الاستعلامات وبناء الاستعلامات](./net/queries-query-building/)
+
+{{% alert color="primary" %}}
+اكتشف دروسًا شاملة لـ GroupDocs.Search في Java. من تقنيات الفهرسة الأساسية إلى وظائف البحث المتقدمة، توفر أدلتنا خطوة بخطوة للمطورين بلغة Java المعرفة اللازمة لتنفيذ حلول بحث قوية في المستندات. تعلم العمل مع صيغ مستندات مختلفة بما فيها PDF، Word، Excel، العروض التقديمية، وأكثر. إتقان تقنيات إنشاء الفهارس، تنفيذ أنواع البحث المختلفة، تمييز النتائج، وتحسين الأداء لتعزيز تطبيقات Java الخاصة بك بقدرات بحث قوية.
+{{% /alert %}}
+
+## دروس GroupDocs.Search لـ Java
+
+### دروس البحث الأساسية لـ Java
+
+- [البدء](./java/getting-started/)
+- [الفهرسة](./java/indexing/)
+- [البحث](./java/searching/)
+- [التظليل](./java/highlighting/)
+- [القواميس ومعالجة اللغة](./java/dictionaries-language-processing/)
+- [إدارة المستندات](./java/document-management/)
+- [OCR والبحث عن الصور](./java/ocr-image-search/)
+- [الميزات المتقدمة](./java/advanced-features/)
+- [شبكة البحث](./java/search-network/)
+- [تحسين الأداء](./java/performance-optimization/)
+- [معالجة الاستثناءات والتسجيل](./java/exception-handling-logging/)
+- [الترخيص والتكوين](./java/licensing-configuration/)
+- [استخراج النص ومعالجته](./java/text-extraction-processing/)
 
 ---
 
-**آخر تحديث:** 2025-12-16  
-**المؤلف:** GroupDocs
+**آخر تحديث:** 2026-02-16  
+**المؤلف:** GroupDocs  
+**تم الاختبار مع:** GroupDocs.Search أحدث إصدار ثابت (حتى 2026)

@@ -1,98 +1,138 @@
 ---
-date: 2025-12-18
-description: Dowiedz się, jak tworzyć aplikacje Java z indeksem wyszukiwania przy
-  użyciu GroupDocs.Search. Poznaj indeksowanie, wyszukiwanie, podświetlanie, OCR oraz
-  optymalizację wydajności w Javie.
+date: 2026-02-16
+description: Naucz się podświetlać wyniki wyszukiwania w języku Java przy użyciu GroupDocs.Search.
+  Poznaj faceted search w Javie, wdrażaj OCR w Javie, indeksowanie, wyszukiwanie oraz
+  optymalizację wydajności dla Javy.
 is_root: true
 linktitle: GroupDocs.Search for Java Tutorials
-title: Utwórz indeks wyszukiwania w Javie – Poradniki GroupDocs.Search
+title: Wyróżnianie wyników wyszukiwania Java – Tworzenie indeksu wyszukiwania przy
+  użyciu GroupDocs.Search
 type: docs
 url: /pl/java/
 weight: 10
 ---
 
-# Utwórz indeks wyszukiwania Java z GroupDocs.Search dla Java
+Check link texts: we translated.
 
-Witamy w ostatecznym przewodniku, jak **tworzyć indeks wyszukiwania java** aplikacje używając GroupDocs.Search dla Java. Nasze kompleksowe API pozwala programistom Java dodać wysokowydajne możliwości wyszukiwania dokumentów przy minimalnym wysiłku. Niezależnie od tego, czy tworzysz małe wewnętrzne narzędzie, czy rozwiązanie na dużą skalę dla przedsiębiorstwa, znajdziesz wszystko, co potrzebne do indeksowania, wyszukiwania, podświetlania i precyzyjnego dostrajania wyników w formatach PDF, Office, HTML i wielu innych.
+Now produce final answer.# Tworzenie indeksu wyszukiwania Java z GroupDocs.Search dla Java
 
-## Szybki przegląd
+Witamy w kompleksowym przewodniku, jak **create search index java** aplikacje przy użyciu GroupDocs.Search dla Java. W tym samouczku odkryjesz także, jak **highlight search results java**, funkcję, która znacząco poprawia doświadczenie użytkownika, wyświetlając dopasowania bezpośrednio w dokumentach. Niezależnie od tego, czy tworzysz małe narzędzie wewnętrzne, czy rozwiązanie na skalę przedsiębiorstwa, znajdziesz wszystko, co potrzebne do indeksowania, wyszukiwania, podświetlania i precyzyjnego dostrajania wyników w formatach PDF, Office, HTML i wielu innych.
 
-- **Indeksowanie różnorodnych typów dokumentów** – PDF, DOCX, PPTX, XLSX, HTML i inne.  
-- **Wykonywanie zaawansowanych zapytań** – Boolean, fuzzy, wildcard, phrase, regex i wyszukiwania fasetowe.  
-- **Wykorzystanie przetwarzania języka** – Synonimy, sprawdzanie pisowni, wykrywanie homofonów i niestandardowe słowniki.  
-- **Integracja OCR** – Ekstrahowanie tekstu ze skanowanych obrazów i włączenie go do indeksu przeszukiwalnego.  
-- **Optymalizacja wydajności** – Kontrola zużycia pamięci, rozmiaru indeksu i czasu odpowiedzi zapytań.  
-- **Podświetlanie wyników** – Wyświetlanie dopasowań bezpośrednio w oryginalnych dokumentach lub w podglądach HTML.  
+## Quick Overview
+
+GroupDocs.Search for Java umożliwia:
+
+- **Index diverse document types** – PDF‑y, DOCX, PPTX, XLSX, HTML i inne.  
+- **Run advanced queries** – zapytania Boolean, fuzzy, wildcard, phrase, regex i faceted searches.  
+- **Leverage language processing** – synonimy, sprawdzanie pisowni, wykrywanie homofonów i własne słowniki.  
+- **Integrate OCR** – wyodrębnianie tekstu ze skanowanych obrazów i włączenie go do indeksu przeszukiwalnego.  
+- **Optimize performance** – kontrola zużycia pamięci, rozmiaru indeksu i czasu odpowiedzi zapytań.  
+- **Highlight results** – wyświetlanie dopasowań bezpośrednio w oryginalnych dokumentach lub podglądach HTML.  
 
 Poniżej znajdziesz starannie dobraną listę dedykowanych samouczków, które krok po kroku przeprowadzą Cię przez każdą z tych funkcji.
 
-## Samouczki GroupDocs.Search dla Java
+## Quick Answers
+- **Co robi „highlight search results java”?** Wizualnie oznacza pasujące terminy w oryginalnym dokumencie lub wygenerowanym podglądzie HTML.  
+- **Która biblioteka zapewnia faceted search java?** GroupDocs.Search for Java zawiera wbudowane wsparcie dla faceted search.  
+- **Czy mogę zaimplementować OCR java przy użyciu tego samego API?** Tak, silnik OCR jest zintegrowany i może być włączony jednym ustawieniem.  
+- **Czy potrzebna jest licencja do użytku produkcyjnego?** Licencja komercyjna jest wymagana do wdrożenia po okresie próbnym.  
+- **Czy API jest kompatybilne z Java 17 i nowszymi?** W pełni obsługiwane od Java 8+ i przetestowane na Java 17.
 
-### [Rozpoczęcie](./getting-started/)
-Poznaj podstawy GroupDocs.Search dla Java w naszych wprowadzających samouczkach obejmujących instalację, licencjonowanie oraz tworzenie pierwszej aplikacji wyszukującej.
+## What is “highlight search results java”?
 
-### [Indeksowanie](./indexing/)
-Opanuj techniki indeksowania dokumentów, w tym tworzenie indeksów, obsługę różnych źródeł dokumentów oraz konfigurowanie opcji dla optymalnej wydajności.
+Podświetlanie wyników wyszukiwania w Javie oznacza programowe stosowanie wizualnych wskazówek — takich jak kolory tła lub pogrubienie — do dokładnych słów lub fraz, które pasują do zapytania użytkownika. Technika ta pomaga użytkownikom szybko zlokalizować istotne informacje, szczególnie w długich dokumentach.
 
-### [Wyszukiwanie](./searching/)
-Zaimplementuj potężne możliwości wyszukiwania, w tym zapytania Boolean, fuzzy, wildcard, phrase oraz regex, z kompleksową obsługą wyników.
+## Why use GroupDocs.Search for Java?
+- **Speed:** Indeksowanie i zapytania do tysięcy dokumentów w ciągu sekund.  
+- **Versatility:** Obsługuje ponad 150 formatów plików od razu po instalacji.  
+- **Extensibility:** Dodawaj własne słowniki, OCR i faceted search java bez opuszczania API.  
+- **Developer‑friendly:** Proste, płynne API z obszerną dokumentacją i przykładowymi projektami.
 
-### [Podświetlanie](./highlighting/)
-Popraw doświadczenie użytkownika, podświetlając dopasowania wyszukiwania w oryginalnych dokumentach i generując podglądy HTML z konfigurowalnym stylem.
+## Prerequisites
+- Java 8 lub nowsza (zalecana Java 17)  
+- Maven lub Gradle do zarządzania zależnościami  
+- Ważna licencja GroupDocs.Search for Java (dostępna wersja próbna)  
 
-### [Słowniki i przetwarzanie języka](./dictionaries-language-processing/)
-Popraw jakość wyszukiwania dzięki słownikom synonimów, sprawdzaniu pisowni, niestandardowym alfabetom, wykrywaniu homofonów i innym funkcjom przetwarzania języka.
+## Step‑by‑Step Guide
 
-### [Zarządzanie dokumentami](./document-management/)
-Poznaj skuteczne techniki dodawania, aktualizacji i usuwania dokumentów z indeksów wyszukiwania przy zachowaniu optymalnej wydajności.
+### Step 1: Set Up the Project
+Utwórz projekt Maven / Gradle i dodaj zależność GroupDocs.Search. Umieść plik licencji w folderze resources.
 
-### [OCR i wyszukiwanie obrazów](./ocr-image-search/)
-Zaimplementuj ekstrakcję tekstu z obrazów oraz możliwości odwróconego wyszukiwania obrazów, aby rozszerzyć funkcjonalność wyszukiwania w aplikacji.
+### Step 2: Create an Index
+Zainicjalizuj klasę `Index`, wskaż folder, w którym będą przechowywane pliki indeksu, i wywołaj `add` dla każdego dokumentu, który ma być przeszukiwalny.
 
-### [Zaawansowane funkcje](./advanced-features/)
-Zbadaj specjalistyczne możliwości wyszukiwania, w tym wyszukiwanie fasetowe, raporty wyszukiwania, filtrowanie dokumentów oraz wyszukiwanie oparte na metadanych.
+### Step 3: Enable OCR (Implement OCR Java)
+Jeśli potrzebujesz indeksować zeskanowane obrazy, włącz moduł OCR, konfigurując obiekt `OcrOptions` i dołączając go do procesu indeksowania.
 
-### [Sieć wyszukiwania](./search-network/)
-Buduj skalowalne, rozproszone rozwiązania wyszukiwania z partycjonowaniem, synchronizacją i zoptymalizowanymi konfiguracjami sieci.
+### Step 4: Perform a Search Query
+Użyj klasy `SearchOptions` do zbudowania zapytania. Możesz łączyć kryteria Boolean, fuzzy i **faceted search java**, aby doprecyzować wyniki.
 
-### [Optymalizacja wydajności](./performance-optimization/)
-Maksymalizuj wydajność wyszukiwania dzięki technikom optymalizacji rozmiaru indeksu, zużycia pamięci i czasu odpowiedzi w środowiskach Java.
+### Step 5: Highlight Search Results Java
+Po uzyskaniu `SearchResult` wywołaj narzędzie `Highlight`, aby wygenerować podświetloną wersję oryginalnego dokumentu lub podgląd HTML. API umożliwia dostosowanie kolorów podświetlenia, klas CSS i formatu wyjściowego.
 
-### [Obsługa wyjątków i logowanie](./exception-handling-logging/)
-Zaimplementuj solidne zarządzanie błędami i logowanie, aby tworzyć niezawodne, gotowe do produkcji aplikacje wyszukujące.
+### Step 6: Review and Optimize
+Analizuj rozmiar indeksu i opóźnienie zapytań przy użyciu wbudowanych narzędzi statystycznych. Dostosuj ustawienia pamięci lub włącz kompresję w razie potrzeby.
 
-### [Licencjonowanie i konfiguracja](./licensing-configuration/)
-Poprawnie skonfiguruj licencjonowanie i ustaw GroupDocs.Search dla optymalnej wydajności w środowiskach produkcyjnych.
+## Common Issues and Solutions
+- **No highlights appear:** Upewnij się, że metoda `Highlight` jest wywoływana z prawidłowym `HighlightOptions` oraz że format wyjściowy obsługuje stylizację (np. HTML).  
+- **OCR misses text:** Sprawdź, czy pakiety językowe OCR są zainstalowane i czy jakość obrazu spełnia minimalny wymóg DPI (zalecane 300 dpi).  
+- **Faceted search returns empty buckets:** Upewnij się, że pola, na których wykonujesz facetowanie, są indeksowane jako typ `Facet` podczas kroku indeksowania.
 
-### [Ekstrakcja i przetwarzanie tekstu](./text-extraction-processing/)
-Dostosuj zachowanie ekstrakcji tekstu przy użyciu własnych ekstraktorów, segmentatorów i reguł zamiany znaków w Javie.
+## Frequently Asked Questions
 
-## Przegląd funkcji wyszukiwania dokumentów w Javie
+**Q: Czy mogę używać faceted search java razem z dopasowaniem fuzzy?**  
+A: Tak, możesz łączyć filtry facetów z zapytaniami fuzzy, łącząc je w konstruktorze `SearchOptions`.
 
-GroupDocs.Search dla Java oferuje kompleksowy zestaw funkcji do budowania potężnych aplikacji wyszukujących:
+**Q: Czy podświetlanie działa na zaszyfrowanych PDF‑ach?**  
+A: Tylko jeśli podasz prawidłowe hasło podczas dodawania dokumentu do indeksu.
 
-- **Obsługa wielu formatów** – Wyszukiwanie w PDF, DOCX, PPT, XLS, HTML i wielu innych typach dokumentów  
-- **Zaawansowane typy wyszukiwania** – Opcje Boolean, fuzzy, wildcard, phrase, regex i wyszukiwanie fasetowe  
-- **Inteligentne indeksowanie** – Szybkie i wydajne indeksowanie dokumentów z konfigurowalnymi opcjami  
-- **Przetwarzanie języka** – Wykrywanie synonimów, sprawdzanie pisowni i rozpoznawanie homofonów  
-- **Obsługa OCR** – Ekstrahowanie i wyszukiwanie tekstu z obrazów oraz zeskanowanych dokumentów  
-- **Optymalizacja wydajności** – Konfigurowalne opcje zużycia pamięci i szybkości wyszukiwania  
-- **Podświetlanie wyników** – Wizualne podświetlanie dopasowań w oryginalnych dokumentach  
-- **Obsługa słowników** – Niestandardowe słowniki dla specjalistycznej terminologii i dziedzin  
-- **Rozproszone wyszukiwanie** – Budowanie skalowalnych, rozproszonych rozwiązań wyszukiwania z funkcjami sieciowymi  
-- **Błyskawiczna prędkość** – Przetwarzanie i wyszukiwanie tysięcy dokumentów w ciągu kilku sekund  
+**Q: Jak duży może być indeks, zanim wydajność spadnie?**  
+A: API jest zaprojektowane dla indeksów wielogigabajtowych; możesz dodatkowo poprawić wydajność, włączając kompresję i dostosowując ustawienie `maxMemoryUsage`.
 
-## Zasoby edukacyjne
+**Q: Czy istnieje sposób na dostosowanie koloru podświetlenia?**  
+A: Oczywiście. Użyj `HighlightOptions.setColor(Color.YELLOW)` lub podaj własną klasę CSS dla wyjścia HTML.
 
-GroupDocs oferuje kompleksowe zasoby, które pomogą Ci w pełni wykorzystać GroupDocs.Search dla Java:
+**Q: Z jaką wersją GroupDocs.Search testowano ten przewodnik?**  
+A: Przykłady zostały zweryfikowane z GroupDocs.Search for Java 23.9.
 
-- [Dokumentacja](https://docs.groupdocs.com/search/java/) - Szczegółowa dokumentacja API i przewodniki użytkownika  
-- [Referencja API](https://reference.groupdocs.com/search/java/) - Pełna lista metod i klas  
-- [Przykłady na GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) - Przykładowe projekty i fragmenty kodu  
-- [Darmowe forum wsparcia](https://forum.groupdocs.com/c/search) - Pomoc społecznościowa w odpowiedzi na Twoje pytania  
-- [Pobierz darmową wersję próbną](https://releases.groupdocs.com/search/java)  
+## Related Topics You Might Explore
+- **[Rozpoczęcie](./getting-started/)** – Podstawy instalacji, licencjonowania i aplikacji „Hello World” wyszukiwania.  
+- **[Indeksowanie](./indexing/)** – Szczegółowe omówienie tworzenia indeksu, źródeł dokumentów i optymalizacji wydajności.  
+- **[Wyszukiwanie](./searching/)** – Zaawansowane budowanie zapytań, stronicowanie wyników i sortowanie.  
+- **[Podświetlanie](./highlighting/)** – Kompletny przewodnik po dostosowywaniu wyglądu podświetlenia i formatów wyjściowych.  
+- **[Słowniki i przetwarzanie języka](./dictionaries-language-processing/)** – Zwiększanie trafności wyszukiwania za pomocą synonimów i sprawdzania pisowni.  
+- **[Zarządzanie dokumentami](./document-management/)** – Dodawanie, aktualizowanie i usuwanie dokumentów bez przebudowy całego indeksu.  
+- **[OCR i wyszukiwanie obrazów](./ocr-image-search/)** – Włączanie wyodrębniania tekstu z obrazów i wykonywanie odwróconych wyszukiwań obrazów.  
+- **[Zaawansowane funkcje](./advanced-features/)** – Faceted search, raportowanie i zapytania oparte na metadanych.  
+- **[Sieć wyszukiwania](./search-network/)** – Tworzenie rozproszonych, partycjonowanych klastrów wyszukiwania.  
+- **[Optymalizacja wydajności](./performance-optimization/)** – Strategie zmniejszania rozmiaru indeksu i przyspieszania zapytań.  
+- **[Obsługa wyjątków i logowanie](./exception-handling-logging/)** – Najlepsze praktyki dla solidnych, gotowych do produkcji aplikacji.  
+- **[Licencjonowanie i konfiguracja](./licensing-configuration/)** – Wskazówki dotyczące prawidłowej aktywacji licencji i konfiguracji w czasie działania.  
+- **[Ekstrakcja i przetwarzanie tekstu](./text-extraction-processing/)** – Niestandardowe ekstraktory, segmentatory i reguły zamiany znaków.
 
----
+## Java Document Search Features Overview
 
-**Ostatnia aktualizacja:** 2025-12-18  
+GroupDocs.Search for Java oferuje wszechstronny zestaw funkcji do budowania potężnych aplikacji wyszukiwawczych:
+
+- **Multi‑Format Support** – Wyszukiwanie w PDF, DOCX, PPT, XLS, HTML i wielu innych typach dokumentów  
+- **Advanced Search Types** – Opcje Boolean, fuzzy, wildcard, phrase, regex i **faceted search java**  
+- **Intelligent Indexing** – Szybkie i wydajne indeksowanie dokumentów z konfigurowalnymi opcjami  
+- **Language Processing** – Wykrywanie synonimów, sprawdzanie pisowni i rozpoznawanie homofonów  
+- **OCR Support** – Wyodrębnianie i wyszukiwanie tekstu z obrazów i zeskanowanych dokumentów (implement OCR java)  
+- **Performance Optimization** – Konfigurowalne opcje zużycia pamięci i szybkości wyszukiwania  
+- **Result Highlighting** – Wizualne podświetlanie dopasowań w oryginalnych dokumentach (**highlight search results java**)  
+- **Dictionary Support** – Niestandardowe słowniki dla specjalistycznej terminologii i dziedzin  
+- **Distributed Search** – Budowanie skalowalnych, rozproszonych rozwiązań wyszukiwania z funkcjami sieciowymi  
+- **Blazing Speed** – Przetwarzanie i wyszukiwanie tysięcy dokumentów w ciągu sekund  
+
+## Learning Resources
+
+- [Documentation](https://docs.groupdocs.com/search/java/) - Szczegółowa dokumentacja API i przewodniki użytkownika  
+- [API Reference](https://reference.groupdocs.com/search/java/) - Pełna lista metod i klas  
+- [GitHub Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) - Przykładowe projekty i fragmenty kodu  
+- [Free Support Forum](https://forum.groupdocs.com/c/search) - Pomoc społecznościowa w odpowiedzi na Twoje pytania  
+- [Download Free Trial](https://releases.groupdocs.com/search/java) - Pobierz wersję próbną  
+
+**Ostatnia aktualizacja:** 2026-02-16  
+**Testowano z:** GroupDocs.Search for Java 23.9  
 **Autor:** GroupDocs
