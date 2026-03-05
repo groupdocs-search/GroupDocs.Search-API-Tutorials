@@ -1,47 +1,47 @@
 ---
-date: '2025-12-19'
-description: Erfahren Sie, wie Sie Dokumente zum Index hinzufügen und Stoppwörter
-  in GroupDocs.Search für Java deaktivieren, um die Suchpräzision und Abfragegenauigkeit
-  zu verbessern.
+date: '2026-02-19'
+description: Erfahren Sie, wie Sie Stoppwörter in der Suche deaktivieren und Dokumente
+  mit GroupDocs.Search für Java zum Index hinzufügen, um die Abfragegenauigkeit zu
+  erhöhen.
 keywords:
 - add documents to index
 - disable stop words java
 - configure index settings
-title: Dokumente zum Index hinzufügen und Stoppwörter in GroupDocs.Search Java deaktivieren
-  für verbesserte Suchgenauigkeit
+title: 'Stoppwörter in der Suche: Dokumente zum Index hinzufügen mit GroupDocs.Search
+  Java'
 type: docs
 url: /de/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/
 weight: 1
 ---
 
-# Dokumente zum Index hinzufügen und Stopwörter in GroupDocs.Search Java deaktivieren für verbesserte Suchgenauigkeit
+# Stop Words in Search: Add Documents to Index with GroupDocs.Search Java
 
-Möchten Sie **Dokumente zum Index hinzufügen**, ohne dass wichtige Begriffe übersehen werden? Dieses Tutorial führt Sie durch die Feinabstimmung Ihrer Suche mit GroupDocs.Search für Java. Wenn Sie lernen, wie man **stop words java deaktiviert**, erzielen Sie präzisere Suchanfragen und holen das Maximum aus jedem indizierten Dokument heraus.
+Wenn Sie **Dokumente zum Index hinzufügen** möchten, während Sie sicherstellen, dass kein wichtiger Begriff – insbesondere häufige – ignoriert wird, sind Sie hier genau richtig. In diesem Leitfaden zeigen wir Ihnen, wie Sie **Stop‑Words in der Suche deaktivieren** können, indem Sie GroupDocs.Search für Java verwenden, sodass jedes Token (auch „on“, „by“ oder „the“) durchsuchbar wird und Ihre Ergebnisse deutlich genauer sind.
 
-## Schnelle Antworten
+## Quick Answers
 - **Was bedeutet „add documents to index“?** Es bedeutet, Ihre Quelldateien in einen durchsuchbaren Index zu laden, damit sie effizient abgefragt werden können.  
-- **Warum sollte ich stop words deaktivieren?** Um gängige Wörter (z. B. „on“, „the“) in die Suche einzubeziehen, wenn diese Begriffe für Ihre Domäne bedeutungsvoll sind.  
+- **Warum sollte ich Stop‑Words deaktivieren?** Um gängige Wörter (z. B. „on“, „the“) in die Suche einzubeziehen, wenn diese Begriffe für Ihre Domäne bedeutungsvoll sind.  
 - **Welche Bibliotheksversion ist erforderlich?** GroupDocs.Search für Java 25.4 oder neuer.  
 - **Benötige ich eine Lizenz?** Eine kostenlose Testversion reicht für die Evaluierung; für den Produktionseinsatz ist eine permanente Lizenz erforderlich.  
-- **Kann ich das in einem Maven‑Projekt verwenden?** Ja – fügen Sie einfach das unten gezeigte Repository und die Abhängigkeit hinzu.
+- **Kann ich das in einem Maven‑Projekt verwenden?** Ja – fügen Sie einfach das Repository und die Abhängigkeit wie unten gezeigt hinzu.
 
-## Was bedeutet „add documents to index“ in GroupDocs.Search?
-Das Hinzufügen von Dokumenten zu einem Index bedeutet, Dateien aus einem Ordner (oder Stream) in eine Datenstruktur zu importieren, die die Suchmaschine schnell abfragen kann. Sobald indiziert, wird jedes Wort – einschließlich jener, die normalerweise als Stopwörter behandelt werden – durchsuchbar.
+## Was sind Stop‑Words in der Suche und warum könnte man sie deaktivieren?
+Stop‑Words sind häufig vorkommende Begriffe, die viele Suchmaschinen automatisch herausfiltern, um Abfragen zu beschleunigen. Während dies die Leistung bei generischen Web‑Suchen verbessert, kann es die Präzision in spezialisierten Bereichen – Rechtsverträge, E‑Commerce‑Kataloge oder technische Handbücher – beeinträchtigen, wo Wörter wie „on“, „by“ oder „as“ eine echte Bedeutung haben. Das Deaktivieren von Stop‑Words lässt Sie jedes Wort als bedeutungsvoll behandeln und stellt sicher, dass kein relevantes Dokument übersehen wird.
 
-## Warum stop words in Java deaktivieren?
-Das Deaktivieren von Stopwörtern ermöglicht es, jedes Token als bedeutungsvoll zu behandeln. Dies ist entscheidend für Bereiche wie juristische Recherche, E‑Commerce‑Produktkataloge oder jede Situation, in der Wörter wie „on“ oder „by“ eine Bedeutung haben.
+## Wie funktioniert das Hinzufügen von Dokumenten zum Index in GroupDocs.Search?
+Wenn Sie Dokumente hinzufügen, liest die Bibliothek jede Datei, tokenisiert deren Inhalt und speichert die Tokens in einer optimierten Datenstruktur (dem Index). Sobald die Dokumente indexiert sind, kann die Engine passende Dokumente in Millisekunden abrufen, selbst bei großen Sammlungen.
 
 ## Voraussetzungen
 
 - **Erforderliche Bibliotheken**: GroupDocs.Search für Java 25.4 (oder neuer).  
-- **Entwicklungsumgebung**: IntelliJ IDEA, Eclipse oder jede andere bevorzugte Java‑IDE.  
+- **Entwicklungsumgebung**: IntelliJ IDEA, Eclipse oder jede andere Java‑IDE Ihrer Wahl.  
 - **Grundkenntnisse**: Vertrautheit mit Java‑Syntax und dem Konzept des Indexierens.
 
-## Einrichtung von GroupDocs.Search für Java
+## GroupDocs.Search für Java einrichten
 
-### Maven-Installation
+### Maven‑Installation
 
-Wenn Sie Maven verwenden, fügen Sie das Folgende in Ihre `pom.xml` ein:
+Wenn Sie Maven verwenden, fügen Sie Folgendes in Ihre `pom.xml` ein:
 
 ```xml
 <repositories>
@@ -63,16 +63,16 @@ Wenn Sie Maven verwenden, fügen Sie das Folgende in Ihre `pom.xml` ein:
 
 ### Direkter Download
 
-Alternativ können Sie die neueste Version von [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) herunterladen.
+Alternativ laden Sie die neueste Version von [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) herunter.
 
 #### Schritte zum Erwerb einer Lizenz
-- **Kostenlose Testversion** – sofort mit dem Testen beginnen.  
-- **Temporäre Lizenz** – erhalten Sie einen zeitlich begrenzten Schlüssel für die volle Funktionalität.  
-- **Kauf** – sichern Sie sich eine permanente Lizenz für den Produktionseinsatz.
+- **Free Trial** – sofort mit dem Testen beginnen.  
+- **Temporary License** – erhalten Sie einen zeitlich begrenzten Schlüssel für die volle Funktionalität.  
+- **Purchase** – sichern Sie sich eine permanente Lizenz für den Produktionseinsatz.
 
 ## Grundlegende Initialisierung und Einrichtung
 
-Erstellen Sie eine Instanz von `IndexSettings`, um das Verhalten des Indexes zu steuern:
+Erzeugen Sie eine Instanz von `IndexSettings`, um das Verhalten des Indexes zu steuern:
 
 ```java
 import com.groupdocs.search.IndexSettings;
@@ -81,9 +81,9 @@ import com.groupdocs.search.IndexSettings;
 IndexSettings settings = new IndexSettings();
 ```
 
-## Wie man stop words in Java deaktiviert
+## Wie man Stop‑Words in der Suche deaktiviert (Java)
 
-Die folgende Zeile deaktiviert den integrierten Stop‑Word‑Filter:
+Die folgende Zeile schaltet den integrierten Stop‑Word‑Filter aus:
 
 ```java
 // Disable the use of stop words
@@ -91,7 +91,7 @@ tsettings.setUseStopWords(false);
 ```
 
 *Parameter*: `setUseStopWords` akzeptiert einen booleschen Wert.  
-*Zweck*: Stellt sicher, dass jedes Wort – einschließlich gängiger Stopwörter – indiziert und durchsuchbar ist.
+*Zweck*: Stellt sicher, dass jedes Wort – einschließlich gängiger Stop‑Words – indexiert und durchsuchbar ist.
 
 ## Wie man Dokumente zum Index hinzufügt
 
@@ -117,7 +117,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-Jetzt wird jede Datei in `YOUR_DOCUMENT_DIRECTORY` **added documents to index** und ist bereit für Abfragen.
+Jetzt wird jede Datei in `YOUR_DOCUMENT_DIRECTORY` **added documents to index** und steht für Abfragen bereit.
 
 ## Ausführen einer Suchabfrage
 
@@ -131,13 +131,13 @@ tString query = "on";
 SearchResult result = index.search(query);
 ```
 
-Da Stopwörter deaktiviert sind, wird der Begriff `"on"` bei der Suche berücksichtigt und liefert Treffer, die sonst ignoriert würden.
+Da Stop‑Words deaktiviert sind, wird der Begriff `"on"` bei der Suche berücksichtigt und liefert Treffer, die sonst ignoriert würden.
 
-## Praktische Anwendungen
+## Praktische Anwendungsfälle
 
-1. **Enterprise Document Search** – Stellen Sie sicher, dass kritische Terminologie nicht herausgefiltert wird.  
-2. **E‑commerce Platforms** – Verbessern Sie die Produktsuche, indem Sie jedes Wort in Produktbeschreibungen indexieren.  
-3. **Legal Research Tools** – Erfassen Sie jeden juristischen Begriff, selbst solche, die üblicherweise als Stopwörter behandelt werden.
+1. **Enterprise Document Search** – Sicherstellen, dass kritische Terminologie nicht herausgefiltert wird.  
+2. **E‑Commerce‑Plattformen** – Produktfindung verbessern, indem jedes Wort in Produktbeschreibungen indexiert wird.  
+3. **Legal Research Tools** – Jeden juristischen Begriff erfassen, selbst solche, die üblicherweise als Stop‑Words gelten.
 
 ## Leistungsüberlegungen
 
@@ -149,40 +149,42 @@ Da Stopwörter deaktiviert sind, wird der Begriff `"on"` bei der Suche berücksi
 
 | Symptom | Wahrscheinliche Ursache | Lösung |
 |---|---|---|
-| No results for common words | `setUseStopWords(true)` (default) | Call `setUseStopWords(false)` as shown above. |
-| Out‑of‑memory errors during indexing | Indexing too many large files at once | Index files in batches; increase `-Xmx` JVM option. |
-| Search returns stale data | Index not refreshed after adding new files | Call `index.update()` or re‑add the changed documents. |
+| Keine Ergebnisse für häufige Wörter | `setUseStopWords(true)` (Standard) | Rufen Sie `setUseStopWords(false)` wie oben gezeigt auf. |
+| Out‑of‑Memory-Fehler beim Indexieren | Zu viele große Dateien gleichzeitig indexieren | Dateien stapelweise indexieren; erhöhen Sie die JVM‑Option `-Xmx`. |
+| Suche liefert veraltete Daten | Index nach dem Hinzufügen neuer Dateien nicht aktualisiert | Rufen Sie `index.update()` auf oder fügen Sie die geänderten Dokumente erneut hinzu. |
 
-## Häufig gestellte Fragen
+## Frequently Asked Questions
 
-**Q: Was sind Stopwörter?**  
-A: Stopwörter sind gängige Begriffe (z. B. „the“, „is“, „on“), die viele Suchmaschinen ignorieren, um Abfragen zu beschleunigen. Das Deaktivieren ermöglicht es, jedes Token als durchsuchbar zu behandeln.
+**Q: What are stop words?**  
+A: Stop words are common terms (e.g., “the”, “is”, “on”) that many search engines ignore to speed up queries. Deactivating them lets you treat every token as searchable.
 
-**Q: Warum Stopwörter in Suchindizes deaktivieren?**  
-A: Wenn eine exakte Phrasensuche erforderlich ist – etwa in juristischen oder technischen Dokumenten – trägt jedes Wort Bedeutung, sodass Sie Stopwörter einbeziehen müssen.
+**Q: Why disable stop words in search indexes?**  
+A: When exact phrase matching is required—such as in legal or technical documents—every word carries meaning, so you need to include stop words.
 
-**Q: Wie geht GroupDocs.Search mit großen Datensätzen um?**  
-A: Die Bibliothek verwendet optimierte Datenstrukturen und inkrementelles Indexieren, um den Speicherverbrauch niedrig zu halten, selbst bei Millionen von Dokumenten.
+**Q: How does GroupDocs.Search handle large datasets?**  
+A: The library uses optimized data structures and incremental indexing to keep memory usage low, even with millions of documents.
 
-**Q: Kann ich GroupDocs.Search in andere Java‑Anwendungen integrieren?**  
-A: Ja, die API ist so konzipiert, dass sie sich leicht in jedes Java‑basierte System einbetten lässt, von Web‑Services bis zu Desktop‑Apps.
+**Q: Can I integrate GroupDocs.Search with other Java applications?**  
+A: Yes, the API is designed for easy embedding into any Java‑based system, from web services to desktop apps.
 
-**Q: Was soll ich tun, wenn meine Suchergebnisse nicht genau sind?**  
-A: Stellen Sie sicher, dass der Index alle erforderlichen Dokumente enthält (`add documents to index`), prüfen Sie, ob die Stop‑Word‑Filterung bei Bedarf deaktiviert ist, und erwägen Sie, den Index nach größeren Änderungen neu zu erstellen.
+**Q: What should I do if my search results are not accurate?**  
+A: Verify that the index includes all required documents (`add documents to index`), ensure stop‑word filtering is disabled if needed, and consider re‑building the index after major changes.
 
-## Ressourcen
+## Additional Resources
 
-- **Dokumentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
-- **API‑Referenz**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
+- **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
+- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
 - **Download**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
-- **GitHub‑Repository**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- **Kostenloser Support**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
-- **Temporäre Lizenz**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **GitHub Repository**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Free Support**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
+- **Temporary License**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
-Wenn Sie diesem Leitfaden folgen, wissen Sie jetzt, wie Sie **add documents to index** und **disable stop words java** nutzen, um genauere Suchergebnisse in Ihren Java‑Anwendungen zu liefern.
+Durch Befolgen dieses Leitfadens wissen Sie jetzt, wie Sie **add documents to index** und **stop words in search deaktivieren**, um genauere Ergebnisse in Ihren Java‑Anwendungen zu erzielen.
 
 ---
 
-**Zuletzt aktualisiert:** 2025-12-19  
-**Getestet mit:** GroupDocs.Search for Java 25.4  
-**Autor:** GroupDocs
+**Last Updated:** 2026-02-19  
+**Tested With:** GroupDocs.Search for Java 25.4  
+**Author:** GroupDocs  
+
+---

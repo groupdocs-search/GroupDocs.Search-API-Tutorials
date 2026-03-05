@@ -1,39 +1,39 @@
 ---
-date: '2025-12-18'
-description: Pelajari cara membuat indeks dokumen menggunakan GroupDocs.Search untuk
-  Java, mencakup ekstraksi teks, serialisasi, dan kemampuan pencarian teks penuh Java.
+date: '2026-02-19'
+description: Pelajari cara mengekstrak teks dari PDF menggunakan Java, menyerialkannya,
+  dan membuat indeks dokumen yang dapat dicari dengan GroupDocs.Search untuk Java.
 keywords:
 - GroupDocs.Search for Java
 - document indexing in Java
 - text extraction with GroupDocs
-title: Buat Indeks Dokumen dengan GroupDocs.Search untuk Java
+title: 'Ekstrak Teks dari PDF dengan Java: Bangun Indeks dengan GroupDocs.Search'
 type: docs
 url: /id/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-# Buat Indeks Dokumen dengan GroupDocs.Search untuk Java: Panduan Lengkap
+# Ekstrak Teks dari PDF Java: Bangun Indeks Dokumen dengan GroupDocs.Search
 
-Di era digital saat ini, kemampuan untuk **membuat indeks dokumen** dengan cepat dan mencari di dalamnya secara efisien adalah pengubah permainan bagi setiap organisasi. Baik Anda membangun sistem manajemen dokumen atau mesin pencari khusus, GroupDocs.Search untuk Java memberi Anda alat untuk mengekstrak teks, men-serialize data, dan melakukan operasi pencarian full‑text Java dengan mudah. Tutorial ini memandu Anda melalui setiap langkah—dari mengekstrak teks PDF hingga menambahkan data ke indeks dan mencari dokumen yang diindeks.
+Dalam panduan praktis ini Anda akan menemukan **cara mengekstrak teks dari PDF Java** aplikasi dan mengubah konten mentah tersebut menjadi indeks pencarian teks penuh yang cepat. Baik Anda sedang membangun basis pengetahuan internal, portal pencarian kontrak, atau mesin pencari khusus, langkah‑langkah di bawah ini akan memandu Anda melalui semuanya—dari mengambil teks dari PDF hingga menyerialkan data, membuat indeks, dan akhirnya menjalankan kueri. Mari kita mulai dan lihat mengapa GroupDocs.Search membuat seluruh proses menjadi mulus dan skalabel.
 
 ## Jawaban Cepat
-- **Apa tujuan utama?** Untuk membuat indeks dokumen yang dapat dicari menggunakan GroupDocs.Search untuk Java.  
+- **Apa tujuan utama?** Mengekstrak teks dari file PDF Java dan membuat indeks dokumen yang dapat dicari dengan GroupDocs.Search.  
 - **Versi perpustakaan mana?** GroupDocs.Search 25.4 (atau rilis terbaru).  
-- **Apakah saya memerlukan lisensi?** Trial gratis dapat digunakan untuk pengembangan; lisensi penuh diperlukan untuk produksi.  
-- **Bisakah saya mengindeks PDF?** Ya—ekstrak teks pdf dan tambahkan ke indeks.  
+- **Apakah saya memerlukan lisensi?** Uji coba gratis dapat digunakan untuk pengembangan; lisensi penuh diperlukan untuk produksi.  
+- **Bisakah saya mengindeks PDF?** Ya—ekstrak teks PDF dan tambahkan ke indeks.  
 - **Bagaimana cara menjalankan pencarian?** Gunakan metode `index.search(query)` setelah menambahkan data.
 
 ## Apa itu Indeks Dokumen?
-Indeks dokumen adalah kumpulan terstruktur dari istilah yang dapat dicari yang diekstrak dari file Anda. Dengan membuat indeks dokumen, Anda memungkinkan pencarian full‑text yang cepat di seluruh repositori besar, secara dramatis meningkatkan kecepatan dan akurasi pengambilan.
+Indeks dokumen adalah kumpulan terstruktur dari istilah‑istilah yang dapat dicari yang diekstrak dari file Anda. Dengan membuat indeks dokumen, Anda memungkinkan pencarian teks penuh yang cepat di seluruh repositori besar, secara dramatis meningkatkan kecepatan dan akurasi pengambilan.
 
 ## Mengapa Menggunakan GroupDocs.Search untuk Java?
-- **Ekstraksi kuat** – Menangani PDF, Word, Excel, dan lainnya.  
+- **Ekstraksi yang kuat** – Menangani PDF, Word, Excel, dan lainnya.  
 - **Serialisasi mudah** – Menyimpan data yang diekstrak sebagai array byte untuk penggunaan kembali nanti.  
-- **Pengindeksan skalabel** – Mengindeks jutaan dokumen secara efisien.  
-- **Bahasa kueri yang kuat** – Mendukung kueri pencarian full‑text Java yang kompleks.
+- **Pengindeksan yang skalabel** – Mengindeks jutaan dokumen secara efisien.  
+- **Bahasa kueri yang kuat** – Mendukung kueri pencarian teks penuh Java yang kompleks.
 
 ## Prasyarat
-- **GroupDocs.Search untuk Java** (Versi 25.4 atau lebih baru).  
+- **GroupDocs.Search untuk Java** (Versi 25.4 atau lebih baru).  
 - **Java Development Kit (JDK)** yang kompatibel dengan versi GroupDocs Anda.  
 - Sebuah IDE seperti IntelliJ IDEA atau Eclipse.  
 - Maven untuk manajemen dependensi.
@@ -42,7 +42,7 @@ Indeks dokumen adalah kumpulan terstruktur dari istilah yang dapat dicari yang d
 Pertama, tambahkan perpustakaan ke proyek Anda.
 
 **Pengaturan Maven**  
-Sertakan berikut ini dalam file `pom.xml` Anda:
+Sertakan hal berikut dalam file `pom.xml` Anda:
 
 ```xml
 <repositories>
@@ -63,16 +63,16 @@ Sertakan berikut ini dalam file `pom.xml` Anda:
 ```
 
 **Unduhan Langsung**  
-Atau, unduh versi terbaru dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Sebagai alternatif, unduh versi terbaru dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Akuisisi Lisensi
-- **Trial Gratis** – Menguji semua fitur dengan lisensi sementara.  
-- **Pembelian** – Mendapatkan akses penuh dan dukungan prioritas.
+- **Uji Coba Gratis** – Uji semua fitur dengan lisensi sementara.  
+- **Pembelian** – Dapatkan akses penuh dan dukungan prioritas.
 
 ## Implementasi Langkah‑per‑Langkah
 
-### Cara mengekstrak teks dari PDF (dan dokumen lainnya)
-Mengekstrak teks mentah atau terformat adalah langkah pertama menuju pembuatan indeks dokumen.
+### Cara mengekstrak teks dari PDF (dan dokumen lain)
+Mengekstrak teks mentah atau terformat adalah langkah pertama menuju pembuatan indeks dokumen. Saat Anda **mengekstrak teks dari PDF Java**, Anda memberi mesin pencari sesuatu yang dapat dipahami.
 
 ```java
 String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
@@ -86,10 +86,10 @@ extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
 ```
 
-> **Tip:** Set `setUseRawTextExtraction(true)` jika Anda membutuhkan teks polos tanpa format.
+> **Tip:** Atur `setUseRawTextExtraction(true)` jika Anda memerlukan teks polos tanpa format.
 
-### Cara men-serialize data yang diekstrak
-Serialisasi memungkinkan Anda menyimpan data yang diekstrak untuk pengindeksan nanti.
+### Cara menyerialkan data yang diekstrak
+Serialisasi memungkinkan Anda menyimpan data yang diekstrak untuk pengindeksan di kemudian hari.
 
 ```java
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -97,7 +97,7 @@ extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
 
-### Cara men-deserialize data yang diekstrak
+### Cara mendeserialkan data yang diekstrak
 Saat Anda siap membangun indeks, konversi array byte kembali menjadi objek.
 
 ```java
@@ -106,7 +106,7 @@ ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 ```
 
 ### Cara membuat indeks dokumen
-Sekarang Anda memiliki `deserializedData`, Anda dapat membuat indeks yang akan menyimpan istilah yang dapat dicari.
+Sekarang Anda memiliki `deserializedData`, Anda dapat membuat indeks yang akan menampung istilah‑istilah yang dapat dicari.
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
@@ -114,7 +114,7 @@ com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
 
 ### Cara menambahkan data ke indeks dan melakukan pencarian
-Menambahkan data dan melakukan kueri pada indeks menyelesaikan alur kerja **membuat indeks dokumen**.
+Menambahkan data dan mengkueri indeks menyelesaikan alur kerja **mengekstrak teks dari PDF Java**.
 
 ```java
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
@@ -129,31 +129,31 @@ SearchResult result = index.search(query);
 > **Pro tip:** Gunakan `index.search("your query", SearchOptions)` untuk menyesuaikan peringkat relevansi.
 
 ## Kasus Penggunaan Umum
-1. **Sistem Manajemen Dokumen** – Dengan cepat menemukan kontrak, faktur, atau kebijakan.  
-2. **Mesin Pencari Berbasis Konten** – Menyokong basis pengetahuan internal dengan kemampuan pencarian full‑text Java.  
-3. **Solusi Pengarsipan Data** – Mengindeks catatan historis untuk pengambilan instan.
+1. **Sistem Manajemen Dokumen** – Cepat menemukan kontrak, faktur, atau kebijakan.  
+2. **Mesin Pencari Berbasis Konten** – Memperkuat basis pengetahuan internal dengan kemampuan pencarian teks penuh Java.  
+3. **Solusi Arsip Data** – Mengindeks catatan historis untuk pengambilan instan.
 
 ## Pertimbangan Kinerja
-- **Manajemen Memori:** Sesuaikan ukuran heap JVM untuk batch dokumen besar.  
-- **Opsi Pengindeksan:** Nonaktifkan fitur yang tidak diperlukan (mis., term vectors) untuk mempercepat pengindeksan.  
-- **Pembaruan Rutin:** Jaga GroupDocs.Search tetap terbaru untuk mendapatkan perbaikan kinerja.
+- **Manajemen Memori:** Sesuaikan ukuran heap JVM untuk batch dokumen yang besar.  
+- **Opsi Pengindeksan:** Nonaktifkan fitur yang tidak diperlukan (misalnya, term vectors) untuk mempercepat pengindeksan.  
+- **Pembaruan Rutin:** Jaga GroupDocs.Search tetap terbaru untuk memanfaatkan perbaikan kinerja.
 
 ## Pertanyaan yang Sering Diajukan
 
-**Q: Bagaimana cara menangani file PDF yang sangat besar secara efisien?**  
-A: Alirkan file menggunakan `Extractor` dan proses dalam potongan; juga tingkatkan heap JVM jika diperlukan.
+**T: Bagaimana cara menangani file PDF yang sangat besar secara efisien?**  
+J: Alirkan file menggunakan `Extractor` dan proses dalam potongan; juga tingkatkan heap JVM bila diperlukan.
 
-**Q: Bisakah saya menyesuaikan sintaks kueri pencarian?**  
-A: Ya—GroupDocs.Search mendukung operator Boolean, wildcard, dan pencarian kedekatan.
+**T: Bisakah saya menyesuaikan sintaks kueri pencarian?**  
+J: Ya—GroupDocs.Search mendukung operator Boolean, wildcard, dan pencarian kedekatan.
 
-**Q: Apa yang harus saya lakukan jika serialisasi gagal?**  
-A: Pastikan semua objek mengimplementasikan `Serializable` dan tangkap `IOException` untuk mencatat detail.
+**T: Apa yang harus saya lakukan jika serialisasi gagal?**  
+J: Pastikan semua objek mengimplementasikan `Serializable` dan tangkap `IOException` untuk mencatat detailnya.
 
-**Q: Apakah memungkinkan mengindeks hanya bagian tertentu dari dokumen?**  
-A: Tentu—konfigurasikan `ExtractionOptions` untuk menyaring halaman atau bagian sebelum pengindeksan.
+**T: Apakah memungkinkan mengindeks hanya bagian tertentu dari dokumen?**  
+J: Tentu—konfigurasikan `ExtractionOptions` untuk menyaring halaman atau bagian sebelum pengindeksan.
 
-**Q: Bagaimana cara memperbarui ke versi GroupDocs.Search yang lebih baru?**  
-A: Perbarui nomor versi di `pom.xml` Anda dan jalankan `mvn clean install`; tinjau panduan migrasi untuk perubahan yang memecah kompatibilitas.
+**T: Bagaimana cara memperbarui ke versi GroupDocs.Search yang lebih baru?**  
+J: Perbarui nomor versi di `pom.xml` Anda dan jalankan `mvn clean install`; tinjau panduan migrasi untuk perubahan yang memengaruhi kompatibilitas.
 
 ## Sumber Daya
 - **Dokumentasi:** [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)  
@@ -165,6 +165,6 @@ A: Perbarui nomor versi di `pom.xml` Anda dan jalankan `mvn clean install`; tinj
 
 ---
 
-**Terakhir Diperbarui:** 2025-12-18  
+**Terakhir Diperbarui:** 2026-02-19  
 **Diuji Dengan:** GroupDocs.Search 25.4 untuk Java  
 **Penulis:** GroupDocs
