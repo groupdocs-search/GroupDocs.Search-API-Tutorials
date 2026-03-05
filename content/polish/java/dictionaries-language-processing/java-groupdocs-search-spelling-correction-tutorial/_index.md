@@ -1,7 +1,7 @@
 ---
-date: '2025-12-20'
+date: '2026-02-21'
 description: Dowiedz się, jak włączyć korektę pisowni w Javie przy użyciu GroupDocs.Search,
-  dodać dokumenty do indeksu i ustawić maksymalną liczbę błędów, aby zwiększyć dokładność
+  dodać dokumenty do indeksu i ustawić maksymalną liczbę błędów, aby poprawić dokładność
   wyszukiwania.
 keywords:
 - spelling correction Java
@@ -13,35 +13,35 @@ url: /pl/java/dictionaries-language-processing/java-groupdocs-search-spelling-co
 weight: 1
 ---
 
-# Jak włączyć korektę pisowni w Javie przy użyciu GroupDocs.Search
+# Jak Włączyć Korektę Pisowni w Javie przy użyciu GroupDocs.Search
 
-Dokładne wyniki wyszukiwania są niezbędne dla każdej nowoczesnej aplikacji. W tym samouczku dowiesz się, **jak włączyć korektę pisowni** w Javie przy użyciu GroupDocs.Search, aby użytkownicy otrzymywali właściwe wyniki nawet przy błędnym wpisaniu zapytań. Przejdziemy przez tworzenie indeksu, **dodawanie dokumentów do indeksu**, konfigurowanie opcji pisowni oraz uruchamianie wyszukiwania, które automatycznie koryguje błędy.
+Dokładne wyniki wyszukiwania są niezbędne w każdej nowoczesnej aplikacji. W tym samouczku dowiesz się **jak włączyć korektę pisowni** w Javie z GroupDocs.Search, aby użytkownicy otrzymywali właściwe wyniki nawet przy literówkach w zapytaniach. Przejdziemy przez tworzenie indeksu, **dodawanie dokumentów do indeksu**, konfigurowanie opcji pisowni oraz wykonywanie wyszukiwania, które automatycznie koryguje błędy.
 
-## Quick Answers
-- **Co oznacza „how to enable spelling”?** Aktywuje wbudowany sprawdzacz pisowni, który koryguje literówki użytkownika podczas wyszukiwania.  
-- **Która biblioteka udostępnia tę funkcję?** GroupDocs.Search for Java.  
-- **Czy potrzebna jest licencja?** Licencja próbna działa w trybie ewaluacji; pełna licencja jest wymagana w produkcji.  
-- **Czy mogę kontrolować tolerancję?** Tak – użyj `setMaxMistakeCount`, aby określić, ile literówek jest dozwolonych.  
-- **Czy jest odpowiednia dla dużych indeksów?** Zdecydowanie – silnik jest zoptymalizowany pod kątem wysokowydajnego indeksowania i wyszukiwania.
+## Szybkie odpowiedzi
+- **Co oznacza „jak włączyć korektę pisowni”?** Aktywuje wbudowany sprawdzacz pisowni, który koryguje literówki użytkownika podczas wyszukiwania.  
+- **Która biblioteka udostępnia tę funkcję?** GroupDocs.Search dla Javy.  
+- **Czy potrzebna jest licencja?** Licencja trial działa w trybie ewaluacyjnym; pełna licencja jest wymagana w środowisku produkcyjnym.  
+- **Czy mogę kontrolować tolerancję?** Tak – użyj `setMaxMistakeCount`, aby określić, ile literówek jest dopuszczalnych.  
+- **Czy nadaje się do dużych indeksów?** Absolutnie – silnik jest zoptymalizowany pod kątem wysokowydajnego indeksowania i wyszukiwania.
 
-## Co oznacza „how to enable spelling” w GroupDocs.Search?
-Włączenie korekty pisowni powoduje, że silnik wyszukiwania szuka najbliższych poprawnych terminów, gdy zapytanie zawiera błędy. Ta funkcja znacząco poprawia doświadczenie użytkownika, zwracając istotne wyniki nawet przy błędnie wpisanym zapytaniu.
+## Co to jest „jak włączyć korektę pisowni” w GroupDocs.Search?
+Włączenie korekty pisowni informuje silnik wyszukiwania, aby szukał najbliższych poprawnych terminów, gdy zapytanie zawiera błędy. Ta funkcja znacząco poprawia doświadczenie użytkownika, zwracając trafne wyniki nawet przy niepoprawnym wpisie.
 
-## Dlaczego włączać korektę pisowni w aplikacjach Java?
-- **Zwiększa satysfakcję użytkowników** – użytkownicy nie muszą wpisywać zapytań idealnie.  
-- **Obniża współczynnik odrzuceń** – dokładniejsze wyniki utrzymują odwiedzających zaangażowanych.  
+## Dlaczego warto włączyć korektę pisowni w aplikacjach Java?
+- **Zwiększa satysfakcję użytkowników** – nie muszą wpisywać zapytań idealnie.  
+- **Obniża współczynnik odrzuceń** – dokładniejsze wyniki utrzymują odwiedzających dłużej.  
 - **Działa w różnych domenach** – od katalogów bibliotecznych po wyszukiwanie produktów w e‑commerce.
 
-## Prerequisites
-- Zainstalowany Java Development Kit (JDK).
-- Podstawowa znajomość Javy i Maven.
-- Zrozumienie koncepcji indeksowania.
-- Licencja próbna lub pełna klucz GroupDocs.Search.
+## Wymagania wstępne
+- Zainstalowany Java Development Kit (JDK).  
+- Podstawowa znajomość Javy i Maven.  
+- Rozumienie koncepcji indeksowania.  
+- Klucz trial lub licencjonowany GroupDocs.Search.
 
-### Setting Up GroupDocs.Search for Java
+### Konfiguracja GroupDocs.Search dla Javy
 Zintegruj bibliotekę w swoim projekcie Maven.
 
-**Maven Setup**  
+**Konfiguracja Maven**  
 Dodaj repozytorium i zależność do pliku `pom.xml`:
 
 ```xml
@@ -62,14 +62,14 @@ Dodaj repozytorium i zależność do pliku `pom.xml`:
 </dependencies>
 ```
 
-**Direct Download**  
-Alternatywnie, pobierz najnowszą wersję z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+**Bezpośrednie pobranie**  
+Alternatywnie pobierz najnowszą wersję z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Uzyskanie licencji
-Uzyskaj darmową licencję próbną do oceny. W środowisku produkcyjnym zakup pełną licencję lub poproś o tymczasowy klucz na oficjalnej stronie.
+Uzyskaj darmową licencję trial do oceny. W środowisku produkcyjnym zakup pełną licencję lub poproś o tymczasowy klucz na oficjalnej stronie.
 
-## Jak dodać dokumenty do indeksu
-Tworzenie indeksu jest podstawą każdej aplikacji z funkcją wyszukiwania. Poniżej znajduje się minimalny przykład, który **dodaje dokumenty do indeksu** z folderu.
+## Jak Dodawać Dokumenty do Indeksu
+Tworzenie indeksu to podstawa każdej aplikacji z wyszukiwaniem. Poniżej znajduje się minimalny przykład, który **dodaje dokumenty do indeksu** z folderu.
 
 ```java
 import com.groupdocs.search.*;
@@ -91,9 +91,9 @@ public class FeatureIndexAndAddDocuments {
 }
 ```
 
-*Wskazówka:* Sprawdź, czy ścieżki są poprawne i czy aplikacja ma uprawnienia do zapisu w folderze indeksu.
+*Wskazówka:* Sprawdź, czy ścieżki są poprawne i czy aplikacja ma uprawnienia zapisu do folderu indeksu.
 
-## Jak skonfigurować korektę pisowni (ustaw maksymalną liczbę błędów)
+## Jak Skonfigurować Korektę Pisowni (ustaw maksymalną liczbę błędów)
 Możesz precyzyjnie dostroić sprawdzacz pisowni, włączając go i ustawiając tolerancję błędów.
 
 ```java
@@ -117,10 +117,10 @@ public class FeatureSpellingCorrectionOptions {
 }
 ```
 
-*Dlaczego `setMaxMistakeCount` jest ważne:* Określa, ile literówek silnik będzie tolerował. Dostosuj tę wartość w zależności od typowych wzorców błędów w Twojej domenie.
+*Dlaczego `setMaxMistakeCount` ma znaczenie:* Definiuje, ile literówek silnik będzie tolerował. Dostosuj tę wartość w zależności od typowych wzorców błędów w Twojej domenie.
 
-## Jak wykonać wyszukiwanie z korektą pisowni
-Gdy indeks jest gotowy i opcje pisowni skonfigurowane, uruchom zapytanie, które może zawierać błędy.
+## Jak Wykonać Wyszukiwanie z Korektą Pisowni
+Gdy indeks jest gotowy, a opcje pisowni skonfigurowane, uruchom zapytanie, które może zawierać błędy.
 
 ```java
 import com.groupdocs.search.*;
@@ -148,45 +148,52 @@ public class FeatureSpellingCorrectionSearch {
 }
 ```
 
-Wywołanie `search()` zwraca `SearchResult`, które zawiera poprawione terminy oraz najbardziej istotne dokumenty.
+Wywołanie `search()` zwraca obiekt `SearchResult`, który zawiera poprawione terminy oraz najistotniejsze dokumenty.
 
-## Praktyczne zastosowania
-1. **Systemy biblioteczne:** Koryguj błędnie wpisane tytuły książek lub nazwiska autorów.  
-2. **Platformy e‑commerce:** Naprawiaj literówki użytkowników w wyszukiwaniu produktów, aby zwiększyć konwersje.  
-3. **Systemy zarządzania treścią:** Popraw wyszukiwanie artykułów dla personelu redakcyjnego.
+## Praktyczne Zastosowania
+1. **Systemy Biblioteczne:** Koryguj błędnie wpisane tytuły książek lub nazwiska autorów.  
+2. **Platformy E‑commerce:** Naprawiaj literówki użytkowników w wyszukiwaniu produktów, zwiększając konwersje.  
+3. **Systemy Zarządzania Treścią:** Ulepszaj wyszukiwanie artykułów dla redaktorów.
 
-## Uwagi dotyczące wydajności
-- **Utrzymuj indeks aktualny** – regularnie indeksuj nowe lub zmienione pliki.  
-- **Dostosuj ustawienia pamięci JVM** – przydziel wystarczającą ilość pamięci heap dla dużych indeksów.  
-- **Monitoruj zużycie zasobów** – w razie potrzeby dostosuj flagi garbage‑collectora.
+## Rozważania Wydajnościowe
+- **Utrzymuj indeks aktualny** – regularnie reindeksuj nowe lub zmienione pliki.  
+- **Dostosuj ustawienia pamięci JVM** – przydziel wystarczający heap dla dużych indeksów.  
+- **Monitoruj zużycie zasobów** – w razie potrzeby zmień flagi garbage‑collector.
 
-## Najczęściej zadawane pytania
+## Typowe Problemy i Rozwiązywanie
+| Objaw | Prawdopodobna przyczyna | Rozwiązanie |
+|---------|--------------|-----|
+| Brak wyników po włączeniu korekty pisowni | Ścieżka folderu indeksu jest nieprawidłowa lub pusty | Sprawdź, czy `indexFolder` wskazuje na prawidłowy indeks i czy `index.add()` zakończyło się sukcesem |
+| Sprawdzacz pisowni nie koryguje oczywistych literówek | `setMaxMistakeCount` jest ustawiony zbyt nisko | Zwiększ liczbę do 2 lub 3, aby uzyskać większą tolerancję |
+| Aplikacja się zawiesza przy dużych zestawach dokumentów | Niewystarczający heap JVM | Zwiększ opcję `-Xmx` (np. `-Xmx4g`) |
 
-**Q: Czym jest GroupDocs.Search?**  
-A: To biblioteka Java, która zapewnia szybkie indeksowanie, zaawansowane funkcje wyszukiwania oraz wbudowaną korektę pisowni.
+## Najczęściej Zadawane Pytania
 
-**Q: Jak uzyskać licencję na GroupDocs.Search?**  
-A: Odwiedź oficjalną stronę, aby pobrać darmową wersję próbną lub zakupić pełną licencję.
+**P: Co to jest GroupDocs.Search?**  
+O: To biblioteka Java, która zapewnia szybkie indeksowanie, zaawansowane funkcje wyszukiwania i wbudowaną korektę pisowni.
 
-**Q: Czy mogę zintegrować GroupDocs.Search z innymi frameworkami Java?**  
-A: Tak, działa z Spring, Jakarta EE oraz dowolną standardową aplikacją Java.
+**P: Jak uzyskać licencję na GroupDocs.Search?**  
+O: Odwiedź oficjalną stronę, aby pobrać darmowy trial lub zakupić pełną licencję.
 
-**Q: Jakie są typowe problemy przy konfigurowaniu indeksu?**  
-A: Nieprawidłowe ścieżki folderów, niewystarczające uprawnienia do plików lub brakujące zależności w `pom.xml`.
+**P: Czy mogę zintegrować GroupDocs.Search z innymi frameworkami Java?**  
+O: Tak, działa z Spring, Jakarta EE oraz każdą standardową aplikacją Java.
 
-**Q: Jak korekta pisowni poprawia wyniki wyszukiwania?**  
-A: Automatycznie przepisuje błędnie wpisane zapytania na najbliższe poprawne terminy, zwracając bardziej istotne wyniki.
+**P: Jakie są typowe problemy przy konfigurowaniu indeksu?**  
+O: Nieprawidłowe ścieżki folderów, niewystarczające uprawnienia do plików lub brak zależności w `pom.xml`.
 
-## Dodatkowe zasoby
-- [Dokumentacja](https://docs.groupdocs.com/search/java/)
-- [Referencja API](https://reference.groupdocs.com/search/java)
-- [Pobierz](https://releases.groupdocs.com/search/java/)
-- [Repozytorium GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Darmowe Forum Wsparcia](https://forum.groupdocs.com/c/search/10)
-- [Tymczasowa Licencja](https://purchase.groupdocs.com/temporary-license/)
+**P: W jaki sposób korekta pisowni poprawia wyniki wyszukiwania?**  
+O: Automatycznie przepisuje błędnie wpisane zapytania na najbliższe poprawne terminy, zwracając bardziej trafne wyniki.
+
+## Dodatkowe Zasoby
+- [Documentation](https://docs.groupdocs.com/search/java/)
+- [API Reference](https://reference.groupdocs.com/search/java)
+- [Download](https://releases.groupdocs.com/search/java/)
+- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
+- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Last Updated:** 2025-12-20  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+**Ostatnia aktualizacja:** 2026-02-21  
+**Testowano z:** GroupDocs.Search 25.4  
+**Autor:** GroupDocs

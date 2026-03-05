@@ -1,8 +1,8 @@
 ---
-date: '2025-12-20'
+date: '2026-02-21'
 description: Scopri come abilitare la correzione ortografica in Java usando GroupDocs.Search,
   aggiungere documenti all'indice e impostare il conteggio massimo di errori per una
-  migliore precisione di ricerca.
+  migliore precisione nella ricerca.
 keywords:
 - spelling correction Java
 - GroupDocs.Search tutorial
@@ -13,32 +13,32 @@ url: /it/java/dictionaries-language-processing/java-groupdocs-search-spelling-co
 weight: 1
 ---
 
-# Come abilitare il controllo ortografico in Java usando GroupDocs.Search
+Now produce final content. Ensure no extra explanation.# Come abilitare il controllo ortografico in Java usando GroupDocs.Search
 
-Risultati di ricerca accurati sono essenziali per qualsiasi applicazione moderna. In questo tutorial imparerai **come abilitare il controllo ortografico** in Java con GroupDocs.Search, così gli utenti otterranno i risultati corretti anche quando digitano query con errori. Vedremo come creare un indice, **aggiungere documenti all'indice**, configurare le opzioni di ortografia e eseguire una ricerca che corregge automaticamente gli errori.
+I risultati di ricerca accurati sono essenziali per qualsiasi applicazione moderna. In questo tutorial imparerai **come abilitare il controllo ortografico** in Java con GroupDocs.Search, così gli utenti otterranno i risultati corretti anche quando digitano query con errori. Passeremo in rassegna la creazione di un indice, **l'aggiunta di documenti all'indice**, la configurazione delle opzioni di ortografia e l'esecuzione di una ricerca che corregge automaticamente gli errori.
 
 ## Risposte rapide
 - **Cosa significa “come abilitare il controllo ortografico”?** Attiva il correttore ortografico integrato che corregge gli errori di battitura dell'utente durante una ricerca.  
 - **Quale libreria fornisce questa funzionalità?** GroupDocs.Search per Java.  
-- **È necessaria una licenza?** Una licenza di prova gratuita è sufficiente per la valutazione; è necessaria una licenza completa per la produzione.  
+- **Ho bisogno di una licenza?** Una licenza di prova gratuita è sufficiente per la valutazione; è necessaria una licenza completa per la produzione.  
 - **Posso controllare la tolleranza?** Sì – usa `setMaxMistakeCount` per definire quanti errori di battitura sono consentiti.  
-- **È adatto a indici di grandi dimensioni?** Assolutamente – il motore è ottimizzato per indicizzazione e ricerca ad alte prestazioni.
+- **È adatto a indici di grandi dimensioni?** Assolutamente – il motore è ottimizzato per l'indicizzazione e la ricerca ad alte prestazioni.
 
-## Cos'è “come abilitare il controllo ortografico” in GroupDocs.Search?
+## Che cosa è “come abilitare il controllo ortografico” in GroupDocs.Search?
 Abilitare il controllo ortografico indica al motore di ricerca di cercare i termini corretti più vicini quando una query contiene errori. Questa funzionalità migliora notevolmente l'esperienza dell'utente restituendo risultati pertinenti anche con input errati.
 
 ## Perché abilitare il controllo ortografico nelle applicazioni Java?
-- **Aumenta la soddisfazione degli utenti** – gli utenti non devono digitare in modo perfetto.  
+- **Aumenta la soddisfazione degli utenti** – gli utenti non devono digitare perfettamente.  
 - **Riduce i tassi di rimbalzo** – risultati più accurati mantengono i visitatori coinvolti.  
-- **Funziona in diversi domini** – dai cataloghi di biblioteche alle ricerche di prodotti e‑commerce.
+- **Funziona in tutti i domini** – dai cataloghi delle biblioteche alle ricerche di prodotti e‑commerce.
 
 ## Prerequisiti
 - Java Development Kit (JDK) installato.  
-- Conoscenze di base di Java e Maven.  
+- Conoscenza di base di Java e Maven.  
 - Comprensione dei concetti di indicizzazione.  
-- Una prova o chiave licenza di GroupDocs.Search.
+- Una versione di prova o una chiave licenza di GroupDocs.Search.
 
-### Configurazione di GroupDocs.Search per Java
+### Configurare GroupDocs.Search per Java
 Integra la libreria nel tuo progetto Maven.
 
 **Configurazione Maven**  
@@ -120,7 +120,7 @@ public class FeatureSpellingCorrectionOptions {
 *Perché `setMaxMistakeCount` è importante:* Definisce quanti errori di battitura il motore tollererà. Regola questo valore in base ai tipici pattern di errore del tuo dominio.
 
 ## Come eseguire una ricerca con correzione ortografica
-Con l'indice pronto e le opzioni ortografiche configurate, esegui una query che può contenere errori.
+Con l'indice pronto e le opzioni di ortografia configurate, esegui una query che può contenere errori.
 
 ```java
 import com.groupdocs.search.*;
@@ -151,31 +151,38 @@ public class FeatureSpellingCorrectionSearch {
 La chiamata `search()` restituisce un `SearchResult` che contiene i termini corretti e i documenti più pertinenti.
 
 ## Applicazioni pratiche
-1. **Sistemi di biblioteca:** Correggi titoli di libri o nomi di autori digitati erroneamente.  
+1. **Sistemi bibliotecari:** Correggi titoli di libri o nomi di autori scritti in modo errato.  
 2. **Piattaforme e‑commerce:** Correggi gli errori di battitura degli utenti nelle ricerche di prodotti per aumentare le conversioni.  
 3. **Sistemi di gestione dei contenuti:** Migliora il recupero degli articoli per il personale editoriale.
 
 ## Considerazioni sulle prestazioni
 - **Mantieni l'indice aggiornato** – reindicizza regolarmente i file nuovi o modificati.  
 - **Regola le impostazioni di memoria della JVM** – assegna un heap sufficiente per indici di grandi dimensioni.  
-- **Monitora l'utilizzo delle risorse** – regola i flag del garbage collector se necessario.
+- **Monitora l'uso delle risorse** – regola i flag del garbage collector se necessario.
+
+## Problemi comuni e risoluzione
+| Sintomo | Probabile causa | Soluzione |
+|---------|-----------------|-----------|
+| Nessun risultato restituito dopo aver abilitato l'ortografia | Il percorso della cartella dell'indice è errato o vuoto | Verifica che `indexFolder` punti a un indice valido e che `index.add()` sia riuscito |
+| Il correttore ortografico non corregge errori evidenti | `setMaxMistakeCount` è impostato troppo basso | Aumenta il conteggio a 2 o 3 per una correzione più tollerante |
+| L'applicazione si arresta con set di documenti di grandi dimensioni | Heap JVM insufficiente | Aumenta l'opzione `-Xmx` (es., `-Xmx4g`) |
 
 ## Domande frequenti
 
-**D: Cos'è GroupDocs.Search?**  
-R: È una libreria Java che offre indicizzazione rapida, funzionalità di ricerca avanzate e correzione ortografica integrata.
+**Q: Che cos'è GroupDocs.Search?**  
+A: È una libreria Java che fornisce indicizzazione veloce, funzionalità di ricerca avanzate e correzione ortografica integrata.
 
-**D: Come posso ottenere una licenza per GroupDocs.Search?**  
-R: Visita il sito ufficiale per scaricare una prova gratuita o acquistare una licenza completa.
+**Q: Come posso ottenere una licenza per GroupDocs.Search?**  
+A: Visita il sito ufficiale per scaricare una prova gratuita o acquistare una licenza completa.
 
-**D: Posso integrare GroupDocs.Search con altri framework Java?**  
-R: Sì, funziona con Spring, Jakarta EE e qualsiasi applicazione Java standard.
+**Q: Posso integrare GroupDocs.Search con altri framework Java?**  
+A: Sì, funziona con Spring, Jakarta EE e qualsiasi applicazione Java standard.
 
-**D: Quali sono i problemi comuni nella configurazione di un indice?**  
-R: Percorsi di cartelle errati, permessi di file insufficienti o dipendenze mancanti in `pom.xml`.
+**Q: Quali sono i problemi comuni durante la configurazione di un indice?**  
+A: Percorsi delle cartelle errati, permessi di file insufficienti o dipendenze mancanti in `pom.xml`.
 
-**D: Come la correzione ortografica migliora i risultati di ricerca?**  
-R: Riscrive automaticamente le query errate con i termini corretti più vicini, restituendo risultati più pertinenti.
+**Q: Come migliora la correzione ortografica i risultati di ricerca?**  
+A: Riscrive automaticamente le query errate con i termini corretti più vicini, restituendo risultati più pertinenti.
 
 ## Risorse aggiuntive
 - [Documentazione](https://docs.groupdocs.com/search/java/)
@@ -187,6 +194,6 @@ R: Riscrive automaticamente le query errate con i termini corretti più vicini, 
 
 ---
 
-**Ultimo aggiornamento:** 2025-12-20  
+**Ultimo aggiornamento:** 2026-02-21  
 **Testato con:** GroupDocs.Search 25.4  
 **Autore:** GroupDocs

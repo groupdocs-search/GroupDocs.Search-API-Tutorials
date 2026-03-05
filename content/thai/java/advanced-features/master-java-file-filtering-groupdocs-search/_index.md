@@ -1,7 +1,7 @@
 ---
-date: '2025-12-19'
-description: เรียนรู้วิธีการใช้งานตัวกรองนามสกุลไฟล์ Java ด้วย GroupDocs.Search สำหรับ
-  Java รวมถึงการใช้ตัวดำเนินการตรรกะ, วันที่สร้าง/แก้ไข, และตัวกรองเส้นทาง.
+date: '2026-02-21'
+description: เรียนรู้วิธีการใช้ตัวกรองนามสกุลไฟล์ Java ด้วย GroupDocs.Search สำหรับ
+  Java ซึ่งครอบคลุมตัวดำเนินการเชิงตรรกะ, วันที่สร้าง/แก้ไข, และตัวกรองเส้นทาง
 keywords:
 - Java File Filtering
 - GroupDocs.Search
@@ -12,50 +12,47 @@ url: /th/java/advanced-features/master-java-file-filtering-groupdocs-search/
 weight: 1
 ---
 
-# เชี่ยวชาญการกรองส่วนขยายไฟล์ java ด้วย GroupDocs.Search
+# เชี่ยวชาญการใช้ตัวกรองส่วนขยายไฟล์ java กับ GroupDocs.Search
 
-การจัดการคลังเอกสารที่เพิ่มขึ้นอย่างต่อเนื่องอาจทำให้รู้สึกท่วมท้นได้อย่างรวดเร็ว ไม่ว่าคุณจะต้องการทำดัชนีเฉพาะประเภทเอกสารบางประเภทหรือยกเว้นไฟล์ที่ไม่เกี่ยวข้อง **java file extension filter** จะให้การควบคุมระดับละเอียดว่าข้อมูลใดจะถูกประมวลผล ในคู่มือนี้เราจะพาคุณผ่านการตั้งค่า GroupDocs.Search สำหรับ Java และแสดงวิธีการผสานการกรองส่วนขยายไฟล์กับตัวดำเนินการ AND, OR, และ NOT รวมถึงการกรองช่วงวันที่และเส้นทางไฟล์
+การจัดการคลังเอกสารที่เพิ่มขึ้นอย่างต่อเนื่องอาจทำให้รู้สึกหนักหน่วงได้อย่างรวดเร็ว โดยเฉพาะเมื่อคุณต้องทำดัชนีเฉพาะประเภทไฟล์บางประเภท **ตัวกรองส่วนขยายไฟล์ java** ช่วยให้คุณบอก GroupDocs.Search ว่าต้องรวมหรือยกเว้นส่วนขยายใดบ้าง ทำให้คุณควบคุมขั้นตอนการทำดัชนีได้อย่างแม่นยำ ในคู่มือนี้เราจะอธิบายวิธีตั้งค่า GroupDocs.Search สำหรับ Java และแสดงวิธีผสานการกรองส่วนขยายไฟล์กับตัวดำเนินการตรรกะ AND, OR, และ NOT รวมถึงตัวกรองช่วงวันที่และเส้นทางไฟล์
 
-## คำตอบอย่างรวดเร็ว
-- **java file extension filter คืออะไร?** การกำหนดค่าที่บอก GroupDocs.Search ว่าจะรวมหรือยกเว้นส่วนขยายไฟล์ใดระหว่างการทำดัชนี  
+## คำตอบสั้น ๆ
+- **java file extension filter คืออะไร?** การกำหนดค่าที่บอก GroupDocs.Search ว่าส่วนขยายไฟล์ใดจะรวมหรือยกเว้นระหว่างการทำดัชนี  
 - **ไลบรารีใดให้ฟีเจอร์นี้?** GroupDocs.Search for Java  
-- **ต้องการไลเซนส์หรือไม่?** สามารถใช้รุ่นทดลองฟรีเพื่อประเมินผล; ต้องมีไลเซนส์เต็มสำหรับการใช้งานจริง  
-- **สามารถผสานฟิลเตอร์ได้หรือไม่?** ได้ – คุณสามารถต่อเชื่อมฟิลเตอร์ส่วนขยาย, วันที่, ขนาด, และเส้นทางด้วยตรรกะ AND, OR, NOT  
-- **รองรับ Maven หรือไม่?** แน่นอน – เพิ่ม dependency ของ GroupDocs.Search ลงใน `pom.xml` ของคุณ  
+- **ต้องมีลิขสิทธิ์หรือไม่?** สามารถใช้รุ่นทดลองฟรีเพื่อประเมินผลได้; ต้องมีลิขสิทธิ์เต็มเพื่อใช้งานในสภาพแวดล้อมการผลิต  
+- **สามารถผสานตัวกรองได้หรือไม่?** ได้ – คุณสามารถเชื่อมต่อการกรองส่วนขยาย, วันที่, ขนาด, และเส้นทางด้วยตรรกะ AND, OR, NOT  
+- **รองรับ Maven หรือไม่?** แน่นอน – เพียงเพิ่ม dependency ของ GroupDocs.Search ลงใน `pom.xml` ของคุณ  
 
-## บทนำ
+## java file extension filter คืออะไร?
+**java file extension filter** คือชุดกฎที่ประเมินส่วนขยายของแต่ละไฟล์ก่อนส่งไปยังเครื่องยนต์ทำดัชนี โดยการระบุส่วนขยายเช่น `.txt`, `.pdf`, หรือ `.epub` คุณสามารถ **รวมไฟล์ตามส่วนขยาย** หรือ **ยกเว้นไฟล์ตามส่วนขยาย** เพื่อให้ดัชนีของคุณโฟกัสและผลการค้นหาเป็นประโยชน์มากขึ้น  
 
-กำลังประสบปัญหาในการจัดการคลังไฟล์ที่เพิ่มขึ้นอย่างมีประสิทธิภาพหรือไม่? ไม่ว่าคุณจะต้องการจัดระเบียบเอกสารตามประเภทหรือกรองไฟล์ที่ไม่จำเป็นระหว่างการทำดัชนี งานนี้อาจดูน่ากลัวหากไม่มีเครื่องมือที่เหมาะสม **GroupDocs.Search for Java** เป็นไลบรารีการค้นหาขั้นสูงที่ทำให้ความท้าทายเหล่านี้ง่ายขึ้นด้วยความสามารถในการกรองไฟล์ที่ทรงพลัง บทแนะนำนี้จะสอนคุณวิธีการใช้เทคนิคการกรองไฟล์ .NET ผ่าน GroupDocs.Search โดยเน้นที่ Logical AND, OR, และ NOT Filters  
-
-### สิ่งที่คุณจะได้เรียนรู้
-- การตั้งค่า GroupDocs.Search ในสภาพแวดล้อม Java ของคุณ  
-- การใช้งานฟิลเตอร์ต่าง ๆ: File Extension, Logical Operators (AND, OR, NOT), Creation Time, Modification Time, File Path, และ Length  
-- การประยุกต์ใช้ฟิลเตอร์เหล่านี้ในโลกจริงเพื่อการจัดการเอกสารที่มีประสิทธิภาพ  
-- เคล็ดลับการเพิ่มประสิทธิภาพสำหรับงานทำดัชนีขนาดใหญ่  
-
-พร้อมที่จะเปิดศักยภาพเต็มรูปแบบของการกรองไฟล์ใน Java หรือยัง? มาเริ่มต้นด้วยข้อกำหนดเบื้องต้นกันก่อน  
+## ทำไมต้องใช้การกรองส่วนขยายไฟล์กับ GroupDocs.Search?
+- **ประสิทธิภาพ:** การข้ามไฟล์ที่ไม่ต้องการช่วยลด I/O และเร่งความเร็วการทำดัชนี  
+- **ประหยัดพื้นที่จัดเก็บ:** เก็บเฉพาะเอกสารที่เกี่ยวข้องในดัชนี ลดการใช้ดิสก์  
+- **การปฏิบัติตามกฎ:** ป้องกันการทำดัชนีไฟล์ที่เป็นความลับหรือไม่รองรับโดยบังเอิญ  
+- **ความยืดหยุ่น:** ผสานกับฟีเจอร์ **date range filter java** เพื่อกำหนดไฟล์ที่สร้างหรือแก้ไขในช่วงเวลาที่กำหนด  
 
 ## ข้อกำหนดเบื้องต้น
 
-ก่อนที่เราจะเริ่ม โปรดตรวจสอบว่าคุณมีสิ่งต่อไปนี้ครบแล้ว:
+ก่อนเริ่มทำงาน ให้ตรวจสอบว่าคุณมีสิ่งต่อไปนี้แล้ว:
 
-### ไลบรารีและ Dependencies ที่จำเป็น
+### ไลบรารีและ dependency ที่จำเป็น
 - **GroupDocs.Search for Java**: เวอร์ชัน 25.4 หรือใหม่กว่า  
-- **Java Development Kit (JDK)**: ตรวจสอบให้แน่ใจว่ามีเวอร์ชันที่เข้ากันได้ติดตั้งอยู่ในระบบของคุณ  
+- **Java Development Kit (JDK)**: เวอร์ชันที่เข้ากันได้  
 
 ### การตั้งค่าสภาพแวดล้อม
-- Integrated Development Environment (IDE): ใช้ IntelliJ IDEA, Eclipse หรือ IDE ใดก็ได้ที่รองรับโครงการ Maven  
+- Integrated Development Environment (IDE): IntelliJ IDEA, Eclipse หรือ IDE ที่รองรับ Maven ใด ๆ  
 
-### ความรู้พื้นฐานที่ต้องมี
-- ความเข้าใจพื้นฐานของการเขียนโปรแกรม Java  
-- ความคุ้นเคยกับการทำงาน I/O ของไฟล์ใน Java  
-- ความเข้าใจเกี่ยวกับ regular expressions และการจัดการวัน‑เวลา  
+### ความรู้เบื้องต้นที่ต้องมี
+- การเขียนโปรแกรม Java ขั้นพื้นฐาน  
+- ความคุ้นเคยกับการทำ I/O ของไฟล์ใน Java  
+- ความเข้าใจเกี่ยวกับ regular expressions และการจัดการ date‑time  
 
 ## การตั้งค่า GroupDocs.Search สำหรับ Java
-เพื่อเริ่มใช้ GroupDocs.Search คุณต้องเพิ่มเป็น dependency ในโครงการของคุณ ด้านล่างนี้คือวิธีทำ:
+เพื่อเริ่มใช้ GroupDocs.Search คุณต้องเพิ่มมันเป็น dependency ในโปรเจกต์ของคุณ
 
 ### การกำหนดค่า Maven
-เพิ่ม repository และ dependency ต่อไปนี้ลงในไฟล์ `pom.xml` ของคุณ:
+เพิ่ม repository และ dependency ด้านล่างนี้ลงในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -76,15 +73,15 @@ weight: 1
 ```
 
 ### ดาวน์โหลดโดยตรง
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)  
+หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดได้โดยตรงจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
 
-#### การรับไลเซนส์
-1. **Free Trial**: เริ่มต้นด้วยรุ่นทดลองฟรีเพื่อสำรวจฟีเจอร์ของ GroupDocs.Search  
-2. **Temporary License**: ขอรับไลเซนส์ชั่วคราวเพื่อเข้าถึงฟังก์ชันเต็มโดยไม่มีข้อจำกัด  
-3. **Purchase**: สำหรับการใช้งานระยะยาว ให้ซื้อสมาชิกแบบสมัครสมาชิก  
+#### การรับลิขสิทธิ์
+1. **Free Trial** – ทดลองใช้ฟีเจอร์โดยไม่เสียค่าใช้จ่าย  
+2. **Temporary License** – รับฟังก์ชันเต็มสำหรับระยะเวลาจำกัด  
+3. **Purchase** – ซื้อไลเซนส์ถาวรสำหรับการใช้งานในสภาพแวดล้อมการผลิต  
 
-### การเริ่มต้นพื้นฐานและการตั้งค่า
-เมื่อเพิ่มไลบรารีแล้ว ให้ทำการเริ่มต้นสภาพแวดล้อมการทำดัชนีของคุณ:
+### การเริ่มต้นและตั้งค่าเบื้องต้น
+เมื่อเพิ่มไลบรารีแล้ว ให้เริ่มต้นสภาพแวดล้อมการทำดัชนีของคุณ:
 
 ```java
 import com.groupdocs.search.*;
@@ -93,18 +90,18 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
-## คู่มือการนำไปใช้
-ต่อไปนี้เป็นวิธีการนำฟีเจอร์การกรองไฟล์ต่าง ๆ ไปใช้ด้วย GroupDocs.Search  
+## คู่มือการใช้งาน
+ต่อไปนี้เป็นการเจาะลึกแต่ละประเภทของตัวกรอง พร้อมอธิบาย **เหตุผลที่สำคัญ** และให้โค้ดขั้นตอน‑โดย‑ขั้นตอนที่คุณสามารถคัดลอกไปใช้ในโปรเจกต์ได้
 
-### การกรองตามส่วนขยายไฟล์
-กรองไฟล์ตามส่วนขยายระหว่างการทำดัชนี ฟีเจอร์นี้มีประโยชน์เมื่อคุณต้องการประมวลผลเฉพาะประเภทเอกสารเช่น FB2, EPUB, และ TXT  
+### การกรองส่วนขยายไฟล์
+กรองไฟล์ตามส่วนขยายระหว่างทำดัชนี เหมาะอย่างยิ่งเมื่อคุณต้องการประมวลผล e‑books (`.fb2`, `.epub`) และไฟล์ข้อความธรรมดา (`.txt`)
 
 #### ภาพรวม
-กรองเอกสารตามส่วนขยายไฟล์โดยใช้การกำหนดค่าฟิลเตอร์แบบกำหนดเอง  
+ใช้ `DocumentFilter.createFileExtension` เพื่อกำหนด whitelist ของส่วนขยาย
 
 #### ขั้นตอนการทำงาน
-1. **สร้างฟิลเตอร์**:
-    
+1. **สร้างตัวกรอง**:
+
     ```java
     DocumentFilter filter = DocumentFilter.createFileExtension(".fb2", ".epub", ".txt");
     IndexSettings settings = new IndexSettings();
@@ -112,54 +109,54 @@ Index index = new Index(indexFolder);
     ```
 
 2. **เริ่มต้น Index และเพิ่มเอกสาร**:
-    
+
     ```java
     Index index = new Index("YOUR_OUTPUT_DIRECTORY\\FileExtensionFilter", settings);
     index.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### ฟิลเตอร์ Logical NOT
-ยกเว้นส่วนขยายไฟล์เฉพาะระหว่างการทำดัชนี เช่น HTM, HTML, และ PDF  
+### ตัวกรอง Logical NOT
+ยกเว้นส่วนขยายเฉพาะ เช่น หน้าเว็บและ PDF เมื่อไม่ต้องการในสถานการณ์การค้นหาของคุณ
 
 #### ขั้นตอนการทำงาน
-1. **สร้างฟิลเตอร์ยกเว้น**:
-    
+1. **สร้างตัวกรองการยกเว้น**:
+
     ```java
     DocumentFilter filterNot = DocumentFilter.createFileExtension(".htm", ".html", ".pdf");
     DocumentFilter invertedFilter = DocumentFilter.createNot(filterNot);
     ```
 
 2. **นำไปใช้กับ Index Settings**:
-    
+
     ```java
     IndexSettings settingsNot = new IndexSettings();
     settingsNot.setDocumentFilter(invertedFilter);
     ```
 
 3. **เพิ่มเอกสาร**:
-    
+
     ```java
     Index indexNot = new Index("YOUR_OUTPUT_DIRECTORY\\LogicalNotFilter", settingsNot);
     indexNot.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### ฟิลเตอร์ Logical AND
-รวมหลายเงื่อนไขเพื่อรวมเฉพาะไฟล์ที่ตรงตามเงื่อนไขทั้งหมดที่กำหนด  
+### ตัวกรอง Logical AND
+รวมเงื่อนไขหลายอย่าง – วันที่สร้าง, ส่วนขยาย, และขนาดไฟล์ – เพื่อให้ **เฉพาะไฟล์ที่ตรงตามทุกเงื่อนไข** เท่านั้นที่ถูกทำดัชนี
 
 #### ภาพรวม
-ใช้การดำเนินการ Logical AND เพื่อกรองไฟล์ตามเวลาสร้าง, ส่วนขยายไฟล์, และความยาว  
+`DocumentFilter.createAnd` รวมตัวกรองหลายตัวเป็นกฎเดียว
 
 #### ขั้นตอนการทำงาน
-1. **กำหนดฟิลเตอร์**:
-    
+1. **กำหนดตัวกรอง**:
+
     ```java
     DocumentFilter filter1 = DocumentFilter.createCreationTimeRange(Utils.createDate(2015, 1, 1), Utils.createDate(2016, 1, 1));
     DocumentFilter filter2 = DocumentFilter.createFileExtension(".txt");
     DocumentFilter filter3 = DocumentFilter.createFileLengthUpperBound(8 * 1024 * 1024);
     ```
 
-2. **รวมฟิลเตอร์**:
-    
+2. **ผสานตัวกรอง**:
+
     ```java
     DocumentFilter finalFilterAnd = DocumentFilter.createAnd(filter1, filter2, filter3);
     IndexSettings settingsAnd = new IndexSettings();
@@ -167,25 +164,25 @@ Index index = new Index(indexFolder);
     ```
 
 3. **ทำดัชนีเอกสาร**:
-    
+
     ```java
     Index indexAnd = new Index("YOUR_OUTPUT_DIRECTORY\\LogicalAndFilter", settingsAnd);
     indexAnd.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### ฟิลเตอร์ Logical OR
-รวมไฟล์ที่ตรงตามเงื่อนไขใดเงื่อนไขหนึ่งโดยใช้การดำเนินการ Logical OR  
+### ตัวกรอง Logical OR
+รวมไฟล์ที่ตรงกับ **เงื่อนไขใดเงื่อนไขหนึ่ง** – มีประโยชน์เมื่อคุณต้องการจับไฟล์ข้อความขนาดเล็กและไฟล์ที่ไม่ใช่ข้อความขนาดใหญ่พร้อมกัน
 
 #### ขั้นตอนการทำงาน
-1. **กำหนดฟิลเตอร์**:
-    
+1. **กำหนดตัวกรอง**:
+
     ```java
     DocumentFilter txtFilter = DocumentFilter.createFileExtension(".txt");
     DocumentFilter notTxtFilter = DocumentFilter.createNot(txtFilter);
     ```
 
-2. **รวมฟิลเตอร์ด้วยเงื่อนไข Logical**:
-    
+2. **ผสานตัวกรองด้วยเงื่อนไขตรรกะ**:
+
     ```java
     DocumentFilter bound5Filter = DocumentFilter.createFileLengthUpperBound(5 * 1024 * 1024);
     DocumentFilter bound10Filter = DocumentFilter.createFileLengthUpperBound(10 * 1024 * 1024);
@@ -194,8 +191,8 @@ Index index = new Index(indexFolder);
     DocumentFilter notTxtSizeFilter = DocumentFilter.createAnd(notTxtFilter, bound10Filter);
     ```
 
-3. **สรุปฟิลเตอร์ OR**:
-    
+3. **สรุปตัวกรอง OR**:
+
     ```java
     DocumentFilter finalFilterOr = DocumentFilter.createOr(txtSizeFilter, notTxtSizeFilter);
 
@@ -205,12 +202,12 @@ Index index = new Index(indexFolder);
     indexOr.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### ฟิลเตอร์เวลาสร้าง (Creation Time)
-กรองไฟล์ตามเวลาสร้างเพื่อรวมเฉพาะไฟล์ที่อยู่ในช่วงวันที่ที่กำหนด  
+### ตัวกรองช่วงเวลาการสร้าง (Creation Time Filters)
+กำหนดไฟล์ที่สร้างในช่วงเวลาที่ระบุ – ตัวอย่างคลาสสิกของ **date range filter java**
 
 #### ขั้นตอนการทำงาน
-1. **กำหนดฟิลเตอร์ช่วงวันที่**:
-    
+1. **กำหนดตัวกรองช่วงวันที่**:
+
     ```java
     DocumentFilter filter3CTime = DocumentFilter.createCreationTimeRange(Utils.createDate(2017, 1, 1), Utils.createDate(2018, 6, 15));
     IndexSettings settingsCTime = new IndexSettings();
@@ -218,18 +215,18 @@ Index index = new Index(indexFolder);
     ```
 
 2. **ทำดัชนีเอกสาร**:
-    
+
     ```java
     Index indexCTime = new Index("YOUR_OUTPUT_DIRECTORY\\CreationTimeFilters", settingsCTime);
     indexCTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### ฟิลเตอร์เวลาแก้ไข (Modification Time)
-ยกเว้นไฟล์ที่ถูกแก้ไขหลังจากวันที่เฉพาะ  
+### ตัวกรองช่วงเวลาการแก้ไข (Modification Time Filters)
+ยกเว้นไฟล์ที่ถูกแก้ไขหลังจากวันที่ตัดขาดที่กำหนด
 
 #### ขั้นตอนการทำงาน
-1. **กำหนดฟิลเตอร์**:
-    
+1. **กำหนดตัวกรอง**:
+
     ```java
     DocumentFilter filter2MTime = DocumentFilter.createModificationTimeUpperBound(Utils.createDate(2018, 6, 15));
     IndexSettings settingsMTime = new IndexSettings();
@@ -237,18 +234,18 @@ Index index = new Index(indexFolder);
     ```
 
 2. **ทำดัชนีเอกสาร**:
-    
+
     ```java
     Index indexMTime = new Index("YOUR_OUTPUT_DIRECTORY\\ModificationTimeFilters", settingsMTime);
     indexMTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### ฟิลเตอร์เส้นทางไฟล์ (File Path)
-กรองไฟล์ตามเส้นทางไฟล์เพื่อรวมเฉพาะไฟล์ที่อยู่ในไดเรกทอรีที่กำหนด  
+### การกรองเส้นทางไฟล์ (File Path Filtering)
+จำกัดการทำดัชนีให้กับไฟล์ที่อยู่ในโฟลเดอร์เฉพาะหรือที่ตรงกับรูปแบบ – เหมาะสำหรับ **include files by extension** ภายในโครงสร้างไดเรกทอรีที่กำหนด
 
 #### ขั้นตอนการทำงาน
-1. **กำหนดฟิลเตอร์เส้นทางไฟล์**:
-    
+1. **กำหนดตัวกรองเส้นทางไฟล์**:
+
     ```java
     DocumentFilter pathFilter = DocumentFilter.createPath("*.txt", "documents/");
     IndexSettings settingsPath = new IndexSettings();
@@ -256,7 +253,7 @@ Index index = new Index(indexFolder);
     ```
 
 2. **เริ่มต้น Index และเพิ่มเอกสาร**:
-    
+
     ```java
     Index indexPath = new Index("YOUR_OUTPUT_DIRECTORY\\FilePathFilter", settingsPath);
     indexPath.add("YOUR_DOCUMENT_DIRECTORY");
@@ -264,29 +261,30 @@ Index index = new Index(indexFolder);
 
 ## ข้อผิดพลาดทั่วไป & เคล็ดลับ
 
-- **ห้ามผสานเส้นทางแบบ absolute และ relative** ในการกำหนดค่าฟิลเตอร์เดียวกัน – จะทำให้เกิดการยกเว้นที่ไม่คาดคิด  
-- **อย่าลืมรีเซ็ต `IndexSettings`** เมื่อสลับจากชุดฟิลเตอร์หนึ่งไปยังอีกชุดหนึ่ง; มิฉะนั้นฟิลเตอร์ก่อนหน้าจะยังคงมีผลอยู่  
-- **คอลเลกชันไฟล์ขนาดใหญ่** จะได้ประโยชน์จากการรวมขอบเขตความยาวสูงสุดกับฟิลเตอร์ส่วนขยายเพื่อรักษาการใช้หน่วยความจำให้ต่ำลง  
+- **ห้ามผสมเส้นทางแบบ absolute กับ relative** ในการตั้งค่าตัวกรองเดียวกัน – จะทำให้ไฟล์ถูกยกเว้นโดยไม่คาดคิด  
+- **รีเซ็ต `IndexSettings`** เมื่อ **สลับชุดตัวกรอง**; มิฉะนั้นตัวกรองก่อนหน้าอาจคงอยู่  
+- **ผสานขอบเขตความยาวสูงสุดกับตัวกรองส่วนขยาย** สำหรับคอลเลกชันขนาดใหญ่เพื่อควบคุมการใช้หน่วยความจำให้ต่ำลง  
+- **เปิดใช้งาน logging** (`LoggingOptions.setEnabled(true)`) เพื่อดูเหตุผลที่ไฟล์ถูกปฏิเสธ  
 
 ## คำถามที่พบบ่อย
 
 **Q: สามารถเปลี่ยนเกณฑ์การกรองหลังจากสร้างดัชนีแล้วได้หรือไม่?**  
-A: ได้ คุณสามารถสร้างดัชนีใหม่ด้วย `DocumentFilter` ใหม่หรือใช้การทำดัชนีแบบ incremental พร้อมตั้งค่าอัปเดต  
+A: ได้. ให้สร้างดัชนีใหม่ด้วย `DocumentFilter` ใหม่หรือใช้การทำดัชนีแบบ incremental พร้อมตั้งค่าอัปเดต  
 
-**Q: ฟิลเตอร์ java file extension filter ทำงานกับไฟล์บีบอัด (เช่น ZIP) หรือไม่?**  
-A: GroupDocs.Search สามารถทำดัชนีรูปแบบไฟล์บีบอัดที่รองรับได้ แต่ฟิลเตอร์ส่วนขยายจะใช้กับไฟล์บีบอัดเอง ไม่ได้ใช้กับไฟล์ภายใน หากต้องการกรองไฟล์ภายในให้ใช้ฟิลเตอร์ซ้อนกัน  
+**Q: ตัวกรองส่วนขยายไฟล์ java ทำงานกับไฟล์บีบอัด (เช่น ZIP) หรือไม่?**  
+A: GroupDocs.Search สามารถทำดัชนีรูปแบบไฟล์บีบอัดที่รองรับได้ แต่ตัวกรองส่วนขยายจะใช้กับไฟล์บีบอัดเอง ไม่ได้ใช้กับไฟล์ภายใน ใช้ตัวกรองแบบซ้อนกันสำหรับการควบคุมระดับลึก  
 
-**Q: จะดีบักว่าทำไมไฟล์ใดไฟล์หนึ่งถึงถูกยกเว้นได้อย่างไร?**  
-A: เปิดการบันทึกของไลบรารี (`LoggingOptions.setEnabled(true)`) แล้วตรวจสอบ log ที่สร้างขึ้น – จะบอกรายละเอียดว่าฟิลเตอร์ใดบล็อกไฟล์นั้น  
+**Q: จะดีบักเหตุผลที่ไฟล์ใดไฟล์หนึ่งถูกยกเว้นอย่างไร?**  
+A: เปิด logging ของไลบรารี (`LoggingOptions.setEnabled(true)`) แล้วตรวจสอบ log – จะบอกว่า **ตัวกรองใดที่ปฏิเสธไฟล์นั้น**  
 
-**Q: สามารถผสาน java file extension filter กับฟิลเตอร์ regex ที่กำหนดเองได้หรือไม่?**  
-A: แน่นอน คุณสามารถห่อฟิลเตอร์ regex ไว้ภายใน `DocumentFilter.createAnd()` พร้อมกับฟิลเตอร์ส่วนขยาย  
+**Q: สามารถผสาน java file extension filter กับตัวกรอง regex แบบกำหนดเองได้หรือไม่?**  
+A: แน่นอน. ใส่ตัวกรอง regex ภายใน `DocumentFilter.createAnd()` ร่วมกับตัวกรองส่วนขยาย  
 
-**Q: การเพิ่มฟิลเตอร์หลายตัวจะส่งผลต่อประสิทธิภาพอย่างไร?**  
-A: ฟิลเตอร์แต่ละตัวจะเพิ่มภาระเล็กน้อยในระหว่างทำดัชนี แต่ประโยชน์จากการลดขนาดดัชนีมักจะชดเชยค่าใช้จ่ายนี้ได้ ทดสอบกับชุดตัวอย่างเพื่อหาจุดสมดุลที่เหมาะสม  
+**Q: การเพิ่มตัวกรองหลายตัวมีผลต่อประสิทธิภาพอย่างไร?**  
+A: แต่ละตัวกรองเพิ่มภาระการประมวลผลเล็กน้อยระหว่างทำดัชนี แต่การลดปริมาณข้อมูลที่ทำดัชนีมักจะชดเชยค่าใช้จ่ายนั้นได้ ทดสอบกับตัวอย่างที่เป็นตัวแทนเพื่อหาจุดสมดุลที่เหมาะสม  
 
 ---
 
-**อัปเดตล่าสุด:** 2025-12-19  
-**ทดสอบด้วย:** GroupDocs.Search 25.4 for Java  
-**ผู้เขียน:** GroupDocs
+**Last Updated:** 2026-02-21  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs

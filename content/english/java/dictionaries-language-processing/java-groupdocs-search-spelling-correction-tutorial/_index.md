@@ -1,7 +1,7 @@
 ---
 title: "How to Enable Spelling in Java with GroupDocs.Search"
 description: "Learn how to enable spelling correction in Java using GroupDocs.Search, add documents to index, and set max mistake count for better search accuracy."
-date: "2025-12-20"
+date: "2026-02-21"
 weight: 1
 url: "/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/"
 keywords:
@@ -31,9 +31,9 @@ Enabling spelling tells the search engine to look for the closest correct terms 
 - **Works across domains** – from library catalogs to e‑commerce product searches.
 
 ## Prerequisites
-- Java Development Kit (JDK) installed.
-- Basic Java and Maven knowledge.
-- Understanding of indexing concepts.
+- Java Development Kit (JDK) installed.  
+- Basic Java and Maven knowledge.  
+- Understanding of indexing concepts.  
 - A GroupDocs.Search trial or licensed key.
 
 ### Setting Up GroupDocs.Search for Java
@@ -158,6 +158,13 @@ The `search()` call returns a `SearchResult` that contains corrected terms and t
 - **Tune JVM memory settings** – allocate sufficient heap for large indexes.  
 - **Monitor resource usage** – adjust garbage‑collector flags if needed.
 
+## Common Issues & Troubleshooting
+| Symptom | Likely Cause | Fix |
+|---------|--------------|-----|
+| No results returned after enabling spelling | Index folder path is wrong or empty | Verify `indexFolder` points to a valid index and that `index.add()` succeeded |
+| Spell‑checker does not correct obvious typos | `setMaxMistakeCount` is set too low | Increase the count to 2 or 3 for more tolerant correction |
+| Application crashes on large document sets | Insufficient JVM heap | Increase `-Xmx` option (e.g., `-Xmx4g`) |
+
 ## Frequently Asked Questions
 
 **Q: What is GroupDocs.Search?**  
@@ -185,6 +192,6 @@ A: It automatically rewrites misspelled queries to their closest correct terms, 
 
 ---
 
-**Last Updated:** 2025-12-20  
+**Last Updated:** 2026-02-21  
 **Tested With:** GroupDocs.Search 25.4  
 **Author:** GroupDocs

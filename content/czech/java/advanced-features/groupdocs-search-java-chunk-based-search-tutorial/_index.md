@@ -1,42 +1,52 @@
 ---
-date: '2025-12-19'
-description: Naučte se, jak přidávat dokumenty do indexu a povolit vyhledávání založené
-  na blocích v Javě pomocí GroupDocs.Search, což zvyšuje výkon při práci s velkými
-  sadami dokumentů.
+date: '2026-02-21'
+description: Naučte se, jak přidávat dokumenty do indexu a zvyšovat výkonnost vyhledávání
+  pomocí chunk‑based vyhledávání v Javě s využitím GroupDocs.Search, optimalizovat
+  paměť vyhledávacího indexu v Javě pro velké sady dokumentů.
 keywords:
 - chunk-based search
 - GroupDocs.Search Java
 - document search implementation
-title: Přidat dokumenty do indexu s vyhledáváním založeným na blocích v Javě
+title: Přidat dokumenty do indexu s vyhledáváním po částech v Javě
 type: docs
 url: /cs/java/advanced-features/groupdocs-search-java-chunk-based-search-tutorial/
 weight: 1
 ---
 
+"
+
+Proceed.
+
+I'll translate.
+
+Also note "step-by-step in order - do not skip sections". Provide full translation.
+
+Let's craft.
+
 # Přidání dokumentů do indexu s vyhledáváním po částech v Javě
 
-V dnešním datově řízeném světě je schopnost **přidat dokumenty do indexu** rychle a poté provádět vyhledávání po částech nezbytná pro každou aplikaci, která pracuje s velkými kolekcemi souborů. Ať už se zabýváte právními smlouvami, archivy zákaznické podpory nebo obrovskými výzkumnými knihovnami, tento tutoriál vám přesně ukáže, jak nastavit GroupDocs.Search pro Java, abyste mohli dokumenty efektivně indexovat a získávat relevantní informace v malých částech.
-
-## Co se naučíte
-- Jak vytvořit vyhledávací index ve specifikované složce.  
-- Kroky k **přidání dokumentů do indexu** z více míst.  
-- Konfigurace možností vyhledávání pro povolení vyhledávání po částech.  
-- Provádění počátečních a následných vyhledávání po částech.  
-- Reálné scénáře, kde vyhledávání dokumentů po částech vyniká.
+V moderních aplikacích, které potřebují **rychle přidávat dokumenty do indexu** a poté provádět rychlé dotazy po částech, chcete řešení, které škáluje bez přetížení paměti. Tento tutoriál vás provede nastavením GroupDocs.Search pro Java, přidáním více složek s dokumenty a konfigurací enginu tak, aby **zvýšil výkon vyhledávání** a zároveň udržel **paměť indexu vyhledávání v Javě** pod kontrolou. Ať už indexujete právní smlouvy, podporné tikety nebo výzkumné práce, níže uvedené kroky vám poskytnou implementaci připravenou pro produkci.
 
 ## Rychlé odpovědi
-- **Jaký je první krok?** Vytvořte složku pro vyhledávací index.  
+- **Jaký je první krok?** Vytvořit složku pro index vyhledávání.  
 - **Jak zahrnout mnoho souborů?** Použijte `index.add()` pro každou složku s dokumenty.  
 - **Která možnost povoluje vyhledávání po částech?** `options.setChunkSearch(true)`.  
 - **Mohu pokračovat ve vyhledávání po první části?** Ano, zavolejte `index.searchNext()` s tokenem.  
-- **Potřebuji licenci?** Bezplatná zkušební verze nebo dočasná licence stačí pro vývoj; pro produkci je vyžadována plná licence.
+- **Potřebuji licenci?** Pro vývoj stačí bezplatná zkušební nebo dočasná licence; pro produkci je vyžadována plná licence.  
+
+## Co se naučíte
+- Jak vytvořit index vyhledávání ve specifikované složce.  
+- Kroky k **přidání dokumentů do indexu** z více umístění.  
+- Konfiguraci možností vyhledávání pro povolení vyhledávání po částech.  
+- Provádění počátečního a následného vyhledávání po částech.  
+- Reálné scénáře, kde vyhledávání po částech vyniká.  
 
 ## Předpoklady
 Abyste mohli tento návod sledovat, ujistěte se, že máte:
 
 - **Požadované knihovny**: GroupDocs.Search pro Java 25.4 nebo novější.  
 - **Nastavení prostředí**: Nainstalovaný kompatibilní Java Development Kit (JDK).  
-- **Předpoklady znalostí**: Základní programování v Javě a znalost Maven.
+- **Základní znalosti**: Základy programování v Javě a znalost Maven.
 
 ## Nastavení GroupDocs.Search pro Java
 Pro začátek integrujte GroupDocs.Search do svého projektu pomocí Maven:
@@ -59,17 +69,17 @@ Pro začátek integrujte GroupDocs.Search do svého projektu pomocí Maven:
 </dependencies>
 ```
 
-Alternativně stáhněte nejnovější verzi z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternativně si stáhněte nejnovější verzi z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Získání licence
 Pro vyzkoušení GroupDocs.Search:
 
-- **Free Trial** – vyzkoušejte základní funkce bez závazku.  
-- **Temporary License** – rozšířený přístup pro vývoj.  
-- **Purchase** – plná licence pro produkční použití.
+- **Bezplatná zkušební verze** – otestujte základní funkce bez závazku.  
+- **Dočasná licence** – prodloužený přístup pro vývoj.  
+- **Nákup** – plná licence pro produkční použití.
 
 ### Základní inicializace a nastavení
-Vytvořte index ve složce, kde chcete mít vyhledávatelná data:
+Vytvořte index ve složce, kde má být uložená prohledávatelná data:
 
 ```java
 import com.groupdocs.search.*;
@@ -84,10 +94,10 @@ public class CreateIndex {
 ```
 
 ## Jak přidat dokumenty do indexu
-Nyní, když existuje index, dalším logickým krokem je **přidat dokumenty do indexu** z míst, kde jsou vaše soubory uloženy.
+Nyní, když index existuje, dalším logickým krokem je **přidat dokumenty do indexu** z míst, kde jsou vaše soubory uloženy.
 
 ### 1. Vytvoření indexu
-**Přehled**: Nastavte adresář pro vyhledávací index.
+**Přehled**: Nastavte adresář pro index vyhledávání.
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\SearchByChunks";
@@ -113,7 +123,7 @@ index.add(documentsFolder3);
 ```
 
 ### 3. Konfigurace možností vyhledávání pro Chunk Search
-Povolte vyhledávání po částech úpravou objektu options.
+Povolte vyhledávání po částech úpravou objektu možností.
 
 ```java
 SearchOptions options = new SearchOptions();
@@ -124,7 +134,7 @@ options.setChunkSearch(true);
 ```
 
 ### 4. Provádění počátečního vyhledávání po částech
-Spusťte první dotaz pomocí možností povolených pro chunk.
+Spusťte první dotaz s možnostmi povolenými pro částečné vyhledávání.
 
 ```java
 String query = "invitation";
@@ -144,51 +154,73 @@ while (result.getNextChunkSearchToken() != null) {
 ```
 
 ## Proč používat vyhledávání po částech?
-Vyhledávání po částech rozděluje obrovské kolekce dokumentů na zvládnutelné části, snižuje zatížení paměti a zrychluje odezvu. Je zvláště užitečné, když:
+Vyhledávání po částech rozděluje obrovské kolekce dokumentů na zvládnutelné úseky, snižuje zatížení paměti a urychluje odezvu. Je zvláště užitečné, když:
 
 1. **Právní týmy** potřebují najít konkrétní klauzule v tisících smluv.  
 2. **Portály zákaznické podpory** musí okamžitě zobrazit relevantní články znalostní báze.  
 3. **Výzkumníci** procházejí rozsáhlé datové sady, aniž by načítali celé soubory do paměti.
 
-## Úvahy o výkonu
-- **Správa paměti** – Přidělte dostatečný heap (`-Xmx`) pro velké indexy.  
-- **Monitorování zdrojů** – Sledujte využití CPU během indexování a vyhledávání.  
-- **Údržba indexu** – Pravidelně přestavujte nebo čistěte index, abyste odstranili zastaralá data.
+## Jak tento přístup **zvyšuje výkon vyhledávání**
+Vyhledáváním menších částí místo celých souborů může engine:
 
-## Časté úskalí a řešení problémů
-| Problém | Proč se to děje | Oprava |
+- Přeskočit irelevantní sekce již na začátku, čímž šetří CPU cykly.  
+- Udržovat v paměti pouze aktivní část, což přímo snižuje spotřebu **paměti indexu vyhledávání v Javě**.  
+- Paralelizovat zpracování částí na vícejádrových strojích pro rychlejší výsledky.
+
+## Správa **paměti indexu vyhledávání v Javě**
+I když vyhledávání po částech již snižuje paměťovou stopu, můžete dále ladit JVM:
+
+- Přidělte dostatečnou haldu (`-Xmx2g` nebo vyšší) podle velikosti indexu.  
+- Použijte `index.optimize()` po hromadném přidání pro kompresi struktury indexu.  
+- Sledujte pauzy GC pomocí nástrojů jako VisualVM, abyste předešli špičkám latence.
+
+## Úvahy o výkonu
+- **Správa paměti** – Přidělte dostatečnou velikost haldy (`-Xmx`) pro velké indexy.  
+- **Monitorování zdrojů** – Sledujte využití CPU během indexování a vyhledávání.  
+- **Údržba indexu** – Pravidelně obnovujte nebo čistěte index, aby se odstranily zastaralá data.
+
+## Časté chyby a řešení problémů
+| Problém | Proč se vyskytuje | Řešení |
 |-------|----------------|-----|
-| `OutOfMemoryError` během indexování | Velikost haldy příliš malá | Zvyšte JVM heap (`-Xmx2g` nebo vyšší) |
-| Žádné výsledky | Chunk token nebyl zpracován | Ujistěte se, že smyčka `while` běží až dokud `getNextChunkSearchToken()` není `null` |
-| Pomalý výkon vyhledávání | Index není optimalizován | Spusťte `index.optimize()` po hromadných přidáních |
+| `OutOfMemoryError` během indexování | Příliš malá velikost haldy | Zvyšte haldu JVM (`-Xmx2g` nebo vyšší) |
+| Žádné výsledky | Token části nebyl zpracován | Ujistěte se, že smyčka `while` běží, dokud `getNextChunkSearchToken()` není `null` |
+| Pomalejší výkon vyhledávání | Index není optimalizován | Spusťte `index.optimize()` po hromadném přidání |
 
 ## Často kladené otázky
 
 **Q: Co je vyhledávání po částech?**  
-A: Vyhledávání po částech rozděluje datovou sadu na menší části, což umožňuje efektivní dotazy nad velkými objemy dat, aniž by se načítaly celé dokumenty do paměti.
+A: Vyhledávání po částech rozděluje datovou sadu na menší úseky, což umožňuje efektivní dotazy nad velkými objemy dat bez načítání celých dokumentů do paměti.
 
 **Q: Jak aktualizuji svůj index novými soubory?**  
-A: Jednoduše zavolejte `index.add()` s cestou k novým dokumentům; index je automaticky zahrne.
+A: Stačí zavolat `index.add()` s cestou k novým dokumentům; index je automaticky zahrne.
 
-**Q: Dokáže GroupDocs.Search zpracovat různé formáty souborů?**  
+**Q: Dokáže GroupDocs.Search pracovat s různými formáty souborů?**  
 A: Ano, podporuje PDF, DOCX, XLSX, PPTX a mnoho dalších běžných formátů.
 
-**Q: Jaké jsou typické úzké místa výkonu?**  
-A: Omezení paměti a neoptimalizované indexy jsou nejčastější; přidělte dostatečný heap a pravidelně optimalizujte index.
+**Q: Jaké jsou typické úzké hrdla výkonu?**  
+A: Omezení paměti a neoptimalizované indexy jsou nejčastější; přidělte dostatečnou haldu a pravidelně optimalizujte index.
 
 **Q: Kde najdu podrobnější dokumentaci?**  
 A: Navštivte oficiální [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/) pro podrobné návody a reference API.
 
+**Q: Funguje vyhledávání po částech s šifrovanými PDF?**  
+A: Ano, pokud poskytnete heslo pomocí příslušného přetížení API.
+
+**Q: Jak mohu sledovat průběh indexování?**  
+A: Použijte přetížení `Index.add()`, které vrací objekt `Progress`, nebo se napojte na zpětné volání logování.
+
 ## Zdroje
-- **Documentation**: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)  
-- **API Reference**: [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java)  
-- **Download**: [GroupDocs.Search Releases](https://releases.groupdocs.com/search/java/)  
+- **Dokumentace**: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)  
+- **Reference API**: [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java)  
+- **Stáhnout**: [GroupDocs.Search Releases](https://releases.groupdocs.com/search/java/)  
 - **GitHub**: [GroupDocs.Search GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
+- **Bezplatná podpora**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
+- **Dočasná licence**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 ---
 
-**Last Updated:** 2025-12-19  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**Poslední aktualizace:** 2026-02-21  
+**Testováno s:** GroupDocs.Search 25.4 for Java  
+**Autor:** GroupDocs  
+
+---
