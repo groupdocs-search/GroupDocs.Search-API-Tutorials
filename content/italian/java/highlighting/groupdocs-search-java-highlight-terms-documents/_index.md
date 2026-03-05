@@ -1,36 +1,46 @@
 ---
-date: '2025-12-26'
-description: Scopri come cercare e evidenziare il testo nei documenti usando GroupDocs.Search
-  per Java. Esplora le tecniche per l'evidenziazione dell'intero documento e dei frammenti.
+date: '2026-02-27'
+description: Impara come evidenziare il testo in Java usando GroupDocs.Search per
+  Java, coprendo la ricerca di documenti Java, l'indicizzazione di documenti Java
+  e l'evidenziazione dei frammenti.
 keywords:
 - GroupDocs.Search for Java
 - highlight search terms in documents
 - document highlighting
-title: Cerca e Evidenzia il Testo con GroupDocs.Search per Java
+title: Evidenzia il testo Java con GroupDocs.Search
 type: docs
 url: /it/java/highlighting/groupdocs-search-java-highlight-terms-documents/
 weight: 1
 ---
 
-# Cerca e Evidenzia Testo nei Documenti con GroupDocs.Search per Java
+# Evidenziare Testo Java con GroupDocs.Search
 
-Nell'era digitale odierna, **cerca e evidenzia testo** all'interno di collezioni massicce di documenti è una necessità comune. Che tu stia costruendo uno strumento di revisione legale, un portale di ricerca accademica o un cruscotto di assistenza clienti, la capacità di individuare e mettere in risalto istantaneamente i termini chiave migliora notevolmente l'usabilità. In questa guida completa scoprirai come implementare **cerca e evidenzia testo** con GroupDocs.Search per Java—coprendo sia l'evidenziazione dell'intero documento sia l'evidenziazione a livello di frammento per un contesto più mirato.
+Nell'attuale ambiente digitale frenetico, la capacità di **evidenziare testo Java** su grandi collezioni di file è una funzionalità indispensabile. Che tu stia costruendo una piattaforma di revisione legale, un motore di ricerca accademica o una console di supporto clienti, individuare istantaneamente i termini ricercati dagli utenti rende l'esperienza molto più efficiente. Questo tutorial ti guida nell'utilizzo di **GroupDocs.Search for Java** per **cercare documenti Java**, **indicizzare documenti Java** e applicare un'evidenziazione avanzata—sia per documenti interi sia per frammenti mirati.
 
 ## Risposte Rapide
-- **Cosa significa “cerca e evidenzia testo”?** Indica la localizzazione dei termini di ricerca in un documento e la loro evidenziazione visiva (ad es. con colore di sfondo).  
-- **Quale libreria fornisce questa funzionalità?** GroupDocs.Search per Java.  
-- **È necessaria una licenza?** Una prova gratuita è sufficiente per la valutazione; è richiesta una licenza completa per la produzione.  
-- **Posso personalizzare i colori di evidenziazione?** Sì—è possibile impostare qualsiasi colore RGB tramite `HighlightOptions`.  
-- **È supportata l'evidenziazione di frammenti?** Assolutamente; puoi definire termini prima/dopo la corrispondenza per creare snippet concisi.
+- **Cosa significa “search and highlight text”?** Si riferisce al trovare i termini di ricerca in un documento e a enfatizzarli visivamente (ad es., con colore di sfondo).  
+- **Quale libreria fornisce questa funzionalità?** GroupDocs.Search for Java.  
+- **Ho bisogno di una licenza?** Una prova gratuita è sufficiente per la valutazione; è necessaria una licenza completa per la produzione.  
+- **Posso personalizzare i colori di evidenziazione?** Sì—qualsiasi colore RGB può essere impostato tramite `HighlightOptions`.  
+- **Il supporto per l'evidenziazione di frammenti è disponibile?** Assolutamente; è possibile definire termini prima/dopo la corrispondenza per creare snippet concisi.
 
-## Che Cos’è la Ricerca e Evidenziazione di Testo?
-La ricerca e evidenziazione di testo è il processo di scansione di un indice di documenti per una query data, il recupero dei documenti corrispondenti e la marcatura di ogni occorrenza del termine di ricerca nell'output del documento (HTML, PDF, ecc.). Questo indizio visivo aiuta gli utenti finali a individuare immediatamente le informazioni rilevanti.
+## Come Evidenziare Testo Java nei Documenti
+Evidenziare testo Java comporta tre passaggi fondamentali:
+
+1. **Indicizzare i file sorgente** in modo che possano essere cercati rapidamente.  
+2. **Eseguire una query** sull'indice per trovare i documenti corrispondenti.  
+3. **Renderizzare i risultati con indicazioni visive** utilizzando l'API di evidenziazione.  
+
+Di seguito esploriamo ogni passaggio in dettaglio, prima per l'output dell'intero documento e poi per gli snippet a livello di frammento.
+
+## Che Cos'è la Ricerca e l'Evidenziazione del Testo?
+La ricerca e l'evidenziazione del testo è il processo di scansione di un indice di documenti per una determinata query, recuperando i documenti corrispondenti e quindi segnando ogni occorrenza del termine di ricerca nell'output del documento (HTML, PDF, ecc.). Questo indicatore visivo aiuta gli utenti finali a individuare immediatamente le informazioni rilevanti.
 
 ## Perché Usare GroupDocs.Search per Java?
-- **Indicizzazione ad alte prestazioni** con compressione configurabile.  
-- **API di evidenziazione ricca** che funziona su documenti interi e su frammenti personalizzati.  
+- **Indicizzazione ad alte prestazioni** con compressione configurabile (`index documents java`).  
+- **API di evidenziazione avanzata** che funziona su documenti interi e su frammenti personalizzati (`highlight search terms java`).  
 - **Supporto multi‑formato** (DOCX, PDF, PPTX, TXT e altri).  
-- **Integrazione Maven semplice** e API chiara orientata a Java.
+- **Integrazione Maven semplice** e un design pulito incentrato su Java.
 
 ## Prerequisiti
 - Java Development Kit (JDK) 8 o versioni successive.  
@@ -38,7 +48,7 @@ La ricerca e evidenziazione di testo è il processo di scansione di un indice di
 - Un IDE come IntelliJ IDEA o Eclipse.  
 - Familiarità di base con la sintassi Java.
 
-## Configurazione di GroupDocs.Search per Java
+## Configurare GroupDocs.Search per Java
 
 Aggiungi il repository GroupDocs e la dipendenza al tuo `pom.xml`:
 
@@ -60,16 +70,16 @@ Aggiungi il repository GroupDocs e la dipendenza al tuo `pom.xml`:
 </dependencies>
 ```
 
-Puoi anche scaricare l'ultimo JAR direttamente dal sito ufficiale: [GroupDocs.Search per Java releases](https://releases.groupdocs.com/search/java/).
+Puoi anche scaricare l'ultimo JAR direttamente dal sito ufficiale: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Acquisizione della Licenza
+### Acquisizione Licenza
 Inizia con una prova gratuita o ottieni una licenza temporanea per la valutazione. Per le distribuzioni in produzione, acquista una licenza completa per sbloccare tutte le funzionalità.
 
-## Guida all’Implementazione
+## Guida all'Implementazione
 
-L'implementazione è divisa in due sezioni pratiche: **evidenziazione in documenti interi** e **evidenziazione in frammenti**. Entrambe le sezioni includono i passaggi essenziali per **come evidenziare documenti Java** usando GroupDocs.Search.
+L'implementazione è suddivisa in due sezioni pratiche: **evidenziazione in documenti interi** e **evidenziazione in frammenti**. Entrambe le sezioni includono i passaggi essenziali per **come evidenziare documenti Java** usando GroupDocs.Search.
 
-### Configurazione delle Impostazioni dell’Indice
+### Configurazione delle Impostazioni dell'Indice
 Prima dell'indicizzazione, configura lo storage per utilizzare alta compressione—ciò riduce l'uso del disco mantenendo la velocità di ricerca.
 
 ```java
@@ -79,8 +89,8 @@ settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 
 ### Evidenziazione in Documenti Interi
 
-#### Passo 1: Creare e Popolare l’Indice
-Crea una cartella per l’indice e aggiungi tutti i file sorgente che desideri indicizzare.
+#### Passo 1: Creare e Popolare l'Indice
+Crea una cartella per l'indice e aggiungi tutti i file sorgente che desideri indicizzare.
 
 ```java
 String indexFolder = "/path/to/your/document/directory/HighlightingInEntireDocument";
@@ -88,8 +98,8 @@ Index index = new Index(indexFolder, settings);
 index.add("/path/to/your/documents");
 ```
 
-#### Passo 2: Eseguire la Ricerca e Applicare l’Evidenziazione
-Cerca il termine (ad es. `ipsum`) e genera un file HTML con le corrispondenze evidenziate.
+#### Passo 2: Eseguire la Ricerca e Applicare l'Evidenziazione
+Cerca il termine (ad esempio `ipsum`) e genera un file HTML con le corrispondenze evidenziate.
 
 ```java
 SearchResult result = index.search("ipsum");
@@ -107,10 +117,10 @@ if (result.getDocumentCount() > 0) {
 }
 ```
 
-**Opzioni chiave spiegate**
+**Opzioni chiave spiegate**  
 - **Compression** – l'alta compressione salva spazio di archiviazione.  
-- **HighlightColor** – imposta qualsiasi valore RGB per abbinare la tua palette UI.  
-- **UseInlineStyles** – `false` genera HTML pulito che può essere stilizzato globalmente con CSS.
+- **HighlightColor** – imposta qualsiasi valore RGB per corrispondere alla palette UI.  
+- **UseInlineStyles** – `false` genera HTML pulito che può essere stilizzato globalmente con CSS.  
 
 ### Evidenziazione in Frammenti
 
@@ -124,7 +134,7 @@ SearchResult result = index.search("ipsum");
 ```
 
 #### Passo 2: Definire il Contesto del Frammento e Evidenziare
-Specifica quanti termini prima e dopo la corrispondenza devono apparire in ciascun frammento.
+Specifica quanti termini prima e dopo la corrispondenza devono apparire in ogni frammento.
 
 ```java
 HighlightOptions options = new HighlightOptions();
@@ -168,28 +178,28 @@ try {
 ## Applicazioni Pratiche
 1. **Revisione di Documenti Legali** – evidenzia istantaneamente statuti, clausole o riferimenti a casi.  
 2. **Ricerca Accademica** – individua la terminologia chiave tra decine di PDF e file Word.  
-3. **Assistenza Clienti** – individua numeri d'ordine o codici di errore all'interno della cronologia dei ticket.
+3. **Supporto Clienti** – individua numeri d'ordine o codici di errore all'interno della cronologia dei ticket.
 
 ## Considerazioni sulle Prestazioni
-- **Dimensione dell’Indice** – l'alta compressione (`Compression.High`) riduce l’ingombro su disco.  
-- **Contesto del Frammento** – valori più alti per `termsBefore/After` aumentano la precisione ma possono influire sulla velocità.  
-- **Gestione della Memoria** – monitora l'heap JVM durante l'indicizzazione di grandi corpora; considera l’indicizzazione incrementale per insiemi molto grandi.
+- **Dimensione dell'Indice** – alta compressione (`Compression.High`) riduce l'occupazione su disco.  
+- **Contesto del Frammento** – valori più grandi di `termsBefore/After` aumentano l'accuratezza ma possono influire sulla velocità.  
+- **Gestione della Memoria** – monitora l'heap JVM durante l'indicizzazione di grandi corpora; considera l'indicizzazione incrementale per insiemi molto grandi.
 
 ## Problemi Comuni e Soluzioni
-- **Errori di Indicizzazione** – verifica i percorsi dei file e assicurati che l’applicazione abbia i permessi di lettura/scrittura.  
-- **Nessuna Evidenziazione** – conferma che `UseInlineStyles` corrisponda al formato di output (HTML vs. PDF).  
+- **Errori di Indicizzazione** – verifica i percorsi dei file e assicurati che l'applicazione abbia permessi di lettura/scrittura.  
+- **Nessuna Evidenziazione Visualizzata** – conferma che `UseInlineStyles` corrisponda al tuo formato di output (HTML vs. PDF).  
 - **Colore Non Applicato** – assicurati che i valori RGB siano compresi tra 0‑255 e che il visualizzatore HTML supporti lo stile.
 
 ## Domande Frequenti
 
-**D: Quali sono i vantaggi di usare GroupDocs.Search per Java?**  
+**D: Quali sono i vantaggi dell'utilizzare GroupDocs.Search per Java?**  
 R: Offre indicizzazione veloce e scalabile, evidenziazione personalizzabile e supporto per molti formati di documento.
 
 **D: Come posso integrare GroupDocs.Search con un'API REST?**  
 R: Esporre i metodi di ricerca e evidenziazione tramite controller Spring Boot, restituendo payload HTML o JSON.
 
 **D: La libreria gestisce file protetti da password?**  
-R: Sì—fornisci la password al momento dell'aggiunta del documento all’indice.
+R: Sì—fornisci la password quando aggiungi il documento all'indice.
 
 **D: Posso personalizzare il markup di evidenziazione oltre al colore?**  
 R: Assolutamente; puoi iniettare classi CSS tramite `HighlightOptions` o modificare l'HTML dopo la generazione.
@@ -197,8 +207,14 @@ R: Assolutamente; puoi iniettare classi CSS tramite `HighlightOptions` o modific
 **D: Quale versione è stata testata per questa guida?**  
 R: Il codice è stato validato con GroupDocs.Search 25.4.
 
+**D: Come faccio a impostare le highlight options java per usare una classe CSS invece di stili inline?**  
+R: Imposta `options.setUseInlineStyles(false)` e aggiungi una regola CSS per la classe che assegni tramite `options.setCssClass("myHighlight")`.
+
+**D: Esiste un modo per evidenziare termini pdf java direttamente quando la sorgente è un PDF?**  
+R: Sì—GroupDocs.Search funziona con input PDF, e l'evidenziatore produrrà HTML che puoi incorporare in un visualizzatore PDF o convertire nuovamente in PDF usando GroupDocs.Conversion.
+
 ---
 
-**Ultimo Aggiornamento:** 2025-12-26  
+**Ultimo Aggiornamento:** 2026-02-27  
 **Testato Con:** GroupDocs.Search 25.4  
 **Autore:** GroupDocs
