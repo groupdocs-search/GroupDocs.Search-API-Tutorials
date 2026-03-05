@@ -1,38 +1,44 @@
 ---
-date: '2025-12-24'
-description: Aprenda como limitar o tamanho do arquivo de log e usar o console logger
-  Java com o GroupDocs.Search para Java. Este guia aborda configurações de registro,
-  dicas de solução de problemas e otimização de desempenho.
+date: '2026-02-24'
+description: Aprenda a criar um logger personalizado, definir o tamanho máximo do
+  log e configurar o logger de console ou de arquivo no GroupDocs.Search para Java.
 keywords:
 - GroupDocs.Search for Java
 - file logger implementation
 - custom loggers
-title: Limite o tamanho do arquivo de log com os registradores Java do GroupDocs.Search
+title: Como criar um logger personalizado e limitar o tamanho do arquivo de log com
+  GroupDocs.Search Java
 type: docs
 url: /pt/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/
 weight: 1
 ---
 
-# Limitar o tamanho do arquivo de log com os Loggers do GroupDocs.Search Java
+Check for any shortcodes: none.
 
-O registro eficiente é essencial ao gerenciar grandes coleções de documentos, especialmente quando você precisa **limitar o tamanho do arquivo de log** para manter o armazenamento sob controle. **GroupDocs.Search for Java** oferece soluções robustas para lidar com logs por meio de seus poderosos recursos de pesquisa. Este tutorial orienta você na implementação de loggers de arquivo e personalizados usando o GroupDocs.Search, aprimorando a capacidade da sua aplicação de rastrear eventos e depurar problemas.
+Check for code blocks: placeholders are not fenced code blocks; they are placeholders. Should we keep them as is. The instruction says preserve code blocks: fenced code blocks. There are none actual code blocks; placeholders are not fenced. So fine.
+
+Make sure to keep all links unchanged.
+
+Now produce final.# Limitar o tamanho do arquivo de log com os Loggers do GroupDocs.Search Java
+
+Neste guia você **criará implementações de logger personalizado** e aprenderá como **limitar o tamanho do arquivo de log** ao usar o GroupDocs.Search para Java. Controlar o crescimento dos logs é crucial para indexação de documentos em larga escala, e os loggers embutidos permitem que você **defina o tamanho máximo do log**, **gire o arquivo de log**, ou troque para um **logger de console** para feedback instantâneo. Vamos percorrer a configuração completa, da configuração do Maven à execução de uma consulta de pesquisa, e ver como **adicionar documentos ao índice** com o logger configurado.
 
 ## Respostas Rápidas
 - **O que significa “limitar o tamanho do arquivo de log”?** Ele limita o tamanho máximo de um arquivo de log, impedindo o crescimento descontrolado no disco.  
 - **Qual logger permite limitar o tamanho do arquivo de log?** O `FileLogger` embutido aceita um parâmetro de tamanho máximo.  
 - **Como usar o console logger java?** Instancie `ConsoleLogger` e defina‑o em `IndexSettings`.  
-- **Preciso de uma licença para o GroupDocs.Search?** Uma versão de avaliação funciona para avaliação; uma licença comercial é necessária para produção.  
-- **Qual é o primeiro passo?** Adicione a dependência do GroupDocs.Search ao seu projeto Maven.
+- **Preciso de uma licença para o GroupDocs.Search?** Uma versão de avaliação funciona para testes; uma licença comercial é necessária para produção.  
+- **Qual é o primeiro passo?** Adicione a dependência do GroupDocs.Search ao seu projeto Maven.  
 
 ## O que é limitar o tamanho do arquivo de log?
-Limitar o tamanho do arquivo de log significa configurar o logger de modo que, quando o arquivo atinge um limite pré‑definido (por exemplo, 4 MB), ele pare de crescer ou faça rotação. Isso mantém a pegada de armazenamento da sua aplicação previsível e evita a degradação de desempenho.
+Limitar o tamanho do arquivo de log significa configurar o logger de modo que, quando o arquivo atinge um limite predefinido (por exemplo, 4 MB), ele pare de crescer ou seja girado. Isso mantém a pegada de armazenamento da sua aplicação previsível e evita degradação de desempenho.
 
 ## Por que usar loggers de arquivo e personalizados com o GroupDocs.Search?
 - **Auditabilidade:** Mantenha um registro permanente de eventos de indexação e pesquisa.  
 - **Depuração:** Identifique rapidamente problemas revisando logs concisos.  
-- **Flexibilidade:** Escolha entre logs de arquivo persistentes e saída instantânea no console (`use console logger java`).  
+- **Flexibilidade:** Escolha entre logs de arquivo persistentes e saída instantânea no console (`use console logger`).  
 
-## Pré‑requisitos
+## Pré-requisitos
 - **GroupDocs.Search for Java** ≥ 25.4.  
 - JDK 8 ou superior, IDE (IntelliJ IDEA, Eclipse, etc.).  
 - Conhecimento básico de Java e Maven.  
@@ -67,8 +73,11 @@ Baixe o JAR mais recente no site oficial: [GroupDocs.Search for Java releases](h
 ### Aquisição de Licença
 Obtenha uma versão de avaliação ou compre uma licença através da [página de licenciamento](https://purchase.groupdocs.com/temporary-license/).
 
+## Como criar logger personalizado para o GroupDocs.Search
+O GroupDocs.Search permite que você conecte qualquer implementação da interface `ILogger`. Ao estender `FileLogger` ou `ConsoleLogger`, você pode adicionar comportamentos extras — como girar o arquivo de log ou encaminhar mensagens para um serviço de monitoramento remoto. Essa flexibilidade é a razão pela qual muitas equipes **criam logger personalizado** soluções que se adequam às suas necessidades operacionais.
+
 ## Como limitar o tamanho do arquivo de log com o File Logger
-A seguir, um guia passo a passo que mostra como configurar o `FileLogger` para que o arquivo de log nunca exceda o tamanho especificado.
+Abaixo está um guia passo a passo que mostra como **configurar o file logger** para que o arquivo de log nunca exceda o tamanho especificado.
 
 ### 1️⃣ Importar Pacotes Necessários
 ```java
@@ -97,15 +106,15 @@ Index index = new Index(indexFolder, settings);
 index.add(documentsFolder);
 ```
 
-### 5️⃣ Executar uma Consulta de Busca
+### 5️⃣ Executar uma Consulta de Pesquisa
 ```java
 SearchResult result = index.search(query);
 ```
 
-**Ponto chave:** O segundo argumento do construtor `FileLogger` (`4.0`) define o tamanho máximo do arquivo de log em megabytes, atendendo diretamente ao requisito de **limitar o tamanho do arquivo de log**.
+**Ponto chave:** O segundo argumento do construtor `FileLogger` (`4.0`) define o **set max log size** em megabytes, atendendo diretamente ao requisito de **limit log file size**.
 
 ## Como usar console logger java
-Se você prefere feedback imediato no terminal, substitua o file logger por um console logger.
+Se você prefere feedback imediato no terminal, troque o file logger por um console logger.
 
 ### 1️⃣ Importar o Console Logger
 ```java
@@ -128,33 +137,33 @@ settings.setLogger(new ConsoleLogger()); // use console logger java
 Index index = new Index(indexFolder, settings);
 ```
 
-### 4️⃣ Adicionar Documentos e Executar uma Busca
+### 4️⃣ Adicionar Documentos e Executar uma Pesquisa
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
 ```
 
-**Dica:** O console logger é ideal durante o desenvolvimento porque imprime cada entrada de log instantaneamente, ajudando a verificar se a indexação e a busca se comportam como esperado.
+**Dica:** O console logger é ideal durante o desenvolvimento porque imprime cada entrada de log instantaneamente, ajudando você a verificar se a indexação e a pesquisa se comportam como esperado.
 
 ## Aplicações Práticas
 1. **Sistemas de Gerenciamento de Documentos:** Mantenha trilhas de auditoria de cada documento indexado.  
-2. **Motores de Busca Empresariais:** Monitore o desempenho de consultas e taxas de erro em tempo real.  
-3. **Software Jurídico & de Conformidade:** Registre termos de busca para relatórios regulatórios.
+2. **Motores de Busca Corporativos:** Monitore o desempenho de consultas e taxas de erro em tempo real.  
+3. **Software Jurídico & de Conformidade:** Registre termos de pesquisa para relatórios regulatórios.
 
-## Considerações de Desempenho
-- **Tamanho do Log:** Ao limitar o tamanho do arquivo de log, você evita uso excessivo de disco que poderia desacelerar sua aplicação.  
+## Considerações de Performance
+- **Tamanho do Log:** Ao **set max log size**, você evita uso excessivo de disco que poderia desacelerar sua aplicação.  
 - **Log Assíncrono:** Se precisar de maior taxa de transferência, considere envolver o logger em uma fila assíncrona (fora do escopo deste guia).  
 - **Gerenciamento de Memória:** Libere objetos `Index` grandes quando não forem mais necessários para manter a pegada da JVM baixa.
 
 ## Problemas Comuns & Soluções
-- **Caminho do log inacessível:** Verifique se o diretório existe e se a aplicação tem permissões de gravação.  
-- **Logger não disparando:** Certifique‑se de chamar `settings.setLogger(...)` *antes* de criar o objeto `Index`.  
-- **Saída do console ausente:** Confirme que você está executando a aplicação em um terminal que exibe `System.out`.
+- **Caminho do log inacessível:** Verifique se o diretório existe e se a aplicação tem permissões de escrita.  
+- **Logger não está disparando:** Certifique-se de chamar `settings.setLogger(...)` *antes* de criar o objeto `Index`.  
+- **Saída do console ausente:** Confirme que está executando a aplicação em um terminal que exibe `System.out`.
 
 ## Perguntas Frequentes
 
-**Q: O que controla o segundo parâmetro do `FileLogger`?**  
-A: Ele define o tamanho máximo do arquivo de log em megabytes, permitindo que você limite o tamanho do arquivo de log.
+**Q: O que o segundo parâmetro do `FileLogger` controla?**  
+A: Ele define o tamanho máximo do arquivo de log em megabytes, permitindo que você **set max log size**.
 
 **Q: Posso combinar file e console loggers?**  
 A: Sim, criando um logger personalizado que encaminha mensagens para ambos os destinos.
@@ -166,7 +175,7 @@ A: Chame `index.add(pathToNewDocs)` a qualquer momento; o logger registrará a o
 A: Ele grava diretamente em `System.out`, que é sincronizado pela JVM, tornando‑o seguro para a maioria dos casos de uso.
 
 **Q: Limitar o tamanho do arquivo de log afetará a quantidade de informações armazenadas?**  
-A: Quando o limite de tamanho é atingido, novas entradas podem ser descartadas ou o arquivo pode fazer rotação, dependendo da implementação do logger.
+A: Quando o limite de tamanho é atingido, novas entradas podem ser descartadas ou o arquivo pode **roll over log file**, dependendo da implementação do logger.
 
 ## Recursos
 - [Documentation](https://docs.groupdocs.com/search/java/)
@@ -174,8 +183,6 @@ A: Quando o limite de tamanho é atingido, novas entradas podem ser descartadas 
 
 ---
 
-**Última Atualização:** 2025-12-24  
-**Testado com:** GroupDocs.Search for Java 25.4  
-**Autor:** GroupDocs  
-
----
+**Última Atualização:** 2026-02-24  
+**Testado Com:** GroupDocs.Search for Java 25.4  
+**Autor:** GroupDocs

@@ -1,48 +1,48 @@
 ---
-date: '2025-12-24'
-description: Aprende a limitar el tamaño del archivo de registro y a usar el registrador
-  de consola en Java con GroupDocs.Search para Java. Esta guía cubre configuraciones
-  de registro, consejos de solución de problemas y optimización del rendimiento.
+date: '2026-02-24'
+description: Aprende cómo crear un registrador personalizado, establecer el tamaño
+  máximo del registro y configurar el registrador de consola o de archivo en GroupDocs.Search
+  para Java.
 keywords:
 - GroupDocs.Search for Java
 - file logger implementation
 - custom loggers
-title: Limitar el tamaño del archivo de registro con los registradores de GroupDocs.Search
-  Java
+title: Cómo crear un registrador personalizado y limitar el tamaño del archivo de
+  registro con GroupDocs.Search Java
 type: docs
 url: /es/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/
 weight: 1
 ---
 
-# Limitar el tamaño del archivo de registro con GroupDocs.Search Java Loggers
+.# Limitar el tamaño del archivo de registro con los registradores de GroupDocs.Search Java
 
-El registro eficiente es esencial al gestionar grandes colecciones de documentos, especialmente cuando necesita **limitar el tamaño del archivo de registro** para mantener el almacenamiento bajo control. **GroupDocs.Search for Java** ofrece soluciones robustas para manejar registros a través de sus potentes capacidades de búsqueda. Este tutorial le guía en la implementación de registradores de archivo y personalizados usando GroupDocs.Search, mejorando la capacidad de su aplicación para rastrear eventos y depurar problemas.
+En esta guía crearás implementaciones de **custom logger** y aprenderás a **limit log file size** mientras usas GroupDocs.Search para Java. Controlar el crecimiento de los registros es crucial para la indexación de documentos a gran escala, y los registradores incorporados te permiten **set max log size**, **roll over log file**, o cambiar a un **use console logger** para obtener retroalimentación instantánea. Revisemos la configuración completa, desde la configuración de Maven hasta la ejecución de una consulta de búsqueda, y veamos cómo **add documents index** con el registrador activo.
 
 ## Respuestas rápidas
 - **¿Qué significa “limit log file size”?** Limita el tamaño máximo de un archivo de registro, evitando un crecimiento descontrolado en el disco.  
-- **¿Qué registrador le permite limitar el tamaño del archivo de registro?** El `FileLogger` incorporado acepta un parámetro de tamaño máximo.  
-- **¿Cómo utilizo console logger java?** Instancie `ConsoleLogger` y establézcalo en `IndexSettings`.  
-- **¿Necesito una licencia para GroupDocs.Search?** Una versión de prueba funciona para evaluación; se requiere una licencia comercial para producción.  
-- **¿Cuál es el primer paso?** Añada la dependencia de GroupDocs.Search a su proyecto Maven.
+- **¿Qué registrador permite limitar el tamaño del archivo de registro?** El `FileLogger` incorporado acepta un parámetro de tamaño máximo.  
+- **¿Cómo uso console logger java?** Instancia `ConsoleLogger` y configúralo en `IndexSettings`.  
+- **¿Necesito una licencia para GroupDocs.Search?** Una prueba funciona para evaluación; se requiere una licencia comercial para producción.  
+- **¿Cuál es el primer paso?** Añade la dependencia de GroupDocs.Search a tu proyecto Maven.  
 
 ## ¿Qué es limitar el tamaño del archivo de registro?
-Limitar el tamaño del archivo de registro significa configurar el registrador de modo que, una vez que el archivo alcanza un umbral predefinido (p. ej., 4 MB), deje de crecer o se renueve. Esto mantiene la huella de almacenamiento de su aplicación predecible y evita la degradación del rendimiento.
+Limitar el tamaño del archivo de registro significa configurar el registrador de modo que, una vez que el archivo alcanza un umbral predefinido (p. ej., 4 MB), deje de crecer o se renueve. Esto mantiene predecible la huella de almacenamiento de tu aplicación y evita la degradación del rendimiento.
 
 ## ¿Por qué usar registradores de archivo y personalizados con GroupDocs.Search?
-- **Auditabilidad:** Mantenga un registro permanente de los eventos de indexación y búsqueda.  
-- **Depuración:** Identifique rápidamente los problemas revisando registros concisos.  
-- **Flexibilidad:** Elija entre registros de archivo persistentes y salida instantánea en consola (`use console logger java`).  
+- **Auditabilidad:** Mantén un registro permanente de los eventos de indexación y búsqueda.  
+- **Depuración:** Identifica rápidamente problemas revisando registros concisos.  
+- **Flexibilidad:** Elige entre registros persistentes en archivo y salida instantánea en consola (`use console logger`).  
 
 ## Requisitos previos
 - **GroupDocs.Search for Java** ≥ 25.4.  
 - JDK 8 o superior, IDE (IntelliJ IDEA, Eclipse, etc.).  
-- Conocimientos básicos de Java y Maven.
+- Conocimientos básicos de Java y Maven.  
 
 ## Configuración de GroupDocs.Search para Java
 
-Añada la biblioteca a su proyecto usando uno de los métodos a continuación.
+Añade la biblioteca a tu proyecto usando uno de los métodos siguientes.
 
-**Configuración Maven:**  
+**Configuración Maven:**
 
 ```xml
 <repositories>
@@ -63,13 +63,16 @@ Añada la biblioteca a su proyecto usando uno de los métodos a continuación.
 ```
 
 **Descarga directa:**  
-Descargue el último JAR desde el sitio oficial: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Descarga el JAR más reciente desde el sitio oficial: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Obtención de licencia
-Obtenga una versión de prueba o compre una licencia a través de la [página de licencias](https://purchase.groupdocs.com/temporary-license/).
+Obtén una prueba o compra una licencia a través de la [licensing page](https://purchase.groupdocs.com/temporary-license/).
+
+## Cómo crear un registrador personalizado para GroupDocs.Search
+GroupDocs.Search te permite conectar cualquier implementación de la interfaz `ILogger`. Al extender `FileLogger` o `ConsoleLogger`, puedes añadir comportamiento extra, como renovar el archivo de registro o reenviar mensajes a un servicio de monitoreo remoto. Esta flexibilidad es la razón por la que muchos equipos **create custom logger** soluciones que se ajustan a sus necesidades operativas.
 
 ## Cómo limitar el tamaño del archivo de registro con File Logger
-A continuación se muestra una guía paso a paso que indica cómo configurar `FileLogger` para que el archivo de registro nunca supere el tamaño que usted especifique.
+A continuación se muestra una guía paso a paso que indica cómo **configure file logger** para que el archivo de registro nunca supere el tamaño que especifiques.
 
 ### 1️⃣ Importar paquetes necesarios
 ```java
@@ -103,10 +106,10 @@ index.add(documentsFolder);
 SearchResult result = index.search(query);
 ```
 
-**Punto clave:** El segundo argumento del constructor `FileLogger` (`4.0`) define el tamaño máximo del archivo de registro en megabytes, abordando directamente el requisito de **limit log file size**.
+**Punto clave:** El segundo argumento del constructor de `FileLogger` (`4.0`) define el **set max log size** en megabytes, abordando directamente el requisito de **limit log file size**.
 
 ## Cómo usar console logger java
-Si prefiere retroalimentación inmediata en la terminal, reemplace el file logger por un console logger.
+Si prefieres retroalimentación inmediata en la terminal, sustituye el file logger por un console logger.
 
 ### 1️⃣ Importar el Console Logger
 ```java
@@ -135,46 +138,48 @@ index.add(documentsFolder);
 SearchResult result = index.search(query);
 ```
 
-**Consejo:** El console logger es ideal durante el desarrollo porque imprime cada entrada de registro instantáneamente, ayudándole a verificar que la indexación y la búsqueda se comporten como se espera.
+**Consejo:** El console logger es ideal durante el desarrollo porque imprime cada entrada de registro al instante, ayudándote a verificar que la indexación y la búsqueda se comporten como se espera.
 
 ## Aplicaciones prácticas
-1. **Sistemas de gestión de documentos:** Mantenga rastros de auditoría de cada documento indexado.  
-2. **Motores de búsqueda empresarial:** Monitoree el rendimiento de consultas y las tasas de error en tiempo real.  
-3. **Software legal y de cumplimiento:** Registre los términos de búsqueda para informes regulatorios.
+1. **Sistemas de gestión documental:** Mantén auditorías de cada documento indexado.  
+2. **Motores de búsqueda empresarial:** Supervisa el rendimiento de consultas y tasas de error en tiempo real.  
+3. **Software legal y de cumplimiento:** Registra los términos de búsqueda para informes regulatorios.
 
 ## Consideraciones de rendimiento
-- **Tamaño del registro:** Al limitar el tamaño del archivo de registro, evita un uso excesivo de disco que podría ralentizar su aplicación.  
-- **Registro asíncrono:** Si necesita mayor rendimiento, considere envolver el registrador en una cola asíncrona (fuera del alcance de esta guía).  
-- **Gestión de memoria:** Libere objetos `Index` grandes cuando ya no sean necesarios para mantener baja la huella de la JVM.
+- **Tamaño del registro:** Con **set max log size**, evitas un uso excesivo de disco que podría ralentizar tu aplicación.  
+- **Registro asíncrono:** Si necesitas mayor rendimiento, considera envolver el registrador en una cola async (fuera del alcance de esta guía).  
+- **Gestión de memoria:** Libera objetos `Index` grandes cuando ya no sean necesarios para mantener baja la huella de la JVM.
 
 ## Problemas comunes y soluciones
-- **Ruta del registro no accesible:** Verifique que el directorio exista y que la aplicación tenga permisos de escritura.  
-- **El registrador no se activa:** Asegúrese de llamar a `settings.setLogger(...)` *antes* de crear el objeto `Index`.  
-- **Salida de consola ausente:** Confirme que está ejecutando la aplicación en una terminal que muestra `System.out`.
+- **Ruta del registro no accesible:** Verifica que el directorio exista y que la aplicación tenga permisos de escritura.  
+- **El registrador no se dispara:** Asegúrate de llamar a `settings.setLogger(...)` *antes* de crear el objeto `Index`.  
+- **Salida de consola ausente:** Confirma que estás ejecutando la aplicación en una terminal que muestra `System.out`.
 
 ## Preguntas frecuentes
 
-**P: ¿Qué controla el segundo parámetro de `FileLogger`?**  
-R: Establece el tamaño máximo del archivo de registro enabytes, permitiéndole limitar el tamaño del archivo de registro.
+**Q:** ¿Qué controla el segundo parámetro de `FileLogger`?  
+**A:** Define el tamaño máximo del archivo de registro en megabytes, permitiéndote **set max log size**.
 
-**P: ¿Puedo combinar file y console loggers?**  
-R: Sí, creando un registrador personalizado que reenvíe los mensajes a ambas destinos.
+**Q:** ¿Puedo combinar registradores de archivo y consola?  
+**A:** Sí, creando un registrador personalizado que reenvíe los mensajes a ambas destinaciones.
 
-**P: ¿Cómo añado documentos al índice después de la creación inicial?**  
-R: Llame a `index.add(pathToNewDocs)` en cualquier momento; el registrador registrará la operación.
+**Q:** ¿Cómo añado documentos al índice después de la creación inicial?  
+**A:** Llama a `index.add(pathToNewDocs)` en cualquier momento; el registrador registrará la operación.
 
-**P: ¿Es `ConsoleLogger` thread‑safe?**  
-R: Escribe directamente a `System.out`, que está sincronizado por la JVM, lo que lo hace seguro para la mayoría de los casos de uso.
+**Q:** ¿Es `ConsoleLogger` thread‑safe?  
+**A:** Escribe directamente a `System.out`, que está sincronizado por la JVM, por lo que es seguro para la mayoría de los casos.
 
-**P: ¿Limitar el tamaño del archivo de registro afectará la cantidad de información almacenada?**  
-R: Una vez alcanzado el límite de tamaño, las nuevas entradas pueden descartarse o el archivo puede renovarse, según la implementación del registrador.
+**Q:** ¿Limitar el tamaño del archivo de registro afecta la cantidad de información almacenada?  
+**A:** Cuando se alcanza el límite, las nuevas entradas pueden descartarse o el archivo puede **roll over log file**, según la implementación del registrador.
 
 ## Recursos
-- [Documentación](https://docs.groupdocs.com/search/java/)
-- [Referencia de API](https://reference.groupdocs.com/search/java/)
+- [Documentation](https://docs.groupdocs.com/search/java/)
+- [API Reference](https://reference.groupdocs.com/search/java/)
 
 ---
 
-**Última actualización:** 2025-12-24  
+**Última actualización:** 2026-02-24  
 **Probado con:** GroupDocs.Search for Java 25.4  
-**Autor:** GroupDocs
+**Autor:** GroupDocs  
+
+---

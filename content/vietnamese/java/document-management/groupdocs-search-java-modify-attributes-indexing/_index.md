@@ -1,46 +1,47 @@
 ---
-date: '2025-12-24'
-description: Tìm hiểu cách tìm kiếm theo thuộc tính java bằng GroupDocs.Search. Hướng
-  dẫn này cho thấy cách cập nhật hàng loạt các thuộc tính tài liệu, thêm và sửa đổi
-  các thuộc tính trong quá trình lập chỉ mục.
+date: '2026-02-24'
+description: Học cách tìm kiếm theo thuộc tính Java bằng GroupDocs.Search. Hướng dẫn
+  này trình bày cách cập nhật hàng loạt các thuộc tính tài liệu, cũng như thêm và
+  sửa đổi các thuộc tính trong quá trình lập chỉ mục.
 keywords:
 - GroupDocs.Search Java
 - document attribute modification
 - Java indexing techniques
-title: Tìm kiếm theo thuộc tính Java với hướng dẫn GroupDocs.Search
+title: Tìm kiếm theo Thuộc tính Java với Hướng dẫn GroupDocs.Search
 type: docs
 url: /vi/java/document-management/groupdocs-search-java-modify-attributes-indexing/
 weight: 1
 ---
 
-# Hướng dẫn Search by Attribute Java với GroupDocs.Search
+# Tìm kiếm theo Thuộc tính Java với Hướng dẫn GroupDocs.Search
 
-Bạn đang muốn nâng cao hệ thống quản lý tài liệu của mình bằng cách động chỉnh sửa và lập chỉ mục các thuộc tính tài liệu bằng Java? Bạn đã đến đúng nơi! Bài hướng dẫn này sẽ đi sâu vào việc tận dụng thư viện mạnh mẽ GroupDocs.Search for Java để **search by attribute java**, thay đổi các thuộc tính tài liệu đã lập chỉ mục và thêm chúng trong quá trình lập chỉ mục. Dù bạn đang xây dựng giải pháp tìm kiếm hay tối ưu hoá quy trình tài liệu, việc nắm vững các kỹ thuật này là chìa khóa.
+Bạn đang muốn nâng cao hệ thống quản lý tài liệu của mình bằng cách động chỉnh sửa và lập chỉ mục các thuộc tính tài liệu bằng Java? Bạn đã đến đúng nơi! Bài hướng dẫn này đi sâu vào việc tận dụng thư viện mạnh mẽ GroupDocs.Search cho Java để **search by attribute java**, thay đổi các thuộc tính tài liệu đã lập chỉ mục, và thêm chúng trong quá trình lập chỉ mục. Dù bạn đang xây dựng một cổng thông tin có khả năng tìm kiếm, một kho lưu trữ tuân thủ, hay một ứng dụng thông minh dựa trên nội dung, việc thành thạo các kỹ thuật này sẽ giúp bạn tiết kiệm thời gian và cải thiện hiệu năng.
 
 ## Câu trả lời nhanh
-- **What is “search by attribute java”?** Đó là khả năng lọc kết quả tìm kiếm bằng siêu dữ liệu tùy chỉnh được gắn vào mỗi tài liệu.  
-- **Can I modify attributes after indexing?** Có — sử dụng `AttributeChangeBatch` để cập nhật hàng loạt các thuộc tính tài liệu.  
-- **How do I add attributes while indexing?** Đăng ký sự kiện `FileIndexing` và thiết lập thuộc tính bằng mã.  
-- **Do I need a license?** Bản dùng thử miễn phí đủ cho việc đánh giá; giấy phép vĩnh viễn là bắt buộc cho môi trường sản xuất.  
-- **Which Java version is required?** Khuyến nghị sử dụng Java 8 hoặc phiên bản mới hơn.
+- **“search by attribute java” là gì?** Đó là khả năng lọc kết quả tìm kiếm bằng siêu dữ liệu tùy chỉnh được gắn vào mỗi tài liệu.  
+- **Tôi có thể sửa đổi thuộc tính sau khi lập chỉ mục không?** Có — sử dụng `AttributeChangeBatch` để cập nhật hàng loạt các thuộc tính tài liệu.  
+- **Làm sao để thêm thuộc tính khi lập chỉ mục?** Đăng ký sự kiện `FileIndexing` và đặt thuộc tính một cách lập trình.  
+- **Có cần giấy phép không?** Bản dùng thử miễn phí đủ cho việc đánh giá; giấy phép vĩnh viễn cần thiết cho môi trường sản xuất.  
+- **Yêu cầu phiên bản Java nào?** Java 8 hoặc mới hơn được khuyến nghị.
 
-## Search by attribute java là gì?
-**Search by attribute java** cho phép bạn truy vấn tài liệu dựa trên siêu dữ liệu (thuộc tính) của chúng thay vì chỉ nội dung. Bằng cách gắn các cặp key‑value như `public`, `main`, hoặc `key` vào mỗi tệp, bạn có thể nhanh chóng thu hẹp kết quả tới tập con phù hợp nhất.
+## “search by attribute java” là gì?
+**Search by attribute java** cho phép bạn truy vấn tài liệu dựa trên siêu dữ liệu (thuộc tính) của chúng thay vì chỉ dựa trên nội dung. Bằng cách gắn các cặp khóa‑giá trị như `public`, `main`, hoặc `key` vào mỗi tệp, bạn có thể nhanh chóng thu hẹp kết quả xuống tập con phù hợp nhất.
 
-## Tại sao cần sửa đổi hoặc thêm thuộc tính?
-- **Dynamic categorization** – giữ metadata đồng bộ với các quy tắc kinh doanh.  
-- **Faster filtering** – bộ lọc thuộc tính được đánh giá trước tìm kiếm toàn văn, giúp cải thiện hiệu năng.  
-- **Compliance tracking** – gắn thẻ tài liệu cho các chính sách lưu trữ hoặc yêu cầu kiểm toán.
+## Tại sao nên dùng Gắn thẻ Siêu dữ liệu Động?
+- **Phân loại động** – giữ cho siêu dữ liệu luôn đồng bộ với các quy tắc kinh doanh đang thay đổi.  
+- **Lọc nhanh hơn** – bộ lọc thuộc tính được đánh giá trước tìm kiếm toàn văn, giúp tăng tốc thời gian phản hồi.  
+- **Theo dõi tuân thủ** – gắn thẻ tài liệu cho các chính sách lưu trữ hoặc yêu cầu kiểm toán.  
+- **Cập nhật thuộc tính hàng loạt** – thay đổi nhiều tài liệu trong một thao tác mà không cần lập chỉ mục lại toàn bộ.
 
-## Yêu cầu trước
+## Điều kiện tiên quyết
 
 - **Java 8+** (JDK 8 hoặc mới hơn)  
-- **GroupDocs.Search for Java** library (xem phần Cài đặt Maven bên dưới)  
+- Thư viện **GroupDocs.Search for Java** (xem phần thiết lập Maven bên dưới)  
 - Kiến thức cơ bản về Java và các khái niệm lập chỉ mục  
 
 ## Cài đặt GroupDocs.Search cho Java
 
-### Cài đặt Maven
+### Thiết lập Maven
 
 ```xml
 <repositories>
@@ -63,12 +64,12 @@ Bạn đang muốn nâng cao hệ thống quản lý tài liệu của mình b�
 ### Tải trực tiếp
 
 Ngoài ra, tải phiên bản mới nhất từ [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).  
-Nếu bạn không muốn dùng công cụ xây dựng như Maven, tải JAR từ [GroupDocs website](https://releases.groupdocs.com/search/java/).
+Nếu bạn không muốn dùng công cụ xây dựng như Maven, tải JAR từ [trang web GroupDocs](https://releases.groupdocs.com/search/java/).
 
-### Cách lấy giấy phép
+### Mua giấy phép
 
 - Bắt đầu với bản dùng thử miễn phí để khám phá các tính năng.  
-- Đối với việc sử dụng lâu dài, lấy giấy phép tạm thời hoặc đầy đủ qua [license page](https://purchase.groupdocs.com/temporary-license).
+- Đối với việc sử dụng lâu dài, mua giấy phép tạm thời hoặc đầy đủ qua [trang giấy phép](https://purchase.groupdocs.com/temporary-license).
 
 ### Khởi tạo cơ bản
 
@@ -79,22 +80,21 @@ import com.groupdocs.search.Index;
 Index index = new Index("YOUR_OUTPUT_DIRECTORY/ChangeAttributes");
 ```
 
-## Hướng dẫn triển khai
+## Cách sửa đổi Thuộc tính Tài liệu (Cập nhật Hàng loạt)
 
 ### Search by Attribute Java – Thay đổi Thuộc tính Tài liệu
 
-#### Tổng quan
 Bạn có thể thêm, xóa hoặc thay thế thuộc tính trên các tài liệu đã được lập chỉ mục, cho phép **batch update document attributes** mà không cần lập chỉ mục lại toàn bộ bộ sưu tập.
 
-#### Các bước thực hiện
+### Các bước thực hiện
 
-**Bước 1: Thêm tài liệu vào chỉ mục**  
+**Bước 1: Thêm Tài liệu vào Chỉ mục**  
 
 ```java
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-**B 2: Lấy thông tin tài liệu đã lập chỉ mục**  
+**Bước 2: Lấy Thông tin Tài liệu Đã Lập chỉ mục**  
 
 ```java
 import com.groupdocs.search.results.DocumentInfo;
@@ -102,7 +102,7 @@ import com.groupdocs.search.results.DocumentInfo;
 DocumentInfo[] documents = index.getIndexedDocuments();
 ```
 
-**Bước 3: Cập nhật hàng loạt Thuộc tính Tài liệu**  
+**Bước 3: Cập nhật Hàng loạt Thuộc tính Tài liệu**  
 
 ```java
 import com.groupdocs.search.common.AttributeChangeBatch;
@@ -117,7 +117,7 @@ batch.add(documents[0].getFilePath(), "main", "key"); // Add 'main' and 'key' at
 index.changeAttributes(batch);
 ```
 
-**Bước 4: Tìm kiếm với bộ lọc Thuộc tính**  
+**Bước 4: Tìm kiếm với Bộ lọc Thuộc tính**  
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -128,15 +128,16 @@ String query = "length";
 SearchResult result = index.search(query, options); // Perform the search
 ```
 
-### Cập nhật hàng loạt Thuộc tính Tài liệu bằng AttributeChangeBatch
-Lớp `AttributeChangeBatch` là công cụ cốt lõi cho **batch update document attributes**. Bằng cách nhóm các thay đổi thành một batch duy nhất, bạn giảm tải I/O và giữ cho chỉ mục luôn nhất quán.
+### Cập nhật Hàng loạt Thuộc tính với AttributeChangeBatch
+Lớp `AttributeChangeBatch` là công cụ cốt lõi cho **batch update document attributes**. Bằng cách nhóm các thay đổi vào một batch duy nhất, bạn giảm tải I/O và giữ cho chỉ mục luôn nhất quán.
+
+## Cách Thêm Thuộc tính Khi Lập chỉ mục
 
 ### Search by Attribute Java – Thêm Thuộc tính Khi Lập chỉ mục
 
-#### Tổng quan
 Kết nối vào sự kiện `FileIndexing` để gán các thuộc tính tùy chỉnh khi mỗi tệp được thêm vào chỉ mục.
 
-#### Các bước thực hiện
+### Các bước thực hiện
 
 **Bước 1: Đăng ký Sự kiện FileIndexing**  
 
@@ -162,44 +163,53 @@ index.add("YOUR_DOCUMENT_DIRECTORY");
 
 ## Ứng dụng Thực tiễn
 
-1. **Document Management Systems** – Tự động phân loại bằng cách thêm metadata trong quá trình nhập.  
-2. **Large Content Archives** – Sử dụng bộ lọc thuộc tính để thu hẹp tìm kiếm, giảm thời gian phản hồi đáng kể.  
-3. **Compliance & Reporting** – Gắn thẻ tài liệu động cho lịch trình lưu trữ hoặc theo dõi kiểm toán.
+1. **Hệ thống Quản lý Tài liệu** – Tự động phân loại bằng cách thêm siêu dữ liệu trong quá trình nhập.  
+2. **Kho Lưu trữ Nội dung Lớn** – Sử dụng bộ lọc thuộc tính để thu hẹp tìm kiếm, giảm đáng kể thời gian phản hồi.  
+3. **Tuân thủ & Báo cáo** – Gắn thẻ tài liệu động cho lịch trình lưu trữ hoặc dấu vết kiểm toán.
 
-## Các lưu ý về Hiệu năng
+## Các Lưu ý Về Hiệu năng
 
-- **Memory Management** – Giám sát heap của JVM và điều chỉnh `-Xmx` khi cần.  
-- **Batch Processing** – Nhóm các thay đổi thuộc tính bằng `AttributeChangeBatch` để giảm số lần ghi chỉ mục.  
-- **Library Updates** – Giữ GroupDocs.Search luôn cập nhật để hưởng lợi từ các bản vá hiệu năng.
+- **Quản lý Bộ nhớ** – Giám sát heap JVM và điều chỉnh `-Xmx` khi cần.  
+- **Xử lý Hàng loạt** – Nhóm các thay đổi thuộc tính bằng `AttributeChangeBatch` để giảm số lần ghi chỉ mục.  
+- **Cập nhật Thư viện** – Giữ GroupDocs.Search luôn ở phiên bản mới nhất để hưởng các bản vá hiệu năng.
+
+## Các Vấn đề Thường gặp và Giải pháp
+
+| Vấn đề | Nguyên nhân | Cách khắc phục |
+|-------|-------------|----------------|
+| **Thuộc tính không được áp dụng** | Trình xử lý sự kiện chưa được đăng ký trước khi lập chỉ mục | Đảm bảo `index.getEvents().FileIndexing.add(...)` chạy trước `index.add(...)`. |
+| **Kết quả tìm kiếm không trả về** | Tên thuộc tính không khớp (phân biệt chữ hoa‑thường) | Sử dụng đúng tên thuộc tính khi tạo bộ lọc (`createAttribute("main")`). |
+| **Lỗi hết bộ nhớ** khi xử lý batch lớn | Quá nhiều thay đổi trong một batch duy nhất | Chia các cập nhật lớn thành các `AttributeChangeBatch` nhỏ hơn. |
+| **Giấy phép không được công nhận** | Dùng JAR bản dùng thử mà chưa áp dụng file giấy phép | Gọi `License license = new License(); license.setLicense("path/to/license.file");` trước bất kỳ thao tác nào với chỉ mục. |
 
 ## Câu hỏi Thường gặp
 
-**Q: What are the prerequisites for using GroupDocs.Search in Java?**  
-A: Bạn cần Java 8+, thư viện GroupDocs.Search và kiến thức cơ bản về các khái niệm lập chỉ mục.
+**Hỏi: Những điều kiện tiên quyết để sử dụng GroupDocs.Search trong Java là gì?**  
+Đáp: Bạn cần Java 8+, thư viện GroupDocs.Search, và kiến thức cơ bản về các khái niệm lập chỉ mục.
 
-**Q: How do I install GroupDocs.Search via Maven?**  
-A: Thêm repository và dependency được hiển thị trong phần Cài đặt Maven vào file `pom.xml` của bạn.
+**Hỏi: Làm sao cài đặt GroupDocs.Search qua Maven?**  
+Đáp: Thêm repository và dependency như trong phần Thiết lập Maven vào file `pom.xml` của bạn.
 
-**Q: Can I modify attributes after documents are indexed?**  
-A: Có, sử dụng `AttributeChangeBatch` để cập nhật hàng loạt các thuộc tính tài liệu mà không cần lập chỉ mục lại.
+**Hỏi: Tôi có thể sửa đổi thuộc tính sau khi tài liệu đã được lập chỉ mục không?**  
+Đáp: Có, dùng `AttributeChangeBatch` để cập nhật hàng loạt các thuộc tính tài liệu mà không cần lập chỉ mục lại.
 
-**Q: What if my indexing process is slow?**  
-A: Tối ưu cài đặt bộ nhớ JVM, sử dụng cập nhật hàng loạt, và đảm bảo bạn đang dùng phiên bản thư viện mới nhất.
+**Hỏi: Nếu quá trình lập chỉ mục của tôi chậm thì phải làm sao?**  
+Đáp: Tối ưu cài đặt bộ nhớ JVM, sử dụng cập nhật hàng loạt, và đảm bảo bạn đang dùng phiên bản thư viện mới nhất.
 
-**Q: Where can I find more resources on GroupDocs.Search for Java?**  
-A: Tham khảo [official documentation](https://docs.groupdocs.com/search/java/) hoặc tham gia các diễn đàn cộng đồng.
+**Hỏi: Tôi có thể tìm thêm tài liệu về GroupDocs.Search cho Java ở đâu?**  
+Đáp: Tham khảo [tài liệu chính thức](https://docs.groupdocs.com/search/java/) hoặc khám phá các diễn đàn cộng đồng.
 
 ## Tài nguyên
 
 - Tài liệu: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)
 - Tham chiếu API: [API Reference](https://reference.groupdocs.com/search/java)
-- Tải xuống: [Latest Releases](https://releases.groupdocs.com/search/java/)
+- Tải về: [Latest Releases](https://releases.groupdocs.com/search/java/)
 - GitHub: [GitHub GroupDocs.Search](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- Diễn đàn Hỗ trợ Miễn phí: [GroupDocs Forums](https://forum.groupdocs.com/c/search/10)
+- Diễn đàn Hỗ trợ miễn phí: [GroupDocs Forums](https://forum.groupdocs.com/c/search/10)
 - Giấy phép Tạm thời: [License Page](https://purchase.groupdocs.com/temporary-license)
 
 ---
 
-**Last Updated:** 2025-12-24  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**Cập nhật lần cuối:** 2026-02-24  
+**Kiểm tra với:** GroupDocs.Search 25.4 cho Java  
+**Tác giả:** GroupDocs

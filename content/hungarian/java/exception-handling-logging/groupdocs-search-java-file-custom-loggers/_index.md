@@ -1,36 +1,37 @@
 ---
-date: '2025-12-24'
-description: Ismerje meg, hogyan korlátozhatja a naplófájl méretét, és használhatja
-  a konzol naplózót Java-val a GroupDocs.Search for Java-hoz. Ez az útmutató a naplózási
-  beállításokat, a hibaelhárítási tippeket és a teljesítményoptimalizálást tárgyalja.
+date: '2026-02-24'
+description: Tanulja meg, hogyan hozhat létre egyedi naplózót, állíthatja be a maximális
+  naplóméretet, és konfigurálhatja a konzol‑ vagy fájlnaplózót a GroupDocs.Search
+  for Java‑ban.
 keywords:
 - GroupDocs.Search for Java
 - file logger implementation
 - custom loggers
-title: Korlátozza a naplófájl méretét a GroupDocs.Search Java naplózókkal
+title: Hogyan hozhatunk létre egyedi naplózót és korlátozhatjuk a naplófájl méretét
+  a GroupDocs.Search Java-val
 type: docs
 url: /hu/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/
 weight: 1
 ---
 
-# Naplófájl méretének korlátozása a GroupDocs.Search Java naplózókkal
+# Logfájl méretének korlátozása a GroupDocs.Search Java naplózók segítségével
 
-A hatékony naplózás elengedhetetlen nagy dokumentumgyűjtemények kezelésekor, különösen akkor, ha **korlátozni kell a naplófájl méretét**, hogy a tárolás kontroll alatt maradjon. A **GroupDocs.Search for Java** robusztus megoldásokat kínál a naplók kezelésére a fejlett keresési képességei révén. Ez az útmutató bemutatja, hogyan valósítható meg a fájl‑ és egyedi naplózó használata a GroupDocs.Search‑szel, ezáltal javítva az alkalmazás eseménykövetési és hibakeresési képességét.
+Ebben az útmutatóban **egyedi naplózó** megvalósításokat hozol létre, és megtanulod, hogyan **korlátozd a logfájl méretét** a GroupDocs.Search for Java használata közben. A napló növekedésének szabályozása kulcsfontosságú a nagyméretű dokumentumindexelésnél, és a beépített naplózók lehetővé teszik a **maximális naplóméret beállítását**, a **logfájl forgatását**, vagy egy **console logger használatát** az azonnali visszajelzéshez. Végigvezetünk a teljes beállításon, a Maven konfigurációtól a keresési lekérdezés futtatásáig, és megmutatjuk, hogyan **adjunk dokumentumokat az indexhez** a naplózó használatával.
 
 ## Gyors válaszok
-- **Mit jelent a „naplófájl méretének korlátozása”?** A naplófájl maximális méretét korlátozza, megakadályozva a lemezen történő kontrollálhatatlan növekedést.  
-- **Melyik naplózó teszi lehetővé a naplófájl méretének korlátozását?** A beépített `FileLogger` egy max‑méret paramétert fogad el.  
-- **Hogyan használjam a console logger java‑t?** Hozzon létre egy `ConsoleLogger`‑t, és állítsa be az `IndexSettings`‑en.  
+- **Mit jelent a „logfájl méretének korlátozása”?** A logfájl maximális méretét korlátozza, megakadályozva a lemezterület kontrollálatlan növekedését.  
+- **Melyik naplózó teszi lehetővé a logfájl méretének korlátozását?** A beépített `FileLogger` egy max‑méret paramétert fogad el.  
+- **Hogyan használjam a console logger‑t Java‑ban?** Hozd létre a `ConsoleLogger` példányt, és állítsd be az `IndexSettings`‑ben.  
 - **Szükség van licencre a GroupDocs.Search‑hez?** A próbaverzió elegendő értékeléshez; a kereskedelmi licenc a termeléshez kötelező.  
-- **Mi az első lépés?** Adja hozzá a GroupDocs.Search függőséget a Maven projektjéhez.
+- **Mi az első lépés?** Add hozzá a GroupDocs.Search függőséget a Maven projektedhez.  
 
-## Mi a naplófájl méretének korlátozása?
-A naplófájl méretének korlátozása azt jelenti, hogy a naplózót úgy konfiguráljuk, hogy a fájl elérve egy előre meghatározott küszöböt (pl. 4 MB), már ne növekedjen, vagy felülíródjon. Ez előre látható tárolási lábnyomot biztosít, és elkerüli a teljesítményromlást.
+## Mi az a logfájl méretének korlátozása?
+A logfájl méretének korlátozása azt jelenti, hogy a naplózót úgy konfigurálod, hogy a fájl elérve egy előre meghatározott küszöböt (pl. 4 MB), már ne növekedjen, vagy forgassa át. Ez előre láthatóvá teszi az alkalmazás tárolási lábnyomát, és elkerüli a teljesítményromlást.
 
-## Miért használjunk fájl‑ és egyedi naplózókat a GroupDocs.Search‑szel?
+## Miért használjunk fájl‑ és egyedi naplózókat a GroupDocs.Search‑el?
 - **Auditálhatóság:** Állandó nyilvántartás a indexelési és keresési eseményekről.  
-- **Hibakeresés:** Gyorsan megtalálhatók a problémák a tömör naplók áttekintésével.  
-- **Rugalmasság:** Választhat a tartós fájlnaplók és a azonnali konzolkimenet (`use console logger java`) között.  
+- **Hibakeresés:** Gyorsan azonosíthatók a problémák a tömör naplók áttekintésével.  
+- **Rugalmasság:** Választhatsz a tartós fájlnaplók és az azonnali konzolkimenet (`use console logger`) között.  
 
 ## Előfeltételek
 - **GroupDocs.Search for Java** ≥ 25.4.  
@@ -39,7 +40,7 @@ A naplófájl méretének korlátozása azt jelenti, hogy a naplózót úgy konf
 
 ## A GroupDocs.Search for Java beállítása
 
-Adja hozzá a könyvtárat a projekthez az alábbi módszerek egyikével.
+Add hozzá a könyvtárat a projektedhez az alábbi módszerek egyikével.
 
 **Maven beállítás:**
 
@@ -62,13 +63,16 @@ Adja hozzá a könyvtárat a projekthez az alábbi módszerek egyikével.
 ```
 
 **Közvetlen letöltés:**  
-Töltse le a legújabb JAR‑t a hivatalos oldalról: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Töltsd le a legújabb JAR‑t a hivatalos oldalról: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Licenc beszerzése
-Szerezzen próbaverziót vagy vásároljon licencet a [licencoldal](https://purchase.groupdocs.com/temporary-license/) segítségével.
+Szerezz próbaverziót vagy vásárolj licencet a [licencoldal](https://purchase.groupdocs.com/temporary-license/) segítségével.
 
-## Hogyan korlátozzuk a naplófájl méretét a File Logger‑rel
-Az alábbi lépés‑ről‑lépésre útmutató bemutatja, hogyan konfiguráljuk a `FileLogger`‑t úgy, hogy a naplófájl soha ne lépje túl a megadott méretet.
+## Hogyan hozzunk létre egyedi naplózót a GroupDocs.Search‑hez
+A GroupDocs.Search lehetővé teszi bármely `ILogger` interfész megvalósításának csatlakoztatását. A `FileLogger` vagy `ConsoleLogger` kiterjesztésével extra viselkedést adhatunk hozzá – például a logfájl forgatását vagy az üzenetek továbbítását egy távoli megfigyelőszolgáltatásnak. Ez a rugalmasság teszi lehetővé, hogy sok csapat **egyedi naplózót** hozzon létre, amely megfelel a működési igényeiknek.
+
+## Hogyan korlátozzuk a logfájl méretét a File Logger‑rel
+Az alábbi lépésről‑lépésre útmutató bemutatja, hogyan **konfiguráljuk a fájlnaplót**, hogy a logfájl soha ne lépje túl a megadott méretet.
 
 ### 1️⃣ Szükséges csomagok importálása
 ```java
@@ -102,10 +106,10 @@ index.add(documentsFolder);
 SearchResult result = index.search(query);
 ```
 
-**Kulcspont:** A `FileLogger` konstruktorának második argumentuma (`4.0`) határozza meg a naplófájl maximális méretét megabájtban, közvetlenül kielégítve a **naplófájl méretének korlátozása** követelményt.
+**Kulcspont:** A `FileLogger` konstruktorának második argumentuma (`4.0`) határozza meg a **maximális naplóméret beállítását** megabájtban, közvetlenül a **logfájl méretének korlátozása** követelménynek megfelelően.
 
-## Hogyan használjuk a console logger java‑t
-Ha azonnali visszajelzést szeretne a terminálban, cserélje le a fájlnaplót konzolnaplóra.
+## Hogyan használjuk a console logger‑t Java‑ban
+Ha azonnali visszajelzést szeretnél a terminálban, cseréld le a fájlnaplót console logger‑re.
 
 ### 1️⃣ A Console Logger importálása
 ```java
@@ -134,39 +138,39 @@ index.add(documentsFolder);
 SearchResult result = index.search(query);
 ```
 
-**Tipp:** A konzolnapló ideális fejlesztés közben, mivel minden naplóbejegyzést azonnal kiír, segítve a indexelés és keresés helyes működésének ellenőrzését.
+**Tipp:** A console logger fejlesztés közben ideális, mivel minden naplóbejegyzést azonnal kiír, segítve a indexelés és keresés helyes működésének ellenőrzését.
 
 ## Gyakorlati alkalmazások
-1. **Dokumentumkezelő rendszerek:** Auditnyomok vezetése minden indexelt dokumentumról.  
-2. **Vállalati keresőmotorok:** Keresési teljesítmény és hibaarány valós idejű monitorozása.  
-3. **Jog és megfelelőségi szoftverek:** Keresési kifejezések rögzítése szabályozási jelentésekhez.
+1. **Dokumentumkezelő rendszerek:** Audit nyomvonalak vezetése minden **indexelt dokumentum** esetén.  
+2. **Vállalati keresőmotorok:** Keresési teljesítmény és **hibaarány** valós idejű monitorozása.  
+3. **Jogszabályi és megfelelőségi szoftverek:** **Keresési kifejezések** rögzítése **szabályozási** jelentésekhez.
 
 ## Teljesítménybeli megfontolások
-- **Naplóméret:** A naplófájl méretének korlátozásával elkerülhető a túlzott lemezhasználat, ami lelassíthatja az alkalmazást.  
-- **Aszinkron naplózás:** Ha nagyobb áteresztőképességre van szükség, fontolja meg a naplózó egy aszinkron sorba csomagolását (e guide‑on kívül).  
-- **Memóriakezelés:** Szabadítsa fel a nagy `Index` objektumokat, ha már nincs rájuk szükség, hogy alacsony maradjon a JVM lábnyoma.
+- **Log méret:** A **maximális naplóméret beállításával** elkerülhető a túlzott **lemez**használat, ami lelassíthatná az alkalmazást.  
+- **Aszinkron naplózás:** Ha nagyobb áteresztőképességre van szükség, fontold meg a naplózó egy aszinkron sorba csomagolását (az útmutató keretein kívül).  
+- **Memóriakezelés:** Szabadítsd fel a nagy `Index` objektumokat, amikor már nincs rájuk szükség, hogy alacsonyan tartsd a JVM lábnyomát.
 
 ## Gyakori problémák és megoldások
-- **A napló útvonal nem érhető el:** Ellenőrizze, hogy a könyvtár létezik, és az alkalmazásnak van írási joga.  
-- **A naplózó nem aktiválódik:** Győződjön meg róla, hogy a `settings.setLogger(...)`‑t **mielőtt** létrehozná a `Index` objektumot meghívja.  
-- **Hiányzik a konzolkimenet:** Ellenőrizze, hogy a programot olyan terminálban futtatja, amely megjeleníti a `System.out`‑t.
+- **A log útvonal nem érhető el:** Ellenőrizd, hogy a könyvtár létezik, és az alkalmazásnak van írási joga.  
+- **A naplózó nem aktiválódik:** Győződj meg róla, hogy a `settings.setLogger(...)` hívást *az* `Index` objektum létrehozása **előtt** hajtod végre.  
+- **A konzol kimenet hiányzik:** Ellenőrizd, hogy a programot olyan terminálban futtatod, amely megjeleníti a `System.out`‑t.
 
 ## Gyakran ismételt kérdések
 
 **Q: Mit szabályoz a `FileLogger` második paramétere?**  
-A: A naplófájl maximális méretét határozza meg megabájtban, lehetővé téve a naplófájl méretének korlátozását.
+A: A logfájl maximális méretét megabájtban állítja be, lehetővé téve a **maximális naplóméret beállítását**.
 
-**Q: Kombinálhatom a fájl‑ és a konzolnaplókat?**  
-A: Igen, egy egyedi naplózó létrehozásával, amely az üzeneteket mindkét célpontra továbbítja.
+**Q: Kombinálhatom a fájl‑ és console naplózókat?**  
+A: Igen, egyedi naplózó létrehozásával, amely az üzeneteket mindkét célpontra továbbítja.
 
-**Q: Hogyan adhatok dokumentumokat az indexhez a kezdeti létrehozás után?**  
-A: Bármikor meghívhatja az `index.add(pathToNewDocs)`‑t; a naplózó rögzíti a műveletet.
+**Q: Hogyan adhatok dokumentumokat az indexhez az **elsődleges létrehozás** után?**  
+A: Hívd meg a `index.add(pathToNewDocs)`‑t bármikor; a naplózó rögzíti a műveletet.
 
 **Q: A `ConsoleLogger` szálbiztos?**  
-A: Közvetlenül a `System.out`‑ra ír, amelyet a JVM szinkronizál, így a legtöbb esetben biztonságos.
+A: Közvetlenül a `System.out`‑ra ír, amelyet a JVM szinkronizál, így a legtöbb esetben **biztonságos**.
 
-**Q: Befolyásolja-e a naplófájl méretének korlátozása a tárolt információ mennyiségét?**  
-A: Amikor a méretkorlátot eléri, az új bejegyzések elvetésre kerülhetnek vagy a fájl felülíródhat, a naplózó implementációjától függően.
+**Q: Befolyásolja-e a logfájl méretének korlátozása a tárolt információ mennyiségét?**  
+A: Amikor a méretkorlátot eléri, az új bejegyzések elvetésre kerülhetnek, vagy a fájl **logfájl forgatása** történik, a naplózó implementációjától függően.
 
 ## Források
 - [Documentation](https://docs.groupdocs.com/search/java/)
@@ -174,7 +178,7 @@ A: Amikor a méretkorlátot eléri, az új bejegyzések elvetésre kerülhetnek 
 
 ---
 
-**Utoljára frissítve:** 2025-12-24  
+**Utoljára frissítve:** 2026-02-24  
 **Tesztelve a következővel:** GroupDocs.Search for Java 25.4  
 **Szerző:** GroupDocs  
 
