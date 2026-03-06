@@ -1,98 +1,108 @@
 ---
-date: 2025-12-29
-description: Guía paso a paso sobre cómo configurar GroupDocs.Search para desarrolladores
-  Java, que cubre la instalación, la licencia y la creación de su primera solución
-  de búsqueda.
-title: 'Cómo configurar GroupDocs.Search - tutoriales de inicio para Java'
+date: 2026-03-06
+description: Aprende cómo habilitar la búsqueda difusa en GroupDocs.Search para Java,
+  cubriendo la instalación, la licencia y la creación de tu primera solución buscable
+  con coincidencia difusa.
+title: Cómo habilitar la búsqueda difusa con GroupDocs.Search – Tutorial de inicio
+  para Java
 type: docs
 url: /es/java/getting-started/
 weight: 1
 ---
 
-# Cómo Configurar GroupDocs.Search - Tutoriales de Introducción para Java
+# Cómo habilitar la búsqueda difusa con GroupDocs.Search – Tutorial de inicio para Java
 
-Welcome to the ultimate guide on **how to configure GroupDocs.Search** for Java applications. In this tutorial you’ll learn the essential steps to install the library, set up licensing, and build your first searchable document solution. Whether you’re starting a new project or integrating search into an existing codebase, this walkthrough gives you everything you need to get up and running quickly.
+Bienvenido a la guía definitiva sobre **cómo configurar GroupDocs.Search** para aplicaciones Java — y específicamente cómo **habilitar la búsqueda difusa** para que sus usuarios puedan encontrar documentos relevantes incluso cuando escriben mal una palabra o usan una terminología ligeramente diferente. En este tutorial aprenderá los pasos esenciales para instalar la biblioteca, configurar la licencia, configurar la coincidencia difusa y crear su primera solución de documentos buscables. Ya sea que esté iniciando un proyecto nuevo o añadiendo búsqueda a una base de código existente, le guiaremos a través de todo lo que necesita para estar en funcionamiento en menos de 15 minutos.
 
-## Respuestas Rápidas
-- **¿Cuál es el primer paso?** Install the GroupDocs.Search Java package via Maven or Gradle.  
-- **¿Necesito una licencia?** Yes—a temporary license works for development; a full license is required for production.  
-- **¿Qué IDE funciona mejor?** Any Java IDE (IntelliJ IDEA, Eclipse, VS Code) that supports Maven/Gradle projects.  
-- **¿Puedo indexar archivos PDF y Word?** Absolutely—GroupDocs.Search supports a wide range of document formats out of the box.  
-- **¿Cuánto tiempo lleva la configuración?** Typically under 15 minutes for a fresh project.
+## Respuestas rápidas
+- **¿Cuál es el primer paso?** Instale el paquete GroupDocs.Search Java a través de Maven o Gradle.  
+- **¿Necesito una licencia?** Sí—una licencia temporal funciona para desarrollo; se requiere una licencia completa para producción.  
+- **¿Qué IDE funciona mejor?** Cualquier IDE Java (IntelliJ IDEA, Eclipse, VS Code) que soporte proyectos Maven/Gradle.  
+- **¿Puedo indexar archivos PDF y Word?** Absolutamente—GroupDocs.Search soporta una amplia gama de formatos de documento listos para usar.  
+- **¿Cómo habilito la búsqueda difusa?** Establezca la bandera `fuzzySearch` en `SearchOptions` antes de ejecutar una consulta.  
+- **¿Cuánto tiempo lleva la configuración?** Normalmente menos de 15 minutos para un proyecto nuevo.
 
-## ¿Qué es “cómo configurar GroupDocs.Search”?
-Configuring GroupDocs.Search means preparing the library to index documents, defining storage locations, and applying your license key so the API can operate without restrictions. Proper configuration ensures fast, accurate search results and smooth integration with your Java code.
+## Qué significa “habilitar la búsqueda difusa” en GroupDocs.Search?
+Habilitar la búsqueda difusa significa activar un nivel de tolerancia que permite al motor de búsqueda coincidir términos con pequeñas diferencias ortográficas, caracteres faltantes o letras transpuestas. Esta característica mejora drásticamente la experiencia del usuario en escenarios donde no se puede garantizar la ortografía exacta—como errores tipográficos, texto generado por OCR o contenido multilingüe.
 
-## ¿Por qué configurar GroupDocs.Search para Java?
-- **Implementación rápida** – Minimal code is required to start indexing and searching.  
-- **Indexación escalable** – Handles large document collections without performance loss.  
-- **Amplio soporte de formatos** – Works with PDFs, DOCX, XLSX, PPTX, and many other file types.  
-- **Licenciamiento seguro** – Guarantees compliance and unlocks all premium features.
+## Por qué configurar GroupDocs.Search para Java y habilitar la búsqueda difusa?
+- **Implementación rápida** – Se requiere código mínimo para comenzar a indexar, buscar y añadir coincidencia difusa.  
+- **Indexación escalable** – Maneja grandes colecciones de documentos sin pérdida de rendimiento.  
+- **Amplio soporte de formatos** – Funciona con PDFs, DOCX, XLSX, PPTX y muchos otros tipos de archivo.  
+- **Licenciamiento seguro** – Garantiza el cumplimiento y desbloquea todas las funciones premium, incluida la búsqueda difusa.  
+- **Mejor experiencia de usuario** – La búsqueda difusa ayuda a los usuarios a encontrar lo que necesitan incluso con consultas imperfectas.
 
-## Requisitos Previos
-- Java Development Kit (JDK) 8 or higher.  
-- Maven 3 or Gradle 5 for dependency management.  
-- Access to a temporary or full GroupDocs.Search license key.  
+## Requisitos previos
+- Java Development Kit (JDK) 8 o superior.  
+- Maven 3 o Gradle 5 para la gestión de dependencias.  
+- Acceso a una clave de licencia temporal o completa de GroupDocs.Search.  
 
-## Guía Paso a Paso
+## Guía paso a paso
 
-### Paso 1: Añadir GroupDocs.Search a su Proyecto
-Include the GroupDocs.Search dependency in your `pom.xml` (Maven) or `build.gradle` (Gradle). This makes the library available for your code.
+### Paso 1: Añadir GroupDocs.Search a su proyecto
+Incluya la dependencia GroupDocs.Search en su `pom.xml` (Maven) o `build.gradle` (Gradle). Esto hace que la biblioteca esté disponible para su código.
 
-### Paso 2: Aplicar su Licencia
-Create a `License` object and load your temporary or permanent license file. This step unlocks full functionality and removes evaluation limits.
+### Paso 2: Aplicar su licencia
+Cree un objeto `License` y cargue su archivo de licencia temporal o permanente. Este paso desbloquea la funcionalidad completa, incluida la búsqueda difusa, y elimina los límites de evaluación.
 
-### Paso 3: Inicializar la Configuración del Índice
-Define where the index files will be stored on disk and configure any custom indexing options you need (e.g., case sensitivity, stop words).
+### Paso 3: Inicializar la configuración del índice
+Defina dónde se almacenarán los archivos de índice en el disco y configure cualquier opción de indexación personalizada que necesite (p. ej., sensibilidad a mayúsculas, palabras de parada).
 
-### Paso 4: Indexar sus Documentos
-Use the `Indexer` class to add files or folders to the index. GroupDocs.Search automatically detects file types and extracts searchable text.
+### Paso 4: Indexar sus documentos
+Utilice la clase `Indexer` para añadir archivos o carpetas al índice. GroupDocs.Search detecta automáticamente los tipos de archivo y extrae el texto buscable.
 
-### Paso 5: Realizar una Consulta de Búsqueda
-Create a `SearchOptions` object, specify the query string, and execute the search. The API returns a list of matching documents with relevance scores.
+### Paso 5: Habilitar la búsqueda difusa en su consulta
+Al crear un objeto `SearchOptions`, establezca la bandera `fuzzySearch` (o la propiedad equivalente) en `true`. También puede ajustar el nivel de difusidad si necesita coincidencias más estrictas o más laxas.
 
-### Paso 6: Revisar los Resultados
-Iterate over the search results, display file names, and optionally highlight matching terms in the UI.
+### Paso 6: Ejecutar una consulta de búsqueda
+Ejecute la búsqueda con los `SearchOptions` configurados. La API devuelve una lista de documentos coincidentes con puntuaciones de relevancia que ahora reflejan coincidencias difusas.
 
-## Problemas Comunes y Soluciones
-- **Licencia no reconocida** – Verify the license file path and ensure it matches the version of GroupDocs.Search you’re using.  
-- **Faltan formatos de documento** – Install the optional `groupdocs-conversion` add‑on if you need support for less common file types.  
-- **Cuellos de botella de rendimiento** – Use incremental indexing and configure the index folder on SSD storage for faster access.
+### Paso 7: Revisar los resultados
+Itere sobre los resultados de búsqueda, muestre los nombres de archivo y, opcionalmente, resalte los términos coincidentes en la interfaz. Las coincidencias difusas se indicarán con una puntuación de relevancia ligeramente inferior en comparación con las coincidencias exactas.
 
-## Preguntas Frecuentes
+## Problemas comunes y soluciones
+- **Licencia no reconocida** – Verifique la ruta del archivo de licencia y asegúrese de que coincida con la versión de GroupDocs.Search que está usando.  
+- **Formatos de documento faltantes** – Instale el complemento opcional `groupdocs-conversion` si necesita soporte para tipos de archivo menos comunes.  
+- **La búsqueda difusa no devuelve resultados** – Confirme que la bandera `fuzzySearch` está establecida en `true` y que la longitud de la consulta cumple con el número mínimo de caracteres requeridos para la coincidencia difusa.  
+- **Cuellos de botella de rendimiento** – Utilice indexación incremental y configure la carpeta del índice en almacenamiento SSD para un acceso más rápido.  
 
-**Q: Can I use GroupDocs.Search on a Linux server?**  
-A: Yes, the library is platform‑independent and runs on any OS that supports Java.
+## Preguntas frecuentes
 
-**Q: How do I update the index after adding new files?**  
-A: Call the `Indexer` again with the new files; the library will merge them into the existing index.
+**Q: ¿Puedo usar GroupDocs.Search en un servidor Linux?**  
+A: Sí, la biblioteca es independiente de la plataforma y se ejecuta en cualquier SO que soporte Java.
 
-**Q: Is there a way to limit search results to a specific folder?**  
-A: Yes, set the `SearchOptions` to include a folder filter before executing the query.
+**Q: ¿Cómo actualizo el índice después de añadir nuevos archivos?**  
+A: Llame al `Indexer` nuevamente con los nuevos archivos; la biblioteca los fusionará con el índice existente.
 
-**Q: What happens if I exceed the temporary license period?**  
-A: The API will continue to work in evaluation mode with limited features; replace the license file with a permanent key to restore full functionality.
+**Q: ¿Hay una forma de limitar los resultados de búsqueda a una carpeta específica?**  
+A: Sí, establezca el `SearchOptions` para incluir un filtro de carpeta antes de ejecutar la consulta.
 
-**Q: Does GroupDocs.Search support fuzzy search?**  
-A: Absolutely—enable fuzzy matching in the `SearchOptions` to retrieve results with minor spelling variations.
+**Q: ¿Qué ocurre si supero el período de licencia temporal?**  
+A: La API seguirá funcionando en modo de evaluación con funciones limitadas; reemplace el archivo de licencia con una clave permanente para restaurar la funcionalidad completa.
 
-## Recursos Adicionales
+**Q: ¿GroupDocs.Search admite búsqueda difusa?**  
+A: Absolutamente—habilite la coincidencia difusa en `SearchOptions` para obtener resultados con pequeñas variaciones ortográficas.
 
-### Tutoriales Disponibles
+**Q: ¿Puedo combinar la búsqueda difusa con otros filtros (p. ej., rango de fechas)?**  
+A: Sí, puede añadir filtros adicionales a `SearchOptions` manteniendo habilitada la búsqueda difusa.
 
-### [Desplegar GroupDocs.Search para Java&#58; Guía de Configuración Integral](./deploy-groupdocs-search-java-setup-guide/)
-Learn how to deploy and configure GroupDocs.Search for Java with this step-by-step guide. Enhance document indexing and search capabilities in your projects.
+## Recursos adicionales
 
-### Enlaces Útiles
+### Tutoriales disponibles
+
+### [Desplegar GroupDocs.Search para Java&#58; Guía completa de configuración](./deploy-groupdocs-search-java-setup-guide/)
+Aprenda cómo desplegar y configurar GroupDocs.Search para Java con esta guía paso a paso. Mejore la indexación de documentos y las capacidades de búsqueda en sus proyectos.
+
+### Enlaces útiles
 - [Documentación de GroupDocs.Search para Java](https://docs.groupdocs.com/search/java/)
 - [Referencia de API de GroupDocs.Search para Java](https://reference.groupdocs.com/search/java/)
 - [Descargar GroupDocs.Search para Java](https://releases.groupdocs.com/search/java/)
 - [Foro de GroupDocs.Search](https://forum.groupdocs.com/c/search)
-- [Soporte Gratuito](https://forum.groupdocs.com/)
-- [Licencia Temporal](https://purchase.groupdocs.com/temporary-license/)
+- [Soporte gratuito](https://forum.groupdocs.com/)
+- [Licencia temporal](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Last Updated:** 2025-12-29  
-**Tested With:** GroupDocs.Search 23.12 for Java  
-**Author:** GroupDocs
+**Última actualización:** 2026-03-06  
+**Probado con:** GroupDocs.Search 23.12 para Java  
+**Autor:** GroupDocs

@@ -1,54 +1,52 @@
 ---
-date: '2025-12-22'
-description: เรียนรู้วิธีสร้างดัชนีและเพิ่มเอกสารลงในดัชนีโดยใช้ GroupDocs.Search
-  สำหรับ Java เพิ่มประสิทธิภาพการค้นหาของคุณในเอกสารทางกฎหมาย การศึกษา และธุรกิจ
+date: '2026-03-06'
+description: เรียนรู้วิธีทำการค้นหาแบบ regex ใน Java และเพิ่มเอกสารลงในดัชนีด้วย GroupDocs.Search
+  for Java เพื่อเพิ่มประสิทธิภาพการค้นหาในไฟล์ด้านกฎหมาย การศึกษา และธุรกิจ
 keywords:
 - GroupDocs.Search in Java
 - document index management
 - Java document search
-title: 'วิธีสร้างดัชนีด้วย GroupDocs.Search ใน Java - คู่มือฉบับสมบูรณ์'
+title: การค้นหา regex Java – สร้างดัชนีด้วย GroupDocs.Search ใน Java
 type: docs
 url: /th/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# การเชี่ยวชาญ GroupDocs.Search ใน Java - คู่มือครบวงจรสำหรับการจัดการดัชนีและการค้นหาเอกสาร
+# เชี่ยวชาญ GroupDocs.Search ใน Java – การค้นหา regex java และการจัดการดัชนี
 
 ## บทนำ
 
-คุณกำลังประสบปัญหาในการทำดัชนีและค้นหาผ่านเอกสารจำนวนมหาศาลหรือไม่? ไม่ว่าคุณจะจัดการไฟล์กฎหมาย, บทความวิชาการ, หรือรายงานองค์กร, การรู้ **how to create index** อย่างรวดเร็วและแม่นยำเป็นสิ่งสำคัญ **GroupDocs.Search for Java** ทำให้กระบวนการนี้ง่ายดาย, ให้คุณเพิ่มเอกสารลงในดัชนี, รันการค้นหาแบบ fuzzy, และดำเนินการคิวรีขั้นสูงด้วยเพียงไม่กี่บรรทัดของโค้ด
-
-ด้านล่างคุณจะพบทุกอย่างที่ต้องการเพื่อเริ่มต้น, ตั้งแต่การตั้งค่าสภาพแวดล้อมจนถึงการสร้างคิวรีการค้นหาที่ซับซ้อน
+คุณกำลังประสบปัญหาในการสร้างดัชนีและค้นหาผ่านเอกสารจำนวนมหาศาลหรือไม่? ไม่ว่าจะเป็นไฟล์กฎหมาย, บทความวิชาการ หรือรายงานบริษัท, **regex search java** เป็นเทคนิคที่ทรงพลังซึ่งช่วยให้คุณระบุรูปแบบภายในข้อความได้อย่างรวดเร็ว ด้วย **GroupDocs.Search for Java** คุณสามารถสร้างดัชนี, **add documents to index**, และรันการค้นหาแบบ fuzzy, wildcard หรือ regular‑expression เพียงไม่กี่บรรทัดของโค้ด ด้านล่างนี้คุณจะพบทุกอย่างที่ต้องการเริ่มต้น ตั้งแต่การตั้งค่าสภาพแวดล้อมจนถึงการสร้างคำค้นหาที่ซับซ้อน
 
 ## คำตอบอย่างรวดเร็ว
-- **วัตถุประสงค์หลักของ GroupDocs.Search คืออะไร?** เพื่อสร้างดัชนีที่สามารถค้นหาได้สำหรับรูปแบบเอกสารที่หลากหลาย.  
-- **ฉันสามารถเพิ่มเอกสารลงในดัชนีหลังจากที่สร้างแล้วได้หรือไม่?** ได้—ใช้เมธอด `index.add()` เพื่อเพิ่มไฟล์ใหม่.  
-- **GroupDocs.Search รองรับการค้นหาแบบ fuzzy ใน Java หรือไม่?** แน่นอน; เปิดใช้งานผ่าน `SearchOptions`.  
-- **ฉันจะรันคิวรีแบบ wildcard ใน Java อย่างไร?** สร้างด้วย `SearchQuery.createWildcardQuery()`.  
-- **ต้องการใบอนุญาตสำหรับการใช้งานในสภาพแวดล้อมการผลิตหรือไม่?** ต้องมีใบอนุญาต GroupDocs.Search ที่ถูกต้องสำหรับการใช้งานเชิงพาณิชย์.
+- **วัตถุประสงค์หลักของ GroupDocs.Search คืออะไร?** เพื่อสร้างดัชนีที่สามารถค้นหาได้สำหรับรูปแบบเอกสารที่หลากหลาย  
+- **ฉันสามารถเพิ่มเอกสารลงในดัชนีหลังจากสร้างแล้วได้หรือไม่?** ได้—ใช้เมธอด `index.add()` เพื่อใส่ไฟล์ใหม่  
+- **GroupDocs.Search รองรับการค้นหา fuzzy ใน Java หรือไม่?** แน่นอน; เปิดใช้งานผ่าน `SearchOptions`  
+- **ฉันจะรัน wildcard query ใน Java อย่างไร?** สร้างด้วย `SearchQuery.createWildcardQuery()`  
+- **ต้องมีลิขสิทธิ์สำหรับการใช้งานในโปรดักชันหรือไม่?** จำเป็นต้องมีลิขสิทธิ์ GroupDocs.Search ที่ถูกต้องสำหรับการใช้งานเชิงพาณิชย์
 
-## “how to create index” คืออะไรในบริบทของ GroupDocs.Search?
+## “การสร้างดัชนี” หมายถึงอะไรในบริบทของ GroupDocs.Search?
 
-การสร้างดัชนีหมายถึงการสแกนเอกสารต้นทางหนึ่งหรือหลายไฟล์, ดึงข้อความที่สามารถค้นหาได้, และจัดเก็บข้อมูลนั้นในรูปแบบโครงสร้างที่สามารถคิวรีได้อย่างมีประสิทธิภาพ ดัชนีที่ได้ทำให้การค้นหาแบบเร็วแสงเป็นไปได้ แม้จะมีไฟล์หลายพันไฟล์
+การสร้างดัชนีหมายถึงการสแกนเอกสารต้นทางหนึ่งหรือหลายไฟล์, ดึงข้อความที่สามารถค้นหาได้, และจัดเก็บข้อมูลนั้นในรูปแบบโครงสร้างที่สามารถสืบค้นได้อย่างมีประสิทธิภาพ ดัชนีที่ได้ทำให้การค้นหาแบบเร็วแสงเป็นไปได้ แม้จะมีไฟล์หลายพันไฟล์ก็ตาม
 
 ## ทำไมต้องใช้ GroupDocs.Search สำหรับ Java?
 
-- **รองรับรูปแบบไฟล์ที่หลากหลาย:** PDFs, Word, Excel, PowerPoint, และอื่น ๆ อีกมากมาย.  
-- **คุณลักษณะภาษาที่มาพร้อมในตัว:** การค้นหาแบบ fuzzy, wildcard, และความสามารถ regex พร้อมใช้งาน.  
-- **ประสิทธิภาพที่ขยายได้:** จัดการคอลเลกชันเอกสารขนาดใหญ่ด้วยการใช้หน่วยความจำที่กำหนดค่าได้.  
+- **รองรับรูปแบบไฟล์หลากหลาย:** PDF, Word, Excel, PowerPoint และอื่น ๆ อีกมาก  
+- **ฟีเจอร์ภาษาที่รวมมาในตัว:** การค้นหา fuzzy, wildcard, และ **regex search java** พร้อมใช้งาน  
+- **ประสิทธิภาพที่ขยายได้:** จัดการคอลเลกชันเอกสารขนาดใหญ่ด้วยการกำหนดการใช้หน่วยความจำได้ตามต้องการ  
 
 ## ข้อกำหนดเบื้องต้น
 
-- **GroupDocs.Search for Java รุ่น 25.4** หรือใหม่กว่า.  
-- IDE เช่น IntelliJ IDEA หรือ Eclipse ที่รองรับโครงการ Maven.  
-- JDK ที่ติดตั้งบนเครื่องของคุณ.  
-- ความคุ้นเคยพื้นฐานกับ Java และแนวคิดการค้นหา.  
+- **GroupDocs.Search for Java รุ่น 25.4** หรือใหม่กว่า  
+- IDE เช่น IntelliJ IDEA หรือ Eclipse ที่รองรับโครงการ Maven  
+- ติดตั้ง JDK บนเครื่องของคุณ  
+- มีความคุ้นเคยพื้นฐานกับ Java และแนวคิดการค้นหา  
 
-## Setting Up GroupDocs.Search for Java
+## การตั้งค่า GroupDocs.Search สำหรับ Java
 
-คุณสามารถเพิ่มไลบรารีผ่าน Maven หรือดาวน์โหลดด้วยตนเอง.
+คุณสามารถเพิ่มไลบรารีผ่าน Maven หรือดาวน์โหลดด้วยตนเอง
 
-**Maven Setup:**
+**การตั้งค่า Maven:**
 
 ```xml
 <repositories>
@@ -69,12 +67,12 @@ weight: 1
 ```
 
 **ดาวน์โหลดโดยตรง:**  
-Alternatively, download the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+หรือดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
 
-### การรับใบอนุญาต
-- **Free Trial:** สำรวจคุณลักษณะโดยไม่เสียค่าใช้จ่าย.  
-- **Temporary License:** ขยายการใช้งานทดลอง.  
-- **Full License:** จำเป็นสำหรับสภาพแวดล้อมการผลิต.
+### การจัดหาไลเซนส์
+- **ทดลองใช้ฟรี:** ทดลองใช้ฟีเจอร์ต่าง ๆ ฟรี  
+- **ไลเซนส์ชั่วคราว:** ขยายระยะเวลาการทดลองใช้  
+- **ไลเซนส์เต็ม:** จำเป็นสำหรับสภาพแวดล้อมการผลิต  
 
 เมื่อไลบรารีพร้อมใช้งาน ให้เริ่มต้นในโค้ด Java ของคุณ:
 
@@ -91,38 +89,38 @@ public class InitializeSearch {
 }
 ```
 
-## Implementation Guide
+## คู่มือการใช้งาน
 
-### How to Create Index with GroupDocs.Search
+### วิธีสร้างดัชนีด้วย GroupDocs.Search
 
-This section walks you through the complete process of creating an index and adding documents to it.
+ส่วนนี้จะพาคุณผ่านกระบวนการทั้งหมดของการสร้างดัชนีและ **add documents to index**
 
-#### Defining Paths
+#### กำหนดเส้นทาง
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\CreateAndIndexDocuments";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Creating the Index
+#### สร้างดัชนี
 
 ```java
 Index index = new Index(indexFolder);
 System.out.println("Index created at: " + indexFolder);
 ```
 
-#### Adding Documents to Index
+#### เพิ่มเอกสารลงในดัชนี
 
 ```java
 index.add(documentsFolder);
 System.out.println("Documents added to the index.");
 ```
 
-> **Pro tip:** Ensure the directories exist and contain only the files you want searchable; unrelated files can bloat the index.
+> **เคล็ดลับ:** ตรวจสอบให้แน่ใจว่าโฟลเดอร์มีอยู่และมีเฉพาะไฟล์ที่ต้องการให้ค้นหา; ไฟล์ที่ไม่เกี่ยวข้องอาจทำให้ดัชนีบวมขึ้น  
 
-### คำค้นหาคำง่ายด้วยตัวเลือกการค้นหาแบบ Fuzzy (fuzzy search java)
+### คำค้นหาแบบ Word ธรรมดาพร้อมตัวเลือกการค้นหา fuzzy (fuzzy search java)
 
-Fuzzy search helps when users mistype a word or when OCR introduces errors.
+การค้นหา fuzzy ช่วยเมื่อผู้ใช้พิมพ์คำผิดหรือ OCR ทำให้เกิดข้อผิดพลาด
 
 ```java
 SearchQuery subquery = SearchQuery.createWordQuery("future");
@@ -138,21 +136,25 @@ System.out.println("Fuzzy search enabled with a tolerance of 3.");
 
 ### Wildcard Query Java
 
+Wildcard query ช่วยให้คุณจับคู่รูปแบบเช่น คำใด ๆ ที่เริ่มต้นด้วยคำนำหน้าเฉพาะ
+
 ```java
 SearchQuery subquery = SearchQuery.createWildcardQuery(1);
 System.out.println("Wildcard query created.");
 ```
 
-### ค้นหา Regex Java
+### Regex Search Java
 
-Regular expressions give you fine‑grained control over pattern matching, perfect for finding repeated characters or complex token structures.
+Regular expressions ให้การควบคุมระดับละเอียดในการจับคู่รูปแบบ, เหมาะสำหรับการค้นหาตัวอักษรซ้ำหรือโครงสร้างโทเคนที่ซับซ้อน
 
 ```java
 SearchQuery subquery = SearchQuery.createRegexQuery("(.)\\1");
 System.out.println("Regex query created to find repeated characters.");
 ```
 
-### การรวม Subqueries เป็นคิวรีการค้นหา Phrase
+### การรวม Subqueries เป็น Phrase Search Query
+
+คุณสามารถผสม word, wildcard, และ regex subqueries เพื่อสร้างการค้นหาแบบ phrase ที่ซับซ้อนได้
 
 ```java
 SearchQuery subquery1 = SearchQuery.createWordQuery("future");
@@ -167,7 +169,7 @@ System.out.println("Combined phrase search query created.");
 
 ### การกำหนดค่าและดำเนินการค้นหาด้วยตัวเลือกที่กำหนดเอง
 
-Adjusting search options lets you control how many occurrences are returned, which is useful for large corpora.
+การปรับตัวเลือกการค้นหาช่วยให้คุณควบคุมจำนวนผลลัพธ์ที่คืนค่า, ซึ่งมีประโยชน์สำหรับคอร์ปัสขนาดใหญ่
 
 ```java
 SearchOptions options = new SearchOptions();
@@ -184,43 +186,38 @@ SearchResult result = index.search(query, options);
 System.out.println("Search performed with custom options.");
 ```
 
-## การประยุกต์ใช้งานจริง
+## regex search java – กรณีการใช้งานทั่วไป
 
-1. **Legal Document Management:** ค้นหากฎหมายคดี, กฎหมาย, และกรณีอ้างอิงอย่างรวดเร็ว.  
-2. **Academic Research:** ทำดัชนีงานวิจัยหลายพันฉบับและดึงอ้างอิงในไม่กี่วินาที.  
-3. **Business Reports Analysis:** ระบุตัวเลขทางการเงินในหลายรายงานไตรมาส.  
-4. **Content Management Systems (CMS):** ให้ผู้ใช้ค้นหาอย่างรวดเร็วและแม่นยำในบล็อกโพสต์และบทความ.  
-5. **Customer Support Knowledge Bases:** ลดเวลาตอบสนองโดยดึงคู่มือแก้ปัญหาที่เกี่ยวข้องทันที.  
+- **การวิจัยทางกฎหมาย:** ค้นหาข้อความที่ตามรูปแบบเฉพาะ เช่น วันที่ในรูปแบบ `DD/MM/YYYY`  
+- **การตรวจสอบข้อมูล:** ตรวจจับตัวระบุที่ผิดรูปแบบหรืออักขระซ้ำในบันทึก  
+- **การตรวจสอบเนื้อหา:** ค้นหาคำหยาบหรือรูปแบบที่ห้ามใช้ด้วย regex  
+- **การวิเคราะห์การเงิน:** ดึงรหัสธุรกรรมที่ตรงกับเทมเพลต regex ที่กำหนด  
 
-## การพิจารณาประสิทธิภาพ
+## ข้อควรพิจารณาด้านประสิทธิภาพ
 
-- **Optimize Indexing:** ทำการสร้างดัชนีใหม่เป็นระยะและลบไฟล์ที่ล้าสมัยเพื่อให้ดัชนีมีขนาดเล็ก.  
-- **Resource Usage:** ตรวจสอบขนาด heap ของ JVM; ดัชนีขนาดใหญ่อาจต้องการหน่วยความจำเพิ่มหรือการจัดเก็บแบบ off‑heap.  
-- **Garbage Collection:** ปรับตั้งค่า GC สำหรับบริการค้นหาที่ทำงานต่อเนื่องเป็นเวลานานเพื่อหลีกเลี่ยงการหยุดชะงัก.  
-
-## สรุป
-
-By following this guide, you now know **how to create index**, add documents to index, and leverage fuzzy, wildcard, and regex searches in Java with GroupDocs.Search. These capabilities empower you to build robust search experiences that scale with your data.
+- **เพิ่มประสิทธิภาพการทำดัชนี:** ทำการ re‑index อย่างสม่ำเสมอและลบไฟล์ที่ล้าสมัยเพื่อให้ดัชนีมีขนาดเล็กลง  
+- **การใช้ทรัพยากร:** ตรวจสอบขนาด heap ของ JVM; ดัชนีขนาดใหญ่อาจต้องการหน่วยความจำเพิ่มหรือการจัดเก็บแบบ off‑heap  
+- **Garbage Collection:** ปรับแต่งการตั้งค่า GC สำหรับบริการค้นหาที่ทำงานต่อเนื่องเพื่อหลีกเลี่ยงการหยุดชะงัก  
 
 ## คำถามที่พบบ่อย
 
-**Q: Can I update an existing index without rebuilding it from scratch?**  
-A: Yes—use `index.add()` to append new files or `index.update()` to refresh changed documents.
+**Q: ฉันสามารถอัปเดตดัชนีที่มีอยู่โดยไม่ต้องสร้างใหม่จากศูนย์ได้หรือไม่?**  
+A: ได้—ใช้ `index.add()` เพื่อเพิ่มไฟล์ใหม่หรือ `index.update()` เพื่อรีเฟรชเอกสารที่เปลี่ยนแปลง  
 
-**Q: How does fuzzy search handle different languages?**  
-A: The built‑in fuzzy algorithm works on Unicode characters, so it supports most languages out of the box.
+**Q: การค้นหา fuzzy จัดการกับภาษาต่าง ๆ อย่างไร?**  
+A: อัลกอริทึม fuzzy ที่รวมมาในตัวทำงานบนอักขระ Unicode, ดังนั้นจึงรองรับหลายภาษาโดยอัตโนมัติ  
 
-**Q: Is there a limit to the number of documents I can index?**  
-A: Practically, the limit is governed by available disk space and JVM memory; the library is designed for millions of documents.
+**Q: มีขีดจำกัดจำนวนเอกสารที่สามารถทำดัชนีได้หรือไม่?**  
+A: โดยปฏิบัติ ขีดจำกัดขึ้นอยู่กับพื้นที่ดิสก์ที่มีและหน่วยความจำของ JVM; ไลบรารีออกแบบมาสำหรับการทำดัชนีหลายล้านเอกสาร  
 
-**Q: Do I need to restart the application after changing search options?**  
-A: No—search options are applied per query, so you can adjust them on the fly.
+**Q: จำเป็นต้องรีสตาร์ทแอปพลิเคชันหลังจากเปลี่ยนตัวเลือกการค้นหรือไม่?**  
+A: ไม่จำเป็น—ตัวเลือกการค้นหาถูกนำไปใช้ต่อ query, ดังนั้นคุณสามารถปรับได้แบบเรียลไทม์  
 
-**Q: Where can I find more advanced query examples?**  
-A: The official GroupDocs.Search documentation and API reference provide extensive examples for complex scenarios.
+**Q: ฉันจะหา ตัวอย่าง query ขั้นสูงเพิ่มเติมได้จากที่ไหน?**  
+A: เอกสารอย่างเป็นทางการของ GroupDocs.Search และ API reference มีตัวอย่างที่ครอบคลุมสำหรับสถานการณ์ซับซ้อนหลายแบบ  
 
 ---
 
-**อัปเดตล่าสุด:** 2025-12-22  
-**ทดสอบกับ:** GroupDocs.Search for Java 25.4  
-**ผู้เขียน:** GroupDocs
+**Last Updated:** 2026-03-06  
+**Tested With:** GroupDocs.Search for Java 25.4  
+**Author:** GroupDocs

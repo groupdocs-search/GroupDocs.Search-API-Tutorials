@@ -1,49 +1,49 @@
 ---
-date: '2026-01-03'
-description: GroupDocs.Search for Java ile belgeleri indekse eklemeyi, indeksleri
-  yönetmeyi ve alias sözlüklerini verimli bir şekilde kullanmayı öğrenin.
+date: '2026-03-06'
+description: GroupDocs.Search for Java ile birden fazla takma ad eklemeyi, belgeleri
+  indekse eklemeyi ve aranabilir indeksleri verimli bir şekilde yönetmeyi öğrenin.
 keywords:
 - GroupDocs.Search Java
 - index management
 - alias dictionary
-title: GroupDocs.Search for Java'da Belgeleri İndexe Ekleme ve Takma Adları Yönetme
+title: GroupDocs.Search for Java'da Birden Çok Takma Ad Eklemek ve Belgeleri İndexe
+  Eklemek
 type: docs
 url: /tr/java/indexing/groupdocs-search-java-efficient-index-alias-management/
 weight: 1
 ---
 
-# Belgeleri İndekse Ekleme ve Alias Yönetimi GroupDocs.Search Java'da: Kapsamlı Bir Rehber
+# GroupDocs.Search Java'da Birden Çok Takma Ad Eklemek ve Belge Dizinine Eklemek: Kapsamlı Rehber
 
-Günümüzün veri odaklı dünyasında, **add documents to index** işlemini hızlı bir şekilde gerçekleştirmek ve belgeleri verimli bir şekilde aramak, işletmenize gerçek bir rekabet avantajı sağlayabilir. Binlerce sözleşme, ürün kataloğu veya araştırma makalesiyle çalışıyor olun, GroupDocs.Search for Java, aranabilir indeksler oluşturmayı ve alias sözlükleriyle sorguları ince ayarlamayı basit hale getirir.
-
-Aşağıda, kütüphaneyi kurmak, **add documents to index**, alias yönetmek ve güçlü aramalar çalıştırmak için ihtiyacınız olan her şeyi, dostane ve adım‑adım bir tarzda bulacaksınız.
+Bugünün veri odaklı dünyasında, **birden çok takma ad eklemek** ve **belge dizinine eklemek**, arama çözümünüze belirgin bir performans avantajı sağlar. İster binlerce sözleşme, ürün kataloğu ya da araştırma makalesi indeksliyor olun, GroupDocs.Search for Java, **arama yapılabilir indeks** yapıları oluşturmanıza ve takma ad sözlükleriyle sorguları ince ayarlamanıza olanak tanır—tüm bunlar uygulamayı basit ve hızlı tutarak.
 
 ## Hızlı Yanıtlar
-- **GroupDocs.Search kullanmaya başlamak için ilk adım nedir?** Maven bağımlılığını ekleyin ve bir `Index` nesnesi başlatın.  
-- **Belgeleri indekse nasıl eklerim?** Dosyalarınızın bulunduğu klasörü belirterek `index.add("<folder_path>")` metodunu çağırın.  
-- **Karmaşık sorgular için alias oluşturabilir miyim?** Evet—kısa tokenları tam sorgu ifadelerine eşlemek için alias sözlüğünü kullanın.  
-- **Alias sözlüklerini dışa ve içe aktarmak mümkün mü?** Kesinlikle—`exportDictionary` ve `importDictionary` metodlarını kullanın.  
-- **Hangi GroupDocs.Search sürümü gereklidir?** Sürüm 25.4 veya üzeri (öğreticide 25.4 kullanılmıştır).  
+- **GroupDocs.Search'i kullanmaya başlamak için ilk adım nedir?** Maven bağımlılığını ekleyin ve bir `Index` nesnesi başlatın.  
+- **Belge dizinine nasıl eklenir?** Dosyalarınızı içeren klasörle `index.add("<folder_path>")` metodunu çağırın.  
+- **Karmaşık sorgular için takma adlar oluşturabilir miyim?** Evet—kısa tokenları tam sorgu ifadelerine eşlemek için takma ad sözlüğünü kullanın ve ayrıca **birden çok takma ad ekleyebilirsiniz** toplu olarak.  
+- **Takma ad sözlüklerini dışa ve içe aktarmak mümkün mü?** Kesinlikle—`exportDictionary` ve `importDictionary` metodlarını kullanın.  
+- **Hangi GroupDocs.Search sürümü gereklidir?** 25.4 veya üzeri (öğreticide 25.4 kullanılmıştır).  
 
-## “add documents to index” nedir?
-Belgeleri bir indekse eklemek, ham dosyaları (PDF, DOCX, TXT vb.) GroupDocs.Search’e beslemek ve kütüphanenin içeriği analiz edip aranabilir bir veri yapısı oluşturmasını sağlamak anlamına gelir. İndeksleme tamamlandığında, tüm bu belgeler üzerinde hızlı tam‑metin sorguları çalıştırabilirsiniz.
+## “Belge dizinine eklemek” ne demektir?
+Bir indeks'e belge eklemek, ham dosyaları (PDF, DOCX, TXT vb.) GroupDocs.Search'e beslemek anlamına gelir; böylece kütüphane içeriği analiz eder ve bir **arama yapılabilir indeks** oluşturur. İndeksleme tamamlandığında, tüm bu belgeler üzerinde hızlı, tam metin sorguları çalıştırabilirsiniz.
 
-## Alias Yönetimi Neden Önemlidir?
-Alias’lar, uzun ve tekrarlayan sorgu parçalarını kısa, akılda kalıcı tokenlarla (ör. `@t` → `(gravida OR promotion)`) değiştirmenizi sağlar. Bu, arama dizelerinizi kısaltmakla kalmaz, aynı zamanda okunabilirliği ve bakımını da iyileştirir; özellikle sorgular karmaşıklaştığında büyük fayda sağlar.
+## Neden Takma Adları Yönetmeliyiz?
+Takma adlar, uzun ve tekrarlayan sorgu parçalarını kısa, akılda kalıcı tokenlarla (ör. `@t` → `(gravida OR promotion)`) değiştirmenizi sağlar. Bu, sadece arama dizelerinizi kısaltmakla kalmaz, aynı zamanda okunabilirliği, bakım kolaylığını ve **arama performansını optimize eder**, özellikle sorgular karmaşıklaştığında.
 
-## Ön Koşullar
+## Birden Çok Takma Ad Nasıl Eklenir?
+GroupDocs.Search, bir kerede birçok takma ad‑değiştirme çiftini eklemenizi sağlayan kullanışlı bir `addRange` metodu sunar. Bu toplu işlem, her takma adı tek tek eklemeye göre yükü azaltır.
 
-Başlamadan önce şunların kurulu olduğundan emin olun:
+## Önkoşullar
 
-- **GroupDocs.Search for Java** ≥ 25.4.
-- **JDK** (herhangi bir yeni sürüm, ör. 11+).
-- **IntelliJ IDEA** veya **Eclipse** gibi bir IDE.
-- Temel Java ve Maven bilgisi.
+- **GroupDocs.Search for Java** ≥ 25.4.  
+- **JDK** (herhangi bir yeni sürüm, ör. 11+).  
+- **IntelliJ IDEA** veya **Eclipse** gibi bir IDE.  
+- Temel Java ve Maven bilgisi.  
 
-## GroupDocs.Search for Java Kurulumu
+## GroupDocs.Search for Java'ı Kurma
 
 ### Maven Kullanarak
-`pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
+Depoyu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
 
 ```xml
 <repositories>
@@ -70,7 +70,7 @@ Alternatif olarak, resmi siteden en son JAR dosyasını indirin:
 #### Lisans Edinme Adımları
 1. **Ücretsiz Deneme** – taahhüt olmadan tüm özellikleri keşfedin.  
 2. **Geçici Lisans** – değerlendirme için kısa vadeli bir anahtar isteyin.  
-3. **Tam Satın Alma** – üretim kullanımı için kalıcı bir lisans alın.
+3. **Tam Satın Alma** – üretim kullanımı için kalıcı bir lisans edinin.
 
 ### Temel Başlatma ve Kurulum
 
@@ -92,11 +92,11 @@ public class GroupDocsSetup {
 
 ## Uygulama Kılavuzu
 
-Aşağıda her özelliğin tam bir yürütülmesi yer alıyor. Önce açıklamaları okuyabilir, ardından eşleşen kod bloğunu kopyalayabilirsiniz.
+Aşağıda her özelliğin tam bir yürütmesi yer almaktadır. Önce açıklamaları okuyun, ardından ilgili kod bloğunu kopyalayın.
 
-### İndeks Oluşturma veya Açma
+### Bir İndeks Oluşturma veya Açma
 
-**Belgeleri indekse eklemek – önce aktif bir Index örneğine ihtiyacınız var.**
+**Belge dizinine eklemek – önce aktif bir Index örneğine ihtiyacınız var.**
 
 #### Adım 1: Index sınıfını içe aktarın
 ```java
@@ -113,11 +113,11 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY/Indexes/Index";
 Index index = new Index(indexFolder);
 ```
 
-### Belgeleri Bir İndekse Eklemek
+### Bir İndekse Belge Eklemek
 
-İndeks mevcut olduğuna göre, **add documents to index** işlemini gerçekleştirelim.
+İndeks artık mevcut olduğuna göre, **belge dizinine ekleyelim**.
 
-#### Adım 1: Kaynak klasörünüzü belirtin
+#### Adım 1: Kaynak klasörünüze işaret edin
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY/Documents";
 ```
@@ -127,26 +127,26 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY/Documents";
 index.add(documentsFolder);
 ```
 
-> **Pro ipucu:** Yeni dosyalar geldiğinde bu adımı çalıştırın. GroupDocs.Search yalnızca yeni içeriği indeksleyecek, mevcut girişleri dokunulmaz bırakacaktır.
+> **Pro ipucu:** Yeni dosyalar geldiğinde bu adımı çalıştırın. GroupDocs.Search yalnızca yeni içeriği indeksleyecek, mevcut girişleri dokunulmaz bırakacaktır. Bu, **incremental indexing java**'nın özüdür.
 
-### Alias Sözlüğü Yönetimi
+### Takma Ad Sözlüğünü Yönetme
 
-Alias’lar, kısa tokenları karmaşık sorgu dizeleriyle eşlemenizi sağlar. Eski girdileri temizleme, tek tek alias ekleme ve **add multiple aliases** toplu ekleme konularını ele alacağız.
+Takma adlar, kısa tokenları karmaşık sorgu dizelerine eşlemenizi sağlar. Eski girişleri temizlemeyi, tek takma ad eklemeyi ve toplu olarak **birden çok takma ad eklemeyi** ele alacağız.
 
-#### Mevcut Alias’ları Temizleme
+#### Mevcut Takma Adları Temizleme
 ```java
 if (index.getDictionaries().getAliasDictionary().getCount() > 0) {
     index.getDictionaries().getAliasDictionary().clear();
 }
 ```
 
-#### Tekli Alias Ekleme
+#### Tek Takma Ad Eklemek
 ```java
 index.getDictionaries().getAliasDictionary().add("t", "(gravida OR promotion)");
 index.getDictionaries().getAliasDictionary().add("e", "(viverra OR farther)");
 ```
 
-#### Çoklu Alias Ekleme
+#### Birden Çok Takma Ad Eklemek
 ```java
 AliasReplacementPair[] pairs = new AliasReplacementPair[] {
     new AliasReplacementPair("d", "daterange(2017-01-01 ~~ 2019-12-31)"),
@@ -155,9 +155,9 @@ AliasReplacementPair[] pairs = new AliasReplacementPair[] {
 index.getDictionaries().getAliasDictionary().addRange(pairs);
 ```
 
-### Alias Değişimlerini Sorgulama
+### Takma Ad Değişimlerini Sorgulama
 
-Tanımladığınız herhangi bir alias için tam metni alabilirsiniz:
+Tanımladığınız herhangi bir takma adın tam metnini alabilirsiniz:
 
 ```java
 if (index.getDictionaries().getAliasDictionary().contains("e")) {
@@ -165,71 +165,74 @@ if (index.getDictionaries().getAliasDictionary().contains("e")) {
 }
 ```
 
-### Alias Sözlüğünü Dışa ve İçeri Aktarma
+### Takma Ad Sözlüğünü Dışa ve İçe Aktarma
 
 Dışa aktarma, yedekleme veya ortamlar arasında paylaşım için kullanışlıdır.
 
-#### Alias’ları Dışa Aktar
+#### Takma Adları Dışa Aktar
 ```java
 String fileName = "YOUR_OUTPUT_DIRECTORY/Aliases.dat";
 index.getDictionaries().getAliasDictionary().exportDictionary(fileName);
 ```
 
-#### Alias’ları İçeri Aktar
+#### Takma Adları İçe Aktar
 ```java
 index.getDictionaries().getAliasDictionary().importDictionary(fileName);
 ```
 
-### Alias Sorgularıyla Arama Yapma
+### Takma Ad Sorgularını Kullanarak Arama
 
-Alias’lar yerleştirildiğinde, arama dizeleriniz çok daha temiz hâle gelir:
+Takma adlar yerinde olduğunda, arama dizeleriniz çok daha temiz olur:
 
 ```java
 String query = "@t OR @e";
 SearchResult result = index.search(query);
 ```
 
-`@` sembolü, GroupDocs.Search’e tokenı tam ifadesiyle değiştirmesini ve ardından aramayı yürütmesini söyler.
+`@` sembolü, GroupDocs.Search'e tokenı aramayı yürütmeden önce tam ifadesiyle değiştirmesini söyler.
 
 ## Pratik Uygulamalar
 
-| Senaryo | Alias’ların Yardımı |
-|----------|-------------------|
-| **Hukuki Belge Yönetimi** | Dava numaralarını (`@case123`) karmaşık Boolean koşullarına eşleyerek geri getirme hızını artırın. |
-| **E‑ticaret Ürün Araması** | Yaygın özellik kombinasyonlarını (`@sale`) `(discounted OR clearance)` ile değiştirin. |
-| **Araştırma Veritabanları** | `@year2020` kullanarak birçok makaleye tarih aralığı filtresi ekleyin. |
+| Senaryo | Takma Adlar Nasıl Yardımcı Olur |
+|----------|-------------------------------|
+| **Hukuki Belge Yönetimi** | Dava numaralarını (`@case123`) karmaşık Boolean ifadelerine eşleyerek geri getirmeyi hızlandırır. |
+| **E‑ticaret Ürün Araması** | Yaygın özellik kombinasyonlarını (`@sale`) `(discounted OR clearance)` ile değiştirir. |
+| **Araştırma Veritabanları** | `@year2020` kullanarak birçok makale için tarih aralığı filtresine genişletir. |
 
 ## Performans Düşünceleri
 
-- **Artımlı İndeksleme:** Yalnızca yeni veya değişmiş dosyaları ekleyin; tam yeniden indekslemeden kaçının.  
-- **JVM Ayarlamaları:** Büyük veri kümeleri için yeterli yığın belleği ayırın (`-Xmx4g`).  
-- **Toplu Alias Güncellemeleri:** Birçok aliası bir kerede eklemek için `addRange` kullanın, böylece yük azalır.
+- **Artımlı İndeksleme:** Yalnızca yeni veya değişen dosyaları ekleyin; tam yeniden indekslemeden kaçının.  
+- **JVM Ayarı:** Büyük veri kümeleri için yeterli yığın belleği ayırın (`-Xmx4g`).  
+- **Toplu Takma Ad Güncellemeleri:** Bir kerede birçok takma ad eklemek için `addRange` kullanın, yükü azaltır.  
+- **Arama Performansını Optimize Et:** Takma ad sözlüğünü hafif tutun ve tokenları akıllıca yeniden kullanarak sorgu ayrıştırma süresini minimize edin.
 
-## Sonuç
+## Yaygın Sorunlar ve Çözümler
 
-Artık **add documents to index**, alias sözlüğü yönetimi ve GroupDocs.Search for Java ile verimli aramalar yapmayı biliyorsunuz. Bu teknikler, arama‑odaklı uygulamalarınızı daha hızlı, daha sürdürülebilir ve son kullanıcılar için daha kolay sorgulanabilir hâle getirecek.
-
-**Sonraki adımlar:** Özel analizörlerle deney yapın, bulanık arama seçeneklerini keşfedin ve indeksi gerçek‑zamanlı sorgulama için bir web servisine entegre edin.
+| Sorun | Çözüm |
+|-------|-------|
+| Yeni dosyalar aranabilir değil | `index.add(newFolder)` komutunu tekrar çalıştırın; GroupDocs.Search yalnızca görülmemiş dosyaları indeksler. |
+| Takma ad boş sonuç döndürüyor | Takma ad anahtarının (`@`) doğru şekilde ön eklenmiş olduğunu ve sözlüğün tokenı içerdiğini doğrulayın. |
+| Toplu indeksleme sırasında yüksek bellek kullanımı | JVM yığın belleğini artırın (`-Xmx`) ve daha küçük partilerde indekslemeyi düşünün. |
 
 ## Sıkça Sorulan Sorular
 
-**S: GroupDocs.Search for Java kullanmanın temel faydası nedir?**  
-C: Güçlü, kutudan çıkar çıkmaz indeksleme ve tam‑metin arama yetenekleri sunar; **add documents to index** işlemini hızlı bir şekilde yapmanızı ve yüksek performansla sorgulamanızı sağlar.
+**S: GroupDocs.Search for Java'ı kullanmanın temel faydası nedir?**  
+C: Güçlü, kutudan çıkar çıkmaz indeksleme ve tam metin arama yetenekleri sunar, **belge dizinine eklemenizi** hızlı bir şekilde yapmanızı ve yüksek performansla sorgulamanızı sağlar.
 
-**S: GroupDocs.Search veritabanlarıyla kullanılabilir mi?**  
-C: Evet—herhangi bir kaynaktan (SQL, NoSQL, CSV) verileri çıkarıp aynı `add` metodlarıyla indekse besleyebilirsiniz.
+**S: GroupDocs.Search'ı veritabanlarıyla kullanabilir miyim?**  
+C: Evet—herhangi bir kaynaktan (SQL, NoSQL, CSV) veri çıkarıp aynı `add` metodlarıyla indekse besleyebilirsiniz.
 
-**S: Alias’lar arama verimliliğini nasıl artırır?**  
-C: Alias’lar, karmaşık sorgu mantığını bir kez saklayıp kısa tokenlarla yeniden kullanmanızı sağlar; bu da sorgu ayrıştırma süresini azaltır ve insan hatasını en aza indirir.
+**S: Takma adlar arama verimliliğini nasıl artırır?**  
+C: Takma adlar, karmaşık sorgu mantığını bir kez depolayıp kısa tokenlarla yeniden kullanmanıza olanak tanır, sorgu ayrıştırma süresini azaltır ve **takma adlarla arama** yaparken insan hatasını en aza indirir.
 
-**S: Tüm sözlüğü yeniden oluşturmak zorunda kalmadan mevcut bir alias’ı güncelleyebilir miyim?**  
+**S: Tüm sözlüğü yeniden oluşturmadan mevcut bir takma adı güncellemek mümkün mü?**  
 C: Kesinlikle—aynı anahtarla `add` metodunu çağırın; kütüphane önceki değeri üzerine yazar.
 
 **S: Aramam beklenmedik sonuçlar döndürürse ne yapmalıyım?**  
-C: Alias tanımlarının doğru olduğundan emin olun, yeni eklenen belgeleri yeniden indeksleyin ve analizör ayarlarını tokenizasyon sorunları için kontrol edin.
+C: Takma ad tanımlarının doğru olduğunu doğrulayın, yeni eklenen belgeleri yeniden indeksleyin ve tokenizasyon sorunları için analizör ayarlarını kontrol edin.
 
 ---
 
-**Son Güncelleme:** 2026-01-03  
+**Son Güncelleme:** 2026-03-06  
 **Test Edilen Sürüm:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs
