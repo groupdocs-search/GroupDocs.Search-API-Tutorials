@@ -1,38 +1,41 @@
 ---
-date: '2026-01-01'
-description: GroupDocs.Search Java kullanarak indeks oluşturmayı, indeks'e belge eklemeyi
-  ve takma adları yönetmeyi öğrenin; böylece arama performansını optimize edin.
+date: '2026-03-09'
+description: Java'da indeks oluşturmayı, belgelere indeks eklemeyi ve takma adları
+  yönetmeyi, arama performansını optimize etmek için GroupDocs.Search for Java kullanarak
+  öğrenin.
 keywords:
 - GroupDocs.Search Java
 - index creation in GroupDocs
 - alias management in search
-title: GroupDocs.Search Java'da Dizin ve Takma Adlar Nasıl Oluşturulur
+title: Java ile GroupDocs.Search'te İndeks Oluştur – Takma Adları Yönetme
 type: docs
 url: /tr/java/indexing/groupdocs-search-java-index-alias-management/
 weight: 1
 ---
 
-# GroupDocs.Search Java'da Dizin ve Takma Adlar Nasıl Oluşturulur
+ blocks: but actual code blocks are placeholders, not actual code. So fine.
 
-Günümüz veri odaklı dünyasında, **dizini nasıl oluşturulur** hızlı ve güvenilir bir şekilde oluşturmak, Java tabanlı herhangi bir arama çözümü için temel bir gereksinimdir. İster bir belge yönetim sistemi, bir e‑ticaret kataloğu ya da bir bilgi tabanı oluşturuyor olun, verimli bir dizin, kullanıcıların sonsuz dosyalar arasında kaydırma yapmadan doğru bilgiyi bulmasını sağlar. Bu öğretici, bir dizin oluşturma, belgelere ekleme ve GroupDocs.Search for Java ile takma adları yönetme sürecini adım adım anlatır, böylece **arama performansını optimize edin** ve sorunsuz bir kullanıcı deneyimi sunabilirsiniz.
+Make sure we didn't accidentally translate any URLs.
 
-## Hızlı Yanıtlar
-- **Dizin nedir?** Belgeler arasında hızlı tam metin aramayı sağlayan yapılandırılmış bir depolama.  
-- **Dizine belge nasıl eklenir?** Dosyaları toplu olarak içe aktarmak için `index.add("<folderPath>")` kullanın.  
-- **Eş anlamlıları eşleyebilir miyim?** Evet—Alias Dictionary aracılığıyla ekleyin.  
-- **Hangi Java sürümü gereklidir?** JDK 8 veya üzeri.  
-- **Lisans gerekiyor mu?** Ücretsiz deneme mevcuttur; ticari bir lisans tam özellikleri açar.
+Now produce final content.# GroupDocs.Search ile Java'da İndeks Oluşturma – Takma Adları Yönetme
+
+Modern Java uygulamalarında, **create index java** hızlı ve güvenilir bir arama deneyimi oluşturmanın ilk adımlarından biridir. Hukuki sözleşmeler, ürün katalogları veya dahili bilgi tabanları gibi belgeleri indeksliyor olun, iyi yapılandırılmış bir indeks, kullanıcıların ihtiyaç duydukları şeyi milisaniyeler içinde bulmasını sağlar. Bu rehberde, GroupDocs.Search'ü nasıl kuracağınızı, bir indeks oluşturacağınızı, belgeleri ekleyeceğinizi ve takma adları yapılandıracağınızı adım adım gösterecek ve böylece **search performance**'ı optimize edebileceksiniz.
 
 ## Giriş
-Günümüz veri odaklı dünyasında, büyük miktarda belgeyi verimli bir şekilde yönetmek, işletmelerin üretkenliği artırması ve kritik bilgilere hızlı erişim sağlaması için çok önemlidir. Peki, kullanıcıların sayısız dosya arasında aradıkları tam belgeyi bulmasını nasıl sağlarsınız? İşte GroupDocs.Search Java—uygulamalarınızdaki metin arama yeteneklerini basitleştirmek için tasarlanmış güçlü bir kütüphane.
+Bugünün veri odaklı dünyasında, büyük miktarda belgeyi verimli bir şekilde yönetmek, işletmelerin üretkenliği artırması ve kritik bilgilere hızlı erişim sağlaması için hayati önemdedir. Peki, kullanıcıların sayısız dosya arasında kaybolmadan tam olarak ihtiyaç duydukları belgeyi bulmasını nasıl sağlarsınız? İşte Java için GroupDocs.Search—uygulamalarınızdaki metin arama yeteneklerini basitleştirmek için tasarlanmış güçlü bir kütüphane.
 
-Bu öğretici, dizinleri oluşturma ve yönetme ile GroupDocs.Search Java ile takma ad yönetimini uygulama konusunda size rehberlik edecektir. Bu özellikleri ustalıkla kullanarak, uygulamanızın arama işlevselliğini önemli ölçüde artırabilir, son kullanıcılar için daha sezgisel ve verimli hale getirebilirsiniz.
-
-**Öğrenecekleriniz**
-- Java ortamında GroupDocs.Search'ı kurma ve yapılandırma.  
+**Neler Öğreneceksiniz**
+- Java ortamında GroupDocs.Search'ü nasıl kurup yapılandıracağınızı.  
 - GroupDocs.Search kullanarak **create an index** ve **add documents to index** adımlarını.  
-- Alias dictionary özelliği içinde **how to add aliases** teknikleri.  
-- Bu özelliklerin gerçek dünya senaryolarındaki pratik uygulamaları.
+- alias dictionary özelliği içinde **add aliases** teknikleri.  
+- Bu yeteneklerin arama alaka düzeyini ve hızı nasıl artırdığına dair gerçek dünya senaryoları.
+
+## Hızlı Yanıtlar
+- **What is an index?** Belgeler arasında hızlı tam metin arama sağlayan yapılandırılmış bir depolamadır.  
+- **How to add documents to index?** Dosyaları toplu olarak içe aktarmak için `index.add("<folderPath>")` kullanın.  
+- **Can I map synonyms?** Evet—Alias Dictionary aracılığıyla ekleyebilirsiniz.  
+- **Which Java version is required?** JDK 8 ve üzeri.  
+- **Do I need a license?** Ücretsiz deneme mevcuttur; ticari lisans tam özellikleri açar.
 
 ## Önkoşullar
 ### Gerekli Kütüphaneler
@@ -41,7 +44,7 @@ Bu öğreticiyi takip etmek için şunlara ihtiyacınız olacak:
 - Bağımlılık yönetimi için Maven.
 
 ### Bağımlılıklar
-GroupDocs.Search for Java kullanacaksınız. `pom.xml` dosyanızın aşağıdakileri içerdiğinden emin olun:
+Java için GroupDocs.Search'ü kullanacaksınız. `pom.xml` dosyanızın aşağıdakileri içerdiğinden emin olun:
 
 ```xml
 <repositories>
@@ -66,21 +69,21 @@ GroupDocs.Search for Java kullanacaksınız. `pom.xml` dosyanızın aşağıdaki
 - Daha kolay proje yönetimi için IntelliJ IDEA veya Eclipse gibi bir IDE'ye sahip olduğunuzdan emin olun.
 
 ### Bilgi Önkoşulları
-- Java programlama ve nesne yönelimli prensiplerin temel bir anlayışı.  
+- Java programlaması ve nesne yönelimli prensipler hakkında temel bir anlayış.  
 - Maven kullanarak bağımlılık yönetimine aşina olmak.
 
-Temel konuları ele aldığımıza göre, Java ortamınızda GroupDocs.Search'ı kurmaya geçelim.
+Temel konuları ele aldığımıza göre, Java ortamınızda GroupDocs.Search'ü kurmaya geçelim.
 
-## GroupDocs.Search for Java Kurulumu
-GroupDocs.Search'ı kullanmaya başlamak için, yukarıda gösterildiği gibi Maven aracılığıyla kurmanız gerekir. GroupDocs web sitesinden doğrudan indirmek isterseniz, [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresini ziyaret edin.
+## Java için GroupDocs.Search Kurulumu
+GroupDocs.Search'ü kullanmaya başlamak için yukarıda gösterildiği gibi Maven üzerinden kurmanız gerekir. Direkt olarak GroupDocs web sitesinden indirmeyi tercih ediyorsanız, [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresini ziyaret edin.
 
 ### Lisans Edinimi
-- **Free Trial:** Ücretsiz deneme: Özellikleri keşfetmek için ücretsiz deneme ile başlayın.  
-- **Temporary License:** Geçici Lisans: Deneme süresinin ötesinde genişletilmiş erişim ihtiyacınız varsa geçici lisans başvurusu yapın.  
-- **Purchase:** Satın Alma: Tam erişim için bir abonelik satın almayı düşünün.
+- **Free Trial:** Özellikleri keşfetmek için ücretsiz deneme ile başlayın.  
+- **Temporary License:** Deneme süresinin ötesinde uzun vadeli erişim gerekiyorsa geçici lisans başvurusu yapın.  
+- **Purchase:** Tam erişim için bir abonelik satın almayı düşünün.
 
 #### Temel Başlatma ve Kurulum
-GroupDocs.Search'ı Java uygulamanızda nasıl başlatabileceğinize bir örnek:
+Java uygulamanızda GroupDocs.Search'ü nasıl başlatabileceğinize dair örnek:
 
 ```java
 import com.groupdocs.search.*;
@@ -96,97 +99,98 @@ public class SearchSetup {
 }
 ```
 
-Kurulum tamamlandığında, dizin oluşturma ve yönetmeye dalalım.
+Kurulum tamamlandığında, indeks oluşturma ve yönetmeye geçelim.
 
-## GroupDocs.Search Java'da Dizin Nasıl Oluşturulur
-Dizin oluşturmak, verimli arama yeteneklerini etkinleştirmenin ilk adımıdır. Bu, aranabilir tüm metin verilerinin hızlı bir şekilde alınabilmesi için bir depolama konumu hazırlamayı içerir.
+## GroupDocs.Search'te Java ile İndeks Oluşturma
+İndeks oluşturmak, etkili arama yeteneklerini etkinleştirmenin ilk adımıdır. Bu, aranabilir tüm metin verilerinin hızlı bir şekilde alınabilmesi için bir depolama konumu hazırlamayı içerir.
 
-### Adım 1: Dizin Dizini Belirleme
-Dizin dizininizin yolunu tanımlayın:
+### Adım 1: İndeks Dizinini Belirleme
+İndeks dizininizin yolunu tanımlayın:
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/UsingAliases";
 ```
-**Neden?** Bu, dizinin düzenli bir şekilde depolanmasını ve kolayca yönetilip güncellenebilmesini sağlar.
+**Why?** Bu, indeksin düzenli bir şekilde depolanmasını ve kolayca yönetilip güncellenebilmesini sağlar.
 
-### Adım 2: Dizin Oluşturma
+### Adım 2: İndeks Oluşturma
 ```java
 Index index = new Index(indexFolder);
 System.out.println("Index created at: " + indexFolder);
 ```
-**Açıklama:** Burada, aranabilir verilerimiz için depolamayı ayarlayan yeni bir `Index` nesnesi başlatıyoruz. Bu, uygulamanızın belge dizinlemeye başlamasını sağlamak açısından kritiktir.
+**Explanation:** Burada, aranabilir verilerimiz için depolamayı ayarlayan yeni bir `Index` nesnesi başlatıyoruz. Bu, uygulamanızın belge indekslemeye başlamasını sağladığı için kritiktir.
 
-### Adım 3: Dizin'e Belgeler Ekleyin
+### Adım 3: Belgeleri İndekse Ekleme
 ```java
 String documentDirectory = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentDirectory);
 
 System.out.println("Documents added successfully.");
 ```
-**Neden?** Belgeleri eklemek, dizini metin verileriyle doldurur ve bunların aranabilir olmasını sağlar. Yolunuzun belgelerinizin depolandığı doğru dizini gösterdiğinden emin olun.
+**Why?** Belgeleri eklemek, indeksi metin verileriyle doldurur ve arama yapılabilir hâle getirir. Yolunuzun belgelerinizin bulunduğu doğru dizini işaret ettiğinden emin olun.
 
 ## GroupDocs.Search Java ile Takma Adlar Nasıl Eklenir
-Takma adlar, eş anlamlı terimleri veya anahtar kelimeleri eşleştirerek, birden fazla terimin aynı kavrama işaret etmesine izin vererek arama esnekliğini ve kullanıcı deneyimini artırır.
+Takma adlar, eşanlamlı terimleri veya anahtar kelimeleri eşleştirerek, birden fazla terimin aynı kavrama işaret etmesine izin vererek arama esnekliğini ve kullanıcı deneyimini artırır.
 
 ### Alias Sözlüğüne Erişim
 ```java
 AliasDictionary aliasDictionary = index.getDictionaries().getAliasDictionary();
 ```
-**Neden?** Bu adım, takma adların yönetildiği sözlüğü alır. Arama sorgularının eş anlamlıları veya alternatif anahtar kelimeleri nasıl yorumlayacağını özelleştirmek için gereklidir.
+**Why?** Bu adım, takma adların yönetildiği sözlüğü alır. Arama sorgularının eşanlamlıları veya alternatif anahtar kelimeleri nasıl yorumlayacağını özelleştirmek için gereklidir.
 
-### Takma Adlar Ekleyin
+### Takma Adlar Ekleme
 ```java
 aliasDictionary.add("term1", "synonym1");
 aliasDictionary.add("term2", "relatedTerm");
 
 System.out.println("Aliases added to the index.");
 ```
-**Açıklama:** Takma adlar ekleyerek, uygulamanızın aramalar sırasında farklı terimleri eşdeğer olarak tanımasını sağlıyorsunuz. Bu, kullanıcıların farklı terminoloji kullanabileceği senaryolarda özellikle faydalıdır.
+**Explanation:** Takma adlar ekleyerek, uygulamanızın aramalar sırasında farklı terimleri eşdeğer olarak tanımasını sağlıyorsunuz. Bu, kullanıcıların farklı terminoloji kullanabileceği senaryolarda özellikle faydalıdır.
 
 #### Sorun Giderme İpuçları
-- Tüm yolların (dizin ve belge dizinleri) doğru belirtildiğinden emin olun.  
+- Tüm yolların (indeks ve belge dizinleri) doğru belirtildiğinden emin olun.  
 - Takma ad girişlerinin doğru yazım ve alaka düzeyine sahip olduğunu doğrulayın.
 
 ## Pratik Uygulamalar
-1. **Document Management Systems:** Belge Yönetim Sistemleri: Çalışanların ilgili belgeleri hızlıca bulmasını sağlayacak arama işlevi uygulayarak üretkenliği artırın.  
-2. **E‑commerce Platforms:** E‑ticaret Platformları: Takma ad yönetimini kullanarak ürün anahtar kelimelerini eş anlamlılar veya marka adlarıyla eşleştirin, müşteri deneyimini iyileştirin.  
-3. **Content Management Systems (CMS):** İçerik Yönetim Sistemleri (CMS): Takma adları kullanarak esnek arama kriterleri sağlayarak içerik keşfedilebilirliğini artırın.
+1. **Document Management Systems:** Çalışanların ilgili belgeleri hızlıca bulmasını sağlayarak üretkenliği artıran arama işlevselliği uygulayın.  
+2. **E‑commerce Platforms:** Ürün anahtar kelimelerini eşanlamlılar veya marka adlarıyla eşleştirmek için takma ad yönetimini kullanın, müşteri deneyimini iyileştirin.  
+3. **Content Management Systems (CMS):** Takma adlar kullanarak esnek arama kriterleri sağlayarak içerik keşfedilebilirliğini artırın.
 
-## Performans Düşünceleri
+## Performans Hususları
 ### Arama Performansını Optimize Etme
-- Dizinleri düzenli olarak güncelleyip bakımını yaparak hızlı arama yanıt sürelerini sağlayın.  
-- Takma ad depolaması için verimli veri yapılarını kullanarak arama sürelerini minimize edin.
+- Arama yanıt sürelerinin hızlı kalmasını sağlamak için indeksleri düzenli olarak güncelleyin ve bakımını yapın.  
+- Takma ad depolaması için verimli veri yapıları kullanarak arama sürelerini en aza indirin.
 
 ### Kaynak Kullanım Kılavuzları
-- Bellek kullanımını izleyin, özellikle büyük miktarda belge dizinlenirken.  
-- Dizin dizinlerini mantıklı bir şekilde düzenleyerek disk alanını etkili kullanın.
+- Özellikle büyük miktarda belge indekslerken bellek kullanımını izleyin.  
+- Disk alanını etkili kullanmak için indeks dizinlerini mantıklı bir şekilde düzenleyin.
 
 ### En İyi Uygulamalar
-- Mümkün olduğunda önbellekleme mekanizmaları uygulayarak sık aramalarda dizin üzerindeki yükü azaltın.  
+- Sık aramalarda indeks üzerindeki yükü azaltmak için mümkün olduğunca önbellekleme mekanizmaları uygulayın.  
 - Terminoloji veya iş bağlamındaki değişiklikleri yansıtmak için takma adları düzenli olarak gözden geçirin ve güncelleyin.
 
 ## Sonuç
-Bu öğreticiyi izleyerek **how to create index**, belge ekleme ve GroupDocs.Search Java ile takma ad yönetimini öğrendiniz; bu da uygulamalarınıza verimli ve esnek arama yetenekleri kazandırır. Bu özellikler, hızlı ve doğru sonuçlar sunmanızı ve genel kullanıcı memnuniyetini artırmanızı sağlar.
+Bu öğreticiyi izleyerek **how to create index java**, belgeleri eklemeyi ve GroupDocs.Search for Java ile takma adları yönetmeyi öğrendiniz; bu da uygulamalarınıza etkili ve esnek arama yetenekleri kazandırır. Bu özellikler, hızlı ve doğru sonuçlar sunmanızı ve genel kullanıcı memnuniyetini artırmanızı sağlar.
 
-Bir sonraki adım olarak, faceted search, custom scoring gibi gelişmiş özellikleri veya bulut depolama çözümleriyle entegrasyonu keşfederek GroupDocs.Search'ın gücünü projelerinizde daha da genişletebilirsiniz.
+Bir sonraki adım olarak, projelerinizde GroupDocs.Search'ün gücünü daha da genişletmek için faceted search, custom scoring gibi gelişmiş özellikleri veya bulut depolama çözümleriyle entegrasyonu keşfedin.
 
 ## Sıkça Sorulan Sorular
-**S: Dizin oluşturmanın temel amacı nedir?**  
+**S: Bir indeks oluşturmanın temel amacı nedir?**  
 C: Temel amaç, aramalar sırasında hızlı geri getirme için metin verilerini düzenlemek, verimliliği ve kullanıcı deneyimini artırmaktır.
 
 **S: Takma adlar arama işlevselliğini nasıl iyileştirir?**  
-C: Takma adlar, farklı terimlerin veya eş anlamlıların eşdeğer olarak tanınmasını sağlar, arama sonuçlarını genişletir ve çeşitli kullanıcı sorgularına uyum sağlar.
+C: Takma adlar, farklı terimlerin veya eşanlamlıların eşdeğer olarak tanınmasını sağlar, arama sonuçlarını genişletir ve çeşitli kullanıcı sorgularına uyum sağlar.
 
-**S: GroupDocs.Search'ı bulut depolama ile kullanabilir miyim?**  
-C: Evet, GroupDocs.Search'ı uzaktan depolanan belgeleri yönetmek için çeşitli bulut depolama çözümleriyle entegre edebilirsiniz.
+**S: GroupDocs.Search'ü bulut depolama ile kullanabilir miyim?**  
+C: Evet, GroupDocs.Search'ü uzaktan depolanan belgeleri yönetmek için çeşitli bulut depolama çözümleriyle entegre edebilirsiniz.
 
 **S: Aramalarım yavaşsa ne yapmalıyım?**  
-C: Dizin boyutunuzu kontrol edin ve gereksiz verileri kaldırarak veya donanımı yükselterek optimize etmeyi düşünün.
+C: İndeks boyutunuzu kontrol edin ve gereksiz verileri kaldırarak veya donanımı yükselterek optimize etmeyi düşünün.
 
-**S: Tüm dizini yeniden oluşturmak zorunda kalmadan takma adları programlı olarak güncellemenin bir yolu var mı?**  
-C: Evet—`AliasDictionary` API'sini kullanarak mevcut bir dizinde tam bir yeniden indeksleme yapmadan takma adları ekleyebilir, güncelleyebilir veya silebilirsiniz.
+**S: Tüm indeksi yeniden oluşturmak zorunda kalmadan takma adları programlı olarak güncellemenin bir yolu var mı?**  
+C: Evet—`AliasDictionary` API'sini kullanarak mevcut bir indekste tam yeniden indeksleme yapmadan takma adları ekleyebilir, güncelleyebilir veya silebilirsiniz.
 
 ---
-**Son Güncelleme:** 2026-01-01  
+
+**Son Güncelleme:** 2026-03-09  
 **Test Edilen Versiyon:** GroupDocs.Search 25.4  
 **Yazar:** GroupDocs

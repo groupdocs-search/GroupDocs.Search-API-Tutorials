@@ -1,47 +1,52 @@
 ---
-date: '2026-01-01'
-description: เรียนรู้วิธีการดำเนินการค้นหาใน Java, เพิ่มเอกสารลงในดัชนี, และสร้างโซลูชันการค้นหาข้อความเต็มรูปแบบด้วย
-  GroupDocs.Search สำหรับ Java.
+date: '2026-03-09'
+description: เรียนรู้วิธีการดำเนินการค้นหาใน Java, เพิ่มเอกสารลงในดัชนี, และสร้างโซลูชันการค้นหาข้อความเต็มใน
+  Java ด้วย GroupDocs.Search for Java รวมถึงวิธีการเพิ่มโฟลเดอร์ลงในดัชนี.
 keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 'search query java - เชี่ยวชาญ GroupDocs.Search Java – สร้างและจัดการดัชนีการค้นหา'
+title: การค้นหาเต็มข้อความใน Java – เชี่ยวชาญ GroupDocs.Search Java – สร้างและจัดการดัชนีการค้นหา
 type: docs
 url: /th/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# search query java - การเชี่ยวชาญ GroupDocs.Search Java – สร้างและจัดการดัชนีการค้นหา
+.4 for Java  
+**ผู้เขียน:** GroupDocs
 
-ในแอปพลิเคชันที่ขับเคลื่อนด้วยข้อมูลในยุคปัจจุบัน การรัน **search query java** ที่มีประสิทธิภาพบนชุดเอกสารขนาดใหญ่เป็นความสามารถที่ต้องมี ไม่ว่าคุณจะสร้างพอร์ทัลเอกสารภายใน, แคตตาล็อกอี‑คอมเมิร์ซ, หรือ CMS ที่มีเนื้อหาจำนวนมาก ดัชนีการค้นหาที่ออกแบบอย่างดีจะทำให้ได้ผลลัพธ์ที่เร็วและแม่นยำ บทแนะนำนี้จะแสดงขั้นตอนทีละขั้นตอนในการตั้งค่า GroupDocs.Search สำหรับ Java, สร้างดัชนีที่สามารถค้นหา, **add documents to index**, และรัน **full text search java** query—ทั้งหมดด้วยคำอธิบายที่เป็นกันเองและชัดเจน
+Now ensure we preserve markdown formatting.
 
-## Quick Answers
-- **What does “search query java” mean?** Running a text‑based search against an index built with GroupDocs.Search in a Java application.  
-- **Which library handles the indexing?** GroupDocs.Search for Java (latest stable release).  
-- **Do I need a license to try it?** A free trial is available; a temporary or full license is required for production.  
-- **Can I index an entire folder at once?** Yes – use `index.add("folderPath")` to **add folder to index** in one call.  
-- **Is the search case‑insensitive?** By default, GroupDocs.Search performs case‑insensitive full‑text searches.
+Now produce final content.# full text search java – การเชี่ยวชาญ GroupDocs.Search Java – สร้างและจัดการดัชนีการค้นหา
 
-## What is a search query java?
-A **search query java** is simply a text string you pass to the `search()` method of a GroupDocs.Search `Index` object. The library parses the query, looks through the indexed terms, and returns matching documents instantly.
+ในแอปพลิเคชันที่ขับเคลื่อนด้วยข้อมูลในปัจจุบัน การทำ **full text search java** อย่างมีประสิทธิภาพกับชุดเอกสารขนาดใหญ่เป็นความสามารถที่จำเป็น ไม่ว่าคุณจะกำลังสร้างพอร์ทัลเอกสารภายใน, แคตาล็อกอีคอมเมิร์ซ, หรือ CMS ที่มีเนื้อหามาก ดัชนีการค้นหาที่จัดโครงสร้างอย่างดีจะทำให้ผลลัพธ์เร็วและแม่นยำ tutorial นี้จะพาคุณผ่านการตั้งค่า GroupDocs.Search สำหรับ Java, การสร้างดัชนีที่สามารถค้นหาได้, **add documents to index**, และการดำเนินการ query **full text search java** — ทั้งหมดอธิบายด้วยสไตล์เป็นมิตรแบบขั้นตอนต่อขั้นตอน.
 
-## Why use GroupDocs.Search for Java?
-- **Speed:** Built‑in algorithms deliver millisecond‑level response times even on millions of documents.  
-- **Format support:** Indexes PDFs, Word files, Excel sheets, plain text, and many more formats out of the box.  
-- **Scalability:** Works equally well for small utilities and large enterprise solutions.  
+## คำตอบด่วน
+- **What does “full text search java” mean?** การทำการค้นหาแบบข้อความกับดัชนีที่สร้างด้วย GroupDocs.Search ในแอปพลิเคชัน Java.  
+- **ไลบรารีใดที่จัดการการทำดัชนี?** GroupDocs.Search for Java (latest stable release).  
+- **ต้องการใบอนุญาตเพื่อทดลองใช้งานหรือไม่?** A free trial is available; a temporary or full license is required for production.  
+- **ฉันสามารถทำดัชนีโฟลเดอร์ทั้งหมดในครั้งเดียวได้หรือไม่?** Yes – use `index.add("folderPath")` to **add folder to index** in one call.  
+- **การค้นหาเป็นแบบไม่แยกแยะตัวพิมพ์ใหญ่‑เล็กหรือไม่?** By default, GroupDocs.Search performs case‑insensitive full‑text searches.
 
-## Prerequisites
-Before we dive in, make sure you have:
+## full text search java คืออะไร?
+การดำเนินการ **full text search java** เพียงแค่เป็นสตริงข้อความที่คุณส่งให้กับเมธอด `search()` ของอ็อบเจ็กต์ `Index` ของ GroupDocs.Search. ไลบรารีจะทำการวิเคราะห์คิวรี, สแกนคำที่ทำดัชนี, และคืนเอกสารที่ตรงกันทันที.
 
-1. **Java Development Kit (JDK) 8+** – the runtime for compiling and running the code.  
-2. **Maven** – for dependency management (you can also use Gradle, but Maven examples are provided).  
-3. Basic familiarity with Java classes, methods, and the command line.
+## ทำไมต้องใช้ GroupDocs.Search สำหรับ Java?
+- **Speed:** อัลกอริธึมในตัวให้เวลาตอบสนองระดับมิลลิวินาทีแม้กับเอกสารหลายล้านรายการ.  
+- **Format support:** รองรับการทำดัชนี PDFs, ไฟล์ Word, แผ่น Excel, ข้อความธรรมดา, และรูปแบบอื่น ๆ อีกมากมายโดยไม่ต้องตั้งค่าเพิ่มเติม.  
+- **Scalability:** ทำงานได้ดีเท่าเทียมกันสำหรับยูทิลิตี้ขนาดเล็กและโซลูชันระดับองค์กรขนาดใหญ่.  
 
-## Setting Up GroupDocs.Search for Java
+## ข้อกำหนดเบื้องต้น
+ก่อนที่เราจะเริ่ม, โปรดตรวจสอบว่าคุณมี:
 
-### Maven Setup
-Add the GroupDocs repository and dependency to your `pom.xml`. This is the only change you need to make to your project configuration.
+1. **Java Development Kit (JDK) 8+** – runtime สำหรับคอมไพล์และรันโค้ด.  
+2. **Maven** – สำหรับการจัดการ dependencies (คุณสามารถใช้ Gradle แทนได้, แต่ตัวอย่างใช้ Maven).  
+3. ความคุ้นเคยพื้นฐานกับคลาส, เมธอดของ Java, และบรรทัดคำสั่ง.
+
+## การตั้งค่า GroupDocs.Search สำหรับ Java
+
+### การตั้งค่า Maven
+เพิ่มรีโพสิตอรีของ GroupDocs และ dependency ลงในไฟล์ `pom.xml` ของคุณ. นี่คือการเปลี่ยนแปลงเดียวที่คุณต้องทำในการกำหนดค่าโปรเจกต์.
 
 ```xml
 <repositories>
@@ -61,16 +66,16 @@ Add the GroupDocs repository and dependency to your `pom.xml`. This is the only 
 </dependencies>
 ```
 
-### Direct Download (optional)
-If you prefer not to use Maven, grab the latest JAR from the official release page: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### ดาวน์โหลดโดยตรง (ทางเลือก)
+หากคุณไม่ต้องการใช้ Maven, ดาวน์โหลด JAR ล่าสุดจากหน้ารีลีสอย่างเป็นทางการ: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-#### License Acquisition
-- **Free Trial:** Ideal for evaluating features.  
-- **Temporary License:** Use for extended testing without commitment.  
-- **Full License:** Recommended for production deployments.
+#### การรับใบอนุญาต
+- **Free Trial:** เหมาะสำหรับการประเมินคุณลักษณะ.  
+- **Temporary License:** ใช้สำหรับการทดสอบต่อเนื่องโดยไม่มีข้อผูกมัด.  
+- **Full License:** แนะนำสำหรับการใช้งานในสภาพแวดล้อมการผลิต.
 
-### Basic Initialization
-The snippet below creates an empty index folder. It’s the foundation for every **search query java** you’ll run later.
+### การเริ่มต้นพื้นฐาน
+โค้ดสแนปด้านล่างสร้างโฟลเดอร์ดัชนีเปล่า. นี่เป็นพื้นฐานสำหรับ **full text search java** ทุกครั้งที่คุณจะเรียกใช้ในภายหลัง.
 
 ```java
 import com.groupdocs.search.Index;
@@ -84,17 +89,10 @@ public class GroupDocsSearchSetup {
 }
 ```
 
-## Implementation Guide
+## วิธีสร้างดัชนีการค้นหา
 
-### Creating an Index
-Creating a search index is the first step toward enabling efficient document retrieval.
-
-#### Overview
-An index stores searchable terms extracted from your documents, allowing instant look‑ups when you execute a **search query java**.
-
-#### Steps to Create an Index
-1. **Define the Output Directory** – where the index files will live.  
-2. **Initialize the Index** – instantiate the `Index` class with that folder.
+### การสร้างดัชนี
+การสร้างดัชนีการค้นหาเป็นขั้นตอนแรกสู่การดึงเอกสารอย่างมีประสิทธิภาพ.
 
 ```java
 import com.groupdocs.search.Index;
@@ -111,15 +109,8 @@ public class CreateIndexExample {
 }
 ```
 
-### Adding Documents to the Index
-Now that the index exists, you need to **add documents to index** so they become searchable.
-
-#### Overview
-GroupDocs.Search can ingest an entire folder, automatically detecting supported file types. This is the most common way to **add folder to index**.
-
-#### Steps to Add Documents
-1. **Specify Document Directory** – where your source files are stored.  
-2. **Call `add()`** – the method reads every file and updates the index.
+### การเพิ่มโฟลเดอร์ลงในดัชนี
+เมื่อดัชนีมีอยู่แล้ว, คุณต้อง **add documents to index** เพื่อให้เอกสารเหล่านั้นสามารถค้นหาได้. GroupDocs.Search สามารถนำเข้าทั้งโฟลเดอร์ด้วยการเรียกครั้งเดียว.
 
 ```java
 import com.groupdocs.search.Index;
@@ -140,15 +131,8 @@ public class AddDocumentsToIndexExample {
 }
 ```
 
-### Searching within the Index
-With your documents indexed, performing a **full text search java** is straightforward.
-
-#### Overview
-The `search()` method accepts any query string—keywords, phrases, or even Boolean expressions—and returns matching document references.
-
-#### Steps to Search
-1. **Define Your Query** – e.g., `"Lorem"` or `"invoice AND 2024"`.  
-2. **Execute the Search** – retrieve a `SearchResult` object and inspect the count.
+### การดำเนินการ **full text search java**
+เมื่อเอกสารของคุณถูกทำดัชนีแล้ว, การดำเนินการ **full text search java** เป็นเรื่องง่าย.
 
 ```java
 import com.groupdocs.search.Index;
@@ -170,46 +154,58 @@ public class SearchIndexExample {
 }
 ```
 
-## Practical Applications
-GroupDocs.Search for Java shines in many real‑world scenarios:
+## การประยุกต์ใช้งานจริง
+GroupDocs.Search สำหรับ Java มีประสิทธิภาพในหลายสถานการณ์จริง:
 
-1. **Internal Document Management Systems** – instant retrieval of policies, contracts, and manuals.  
-2. **E‑commerce Platforms** – fast product search across catalogs with thousands of items.  
-3. **Content Management Systems (CMS)** – enable editors and visitors to locate articles, media, and PDFs quickly.  
+1. **Internal Document Management Systems** – การดึงข้อมูลนโยบาย, สัญญา, และคู่มืออย่างทันที.  
+2. **E‑commerce Platforms** – การค้นหาผลิตภัณฑ์อย่างรวดเร็วในแคตาล็อกที่มีสินค้านับพัน.  
+3. **Content Management Systems (CMS)** – ช่วยให้บรรณาธิการและผู้เยี่ยมชมค้นหาบทความ, สื่อ, และ PDF ได้อย่างรวดเร็ว.  
 
-## Performance Considerations
-To keep your **search query java** lightning‑fast:
+## ข้อควรพิจารณาด้านประสิทธิภาพ
+เพื่อให้ **full text search java** ของคุณเร็วแสง:
 
-- **Optimize Indexing:** Re‑index only changed files and purge obsolete entries regularly.  
-- **Manage Resources:** Monitor JVM heap usage; consider incremental indexing for massive data sets.  
-- **Follow Best Practices:** Use batch `add()` calls instead of adding files one‑by‑one when possible.
+- **Optimize Indexing:** ทำการทำดัชนีใหม่เฉพาะไฟล์ที่เปลี่ยนแปลงและลบรายการที่ล้าสมัยเป็นประจำ.  
+- **Manage Resources:** ตรวจสอบการใช้ heap ของ JVM; พิจารณาการทำดัชนีแบบเพิ่มทีละส่วนสำหรับชุดข้อมูลขนาดใหญ่.  
+- **Follow Best Practices:** ใช้การเรียก `add()` แบบแบตช์แทนการเพิ่มไฟล์ทีละไฟล์เมื่อเป็นไปได้.  
 
-## Common Issues & Solutions
-| Symptom | Likely Cause | Fix |
+## ปัญหาทั่วไปและวิธีแก้
+
+| อาการ | สาเหตุที่เป็นไปได้ | วิธีแก้ |
 |---------|---------------|-----|
-| No results returned | Index not built or documents not added | Verify `index.add()` executed successfully; check folder path. |
-| Out‑of‑memory errors | Very large files loaded all at once | Enable incremental indexing or increase JVM heap (`-Xmx`). |
-| Search misses terms | Analyzer not configured for language | Use appropriate `IndexSettings` to set language‑specific analyzers. |
+| ไม่มีผลลัพธ์คืนค่า | ดัชนียังไม่ได้สร้างหรือเอกสารยังไม่ได้เพิ่ม | ตรวจสอบว่า `index.add()` ทำงานสำเร็จ; ตรวจสอบเส้นทางโฟลเดอร์. |
+| ข้อผิดพลาด Out‑of‑memory | ไฟล์ขนาดใหญ่มากถูกโหลดทั้งหมดในครั้งเดียว | เปิดใช้งานการทำดัชนีแบบเพิ่มทีละส่วนหรือเพิ่มขนาด heap ของ JVM (`-Xmx`). |
+| การค้นหาไม่พบคำ | Analyzer ไม่ได้ตั้งค่าสำหรับภาษาที่ใช้ | ใช้ `IndexSettings` ที่เหมาะสมเพื่อกำหนด Analyzer ตามภาษาที่ต้องการ. |
 
-## Frequently Asked Questions
+## คำถามที่พบบ่อย
 
-**Q: What file formats can GroupDocs.Search index?**  
+**Q: GroupDocs.Search สามารถทำดัชนีไฟล์รูปแบบใดได้บ้าง?**  
 A: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many more common office formats.
 
-**Q: Can I run a search query java on a remote server?**  
-A: Yes. Build the index on the server and expose a REST endpoint that forwards the query to the Java service.
+**Q: ฉันสามารถทำ full text search java บนเซิร์ฟเวอร์ระยะไกลได้หรือไม่?**  
+A: ใช่. สร้างดัชนีบนเซิร์ฟเวอร์และเปิดเผย REST endpoint ที่ส่งต่อคิวรีไปยังบริการ Java.
 
-**Q: How do I update when a document changes?**  
-A: Use `index.update("path/to/changed/file")` to replace the old entry without rebuilding the whole index.
+**Q: ฉันจะอัปเดตดัชนีเมื่อเอกสารมีการเปลี่ยนแปลงอย่างไร?**  
+A: ใช้ `index.update("path/to/changed/file")` เพื่อแทนที่รายการเก่าโดยไม่ต้องสร้างดัชนีใหม่ทั้งหมด.
 
-**Q: Is there a way to limit search results to a specific folder?**  
-A: After obtaining `SearchResult`, filter `result.getDocuments()` by their original path.
+**Q: มีวิธีจำกัดผลลัพธ์การค้นหาให้เฉพาะโฟลเดอร์หรือไม่?**  
+A: หลังจากได้ `SearchResult`, ให้กรอง `result.getDocuments()` ตามเส้นทางต้นฉบับของพวกมัน.
 
-**Q: Does GroupDocs.Search support fuzzy or wildcard searches?**  
-A: The includes built‑in support for fuzzy matching (`~`) and wildcard (`*`) operators in query strings.
+**Q: GroupDocs.Search รองรับการค้นหาแบบ fuzzy หรือ wildcard หรือไม่?**  
+A: ไลบรารีมีการสนับสนุนในตัวสำหรับการจับคู่แบบ fuzzy (`~`) และตัวดำเนินการ wildcard (`*`) ในสตริงคิวรี.
+
+### คำถามเพิ่มเติม
+
+**Q: ฉันจะปรับปรุงการจัดอันดับความเกี่ยวข้องสำหรับ full text search java ของฉันอย่างไร?**  
+A: ปรับ `IndexSettings` เช่น การให้ค่าน้ำหนักคำ, เพิ่มค่า boost ให้ฟิลด์เฉพาะ, หรือเปิดใช้ synonyms เพื่อปรับความเกี่ยวข้องให้ละเอียด.
+
+**Q: สามารถลบเอกสารออกจากดัชนีได้หรือไม่?**  
+A: ใช่. เรียก `index.delete("path/to/file")` เพื่อลบรายการเอกสาร.
+
+**Q: “add folder to index” ทำงานอย่างไรภายใน?**  
+A: GroupDocs.Search สแกนโฟลเดอร์แบบเรียกซ้ำ, ดึงข้อความจากไฟล์ที่รองรับแต่ละไฟล์, ทำการ tokenizing คำ, และเก็บไว้ในโครงสร้างดัชนีเพื่อการค้นหาอย่างรวดเร็ว.
 
 ---
 
-**Last Updated:** 2026-01-01  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**อัปเดตล่าสุด:** 2026-03-09  
+**ทดสอบด้วย:** GroupDocs.Search 25.4 for Java  
+**ผู้เขียน:** GroupDocs
