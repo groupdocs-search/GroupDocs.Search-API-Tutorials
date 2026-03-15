@@ -1,46 +1,51 @@
 ---
-date: '2026-01-03'
-description: Tìm hiểu cách thêm tài liệu vào chỉ mục và cấu hình thư mục chỉ mục bằng
-  GroupDocs.Search cho Java. Tối ưu hiệu suất tìm kiếm với hướng dẫn từng bước này.
+date: '2026-03-15'
+description: Tìm hiểu cách tạo chỉ mục tài liệu, thêm tài liệu vào chỉ mục và tối
+  ưu hiệu suất tìm kiếm bằng GroupDocs.Search cho Java.
 keywords:
 - document indexing with GroupDocs.Search for Java
 - setting up GroupDocs.Search
 - Java document management
-title: Cách Thêm Tài Liệu Vào Chỉ Mục Với GroupDocs.Search cho Java
+title: Cách tạo chỉ mục tài liệu và thêm tài liệu bằng GroupDocs.Search cho Java
 type: docs
 url: /vi/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
 
-# Cách Thêm Tài Liệu Vào Chỉ Mục với GroupDocs.Search cho Java
+Check we didn't alter any code blocks placeholders.
 
-Công việc tìm kiếm trong các bộ sưu tập tài liệu lớn có thể là công thức thuần túy, nhưng **GroupDocs.Search** cho Java giúp bạn dễ dàng **tài liệu vào chỉ mục** và truy cập chúng nhanh chóng. Trong hướng dẫn này, bạn sẽ thấy cách cấu hình chỉ mục thư mục, thêm tài liệu vào chỉ mục và **tìm kiếm hiệu suất tối ưu** cho thực tế ứng dụng.
+All good.
 
-## Trả lời nhanh
-- **Câu hỏi đầu tiên là gì?** Cài đặt GroupDocs.Search qua Maven hoặc tải thư viện.
-- **Làm cách nào để thêm tài liệu vào chỉ mục?** Gọi `index.add(yourDocumentsFolder)` sau khi khởi động chỉ mục.
-- **Thư mục nào cần lưu trữ chỉ mục?** Sử dụng một thư mục riêng như `output` và cấu hình nó bằng `new Index(indexFolder)`.
-- **Tôi có thể cải thiện tốc độ tìm kiếm không?** Có— định kỳ chỉ mục bảo trì và chạy chỉ mục cài đặt trong một luồng.
-- **Tôi có cần giấy phép không?** Giấy phép dùng thử hoặc tạm thời hoạt động cho công việc kiểm tra; Giấy phép đầy đủ cần thiết cho sản phẩm môi trường.
+Now output only translated content.# Cách Tạo Chỉ mục Tài liệu và Thêm Tài liệu với GroupDocs.Search cho Java
 
-## “thêm tài liệu vào chỉ mục” là gì?
-Thêm tài liệu vào định nghĩa chỉ mục xử lý các nguồn tệp (PDF, DOCX, TXT, v.v.) và lưu trữ các mã thông báo có thể tìm kiếm trong một kho dữ liệu có cấu trúc. Điều này cho phép các truy cập toàn văn nhanh chóng trên toàn bộ nội dung đã được thiết lập chỉ mục.
+Nếu bạn cần **tạo chỉ mục tài liệu** cho phép tìm kiếm hàng ngàn tệp PDF, DOCX, TXT và các định dạng khác ngay lập tức, GroupDocs.Search cho Java cung cấp một API sạch sẽ để thực hiện điều đó. Trong hướng dẫn này, bạn sẽ học cách cấu hình thư mục chỉ mục, **thêm tài liệu vào chỉ mục**, và **tối ưu hiệu suất tìm kiếm** cho các kịch bản tìm kiếm toàn văn thực tế bằng Java.
+
+## Câu trả lời nhanh
+- **Bước đầu tiên là gì?** Cài đặt GroupDocs.Search qua Maven hoặc tải thư viện.  
+- **Làm thế nào để thêm tài liệu vào chỉ mục?** Gọi `index.add(yourDocumentsFolder)` sau khi khởi tạo chỉ mục.  
+- **Thư mục nào nên lưu trữ chỉ mục?** Sử dụng một thư mục riêng như `output` và cấu hình nó bằng `new Index(indexFolder)`.  
+- **Tôi có thể cải thiện tốc độ tìm kiếm không?** Có — thường xuyên bảo trì chỉ mục và chạy quá trình lập chỉ mục trong một luồng nền.  
+- **Tôi có cần giấy phép không?** Giấy phép dùng thử hoặc tạm thời hoạt động cho việc thử nghiệm; giấy phép đầy đủ cần thiết cho môi trường sản xuất.
+
+## Chỉ mục tài liệu là gì?
+Một chỉ mục tài liệu là một kho dữ liệu có cấu trúc chứa các token có thể tìm kiếm được trích xuất từ các tệp nguồn của bạn. Bằng cách **tạo chỉ mục tài liệu**, bạn cho phép thực hiện các truy vấn toàn văn nhanh chóng trên toàn bộ nội dung đã được lập chỉ mục mà không cần quét từng tệp khi chạy.
 
 ## Tại sao nên sử dụng GroupDocs.Search cho Java?
-- **Hiệu suất cao** – các mức độ tối ưu hóa được duy trì để tìm kiếm ngay cả với hàng triệu tệp.
-- **Dễ tích hợp** – API đơn giản để tạo chỉ mục, bổ sung tài liệu và thực hiện truy vấn.
-- **Mở rộng kiến ​​trúc** – hoạt động trên máy chủ nội bộ hoặc trên đám mây và có thể tùy chỉnh các tính năng đồng nghĩa hoặc phân loại.
+- **Hiệu năng cao** – các tối ưu hoá tích hợp giữ độ trễ thấp ngay cả với hàng triệu tệp.  
+- **Dễ dàng tích hợp** – API đơn giản để tạo chỉ mục, thêm tài liệu và thực hiện truy vấn.  
+- **Kiến trúc mở rộng** – hoạt động trên máy chủ nội bộ hoặc trên đám mây, và có thể tùy chỉnh với các tính năng đồng nghĩa hoặc xếp hạng.  
+- **Tìm kiếm toàn văn Java** – hỗ trợ đa dạng các định dạng ngay từ đầu.
 
-## Điều kiện tiên quyết
-- **Bộ công cụ phát triển Java (JDK)**8 hoặc cao hơn.
-- **IDE** như IntelliJ IDEA hoặc Eclipse.
-- **Maven** để quản lý phụ thuộc.
-- Kiến trúc cơ bản về lập trình Java.
+## Yêu cầu trước
+- **Java Development Kit (JDK)** 8 hoặc cao hơn.  
+- **IDE** như IntelliJ IDEA hoặc Eclipse.  
+- **Maven** để quản lý phụ thuộc.  
+- Kiến thức cơ bản về lập trình Java.
 
-## Thiết lập GroupDocs.Tìm kiếm Java
+## Cài đặt GroupDocs.Search cho Java
 
-### Cài đặt Maven
-Thêm đoạn sau vào tệp `pom.xml` của bạn:
+### Cài đặt qua Maven
+Add the following to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -60,13 +65,13 @@ Thêm đoạn sau vào tệp `pom.xml` của bạn:
 </dependencies>
 ```
 
-### Tải xuống trực tiếp
-Hoặc tải xuống phiên bản mới nhất trực tiếp từ [GroupDocs.Search for Java Releases](https://releases.groupdocs.com/search/java/).
+### Tải trực tiếp
+Alternatively, download the latest version directly from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Mua lại giấy phép
-1. **Dùng thử miễn phí** – khám phá tất cả các tính năng không cần kết nối.
-2. **Giấy phép tạm thời** – kéo dài thử nghiệm thời gian qua thử nghiệm thời gian.
-3. **Purchase** – mua giấy phép đầy đủ để sử dụng trong môi trường sản xuất.
+### Nhận giấy phép
+1. **Dùng thử miễn phí** – khám phá mọi tính năng mà không cần cam kết.  
+2. **Giấy phép tạm thời** – kéo dài thời gian thử nghiệm vượt quá thời gian dùng thử.  
+3. **Mua** – nhận giấy phép đầy đủ cho việc sử dụng trong môi trường sản xuất.
 
 ### Khởi tạo cơ bản
 
@@ -84,7 +89,7 @@ public class InitializeGroupDocs {
 }
 ```
 
-## Hướng dẫn thêm tài liệu vào chỉ mục
+## Cách thêm tài liệu vào chỉ mục
 
 ### Bước 1: Cấu hình thư mục chỉ mục và thư mục nguồn
 ```java
@@ -97,64 +102,75 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Replace with your actual 
 ```java
 Index index = new Index(indexFolder);
 ```
-*Giải thích*: Dòng này tạo một thể hiện chỉ mục mới ghi dữ liệu của nó vào thư mục bạn đã cấu hình.
+*Giải thích*: Dòng này tạo một thể hiện chỉ mục mới ghi dữ liệu vào thư mục bạn đã cấu hình.
 
 ### Bước 3: Thêm tài liệu để lập chỉ mục
 ```java
 index.add(documentsFolder);
 ```
-*Giải thích*: Phương thức `add` quét `documentsFolder` và **thêm tài liệu vào chỉ mục**, làm cho nội dung của chúng có thể tìm kiếm.
+*Giải thích*: Phương thức `add` quét `documentsFolder` và **thêm tài liệu vào chỉ mục**, khiến nội dung của chúng có thể tìm kiếm được.
 
 #### Mẹo khắc phục sự cố
-- **Thiếu phần phụ thuộc** – kiểm tra lại Maven các mục trong `pom.xml`.
+- **Thiếu phụ thuộc** – kiểm tra lại các mục Maven trong `pom.xml`.  
 - **Đường dẫn thư mục không hợp lệ** – đảm bảo cả `indexFolder` và `documentsFolder` tồn tại và JVM có quyền truy cập.
 
-## Ứng dụng thực tế
-1. **Quản lý tài liệu doanh nghiệp** – nhanh chóng xuất bản hợp đồng, chính sách hoặc tệp HR.
-2. **Nghiên cứu pháp lý** – tìm kiếm hồ sơ dự án và tiền tệ với mức độ tối thiểu.
+## Xử lý tài liệu lớn
+Khi bạn làm việc với các tệp PDF có kích thước gigabyte hoặc bộ sưu tập DOCX khổng lồ, hãy cân nhắc các điểm sau:
+
+1. **Xử lý theo lô** – chia thư mục nguồn thành các thư mục con nhỏ hơn và gọi `index.add()` cho mỗi lô.  
+2. **Lập chỉ mục nền** – chạy mã lập chỉ mục trên một luồng riêng để ứng dụng chính vẫn phản hồi nhanh.  
+3. **Tinh chỉnh heap** – tăng thiết lập JVM `-Xmx` để cung cấp đủ bộ nhớ cho các tệp lớn.
+
+## Tối ưu hiệu suất tìm kiếm
+Để **tối ưu hiệu suất tìm kiếm** và **cải thiện độ trễ tìm kiếm**, hãy tuân theo các thực hành tốt sau:
+
+- **Thường xuyên hợp nhất các đoạn chỉ mục** – điều này giảm số lần đọc đĩa khi thực hiện truy vấn.  
+- **Sử dụng `index.update()`** (nếu có) sau khi thêm hàng loạt thay vì tạo lại chỉ mục từ đầu.  
+- **Giám sát việc sử dụng heap** – các chỉ mục lớn có thể tiêu tốn đáng kể bộ nhớ; điều chỉnh các tùy chọn JVM cho phù hợp.  
+- **Bật bộ nhớ đệm** cho các truy vấn thường xuyên nếu mẫu ứng dụng của bạn cho phép.
+
+## Ứng dụng thực tiễn
+1. **Quản lý tài liệu doanh nghiệp** – nhanh chóng truy xuất hợp đồng, chính sách hoặc tệp HR.  
+2. **Nghiên cứu pháp lý** – tìm kiếm hồ sơ vụ án và tiền lệ với độ trễ tối thiểu.  
 3. **Thư viện học thuật** – cho phép các học giả tìm kiếm qua hàng ngàn bài báo nghiên cứu.
 
-## Cân nhắc về hiệu suất
-- **Tối ưu hóa hiệu suất tìm kiếm** bằng cách thường xuyên xây dựng lại hoặc hợp nhất các đoạn chỉ mục.
-- **Quản lý tài nguyên** – giám sát việc sử dụng heap; JVM bộ nhớ tăng lên nếu thiết lập các bộ sưu tập chỉ mục.
-- **Các phương pháp hay nhất** – chạy quá trình chỉ mục cài đặt trong một luồng riêng biệt để duy trì phản hồi chính của ứng dụng.
-
 ## Các vấn đề thường gặp và giải pháp
+
 | Vấn đề | Giải pháp |
 |-------|----------|
-| Lỗi thiếu bộ nhớ trong quá trình cài đặt hàng loạt chỉ mục | Chia nguồn thư mục thành các lô nhỏ hơn và lập chỉ mục từng lô riêng biệt. |
-| Kết quả tìm kiếm lỗi hiện tại | Mở lại đối tượng `Index` sau các bản cập nhật lớn hơn hoặc gọi `index.update()` nếu có. |
-| Giấy phép không được nhận | Xác định giấy phép đường dẫn là đúng và phiên bản giấy được phép phù hợp với phiên bản thư viện. |
+| Lỗi thiếu bộ nhớ trong quá trình lập chỉ mục hàng loạt | Chia thư mục nguồn thành các lô nhỏ hơn và lập chỉ mục từng lô riêng biệt. |
+| Kết quả tìm kiếm lỗi thời | Mở lại đối tượng `Index` sau các cập nhật lớn hoặc gọi `index.update()` nếu có. |
+| Giấy phép không được công nhận | Kiểm tra lại đường dẫn tệp giấy phép và đảm bảo phiên bản giấy phép khớp với phiên bản thư viện. |
 
 ## Câu hỏi thường gặp
 
-**Q: Yêu cầu tối thiểu về phiên bản Java là gì?**
-A: Java8 hoặc cao hơn được khuyến nghị để tương thích đầy đủ.
+**Q: Yêu cầu tối thiểu về phiên bản Java là gì?**  
+A: Java 8 hoặc cao hơn được khuyến nghị để đảm bảo tương thích đầy đủ.
 
-**Q: Làm cách nào để xử lý hiệu quả các tài liệu rất lớn?**
-A: Sử dụng lô xử lý, chạy chỉ mục cài đặt trong nền luồng và điều chỉnh JVM bộ nhớ cài đặt.
+**Q: Làm thế nào để xử lý hiệu quả các bộ tài liệu rất lớn?**  
+A: Sử dụng xử lý theo lô, chạy lập chỉ mục trong các luồng nền, và tinh chỉnh các thiết lập bộ nhớ JVM.
 
-**Q: GroupDocs.Search có thể phát triển trong môi trường đám mây không?**
-A: Có, nhưng đảm bảo vị trí lưu trữ cho thư mục có thể truy cập từ tất cả các phiên bản.
+**Q: GroupDocs.Search có thể triển khai trong môi trường đám mây không?**  
+A: Có, nhưng cần đảm bảo vị trí lưu trữ thư mục chỉ mục có thể truy cập được bởi tất cả các instance.
 
-**Q: Tìm kiếm đồng nghĩa mang lại lợi ích gì?**
-A: Nó mở rộng các truy vấn từ khóa bằng các từ liên kết, cải thiện tốc độ thu thập mà không làm giảm độ chính xác.
+**Q: Tìm kiếm đồng nghĩa mang lại lợi ích gì?**  
+A: Nó mở rộng các từ khóa truy vấn bằng các từ liên quan, cải thiện độ thu hồi mà không làm giảm độ chính xác.
 
-**Q: Tôi có thể tìm tài liệu nâng cao hơn ở đâu?**
-A: Truy cập chính thức API tham chiếu tài liệu tại [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java).
+**Q: Tôi có thể tìm tài liệu nâng cao ở đâu?**  
+A: Truy cập tài liệu tham khảo API chính thức tại [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java).
 
 ## Tài nguyên
-- Tài liệu: [Tìm kiếm GroupDocs cho Java](https://docs.groupdocs.com/search/java/)
-- API tham chiếu: [GroupDocs Search API](https://reference.groupdocs.com/search/java)
-- Tải xuống: [Bản phát hành mới nhất](https://releases.groupdocs.com/search/java/)
-- GitHub: [GroupDocs.Search trên GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- Tài liệu: [GroupDocs Search for Java](https://docs.groupdocs.com/search/java/)
+- Tham khảo API: [GroupDocs Search API](https://reference.groupdocs.com/search/java)
+- Tải xuống: [Latest Releases](https://releases.groupdocs.com/search/java/)
+- GitHub: [GroupDocs.Search on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
 - Hỗ trợ miễn phí: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
-- Giấy phép tạm thời: [Mua giấy phép](https://purchase.groupdocs.com/temporary-license/)
+- Giấy phép tạm thời: [Acquire a License](https://purchase.groupdocs.com/temporary-license/) 
 
-Bằng cách thực hiện các bước này, bạn đã biết cách **tài liệu vào chỉ mục**, cấu hình chỉ mục thư mục và **tăng hiệu suất tìm kiếm** với GroupDocs.Search cho Java. Chúc mừng trình thiết lập vui vẻ!
+Bằng cách thực hiện các bước trên, bạn đã biết cách **tạo chỉ mục tài liệu**, thêm tài liệu vào chỉ mục, cấu hình thư mục chỉ mục, và **tối ưu hiệu suất tìm kiếm** với GroupDocs.Search cho Java. Chúc lập trình vui vẻ!
 
 ---
 
-**Cập nhật lần cuối:** 2026-01-03
-**Kiểm tra với:** GroupDocs.Search 25.4 cho Java
+**Cập nhật lần cuối:** 2026-03-15  
+**Được kiểm tra với:** GroupDocs.Search 25.4 cho Java  
 **Tác giả:** GroupDocs

@@ -1,36 +1,37 @@
 ---
-date: '2026-01-03'
-description: Dowiedz się, jak dodawać dokumenty do indeksu i konfigurować folder indeksu
-  przy użyciu GroupDocs.Search dla Javy. Optymalizuj wydajność wyszukiwania dzięki
-  temu przewodnikowi krok po kroku.
+date: '2026-03-15'
+description: Dowiedz się, jak utworzyć indeks dokumentów, dodać dokumenty do indeksu
+  i zoptymalizować wydajność wyszukiwania przy użyciu GroupDocs.Search dla Javy.
 keywords:
 - document indexing with GroupDocs.Search for Java
 - setting up GroupDocs.Search
 - Java document management
-title: Jak dodać dokumenty do indeksu za pomocą GroupDocs.Search dla Javy
+title: Jak utworzyć indeks dokumentów i dodać dokumenty przy użyciu GroupDocs.Search
+  dla Javy
 type: docs
 url: /pl/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
 
-# Jak dodać dokumenty do indeksu przy użyciu GroupDocs.Search dla Javy
+# Jak utworzyć indeks dokumentów i dodać dokumenty przy użyciu GroupDocs.Search dla Javy
 
-Przeszukiwanie dużych zbiorów dokumentów może być trudne, ale **GroupDocs.Search** dla Javy ułatwia **dodawanie dokumentów do indeksu** i szybkie ich pobieranie. W tym przewodniku zobaczysz, jak skonfigurować folder indeksu, dodać dokumenty do indeksu oraz **optymalizować wydajność wyszukiwania** w rzeczywistych aplikacjach.
+Jeśli potrzebujesz **utworzyć indeks dokumentów** umożliwiający natychmiastowe przeszukiwanie tysięcy plików PDF, DOCX, TXT i innych formatów, GroupDocs.Search dla Javy zapewnia czyste API, które to umożliwia. W tym samouczku dowiesz się, jak skonfigurować folder indeksu, **dodać dokumenty do indeksu** oraz **zoptymalizować wydajność wyszukiwania** w rzeczywistych scenariuszach wyszukiwania pełnotekstowego w Javie.
 
 ## Szybkie odpowiedzi
 - **Jaki jest pierwszy krok?** Zainstaluj GroupDocs.Search za pomocą Maven lub pobierz bibliotekę.  
 - **Jak dodać dokumenty do indeksu?** Wywołaj `index.add(yourDocumentsFolder)` po zainicjowaniu indeksu.  
-- **Który folder powinien przechowywać indeks?** Użyj dedykowanego folderu, np. `output`, i skonfiguruj go za pomocą `new Index(indexFolder)`.  
-- **Czy mogę zwiększyć szybkość wyszukiwania?** Tak — regularnie utrzymuj indeks i uruchamiaj indeksowanie w wątku w tle.  
-- **Czy potrzebna jest licencja?** Licencja próbna lub tymczasowa działa w testach; pełna licencja jest wymagana w produkcji.
+- **Który folder powinien przechowywać indeks?** Użyj dedykowanego folderu, takiego jak `output`, i skonfiguruj go przy pomocy `new Index(indexFolder)`.  
+- **Czy mogę przyspieszyć wyszukiwanie?** Tak — regularnie utrzymuj indeks i uruchamiaj indeksowanie w wątku w tle.  
+- **Czy potrzebna jest licencja?** Licencja próbna lub tymczasowa działa w testach; pełna licencja jest wymagana w środowisku produkcyjnym.
 
-## Co oznacza „dodawanie dokumentów do indeksu”?
-Dodawanie dokumentów do indeksu oznacza przetwarzanie plików źródłowych (PDF, DOCX, TXT itp.) i przechowywanie tokenów możliwych do przeszukania w uporządkowanym magazynie danych. Umożliwia to szybkie zapytania pełnotekstowe we wszystkich zindeksowanych treściach.
+## Czym jest indeks dokumentów?
+Indeks dokumentów to uporządkowane repozytorium danych zawierające tokeny możliwe do przeszukania, wyodrębnione z Twoich plików źródłowych. Dzięki **utworzeniu indeksu dokumentów** umożliwiasz szybkie zapytania pełnotekstowe we wszystkich zindeksowanych treściach bez skanowania każdego pliku w czasie wykonywania.
 
 ## Dlaczego warto używać GroupDocs.Search dla Javy?
-- **Wysoka wydajność** – wbudowane optymalizacje utrzymują niskie opóźnienie wyszukiwania nawet przy milionach plików.  
+- **Wysoka wydajność** – wbudowane optymalizacje utrzymują niskie opóźnienia nawet przy milionach plików.  
 - **Łatwa integracja** – proste API do tworzenia indeksów, dodawania dokumentów i wykonywania zapytań.  
-- **Skalowalna architektura** – działa lokalnie lub w chmurze i może być dostosowana przy użyciu funkcji synonimów lub rankingowych.
+- **Skalowalna architektura** – działa lokalnie lub w chmurze i może być dostosowana przy użyciu funkcji synonimów lub rankingów.  
+- **Wyszukiwanie pełnotekstowe w Javie** – obsługuje szeroką gamę formatów od razu po instalacji.
 
 ## Wymagania wstępne
 - **Java Development Kit (JDK)** 8 lub wyższy.  
@@ -40,7 +41,7 @@ Dodawanie dokumentów do indeksu oznacza przetwarzanie plików źródłowych (PD
 
 ## Konfiguracja GroupDocs.Search dla Javy
 
-### Instalacja Maven
+### Instalacja przez Maven
 Dodaj poniższy kod do pliku `pom.xml`:
 
 ```xml
@@ -62,12 +63,12 @@ Dodaj poniższy kod do pliku `pom.xml`:
 ```
 
 ### Bezpośrednie pobranie
-Alternatywnie pobierz najnowszą wersję bezpośrednio z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternatywnie pobierz najnowszą wersję bezpośrednio z [wydania GroupDocs.Search dla Javy](https://releases.groupdocs.com/search/java/).
 
 ### Uzyskanie licencji
-1. **Free Trial** – przetestuj wszystkie funkcje bez zobowiązań.  
-2. **Temporary License** – wydłuż testowanie poza okres próbny.  
-3. **Purchase** – uzyskaj pełną licencję do użytku produkcyjnego.
+1. **Bezpłatna wersja próbna** – przetestuj wszystkie funkcje bez zobowiązań.  
+2. **Licencja tymczasowa** – wydłuż testowanie poza okres wersji próbnej.  
+3. **Zakup** – uzyskaj pełną licencję do użytku produkcyjnego.
 
 ### Podstawowa inicjalizacja
 
@@ -92,13 +93,13 @@ public class InitializeGroupDocs {
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\SynonymSearch";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Replace with your actual document path
 ```
-*Wyjaśnienie*: `indexFolder` to miejsce, w którym będzie przechowywany indeks przeszukiwalny, natomiast `documentsFolder` wskazuje na pliki, które chcesz **dodać do indeksu**.
+*Wyjaśnienie*: `indexFolder` to miejsce, w którym będzie przechowywany indeks wyszukiwalny, natomiast `documentsFolder` wskazuje na pliki, które chcesz **dodać do indeksu**.
 
 ### Krok 2: Utwórz indeks (skonfiguruj folder indeksu)
 ```java
 Index index = new Index(indexFolder);
 ```
-*Wyjaśnienie*: Ta linia tworzy nową instancję indeksu, która zapisuje dane w skonfigurowanym folderze.
+*Wyjaśnienie*: Ten wiersz tworzy nową instancję indeksu, która zapisuje dane w skonfigurowanym folderze.
 
 ### Krok 3: Dodaj dokumenty do indeksowania
 ```java
@@ -110,52 +111,63 @@ index.add(documentsFolder);
 - **Brakujące zależności** – sprawdź ponownie wpisy Maven w `pom.xml`.  
 - **Nieprawidłowa ścieżka folderu** – upewnij się, że zarówno `indexFolder`, jak i `documentsFolder` istnieją i są dostępne dla JVM.  
 
+## Obsługa dużych dokumentów
+Gdy pracujesz z plikami PDF o rozmiarze gigabajtów lub ogromnymi kolekcjami DOCX, rozważ następujące rozwiązania:
+
+1. **Przetwarzanie wsadowe** – podziel folder źródłowy na mniejsze podfoldery i wywołaj `index.add()` dla każdej partii.  
+2. **Indeksowanie w tle** – uruchom kod indeksujący w osobnym wątku, aby główna aplikacja pozostała responsywna.  
+3. **Dostosowanie sterty** – zwiększ ustawienie JVM `-Xmx`, aby zapewnić procesowi wystarczającą pamięć dla dużych plików.
+
+## Optymalizacja wydajności wyszukiwania
+Aby **zoptymalizować wydajność wyszukiwania** i **poprawić opóźnienie wyszukiwania**, stosuj się do następujących najlepszych praktyk:
+
+- **Regularnie łącz segmenty indeksu** – zmniejsza to liczbę odczytów z dysku podczas zapytań.  
+- **Użyj `index.update()`** (jeśli dostępne) po masowych dodaniach zamiast od nowa tworzyć indeks.  
+- **Monitoruj zużycie sterty** – duże indeksy mogą zużywać znaczną ilość pamięci; odpowiednio dostosuj opcje JVM.  
+- **Włącz buforowanie** dla często wykonywanych zapytań, jeśli wzorzec Twojej aplikacji na to pozwala.
+
 ## Praktyczne zastosowania
-1. **Enterprise Document Management** – szybkie pobieranie umów, polityk lub plików HR.  
-2. **Legal Research** – znajdowanie akt spraw i precedensów przy minimalnym opóźnieniu.  
-3. **Academic Libraries** – umożliwienie naukowcom wyszukiwania wśród tysięcy prac badawczych.
+1. **Zarządzanie dokumentami w przedsiębiorstwie** – szybkie odnajdywanie umów, polityk lub plików HR.  
+2. **Badania prawne** – znajdowanie akt spraw i precedensów przy minimalnym opóźnieniu.  
+3. **Biblioteki akademickie** – umożliwienie naukowcom przeszukiwania tysięcy publikacji naukowych.
 
-## Rozważania dotyczące wydajności
-- **Optymalizuj wydajność wyszukiwania** poprzez regularne przebudowywanie lub łączenie segmentów indeksu.  
-- **Zarządzanie zasobami** – monitoruj użycie sterty; zwiększ pamięć JVM przy indeksowaniu dużych zbiorów.  
-- **Najlepsze praktyki** – uruchamiaj indeksowanie w osobnym wątku, aby główna aplikacja pozostała responsywna.
+## Typowe problemy i rozwiązania
 
-## Częste problemy i rozwiązania
 | Problem | Rozwiązanie |
 |-------|----------|
 | Błędy Out‑of‑memory podczas masowego indeksowania | Podziel folder źródłowy na mniejsze partie i indeksuj każdą partię osobno. |
-| Wyszukiwanie zwraca nieaktualne wyniki | Ponownie otwórz obiekt `Index` po dużych aktualizacjach lub wywołaj `index.update()`, jeśli jest dostępny. |
-| Licencja nie została rozpoznana | Sprawdź, czy ścieżka do pliku licencji jest prawidłowa oraz czy wersja licencji odpowiada wersji biblioteki. |
+| Wyszukiwanie zwraca nieaktualne wyniki | Ponownie otwórz obiekt `Index` po dużych aktualizacjach lub wywołaj `index.update()`, jeśli jest dostępne. |
+| Licencja nie została rozpoznana | Sprawdź, czy ścieżka do pliku licencji jest poprawna oraz czy wersja licencji odpowiada wersji biblioteki. |
 
 ## Najczęściej zadawane pytania
 
-**Q: Jaka jest minimalna wymagana wersja Javy?**  
-A: Java 8 lub wyższa jest zalecana dla pełnej kompatybilności.
+**P: Jaka jest minimalna wymagana wersja Javy?**  
+O: Java 8 lub wyższa jest zalecana dla pełnej kompatybilności.
 
-**Q: Jak mogę efektywnie obsłużyć bardzo duże zestawy dokumentów?**  
-A: Używaj przetwarzania wsadowego, uruchamiaj indeksowanie w wątkach w tle i dostosuj ustawienia pamięci JVM.
+**P: Jak efektywnie obsłużyć bardzo duże zestawy dokumentów?**  
+O: Użyj przetwarzania wsadowego, uruchamiaj indeksowanie w wątkach w tle i dostosuj ustawienia pamięci JVM.
 
-**Q: Czy GroupDocs.Search może być wdrożony w środowisku chmurowym?**  
-A: Tak, ale upewnij się, że lokalizacja przechowywania folderu indeksu jest dostępna dla wszystkich instancji.
+**P: Czy GroupDocs.Search może być wdrożony w środowisku chmurowym?**  
+O: Tak, ale upewnij się, że lokalizacja przechowywania folderu indeksu jest dostępna dla wszystkich instancji.
 
-**Q: Jakie korzyści daje wyszukiwanie synonimów?**  
-A: Rozszerza terminy zapytań o powiązane słowa, zwiększając pokrycie (recall) bez utraty precyzji.
+**P: Jakie korzyści daje wyszukiwanie synonimów?**  
+O: Rozszerza terminy zapytania o powiązane słowa, zwiększając pokrycie (recall) bez utraty precyzji.
 
-**Q: Gdzie mogę znaleźć bardziej zaawansowaną dokumentację?**  
-A: Odwiedź oficjalną referencję API pod adresem [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java).
+**P: Gdzie mogę znaleźć bardziej zaawansowaną dokumentację?**  
+O: Odwiedź oficjalną referencję API pod adresem [Referencja API GroupDocs.Search](https://reference.groupdocs.com/search/java).
 
 ## Zasoby
-- Dokumentacja: [GroupDocs Search for Java](https://docs.groupdocs.com/search/java/)  
-- Referencja API: [GroupDocs Search API](https://reference.groupdocs.com/search/java)  
-- Pobierz: [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- GitHub: [GroupDocs.Search on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- Bezpłatne wsparcie: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- Licencja tymczasowa: [Acquire a License](https://purchase.groupdocs.com/temporary-license/) 
+- Dokumentacja: [GroupDocs Search dla Javy](https://docs.groupdocs.com/search/java/)
+- Referencja API: [API GroupDocs Search](https://reference.groupdocs.com/search/java)
+- Pobieranie: [Najnowsze wydania](https://releases.groupdocs.com/search/java/)
+- GitHub: [GroupDocs.Search na GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- Bezpłatne wsparcie: [Forum GroupDocs](https://forum.groupdocs.com/c/search/10)
+- Licencja tymczasowa: [Uzyskaj licencję](https://purchase.groupdocs.com/temporary-license/) 
 
-Postępując zgodnie z tymi krokami, teraz wiesz, jak **dodać dokumenty do indeksu**, skonfigurować folder indeksu i **optymalizować wydajność wyszukiwania** przy użyciu GroupDocs.Search dla Javy. Szczęśliwego kodowania!
+Postępując zgodnie z tymi krokami, teraz wiesz, jak **utworzyć indeks dokumentów**, dodać dokumenty do indeksu, skonfigurować folder indeksu oraz **zoptymalizować wydajność wyszukiwania** przy użyciu GroupDocs.Search dla Javy. Powodzenia w kodowaniu!
 
 ---
 
-**Ostatnia aktualizacja:** 2026-01-03  
+**Ostatnia aktualizacja:** 2026-03-15  
 **Testowano z:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs

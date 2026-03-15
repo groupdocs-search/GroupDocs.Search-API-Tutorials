@@ -1,45 +1,47 @@
 ---
-date: '2026-01-06'
-description: Dowiedz się, jak utworzyć indeks dokumentów w Javie dla plików zabezpieczonych
+date: '2026-03-15'
+description: Dowiedz się, jak indeksować dokumenty w Javie dla plików chronionych
   hasłem przy użyciu GroupDocs.Search. Przewodnik krok po kroku z kodem, wskazówkami
   i trikami zwiększającymi wydajność.
 keywords:
 - indexing password-protected documents Java
 - GroupDocs.Search Java API
 - document management workflow
-title: Utwórz indeks dokumentów w Javie dla plików chronionych hasłem
+title: Jak indeksować dokumenty w Javie dla plików chronionych hasłem przy użyciu
+  GroupDocs.Search
 type: docs
 url: /pl/java/indexing/mastering-groupdocs-search-java-password-docs/
 weight: 1
 ---
 
-# Utwórz indeks dokumentów java dla plików chronionych hasłem z GroupDocs.Search
+# Jak indeksować dokumenty w Javie dla plików chronionych hasłem przy użyciu GroupDocs.Search
 
-W nowoczesnych przedsiębiorstwach ochrona wrażliwych danych hasłami jest niezbędna, ale często utrudnia **utworzenie indeksu dokumentów java** w celu szybkiego wyszukiwania. Ten samouczek pokazuje dokładnie, jak zbudować przeszukiwalny indeks plików chronionych hasłem przy użyciu GroupDocs.Search dla Javy, zachowując jednocześnie bezpieczeństwo i wydajność przepływu pracy.
+Jeśli zastanawiasz się **jak indeksować dokumenty**, które są chronione hasłami, trafiłeś we właściwe miejsce. W nowoczesnych przedsiębiorstwach zabezpieczanie wrażliwych danych hasłami jest niezbędne, ale często utrudnia stworzenie szybkiego, przeszukiwalnego indeksu. Ten samouczek przeprowadzi Cię krok po kroku przez budowanie bezpiecznego, wysokowydajnego indeksu dokumentów dla plików chronionych hasłem przy użyciu GroupDocs.Search dla Javy, zachowując proces prostym i łatwym w utrzymaniu.
 
 ## Szybkie odpowiedzi
 - **Co obejmuje ten samouczek?** Indeksowanie dokumentów chronionych hasłem przy użyciu słownika haseł i nasłuchiwacza zdarzeń.  
-- **Jakiej biblioteki potrzebuję?** GroupDocs.Search dla Javy (najnowsza wersja).  
+- **Jakiej biblioteki wymaga?** GroupDocs.Search for Java (najnowsza wersja).  
 - **Czy potrzebna jest licencja?** Dostępna jest tymczasowa darmowa licencja próbna do oceny.  
 - **Czy mogę indeksować inne typy plików?** Tak, GroupDocs.Search obsługuje wiele formatów, takich jak PDF, DOCX, XLSX itp.  
 - **Jakiej wersji Javy potrzebuję?** JDK 8 lub nowsza.
 
 ## Co to jest „create document index java”?
-Utworzenie indeksu dokumentów w Javie oznacza zbudowanie struktury danych, którą można przeszukiwać, mapującej terminy na pliki, w których się pojawiają. Dzięki GroupDocs.Search proces ten może automatycznie obsługiwać zaszyfrowane dokumenty, więc nie musisz ręcznie odblokowywać każdego pliku.
+Tworzenie indeksu dokumentów w Javie oznacza budowanie przeszukiwalnej struktury danych, która mapuje terminy na pliki, w których się pojawiają. Dzięki GroupDocs.Search ten proces może automatycznie obsługiwać zaszyfrowane dokumenty, więc nie musisz ręcznie odblokowywać każdego pliku.
 
-## Dlaczego warto używać GroupDocs.Search dla plików chronionych hasłem?
-- **Zero‑dotykowe odblokowywanie** – podaj hasła raz w słowniku lub obsłudze zdarzeń.  
-- **Wysoka wydajność** – zoptymalizowany silnik indeksujący, skalujący się do milionów dokumentów.  
-- **Bogaty język zapytań** – obsługa operatorów Boolean, znaków wieloznacznych i wyszukiwania przybliżonego.  
-- **Obsługa wielu formatów** – działa od razu z ponad 100 typami plików.
+## Dlaczego używać GroupDocs.Search dla plików chronionych hasłem?
+- **Odblokowywanie bez interwencji** – podaj hasła raz za pomocą słownika lub obsługi zdarzenia.  
+- **Wysoka wydajność** – zoptymalizowany silnik indeksowania, który skaluje się do milionów dokumentów.  
+- **Bogaty język zapytań** – obsługa operatorów logicznych, znaków wieloznacznych i wyszukiwania przybliżonego.  
+- **Obsługa wielu formatów** – działa z ponad 100 typami plików od razu.  
+- **Upraszcza proces indeksowania dokumentów** – API ukrywa złożoność obsługi zaszyfrowanych plików.
 
 ## Wymagania wstępne
 1. **Java Development Kit (JDK) 8+** – zainstalowany i skonfigurowany w zmiennej PATH.  
 2. **IDE** – IntelliJ IDEA, Eclipse lub dowolny edytor kompatybilny z Javą.  
 3. **Maven** – do zarządzania zależnościami.  
-4. **GroupDocs.Search dla Javy** – dodaj bibliotekę przez Maven (patrz niżej).  
+4. **GroupDocs.Search for Java** – dodaj bibliotekę za pomocą Maven (zobacz poniżej).
 
-## Konfiguracja GroupDocs.Search dla Javy
+## Konfiguracja GroupDocs.Search dla Java
 
 ### Korzystanie z Maven
 Dodaj repozytorium i zależność do pliku `pom.xml`:
@@ -67,16 +69,16 @@ Alternatywnie możesz pobrać najnowszą wersję bezpośrednio z [GroupDocs.Sear
 
 Aby rozpocząć z licencją próbną, odwiedź [stronę tymczasowej licencji GroupDocs](https://purchase.groupdocs.com/temporary-license/) i postępuj zgodnie z instrukcjami, aby uzyskać darmową wersję próbną.
 
-## Jak utworzyć indeks dokumentów java przy użyciu GroupDocs.Search
+## Jak indeksować dokumenty przy użyciu słownika haseł
 
-Poniżej przedstawiono dwa praktyczne podejścia. Oba umożliwiają **utworzenie indeksu dokumentów java** przy jednoczesnym automatycznym obsługiwaniu haseł.
+Poniżej znajdują się dwa praktyczne podejścia. Oba pozwalają **create document index java** przy jednoczesnym automatycznym obsługiwaniu haseł.
 
 ### Podejście 1 – Indeksowanie przy użyciu słownika haseł
 
 #### Przegląd
-Przechowuj hasła dokumentów w słowniku, aby silnik mógł odblokowywać pliki w locie.
+Przechowuj hasła do dokumentów w słowniku, aby silnik mógł odblokowywać pliki w locie.
 
-#### Krok 1: Zdefiniuj folder indeksu i folder dokumentów
+#### Krok 1: Zdefiniuj indeks i folder dokumentów
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordDictionary";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
@@ -88,7 +90,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protec
 Index index = new Index(indexFolder);
 ```
 
-#### Krok 3: Dodaj hasła dokumentów
+#### Krok 3: Dodaj hasła do dokumentów
 ```java
 // Add passwords for specific files using their absolute paths
 String path1 = new File(documentsFolder + "/English.docx").getAbsolutePath();
@@ -104,7 +106,7 @@ index.getDictionaries().getDocumentPasswords().add(path2, "123456");
 index.add(documentsFolder);
 ```
 
-#### Krok 5: Przeszukaj indeks
+#### Krok 5: Wyszukaj w indeksie
 ```java
 String query = "ipsum OR increasing";
 SearchResult result = index.search(query);
@@ -112,18 +114,18 @@ SearchResult result = index.search(query);
 // Handle search results (e.g., display or process them)
 ```
 
-**Wskazówka:** Jeśli masz wiele plików, rozważ ładowanie haseł z bezpiecznego magazynu (baza danych, Azure Key Vault itp.) zamiast ich twardego kodowania.
+**Wskazówka:** Jeśli masz wiele plików, rozważ ładowanie haseł ze zabezpieczonego magazynu (baza danych, Azure Key Vault itp.) zamiast ich twardego kodowania.
 
 #### Rozwiązywanie problemów
-- Sprawdź, czy każde hasło odpowiada rzeczywistemu hasłu ochronnemu pliku.  
-- Zweryfikuj ścieżki plików; nieprawidłowa ścieżka powoduje `FileNotFoundException`.
+- Zweryfikuj, że każde hasło odpowiada rzeczywistemu hasłu ochrony pliku.  
+- Sprawdź ponownie ścieżki plików; nieprawidłowa ścieżka wywołuje `FileNotFoundException`.
 
-### Podejście 2 – Indeksowanie przy użyciu nasłuchiwacza zdarzenia wymagającego hasła
+### Podejście 2 – Indeksowanie przy użyciu nasłuchiwacza zdarzeń wymagających hasła
 
 #### Przegląd
 Dostarczaj hasła dynamicznie, gdy silnik wywoła zdarzenie wymagające hasła.
 
-#### Krok 1: Zdefiniuj folder indeksu i folder dokumentów
+#### Krok 1: Zdefiniuj indeks i folder dokumentów
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordEvent";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
@@ -135,7 +137,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protec
 Index index = new Index(indexFolder);
 ```
 
-#### Krok 3: Subskrybuj zdarzenie wymagające hasła
+#### Krok 3: Subskrybuj zdarzenie wymaganego hasła
 ```java
 index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArgs>() {
     @Override
@@ -154,7 +156,7 @@ index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArg
 index.add(documentsFolder);
 ```
 
-#### Krok 5: Przeszukaj indeks
+#### Krok 5: Wyszukaj w indeksie
 ```java
 String query = "ipsum OR increasing";
 SearchResult result = index.search(query);
@@ -163,49 +165,54 @@ SearchResult result = index.search(query);
 ```
 
 #### Rozwiązywanie problemów
-- Upewnij się, że obsługa zdarzenia obejmuje wszystkie rozszerzenia plików, które chcesz indeksować.  
-- Najpierw przetestuj kilka przykładowych plików, aby potwierdzić, że hasło jest prawidłowo stosowane.
+- Upewnij się, że obsługa zdarzenia obejmuje wszystkie rozszerzenia plików, które musisz indeksować.  
+- Najpierw przetestuj kilka przykładowych plików, aby potwierdzić, że hasło jest stosowane.
 
 ## Praktyczne zastosowania
 
-1. **Zarządzanie dokumentami w przedsiębiorstwie:** Automatyzacja indeksowania poufnych umów, dokumentów HR i raportów finansowych.  
-2. **Archiwa prawne:** Szybkie wyszukiwanie akt spraw przy jednoczesnym ich szyfrowaniu w spoczynku.  
-3. **Rekordy medyczne:** Indeksowanie plików PDF i dokumentów Word pacjentów bez ujawniania danych PHI.
+1. **Enterprise Document Management:** Automatyzuj indeksowanie poufnych umów, plików HR i raportów finansowych.  
+2. **Legal Archives:** Szybko odnajduj akta spraw, jednocześnie utrzymując je zaszyfrowane w spoczynku.  
+3. **Healthcare Records:** Indeksuj PDF-y i dokumenty Word pacjentów bez ujawniania PHI.
 
-## Wskazówki dotyczące wydajności
-- **Alokacja pamięci:** Przydziel wystarczającą pamięć sterty (`-Xmx2g` lub więcej) dla dużych partii.  
-- **Indeksowanie równoległe:** Użyj `index.addAsync(...)` lub uruchom wiele wątków indeksujących, aby przyspieszyć przetwarzanie.  
-- **Utrzymanie indeksu:** Okresowo wywołuj `index.optimize()`, aby skompaktować indeks i zwiększyć szybkość zapytań.
+## Rozważania dotyczące wydajności
+- **Alokacja pamięci:** Przydziel wystarczającą pamięć sterty (`-Xmx2g` lub wyższą) dla dużych partii.  
+- **Równoległe indeksowanie:** Użyj `index.addAsync(...)` lub uruchom wiele wątków indeksujących dla szybszego przepustowości.  
+- **Utrzymanie indeksu:** Okresowo wywołuj `index.optimize()`, aby skompaktować indeks i poprawić szybkość zapytań.
+
+## Typowe problemy i rozwiązania
+- **Nieprawidłowe hasło:** Dokument jest pomijany, a ostrzeżenie jest zapisywane w logu. Sprawdź ponownie swój słownik haseł lub obsługę zdarzenia.  
+- **Nieobsługiwany format:** Zainstaluj niezbędne wtyczki formatów lub przekonwertuj pliki na obsługiwany typ przed indeksowaniem.  
+- **Duże pliki:** Zwiększ rozmiar sterty i rozważ indeksowanie ich w mniejszych partiach.
 
 ## Najczęściej zadawane pytania
 
-**P: Jak obsługiwać różne formaty plików?**  
-O: GroupDocs.Search obsługuje PDF, DOCX, XLSX, PPTX i wiele innych. W razie potrzeby zainstaluj odpowiednie wtyczki formatów.
+**Q:** Jak obsługiwać różne formaty plików?  
+**A:** GroupDocs.Search obsługuje PDF, DOCX, XLSX, PPTX i wiele innych. Zainstaluj odpowiednie wtyczki formatów, jeśli są wymagane.
 
-**P: Co się stanie, gdy hasło będzie nieprawidłowe?**  
-O: Dokument zostanie pominięty, a ostrzeżenie zostanie zapisane w logu. Sprawdź ponownie słownik haseł lub logikę obsługi zdarzeń.
+**Q:** Co się stanie, jeśli hasło jest nieprawidłowe?  
+**A:** Dokument jest pomijany, a ostrzeżenie jest zapisywane w logu. Zweryfikuj źródło haseł.
 
-**P: Czy mogę indeksować pliki przechowywane w chmurze?**  
-O: Tak, ale najpierw muszą być pobrane do lokalnego folderu tymczasowego, ponieważ silnik pracuje ze ścieżkami systemu plików.
+**Q:** Czy mogę indeksować pliki przechowywane w chmurze?  
+**A:** Tak, ale najpierw muszą być pobrane do lokalnego tymczasowego folderu, ponieważ silnik działa na ścieżkach systemu plików.
 
-**P: Jak mogę poprawić trafność wyszukiwania?**  
-O: Dostosuj ustawienia punktacji za pomocą `IndexOptions`, użyj synonimów i wykorzystaj zaawansowaną składnię zapytań (`field:term~` dla wyszukiwania przybliżonego).
+**Q:** Jak mogę poprawić trafność wyszukiwania?  
+**A:** Dostosuj ustawienia punktacji za pomocą `IndexOptions`, używaj synonimów i wykorzystaj zaawansowaną składnię zapytań (`field:term~` dla dopasowania przybliżonego).
 
-**P: Co zrobić, gdy indeksowanie nie powiedzie się dla niektórych plików?**  
-O: Przejrzyj wyjście logu; najczęstsze przyczyny to brakujące hasła, uszkodzone pliki lub nieobsługiwane formaty.
+**Q:** Co zrobić, jeśli indeksowanie nie powodzi się dla niektórych plików?  
+**A:** Przejrzyj wyjście logu; typowe przyczyny to brakujące hasła, uszkodzone pliki lub nieobsługiwane formaty.
 
 ## Zasoby
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java)
-- [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+- [Dokumentacja GroupDocs.Search](https://docs.groupdocs.com/search/java/)
+- [Referencja API](https://reference.groupdocs.com/search/java)
+- [Pobierz GroupDocs.Search](https://releases.groupdocs.com/search/java/)
+- [Repozytorium GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Darmowe forum wsparcia](https://forum.groupdocs.com/c/search/10)
+- [Informacje o licencji tymczasowej](https://purchase.groupdocs.com/temporary-license/)
 
-Postępując zgodnie z tym przewodnikiem, wiesz już, jak **utworzyć indeks dokumentów java** dla plików chronionych hasłem, zwiększając zarówno bezpieczeństwo, jak i dostępność w swoich aplikacjach.
+Postępując zgodnie z tym przewodnikiem, teraz wiesz **jak indeksować dokumenty** dla plików chronionych hasłem, zwiększając zarówno bezpieczeństwo, jak i możliwość ich odnalezienia w Twoich aplikacjach.
 
 ---
 
-**Ostatnia aktualizacja:** 2026-01-06  
-**Testowane z:** GroupDocs.Search 25.4 for Java  
+**Ostatnia aktualizacja:** 2026-03-15  
+**Testowano z:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs

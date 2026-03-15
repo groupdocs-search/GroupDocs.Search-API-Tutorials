@@ -1,47 +1,57 @@
 ---
-date: '2026-01-06'
-description: GroupDocs.Search kullanarak şifre korumalı dosyalar için Java belge dizini
-  oluşturmayı öğrenin. Kod, ipuçları ve performans püf noktalarıyla adım adım rehber.
+date: '2026-03-15'
+description: GroupDocs.Search kullanarak şifre korumalı dosyalar için Java’da belgeleri
+  nasıl indeksleyeceğinizi öğrenin. Kod, ipuçları ve performans püf noktalarıyla adım
+  adım rehber.
 keywords:
 - indexing password-protected documents Java
 - GroupDocs.Search Java API
 - document management workflow
-title: Şifre korumalı dosyalar için Java belge dizini oluştur
+title: GroupDocs.Search ile şifre korumalı dosyalar için Java'da belgeleri nasıl indekslersiniz
 type: docs
 url: /tr/java/indexing/mastering-groupdocs-search-java-password-docs/
 weight: 1
 ---
 
-# Şifre korumalı dosyalar için GroupDocs.Search ile **create document index java**
+:" maybe translate to "Test Edilen". We'll translate.
 
-Modern işletmelerde hassas verileri şifrelerle korumak zorunludur, ancak bu durum **create document index java** oluşturup hızlıca erişim sağlamayı zorlaştırabilir. Bu öğreticide, GroupDocs.Search for Java kullanarak şifre korumalı dosyaların aranabilir bir dizinini nasıl oluşturacağınızı, iş akışınızı güvenli ve verimli tutarak adım adım gösteriyoruz.
+**Author:** -> "**Yazar:**"
+
+Now produce final markdown with all translations.
+
+Make sure not to alter placeholders.
+
+Let's craft final answer.# Java'da şifre korumalı dosyalar için GroupDocs.Search ile belgeleri indeksleme
+
+Şifrelerle korunan **belge indeksleme** hakkında merak ediyorsanız, doğru yere geldiniz. Modern işletmelerde, hassas verileri şifrelerle korumak zorunludur, ancak bu durum hızlı, aranabilir bir indeks oluşturmayı zorlaştırabilir. Bu öğretici, GroupDocs.Search for Java kullanarak şifre korumalı dosyalar için güvenli, yüksek performanslı bir belge indeksi oluşturmanın tam adımlarını, süreci basit ve sürdürülebilir tutarak size gösterir.
 
 ## Hızlı Yanıtlar
-- **Bu öğretici neyi kapsıyor?** Şifre korumalı belgeleri bir şifre sözlüğü ve bir olay dinleyicisi ile indeksleme.  
+- **Bu öğretici neyi kapsıyor?** Şifre korumalı belgelerin bir şifre sözlüğü ve bir olay dinleyicisi ile indekslenmesi.  
 - **Hangi kütüphane gerekiyor?** GroupDocs.Search for Java (en son sürüm).  
-- **Lisans gerekli mi?** Değerlendirme için geçici ücretsiz deneme lisansı mevcuttur.  
-- **Diğer dosya türlerini indeksleyebilir miyim?** Evet, GroupDocs.Search PDF, DOCX, XLSX vb. birçok formatı destekler.  
+- **Lisans gerekir mi?** Değerlendirme için geçici ücretsiz deneme lisansı mevcuttur.  
+- **Diğer dosya türlerini indeksleyebilir miyim?** Evet, GroupDocs.Search PDF, DOCX, XLSX vb. gibi birçok formatı destekler.  
 - **Hangi Java sürümü gerekiyor?** JDK 8 veya üzeri.
 
 ## “create document index java” nedir?
-Java’da bir belge dizini oluşturmak, terimleri dosyaların bulunduğu konumlarla eşleyen aranabilir bir veri yapısı inşa etmek demektir. GroupDocs.Search ile bu süreç, şifreli belgeleri otomatik olarak işleyebilir; böylece her dosyayı manuel olarak açmanız gerekmez.
+Java'da bir belge indeksi oluşturmak, terimleri ortaya çıktıkları dosyalarla eşleyen aranabilir bir veri yapısı inşa etmek anlamına gelir. GroupDocs.Search ile bu süreç, şifreli belgeleri otomatik olarak işleyebilir, böylece her dosyayı manuel olarak açmanız gerekmez.
 
-## Şifre korumalı dosyalar için GroupDocs.Search neden kullanılmalı?
-- **Sıfır temaslı açma** – şifreleri bir sözlük ya da olay işleyicisi aracılığıyla bir kez sağlayın.  
-- **Yüksek performans** – milyonlarca belgeyi ölçeklendirebilen optimize edilmiş indeksleme motoru.  
+## Şifre korumalı dosyalar için neden GroupDocs.Search kullanmalı?
+- **Sıfır temaslı açma** – şifreleri bir sözlük veya olay işleyicisi aracılığıyla bir kez sağlayın.  
+- **Yüksek performans** – milyonlarca belgeye ölçeklenebilen optimize edilmiş indeksleme motoru.  
 - **Zengin sorgu dili** – Boolean operatörleri, joker karakterler ve bulanık arama desteği.  
-- **Çapraz format desteği** – kutudan çıkar çıkmaz 100’den fazla dosya türüyle çalışır.
+- **Çapraz format desteği** – kutudan çıkar çıkmaz 100'den fazla dosya türüyle çalışır.  
+- **belge indeksleme sürecini basitleştirir** – API, şifreli dosyalarla uğraşmanın karmaşıklığını soyutlar.
 
 ## Önkoşullar
-1. **Java Development Kit (JDK) 8+** – PATH’inizde kurulu ve yapılandırılmış.  
-2. **IDE** – IntelliJ IDEA, Eclipse veya herhangi bir Java‑uyumlu editör.  
+1. **Java Development Kit (JDK) 8+** – PATH'ınıza kurulu ve yapılandırılmış.  
+2. **IDE** – IntelliJ IDEA, Eclipse veya herhangi bir Java uyumlu editör.  
 3. **Maven** – bağımlılık yönetimi için.  
-4. **GroupDocs.Search for Java** – Maven üzerinden kütüphane ekleyin (aşağıya bakın).  
+4. **GroupDocs.Search for Java** – kütüphaneyi Maven aracılığıyla ekleyin (aşağıya bakın).
 
 ## GroupDocs.Search for Java Kurulumu
 
 ### Maven Kullanarak
-`pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
+Add the repository and dependency to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -64,30 +74,30 @@ Java’da bir belge dizini oluşturmak, terimleri dosyaların bulunduğu konumla
 ### Doğrudan İndirme
 Alternatif olarak, en son sürümü doğrudan [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
 
-Deneme lisansı almak için [GroupDocs'un geçici lisans sayfasını](https://purchase.groupdocs.com/temporary-license/) ziyaret edin ve ücretsiz denemenizi alın.
+Deneme lisansı ile başlamak için [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/) adresini ziyaret edin ve ücretsiz denemenizi almak için talimatları izleyin.
 
-## GroupDocs.Search ile **create document index java** Nasıl Yapılır
+## Şifre sözlüğü ile belgeleri nasıl indekslersiniz
 
-Aşağıda iki pratik yaklaşım sunulmuştur. İkisi de şifreleri otomatik olarak işleyerek **create document index java** oluşturmanızı sağlar.
+Aşağıda iki pratik yaklaşım bulunmaktadır. İkisi de şifreleri otomatik olarak işleyerek **create document index java** yapmanıza olanak tanır.
 
 ### Yaklaşım 1 – Şifre Sözlüğü Kullanarak İndeksleme
 
 #### Genel Bakış
-Belge şifrelerini bir sözlükte tutun; motor dosyaları anlık olarak açabilir.
+Belge şifrelerini bir sözlükte saklayın, böylece motor dosyaları anlık olarak açabilir.
 
-#### Adım 1: İndeks ve Belgeler Klasörünü Tanımla
+#### Adım 1: İndeks ve Belgeler Klasörünü Tanımlayın
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordDictionary";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Adım 2: Bir İndeks Oluştur
+#### Adım 2: İndeks Oluşturun
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Adım 3: Belge Şifrelerini Ekle
+#### Adım 3: Belge Şifrelerini Ekleyin
 ```java
 // Add passwords for specific files using their absolute paths
 String path1 = new File(documentsFolder + "/English.docx").getAbsolutePath();
@@ -97,13 +107,13 @@ String path2 = new File(documentsFolder + "/Lorem ipsum.docx").getAbsolutePath()
 index.getDictionaries().getDocumentPasswords().add(path2, "123456");
 ```
 
-#### Adım 4: Belgeleri İndeksle
+#### Adım 4: Belgeleri İndeksleyin
 ```java
 // Automatically retrieve passwords from the dictionary during indexing
 index.add(documentsFolder);
 ```
 
-#### Adım 5: İndekste Arama Yap
+#### Adım 5: İndekste Arama Yapın
 ```java
 String query = "ipsum OR increasing";
 SearchResult result = index.search(query);
@@ -115,26 +125,26 @@ SearchResult result = index.search(query);
 
 #### Sorun Giderme
 - Her şifrenin dosyanın gerçek koruma şifresiyle eşleştiğini doğrulayın.  
-- Yanlış dosya yolu `FileNotFoundException` hatasına neden olur; dosya yollarını iki kez kontrol edin.
+- Dosya yollarını iki kez kontrol edin; yanlış bir yol `FileNotFoundException` hatasına neden olur.
 
-### Yaklaşım 2 – Şifre Gerektiren Olay Dinleyicisi Kullanarak İndeksleme
+### Yaklaşım 2 – Şifre Gereksinimi için Olay Dinleyicisi Kullanarak İndeksleme
 
 #### Genel Bakış
-Motor şifre gerektiren bir olay tetiklediğinde şifreleri dinamik olarak sağlayın.
+Motor şifre‑gerekli olayı tetiklediğinde şifreleri dinamik olarak sağlayın.
 
-#### Adım 1: İndeks ve Belgeler Klasörünü Tanımla
+#### Adım 1: İndeks ve Belgeler Klasörünü Tanımlayın
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordEvent";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Adım 2: Bir İndeks Oluştur
+#### Adım 2: İndeks Oluşturun
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Adım 3: Şifre‑Gerektiren Olayına Abone Ol
+#### Adım 3: Şifre‑Gerekli Olayına Abone Olun
 ```java
 index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArgs>() {
     @Override
@@ -147,13 +157,13 @@ index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArg
 });
 ```
 
-#### Adım 4: Belgeleri İndeksle
+#### Adım 4: Belgeleri İndeksleyin
 ```java
 // The event handler will supply passwords as required during indexing
 index.add(documentsFolder);
 ```
 
-#### Adım 5: İndekste Arama Yap
+#### Adım 5: İndekste Arama Yapın
 ```java
 String query = "ipsum OR increasing";
 SearchResult result = index.search(query);
@@ -162,49 +172,54 @@ SearchResult result = index.search(query);
 ```
 
 #### Sorun Giderme
-- Olay işleyicisinin indekslemek istediğiniz tüm dosya uzantılarını kapsadığından emin olun.  
-- Şifrenin uygulanıp uygulanmadığını doğrulamak için önce birkaç örnek dosya ile test edin.
+- Olay işleyicisinin indekslemeniz gereken tüm dosya uzantılarını kapsadığından emin olun.  
+- Şifrenin uygulandığını doğrulamak için önce birkaç örnek dosyayla test edin.
 
-## Pratik Kullanım Alanları
+## Pratik Uygulamalar
 
-1. **Kurumsal Belge Yönetimi:** Gizli sözleşmeler, İK dosyaları ve finansal raporların otomatik indekslenmesi.  
-2. **Hukuki Arşivler:** Şifreli olarak saklanan dava dosyalarını hızlıca bulma.  
-3. **Sağlık Kayıtları:** PHI’yı ifşa etmeden hasta PDF ve Word belgelerini indeksleme.
+1. **Kurumsal Belge Yönetimi:** Gizli sözleşmelerin, İK dosyalarının ve finansal raporların indekslenmesini otomatikleştirin.  
+2. **Hukuki Arşivler:** Dosyaları hızlıca geri getirin, aynı zamanda dinlenirken şifreli kalmalarını sağlayın.  
+3. **Sağlık Kayıtları:** Hasta PDF ve Word belgelerini PHI'yi ortaya çıkarmadan indeksleyin.
 
 ## Performans Düşünceleri
-- **Bellek Tahsisi:** Büyük partiler için yeterli heap belleği (`-Xmx2g` veya daha yüksek) ayırın.  
-- **Paralel İndeksleme:** Daha hızlı işlem için `index.addAsync(...)` kullanın veya birden fazla indeksleme iş parçacığı çalıştırın.  
-- **İndeks Bakımı:** `index.optimize()` metodunu periyodik olarak çağırarak indeksi sıkıştırın ve sorgu hızını artırın.
+- **Bellek Tahsisi:** Büyük partiler için yeterli yığın belleği (`-Xmx2g` veya daha yüksek) ayırın.  
+- **Paralel İndeksleme:** Daha hızlı işlem hacmi için `index.addAsync(...)` kullanın veya birden fazla indeksleme iş parçacığı çalıştırın.  
+- **İndeks Bakımı:** İndeksi sıkıştırmak ve sorgu hızını artırmak için periyodik olarak `index.optimize()` çağırın.
+
+## Yaygın Sorunlar ve Çözümler
+- **Yanlış Şifre:** Belge atlanır ve bir uyarı kaydedilir. Şifre sözlüğünüzü veya olay işleyicinizi iki kez kontrol edin.  
+- **Desteklenmeyen Format:** Gerekli format eklentilerini kurun veya indekslemeden önce dosyaları desteklenen bir tipe dönüştürün.  
+- **Büyük Dosyalar:** Yığın boyutunu artırın ve dosyaları daha küçük partiler halinde indekslemeyi düşünün.
 
 ## Sık Sorulan Sorular
 
-**S: Farklı dosya formatları nasıl ele alınır?**  
-C: GroupDocs.Search PDF, DOCX, XLSX, PPTX ve daha fazlasını destekler. Gerekirse ilgili format eklentilerini kurun.
+**S: Farklı dosya formatlarıyla nasıl başa çıkabilirim?**  
+C: GroupDocs.Search PDF, DOCX, XLSX, PPTX ve daha birçok formatı destekler. Gerekirse uygun format eklentilerini kurun.
 
 **S: Şifre yanlış olduğunda ne olur?**  
-C: Belge atlanır ve bir uyarı kaydedilir. Şifre sözlüğünüzü veya olay işleyicisi mantığınızı kontrol edin.
+C: Belge atlanır ve bir uyarı kaydedilir. Şifre kaynağınızı doğrulayın.
 
-**S: Dosyalar bulutta mı saklanabilir?**  
-C: Evet, ancak motor dosya sistemi yolları ile çalıştığı için önce yerel geçici bir klasöre indirilmelidir.
+**S: Bulutta depolanan dosyaları indeksleyebilir miyim?**  
+C: Evet, ancak motor dosya sistemi yolları ile çalıştığı için önce yerel geçici bir klasöre indirilmeleri gerekir.
 
 **S: Arama alaka düzeyini nasıl artırabilirim?**  
-C: `IndexOptions` ile puanlama ayarlarını değiştirin, eşanlamlı kelimeler ekleyin ve gelişmiş sorgu sözdizimini (`field:term~` gibi) kullanın.
+C: `IndexOptions` ile puanlama ayarlarını değiştirin, eş anlamlıları kullanın ve gelişmiş sorgu sözdizimini (`field:term~` bulanık eşleşme için) değerlendirin.
 
 **S: Bazı dosyalar için indeksleme başarısız olursa ne yapmalıyım?**  
-C: Günlük çıktısını inceleyin; yaygın nedenler eksik şifre, bozuk dosya veya desteklenmeyen formatlardır.
+C: Günlük çıktısını inceleyin; yaygın nedenler eksik şifreler, bozuk dosyalar veya desteklenmeyen formatlardır.
 
 ## Kaynaklar
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)  
-- [API Reference](https://reference.groupdocs.com/search/java)  
-- [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)  
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+- [GroupDocs.Search Dokümantasyonu](https://docs.groupdocs.com/search/java/)
+- [API Referansı](https://reference.groupdocs.com/search/java)
+- [GroupDocs.Search İndir](https://releases.groupdocs.com/search/java/)
+- [GitHub Deposu](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Ücretsiz Destek Forumu](https://forum.groupdocs.com/c/search/10)
+- [Geçici Lisans Bilgileri](https://purchase.groupdocs.com/temporary-license/)
 
-Bu rehberi izleyerek artık şifre korumalı dosyalar için **create document index java** oluşturabilir, uygulamalarınızda güvenliği ve bulunabilirliği artırabilirsiniz.
+Bu kılavuzu izleyerek artık şifre korumalı dosyalar için **belge indeksleme** yöntemini biliyorsunuz; bu, uygulamalarınızda güvenliği ve keşfedilebilirliği artırır.
 
 ---
 
-**Son Güncelleme:** 2026-01-06  
-**Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java  
+**Son Güncelleme:** 2026-03-15  
+**Test Edilen Sürüm:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs
