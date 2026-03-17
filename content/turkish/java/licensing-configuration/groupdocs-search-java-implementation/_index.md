@@ -1,44 +1,47 @@
 ---
-date: '2026-01-08'
-description: Java uygulamalarında GroupDocs.Search kullanarak arama sonuçlarını nasıl
-  vurgulayacağınızı öğrenin, ölçeklenebilir aramayı, ağ dağıtımını ve sonuç vurgulamayı
-  yapılandırın.
+date: '2026-03-17'
+description: GroupDocs.Search ile Java’da arama sonuçlarını nasıl vurgulayacağınızı
+  öğrenin, ölçeklenebilir bir arama ağı yapılandırın, belgeleri indeksleyin, sorgular
+  çalıştırın ve vurgulanan alıntıları görüntüleyin.
 keywords:
 - GroupDocs.Search Java
 - distributed searching Java
 - highlight search results Java
-title: GroupDocs.Search Kullanarak Java'da Arama Sonuçlarını Vurgulama
+title: Java'da GroupDocs.Search Kullanarak Arama Sonuçlarını Nasıl Vurgularsınız
 type: docs
 url: /tr/java/licensing-configuration/groupdocs-search-java-implementation/
 weight: 1
 ---
 
-# GroupDocs.Search Kullanarak Java'da Arama Sonuçlarını Vurgulama
+# Java Kullanarak GroupDocs.Search ile Arama Sonuçlarını Vurgulama
 
-Eğer sonsuz belgeler arasında manuel olarak gezinmekten sıkıldıysanız, **highlight search results java** ihtiyacınız olanı hızlı ve güvenilir bir şekilde ortaya çıkarır. Bu öğreticide dağıtık bir arama ağı yapılandırmayı, dosyalarınızı indekslemeyi, sorgular çalıştırmayı ve sonunda eşleşmeleri doğrudan belgeler içinde vurgulamayı adım adım göstereceğiz. Sonunda, birden çok düğümde ölçeklenebilen ve ilgili terimleri anında öne çıkaran üretim‑hazır bir çözümünüz olacak.
+Eğer sonsuz belgeler arasında manuel olarak gezinmekten sıkıldıysanız, **highlight search results java** ihtiyacınız olanı hızlı ve güvenilir bir şekilde ortaya çıkarır. Bu öğreticide dağıtık bir arama ağı yapılandırmayı, dosyalarınızı indekslemeyi, sorgular çalıştırmayı ve sonunda eşleşmeleri doğrudan belgeler içinde vurgulamayı adım adım göstereceğiz. Sonunda, birden fazla düğümde ölçeklenebilen ve ilgili terimleri anında öne çıkaran üretim‑hazır bir çözümünüz olacak.
 
 ## Hızlı Yanıtlar
-- **“highlight search results java” ne anlama geliyor?** Java kütüphaneleri (ör. GroupDocs.Search) kullanılırken bulunan anahtar kelimeleri programlı olarak işaretlemeyi ifade eder.  
-- **Aynı belgede birden fazla terimi vurgulayabilir miyim?** Evet – `HighlightOptions` kullanarak her eşleşme öncesi/sonrası gösterilecek terim sayısını tanımlayabilirsiniz.  
+- **“highlight search results java” ne anlama geliyor?** Java kütüphaneleri (örneğin GroupDocs.Search) kullanılırken belgeler içinde bulunan anahtar kelimeleri programlı olarak işaretlemeyi ifade eder.  
+- **Aynı belgede birden fazla terimi vurgulayabilir miyim?** Evet – her eşleşmeden önce/sonra gösterilecek terim sayısını tanımlamak için `HighlightOptions` kullanın.  
 - **Bu örneği çalıştırmak için lisansa ihtiyacım var mı?** Test için ücretsiz deneme veya geçici lisans yeterlidir; üretim için tam lisans gereklidir.  
 - **Hangi Java sürümü gerekiyor?** Java 8 veya üzeri.  
 - **Bu yaklaşım büyük belge koleksiyonları için uygun mu?** Kesinlikle – arama ağı indeksleme ve sorgu yükünü düğümler arasında dağıtır.
 
 ## Highlight Search Results Java Nedir?
-**highlight search results java**, bir arama sorgusunu alıp belgelerinizde eşleşen parçaları bulma ve bu parçaları görsel olarak vurgulama (ör. işaretleyicilerle çevreleme veya vurgulanmış snippet'ler döndürme) sürecidir. Bu sayede son kullanıcılar, tüm dosyayı açmadan her eşleşmenin bağlamını kolayca görebilir.
+**Highlight search results java**, bir arama sorgusunu alıp belgelerinizdeki eşleşen parçaları bulma ve bu parçaları görsel olarak vurgulama (örneğin, işaretleyicilerle çevreleyerek ya da vurgulanmış snippetler olarak döndürerek) sürecidir. Bu, son kullanıcıların tüm dosyayı açmadan her eşleşmenin bağlamını görmesini kolaylaştırır.
+
+## Highlight Search Results Java Neden Önemlidir
+**highlight search results java** kullanmak, bir terimin tam olarak nerede göründüğünü göstererek kullanıcı deneyimini iyileştirir, alakasız dosyaları açma süresini azaltır ve uyumluluk ekiplerinin hassas bilgileri hızlıca bulmasına yardımcı olur. Dağıtık bir arama ağıyla birleştirildiğinde, belge koleksiyonu milyonlara çıktıkça bile çözüm yanıt vermeye devam eder.
 
 ## Vurgulama İçin Neden GroupDocs.Search Kullanılmalı?
-GroupDocs.Search, çok sayıda dosya formatını destekleyen, dağıtık indeksleme ve yerleşik fragment vurgulayıcıları sunan hazır, yüksek‑performanslı bir motor sağlar. Özel ayrıştırıcılar yazma veya düşük seviyeli arama altyapısını yönetme ihtiyacını ortadan kaldırır, böylece sorunsuz bir kullanıcı deneyimi sunmaya odaklanabilirsiniz.
+GroupDocs.Search, onlarca dosya formatını, dağıtık indekslemeyi ve yerleşik fragment vurgulayıcıları destekleyen hazır, yüksek performanslı bir motor sunar. Özel ayrıştırıcılar yazma veya düşük seviyeli arama altyapısını yönetme ihtiyacını ortadan kaldırarak, sorunsuz bir kullanıcı deneyimi sunmaya odaklanmanızı sağlar.
 
-## Önkoşullar
+## Ön Koşullar
 
-- **Java Development Kit (JDK) 8+** – `java -version` komutunun 1.8 veya üzeri bir sürüm rapor ettiğinden emin olun.  
+- **Java Development Kit (JDK) 8+** – `java -version` komutunun 1.8 veya daha yüksek bir sürüm rapor ettiğinden emin olun.  
 - **Maven** – bağımlılık yönetimi için.  
 - **GroupDocs.Search for Java 25.4** – bu kılavuz boyunca kullanılan sürüm.  
-- **IntelliJ IDEA** veya **Eclipse** gibi bir IDE (isteğe bağlı ancak önerilir).  
+- **IntelliJ IDEA** veya **Eclipse** gibi bir IDE (isteğe bağlı ama tavsiye edilir).  
 - Java ve ağ kavramları hakkında temel bilgi.
 
-## GroupDocs.Search for Java'ı Kurma
+## GroupDocs.Search for Java Kurulumu
 
 Kütüphaneyi projenize Maven aracılığıyla ya da JAR dosyasını doğrudan indirerek ekleyebilirsiniz.
 
@@ -64,15 +67,15 @@ Kütüphaneyi projenize Maven aracılığıyla ya da JAR dosyasını doğrudan i
 ```
 
 ### Doğrudan İndirme
-Alternatif olarak, en yeni JAR dosyasını [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirin.
+Alternatif olarak, en son JAR dosyasını [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirin.
 
 ### Lisans Edinme Adımları
-- **Free Trial:** Temel özellikleri keşfetmek için deneme sürümüyle başlayın.  
-- **Temporary License:** [bu sayfadan](https://purchase.groupdocs.com/temporary-license/) uzatılmış test lisansı alın.  
-- **Purchase:** Üretim dağıtımları için tam lisans temin edin.
+- **Ücretsiz Deneme:** Temel özellikleri keşfetmek için bir deneme ile başlayın.  
+- **Geçici Lisans:** [bu sayfadan](https://purchase.groupdocs.com/temporary-license/) genişletilmiş bir test lisansı alın.  
+- **Satın Al:** Üretim dağıtımları için tam lisans edinin.
 
 ### Temel Başlatma ve Kurulum
-Arama indeksinin saklanacağı klasöre işaret eden bir `Index` örneği oluşturun:
+Arama indeksinin saklanacağı bir klasöre işaret eden bir `Index` örneği oluşturun:
 
 ```java
 import com.groupdocs.search.*;
@@ -88,10 +91,10 @@ public class SearchSetup {
 
 ## Uygulama Kılavuzu
 
-### Dağıtık Bir Ağda Highlight Search Results Java Nasıl Yapılır
+### Dağıtık Bir Ağda Highlight Search Results Java Nasıl Kullanılır
 
-#### Arama Ağını Yapılandırma
-Öncelikle belgelerinizin nerede bulunduğunu ve ağın hangi portu kullanacağını tanımlayın.
+#### Arama Ağı Yapılandırması
+İlk olarak, belgelerinizin nerede bulunduğunu ve ağın hangi portu kullanacağını tanımlayın.
 
 ```java
 import com.groupdocs.search.common.*;
@@ -104,10 +107,10 @@ Configuration configuration = ConfiguringSearchNetwork.configure(basePath, baseP
 ```
 
 - **`basePath`** – indekslemek istediğiniz dosyaları içeren kök klasör.  
-- **`basePort`** – düğüm iletişimi için TCP portu; kullanılmayan bir port seçin.
+- **`basePort`** – düğüm iletişimi için TCP portu; kullanılmamış bir port seçin.
 
-#### Arama Ağı Düğümlerini Dağıtma
-Yapılandırmaya göre bir veya daha fazla düğüm dağıtın. İlk düğüm master (ana) olur.
+#### Arama Ağı Düğümlerinin Dağıtılması
+Yapılandırmaya göre bir veya daha fazla düğüm dağıtın. İlk düğüm master olur.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -120,7 +123,7 @@ SearchNetworkNode masterNode = nodes[0];
 - **`masterNode`** – indeksleme ve sorgu dağıtımını koordine eder.
 
 #### Arama Ağı Düğüm Olaylarına Abone Olma
-Master düğüme dinleyiciler ekleyerek gerçek‑zamanlı bildirimler alın (ör. indeksleme tamamlandığında).
+Gerçek zamanlı bildirimler almak için (ör. indeksleme tamamlandığında) master düğüme dinleyiciler ekleyin.
 
 ```java
 import com.groupdocs.search.scaling.events.*;
@@ -128,7 +131,7 @@ import com.groupdocs.search.scaling.events.*;
 SearchNetworkNodeEvents.subscribe(masterNode);
 ```
 
-#### Ağ Düğümünde Dizinleme İçin Klasörleri Belirleme
+#### Ağ Düğümünde Dizinlerin İndekslenmesi
 Düğümü indekslemek istediğiniz klasör(ler)e yönlendirin. Yardımcı sınıf `Utils.DocumentsPath` örnek veri klasörüne işaret eder.
 
 ```java
@@ -139,7 +142,7 @@ IndexingDocuments.addDirectories(masterNode, Utils.DocumentsPath);
 ```
 
 #### Ağ Düğümleri Üzerinde Metin Arama
-**tüm** düğümlerde bir sorgu çalıştırın ve eşleşen belgeleri alın.
+Sorguyu **tüm** düğümlerde çalıştırın ve eşleşen belgeleri alın.
 
 ```java
 import java.util.ArrayList;
@@ -150,10 +153,10 @@ highlightInDocument(masterNode, documents.get(0), 3); // Highlight results from 
 ```
 
 - `"ipsum"` ifadesini bulmak istediğiniz herhangi bir terimle değiştirin.  
-- Sonraki gösterilen `highlightInDocument` metodu vurgulamayı uygular.
+- `highlightInDocument` yöntemi (aşağıda gösterildiği gibi) vurgulamayı uygular.
 
-#### Highlight Multiple Terms Document – Highlighting Search Results
-Aşağıdaki metod, her eşleşmenin etrafındaki fragment'ları nasıl vurgulayacağınızı gösterir. Aynı zamanda çevredeki terim sayısını kontrol etmeyi sağlar; bu, ikincil anahtar kelime **highlight multiple terms document** ile uyumludur.
+#### Çoklu Terimleri Belge İçinde Vurgulama – Arama Sonuçlarını Vurgulama
+Aşağıdaki yöntem, her eşleşmenin etrafındaki fragmentleri nasıl vurgulayacağınızı gösterir. Ayrıca çevredeki terim sayısını kontrol etmeyi göstererek ikincil anahtar kelime **highlight multiple terms document** gereksinimini karşılar.
 
 ```java
 import com.groupdocs.search.highlighters.*;
@@ -187,9 +190,9 @@ public static void highlightInDocument(
 }
 ```
 
-- **`OutputFormat.PlainText`** – düz‑metin snippet'leri döndürür; daha zengin UI için HTML'ye geçebilirsiniz.  
-- **`HighlightOptions`** – her eşleşme öncesi/sonrası dahil edilecek kelime sayısını kontrol eder (`setTermsBefore`, `setTermsAfter`).  
-- **`maxFragments`** – bir belge için gösterilecek snippet sayısını sınırlar.
+- **`OutputFormat.PlainText`** – düz metin snippetleri döndürür; daha zengin bir UI için HTML'ye geçebilirsiniz.  
+- **`HighlightOptions`** – her eşleşmeden önce/sonra kaç kelime dahil edileceğini kontrol eder (`setTermsBefore`, `setTermsAfter`).  
+- **`maxFragments`** – bir belge için görüntülediğiniz snippet sayısını sınırlar.
 
 #### Ağ Düğümlerini Kapatma
 İşiniz bittiğinde, kaynakları serbest bırakmak için tüm düğümleri kapatın.
@@ -202,49 +205,46 @@ for (SearchNetworkNode node : nodes) {
 
 ## Pratik Uygulamalar
 
-- **Enterprise Document Management:** Kurumsal dosyaları merkezileştirir ve çalışanların ilgili sözleşme veya politikaları anında bulmasını sağlar.  
-- **Legal Case Files:** Önemli hukuki terimleri vurgulayarak örnek dava belgelerini hızlıca ortaya çıkarır.  
-- **R&D Knowledge Bases:** Araştırmacılar patentleri veya teknik makaleleri arayabilir ve vurgulanmış alıntıları görebilir.  
-- **E‑commerce Catalogs:** Alışveriş yapanlar, açıklamalarda vurgulanmış eşleşmelerle anahtar kelime üzerinden ürün bulabilir.  
-- **Library Systems:** Kullanıcılar binlerce kitapta arama yapıp, her dosyayı açmadan vurgulanmış pasajları görebilir.
+- **Kurumsal Belge Yönetimi:** Kurumsal dosyaları merkezileştirin ve çalışanların ilgili sözleşme veya politikaları anında bulmasını sağlayın.  
+- **Hukuki Dava Dosyaları:** Anahtar hukuki terimleri vurgulayarak emsal belgeleri hızlıca ortaya çıkarın.  
+- **Ar-Ge Bilgi Tabanları:** Araştırmacılar patentleri veya teknik makaleleri arayabilir ve vurgulanmış alıntıları görebilir.  
+- **E‑ticaret Katalogları:** Alışveriş yapanların ürünleri anahtar kelimeyle bulmasını ve açıklamalarda vurgulanmış eşleşmeleri görmesini sağlayın.  
+- **Kütüphane Sistemleri:** Kullanıcılar binlerce kitapta arama yapabilir ve her dosyayı açmadan vurgulanmış pasajları görebilir.
 
 ## Performans Düşünceleri
 
 - **İndeksleri güncel tutun:** Değişen dosyaları gece yeniden indeksleyin veya artımlı güncellemeler kullanın.  
-- **Birden çok düğümden yararlanın:** İndeksleme ve sorgu yükünü dağıtarak darboğazları önleyin.  
-- **`HighlightOptions` ayarlarını ince ayar yapın:** `termsBefore/After` değerlerini azaltmak, çok büyük belgelerde bellek kullanımını düşürür.  
+- **Birden fazla düğüm kullanın:** İndeksleme ve sorgu yükünü dağıtarak darboğazları önleyin.  
+- **`HighlightOptions` ayarlayın:** `termsBefore/After` değerlerini azaltmak, çok büyük belgelerde bellek kullanımını düşürür.
 
-## Yaygın Sorunlar & Sorun Giderme
+## Yaygın Sorunlar ve Çözümleme
 
 | Belirti | Muhtemel Neden | Çözüm |
 |---------|----------------|-------|
-| Sonuç döndürülmüyor | İndeks oluşturulmamış veya yanlış klasöre işaret ediyor | `Utils.DocumentsPath` doğrulayın ve `IndexingDocuments.addDirectories` komutunu tekrar çalıştırın |
-| Vurgulama çıktısı boş | `HighlightOptions` limitleri çok düşük veya belge kodlaması sorunu | `termsTotal` değerini artırın veya belgenin desteklenen kodlamasını doğrulayın |
-| Port çakışması hatası | `basePort` zaten kullanımda | Farklı bir port numarası seçin (ör. 49117) |
-| Lisans istisnası | Lisans dosyası eksik veya süresi dolmuş | Uygulama köküne geçerli bir `GroupDocs.Search.lic` dosyası yerleştirin |
+| Sonuç döndürülmedi | İndeks oluşturulmadı veya yanlış klasöre işaret ediyor | `Utils.DocumentsPath` doğrulayın ve `IndexingDocuments.addDirectories` komutunu tekrar çalıştırın |
+| Vurgulama çıktısı boş | `HighlightOptions` limitleri çok düşük veya belge kodlama sorunu | `termsTotal` değerini artırın veya belgenin kodlamasının desteklendiğinden emin olun |
+| Port çakışma hatası | `basePort` zaten kullanımda | Farklı bir port numarası seçin (ör. 49117) |
+| Lisans istisnası | Eksik veya süresi dolmuş lisans dosyası | Uygulama kök dizinine geçerli bir `GroupDocs.Search.lic` dosyası yerleştirin |
 
-## Sıkça Sorulan Sorular
+## Sık Sorulan Sorular
 
-**S: Yük dengeleme için birden fazla arama ağı düğümü dağıtabilir miyim?**  
-C: Evet, birden fazla düğüm dağıtarak indeksleme ve sorgu iş yükünü yayabilir, ölçeklenebilirliği ve yanıt süresini artırabilirsiniz.
+**S: Birden fazla arama ağı düğümü dağıtarak yük dengelemesi yapabilir miyim?**  
+C: Evet, birkaç düğüm dağıtarak indeksleme ve sorgu işini yayar, ölçeklenebilirliği ve yanıt süresini iyileştirir.
 
 **S: Aynı belgede birden fazla arama terimini nasıl vurgularım?**  
-C: `highlight` metoduna bir terim listesi gönderin ve `HighlightOptions` ile her eşleşme için çevredeki kelimeleri gösterilecek şekilde yapılandırın.
+C: `highlight` metoduna bir terim listesi gönderin ve her eşleşme için çevredeki kelimeleri gösterecek şekilde `HighlightOptions` yapılandırın.
 
-**S: Gerçek‑zamanlı arama olaylarına abone olmak mümkün mü?**  
-C: Kesinlikle. `SearchNetworkNodeEvents.subscribe(masterNode)` kullanarak indeksleme ilerlemesi, sorgu yürütme ve hatalar için geri çağrılar alabilirsiniz.
+**S: Gerçek zamanlı arama olaylarına abone olmak mümkün mü?**  
+C: Kesinlikle. `SearchNetworkNodeEvents.subscribe(masterNode)` kullanarak indeksleme ilerlemesi, sorgu yürütmesi ve hatalar için geri çağrılar alabilirsiniz.
 
 **S: GroupDocs.Search hangi dosya formatlarını indeksleme ve vurgulama için destekliyor?**  
-C: DOCX, PDF, HTML, TXT, PPTX ve daha fazlası dahil olmak üzere 50'den fazla formatı destekler.
+C: DOCX, PDF, HTML, TXT, PPTX ve daha fazlası dahil olmak üzere 50'den fazla format.
 
 **S: Çok büyük koleksiyonlarda arama hızını nasıl artırabilirim?**  
 C: İndeksleri düzenli olarak güncelleyin, düğümler arasında dağıtın ve fragment boyutunu sınırlamak için `HighlightOptions` ayarlarını ince ayar yapın.
 
-## Sonuç
-Bu kılavuzu izleyerek **highlight search results java** için GroupDocs.Search kullanarak tam üretim‑hazır bir yapı kurmuş oldunuz. Çözümü bir ağ üzerinde ölçeklendirebilir, desteklenen her belge tipini indeksleyebilir, hızlı sorgular çalıştırabilir ve kullanıcıların tam olarak ihtiyaç duydukları bilgiyi bulmalarını sağlayan vurgulanmış snippet'ler döndürebilirsiniz. Bir sonraki adımları keşfedin – sonuçları bir web UI'ye entegre etme, faceted search ekleme veya taranmış PDF'ler için OCR ile birleştirme.
-
 ---
 
-**Last Updated:** 2026-01-08  
-**Tested With:** GroupDocs.Search for Java 25.4  
-**Author:** GroupDocs
+**Son Güncelleme:** 2026-03-17  
+**Test Edilen Sürüm:** GroupDocs.Search for Java 25.4  
+**Yazar:** GroupDocs
