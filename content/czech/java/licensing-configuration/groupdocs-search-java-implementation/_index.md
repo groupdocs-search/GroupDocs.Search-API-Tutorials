@@ -1,48 +1,68 @@
 ---
-date: '2026-01-08'
-description: Naučte se, jak zvýraznit výsledky vyhledávání v Javě pomocí GroupDocs.Search
-  v Java aplikacích, nakonfigurovat škálovatelné vyhledávání, síťové nasazení a zvýrazňování
-  výsledků.
+date: '2026-03-17'
+description: Naučte se, jak zvýraznit výsledky vyhledávání v Javě pomocí GroupDocs.Search,
+  nakonfigurovat škálovatelnou vyhledávací síť, indexovat dokumenty, spouštět dotazy
+  a zobrazovat zvýrazněné úryvky.
 keywords:
 - GroupDocs.Search Java
 - distributed searching Java
 - highlight search results Java
-title: Zvýraznění výsledků vyhledávání v Javě pomocí GroupDocs.Search
+title: Jak zvýraznit výsledky vyhledávání v Javě pomocí GroupDocs.Search
 type: docs
 url: /cs/java/licensing-configuration/groupdocs-search-java-implementation/
 weight: 1
 ---
 
-# Zvýraznění výsledků vyhledávání v Javě pomocí GroupDocs.Search
+ 25.4  
+**Author:** GroupDocs  
 
-Pokud máte dost manuálního procházení nekonečných dokumentů, **highlight search results java** nabízí rychlý a spolehlivý způsob, jak získat přesně to, co potřebujete. V tomto tutoriálu vás provedeme nastavením distribuované vyhledávací sítě, indexováním souborů, spouštěním dotazů a nakonec zvýrazněním shod přímo v dokumentech. Na konci budete mít produkčně připravené řešení, které lze škálovat napříč více uzly a okamžitě zvýrazní relevantní termíny.
+Translate:
+
+**Poslední aktualizace:** 2026-03-17  
+**Testováno s:** GroupDocs.Search for Java 25.4  
+**Autor:** GroupDocs  
+
+Then final line:
+
+--- (separator) Keep as is.
+
+We need to ensure we keep markdown formatting, code fences placeholders unchanged.
+
+Now produce final content.# Zvýraznění výsledků vyhledávání Java pomocí GroupDocs.Search
+
+Pokud máte dost manuálního procházení nekonečných dokumentů, **highlight search results java** nabízí rychlý a spolehlivý způsob, jak získat přesně to, co potřebujete. V tomto tutoriálu vás provedeme nastavením distribuované vyhledávací sítě, indexováním souborů, spouštěním dotazů a nakonec zvýrazněním shod přímo v dokumentech. Na konci budete mít řešení připravené do produkce, které může škálovat napříč více uzly a okamžitě zvýrazní relevantní termíny.
 
 ## Rychlé odpovědi
 - **Co znamená “highlight search results java”?** Jedná se o programové označování nalezených klíčových slov v dokumentech při použití Java knihoven, jako je GroupDocs.Search.  
 - **Mohu zvýraznit více termínů ve stejném dokumentu?** Ano – použijte `HighlightOptions` k definování, kolik termínů před a po každé shodě se zobrazí.  
-- **Potřebuji licenci pro spuštění tohoto příkladu?** Pro testování stačí bezplatná zkušební nebo dočasná licence; pro produkci je vyžadována plná licence.  
+- **Potřebuji licenci pro spuštění tohoto příkladu?** Pro testování stačí bezplatná zkušební verze nebo dočasná licence; pro produkci je vyžadována plná licence.  
 - **Jaká verze Javy je požadována?** Java 8 nebo novější.  
 - **Je tento přístup vhodný pro velké kolekce dokumentů?** Rozhodně – vyhledávací síť rozděluje indexování a zátěž dotazů mezi uzly.
 
 ## Co je Highlight Search Results Java?
 **Highlight search results java** je proces, který vezme vyhledávací dotaz, najde odpovídající fragmenty ve vašich dokumentech a vizuálně je zvýrazní (např. obklopením značkami nebo vrácením jako zvýrazněných úryvků). To usnadňuje koncovým uživatelům vidět kontext každé shody, aniž by museli otevírat celý soubor.
 
-## Proč použít GroupDocs.Search pro zvýraznění?
-GroupDocs.Search poskytuje hotový, vysoce výkonný engine, který podporuje desítky formátů souborů, distribuované indexování a vestavěné zvýrazňovače fragmentů. Odstraňuje potřebu psát vlastní parsery nebo spravovat nízkoúrovňovou vyhledávací infrastrukturu, což vám umožní soustředit se na poskytování plynulého uživatelského zážitku.
+## Proč je důležité zvýraznění výsledků vyhledávání Java
+Použití **highlight search results java** zlepšuje uživatelský zážitek tím, že ukazuje přesně, kde se termín vyskytuje, snižuje čas strávený otevíráním irelevantních souborů a pomáhá týmům pro soulad rychle najít citlivé informace. V kombinaci s distribuovanou vyhledávací sítí zůstává řešení responzivní i při růstu korpusu dokumentů do milionů.
 
-## Požadavky
+## Proč použít GroupDocs.Search pro zvýrazňování?
+GroupDocs.Search poskytuje hotový, výkonný engine, který podporuje desítky formátů souborů, distribuované indexování a vestavěné zvýrazňovače fragmentů. Odstraňuje potřebu psát vlastní parsery nebo spravovat nízkoúrovňovou vyhledávací infrastrukturu, což vám umožní soustředit se na poskytování plynulého uživatelského zážitku.
+
+## Předpoklady
+
 - **Java Development Kit (JDK) 8+** – ujistěte se, že `java -version` vrací 1.8 nebo vyšší.  
 - **Maven** – pro správu závislostí.  
-- **GroupDocs.Search for Java 25.4** – verze použitá v tomto průvodci.  
-- IDE, například **IntelliJ IDEA** nebo **Eclipse** (volitelné, ale doporučené).  
+- **GroupDocs.Search for Java 25.4** – verze použitá v celém tomto návodu.  
+- IDE jako **IntelliJ IDEA** nebo **Eclipse** (volitelné, ale doporučené).  
 - Základní znalost Javy a síťových konceptů.
 
-## Nastavení GroupDocs.Search pro Javu
+## Nastavení GroupDocs.Search pro Java
 
 Knihovnu můžete do svého projektu přidat buď pomocí Maven, nebo stažením JAR souboru přímo.
 
 ### Nastavení Maven
-Add the repository and dependency to your `pom.xml`:
+
+Přidejte repozitář a závislost do souboru `pom.xml`:
 
 ```xml
 <repositories>
@@ -63,15 +83,18 @@ Add the repository and dependency to your `pom.xml`:
 ```
 
 ### Přímé stažení
-Alternatively, download the latest JAR from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+
+Alternativně stáhněte nejnovější JAR ze [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Kroky získání licence
-- **Free Trial:** Začněte s trial verzí pro prozkoumání základních funkcí.  
-- **Temporary License:** Získejte prodlouženou testovací licenci na [této stránce](https://purchase.groupdocs.com/temporary-license/).  
+
+- **Free Trial:** Začněte s trial verzí pro prozkoumání hlavních funkcí.  
+- **Temporary License:** Získejte rozšířenou testovací licenci na [this page](https://purchase.groupdocs.com/temporary-license/).  
 - **Purchase:** Získejte plnou licenci pro produkční nasazení.
 
 ### Základní inicializace a nastavení
-Create an `Index` instance that points to a folder where the search index will be stored:
+
+Vytvořte instanci `Index`, která ukazuje na složku, kde bude uložen vyhledávací index:
 
 ```java
 import com.groupdocs.search.*;
@@ -87,10 +110,11 @@ public class SearchSetup {
 
 ## Průvodce implementací
 
-### Jak zvýraznit výsledky vyhledávání v Javě v distribuované síti
+### Jak zvýraznit výsledky vyhledávání Java v distribuované síti
 
 #### Konfigurace vyhledávací sítě
-First, define where your documents live and which port the network will use.
+
+Nejprve definujte, kde jsou vaše dokumenty a který port síť použije.
 
 ```java
 import com.groupdocs.search.common.*;
@@ -106,7 +130,8 @@ Configuration configuration = ConfiguringSearchNetwork.configure(basePath, baseP
 - **`basePort`** – TCP port pro komunikaci uzlů; vyberte volný.
 
 #### Nasazení uzlů vyhledávací sítě
-Deploy one or more nodes based on the configuration. The first node becomes the master.
+
+Nasazujte jeden nebo více uzlů podle konfigurace. První uzel se stane masterem.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -119,7 +144,8 @@ SearchNetworkNode masterNode = nodes[0];
 - **`masterNode`** – koordinuje indexování a distribuci dotazů.
 
 #### Přihlášení k událostem uzlu vyhledávací sítě
-Attach listeners to the master node to receive real‑time notifications (e.g., when indexing completes).
+
+Připojte posluchače k master uzlu, aby přijímal notifikace v reálném čase (např. po dokončení indexování).
 
 ```java
 import com.groupdocs.search.scaling.events.*;
@@ -128,7 +154,8 @@ SearchNetworkNodeEvents.subscribe(masterNode);
 ```
 
 #### Indexování adresářů v uzlu sítě
-Point the node to the folder(s) you want to index. The helper class `Utils.DocumentsPath` resolves to the sample data folder.
+
+Ukazujte uzel na složku(y), které chcete indexovat. Pomocná třída `Utils.DocumentsPath` odkazuje na složku se vzorovými daty.
 
 ```java
 import com.groupdocs.search.examples.Utils;
@@ -138,7 +165,8 @@ IndexingDocuments.addDirectories(masterNode, Utils.DocumentsPath);
 ```
 
 #### Vyhledávání textu napříč uzly sítě
-Run a query against **all** nodes and retrieve the matching documents.
+
+Spusťte dotaz proti **všem** uzlům a získejte odpovídající dokumenty.
 
 ```java
 import java.util.ArrayList;
@@ -149,10 +177,11 @@ highlightInDocument(masterNode, documents.get(0), 3); // Highlight results from 
 ```
 
 - Nahraďte `"ipsum"` libovolným termínem, který chcete najít.  
-- Metoda `highlightInDocument` (ukázána níže) použije zvýraznění.
+- Metoda `highlightInDocument` (zobrazena níže) použije zvýraznění.
 
 #### Zvýraznění více termínů v dokumentu – zvýraznění výsledků vyhledávání
-Následující metoda ukazuje, jak zvýraznit fragmenty kolem každé shody. Také ukazuje, jak řídit počet okolních termínů, čímž splňuje sekundární klíčové slovo **highlight multiple terms document**.
+
+Následující metoda ukazuje, jak zvýraznit fragmenty kolem každé shody. Také ukazuje, jak řídit počet okolních termínů, což splňuje sekundární klíčové slovo **highlight multiple terms document**.
 
 ```java
 import com.groupdocs.search.highlighters.*;
@@ -188,10 +217,11 @@ public static void highlightInDocument(
 
 - **`OutputFormat.PlainText`** – vrací úryvky v prostém textu; můžete přepnout na HTML pro bohatší UI.  
 - **`HighlightOptions`** – řídí, kolik slov před a po každé shodě je zahrnuto (`setTermsBefore`, `setTermsAfter`).  
-- **`maxFragments`** – omezuje počet úryvk.
+- **`maxFragments`** – omezuje počet úryvků, které zobrazíte na dokument.
 
 #### Uzavření uzlů sítě
-When you’re done, shut down every node to free resources.
+
+Po dokončení vypněte všechny uzly, aby se uvolnily prostředky.
 
 ```java
 for (SearchNetworkNode node : nodes) {
@@ -200,15 +230,17 @@ for (SearchNetworkNode node : nodes) {
 ```
 
 ## Praktické aplikace
+
 - **Enterprise Document Management:** Centralizujte firemní soubory a umožněte zaměstnancům okamžitě najít relevantní smlouvy nebo politiky.  
-- **Legal Case Files:** Rychle vyhledejte precedentní dokumenty zvýrazněním klíčových právních termínů.  
-- **R&D Knowledge Bases:** Výzkumníci mohou prohledávat patenty nebo technické články a vidět zvýrazněné úryvky.  
+- **Legal Case Files:** Rychle najděte precedentní dokumenty zvýrazněním klíčových právních termínů.  
+- **R&D Knowledge Bases:** Výzkumníci mohou vyhledávat patenty nebo technické články a vidět zvýrazněné úryvky.  
 - **E‑commerce Catalogs:** Umožněte zákazníkům najít produkty podle klíčového slova s zvýrazněnými shodami v popisech.  
-- **Library Systems:** Čtenáři mohou prohledávat tisíce knih a zobrazit zvýrazněné úryvky bez otevírání každého souboru.
+- **Library Systems:** Čtenáři mohou vyhledávat v tisících knih a zobrazit zvýrazněné pasáže bez otevírání každého souboru.
 
 ## Úvahy o výkonu
+
 - **Udržujte indexy aktuální:** Přindexujte změněné soubory každou noc nebo použijte inkrementální aktualizace.  
-- **Využívejte více uzlů:** Rozdělte zátěž indexování a dotazů, aby nedocházelo k úzkým hrdlům.  
+- **Využijte více uzlů:** Rozdělte zátěž indexování a dotazů, aby nedocházelo k úzkým hrdlům.  
 - **Ladění `HighlightOptions`:** Snížení `termsBefore/After` snižuje spotřebu paměti u velmi velkých dokumentů.
 
 ## Časté problémy a řešení
@@ -216,9 +248,9 @@ for (SearchNetworkNode node : nodes) {
 | Příznak | Pravděpodobná příčina | Řešení |
 |---------|-----------------------|--------|
 | Nejsou vráceny žádné výsledky | Index nebyl vytvořen nebo ukazuje na špatnou složku | Ověřte `Utils.DocumentsPath` a znovu spusťte `IndexingDocuments.addDirectories` |
-| Výstup zvýraznění je prázdný | `HighlightOptions` jsou nastaveny příliš nízko nebo je problém s kódováním dokumentu | Zvyšte `termsTotal` nebo zajistěte, aby kódování dokumentu bylo podporováno |
+| Výstup zvýraznění je prázdný | `HighlightOptions` jsou nastaveny příliš nízko nebo problém s kódováním dokumentu | Zvyšte `termsTotal` nebo zajistěte podporu kódování dokumentu |
 | Chyba konfliktu portu | `basePort` je již používán | Zvolte jiné číslo portu (např. 49117) |
-| Výjimka licence | Chybějící nebo neplatný licenční soubor | Umístěte platný soubor `GroupDocs.Search.lic` do kořenového adresáře aplikace |
+| Výjimka licence | Chybějící nebo vypršený licenční soubor | Umístěte platný soubor `GroupDocs.Search.lic` do kořenového adresáře aplikace |
 
 ## Často kladené otázky
 
@@ -226,22 +258,21 @@ for (SearchNetworkNode node : nodes) {
 A: Ano, nasazením několika uzlů se rozloží práce na indexování a dotazy, což zlepšuje škálovatelnost a dobu odezvy.
 
 **Q: Jak mohu zvýraznit více vyhledávacích termínů ve stejném dokumentu?**  
-A: Předávejte seznam termínů metodě `highlight` a nakonfigurujte `HighlightOptions`, aby pro každou shodu zobrazovaly okolní slova.
+A: Předávejte seznam termínů metodě `highlight` a nakonfigurujte `HighlightOptions`, aby zobrazovaly okolní slova pro každou shodu.
 
 **Q: Je možné přihlásit se k událostem vyhledávání v reálném čase?**  
-A: Rozhodně. Použijte `SearchNetworkNodeEvents.subscribe(masterNode)`, abyste dostávali zpětné volání o průběhu indexování, provádění dotazů a chybách.
+A: Rozhodně. Použijte `SearchNetworkNodeEvents.subscribe(masterNode)`, abyste získali zpětné volání o průběhu indexování, provádění dotazů a chybách.
 
-**Q: Jaké formáty souborů GroupDocs.Search podporuje pro indexování a zvýraznění?**  
+**Q: Jaké formáty souborů GroupDocs.Search podporuje pro indexování a zvýrazňování?**  
 A: Více než 50 formátů, včetně DOCX, PDF, HTML, TXT, PPTX a dalších.
 
 **Q: Jak mohu zlepšit rychlost vyhledávání ve velmi velkých kolekcích?**  
-A: Pravidelně aktualizujte indexy, distribuujte je napříč uzly a jemně dolaďte `HighlightOptions`, aby omezily velikost fragmentů.
-
-## Závěr
-Podle tohoto průvodce máte nyní kompletní, produkčně připravené nastavení pro **highlight search results java** pomocí GroupDocs.Search. Můžete řešení škálovat napříč sítí, indexovat jakýkoli podporovaný typ dokumentu, spouštět rychlé dotazy a vracet zvýrazněné úryvky, které uživatelům pomáhají najít přesně to, co potřebují. Prozkoumejte další kroky – integraci výsledků do webového rozhraní, přidání faceted vyhledávání nebo kombinaci s OCR pro skenované PDF.
+A: Pravidelně aktualizujte indexy, distribuujte je napříč uzly a jemně doladěte `HighlightOptions`, aby omezily velikost fragmentů.
 
 ---
 
-**Poslední aktualizace:** 2026-01-08  
+**Poslední aktualizace:** 2026-03-17  
 **Testováno s:** GroupDocs.Search for Java 25.4  
-**Autor:** GroupDocs
+**Autor:** GroupDocs  
+
+---
