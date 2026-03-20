@@ -1,47 +1,48 @@
 ---
-date: '2026-01-11'
-description: Tìm hiểu cách sử dụng GroupDocs for Java OCR indexing cùng Aspose.OCR,
-  cho phép khả năng tìm kiếm tài liệu mạnh mẽ trên các tệp PDF, hình ảnh và tài liệu
-  đã quét.
+date: '2026-03-20'
+description: Tìm hiểu cách triển khai OCR quản lý tài liệu bằng GroupDocs cho Java
+  với Aspose.OCR, cho phép tạo các tệp PDF, hình ảnh và tài liệu quét có khả năng
+  tìm kiếm mạnh mẽ.
 keywords:
 - Java OCR indexing
 - document searchability
 - OCR with GroupDocs
-title: Cách sử dụng GroupDocs cho Java để đánh chỉ mục OCR với Aspose
+title: Quản lý tài liệu OCR với GroupDocs cho Java và Aspose
 type: docs
 url: /vi/java/ocr-image-search/java-ocr-indexing-aspose-groupdocs-search/
 weight: 1
 ---
 
-# Cách Sử Dụng GroupDocs cho Java OCR Indexing với Aspose
+# Quản Lý Tài Liệu OCR với GroupDocs cho Java và Aspose
 
-Trong hướng dẫn này, bạn sẽ khám phá **cách sử dụng GroupDocs** để thêm tìm kiếm dựa trên OCR vào các ứng dụng Java của mình. Bằng cách kết hợp GroupDocs.Search với Aspose.OCR, bạn có thể chuyển nội dung dựa trên hình ảnh thành văn bản có thể tìm kiếm, làm cho hệ thống quản lý tài liệu trở nên hữu ích hơn rất nhiều. Chúng tôi sẽ hướng dẫn qua việc cài đặt, lập chỉ mục, tìm kiếm và tích hợp OCR tùy chỉnh, tất cả với các ví dụ rõ ràng, từng bước.
+Trong hướng dẫn này, bạn sẽ khám phá **cách sử dụng GroupDocs** để thêm chức năng tìm kiếm hỗ trợ OCR vào các ứng dụng Java của mình, một khả năng cốt lõi cho bất kỳ giải pháp **quản lý tài liệu OCR** hiện đại nào. Bằng cách kết hợp GroupDocs.Search với Aspose.OCR, bạn có thể chuyển nội dung dựa trên hình ảnh thành văn bản có thể tìm kiếm, làm cho hệ thống quản lý tài liệu trở nên hữu ích hơn rất nhiều cho người dùng cuối. Chúng tôi sẽ hướng dẫn qua các bước cài đặt, lập chỉ mục, tìm kiếm và tích hợp OCR tùy chỉnh, tất cả đều có các ví dụ chi tiết bạn có thể sao chép vào dự án ngay hôm nay.
 
-## Câu trả lời nhanh
-- **Thư viện nào cung cấp OCR indexing?** GroupDocs.Search kết hợp với Aspose.OCR.  
-- **Phiên bản Java nào được yêu cầu?** JDK 8 hoặc cao hơn.  
-- **Tôi có cần giấy phép không?** Có bản dùng thử miễn phí; giấy phép trả phí cần thiết cho môi trường sản xuất.  
-- **Tôi có thể lập chỉ mục cả hình ảnh riêng lẻ và nhúng không?** Có, bật cả hai tùy chọn trong `IndexingOptions`.  
-- **Có hỗ trợ đa luồng không?** Có, bạn có thể song song hoá việc lập chỉ mục cho các tập dữ liệu lớn.
+## Câu Hỏi Nhanh
+- **Thư viện nào cung cấp việc lập chỉ mục OCR?** GroupDocs.Search kết hợp với Aspose.OCR.  
+- **Yêu cầu phiên bản Java nào?** JDK 8 trở lên.  
+- **Có cần giấy phép không?** Có bản dùng thử miễn phí; giấy phép trả phí cần thiết cho môi trường sản xuất.  
+- **Có thể lập chỉ mục cả ảnh riêng lẻ và ảnh nhúng không?** Có, bật cả hai tùy chọn trong `IndexingOptions`.  
+- **Có hỗ trợ đa luồng không?** Có, bạn có thể thực hiện lập chỉ mục song song cho các bộ dữ liệu lớn.
 
-## OCR Indexing là gì với GroupDocs?
-OCR indexing trích xuất văn bản từ hình ảnh (bao gồm PDF đã quét) và lưu trữ nó trong một chỉ mục có thể tìm kiếm. GroupDocs.Search chịu trách nhiệm lập chỉ mục và thực thi truy vấn, trong khi Aspose.OCR thực hiện việc nhận dạng ký tự thực tế.
+## OCR Quản Lý Tài Liệu là gì?
+OCR quản lý tài liệu trích xuất văn bản từ hình ảnh (bao gồm PDF đã quét) và lưu trữ chúng trong một chỉ mục có thể tìm kiếm. GroupDocs.Search chịu trách nhiệm lập chỉ mục và thực thi truy vấn, trong khi Aspose.OCR thực hiện việc nhận dạng ký tự thực tế, cung cấp cho bạn một quy trình **quản lý tài liệu OCR** hoàn chỉnh.
 
-## Tại sao nên sử dụng GroupDocs cho Java OCR indexing?
-- **Độ chính xác cao** nhờ vào engine OCR tiên tiến của Aspose.  
+## Tại Sao Nên Sử Dụng GroupDocs cho Java OCR Indexing?
+- **Độ chính xác cao** nhờ động cơ OCR tiên tiến của Aspose.  
 - **Tích hợp Java liền mạch** qua Maven hoặc JAR trực tiếp.  
-- **Cấu hình linh hoạt** cho hình ảnh riêng lẻ hoặc nhúng.  
-- **Hiệu năng mở rộng** với đa luồng và tối ưu bộ nhớ.
+- **Cấu hình linh hoạt** cho ảnh riêng lẻ hoặc ảnh nhúng.  
+- **Hiệu năng mở rộng** với đa luồng và tối ưu bộ nhớ.  
+- **Các tùy chọn cấp phép doanh nghiệp** cho triển khai sản xuất.
 
-## Yêu cầu trước
+## Điều Kiện Tiên Quyết
 - **GroupDocs.Search** ≥ 25.4  
 - **Aspose.OCR** (phiên bản mới nhất)  
 - JDK 8+ và một IDE (IntelliJ, Eclipse, NetBeans)  
-- Kiến thức Java cơ bản; Maven hữu ích nhưng không bắt buộc
+- Kiến thức cơ bản về Java; Maven hữu ích nhưng không bắt buộc  
 
-## Cài đặt GroupDocs.Search cho Java
-### Sử dụng Maven
-Thêm repository và dependency vào file `pom.xml` của bạn:
+## Cài Đặt GroupDocs.Search cho Java
+### Sử Dụng Maven
+Thêm kho và phụ thuộc vào file `pom.xml` của bạn:
 
 ```xml
 <repositories>
@@ -60,15 +61,15 @@ Thêm repository và dependency vào file `pom.xml` của bạn:
 </dependencies>
 ```
 
-### Tải trực tiếp
-Hoặc, tải phiên bản mới nhất của GroupDocs.Search cho Java từ [GroupDocs releases](https://releases.groupdocs.com/search/java/).
+### Tải Trực Tiếp
+Hoặc tải phiên bản mới nhất của GroupDocs.Search cho Java từ [GroupDocs releases](https://releases.groupdocs.com/search/java/).
 
-### Nhận giấy phép
-- **Free Trial** – khám phá tất cả tính năng mà không tốn phí.  
-- **Temporary License** – thời gian thử nghiệm kéo dài.  
-- **Purchase** – cần thiết cho triển khai sản xuất.
+### Mua Giấy Phép
+- **Bản Dùng Thử** – khám phá mọi tính năng mà không tốn phí.  
+- **Giấy Phép Tạm Thời** – thời gian thử nghiệm kéo dài hơn.  
+- **Mua Bản Quyền** – bắt buộc cho các triển khai sản xuất.
 
-### Khởi tạo và Cài đặt Cơ bản
+## Khởi Tạo Cơ Bản và Cấu Hình
 Tạo thư mục chỉ mục và khởi tạo đối tượng `Index`:
 
 ```java
@@ -80,16 +81,16 @@ Index index = new Index(indexFolder);
 ```
 
 ## Cách Sử Dụng GroupDocs cho OCR Indexing
-### Tạo một Index
-Đầu tiên, thiết lập thư mục sẽ chứa các tệp chỉ mục:
+### Tạo Chỉ Mục
+Đầu tiên, thiết lập thư mục sẽ chứa các file chỉ mục:
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/OcrSupport";
 Index index = new Index(indexFolder);
 ```
 
-### Cài đặt tùy chọn OCR Indexing
-Bật OCR cho cả hình ảnh riêng lẻ và nhúng, và tích hợp một connector OCR tùy chỉnh:
+### Cấu Hình Tùy Chọn OCR Indexing
+Bật OCR cho cả ảnh riêng lẻ và ảnh nhúng, và kết nối một bộ kết nối OCR tùy chỉnh:
 
 ```java
 import com.groupdocs.search.options.IndexingOptions;
@@ -100,15 +101,15 @@ options.getOcrIndexingOptions().setEnabledForEmbeddedImages(true);
 options.getOcrIndexingOptions().setOcrConnector(new OcrConnector());
 ```
 
-### Lập chỉ mục tài liệu
-Thêm các tài liệu nguồn của bạn (PDF, tệp Word, hình ảnh, v.v.) vào chỉ mục:
+### Lập Chỉ Mục Tài Liệu
+Thêm các tài liệu nguồn (PDF, Word, hình ảnh, v.v.) vào chỉ mục:
 
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder, options);
 ```
 
-### Tìm kiếm trong Index
+### Tìm Kiếm Trong Chỉ Mục
 Thực hiện truy vấn tìm kiếm trên nội dung đã lập chỉ mục:
 
 ```java
@@ -117,7 +118,7 @@ String query = "water";
 SearchResult result = index.search(query);
 ```
 
-### Triển khai OCR Connector
+### Triển Khai Bộ Kết Nối OCR
 Sử dụng Aspose.OCR để nhận dạng văn bản từ hình ảnh. Triển khai giao diện `IOcrConnector` như sau:
 
 ```java
@@ -142,44 +143,44 @@ public class OcrConnector implements IOcrConnector {
 }
 ```
 
-## Ứng dụng Thực tiễn
-1. **Document Management Systems** – truy xuất nhanh các tài liệu chứa hình ảnh đã quét.  
-2. **Archival Retrieval** – tìm kiếm hồ sơ lịch sử trong các kho lưu trữ lớn.  
-3. **Legal Document Analysis** – tìm kiếm hợp đồng và bằng chứng có chứa chữ ký hoặc sơ đồ đã quét.  
-4. **Medical Records Search** – lập chỉ mục các mẫu bệnh nhân, kết quả xét nghiệm và chú thích X‑ray.
+## Ứng Dụng Thực Tiễn
+1. **Hệ Thống Quản Lý Tài Liệu** – truy xuất nhanh các tài liệu chứa hình ảnh đã quét.  
+2. **Khôi Phục Lưu Trữ** – tìm kiếm hồ sơ lịch sử trong các kho lưu trữ khổng lồ.  
+3. **Phân Tích Tài Liệu Pháp Lý** – tìm kiếm hợp đồng và bằng chứng có chữ ký hoặc sơ đồ đã quét.  
+4. **Tìm Kiếm Hồ Sơ Y Tế** – lập chỉ mục các mẫu bệnh nhân, kết quả xét nghiệm và chú thích X‑ray.
 
-## Các yếu tố hiệu năng
-- **Index Size** – loại bỏ siêu dữ liệu không cần thiết để giữ chỉ mục gọn nhẹ.  
-- **Multi‑Threading** – xử lý các lô lớn song song để tăng tốc độ lập chỉ mục.  
-- **Memory Management** – giám sát heap JVM khi xử lý hình ảnh độ phân giải cao.
+## Các Yếu Tố Ảnh Hưởng Đến Hiệu Suất
+- **Kích Thước Chỉ Mục** – loại bỏ siêu dữ liệu không cần thiết để giữ chỉ mục gọn nhẹ.  
+- **Đa Luồng** – xử lý các lô dữ liệu lớn song song để tăng tốc lập chỉ mục.  
+- **Quản Lý Bộ Nhớ** – giám sát heap JVM khi xử lý hình ảnh độ phân giải cao.
 
-## Các vấn đề thường gặp và giải pháp
-- **License Errors** – đảm bảo tệp giấy phép đúng được đặt trong thư mục làm việc của ứng dụng.  
-- **Missing Images** – kiểm tra đường dẫn hình ảnh có thể truy cập và định dạng được hỗ trợ (PNG, JPEG, BMP).  
-- **Out‑Of‑Memory** – tăng heap JVM (`-Xmx`) hoặc xử lý tài liệu theo các lô nhỏ hơn.
+## Các Vấn Đề Thường Gặp và Giải Pháp
+- **Lỗi Giấy Phép** – đảm bảo file giấy phép đúng được đặt trong thư mục làm việc của ứng dụng.  
+- **Thiếu Hình Ảnh** – kiểm tra đường dẫn hình ảnh có thể truy cập và định dạng được hỗ trợ (PNG, JPEG, BMP).  
+- **Thiếu Bộ Nhớ** – tăng kích thước heap JVM (`-Xmx`) hoặc xử lý tài liệu theo các lô nhỏ hơn.
 
-## Câu hỏi thường gặp
-**Q: Làm thế nào để giải quyết vấn đề giấy phép với GroupDocs.Search?**  
-A: Nhận giấy phép tạm thời từ [GroupDocs website](https://purchase.groupdocs.com/temporary-license/) để mở khóa đầy đủ tính năng.
+## Câu Hỏi Thường Gặp
+**H: Làm sao giải quyết các vấn đề giấy phép với GroupDocs.Search?**  
+Đ: Lấy giấy phép tạm thời từ [trang web GroupDocs](https://purchase.groupdocs.com/temporary-license/) để mở khóa đầy đủ tính năng.
 
-**Q: Cách tốt nhất để xử lý việc lập chỉ mục tài liệu lớn là gì?**  
-A: Sử dụng đa luồng và xử lý theo lô để cải thiện hiệu năng và giảm áp lực bộ nhớ.
+**H: Cách tốt nhất để xử lý việc lập chỉ mục tài liệu lớn là gì?**  
+Đ: Sử dụng đa luồng và xử lý theo lô để cải thiện hiệu suất và giảm áp lực bộ nhớ.
 
-**Q: Tôi có thể tùy chỉnh thêm cài đặt OCR trong GroupDocs.Search không?**  
-A: Có, `IndexingOptions` cho phép bạn tinh chỉnh hành vi OCR, như lựa chọn ngôn ngữ và tiền xử lý hình ảnh.
+**H: Tôi có thể tùy chỉnh thêm các cài đặt OCR trong GroupDocs.Search không?**  
+Đ: Có, `IndexingOptions` cho phép tinh chỉnh hành vi OCR, chẳng hạn chọn ngôn ngữ và tiền xử lý hình ảnh.
 
-**Q: Một số mẹo khắc phục sự cố thường gặp khi sử dụng GroupDocs.Search là gì?**  
-A: Kiểm tra lại đường dẫn thư mục, xác nhận rằng tất cả các phụ thuộc đã có, và xem lại log để tìm các tệp bị thiếu.
+**H: Một số mẹo khắc phục sự cố thường gặp khi dùng GroupDocs.Search là gì?**  
+Đ: Kiểm tra lại đường dẫn thư mục, xác nhận mọi phụ thuộc đã có, và xem log để phát hiện file thiếu.
 
-**Q: Làm thế nào tôi có thể tích hợp Aspose.OCR vào ứng dụng Java hiện tại của mình?**  
-A: Triển khai giao diện `IOcrConnector` như đã minh họa ở trên, đảm bảo bạn xử lý đầu vào hình ảnh đúng cách.
+**H: Làm sao tích hợp Aspose.OCR vào ứng dụng Java hiện có?**  
+Đ: Triển khai giao diện `IOcrConnector` như đã minh họa ở trên, đảm bảo xử lý đúng đầu vào hình ảnh.
 
-## Tài nguyên
-- [Tài liệu GroupDocs.Search](https://docs.groupdocs.com/search/java/)
+## Tài Nguyên
+- [Tài liệu GroupDocs.Search](https://docs.groupdocs.com/search/java/)  
 - [Tham chiếu API](https://reference.groupdocs.com/search/java/)
 
 ---
 
-**Cập nhật lần cuối:** 2026-01-11  
-**Đã kiểm tra với:** GroupDocs.Search 25.4, Aspose.OCR latest release  
-**Tác giả:** GroupDocs
+**Cập Nhật Lần Cuối:** 2026-03-20  
+**Đã Kiểm Tra Với:** GroupDocs.Search 25.4, Aspose.OCR bản phát hành mới nhất  
+**Tác Giả:** GroupDocs
