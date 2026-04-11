@@ -1,15 +1,23 @@
 ---
-title: "Document Management Tutorials for GroupDocs.Search .NET"
-description: "Complete tutorials for managing documents in search indexes, including adding, updating, and removing documents with GroupDocs.Search for .NET."
+title: "Add Document to Index with GroupDocs.Search .NET Tutorials"
+description: "Learn how to add document to index, remove document from index, filter files by extension, highlight search results, and index document metadata with GroupDocs.Search for .NET."
+date: 2026-04-11
 weight: 6
 url: "/net/document-management/"
 type: docs
+keywords:
+  - add document to index
+  - remove document from index
+  - filter files by extension
+  - highlight search results
+  - index document metadata
 ---
-# Document Management Tutorials for GroupDocs.Search .NET
 
-Learn how to effectively manage indexed documents with our GroupDocs.Search tutorials for .NET developers. These detailed guides demonstrate how to add new documents to existing indexes, update modified documents, remove obsolete documents, and optimize indexes for better performance. Each tutorial includes working C# code examples that show how to implement robust document management strategies, ensuring your search indexes remain current and performant as your document collection evolves.
+# Add Document to Index with GroupDocs.Search .NET
 
-## Available Tutorials
+In this hub you’ll discover how to **add document to index** and keep your search solution running smoothly. We cover everything from adding new files, removing outdated ones, filtering by extension, highlighting results, and indexing metadata—all with GroupDocs.Search for .NET. Whether you’re building a brand‑new search engine or maintaining an existing one, these guides give you the practical code you need.
+
+## Add Document to Index – Available Tutorials
 
 ### [Display Supported File Formats Using GroupDocs.Redaction in .NET&#58; A Comprehensive Guide](./display-file-formats-groupdocs-redaction-net/)
 Learn how to display supported file formats with GroupDocs.Redaction in your .NET applications. This guide covers setup, implementation, and practical use cases.
@@ -68,6 +76,21 @@ Learn how to set up licenses for Aspose and GroupDocs libraries, perform searche
 ### [Mastering GroupDocs.Redaction .NET&#58; Secure Document Redaction and Network Setup](./mastering-groupdocs-redaction-net-secure-document-redaction/)
 Learn how to securely redact documents using GroupDocs.Redaction for .NET and set up a scalable search network. Enhance document security efficiently.
 
+## Remove Document from Index – Common Scenarios
+When a file becomes obsolete or confidential, you’ll need to **remove document from index** quickly to keep search results accurate. The tutorials linked above show the API calls required to delete entries without rebuilding the entire index.
+
+## Filter Files by Extension – Best Practices
+Large repositories often contain many file types. Using GroupDocs.Search’s file‑filtering options lets you **filter files by extension** so only supported formats are indexed, saving storage and improving performance.
+
+## Highlight Search Results – Tips
+For a richer user experience, highlight matching terms in the UI. The “Document Finder Management and Highlighting” guide demonstrates how to **highlight search results** directly in the returned snippets.
+
+## Index Document Metadata – How‑to
+Beyond full‑text, indexing custom fields such as author, creation date, or tags improves relevance. See the “Master Document Attributes” tutorial for practical steps to **index document metadata**.
+
+## Update Document Versions – Workflow
+Documents change over time. Rather than re‑adding them, you can **update document versions** in the index, preserving history while keeping the search index up‑to‑date. The “Update and Manage Document Indexes” guide walks you through this process.
+
 ## Additional Resources
 
 - [GroupDocs.Search for Net Documentation](https://docs.groupdocs.com/search/net/)
@@ -76,3 +99,9 @@ Learn how to securely redact documents using GroupDocs.Redaction for .NET and se
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-04-11  
+**Tested With:** GroupDocs.Search latest release for .NET  
+**Author:** GroupDocs
