@@ -1,36 +1,35 @@
 ---
-date: '2025-12-19'
-description: GroupDocs.Search for Java'da belgeleri indekse eklemeyi ve durdurma kelimelerini
-  devre dışı bırakmayı öğrenin, arama hassasiyetini ve sorgu doğruluğunu artırın.
+date: '2026-02-19'
+description: GroupDocs.Search for Java ile aramalarda stop kelimeleri devre dışı bırakmayı
+  ve belgeleri indekse eklemeyi öğrenerek sorgu doğruluğunu artırın.
 keywords:
 - add documents to index
 - disable stop words java
 - configure index settings
-title: GroupDocs.Search Java'da Belgeleri İndexe Ekleyin ve Durdurma Kelimelerini
-  Devre Dışı Bırakarak Arama Doğruluğunu Artırın
+title: 'Aramada Durdurma Kelimeleri: GroupDocs.Search Java ile Belgeleri İndexe Ekle'
 type: docs
 url: /tr/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/
 weight: 1
 ---
 
-# Dizin'e Belge Ekleme ve GroupDocs.Search Java'da Durdurma Kelimelerini Devre Dışı Bırakma ile Arama Doğruluğunu Artırma
+# Arama'da Durdurma Kelimeleri: GroupDocs.Search Java ile Belgeleri İndekse Ekle
 
-Kritik terimlerin gözden kaçmamasını sağlarken **add documents to index** yapmak mı istiyorsunuz? Bu öğretici, GroupDocs.Search for Java kullanarak arama deneyiminizi ince ayar yapmanıza rehberlik eder. **disable stop words java** nasıl yapılacağını öğrenerek daha kesin arama sorguları elde edecek ve indekslenmiş her belgeden en iyi şekilde yararlanacaksınız.
+Eğer **belgeleri indekse eklemek** istiyor ve özellikle yaygın olan önemli terimlerin göz ardı edilmediğinden emin olmak istiyorsanız doğru yerdesiniz. Bu rehberde, GroupDocs.Search for Java kullanarak **arama sırasında durdurma kelimelerini devre dışı bırakmayı** göstereceğiz; böylece “on”, “by” veya “the” gibi her token aranabilir hâle gelir ve sonuçlarınız çok daha doğru olur.
 
 ## Hızlı Yanıtlar
-- **“add documents to index” ne anlama geliyor?** Kaynak dosyalarınızı sorgulanabilir bir dizine yükleyerek verimli bir şekilde sorgulanabilmesini sağlar.  
-- **Neden durdurma kelimelerini devre dışı bırakmalıyım?** Alanınız için anlam taşıyan yaygın kelimeleri (örn. “on”, “the”) aramalara dahil etmek için.  
+- **“Belge eklemek” ne anlama geliyor?** Kaynak dosyalarınızı sorgulanabilir bir indeks içine yüklemek ve böylece verimli bir şekilde sorgulanabilmesini sağlamak demektir.  
+- **Neden durdurma kelimelerini devre dışı bırakmalıyım?** Alanınızda anlam taşıyan yaygın kelimeleri (ör. “on”, “the”) aramalara dahil etmek için.  
 - **Hangi kütüphane sürümü gerekiyor?** GroupDocs.Search for Java 25.4 veya daha yenisi.  
-- **Lisans gerekli mi?** Değerlendirme için ücretsiz deneme çalışır; üretim için kalıcı bir lisans gerekir.  
+- **Lisans gerekir mi?** Değerlendirme için ücretsiz deneme çalışır; üretim ortamı için kalıcı bir lisans gerekir.  
 - **Bunu bir Maven projesinde kullanabilir miyim?** Evet – aşağıda gösterildiği gibi depoyu ve bağımlılığı eklemeniz yeterlidir.
 
-## GroupDocs.Search'te “add documents to index” nedir?
-Dizine belge eklemek, bir klasörden (veya akıştan) dosyaları, arama motorunun hızlı bir şekilde sorgulayabileceği bir veri yapısına aktarmak anlamına gelir. İndeksleme yapıldıktan sonra, normalde durdurma kelimeleri olarak kabul edilen kelimeler dahil her kelime aranabilir hâle gelir.
+## Durdurma kelimeleri nedir ve neden devre dışı bırakmak isteyebilirsiniz?
+Durdurma kelimeleri, birçok arama motorunun sorgu hızını artırmak için otomatik olarak filtrelediği sık kullanılan terimlerdir. Bu, genel web aramaları için performansı artırsa da, “on”, “by” veya “as” gibi kelimelerin gerçek anlam taşıdığı özel alanlarda (hukuki sözleşmeler, e‑ticaret katalogları, teknik kılavuzlar vb.) kesinliği azaltabilir. Durdurma kelimelerini devre dışı bırakmak, her kelimeyi önemli kabul etmenizi sağlar ve ilgili hiçbir belge kaçırılmaz.
 
-## Neden stop words Java devre dışı bırakılır?
-Durdurma kelimelerinin devre dışı bırakılması, her token’ın önemli kabul edilmesini sağlar. Bu, hukuk araştırması, e‑ticaret ürün katalogları gibi alanlarda “on” veya “by” gibi kelimelerin anlam taşıdığı durumlar için kritik öneme sahiptir.
+## GroupDocs.Search’te belge ekleme nasıl çalışır?
+Belgeleri eklediğinizde kütüphane her dosyayı okur, içeriğini token’lara ayırır ve bu token’ları optimize edilmiş bir veri yapısında (indeks) saklar. İndeksleme tamamlandığında motor, büyük koleksiyonlarda bile milisaniyeler içinde eşleşen belgeleri geri getirebilir.
 
-## Ön Koşullar
+## Önkoşullar
 
 - **Gerekli Kütüphaneler**: GroupDocs.Search for Java 25.4 (veya daha yenisi).  
 - **Geliştirme Ortamı**: IntelliJ IDEA, Eclipse veya tercih ettiğiniz herhangi bir Java IDE.  
@@ -40,7 +39,7 @@ Durdurma kelimelerinin devre dışı bırakılması, her token’ın önemli kab
 
 ### Maven Kurulumu
 
-Maven kullanıyorsanız, `pom.xml` dosyanıza aşağıdakileri ekleyin:
+Maven kullanıyorsanız `pom.xml` dosyanıza aşağıdakileri ekleyin:
 
 ```xml
 <repositories>
@@ -62,16 +61,16 @@ Maven kullanıyorsanız, `pom.xml` dosyanıza aşağıdakileri ekleyin:
 
 ### Doğrudan İndirme
 
-Alternatif olarak, en son sürümü [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
+Alternatif olarak en son sürümü [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
 
-#### Lisans Edinme Adımları
+#### Lisans Alma Adımları
 - **Ücretsiz Deneme** – hemen test etmeye başlayın.  
 - **Geçici Lisans** – tam işlevsellik için zaman sınırlı bir anahtar alın.  
-- **Satın Alma** – üretim kullanımı için kalıcı bir lisans temin edin.
+- **Satın Alma** – üretim kullanımı için kalıcı bir lisans edinin.
 
 ## Temel Başlatma ve Ayarlar
 
-`IndexSettings` sınıfının bir örneğini oluşturarak dizinin nasıl davranacağını kontrol edin:
+İndeksin davranışını kontrol etmek için bir `IndexSettings` örneği oluşturun:
 
 ```java
 import com.groupdocs.search.IndexSettings;
@@ -80,19 +79,19 @@ import com.groupdocs.search.IndexSettings;
 IndexSettings settings = new IndexSettings();
 ```
 
-## Stop words Java nasıl devre dışı bırakılır
+## Arama sırasında durdurma kelimelerini nasıl devre dışı bırakılır (Java)
 
-Aşağıdaki satır yerleşik durdurma‑kelime filtresini kapatır:
+Aşağıdaki satır, yerleşik durdurma‑kelime filtresini kapatır:
 
 ```java
 // Disable the use of stop words
 tsettings.setUseStopWords(false);
 ```
 
-*Parametreler*: `setUseStopWords` bir boolean değer alır.  
-*Amaç*: Yaygın durdurma kelimeleri dahil her kelimenin indekslenip aranabilir olmasını garanti eder.
+*Parametreler*: `setUseStopWords` bir boolean alır.  
+*Amaç*: Yaygın durdurma kelimeleri dahil olmak üzere **her kelimenin** indekslenip aranabilir olmasını sağlar.
 
-## Dizin'e belge ekleme nasıl yapılır
+## Belgeleri indekse nasıl eklenir
 
 ### Çıktı Dizini Tanımlama
 
@@ -116,9 +115,9 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-Artık `YOUR_DOCUMENT_DIRECTORY` içindeki her dosya **add documents to index** edilmiş ve sorgulanmaya hazırdır.
+Artık `YOUR_DOCUMENT_DIRECTORY` içindeki her dosya **belgeleri indekse eklenmiş** ve sorgulanmaya hazırdır.
 
-## Bir Arama Sorgusu Çalıştırma
+## Arama Sorgusu Çalıştırma
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -132,16 +131,16 @@ SearchResult result = index.search(query);
 
 Durdurma kelimeleri devre dışı bırakıldığı için `"on"` terimi arama sırasında dikkate alınır ve aksi takdirde göz ardı edilecek eşleşmeler döndürülür.
 
-## Pratik Uygulamalar
+## Pratik Kullanım Alanları
 
-1. **Kurumsal Belge Arama** – Kritik terminolojinin filtrelenmemesini sağlar.  
-2. **E‑ticaret Platformları** – Ürün açıklamalarındaki her kelimeyi indeksleyerek ürün keşfini iyileştirir.  
-3. **Hukuk Araştırma Araçları** – Yaygın olarak durdurma kelimeleri olarak kabul edilen terimler dahil, her hukuki terimi yakalar.
+1. **Kurumsal Belge Arama** – Kritik terminolojinin filtrelenmediğinden emin olun.  
+2. **E‑ticaret Platformları** – Ürün açıklamalarındaki her kelimeyi indeksleyerek ürün keşfini iyileştirin.  
+3. **Hukuki Araştırma Araçları** – Yaygın olarak durdurma kelimesi olarak kabul edilen terimler dâhil, her hukuki terimi yakalayın.
 
-## Performans Hususları
+## Performans Düşünceleri
 
-- **Optimizasyon İpuçları**: Arama hızını yüksek tutmak için dizini düzenli olarak güncelleyin ve temizleyin.  
-- **Kaynak Kullanımı**: JVM yığın boyutunu izleyin; büyük dizinler çöp toplama ayarlarının ayarlanmasını gerektirebilir.  
+- **Optimizasyon İpuçları**: Arama hızını yüksek tutmak için indeksinizi düzenli olarak güncelleyin ve temizleyin.  
+- **Kaynak Kullanımı**: JVM heap boyutunu izleyin; büyük indeksler çöp toplama ayarlarının ayarlanmasını gerektirebilir.  
 - **Java Bellek Yönetimi**: Verimli veri yapıları kullanın ve çok büyük veri kümeleri için off‑heap depolamayı değerlendirin.
 
 ## Yaygın Sorunlar ve Çözümler
@@ -149,39 +148,41 @@ Durdurma kelimeleri devre dışı bırakıldığı için `"on"` terimi arama sı
 | Belirti | Muhtemel Neden | Çözüm |
 |---|---|---|
 | Yaygın kelimeler için sonuç gelmiyor | `setUseStopWords(true)` (varsayılan) | Yukarıda gösterildiği gibi `setUseStopWords(false)` çağırın. |
-| İndeksleme sırasında bellek dışı hatalar | Aynı anda çok sayıda büyük dosya indeksleniyor | Dosyaları partiler halinde indeksleyin; `-Xmx` JVM seçeneğini artırın. |
-| Arama eski verileri döndürüyor | Yeni dosyalar eklendikten sonra dizin yenilenmedi | `index.update()` çağırın veya değişen belgeleri yeniden ekleyin. |
+| İndeksleme sırasında bellek dışı hatalar | Aynı anda çok fazla büyük dosya indeksleniyor | Dosyaları partiler halinde indeksleyin; `-Xmx` JVM seçeneğini artırın. |
+| Arama eski verileri döndürüyor | Yeni dosyalar eklendikten sonra indeks yenilenmemiş | `index.update()` çağırın veya değişen belgeleri yeniden ekleyin. |
 
-## Sıkça Sorulan Sorular
+## Sık Sorulan Sorular
 
 **S: Durdurma kelimeleri nedir?**  
-C: Durdurma kelimeleri, birçok arama motorunun sorgu hızını artırmak için göz ardı ettiği yaygın terimlerdir (örn. “the”, “is”, “on”). Bunları devre dışı bırakmak, her token’ın aranabilir olmasını sağlar.
+C: Durdurma kelimeleri, birçok arama motorunun sorgu hızını artırmak için göz ardı ettiği yaygın terimlerdir (ör. “the”, “is”, “on”). Bunları devre dışı bırakmak, her token’ın aranabilir olmasını sağlar.
 
-**S: Neden arama dizinlerinde durdurma kelimeleri devre dışı bırakılır?**  
-C: Hukuki veya teknik belgelerde tam ifade eşleşmesi gerektiğinde, her kelime anlam taşır; bu yüzden durdurma kelimelerinin de dahil edilmesi gerekir.
+**S: Neden arama indekslerinde durdurma kelimeleri devre dışı bırakılır?**  
+C: Hukuki veya teknik belgelerde tam ifade eşleşmesi gerektiğinde, her kelime anlam taşır; bu yüzden durdurma kelimeleri dahil edilmelidir.
 
-**S: GroupDocs.Search büyük veri kümelerini nasıl yönetir?**  
-C: Kütüphane, milyonlarca belgeyle bile bellek kullanımını düşük tutmak için optimize edilmiş veri yapıları ve artımlı indeksleme kullanır.
+**S: GroupDocs.Search büyük veri setlerini nasıl yönetir?**  
+C: Kütüphane, bellek kullanımını düşük tutmak için optimize edilmiş veri yapıları ve artımlı indeksleme kullanır; milyonlarca belgeyle bile çalışabilir.
 
 **S: GroupDocs.Search başka Java uygulamalarıyla entegre edilebilir mi?**  
-C: Evet, API herhangi bir Java‑tabanlı sistemde, web servislerinden masaüstü uygulamalara kadar kolayca gömülmek üzere tasarlanmıştır.
+C: Evet, API herhangi bir Java‑tabanlı sistem (web servisleri, masaüstü uygulamaları vb.) içine kolayca gömülmek üzere tasarlanmıştır.
 
-**S: Arama sonuçlarım doğru gelmiyorsa ne yapmalıyım?**  
-C: Dizinin tüm gerekli belgeleri (`add documents to index`) içerdiğini doğrulayın, gerektiğinde durdurma kelime filtresinin devre dışı bırakıldığından emin olun ve büyük değişikliklerden sonra dizini yeniden oluşturmayı düşünün.
+**S: Arama sonuçlarım doğru değilse ne yapmalıyım?**  
+C: İndeksin tüm gerekli belgeleri içerdiğini (`add documents to index`) doğrulayın, gerektiğinde durdurma kelime filtresinin devre dışı bırakıldığını kontrol edin ve büyük değişikliklerden sonra indeksi yeniden oluşturmayı düşünün.
 
-## Kaynaklar
+## Ek Kaynaklar
 
-- **Dokümantasyon**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
-- **API Referansı**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
-- **İndirme**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
-- **GitHub Deposu**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- **Ücretsiz Destek**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
+- **Dokümantasyon**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
+- **API Referansı**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
+- **İndirme**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
+- **GitHub Deposu**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **Ücretsiz Destek**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **Geçici Lisans**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
-Bu rehberi izleyerek artık **add documents to index** ve **disable stop words java** işlemlerini nasıl yapacağınızı biliyor ve Java uygulamalarınızda daha doğru arama sonuçları sunabiliyorsunuz.
+Bu rehberi izleyerek artık **belgeleri indekse eklemeyi** ve **arama sırasında durdurma kelimelerini devre dışı bırakmayı** öğrenerek Java uygulamalarınızda daha doğru sonuçlar sunabilirsiniz.
 
 ---
 
-**Son Güncelleme:** 2025-12-19  
+**Son Güncelleme:** 2026-02-19  
 **Test Edilen Sürüm:** GroupDocs.Search for Java 25.4  
-**Yazar:** GroupDocs
+**Yazar:** GroupDocs  
+
+---

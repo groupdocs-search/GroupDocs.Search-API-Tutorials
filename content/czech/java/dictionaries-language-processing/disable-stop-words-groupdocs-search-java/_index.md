@@ -1,46 +1,52 @@
 ---
-date: '2025-12-19'
-description: Naučte se, jak přidávat dokumenty do indexu a zakázat stop slova v GroupDocs.Search
-  pro Javu, čímž zlepšíte přesnost vyhledávání a přesnost dotazů.
+date: '2026-02-19'
+description: Naučte se, jak ve vyhledávání zakázat stop slova a přidávat dokumenty
+  do indexu pomocí GroupDocs.Search pro Javu, čímž zvýšíte přesnost dotazů.
 keywords:
 - add documents to index
 - disable stop words java
 - configure index settings
-title: Přidat dokumenty do indexu a zakázat stop slova v GroupDocs.Search Java pro
-  zvýšenou přesnost vyhledávání
+title: 'Stop slova ve vyhledávání: Přidání dokumentů do indexu pomocí GroupDocs.Search
+  Java'
 type: docs
 url: /cs/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/
 weight: 1
 ---
 
-# Přidání dokumentů do indexu a zakázání stop slov v GroupDocs.Search Java pro vyšší přesnost vyhledávání
+6-02-19  
+**Tested With:** GroupDocs.Search for Java 25.4  
+**Author:** GroupDocs  
 
-Chcete **add documents to index** a zároveň zajistit, že žádné důležité termíny nebudou opomenuty? Tento tutoriál vás provede dolaďováním vyhledávacího zážitku pomocí GroupDocs.Search pro Java. Naučíte se, jak **disable stop words java**, a dosáhnete tak přesnějších vyhledávacích dotazů a získáte maximum z každého indexovaného dokumentu.
+Translate final note.
+
+Make sure to keep markdown formatting.
+
+Let's produce final translation.# Stop Words ve vyhledávání: Přidání dokumentů do indexu pomocí GroupDocs.Search Java
 
 ## Rychlé odpovědi
-- **What does “add documents to index” mean?** To znamená načíst vaše zdrojové soubory do vyhledávatelného indexu, aby mohly být efektivně dotazovány.  
-- **Why would I disable stop words?** Aby se do vyhledávání zahrnovala běžná slova (např. „on“, „the“), pokud jsou tato slova ve vašem oboru smysluplná.  
-- **Which library version is required?** GroupDocs.Search pro Java 25.4 nebo novější.  
-- **Do I need a license?** Bezplatná zkušební verze funguje pro hodnocení; pro produkci je vyžadována trvalá licence.  
-- **Can I use this in a Maven project?** Ano – stačí přidat úložiště a závislost uvedenou níže.
+- **Co znamená “add documents to index”?** Znamená to načtení vašich zdrojových souborů do vyhledávatelného indexu, aby mohly být efektivně dotazovány.  
+- **Proč bych měl vypnout stop words?** Aby se do vyhledávání zahrnula běžná slova (např. “on”, “the”), která jsou ve vašem oboru významná.  
+- **Jaká verze knihovny je vyžadována?** GroupDocs.Search for Java 25.4 nebo novější.  
+- **Potřebuji licenci?** Pro hodnocení stačí bezplatná zkušební verze; pro produkční nasazení je vyžadována trvalá licence.  
+- **Mohu to použít v Maven projektu?** Ano – stačí přidat repozitář a závislost uvedenou níže.
 
-## Co znamená “add documents to index” v GroupDocs.Search?
-Přidání dokumentů do indexu znamená import souborů ze složky (nebo proudu) do datové struktury, kterou může vyhledávač rychle dotazovat. Po indexování se každé slovo – včetně těch, které jsou běžně považovány za stop slova – stane vyhledávatelným.
+## Co jsou stop words ve vyhledávání a proč je můžete chtít vypnout?
+Stop words jsou časté termíny, které mnoho vyhledávačů automaticky filtruje, aby urychlily dotazy. Zatímco to zvyšuje výkon u obecného webového vyhledávání, může to snížit přesnost ve specializovaných oblastech – právní smlouvy, e‑commerce katalogy nebo technické manuály – kde slova jako “on”, “by” nebo “as” nesou skutečný význam. Vypnutím stop words zachováte každé slovo jako významné, čímž zajistíte, že žádný relevantní dokument nebude opomenut.
 
-## Proč zakázat stop slova v Java?
-Zakázání stop slov vám umožní považovat každý token za významný. To je zásadní pro oblasti jako právní výzkum, katalogy produktů v e‑commerce nebo jakýkoli scénář, kde slova jako „on“ nebo „by“ nesou význam.
+## Jak funguje přidávání dokumentů do indexu v GroupDocs.Search?
+Při přidání dokumentů knihovna načte každý soubor, tokenizuje jeho obsah a uloží tokeny do optimalizované datové struktury (indexu). Jakmile je index vytvořen, engine může během milisekund vracet odpovídající dokumenty, i pro velké kolekce.
 
-## Požadavky
+## Předpoklady
 
-- **Required Libraries**: GroupDocs.Search pro Java 25.4 (nebo novější).  
-- **Development Environment**: IntelliJ IDEA, Eclipse nebo jakékoli Java IDE, které preferujete.  
-- **Basic Knowledge**: Znalost syntaxe Java a konceptu indexování.
+- **Požadované knihovny**: GroupDocs.Search for Java 25.4 (nebo novější).  
+- **Vývojové prostředí**: IntelliJ IDEA, Eclipse nebo jakékoli Java IDE, které preferujete.  
+- **Základní znalosti**: Znalost syntaxe Java a konceptu indexování.
 
 ## Nastavení GroupDocs.Search pro Java
 
-### Instalace pomocí Maven
+### Maven instalace
 
-Pokud používáte Maven, zahrňte následující do vašeho `pom.xml`:
+Pokud používáte Maven, přidejte následující do svého `pom.xml`:
 
 ```xml
 <repositories>
@@ -62,16 +68,16 @@ Pokud používáte Maven, zahrňte následující do vašeho `pom.xml`:
 
 ### Přímé stažení
 
-Alternativně stáhněte nejnovější verzi z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternativně si stáhněte nejnovější verzi z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-#### Kroky získání licence
-- **Free Trial** – začněte testovat ihned.  
+#### Kroky pro získání licence
+- **Free Trial** – začněte testovat okamžitě.  
 - **Temporary License** – získejte časově omezený klíč pro plnou funkčnost.  
-- **Purchase** – zajistěte si trvalou licenci pro produkční použití.
+- **Purchase** – zabezpečte trvalou licenci pro produkční použití.
 
 ## Základní inicializace a nastavení
 
-Vytvořte instanci `IndexSettings`, která řídí chování indexu:
+Vytvořte instanci `IndexSettings`, abyste řídili chování indexu:
 
 ```java
 import com.groupdocs.search.IndexSettings;
@@ -80,9 +86,9 @@ import com.groupdocs.search.IndexSettings;
 IndexSettings settings = new IndexSettings();
 ```
 
-## Jak zakázat stop slova v Java
+## Jak vypnout stop words ve vyhledávání (Java)
 
-Následující řádek vypne vestavěný filtr stop slov:
+Následující řádek vypíná vestavěný filtr stop‑words:
 
 ```java
 // Disable the use of stop words
@@ -90,7 +96,7 @@ tsettings.setUseStopWords(false);
 ```
 
 *Parametry*: `setUseStopWords` přijímá boolean.  
-*Účel*: Zajišťuje, že každé slovo – včetně běžných stop slov – je indexováno a vyhledatelné.
+*Účel*: Zajišťuje, že každé slovo – včetně běžných stop words – je indexováno a vyhledatelné.
 
 ## Jak přidat dokumenty do indexu
 
@@ -116,7 +122,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-Nyní je každý soubor v `YOUR_DOCUMENT_DIRECTORY` **added documents to index** a připraven k dotazování.
+Nyní je každý soubor v `YOUR_DOCUMENT_DIRECTORY` **added documents to index** a připravený k dotazování.
 
 ## Provedení vyhledávacího dotazu
 
@@ -130,58 +136,58 @@ tString query = "on";
 SearchResult result = index.search(query);
 ```
 
-Protože jsou stop slova zakázána, termín `"on"` bude při vyhledávání zohledněn a vrátí shody, které by jinak byly ignorovány.
+Protože jsou stop words vypnuté, termín `"on"` bude při vyhledávání zohledněn a vrátí shody, které by jinak byly ignorovány.
 
 ## Praktické aplikace
 
 1. **Enterprise Document Search** – Zajistěte, aby kritická terminologie nebyla filtrována.  
 2. **E‑commerce Platforms** – Zlepšete objevování produktů indexováním každého slova v popisech produktů.  
-3. **Legal Research Tools** – Zachyťte každý právní termín, i ty, které jsou běžně považovány za stop slova.
+3. **Legal Research Tools** – Zachyťte každý právní termín, i ty běžně považované za stop words.
 
 ## Úvahy o výkonu
 
-- **Optimization Tips**: Pravidelně aktualizujte a prořezávejte svůj index, aby byla rychlost vyhledávání vysoká.  
-- **Resource Usage**: Sledujte velikost haldy JVM; velké indexy mohou vyžadovat ladění nastavení garbage collection.  
-- **Java Memory Management**: Používejte efektivní datové struktury a zvažte off‑heap úložiště pro velmi velké korpusy.
+- **Tipy pro optimalizaci**: Pravidelně aktualizujte a prořezávejte svůj index, aby byla rychlost vyhledávání vysoká.  
+- **Využití zdrojů**: Sledujte velikost haldy JVM; velké indexy mohou vyžadovat ladění nastavení garbage collection.  
+- **Správa paměti v Javě**: Používejte efektivní datové struktury a zvažte off‑heap úložiště pro velmi velké korpusy.
 
 ## Časté problémy a řešení
 
-| Příznak | Pravděpodobná příčina | Oprava |
+| Symptom | Pravděpodobná příčina | Oprava |
 |---|---|---|
-| Žádné výsledky pro běžná slova | `setUseStopWords(true)` (default) | Zavolejte `setUseStopWords(false)` podle výše uvedeného. |
-| Chyby nedostatku paměti během indexování | Indexování příliš mnoha velkých souborů najednou | Indexujte soubory po dávkách; zvyšte volbu JVM `-Xmx`. |
-| Vyhledávání vrací zastaralá data | Index nebyl po přidání nových souborů aktualizován | Zavolejte `index.update()` nebo znovu přidejte změněné dokumenty. |
+| Žádné výsledky pro běžná slova | `setUseStopWords(true)` (výchozí) | Zavolejte `setUseStopWords(false)` podle výše uvedeného příkladu. |
+| Chyby out‑of‑memory během indexování | Indexování příliš mnoha velkých souborů najednou | Indexujte soubory po dávkách; zvyšte volbu `-Xmx` JVM. |
+| Vyhledávání vrací zastaralá data | Index nebyl po přidání nových souborů obnoven | Zavolejte `index.update()` nebo znovu přidejte změněné dokumenty. |
 
 ## Často kladené otázky
 
-**Q: Co jsou stop slova?**  
-A: Stop words jsou běžné termíny (např. „the“, „is“, „on“), které mnoho vyhledávačů ignoruje pro zrychlení dotazů. Zakázáním je můžete považovat každý token za vyhledávatelný.
+**Q: Co jsou stop words?**  
+A: Stop words jsou běžné termíny (např. “the”, “is”, “on”), které mnoho vyhledávačů ignoruje pro zrychlení dotazů. Vypnutím je můžete považovat za vyhledávatelné tokeny.
 
-**Q: Proč zakázat stop slova v indexech vyhledávání?**  
-A: Když je vyžadováno přesné porovnání frází – například v právních nebo technických dokumentech – každé slovo nese význam, takže je nutné zahrnout stop slova.
+**Q: Proč vypínat stop words v indexech vyhledávání?**  
+A: Když je vyžadováno přesné porovnání frází – například v právních nebo technických dokumentech – každé slovo nese význam, takže je nutné zahrnout i stop words.
 
 **Q: Jak GroupDocs.Search zachází s velkými datovými sadami?**  
 A: Knihovna používá optimalizované datové struktury a inkrementální indexování, aby udržela nízkou spotřebu paměti i při milionech dokumentů.
 
-**Q: Mohu integrovat GroupDocs.Search s jinými Java aplikacemi?**  
-A: Ano, API je navrženo pro snadné vložení do jakéhokoli systému založeného na Java, od webových služeb po desktopové aplikace.
+**Q: Můžu integrovat GroupDocs.Search s jinými Java aplikacemi?**  
+A: Ano, API je navrženo pro snadné vložení do jakéhokoli systému založeného na Javě, od webových služeb po desktopové aplikace.
 
-**Q: Co mám dělat, pokud nejsou mé výsledky vyhledávání přesné?**  
-A: Ověřte, že index obsahuje všechny požadované dokumenty (`add documents to index`), zajistěte, aby bylo filtrování stop slov zakázáno, pokud je to potřeba, a zvažte přestavbu indexu po významných změnách.
+**Q: Co dělat, když nejsou výsledky vyhledávání přesné?**  
+A: Ověřte, že index obsahuje všechny požadované dokumenty (`add documents to index`), ujistěte se, že filtrování stop‑words je vypnuto, a zvažte přestavbu indexu po významných změnách.
 
-## Zdroje
+## Další zdroje
 
-- **Dokumentace**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
-- **Reference API**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
-- **Stáhnout**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
-- **Repozitář na GitHubu**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- **Bezplatná podpora**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
-- **Dočasná licence**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
+- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
+- **Download**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
+- **GitHub Repository**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Free Support**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
+- **Temporary License**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
-Podle tohoto průvodce nyní víte, jak **add documents to index** a **disable stop words java**, abyste ve svých Java aplikacích dosáhli přesnějších výsledků vyhledávání.
+Postupujte podle tohoto průvodce a nyní víte, jak **add documents to index** a **disable stop words in search**, abyste ve svých Java aplikacích dosáhli přesnějších výsledků.
 
 ---
 
-**Poslední aktualizace:** 2025-12-19  
-**Testováno s:** GroupDocs.Search pro Java 25.4  
-**Autor:** GroupDocs
+**Last Updated:** 2026-02-19  
+**Tested With:** GroupDocs.Search for Java 25.4  
+**Author:** GroupDocs

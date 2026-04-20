@@ -1,45 +1,66 @@
 ---
-date: '2025-12-18'
-description: Aprenda a criar um índice de documentos usando o GroupDocs.Search para
-  Java, abordando extração de texto, serialização e recursos de pesquisa em texto
-  completo em Java.
+date: '2026-02-19'
+description: Aprenda como extrair texto de PDFs em Java, serializá‑lo e criar um índice
+  de documentos pesquisável usando o GroupDocs.Search para Java.
 keywords:
 - GroupDocs.Search for Java
 - document indexing in Java
 - text extraction with GroupDocs
-title: Criar índice de documentos com GroupDocs.Search para Java
+title: 'Extrair Texto de PDF Java: Construir Índice com GroupDocs.Search'
 type: docs
 url: /pt/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-# Criar Índice de Documentos com GroupDocs.Search para Java: Um Guia Completo
+ with CODE_BLOCK_0. Should preserve exactly.
 
-Na era digital atual, ser capaz de **criar índice de documentos** rapidamente e pesquisá‑lo de forma eficiente é um divisor de águas para qualquer organização. Seja construindo um sistema de gerenciamento de documentos ou um mecanismo de busca personalizado, o GroupDocs.Search para Java oferece as ferramentas para extrair texto, serializar dados e executar operações de busca full‑text Java com facilidade. Este tutorial guia você por cada passo — da extração de texto de PDF à adição de dados ao índice e à pesquisa de documentos indexados.
+Also there is a blockquote with Tip and Pro tip. Need translate the text but keep formatting.
+
+Also bullet points.
+
+Let's produce translation.
+
+Be careful: "Extract Text from PDF Java: Build Document Index with GroupDocs.Search" -> translate title.
+
+"Extract Text from PDF Java" maybe "Extrair Texto de PDF Java". Keep "GroupDocs.Search" unchanged.
+
+Proceed.
+
+Also "Quick Answers" -> "Respostas Rápidas".
+
+Check each bullet.
+
+Make sure to keep code block placeholders unchanged.
+
+Also keep markdown links unchanged.
+
+Now produce final output.# Extrair Texto de PDF Java: Crie um Índice de Documentos com GroupDocs.Search
+
+Neste guia prático, você descobrirá **como extrair texto de PDF Java** em aplicações e transformar esse conteúdo bruto em um índice de pesquisa de texto completo rápido. Seja construindo uma base de conhecimento interna, um portal de busca de contratos ou um mecanismo de busca personalizado, os passos abaixo orientam tudo – desde a extração de texto de PDFs até a serialização dos dados, criação do índice e, finalmente, a execução de consultas. Vamos mergulhar e ver por que o GroupDocs.Search torna todo o processo fluido e escalável.
 
 ## Respostas Rápidas
-- **Qual é o objetivo principal?** Criar um índice de documentos pesquisável usando GroupDocs.Search para Java.  
+- **Qual é o objetivo principal?** Extrair texto de arquivos PDF Java e criar um índice de documentos pesquisável com GroupDocs.Search.  
 - **Qual versão da biblioteca?** GroupDocs.Search 25.4 (ou a versão mais recente).  
 - **Preciso de licença?** Um teste gratuito funciona para desenvolvimento; uma licença completa é necessária para produção.  
-- **Posso indexar PDFs?** Sim — extraia o texto do PDF e adicione ao índice.  
-- **Como executar uma busca?** Use o método `index.search(query)` após adicionar os dados.
+- **Posso indexar PDFs?** Sim – extraia texto de PDF e adicione ao índice.  
+- **Como executo uma busca?** Use o método `index.search(query)` após adicionar os dados.
 
 ## O que é um Índice de Documentos?
-Um índice de documentos é uma coleção estruturada de termos pesquisáveis extraídos dos seus arquivos. Ao criar um índice de documentos, você permite buscas full‑text rápidas em grandes repositórios, melhorando drasticamente a velocidade e a precisão da recuperação.
+Um índice de documentos é uma coleção estruturada de termos pesquisáveis extraídos dos seus arquivos. Ao criar um índice de documentos, você permite buscas rápidas de texto completo em grandes repositórios, melhorando drasticamente a velocidade e a precisão da recuperação.
 
 ## Por que usar GroupDocs.Search para Java?
 - **Extração robusta** – Lida com PDFs, Word, Excel e mais.  
-- **Serialização fácil** – Armazena os dados extraídos como arrays de bytes para reutilização posterior.  
-- **Indexação escalável** – Indexa milhões de documentos de forma eficiente.  
-- **Linguagem de consulta poderosa** – Suporta consultas complexas de busca full‑text Java.
+- **Serialização fácil** – Armazene os dados extraídos como arrays de bytes para reutilização posterior.  
+- **Indexação escalável** – Indexe milhões de documentos de forma eficiente.  
+- **Linguagem de consulta poderosa** – Suporta consultas complexas de busca de texto completo em Java.
 
 ## Pré‑requisitos
-- **GroupDocs.Search para Java** (Versão 25.4 ou mais recente).  
+- **GroupDocs.Search para Java** (Versão 25.4 ou mais recente).  
 - **Java Development Kit (JDK)** compatível com sua versão do GroupDocs.  
 - Uma IDE como IntelliJ IDEA ou Eclipse.  
 - Maven para gerenciamento de dependências.
 
-## Configurando o GroupDocs.Search para Java
+## Configurando GroupDocs.Search para Java
 Primeiro, adicione a biblioteca ao seu projeto.
 
 **Configuração Maven**  
@@ -73,7 +94,7 @@ Alternativamente, faça o download da versão mais recente em [GroupDocs.Search 
 ## Implementação Passo a Passo
 
 ### Como extrair texto de PDFs (e outros documentos)
-Extrair texto bruto ou formatado é o primeiro passo para criar um índice de documentos.
+Extrair texto bruto ou formatado é o primeiro passo para criar um índice de documentos. Quando você **extrai texto de PDF Java**, fornece ao motor de busca algo que ele pode entender.
 
 ```java
 String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
@@ -89,7 +110,7 @@ ExtractedData extractedData = extractor.extract(document, extractionOptions);
 
 > **Dica:** Defina `setUseRawTextExtraction(true)` se precisar de texto simples sem formatação.
 
-### Como serializar dados extraídos
+### Como serializar os dados extraídos
 A serialização permite armazenar os dados extraídos para indexação posterior.
 
 ```java
@@ -98,7 +119,7 @@ extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
 
-### Como desserializar dados extraídos
+### Como desserializar os dados extraídos
 Quando estiver pronto para construir o índice, converta o array de bytes de volta em um objeto.
 
 ```java
@@ -106,7 +127,7 @@ ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 ```
 
-### Como criar índice de documentos
+### Como criar o índice de documentos
 Agora que você tem `deserializedData`, pode criar o índice que armazenará os termos pesquisáveis.
 
 ```java
@@ -115,7 +136,7 @@ com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
 
 ### Como adicionar dados ao índice e executar uma busca
-Adicionar dados e consultar o índice completa o fluxo de trabalho de **criar índice de documentos**.
+Adicionar dados e consultar o índice completa o fluxo de **extrair texto de PDF Java**.
 
 ```java
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
@@ -127,34 +148,34 @@ String query = "ipsum";
 SearchResult result = index.search(query);
 ```
 
-> **Dica profissional:** Use `index.search("your query", SearchOptions)` para ajustar finamente o ranking de relevância.
+> **Dica profissional:** Use `index.search("sua consulta", SearchOptions)` para ajustar o ranking de relevância.
 
 ## Casos de Uso Comuns
 1. **Sistemas de Gerenciamento de Documentos** – Localize rapidamente contratos, faturas ou políticas.  
-2. **Motores de Busca Baseados em Conteúdo** – Potencialize bases de conhecimento internas com capacidades de busca full‑text Java.  
+2. **Mecanismos de Busca Baseados em Conteúdo** – Potencialize bases de conhecimento internas com capacidades de busca de texto completo em Java.  
 3. **Soluções de Arquivamento de Dados** – Indexe registros históricos para recuperação instantânea.
 
-## Considerações de Performance
+## Considerações de Desempenho
 - **Gerenciamento de Memória:** Ajuste o tamanho do heap da JVM para lotes grandes de documentos.  
-- **Opções de Indexação:** Desative recursos desnecessários (ex.: vetores de termos) para acelerar a indexação.  
-- **Atualizações Regulares:** Mantenha o GroupDocs.Search atualizado para aproveitar correções de performance.
+- **Opções de Indexação:** Desative recursos desnecessários (por exemplo, vetores de termos) para acelerar a indexação.  
+- **Atualizações Regulares:** Mantenha o GroupDocs.Search atualizado para aproveitar correções de desempenho.
 
 ## Perguntas Frequentes
 
-**Q: Como lidar eficientemente com arquivos PDF muito grandes?**  
-A: Transmita o arquivo usando `Extractor` e processe‑o em partes; também aumente o heap da JVM se necessário.
+**P: Como lidar eficientemente com arquivos PDF muito grandes?**  
+R: Transmita o arquivo usando `Extractor` e processe em blocos; aumente o heap da JVM se necessário.
 
-**Q: Posso personalizar a sintaxe da consulta de busca?**  
-A: Sim — o GroupDocs.Search suporta operadores Booleanos, curingas e buscas por proximidade.
+**P: Posso personalizar a sintaxe da consulta de busca?**  
+R: Sim – o GroupDocs.Search suporta operadores booleanos, curingas e buscas de proximidade.
 
-**Q: O que fazer se a serialização falhar?**  
-A: Verifique se todos os objetos implementam `Serializable` e capture `IOException` para registrar detalhes.
+**P: O que fazer se a serialização falhar?**  
+R: Verifique se todos os objetos implementam `Serializable` e capture `IOException` para registrar detalhes.
 
-**Q: É possível indexar apenas seções específicas de um documento?**  
-A: Absolutamente — configure `ExtractionOptions` para filtrar páginas ou seções antes da indexação.
+**P: É possível indexar apenas seções específicas de um documento?**  
+R: Absolutamente – configure `ExtractionOptions` para filtrar páginas ou seções antes da indexação.
 
-**Q: Como atualizar para uma versão mais recente do GroupDocs.Search?**  
-A: Atualize o número da versão no seu `pom.xml` e execute `mvn clean install`; revise o guia de migração para mudanças incompatíveis.
+**P: Como atualizar para uma versão mais nova do GroupDocs.Search?**  
+R: Atualize o número da versão no seu `pom.xml` e execute `mvn clean install`; consulte o guia de migração para mudanças que quebram compatibilidade.
 
 ## Recursos
 - **Documentação:** [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)  
@@ -166,6 +187,6 @@ A: Atualize o número da versão no seu `pom.xml` e execute `mvn clean install`;
 
 ---
 
-**Última Atualização:** 2025-12-18  
-**Testado Com:** GroupDocs.Search 25.4 for Java  
+**Última atualização:** 2026-02-19  
+**Testado com:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs
