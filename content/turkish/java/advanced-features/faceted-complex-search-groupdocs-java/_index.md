@@ -1,49 +1,51 @@
 ---
-date: '2025-12-16'
-description: Java'da arama indeksi oluşturmayı ve GroupDocs.Search kullanarak katmanlı
-  ve karmaşık aramaları uygulamayı öğrenin, arama performansını ve kullanıcı deneyimini
-  artırın.
+date: '2026-02-16'
+description: GroupDocs.Search ile Java’da Boolean operatörlerini nasıl kullanacağınızı
+  öğrenin; bir arama indeksi oluşturun, içerik araması ve facetli sorgular gerçekleştirin,
+  performansı ve kullanıcı deneyimini artırın.
 keywords:
 - faceted searches Java
 - complex search Java
 - GroupDocs.Search for Java
-title: Java ile Arama Dizini Oluşturma – Facetli ve Karmaşık Aramalar
+title: Boolean Operatörleri Java – Arama Dizini Oluşturma ve Facetlı Arama
 type: docs
 url: /tr/java/advanced-features/faceted-complex-search-groupdocs-java/
 weight: 1
 ---
 
-# Java’da Arama Dizini Oluşturma – Faceted ve Karmaşık Aramalar
+# Boolean Operators Java – Arama Dizini Oluşturma ve Faceted Arama
 
-Java’da güçlü bir **search experience** (arama deneyimi) uygulamak göz korkutucu olabilir, özellikle büyük belge koleksiyonlarını yöneten **create search index Java** projelerine ihtiyaç duyduğunuzda. Neyse ki, **GroupDocs.Search for Java** birkaç satır kodla faceted ve karmaşık sorgular oluşturmanıza olanak tanıyan zengin bir API sunar. Bu öğreticide kütüphaneyi nasıl kuracağınızı, **create a search index Java** (arama dizini oluşturma) işlemini, belgeleri eklemeyi ve hem basit faceted aramaları hem de sofistike çok‑kriterli sorguları nasıl çalıştıracağınızı keşfedeceksiniz.
+Java’da güçlü bir **search experience** (arama deneyimi) oluşturmak, özellikle **create a search index Java** (arama dizini oluşturma) ve **boolean operators Java** (boolean operatörleri) destekleyen faceted ve karmaşık sorgular gerektiğinde göz korkutucu olabilir. Bu öğreticide **GroupDocs.Search for Java** kurulumunu, bir dizin oluşturmayı, belgeleri eklemeyi ve hem basit faceted aramaları hem de Boolean mantığını kullanan çok‑kriterli sorguları adım adım inceleyeceğiz. Sonunda **content search Java**, **filename search Java** ve **update index java** (dizin güncelleme) işlemlerini nasıl kullanacağınızı anlayacaksınız.
 
-## Hızlı Yanıtlar
-- **Faceted arama nedir?** Önceden tanımlanmış kategorilere (ör. dosya türü, tarih) göre sonuçları filtrelemenin bir yolu.  
-- **Java’da arama dizini nasıl oluşturulur?** Bir klasöre işaret eden bir `Index` nesnesi başlatın ve belgeleri ekleyin.  
-- **Birden fazla kriteri birleştirebilir miyim?** Evet—nesne‑tabanlı sorgular veya metin sorgusunda Boolean operatörleri kullanın.  
-- **Lisans gerekli mi?** Geliştirme için ücretsiz deneme çalışır; ticari lisans sınırlamaları kaldırır.  
-- **Hangi IDE en iyisi?** Herhangi bir Java IDE (IntelliJ IDEA, Eclipse, NetBeans) sorunsuz çalışır.
+## Quick Answers
+- **Faceted arama nedir?** Dosya türü veya tarih gibi önceden tanımlanmış kategorilere göre sonuçları filtrelemenin bir yoludur.  
+- **Bir search index Java nasıl oluşturulur?** Bir klasöre işaret eden bir `Index` nesnesi başlatın ve belgeleri ekleyin.  
+- **Boolean operatörleriyle birden fazla kriteri birleştirebilir miyim?** Evet—nesne‑tabanlı sorgular veya metin sorgusunda Boolean operatörleri kullanın.  
+- **Lisans gerekli mi?** Geliştirme için ücretsiz deneme sürümü yeterlidir; ticari lisans sınırlamaları kaldırır.  
+- **Hangi IDE en iyisidir?** Herhangi bir Java IDE (IntelliJ IDEA, Eclipse, NetBeans) sorunsuz çalışır.
 
 ## “create search index java” nedir?
-Java’da bir arama dizini oluşturmak, belge meta verilerini ve içeriğini depolayan, kullanıcı sorgularına göre hızlı geri getirme sağlayan bir aranabilir veri yapısı inşa etmek anlamına gelir. GroupDocs.Search ile dizin diskte bulunur, artımlı olarak güncellenebilir ve faceting ve karmaşık Boolean mantığı gibi gelişmiş özellikleri destekler.
+Java’da bir arama dizini oluşturmak, belge meta verilerini ve içeriğini depolayan, kullanıcı sorgularına hızlı erişim sağlayan bir veri yapısı inşa etmek anlamına gelir. GroupDocs.Search ile dizin disk üzerinde bulunur, artımlı olarak güncellenebilir ve faceting, **boolean operators Java**, karmaşık Boolean mantığı gibi gelişmiş özellikleri destekler.
 
-## Faceted ve karmaşık sorgular için neden GroupDocs.Search kullanılmalı?
+## Faceted ve karmaşık sorgular için GroupDocs.Search neden kullanılmalı?
 - **Out‑of‑the‑box faceting** – dosya adı, boyut veya özel meta veri gibi alanlara göre filtreleme.  
-- **Rich query language** – AND/OR/NOT operatörlerini kullanarak metin, ifade ve alan sorgularını karıştırma.  
-- **Scalable performance** – milyonlarca belgeyi indekslerken arama gecikmesini düşük tutar.  
-- **Pure Java** – yerel bağımlılık yoktur, JDK 8+ çalışan herhangi bir platformda çalışır.
+- **Zengin sorgu dili** – AND/OR/NOT operatörlerini ( **boolean operators java** ’nın çekirdeği) kullanarak metin, ifade ve alan sorgularını karıştırma.  
+- **Ölçeklenebilir performans** – milyonlarca belgeyi düşük gecikme süresiyle indeksler.  
+- **Saf Java** – yerel bağımlılık yok, JDK 8+ çalışan her platformda çalışır.  
+- **Kolay dizin bakımı** – dosya ekleyip kaldırdıktan sonra `index.update()` çağırarak **update index java** (dizin güncelleme) yapabilirsiniz.
 
-## Ön Koşullar
-Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
+## Prerequisites
 
-- **JDK 8 veya daha yeni bir sürüm** IDE’nizde yüklü ve yapılandırılmış.  
+İlerlemeye başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
+
+- **JDK 8 veya daha yeni** bir sürüm, IDE’nizde kurulu ve yapılandırılmış.  
 - **Maven** (veya Gradle) bağımlılık yönetimi için.  
 - **GroupDocs.Search for Java** ≥ 25.4.  
 - Java OOP kavramları ve Maven proje yapısı hakkında temel bilgi.
 
 ## GroupDocs.Search for Java Kurulumu
 
-### Maven Kurulumu
+### Maven Setup
 `pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
 
 ```xml
@@ -64,19 +66,19 @@ Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 </dependencies>
 ```
 
-### Doğrudan İndirme
+### Direct Download
 Alternatif olarak, resmi sürüm sayfasından en son JAR dosyasını indirin:  
 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
 
-### Lisans Edinimi
+### License Acquisition
 Tam işlevselliği açmak için:
 
-1. **Free trial** – geliştirme ve test için mükemmeldir.  
-2. **Temporary evaluation license** – deneme sınırlamalarını uzatır.  
+1. **Free trial** – geliştirme ve test için idealdir.  
+2. **Temporary evaluation license** – deneme sınırlarını uzatır.  
 3. **Commercial license** – üretim kullanımında tüm kısıtlamaları kaldırır.
 
-### Temel Başlatma ve Kurulum
-Aşağıdaki kod parçacığı, `Index` sınıfını örnekleyerek **create a search index Java** (arama dizini oluşturma) işlemini nasıl yapacağınızı gösterir:
+### Basic Initialization and Setup
+Aşağıdaki kod parçacığı, `Index` sınıfını örnekleyerek **create a search index Java** (arama dizini oluşturma) işlemini gösterir:
 
 ```java
 import com.groupdocs.search.Index;
@@ -93,13 +95,13 @@ public class SearchSetup {
 }
 ```
 
-Dizin hazır olduğunda, gerçek dünya faceted ve karmaşık sorgularına geçebiliriz.
+Dizin hazır olduğunda, gerçek dünyada faceted ve karmaşık sorgulara geçebiliriz.
 
-## create search index java – Basit Faceted Arama
+## How to use boolean operators java – Simple Faceted Search
 
-Faceted arama, son kullanıcıların önceden tanımlanmış kategorilerden (facets) değerler seçerek sonuçları daraltmasını sağlar. Aşağıda adım adım bir rehber bulunmaktadır.
+Faceted arama, son kullanıcıların önceden tanımlanmış kategorilerden (facet) değerler seçerek sonuçları daraltmasını sağlar. Aşağıda adım adım bir yürütme bulabilirsiniz.
 
-### Adım 1: Bir Dizin Oluşturun
+### Step 1: Create an Index
 İlk olarak, `Index`i dizin dosyalarının saklanacağı bir klasöre yönlendirin.
 
 ```java
@@ -109,8 +111,8 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Searching/FacetedSearc
 Index index = new Index(indexFolder);
 ```
 
-### Adım 2: Belgeleri Dizi̇ne Ekleyin
-GroupDocs.Search’e kaynak belgelerinizin nerede olduğunu söyleyin. Desteklenen tüm dosya türleri (PDF, DOCX, TXT, vb.) otomatik olarak indekslenecektir.
+### Step 2: Add Documents to the Index
+GroupDocs.Search’e kaynak belgelerinizin nerede olduğunu söyleyin. Desteklenen tüm dosya türleri (PDF, DOCX, TXT vb.) otomatik olarak indekslenir.
 
 ```java
 import com.groupdocs.search.Index;
@@ -121,8 +123,8 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-### Adım 3: İçerik Alanında Metin Sorgusuyla Arama Yapın
-Hızlı bir metin sorgusu `content` alanına göre filtreler. `content: Pellentesque` sözdizimi, gövde metninde *Pellentesque* kelimesini içeren belgelerle sonuçları sınırlar.
+### Step 3: Perform a Search in the Content Field with a Text Query
+Hızlı bir metin sorgusu, `content` alanına göre filtre uygular. `content: Pellentesque` sözdizimi, gövde metninde *Pellentesque* kelimesi geçen belgelerle sonuçları sınırlar.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -134,8 +136,8 @@ SearchResult result1 = index.search(query1);
 System.out.println("Documents found (query 1): " + result1.getDocumentCount());
 ```
 
-### Adım 4: Nesne Sorgusu Kullanarak Arama Yapın
-Nesne‑tabanlı sorgular size ayrıntılı kontrol sağlar. Burada bir kelime sorgusu oluşturup, bir alan sorgusuna sarar ve yürütürüz.
+### Step 4: Perform a Search Using an Object Query
+Nesne‑tabanlı sorgular, ince ayar kontrolü sağlar. Burada bir kelime sorgusu oluşturup bir alan sorgusuna sarıyor ve çalıştırıyoruz.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -149,11 +151,11 @@ SearchResult result2 = index.search(fieldQuery);
 System.out.println("Documents found (query 2): " + result2.getDocumentCount());
 ```
 
-## create search index java – Karmaşık Sorgu Araması
+## How to use boolean operators java – Complex Query Search
 
-Karmaşık sorgular birden fazla alan, Boolean operatörleri ve ifade aramalarını birleştirir. Bu, e‑ticaret filtreleri veya hukuki belge araştırmaları gibi senaryolar için idealdir.
+Karmaşık sorgular, birden fazla alanı, Boolean operatörlerini ve ifade aramalarını birleştirir. Bu, e‑ticaret filtreleri veya hukuki belge araştırmaları gibi senaryolar için idealdir.
 
-### Adım 1: Karmaşık Sorgular İçin Bir Dizin Oluşturun
+### Step 1: Create an Index for Complex Queries
 Aynı klasör yapısını yeniden kullanın; dizini hem basit hem de karmaşık senaryolar arasında paylaşabilirsiniz.
 
 ```java
@@ -162,8 +164,8 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-### Adım 2: Metin Sorgusuyla Arama Yapın
-Aşağıdaki sorgu, *lorem* **ve** *ipsum* adlı dosyaları **veya** iki tam ifadeden birini içeren içeriği arar.
+### Step 2: Perform a Search with a Text Query
+Aşağıdaki sorgu, *lorem* **ve** *ipsum* adındaki dosyaları **veya** iki tam ifadeden birini içeren içerikleri arar.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -181,8 +183,8 @@ class SearchResult {
 System.out.println("Documents found (complex text query): " + result1.getDocumentCount());
 ```
 
-### Adım 3: Nesne Sorgusu ile Arama Yapın
-Nesne‑tabanlı yapı, metinsel sorguyu yansıtır ancak tip güvenliği ve IDE desteği sağlar.
+### Step 3: Perform a Search with an Object Query
+Nesne‑tabanlı yapı, metinsel sorguya benzer ancak tip güvenliği ve IDE desteği sunar.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -209,46 +211,50 @@ SearchResult result2 = index.search(rootQuery);
 System.out.println("Documents found (complex object query): " + result2.getDocumentCount());
 ```
 
-## Faceted ve Karmaşık Aramaların Pratik Uygulamaları
+## Practical Applications of Faceted & Complex Searches
 
-| Senaryo | Faceting Nasıl Yardımcı Olur | Örnek Sorgu |
+| Senaryo | Faceting Nasıl Yardımcı Olur? | Örnek Sorgu |
 |----------|-------------------|---------------|
-| **E‑ticaret kataloğu** | Kategori, fiyat, marka göre filtreleme | `category: Electronics AND price:[100 TO 500]` |
-| **Hukuki belge deposu** | Dava numarası, yargı bölgesi göre daraltma | `caseNumber: 2023-045 AND jurisdiction: "California"` |
-| **Araştırma arşivleri** | Yazar, yayın yılı, anahtar kelimeleri birleştirme | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
+| **E‑commerce kataloğu** | Kategori, fiyat, marka gibi alanlarda filtreleme | `category: Electronics AND price:[100 TO 500]` |
+| **Hukuki belge deposu** | Dava numarası, yargı bölgesi ile daraltma | `caseNumber: 2023-045 AND jurisdiction: "California"` |
+| **Araştırma arşivleri** | Yazar, yayın yılı, anahtar kelimeler birleştirme | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
 | **Kurumsal intranet** | Dosya türü ve departmana göre arama | `filetype: pdf AND department: HR` |
 
-## Yaygın Tuzaklar ve Sorun Giderme
-- **Boş sonuçlar** – Belgelerin başarıyla eklendiğini doğrulayın (`index.getDocumentCount()` yardımcı olabilir).  
-- **Eski dizin** – Dosyaları ekledikten veya sildikten sonra, dizinin senkronize kalması için `index.update()` çağırın.  
-- **Yanlış alan adları** – Yazım hatalarını önlemek için `CommonFieldNames` sabitlerini (`Content`, `FileName`, vb.) kullanın.  
-- **Performans darboğazları** – Büyük koleksiyonlar için `index.setCacheSize()` etkinleştirmeyi veya dizin klasörü için ayrı bir SSD kullanmayı düşünün.
+Bu örnekler, **boolean operators java** ve **filename search java** tekniklerini ustalıkla kullanmanın veri‑ağır uygulamalarda ne kadar büyük bir fark yaratacağını gösterir.
 
-## Sıkça Sorulan Sorular
+## Common Pitfalls & Troubleshooting
 
-**Q: GroupDocs.Search'ı Spring Boot ile kullanabilir miyim?**  
-A: Kesinlikle. Maven bağımlılığını ekleyin, dizini bir Spring bean olarak yapılandırın ve gerektiği yerde enjekte edin.
+- **Boş sonuçlar** – Belgelerin başarıyla eklendiğini `index.getDocumentCount()` ile kontrol edin.  
+- **Eski dizin** – Dosya ekleyip çıkardıktan sonra `index.update()` çağırarak **update index java** (dizin güncelleme) yapın ve dizinin senkronize olduğundan emin olun.  
+- **Yanlış alan adları** – Yazım hatalarını önlemek için `CommonFieldNames` sabitlerini (`Content`, `FileName` vb.) kullanın.  
+- **Performans darboğazları** – büyük koleksiyonlar için `index.setCacheSize()` etkinleştirmeyi veya dizin klasörü için ayrı bir SSD kullanmayı düşünün.  
+- **Vurgulama eksikliği** – **highlight search results java** (arama sonuçlarını vurgulama) için eşleşen parçaları `SearchResult.getFragments()` ile alın (burada gösterilmemiştir ancak API’da mevcuttur).  
 
-**Q: Kütüphane özel meta veri alanlarını destekliyor mu?**  
-A: Evet – indeksleme sırasında kullanıcı tanımlı alanlar ekleyebilir ve ardından bunlar üzerinde faceting yapabilirsiniz.
+## Frequently Asked Questions
 
-**Q: Dizin ne kadar büyüyebilir?**  
-A: Dizin disk tabanlıdır ve milyonlarca belgeyi işleyebilir; yeterli depolama alanı sağladığınızdan ve önbellek ayarlarını izlediğinizden emin olun.
+**S: GroupDocs.Search’i Spring Boot ile kullanabilir miyim?**  
+C: Kesinlikle. Maven bağımlılığını ekleyin, dizini bir Spring bean’i olarak yapılandırın ve arama yeteneklerine ihtiyaç duyduğunuz her yerde enjekte edin.
 
-**Q: Sonuçları alaka düzeyine göre sıralamanın bir yolu var mı?**  
-A: GroupDocs.Search otomatik olarak eşleşmeleri puanlar; puanı `SearchResult.getDocument(i).getScore()` ile alabilirsiniz.
+**S: Kütüphane özel meta veri alanlarını destekliyor mu?**  
+C: Evet – indeksleme sırasında kullanıcı tanımlı alanlar ekleyebilir ve ardından bu alanlarda facet uygulayabilirsiniz.
 
-**Q: Şifreli PDF'leri indekslersem ne olur?**  
-A: Belgeyi eklerken şifreyi sağlayın: `index.add(filePath, password)`.
+**S: Dizin ne kadar büyük olabilir?**  
+C: Dizin disk‑tabanlıdır ve milyonlarca belgeyi kaldırabilir; yeterli depolama alanı sağlayın ve önbellek ayarlarını izleyin.
 
-## Sonuç
+**S: Sonuçları alaka düzeyine göre sıralamak mümkün mü?**  
+C: GroupDocs.Search otomatik olarak eşleşmeleri puanlar; puanı `SearchResult.getDocument(i).getScore()` ile alabilirsiniz.
 
-Artık GroupDocs.Search ile **create a search index Java** (arama dizini oluşturma) konusunda rahat hissetmelisiniz, belgeleri ekleyebilir ve hem basit faceted sorgular hem de sofistike Boolean aramaları oluşturabilirsiniz. Bu yetenekler, e‑ticaret platformlarından kurumsal bilgi tabanlarına kadar geniş bir uygulama yelpazesinde hızlı, doğru ve kullanıcı dostu arama deneyimleri sunmanızı sağlar.
+**S: Şifreli PDF’leri indekslersem ne olur?**  
+C: Belgeyi eklerken şifreyi sağlayın: `index.add(filePath, password)`.
 
-Bir sonraki adıma hazır mısınız? **GroupDocs.Search**'in **highlighting**, **suggestions** ve **real‑time indexing** gibi gelişmiş özelliklerini keşfederek uygulamanızın arama gücünü daha da artırın.
+## Conclusion
+
+Artık **create a search index Java** (arama dizini oluşturma) işlemini GroupDocs.Search ile rahatça yapabildiğinizi, belgeleri ekleyebildiğinizi ve hem basit faceted sorguları hem de **boolean operators java** kullanan gelişmiş Boolean aramaları oluşturabildiğinizi umuyoruz. Bu yetenekler, e‑ticaret platformlarından kurumsal bilgi tabanlarına kadar geniş bir uygulama yelpazesinde hızlı, doğru ve kullanıcı‑dostu arama deneyimleri sunmanızı sağlar.
+
+Bir sonraki adıma hazır mısınız? **GroupDocs.Search**’in **highlighting**, **suggestions** ve **real‑time indexing** gibi ileri özelliklerini keşfederek uygulamanızın arama gücünü daha da artırın.
 
 ---
 
-**Son Güncelleme:** 2025-12-16  
-**Test Edilen:** GroupDocs.Search 25.4 for Java  
-**Yazar:** GroupDocs
+**Last Updated:** 2026-02-16  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs
