@@ -1,49 +1,49 @@
 ---
-date: '2026-01-01'
-description: Dowiedz się, jak wykonać zapytanie wyszukiwania w języku Java, dodać
-  dokumenty do indeksu i zbudować rozwiązanie pełnotekstowego wyszukiwania w języku
-  Java z GroupDocs.Search for Java.
+date: '2026-03-09'
+description: Naucz się, jak wykonać zapytanie wyszukiwania w języku Java, dodać dokumenty
+  do indeksu oraz zbudować rozwiązanie pełnotekstowego wyszukiwania w Javie z GroupDocs.Search
+  for Java, w tym jak dodać folder do indeksu.
 keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 'zapytanie wyszukiwania java - Opanowanie GroupDocs.Search Java – Tworzenie
-  i zarządzanie indeksem wyszukiwania'
+title: Wyszukiwanie pełnotekstowe Java – Opanowanie GroupDocs.Search Java – Tworzenie
+  i zarządzanie indeksem wyszukiwania
 type: docs
 url: /pl/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# zapytanie wyszukiwania java - Opanowanie GroupDocs.Search Java – Tworzenie i zarządzanie indeksem wyszukiwania
+# full text search java – Opanowanie GroupDocs.Search Java – Tworzenie i zarządzanie indeksem wyszukiwania
 
-W dzisiejszych aplikacjach opartych na danych, uruchamianie wydajnego **zapytania wyszukiwania java** w dużych zbiorach dokumentów jest niezbędną funkcją. Niezależnie od tego, czy budujesz wewnętrzny portal dokumentów, katalog e‑commerce, czy system CMS z dużą ilością treści, dobrze skonstruowany indeks wyszukiwania zapewnia szybkie i dokładne wyniki. Ten samouczek pokazuje krok po kroku, jak skonfigurować GroupDocs.Search dla Javy, utworzyć indeks przeszukiwalny, **dodać dokumenty do indeksu** oraz wykonać **zapytanie pełnotekstowe java** – wszystko w przystępnych, konwersacyjnych wyjaśnieniach.
+W dzisiejszych aplikacjach opartych na danych, uruchamianie wydajnego **full text search java** na dużych zbiorach dokumentów jest niezbędną funkcją. Niezależnie od tego, czy tworzysz wewnętrzny portal dokumentów, katalog e‑commerce, czy system CMS z dużą ilością treści, dobrze zbudowany indeks wyszukiwania zapewnia szybkie i dokładne wyniki. Ten samouczek przeprowadzi Cię przez konfigurację GroupDocs.Search dla Javy, tworzenie indeksu przeszukiwalnego, **adding documents to index**, oraz wykonanie zapytania **full text search java** — wszystko wyjaśnione w przyjaznym, krok po kroku stylu.
 
 ## Szybkie odpowiedzi
-- **Co oznacza „zapytanie wyszukiwania java”?** Uruchamianie wyszukiwania opartego na tekście w indeksie zbudowanym przy użyciu GroupDocs.Search w aplikacji Java.  
-- **Która biblioteka obsługuje indeksowanie?** GroupDocs.Search for Java (najnowsze stabilne wydanie).  
-- **Czy potrzebna jest licencja, aby wypróbować?** Dostępna jest bezpłatna wersja próbna; do środowiska produkcyjnego wymagana jest licencja tymczasowa lub pełna.  
-- **Czy mogę indeksować cały folder jednorazowo?** Tak – użyj `index.add("folderPath")`, aby **dodać folder do indeksu** w jednym wywołaniu.  
-- **Czy wyszukiwanie jest niewrażliwe na wielkość liter?** Domyślnie GroupDocs.Search wykonuje niewrażliwe na wielkość liter pełnotekstowe wyszukiwania.
+- **Co oznacza „full text search java”?** Uruchamianie wyszukiwania opartego na tekście w indeksie zbudowanym przy użyciu GroupDocs.Search w aplikacji Java.  
+- **Która biblioteka obsługuje indeksowanie?** GroupDocs.Search for Java (latest stable release).  
+- **Do I need a license to try it?** Dostępna jest darmowa wersja próbna; do produkcji wymagana jest licencja tymczasowa lub pełna.  
+- **Can I index an entire folder at once?** Tak – użyj `index.add("folderPath")`, aby **add folder to index** w jednym wywołaniu.  
+- **Is the search case‑insensitive?** Domyślnie GroupDocs.Search wykonuje wyszukiwania pełnotekstowe nie uwzględniające wielkości liter.
 
-## Co to jest zapytanie wyszukiwania java?
-**Zapytanie wyszukiwania java** to po prostu ciąg znaków, który przekazujesz do metody `search()` obiektu `Index` biblioteki GroupDocs.Search. Biblioteka analizuje zapytanie, przeszukuje wyekstrahowane terminy i natychmiast zwraca pasujące dokumenty.
+## Co to jest full text search java?
+Operacja **full text search java** to po prostu ciąg tekstowy, który przekazujesz do metody `search()` obiektu `Index` w GroupDocs.Search. Biblioteka analizuje zapytanie, przeszukuje zindeksowane terminy i natychmiast zwraca pasujące dokumenty.
 
 ## Dlaczego warto używać GroupDocs.Search dla Javy?
-- **Szybkość:** Wbudowane algorytmy zapewniają odpowiedzi w milisekundach, nawet przy milionach dokumentów.  
-- **Obsługa formatów:** Indeksuje PDF‑y, pliki Word, arkusze Excel, zwykły tekst i wiele innych formatów od razu po instalacji.  
-- **Skalowalność:** Działa równie dobrze w małych narzędziach, jak i w dużych rozwiązaniach korporacyjnych.  
+- **Speed:** Wbudowane algorytmy zapewniają czasy odpowiedzi na poziomie milisekund nawet przy milionach dokumentów.  
+- **Format support:** Indeksuje pliki PDF, Word, Excel, zwykły tekst i wiele innych formatów od razu po instalacji.  
+- **Scalability:** Działa równie dobrze dla małych narzędzi i dużych rozwiązań korporacyjnych.  
 
 ## Wymagania wstępne
-Zanim przejdziesz dalej, upewnij się, że masz:
+Zanim zaczniemy, upewnij się, że masz:
 
 1. **Java Development Kit (JDK) 8+** – środowisko uruchomieniowe do kompilacji i uruchamiania kodu.  
-2. **Maven** – do zarządzania zależnościami (możesz także używać Gradle, ale przykłady podane są dla Maven).  
-3. Podstawową znajomość klas Java, metod oraz wiersza poleceń.
+2. **Maven** – do zarządzania zależnościami (możesz także używać Gradle, ale przykłady są podane dla Maven).  
+3. Podstawową znajomość klas Java, metod i wiersza poleceń.
 
 ## Konfiguracja GroupDocs.Search dla Javy
 
 ### Konfiguracja Maven
-Dodaj repozytorium GroupDocs oraz zależność do pliku `pom.xml`. To jedyna zmiana, jaką musisz wprowadzić w konfiguracji projektu.
+Dodaj repozytorium GroupDocs oraz zależność do pliku `pom.xml`. To jedyna zmiana, którą musisz wprowadzić w konfiguracji projektu.
 
 ```xml
 <repositories>
@@ -64,15 +64,15 @@ Dodaj repozytorium GroupDocs oraz zależność do pliku `pom.xml`. To jedyna zmi
 ```
 
 ### Bezpośrednie pobranie (opcjonalnie)
-Jeśli nie chcesz używać Maven, pobierz najnowszy plik JAR ze strony wydania: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Jeśli wolisz nie używać Maven, pobierz najnowszy plik JAR ze strony oficjalnych wydań: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### Uzyskanie licencji
-- **Bezpłatna wersja próbna:** Idealna do oceny funkcji.  
-- **Licencja tymczasowa:** Do rozszerzonego testowania bez zobowiązań.  
-- **Licencja pełna:** Zalecana w środowiskach produkcyjnych.
+- **Free Trial:** Idealny do oceny funkcji.  
+- **Temporary License:** Użyj do dłuższego testowania bez zobowiązań.  
+- **Full License:** Zalecana do wdrożeń produkcyjnych.
 
 ### Podstawowa inicjalizacja
-Poniższy fragment kodu tworzy pusty folder indeksu. To podstawa dla każdego **zapytania wyszukiwania java**, które uruchomisz później.
+Poniższy fragment kodu tworzy pusty folder indeksu. To podstawa dla każdego **full text search java**, które uruchomisz później.
 
 ```java
 import com.groupdocs.search.Index;
@@ -86,17 +86,10 @@ public class GroupDocsSearchSetup {
 }
 ```
 
-## Przewodnik implementacji
+## Jak utworzyć indeks wyszukiwania
 
 ### Tworzenie indeksu
-Utworzenie indeksu wyszukiwania to pierwszy krok w kierunku efektywnego odzyskiwania dokumentów.
-
-#### Przegląd
-Indeks przechowuje terminy przeszukiwalne wyekstrahowane z dokumentów, umożliwiając natychmiastowe wyszukiwania po wykonaniu **zapytania wyszukiwania java**.
-
-#### Kroki tworzenia indeksu
-1. **Zdefiniuj katalog wyjściowy** – miejsce, w którym będą przechowywane pliki indeksu.  
-2. **Zainicjalizuj indeks** – utwórz instancję klasy `Index` z podanym folderem.
+Utworzenie indeksu wyszukiwania to pierwszy krok w kierunku umożliwienia efektywnego wyszukiwania dokumentów.
 
 ```java
 import com.groupdocs.search.Index;
@@ -113,15 +106,8 @@ public class CreateIndexExample {
 }
 ```
 
-### Dodawanie dokumentów do indeksu
-Teraz, gdy indeks istnieje, musisz **dodać dokumenty do indeksu**, aby stały się przeszukiwalne.
-
-#### Przegląd
-GroupDocs.Search może wczytać cały folder, automatycznie wykrywając obsługiwane typy plików. To najczęstszy sposób na **dodanie folderu do indeksu**.
-
-#### Kroki dodawania dokumentów
-1. **Określ katalog dokumentów** – miejsce, w którym przechowywane są pliki źródłowe.  
-2. **Wywołaj `add()`** – metoda odczytuje każdy plik i aktualizuje indeks.
+### Dodawanie folderu do indeksu
+Teraz, gdy indeks istnieje, musisz **add documents to index**, aby stały się przeszukiwalne. GroupDocs.Search może wczytać cały folder jednym wywołaniem.
 
 ```java
 import com.groupdocs.search.Index;
@@ -142,15 +128,8 @@ public class AddDocumentsToIndexExample {
 }
 ```
 
-### Wyszukiwanie w indeksie
-Po zaindeksowaniu dokumentów, wykonanie **zapytania pełnotekstowego java** jest proste.
-
-#### Przegląd
-Metoda `search()` przyjmuje dowolny ciąg zapytania — słowa kluczowe, frazy lub nawet wyrażenia Boolean i zwraca referencje do pasujących dokumentów.
-
-#### Kroki wyszukiwania
-1. **Zdefiniuj zapytanie** — np. `"Lorem"` lub `"invoice AND 2024"`.  
-2. **Wykonaj wyszukiwanie** — pobierz obiekt `SearchResult` i sprawdź liczbę wyników.
+### Wykonywanie full text search java
+Po zindeksowaniu dokumentów, wykonanie **full text search java** jest proste.
 
 ```java
 import com.groupdocs.search.Index;
@@ -173,36 +152,37 @@ public class SearchIndexExample {
 ```
 
 ## Praktyczne zastosowania
-GroupDocs.Search dla Javy sprawdza się w wielu rzeczywistych scenariuszach:
+GroupDocs.Search dla Javy wyróżnia się w wielu rzeczywistych scenariuszach:
 
-1. **Wewnętrzne systemy zarządzania dokumentami** — natychmiastowe odnajdywanie polityk, umów i podręczników.  
-2. **Platformy e‑commerce** — szybkie wyszukiwanie produktów w katalogach zawierających tysiące pozycji.  
-3. **Systemy zarządzania treścią (CMS)** — umożliwiają redaktorom i odwiedzającym szybkie znajdowanie artykułów, mediów i plików PDF.  
+1. **Internal Document Management Systems** – natychmiastowe wyszukiwanie polityk, umów i podręczników.  
+2. **E‑commerce Platforms** – szybkie wyszukiwanie produktów w katalogach zawierających tysiące pozycji.  
+3. **Content Management Systems (CMS)** – umożliwia redaktorom i odwiedzającym szybkie znajdowanie artykułów, mediów i plików PDF.
 
 ## Wskazówki dotyczące wydajności
-Aby Twoje **zapytanie wyszukiwania java** było błyskawiczne:
+Aby utrzymać **full text search java** w błyskawicznej prędkości:
 
-- **Optymalizuj indeksowanie:** Reindeksuj tylko zmienione pliki i regularnie usuwaj przestarzałe wpisy.  
-- **Zarządzaj zasobami:** Monitoruj zużycie pamięci heap JVM; rozważ indeksowanie przyrostowe przy bardzo dużych zestawach danych.  
-- **Stosuj najlepsze praktyki:** Używaj wywołań `add()` w partiach zamiast dodawać pliki pojedynczo, gdy to możliwe.
+- **Optimize Indexing:** Przeindeksowuj tylko zmienione pliki i regularnie usuwaj przestarzałe wpisy.  
+- **Manage Resources:** Monitoruj zużycie pamięci JVM; rozważ indeksowanie przyrostowe dla ogromnych zbiorów danych.  
+- **Follow Best Practices:** Używaj wywołań `add()` w partiach zamiast dodawać pliki pojedynczo, gdy to możliwe.
 
 ## Typowe problemy i rozwiązania
+
 | Objaw | Prawdopodobna przyczyna | Rozwiązanie |
-|-------|--------------------------|-------------|
-| Brak wyników | Indeks nie został zbudowany lub dokumenty nie zostały dodane | Sprawdź, czy `index.add()` wykonało się pomyślnie; zweryfikuj ścieżkę folderu. |
-| Błędy Out‑of‑memory | Bardzo duże pliki ładowane jednocześnie | Włącz indeksowanie przyrostowe lub zwiększ pamięć heap JVM (`-Xmx`). |
-| Wyszukiwanie pomija terminy | Analyzer nie skonfigurowany dla języka | Użyj odpowiednich `IndexSettings`, aby ustawić analizatory specyficzne dla języka. |
+|---------|---------------|-----|
+| Brak wyników | Indeks nie został zbudowany lub dokumenty nie zostały dodane | Sprawdź, czy `index.add()` został wykonany pomyślnie; sprawdź ścieżkę folderu. |
+| Błędy braku pamięci | Bardzo duże pliki ładowane jednocześnie | Włącz indeksowanie przyrostowe lub zwiększ pamięć JVM (`-Xmx`). |
+| Wyszukiwanie pomija terminy | Analizator nie jest skonfigurowany dla języka | Użyj odpowiednich `IndexSettings`, aby ustawić analizatory specyficzne dla języka. |
 
 ## Najczęściej zadawane pytania
 
 **Q: Jakie formaty plików może indeksować GroupDocs.Search?**  
-A: PDF‑y, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML oraz wiele innych popularnych formatów biurowych.
+A: PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML i wiele innych popularnych formatów biurowych.
 
-**Q: Czy mogę uruchomić zapytanie wyszukiwania java na zdalnym serwerze?**  
-A: Tak. Zbuduj indeks na serwerze i udostępnij endpoint REST, który przekazuje zapytanie do usługi Java.
+**Q: Czy mogę uruchomić full text search java na zdalnym serwerze?**  
+A: Tak. Zbuduj indeks na serwerze i udostępnij punkt końcowy REST, który przekazuje zapytanie do usługi Java.
 
 **Q: Jak zaktualizować indeks, gdy dokument ulegnie zmianie?**  
-A: Użyj `index.update("path/to/changed/file")`, aby zastąpić starą pozycję bez przebudowy całego indeksu.
+A: Użyj `index.update("path/to/changed/file")`, aby zastąpić stary wpis bez przebudowywania całego indeksu.
 
 **Q: Czy istnieje sposób, aby ograniczyć wyniki wyszukiwania do konkretnego folderu?**  
 A: Po uzyskaniu `SearchResult` przefiltruj `result.getDocuments()` według ich pierwotnej ścieżki.
@@ -210,8 +190,19 @@ A: Po uzyskaniu `SearchResult` przefiltruj `result.getDocuments()` według ich p
 **Q: Czy GroupDocs.Search obsługuje wyszukiwania rozmyte lub z użyciem znaków wieloznacznych?**  
 A: Biblioteka zawiera wbudowaną obsługę dopasowań rozmytych (`~`) oraz operatorów wieloznacznych (`*`) w ciągach zapytań.
 
+### Dodatkowe FAQ
+
+**Q: Jak mogę poprawić ranking trafności dla mojego full text search java?**  
+A: Dostosuj `IndexSettings`, takie jak ważenie terminów, zwiększanie wagi konkretnych pól lub włącz synonimy, aby precyzyjnie dopasować trafność.
+
+**Q: Czy można usuwać dokumenty z indeksu?**  
+A: Tak. Wywołaj `index.delete("path/to/file")`, aby usunąć wpis dokumentu.
+
+**Q: Co tak naprawdę robi „add folder to index”?**  
+A: GroupDocs.Search skanuje folder rekurencyjnie, wyodrębnia tekst z każdego obsługiwanego pliku, tokenizuje terminy i zapisuje je w strukturze indeksu w celu szybkiego wyszukiwania.
+
 ---
 
-**Ostatnia aktualizacja:** 2026-01-01  
+**Ostatnia aktualizacja:** 2026-03-09  
 **Testowano z:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs
