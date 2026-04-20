@@ -1,19 +1,20 @@
 ---
-title: "Highlight Search Results Java – Synchronous & Async Indexing"
-description: "Learn how to highlight search results Java and how to index documents java using GroupDocs.Search for Java with synchronous and asynchronous indexing."
-date: "2026-02-08"
-weight: 1
-url: "/java/searching/master-groupdocs-search-java-document-indexing/"
+date: '2026-02-08'
+description: Pelajari cara menyorot hasil pencarian di Java dan cara mengindeks dokumen
+  Java menggunakan GroupDocs.Search untuk Java dengan pengindeksan sinkron dan asinkron.
 keywords:
 - document search
 - synchronous indexing
 - asynchronous indexing
+title: Sorot Hasil Pencarian Java – Pengindeksan Sinkron & Asinkron
 type: docs
+url: /id/java/searching/master-groupdocs-search-java-document-indexing/
+weight: 1
 ---
 
 # Highlight Search Results Java – Synchronous & Async Indexing
 
-Boost your Java applications by **highlighting search results Java** with the powerful GroupDocs.Search library. Whether you’re dealing with a few files or a massive repository, mastering both synchronous and asynchronous indexing lets you deliver fast, accurate results without blocking your application threads.
+Tingkatkan aplikasi Java Anda dengan **highlighting search results Java** menggunakan pustaka GroupDocs.Search yang kuat. Baik Anda menangani beberapa file maupun repositori besar, menguasai indeksasi sinkron dan asinkron memungkinkan Anda memberikan hasil yang cepat dan akurat tanpa memblokir thread aplikasi.
 
 ## Quick Answers
 - **What does “highlight search results Java” mean?** It refers to rendering matched terms in search results with visual cues (e.g., HTML `<mark>` tags) so users can see where the query appears in each document.  
