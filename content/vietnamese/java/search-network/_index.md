@@ -1,21 +1,22 @@
 ---
-title: "Create Distributed Index Java: GroupDocs.Search Tutorials"
-description: "Learn how to create distributed index Java with GroupDocs.Search, covering scalable network deployment, shard management, and node configuration."
-weight: 9
-url: "/java/search-network/"
-type: docs
 date: 2026-01-16
+description: Tìm hiểu cách tạo chỉ mục phân tán Java với GroupDocs.Search, bao gồm
+  triển khai mạng có khả năng mở rộng, quản lý phân đoạn và cấu hình nút.
+title: 'Tạo Chỉ mục Phân tán Java: Hướng dẫn GroupDocs.Search'
+type: docs
+url: /vi/java/search-network/
+weight: 9
 ---
 
-# Create Distributed Index Java: GroupDocs.Search Tutorials
+# Tạo Chỉ mục Phân tán Java: Hướng dẫn GroupDocs.Search
 
-If you're looking to **create distributed index Java** solutions that scale across multiple servers, you’ve come to the right place. This hub gathers the most comprehensive, step‑by‑step guides for building, deploying, and optimizing GroupDocs.Search networks in Java. Whether you need to configure shards, synchronize nodes, or boost query performance, the tutorials below walk you through every essential detail with real‑world examples.
+Nếu bạn đang tìm cách **tạo chỉ mục phân tán Java** có thể mở rộng trên nhiều máy chủ, bạn đã đến đúng nơi. Trung tâm này tập hợp các hướng dẫn chi tiết, từng bước để xây dựng, triển khai và tối ưu hoá mạng GroupDocs.Search trong Java. Dù bạn cần cấu hình shards, đồng bộ các node, hay tăng hiệu suất truy vấn, các tutorial dưới đây sẽ hướng dẫn bạn qua mọi chi tiết quan trọng với các ví dụ thực tế.
 
-## How to Create Distributed Index Java with GroupDocs.Search
+## Cách Tạo Chỉ mục Phân tán Java với GroupDocs.Search
 
-Below is a curated list of tutorials that walk you through the entire lifecycle of a distributed search index in Java—from initial setup to advanced optimization. Each guide includes ready‑to‑run Java code, configuration snippets, and best‑practice recommendations.
+Dưới đây là danh sách các tutorial được chọn lọc, hướng dẫn bạn qua toàn bộ vòng đời của một chỉ mục tìm kiếm phân tán trong Java — từ thiết lập ban đầu đến tối ưu hoá nâng cao. Mỗi hướng dẫn bao gồm mã Java có thể chạy ngay, các đoạn cấu hình, và các khuyến nghị thực tiễn.
 
-### Available Tutorials
+### Các Tutorial Có Sẵn
 
 #### Configuring a Scalable Search Network with GroupDocs.Search Java&#58; A Comprehensive Guide
 [Configuring a Scalable Search Network with GroupDocs.Search Java&#58; A Comprehensive Guide](./scalable-search-network-groupdocs-java/)
@@ -41,7 +42,7 @@ Below is a curated list of tutorials that walk you through the entire lifecycle 
 #### Scalable Search Solutions in Java&#58; Implementing GroupDocs.Search for Efficient Network Deployment
 [Scalable Search Solutions in Java&#58; Implementing GroupDocs.Search for Efficient Network Deployment](./scalable-search-groupdocs-java/)
 
-### Additional Resources
+### Tài Nguyên Bổ Sung
 
 - [GroupDocs.Search for Java Documentation](https://docs.groupdocs.com/search/java/)
 - [GroupDocs.Search for Java API Reference](https://reference.groupdocs.com/search/java/)
