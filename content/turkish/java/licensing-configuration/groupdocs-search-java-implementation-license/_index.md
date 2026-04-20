@@ -1,45 +1,45 @@
 ---
-date: '2026-01-08'
-description: GroupDocs.Search for Java'da arama dizini klasörü oluşturmayı ve dosyadan
-  lisans uygulamayı öğrenin. Lisansı ayarlamak ve aramaya başlamak için adım adım
-  rehberimizi izleyin.
+date: '2026-03-17'
+description: GroupDocs.Search for Java'da arama dizini klasörü oluşturmayı ve diskten
+  lisans dosyasını uygulamayı öğrenin. Tam özelliklerin kilidini açmak, lisans dosyasını
+  doğrulamak ve aramaya başlamak için adım adım rehberimizi izleyin.
 keywords:
 - create search index directory
 - apply license from file
 - how to set license java
-title: Arama Dizini Klasörü Oluştur ve Lisansı Ayarla – GroupDocs.Search Java
+title: Arama İndeks Dizini Oluştur & Lisansı Ayarla – GroupDocs.Search Java
 type: docs
 url: /tr/java/licensing-configuration/groupdocs-search-java-implementation-license/
 weight: 1
 ---
 
-# Search Index Dizini Oluşturma ve Dosyadan Lisans Ayarlama – GroupDocs.Search for Java
+# GroupDocs.Search for Java'da Arama Dizini Klasörü Oluşturma ve Lisansı Dosyadan Ayarlama
 
-Lisansları verimli bir şekilde yönetmek çok önemlidir, ancak bir lisans uygulamadan önce **GroupDocs.Search**'ün verilerini depolayacağı bir **search index dizini** oluşturmanız gerekir. Bu rehberde Maven bağımlılıklarını ayarlamaktan indeks klasörünü oluşturmaya ve son olarak lisansı bir dosyadan uygulamaya kadar tüm süreci adım adım inceleyeceğiz. Sonunda tam lisanslı, aramaya hazır bir Java uygulamanız olacak.
+Lisansları verimli bir şekilde yönetmek çok önemlidir, ancak bir lisansı uygulamadan önce GroupDocs.Search'ün verilerini depolayacağı **bir arama dizini klasörü** oluşturmanız gerekir. Bu rehberde tüm süreci adım adım inceleyeceğiz—Maven bağımlılıklarını kurmaktan arama dizini klasörünü oluşturmaya ve sonunda lisansı bir dosyadan uygulamaya kadar. Sonunda, kütüphanenin **tam özelliklerini açan** tam lisanslı, aramaya hazır bir Java uygulamanız olacak.
 
 ## Hızlı Yanıtlar
-- **İlk adım nedir?** `new Index("path/to/index")` kullanarak bir search index dizini oluşturun.
+- **İlk adım nedir?** `new Index("path/to/index")` kullanarak bir arama dizini klasörü oluşturun.
 - **Lisansı nasıl uygularım?** `License license = new License(); license.setLicense("path/to/license.lic");` kodunu kullanın.
-- **Maven gerekli mi?** Evet, GroupDocs.Search deposunu ve bağımlılığını `pom.xml` dosyanıza ekleyin.
+- **Maven gerekli mi?** Evet, GroupDocs.Search deposunu ve bağımlılığını `pom.xml` dosyasına ekleyin.
 - **Lisans olmadan çalıştırabilir miyim?** Kütüphane sınırlı özelliklerle değerlendirme modunda çalışır.
-- **Hangi Java sürümü gerekiyor?** Tam uyumluluk için Java 8+ önerilir.
+- **Hangi Java sürümü gereklidir?** Tam uyumluluk için Java 8+ önerilir.
 
-## “Search index dizini” nedir ve neden gereklidir?
-Search index dizini, GroupDocs.Search'ün belgelerinizin indekslenmiş temsilini diskte sakladığı bir klasördür. Bu dizin olmadan arama motorunun verileri kalıcı olarak saklayacak bir yeri olmaz ve sorgular mümkün olmaz. Dizin oluşturmak, büyük belge koleksiyonları üzerinde hızlı ve doğru aramalar yapabilmenizi sağlayan temel adımdır.
+## “Arama dizini klasörü” nedir ve neden gereklidir?
+Arama dizini klasörü, GroupDocs.Search'ün belgelerinizin indekslenmiş temsilini diskte sakladığı bir klasördür. Bu klasör olmadan arama motorunun verilerini kalıcı olarak tutacak bir yeri olmaz ve sorgular mümkün olmaz. Klasörü oluşturmak, büyük belge koleksiyonları üzerinde hızlı, doğru aramaları mümkün kılan ve **arama sonuçlarını sağlayan arama dizinini** inşa eden temel adımdır.
 
-## Lisansı dosyadan uygulamak neden önemlidir?
-Lisansı dosyadan uygulamak (`apply license from file`) GroupDocs.Search'ün tam özellik setini açar, değerlendirme filigranlarını kaldırır ve satıcı lisans koşullarına uyumu sağlar. Bu, uygulamanızı üretim ortamına hazır tutmanın basit ve programatik bir yoludur.
+## Neden lisansı dosyadan uygularız?
+**Lisans dosyasını** uygulamak, GroupDocs.Search'ün tam özellik setinin kilidini açar, değerlendirme filigranlarını kaldırır ve satıcının lisans koşullarına uyumu sağlar. Bu, uygulamanızı üretime hazır tutmanın ve her arama işlemi için **tam özelliklerin kilidini açmanın** basit, programatik bir yoludur.
 
 ## Önkoşullar
-- **GroupDocs.Search for Java sürüm 25.4** (veya daha yeni)
-- IntelliJ IDEA veya Eclipse gibi bir IDE
-- Bağımlılık yönetimi için Maven
-- Geçerli bir GroupDocs.Search lisans dosyası (`.lic`)
+- **GroupDocs.Search for Java sürüm 25.4** (veya daha yeni)  
+- IntelliJ IDEA veya Eclipse gibi bir IDE  
+- Bağımlılık yönetimi için Maven  
+- Geçerli bir GroupDocs.Search **lisans dosyası** (`.lic`)  
 
-## GroupDocs.Search for Java Kurulumu
+## GroupDocs.Search for Java'ı Kurma
 
 ### Maven Kurulumu
-Aşağıda gösterildiği gibi `pom.xml` dosyanıza depo ve bağımlılığı **tam olarak** ekleyin:
+`pom.xml` dosyanıza aşağıda gösterildiği gibi depo ve bağımlılığı ekleyin:
 
 ```xml
 <repositories>
@@ -60,10 +60,10 @@ Aşağıda gösterildiği gibi `pom.xml` dosyanıza depo ve bağımlılığı **
 ```
 
 ### Doğrudan İndirme (alternatif)
-Maven kullanmak istemiyorsanız, resmi sürüm sayfasından kütüphaneyi indirebilirsiniz: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Maven kullanmak istemiyorsanız, kütüphaneyi resmi sürüm sayfasından indirebilirsiniz: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-## Search index dizini nasıl oluşturulur
-İndeks dizinini oluşturmak oldukça basittir. SDK tarafından sağlanan `Index` sınıfını kullanın:
+## Arama dizini klasörü nasıl oluşturulur
+İndeks klasörünü oluşturmak oldukça basittir. SDK tarafından sağlanan `Index` sınıfını kullanın:
 
 ```java
 import com.groupdocs.search.*;
@@ -72,12 +72,12 @@ import com.groupdocs.search.*;
 Index index = new Index("path/to/index/directory");
 ```
 
-> **İpucu:** Uygulamanızın çalışma zamanında okuyup yazabileceği bir konum seçin; örneğin projenizin `resources` klasörü içinde bir klasör ya da harici bir veri sürücüsü.
+> **Pro ipucu:** Uygulamanızın çalışma zamanında okuyup yazabileceği bir konum seçin, örneğin projenin `resources` dizini içinde bir klasör veya harici bir veri sürücüsü. Bu konum sizin **arama dizini yolu**'nuzdur.
 
-## “Dosyadan lisans uygulama” uygulaması
+## “Lisansı dosyadan uygulama” uygulaması
 
 ### Adım 1: Gerekli paketleri içe aktarın
-Bu içe aktarmalar, lisanslama API’sine ve dosya işlemleri için Java NIO yardımcı sınıflarına erişim sağlar.
+Bu importlar, lisans API'sine ve dosya işlemleri için Java NIO yardımcı programlarına erişim sağlar.
 
 ```java
 import com.groupdocs.search.licenses.License;
@@ -86,14 +86,14 @@ import java.nio.file.Paths;
 ```
 
 ### Adım 2: Lisans dosyası yolunu tanımlayın
-`YOUR_DOCUMENT_DIRECTORY` kısmını `.lic` dosyanızın bulunduğu gerçek klasörle değiştirin.
+`YOUR_DOCUMENT_DIRECTORY` ifadesini, `.lic` dosyanızın bulunduğu gerçek klasörle değiştirin.
 
 ```java
 String licensePath = "YOUR_DOCUMENT_DIRECTORY/license.lic";
 ```
 
 ### Adım 3: Lisans dosyasının varlığını doğrulayın ve ayarlayın
-Aşağıdaki kod, lisans dosyasının varlığını kontrol eder ve ardından uygular; böylece çalışma zamanı hatalarının önüne geçilir.
+Aşağıdaki kod, lisans dosyasını uygulamadan önce varlığını kontrol eder, böylece çalışma zamanı hatalarını önler.
 
 ```java
 if (Files.exists(Paths.get(licensePath))) {
@@ -107,51 +107,59 @@ if (Files.exists(Paths.get(licensePath))) {
 ```
 
 #### Ana ifadelerin açıklaması
-- `Files.exists(Paths.get(licensePath))` – Dosyanın erişilebilir olduğunu güvenli bir şekilde kontrol eder.
-- `new License()` – Lisans yardımcı nesnesini oluşturur.
-- `license.setLicense(licensePath)` – Lisansı yükler ve uygular, tam işlevselliği açar.
+- `Files.exists(Paths.get(licensePath))` – Güvenli bir şekilde **lisans dosyasının** varlığını doğrular.  
+- `new License()` – Lisans yardımcı nesnesini oluşturur.  
+- `license.setLicense(licensePath)` – Lisans dosyasını yükler ve **uygulayarak**, tam özelliklerin kilidini açar.
 
-## Yaygın Sorunlar & Sorun Giderme
+## Yaygın Sorunlar ve Çözümleme
 
-| Sorun | Muhtemel Nedeni | Çözüm |
-|-------|-----------------|-------|
-| **Dosya bulunamadı** | Yanlış `licensePath` veya eksik dosya | Yolu tekrar kontrol edin ve `.lic` dosyasının uygulama ile birlikte dağıtıldığından emin olun. |
-| **İzin reddedildi** | Uygulamanın okuma izni yok | Dizin için okuma izni verin veya JVM'yi uygun yetkilerle çalıştırın. |
-| **Lisans uygulanmadı** | Eski bir lisans sürümü kullanılıyor | Lisansın, kullandığınız GroupDocs.Search sürümüyle eşleştiğini doğrulayın. |
+| Sorun | Muhtemel Neden | Çözüm |
+|-------|----------------|-------|
+| **Dosya bulunamadı** | Yanlış `licensePath` veya eksik dosya | Yolu tekrar kontrol edin ve `.lic` dosyasının uygulamanızla birlikte dağıtıldığından emin olun. |
+| **İzin reddedildi** | Uygulamanın okuma izni yok | Dizin için okuma izinleri verin veya JVM'yi uygun yetkilerle çalıştırın. |
+| **Lisans uygulanmadı** | Eski bir lisans sürümü kullanılıyor | Lisansın kullandığınız GroupDocs.Search sürümüyle eşleştiğini doğrulayın. |
 
-## Pratik Kullanım Alanları
-GroupDocs.Search, hızlı ve ölçeklenebilir metin araması gerektiren senaryolarda öne çıkar:
+## Pratik Uygulamalar
+GroupDocs.Search, hızlı ve ölçeklenebilir metin aramasının gerektiği senaryolarda öne çıkar:
 
-- **İçerik Yönetim Sistemleri** – Binlerce PDF, Word belgesi ve HTML sayfasını indeksleyip arayın.
-- **Hukuki Belge İncelemesi** – Büyük sözleşme depoları içinde maddeleri anında bulun.
-- **Müşteri Destek Portalları** – Temsilcilerin ilgili bilgi tabanı makalelerini anında almasını sağlayın.
+- **İçerik Yönetim Sistemleri** – Binlerce PDF, Word belgesi ve HTML sayfasını indeksleyip arayın.  
+- **Hukuki Belge İncelemesi** – Büyük sözleşme depolarında maddeleri hızlıca bulun.  
+- **Müşteri Destek Portalları** – Temsilcilerin ilgili bilgi tabanı makalelerini anında almasını sağlayın.  
 
 ## Performans İpuçları
-- **İndeksi düzenli olarak yeniden oluşturun**; toplu yüklemeler sonrası arama sonuçlarının güncel kalmasını sağlayın.
-- **JVM yığınını izleyin**; büyük veri kümeleri indekslerken `-Xmx` değerini artırmayı düşünün.
-- **Tam yeniden indeksleme yerine artımlı indeksleme** kullanarak gerçek zamanlı güncellemeler yapın.
+- **İndeksi düzenli olarak yeniden oluşturun** toplu yüklemelerden sonra, arama sonuçlarını güncel tutmak için.  
+- **JVM yığınını izleyin** büyük veri kümelerini indekslerken; `OutOfMemoryError` alırsanız `-Xmx` değerini artırmayı düşünün.  
+- **Tam yeniden indeksleme yerine artımlı indeksleme** kullanarak gerçek zamanlı güncellemeler yapın.  
+
+## Bunun önemi
+Güvenilir bir **arama dizini klasörü** oluşturmak ve **lisans dosyasını** doğru bir şekilde **uygulamak**, GroupDocs.Search'ü büyük ölçekte kullanmanızı sağlayan iki temel taşıdır. Bu adımlardan birini atlamak, sınırlı işlevsellik ya da çalışma zamanı hatalarına yol açar; bu da geliştirmeyi durdurur ve son kullanıcıları hayal kırıklığına uğratır.
+
+## Kaçınılması gereken yaygın tuzaklar
+- Lisans dosyasını yalnızca okunabilir bir JAR içinde saklamak – SDK'nin diskte fiziksel bir dosyaya ihtiyacı vardır.  
+- Geliştirme ve üretim ortamları arasında farklılık gösteren mutlak yolları sabit kodlamak. Bunun yerine göreceli yollar veya yapılandırma dosyaları kullanın.  
+- Herhangi bir arama işleminden önce `license.setLicense(...)` çağırmayı unutmak; SDK ilk kullanımda lisansı kontrol eder.
 
 ## Sonuç
-Artık **search index dizini oluşturma** ve **dosyadan lisans uygulama** işlemlerini GroupDocs.Search for Java ile nasıl yapacağınızı biliyorsunuz. Bu kurulum, kütüphanenin tam gücünü açar ve belge yoğun uygulamalar için sağlam arama çözümleri geliştirmenizi sağlar.
+Artık GroupDocs.Search for Java kullanarak **arama dizini klasörü oluşturmayı**, **arama dizinini inşa etmeyi** ve **lisansı dosyadan uygulamayı** biliyorsunuz. Bu kurulum, kütüphanenin tam gücünün kilidini açar ve belge‑ağır herhangi bir uygulama için sağlam arama çözümleri oluşturmanıza olanak tanır.
 
-**Sonraki adımlar:** Bulanık arama, Boolean operatörleri ve özel puanlama gibi gelişmiş sorgu özelliklerini deneyerek sonuçları iş ihtiyaçlarınıza göre özelleştirin.
+**Sonraki adımlar:** bulanık arama, Boolean operatörleri ve özel puanlama gibi gelişmiş sorgu özelliklerini deneyerek sonuçları iş ihtiyaçlarınıza göre özelleştirin.
 
 ## Sıkça Sorulan Sorular
 
-**S: GroupDocs.Search için geçici bir lisans nasıl alınır?**  
-C: Ücretsiz deneme sürümünü [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/) adresinden edinin.
+**Q: GroupDocs.Search için geçici bir lisans nasıl elde ederim?**  
+A: Ücretsiz deneme için [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/) adresine gidin.
 
-**S: Maven kullanmadan GroupDocs.Search'i kullanabilir miyim?**  
-C: Evet, JAR dosyalarını doğrudan indirip projenizin sınıf yoluna ekleyebilirsiniz.
+**Q: Maven olmadan GroupDocs.Search kullanabilir miyim?**  
+A: Evet, JAR dosyalarını doğrudan indirip projenizin sınıf yoluna ekleyebilirsiniz.
 
-**S: Çalışma zamanında lisans dosyası eksik olursa ne olur?**  
-C: SDK değerlendirme modunda çalışır; bu mod arama yapılabilecek belge sayısını sınırlar ve filigran gösterebilir.
+**Q: Çalışma zamanında lisans dosyası eksik olursa ne olur?**  
+A: SDK değerlendirme modunda çalışır, bu da aranabilir belge sayısını sınırlar ve su işaretleri gösterebilir.
 
-**S: Search index ne sıklıkta yeniden oluşturulmalı?**  
-C: Belgeler eklendiğinde, silindiğinde veya önemli ölçüde değiştirildiğinde yeniden oluşturun; böylece arama doğruluğu korunur.
+**Q: Arama dizinimi ne sıklıkta yeniden oluşturmalıyım?**  
+A: Belgeleri eklediğinizde, sildiğinizde veya önemli ölçüde değiştirdiğinizde arama doğruluğunu sağlamak için yeniden oluşturun.
 
-**S: GroupDocs.Search büyük veri setlerini verimli bir şekilde yönetir mi?**  
-C: Evet, uygun indeksleme stratejileri ve yeterli JVM bellek tahsisi ile milyonlarca belgeye ölçeklenebilir.
+**Q: GroupDocs.Search büyük veri setlerini verimli bir şekilde yönetir mi?**  
+A: Evet, uygun indeksleme stratejileri ve yeterli JVM bellek tahsisiyle milyonlarca belgeye ölçeklenebilir.
 
 ## Ek Kaynaklar
 
@@ -163,6 +171,8 @@ C: Evet, uygun indeksleme stratejileri ve yeterli JVM bellek tahsisi ile milyonl
 
 ---
 
-**Son Güncelleme:** 2026-01-08  
-**Test Edilen Versiyon:** GroupDocs.Search for Java 25.4  
-**Yazar:** GroupDocs
+**Last Updated:** 2026-03-17  
+**Test Edilen:** GroupDocs.Search for Java 25.4  
+**Yazar:** GroupDocs  
+
+---

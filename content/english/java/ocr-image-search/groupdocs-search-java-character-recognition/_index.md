@@ -1,7 +1,7 @@
 ---
-title: "Create Custom Search Index with Character Recognition – GroupDocs.Search Java"
-description: "Learn how to create custom search index using GroupDocs.Search for Java, configuring regular and blended characters for advanced OCR and image search."
-date: "2026-01-11"
+title: "How to Create Index with Character Recognition in Java"
+description: "Learn how to create index with GroupDocs.Search for Java, configure regular and blended characters, and optimize search for legal case numbers and OCR images."
+date: "2026-03-17"
 weight: 1
 url: "/java/ocr-image-search/groupdocs-search-java-character-recognition/"
 keywords:
@@ -11,9 +11,9 @@ keywords:
 type: docs
 ---
 
-# Create Custom Search Index with Character Recognition using GroupDocs.Search for Java
+# How to Create Index with Character Recognition using GroupDocs.Search for Java
 
-In modern document‑heavy applications, **creating a custom search index** that understands the nuances of your text—such as hyphens, underscores, or language‑specific symbols—is essential for fast, accurate retrieval. This tutorial walks you through configuring character recognition in **GroupDocs.Search for Java**, covering both regular characters (letters, digits, underscores) and blended characters (e.g., hyphens). By the end, you’ll be able to tailor an index that fits the exact needs of your OCR or image‑search scenario.
+In modern document‑heavy applications, **how to create index** that respects the nuances of your text—such as hyphens, underscores, or language‑specific symbols—is essential for fast, accurate retrieval. In this tutorial we’ll walk through configuring character recognition in **GroupDocs.Search for Java**, covering both regular characters (letters, digits, underscores) and blended characters (e.g., hyphens). By the end, you’ll be able to tailor an index that fits the exact needs of your OCR or image‑search scenario, whether you’re indexing legal case numbers, source‑code repositories, or multilingual PDFs.
 
 ## Quick Answers
 - **What does “create custom search index” mean?** It means configuring an index to treat specific symbols as letters or blended characters, rather than ignoring them.  
@@ -23,11 +23,12 @@ In modern document‑heavy applications, **creating a custom search index** that
 - **Is Maven required?** Maven is the recommended way to manage dependencies, but you can also use Gradle or manual JARs.
 
 ## What is a Custom Search Index?
-A custom search index lets you define how the search engine interprets characters. By default, many symbols are ignored, which can lead to missed matches for things like case numbers (`ABC-123`) or code snippets (`my_variable`). Adjusting the alphabet dictionary gives you full control over what the engine treats as searchable text.
+A custom search index lets you define how the search engine interprets characters. By default, many symbols are ignored, which can lead to missed matches for things like case numbers (`2023-AB-456`) or code snippets (`my_variable`). Adjusting the alphabet dictionary gives you full control over what the engine treats as searchable text.
 
-## Why Configure Regular and Blended Characters?
-- **Regular characters** (letters, digits, underscores) are treated as standalone tokens, improving exact‑match searches.  
-- **Blended characters** (hyphens, slashes) connect words; configuring them prevents unwanted token splitting, which is crucial for legal references, product codes, or source‑code indexing.
+## Why Configure Regular and Blended Characters for Legal Case Numbers?
+- **Regular characters** (letters, digits, underscores) are tokenized separately, enabling exact‑match searches for identifiers.  
+- **Blended characters** (hyphens, slashes) keep related tokens together, preventing unwanted splitting of case numbers, product codes, or file paths.  
+- This configuration **optimizes search index** performance by reducing token fragmentation and improving relevance for OCR‑generated content.
 
 ## Prerequisites
 - **JDK 8** or later installed.  
@@ -183,13 +184,16 @@ index.add(documentFolder);
 ## Practical Applications
 
 ### Use Case 1 – Legal Document Management
-Legal files often contain case numbers like `2023-AB-456`. By configuring underscores and hyphens, searches return exact matches without splitting the identifier.
+Legal files often contain case numbers like `2023-AB-456`. By configuring underscores and hyphens, searches return exact matches without splitting the identifier, helping you **search legal case numbers** efficiently.
 
 ### Use Case 2 – Source‑Code Repositories
 Developers need to search code snippets where underscores (`my_variable`) and hyphens (`my-function`) are meaningful. Custom character recognition ensures the search engine respects these symbols.
 
 ### Use Case 3 – Multilingual Datasets
-When working with languages that use additional alphabets, you can extend the regular character set to include those Unicode ranges, guaranteeing accurate cross‑language search results.
+When working with languages that use additional alphabets, you can **extend Unicode character set** to include those ranges, guaranteeing accurate cross‑language search results.
+
+### Use Case 4 – Index PDF Images
+If you are indexing scanned PDFs or image files, the OCR output often contains mixed characters. Properly configuring regular and blended characters **optimizes search index** performance for image‑based content.
 
 ## Performance Considerations
 
@@ -199,9 +203,9 @@ When working with languages that use additional alphabets, you can extend the re
 
 ## Conclusion
 
-You now know how to **create a custom search index** that distinguishes between regular and blended characters using GroupDocs.Search for Java. This fine‑grained control empowers you to build OCR‑aware, high‑performance search solutions tailored to legal, development, or multilingual environments.
+You now know **how to create index** that distinguishes between regular and blended characters using GroupDocs.Search for Java. This fine‑grained control empowers you to build OCR‑aware, high‑performance search solutions tailored to legal, development, or multilingual environments.
 
-**Next Steps**  
+### Next Steps
 - Experiment with additional Unicode ranges for non‑Latin alphabets.  
 - Combine character configuration with other GroupDocs.Search features like stemming or synonyms.  
 - Integrate the index into a REST API to expose search capabilities to front‑end applications.
@@ -225,7 +229,7 @@ You now know how to **create a custom search index** that distinguishes between 
 
 ---
 
-**Last Updated:** 2026-01-11  
+**Last Updated:** 2026-03-17  
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs  
 
