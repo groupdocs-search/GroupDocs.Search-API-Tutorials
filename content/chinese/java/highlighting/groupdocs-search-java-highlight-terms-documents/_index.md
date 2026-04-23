@@ -1,45 +1,74 @@
 ---
-date: '2025-12-26'
-description: 学习如何使用 GroupDocs.Search for Java 在文档中搜索和突出显示文本。探索全文档和片段高亮显示的技术。
+date: '2026-02-27'
+description: 学习如何使用 GroupDocs.Search for Java 对文本进行高亮显示，涵盖 Java 文档搜索、Java 文档索引以及片段高亮。
 keywords:
 - GroupDocs.Search for Java
 - highlight search terms in documents
 - document highlighting
-title: 使用 GroupDocs.Search for Java 搜索并高亮文本
+title: 使用 GroupDocs.Search 在 Java 中高亮文本
 type: docs
 url: /zh/java/highlighting/groupdocs-search-java-highlight-terms-documents/
 weight: 1
 ---
 
-# 使用 GroupDocs.Search for Java 在文档中搜索并高亮文本
+A: Yes—GroupDocs.Search works with PDF input, and the highlighter will output HTML that you can embed in a PDF viewer or convert back to PDF using GroupDocs.Conversion. ->
 
-在当今数字时代，跨大规模文档集合进行 **search and highlight text** 是常见需求。无论您是在构建法律审查工具、学术研究门户，还是客户支持仪表板，能够即时定位并强调关键术语都能显著提升可用性。在本综合指南中，您将了解如何使用 GroupDocs.Search for Java 实现 **search and highlight text** ——涵盖全文档高亮和片段级高亮，以提供聚焦的上下文。
+Translate each.
 
-## 快速回答
-- **What does “search and highlight text” mean?** 它指的是在文档中定位查询词并通过视觉方式（例如背景颜色）进行强调。  
-- **Which library provides this capability?** GroupDocs.Search for Java。  
-- **Do I need a license?** 免费试用可用于评估；生产环境需要完整许可证。  
-- **Can I customize highlight colors?** 可以——任何 RGB 颜色均可通过 `HighlightOptions` 设置。  
-- **Is fragment highlighting supported?** 完全支持；您可以定义匹配前后出现的词数，以创建简洁的片段。
+Next final lines:
 
-## 什么是 Search and Highlight Text？
-Search and highlight text 是扫描文档索引以查找给定查询、检索匹配文档，然后在文档输出（HTML、PDF 等）中标记每个查询词出现位置的过程。此视觉提示帮助最终用户即时发现相关信息。
+**Last Updated:** 2026-02-27  
+**Tested With:** GroupDocs.Search 25.4  
+**Author:** GroupDocs
+
+Translate labels but keep dates.
+
+**最后更新：** 2026-02-27  
+**测试版本：** GroupDocs.Search 25.4  
+**作者：** GroupDocs
+
+Now produce final markdown with translations.
+
+Make sure to keep all placeholders unchanged.
+
+Let's craft final answer.# 使用 GroupDocs.Search 的 Java 文本高亮
+
+在当今快节奏的数字环境中，能够在大量文件集合中 **highlight text java** 是必备功能。无论您是在构建法律审查平台、学术研究引擎，还是客户支持控制台，能够即时定位用户搜索的词汇都能大幅提升体验。本教程将指导您使用 **GroupDocs.Search for Java** 来 **search documents java**、**index documents java**，并应用丰富的高亮显示——既可用于整篇文档，也可用于特定片段。
+
+## Quick Answers
+- **“search and highlight text” 是什么意思？** 它指在文档中定位查询词并通过视觉方式（例如背景颜色）突出显示它们。  
+- **提供此功能的库是哪个？** GroupDocs.Search for Java。  
+- **我需要许可证吗？** 免费试用可用于评估；生产环境需要完整许可证。  
+- **我可以自定义高亮颜色吗？** 可以——通过 `HighlightOptions` 可以设置任意 RGB 颜色。  
+- **支持片段高亮吗？** 当然支持；您可以定义匹配前后出现的词数，以生成简洁的摘要。
+
+## 在文档中使用 Java 高亮文本
+Java 文本高亮涉及三个核心步骤：
+
+1. **索引源文件**，以便快速搜索。  
+2. **对索引执行查询**，以查找匹配的文档。  
+3. **使用高亮 API 渲染结果**，并提供视觉提示。  
+
+下面我们将详细探讨每一步，首先是整篇文档的输出，其次是片段级别的摘要。
+
+## 什么是搜索并高亮文本？
+搜索并高亮文本是指在文档索引中扫描给定查询，检索匹配的文档，然后在文档输出（HTML、PDF 等）中标记每个查询词出现的位置。此视觉提示帮助终端用户即时发现相关信息。
 
 ## 为什么使用 GroupDocs.Search for Java？
-- **High‑performance indexing** 具备可配置的压缩选项。  
-- **Rich highlighting API** 可对整篇文档和自定义片段进行高亮。  
-- **Cross‑format support** 支持 DOCX、PDF、PPTX、TXT 等多种格式。  
-- **Easy Maven integration** 提供清晰的 Java‑centric API。
+- **高性能索引**，支持可配置压缩（`index documents java`）。  
+- **丰富的高亮 API**，可用于整篇文档和自定义片段（`highlight search terms java`）。  
+- **跨格式支持**（DOCX、PDF、PPTX、TXT 等）。  
+- **简易的 Maven 集成**，以及清晰的 Java 为中心的设计。
 
-## 前置条件
-- Java Development Kit (JDK) 8 或更高版本。  
+## Prerequisites
+- Java Development Kit（JDK）8 或更高版本。  
 - 用于依赖管理的 Maven。  
-- IntelliJ IDEA 或 Eclipse 等 IDE。  
-- 基本的 Java 语法熟悉度。
+- 如 IntelliJ IDEA 或 Eclipse 等 IDE。  
+- 对 Java 语法有基本了解。
 
-## 设置 GroupDocs.Search for Java
+## Setting Up GroupDocs.Search for Java
 
-将 GroupDocs 仓库和依赖添加到您的 `pom.xml` 中：
+在 `pom.xml` 中添加 GroupDocs 仓库和依赖：
 
 ```xml
 <repositories>
@@ -59,16 +88,16 @@ Search and highlight text 是扫描文档索引以查找给定查询、检索匹
 </dependencies>
 ```
 
-您也可以直接从官方网站下载最新的 JAR： [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)。
+您也可以直接从官方网站下载最新的 JAR 包：[GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### 获取许可证
-先使用免费试用或获取临时许可证进行评估。生产部署时，请购买完整许可证以解锁全部功能。
+### License Acquisition
+先使用免费试用或获取临时许可证进行评估。生产部署时，需要购买完整许可证以解锁全部功能。
 
-## 实施指南
+## Implementation Guide
 
-实现分为两个实用部分：**在整个文档中高亮** 和 **在片段中高亮**。两部分均包含使用 GroupDocs.Search **how to highlight Java** 文档的关键步骤。
+实现分为两个实用部分：**整篇文档高亮**和**片段高亮**。两个部分都包含使用 GroupDocs.Search 对 **Java 文档进行高亮** 的关键步骤。
 
-### 配置索引设置
+### Configuring Index Settings
 在索引之前，配置存储使用高压缩——这可以在保持搜索速度的同时降低磁盘使用量。
 
 ```java
@@ -76,9 +105,9 @@ IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-### 在整个文档中高亮
+### Highlighting in Entire Documents
 
-#### 步骤 1：创建并填充索引
+#### Step 1: Create and Populate the Index
 创建索引文件夹并添加所有需要搜索的源文件。
 
 ```java
@@ -87,7 +116,7 @@ Index index = new Index(indexFolder, settings);
 index.add("/path/to/your/documents");
 ```
 
-#### 步骤 2：执行搜索并应用高亮
+#### Step 2: Perform Search and Apply Highlighting
 搜索指定词（例如 `ipsum`），并生成带有高亮匹配的 HTML 文件。
 
 ```java
@@ -106,15 +135,14 @@ if (result.getDocumentCount() > 0) {
 }
 ```
 
-**关键选项说明**
+**关键选项说明**  
 - **Compression** – 高压缩可节省存储空间。  
 - **HighlightColor** – 设置任意 RGB 值以匹配您的 UI 调色板。  
-- **UseInlineStyles** – `false` 会生成干净的 HTML，可通过全局 CSS 进行样式化。
+- **UseInlineStyles** – `false` 会生成干净的 HTML，可通过全局 CSS 样式进行美化。  
 
-### 在片段中高亮
+### Highlighting in Fragments
 
-#### 步骤 1：索引并搜索（同上）
-
+#### Step 1: Index and Search (same as above)
 ```java
 String indexFolder = "/path/to/your/document/directory/HighlightingInFragments";
 Index index = new Index(indexFolder, settings);
@@ -123,7 +151,7 @@ index.add("/path/to/your/documents");
 SearchResult result = index.search("ipsum");
 ```
 
-#### 步骤 2：定义片段上下文并高亮
+#### Step 2: Define Fragment Context and Highlight
 指定每个片段中匹配前后应出现的词数。
 
 ```java
@@ -139,7 +167,7 @@ FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.Html);
 index.highlight(document, highlighter, options);
 ```
 
-#### 步骤 3：检索并写入高亮片段
+#### Step 3: Retrieve and Write Highlighted Fragments
 收集生成的片段并写入 HTML 文件。
 
 ```java
@@ -165,40 +193,44 @@ try {
 }
 ```
 
-## 实际应用
-1. **Legal Document Review** – 立即高亮法规、条款或案例引用。  
-2. **Academic Research** – 在数十个 PDF 与 Word 文件中快速定位关键术语。  
-3. **Customer Support** – 在工单历史中精准定位订单号或错误码。
+## Practical Applications
+1. **法律文档审查** – 即时高亮法规、条款或案例引用。  
+2. **学术研究** – 在数十个 PDF 和 Word 文件中快速呈现关键术语。  
+3. **客户支持** – 在工单历史中快速定位订单号或错误代码。  
 
-## 性能考虑
-- **Index Size** – 高压缩 (`Compression.High`) 可减少磁盘占用。  
-- **Fragment Context** – 较大的 `termsBefore/After` 值提升准确性，但可能影响速度。  
-- **Memory Management** – 索引大规模语料库时监控 JVM 堆内存；对超大集合可考虑增量索引。
+## Performance Considerations
+- **索引大小** – 高压缩（`Compression.High`）可减小磁盘占用。  
+- **片段上下文** – 更大的 `termsBefore/After` 值提升准确性，但可能影响速度。  
+- **内存管理** – 在索引大规模语料库时监控 JVM 堆；对极大数据集可考虑增量索引。  
 
-## 常见问题与解决方案
-- **Indexing Errors** – 核实文件路径并确保应用拥有读写权限。  
-- **No Highlights Appear** – 确认 `UseInlineStyles` 与输出格式（HTML 与 PDF）匹配。  
-- **Color Not Applied** – 确认 RGB 值在 0‑255 范围内，并且 HTML 查看器支持相应样式。
+## Common Issues and Solutions
+- **索引错误** – 检查文件路径并确保应用拥有读写权限。  
+- **未出现高亮** – 确认 `UseInlineStyles` 与您的输出格式（HTML 或 PDF）匹配。  
+- **颜色未生效** – 确认 RGB 值在 0‑255 范围内，并且 HTML 查看器支持该样式。  
 
-## 常见问答
+## Frequently Asked Questions
 
-**Q: What are the benefits of using GroupDocs.Search for Java?**  
-A: 它提供快速、可扩展的索引、可定制的高亮功能，并支持多种文档格式。
+**Q: 使用 GroupDocs.Search for Java 有哪些好处？**  
+A: 它提供快速、可扩展的索引、可定制的高亮以及对多种文档格式的支持。
 
-**Q: How can I integrate GroupDocs.Search with a REST API?**  
-A: 通过 Spring Boot 控制器暴露搜索和高亮方法，返回 HTML 或 JSON 负载。
+**Q: 如何将 GroupDocs.Search 与 REST API 集成？**  
+A: 通过 Spring Boot 控制器公开搜索和高亮方法，返回 HTML 或 JSON 负载。
 
-**Q: Does the library handle password‑protected files?**  
-A: 是的——在将文档添加到索引时提供密码即可。
+**Q: 该库能处理受密码保护的文件吗？**  
+A: 能——在将文档添加到索引时提供密码即可。
 
-**Q: Can I customize the highlight markup beyond color?**  
-A: 完全可以；您可以通过 `HighlightOptions` 注入 CSS 类，或在生成后修改 HTML。
+**Q: 我可以自定义高亮标记的样式（除颜色外）吗？**  
+A: 完全可以；可以通过 `HighlightOptions` 注入 CSS 类，或在生成后修改 HTML。
 
-**Q: What version was tested for this guide?**  
+**Q: 本指南使用的测试版本是什么？**  
 A: 代码已在 GroupDocs.Search 25.4 上验证。
 
----
+**Q: 如何将 highlight options java 设置为使用 CSS 类而非内联样式？**  
+A: 设置 `options.setUseInlineStyles(false)`，并通过 `options.setCssClass("myHighlight")` 为其分配的类添加 CSS 规则。
 
-**Last Updated:** 2025-12-26  
+**Q: 是否有办法在源文件为 PDF 时直接高亮 terms pdf java？**  
+A: 有——GroupDocs.Search 支持 PDF 输入，高亮器会输出 HTML，您可以将其嵌入 PDF 查看器或使用 GroupDocs.Conversion 再转换回 PDF。
+
+**Last Updated:** 2026-02-27  
 **Tested With:** GroupDocs.Search 25.4  
 **Author:** GroupDocs
