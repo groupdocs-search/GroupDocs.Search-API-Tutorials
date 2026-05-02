@@ -1,19 +1,21 @@
 ---
 title: "How to Configure Search with GroupDocs.Search in Java - Configuration & Deployment Guide"
 description: "Learn how to configure search and enable real time search updates using GroupDocs.Search for Java. Step‑by‑step guide on network setup, node deployment, and indexing."
-date: "2026-01-08"
+date: "2026-05-02"
 weight: 1
 url: "/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/"
 keywords:
-- GroupDocs.Search for Java
-- configure search network in Java
-- deploying nodes in search network
+- how to configure search
+- real time search updates
+- add directories to index
+- configure master node
+- optimize shard size
 type: docs
 ---
 
 # How to Configure Search with GroupDocs.Search in Java
 
-In today's fast‑moving digital world, **how to configure search** efficiently can make or break a project's success. Whether you’re dealing with thousands of contracts, research papers, or internal reports, a well‑designed search network lets you locate the right document in seconds. This tutorial walks you through configuring a search network, deploying nodes, and enabling **real time search updates** with GroupDocs.Search for Java.
+In today's fast‑moving digital world, **how to configure search** efficiently can make or break a project's success. Whether you’re handling thousands of contracts, research papers, or internal reports, a well‑designed search network lets you locate the right document in seconds. This tutorial walks you through configuring a search network, deploying nodes, and enabling **real time search updates** with GroupDocs.Search for Java.
 
 ## Quick Answers
 - **What is the primary purpose of a search network?** To distribute indexing and query processing across multiple nodes for scalability and speed.  
@@ -106,7 +108,7 @@ import com.groupdocs.search.scaling.SearchNetworkNode;
 String[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, configuration);
 SearchNetworkNode masterNode = nodes[0]; // Designate the first node as the master node
 ```
-- **Master Node:** Coordinates searches and indexing across all nodes.
+- **Master Node:** Coordinates searches and indexing across all nodes. You can **configure master node** settings such as shard allocation and health checks.
 
 ## Subscribing to Node Events for Real Time Search Updates
 
@@ -134,7 +136,7 @@ import com.groupdocs.search.scaling.Indexer;
 Indexer indexer = masterNode.getIndexer();
 indexer.addDirectories("YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-- **Dynamic Indexing:** Add as many folders as needed; the network will index them automatically.
+- **Dynamic Indexing:** Use the `addDirectories` method to **add directories to index** on the fly without restarting the network.
 
 ## Retrieving Indexed Documents
 
@@ -167,7 +169,10 @@ for (int i = 0; i < shardIndices.length; i++) {
     }
 }
 ```
-- **Shard Management:** Efficiently handles large datasets by distributing documents across shards.
+- **Shard Management:** Efficiently handles large datasets by distributing documents across shards. To **optimize shard size**, monitor shard statistics and adjust the `shardSize` configuration in future releases.
+
+## Why this matters for your project
+A properly configured search network eliminates bottlenecks, reduces latency, and ensures that users always see the most recent version of a document. Real‑time updates and the ability to **add directories to index** without downtime are especially valuable for legal firms, research institutions, and any organization that deals with constantly changing document collections.
 
 ## Practical Applications
 1. **Enterprise Document Management:** Centralize search across millions of files.  
@@ -177,7 +182,8 @@ for (int i = 0; i < shardIndices.length; i++) {
 ## Performance Considerations
 - **Optimize Indexing:** Schedule regular index refreshes and purge stale data.  
 - **Memory Management:** Monitor JVM heap, especially when handling large shards.  
-- **Scalability Planning:** Add nodes as your corpus grows; the network auto‑balances load.
+- **Scalability Planning:** Add nodes as your corpus grows; the network auto‑balances load.  
+- **Optimize shard size:** Smaller shards improve query latency, while larger shards reduce overhead. Tune based on your hardware and query patterns.
 
 ## Common Issues & Solutions
 | Issue | Cause | Fix |
@@ -204,10 +210,10 @@ A: GroupDocs.Search supports PDFs, Word, Excel, PowerPoint, plain text, and many
 A: No—nodes can be added or removed dynamically; the master node will rebalance shards automatically.
 
 ## Conclusion
-You now have a complete, step‑by‑step understanding of **how to configure search** using GroupDocs.Search for Java, from initial setup to real‑time updates and distributed indexing. Apply these patterns to build fast, scalable, and reliable document search solutions for any industry.
+Now that you know **how to configure search** using GroupDocs.Search for Java, you can build fast, scalable, and reliable document search solutions that keep pace with your organization’s growth. Apply these patterns to create real‑time, distributed search experiences for any industry.
 
 ---
 
-**Last Updated:** 2026-01-08  
+**Last Updated:** 2026-05-02  
 **Tested With:** GroupDocs.Search for Java 25.4  
 **Author:** GroupDocs
