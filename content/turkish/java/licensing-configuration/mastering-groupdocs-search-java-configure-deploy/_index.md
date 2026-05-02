@@ -1,48 +1,50 @@
 ---
-date: '2026-01-08'
+date: '2026-05-02'
 description: GroupDocs.Search for Java kullanarak aramayı nasıl yapılandıracağınızı
   ve gerçek zamanlı arama güncellemelerini nasıl etkinleştireceğinizi öğrenin. Ağ
-  kurulumu, düğüm dağıtımı ve indeksleme hakkında adım adım kılavuz.
+  kurulumu, düğüm dağıtımı ve indeksleme konusunda adım adım rehber.
 keywords:
-- GroupDocs.Search for Java
-- configure search network in Java
-- deploying nodes in search network
-title: 'Java''da GroupDocs.Search ile Aramayı Nasıl Yapılandırılır - Konfigürasyon
-  ve Dağıtım Kılavuzu'
+- how to configure search
+- real time search updates
+- add directories to index
+- configure master node
+- optimize shard size
+title: GroupDocs.Search ile Java’da Aramayı Nasıl Yapılandırılır – Konfigürasyon ve
+  Dağıtım Kılavuzu
 type: docs
 url: /tr/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/
 weight: 1
 ---
 
-# GroupDocs.Search ile Java'da Arama Nasıl Yapılır?
+# GroupDocs.Search ile Java'da Aramayı Nasıl Yapılandırılır
 
-Bugünün hızlı tempolu dijital dünyasında, **aramayı nasıl yapılandırılır** başarılı bir şekilde yanıtlanması bir seçeneği seçmeyir ya da başarısızlığa sürüklenebilir. Kişisel sözleşme, araştırma makalesi ya da iç raporla hazırlanır olun, iyi hazırlanmış bir arama ağı doğru belgeyi saniyeler içinde bulmanızı sağlar. Bu öğretici, bir arama ağı işlemleriniyı, düğümleri dağıtmayı ve GroupDocs.Search for Java ile **gerçek zamanlı arama güncellemelerini** etkinleştirmeyi adım adım gösterir.
+Günümüzün hızlı hareket eden dijital dünyasında, **aramayı nasıl yapılandırılır** verimli bir şekilde yapmak bir projenin başarısını belirleyebilir veya bozabilir. Binlerce sözleşme, araştırma makalesi veya iç raporla uğraşıyor olun, iyi tasarlanmış bir **search network** doğru belgeyi saniyeler içinde bulmanızı sağlar. Bu öğretici, bir arama ağını yapılandırma, düğümleri dağıtma ve GroupDocs.Search for Java ile **gerçek zamanlı arama güncellemeleri** etkinleştirme adımlarını size gösterir.
 
 ## Hızlı Yanıtlar
-- **Bir arama ağının temel amacı nedir?**İndeksleme ve sorgu işlemeli ölçeklenebilirlik ve hız için birden fazla düğüm arasında dağıtmak.
-- **Hangi üye sürümü gereklidir?**GroupDocs.SearchforJavav25.4veya daha yeni.
-- **Lisans gerekiyor mu?**Değerlendirme için ücretsiz deneme çalışır; üretim için ticari lisans gereklidir.
-- **Gerçek zamanlı güncellemeler nasıl ele alınır?**İndeksleme çalıştırmade tetiklenen düğüm hatalarıa abone olarak.
-- **Yeni belge klasörlerini anında tamamlayabilir miyim?**Evet—indexer'ın `addDirectories` yöntemini kullanın.
+- **Arama ağının temel amacı nedir?** İndeksleme ve sorgu işleme görevlerini birden fazla düğüm arasında dağıtarak ölçeklenebilirlik ve hız sağlar.  
+- **Hangi kütüphane sürümü gereklidir?** GroupDocs.Search for Java v25.4 veya daha yenisi.  
+- **Bir lisansa ihtiyacım var mı?** Değerlendirme için ücretsiz deneme yeterlidir; üretim için ticari lisans gereklidir.  
+- **Gerçek zamanlı güncellemeler nasıl yönetilir?** İndeksleme değişikliklerinde tetiklenen düğüm olaylarına abone olarak.  
+- **Yeni belge klasörlerini anında ekleyebilir miyim?** Evet—indexer’ın `addDirectories` metodunu kullanın.
 
-## GroupDocs uzantıları “aramayı nasıl yapılandırılır” ne anlama gelir?
-Aramayı karşılaştırın, belgelerinizin nerede olduğunu, düğümlerin nasıl iletişim kurduğunu ve indekslemenin nasıl koordine edildiğini bilen bir **arama ağı** kalibrasyonu demektir. Ağ yapılandırıldıktan sonra, kesilmeden düğümleri birleştirin, sürekli güncel arama yaparak erişim sağlayabilirsiniz.
+## GroupDocs bağlamında “aramayı nasıl yapılandırılır” nedir?
+Aramayı yapılandırmak, belgelerinizin nerede bulunduğunu, düğümlerin nasıl iletişim kurduğunu ve indekslemenin nasıl koordine edildiğini bilen bir **search network** kurmak anlamına gelir. Ağ yapılandırıldıktan sonra, kesinti olmadan düğüm ekleyebilir veya kaldırabilirsiniz; bu da sürekli güncel arama sonuçlarına erişimi sağlar.
 
-## Neden GroupDocs.Search for Java kullanılmıyor?
-- **Ölçekilebilirlik:** İş yüklerini birden fazla makine arasında dağıtın.
-- **Gerçek zamanlı güncellemeler:** Yeni indekslenen dosyalar ağda anında yansıtın.
-- **Entegrasyon kolaylığı:** Basit Maven kurulumu ve net Java API'leri.
-- **Kurumsal hazır:** Büyük veri kümelerini ve karmaşık sorgu senaryolarını yönetir.
+## Neden Java için GroupDocs.Search kullanmalı?
+- **Scalability:** İş yüklerini birden fazla makine arasında dağıtın.  
+- **Real‑time updates:** Yeni indekslenen dosyaları ağda anında yansıtın.  
+- **Ease of integration:** Basit Maven kurulumu ve net Java API'leri.  
+- **Enterprise‑ready:** Büyük veri kümelerini ve karmaşık sorgu senaryolarını yönetir.
 
 ## Önkoşullar
-- **Java Development Kit (JDK)8+** Yüklü.
-- **Maven** ilişkileri yönetimi için.
-- Java, Maven ve arama kavramlarına ilişkin temel bilgi sahibi olma.
+- **Java Development Kit (JDK) 8+** yüklü.  
+- **Maven** bağımlılık yönetimi için.  
+- Java, Maven ve arama kavramlarına temel aşinalık.
 
-## GroupDocs.Java Kurulumunu Arayın
+## Java için GroupDocs.Search Kurulumu
 
 ### Maven Bağımlılığı
-Depoyu ve bağımlılığı `pom.xml`nize ekleyin:
+`pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
 
 ```xml
 <repositories>
@@ -62,12 +64,12 @@ Depoyu ve bağımlılığı `pom.xml`nize ekleyin:
 </dependencies>
 ```
 
-**Doğrudan İndirme:** Kütüphaneyi ayrıca [GroupDocs.Search for Java sürümleri](https://releases.groupdocs.com/search/java/) adresinden edinebilirsiniz.
+**Direct Download:** Kütüphaneyi ayrıca [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden edinebilirsiniz.
 
-### Lisans Edinme
-- **Ücretsiz Deneme:** Tüm özellikleri ayırmak için deneme lisansı alın.
-- **Geçici Lisans:** Uzatılmış değerlendirme koşulları için talep edin.
-- **Ticari Lisans:** Üretim kaynakları için gereklidir.
+### Lisans Alımı
+- **Free Trial:** Tüm özellikleri keşfetmek için deneme lisansı alın.  
+- **Temporary License:** Uzatılmış değerlendirme süresi için talepte bulunun.  
+- **Commercial License:** Üretim dağıtımları için gereklidir.
 
 ### Temel Başlatma
 ```java
@@ -79,7 +81,7 @@ int basePort = 49112;
 Configuration config = new Configuration(basePath, basePort);
 ```
 
-## Java'da arama ağı nasıl yapılandırılır
+## Java'da arama ağını nasıl yapılandırılır
 
 ### Adım 1: Gerekli Paketleri İçe Aktarın
 ```java
@@ -94,12 +96,11 @@ int basePort = 49112;
 
 Configuration configuration = ConfiguringSearchNetwork.configure(basePath, basePort);
 ```
-- **Parametreler:** `basePath` belge klasörünüzün yolunu gösterir; `basePort` düğüm iletişimi için kullanılan TCP portudur.
+- **Parameters:** `basePath` belge klasörünüzü gösterir; `basePort` düğüm iletişimi için kullanılan TCP portudur.
 
-## Arama Ağı Düğümlerinin Dağıtılması
+## Arama Ağı Düğümlerini Dağıtma
 
-### 1. Adım: Dağıtım Paketini İçe Aktarın
-
+### Adım 1: Dağıtım Paketi İçe Aktarın
 ```java
 import com.groupdocs.search.scaling.SearchNetworkDeployment;
 import com.groupdocs.search.scaling.SearchNetworkNode;
@@ -110,24 +111,24 @@ import com.groupdocs.search.scaling.SearchNetworkNode;
 String[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, configuration);
 SearchNetworkNode masterNode = nodes[0]; // Designate the first node as the master node
 ```
-- **Master Düğüm:** Tüm düğümlerde aramaları ve indekslemeyi koordine eder.
+- **Master Node:** Tüm düğümler arasında aramaları ve indekslemeyi koordine eder. **master node** ayarlarını, örneğin shard tahsisi ve sağlık kontrolleri gibi, **configure master node** yapabilirsiniz.
 
 ## Gerçek Zamanlı Arama Güncellemeleri için Düğüm Olaylarına Abone Olma
 
-### Adım 1: Etkinlik Paketini İçe Aktarın
+### Adım 1: Olay Paketi İçe Aktarın
 ```java
 import com.groupdocs.search.scaling.SearchNetworkNodeEvents;
 ```
 
-### Adım 2: Ana Düğüm Etkinliklerine abone olun
+### Adım 2: Master Node Olaylarına Abone Olun
 ```java
 SearchNetworkNodeEvents.subscribe(masterNode);
 ```
-- **Olay İşleme:** Belgeler eklendiğinde, güncellendiğinde veya kaldırıldığında **gerçek zamanlı arama güncellemelerini** etkinleştirir.
+- **Event Handling:** Belgeler eklendiğinde, güncellendiğinde veya kaldırıldığında **real time search updates** sağlar.
 
-## İndeksleme için Dizinler Eklemek
+## İndeksleme İçin Dizin Ekleme
 
-### Adım 1: Dizin Oluşturucu Paketini İçe Aktarın
+### Adım 1: Indexer Paketi İçe Aktarın
 ```java
 import com.groupdocs.search.examples.Utils;
 import com.groupdocs.search.scaling.Indexer;
@@ -138,11 +139,11 @@ import com.groupdocs.search.scaling.Indexer;
 Indexer indexer = masterNode.getIndexer();
 indexer.addDirectories("YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-- **Dinamik İndeksleme:** Gerektiği kadar klasör ekleyin; ağ bunları otomatik olarak indeksleyecek.
+- **Dynamic Indexing:** Ağ yeniden başlatılmadan anında **add directories to index** yapmak için `addDirectories` metodunu kullanın.
 
-## İndekslenmiş Belgeleri Getirme
+## İndekslenmiş Belgeleri Alma
 
-### Adım 1: Arama Paketini İçe Aktarın
+### Adım 1: Searcher Paketi İçe Aktarın
 ```java
 import com.groupdocs.search.scaling.Searcher;
 import com.groupdocs.search.scaling.NetworkDocumentInfo;
@@ -171,48 +172,52 @@ for (int i = 0; i < shardIndices.length; i++) {
     }
 }
 ```
-- **Shard Yönetimi:** Belgeleri Shard'lar arasında dağıtarak büyük veri setlerini verimli bir şekilde yönetir.
+- **Shard Management:** Belgeleri shard'lar arasında dağıtarak büyük veri setlerini verimli bir şekilde yönetir. **optimize shard size** için shard istatistiklerini izleyin ve gelecekteki sürümlerde `shardSize` yapılandırmasını ayarlayın.
+
+## Bunun projeniz için önemi
+Doğru yapılandırılmış bir arama ağı darboğazları ortadan kaldırır, gecikmeyi azaltır ve kullanıcıların her zaman belgenin en son sürümünü görmesini sağlar. Gerçek zamanlı güncellemeler ve **add directories to index** yapabilme yeteneği, kesinti olmadan, özellikle hukuk firmaları, araştırma kurumları ve sürekli değişen belge koleksiyonlarıyla çalışan tüm organizasyonlar için değerlidir.
 
 ## Pratik Uygulamalar
-1. **Kurumsal Belge Yönetimi:** Milyonlarca dosya üzerinde aramayı merkezileştirir.
-2. **Hukuk Firmaları:** Davacıların, sözleşmeleri ve delilleri hızlı bir şekilde bulur.
-3. **Akademik Araştırma:** Dergileri ve makaleleri anlık erişim için indeksler.
+1. **Enterprise Document Management:** Milyonlarca dosya üzerinde aramayı merkezileştirir.  
+2. **Legal Firms:** Dava dosyalarını, sözleşmeleri ve delilleri hızlıca bulur.  
+3. **Academic Research:** Dergileri ve makaleleri anında erişim için indeksler.
 
 ## Performans Düşünceleri
-- **İndekslemeyi Optimize Et:** Düzenli indeks değiştirmeleri planla ve eski veriler silinir.
-- **Bellek Yönetimi:** Özellikle büyük parçalarla çalışırken JVM yığın'ını izleyin.
-- **Ölçekilebilirlik Planlaması:** Veri kümeniz genişledikçe düğüm ekleyin; ağ yükü otomatik dengeler.
+- **Optimize Indexing:** Düzenli indeks yenilemeleri planlayın ve eski verileri temizleyin.  
+- **Memory Management:** Özellikle büyük shard'larla çalışırken JVM yığınını izleyin.  
+- **Scalability Planning:** Veri kümeniz büyüdükçe düğüm ekleyin; ağ otomatik olarak yükü dengeler.  
+- **Optimize shard size:** Daha küçük shard'lar sorgu gecikmesini iyileştirirken, daha büyük shard'lar yükü azaltır. Donanımınıza ve sorgu desenlerinize göre ayarlayın.
 
 ## Yaygın Sorunlar ve Çözümler
 
 | Sorun | Neden | Çözüm |
-|----------|----------|-----|
-| Düğümler bağlanamıyor | Bağlantı noktası çakışması veya güvenlik duvarı | `basePort`un açık olduğundan ve diğer hizmetlerin kullanılmadığından emin olun |
-| İndeks güncellenmiyor | Olay aboneliği eksik | Dağıtımdan sonra `SearchNetworkNodeEvents.subscribe(masterNode)` çağrısının |
-| Bellek uzatma hataları | Çok sayıda büyük parça yüklendi | Parça değişimi küçültün veya JVM yığınını artırın (`-Xmx` bayrağı) |
+|-------|-------|-----|
+| Düğümler bağlanamıyor | Port çakışması veya güvenlik duvarı | `basePort`'un açık olduğundan ve başka hizmetler tarafından kullanılmadığından emin olun |
+| İndeks güncellenmiyor | Olay aboneliği eksik | Dağıtımdan sonra `SearchNetworkNodeEvents.subscribe(masterNode)` çağırın |
+| Bellek yetersizliği hataları | Çok fazla büyük shard yüklendi | Shard boyutunu küçültün veya JVM yığınını artırın (`-Xmx` bayrağı). |
 
 ## Sıkça Sorulan Sorular
 
-**S: Ağ çalışırken yeni dizinler olabilir mi?**
-C: Evet—`indexer.addDirectories()` yöntemini kullanın; abone olunan olaylar güncellemeleri gerçek zamanlı olarak yayın.
+**S: Ağ çalışırken yeni dizinler ekleyebilir miyim?**  
+C: Evet—`indexer.addDirectories()` metodunu kullanın; abone olunan olaylar güncellemeleri gerçek zamanlı olarak yayar.
 
-**S: Düğüm bilgisayarlarınızı nasıl çalıştırırım?**
-C: Her `SearchNetworkNode` durum API'leri sağlar; Tercih ettiğiniz izleme aracına entegre edin.
+**S: Düğüm sağlığını nasıl izleyebilirim?**  
+C: Her `SearchNetworkNode` durum API'leri sağlar; tercih ettiğiniz izleme aracıyla entegre edin.
 
-**S: Master düğümü ayrı bir makinede çalıştırmak mümkün mü?**
-C: elbette. Tüm düğümlerin aynı `basePort`'u paylaştığından ve ağ üzerinden birbirlerine ulaşabildiğinden emin olun.
+**S: Master node'u ayrı bir makinede çalıştırmak mümkün mü?**  
+C: Kesinlikle. Tüm düğümlerin aynı `basePort`'u paylaştığından ve ağ üzerinden birbirlerine ulaşabildiğinden emin olun.
 
-**S: Hangi dosya formatları destekleniyor?**
-C: GroupDocs.Search, PDF, Word, Excel, PowerPoint, düz metin ve daha birçok formatı kutudan çıkarılamaz.
+**S: Hangi dosya formatları destekleniyor?**  
+C: GroupDocs.Search, PDF'ler, Word, Excel, PowerPoint, düz metin ve birçok diğer formatı kutudan çıkar çıkmaz destekler.
 
-**S: Yeni bir düğüm ekledikten sonra ağı yeniden başlatmam gerekir mi?**
-C: Hayır—düğümler dinamik olarak eklenip gelmiyor; master düğüm shard'ları otomatik olarak yeniden dengeler.
+**S: Yeni bir düğüm ekledikten sonra ağı yeniden başlatmam gerekir mi?**  
+C: Hayır—düğümler dinamik olarak eklenip kaldırılabilir; master node shard'ları otomatik olarak yeniden dengeler.
 
 ## Sonuç
-Artık GroupDocs.Search for Java kullanarak **aramayı nasıl yapılandırılır** sorusuna adım adım tam bir anlayışa ulaşmak; Başlangıç ​​kurulumundan gerçek zamanlı güncellemeler ve dağıtım indekslemeye kadar. Bu yazılımlar, herhangi bir sonuç hızlı, ölçeklenebilir ve güvenilir belge arama kalıp çözümleri oluşturmak için modüle edilebilir.
+Artık GroupDocs.Search for Java kullanarak **aramayı nasıl yapılandırılır** bildiğinize göre, kuruluşunuzun büyümesiyle paralel hızlı, ölçeklenebilir ve güvenilir belge arama çözümleri oluşturabilirsiniz. Bu desenleri uygulayarak herhangi bir sektörde gerçek zamanlı, dağıtık arama deneyimleri yaratın.
 
 ---
 
-**Son Güncelleme:** 2026-01-08
-**Test Edilen Sürüm:** GroupDocs.Search for Java25.4
+**Son Güncelleme:** 2026-05-02  
+**Test Edilen:** GroupDocs.Search for Java 25.4  
 **Yazar:** GroupDocs
