@@ -1,41 +1,26 @@
 ---
-title: "Improve Query Performance with GroupDocs.Search Java: Optimize Index & Search"
-description: "Learn how to improve query performance and add documents to index while correctly escaping special characters query using GroupDocs.Search Java."
-date: "2026-01-21"
-weight: 1
-url: "/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/"
+date: '2026-01-21'
+description: GroupDocs.Search Java を使用して、特殊文字を正しくエスケープしながらクエリのパフォーマンスを向上させ、ドキュメントをインデックスに追加する方法を学びましょう。
 keywords:
 - GroupDocs.Search Java
 - document index optimization
 - search query performance
+title: GroupDocs.Search Javaでクエリ性能を向上させる：インデックスと検索の最適化
 type: docs
+url: /ja/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/
+weight: 1
 ---
 
 # Improve Query Performance with GroupDocs.Search Java: Optimize Index & Search
 
-Efficiently managing a massive collection of documents starts with **improving query performance**. In this tutorial you’ll discover how to create and configure a high‑performance index, **add documents to index**, and correctly **escape special characters query** so searches run fast and return accurate results. Whether you’re building a corporate knowledge base or a searchable e‑commerce catalog, mastering these steps will keep your application responsive under heavy load.
-
-## Quick Answers
-- **What is the main goal?** Improve query performance by fine‑tuning the index and query handling.  
+大量のドキュメントを効率的に管理するには、**クエリパフォーマンスの向上**から始めます。このチュートリアルでは、高性能インデックスの作成と設定できるのエス the main goal?** Improve query performance by fine‑tuning the index and query handling.  
 - **Which library is used?** GroupDocs.Search for Java.  
 - **Do I need a license?** A free trial or temporary license is sufficient for development; a full license is required for production.  
-- **How do I add documents?** Use `index.add("YOUR_DOCUMENT_DIRECTORY")` to bulk‑load files.  
-- **How are special characters handled?** Configure the alphabet dictionary and escape characters like `()":&|!^~*?` before executing the search.  
-
-## What is “improve query performance”?
+- **How do I add documents?** Use `index.add("YOUR_DOCUMENT_DIRECTORY")` **How are special characters handled?** Configure What is “improve query performance”?
 Improving query performance means reducing the time it takes for a search request to travel through the index, match terms, and return results. By configuring the index correctly and preparing queries that align with that configuration, you eliminate unnecessary processing and achieve faster response times.
 
 ## Why use GroupDocs.Search Java for high‑performance searches?
-- **Scalable indexing** – Handles millions of documents with incremental updates.  
-- **Rich language support** – Built‑in analyzers for many alphabets and special characters.  
-- **Easy integration** – Works with any Java‑based application, from Spring Boot services to desktop tools.  
-
-## Prerequisites
-
-Before we dive in, make sure you have the following ready:
-
-### Required Libraries and Dependencies
-To use GroupDocs.Search in a Maven project, include the following configurations:
+- **Scalable indexing** – Handles millions use GroupDocs.Search in a Maven project, include the following configurations:
 
 ```xml
 <repositories>
@@ -177,23 +162,15 @@ Online retailers index product descriptions, specifications, and reviews. Proper
 - **Refresh the index** after bulk imports or large updates to keep search latency low.  
 - **Allocate sufficient heap memory** (`-Xmx2g` or higher) for large data sets.  
 - **Reuse the `Index` instance** across multiple searches instead of recreating it each time.  
-- **Profile query execution** using Java’s built‑in tools to identify bottlenecks.  
+-in tools to identify bottlenecks.  
 
 ## Common Pitfalls & Solutions
 
 | Issue | Why it Happens | Fix |
 |-------|----------------|-----|
 | Queries return no results after adding new files | Index not updated | Call `index.add(newPath)` or rebuild the index. |
-| Errors about unexpected characters | Special characters not escaped | Ensure the escape logic from Step 5 runs before searching. |
-| High memory usage | Large result sets loaded at once | Iterate over `searchResult.getDocuments()` lazily or limit results with `index.search(query, 100)`. |
-
-## Frequently Asked Questions
-
-**Q: How do I handle extremely large datasets with GroupDocs.Search?**  
-A: Use incremental indexing (`index.add`) and schedule periodic index optimizations. Deploy the index on SSD storage for faster I/O.
-
-**Q: Can GroupDocs.Search be integrated with Spring Boot?**  
-A: Yes. Define the `Index` bean in a `@Configuration` class and inject it wherever you need search capabilities.
+| Errors indexing (`index  
+ a `@Configuration` class and inject it wherever you need search capabilities.
 
 **Q: Which characters must be escaped in a query?**  
 A: The characters `()":&|!^~*?` need a preceding backslash (`\`) to be treated as literals.
