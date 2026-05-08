@@ -1,33 +1,26 @@
 ---
-title: "Configure base port groupdocs in Java Search Network"
-description: "Learn how to configure base port groupdocs for scalable search networks using GroupDocs.Search Java, optimize retrieval speed, and set up multi-node systems."
-date: "2026-01-24"
-weight: 1
-url: "/java/search-network/scalable-search-network-groupdocs-java/"
+date: '2026-01-24'
+description: Dowiedz się, jak skonfigurować bazowy port GroupDocs dla skalowalnych
+  sieci wyszukiwania przy użyciu GroupDocs.Search Java, zoptymalizować prędkość wyszukiwania
+  i skonfigurować systemy wielowęzłowe.
 keywords:
 - scalable search network
 - GroupDocs.Search Java configuration
 - multi-node search setup
+title: Skonfiguruj podstawowy port groupdocs w sieci Java Search
 type: docs
+url: /pl/java/search-network/scalable-search-network-groupdocs-java/
+weight: 1
 ---
 
 # Configure base port groupdocs in Java Search Network
 
-In modern, data‑heavy applications, **configuring base port groupdocs** is a foundational step for building a fast, reliable search infrastructure. Whether you’re handling thousands of PDFs or scaling across multiple servers, setting the right ports and paths ensures each node talks to the others without conflict. This tutorial walks you through every detail—from prerequisites to a full multi‑node configuration—so you can confidently launch a scalable search network with GroupDocs.Search for Java.
-
-## Quick Answers
-- **What is the primary purpose?** To set unique ports and directories for each search node, preventing conflicts.
-- **Do I need a license?** Yes, a trial or full license is required for production use.
-- **Which Java version is supported?** Java 8 or higher.
+W nowoczesnych, intensywnie wykorzystujących dane aplikacjach, **konfigurowanie podstawowego portu groupdocs** jest podstawowym krokiem do budowania szybkiej, niezawodnej infrastruktury wyszukiwania. Niezależnie od tego, czy obsługujesz tysiące plików PDF, czy skalujesz się portów i ścieżek zapewnia Cię przez każdy szczegół — od wymagań wDo I need a license?** Yes, a trial or full license is Java version is supported?** Java 8 or higher.
 - **Can I run this on cloud servers?** Absolutely—just ensure the ports are open in your security groups.
 - **How many nodes can I add?** There’s no hard limit; add as many as your hardware and network allow.
 
 ## What is “configure base port groupdocs”?
-When you **configure base port groupdocs**, you assign a starting TCP port that each node will use (and increment for subsequent nodes). This simple step eliminates the dreaded “port already in use” errors and lays the groundwork for a clean, horizontally‑scalable search cluster.
-
-## Why use GroupDocs.Search for a scalable network?
-- **High performance** – optimized indexing and search algorithms.
-- **Flexible architecture** – you can mix indexers, searchers, shards, and extractors across nodes.
+When you **configure base port groupdocs**, you assign a starting TCP port that each node will use (and increment for subsequent nodes). This simple step eliminates the dreaded “port already in use” errors and lays the groundwork for a clean, horizontally‑scalable search cluster **Flexible architecture** – you can mix indexers, searchers, shards, and extractors across nodes.
 - **Easy integration** – works with any Java application, on‑premise or cloud.
 - **Robust licensing** – trial options let you test before committing.
 
@@ -190,8 +183,8 @@ A: Disabling stop words can improve search accuracy by retaining common terms th
 **Q: How do I handle port conflicts when adding multiple nodes?**  
 A: Start with a high `basePort` (e.g., 49100) and increment it for each subsequent node, ensuring every node has a unique TCP endpoint.
 
-**Q: Can I use this setup for cloud‑based applications?**  
-A: Yes—just make sure the chosen ports are open in your cloud security groups and replace `127.0.0.1` with the appropriate public or private IP.
+**Q: Can I use**  
+A: Yes—just make sure the chosen ports IP.
 
 **Q: What is the difference between NormalIndex and other index types?**  
 A: `NormalIndex` offers a balanced trade‑off between speed and memory usage, while specialized indexes (e.g., `FastIndex`) target niche performance scenarios.
@@ -203,4 +196,4 @@ A: Technically no; the limit is dictated by your hardware resources and network 
 
 **Last Updated:** 2026-01-24  
 **Tested With:** GroupDocs.Search Java 25.4  
-**Author:** GroupDocs
+**
