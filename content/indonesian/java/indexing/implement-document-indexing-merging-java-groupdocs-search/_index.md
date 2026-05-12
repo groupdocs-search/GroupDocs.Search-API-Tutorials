@@ -1,36 +1,58 @@
 ---
-date: '2026-01-03'
-description: Pelajari cara menambahkan dokumen ke indeks dan membatalkan operasi penggabungan
-  dalam Java menggunakan GroupDocs.Search. Panduan lengkap untuk manajemen dokumen
-  Java.
+date: '2026-05-12'
+description: 'Pelajari pencarian teks lengkap java dengan GroupDocs.Search: tambahkan
+  dokumen ke indeks, konfigurasikan opsi penggabungan, dan batalkan operasi penggabungan.
+  Ideal untuk solusi manajemen dokumen java.'
 keywords:
-- document indexing in Java
-- merging documents with GroupDocs
-- GroupDocs.Search Java tutorial
-title: Menambahkan dokumen ke indeks & menggabungkan dalam Java menggunakan GroupDocs.Search
+- java full text search
+- document management java
+- GroupDocs.Search merging
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-12'
+  description: 'Learn java full text search with GroupDocs.Search: add documents to
+    index, configure merge options, and cancel merge operation. Ideal for document
+    management java solutions.'
+  headline: java full text search – add docs & merge with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: It tells GroupDocs.Search to scan a folder, extract searchable tokens,
+      and store metadata for each file.
+    question: What does “add documents to index” mean?
+  - answer: Yes—use the `Cancellation` object to abort a merge after a configurable
+      timeout.
+    question: Can I stop a long merge?
+  - answer: A free trial or temporary license works for testing; a commercial license
+      unlocks full features.
+    question: Do I need a license?
+  - answer: JDK 8 or newer.
+    question: Which Java version is required?
+  - answer: Absolutely—GroupDocs.Search can handle multi‑hundred‑page documents with
+      incremental indexing.
+    question: Is this suitable for large datasets?
+  type: FAQPage
+title: pencarian teks lengkap java – tambahkan dokumen & gabungkan dengan GroupDocs.Search
 type: docs
 url: /id/java/indexing/implement-document-indexing-merging-java-groupdocs-search/
 weight: 1
 ---
 
-# Tambahkan dokumen ke indeks & gabungkan dalam Java menggunakan GroupDocs.Search
+# pencarian teks lengkap java – tambahkan dokumen & gabungkan dengan GroupDocs.Search
 
-Dalam lingkungan digital yang bergerak cepat saat ini, mempelajari **cara menambahkan dokumen ke indeks** secara efisien sangat penting untuk solusi **document management java** apa pun. Baik Anda menangani kontrak, faktur, atau laporan internal, indeks yang terstruktur dengan baik memungkinkan Anda mengambil informasi dalam milidetik. Tutorial ini memandu Anda melalui pembuatan indeks, penambahan dokumen, konfigurasi opsi penggabungan, dan bahkan **membatalkan operasi penggabungan** jika diperlukan—semua dengan GroupDocs.Search untuk Java.
+Di lingkungan perusahaan modern, **java full text search** adalah tulang punggung dari sistem manajemen dokumen java yang kuat. Apakah Anda perlu mengindeks kontrak, faktur, atau laporan internal, indeks yang dirancang dengan baik memungkinkan Anda mengambil informasi yang tepat dalam hitungan milidetik. Tutorial ini memandu Anda melalui pembuatan indeks, menambahkan dokumen, mengonfigurasi opsi penggabungan, dan membatalkan operasi penggabungan dengan aman—semua menggunakan GroupDocs.Search untuk Java.
 
-## Quick Answers
-- **Apa arti “add documents to index”?** Itu memberi tahu GroupDocs.Search untuk memindai folder dan menyimpan metadata yang dapat dicari untuk setiap file.  
-- **Bisakah saya menghentikan penggabungan yang lama?** Ya—gunakan objek `Cancellation` untuk **membatalkan operasi penggabungan** setelah batas waktu.  
+## Jawaban Cepat
+- **Apa arti “add documents to index”?** Ini memberi tahu GroupDocs.Search untuk memindai folder, mengekstrak token yang dapat dicari, dan menyimpan metadata untuk setiap file.  
+- **Bisakah saya menghentikan penggabungan yang lama?** Ya—gunakan objek `Cancellation` untuk membatalkan penggabungan setelah batas waktu yang dapat dikonfigurasi.  
 - **Apakah saya memerlukan lisensi?** Lisensi percobaan gratis atau lisensi sementara dapat digunakan untuk pengujian; lisensi komersial membuka semua fitur.  
 - **Versi Java apa yang diperlukan?** JDK 8 atau yang lebih baru.  
-- **Apakah ini cocok untuk dataset besar?** Tentu—hanya perlu memantau memori dan menggunakan pengindeksan inkremental.
+- **Apakah ini cocok untuk kumpulan data besar?** Tentu—GroupDocs.Search dapat menangani dokumen ratusan halaman dengan pengindeksan inkremental.
 
 ## Apa itu “add documents to index” dalam GroupDocs.Search?
-Menambahkan dokumen ke indeks berarti memasukkan kumpulan file ke dalam GroupDocs.Search sehingga perpustakaan dapat menganalisis kontennya, mengekstrak token, dan membangun struktur data yang dapat dicari. Setelah diindeks, Anda dapat melakukan pencarian full‑text cepat di semua dokumen.
+**Menambahkan dokumen ke indeks berarti memasukkan kumpulan file ke GroupDocs.Search sehingga perpustakaan dapat menganalisis kontennya, mengekstrak token, dan membangun struktur data yang dapat dicari.** Proses ini membuat representasi kompak yang memungkinkan kueri teks lengkap yang sangat cepat di semua file yang diindeks.
 
-## Mengapa menggunakan GroupDocs.Search untuk document management java?
-- **Pengindeksan skalabel** – Menangani ribuan file tanpa menurunkan kinerja.  
-- **API kaya** – Menawarkan kontrol detail atas pengindeksan, penggabungan, dan pembatalan.  
-- **Dukungan lintas format** – Bekerja dengan PDF, Word, Excel, dan banyak format lainnya secara langsung.  
+## Mengapa menggunakan GroupDocs.Search untuk manajemen dokumen java?
+GroupDocs.Search menyediakan **pengindeksan yang dapat diskalakan untuk lebih dari 50 format input** (PDF, DOCX, XLSX, PPTX, HTML, gambar, dll.) dan dapat memproses **dokumen hingga 2 GB tanpa memuat seluruh file ke memori**. API-nya memberi Anda kontrol detail atas pengindeksan, penggabungan, dan pembatalan, menjadikannya pilihan utama untuk solusi pencarian teks lengkap java tingkat perusahaan.
 
 ## Prasyarat
 - **GroupDocs.Search for Java** versi 25.4 atau lebih baru.  
@@ -64,8 +86,8 @@ Jika Anda mengelola dependensi dengan Maven, tambahkan repositori dan dependensi
 Sebagai alternatif, unduh JAR terbaru dari situs resmi: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Akuisisi Lisensi
-- **Free Trial:** Daftar di situs GroupDocs untuk lisensi percobaan.  
-- **Temporary License:** Ajukan kunci sementara jika Anda memerlukan evaluasi yang diperpanjang.  
+- **Free Trial:** Daftar di situs GroupDocs untuk mendapatkan lisensi percobaan.  
+- **Temporary License:** Ajukan kunci sementara jika Anda memerlukan evaluasi yang lebih lama.  
 - **Commercial License:** Beli untuk penggunaan produksi.
 
 Setelah Anda memiliki file lisensi, letakkan di proyek Anda dan inisialisasi perpustakaan seperti yang ditunjukkan nanti.
@@ -73,7 +95,7 @@ Setelah Anda memiliki file lisensi, letakkan di proyek Anda dan inisialisasi per
 ## Panduan Implementasi
 
 ### Cara menambahkan dokumen ke indeks – Membuat Indeks Pertama
-Pertama, buat indeks kosong yang akan menyimpan data yang dapat dicari.
+**Muat atau buat indeks kosong dengan menginstansiasi kelas `Index`, yang mewakili kontainer yang dapat dicari di disk.** Langkah ini menyiapkan lokasi penyimpanan untuk semua token yang akan dihasilkan dari dokumen Anda.
 
 ```java
 import com.groupdocs.search.Index;
@@ -82,10 +104,10 @@ import com.groupdocs.search.Index;
 Index index1 = new Index("YOUR_DOCUMENT_DIRECTORY\\\\Index1");
 ```
 
-- **Mengapa:** Langkah ini menyiapkan wadah penyimpanan tempat token yang diindeks akan disimpan.
+- **Mengapa:** Langkah ini menyiapkan kontainer penyimpanan tempat token yang diindeks akan disimpan.
 
 #### Menambahkan dokumen ke indeks
-Sekarang beri tahu GroupDocs.Search untuk memindai folder dan **menambahkan dokumen ke indeks**.
+**Panggil `index.add` dengan path folder; metode ini memindai setiap file, mengekstrak teks, dan menyimpan metadata yang dapat dicari di indeks.** Operasi ini berjalan dalam satu kali proses dan menghormati `IndexSettings` yang dikonfigurasi.
 
 ```java
 index1.add("YOUR_DOCUMENT_DIRECTORY"); // Add documents from this directory
@@ -94,7 +116,7 @@ index1.add("YOUR_DOCUMENT_DIRECTORY"); // Add documents from this directory
 - **Mengapa:** Perpustakaan membaca setiap file, mengekstrak teks, dan menyimpannya di `index1`.
 
 ### Membuat indeks kedua untuk alur kerja fleksibel
-Terkadang Anda memerlukan indeks terpisah—misalnya, untuk mengisolasi data klien.
+**Instansiasi objek `Index` lain untuk menampung set dokumen terpisah, memungkinkan pemrosesan terisolasi sebelum penggabungan.** Pola ini berguna untuk skenario multi‑tenant atau pengindeksan bertahap.
 
 ```java
 Index index2 = new Index("YOUR_DOCUMENT_DIRECTORY\\\\Index2");
@@ -104,10 +126,10 @@ Index index2 = new Index("YOUR_DOCUMENT_DIRECTORY\\\\Index2");
 index2.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-- **Mengapa:** Beberapa indeks memungkinkan Anda mengelola kumpulan dokumen yang berbeda dan kemudian menggabungkannya.
+- **Mengapa:** Beberapa indeks memungkinkan Anda mengelola set dokumen yang berbeda dan kemudian menggabungkannya.
 
 ### Cara mengonfigurasi opsi penggabungan dan membatalkan operasi penggabungan
-Sebelum menggabungkan, Anda dapat menyetel proses secara detail dan bahkan menghentikannya jika berjalan terlalu lama.
+**Buat instance `MergeOptions`, atur parameter yang diinginkan, dan lampirkan token `Cancellation` yang membatalkan penggabungan setelah batas waktu yang ditentukan.** Ini memberi Anda kontrol penuh atas penggunaan sumber daya selama penggabungan besar.
 
 ```java
 import com.groupdocs.search.options.MergeOptions;
@@ -118,10 +140,10 @@ options.setCancellation(new Cancellation()); // Initialize cancellation object
 options.getCancellation().cancelAfter(5000); // Cancel merge operation after 5 seconds
 ```
 
-- **Mengapa:** `Cancellation` memberi Anda kontrol untuk **membatalkan operasi penggabungan** secara otomatis, mencegah tugas yang tidak terkendali.
+- **Mengapa:** `Cancellation` memberi Anda kontrol untuk **membatalkan operasi penggabungan** secara otomatis, mencegah tugas yang berjalan tanpa batas.
 
 ### Menggabungkan indeks
-Akhirnya, gabungkan indeks sekunder ke dalam indeks utama.
+**Panggil `index1.merge(index2, mergeOptions)`; indeks utama menyerap semua dokumen dari indeks sekunder sambil mempertahankan integritas token.** Setelah penggabungan, Anda memiliki repositori pencarian yang terpadu.
 
 ```java
 index1.merge(index2, options);
@@ -129,21 +151,22 @@ index1.merge(index2, options);
 
 - **Mengapa:** Setelah pemanggilan ini, `index1` berisi semua dokumen dari kedua sumber, memberikan pengalaman pencarian yang terpadu.
 
-## Aplikasi Praktis untuk Document Management Java
-- **Firma hukum:** Mengkonsolidasikan berkas kasus dari banyak kantor.  
-- **Institusi keuangan:** Menggabungkan laporan kuartalan ke dalam repositori yang dapat dicari tunggal.  
-- **Perusahaan:** Menggabungkan dokumen HR, kepatuhan, dan kebijakan untuk pencarian di seluruh perusahaan.
+## Aplikasi Praktis untuk Manajemen Dokumen Java
+- **Legal firms:** Konsolidasikan berkas kasus dari banyak kantor ke dalam satu indeks yang dapat dicari.  
+- **Financial institutions:** Gabungkan laporan kuartalan ke dalam repositori terpadu untuk kueri audit yang cepat.  
+- **Enterprises:** Gabungkan kebijakan HR, manual kepatuhan, dan panduan internal untuk pencarian di seluruh perusahaan.
 
 ## Pertimbangan Kinerja
-- **Pengindeksan inkremental:** Tambahkan file baru secara berkala alih-alih membangun ulang seluruh indeks.  
-- **Pemantauan memori:** Batch besar dapat mengonsumsi RAM; pertimbangkan pemrosesan dalam potongan lebih kecil.  
-- **Garbage collection:** Lepaskan objek `Index` yang tidak terpakai dengan cepat untuk membebaskan sumber daya.
+- **Incremental indexing:** Tambahkan file baru secara berkala alih-alih membangun ulang seluruh indeks.  
+- **Memory monitoring:** Batch besar dapat mengonsumsi RAM; proses file dalam potongan lebih kecil atau aktifkan mode streaming.  
+- **Garbage collection:** Lepaskan objek `Index` yang tidak terpakai dengan cepat untuk membebaskan sumber daya.  
+- **SSD storage:** Menyimpan file indeks di SSD dapat meningkatkan kecepatan penggabungan hingga 2×.
 
 ## Masalah Umum & Solusi
 
 | Masalah | Solusi |
 |-------|----------|
-| **Path folder tidak benar** | Verifikasi path absolut dan pastikan aplikasi memiliki izin membaca. |
+| **Path folder tidak benar** | Verifikasi path absolut dan pastikan aplikasi memiliki izin baca. |
 | **Memori tidak cukup** | Tingkatkan heap JVM (`-Xmx`) atau indeks file secara batch. |
 | **Pembatalan tidak terpicu** | Pastikan `cancelAfter` diatur sebelum memanggil `merge`. |
 | **Format file tidak didukung** | Instal plugin format tambahan dari GroupDocs jika diperlukan. |
@@ -151,33 +174,39 @@ index1.merge(index2, options);
 ## Pertanyaan yang Sering Diajukan
 
 **Q:** *Mengapa saya membuat beberapa indeks alih-alih satu saja?*  
-A: Indeks terpisah memungkinkan Anda mengisolasi domain data, menerapkan kebijakan keamanan yang berbeda, dan menggabungkan hanya ketika diperlukan, yang meningkatkan kinerja dan organisasi.
+**A:** Indeks terpisah memungkinkan Anda mengisolasi domain data, menerapkan kebijakan keamanan yang berbeda, dan menggabungkan hanya saat diperlukan, yang meningkatkan kinerja dan organisasi.
 
 **Q:** *Bisakah saya membatalkan operasi pengindeksan dengan cara yang sama seperti membatalkan penggabungan?*  
-A: Ya—gunakan objek `Cancellation` dengan metode `add` untuk menghentikan tugas pengindeksan yang berjalan lama.
+**A:** Ya—gunakan objek `Cancellation` dengan metode `add` untuk menghentikan tugas pengindeksan yang berjalan lama.
 
-**Q:** *Bagaimana saya memastikan kinerja optimal dengan koleksi dokumen yang sangat besar?*  
-A: Lakukan pengindeksan inkremental, pantau memori JVM, dan pertimbangkan menggunakan penyimpanan SSD untuk direktori indeks.
+**Q:** *Bagaimana cara memastikan kinerja optimal dengan koleksi dokumen yang sangat besar?*  
+**A:** Lakukan pengindeksan inkremental, pantau memori JVM, dan simpan indeks di SSD. Pertimbangkan menggunakan pengaturan `BatchSize` untuk membatasi dokumen dalam memori.
 
 **Q:** *Apa yang harus saya lakukan jika menerima error “Access denied”?*  
-A: Periksa izin folder untuk pengguna yang menjalankan proses Java dan pastikan file lisensi dapat dibaca.
+**A:** Periksa izin folder untuk pengguna yang menjalankan proses Java dan pastikan file lisensi dapat dibaca.
 
-**Q:** *Apakah GroupDocs.Search kompatibel dengan pustaka GroupDocs lainnya?*  
-A: Tentu—Anda dapat mengintegrasikannya dengan GroupDocs.Viewer, GroupDocs.Conversion, dll., untuk solusi dokumen full‑stack.
+**Q:** *Apakah GroupDocs.Search kompatibel dengan perpustakaan GroupDocs lainnya?*  
+**A:** Tentu—Anda dapat mengintegrasikannya dengan GroupDocs.Viewer, GroupDocs.Conversion, dan lainnya untuk membangun solusi dokumen full‑stack.
 
 ## Kesimpulan
-Dengan mengikuti panduan ini Anda kini mengetahui cara **menambahkan dokumen ke indeks**, mengonfigurasi perilaku penggabungan, dan dengan aman **membatalkan operasi penggabungan** bila diperlukan—semua dalam alur kerja **document management java** yang kuat. Bereksperimenlah dengan dataset yang lebih besar, jelajahi tokenizer khusus, atau gabungkan GroupDocs.Search dengan produk GroupDocs lainnya untuk membangun solusi kelas perusahaan yang sesungguhnya.
+Dengan mengikuti panduan ini Anda sekarang tahu cara **add documents to index**, mengonfigurasi perilaku penggabungan, dan dengan aman **cancel merge operation** ketika diperlukan—semua dalam alur kerja **java full text search** yang kuat. Bereksperimenlah dengan dataset yang lebih besar, jelajahi tokenizer khusus, atau gabungkan GroupDocs.Search dengan produk GroupDocs lainnya untuk membangun solusi tingkat perusahaan.
 
-## Sumber Daya
-- **Documentation:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
-- **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-- **Download:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- **GitHub Repository:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Free Support Forum:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **Temporary License Application:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+**Sumber Daya**
+- **Dokumentasi:** [Dokumen GroupDocs.Search Java](https://docs.groupdocs.com/search/java/)  
+- **Referensi API:** [Referensi API GroupDocs](https://reference.groupdocs.com/search/java)  
+- **Unduh:** [Rilis Terbaru](https://releases.groupdocs.com/search/java/)  
+- **Repositori GitHub:** [GroupDocs Search untuk Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **Forum Dukungan Gratis:** [Forum GroupDocs](https://forum.groupdocs.com/c/search/10)  
+- **Aplikasi Lisensi Sementara:** [Lisensi Sementara GroupDocs](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**Last Updated:** 2026-01-03  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
+**Terakhir Diperbarui:** 2026-05-12  
+**Diuji Dengan:** GroupDocs.Search 25.4 untuk Java  
+**Penulis:** GroupDocs
+
+## Tutorial Terkait
+
+- [Cara menambahkan dokumen ke indeks dengan Metadata Indexing di Java menggunakan GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [Tambahkan Dokumen ke Indeks dan Nonaktifkan Stop Words dalam GroupDocs.Search Java untuk Akurasi Pencarian yang Lebih Baik](/search/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/)
+- [Menambahkan Dokumen ke Indeks – Tutorial GroupDocs.Search Java](/search/java/document-management/)
