@@ -1,19 +1,20 @@
 ---
-title: "How to Search Phrase with Wildcards in GroupDocs.Search Java"
-description: "Learn how to search phrase using wildcard patterns in GroupDocs.Search for Java. This guide covers creating a search index, adding documents to index, and performing wildcard search Java."
-date: "2026-01-26"
-weight: 1
-url: "/java/searching/groupdocs-search-java-phrase-wildcard/"
+date: '2026-01-26'
+description: GroupDocs.Search for Java에서 와일드카드 패턴을 사용하여 구문을 검색하는 방법을 배웁니다. 이 가이드는
+  검색 인덱스 생성, 인덱스에 문서 추가 및 와일드카드 검색 수행에 대해 다룹니다.
 keywords:
 - GroupDocs.Search for Java
 - phrase searches
 - wildcard patterns
+title: GroupDocs.Search Java에서 와일드카드를 사용한 구문 검색 방법
 type: docs
+url: /ko/java/searching/groupdocs-search-java-phrase-wildcard/
+weight: 1
 ---
 
 # How to Search Phrase with Wildcards in GroupDocs.Search for Java
 
-In today's fast‑moving world of document management, **how to search phrase** efficiently can make or break an application’s usability. Whether you’re building a content management system, an e‑commerce catalog, or a legal‑document repository, being able to locate exact phrases—or flexible variations of them—matters. In this tutorial we’ll walk through setting up **GroupDocs.Search for Java**, creating a search index, adding documents to index, and mastering both simple phrase searches and powerful wildcard search Java techniques.
+오늘날 빠르게 변화하는 문서 관리 환경에서 **how to search phrase**를 효율적으로 수행하는 것은 애플리케이션 사용성을 좌우합니다. 콘텐츠 관리 시스템, 전자상거래 카탈로그, 법률 문서 저장소 등을 구축하든, 정확한 구문이나 유연한 변형을 찾아낼 수 있는 능력은 매우 중요합니다. 이 튜토리얼에서는 **GroupDocs.Search for Java**를 설정하고, 검색 인덱스를 생성하며, 문서를 인덱스에 추가하고, 간단한 구문 검색과 강력한 와일드카드 검색 Java 기술을 마스터하는 과정을 단계별로 안내합니다.
 
 ## Quick Answers
 - **What is the primary benefit of phrase searches?** Precise matching of word order and proximity.  
@@ -23,7 +24,7 @@ In today's fast‑moving world of document management, **how to search phrase** 
 - **Is this approach suitable for large document sets?** Absolutely—just keep the index optimized and use targeted wildcard patterns.
 
 ## What is “how to search phrase”?
-Searching a phrase means looking for a specific sequence of words in a document. When you add wildcards, you allow the search engine to skip or replace words, giving you the flexibility to match variations without sacrificing relevance.
+구문 검색이란 문서 내에서 특정 단어 순서를 찾는 것을 의미합니다. 와일드카드를 추가하면 검색 엔진이 단어를 건너뛰거나 대체하도록 허용하여, 관련성을 유지하면서 변형을 매칭할 수 있는 유연성을 제공합니다.
 
 ## Why Use GroupDocs.Search for Phrase and Wildcard Queries?
 - **High performance** on large collections thanks to an optimized inverted index.  
