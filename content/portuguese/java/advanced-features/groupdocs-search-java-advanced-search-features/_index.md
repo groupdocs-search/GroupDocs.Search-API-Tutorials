@@ -1,37 +1,37 @@
 ---
-date: '2025-12-16'
-description: Aprenda a realizar buscas por intervalo de datas e outros recursos avançados
-  de pesquisa, como busca facetada em Java, usando o GroupDocs.Search para Java, incluindo
-  tratamento de erros e otimização de desempenho.
+date: '2026-02-16'
+description: Aprenda como implementar pesquisa com curinga em Java, pesquisa por intervalo
+  de datas e formato de data personalizado em Java usando o GroupDocs.Search para
+  Java, incluindo tratamento de erros e otimização de desempenho.
 keywords:
 - GroupDocs.Search Java
 - advanced search features Java
 - Java indexing errors
-title: 'GroupDocs.Search Java - Busca por Intervalo de Datas e Recursos Avançados'
+title: Pesquisa por Curinga Java com GroupDocs.Search – Recursos Avançados
 type: docs
 url: /pt/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1
 ---
 
-# Dominando o GroupDocs.Search Java: Busca por Intervalo de Datas & Recursos Avançados
+# Pesquisa com Curinga Java com GroupDocs.Search – Recursos Avançados
 
-Nas aplicações orientadas a dados de hoje, **date range search** é uma capacidade central que permite filtrar documentos por períodos de tempo, melhorando drasticamente a relevância e a velocidade. Seja construindo um portal de conformidade, um catálogo de e‑commerce ou um sistema de gerenciamento de conteúdo, dominar a **date range search** juntamente com outros tipos poderosos de consulta tornará sua solução flexível e robusta. Este guia orienta você sobre tratamento de erros, uma gama completa de tipos de consulta e dicas de desempenho, tudo com código Java real que pode ser copiado‑e‑colado.
+Em aplicações modernas orientadas a dados **wildcard search java** é uma das formas mais flexíveis de permitir que os usuários encontrem informações mesmo quando conhecem apenas parte de uma palavra. Seja construindo um portal de conformidade, um catálogo de e‑commerce ou um sistema de gerenciamento de conteúdo, combinar pesquisa com curinga com intervalos de datas, facetas, numéricos, regex e consultas booleanas oferece um motor de busca verdadeiramente poderoso. Este tutorial orienta você por cada recurso avançado, mostra como lidar com erros de indexação e oferece dicas de otimização de desempenho — tudo com código Java pronto para copiar.
 
 ## Respostas Rápidas
-- **O que é date range search?** Filtrando documentos que contêm datas dentro de um intervalo especificado de início a fim.  
-- **Qual biblioteca a fornece?** GroupDocs.Search for Java.  
+- **O que é wildcard search java?** Uma consulta que usa `?` ou `*` como curinga para corresponder a um ou vários caracteres em um termo.  
+- **Qual biblioteca a fornece?** GroupDocs.Search para Java.  
 - **Preciso de licença?** Um teste gratuito funciona para desenvolvimento; uma licença de produção é necessária para uso comercial.  
-- **Posso combiná‑la com outras consultas?** Sim — misture intervalos de datas com consultas booleanas, facetadas ou regex.  
-- **É rápida para grandes volumes de dados?** Quando indexado corretamente, as buscas são executadas em menos de um segundo mesmo em milhões de registros.
+- **Posso combiná‑la com consultas de intervalo de datas?** Sim — misture cláusulas de curinga, intervalo de datas, facetas e booleanas em uma única consulta.  
+- **É rápida para grandes volumes de dados?** Quando indexada corretamente, as buscas são executadas em tempo sub‑segundo mesmo em milhões de documentos.  
 
-## O que é date range search?
-A **date range search** permite localizar documentos que incluem datas entre dois limites, como “2023‑01‑01 ~~ 2023‑12‑31”. É essencial para relatórios, logs de auditoria e qualquer cenário onde o filtro baseado em tempo seja importante.
+## O que é wildcard search java?
+Wildcard search java permite localizar documentos onde um termo corresponde a um padrão, como `?ffect` (correspondendo a *affect* ou *effect*) ou `prod*` (correspondendo a *product*, *production*, etc.). É ideal para erros de digitação, entradas parciais ou quando a formulação exata não é conhecida.
 
-## Por que usar GroupDocs.Search for Java?
-O GroupDocs.Search oferece uma API unificada para vários tipos de consulta — simples, curinga, facetada, numérica, **date range**, regex, boolean e frase — permitindo criar experiências de busca sofisticadas sem lidar com múltiplas bibliotecas. Seu tratamento de erros orientado a eventos também mantém seu pipeline de indexação resiliente.
+## Por que usar GroupDocs.Search para Java?
+GroupDocs.Search oferece uma API unificada para muitos tipos de consulta — simples, **wildcard search java**, facetas, numéricos, intervalo de datas, regex, booleanas e frases — permitindo criar experiências de busca sofisticadas sem precisar de várias bibliotecas. Seu tratamento de erros orientado a eventos também mantém seu pipeline de indexação resiliente.
 
 ## Pré‑requisitos
-- **GroupDocs.Search Java library** (v25.4 ou mais recente).  
+- **Biblioteca GroupDocs.Search Java** (v25.4 ou mais recente).  
 - **Java Development Kit (JDK)** compatível com seu projeto.  
 - Maven para gerenciamento de dependências (ou download manual).  
 
@@ -66,7 +66,7 @@ Comece com um teste gratuito ou uma licença temporária:
 
 Agora vamos criar a pasta de índice que armazenará seus dados pesquisáveis.
 
-## Configurando o GroupDocs.Search for Java
+## Configurando GroupDocs.Search para Java
 
 ### Inicialização Básica
 Primeiro, instancie um objeto `Index` que aponta para uma pasta no disco:
@@ -79,7 +79,7 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\BasicUsage\\BuildSearchQu
 Index index = new Index(indexFolder);
 ```
 
-Agora você tem um gateway para todas as operações de busca.
+Você agora tem um gateway para todas as operações de busca.
 
 ## Guia de Implementação
 
@@ -100,7 +100,7 @@ index.getEvents().ErrorOccurred.add(new EventHandler<IndexErrorEventArgs>() {
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-*Por que isso importa*: Ao escutar `ErrorOccurred`, você pode registrar problemas, tentar novamente arquivos com falha ou alertar usuários sem travar todo o processo.
+*Por que isso importa*: Ao ouvir `ErrorOccurred`, você pode registrar problemas, tentar novamente arquivos que falharam ou alertar usuários sem travar todo o processo.
 
 ### Recurso 2: Consulta de Busca Simples
 #### O que é uma busca simples?
@@ -114,18 +114,18 @@ SearchResult result = index.search(query);
 
 *Resultado*: Retorna todos os documentos que contêm o termo **volutpat**.
 
-### Recurso 3: Consulta de Busca Curinga
-#### Como funciona a busca curinga?
+### Recurso 3: Consulta de Busca com Curinga
+#### Como funciona wildcard search java?
 
 ```java
 String query = "?ffect";
 SearchResult result = index.search(query);
 ```
 
-*Resultado*: Corresponde a **affect** e **effect**, mostrando o poder do placeholder `?`.
+*Resultado*: Corresponde tanto a **affect** quanto a **effect**, demonstrando o poder do curinga `?`.
 
 ### Recurso 4: Consulta de Busca Facetada
-#### Como executar busca facetada Java
+#### Como executar faceted search java
 
 ```java
 String query = "Content: magna";
@@ -142,10 +142,10 @@ String query = "2000 ~~ 3000";
 SearchResult result = index.search(query);
 ```
 
-*Resultado*: Recupera documentos onde os valores numéricos estão entre 2000 e 3000.
+*Resultado*: Recupera documentos onde valores numéricos ficam entre 2000 e 3000.
 
 ### Recurso 6: Consulta de Intervalo de Datas
-#### Como executar date range search
+#### Como executar date range search (custom date format java)
 
 ```java
 import com.groupdocs.search.options.*;
@@ -169,10 +169,10 @@ options.getDateFormats().addItem(dateFormat);
 SearchResult result = index.search(query, options);
 ```
 
-*Explicação*: Ao personalizar `SearchOptions`, você indica ao motor para reconhecer datas no formato **MM/DD/YYYY**, e então recuperar todos os registros entre 1 de janeiro de 2000 e 15 de junho de 2001.
+*Explicação*: Ao personalizar `SearchOptions`, você indica ao motor que reconheça datas no formato **MM/DD/YYYY**, então recupera todos os registros entre 1 de janeiro de 2000 e 15 de junho de 2001.
 
 ### Recurso 7: Consulta de Expressão Regular
-#### Como executar regex search Java
+#### Como executar regex search java
 
 ```java
 String query = "^(.)\\1{2,}";
@@ -181,8 +181,8 @@ SearchResult result = index.search(query);
 
 *Resultado*: Encontra sequências de três ou mais caracteres idênticos (ex.: “aaa”, “111”).
 
-### Recurso 8: Consulta Booleana
-#### Como combinar condições com boolean search Java
+### Recurso 8: Consulta Boolean
+#### Como combinar condições com boolean search java
 
 ```java
 String query = "justo AND NOT 3456";
@@ -191,7 +191,7 @@ SearchResult result = index.search(query);
 
 *Resultado*: Retorna documentos que contêm **justo** mas exclui quaisquer que também contenham **3456**.
 
-### Recurso 9: Consulta Booleana Complexa
+### Recurso 9: Consulta Boolean Complexa
 #### Como criar consultas booleanas avançadas
 
 ```java
@@ -199,7 +199,7 @@ String query = "FileName: Engl?(1~3) OR Content: (3456 AND consequat)";
 SearchResult result = index.search(query);
 ```
 
-*Resultado*: Procura nomes de arquivos semelhantes a “English” (permitindo variações de 1‑3 caracteres) **ou** conteúdo que contenha tanto **3456** quanto **consequat**.
+*Resultado*: Procura por nomes de arquivo semelhantes a “English” (permitindo variações de 1‑3 caracteres) **ou** conteúdo que contenha tanto **3456** quanto **consequat**.
 
 ### Recurso 10: Consulta de Frase
 #### Como buscar frases exatas
@@ -209,40 +209,41 @@ String query = "\"ipsum dolor sit amet\"";
 SearchResult result = index.search(query);
 ```
 
-*Resultado*: Recupera apenas documentos que contêm a frase exata **ipsum dolor sit amet**.
+*Resultado*: Recupera apenas documentos que contenham a frase exata **ipsum dolor sit amet**.
 
 ## Aplicações Práticas
-1. **Plataformas de E‑commerce** – Use faceted search Java para filtrar produtos por tamanho, cor e marca.  
-2. **Sistemas de Gerenciamento de Conteúdo** – Combine boolean search Java com phrase search para potencializar ferramentas editoriais sofisticadas.  
-3. **Ferramentas de Análise de Dados** – Aproveite date range search para gerar relatórios e painéis baseados em tempo.
+1. **Plataformas de E‑commerce** – Use **faceted search java** para filtrar produtos por tamanho, cor e marca.  
+2. **Sistemas de Gerenciamento de Conteúdo** – Combine **boolean search java** com busca por frase para potencializar ferramentas editoriais sofisticadas.  
+3. **Ferramentas de Análise de Dados** – Aproveite **date range search** e **custom date format java** para gerar relatórios e dashboards baseados em tempo.  
 
 ## Problemas Comuns & Soluções
-- **Nenhum resultado para date range search** – Verifique se o formato de data nos seus documentos corresponde ao `DateFormat` personalizado que você adicionou.  
+- **Nenhum resultado para busca por intervalo de datas** – Verifique se o formato de data nos documentos corresponde ao `DateFormat` personalizado que você adicionou.  
 - **Consultas regex retornam muitos resultados** – Refine o padrão ou limite o escopo da busca com qualificadores de campo adicionais.  
-- **Erros de indexação não capturados** – Garanta que o manipulador de eventos esteja anexado **antes** de chamar `index.add(...)`.
+- **Erros de indexação não são capturados** – Garanta que o manipulador de eventos esteja anexado **antes** de chamar `index.add(...)`.  
+- **Busca com curinga parece lenta** – Evite curingas iniciais (`*term`) em índices muito grandes; prefira padrões sufixos ou infixos.  
 
 ## Perguntas Frequentes
 
 **Q: Posso misturar date range search com outros tipos de consulta?**  
-A: Absolutamente. Você pode combinar uma cláusula de date range com operadores booleanos, filtros facetados ou padrões regex em uma única string de consulta.
+A: Absolutamente. Você pode combinar uma cláusula de intervalo de datas com curingas, booleanas, facetas ou padrões regex em uma única string de consulta.
 
-**Q: Preciso reconstruir o índice após mudar os formatos de data?**  
-A: Sim. O índice armazena termos tokenizados; atualizar apenas `SearchOptions` não re‑tokeniza os dados existentes. Re‑indexe os documentos após mudar os formatos.
+**Q: Preciso reconstruir o índice após mudar formatos de data?**  
+A: Sim. O índice armazena termos tokenizados; atualizar apenas `SearchOptions` não re‑tokeniza os dados existentes. Re‑indexe os documentos após alterar os formatos.
 
 **Q: Como o GroupDocs.Search lida com índices grandes?**  
 A: Ele usa indexação incremental e armazenamento em disco, permitindo escalar para milhões de documentos mantendo o uso de memória baixo.
 
 **Q: Existe um limite para o número de caracteres curinga?**  
-A: Os curingas são processados eficientemente, mas usar muitos curingas iniciais (ex.: `*term`) pode degradar o desempenho. Prefira curingas de prefixo ou sufixo.
+A: Os curingas são processados de forma eficiente, mas o uso de muitos curingas iniciais (ex.: `*term`) pode degradar o desempenho. Prefira curingas de prefixo ou sufixo.
 
 **Q: Qual modelo de licenciamento é recomendado para produção?**  
-A: Uma licença perpétua ou de assinatura da GroupDocs garante que você receba atualizações, suporte e a capacidade de implantar sem limitações de teste.
+A: Uma licença perpétua ou por assinatura da GroupDocs garante atualizações, suporte e a possibilidade de implantar sem limitações de teste.
 
 ## Conclusão
-Ao dominar **date range search** e toda a gama de tipos avançados de consulta oferecidos pelo GroupDocs.Search for Java, você pode construir experiências de busca altamente responsivas e repletas de recursos. Implemente um tratamento de erros robusto, ajuste finamente seu índice e combine consultas para atender praticamente qualquer cenário de recuperação. Comece a experimentar hoje e eleve as capacidades de acesso a dados da sua aplicação.
+Ao dominar **wildcard search java** e toda a suíte de tipos avançados de consulta oferecidos pelo GroupDocs.Search para Java, você pode criar experiências de busca altamente responsivas e ricas em recursos. Implemente tratamento robusto de erros, ajuste finamente seu índice e combine consultas para atender praticamente qualquer cenário de recuperação. Comece a experimentar hoje e eleve as capacidades de acesso a dados da sua aplicação.
 
 ---
 
-**Última atualização:** 2025-12-16  
+**Última atualização:** 2026-02-16  
 **Testado com:** GroupDocs.Search 25.4 (Java)  
 **Autor:** GroupDocs

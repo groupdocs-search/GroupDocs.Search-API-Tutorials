@@ -1,48 +1,50 @@
 ---
-date: '2025-12-16'
-description: Naucz się tworzyć indeksy wyszukiwania w Javie i implementować wyszukiwania
-  fasetowe oraz złożone przy użyciu GroupDocs.Search, zwiększając wydajność wyszukiwania
-  i doświadczenie użytkownika.
+date: '2026-02-16'
+description: Dowiedz się, jak używać operatorów logicznych w Javie z GroupDocs.Search,
+  aby utworzyć indeks wyszukiwania, przeprowadzać wyszukiwanie treści w Javie oraz
+  zapytania fasetowe, zwiększając wydajność i doświadczenie użytkownika.
 keywords:
 - faceted searches Java
 - complex search Java
 - GroupDocs.Search for Java
-title: Utwórz indeks wyszukiwania w Javie – Wyszukiwania fasetowe i złożone
+title: Operatory logiczne w Javie – Tworzenie indeksu wyszukiwania i wyszukiwania
+  fasetowego
 type: docs
 url: /pl/java/advanced-features/faceted-complex-search-groupdocs-java/
 weight: 1
 ---
 
-# Utwórz indeks wyszukiwania Java – Wyszukiwania fasetowane i złożone
+# Operatory logiczne Java – Tworzenie indeksu wyszukiwania i wyszukiwanie fasetowe
 
-Implementacja potężnego **search experience** w Javie może wydawać się przytłaczająca, szczególnie gdy musisz **create search index Java** projekty obsługujące duże kolekcje dokumentów. Na szczęście **GroupDocs.Search for Java** udostępnia bogate API, które pozwala budować zapytania fasetowane i złożone przy użyciu zaledwie kilku linii kodu. W tym samouczku dowiesz się, jak skonfigurować bibliotekę, **create a search index Java**, dodać dokumenty i uruchomić zarówno proste wyszukiwania fasetowane, jak i zaawansowane zapytania wielokryterialne.
+Implementacja potężnego **doświadczenia wyszukiwania** w Javie może wydawać się przytłaczająca, szczególnie gdy musisz **utworzyć indeks wyszukiwania Java**, który obsługuje **operatory logiczne Java** dla zapytań fasetowych i złożonych. W tym samouczku przeprowadzimy Cię przez konfigurację **GroupDocs.Search for Java**, budowanie indeksu, dodawanie dokumentów oraz tworzenie zarówno prostych wyszukiwań fasetowych, jak i zaawansowanych zapytań wielokryterialnych wykorzystujących logikę Boolean. Na koniec zrozumiesz, jak wykorzystać **content search Java**, **filename search Java**, a nawet operacje **update index java**, aby utrzymać dane w aktualności.
 
 ## Szybkie odpowiedzi
-- **What is a faceted search?** Sposób filtrowania wyników według predefiniowanych kategorii (np. typ pliku, data).  
-- **How do I create a search index Java?** Zainicjalizuj obiekt `Index` wskazujący na folder i dodaj dokumenty.  
-- **Can I combine multiple criteria?** Tak — użyj zapytań opartych na obiektach lub operatorów Boolean w zapytaniu tekstowym.  
-- **Do I need a license?** Bezpłatna wersja próbna działa w środowisku deweloperskim; licencja komercyjna usuwa ograniczenia.  
-- **Which IDE works best?** Dowolne IDE Java (IntelliJ IDEA, Eclipse, NetBeans) działa bez problemu.
+- **Czym jest wyszukiwanie fasetowe?** Sposób filtrowania wyników według zdefiniowanych wcześniej kategorii, takich jak typ pliku czy data.  
+- **Jak utworzyć indeks wyszukiwania Java?** Zainicjalizuj obiekt `Index`, wskazując folder, i dodaj dokumenty.  
+- **Czy mogę łączyć wiele kryteriów przy użyciu operatorów logicznych?** Tak — użyj zapytań opartych na obiektach lub operatorów Boolean w zapytaniu tekstowym.  
+- **Czy potrzebna jest licencja?** Bezpłatna wersja próbna działa w środowisku deweloperskim; licencja komercyjna usuwa ograniczenia.  
+- **Które IDE jest najlepsze?** Dowolne IDE Java (IntelliJ IDEA, Eclipse, NetBeans) działa bez problemu.
 
-## Co to jest „create search index java”?
-Tworzenie indeksu wyszukiwania w Javie oznacza budowanie struktury danych umożliwiającej przeszukiwanie, która przechowuje metadane i treść dokumentów, zapewniając szybkie odnajdywanie na podstawie zapytań użytkownika. Dzięki GroupDocs.Search indeks znajduje się na dysku, może być aktualizowany przyrostowo i obsługuje zaawansowane funkcje, takie jak faceting i złożona logika Boolean.
+## Co oznacza „create search index java”?
+Utworzenie indeksu wyszukiwania w Javie oznacza zbudowanie struktury danych umożliwiającej szybkie przeszukiwanie, która przechowuje metadane i treść dokumentów, zapewniając szybkie odnajdywanie na podstawie zapytań użytkownika. Dzięki GroupDocs.Search indeks znajduje się na dysku, może być aktualizowany przyrostowo i obsługuje zaawansowane funkcje, takie jak fasetowanie, **boolean operators Java** oraz złożoną logikę Boolean.
 
-## Dlaczego używać GroupDocs.Search do zapytań fasetowanych i złożonych?
-- **Out‑of‑the‑box faceting** – filtrowanie po polach, takich jak nazwa pliku, rozmiar lub własne metadane.  
-- **Rich query language** – łączenie zapytań tekstowych, frazowych i polowych przy użyciu operatorów AND/OR/NOT.  
-- **Scalable performance** – indeksuje miliony dokumentów, utrzymując niskie opóźnienia wyszukiwania.  
-- **Pure Java** – brak zależności natywnych, działa na każdej platformie z JDK 8+.
+## Dlaczego warto używać GroupDocs.Search do zapytań fasetowych i złożonych?
+- **Fasetowanie „out‑of‑the‑box”** – filtrowanie po polach takich jak nazwa pliku, rozmiar czy własne metadane.  
+- **Bogaty język zapytań** – łączenie zapytań tekstowych, frazowych i polowych przy użyciu operatorów AND/OR/NOT (rdzeń **boolean operators java**).  
+- **Skalowalna wydajność** – indeksuje miliony dokumentów przy niskiej latencji.  
+- **Czysta Java** – brak zależności natywnych, działa na każdej platformie z JDK 8+.  
+- **Łatwa konserwacja indeksu** – wywołaj `index.update()`, aby **update index java** po dodaniu lub usunięciu plików.
 
 ## Wymagania wstępne
 
 Zanim zaczniemy, upewnij się, że masz następujące elementy:
 
-- **JDK 8 or newer** zainstalowane i skonfigurowane w IDE.  
+- **JDK 8 lub nowszy** zainstalowany i skonfigurowany w IDE.  
 - **Maven** (lub Gradle) do zarządzania zależnościami.  
 - **GroupDocs.Search for Java** ≥ 25.4.  
 - Podstawową znajomość koncepcji OOP w Javie oraz struktury projektu Maven.
 
-## Konfiguracja GroupDocs.Search dla Java
+## Konfiguracja GroupDocs.Search for Java
 
 ### Konfiguracja Maven
 Dodaj repozytorium i zależność do pliku `pom.xml`:
@@ -66,15 +68,15 @@ Dodaj repozytorium i zależność do pliku `pom.xml`:
 ```
 
 ### Bezpośrednie pobranie
-Alternatywnie pobierz najnowszy plik JAR ze strony oficjalnych wydań:  
+Alternatywnie pobierz najnowszy plik JAR ze strony wydania:  
 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
 
 ### Uzyskanie licencji
 Aby odblokować pełną funkcjonalność:
 
-1. **Free trial** – idealny do rozwoju i testów.  
-2. **Temporary evaluation license** – wydłuża limity wersji próbnej.  
-3. **Commercial license** – usuwa wszystkie ograniczenia w środowisku produkcyjnym.
+1. **Bezpłatna wersja próbna** – idealna do rozwoju i testów.  
+2. **Tymczasowa licencja ewaluacyjna** – wydłuża limity wersji próbnej.  
+3. **Licencja komercyjna** – usuwa wszystkie ograniczenia w środowisku produkcyjnym.
 
 ### Podstawowa inicjalizacja i konfiguracja
 Poniższy fragment kodu pokazuje, jak **create a search index Java** poprzez utworzenie obiektu `Index`:
@@ -94,9 +96,11 @@ public class SearchSetup {
 }
 ```
 
-## Jak utworzyć search index java – Proste wyszukiwanie fasetowane
+Po przygotowaniu indeksu możemy przejść do rzeczywistych zapytań fasetowych i złożonych.
 
-Wyszukiwanie fasetowane pozwala użytkownikom końcowym zawęzić wyniki, wybierając wartości z predefiniowanych kategorii (facetów). Poniżej znajdziesz krok po kroku instrukcję.
+## Jak używać boolean operators java – Proste wyszukiwanie fasetowe
+
+Wyszukiwanie fasetowe pozwala użytkownikom końcowym zawęzić wyniki, wybierając wartości z predefiniowanych kategorii (faset). Poniżej krok po kroku opisany proces.
 
 ### Krok 1: Utwórz indeks
 Najpierw wskaż `Index` na folder, w którym będą przechowywane pliki indeksu.
@@ -120,8 +124,8 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-### Krok 3: Wykonaj wyszukiwanie w polu Content przy użyciu zapytania tekstowego
-Szybkie zapytanie tekstowe filtruje po polu `content`. Składnia `content: Pellentesque` ogranicza wyniki do dokumentów zawierających słowo *Pellentesque* w treści.
+### Krok 3: Wykonaj wyszukiwanie w polu treści przy użyciu zapytania tekstowego
+Proste zapytanie tekstowe filtruje po polu `content`. Składnia `content: Pellentesque` ogranicza wyniki do dokumentów zawierających słowo *Pellentesque* w treści.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -148,12 +152,12 @@ SearchResult result2 = index.search(fieldQuery);
 System.out.println("Documents found (query 2): " + result2.getDocumentCount());
 ```
 
-## Jak utworzyć search index java – Złożone zapytanie wyszukiwania
+## Jak używać boolean operators java – Złożone wyszukiwanie zapytań
 
-Złożone zapytania łączą wiele pól, operatory Boolean i wyszukiwanie frazowe. Są idealne w scenariuszach, takich jak filtry e‑commerce czy badania dokumentów prawnych.
+Złożone zapytania łączą wiele pól, operatory Boolean oraz wyszukiwanie fraz. To idealne rozwiązanie dla filtrów e‑commerce lub badań dokumentów prawnych.
 
 ### Krok 1: Utwórz indeks dla zapytań złożonych
-Użyj tej samej struktury folderów; możesz współdzielić indeks zarówno w prostych, jak i złożonych scenariuszach.
+Użyj tej samej struktury folderów; indeks może być współdzielony zarówno w scenariuszach prostych, jak i złożonych.
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Searching/FacetedSearch/ComplexQuery";
@@ -162,7 +166,7 @@ index.add(documentsFolder);
 ```
 
 ### Krok 2: Wykonaj wyszukiwanie przy użyciu zapytania tekstowego
-Poniższe zapytanie wyszukuje pliki o nazwie *lorem* **and** *ipsum* **or** zawartość zawierającą jedną z dwóch dokładnych fraz.
+Poniższe zapytanie szuka plików o nazwie *lorem* **i** *ipsum* **lub** treści zawierającej jedną z dwóch dokładnych fraz.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -181,7 +185,7 @@ System.out.println("Documents found (complex text query): " + result1.getDocumen
 ```
 
 ### Krok 3: Wykonaj wyszukiwanie przy użyciu zapytania obiektowego
-Budowa oparta na obiektach odzwierciedla zapytanie tekstowe, ale zapewnia bezpieczeństwo typów i wsparcie IDE.
+Budowa zapytania opartego na obiektach odzwierciedla zapytanie tekstowe, ale zapewnia bezpieczeństwo typów i pomoc IDE.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -208,46 +212,50 @@ SearchResult result2 = index.search(rootQuery);
 System.out.println("Documents found (complex object query): " + result2.getDocumentCount());
 ```
 
-## Praktyczne zastosowania wyszukiwań fasetowanych i złożonych
+## Praktyczne zastosowania wyszukiwania fasetowego i złożonego
 
-| Scenariusz | Jak faceting pomaga | Przykładowe zapytanie |
-|------------|----------------------|-----------------------|
+| Scenariusz | Jak fasetowanie pomaga | Przykładowe zapytanie |
+|------------|------------------------|-----------------------|
 | **Katalog e‑commerce** | Filtrowanie po kategorii, cenie, marce | `category: Electronics AND price:[100 TO 500]` |
 | **Repozytorium dokumentów prawnych** | Zawężanie po numerze sprawy, jurysdykcji | `caseNumber: 2023-045 AND jurisdiction: "California"` |
 | **Archiwa badawcze** | Łączenie autora, roku publikacji, słów kluczowych | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
 | **Intranet przedsiębiorstwa** | Wyszukiwanie po typie pliku i dziale | `filetype: pdf AND department: HR` |
 
-## Typowe pułapki i rozwiązywanie problemów
-- **Empty results** – Sprawdź, czy dokumenty zostały pomyślnie dodane (`index.getDocumentCount()` może pomóc).  
-- **Stale index** – Po dodaniu lub usunięciu plików wywołaj `index.update()`, aby utrzymać indeks w synchronizacji.  
-- **Incorrect field names** – Używaj stałych `CommonFieldNames` (`Content`, `FileName` itp.), aby uniknąć literówek.  
-- **Performance bottlenecks** – W przypadku bardzo dużych kolekcji rozważ włączenie `index.setCacheSize()` lub użycie dedykowanego SSD dla folderu indeksu.
+Te przykłady pokazują, dlaczego opanowanie technik **boolean operators java** oraz **filename search java** jest przełomowe dla każdej aplikacji intensywnie pracującej z danymi.
+
+## Częste pułapki i rozwiązywanie problemów
+
+- **Puste wyniki** – sprawdź, czy dokumenty zostały pomyślnie dodane (`index.getDocumentCount()` może pomóc).  
+- **Przestarzały indeks** – po dodaniu lub usunięciu plików wywołaj `index.update()`, aby **update index java** i utrzymać indeks w synchronizacji.  
+- **Nieprawidłowe nazwy pól** – używaj stałych `CommonFieldNames` (`Content`, `FileName` itp.), aby uniknąć literówek.  
+- **Wąskie gardła wydajności** – przy bardzo dużych kolekcjach rozważ zwiększenie `index.setCacheSize()` lub użycie dedykowanego SSD dla folderu indeksu.  
+- **Brak podświetleń** – aby **highlight search results java**, pobierz dopasowane fragmenty za pomocą `SearchResult.getFragments()` (nie pokazano tutaj, ale dostępne w API).  
 
 ## Najczęściej zadawane pytania
 
-**Q: Czy mogę używać GroupDocs.Search z Spring Boot?**  
-A: Oczywiście. Wystarczy dodać zależność Maven, skonfigurować indeks jako bean Spring i wstrzyknąć go tam, gdzie jest potrzebny.
+**P: Czy mogę używać GroupDocs.Search z Spring Boot?**  
+O: Oczywiście. Dodaj zależność Maven, skonfiguruj indeks jako bean Springa i wstrzykuj go tam, gdzie potrzebujesz funkcji wyszukiwania.
 
-**Q: Czy biblioteka obsługuje własne pola metadanych?**  
-A: Tak – możesz dodać pola definiowane przez użytkownika podczas indeksowania, a następnie facetingować je.
+**P: Czy biblioteka obsługuje własne pola metadanych?**  
+O: Tak – możesz dodać pola definiowane przez użytkownika podczas indeksowania i następnie fasetować na nich.
 
-**Q: Jak duży może być indeks?**  
-A: Indeks jest oparty na dysku i może obsługiwać miliony dokumentów; wystarczy zapewnić odpowiednią pojemność i monitorować ustawienia pamięci podręcznej.
+**P: Jak duży może być indeks?**  
+O: Indeks jest oparty na dysku i może obsługiwać miliony dokumentów; wystarczy zapewnić odpowiednią pojemność dysku i monitorować ustawienia pamięci podręcznej.
 
-**Q: Czy istnieje sposób na ranking wyników według trafności?**  
-A: GroupDocs.Search automatycznie ocenia dopasowania; wynik można pobrać za pomocą `SearchResult.getDocument(i).getScore()`.
+**P: Czy istnieje sposób na ranking wyników według trafności?**  
+O: GroupDocs.Search automatycznie ocenia dopasowania; możesz pobrać wynik za pomocą `SearchResult.getDocument(i).getScore()`.
 
-**Q: Co się stanie, jeśli zaindeksuję zaszyfrowane pliki PDF?**  
-A: Podaj hasło podczas dodawania dokumentu: `index.add(filePath, password)`.
+**P: Co się stanie, jeśli zindeksuję zaszyfrowane pliki PDF?**  
+O: Podaj hasło przy dodawaniu dokumentu: `index.add(filePath, password)`.
 
-## Zakończenie
+## Podsumowanie
 
-Do tej pory powinieneś czuć się pewnie **creating a search index Java** przy użyciu GroupDocs.Search, dodawać dokumenty i tworzyć zarówno proste zapytania fasetowane, jak i zaawansowane wyszukiwania Boolean. Te możliwości pozwalają dostarczać szybkie, dokładne i przyjazne dla użytkownika doświadczenia wyszukiwania w szerokim zakresie aplikacji — od platform e‑commerce po korporacyjne bazy wiedzy.
+Do tej pory powinieneś czuć się pewnie w **creating a search index Java** przy użyciu GroupDocs.Search, dodawaniu dokumentów oraz tworzeniu zarówno prostych zapytań fasetowych, jak i zaawansowanych wyszukiwań Boolean przy użyciu **boolean operators java**. Te możliwości pozwalają dostarczyć szybkie, dokładne i przyjazne dla użytkownika doświadczenia wyszukiwania w szerokim zakresie aplikacji — od platform e‑commerce po korporacyjne bazy wiedzy.
 
-Gotowy na kolejny krok? Poznaj zaawansowane funkcje **GroupDocs.Search**, takie jak **highlighting**, **suggestions** i **real‑time indexing**, aby jeszcze bardziej wzmocnić możliwości wyszukiwania w Twojej aplikacji.
+Gotowy na kolejny krok? Poznaj zaawansowane funkcje **GroupDocs.Search**, takie jak **highlighting**, **suggestions** i **real‑time indexing**, aby jeszcze bardziej wzmocnić moc wyszukiwania w swojej aplikacji.
 
 ---
 
-**Ostatnia aktualizacja:** 2025-12-16  
+**Ostatnia aktualizacja:** 2026-02-16  
 **Testowano z:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs

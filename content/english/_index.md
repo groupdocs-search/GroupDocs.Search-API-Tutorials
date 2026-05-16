@@ -7,12 +7,12 @@ weight: 11
 url: /
 is_root: true
 type: docs
-date: 2025-12-16
+date: 2026-02-16
 ---
 
 # GroupDocs.Search Tutorial – Unlock Document Search Power
 
-Welcome to the **GroupDocs.Search tutorial** hub, your one‑stop destination for mastering document search and indexing across .NET and Java platforms. Whether you’re building a small internal tool or a large‑scale enterprise solution, these step‑by‑step guides will help you implement fast, accurate, and scalable search functionality. You’ll learn everything from basic indexing to sophisticated query building, all while leveraging the full power of GroupDocs.Search.
+Welcome to the **GroupDocs.Search tutorial** hub, your one‑stop destination for mastering document search and indexing across .NET and Java platforms. Whether you’re building a quick internal tool or a large‑scale enterprise solution, these step‑by‑step guides will help you implement fast, accurate, and scalable search functionality. By exploring the GroupDocs.Search tutorial collection you’ll quickly gain the confidence to add powerful search features to any application.
 
 ## Why Use the GroupDocs.Search Tutorial?
 
@@ -26,6 +26,10 @@ The tutorial series is designed with real‑world scenarios in mind, so you can 
 {{% alert color="primary" %}}
 Explore powerful document search capabilities in .NET with GroupDocs.Search tutorials. From basic indexing to advanced search techniques, our tutorials offer comprehensive guidance for developers at all skill levels. Dive into various topics such as boolean search, fuzzy search, highlighting, dictionary management, and distributed search solutions, unlocking the full potential of GroupDocs.Search for .NET. Elevate your application's search functionality and streamline document discovery with our easy‑to‑follow tutorials.
 {{% /alert %}}
+
+## What You’ll Find in This Hub
+
+This hub groups the most essential tutorials for both platforms, organized so you can jump straight to the topic you need. Each link opens a dedicated guide that walks you through setup, code snippets, and best‑practice tips. Use the navigation below to pick the area that matches your current challenge—whether it’s creating an index, fine‑tuning query performance, or handling OCR‑based image search.
 
 ## GroupDocs.Search for .NET Tutorials
 
@@ -70,5 +74,6 @@ Discover comprehensive tutorials for GroupDocs.Search in Java. From basic indexi
 
 ---
 
-**Last Updated:** 2025-12-16  
-**Author:** GroupDocs
+**Last Updated:** 2026-02-16  
+**Author:** GroupDocs  
+**Tested With:** GroupDocs.Search latest stable release (as of 2026)

@@ -1,50 +1,52 @@
 ---
-date: '2025-12-16'
-description: GroupDocs.Search का उपयोग करके जावा में सर्च इंडेक्स बनाना और फेशेटेड
-  तथा जटिल खोजों को लागू करना सीखें, जिससे खोज प्रदर्शन और उपयोगकर्ता अनुभव में सुधार
-  हो।
+date: '2026-02-16'
+description: GroupDocs.Search के साथ जावा में बूलियन ऑपरेटर्स का उपयोग करके सर्च इंडेक्स
+  बनाना, जावा में कंटेंट सर्च और फ़ैसिटेड क्वेरीज़ करना सीखें, जिससे प्रदर्शन और उपयोगकर्ता
+  अनुभव में सुधार हो।
 keywords:
 - faceted searches Java
 - complex search Java
 - GroupDocs.Search for Java
-title: सर्च इंडेक्स जावा बनाएं – फ़ैसिटेड और जटिल खोजें
+title: बूलियन ऑपरेटर्स जावा – सर्च इंडेक्स बनाएं और फ़ैसिटेड खोज
 type: docs
 url: /hi/java/advanced-features/faceted-complex-search-groupdocs-java/
 weight: 1
 ---
 
-# खोज इंडेक्स जावा बनाएं – फेस्डेड और जटिल खोजें
+# Boolean Operators Java – सर्च इंडेक्स बनाएं & फ़ेसटेड सर्च
 
-जावा में एक शक्तिशाली **search experience** लागू करना भारी लग सकता है, विशेष रूप से जब आपको बड़े दस्तावेज़ संग्रह को संभालने वाले **create search index Java** प्रोजेक्ट्स बनाने की आवश्यकता हो। सौभाग्य से, **GroupDocs.Search for Java** एक समृद्ध API प्रदान करता है जो आपको कुछ ही कोड लाइनों के साथ फेस्डेड और जटिल क्वेरीज़ बनाने देता है। इस ट्यूटोरियल में आप लाइब्रेरी सेटअप करना, **create a search index Java** बनाना, दस्तावेज़ जोड़ना, और सरल फेस्डेड खोजों तथा परिष्कृत मल्टी‑क्राइटेरिया क्वेरीज़ चलाना सीखेंगे।
+Java में एक शक्तिशाली **search experience** लागू करना भारी लग सकता है, विशेषकर जब आपको **create a search index Java** बनाना पड़े जो **boolean operators Java** को फ़ेसटेड और जटिल क्वेरीज़ के लिए सपोर्ट करता हो। इस ट्यूटोरियल में हम **GroupDocs.Search for Java** सेट अप करना, एक इंडेक्स बनाना, दस्तावेज़ जोड़ना, और सरल फ़ेसटेड सर्च तथा जटिल मल्टी‑क्राइटेरिया क्वेरीज़ जो Boolean लॉजिक का उपयोग करती हैं, को कवर करेंगे। अंत तक आप **content search Java**, **filename search Java**, और **update index java** ऑपरेशन्स को समझेंगे जिससे आपका डेटा हमेशा ताज़ा रहे।
 
-## त्वरित उत्तर
-- **What is a faceted search?** पूर्वनिर्धारित श्रेणियों (जैसे, फ़ाइल प्रकार, तिथि) द्वारा परिणामों को फ़िल्टर करने का तरीका।  
-- **How do I create a search index Java?** एक फ़ोल्डर की ओर इशारा करने वाले `Index` ऑब्जेक्ट को इनिशियलाइज़ करें और दस्तावेज़ जोड़ें।  
-- **Can I combine multiple criteria?** हाँ—ऑब्जेक्ट‑आधारित क्वेरीज़ या टेक्स्ट क्वेरी में Boolean ऑपरेटर्स का उपयोग करें।  
-- **Do I need a license?** विकास के लिए एक फ्री ट्रायल काम करता है; एक कमर्शियल लाइसेंस सीमाओं को हटा देता है।  
-- **Which IDE works best?** कोई भी Java IDE (IntelliJ IDEA, Eclipse, NetBeans) ठीक काम करता है।
+## Quick Answers
+- **What is a faceted search?** पूर्वनिर्धारित श्रेणियों जैसे फ़ाइल प्रकार या तिथि द्वारा परिणाम फ़िल्टर करने का तरीका।  
+- **How do I create a search index Java?** एक `Index` ऑब्जेक्ट को फ़ोल्डर की ओर इशारा करके इनिशियलाइज़ करें और दस्तावेज़ जोड़ें।  
+- **Can I combine multiple criteria with boolean operators?** हाँ—ऑब्जेक्ट‑बेस्ड क्वेरीज़ या टेक्स्ट क्वेरी में Boolean ऑपरेटर्स का उपयोग करें।  
+- **Do I need a license?** विकास के लिए फ्री ट्रायल काम करता है; एक कमर्शियल लाइसेंस सीमाओं को हटाता है।  
+- **Which IDE works best?** कोई भी Java IDE (IntelliJ IDEA, Eclipse, NetBeans) ठीक रहेगा।
 
-## “create search index java” क्या है?
-जावा में एक सर्च इंडेक्स बनाना एक सर्चेबल डेटा स्ट्रक्चर तैयार करना है जो दस्तावेज़ मेटाडेटा और सामग्री को संग्रहीत करता है, जिससे उपयोगकर्ता क्वेरीज़ के आधार पर तेज़ पुनर्प्राप्ति संभव होती है। GroupDocs.Search के साथ, इंडेक्स डिस्क पर रहता है, क्रमिक रूप से अपडेट किया जा सकता है, और फेस्डिंग तथा जटिल Boolean लॉजिक जैसी उन्नत सुविधाओं का समर्थन करता है।
+## What is “create search index java”?
+Java में सर्च इंडेक्स बनाना मतलब एक सर्चेबल डेटा स्ट्रक्चर तैयार करना है जो दस्तावेज़ मेटाडेटा और कंटेंट को स्टोर करता है, जिससे उपयोगकर्ता क्वेरीज़ के आधार पर तेज़ रिट्रीवल संभव हो। GroupDocs.Search के साथ, इंडेक्स डिस्क पर रहता है, इसे क्रमिक रूप से अपडेट किया जा सकता है, और यह फ़ेसटिंग, **boolean operators Java**, और जटिल Boolean लॉजिक जैसी उन्नत सुविधाओं को सपोर्ट करता है।
 
-## फेस्डेड और जटिल क्वेरीज़ के लिए GroupDocs.Search क्यों उपयोग करें?
-- **Out‑of‑the‑box faceting** – फ़ाइल नाम, आकार, या कस्टम मेटाडेटा जैसे फ़ील्ड्स द्वारा फ़िल्टर करें।  
-- **Rich query language** – AND/OR/NOT ऑपरेटर्स का उपयोग करके टेक्स्ट, फ़्रेज़, और फ़ील्ड क्वेरीज़ को मिलाएँ।  
-- **Scalable performance** – मिलियन दस्तावेज़ों को इंडेक्स करता है जबकि सर्च लेटेंसी कम रखता है।  
-- **Pure Java** – कोई नेटिव डिपेंडेंसी नहीं, वह किसी भी प्लेटफ़ॉर्म पर चलता है जो JDK 8+ चलाता है।
+## Why use GroupDocs.Search for faceted and complex queries?
+- **Out‑of‑the‑box faceting** – फ़ाइल नाम, आकार, या कस्टम मेटाडेटा जैसे फ़ील्ड द्वारा फ़िल्टर करें।  
+- **Rich query language** – टेक्स्ट, फ़्रेज़, और फ़ील्ड क्वेरीज़ को AND/OR/NOT ऑपरेटर्स के साथ मिलाएँ (यह **boolean operators java** का मूल है)।  
+- **Scalable performance** – लाखों दस्तावेज़ों को इंडेक्स करें और लेटेंसी कम रखें।  
+- **Pure Java** – कोई नेटिव डिपेंडेंसी नहीं, JDK 8+ चलाने वाले किसी भी प्लेटफ़ॉर्म पर काम करता है।  
+- **Easy index maintenance** – फ़ाइलें जोड़ने या हटाने के बाद `index.update()` कॉल करके **update index java** करें।
 
-## आवश्यकताएँ
-शुरू करने से पहले, सुनिश्चित करें कि आपके पास निम्नलिखित हैं:
+## Prerequisites
 
-- **JDK 8 or newer** आपके IDE में इंस्टॉल और कॉन्फ़िगर किया हुआ।  
+शुरू करने से पहले सुनिश्चित करें कि आपके पास ये हैं:
+
+- **JDK 8 or newer** इंस्टॉल और आपके IDE में कॉन्फ़िगर किया हुआ।  
 - **Maven** (या Gradle) डिपेंडेंसी मैनेजमेंट के लिए।  
 - **GroupDocs.Search for Java** ≥ 25.4।  
-- जावा OOP अवधारणाओं और Maven प्रोजेक्ट स्ट्रक्चर की बुनियादी परिचितता।
+- Java OOP कॉन्सेप्ट्स और Maven प्रोजेक्ट स्ट्रक्चर की बेसिक समझ।
 
-## GroupDocs.Search for Java सेटअप करना
+## Setting Up GroupDocs.Search for Java
 
-### Maven सेटअप
-Add the repository and dependency to your `pom.xml` file:
+### Maven Setup
+`pom.xml` फ़ाइल में रिपॉज़िटरी और डिपेंडेंसी जोड़ें:
 
 ```xml
 <repositories>
@@ -64,19 +66,19 @@ Add the repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-### डायरेक्ट डाउनलोड
+### Direct Download
 वैकल्पिक रूप से, आधिकारिक रिलीज़ पेज से नवीनतम JAR डाउनलोड करें:  
 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
 
-### लाइसेंस प्राप्ति
-पूर्ण कार्यक्षमता अनलॉक करने के लिए:
+### License Acquisition
+पूरा फ़ंक्शनैलिटी अनलॉक करने के लिए:
 
-1. **Free trial** – विकास और परीक्षण के लिए उपयुक्त।  
-2. **Temporary evaluation license** – ट्रायल सीमाओं को बढ़ाता है।  
+1. **Free trial** – विकास और टेस्टिंग के लिए परफेक्ट।  
+2. **Temporary evaluation license** – ट्रायल लिमिट्स को बढ़ाता है।  
 3. **Commercial license** – प्रोडक्शन उपयोग के लिए सभी प्रतिबंध हटाता है।
 
-### बेसिक इनिशियलाइज़ेशन और सेटअप
-निम्नलिखित स्निपेट दिखाता है कि कैसे `Index` क्लास को इंस्टैंसिएट करके **create a search index Java** किया जाता है:
+### Basic Initialization and Setup
+नीचे दिया गया स्निपेट दिखाता है कि **create a search index Java** कैसे बनाते हैं `Index` क्लास को इंस्टैंशिएट करके:
 
 ```java
 import com.groupdocs.search.Index;
@@ -93,14 +95,14 @@ public class SearchSetup {
 }
 ```
 
-इंडेक्स तैयार होने के बाद, हम वास्तविक-विश्व फेस्डेड और जटिल क्वेरीज़ की ओर बढ़ सकते हैं।
+इंडेक्स तैयार होने के बाद, हम वास्तविक‑दुनिया की फ़ेसटेड और जटिल क्वेरीज़ की ओर बढ़ सकते हैं।
 
-## कैसे create search index java – सरल फेस्डेड सर्च
+## How to use boolean operators java – Simple Faceted Search
 
-फेस्डेड सर्च उपयोगकर्ताओं को पूर्वनिर्धारित श्रेणियों (facets) से मान चुनकर परिणामों को संकीर्ण करने देता है। नीचे चरण‑दर‑चरण walkthrough दिया गया है।
+फ़ेसटेड सर्च उपयोगकर्ताओं को पूर्वनिर्धारित श्रेणियों (फ़ेसेट) से मान चुनकर परिणाम संकीर्ण करने देता है। नीचे स्टेप‑बाय‑स्टेप प्रक्रिया दी गई है।
 
-### चरण 1: इंडेक्स बनाएं
-पहले, `Index` को उस फ़ोल्डर की ओर इशारा करें जहाँ इंडेक्स फ़ाइलें संग्रहीत होंगी।
+### Step 1: Create an Index
+पहले, `Index` को उस फ़ोल्डर की ओर पॉइंट करें जहाँ इंडेक्स फ़ाइलें स्टोर होंगी।
 
 ```java
 import com.groupdocs.search.Index;
@@ -109,8 +111,8 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Searching/FacetedSearc
 Index index = new Index(indexFolder);
 ```
 
-### चरण 2: इंडेक्स में दस्तावेज़ जोड़ें
-GroupDocs.Search को बताएं कि आपके स्रोत दस्तावेज़ कहाँ स्थित हैं। सभी समर्थित फ़ाइल प्रकार (PDF, DOCX, TXT, आदि) स्वचालित रूप से इंडेक्स किए जाएंगे।
+### Step 2: Add Documents to the Index
+GroupDocs.Search को बताएं कि आपके स्रोत दस्तावेज़ कहाँ स्थित हैं। सभी सपोर्टेड फ़ाइल प्रकार (PDF, DOCX, TXT, आदि) स्वचालित रूप से इंडेक्स हो जाएंगे।
 
 ```java
 import com.groupdocs.search.Index;
@@ -121,8 +123,8 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-### चरण 3: टेक्स्ट क्वेरी के साथ कंटेंट फ़ील्ड में खोज करें
-एक त्वरित टेक्स्ट क्वेरी `content` फ़ील्ड द्वारा फ़िल्टर करती है। सिंटैक्स `content: Pellentesque` परिणामों को उन दस्तावेज़ों तक सीमित करता है जिनके बॉडी टेक्स्ट में शब्द *Pellentesque* मौजूद है।
+### Step 3: Perform a Search in the Content Field with a Text Query
+एक तेज़ टेक्स्ट क्वेरी `content` फ़ील्ड द्वारा फ़िल्टर करती है। सिंटैक्स `content: Pellentesque` परिणामों को उन दस्तावेज़ों तक सीमित करता है जिनके बॉडी टेक्स्ट में *Pellentesque* शब्द मौजूद है।
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -134,8 +136,8 @@ SearchResult result1 = index.search(query1);
 System.out.println("Documents found (query 1): " + result1.getDocumentCount());
 ```
 
-### चरण 4: ऑब्जेक्ट क्वेरी का उपयोग करके खोज करें
-ऑब्जेक्ट‑आधारित क्वेरीज़ आपको सूक्ष्म नियंत्रण देती हैं। यहाँ हम एक शब्द क्वेरी बनाते हैं, उसे फ़ील्ड क्वेरी में लपेटते हैं, और उसे निष्पादित करते हैं।
+### Step 4: Perform a Search Using an Object Query
+ऑब्जेक्ट‑बेस्ड क्वेरीज़ आपको फाइन‑ग्रेन कंट्रोल देती हैं। यहाँ हम एक वर्ड क्वेरी बनाते हैं, उसे फ़ील्ड क्वेरी में रैप करते हैं, और उसे एक्सीक्यूट करते हैं।
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -149,12 +151,12 @@ SearchResult result2 = index.search(fieldQuery);
 System.out.println("Documents found (query 2): " + result2.getDocumentCount());
 ```
 
-## कैसे create search index java – जटिल क्वेरी सर्च
+## How to use boolean operators java – Complex Query Search
 
-जटिल क्वेरीज़ कई फ़ील्ड्स, Boolean ऑपरेटर्स, और फ़्रेज़ सर्च को मिलाती हैं। यह e‑commerce फ़िल्टर या कानूनी दस्तावेज़ शोध जैसे परिदृश्यों के लिए आदर्श है।
+जटिल क्वेरीज़ कई फ़ील्ड, Boolean ऑपरेटर्स, और फ़्रेज़ सर्च को मिलाती हैं। यह e‑commerce फ़िल्टर या लीगल डॉक्यूमेंट रिसर्च जैसे परिदृश्यों के लिए आदर्श है।
 
-### चरण 1: जटिल क्वेरीज़ के लिए इंडेक्स बनाएं
-एक ही फ़ोल्डर संरचना का पुन: उपयोग करें; आप इंडेक्स को सरल और जटिल दोनों परिदृश्यों में साझा कर सकते हैं।
+### Step 1: Create an Index for Complex Queries
+एक ही फ़ोल्डर स्ट्रक्चर को पुनः उपयोग करें; आप इंडेक्स को सरल और जटिल दोनों परिदृश्यों में शेयर कर सकते हैं।
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Searching/FacetedSearch/ComplexQuery";
@@ -162,8 +164,8 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-### चरण 2: टेक्स्ट क्वेरी के साथ खोज करें
-निम्नलिखित क्वेरी उन फ़ाइलों को खोजती है जिनका नाम *lorem* **और** *ipsum* **या** कंटेंट में दो सटीक फ़्रेज़ में से कोई एक हो।
+### Step 2: Perform a Search with a Text Query
+नीचे दिया गया क्वेरी फ़ाइलों को *lorem* **and** *ipsum* **or** कंटेंट में दो सटीक फ़्रेज़ में से किसी एक को खोजता है।
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -181,8 +183,8 @@ class SearchResult {
 System.out.println("Documents found (complex text query): " + result1.getDocumentCount());
 ```
 
-### चरण 3: ऑब्जेक्ट क्वेरी के साथ खोज करें
-ऑब्जेक्ट‑आधारित निर्माण टेक्स्टुअल क्वेरी को प्रतिबिंबित करता है लेकिन टाइप सेफ़्टी और IDE सहायता प्रदान करता है।
+### Step 3: Perform a Search with an Object Query
+ऑब्जेक्ट‑बेस्ड निर्माण टेक्स्ट क्वेरी को प्रतिबिंबित करता है लेकिन टाइप सेफ़्टी और IDE असिस्टेंस देता है।
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -209,46 +211,50 @@ SearchResult result2 = index.search(rootQuery);
 System.out.println("Documents found (complex object query): " + result2.getDocumentCount());
 ```
 
-## फेस्डेड और जटिल खोजों के व्यावहारिक अनुप्रयोग
+## Practical Applications of Faceted & Complex Searches
 
-| परिदृश्य | फेस्डिंग कैसे मदद करता है | उदाहरण क्वेरी |
-|----------|---------------------------|---------------|
-| **E‑commerce catalog** | श्रेणी, कीमत, ब्रांड द्वारा फ़िल्टर | `category: Electronics AND price:[100 TO 500]` |
-| **Legal document repository** | केस नंबर, अधिकार क्षेत्र द्वारा संकीर्ण | `caseNumber: 2023-045 AND jurisdiction: "California"` |
-| **Research archives** | लेखक, प्रकाशन वर्ष, कीवर्ड्स को मिलाएँ | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
+| Scenario | How Faceting Helps | Example Query |
+|----------|-------------------|---------------|
+| **E‑commerce catalog** | श्रेणी, कीमत, ब्रांड द्वारा फ़िल्टर करें | `category: Electronics AND price:[100 TO 500]` |
+| **Legal document repository** | केस नंबर, जुरिस्डिक्शन द्वारा संकीर्ण करें | `caseNumber: 2023-045 AND jurisdiction: "California"` |
+| **Research archives** | लेखक, प्रकाशन वर्ष, कीवर्ड को मिलाएँ | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
 | **Enterprise intranet** | फ़ाइल प्रकार और विभाग द्वारा खोजें | `filetype: pdf AND department: HR` |
 
-ये उदाहरण दर्शाते हैं कि क्यों **create search index java** तकनीकों में महारत हासिल करना किसी भी डेटा‑गहन एप्लिकेशन के लिए गेम‑चेंजर है।
+इन उदाहरणों से स्पष्ट होता है कि **boolean operators java** और **filename search java** तकनीकों में महारत हासिल करना किसी भी डेटा‑इंटेंसिव एप्लिकेशन के लिए गेम‑चेंजर क्यों है।
 
-## सामान्य समस्याएँ और ट्रबलशूटिंग
+## Common Pitfalls & Troubleshooting
+
 - **Empty results** – सुनिश्चित करें कि दस्तावेज़ सफलतापूर्वक जोड़े गए हैं (`index.getDocumentCount()` मदद कर सकता है)।  
-- **Stale index** – फ़ाइलें जोड़ने या हटाने के बाद, इंडेक्स को सिंक में रखने के लिए `index.update()` कॉल करें।  
-- **Incorrect field names** – टाइपो से बचने के लिए `CommonFieldNames` कॉन्स्टेंट्स (`Content`, `FileName`, आदि) का उपयोग करें।  
-- **Performance bottlenecks** – बड़े संग्रह के लिए, `index.setCacheSize()` सक्षम करने या इंडेक्स फ़ोल्डर के लिए समर्पित SSD उपयोग करने पर विचार करें।
+- **Stale index** – फ़ाइलें जोड़ने या हटाने के बाद `index.update()` कॉल करके **update index java** करें और इंडेक्स को सिंक रखें।  
+- **Incorrect field names** – टाइपो से बचने के लिए `CommonFieldNames` कॉन्स्टैंट्स (`Content`, `FileName`, आदि) का उपयोग करें।  
+- **Performance bottlenecks** – बड़े कलेक्शन के लिए `index.setCacheSize()` सक्षम करें या इंडेक्स फ़ोल्डर के लिए समर्पित SSD उपयोग करें।  
+- **Missing highlights** – **highlight search results java** करने के लिए `SearchResult.getFragments()` के माध्यम से मैच्ड फ्रैगमेंट्स प्राप्त करें (यहाँ नहीं दिखाया गया लेकिन API में उपलब्ध है)।  
 
-## अक्सर पूछे जाने वाले प्रश्न
+## Frequently Asked Questions
 
 **Q: क्या मैं GroupDocs.Search को Spring Boot के साथ उपयोग कर सकता हूँ?**  
-A: बिल्कुल। केवल Maven डिपेंडेंसी जोड़ें, इंडेक्स को Spring bean के रूप में कॉन्फ़िगर करें, और जहाँ आवश्यक हो वहाँ इंजेक्ट करें।
+A: बिल्कुल। Maven डिपेंडेंसी जोड़ें, इंडेक्स को Spring bean के रूप में कॉन्फ़िगर करें, और जहाँ भी सर्च क्षमता चाहिए वहाँ इन्जेक्ट करें।
 
-**Q: क्या लाइब्रेरी कस्टम मेटाडेटा फ़ील्ड्स का समर्थन करती है?**  
-A: हाँ – आप इंडेक्सिंग के दौरान यूज़र‑डिफाइंड फ़ील्ड्स जोड़ सकते हैं और फिर उन पर फेस्डिंग कर सकते हैं।
+**Q: क्या लाइब्रेरी कस्टम मेटाडेटा फ़ील्ड्स को सपोर्ट करती है?**  
+A: हाँ – आप इंडेक्सिंग के दौरान यूज़र‑डिफाइंड फ़ील्ड्स जोड़ सकते हैं और उन पर फ़ेसट कर सकते हैं।
 
 **Q: इंडेक्स कितना बड़ा हो सकता है?**  
-A: इंडेक्स डिस्क‑आधारित है और मिलियन दस्तावेज़ संभाल सकता है; बस पर्याप्त स्टोरेज सुनिश्चित करें और कैश सेटिंग्स की निगरानी करें।
+A: इंडेक्स डिस्क‑बेस्ड है और लाखों दस्तावेज़ संभाल सकता है; बस पर्याप्त स्टोरेज रखें और कैश सेटिंग्स मॉनिटर करें।
 
-**Q: क्या परिणामों को प्रासंगिकता के आधार पर रैंक करने का कोई तरीका है?**  
-A: GroupDocs.Search स्वचालित रूप से मैचों को स्कोर देता है; आप स्कोर `SearchResult.getDocument(i).getScore()` के माध्यम से प्राप्त कर सकते हैं।
+**Q: क्या परिणामों को रिलिवेंस के आधार पर रैंक किया जा सकता है?**  
+A: GroupDocs.Search स्वचालित रूप से मैचेस को स्कोर करता है; आप स्कोर `SearchResult.getDocument(i).getScore()` से प्राप्त कर सकते हैं।
 
-**Q: यदि मैं एन्क्रिप्टेड PDFs को इंडेक्स करता हूँ क्या होता है?**  
+**Q: यदि मैं एन्क्रिप्टेड PDFs को इंडेक्स करता हूँ तो क्या होगा?**  
 A: दस्तावेज़ जोड़ते समय पासवर्ड प्रदान करें: `index.add(filePath, password)`।
 
-## निष्कर्ष
+## Conclusion
 
-अब तक आपको GroupDocs.Search के साथ **create a search index Java** बनाने, दस्तावेज़ जोड़ने, और सरल फेस्डेड क्वेरीज़ तथा परिष्कृत Boolean खोजें बनाने में सहज महसूस होना चाहिए। ये क्षमताएँ आपको तेज़, सटीक, और उपयोगकर्ता‑मित्रवत सर्च अनुभव विभिन्न प्रकार के अनुप्रयोगों में प्रदान करने में सक्षम बनाती हैं—e‑commerce प्लेटफ़ॉर्म से लेकर एंटरप्राइज़ नॉलेज बेस तक।
+अब आप **create a search index Java** को GroupDocs.Search के साथ सहजता से बना सकते हैं, दस्तावेज़ जोड़ सकते हैं, और सरल फ़ेसटेड क्वेरीज़ तथा **boolean operators java** का उपयोग करके जटिल Boolean सर्च तैयार कर सकते हैं। ये क्षमताएँ आपको e‑commerce प्लेटफ़ॉर्म से लेकर एंटरप्राइज़ नॉलेज बेस तक विभिन्न अनुप्रयोगों में तेज़, सटीक, और उपयोगकर्ता‑मित्र सर्च एक्सपीरियंस प्रदान करने में सक्षम बनाती हैं।
 
-अगले कदम के लिए तैयार हैं? **GroupDocs.Search** की उन्नत सुविधाओं जैसे **highlighting**, **suggestions**, और **real‑time indexing** को एक्सप्लोर करें ताकि आपके एप्लिकेशन की सर्च शक्ति और बढ़े।
+अगला कदम उठाने के लिए तैयार हैं? **GroupDocs.Search** की उन्नत सुविधाओं जैसे **highlighting**, **suggestions**, और **real‑time indexing** का अन्वेषण करें ताकि आपके एप्लिकेशन की सर्च पावर और भी बढ़े।
 
-**अंतिम अपडेट:** 2025-12-16  
-**परीक्षित संस्करण:** GroupDocs.Search 25.4 for Java  
-**लेखक:** GroupDocs
+---
+
+**Last Updated:** 2026-02-16  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs
