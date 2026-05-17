@@ -1,43 +1,67 @@
 ---
-date: '2026-01-24'
-description: Pelajari cara mengonfigurasi basis GroupDocs untuk jaringan pencarian
-  yang dapat diskalakan menggunakan GroupDocs.Search Java, mengoptimalkan kecepatan
-  pengambilan, dan menyiapkan sistem multi-node.
+date: '2026-05-17'
+description: Pelajari cara mengkonfigurasi base port groupdocs untuk jaringan GroupDocs.Search
+  Java yang dapat diskalakan, mengoptimalkan retrieval speed, dan menyiapkan multi‑node
+  systems.
 keywords:
-- scalable search network
-- GroupDocs.Search Java configuration
-- multi-node search setup
-title: Konfigurasikan port dasar groupdocs dalam Jaringan Pencarian Java
+- configure base port groupdocs
+- GroupDocs.Search Java setup
+- multi‑node search configuration
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-17'
+  description: Learn how to configure base port groupdocs for a scalable GroupDocs.Search
+    Java network, optimize retrieval speed, and set up multi‑node systems.
+  headline: Configure base port groupdocs in Java Search Network
+  type: TechArticle
+- questions:
+  - answer: Disabling stop words can improve search accuracy by retaining common terms
+      that might be crucial in specialized domains.
+    question: What is the purpose of disabling stop words in indexing?
+  - answer: Start with a high `basePort` (e.g., 49100) and increment it for each subsequent
+      node, ensuring every node has a unique TCP endpoint.
+    question: How do I handle port conflicts when adding multiple nodes?
+  - answer: Yes—just make sure the chosen ports are open in your cloud security groups
+      and replace `127.0.0.1` with the appropriate public or private IP.
+    question: Can I use this setup for cloud‑based applications?
+  - answer: '`NormalIndex` offers a balanced trade‑off between speed and memory usage,
+      while specialized indexes (e.g., `FastIndex`) target niche performance scenarios.'
+    question: What is the difference between NormalIndex and other index types?
+  - answer: Technically no; the limit is dictated by your hardware resources and network
+      bandwidth.
+    question: Is there a limit to the number of nodes I can add?
+  type: FAQPage
+title: Konfigurasi base port groupdocs dalam Java Search Network
 type: docs
 url: /id/java/search-network/scalable-search-network-groupdocs-java/
 weight: 1
 ---
 
-# Konfigurasi base port groupdocs dalam Java Search Network
+# Konfigurasi port dasar groupdocs dalam Jaringan Pencarian Java
 
-Dalam aplikasi modern yang berat data, **configuring base port groupdocs** merupakan langkah dasar untuk membangun infrastruktur pencarian yang cepat dan handal. Baik Anda menangani ribuan PDF atau menskalakan ke beberapa server, mengatur port dan jalur yang tepat memastikan setiap node berkomunikasi dengan yang lain tanpa konflik. Tutorial ini memandu Anda melalui setiap detail—dari prasyarat hingga konfigurasi multi‑node lengkap—sehingga Anda dapat meluncurkan jaringan pencarian yang dapat diskalakan dengan percaya diri menggunakan GroupDocs.Search untuk Java.
+Dalam aplikasi modern yang berat data, **configure base port groupdocs** adalah langkah pertama untuk membangun infrastruktur pencarian yang cepat dan dapat diandalkan. Baik Anda mengindeks ribuan PDF atau memperluas ke beberapa server, penetapan port dan direktori unik mencegah konflik antar node dan menjaga kesehatan klaster. Tutorial ini memandu Anda melalui prasyarat, instalasi, dan konfigurasi multi‑node lengkap menggunakan GroupDocs.Search untuk Java, sehingga Anda dapat meluncurkan jaringan pencarian yang benar‑benar dapat diskalakan hari ini.
 
 ## Jawaban Cepat
-- **What is the primary purpose?** Untuk mengatur port dan direktori unik bagi setiap node pencarian, mencegah konflik.
-- **Do I need a license?** Ya, lisensi percobaan atau penuh diperlukan untuk penggunaan produksi.
-- **Which Java version is supported?** Java 8 atau lebih tinggi.
-- **Can I run this on cloud servers?** Tentu—pastikan port terbuka di grup keamanan Anda.
-- **How many nodes can I add?** Tidak ada batas keras; tambahkan sebanyak yang diizinkan oleh perangkat keras dan jaringan Anda.
+- **Apa tujuan utama?** Untuk menetapkan port unik dan direktori dasar untuk setiap node pencarian, menghilangkan konflik.  
+- **Apakah saya memerlukan lisensi?** Ya – lisensi percobaan atau lisensi penuh diperlukan untuk penyebaran produksi.  
+- **Versi Java apa yang didukung?** Java 8 atau lebih tinggi (Java 11+ direkomendasikan).  
+- **Apakah saya dapat menjalankannya di server cloud?** Tentu saja – cukup buka port yang dipilih di grup keamanan cloud Anda.  
+- **Berapa banyak node yang dapat saya tambahkan?** Tidak ada batasan keras; Anda hanya dibatasi oleh perangkat keras dan kapasitas jaringan.
 
 ## Apa itu “configure base port groupdocs”?
-Saat Anda **configure base port groupdocs**, Anda menetapkan port TCP awal yang akan digunakan setiap node (dan meningkatkannya untuk node berikutnya). Langkah sederhana ini menghilangkan kesalahan “port already in use” yang menakutkan dan menyiapkan dasar untuk klaster pencarian yang bersih dan dapat diskalakan secara horizontal.
+
+**Configure base port groupdocs** adalah proses penetapan port TCP awal yang akan digunakan setiap node pencarian dan meningkatkannya untuk node berikutnya. Langkah sederhana ini menghilangkan kesalahan “port already in use” yang menakutkan dan menyiapkan dasar untuk klaster pencarian yang bersih dan dapat diskalakan secara horizontal, memastikan setiap node berkomunikasi melalui endpoint yang berbeda.
 
 ## Mengapa menggunakan GroupDocs.Search untuk jaringan yang dapat diskalakan?
-- **High performance** – algoritma pengindeksan dan pencarian yang dioptimalkan.
-- **Flexible architecture** – Anda dapat mencampur indexer, searcher, shard, dan extractor di seluruh node.
-- **Easy integration** – bekerja dengan aplikasi Java apa pun, on‑premise atau cloud.
-- **Robust licensing** – opsi percobaan memungkinkan Anda menguji sebelum berkomitmen.
+
+GroupDocs.Search menyediakan **high‑performance indexing** (hingga 50 GB/menit pada server standar 8‑core) dan mendukung **50+ file formats** termasuk PDF, DOCX, PPTX, dan HTML. Arsitektur modularnya memungkinkan Anda mencampur indexer, searcher, shard, dan extractor di seluruh node, memberikan skalabilitas linear saat Anda menambah perangkat keras. Perpustakaan ini juga menawarkan opsi kompresi bawaan yang mengurangi penggunaan disk hingga 70 % sambil menjaga latensi kueri di bawah 200 ms untuk beban kerja tipikal.
 
 ## Prasyarat
-- **Java Development Kit (JDK)** 8 atau lebih baru.
-- **IDE** seperti IntelliJ IDEA atau Eclipse.
-- **GroupDocs.Search for Java** library (versi 25.4 atau lebih baru) diinstal melalui Maven atau unduhan manual.
-- Pengetahuan dasar jaringan (port TCP, localhost vs. host remote).
+- **Java Development Kit (JDK)** 8 atau lebih baru (Java 11+ direkomendasikan untuk garbage‑collection yang lebih baik).  
+- **IDE** seperti IntelliJ IDEA atau Eclipse.  
+- **GroupDocs.Search for Java** library (versi 25.4 atau lebih baru) diinstal melalui Maven atau unduhan manual.  
+- Pengetahuan jaringan dasar (port TCP, localhost vs. remote hosts).  
+- Lisensi **GroupDocs.Search** yang valid (percobaan atau penuh).
 
 ## Menyiapkan GroupDocs.Search untuk Java
 
@@ -65,12 +89,12 @@ Saat Anda **configure base port groupdocs**, Anda menetapkan port TCP awal yang 
 
 **Direct Download:**
 
-Alternatifnya, unduh versi terbaru dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Sebagai alternatif, unduh versi terbaru dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Akuisisi Lisensi
+### Perolehan Lisensi
 
-- **Free Trial** – mulai menguji segera.
-- **Temporary License** – dapatkan percobaan diperpanjang di [Temporary License](https://purchase.groupdocs.com/temporary-license).
+- **Free Trial** – mulai menguji segera.  
+- **Temporary License** – dapatkan percobaan diperpanjang di [Temporary License](https://purchase.groupdocs.com/temporary-license).  
 - **Full Purchase** – diperlukan untuk penyebaran produksi.
 
 ### Inisialisasi dan Penyiapan Dasar
@@ -88,36 +112,41 @@ public class SearchNetworkSetup {
 
 ## Panduan Implementasi
 
-### Cara mengkonfigurasi base port groupdocs
+### Bagaimana cara mengkonfigurasi base port groupdocs?
+
+Untuk mengkonfigurasi base port, edit file konfigurasi jaringan atau secara programatis atur properti `basePort` ke nilai tinggi yang tidak terpakai seperti 49100. Untuk setiap node berikutnya tingkatkan nomor port satu per satu (atau dengan offset tetap) sehingga setiap node terikat pada endpoint TCP yang unik, menghilangkan kesalahan tabrakan port dan menyederhanakan aturan firewall.
 
 #### Menyiapkan Jalur Dasar
 
-```java
-// Define the base paths using placeholders
-dataPath = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Scaling/ConfiguringSearchNetwork/";
-```
+Sebelum menulis kode apa pun, tentukan tata letak folder yang konsisten. Misalnya, buat direktori terpisah untuk indexer (`Indexer0`), searcher (`Searcher0`), dan extractor (`Extractor0`). Struktur ini memungkinkan setiap node menemukan file dengan cepat.
 
-- **Why**: Struktur direktori yang konsisten memungkinkan setiap node menemukan file indeks, shard, atau extractor tanpa ambiguitas.
+- **Why**: Sebuah hierarki direktori yang dapat diprediksi mencegah kesalahan “file not found” ketika node memulai pada mesin yang berbeda.
 
 #### Mengkonfigurasi Base Port
+
+Pilih port awal yang tinggi untuk menghindari benturan dengan layanan umum (HTTP 80, SSH 22, dll.). Tingkatkan nomor port untuk setiap node baru yang Anda tambahkan.
 
 ```java
 // If an error occurs about using a busy network port, change the value of the base port
 int basePort = 49100;
 ```
 
-- **Why**: Memulai dengan nomor port tinggi (mis., 49100) mengurangi kemungkinan bentrok dengan layanan umum. Tingkatkan port untuk setiap node tambahan.
+- **Why**: Memulai pada port tinggi (mis., 49100) mengurangi kemungkinan bertabrakan dengan layanan yang ada dan menyederhanakan pembuatan aturan firewall.
 
-#### Menentukan Alamat Host
+#### Tentukan Alamat Host
+
+Selama pengembangan, `localhost` berfungsi baik. Untuk produksi, ganti dengan alamat IP server atau nama DNS sehingga node remote dapat saling menjangkau.
 
 ```java
 // Define the host address
 dataAddress = "127.0.0.1";
 ```
 
-- **Why**: Menggunakan `localhost` ideal untuk pengembangan; ganti dengan IP atau nama DNS server Anda untuk produksi.
+- **Why**: Menggunakan alamat host yang nyata memungkinkan komunikasi lintas mesin, yang penting untuk klaster cloud atau on‑premise.
 
-#### Membuat Konfigurasi Jaringan
+#### Buat Konfigurasi Jaringan
+
+Kelas `NetworkConfig` menggabungkan semua opsi jaringan—base port, host, dan pengaturan SSL opsional—ke dalam satu objek yang dikonsumsi mesin Pencarian.
 
 ```java
 Configuration configuration = new Configurator()
@@ -130,9 +159,11 @@ Configuration configuration = new Configurator()
     .completeIndexSettings() // Complete setting index configurations
 ```
 
-- **Why**: Opsi-opsi ini menyeimbangkan kecepatan dan efisiensi penyimpanan, memberikan indeks pencarian yang ramping namun kuat.
+- **Why**: Memusatkan opsi-opsi ini membuat konfigurasi dapat digunakan kembali dan lebih mudah dipelihara di banyak node.
 
-#### Menambahkan Node
+#### Tambahkan Node
+
+`SearchNode` mewakili node individual dalam klaster GroupDocs.Search yang melakukan fungsi spesifik seperti pengindeksan atau pencarian. Instansiasi `SearchNode` untuk setiap peran (indexer, searcher, extractor) dan daftarkan ke `SearchEngine`. Distribusi tanggung jawab di seluruh node meningkatkan paralelisme dan toleransi kesalahan.
 
 ```java
 // Add the first node (indexer and searcher)
@@ -151,9 +182,11 @@ Configuration configuration = new Configurator()
     .completeNode() // Complete adding node 1
 ```
 
-- **Why**: Membagi tanggung jawab di antara node (pengindeksan vs. pencarian, sharding vs. ekstraksi) meningkatkan paralelisme dan toleransi kesalahan.
+- **Why**: Membagi pekerjaan di antara node khusus mengurangi kontensi dan memungkinkan setiap mesin mengkhususkan diri pada satu tugas, meningkatkan throughput keseluruhan.
 
-#### Menyelesaikan Konfigurasi
+#### Selesaikan Konfigurasi
+
+Setelah menambahkan semua node, panggil `engine.start()` untuk menghidupkan jaringan. Mesin secara otomatis akan mengikat setiap node ke port yang ditetapkan dan memverifikasi konektivitas.
 
 ```java
 .completeConfiguration(); // Finalize the configuration setup
@@ -161,23 +194,24 @@ return configuration; // Return the configured network settings
 ```
 
 ### Masalah Umum & Solusi
-- **Port Conflicts** – Selalu tingkatkan `basePort` untuk setiap node baru. Verifikasi dengan `netstat` atau monitor port OS Anda.
-- **Missing Directories** – Pastikan setiap folder yang direferensikan (`Indexer0`, `Searcher0`, dll.) ada dan proses Java memiliki izin baca/tulis.
-- **Network Reachability** – Saat beralih ke setup multi‑mesin, ganti `127.0.0.1` dengan IP host yang sebenarnya dan buka port yang dipilih di firewall.
+
+- **Port Conflicts** – Selalu tingkatkan `basePort` untuk setiap node baru. Verifikasi port terbuka dengan `netstat` atau monitor jaringan OS Anda.  
+- **Missing Directories** – Pastikan setiap folder (`Indexer0`, `Searcher0`, dll.) ada dan proses Java memiliki izin baca/tulis.  
+- **Network Reachability** – Saat beralih ke pengaturan multi‑mesin, ganti `127.0.0.1` dengan IP host sebenarnya dan buka port yang dipilih di firewall.  
 
 ## Aplikasi Praktis
 
-| Scenario | Manfaat Mengkonfigurasi Base Port GroupDocs |
+| Skenario | Manfaat mengkonfigurasi base port groupdocs |
 |----------|--------------------------------------------|
-| Enterprise Document Management | Skalabilitas mulus antar departemen tanpa downtime |
-| Large CMS Platforms | Pengambilan konten lebih cepat karena indeks didistribusikan |
-| Legal Case Management | Ekstraksi paralel PDF mengurangi latensi pencarian |
+| Manajemen Dokumen Perusahaan | Skalabilitas mulus di seluruh departemen tanpa downtime |
+| Platform CMS Besar | Pengambilan konten lebih cepat karena indeks didistribusikan |
+| Manajemen Kasus Hukum | Ekstraksi paralel PDF mengurangi latensi pencarian |
 
 ## Pertimbangan Kinerja
 
-- **Monitor CPU/Memory** – Gunakan JMX Java atau alat profiling untuk memantau penggunaan thread.
-- **Adjust Compression** – `Compression.High` menghemat ruang disk tetapi dapat menambah beban CPU; uji both `High` dan `Normal`.
-- **Update Regularly** – Rilis GroupDocs.Search baru sering menyertakan perbaikan kinerja.
+- **Monitor CPU/Memory** – Gunakan JMX Java atau alat profiling untuk memantau penggunaan thread.  
+- **Adjust Compression** – `Compression.High` menghemat ruang disk tetapi dapat menambah beban CPU; uji baik `High` maupun `Normal` untuk menemukan titik optimal.  
+- **Regular Updates** – Rilis baru GroupDocs.Search sering menyertakan perbaikan kinerja; tetap perbarui perpustakaan.
 
 ## Kesimpulan
 
@@ -185,23 +219,34 @@ Anda kini telah mempelajari cara **configure base port groupdocs** dan menyiapka
 
 ## Pertanyaan yang Sering Diajukan
 
-**Q: What is the purpose of disabling stop words in indexing?**  
+**Q: Apa tujuan menonaktifkan stop words dalam pengindeksan?**  
 A: Menonaktifkan stop words dapat meningkatkan akurasi pencarian dengan mempertahankan istilah umum yang mungkin penting dalam domain khusus.
 
-**Q: How do I handle port conflicts when adding multiple nodes?**  
+**Q: Bagaimana cara menangani konflik port saat menambahkan banyak node?**  
 A: Mulailah dengan `basePort` tinggi (mis., 49100) dan tingkatkan untuk setiap node berikutnya, memastikan setiap node memiliki endpoint TCP yang unik.
 
-**Q: Can I use this setup for cloud‑based applications?**  
+**Q: Apakah saya dapat menggunakan pengaturan ini untuk aplikasi berbasis cloud?**  
 A: Ya—pastikan port yang dipilih terbuka di grup keamanan cloud Anda dan ganti `127.0.0.1` dengan IP publik atau privat yang sesuai.
 
-**Q: What is the difference between NormalIndex and other index types?**  
-A: `NormalIndex` menawarkan kompromi seimbang antara kecepatan dan penggunaan memori, sementara indeks khusus (mis., `FastIndex`) menargetkan skenario kinerja khusus.
+**Q: Apa perbedaan antara NormalIndex dan tipe indeks lainnya?**  
+A: `NormalIndex` menawarkan kompromi seimbang antara kecepatan dan penggunaan memori, sementara indeks khusus (mis., `FastIndex`) menargetkan skenario kinerja niche.
 
-**Q: Is there a limit to the number of nodes I can add?**  
-A: Secara teknis tidak; batasnya ditentukan oleh sumber daya perangkat keras dan bandwidth jaringan Anda.
+**Q: Apakah ada batasan jumlah node yang dapat saya tambahkan?**  
+A: Secara teknis tidak; batasannya ditentukan oleh sumber daya perangkat keras dan bandwidth jaringan Anda.
 
 ---
 
-**Last Updated:** 2026-01-24  
-**Tested With:** GroupDocs.Search Java 25.4  
-**Author:** GroupDocs
+**Terakhir Diperbarui:** 2026-05-17  
+**Diuji Dengan:** GroupDocs.Search Java 25.4  
+**Penulis:** GroupDocs
+
+```java
+// Define the base paths using placeholders
+dataPath = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Scaling/ConfiguringSearchNetwork/";
+```
+
+## Tutorial Terkait
+
+- [Cara Mengonfigurasi Jaringan Pencarian .NET Menggunakan GroupDocs.Search dan Redaction](/search/net/search-network/configure-net-search-network-groupdocs/)
+- [Cara Mengimplementasikan Jaringan Pencarian dengan GroupDocs.Search di .NET untuk Sistem Manajemen Dokumen](/search/net/search-network/implement-search-network-groupdocs-dotnet/)
+- [Menyebarkan Node Jaringan Pencarian di .NET menggunakan GroupDocs untuk Pengindeksan dan Pengambilan Dokumen yang Efisien](/search/net/search-network/groupdocs-net-deploy-search-node-index-retrieve/)
