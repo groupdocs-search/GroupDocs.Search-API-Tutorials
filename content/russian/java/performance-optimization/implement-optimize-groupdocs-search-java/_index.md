@@ -1,14 +1,16 @@
 ---
-title: "Perform Text Search with GroupDocs.Search for Java"
-description: "Learn how to perform text search and optimize search performance using GroupDocs.Search for Java. Includes steps to set up a search network, create searchable index, and delete documents index."
-date: "2026-01-16"
-weight: 1
-url: "/java/performance-optimization/implement-optimize-groupdocs-search-java/"
+date: '2026-01-16'
+description: Изучите, как выполнять поиск текста и оптимизировать производительность
+  поиска с помощью GroupDocs.Search для Java. Включает шаги по настройке поисковой
+  сети, созданию индексируемого индекса и удалению индекса документов.
 keywords:
 - GroupDocs.Search for Java
 - search network optimization
 - document indexing with GroupDocs
+title: Выполнить поиск текста с помощью GroupDocs.Search для Java
 type: docs
+url: /ru/java/performance-optimization/implement-optimize-groupdocs-search-java/
+weight: 1
 ---
 
 # Perform Text Search with GroupDocs.Search for Java
@@ -17,16 +19,16 @@ type: docs
 ## How to Implement and Optimize a Search Network with GroupDocs.Search for Java
 
 ### Introduction
-In today's data‑driven world, the ability to **perform text search** quickly across massive document collections is a competitive advantage. Whether you're building an internal knowledge base, a legal‑case repository, or an e‑commerce product catalog, a well‑tuned search network can dramatically improve user satisfaction. In this guide you’ll learn how to **set up search network**, **create searchable index**, **optimize search performance**, and even **delete documents index** when needed—all using GroupDocs.Search for Java.
+В современном мире, ориентированном на данные, возможность **perform text search** быстро по огромным коллекциям документов является конкурентным преимуществом. Независимо от того, создаёте ли вы внутреннюю базу знаний, репозиторий юридических дел или каталог товаров для e‑commerce, правильно настроенная поисковая сеть может существенно повысить удовлетворённость пользователей. В этом руководстве вы узнаете, как **set up search network**, **create searchable index**, **optimize search performance**, а также **delete documents index** при необходимости — используя GroupDocs.Search для Java.
 
 **What You'll Learn**
-- Configuring a search network with GroupDocs.Search  
-- Deploying nodes within the network  
-- Indexing documents efficiently (`index documents java`)  
-- Performing text searches across your network (`perform text search`)  
-- Deleting specific documents from the index (`delete documents index`)  
+- Настройка поисковой сети с GroupDocs.Search  
+- Развёртывание узлов в сети  
+- Эффективное индексирование документов (`index documents java`)  
+- Выполнение текстовых поисков по вашей сети (`perform text search`)  
+- Удаление конкретных документов из индекса (`delete documents index`)  
 
-Let's dive into how you can leverage these features to create an optimized search experience.
+Давайте погрузимся в то, как вы можете использовать эти возможности для создания оптимизированного поискового опыта.
 
 ## Quick Answers
 - **What is the main purpose of GroupDocs.Search for Java?** It provides full‑text search across many document formats.  

@@ -1,19 +1,19 @@
 ---
-title: "Configure GroupDocs.Search Network in Java – Boost Search"
-description: "Learn how to configure groupdocs search network in Java and add synonyms to index for enhanced search efficiency."
-date: "2026-01-16"
-weight: 1
-url: "/java/search-network/configuring-groupdocs-search-java-optimize-networks/"
+date: '2026-01-16'
+description: เรียนรู้วิธีกำหนดค่าเครือข่ายการค้นหา GroupDocs ใน Java และเพิ่มคำพ้องความหมายลงในดัชนีเพื่อเพิ่มประสิทธิภาพการค้นหา.
 keywords:
 - GroupDocs.Search Java
 - search network configuration
 - distributed searching
+title: กำหนดค่า GroupDocs.Search Network ใน Java – เพิ่มประสิทธิภาพการค้นหา
 type: docs
+url: /th/java/search-network/configuring-groupdocs-search-java-optimize-networks/
+weight: 1
 ---
 
 # Configure GroupDocs.Search Network in Java – Boost Search
 
-In today’s data‑driven applications, **configure groupdocs search network** is the key step to delivering fast, accurate results across massive document collections. Whether you’re building an enterprise‑wide search portal or extending an existing solution, a well‑configured GroupDocs.Search network lets you scale horizontally, add synonym support, and keep latency low. In this tutorial you’ll learn how to set up, deploy, and fine‑tune a GroupDocs.Search network using Java, plus practical tips for adding synonyms to index and managing node lifecycles.
+ในแอปพลิเคชันที่ขับเคลื่อนด้วยข้อมูลในปัจจุบัน **configure groupdocs search network** เป็นขั้นตอนสำคัญในการให้ผลลัพธ์ที่เร็วและแม่นยำในคอลเลกชันเอกสารขนาดใหญ่ ไม่ว่าคุณจะสร้างพอร์ทัลการค้นหาแบบองค์กรทั้งหมดหรือขยายโซลูชันที่มีอยู่แล้ว การตั้งค่า GroupDocs.Search network อย่างเหมาะสมจะช่วยให้คุณสเกลแนวนอน เพิ่มการสนับสนุนคำพ้องความหมาย และรักษาความหน่วงเวลาให้ต่ำ ในบทเรียนนี้คุณจะได้เรียนรู้วิธีตั้งค่า ปรับใช้ และปรับจูน GroupDocs.Search network ด้วย Java พร้อมเคล็ดลับการเพิ่มคำพ้องความหมายลงในดัชนีและการจัดการวงจรชีวิตของโหนด
 
 ## Quick Answers
 - **What is the primary benefit of configuring a GroupDocs.Search network?** It enables distributed indexing and querying, improving performance and scalability.  

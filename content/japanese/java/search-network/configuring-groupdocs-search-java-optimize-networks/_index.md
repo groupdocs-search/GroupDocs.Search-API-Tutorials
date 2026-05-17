@@ -1,19 +1,19 @@
 ---
-title: "Configure GroupDocs.Search Network in Java – Boost Search"
-description: "Learn how to configure groupdocs search network in Java and add synonyms to index for enhanced search efficiency."
-date: "2026-01-16"
-weight: 1
-url: "/java/search-network/configuring-groupdocs-search-java-optimize-networks/"
+date: '2026-01-16'
+description: JavaでGroupDocs検索ネットワークを構成し、検索効率向上のためにインデックスに同義語を追加する方法を学びましょう。
 keywords:
 - GroupDocs.Search Java
 - search network configuration
 - distributed searching
+title: JavaでGroupDocs.Searchネットワークを構成する – 検索をブースト
 type: docs
+url: /ja/java/search-network/configuring-groupdocs-search-java-optimize-networks/
+weight: 1
 ---
 
 # Configure GroupDocs.Search Network in Java – Boost Search
 
-In today’s data‑driven applications, **configure groupdocs search network** is the key step to delivering fast, accurate results across massive document collections. Whether you’re building an enterprise‑wide search portal or extending an existing solution, a well‑configured GroupDocs.Search network lets you scale horizontally, add synonym support, and keep latency low. In this tutorial you’ll learn how to set up, deploy, and fine‑tune a GroupDocs.Search network using Java, plus practical tips for adding synonyms to index and managing node lifecycles.
+今日のデータ駆動型アプリケーションでは、**configure groupdocs search network** が大量のドキュメントコレクションに対して高速かつ正確な結果を提供するための重要なステップです。エンタープライズ規模の検索ポータルを構築する場合でも、既存ソリューションを拡張する場合でも、適切に構成された GroupDocs.Search ネットワークにより、水平スケーリング、同義語サポートの追加、レイテンシの低減が可能になります。このチュートリアルでは、Java を使用して GroupDocs.Search ネットワークをセットアップ、デプロイ、微調整する方法と、インデックスに同義語を追加しノードのライフサイクルを管理する実践的なヒントを学びます。
 
 ## Quick Answers
 - **What is the primary benefit of configuring a GroupDocs.Search network?** It enables distributed indexing and querying, improving performance and scalability.  

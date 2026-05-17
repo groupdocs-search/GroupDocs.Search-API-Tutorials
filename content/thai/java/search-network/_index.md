@@ -1,19 +1,20 @@
 ---
-title: "Create Distributed Index Java: GroupDocs.Search Tutorials"
-description: "Learn how to create distributed index Java with GroupDocs.Search, covering scalable network deployment, shard management, and node configuration."
-weight: 9
-url: "/java/search-network/"
-type: docs
 date: 2026-01-16
+description: เรียนรู้วิธีสร้างดัชนีกระจายแบบ Java ด้วย GroupDocs.Search รวมถึงการปรับใช้เครือข่ายที่สามารถขยายได้
+  การจัดการชาร์ด และการกำหนดค่าโหนด
+title: 'สร้างดัชนีกระจาย Java: บทเรียน GroupDocs.Search'
+type: docs
+url: /th/java/search-network/
+weight: 9
 ---
 
-# Create Distributed Index Java: GroupDocs.Search Tutorials
+# สร้าง Distributed Index Java: GroupDocs.Search Tutorials
 
-If you're looking to **create distributed index Java** solutions that scale across multiple servers, you’ve come to the right place. This hub gathers the most comprehensive, step‑by‑step guides for building, deploying, and optimizing GroupDocs.Search networks in Java. Whether you need to configure shards, synchronize nodes, or boost query performance, the tutorials below walk you through every essential detail with real‑world examples.
+หากคุณกำลังมองหา **create distributed index Java** โซลูชันที่สามารถขยายได้ข้ามหลายเซิร์ฟเวอร์ คุณมาถูกที่แล้ว ศูนย์รวมนี้รวบรวมคู่มือที่ละเอียดที่สุดแบบขั้นตอนต่อขั้นตอนสำหรับการสร้าง, ปรับใช้, และเพิ่มประสิทธิภาพเครือข่าย GroupDocs.Search ใน Java ไม่ว่าคุณจะต้องการกำหนดค่า shards, ซิงโครไนซ์โหนด, หรือเพิ่มประสิทธิภาพการสืบค้น คู่มือด้านล่างจะพาคุณผ่านรายละเอียดสำคัญทั้งหมดพร้อมตัวอย่างจากโลกจริง
 
 ## How to Create Distributed Index Java with GroupDocs.Search
 
-Below is a curated list of tutorials that walk you through the entire lifecycle of a distributed search index in Java—from initial setup to advanced optimization. Each guide includes ready‑to‑run Java code, configuration snippets, and best‑practice recommendations.
+ด้านล่างนี้เป็นรายการคัดสรรของบทเรียนที่พาคุณผ่านวงจรชีวิตทั้งหมดของดัชนีการค้นหาแบบกระจายใน Java — ตั้งแต่การตั้งค่าเริ่มต้นจนถึงการปรับแต่งขั้นสูง แต่ละคู่มือรวมโค้ด Java ที่พร้อมรัน, ตัวอย่างการกำหนดค่า, และคำแนะนำตามแนวปฏิบัติที่ดีที่สุด
 
 ### Available Tutorials
 
