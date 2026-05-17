@@ -1,54 +1,51 @@
 ---
-date: '2025-12-22'
-description: Ismerje meg, hogyan hozhat létre indexet és adhat hozzá dokumentumokat
-  a indexhez a GroupDocs.Search for Java segítségével. Növelje keresési képességeit
-  jogi, tudományos és üzleti dokumentumok esetén.
+date: '2026-03-06'
+description: Tanulja meg, hogyan hajtson végre regex keresést Java-ban, és hogyan
+  adjon dokumentumokat az indexhez a GroupDocs.Search for Java segítségével, ezáltal
+  fokozva a keresést jogi, tudományos és üzleti fájlokban.
 keywords:
 - GroupDocs.Search in Java
 - document index management
 - Java document search
-title: 'Hogyan hozzunk létre indexet a GroupDocs.Search segítségével Java-ban - Teljes
-  útmutató'
+title: regex search java – Create Index with GroupDocs.Search in Java
 type: docs
 url: /hu/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# A GroupDocs.Search Java mesterfokon - Teljes útmutató az indexkezeléshez és dokumentumkereséshez
+# A GroupDocs.Search Java használata – regex search java és indexkezelés
 
 ## Bevezetés
 
-Küzdesz az indexelés és a hatalmas számú dokumentum keresésének feladatával? Legyen szó jogi fájlokról, tudományos cikkekről vagy vállalati jelentésekről, a **how to create index** gyors és pontos ismerete elengedhetetlen. A **GroupDocs.Search for Java** egyszerűvé teszi ezt a folyamatot, lehetővé téve dokumentumok indexhez adását, fuzzy keresések futtatását és fejlett lekérdezések végrehajtását néhány kódsorral.
-
-Az alábbiakban mindent megtalálsz, amire szükséged van a kezdéshez, a környezet beállításától a kifinomult keresési lekérdezések megalkotásáig.
+Küzd a hatalmas számú dokumentum indexelésével és keresésével? Legyen szó jogi fájlokról, tudományos cikkekről vagy vállalati jelentésekről, a **regex search java** egy erőteljes technika, amely lehetővé teszi a minták gyors megtalálását a szövegben. A **GroupDocs.Search for Java** segítségével létrehozhat egy indexet, **add documents to index**, és futtathat fuzzy, wildcard vagy reguláris‑kifejezés lekérdezéseket néhány kódsorral. Az alábbiakban mindent megtud, ami a kezdéshez szükséges, a környezet beállításától a kifinomult keresési lekérdezések kidolgozásáig.
 
 ## Gyors válaszok
-- **Mi a GroupDocs.Search elsődleges célja?** A kereshető indexek létrehozása számos dokumentumformátumhoz.  
-- **Hozzáadhatok dokumentumokat az indexhez a létrehozás után?** Igen – használd az `index.add()` metódust új fájlok felvételéhez.  
-- **Támogatja a GroupDocs.Search a fuzzy keresést Java-ban?** Természetesen; engedélyezheted a `SearchOptions` segítségével.  
-- **Hogyan futtathatok wildcard lekérdezést Java-ban?** Hozd létre a `SearchQuery.createWildcardQuery()` segítségével.  
+- **Mi a GroupDocs.Search elsődleges célja?** A kereshető indexek létrehozása a különféle dokumentumformátumokhoz.  
+- **Hozzáadhatok dokumentumokat az indexhez a létrehozás után?** Igen—használja az `index.add()` metódust az új fájlok felvételéhez.  
+- **Támogatja a GroupDocs.Search a fuzzy keresést Java-ban?** Teljesen; engedélyezhető a `SearchOptions` segítségével.  
+- **Hogyan futtathatok wildcard lekérdezést Java-ban?** Készítse el a `SearchQuery.createWildcardQuery()` segítségével.  
 - **Szükséges licenc a termelési használathoz?** Érvényes GroupDocs.Search licenc szükséges a kereskedelmi telepítésekhez.
 
-## Mi a “how to create index” a GroupDocs.Search kontextusában?
+## Mi az a „hogyan hozzunk létre indexet” a GroupDocs.Search kontextusában?
 
-Az index létrehozása azt jelenti, hogy egy vagy több forrásdokumentumot beolvasunk, kinyerjük a kereshető szöveget, és ezt az információt strukturált formátumban tároljuk, amely hatékonyan lekérdezhető. Az így kapott index villámgyors kereséseket tesz lehetővé, még több ezer fájl esetén is.
+Az index létrehozása azt jelenti, hogy egy vagy több forrásdokumentumot beolvasunk, kinyerjük a kereshető szöveget, és ezt az információt egy strukturált formátumban tároljuk, amely hatékonyan lekérdezhető. A létrehozott index villámgyors kereséseket tesz lehetővé, még több ezer fájl esetén is.
 
-## Miért használjuk a GroupDocs.Search for Java-t?
+## Miért használjuk a GroupDocs.Search-t Java-ban?
 
-- **Széles körű formátumtámogatás:** PDF-ek, Word, Excel, PowerPoint és még sok más.  
-- **Beépített nyelvi funkciók:** Fuzzy keresés, wildcard és regex képességek alapból.  
-- **Skálázható teljesítmény:** Nagy dokumentumgyűjtemények kezelése konfigurálható memóriahasználattal.
+- **Széles körű formátumtámogatás:** PDF, Word, Excel, PowerPoint és még sok más.  
+- **Beépített nyelvi funkciók:** Fuzzy keresés, wildcard és **regex search java** képességek alapból.  
+- **Skálázható teljesítmény:** Nagy dokumentumgyűjtemények kezelése konfigurálható memóriahasználattal.  
 
-## Előfeltételek
+## Előkövetelmények
 
 - **GroupDocs.Search for Java 25.4** vagy újabb verzió.  
-- IntelliJ IDEA vagy Eclipse típusú IDE, amely képes Maven projektek kezelésére.  
-- JDK telepítve a gépeden.  
+- IntelliJ IDEA vagy Eclipse IDE, amely Maven projekteket kezel.  
+- JDK telepítve a gépen.  
 - Alapvető ismeretek a Java és a keresési koncepciók terén.
 
-## A GroupDocs.Search for Java beállítása
+## A GroupDocs.Search Java beállítása
 
-A könyvtárat hozzáadhatod Maven-en keresztül vagy manuálisan letöltheted.
+A könyvtárat hozzáadhatja Maven‑en keresztül, vagy letöltheti manuálisan.
 
 **Maven beállítás:**
 
@@ -71,14 +68,14 @@ A könyvtárat hozzáadhatod Maven-en keresztül vagy manuálisan letöltheted.
 ```
 
 **Közvetlen letöltés:**  
-Alternatívaként töltsd le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
+Alternatívaként töltse le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
 ### Licenc beszerzése
-- **Ingyenes próba:** A funkciók költség nélkül történő felfedezése.  
-- **Ideiglenes licenc:** A próbaidő meghosszabbítása.  
+- **Ingyenes próba:** Fedezze fel a funkciókat költség nélkül.  
+- **Ideiglenes licenc:** Hosszabbítsa a próbaidőszakot.  
 - **Teljes licenc:** Szükséges a termelési környezetekhez.
 
-Miután a könyvtár elérhető, inicializáld a Java kódban:
+Miután a könyvtár elérhető, inicializálja a Java kódban:
 
 ```java
 import com.groupdocs.search.*;
@@ -95,9 +92,9 @@ public class InitializeSearch {
 
 ## Implementációs útmutató
 
-### Hogyan hozzunk létre indexet a GroupDocs.Search segítségével
+### Hogyan hozzunk létre indexet a GroupDocs.Search-szel
 
-Ez a szakasz végigvezeti a teljes folyamaton, hogyan hozhatsz létre indexet és adhatod hozzá a dokumentumokat.
+Ez a szakasz végigvezeti a teljes folyamaton, az index létrehozásától a **add documents to index** műveletig.
 
 #### Útvonalak meghatározása
 
@@ -120,11 +117,11 @@ index.add(documentsFolder);
 System.out.println("Documents added to the index.");
 ```
 
-> **Pro tipp:** Győződj meg róla, hogy a könyvtárak léteznek és csak a keresni kívánt fájlokat tartalmazzák; a nem releváns fájlok felnyúlhatják az indexet.
+> **Pro tip:** Győződjön meg róla, hogy a könyvtárak léteznek, és csak a keresni kívánt fájlokat tartalmazzák; a nem releváns fájlok felgyorsíthatják az index méretét.
 
-### Egyszerű szó lekérdezés fuzzy keresési beállításokkal (fuzzy search java)
+### Egyszerű szó lekérdezés fuzzy keresési opciókkal (fuzzy search java)
 
-A fuzzy keresés akkor segít, ha a felhasználók elgépelnek egy szót, vagy ha az OCR hibákat vezet be.
+A fuzzy keresés akkor segít, ha a felhasználók elgépelnek egy szót, vagy az OCR hibákat vezet be.
 
 ```java
 SearchQuery subquery = SearchQuery.createWordQuery("future");
@@ -140,7 +137,7 @@ System.out.println("Fuzzy search enabled with a tolerance of 3.");
 
 ### Wildcard lekérdezés Java
 
-A wildcard lekérdezések lehetővé teszik minták egyezését, például bármely szó, amely egy adott előtaggal kezdődik.
+A wildcard lekérdezések lehetővé teszik olyan minták egyezését, mint például bármely szó, amely egy adott előtaggal kezdődik.
 
 ```java
 SearchQuery subquery = SearchQuery.createWildcardQuery(1);
@@ -156,9 +153,9 @@ SearchQuery subquery = SearchQuery.createRegexQuery("(.)\\1");
 System.out.println("Regex query created to find repeated characters.");
 ```
 
-### Alkérdezések kombinálása egy kifejezés keresési lekérdezésbe
+### Alkérdezések kombinálása kifejezés keresési lekérdezésbe
 
-Szó, wildcard és regex alkérdezéseket kombinálhatsz, hogy kifinomult kifejezés kereséseket építs.
+Összekeverhet szó, wildcard és regex alkérdezéseket, hogy kifinomult kifejezéskereséseket építsen fel.
 
 ```java
 SearchQuery subquery1 = SearchQuery.createWordQuery("future");
@@ -173,7 +170,7 @@ System.out.println("Combined phrase search query created.");
 
 ### Keresés konfigurálása és végrehajtása egyedi beállításokkal
 
-A keresési beállítások módosítása lehetővé teszi, hogy szabályozd, hány előfordulás kerül visszaadásra, ami nagy korpuszok esetén hasznos.
+A keresési opciók módosítása lehetővé teszi, hogy szabályozza a visszaadott előfordulások számát, ami nagy korpuszok esetén hasznos.
 
 ```java
 SearchOptions options = new SearchOptions();
@@ -190,43 +187,38 @@ SearchResult result = index.search(query, options);
 System.out.println("Search performed with custom options.");
 ```
 
-## Gyakorlati alkalmazások
+## regex search java – Gyakori felhasználási esetek
 
-1. **Jogi dokumentumkezelés:** Gyorsan megtalálja az esetjogot, törvényeket és precedenseket.  
-2. **Akademiai kutatás:** Több ezer kutatási dolgozatot indexel, és másodpercek alatt visszakeresi a hivatkozásokat.  
-3. **Üzleti jelentéselemzés:** Pontosan megtalálja a pénzügyi adatokat több negyedéves jelentésben.  
-4. **Tartalomkezelő rendszerek (CMS):** Gyors, pontos keresést biztosít a felhasználóknak blogbejegyzések és cikkek között.  
-5. **Ügyfélszolgálati tudásbázisok:** Csökkenti a válaszidőt azáltal, hogy azonnal előhívja a releváns hibaelhárítási útmutatókat.
+- **Jogi kutatás:** Olyan záradékok megtalálása, amelyek egy meghatározott mintát követnek, például `DD/MM/YYYY` formátumú dátumok.  
+- **Adatvalidáció:** Hibás azonosítók vagy ismétlődő karakterek felismerése naplófájlokban.  
+- **Tartalom moderálás:** Trágár vagy tiltott minták keresése regex segítségével.  
+- **Pénzügyi elemzés:** Olyan tranzakciós kódok kinyerése, amelyek egy ismert regex sablonnal egyeznek.
 
-## Teljesítményfontosságú szempontok
+## Teljesítmény szempontok
 
-- **Az indexelés optimalizálása:** Időnként újraindexelj, és távolítsd el az elavult fájlokat, hogy az index karcsú maradjon.  
-- **Erőforrás-használat:** Figyeld a JVM heap méretét; nagy indexek több memóriát vagy off‑heap tárolást igényelhetnek.  
-- **Garbage Collection:** Állítsd be a GC paramétereket a hosszú távú keresési szolgáltatásokhoz, hogy elkerüld a szüneteket.
+- **Az indexelés optimalizálása:** Időnként újraindexeljen, és távolítsa el az elavult fájlokat, hogy az index karcsú maradjon.  
+- **Erőforrás-használat:** Figyelje a JVM heap méretét; nagy indexek esetén növelni kell a memóriát vagy off‑heap tárolást alkalmazni.  
+- **Garbage Collection:** Hangolja a GC beállításokat a hosszú távú keresési szolgáltatásoknál, hogy elkerülje a szüneteket.
 
-## Következtetés
-
-Ezzel az útmutatóval már tudod, hogyan **how to create index**, hogyan adj dokumentumokat az indexhez, és hogyan használj fuzzy, wildcard és regex kereséseket Java-ban a GroupDocs.Search segítségével. Ezek a képességek lehetővé teszik, hogy robusztus keresési élményeket építs, amelyek a adataiddal együtt skálázhatók.
-
-## Gyakran Ismételt Kérdések
+## Gyakran ismételt kérdések
 
 **Q: Frissíthetek egy meglévő indexet anélkül, hogy újraépíteném?**  
-A: Igen – használd az `index.add()`-t új fájlok hozzáfűzéséhez vagy az `index.update()`-t a módosított dokumentumok frissítéséhez.
+A: Igen—használja az `index.add()` metódust új fájlok hozzáadásához vagy az `index.update()`-t a módosított dokumentumok frissítéséhez.
 
 **Q: Hogyan kezeli a fuzzy keresés a különböző nyelveket?**  
-A: A beépített fuzzy algoritmus Unicode karaktereken működik, így a legtöbb nyelvet alapból támogatja.
+A: A beépített fuzzy algoritmus Unicode karaktereken működik, így a legtöbb nyelvet natívan támogatja.
 
-**Q: Van korlátja a indexelhető dokumentumok számának?**  
-A: Gyakorlatilag a korlátot a rendelkezésre álló lemezterület és a JVM memória határozza meg; a könyvtár milliók számú dokumentumra van tervezve.
+**Q: Van korlátozás a indexelhető dokumentumok számában?**  
+A: Gyakorlatilag a korlátot a rendelkezésre álló lemezterület és a JVM memória határozza meg; a könyvtár milliók számú dokumentum kezelésére készült.
 
-**Q: Újra kell indítani az alkalmazást a keresési beállítások módosítása után?**  
-A: Nem – a keresési beállítások lekérdezésenként kerülnek alkalmazásra, így futás közben is módosíthatók.
+**Q: Újra kell indítani az alkalmazást a keresési opciók módosítása után?**  
+A: Nem— a keresési opciók lekérdezésenként kerülnek alkalmazásra, így futás közben is módosíthatók.
 
 **Q: Hol találok további fejlett lekérdezési példákat?**  
-A: A hivatalos GroupDocs.Search dokumentáció és API referencia széles körű példákat nyújt összetett forgatókönyvekre.
+A: A hivatalos GroupDocs.Search dokumentáció és API referencia rengeteg példát tartalmaz összetett szcenáriókhoz.
 
 ---
 
-**Utoljára frissítve:** 2025-12-22  
-**Tesztelve ezzel:** GroupDocs.Search for Java 25.4  
+**Utoljára frissítve:** 2026-03-06  
+**Tesztelve:** GroupDocs.Search for Java 25.4  
 **Szerző:** GroupDocs

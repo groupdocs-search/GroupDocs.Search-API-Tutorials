@@ -1,96 +1,106 @@
 ---
-date: 2025-12-29
-description: Java開発者向けにGroupDocs.Searchの設定方法をステップバイステップで解説し、インストール、ライセンス、そして最初の検索ソリューションの作成について説明します。
-title: GroupDocs.Search の設定方法 - Java 用入門チュートリアル
+date: 2026-03-06
+description: GroupDocs.Search for Javaでファジー検索を有効にする方法を学び、インストール、ライセンス、ファジーマッチングを使用した最初の検索可能なソリューションの構築について解説します。
+title: GroupDocs.Searchでファジー検索を有効にする方法 – Java入門チュートリアル
 type: docs
 url: /ja/java/getting-started/
 weight: 1
 ---
 
-# GroupDocs.Search の設定方法 - Java 用入門チュートリアル
+# GroupDocs.Searchでファジー検索を有効にする方法 – Java向け入門チュートリアル
 
-Java アプリケーション向けに **GroupDocs.Search の設定方法** を解説する究極のガイドへようこそ。このチュートリアルでは、ライブラリのインストール、ライセンス設定、最初の検索可能ドキュメントソリューションの構築手順を学びます。新規プロジェクトを開始する場合でも、既存コードベースに検索機能を統合する場合でも、すぐに使い始めるために必要なすべてがここにあります。
+Welcome to the ultimate guide on **how to configure GroupDocs.Search** for Java applications — and specifically how to **enable fuzzy search** so your users can find relevant documents even when they misspell a word or use slightly different terminology. In this tutorial you’ll learn the essential steps to install the library, set up licensing, configure fuzzy matching, and build your first searchable document solution. Whether you’re starting a fresh project or adding search to an existing codebase, we’ll walk you through everything you need to get up and running in under 15 minutes.
 
-## クイック回答
-- **最初のステップは？** Maven または Gradle を使用して GroupDocs.Search Java パッケージをインストールします。  
-- **ライセンスは必要ですか？** はい。開発時は一時ライセンスで問題ありませんが、本番環境では正式ライセンスが必要です。  
-- **どの IDE が最適ですか？** Maven/Gradle プロジェクトをサポートする任意の Java IDE（IntelliJ IDEA、Eclipse、VS Code）で構いません。  
-- **PDF や Word ファイルもインデックスできますか？** もちろんです。GroupDocs.Search は多数のドキュメント形式を標準でサポートしています。  
-- **設定にどれくらい時間がかかりますか？** 新規プロジェクトの場合、通常 15 分未満で完了します。
+## Quick Answers
+- **最初のステップは何ですか？** Install the GroupDocs.Search Java package via Maven or Gradle.  
+- **ライセンスは必要ですか？** Yes—a temporary license works for development; a full license is required for production.  
+- **どの IDE が最適ですか？** Any Java IDE (IntelliJ IDEA, Eclipse, VS Code) that supports Maven/Gradle projects.  
+- **PDF や Word ファイルをインデックスできますか？** Absolutely—GroupDocs.Search supports a wide range of document formats out of the box.  
+- **ファジー検索はどうやって有効にしますか？** Set the `fuzzySearch` flag in `SearchOptions` before executing a query.  
+- **セットアップにどれくらい時間がかかりますか？** Typically under 15 minutes for a fresh project.
 
-## 「GroupDocs.Search の設定方法」とは？
-GroupDocs.Search の設定とは、ライブラリをドキュメントのインデックス作成に備え、ストレージ場所を定義し、ライセンスキーを適用して API が制限なく動作できるようにすることです。適切な設定により、迅速かつ正確な検索結果が得られ、Java コードとのスムーズな統合が実現します。
+## GroupDocs.Search における「ファジー検索を有効にする」とは？
 
-## なぜ Java 向けに GroupDocs.Search を設定するのか？
-- **迅速な実装** – インデックス作成と検索を開始するために必要なコードは最小限です。  
-- **スケーラブルなインデックス** – パフォーマンス低下なしに大量のドキュメントコレクションを処理できます。  
-- **幅広いフォーマット対応** – PDF、DOCX、XLSX、PPTX など多数のファイルタイプに対応。  
-- **安全なライセンス管理** – コンプライアンスを保証し、すべてのプレミアム機能を解放します。
+ファジー検索を有効にするとは、検索エンジンが綴りの微小な違い、文字の欠落、文字の入れ替えなどを許容する許容レベルをオンにすることです。この機能は、綴りが正確に保証できないシナリオ（タイプミス、OCR 生成テキスト、多言語コンテンツなど）において、ユーザー体験を大幅に向上させます。
 
-## 前提条件
-- Java Development Kit (JDK) 8 以上。  
-- 依存関係管理のための Maven 3 または Gradle 5。  
-- 一時または正式な GroupDocs.Search ライセンスキーへのアクセス。  
+## Why configure GroupDocs.Search for Java and enable fuzzy search?
+- **迅速な実装** – Minimal code is required to start indexing, searching, and adding fuzzy matching.  
+- **スケーラブルなインデックス** – Handles large document collections without performance loss.  
+- **幅広いフォーマットサポート** – Works with PDFs, DOCX, XLSX, PPTX, and many other file types.  
+- **安全なライセンス** – Guarantees compliance and unlocks all premium features, including fuzzy search.  
+- **優れたユーザー体験** – Fuzzy search helps users find what they need even with imperfect queries.
 
-## 手順別ガイド
+## Prerequisites
+- Java Development Kit (JDK) 8 or higher.  
+- Maven 3 or Gradle 5 for dependency management.  
+- Access to a temporary or full GroupDocs.Search license key.  
 
-### 手順 1: プロジェクトに GroupDocs.Search を追加
-`pom.xml`（Maven）または `build.gradle`（Gradle）に GroupDocs.Search の依存関係を記述します。これにより、ライブラリがコードから利用可能になります。
+## Step‑by‑Step Guide
 
-### 手順 2: ライセンスを適用
-`License` オブジェクトを作成し、一時または永続ライセンスファイルをロードします。この手順でフル機能が解放され、評価制限が解除されます。
+### ステップ 1: プロジェクトに GroupDocs.Search を追加する
+Include the GroupDocs.Search dependency in your `pom.xml` (Maven) or `build.gradle` (Gradle). This makes the library available for your code.
 
-### 手順 3: インデックス設定を初期化
-インデックスファイルをディスク上のどこに保存するかを指定し、必要に応じてカスタムインデックスオプション（例：大文字小文字の区別、ストップワード）を設定します。
+### ステップ 2: ライセンスを適用する
+Create a `License` object and load your temporary or permanent license file. This step unlocks full functionality, including fuzzy search, and removes evaluation limits.
 
-### 手順 4: ドキュメントをインデックス化
-`Indexer` クラスを使用してファイルまたはフォルダーをインデックスに追加します。GroupDocs.Search は自動的にファイルタイプを検出し、検索可能なテキストを抽出します。
+### ステップ 3: インデックス設定を初期化する
+Define where the index files will be stored on disk and configure any custom indexing options you need (e.g., case sensitivity, stop words).
 
-### 手順 5: 検索クエリを実行
-`SearchOptions` オブジェクトを作成し、クエリ文字列を指定して検索を実行します。API は一致したドキュメントのリストと関連度スコアを返します。
+### ステップ 4: 文書をインデックスする
+Use the `Indexer` class to add files or folders to the index. GroupDocs.Search automatically detects file types and extracts searchable text.
 
-### 手順 6: 結果を確認
-検索結果をイテレートし、ファイル名を表示するとともに、必要に応じて UI 上で一致した語句をハイライトします。
+### ステップ 5: クエリでファジー検索を有効にする
+When building a `SearchOptions` object, set the `fuzzySearch` flag (or the equivalent property) to `true`. You can also adjust the fuzziness level if you need tighter or looser matching.
 
-## よくある問題と解決策
-- **ライセンスが認識されない** – ライセンスファイルのパスを確認し、使用している GroupDocs.Search のバージョンと一致しているか確認してください。  
-- **ドキュメント形式が不足している** – まれなファイルタイプが必要な場合は、オプションの `groupdocs-conversion` アドオンをインストールします。  
-- **パフォーマンスのボトルネック** – 増分インデックスを使用し、インデックスフォルダーを SSD ストレージ上に配置して高速アクセスを実現します。
+### ステップ 6: 検索クエリを実行する
+Execute the search with the configured `SearchOptions`. The API returns a list of matching documents with relevance scores that now reflect fuzzy matches.
 
-## FAQ（よくある質問）
+### ステップ 7: 結果を確認する
+Iterate over the search results, display file names, and optionally highlight matching terms in the UI. Fuzzy matches will be indicated by a slightly lower relevance score compared to exact matches.
+
+## Common Issues and Solutions
+- **ライセンスが認識されない** – Verify the license file path and ensure it matches the version of GroupDocs.Search you’re using.  
+- **文書フォーマットが欠如** – Install the optional `groupdocs-conversion` add‑on if you need support for less common file types.  
+- **ファジー検索で結果が返らない** – Confirm that the `fuzzySearch` flag is set to `true` and that the query length meets the minimum required characters for fuzzy matching.  
+- **パフォーマンスのボトルネック** – Use incremental indexing and configure the index folder on SSD storage for faster access.  
+
+## Frequently Asked Questions
 
 **Q: Linux サーバーで GroupDocs.Search を使用できますか？**  
-A: はい。ライブラリはプラットフォームに依存せず、Java をサポートする任意の OS で動作します。
+A: Yes, the library is platform‑independent and runs on any OS that supports Java.
 
-**Q: 新しいファイルを追加した後、インデックスをどう更新しますか？**  
-A: 新規ファイルを指定して `Indexer` を再度呼び出すだけです。ライブラリが既存インデックスにマージします。
+**Q: 新しいファイルを追加した後、インデックスを更新するには？**  
+A: Call the `Indexer` again with the new files; the library will merge them into the existing index.
 
-**Q: 特定のフォルダーに検索結果を限定する方法はありますか？**  
-A: はい。クエリ実行前に `SearchOptions` にフォルダーフィルターを設定します。
+**Q: 特定のフォルダーに検索結果を限定できますか？**  
+A: Yes, set the `SearchOptions` to include a folder filter before executing the query.
 
-**Q: 一時ライセンス期間が終了したらどうなりますか？**  
-A: API は評価モードで動作し、一部機能が制限されます。永続ライセンスキーに差し替えることでフル機能が復元されます。
+**Q: 一時ライセンス期間を超えた場合はどうなりますか？**  
+A: The API will continue to work in evaluation mode with limited features; replace the license file with a permanent key to restore full functionality.
 
 **Q: GroupDocs.Search はファジー検索をサポートしていますか？**  
-A: もちろんです。`SearchOptions` でファジーマッチングを有効にすれば、軽微なスペルミスを含む結果も取得できます。
+A: Absolutely—enable fuzzy matching in the `SearchOptions` to retrieve results with minor spelling variations.
 
-## 追加リソース
+**Q: ファジー検索を他のフィルタ（例：日付範囲）と組み合わせられますか？**  
+A: Yes, you can add additional filters to `SearchOptions` while keeping fuzzy search enabled.
+
+## Additional Resources
 
 ### 利用可能なチュートリアル
 
 ### [GroupDocs.Search for Java のデプロイ：包括的セットアップガイド](./deploy-groupdocs-search-java-setup-guide/)
-このステップバイステップガイドで、Java 向け GroupDocs.Search のデプロイと設定方法を学び、プロジェクトのドキュメントインデックス化と検索機能を強化しましょう。
+このステップバイステップガイドで、GroupDocs.Search for Java のデプロイと構成方法を学びます。プロジェクトの文書インデックス作成と検索機能を強化しましょう。
 
 ### 便利なリンク
-- [GroupDocs.Search for Java ドキュメンテーション](https://docs.groupdocs.com/search/java/)
+- [GroupDocs.Search for Java ドキュメント](https://docs.groupdocs.com/search/java/)
 - [GroupDocs.Search for Java API リファレンス](https://reference.groupdocs.com/search/java/)
-- [GroupDocs.Search for Java ダウンロード](https://releases.groupdocs.com/search/java/)
+- [GroupDocs.Search for Java のダウンロード](https://releases.groupdocs.com/search/java/)
 - [GroupDocs.Search フォーラム](https://forum.groupdocs.com/c/search)
 - [無料サポート](https://forum.groupdocs.com/)
-- [一時ライセンス取得](https://purchase.groupdocs.com/temporary-license/)
+- [一時ライセンス](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**最終更新日:** 2025-12-29  
-**テスト環境:** GroupDocs.Search 23.12 for Java  
+**最終更新日:** 2026-03-06  
+**テスト済みバージョン:** GroupDocs.Search 23.12 for Java  
 **作成者:** GroupDocs
