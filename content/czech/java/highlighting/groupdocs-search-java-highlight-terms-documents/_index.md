@@ -1,46 +1,56 @@
 ---
-date: '2025-12-26'
-description: Naučte se vyhledávat a zvýrazňovat text v dokumentech pomocí GroupDocs.Search
-  pro Javu. Prozkoumejte techniky zvýrazňování celých dokumentů i fragmentů.
+date: '2026-02-27'
+description: Naučte se, jak zvýraznit text v Javě pomocí GroupDocs.Search pro Javu,
+  včetně vyhledávání dokumentů v Javě, indexování dokumentů v Javě a zvýrazňování
+  fragmentů.
 keywords:
 - GroupDocs.Search for Java
 - highlight search terms in documents
 - document highlighting
-title: Vyhledávejte a zvýrazňujte text pomocí GroupDocs.Search pro Javu
+title: Zvýraznění textu v Javě pomocí GroupDocs.Search
 type: docs
 url: /cs/java/highlighting/groupdocs-search-java-highlight-terms-documents/
 weight: 1
 ---
 
-# Vyhledávání a zvýrazňování textu v dokumentech pomocí GroupDocs.Search pro Java
+# Zvýraznění textu Java pomocí GroupDocs.Search
 
-V dnešní digitální éře je **vyhledávání a zvýrazňování textu** v rozsáhlých kolekcích dokumentů běžnou potřebou. Ať už vytváříte nástroj pro právní revizi, akademický výzkumný portál nebo dashboard zákaznické podpory, schopnost okamžitě najít a zdůraznit klíčové termíny výrazně zlepšuje použitelnost. V tomto komplexním průvodci se dozvíte, jak implementovat **vyhledávání a zvýrazňování textu** pomocí GroupDocs.Search pro Java — včetně zvýrazňování celých dokumentů i zvýrazňování na úrovni fragmentů pro zaměřený kontext.
+V dnešním rychle se rozvíjejícím digitálním prostředí je schopnost **highlight text java** napříč velkými kolekcemi souborů nezbytnou funkcí. Ať už vytváříte platformu pro právní revizi, akademický výzkumný engine nebo konzoli zákaznické podpory, okamžité nalezení termínů, které uživatelé hledají, výrazně zvyšuje efektivitu. Tento tutoriál vás provede používáním **GroupDocs.Search for Java** k **search documents java**, **index documents java** a aplikaci bohatého zvýraznění – jak pro celé dokumenty, tak pro konkrétní fragmenty.
 
 ## Rychlé odpovědi
-- **Co znamená „vyhledávání a zvýrazňování textu“?** Jedná se o vyhledání dotazových termínů v dokumentu a jejich vizuální zvýraznění (např. pomocí barvy pozadí).  
-- **Která knihovna tuto funkci poskytuje?** GroupDocs.Search pro Java.  
+- **Co znamená „search and highlight text“?** Odkazuje na vyhledání dotazových termínů v dokumentu a jejich vizuální zvýraznění (např. barvou pozadí).  
+- **Která knihovna poskytuje tuto funkci?** GroupDocs.Search for Java.  
 - **Potřebuji licenci?** Bezplatná zkušební verze stačí pro hodnocení; pro produkční nasazení je vyžadována plná licence.  
-- **Mohu přizpůsobit barvy zvýraznění?** Ano — libovolná RGB barva může být nastavena pomocí `HighlightOptions`.  
-- **Je podporováno zvýrazňování fragmentů?** Rozhodně; můžete definovat termíny před a po shodě pro vytvoření stručných úryvků.
+- **Mohu přizpůsobit barvy zvýraznění?** Ano — každou RGB barvu lze nastavit pomocí `HighlightOptions`.  
+- **Je podporováno zvýraznění fragmentů?** Ano; můžete definovat počet termínů před a po shodě pro vytvoření stručných úryvků.
 
-## Co je vyhledávání a zvýrazňování textu?
-Vyhledávání a zvýrazňování textu je proces prohledávání indexu dokumentů podle zadaného dotazu, získání odpovídajících dokumentů a následné označení každého výskytu dotazového termínu v výstupu dokumentu (HTML, PDF atd.). Tento vizuální prvek pomáhá koncovým uživatelům okamžitě najít relevantní informace.
+## Jak zvýraznit text Java v dokumentech
+Zvýraznění textu Java zahrnuje tři základní kroky:
+
+1. **Indexovat zdrojové soubory**, aby bylo možné je rychle prohledávat.  
+2. **Spustit dotaz** proti indexu pro nalezení odpovídajících dokumentů.  
+3. **Vykreslit výsledky s vizuálními vodítky** pomocí API zvýrazňovače.
+
+Níže podrobně prozkoumáme každý krok, nejprve pro výstup celého dokumentu a poté pro úryvky na úrovni fragmentů.
+
+## Co je vyhledávání a zvýraznění textu?
+Vyhledávání a zvýraznění textu je proces prohledávání indexu dokumentů podle zadaného dotazu, získání odpovídajících dokumentů a následné označení každého výskytu dotazového termínu ve výstupu dokumentu (HTML, PDF atd.). Tento vizuální prvek pomáhá koncovým uživatelům okamžitě najít relevantní informace.
 
 ## Proč použít GroupDocs.Search pro Java?
-- **Vysoce výkonná indexace** s konfigurovatelnou kompresí.  
-- **Bohaté API pro zvýrazňování** funguje na celých dokumentech i na vlastních fragmentech.  
-- **Podpora napříč formáty** (DOCX, PDF, PPTX, TXT a další).  
-- **Jednoduchá integrace s Maven** a přehledné Java‑centrické API.
+- **Vysoce výkonné indexování** s konfigurovatelnou kompresí (`index documents java`).  
+- **Bohaté API pro zvýraznění**, které funguje na celé dokumenty i na vlastní fragmenty (`highlight search terms java`).  
+- **Podpora více formátů** (DOCX, PDF, PPTX, TXT a další).  
+- **Jednoduchá integrace s Maven** a čistý design zaměřený na Java.
 
 ## Předpoklady
 - Java Development Kit (JDK) 8 nebo novější.  
 - Maven pro správu závislostí.  
-- IDE, například IntelliJ IDEA nebo Eclipse.  
-- Základní znalost syntaxe jazyka Java.
+- IDE, např. IntelliJ IDEA nebo Eclipse.  
+- Základní znalost syntaxe Java.
 
 ## Nastavení GroupDocs.Search pro Java
 
-Přidejte repozitář GroupDocs a závislost do souboru `pom.xml`:
+Přidejte repozitář GroupDocs a závislost do vašeho `pom.xml`:
 
 ```xml
 <repositories>
@@ -60,24 +70,24 @@ Přidejte repozitář GroupDocs a závislost do souboru `pom.xml`:
 </dependencies>
 ```
 
-Můžete také stáhnout nejnovější JAR přímo z oficiálního webu: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Můžete také stáhnout nejnovější JAR přímo z oficiální stránky: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Získání licence
 Začněte s bezplatnou zkušební verzí nebo si pořiďte dočasnou licenci pro hodnocení. Pro produkční nasazení zakupte plnou licenci, která odemkne všechny funkce.
 
 ## Průvodce implementací
 
-Implementace je rozdělena do dvou praktických částí: **zvýrazňování v celých dokumentech** a **zvýrazňování ve fragmentech**. Obě sekce obsahují nezbytné kroky pro **to, jak zvýraznit Java** dokumenty pomocí GroupDocs.Search.
+Implementace je rozdělena do dvou praktických částí: **zvýraznění v celých dokumentech** a **zvýraznění ve fragmentech**. Obě sekce obsahují nezbytné kroky pro **jak zvýraznit Java** dokumenty pomocí GroupDocs.Search.
 
 ### Konfigurace nastavení indexu
-Před indexací nakonfigurujte úložiště tak, aby používalo vysokou kompresi — tím se sníží využití disku při zachování rychlosti vyhledávání.
+Před indexováním nakonfigurujte úložiště tak, aby používalo vysokou kompresi — tím se sníží využití disku při zachování rychlosti vyhledávání.
 
 ```java
 IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-### Zvýrazňování v celých dokumentech
+### Zvýraznění v celých dokumentech
 
 #### Krok 1: Vytvořit a naplnit index
 Vytvořte složku indexu a přidejte všechny zdrojové soubory, které chcete prohledávat.
@@ -107,14 +117,14 @@ if (result.getDocumentCount() > 0) {
 }
 ```
 
-**Klíčové možnosti vysvětleny**
-- **Compression** – vysoká komprese šetří úložiště.  
-- **HighlightColor** – nastavte libovolnou RGB hodnotu, aby odpovídala vaší UI paletě.  
-- **UseInlineStyles** – `false` generuje čisté HTML, které lze stylovat globálně pomocí CSS.
+**Klíčové možnosti vysvětleny**  
+- **Compression** — vysoká komprese šetří úložiště.  
+- **HighlightColor** — nastavte libovolnou RGB hodnotu, aby odpovídala vaší UI paletě.  
+- **UseInlineStyles** — `false` generuje čisté HTML, které lze stylovat globálně pomocí CSS.  
 
-### Zvýrazňování ve fragmentech
+### Zvýraznění ve fragmentech
 
-#### Krok 1: Indexace a vyhledávání (stejné jako výše)
+#### Krok 1: Indexování a vyhledávání (stejné jako výše)
 ```java
 String indexFolder = "/path/to/your/document/directory/HighlightingInFragments";
 Index index = new Index(indexFolder, settings);
@@ -123,8 +133,8 @@ index.add("/path/to/your/documents");
 SearchResult result = index.search("ipsum");
 ```
 
-#### Krok 2: Definujte kontext fragmentu a zvýrazněte
-Určete, kolik termínů před a po shodě se má objevit v každém fragmentu.
+#### Krok 2: Definovat kontext fragmentu a zvýraznit
+Určete, kolik termínů před a po shodě se má zobrazit v každém fragmentu.
 
 ```java
 HighlightOptions options = new HighlightOptions();
@@ -139,7 +149,7 @@ FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.Html);
 index.highlight(document, highlighter, options);
 ```
 
-#### Krok 3: Získejte a zapište zvýrazněné fragmenty
+#### Krok 3: Získat a zapsat zvýrazněné fragmenty
 Shromážděte vygenerované fragmenty a zapište je do HTML souboru.
 
 ```java
@@ -166,27 +176,27 @@ try {
 ```
 
 ## Praktické aplikace
-1. **Legal Document Review** – okamžitě zvýrazněte zákony, klauzule nebo odkazy na případy.  
-2. **Academic Research** – zobrazte klíčovou terminologii napříč desítkami PDF a Word souborů.  
-3. **Customer Support** – identifikujte čísla objednávek nebo chybové kódy v historii tiketů.
+1. **Právní revize dokumentů** — okamžité zvýraznění zákonů, ustanovení nebo odkazů na případy.  
+2. **Akademický výzkum** — zobrazení klíčové terminologie napříč desítkami PDF a Word souborů.  
+3. **Zákaznická podpora** --- identifikace čísel objednávek nebo chybových kódů v historii tiketů.
 
 ## Úvahy o výkonu
-- **Index Size** – vysoká komprese (`Compression.High`) snižuje velikost na disku.  
-- **Fragment Context** – větší hodnoty `termsBefore/After` zvyšují přesnost, ale mohou ovlivnit rychlost.  
-- **Memory Management** – monitorujte haldu JVM při indexaci velkých korpusů; zvažte inkrementální indexaci pro velmi velké sady.
+- **Velikost indexu** — vysoká komprese (`Compression.High`) snižuje prostor na disku.  
+- **Kontext fragmentu** — větší hodnoty `termsBefore/After` zvyšují přesnost, ale mohou ovlivnit rychlost.  
+- **Správa paměti** — monitorujte haldu JVM při indexování velkých korpusů; zvažte inkrementální indexování pro velmi velké sady.
 
 ## Časté problémy a řešení
-- **Indexing Errors** – ověřte cesty k souborům a zajistěte, aby aplikace měla oprávnění ke čtení/zápisu.  
-- **No Highlights Appear** – potvrďte, že `UseInlineStyles` odpovídá vašemu výstupnímu formátu (HTML vs. PDF).  
-- **Color Not Applied** – ujistěte se, že RGB hodnoty jsou v rozmezí 0‑255 a že HTML prohlížeč podporuje daný styl.
+- **Chyby indexování** — ověřte cesty k souborům a zajistěte, aby aplikace měla oprávnění ke čtení/zápisu.  
+- **Nezobrazují se zvýraznění** — potvrďte, že `UseInlineStyles` odpovídá vašemu výstupnímu formátu (HTML vs. PDF).  
+- **Barva se neaplikuje** — ujistěte se, že RGB hodnoty jsou v rozmezí 0‑255 a že HTML prohlížeč podporuje daný styl.
 
 ## Často kladené otázky
 
 **Q: Jaké jsou výhody používání GroupDocs.Search pro Java?**  
-A: Nabízí rychlou, škálovatelnou indexaci, přizpůsobitelné zvýrazňování a podporu mnoha formátů dokumentů.
+A: Poskytuje rychlé, škálovatelné indexování, přizpůsobitelné zvýraznění a podporu mnoha formátů dokumentů.
 
 **Q: Jak mohu integrovat GroupDocs.Search s REST API?**  
-A: Zveřejněte metody vyhledávání a zvýrazňování prostřednictvím Spring Boot kontrolerů, které vrací HTML nebo JSON payloady.
+A: Zveřejněte metody vyhledávání a zvýraznění prostřednictvím Spring Boot kontrolerů, které vrací HTML nebo JSON payloady.
 
 **Q: Zvládá knihovna soubory chráněné heslem?**  
 A: Ano — poskytněte heslo při přidávání dokumentu do indexu.
@@ -194,11 +204,17 @@ A: Ano — poskytněte heslo při přidávání dokumentu do indexu.
 **Q: Mohu přizpůsobit značkování zvýraznění mimo barvu?**  
 A: Rozhodně; můžete vložit CSS třídy pomocí `HighlightOptions` nebo upravit HTML po vygenerování.
 
-**Q: Jaká verze byla testována pro tento průvodce?**  
+**Q: Jaká verze byla pro tento návod testována?**  
 A: Kód byl ověřen proti GroupDocs.Search 25.4.
+
+**Q: Jak nastavit highlight options java pro použití CSS třídy místo inline stylů?**  
+A: Nastavte `options.setUseInlineStyles(false)` a přidejte CSS pravidlo pro třídu, kterou přiřadíte pomocí `options.setCssClass("myHighlight")`.
+
+**Q: Existuje způsob, jak highlight terms pdf java přímo, když je zdroj PDF?**  
+A: Ano — GroupDocs.Search pracuje s PDF vstupem a zvýrazňovač vygeneruje HTML, které můžete vložit do PDF prohlížeče nebo převést zpět do PDF pomocí GroupDocs.Conversion.
 
 ---
 
-**Poslední aktualizace:** 2025-12-26  
+**Poslední aktualizace:** 2026-02-27  
 **Testováno s:** GroupDocs.Search 25.4  
 **Autor:** GroupDocs
