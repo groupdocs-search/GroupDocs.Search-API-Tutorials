@@ -1,47 +1,47 @@
 ---
-date: '2025-12-22'
-description: Pelajari cara mengelola versi indeks Java menggunakan GroupDocs.Search
-  untuk Java. Panduan ini menjelaskan cara memperbarui indeks, pengaturan dependensi
-  Maven GroupDocs, dan optimisasi kinerja.
+date: '2026-03-04'
+description: Pelajari cara memperbarui indeks Java menggunakan GroupDocs.Search untuk
+  Java. Panduan ini mencakup menambahkan dokumen ke indeks, meningkatkan indeks pencarian,
+  pengaturan Maven, dan tips kinerja.
 keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-title: 'Cara Mengelola Versi Indeks Java dengan GroupDocs.Search - Panduan Komprehensif'
+title: Cara Memperbarui Indeks Java dengan GroupDocs.Search – Panduan Komprehensif
 type: docs
 url: /id/java/document-management/guide-updating-index-versions-groupdocs-search-java/
 weight: 1
 ---
 
-# Cara Mengelola Versi Indeks Java dengan GroupDocs.Search - Panduan Komprehensif
+# Cara Memperbarui Index Java dengan GroupDocs.Search – Panduan Komprehensif
 
-Dalam dunia manajemen data yang bergerak cepat, **manage index versions java** sangat penting untuk menjaga pengalaman pencarian Anda tetap cepat dan dapat diandalkan. Dengan GroupDocs.Search untuk Java, Anda dapat dengan mulus memperbarui dan mengelola dokumen serta versi yang diindeks, memastikan setiap kueri mengembalikan hasil yang paling terbaru.
+Menjaga indeks pencarian Anda tetap terbaru adalah fondasi dari setiap aplikasi berperforma tinggi. Dalam tutorial ini Anda akan mempelajari **how to update index java** dengan GroupDocs.Search, mencakup segala hal mulai dari menambahkan dokumen ke indeks, memperbarui versi indeks pencarian, hingga penyetelan kinerja. Baik Anda mengelola CMS, repositori hukum, atau gudang data berskala besar, langkah‑langkah di bawah ini akan membantu Anda menjaga hasil pencarian tetap cepat dan akurat.
 
 ## Jawaban Cepat
-- **Apa arti “manage index versions java”?** Itu merujuk pada memperbarui dan memelihara versi indeks pencarian sehingga tetap kompatibel dengan rilis perpustakaan yang lebih baru.  
-- **Artefak Maven mana yang diperlukan?** Artefak `groupdocs-search`, ditambahkan melalui dependensi Maven.  
-- **Apakah saya memerlukan lisensi untuk mencobanya?** Ya—lisensi percobaan gratis tersedia untuk evaluasi.  
-- **Bisakah saya memperbarui indeks secara paralel?** Tentu—gunakan `UpdateOptions` untuk mengaktifkan pembaruan multi‑thread.  
-- **Apakah pendekatan ini efisien memori?** Ketika digunakan dengan pengaturan thread yang tepat dan pembersihan rutin, ini meminimalkan konsumsi heap Java.
+- **Apa arti “update index java”?** Ini adalah proses menyegarkan indeks di disk sehingga mencerminkan perubahan dokumen terbaru dan versi perpustakaan.  
+- **Artifact Maven mana yang saya perlukan?** Tambahkan dependensi `groupdocs-search` ke `pom.xml` Anda.  
+- **Apakah saya memerlukan lisensi untuk mencobanya?** Ya – lisensi percobaan gratis tersedia untuk evaluasi.  
+- **Bisakah saya memperbarui indeks secara paralel?** Tentu – konfigurasikan `UpdateOptions` dengan banyak thread.  
+- **Apakah pendekatan ini efisien memori?** Pengaturan thread yang tepat dan pembersihan rutin menjaga penggunaan heap Java tetap rendah.
 
-## Apa itu “manage index versions java”?
-Mengelola versi indeks di Java berarti menjaga struktur indeks di disk tetap sinkron dengan versi perpustakaan GroupDocs.Search yang Anda gunakan. Ketika perpustakaan berkembang, indeks lama mungkin perlu ditingkatkan agar tetap dapat dicari.
+## Apa itu “update index java”?
+Memperbarui indeks di Java berarti menyinkronkan struktur indeks di disk dengan kumpulan dokumen sumber saat ini serta versi perpustakaan GroupDocs.Search yang Anda gunakan. Ketika perpustakaan berkembang, Anda mungkin juga perlu **upgrade search index** untuk mempertahankan kompatibilitas.
 
 ## Mengapa menggunakan GroupDocs.Search untuk Java?
-- **Pencarian teks penuh yang kuat** di banyak format dokumen.  
-- **Integrasi mudah** dengan build Maven dan Gradle.  
+- **Pencarian full‑text yang kuat** melintasi puluhan format dokumen.  
+- **Integrasi Maven/Gradle yang mulus** untuk build otomatis.  
 - **Manajemen versi bawaan** yang melindungi investasi Anda saat perpustakaan diperbarui.  
-- **Kinerja skalabel** dengan pengindeksan dan pembaruan multi‑thread.
+- **Pengindeksan multi‑thread yang skalabel** untuk kumpulan data besar.
 
 ## Prasyarat
 - Java Development Kit (JDK) 8 atau lebih tinggi.  
-- Sebuah IDE seperti IntelliJ IDEA atau Eclipse.  
-- Pengetahuan dasar Java dan Maven.
+- IDE seperti IntelliJ IDEA atau Eclipse.  
+- Pengetahuan dasar tentang Java dan Maven.  
 
 ## Dependensi Maven GroupDocs
 Untuk bekerja dengan GroupDocs.Search, Anda memerlukan koordinat Maven yang tepat. Tambahkan repositori dan dependensi yang ditunjukkan di bawah ini ke file `pom.xml` Anda.
 
-**Konfigurasi Maven:**
+**Maven Configuration:**
 ```xml
 <repositories>
     <repository>
@@ -64,13 +64,13 @@ Sebagai alternatif, Anda dapat [mengunduh versi terbaru secara langsung](https:/
 ## Menyiapkan GroupDocs.Search untuk Java
 
 ### Instruksi Instalasi
-1. **Pengaturan Maven** – Tambahkan repositori dan dependensi ke `pom.xml` Anda seperti yang ditunjukkan di atas.  
-2. **Unduhan Langsung** – Jika Anda lebih memilih tidak menggunakan Maven, dapatkan JAR dari [halaman unduhan GroupDocs](https://releases.groupdocs.com/search/java/).
+1. **Maven Setup** – Tambahkan repositori dan dependensi ke `pom.xml` Anda seperti yang ditunjukkan di atas.  
+2. **Direct Download** – Jika Anda lebih memilih tidak menggunakan Maven, dapatkan JAR dari [halaman unduhan GroupDocs](https://releases.groupdocs.com/search/java/).
 
 ### Akuisisi Lisensi
 GroupDocs menawarkan lisensi percobaan gratis yang memungkinkan Anda menjelajahi semua fitur tanpa batasan. Dapatkan lisensi sementara dari [portal pembelian](https://purchase.groupdocs.com/temporary-license/). Untuk produksi, beli lisensi penuh.
 
-### Inisialisasi dan Penyiapan Dasar
+### Basic Initialization and Setup
 ```java
 import com.groupdocs.search.Index;
 
@@ -83,10 +83,10 @@ Index index = new Index(indexFolder);
 
 ## Panduan Implementasi
 
-### Memperbarui Dokumen yang Diindeks
-Menjaga indeks Anda tetap sinkron dengan file sumber adalah bagian inti dari **manage index versions java**.
+### Memperbarui Dokumen Terindeks – **add documents to index**
+Menyimpan indeks Anda sinkron dengan file sumber adalah bagian inti dari **update index java**.
 
-#### Implementasi Langkah‑per‑Langkah
+#### Implementasi Langkah‑demi‑Langkah
 **1. Tentukan Jalur Direktori**  
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/UpdateIndexedDocuments/Index";
@@ -137,14 +137,14 @@ SearchResult searchResult2 = index.search(query);
 ```
 
 **Tips Pemecahan Masalah**
-- Verifikasi bahwa semua jalur file benar dan dapat diakses.  
+- Pastikan semua jalur file benar dan dapat diakses.  
 - Pastikan proses memiliki izin baca/tulis pada folder indeks.  
-- Pantau penggunaan CPU dan memori saat meningkatkan jumlah thread.
+- Pantau penggunaan CPU dan memori saat meningkatkan jumlah thread.  
 
-### Memperbarui Versi Indeks
-Saat Anda memperbarui GroupDocs.Search, Anda mungkin perlu **manage index versions java** untuk menjaga indeks yang ada tetap dapat digunakan.
+### Memperbarui Versi Indeks – **upgrade search index**
+Saat Anda memperbarui GroupDocs.Search, Anda mungkin perlu **upgrade search index** agar indeks yang ada tetap dapat digunakan.
 
-#### Implementasi Langkah‑per‑Langkah
+#### Implementasi Langkah‑demi‑Langkah
 **1. Tentukan Jalur Direktori**  
 ```java
 String oldIndexFolder = Utils.OldIndexPath;
@@ -174,28 +174,36 @@ if (updater.canUpdateVersion(sourceIndexFolder)) {
 **Tips Pemecahan Masalah**
 - Pastikan indeks sumber dibuat dengan versi lama yang didukung.  
 - Pastikan ruang disk cukup untuk folder indeks target.  
-- Perbarui semua dependensi Maven ke versi yang sama untuk menghindari masalah kompatibilitas.
+- Perbarui semua dependensi Maven ke versi yang sama untuk menghindari masalah kompatibilitas.  
 
 ## Aplikasi Praktis
 1. **Sistem Manajemen Konten** – Jaga indeks pencarian tetap segar saat artikel, PDF, dan gambar ditambahkan atau diedit.  
 2. **Repositori Dokumen Hukum** – Secara otomatis mencerminkan amandemen pada kontrak, undang‑undang, dan berkas kasus.  
-3. **Data Warehousing Perusahaan** – Secara rutin menyegarkan data yang diindeks untuk analitik dan pelaporan yang akurat.
+3. **Data Warehousing Perusahaan** – Secara rutin menyegarkan data terindeks untuk analitik dan pelaporan yang akurat.  
 
 ## Pertimbangan Kinerja
 - **Manajemen Thread** – Gunakan multi‑threading dengan bijak; terlalu banyak thread dapat menyebabkan tekanan GC.  
-- **Pemantauan Memori** – Secara berkala panggil `System.gc()` atau gunakan alat profiling untuk memantau penggunaan heap.  
-- **Optimasi Kuery** – Tulis string pencarian yang singkat dan manfaatkan filter untuk mengurangi ukuran set hasil.
+- **Pemantauan Memori** – Secara periodik panggil `System.gc()` atau gunakan alat profiling untuk memantau penggunaan heap.  
+- **Optimasi Kueri** – Tulis string pencarian yang singkat dan manfaatkan filter untuk mengurangi ukuran hasil.  
+
+## Masalah Umum dan Solusinya
+| Gejala | Penyebab Kemungkinan | Solusi |
+|---------|----------------------|--------|
+| `Index not found` error | Path folder salah | Periksa kembali `indexFolder` dan pastikan direktori ada. |
+| Out‑of‑memory saat pembaruan | Jumlah thread berlebih | Kurangi `options.setThreads()` atau tingkatkan heap (`-Xmx`). |
+| Tidak ada hasil setelah upgrade versi | Indeks lama tidak kompatibel | Verifikasi `updater.canUpdateVersion()` mengembalikan `true` sebelum melanjutkan. |
+| License exception | Lisensi percobaan kedaluwarsa | Minta percobaan baru atau terapkan kunci lisensi yang dibeli. |
 
 ## Pertanyaan yang Sering Diajukan
 
-**Q: Bisakah saya meningkatkan indeks yang dibuat dengan versi sangat lama dari GroupDocs.Search?**  
+**Q: Bisakah saya memperbarui indeks yang dibuat dengan versi sangat lama dari GroupDocs.Search?**  
 A: Ya, selama indeks lama masih dapat dibaca oleh perpustakaan; metode `canUpdateVersion` akan mengonfirmasi kompatibilitas.
 
 **Q: Apakah saya perlu membuat ulang indeks setelah setiap pembaruan perpustakaan?**  
 A: Tidak selalu. Memperbarui versi indeks sudah cukup dalam kebanyakan kasus, menghemat waktu dan sumber daya.
 
 **Q: Berapa banyak thread yang harus saya gunakan untuk indeks besar?**  
-A: Mulailah dengan 2‑4 thread dan pantau penggunaan CPU; tingkatkan hanya jika sistem memiliki inti dan memori yang tersedia.
+A: Mulailah dengan 2‑4 thread dan pantau penggunaan CPU; tingkatkan hanya jika sistem memiliki inti dan memori cadangan.
 
 **Q: Apakah lisensi percobaan cukup untuk pengujian produksi?**  
 A: Lisensi percobaan menghapus batas fitur, menjadikannya ideal untuk lingkungan pengembangan dan QA.
@@ -204,7 +212,7 @@ A: Lisensi percobaan menghapus batas fitur, menjadikannya ideal untuk lingkungan
 A: Struktur indeks dimigrasikan, tetapi konten yang dapat dicari tetap tidak berubah, sehingga hasil tetap konsisten.
 
 ## Kesimpulan
-Dengan mengikuti langkah‑langkah di atas, Anda kini memiliki pemahaman yang kuat tentang cara **manage index versions java** dengan GroupDocs.Search untuk Java. Memperbarui baik konten dokumen maupun versi indeks memastikan pengalaman pencarian Anda tetap cepat, akurat, dan kompatibel dengan rilis perpustakaan di masa mendatang.
+Dengan mengikuti langkah‑langkah di atas, Anda kini memiliki pemahaman yang kuat tentang cara **update index java** dengan GroupDocs.Search untuk Java. Memperbarui baik konten dokumen maupun versi indeks memastikan pengalaman pencarian Anda tetap cepat, akurat, dan kompatibel dengan rilis perpustakaan di masa depan.
 
 ### Langkah Selanjutnya
 - Bereksperimen dengan konfigurasi `UpdateOptions` yang berbeda untuk menemukan titik optimal bagi beban kerja Anda.  
@@ -213,6 +221,6 @@ Dengan mengikuti langkah‑langkah di atas, Anda kini memiliki pemahaman yang ku
 
 ---
 
-**Terakhir Diperbarui:** 2025-12-22  
-**Diuji Dengan:** GroupDocs.Search 25.4 for Java  
+**Terakhir Diperbarui:** 2026-03-04  
+**Diuji Dengan:** GroupDocs.Search 25.4 untuk Java  
 **Penulis:** GroupDocs

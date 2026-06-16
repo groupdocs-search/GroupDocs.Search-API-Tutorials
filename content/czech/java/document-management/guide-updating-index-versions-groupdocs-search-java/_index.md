@@ -1,47 +1,47 @@
 ---
-date: '2025-12-22'
-description: Naučte se, jak spravovat verze indexů v Javě pomocí GroupDocs.Search
-  pro Javu. Tento průvodce vysvětluje aktualizaci indexů, nastavení Maven závislosti
-  groupdocs a optimalizaci výkonu.
+date: '2026-03-04'
+description: Naučte se, jak aktualizovat index v Javě pomocí GroupDocs.Search pro
+  Javu. Tento průvodce zahrnuje přidávání dokumentů do indexu, aktualizaci vyhledávacího
+  indexu, nastavení Maven a tipy pro výkon.
 keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-title: 'Jak spravovat verze indexu v Javě s GroupDocs.Search - komplexní průvodce'
+title: Jak aktualizovat index v Javě pomocí GroupDocs.Search – komplexní průvodce
 type: docs
 url: /cs/java/document-management/guide-updating-index-versions-groupdocs-search-java/
 weight: 1
 ---
 
-# Jak spravovat verze indexu Java s GroupDocs.Search - Komplexní průvodce
+# Jak aktualizovat Index Java pomocí GroupDocs.Search – Kompletní průvodce
 
-Ve světě rychlého řízení dat je **manage index versions java** nezbytné pro udržení rychlého a spolehlivého vyhledávání. S GroupDocs.Search pro Java můžete plynule aktualizovat a spravovat indexované dokumenty a verze, což zajišťuje, že každý dotaz vrátí nejaktuálnější výsledky.
+Udržování aktuálního vyhledávacího indexu je základním kamenem každé výkonné aplikace. V tomto tutoriálu se naučíte **jak aktualizovat index java** pomocí GroupDocs.Search, pokrývající vše od přidávání dokumentů do indexu, až po aktualizaci verzí vyhledávacího indexu a ladění výkonu. Ať už spravujete CMS, právní úložiště nebo rozsáhlý datový sklad, níže uvedené kroky vám pomohou udržet výsledky vyhledávání rychlé a přesné.
 
 ## Rychlé odpovědi
-- **Co znamená “manage index versions java”?** Jedná se o aktualizaci a údržbu verze vyhledávacího indexu, aby zůstala kompatibilní s novějšími verzemi knihovny.  
-- **Který Maven artefakt je vyžadován?** Artefakt `groupdocs-search`, přidaný jako Maven závislost.  
+- **Co znamená „update index java“?** Jedná se o proces obnovení indexu na disku, aby odrážel nejnovější změny dokumentů a verzi knihovny.  
+- **Jaký Maven artefakt potřebuji?** Přidejte závislost `groupdocs-search` do vašeho `pom.xml`.  
 - **Potřebuji licenci pro vyzkoušení?** Ano – je k dispozici bezplatná zkušební licence pro hodnocení.  
-- **Mohu aktualizovat indexy paralelně?** Rozhodně – použijte `UpdateOptions` pro povolení vícevláknových aktualizací.  
-- **Je tento přístup paměťově efektivní?** Při správném nastavení vláken a pravidelných úklidech minimalizuje spotřebu haldy Java.
+- **Mohu aktualizovat indexy paralelně?** Rozhodně – nakonfigurujte `UpdateOptions` s více vlákny.  
+- **Je tento přístup paměťově úsporný?** Správné nastavení vláken a pravidelné úklidy udržují využití haldy Java nízké.
 
-## Co je “manage index versions java”?
-Správa verzí indexu v Javě znamená udržovat strukturu indexu na disku synchronizovanou s verzí knihovny GroupDocs.Search, kterou používáte. Když se knihovna vyvíjí, starší indexy mohou vyžadovat upgrade, aby zůstaly prohledávatelné.
+## Co je „update index java“?
+Aktualizace indexu v Javě znamená synchronizaci struktury indexu na disku s aktuálním souborem zdrojových dokumentů a verzí knihovny GroupDocs.Search, kterou používáte. Když se knihovna vyvíjí, může být také nutné **upgradovat vyhledávací index**, aby byla zachována kompatibilita.
 
 ## Proč používat GroupDocs.Search pro Java?
-- **Robustní full‑textové vyhledávání** napříč mnoha formáty dokumentů.  
-- **Jednoduchá integrace** s Maven a Gradle buildy.  
+- **Robustní full‑textové vyhledávání** napříč desítkami formátů dokumentů.  
+- **Bezproblémová integrace s Maven/Gradle** pro automatizované sestavení.  
 - **Vestavěná správa verzí**, která chrání vaši investici při aktualizacích knihovny.  
-- **Škálovatelný výkon** s vícevláknovým indexováním a aktualizacemi.
+- **Škálovatelné vícevláknové indexování** pro velké datové sady.
 
 ## Předpoklady
 - Java Development Kit (JDK) 8 nebo vyšší.  
-- IDE, například IntelliJ IDEA nebo Eclipse.  
+- IDE, jako je IntelliJ IDEA nebo Eclipse.  
 - Základní znalosti Javy a Maven.
 
 ## Maven závislost GroupDocs
 Pro práci s GroupDocs.Search potřebujete správné Maven souřadnice. Přidejte úložiště a závislost uvedenou níže do souboru `pom.xml`.
 
-**Maven Configuration:**
+**Konfigurace Maven:**  
 ```xml
 <repositories>
     <repository>
@@ -64,8 +64,8 @@ Alternativně můžete [stáhnout nejnovější verzi přímo](https://releases.
 ## Nastavení GroupDocs.Search pro Java
 
 ### Pokyny k instalaci
-1. **Nastavení Maven** – Přidejte úložiště a závislost do souboru `pom.xml` podle výše uvedeného.  
-2. **Přímé stažení** – Pokud nechcete používat Maven, stáhněte JAR ze [stránky ke stažení GroupDocs](https://releases.groupdocs.com/search/java/).
+1. **Nastavení Maven** – Přidejte úložiště a závislost do vašeho `pom.xml` podle výše uvedeného.  
+2. **Přímé stažení** – Pokud dáváte přednost nepoužívat Maven, stáhněte JAR ze [stránky ke stažení GroupDocs](https://releases.groupdocs.com/search/java/).
 
 ### Získání licence
 GroupDocs nabízí bezplatnou zkušební licenci, která vám umožní prozkoumat všechny funkce bez omezení. Získejte dočasnou licenci z [portálu nákupu](https://purchase.groupdocs.com/temporary-license/). Pro produkci zakupte plnou licenci.
@@ -83,11 +83,11 @@ Index index = new Index(indexFolder);
 
 ## Průvodce implementací
 
-### Aktualizace indexovaných dokumentů
-Udržování vašeho indexu v synchronizaci se zdrojovými soubory je základní součástí **manage index versions java**.
+### Aktualizace indexovaných dokumentů – **přidat dokumenty do indexu**
+Udržování vašeho indexu v synchronizaci se zdrojovými soubory je základní součástí **update index java**.
 
-#### Implementace krok za krokem
-**1. Definujte cesty adresářů**  
+#### Krok‑za‑krokem implementace
+**1. Definujte cesty k adresářům**  
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/UpdateIndexedDocuments/Index";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY/Documents";
@@ -136,16 +136,16 @@ index.update(options);
 SearchResult searchResult2 = index.search(query);
 ```
 
-**Tipy pro řešení problémů**
+**Tipy pro řešení potíží**
 - Ověřte, že všechny cesty k souborům jsou správné a přístupné.  
-- Zajistěte, aby proces měl oprávnění čtení/zápisu ve složce indexu.  
+- Ujistěte se, že proces má oprávnění čtení/zápisu do složky indexu.  
 - Sledujte využití CPU a paměti při zvyšování počtu vláken.
 
-### Aktualizace verze indexu
-Když aktualizujete GroupDocs.Search, může být nutné **manage index versions java**, aby byly stávající indexy použitelné.
+### Aktualizace verze indexu – **upgrade search index**
+Když upgradujete GroupDocs.Search, může být nutné **upgrade search index**, aby byly stávající indexy použitelné.
 
-#### Implementace krok za krokem
-**1. Definujte cesty adresářů**  
+#### Krok‑za‑krokem implementace
+**1. Definujte cesty k adresářům**  
 ```java
 String oldIndexFolder = Utils.OldIndexPath;
 String sourceIndexFolder = "YOUR_DOCUMENT_DIRECTORY/SourceIndex";
@@ -171,31 +171,39 @@ if (updater.canUpdateVersion(sourceIndexFolder)) {
 }
 ```
 
-**Tipy pro řešení problémů**
+**Tipy pro řešení potíží**
 - Potvrďte, že zdrojový index byl vytvořen s podporovanou starší verzí.  
-- Zajistěte dostatek místa na disku pro cílovou složku indexu.  
+- Zajistěte dostatek volného místa na disku pro cílovou složku indexu.  
 - Aktualizujte všechny Maven závislosti na stejnou verzi, aby nedošlo k problémům s kompatibilitou.
 
 ## Praktické aplikace
 1. **Systémy pro správu obsahu** – Udržujte vyhledávací indexy aktuální, když jsou přidávány nebo upravovány články, PDF a obrázky.  
-2. **Repozitáře právních dokumentů** – Automaticky odrážejí změny smluv, zákonů a soudních spisů.  
-3. **Enterprise Data Warehousing** – Pravidelně obnovujte indexovaná data pro přesnou analytiku a reportování.
+2. **Právní úložiště dokumentů** – Automaticky odrážejí změny smluv, zákonů a soudních spisů.  
+3. **Podnikové datové sklady** – Pravidelně obnovujte indexovaná data pro přesnou analytiku a reportování.
 
 ## Úvahy o výkonu
 - **Správa vláken** – Používejte vícevláknové zpracování rozumně; příliš mnoho vláken může způsobit tlak na garbage collector.  
 - **Monitorování paměti** – Periodicky volajte `System.gc()` nebo použijte profilovací nástroje ke sledování využití haldy.  
 - **Optimalizace dotazů** – Pište stručné vyhledávací řetězce a využívejte filtry ke snížení velikosti výsledkové sady.
 
+## Časté problémy a řešení
+| Příznak | Pravděpodobná příčina | Oprava |
+|---------|-----------------------|--------|
+| `Index not found` chyba | Špatná cesta ke složce | Zkontrolujte `indexFolder` a ujistěte se, že adresář existuje. |
+| Nedostatek paměti během aktualizace | Příliš vysoký počet vláken | Snižte `options.setThreads()` nebo zvětšete haldu (`-Xmx`). |
+| Žádné výsledky po upgradu verze | Nekompatibilní starý index | Ověřte, že `updater.canUpdateVersion()` vrací `true` před pokračováním. |
+| Výjimka licence | Zkušební licence vypršela | Požádejte o novou zkušební licenci nebo použijte zakoupený licenční klíč. |
+
 ## Často kladené otázky
 
-**Q: Mohu upgradovat index vytvořený s velmi starou verzí GroupDocs.Search?**  
+**Q: Můžu upgradovat index vytvořený s velmi starou verzí GroupDocs.Search?**  
 A: Ano, pokud je starý index stále čitelný knihovnou; metoda `canUpdateVersion` potvrdí kompatibilitu.
 
 **Q: Musím po každé aktualizaci knihovny znovu vytvořit index?**  
-A: Ne nutně. Aktualizace verze indexu stačí ve většině případů, což šetří čas i zdroje.
+A: Ne nutně. Aktualizace verze indexu je ve většině případů dostačující, šetří čas i zdroje.
 
 **Q: Kolik vláken bych měl použít pro velké indexy?**  
-A: Začněte s 2‑4 vlákny a sledujte využití CPU; zvyšujte pouze pokud má systém volné jádra a paměť.
+A: Začněte s 2‑4 vlákny a sledujte využití CPU; zvyšujte jen pokud má systém volné jádra a paměť.
 
 **Q: Je zkušební licence dostatečná pro testování v produkci?**  
 A: Zkušební licence odstraňuje omezení funkcí, což ji činí ideální pro vývojové a QA prostředí.
@@ -204,7 +212,7 @@ A: Zkušební licence odstraňuje omezení funkcí, což ji činí ideální pro
 A: Struktura indexu je migrována, ale prohledávatelný obsah zůstává nezměněn, takže výsledky zůstávají konzistentní.
 
 ## Závěr
-Podle výše uvedených kroků máte nyní solidní pochopení, jak **manage index versions java** s GroupDocs.Search pro Java. Aktualizace jak obsahu dokumentů, tak verzí indexu zajišťuje, že vaše vyhledávání zůstane rychlé, přesné a kompatibilní s budoucími verzemi knihovny.
+Po provedení výše uvedených kroků máte nyní pevné pochopení toho, jak **update index java** s GroupDocs.Search pro Java. Obnovení jak obsahu dokumentů, tak verzí indexu zajišťuje, že vaše vyhledávací zkušenost zůstane rychlá, přesná a kompatibilní s budoucími verzemi knihovny.
 
 ### Další kroky
 - Experimentujte s různými konfiguracemi `UpdateOptions`, abyste našli optimální nastavení pro vaše zatížení.  
@@ -213,6 +221,6 @@ Podle výše uvedených kroků máte nyní solidní pochopení, jak **manage ind
 
 ---
 
-**Poslední aktualizace:** 2025-12-22  
+**Poslední aktualizace:** 2026-03-04  
 **Testováno s:** GroupDocs.Search 25.4 pro Java  
 **Autor:** GroupDocs
