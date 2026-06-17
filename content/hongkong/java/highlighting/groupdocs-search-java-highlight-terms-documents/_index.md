@@ -1,44 +1,54 @@
 ---
-date: '2025-12-26'
-description: 學習如何使用 GroupDocs.Search for Java 在文件中搜尋並突出顯示文字。探索完整文件與片段突出顯示的技巧。
+date: '2026-02-27'
+description: 了解如何使用 GroupDocs.Search for Java 來突出顯示文字，內容包括 Java 文件搜尋、Java 文件索引與片段高亮。
 keywords:
 - GroupDocs.Search for Java
 - highlight search terms in documents
 - document highlighting
-title: 使用 GroupDocs.Search for Java 進行搜尋與文字突顯
+title: 使用 GroupDocs.Search 在 Java 中突出顯示文字
 type: docs
 url: /zh-hant/java/highlighting/groupdocs-search-java-highlight-terms-documents/
 weight: 1
 ---
 
-# 使用 GroupDocs.Search for Java 在文件中搜尋與標記文字
+# 使用 GroupDocs.Search 於 Java 文字高亮
 
-在當今的數位時代，跨大量文件集合的 **search and highlight text** 已成為常見需求。無論您正在構建法律審查工具、學術研究平台，或是客戶支援儀表板，能即時定位並強調關鍵詞彙都能大幅提升使用體驗。在本完整指南中，您將了解如何使用 GroupDocs.Search for Java 實作 **search and highlight text**——涵蓋整份文件的標記以及片段層級的標記，以提供聚焦的上下文。
+在當今節奏快速的數位環境中，能夠在大量檔案集合中 **highlight text java** 是必備功能。無論您是構建法律審查平台、學術研究引擎，或是客戶支援主控台，即時找出使用者所尋找的關鍵詞，都能大幅提升使用體驗。本教學將帶您使用 **GroupDocs.Search for Java** 來 **search documents java**、**index documents java**，並套用豐富的高亮顯示——包括整份文件以及特定片段。
 
 ## 快速解答
-- **What does “search and highlight text” mean?** 它指的是在文件中定位查詢詞彙，並以視覺方式強調它們（例如使用背景色）。  
-- **Which library provides this capability?** GroupDocs.Search for Java.  
-- **Do I need a license?** 免費試用可用於評估；正式環境需購買完整授權。  
-- **Can I customize highlight colors?** 可以——任何 RGB 顏色皆可透過 `HighlightOptions` 設定。  
-- **Is fragment highlighting supported?** 當然支援；您可以定義匹配前後的詞彙數量，以產生精簡的片段。  
+- **「search and highlight text」是什麼意思？** 它指的是在文件中定位查詢詞彙，並以視覺方式（例如背景色）強調這些詞彙。  
+- **哪個函式庫提供此功能？** GroupDocs.Search for Java。  
+- **需要授權嗎？** 免費試用可用於評估；正式上線需購買完整授權。  
+- **可以自訂高亮顏色嗎？** 可以——任何 RGB 顏色皆可透過 `HighlightOptions` 設定。  
+- **支援片段高亮嗎？** 完全支援；您可以自行定義匹配前後的詞彙數量，以產生簡潔的摘要片段。
 
-## 什麼是 Search and Highlight Text？
-Search and highlight text 是掃描文件索引以尋找特定查詢、取得匹配文件，並在文件輸出（HTML、PDF 等）中標記每個查詢詞彙出現的位置的過程。此視覺提示可協助最終使用者即時發現相關資訊。
+## 如何在文件中使用 Java 文字高亮
+文字高亮（Java）涉及三個核心步驟：
+
+1. **Index the source files** so they can be searched quickly.  
+2. **Run a query** against the index to find matching documents.  
+3. **Render the results with visual cues** using the highlighter API.
+
+以下將逐步說明每個步驟，先說明整份文件的輸出方式，接著說明片段層級的摘要。
+
+## 什麼是搜尋與文字高亮？
+搜尋與文字高亮是指掃描文件索引以尋找特定查詢，取得符合的文件，然後在文件輸出（HTML、PDF 等）中標記每一次出現的查詢詞彙。此視覺提示可協助最終使用者即時發現相關資訊。
 
 ## 為何使用 GroupDocs.Search for Java？
-- **High‑performance indexing** 具可配置的壓縮功能。  
-- **Rich highlighting API** 可於整份文件及自訂片段上使用。  
+- **High‑performance indexing** with configurable compression (`index documents java`)。  
+- **Rich highlighting API** that works on whole documents and on custom fragments (`highlight search terms java`)。  
 - **Cross‑format support**（支援 DOCX、PDF、PPTX、TXT 等多種格式）。  
-- **Easy Maven integration** 以及清晰的 Java 為中心 API。  
+- **Simple Maven integration** and a clean Java‑centric design。
 
 ## 前置條件
 - Java Development Kit (JDK) 8 或更新版本。  
 - 用於相依管理的 Maven。  
 - 如 IntelliJ IDEA 或 Eclipse 等 IDE。  
-- 具備基本的 Java 語法知識。  
+- 基本的 Java 語法熟悉度。
 
 ## 設定 GroupDocs.Search for Java
-將 GroupDocs 儲存庫與相依項目加入您的 `pom.xml`：
+
+將 GroupDocs 的儲存庫與相依加入您的 `pom.xml`：
 
 ```xml
 <repositories>
@@ -58,23 +68,24 @@ Search and highlight text 是掃描文件索引以尋找特定查詢、取得匹
 </dependencies>
 ```
 
-您也可以直接從官方網站下載最新的 JAR 檔案：[GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+您也可以直接從官方網站下載最新的 JAR 檔案：[GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)。
 
 ### 取得授權
-先使用免費試用版或取得臨時授權以進行評估。正式上線時，請購買完整授權以解鎖全部功能。
+先使用免費試用或取得臨時授權以進行評估。正式上線時，請購買完整授權以解鎖全部功能。
 
 ## 實作指南
-實作分為兩個實用章節：**highlighting in entire documents** 與 **highlighting in fragments**。兩個章節皆包含使用 GroupDocs.Search 進行 **how to highlight Java** 文件的關鍵步驟。
+
+實作分為兩個實務部分：**整份文件的高亮** 與 **片段的高亮**。兩個部分皆說明使用 GroupDocs.Search **how to highlight Java** 文件的必要步驟。
 
 ### 設定索引參數
-在建立索引之前，先設定儲存使用高壓縮——可減少磁碟空間同時保持搜尋速度。
+在建立索引之前，先將儲存設定為高壓縮——可減少磁碟使用量，同時維持搜尋速度。
 
 ```java
 IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-### 在整份文件中標記
+### 整份文件的高亮顯示
 
 #### 步驟 1：建立並填充索引
 建立索引資料夾，並加入所有欲搜尋的來源檔案。
@@ -85,8 +96,8 @@ Index index = new Index(indexFolder, settings);
 index.add("/path/to/your/documents");
 ```
 
-#### 步驟 2：執行搜尋並套用標記
-搜尋指定詞彙（例如 `ipsum`），並產生含有標記匹配結果的 HTML 檔案。
+#### 步驟 2：執行搜尋並套用高亮
+搜尋指定詞彙（例如 `ipsum`），並產生含有高亮匹配結果的 HTML 檔案。
 
 ```java
 SearchResult result = index.search("ipsum");
@@ -104,12 +115,12 @@ if (result.getDocumentCount() > 0) {
 }
 ```
 
-**關鍵選項說明**
+**關鍵選項說明**  
 - **Compression** – 高壓縮可節省儲存空間。  
-- **HighlightColor** – 設定任意 RGB 值以符合您的 UI 配色。  
-- **UseInlineStyles** – 設為 `false` 會產生乾淨的 HTML，可透過全域 CSS 進行樣式設定。  
+- **HighlightColor** – 設定任意 RGB 值以配合您的 UI 配色。  
+- **UseInlineStyles** – `false` 會產生乾淨的 HTML，方便以全域 CSS 進行樣式設定。
 
-### 在片段中標記
+### 片段的高亮顯示
 
 #### 步驟 1：索引與搜尋（同上）
 
@@ -121,8 +132,8 @@ index.add("/path/to/your/documents");
 SearchResult result = index.search("ipsum");
 ```
 
-#### 步驟 2：定義片段上下文與標記
-指定每個片段中匹配前後應顯示的詞彙數量。
+#### 步驟 2：定義片段上下文並高亮
+指定每個片段在匹配前後要顯示多少個詞彙。
 
 ```java
 HighlightOptions options = new HighlightOptions();
@@ -137,7 +148,7 @@ FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.Html);
 index.highlight(document, highlighter, options);
 ```
 
-#### 步驟 3：取得並寫入標記片段
+#### 步驟 3：取得並寫入高亮片段
 收集產生的片段，並寫入 HTML 檔案。
 
 ```java
@@ -164,39 +175,45 @@ try {
 ```
 
 ## 實務應用
-1. **Legal Document Review** – 即時標記法規、條款或案例參考。  
-2. **Academic Research** – 在數十份 PDF 與 Word 檔中顯示關鍵術語。  
-3. **Customer Support** – 在工單歷史中快速定位訂單號碼或錯誤代碼。  
+1. **Legal Document Review** – 即時高亮法條、條款或案例參考。  
+2. **Academic Research** – 在數十份 PDF 與 Word 檔中快速找出關鍵術語。  
+3. **Customer Support** – 精準定位工單歷史中的訂單編號或錯誤代碼。
 
 ## 效能考量
-- **Index Size** – 高壓縮（`Compression.High`）可減少磁碟佔用。  
-- **Fragment Context** – 較大的 `termsBefore/After` 數值可提升準確度，但可能影響速度。  
-- **Memory Management** – 索引大型語料庫時監控 JVM 堆積；對於極大集合可考慮增量索引。  
+- **Index Size** – 高壓縮 (`Compression.High`) 可減少磁碟佔用。  
+- **Fragment Context** – 較大的 `termsBefore/After` 數值提升精確度，但可能影響速度。  
+- **Memory Management** – 索引大型語料庫時請監控 JVM 堆積，必要時採用增量索引以因應極大資料集。
 
 ## 常見問題與解決方案
-- **Indexing Errors** – 檢查檔案路徑並確保應用程式具備讀寫權限。  
-- **No Highlights Appear** – 確認 `UseInlineStyles` 與您的輸出格式（HTML 或 PDF）相符。  
-- **Color Not Applied** – 確認 RGB 值在 0‑255 範圍內，且 HTML 檢視器支援該樣式。  
+- **Indexing Errors** – 核對檔案路徑，確保應用程式具備讀寫權限。  
+- **No Highlights Appear** – 確認 `UseInlineStyles` 與您的輸出格式（HTML vs. PDF）相符。  
+- **Color Not Applied** – 確認 RGB 值在 0‑255 之間，且 HTML 檢視器支援相應樣式。
 
 ## 常見問答
 
-**Q: What are the benefits of using GroupDocs.Search for Java?**  
-A: 它提供快速且可擴展的索引、可自訂的標記，以及支援多種文件格式的能力。
+**Q: 使用 GroupDocs.Search for Java 有什麼好處？**  
+A: 它提供快速且可擴充的索引、可自訂的高亮功能，且支援多種文件格式。
 
-**Q: How can I integrate GroupDocs.Search with a REST API?**  
-A: 透過 Spring Boot 控制器公開搜尋與標記方法，回傳 HTML 或 JSON 資料。
+**Q: 如何將 GroupDocs.Search 與 REST API 整合？**  
+A: 透過 Spring Boot 控制器將搜尋與高亮方法公開，回傳 HTML 或 JSON 資料。
 
-**Q: Does the library handle password‑protected files?**  
-A: 會——在將文件加入索引時提供密碼即可。
+**Q: 函式庫能處理受密碼保護的檔案嗎？**  
+A: 能——在將文件加入索引時提供相應的密碼即可。
 
-**Q: Can I customize the highlight markup beyond color?**  
+**Q: 除了顏色外，我能自訂高亮標記的其他屬性嗎？**  
 A: 當然可以；您可以透過 `HighlightOptions` 注入 CSS 類別，或在產生後自行修改 HTML。
 
-**Q: What version was tested for this guide?**  
-A: 程式碼已在 GroupDocs.Search 25.4 版本上驗證。
+**Q: 本指南測試的是哪個版本？**  
+A: 程式碼已在 GroupDocs.Search 25.4 上驗證通過。
+
+**Q: 如何設定 `highlight options java` 使用 CSS 類別而非行內樣式？**  
+A: 設定 `options.setUseInlineStyles(false)`，並為您透過 `options.setCssClass("myHighlight")` 指定的類別加入相應的 CSS 規則。
+
+**Q: 有沒有辦法在來源為 PDF 時直接 **highlight terms pdf java**？**  
+A: 有——GroupDocs.Search 支援 PDF 輸入，高亮器會輸出 HTML，您可將其嵌入 PDF 檢視器，或使用 GroupDocs.Conversion 轉回 PDF。
 
 ---
 
-**Last Updated:** 2025-12-26  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+**最後更新：** 2026-02-27  
+**測試版本：** GroupDocs.Search 25.4  
+**作者：** GroupDocs
