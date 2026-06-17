@@ -1,46 +1,47 @@
 ---
-date: '2025-12-24'
-description: GroupDocs.Search kullanarak Java’da öznitelik ile nasıl arama yapılacağını
+date: '2026-02-24'
+description: GroupDocs.Search kullanarak Java’da özniteliklere göre nasıl arama yapılacağını
   öğrenin. Bu kılavuz, belge özniteliklerini toplu olarak güncellemeyi, indeksleme
   sırasında öznitelik eklemeyi ve değiştirmeyi gösterir.
 keywords:
 - GroupDocs.Search Java
 - document attribute modification
 - Java indexing techniques
-title: GroupDocs.Search Kılavuzu ile Java'da Özelliklere Göre Arama
+title: 'Attribute ile Arama: Java ve GroupDocs.Search Kılavuzu'
 type: docs
 url: /tr/java/document-management/groupdocs-search-java-modify-attributes-indexing/
 weight: 1
 ---
 
-# Java ile Özelliklere Göre Arama – GroupDocs.Search Kılavuzu
+# Search by Attribute Java with GroupDocs.Search Guide
 
-Belge yönetim sisteminizi Java kullanarak belge özelliklerini dinamik olarak değiştirmek ve indekslemek istiyor musunuz? Doğru yerdesiniz! Bu öğretici, güçlü GroupDocs.Search for Java kütüphanesini kullanarak **search by attribute java**, indekslenmiş belge özelliklerini değiştirmeyi ve indeksleme sırasında eklemeyi derinlemesine inceliyor. İster bir arama çözümü geliştiriyor olun ister belge iş akışlarını optimize ediyor olun, bu teknikleri ustalıkla kullanmak anahtar.
+Belge yönetim sisteminizi Java kullanarak belge özniteliklerini dinamik olarak değiştirme ve indeksleme yoluyla geliştirmek mi istiyorsunuz? Doğru yerdesiniz! Bu öğretici, güçlü **GroupDocs.Search for Java** kütüphanesini kullanarak **search by attribute java**, indekslenmiş belge özniteliklerini değiştirme ve indeksleme sırasında ekleme konularına derinlemesine dalıyor. İster aranabilir bir portal, ister uyumluluk arşivi ya da akıllı içerik‑odaklı bir uygulama oluşturuyor olun, bu teknikleri öğrenmek zaman kazandıracak ve performansı artıracaktır.
 
-## Hızlı Yanıtlar
-- **“search by attribute java” nedir?** Bu, her belgeye eklenen özel meta verileri kullanarak arama sonuçlarını filtreleme yeteneğidir.  
-- **İndeksleme sonrası özellikleri değiştirebilir miyim?** Evet—`AttributeChangeBatch` kullanarak belge özelliklerini toplu olarak güncelleyebilirsiniz.  
-- **İndeksleme sırasında özellikleri nasıl eklerim?** `FileIndexing` olayına abone olarak ve programlı bir şekilde özellikleri ayarlayarak.  
-- **Lisans gerekli mi?** Ücretsiz deneme sürümü değerlendirme için yeterlidir; üretim ortamı için kalıcı bir lisans gereklidir.  
+## Quick Answers
+- **“search by attribute java” nedir?** Her belgeye eklenen özel meta verileri kullanarak arama sonuçlarını filtreleme yeteneğidir.  
+- **İndeksleme sonrası öznitelikleri değiştirebilir miyim?** Evet—`AttributeChangeBatch` kullanarak belge özniteliklerini toplu olarak güncelleyebilirsiniz.  
+- **İndeksleme sırasında öznitelik eklemek nasıl yapılır?** `FileIndexing` olayına abone olup öznitelikleri programatik olarak ayarlayın.  
+- **Lisans gerekli mi?** Değerlendirme için ücretsiz deneme çalışır; üretim için kalıcı bir lisans gerekir.  
 - **Hangi Java sürümü gerekiyor?** Java 8 veya üzeri önerilir.
 
 ## “search by attribute java” nedir?
-**Search by attribute java**, içerik yerine meta verileri (özellikler) temel alarak belgeleri sorgulamanızı sağlar. `public`, `main` veya `key` gibi anahtar‑değer çiftlerini her dosyaya ekleyerek sonuçları en ilgili alt kümeye hızlıca daraltabilirsiniz.
+**Search by attribute java**, belgeleri yalnızca içeriklerine göre değil, meta verilerine (özniteliklerine) göre sorgulamanızı sağlar. Her dosyaya `public`, `main` veya `key` gibi anahtar‑değer çiftleri ekleyerek sonuçları en ilgili alt kümeye hızlıca daraltabilirsiniz.
 
-## Neden özellikleri değiştirmek veya eklemek?
-- **Dinamik sınıflandırma** – meta verileri iş kurallarıyla senkronize tutun.  
-- **Daha hızlı filtreleme** – özellik filtreleri tam metin aramasından önce değerlendirilir, performansı artırır.  
+## Dinamik Meta Veri Etiketleme Neden Kullanılmalı?
+- **Dinamik sınıflandırma** – meta verileri, değişen iş kurallarıyla senkronize tutun.  
+- **Daha hızlı filtreleme** – öznitelik filtreleri tam metin aramasından önce değerlendirilir, yanıt süreleri artar.  
 - **Uyumluluk takibi** – belgeleri saklama politikaları veya denetim gereksinimleri için etiketleyin.  
+- **Toplu güncelleme öznitelikleri** – tüm koleksiyonu yeniden indekslemeden bir işlemde birçok belgeyi değiştirin.
 
 ## Önkoşullar
 
-- **Java 8+** (JDK 8 veya daha yeni bir sürüm)  
-- **GroupDocs.Search for Java** kütüphanesi (aşağıdaki Maven kurulumuna bakın)  
-- Java ve indeksleme kavramlarına temel bir anlayış  
+- **Java 8+** (JDK 8 veya daha yeni)  
+- **GroupDocs.Search for Java** kütüphanesi (aşağıdaki Maven kurulumu bölümü)  
+- Java ve indeksleme kavramlarına temel aşinalık  
 
 ## GroupDocs.Search for Java Kurulumu
 
-### Maven Kurulumu
+### Maven Setup
 
 ```xml
 <repositories>
@@ -63,12 +64,12 @@ Belge yönetim sisteminizi Java kullanarak belge özelliklerini dinamik olarak d
 ### Doğrudan İndirme
 
 Alternatif olarak, en son sürümü [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.  
-Maven gibi bir yapı aracını kullanmak istemiyorsanız, JAR dosyasını [GroupDocs web sitesinden](https://releases.groupdocs.com/search/java/) indirebilirsiniz.
+Maven gibi bir yapı aracı kullanmak istemiyorsanız, JAR dosyasını [GroupDocs web sitesinden](https://releases.groupdocs.com/search/java/) indirin.
 
-### Lisans Edinimi
+### Lisans Edinme
 
-- Özellikleri keşfetmek için ücretsiz deneme sürümüyle başlayın.  
-- Uzun vadeli kullanım için geçici veya tam lisansı [lisans sayfasından](https://purchase.groupdocs.com/temporary-license) edinin.
+- Özellikleri keşfetmek için ücretsiz deneme ile başlayın.  
+- Uzun vadeli kullanım için geçici veya tam lisansı [lisans sayfasından](https://purchase.groupdocs.com/temporary-license) temin edin.
 
 ### Temel Başlatma
 
@@ -79,14 +80,13 @@ import com.groupdocs.search.Index;
 Index index = new Index("YOUR_OUTPUT_DIRECTORY/ChangeAttributes");
 ```
 
-## Uygulama Kılavuzu
+## Belge Özniteliklerini Değiştirme (Toplu Güncelleme)
 
-### Java ile Özelliklere Göre Arama – Belge Özelliklerini Değiştirme
+### Search by Attribute Java – Belge Özniteliklerini Değiştirme
 
-#### Genel Bakış
-Zaten indekslenmiş belgelerde özellik ekleyebilir, kaldırabilir veya değiştirebilir, **batch update document attributes** yaparak tüm koleksiyonu yeniden indekslemeden güncelleyebilirsiniz.
+Zaten indekslenmiş belgelere öznitelik ekleyebilir, kaldırabilir veya değiştirebilir, **batch update document attributes** yaparak tüm koleksiyonu yeniden indekslemeye gerek kalmaz.
 
-#### Adım‑Adım
+### Adım‑adım
 
 **Adım 1: Belgeleri İndekse Ekle**  
 
@@ -102,7 +102,7 @@ import com.groupdocs.search.results.DocumentInfo;
 DocumentInfo[] documents = index.getIndexedDocuments();
 ```
 
-**Adım 3: Belge Özelliklerini Toplu Güncelle**  
+**Adım 3: Belge Özniteliklerini Toplu Güncelle**  
 
 ```java
 import com.groupdocs.search.common.AttributeChangeBatch;
@@ -117,7 +117,7 @@ batch.add(documents[0].getFilePath(), "main", "key"); // Add 'main' and 'key' at
 index.changeAttributes(batch);
 ```
 
-**Adım 4: Özellik Filtreleriyle Ara**  
+**Adım 4: Öznitelik Filtreleriyle Ara**  
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -128,15 +128,16 @@ String query = "length";
 SearchResult result = index.search(query, options); // Perform the search
 ```
 
-### AttributeChangeBatch ile Belge Özelliklerini Toplu Güncelleme
-`AttributeChangeBatch` sınıfı **batch update document attributes** için temel araçtır. Değişiklikleri tek bir toplu işlemde birleştirerek I/O yükünü azaltır ve indeksin tutarlılığını korur.
+### AttributeChangeBatch ile Toplu Güncelleme
+`AttributeChangeBatch` sınıfı, **batch update document attributes** için temel araçtır. Değişiklikleri tek bir toplu işlemde birleştirerek I/O yükünü azaltır ve indeksin tutarlılığını korur.
 
-### Java ile Özelliklere Göre Arama – İndeksleme Sırasında Özellik Ekleme
+## İndeksleme Sırasında Öznitelik Ekleme
 
-#### Genel Bakış
-Her dosya indekse eklendiğinde özel özellikler atamak için `FileIndexing` olayına bağlanın.
+### Search by Attribute Java – İndeksleme Sırasında Öznitelik Ekleme
 
-#### Adım‑Adım
+Her dosya indekse eklendiğinde özel öznitelikler atamak için `FileIndexing` olayına bağlanın.
+
+### Adım‑adım
 
 **Adım 1: FileIndexing Olayına Abone Ol**  
 
@@ -162,32 +163,41 @@ index.add("YOUR_DOCUMENT_DIRECTORY");
 
 ## Pratik Uygulamalar
 
-1. **Belge Yönetim Sistemleri** – Alım sırasında meta veri ekleyerek sınıflandırmayı otomatikleştirin.  
-2. **Büyük İçerik Arşivleri** – Aramaları daraltmak için özellik filtrelerini kullanın, yanıt sürelerini büyük ölçüde azaltın.  
+1. **Belge Yönetim Sistemleri** – Alma sırasında meta veri ekleyerek sınıflandırmayı otomatikleştirin.  
+2. **Büyük İçerik Arşivleri** – Öznitelik filtrelerini kullanarak aramaları daraltın, yanıt sürelerini büyük ölçüde kısaltın.  
 3. **Uyumluluk & Raporlama** – Saklama takvimleri veya denetim izleri için belgeleri dinamik olarak etiketleyin.
 
 ## Performans Düşünceleri
 
 - **Bellek Yönetimi** – JVM yığınını izleyin ve gerektiğinde `-Xmx` ayarını yapın.  
-- **Toplu İşleme** – `AttributeChangeBatch` ile özellik değişikliklerini gruplayarak indeks yazmalarını en aza indirin.  
-- **Kütüphane Güncellemeleri** – Performans yamalarından yararlanmak için GroupDocs.Search'i güncel tutun.
+- **Toplu İşleme** – `AttributeChangeBatch` ile öznitelik değişikliklerini gruplayarak indeks yazmalarını en aza indirin.  
+- **Kütüphane Güncellemeleri** – Performans iyileştirmelerinden yararlanmak için GroupDocs.Search’i güncel tutun.
 
-## Sıkça Sorulan Sorular
+## Yaygın Sorunlar ve Çözümler
 
-**S: Java’da GroupDocs.Search kullanmak için önkoşullar nelerdir?**  
-C: Java 8+, GroupDocs.Search kütüphanesi ve indeksleme kavramlarına temel bir bilgi gerekir.
+| Issue | Why It Happens | How to Fix |
+|-------|----------------|------------|
+| **Attributes not applied** | Event handler not registered before indexing | Ensure `index.getEvents().FileIndexing.add(...)` runs before `index.add(...)`. |
+| **Search returns no results** | Attribute name mismatch (case‑sensitive) | Use exact attribute names when creating filters (`createAttribute("main")`). |
+| **Out‑of‑memory errors** on large batches | Too many changes in a single batch | Split large updates into smaller `AttributeChangeBatch` instances. |
+| **License not recognized** | Using trial JAR without applying license file | Call `License license = new License(); license.setLicense("path/to/license.file");` before any index operation. |
 
-**S: GroupDocs.Search’ı Maven üzerinden nasıl kurarım?**  
-C: Maven Kurulumu bölümünde gösterilen depo ve bağımlılığı `pom.xml` dosyanıza ekleyin.
+## Sık Sorulan Sorular
 
-**S: Belgeler indekslendikten sonra özellikleri değiştirebilir miyim?**  
-C: Evet, `AttributeChangeBatch` kullanarak belgeleri yeniden indekslemeden özellikleri toplu olarak güncelleyebilirsiniz.
+**S: GroupDocs.Search'i Java’da kullanmak için önkoşullar nelerdir?**  
+C: Java 8+, GroupDocs.Search kütüphanesi ve indeksleme kavramlarına temel bilgi gerekir.
+
+**S: GroupDocs.Search'i Maven ile nasıl kurarım?**  
+C: Maven Setup bölümünde gösterildiği gibi `pom.xml` dosyanıza depo ve bağımlılığı ekleyin.
+
+**S: Belgeler indekslendikten sonra öznitelikleri değiştirebilir miyim?**  
+C: Evet, `AttributeChangeBatch` kullanarak belge özniteliklerini toplu olarak güncelleyebilir, yeniden indekslemeye gerek kalmaz.
 
 **S: İndeksleme sürecim yavaşsa ne yapmalıyım?**  
 C: JVM bellek ayarlarını optimize edin, toplu güncellemeler kullanın ve en son kütüphane sürümünde olduğunuzdan emin olun.
 
-**S: Java için GroupDocs.Search hakkında daha fazla kaynağa nereden ulaşabilirim?**  
-C: [Resmi dokümantasyona](https://docs.groupdocs.com/search/java/) göz atın veya topluluk forumlarını inceleyin.
+**S: GroupDocs.Search for Java hakkında daha fazla kaynak nerede bulunur?**  
+C: [official documentation](https://docs.groupdocs.com/search/java/) adresini ziyaret edin veya topluluk forumlarını inceleyin.
 
 ## Kaynaklar
 
@@ -200,8 +210,6 @@ C: [Resmi dokümantasyona](https://docs.groupdocs.com/search/java/) göz atın v
 
 ---
 
-**Son Güncelleme:** 2025-12-24  
-**Test Edilen Sürüm:** GroupDocs.Search 25.4 for Java  
-**Yazar:** GroupDocs  
-
----
+**Last Updated:** 2026-02-24  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs

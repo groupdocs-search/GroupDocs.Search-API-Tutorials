@@ -1,47 +1,47 @@
 ---
-date: '2025-12-24'
-description: Log dosyası boyutunu sınırlamayı ve GroupDocs.Search for Java ile konsol
-  kaydedicisini kullanmayı öğrenin. Bu kılavuz, günlük yapılandırmalarını, sorun giderme
-  ipuçlarını ve performans optimizasyonunu kapsar.
+date: '2026-02-24'
+description: GroupDocs.Search for Java'da özel bir logger oluşturmayı, maksimum günlük
+  boyutunu ayarlamayı ve konsol ya da dosya logger'ını yapılandırmayı öğrenin.
 keywords:
 - GroupDocs.Search for Java
 - file logger implementation
 - custom loggers
-title: GroupDocs.Search Java Günlükçüleri ile günlük dosyası boyutunu sınırlayın
+title: GroupDocs.Search Java ile özel logger nasıl oluşturulur ve log dosyası boyutu
+  nasıl sınırlanır
 type: docs
 url: /tr/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/
 weight: 1
 ---
 
-# GroupDocs.Search Java Günlükçüleri ile Günlük Dosyası Boyutunu Sınırlama
+# GroupDocs.Search Java Günlükçüleri ile günlük dosyası boyutunu sınırlama
 
-Büyük belge koleksiyonlarını yönetirken verimli günlük tutma çok önemlidir, özellikle **log dosyası boyutunu sınırlamak** ve depolamayı kontrol altında tutmak gerektiğinde. **GroupDocs.Search for Java**, güçlü arama yetenekleriyle günlükleri yönetmek için sağlam çözümler sunar. Bu öğretici, GroupDocs.Search kullanarak dosya ve özel günlükçüler uygulamanıza rehberlik eder ve uygulamanızın olayları izleme ve sorunları ayıklama yeteneğini artırır.
+Bu rehberde GroupDocs.Search for Java kullanırken **create custom logger** uygulamaları oluşturacak ve **limit log file size** yöntemini öğreneceksiniz. Günlük büyümesini kontrol etmek, büyük ölçekli belge indekslemesi için kritik öneme sahiptir ve yerleşik logger'lar **set max log size**, **roll over log file** gibi seçenekler sunar ya da anlık geri bildirim için **use console logger**'a geçmenizi sağlar. Maven yapılandırmasından bir arama sorgusu çalıştırmaya kadar tam kurulumu adım adım inceleyecek ve logger etkinken **add documents index** nasıl yapılır göreceksiniz.
 
-## Quick Answers
-- **“log dosyası boyutunu sınırlama” ne anlama geliyor?** Bir log dosyasının maksimum boyutunu sınırlar ve diskte kontrolsüz büyümeyi önler.  
-- **Hangi günlükçü log dosyası boyutunu sınırlamanıza izin verir?** Yerleşik `FileLogger` bir maksimum‑boyut parametresi alır.  
-- **Java’da console logger nasıl kullanılır?** `ConsoleLogger` örneği oluşturun ve `IndexSettings` üzerine ayarlayın.  
+## Hızlı Yanıtlar
+- **“limit log file size” ne anlama geliyor?** Bir günlük dosyasının maksimum boyutunu sınırlar, diskte kontrolsüz büyümeyi önler.  
+- **Hangi logger log dosyası boyutunu sınırlamanıza izin verir?** Yerleşik `FileLogger` bir max‑size parametresi alır.  
+- **Java'da console logger nasıl kullanılır?** `ConsoleLogger`'ı örnekleyin ve `IndexSettings` üzerine ayarlayın.  
 - **GroupDocs.Search için lisansa ihtiyacım var mı?** Değerlendirme için bir deneme sürümü çalışır; üretim için ticari lisans gereklidir.  
-- **İlk adım nedir?** Maven projenize GroupDocs.Search bağımlılığını ekleyin.
+- **İlk adım nedir?** Maven projenize GroupDocs.Search bağımlılığını ekleyin.  
 
 ## Log dosyası boyutunu sınırlama nedir?
-Log dosyası boyutunu sınırlamak, günlükçüyü dosya önceden tanımlanmış bir eşiğe (ör. 4 MB) ulaştığında büyümeyi durduracak veya devre dışı bırakacak şekilde yapılandırmak anlamına gelir. Bu, uygulamanızın depolama ayak izini öngörülebilir tutar ve performans düşüşünü önler.
+Log dosyası boyutunu sınırlamak, logger'ı dosya önceden belirlenmiş bir eşiğe (ör. 4 MB) ulaştığında büyümeyi durduracak veya rollover yapacak şekilde yapılandırmak anlamına gelir. Bu, uygulamanızın depolama ayak izini öngörülebilir tutar ve performans düşüşünü önler.
 
-## GroupDocs.Search ile dosya ve özel günlükçüler neden kullanılmalı?
-- **Denetlenebilirlik:** İndeksleme ve arama olaylarının kalıcı kaydını tutun.  
-- **Hata Ayıklama:** Kısa günlükleri inceleyerek sorunları hızlıca tespit edin.  
-- **Esneklik:** Kalıcı dosya günlükleri ile anlık console çıktısı (`use console logger java`) arasında seçim yapın.  
+## GroupDocs.Search ile dosya ve özel logger'lar neden kullanılmalı?
+- **Auditability:** İndeksleme ve arama olaylarının kalıcı kaydını tutun.  
+- **Debugging:** Kısa logları inceleyerek sorunları hızlıca tespit edin.  
+- **Flexibility:** Kalıcı dosya logları ile anlık console çıktısı (`use console logger`) arasında seçim yapın.  
 
 ## Prerequisites
 - **GroupDocs.Search for Java** ≥ 25.4.  
 - JDK 8 veya daha yeni, IDE (IntelliJ IDEA, Eclipse, vb.).  
 - Temel Java ve Maven bilgisi.  
 
-## Setting Up GroupDocs.Search for Java
+## GroupDocs.Search for Java Kurulumu
 
 Kütüphaneyi projenize aşağıdaki yöntemlerden birini kullanarak ekleyin.
 
-**Maven Setup:**
+**Maven Kurulumu:**
 
 ```xml
 <repositories>
@@ -64,11 +64,14 @@ Kütüphaneyi projenize aşağıdaki yöntemlerden birini kullanarak ekleyin.
 **Doğrudan İndirme:**  
 Resmi siteden en son JAR'ı indirin: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
-Deneme sürümünü edinin veya lisansı [lisans sayfası](https://purchase.groupdocs.com/temporary-license/) üzerinden satın alın.
+### Lisans Alımı
+Bir deneme sürümü edinin veya [lisans sayfası](https://purchase.groupdocs.com/temporary-license/) üzerinden lisans satın alın.
 
-## How to limit log file size with File Logger
-İşte `FileLogger`'ı, log dosyasının belirttiğiniz boyutu aşmamasını sağlayacak şekilde yapılandırmayı gösteren adım‑adım bir rehber.
+## GroupDocs.Search için özel logger nasıl oluşturulur
+GroupDocs.Search, `ILogger` arayüzünün herhangi bir uygulamasını takmanıza izin verir. `FileLogger` veya `ConsoleLogger`'ı genişleterek log dosyasının rollover yapması veya mesajların uzaktaki bir izleme hizmetine yönlendirilmesi gibi ek davranışlar ekleyebilirsiniz. Bu esneklik, birçok ekibin operasyonel ihtiyaçlarına uygun **create custom logger** çözümleri oluşturmasının nedenidir.
+
+## File Logger ile log dosyası boyutunu sınırlama
+Aşağıda, log dosyasının belirttiğiniz boyutu aşmamasını sağlayacak şekilde **configure file logger**'ı gösteren adım adım bir rehber bulunmaktadır.
 
 ### 1️⃣ Gerekli Paketleri İçe Aktarın
 ```java
@@ -76,7 +79,7 @@ import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
 
-### 2️⃣ Dosya Günlükçüsü ile Index Settings'i Ayarlayın
+### 2️⃣ File Logger ile Index Settings'i Ayarlayın
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/IndexFolder";
 String documentsFolder = Utils.DocumentsPath; // Directory containing documents
@@ -102,10 +105,10 @@ index.add(documentsFolder);
 SearchResult result = index.search(query);
 ```
 
-**Önemli nokta:** `FileLogger` yapıcısının ikinci argümanı (`4.0`), megabayt cinsinden maksimum log dosyası boyutunu tanımlar ve **log dosyası boyutunu sınırlama** gereksinimini doğrudan karşılar.
+**Önemli nokta:** `FileLogger` yapıcı metodunun ikinci argümanı (`4.0`), megabayt cinsinden **set max log size**'ı tanımlar ve **limit log file size** gereksinimini doğrudan karşılar.
 
-## How to use console logger java
-Eğer terminalde anlık geri bildirim tercih ediyorsanız, dosya günlükçüsünü console logger ile değiştirin.
+## Java'da console logger nasıl kullanılır
+Terminalde anlık geri bildirim istiyorsanız, dosya logger'ını console logger ile değiştirin.
 
 ### 1️⃣ Console Logger'ı İçe Aktarın
 ```java
@@ -136,44 +139,44 @@ SearchResult result = index.search(query);
 
 **İpucu:** Console logger, geliştirme sırasında idealdir çünkü her log girişini anında yazdırır ve indeksleme ile aramanın beklendiği gibi çalıştığını doğrulamanıza yardımcı olur.
 
-## Practical Applications
-1. **Belge Yönetim Sistemleri:** İndekslenen her belgenin denetim izini tutun.  
-2. **Kurumsal Arama Motorları:** Sorgu performansını ve hata oranlarını gerçek zamanlı izleyin.  
-3. **Hukuk ve Uyumluluk Yazılımları:** Düzenleyici raporlamalar için arama terimlerini kaydedin.
+## Pratik Uygulamalar
+1. **Document Management Systems:** İndekslenen her belgenin denetim izlerini tutun.  
+2. **Enterprise Search Engines:** Sorgu performansını ve hata oranlarını gerçek zamanlı izleyin.  
+3. **Legal & Compliance Software:** Düzenleyici raporlamalar için arama terimlerini kaydedin.
 
-## Performance Considerations
-- **Log Boyutu:** Log dosyası boyutunu sınırlayarak, uygulamanızı yavaşlatabilecek aşırı disk kullanımını önlersiniz.  
-- **Asenkron Günlükleme:** Daha yüksek verimlilik gerekiyorsa, günlükçüyü asenkron bir kuyruğa sarmayı düşünün (bu kılavuzun kapsamı dışında).  
-- **Bellek Yönetimi:** JVM ayak izini düşük tutmak için `Index` nesnelerini artık ihtiyaç duyulmadığında serbest bırakın.
+## Performans Düşünceleri
+- **Log Size:** **set max log size** sayesinde uygulamanızı yavaşlatabilecek aşırı disk kullanımını önlersiniz.  
+- **Asynchronous Logging:** Daha yüksek verimlilik gerekiyorsa, logger'ı bir async kuyruk içinde sarmayı düşünün (bu rehberin kapsamı dışında).  
+- **Memory Management:** JVM ayak izini düşük tutmak için `Index` nesnelerini artık ihtiyaç duyulmadığında serbest bırakın.
 
-## Common Issues & Solutions
-- **Log yolu erişilemez:** Dizinin var olduğunu ve uygulamanın yazma izinlerine sahip olduğunu doğrulayın.  
-- **Logger çalışmıyor:** `Index` nesnesini oluşturmadan önce `settings.setLogger(...)` çağrısını yaptığınızdan emin olun.  
-- **Console çıktısı eksik:** Uygulamayı `System.out`'u gösteren bir terminalde çalıştırdığınızdan emin olun.
+## Yaygın Sorunlar ve Çözümler
+- **Log path not accessible:** Dizin mevcut mu ve uygulamanın yazma izinleri var mı kontrol edin.  
+- **Logger not firing:** `Index` nesnesini oluşturmadan önce `settings.setLogger(...)` çağırdığınızdan emin olun.  
+- **Console output missing:** Uygulamayı `System.out`'u gösteren bir terminalde çalıştırdığınızı doğrulayın.
 
-## Frequently Asked Questions
+## Sıkça Sorulan Sorular
 
-**S: `FileLogger`'ın ikinci parametresi neyi kontrol eder?**  
-C: Megabayt cinsinden log dosyasının maksimum boyutunu ayarlar ve log dosyası boyutunu sınırlamanıza olanak tanır.
+**Q: `FileLogger`'ın ikinci parametresi neyi kontrol eder?**  
+A: Log dosyasının megabayt cinsinden maksimum boyutunu ayarlar ve **set max log size** yapmanıza olanak tanır.
 
-**S: Dosya ve console logger'ı birleştirebilir miyim?**  
-C: Evet, mesajları her iki hedefe de yönlendiren özel bir logger oluşturarak bunu yapabilirsiniz.
+**Q: Dosya ve console logger'ları birleştirebilir miyim?**  
+A: Evet, mesajları her iki hedefe de yönlendiren özel bir logger oluşturarak bunu yapabilirsiniz.
 
-**S: İlk oluşturmanın ardından indekse belge nasıl eklenir?**  
-C: İstediğiniz zaman `index.add(pathToNewDocs)` çağırın; logger işlemi kaydeder.
+**Q: İlk oluşturmanın ardından indeks'e belge nasıl eklenir?**  
+A: `index.add(pathToNewDocs)` metodunu istediğiniz zaman çağırın; logger işlemi kaydeder.
 
-**S: `ConsoleLogger` thread‑safe mi?**  
-C: Doğrudan `System.out`'a yazar; JVM tarafından senkronize edildiği için çoğu kullanım senaryosunda güvenlidir.
+**Q: `ConsoleLogger` thread‑safe mi?**  
+A: Doğrudan `System.out`'a yazar; JVM tarafından senkronize edildiği için çoğu kullanım senaryosunda güvenlidir.
 
-**S: Log dosyası boyutunu sınırlamak saklanan bilgi miktarını etkiler mi?**  
-C: Boyut sınırına ulaşıldığında, yeni girişler kaybolabilir veya logger implementasyonuna bağlı olarak dosya devre dışı bırakılabilir.
+**Q: Log dosyası boyutunu sınırlamak saklanan bilgi miktarını etkiler mi?**  
+A: Boyut sınırına ulaşıldığında yeni girişler atılabilir veya logger uygulamasına bağlı olarak dosya **roll over log file** yapabilir.
 
-## Resources
-- [Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java/)
+## Kaynaklar
+- [Dokümantasyon](https://docs.groupdocs.com/search/java/)
+- [API Referansı](https://reference.groupdocs.com/search/java/)
 
 ---
 
-**Son Güncelleme:** 2025-12-24  
+**Son Güncelleme:** 2026-02-24  
 **Test Edilen Versiyon:** GroupDocs.Search for Java 25.4  
 **Yazar:** GroupDocs

@@ -1,50 +1,55 @@
 ---
-date: '2025-12-22'
-description: Узнайте, как создать поисковый индекс Java с помощью GroupDocs.Search
-  для Java, и откройте, как индексировать документы Java с поддержкой гомофонов для
-  повышения точности поиска.
+date: '2026-02-24'
+description: Узнайте, как индексировать документы в Java с помощью GroupDocs.Search,
+  и откройте, как добавлять документы в индекс с поддержкой гомофонов для повышения
+  точности поиска.
 keywords:
 - GroupDocs.Search Java
 - document indexing with Java
 - homophone recognition
-title: Как создать поисковый индекс Java с GroupDocs.Search – Руководство по распознаванию
-  гомофонов
+title: Как индексировать документы в Java с помощью GroupDocs.Search — поддержка омонимов
 type: docs
 url: /ru/java/document-management/groupdocs-search-java-homophone-document-management-guide/
 weight: 1
 ---
 
-# Как создать поисковый индекс Java с GroupDocs.Search для Java: Полное руководство по гомофонам
+.
 
-Создание **search index** в Java может показаться сложным, особенно когда нужно работать с гомофонами — словами, звучащими одинаково, но написанными по‑разному. В этом руководстве вы узнаете, как **create search index java** с помощью GroupDocs.Search for Java, и мы пройдем всё, что нужно знать о **how to index documents java**, используя встроенное распознавание гомофонов. К концу вы сможете создавать быстрые и точные поисковые решения, понимающие нюансы языка.
+Let's craft final markdown.# Как индексировать документы в Java с GroupDocs.Search – поддержка омофонов
+
+Создание **search index** в Java может показаться сложным, особенно когда нужно работать с омофонами — словами, которые звучат одинаково, но пишутся по‑разному. В этом руководстве вы узнаете, **как индексировать документы** с помощью GroupDocs.Search для Java, и мы пройдем всё, что необходимо знать о **том, как индексировать документы**, используя встроенное распознавание омофонов. К концу вы сможете создавать быстрые, точные поисковые решения, понимающие нюансы языка.
 
 ## Quick Answers
-- **What is a search index?** Структура данных, позволяющая выполнять быстрый полнотекстовый поиск по документам.  
-- **Why use homophone recognition?** Улучшает полноту за счёт сопоставления слов, звучащих одинаково, например, “mail” vs. “male”.  
-- **Which library provides this in Java?** GroupDocs.Search for Java (v25.4).  
-- **Do I need a license?** Бесплатная пробная версия подходит для оценки; для продакшн‑использования требуется постоянная лицензия.  
-- **What Java version is required?** JDK 8 или выше.
+- **Что такое search index?** Структура данных, позволяющая выполнять быстрый полнотекстовый поиск по документам.  
+- **Зачем использовать распознавание омофонов?** Оно повышает полноту поиска, сопоставляя звучащие одинаково слова, например, “mail” vs. “male”.  
+- **Какая библиотека предоставляет это в Java?** GroupDocs.Search for Java (v25.4).  
+- **Нужна ли лицензия?** Бесплатная пробная версия подходит для оценки; для продакшна требуется постоянная лицензия.  
+- **Какая версия Java требуется?** JDK 8 или выше.
+
+## Как индексировать документы в Java
+
+Прежде чем переходить к коду, разберём, почему индексация важна. Индекс хранит токенизированные термины, позиции и метаданные, позволяя выполнять запросы, возвращающие релевантные документы за миллисекунды. С GroupDocs.Search вы получаете готовую поддержку множества форматов файлов и мощный словарь омофонов, повышающий релевантность поиска.
 
 ## Что такое “create search index java”?
-Создание поискового индекса в Java означает построение поисковой репрезентации вашей коллекции документов. Индекс хранит токенизированные термины, позиции и метаданные, позволяя выполнять запросы, возвращающие релевантные документы за миллисекунды.
+Создание **search index** в Java означает построение поискового представления вашей коллекции документов. Индекс хранит токенизированные термины, позиции и метаданные, позволяя выполнять запросы, возвращающие релевантные документы за миллисекунды.
 
-## Почему использовать GroupDocs.Search for Java?
-GroupDocs.Search предоставляет готовую поддержку множества форматов документов, мощные лингвистические инструменты (включая словари гомофонов) и простой API, позволяющий сосредоточиться на бизнес‑логике, а не на деталях низкоуровневого индексирования.
+## Почему использовать GroupDocs.Search для Java?
+GroupDocs.Search предоставляет готовую поддержку множества форматов документов, мощные лингвистические инструменты (включая словари омофонов) и простой API, позволяющий сосредоточиться на бизнес‑логике, а не на деталях низкоуровневой индексации.
 
 ## Prerequisites
 
-Прежде чем погрузиться в код, убедитесь, что у вас есть следующее:
+Before we dive into the code, make sure you have the following:
 
 - **GroupDocs.Search for Java** (доступен через Maven или прямую загрузку).  
-- **compatible JDK** (8 или новее).  
-- IDE, такая как **IntelliJ IDEA** или **Eclipse**.  
+- Совместимый **JDK** (8 или новее).  
+- IDE, например **IntelliJ IDEA** или **Eclipse**.  
 - Базовые знания Java и Maven.
 
 ### Required Libraries and Dependencies
-Вам понадобится GroupDocs.Search for Java. Вы можете подключить его с помощью Maven или загрузить напрямую из их репозитория.
+Вам понадобится GroupDocs.Search for Java. Вы можете добавить его через Maven или загрузить напрямую из их репозитория.
 
 **Maven Installation:**  
-Добавьте следующее в ваш файл `pom.xml`:
+Add the following to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -65,21 +70,21 @@ GroupDocs.Search предоставляет готовую поддержку м
 ```
 
 **Direct Download:**  
-Либо загрузите последнюю версию по ссылке [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternatively, download the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Environment Setup Requirements
-Убедитесь, что установлен совместимый JDK (рекомендуется JDK 8 или выше) и на вашем компьютере настроена IDE, например IntelliJ IDEA или Eclipse.
+Убедитесь, что у вас установлен совместимый JDK (рекомендуется JDK 8 или выше) и настроена IDE, такая как IntelliJ IDEA или Eclipse, на вашем компьютере.
 
 ### Knowledge Prerequisites
-Знание концепций программирования на Java и опыт работы с Maven для управления зависимостями будут полезны. Базовое понимание индексирования документов и поисковых алгоритмов также поможет.
+Знакомство с концепциями программирования на Java и опыт использования Maven для управления зависимостями будут полезны. Базовое понимание индексации документов и поисковых алгоритмов также может помочь.
 
 ## Setting Up GroupDocs.Search for Java
 
-Как только предварительные требования выполнены, настройка GroupDocs.Search проста:
+Once the prerequisites are sorted, setting up GroupDocs.Search is straightforward:
 
-1. **Install via Maven** или загрузите напрямую по указанным ссылкам.  
-2. **Acquire a License:** Вы можете начать с бесплатной пробной версии или получить временную лицензию, посетив [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/).  
-3. **Initialize the Library:** Ниже показан минимальный код, необходимый для начала работы с GroupDocs.Search.
+1. **Установить через Maven** или загрузить напрямую по предоставленным ссылкам.  
+2. **Получить лицензию:** Вы можете начать с бесплатной пробной версии или получить временную лицензию, посетив [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/).  
+3. **Инициализировать библиотеку:** Ниже приведён минимальный код, необходимый для начала работы с GroupDocs.Search.
 
 ```java
 import com.groupdocs.search.*;
@@ -98,21 +103,21 @@ public class SetupExample {
 
 ## Implementation Guide
 
-Теперь, когда окружение готово, давайте рассмотрим основные функции, необходимые для **create search index java** и работы с гомофонами.
+Now that the environment is ready, let’s explore the core features you’ll need to **create search index java** and manage homophones.
 
 ### Creating and Managing an Index
-#### Overview
-Создание поискового индекса — первый шаг к эффективному управлению документами. Это позволяет быстро извлекать информацию на основе содержимого ваших документов.
+#### Обзор
+Creating a search index is the first step in managing documents effectively. This allows for fast retrieval of information based on your document content.
 
-#### Steps to Create an Index
-**Step 1:** Укажите каталог для файлов индекса.
+#### Шаги для создания индекса
+**Step 1:** Specify the directory for your index files.
 
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
-**Step 2:** Добавьте документы из указанной папки в этот индекс.
+**Step 2:** Add documents from a specified folder into this index.
 
 ```java
 String documentsFolder = "YOUR_DOCUMENTS_SOURCE_DIRECTORY";
@@ -120,37 +125,40 @@ index.add(documentsFolder);
 System.out.println("Documents added to the index.");
 ```
 
-*Индексируя содержимое документов, вы обеспечиваете быстрый полнотекстовый поиск по всей коллекции.*
+*Индексируя содержимое ваших документов, вы обеспечиваете быстрый полнотекстовый поиск по всей коллекции.*
+
+### How to Add Documents to Index
+Если вам нужно программно добавить файлы позже, просто вызовите `index.add()` снова, указав путь к новой папке или отдельным файлам. Это поддерживает ваш индекс в актуальном состоянии без полной перестройки.
 
 ### Retrieving Homophones for a Word
-#### Overview
-Получение гомофонов помогает понять альтернативные написания, звучащие одинаково, что важно для полноты результатов поиска.
+#### Обзор
+Retrieving homophones helps you understand alternative spellings that sound the same, which is essential for comprehensive search results.
 
-**Step 1:** Доступ к словарю гомофонов.
+**Step 1:** Access the homophone dictionary.
 
 ```java
 String[] homophones = index.getDictionaries().getHomophoneDictionary().getHomophones("braid");
 ```
 
-*Этот фрагмент кода извлекает все гомофоны для слова “braid” из проиндексированных документов.*
+*Этот фрагмент кода извлекает все омофоны для “braid” из проиндексированных документов.*
 
 ### Retrieving Groups of Homophones
-#### Overview
-Группировка гомофонов предоставляет структурированный способ управления словами с несколькими значениями.
+#### Обзор
+Grouping homophones provides a structured way to manage words with multiple meanings.
 
-**Step 1:** Получите группы гомофонов.
+**Step 1:** Get groups of homophones.
 
 ```java
 String[][] groups = index.getDictionaries().getHomophoneDictionary().getHomophoneGroups("braid");
 ```
 
-*Используйте эту функцию для эффективной категоризации схожих по звучанию слов.*
+*Используйте эту функцию для эффективной категоризации похожих звучащих слов.*
 
 ### Clearing the Homophone Dictionary
-#### Overview
-Очистка устаревших или ненужных записей гарантирует актуальность вашего словаря.
+#### Обзор
+Clearing outdated or unnecessary entries ensures your dictionary stays relevant.
 
-**Step 1:** Проверьте и очистите словарь гомофонов.
+**Step 1:** Check and clear the homophone dictionary.
 
 ```java
 if (index.getDictionaries().getHomophoneDictionary().getCount() > 0) {
@@ -160,10 +168,10 @@ System.out.println("Homophone dictionary cleared.");
 ```
 
 ### Adding Homophones to the Dictionary
-#### Overview
-Настройка собственного словаря гомофонов позволяет адаптировать поиск под ваши нужды.
+#### Обзор
+Customizing your homophone dictionary allows for tailored search capabilities.
 
-**Step 1:** Определите и добавьте новые группы гомофонов.
+**Step 1:** Define and add new groups of homophones.
 
 ```java
 String[][] homophoneGroups = {
@@ -176,17 +184,17 @@ System.out.println("Homophones added to the dictionary.");
 ```
 
 ### Exporting and Importing Homophone Dictionaries
-#### Overview
-Экспорт и импорт словарей могут быть полезны для резервного копирования или миграции.
+#### Обзор
+Exporting and importing dictionaries can be beneficial for backup or migration purposes.
 
-**Step 1:** Экспортируйте текущий словарь гомофонов.
+**Step 1:** Export the current homophone dictionary.
 
 ```java
 String fileName = "path/to/exported/dictionary.file";
 index.getDictionaries().getHomophoneDictionary().exportDictionary(fileName);
 ```
 
-**Step 2:** При необходимости повторно импортируйте из файла.
+**Step 2:** Re‑import from a file if needed.
 
 ```java
 index.getDictionaries().getHomophoneDictionary().importDictionary(fileName);
@@ -194,10 +202,10 @@ System.out.println("Homophone dictionary imported successfully.");
 ```
 
 ### Searching Using Homophones
-#### Overview
-Используйте поиск по гомофонам для всестороннего извлечения документов.
+#### Обзор
+Leverage homophone search for comprehensive document retrieval.
 
-**Step 1:** Включите и выполните поиск, основанный на гомофонах.
+**Step 1:** Enable and perform a homophone‑based search.
 
 ```java
 String query = "caul";
@@ -212,43 +220,41 @@ System.out.println("Search completed. Results found: " + result.getDocumentCount
 
 ## Practical Applications
 
-Понимание того, как реализовать эти функции, открывает широкий спектр практических применений:
+Understanding how to implement these features opens up a world of practical applications:
 
-1. **Legal Document Management:** Различайте схожие по звучанию юридические термины, такие как “lease” vs. “least”.  
-2. **Educational Content Creation:** Обеспечьте ясность учебных материалов, где гомофоны могут вызвать путаницу.  
-3. **Customer Support Systems:** Улучшите точность поиска в базе знаний, помогая агентам быстрее находить нужные статьи.
+1. **Управление юридическими документами:** Различать похожие звучащие юридические термины, такие как “lease” vs. “least”.  
+2. **Создание образовательного контента:** Обеспечить ясность в учебных материалах, где омофоны могут вызывать путаницу.  
+3. **Системы поддержки клиентов:** Повысить точность поиска по базе знаний, помогая агентам быстрее находить нужные статьи.
 
 ## Performance Considerations
 
-Чтобы ваш **search index java** оставался производительным:
+To keep your **search index java** performant:
 
-- **Update the index regularly** для отражения изменений в документах.  
-- **Monitor memory usage** и настройте параметры Java heap для больших наборов данных.  
-- **Close unused resources promptly** (например, вызовите `index.close()` после завершения).  
+- **Обновляйте индекс регулярно**, чтобы отражать изменения в документах.  
+- **Следите за использованием памяти** и настраивайте параметры кучи Java для больших наборов данных.  
+- **Закрывайте неиспользуемые ресурсы своевременно** (например, вызывайте `index.close()` после завершения).  
 
 ## Conclusion
 
-К этому моменту вы должны иметь прочное представление о том, как **create search index java** с помощью GroupDocs.Search, управлять гомофонами и тонко настраивать поисковый опыт. Эти инструменты незаменимы для предоставления точных результатов поиска и повышения общей эффективности управления документами.
+By now you should have a solid grasp of **how to index documents** with GroupDocs.Search, manage homophones, and fine‑tune your search experience. These tools are invaluable for delivering precise search results and boosting overall document management efficiency.
 
 ## Frequently Asked Questions
 
-**Q: Можно ли использовать словарь гомофонов с неанглийскими языками?**  
-A: Да, вы можете заполнять словарь любым языком, если предоставите соответствующие группы слов.
+**Q:** Можно ли использовать словарь омофонов с неанглийскими языками?  
+**A:** Да, вы можете заполнять словарь любыми языками, при условии, что предоставите соответствующие группы слов.
 
-**Q: Нужна ли лицензия для разработки и тестирования?**  
-A: Бесплатная пробная лицензия достаточна для разработки и тестирования; для продакшн‑развертываний требуется платная лицензия.
+**Q:** Нужна ли лицензия для разработки и тестирования?  
+**A:** Бесплатная пробная лицензия достаточна для разработки и тестирования; платная лицензия требуется для продакшн‑развертываний.
 
-**Q: Какой максимальный размер может иметь мой индекс?**  
-A: Размер индекса ограничен только ресурсами вашего оборудования; убедитесь, что выделили достаточное дисковое пространство и память.
+**Q:** Какой размер может иметь мой индекс?  
+**A:** Размер индекса ограничен только вашими аппаратными ресурсами; убедитесь, что выделили достаточное место на диске и память.
 
-**Q: Можно ли комбинировать поиск гомофонов с нечетким сопоставлением?**  
-A: Абсолютно. Вы можете включить как `setUseHomophoneSearch(true)`, так и `setFuzzySearch(true)` в `SearchOptions`.
+**Q:** Можно ли комбинировать поиск омофонов с нечетким поиском?  
+**A:** Абсолютно. Вы можете включить оба параметра `setUseHomophoneSearch(true)` и `setFuzzySearch(true)` в `SearchOptions`.
 
-**Q: Что происходит, если я добавлю дублирующие группы гомофонов?**  
-A: Дублирующие записи игнорируются; словарь сохраняет уникальный набор групп слов.
+**Q:** Что происходит, если добавить дублирующие группы омофонов?  
+**A:** Дублирующие записи игнорируются; словарь сохраняет уникальный набор групп слов.
 
----
-
-**Last Updated:** 2025-12-22  
+**Last Updated:** 2026-02-24  
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs

@@ -1,8 +1,8 @@
 ---
-date: '2025-12-24'
-description: Leer hoe u kunt zoeken op attribuut java met GroupDocs.Search. Deze gids
-  laat zien hoe u documentattributen batchgewijs bijwerkt, en attributen toevoegt
-  en wijzigt tijdens het indexeren.
+date: '2026-02-24'
+description: Leer hoe je kunt zoeken op attribuut java met GroupDocs.Search. Deze
+  gids toont het batchbijwerken van documentattributen, het toevoegen en wijzigen
+  van attributen tijdens het indexeren.
 keywords:
 - GroupDocs.Search Java
 - document attribute modification
@@ -13,34 +13,48 @@ url: /nl/java/document-management/groupdocs-search-java-modify-attributes-indexi
 weight: 1
 ---
 
-# Zoeken op attribuut Java met GroupDocs.Search gids
+Author:** GroupDocs  
 
-Zoek je een manier om je documentbeheersysteem te verbeteren door dynamisch document‑attributen te wijzigen en te indexeren met Java? Dan ben je hier op het juiste adres! Deze tutorial gaat diep in op het benutten van de krachtige GroupDocs.Search for Java‑bibliotheek om **search by attribute java** uit te voeren, geïndexeerde document‑attributen te wijzigen en ze toe te voegen tijdens het indexeren. Of je nu een zoekoplossing bouwt of document‑workflows optimaliseert, het beheersen van deze technieken is essentieel.
+Translate labels.
 
-## Snelle antwoorden
+**Last Updated:** -> "**Laatst bijgewerkt:**"
+
+**Tested With:** -> "**Getest met:**"
+
+**Author:** -> "**Auteur:**"
+
+Now produce final markdown.
+
+Make sure to keep all code block placeholders unchanged.
+
+Let's construct final output.# Zoeken op attribuut Java met GroupDocs.Search gids
+
+Ben je op zoek om je documentbeheersysteem te verbeteren door dynamisch documentattributen te wijzigen en te indexeren met Java? Je bent op de juiste plek! Deze tutorial gaat diep in op het benutten van de krachtige GroupDocs.Search for Java bibliotheek om **search by attribute java** te gebruiken, geïndexeerde documentattributen te wijzigen, en ze toe te voegen tijdens het indexeerproces. Of je nu een doorzoekbaar portaal, een compliance‑archief, of een intelligente content‑gedreven app bouwt, het beheersen van deze technieken bespaart je tijd en verbetert de prestaties.
+
+## Quick Answers
 - **Wat is “search by attribute java”?** Het is de mogelijkheid om zoekresultaten te filteren met behulp van aangepaste metadata die aan elk document is gekoppeld.  
-- **Kan ik attributen wijzigen na het indexeren?** Ja – gebruikAttributeChangeBatch` om document‑attributen in één batch bij te werken.  
+- **Kan ik attributen wijzigen na het indexeren?** Ja—gebruik `AttributeChangeBatch` om documentattributen in batch bij te werken.  
 - **Hoe voeg ik attributen toe tijdens het indexeren?** Abonneer je op het `FileIndexing`‑event en stel attributen programmatically in.  
-- **Heb ik een licentie nodig?** Een gratis proefversie is voldoende voor evaluatie; een permanente licentie is vereist voor productie.  
+- **Heb ik een licentie nodig?** Een gratis proefversie werkt voor evaluatie; een permanente licentie is vereist voor productie.  
 - **Welke Java‑versie is vereist?** Java 8 of hoger wordt aanbevolen.
 
-## Wat is “search by attribute java”?
-**Search by attribute java** stelt je in staat om documenten te doorzoeken op basis van hun metadata (attributen) in plaats van alleen hun inhoud. Door sleutel‑waarde‑paren zoals `public`, `main` of `key` aan elk bestand toe te voegen, kun je snel de resultaten beperken tot de meest relevante subset.
+## What is “search by attribute java”?
+**Search by attribute java** stelt je in staat documenten te doorzoeken op basis van hun metadata (attributen) in plaats van alleen hun inhoud. Door sleutel‑waardeparen zoals `public`, `main` of `key` aan elk bestand toe te voegen, kun je de resultaten snel beperken tot de meest relevante subset.
 
-## Waarom attributen wijzigen of toevoegen?
-- **Dynamische categorisatie** – houd metadata synchroon met bedrijfsregels.  
-- **Snellere filtering** – attribuutfilters worden geëvalueerd vóór de volledige tekstsearch, wat de prestaties verbetert.  
+## Why Use Dynamic Metadata Tagging?
+- **Dynamische categorisatie** – houd metadata synchroon met evoluerende bedrijfsregels.  
+- **Snellere filtering** – attribuutfilters worden geëvalueerd vóór de volledige‑tekst zoekopdracht, wat de responstijden verhoogt.  
 - **Compliance‑tracking** – label documenten voor retentie‑beleid of audit‑vereisten.  
+- **Batch‑bijwerken van attributen** – wijzig veel documenten in één bewerking zonder alles opnieuw te indexeren.
 
-## Voorvereisten
-
-- **Java 8+** (JDK 8 of nieuwer)  
-- **GroupDocs.Search for Java**‑bibliotheek (zie Maven‑setup hieronder)  
+## Prerequisites
+- **Java 8+** (JDK 8 of nieuwer)  
+- **GroupDocs.Search for Java** bibliotheek (zie Maven‑setup hieronder)  
 - Basiskennis van Java en indexeerconcepten  
 
-## GroupDocs.Search for Java instellen
+## Setting Up GroupDocs.Search for Java
 
-### Maven‑setup
+### Maven Setup
 
 ```xml
 <repositories>
@@ -60,17 +74,16 @@ Zoek je een manier om je documentbeheersysteem te verbeteren door dynamisch docu
 </dependencies>
 ```
 
-### Directe download
+### Direct Download
 
-Download anders de nieuwste versie via [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).  
-Als je geen build‑tool zoals Maven wilt gebruiken, download dan de JAR van de [GroupDocs‑website](https://releases.groupdocs.com/search/java/).
+Alternatief kun je de nieuwste versie downloaden van [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).  
+Als je liever geen build‑tool zoals Maven gebruikt, download dan de JAR van de [GroupDocs website](https://releases.groupdocs.com/search/java/).
 
-### Licentie‑acquisitie
-
+### License Acquisition
 - Begin met een gratis proefversie om de mogelijkheden te verkennen.  
-- Voor langdurig gebruik verkrijg je een tijdelijke of volledige licentie via de [licentiepagina](https://purchase.groupdocs.com/temporary-license).
+- Voor langdurig gebruik, verkrijg een tijdelijke of volledige licentie via de [licentiepagina](https://purchase.groupdocs.com/temporary-license).
 
-### Basisinitialisatie
+### Basic Initialization
 
 ```java
 import com.groupdocs.search.Index;
@@ -79,22 +92,19 @@ import com.groupdocs.search.Index;
 Index index = new Index("YOUR_OUTPUT_DIRECTORY/ChangeAttributes");
 ```
 
-## Implementatie‑gids
+## How to Modify Document Attributes (Batch Update)
 
-### Search by Attribute Java – Document‑attributen wijzigen
+### Search by Attribute Java – Changing Document Attributes
+Je kunt attributen toevoegen, verwijderen of vervangen op al geïndexeerde documenten, waardoor **batch update document attributes** mogelijk is zonder de volledige collectie opnieuw te indexeren.
 
-#### Overzicht
-Je kunt attributen toevoegen, verwijderen of vervangen op reeds geïndexeerde documenten, waardoor je **batch update document attributes** kunt uitvoeren zonder de hele collectie opnieuw te indexeren.
-
-#### Stapsgewijs
-
-**Stap 1: Documenten aan de index toevoegen**  
+### Step‑by‑Step
+**Step 1: Add Documents to Index**  
 
 ```java
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-**Stap 2: Geïndexeerde documentinformatie ophalen**  
+**Step 2: Retrieve Indexed Document Information**  
 
 ```java
 import com.groupdocs.search.results.DocumentInfo;
@@ -102,7 +112,7 @@ import com.groupdocs.search.results.DocumentInfo;
 DocumentInfo[] documents = index.getIndexedDocuments();
 ```
 
-**Stap 3: Document‑attributen batch‑bijwerken**  
+**Step 3: Batch Update Document Attributes**  
 
 ```java
 import com.groupdocs.search.common.AttributeChangeBatch;
@@ -117,7 +127,7 @@ batch.add(documents[0].getFilePath(), "main", "key"); // Add 'main' and 'key' at
 index.changeAttributes(batch);
 ```
 
-**Stap 4: Zoeken met attribuutfilters**  
+**Step 4: Search with Attribute Filters**  
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -128,17 +138,16 @@ String query = "length";
 SearchResult result = index.search(query, options); // Perform the search
 ```
 
-### Batch‑bijwerken van document‑attributen met AttributeChangeBatch
-De `AttributeChangeBatch`‑klasse is het kerninstrument voor **batch update document attributes**. Door wijzigingen te groeperen in één batch verminder je I/O‑overhead en houd je de index consistent.
+### Batch Update Document Attributes with AttributeChangeBatch
+De `AttributeChangeBatch`‑klasse is het kerninstrument voor **batch update document attributes**. Door wijzigingen te groeperen in één batch, verminder je I/O‑overhead en houd je de index consistent.
 
-### Search by Attribute Java – Attributen toevoegen tijdens het indexeren
+## How to Add Attributes During Indexing
 
-#### Overzicht
-Koppel je aan het `FileIndexing`‑event om aangepaste attributen toe te wijzen terwijl elk bestand aan de index wordt toegevoegd.
+### Search by Attribute Java – Adding Attributes During Indexing
+Koppel je aan het `FileIndexing`‑event om aangepaste attributen toe te wijzen zodra elk bestand aan de index wordt toegevoegd.
 
-#### Stapsgewijs
-
-**Stap 1: Abonneren op het FileIndexing‑event**  
+### Step‑by‑Step
+**Step 1: Subscribe to the FileIndexing Event**  
 
 ```java
 import com.groupdocs.search.events.EventHandler;
@@ -154,53 +163,57 @@ index.getEvents().FileIndexing.add(new EventHandler<FileIndexingEventArgs>() {
 });
 ```
 
-**Stap 2: Documenten indexeren**  
+**Step 2: Index Documents**  
 
 ```java
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-## Praktische toepassingen
+## Practical Applications
+1. **Document Management Systems** – Automatiseer categorisatie door metadata toe te voegen tijdens de ingestie.  
+2. **Large Content Archives** – Gebruik attribuutfilters om zoekopdrachten te verfijnen, waardoor de responstijden drastisch dalen.  
+3. **Compliance & Reporting** – Tag documenten dynamisch voor retentie‑schema's of audit‑trails.
 
-1. **Document Management Systems** – Automatiseer categorisatie door metadata toe te voegen tijdens de ingest.  
-2. **Grote content‑archieven** – Gebruik attribuutfilters om zoekopdrachten te verfijnen, waardoor de responstijd drastisch daalt.  
-3. **Compliance & Rapportage** – Tag documenten dynamisch voor retentie‑schema’s of audit‑trails.
+## Performance Considerations
+- **Geheugenbeheer** – Monitor de JVM‑heap en pas `-Xmx` aan indien nodig.  
+- **Batchverwerking** – Groepeer attribuutwijzigingen met `AttributeChangeBatch` om indexschrijvingen te minimaliseren.  
+- **Bibliotheekupdates** – Houd GroupDocs.Search up‑to‑date om te profiteren van prestatie‑patches.
 
-## Prestatie‑overwegingen
+## Common Issues and Solutions
+| Probleem | Waarom het gebeurt | Hoe op te lossen |
+|----------|--------------------|------------------|
+| **Attributen niet toegepast** | Event‑handler niet geregistreerd vóór het indexeren | Zorg ervoor dat `index.getEvents().FileIndexing.add(...)` wordt uitgevoerd vóór `index.add(...)`. |
+| **Zoekopdracht geeft geen resultaten** | Attribuutnaam komt niet overeen (hoofdlettergevoelig) | Gebruik exacte attribuutnamen bij het maken van filters (`createAttribute("main")`). |
+| **Out‑of‑memory‑fouten** bij grote batches | Te veel wijzigingen in één batch | Splits grote updates op in kleinere `AttributeChangeBatch`‑instanties. |
+| **Licentie niet herkend** | Trial‑JAR gebruiken zonder licentiebestand toe te passen | Roep `License license = new License(); license.setLicense("path/to/license.file");` aan vóór enige index‑operatie. |
 
-- **Geheugenbeheer** – Houd de JVM‑heap in de gaten en pas `-Xmx` aan waar nodig.  
-- **Batchverwerking** – Groepeer attribuutwijzigingen met `AttributeChangeBatch` om index‑schrijfbewerkingen te minimaliseren.  
-- **Bibliotheek‑updates** – Houd GroupDocs.Search up‑to‑date om te profiteren van prestatie‑patches.
-
-## Veelgestelde vragen
-
-**Q: Wat zijn de voorvereisten voor het gebruik van GroupDocs.Search in Java?**  
+## Frequently Asked Questions
+**Q: Wat zijn de vereisten voor het gebruik van GroupDocs.Search in Java?**  
 A: Je hebt Java 8+, de GroupDocs.Search‑bibliotheek en basiskennis van indexeerconcepten nodig.
 
 **Q: Hoe installeer ik GroupDocs.Search via Maven?**  
-A: Voeg de repository en afhankelijkheid toe zoals weergegeven in de Maven‑setup sectie van je `pom.xml`.
+A: Voeg de repository en afhankelijkheid toe die in de Maven‑Setup‑sectie worden getoond aan je `pom.xml`.
 
 **Q: Kan ik attributen wijzigen nadat documenten zijn geïndexeerd?**  
-A: Ja, gebruik `AttributeChangeBatch` om document‑attributen batch‑gewijs bij te werken zonder opnieuw te indexeren.
+A: Ja, gebruik `AttributeChangeBatch` om documentattributen batch‑bij te werken zonder opnieuw te indexeren.
 
 **Q: Wat als mijn indexeerproces traag is?**  
-A: Optimaliseer de JVM‑geheugeninstellingen, gebruik batch‑updates en zorg dat je de nieuwste bibliotheekversie gebruikt.
+A: Optimaliseer de JVM‑geheugeninstellingen, gebruik batch‑updates, en zorg dat je de nieuwste bibliotheekversie gebruikt.
 
-**Q: Waar vind ik meer bronnen over GroupDocs.Search for Java?**  
+**Q: Waar kan ik meer bronnen vinden over GroupDocs.Search voor Java?**  
 A: Bezoek de [officiële documentatie](https://docs.groupdocs.com/search/java/) of verken de community‑forums.
 
-## Bronnen
-
+## Resources
 - Documentatie: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)
 - API‑referentie: [API Reference](https://reference.groupdocs.com/search/java)
 - Download: [Latest Releases](https://releases.groupdocs.com/search/java/)
 - GitHub: [GitHub GroupDocs.Search](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- Gratis supportforum: [GroupDocs Forums](https://forum.groupdocs.com/c/search/10)
+- Gratis ondersteuningsforum: [GroupDocs Forums](https://forum.groupdocs.com/c/search/10)
 - Tijdelijke licentie: [License Page](https://purchase.groupdocs.com/temporary-license)
 
 ---
 
-**Laatst bijgewerkt:** 2025-12-24  
+**Laatst bijgewerkt:** 2026-02-24  
 **Getest met:** GroupDocs.Search 25.4 for Java  
 **Auteur:** GroupDocs  
 

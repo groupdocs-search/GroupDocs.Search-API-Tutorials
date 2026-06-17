@@ -1,49 +1,53 @@
 ---
-date: '2025-12-22'
-description: Pelajari cara membuat indeks pencarian Java menggunakan GroupDocs.Search
-  untuk Java dan temukan cara mengindeks dokumen Java dengan dukungan homofon untuk
-  akurasi pencarian yang lebih baik.
+date: '2026-02-24'
+description: Pelajari cara mengindeks dokumen di Java menggunakan GroupDocs.Search
+  dan temukan cara menambahkan dokumen ke indeks dengan dukungan homofon untuk akurasi
+  pencarian yang lebih baik.
 keywords:
 - GroupDocs.Search Java
 - document indexing with Java
 - homophone recognition
-title: Cara membuat indeks pencarian Java dengan GroupDocs.Search – Panduan Pengenalan
-  Homofon
+title: Cara Mengindeks Dokumen di Java dengan GroupDocs.Search – Dukungan Homofon
 type: docs
 url: /id/java/document-management/groupdocs-search-java-homophone-document-management-guide/
 weight: 1
 ---
 
-# Cara membuat search index java dengan GroupDocs.Search untuk Java: Panduan Komprehensif tentang Homofon
+# Cara Mengindeks Dokumen di Java dengan GroupDocs.Search – Dukungan Homofon
 
-Membuat **search index** di Java dapat terasa menantang, terutama ketika Anda harus menangani homofon—kata-kata yang terdengar sama tetapi dieja berbeda. Dalam tutorial ini Anda akan belajar cara **create search index java** menggunakan GroupDocs.Search untuk Java, dan kami akan membahas semua yang perlu Anda ketahui tentang **how to index documents java** sambil memanfaatkan pengenalan homofon bawaan. Pada akhirnya, Anda akan dapat membangun solusi pencarian yang cepat dan akurat yang memahami nuansa bahasa.
+Membuat **search index** di Java dapat terasa menantang, terutama ketika Anda harus menangani homofon—kata yang terdengar sama tetapi dieja berbeda. Dalam tutorial ini Anda akan belajar **how to index documents** menggunakan GroupDocs.Search untuk Java, dan kami akan membahas semua yang perlu Anda ketahui tentang **how to index documents** sambil memanfaatkan pengenalan homofon bawaan. Pada akhirnya, Anda akan dapat membangun solusi pencarian yang cepat dan akurat yang memahami nuansa bahasa.
 
 ## Jawaban Cepat
-- **Apa itu search index?** Sebuah struktur data yang memungkinkan pencarian full‑text cepat di seluruh dokumen.  
-- **Mengapa menggunakan pengenalan homofon?** Ini meningkatkan recall dengan mencocokkan kata yang terdengar serupa, misalnya “mail” vs. “male”.  
-- **Perpustakaan mana yang menyediakan ini di Java?** GroupDocs.Search for Java (v25.4).  
-- **Apakah saya memerlukan lisensi?** Versi percobaan gratis cukup untuk evaluasi; lisensi permanen diperlukan untuk produksi.  
-- **Versi Java apa yang dibutuhkan?** JDK 8 atau lebih tinggi.
+- **Apa itu search index?** Struktur data yang memungkinkan pencarian full‑text cepat di seluruh dokumen.  
+- **Mengapa menggunakan pengenalan homofon?** Meningkatkan recall dengan mencocokkan kata yang terdengar sama, misalnya “mail” vs. “male”.  
+- **Pustaka mana yang menyediakan ini di Java?** GroupDocs.Search for Java (v25.4).  
+- **Apakah saya memerlukan lisensi?** Lisensi percobaan gratis cukup untuk evaluasi; lisensi permanen diperlukan untuk produksi.  
+- **Versi Java apa yang diperlukan?** JDK 8 atau lebih tinggi.
+
+## Cara Mengindeks Dokumen di Java
+
+Sebelum kita masuk ke kode, mari kita jelaskan mengapa pengindeksan penting. Sebuah indeks menyimpan istilah yang ditokenisasi, posisi, dan metadata, memungkinkan Anda mengeksekusi kueri yang mengembalikan dokumen relevan dalam milidetik. Dengan GroupDocs.Search, Anda mendapatkan dukungan out‑of‑the‑box untuk banyak format file dan kamus homofon yang kuat yang meningkatkan relevansi pencarian.
 
 ## Apa itu “create search index java”?
-Membuat search index di Java berarti membangun representasi yang dapat dicari dari koleksi dokumen Anda. Index menyimpan istilah yang ditokenisasi, posisi, dan metadata, memungkinkan Anda mengeksekusi kueri yang mengembalikan dokumen relevan dalam milidetik.
+Membuat search index di Java berarti membangun representasi yang dapat dicari dari koleksi dokumen Anda. Indeks menyimpan istilah yang ditokenisasi, posisi, dan metadata, memungkinkan Anda mengeksekusi kueri yang mengembalikan dokumen relevan dalam milidetik.
 
 ## Mengapa menggunakan GroupDocs.Search untuk Java?
 GroupDocs.Search menawarkan dukungan out‑of‑the‑box untuk banyak format dokumen, alat linguistik yang kuat (termasuk kamus homofon), dan API sederhana yang memungkinkan Anda fokus pada logika bisnis daripada detail pengindeksan tingkat rendah.
 
 ## Prasyarat
+
 Sebelum kita masuk ke kode, pastikan Anda memiliki hal berikut:
 
-- **GroupDocs.Search for Java** (tersedia melalui Maven atau unduhan langsung).  
+- **GroupDocs.Search for Java** (tersedia via Maven atau unduhan langsung).  
 - **compatible JDK** (8 atau lebih baru).  
 - IDE seperti **IntelliJ IDEA** atau **Eclipse**.  
 - Pengetahuan dasar tentang Java dan Maven.
 
 ### Perpustakaan dan Dependensi yang Diperlukan
-Anda akan membutuhkan GroupDocs.Search untuk Java. Anda dapat menyertakannya menggunakan Maven atau mengunduh langsung dari repositori mereka.
+Anda akan memerlukan GroupDocs.Search untuk Java. Anda dapat menyertakannya menggunakan Maven atau mengunduh langsung dari repositori mereka.
 
 **Instalasi Maven:**  
-Tambahkan berikut ke file `pom.xml` Anda:
+Add the following to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -64,15 +68,16 @@ Tambahkan berikut ke file `pom.xml` Anda:
 ```
 
 **Unduhan Langsung:**  
-Sebagai alternatif, unduh versi terbaru dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternatively, download the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Persyaratan Penyiapan Lingkungan
-Pastikan Anda memiliki JDK yang kompatibel terpasang (JDK 8 atau lebih tinggi disarankan) dan IDE seperti IntelliJ IDEA atau Eclipse telah disiapkan di mesin Anda.
+Pastikan Anda memiliki JDK yang kompatibel terpasang (JDK 8 atau lebih tinggi disarankan) dan IDE seperti IntelliJ IDEA atau Eclipse sudah disiapkan di mesin Anda.
 
 ### Prasyarat Pengetahuan
-Keterbiasaan dengan konsep pemrograman Java dan pengalaman menggunakan Maven untuk manajemen dependensi akan sangat membantu. Pemahaman dasar tentang pengindeksan dokumen dan algoritma pencarian juga dapat membantu.
+Familiaritas dengan konsep pemrograman Java dan pengalaman menggunakan Maven untuk manajemen dependensi akan sangat membantu. Pemahaman dasar tentang pengindeksan dokumen dan algoritma pencarian juga dapat membantu.
 
 ## Menyiapkan GroupDocs.Search untuk Java
+
 Setelah prasyarat terpenuhi, menyiapkan GroupDocs.Search menjadi mudah:
 
 1. **Install via Maven** atau unduh langsung dari tautan yang disediakan.  
@@ -95,21 +100,22 @@ public class SetupExample {
 ```
 
 ## Panduan Implementasi
-Sekarang lingkungan siap, mari jelajahi fitur inti yang Anda perlukan untuk **create search index java** dan mengelola homofon.
 
-### Membuat dan Mengelola Index
-#### Gambaran Umum
+Sekarang lingkungan sudah siap, mari kita jelajahi fitur inti yang Anda perlukan untuk **create search index java** dan mengelola homofon.
+
+### Membuat dan Mengelola Indeks
+#### Ikhtisar
 Membuat search index adalah langkah pertama dalam mengelola dokumen secara efektif. Ini memungkinkan pengambilan informasi yang cepat berdasarkan konten dokumen Anda.
 
-#### Langkah-langkah Membuat Index
-**Langkah 1:** Tentukan direktori untuk file index Anda.
+#### Langkah-langkah Membuat Indeks
+**Step 1:** Specify the directory for your index files.
 
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
-**Langkah 2:** Tambahkan dokumen dari folder yang ditentukan ke dalam index ini.
+**Step 2:** Add documents from a specified folder into this index.
 
 ```java
 String documentsFolder = "YOUR_DOCUMENTS_SOURCE_DIRECTORY";
@@ -117,13 +123,16 @@ index.add(documentsFolder);
 System.out.println("Documents added to the index.");
 ```
 
-*Dengan mengindeks konten dokumen Anda, Anda memungkinkan pencarian full‑text yang cepat di seluruh koleksi.*
+*Dengan mengindeks konten dokumen Anda, Anda memungkinkan pencarian full‑text cepat di seluruh koleksi.*
+
+### Cara Menambahkan Dokumen ke Indeks
+Jika Anda perlu menambahkan lebih banyak file secara programatis nanti, cukup panggil `index.add()` lagi dengan jalur folder baru atau jalur file individual. Ini menjaga indeks Anda tetap terbaru tanpa harus membangun ulang dari awal.
 
 ### Mengambil Homofon untuk Sebuah Kata
-#### Gambaran Umum
+#### Ikhtisar
 Mengambil homofon membantu Anda memahami ejaan alternatif yang terdengar sama, yang penting untuk hasil pencarian yang komprehensif.
 
-**Langkah 1:** Akses kamus homofon.
+**Step 1:** Access the homophone dictionary.
 
 ```java
 String[] homophones = index.getDictionaries().getHomophoneDictionary().getHomophones("braid");
@@ -132,22 +141,22 @@ String[] homophones = index.getDictionaries().getHomophoneDictionary().getHomoph
 *Potongan kode ini mengambil semua homofon untuk “braid” dari dokumen yang diindeks.*
 
 ### Mengambil Kelompok Homofon
-#### Gambaran Umum
+#### Ikhtisar
 Mengelompokkan homofon menyediakan cara terstruktur untuk mengelola kata dengan banyak arti.
 
-**Langkah 1:** Dapatkan kelompok homofon.
+**Step 1:** Get groups of homophones.
 
 ```java
 String[][] groups = index.getDictionaries().getHomophoneDictionary().getHomophoneGroups("braid");
 ```
 
-*Gunakan fitur ini untuk mengkategorikan kata yang terdengar serupa secara efektif.*
+*Gunakan fitur ini untuk mengkategorikan kata yang terdengar mirip secara efektif.*
 
-### Mengosongkan Kamus Homofon
-#### Gambaran Umum
+### Menghapus Kamus Homofon
+#### Ikhtisar
 Menghapus entri yang usang atau tidak diperlukan memastikan kamus Anda tetap relevan.
 
-**Langkah 1:** Periksa dan kosongkan kamus homofon.
+**Step 1:** Check and clear the homophone dictionary.
 
 ```java
 if (index.getDictionaries().getHomophoneDictionary().getCount() > 0) {
@@ -157,10 +166,10 @@ System.out.println("Homophone dictionary cleared.");
 ```
 
 ### Menambahkan Homofon ke Kamus
-#### Gambaran Umum
+#### Ikhtisar
 Menyesuaikan kamus homofon Anda memungkinkan kemampuan pencarian yang disesuaikan.
 
-**Langkah 1:** Definisikan dan tambahkan kelompok homofon baru.
+**Step 1:** Define and add new groups of homophones.
 
 ```java
 String[][] homophoneGroups = {
@@ -173,17 +182,17 @@ System.out.println("Homophones added to the dictionary.");
 ```
 
 ### Mengekspor dan Mengimpor Kamus Homofon
-#### Gambaran Umum
-Mengekspor dan mengimpor kamus dapat bermanfaat untuk tujuan backup atau migrasi.
+#### Ikhtisar
+Mengekspor dan mengimpor kamus dapat bermanfaat untuk tujuan cadangan atau migrasi.
 
-**Langkah 1:** Ekspor kamus homofon saat ini.
+**Step 1:** Export the current homophone dictionary.
 
 ```java
 String fileName = "path/to/exported/dictionary.file";
 index.getDictionaries().getHomophoneDictionary().exportDictionary(fileName);
 ```
 
-**Langkah 2:** Impor kembali dari file jika diperlukan.
+**Step 2:** Re‑import from a file if needed.
 
 ```java
 index.getDictionaries().getHomophoneDictionary().importDictionary(fileName);
@@ -191,10 +200,10 @@ System.out.println("Homophone dictionary imported successfully.");
 ```
 
 ### Mencari Menggunakan Homofon
-#### Gambaran Umum
+#### Ikhtisar
 Manfaatkan pencarian homofon untuk pengambilan dokumen yang komprehensif.
 
-**Langkah 1:** Aktifkan dan lakukan pencarian berbasis homofon.
+**Step 1:** Enable and perform a homophone‑based search.
 
 ```java
 String query = "caul";
@@ -208,40 +217,44 @@ System.out.println("Search completed. Results found: " + result.getDocumentCount
 *Fitur ini meningkatkan akurasi dan kedalaman kemampuan pencarian Anda.*
 
 ## Aplikasi Praktis
+
 Memahami cara mengimplementasikan fitur-fitur ini membuka dunia aplikasi praktis:
 
-1. **Legal Document Management:** Bedakan antara istilah hukum yang terdengar serupa seperti “lease” vs. “least”.  
-2. **Educational Content Creation:** Pastikan kejelasan dalam materi pembelajaran di mana homofon dapat menyebabkan kebingungan.  
+1. **Legal Document Management:** Bedakan antara istilah hukum yang terdengar mirip seperti “lease” vs. “least”.  
+2. **Educational Content Creation:** Pastikan kejelasan dalam materi pengajaran di mana homofon dapat menyebabkan kebingungan.  
 3. **Customer Support Systems:** Tingkatkan akurasi pencarian basis pengetahuan, membantu agen menemukan artikel yang tepat lebih cepat.
 
 ## Pertimbangan Kinerja
-Agar **search index java** Anda tetap berkinerja baik:
+
+Untuk menjaga **search index java** Anda tetap berperforma:
 
 - **Update the index regularly** untuk mencerminkan perubahan dokumen.  
 - **Monitor memory usage** dan sesuaikan pengaturan heap Java untuk kumpulan data besar.  
-- **Close unused resources promptly** (mis., panggil `index.close()` saat selesai).  
+- **Close unused resources promptly** (mis., panggil `index.close()` ketika selesai).  
 
 ## Kesimpulan
-Sekarang Anda seharusnya memiliki pemahaman yang kuat tentang cara **create search index java** dengan GroupDocs.Search, mengelola homofon, dan menyempurnakan pengalaman pencarian Anda. Alat-alat ini sangat berharga untuk memberikan hasil pencarian yang tepat dan meningkatkan efisiensi manajemen dokumen secara keseluruhan.
+
+Sekarang Anda seharusnya memiliki pemahaman yang kuat tentang **how to index documents** dengan GroupDocs.Search, mengelola homofon, dan menyempurnakan pengalaman pencarian Anda. Alat-alat ini sangat berharga untuk memberikan hasil pencarian yang tepat dan meningkatkan efisiensi manajemen dokumen secara keseluruhan.
 
 ## Pertanyaan yang Sering Diajukan
-**Q: Bisakah saya menggunakan kamus homofon dengan bahasa non‑Inggris?**  
-A: Ya, Anda dapat mengisi kamus dengan bahasa apa pun selama Anda menyediakan kelompok kata yang sesuai.
 
-**Q: Apakah saya memerlukan lisensi untuk pengujian pengembangan?**  
-A: Lisensi percobaan gratis sudah cukup untuk pengembangan dan pengujian; lisensi berbayar diperlukan untuk penerapan produksi.
+**Q:** Apakah saya dapat menggunakan kamus homofon dengan bahasa non‑Inggris?  
+**A:** Ya, Anda dapat mengisi kamus dengan bahasa apa pun selama Anda menyediakan kelompok kata yang sesuai.
 
-**Q: Seberapa besar ukuran index saya?**  
-A: Ukuran index hanya dibatasi oleh sumber daya perangkat keras Anda; pastikan menyediakan ruang disk dan memori yang cukup.
+**Q:** Apakah saya memerlukan lisensi untuk pengujian pengembangan?  
+**A:** Lisensi percobaan gratis sudah cukup untuk pengembangan dan pengujian; lisensi berbayar diperlukan untuk penerapan produksi.
 
-**Q: Apakah memungkinkan menggabungkan pencarian homofon dengan pencocokan fuzzy?**  
-A: Tentu saja. Anda dapat mengaktifkan keduanya `setUseHomophoneSearch(true)` dan `setFuzzySearch(true)` dalam `SearchOptions`.
+**Q:** Seberapa besar indeks saya dapat?  
+**A:** Ukuran indeks hanya dibatasi oleh sumber daya perangkat keras Anda; pastikan menyediakan ruang disk dan memori yang cukup.
 
-**Q: Apa yang terjadi jika saya menambahkan kelompok homofon duplikat?**  
-A: Entri duplikat diabaikan; kamus mempertahankan satu set unik kelompok kata.
+**Q:** Apakah memungkinkan menggabungkan pencarian homofon dengan pencocokan fuzzy?  
+**A:** Tentu saja. Anda dapat mengaktifkan keduanya `setUseHomophoneSearch(true)` dan `setFuzzySearch(true)` dalam `SearchOptions`.
+
+**Q:** Apa yang terjadi jika saya menambahkan kelompok homofon duplikat?  
+**A:** Entri duplikat diabaikan; kamus mempertahankan satu set unik kelompok kata.
 
 ---
 
-**Terakhir Diperbarui:** 2025-12-22  
+**Terakhir Diperbarui:** 2026-02-24  
 **Diuji Dengan:** GroupDocs.Search 25.4 for Java  
 **Penulis:** GroupDocs
