@@ -1,72 +1,51 @@
 ---
-date: '2025-12-29'
-description: 了解如何使用 GroupDocs.Search for Java 索引 Java 文件並建立搜尋索引。本指南涵蓋設定、索引、搜尋以及高效管理文件的方式。
+date: '2026-03-01'
+description: 了解如何使用 GroupDocs.Search for Java 快速為 Java 文件建立索引。本指南涵蓋將文件加入索引、從索引中刪除文件，以及從檔案系統載入文件。
 keywords:
 - GroupDocs.Search Java
 - document indexing
 - Java document search
-title: 如何使用 GroupDocs.Search 索引 Java 文件 – 高效搜尋
+title: 如何為 Java 建立索引 – 使用 GroupDocs 快速文件搜尋
 type: docs
 url: /zh-hant/java/indexing/efficient-document-indexing-search-groupdocs-java/
 weight: 1
 ---
 
-# 使用 GroupDocs.Search 索引 Java 文件 – 高效搜尋
+# 如何索引 Java – 使用 GroupDocs 進行快速文件搜尋
 
-## 介紹
+如果你在思考 **how to index java** 檔案的高效方法，恭喜你來對地方了。在如今資料驅動的世界，快速定位正確的文件可以節省大量手動工作時間。**GroupDocs.Search for Java** 提供了一個簡單的方式，將資料夾中的檔案轉換為可搜尋的索引，讓你只需幾行程式碼即可將文件加入索引、從索引中刪除文件，並從檔案系統載入文件。
 
-您是否被大量文件淹沒，並想快速了解 **how to index java** 檔案的方式？許多企業與個人每天都面臨此挑戰。**GroupDocs.Search for Java** 提供高效的解決方案，簡化文件搜尋，使過程更快速且更易管理。
+以下是一個逐步說明，從必要的設定開始，接著建立與填充索引，示範如何執行關鍵字搜尋，最後說明刪除等清理操作。讓我們一起深入了解吧！
 
-在本教學中，我們將指導您如何使用 GroupDocs.Search for Java 建立文件的索引儲存庫。您將學會如何從檔案系統載入文件、執行搜尋、管理刪除，以及高效且可擴展地取得索引資料。
-
-**您將學到的內容：**
-- 設定與配置 GroupDocs.Search for Java。  
-- **建立搜尋索引** 並從串流索引文件。  
-- 從檔案系統載入文件。  
-- 在索引上 **執行關鍵字搜尋**。  
-- **如何刪除索引** 中特定文件的條目。  
-- 刪除後取得剩餘的索引文件。
-
-準備好徹底改變文件搜尋的管理方式了嗎？讓我們先從前置條件開始吧！
-
-## 快速回答
-- **主要目的為何？** 高效索引與搜尋 Java 文件。  
+## 快速答覆
+- **主要目的為何？** 高效地索引與搜尋 Java 文件。  
 - **需要哪個函式庫？** GroupDocs.Search for Java（v25.4 以上）。  
-- **需要授權嗎？** 提供免費試用或臨時授權；正式環境需購買永久授權。  
+- **需要授權嗎？** 提供免費試用或暫時授權；正式環境需購買永久授權。  
 - **可以從索引中刪除文件嗎？** 可以，使用 `delete` 方法搭配文件鍵即可。  
-- **Apache Commons IO 必須嗎？** 建議使用，以便處理檔案相關工具。
+- **Apache Commons IO 必須嗎？** 建議使用，以便取得便利的檔案處理工具。
 
 ## 什麼是 “how to index java”？
-索引 Java 文件是指建立一個可搜尋的資料結構（索引），將文件內容對應到可搜尋的詞彙，從而能夠根據關鍵字查詢快速取得相關檔案。
+索引 Java 文件即是建立一個可搜尋的資料結構（索引），將文件內容對映到可搜尋的詞彙，從而能夠根據關鍵字查詢快速取得相關檔案。
 
-## 為何使用 GroupDocs.Search for Java？
-- **速度：** 最佳化演算法即使在大型集合上也能快速回傳查詢結果。  
-- **可擴展性：** 能處理數千份文件而不影響效能。  
-- **彈性：** 支援多種檔案格式，並提供大型檔案的延遲載入。  
-- **易於整合：** Maven 設定簡單，API 直觀。
+## 為什麼使用 GroupDocs.Search for Java？
+- **速度：** 經過最佳化的演算法即使在大型集合上也能提供快速的查詢結果。  
+- **可擴充性：** 能處理數千份文件而不影響效能。  
+- **彈性：** 支援多種檔案格式，並提供大型檔案的延遲載入（lazy loading）。  
+- **易於整合：** 簡單的 Maven 設定與直觀的 API。
 
 ## 前置條件
 
-在開始之前，請確保您具備以下條件：
+在開始之前，請確保你已具備：
 
-### 必要的函式庫與相依性
-- **GroupDocs.Search for Java**：請確保安裝 25.4 或更新版本。  
-- **Apache Commons IO**：用於檔案處理工具。
-
-### 環境設定需求
-- Java Development Kit (JDK) 8 以上。  
-- IntelliJ IDEA、Eclipse 等整合開發環境 (IDE)。
-
-### 知識前提
-- 具備基本的 Java 程式設計與物件導向概念。  
-- 熟悉 Maven 相依性管理者佳，但非必須。
+- **GroupDocs.Search for Java**（版本 25.4 或更新）。  
+- **Apache Commons IO** 以便使用便利的檔案工具。  
+- JDK 8 以上，並配合 IntelliJ IDEA 或 Eclipse 等 IDE。  
+- 基本的 Java 知識，若熟悉 Maven 更佳。
 
 ## 設定 GroupDocs.Search for Java
 
-使用 Maven 設定專案環境的步驟如下：
-
-**Maven 設定：**  
-在 `pom.xml` 中加入以下倉庫與相依性：
+### Maven 設定
+在 `pom.xml` 中加入儲存庫與相依性：
 
 ```xml
 <repositories>
@@ -86,17 +65,19 @@ weight: 1
 </dependencies>
 ```
 
-**直接下載：**  
-或是直接從 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) 下載最新版本。
+> **小技巧：** 請將版本號與最新發行版保持同步，以獲得效能改進。
 
-### 取得授權的步驟
-- **免費試用：** 先取得免費試用版以測試功能。  
-- **臨時授權：** 申請臨時授權以無限制探索全部功能。  
-- **購買授權：** 若符合需求，可考慮購買正式授權。
+### 直接下載（若不想使用 Maven）
 
-**基本初始化與設定：**  
+也可以從官方網站下載最新的 JAR： [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)。
 
-環境就緒後，使用以下程式碼初始化 GroupDocs.Search：
+### 取得授權
+- **免費試用：** 無需授權金鑰即可測試函式庫。  
+- **暫時授權：** 申請延長評估期。  
+- **正式授權：** 生產環境必須使用。
+
+### 基本初始化
+建立一個簡單的 Java 類別，以驗證函式庫是否正確載入：
 
 ```java
 import com.groupdocs.search.*;
@@ -109,19 +90,18 @@ public class DocumentIndexing {
 }
 ```
 
-## 如何使用 GroupDocs.Search 索引 Java 文件
+執行此程式後應會印出確認訊息，表示索引資料夾已就緒。
 
-### 建立與索引文件
+## 如何將文件加入索引
 
-**概觀：** 了解如何在指定資料夾建立索引，並從串流加入文件，簡化 **create search index** 的流程。
-
-#### 步驟 1：建立索引
+### 步驟 1：建立索引資料夾
 ```java
 Index index = new Index("YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\DeleteIndexedDocuments", true);
 ```
-- **參數說明：** 第一個參數為索引儲存的目錄路徑；第二個布林值表示若索引已存在則自動更新。
+- 第一個參數是用來存放索引檔案的資料夾路徑。  
+- 第二個參數 (`true`) 代表若資料夾不存在則自動建立，且會自動更新已存在的索引。
 
-#### 步驟 2：從串流載入並加入文件
+### 步驟 2：從串流載入文件並加入
 ```java
 String filePath = "YOUR_DOCUMENT_DIRECTORY\\English.docx";
 DocumentLoader documentLoader = new DocumentLoader(filePath);
@@ -129,13 +109,13 @@ Document document = Document.createLazy(DocumentSourceKind.Stream, documentLoade
 Document[] documents = new Document[]{document};
 index.add(documents, new IndexingOptions());
 ```
-- **說明：** 這裡建立 `DocumentLoader` 讀取檔案並為索引作準備。`createLazy` 方法用於有效處理大型檔案。
+- `DocumentLoader`（稍後會說明）負責讀取檔案並提供唯一鍵值。  
+- `createLazy` 可確保大型檔案在需要時才載入內容，提升效能。
 
-### 從檔案系統載入文件
+## 如何從檔案系統載入文件
 
-**概觀：** 實作自訂載入器，直接使用 Apache Commons IO 工具從檔案系統讀取文件。
+以下是一個可重複使用的載入器，能從磁碟讀取任意檔案、擷取位元組，並建立可供索引的 `Document` 物件。
 
-#### 步驟 1：定義 Document Loader
 ```java
 class DocumentLoader {
     private final String filePath;
@@ -156,93 +136,84 @@ class DocumentLoader {
     }
 }
 ```
-- **細節：** 此類別將檔案讀取為位元組陣列，並以此建立 `Document` 物件。
 
-### 在索引中執行關鍵字搜尋
+> **為什麼這很重要：** 使用專屬的載入器可將檔案系統的處理與索引邏輯分離，使程式碼更清晰、也更易於測試。
 
-**概觀：** 在已索引的文件上執行搜尋，以快速取得相關資訊。
+## 如何在索引中執行關鍵字搜尋
 
-#### 步驟 1：執行搜尋
 ```java
 String query = "moment";
 SearchResult searchResult1 = index.search(query);
 ```
-- **說明：** 使用 `search` 方法搭配簡單文字查詢，從索引資料中取得結果。此方式適用於 **java document search** 場景。
+- 將任意文字字串傳入 `search`，即可取得包含匹配文件 ID、摘要與相關性分數的 `SearchResult`。
 
-### 如何刪除索引條目
+## 如何從索引中刪除文件
 
-**概觀：** 透過文件鍵刪除特定文件，以管理索引內容。
-
-#### 步驟 1：刪除文件
 ```java
 String[] documentKeys = new String[]{documentLoader.getDocumentKey()};
 DeleteResult deleteResult = index.delete(new UpdateOptions(), documentKeys);
 ```
-- **參數說明：** 傳入欲從索引中移除的文件鍵陣列。`UpdateOptions` 提供彈性的刪除策略。
+- 提供欲刪除文件的鍵值。  
+- `UpdateOptions` 讓你控制刪除的方式（例如即時或批次）。
 
-### 刪除後取得剩餘的索引文件
+## 如何在刪除後取得剩餘的索引文件
 
-**概觀：** 刪除文件後，取得剩餘索引檔案清單，以確保資料完整性。
-
-#### 步驟 1：取得剩餘文件
 ```java
 DocumentInfo[] indexedDocuments2 = index.getIndexedDocuments();
 ```
-- **說明：** 此步驟協助驗證刪除後索引的當前狀態。
+- 此呼叫會回傳目前仍存在於索引中的文件清單，協助你驗證刪除是否成功。
 
 ## 實務應用
 
-GroupDocs.Search for Java 多功能且彈性，常見應用包括：
+GroupDocs.Search for Java 在以下情境中表現優異：
 
-1. **企業文件管理：** 快速搜尋公司文件，提高工作效率。  
-2. **法律文件分析：** 高效篩選案件檔案與法律文本，找出相關判例。  
-3. **圖書館目錄系統：** 索引與管理大量書籍與手稿，方便存取。
+1. **企業文件入口網站** – 員工可在數秒內找到政策、合約或手冊。  
+2. **法律案件管理** – 律師能快速在數千份 PDF 與 Word 檔中找出先例條款。  
+3. **數位圖書館** – 大學可提供研究論文與學位論文的全文搜尋。
 
 ## 效能考量
 
-為取得最佳效能，請留意：
-
-- **索引最佳化：** 定期更新索引以反映最新文件變更。  
-- **記憶體管理：** 透過妥善管理資源密集操作，善用 Java 垃圾回收。  
-- **可擴展性：** 確保索引策略能處理大量資料而不降低效能。
+- **定期優化** 索引（`index.optimize()`）於大量更新後執行，以維持查詢速度。  
+- **使用延遲載入** 處理巨型檔案，避免 OutOfMemory 錯誤。  
+- **調整 JVM 記憶體** 配置，依文件大小分佈設定，例如中等規模工作負載常使用 `-Xmx2g`。
 
 ## 常見問題與解決方案
 
 | 問題 | 原因 | 解決方案 |
-|-------|-------|----------|
-| **未返回結果** | 查詢詞未被索引或被停用詞過濾 | 檢查 `IndexingOptions` 並調整停用詞清單 |
-| **記憶體不足錯誤** | 未使用延遲載入即載入過大檔案 | 使用 `Document.createLazy` 或增大 JVM 堆積大小 |
-| **已刪除的文件仍出現** | 刪除後索引未重新整理 | 呼叫 `index.optimize()` 或重新開啟索引 |
+|------|------|----------|
+| 沒有返回結果 | 查詢詞未被索引或被停用詞過濾 | 檢查 `IndexingOptions` 並調整停用詞清單 |
+| 記憶體不足錯誤 | 大檔案被即時載入 | 改用 `Document.createLazy` 或增加 JVM 堆積 |
+| 已刪除的文件仍出現 | 刪除後未重新整理索引 | 呼叫 `index.optimize()` 或重新開啟索引實例 |
 
 ## 常見問答
 
 **Q: 可以同時索引 PDF、DOCX 與 PPTX 嗎？**  
 A: 可以，GroupDocs.Search 內建支援多種格式。
 
-**Q: “how to delete index” 的底層運作原理是什麼？**  
-A: `delete` 方法根據文件鍵移除條目，並更新內部倒排表以維持索引一致性。
+**Q: “從索引中刪除文件” 的底層原理是什麼？**  
+A: `delete` 方法會移除指定文件鍵值的倒排列表，並更新內部結構，使索引在不重新建構的情況下保持一致。
 
 **Q: 有辦法監控索引大小嗎？**  
-A: 使用 `index.getStatistics()` 可取得文件數量與儲存空間資訊。
+A: 使用 `index.getStatistics()` 可取得文件數量、總大小等指標。
 
 **Q: 每次刪除後都需要重新建構整個索引嗎？**  
-A: 不需要，`delete` 會增量更新索引，保留其餘資料。
+A: 不需要。刪除是增量的，只會移除受影響的條目。
 
-**Q: 若需要在變更結構後重新索引所有文件，該怎麼做？**  
-A: 建立一個不同資料夾路徑的 `Index` 實例，然後重新加入所有文件。
+**Q: 若資料結構變更，需要重新索引所有檔案嗎？**  
+A: 建議建立指向不同資料夾的新 `Index` 實例，然後重新加入所有文件。
 
 ## 結論
 
-現在，您已掌握 **how to index java** 文件的核心概念，並能使用 GroupDocs.Search for Java 執行快速搜尋。此強大函式庫能徹底改變您管理與檢索大型文件集合的方式，成為任何組織不可或缺的工具。
+現在你已掌握 **how to index java** 文件的完整流程——從環境設定、將文件加入索引、從檔案系統載入、執行搜尋，到刪除與驗證索引內容。將這些步驟整合到你的應用程式中，將大幅提升文件可發現性與整體生產力。
 
-**後續步驟：**  
-- 嘗試不同文件類型與複雜查詢。  
-- 探索進階功能，如分面搜尋、Metadata 索引與自訂分析器。  
+**後續建議：**  
+- 嘗試更複雜的查詢（通配符、模糊匹配）。  
+- 探索進階功能，如分面搜尋、自訂分析器與中繼資料索引。  
 
-準備好展開您的索引之旅了嗎？立即實作本教學，體驗更快、更精準的文件檢索！
+祝你索引順利！
 
 ---
 
-**最後更新：** 2025-12-29  
+**最後更新：** 2026-03-01  
 **測試環境：** GroupDocs.Search Java 25.4  
 **作者：** GroupDocs

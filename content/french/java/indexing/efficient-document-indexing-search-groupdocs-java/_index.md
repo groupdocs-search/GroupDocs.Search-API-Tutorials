@@ -1,73 +1,50 @@
 ---
-date: '2025-12-29'
-description: Apprenez à indexer des documents Java et à créer un index de recherche
-  avec GroupDocs.Search pour Java. Ce guide couvre la configuration, l'indexation,
-  la recherche et la gestion efficace des documents.
+date: '2026-03-01'
+description: Apprenez à indexer rapidement des documents Java avec GroupDocs.Search
+  pour Java. Ce guide couvre l’ajout de documents à l’index, la suppression de documents
+  de l’index et le chargement de documents depuis le système de fichiers.
 keywords:
 - GroupDocs.Search Java
 - document indexing
 - Java document search
-title: Comment indexer des documents Java avec GroupDocs.Search – Recherche efficace
+title: Comment indexer en Java – Recherche rapide de documents avec GroupDocs
 type: docs
 url: /fr/java/indexing/efficient-document-indexing-search-groupdocs-java/
 weight: 1
 ---
 
-# Comment indexer des documents Java avec GroupDocs.Search – Recherche efficace
+# Comment indexer Java – Recherche rapide de documents avec GroupDocs
 
-## Introduction
+Si vous vous demandez **comment indexer java** fichiers efficacement, vous êtes au bon endroit. Dans le monde actuel axé sur les données, localiser rapidement le bon document peut faire gagner des heures de travail manuel. **GroupDocs.Search for Java** vous offre une méthode simple pour transformer un dossier de fichiers en un index interrogeable, vous permettant d’ajouter des documents à l’index, de supprimer des documents de l’index et de charger des documents depuis le système de fichiers en quelques lignes de code.
 
-Êtes‑vous submergé par une grande quantité de documents et vous demandez **comment indexer rapidement des fichiers java** ? De nombreuses entreprises et particuliers font face à ce défi quotidiennement. **GroupDocs.Search for Java** offre une solution efficace pour rationaliser les recherches de documents, rendant le processus plus rapide et plus gérable.
+Vous trouverez ci‑dessous un guide pas à pas qui commence par la configuration requise, passe par la création et le remplissage d’un index, vous montre comment exécuter des recherches par mots‑clés, et se termine par des opérations de nettoyage comme les suppressions. Plongeons‑nous dedans !
 
-Dans ce tutoriel, nous vous guiderons dans l'utilisation de GroupDocs.Search for Java pour créer un référentiel indexé de vos documents. Vous apprendrez comment charger des documents depuis le système de fichiers, effectuer des recherches, gérer les suppressions et récupérer les données indexées de manière efficace et évolutive.
+## Réponses rapides
+- **Quel est le but principal ?** Indexer et rechercher efficacement les documents Java.  
+- **Quelle bibliothèque est requise ?** GroupDocs.Search for Java (v25.4+).  
+- **Ai‑je besoin d’une licence ?** Un essai gratuit ou une licence temporaire est disponible ; une licence permanente est requise pour la production.  
+- **Puis‑je supprimer des documents de l’index ?** Oui, en utilisant la méthode `delete` avec les clés de document.  
+- **Apache Commons IO est‑il obligatoire ?** Il est recommandé pour les utilitaires de gestion de fichiers.
 
-**Ce que vous apprendrez :**
-- Configurer et paramétrer GroupDocs.Search for Java.  
-- **Créer un index de recherche** et indexer des documents à partir de flux.  
-- Charger des documents depuis le système de fichiers.  
-- **Effectuer une recherche par mot‑clé** sur votre index.  
-- **Comment supprimer des entrées d'index** pour des documents spécifiques.  
-- Récupérer les documents indexés après des suppressions.
+## Qu’est‑ce que “how to index java” ?
+L’indexation des documents Java consiste à créer une structure de données interrogeable (un index) qui associe le contenu des documents à des termes recherchables, permettant une récupération rapide des fichiers pertinents à partir de requêtes par mots‑clés.
 
-Prêt à révolutionner la façon dont vous gérez les recherches de documents ? Commençons par les prérequis !
+## Pourquoi utiliser GroupDocs.Search for Java ?
+- **Vitesse :** Des algorithmes optimisés offrent des résultats de requête rapides même sur de grandes collections.  
+- **Scalabilité :** Gère des milliers de documents sans sacrifier les performances.  
+- **Flexibilité :** Prend en charge de nombreux formats de fichiers et propose le chargement paresseux pour les gros fichiers.  
+- **Facilité d’intégration :** Configuration Maven simple et une API propre et intuitive.
 
-## Quick Answers
-- **Quel est le but principal ?** Indexer et rechercher efficacement des documents Java.  
-- **Quelle bibliothèque est requise ?** GroupDocs.Search for Java (v25.4+).  
-- **Ai‑je besoin d’une licence ?** Un essai gratuit ou une licence temporaire est disponible ; une licence permanente est requise pour la production.  
-- **Puis‑je supprimer des documents de l'index ?** Oui, en utilisant la méthode `delete` avec les clés de document.  
-- **Apache Commons IO est‑il obligatoire ?** Il est recommandé pour les utilitaires de gestion de fichiers.
+## Prérequis
+- **GroupDocs.Search for Java** (version 25.4 ou plus récente).  
+- **Apache Commons IO** pour des utilitaires de fichiers pratiques.  
+- JDK 8 ou supérieur et un IDE tel qu’IntelliJ IDEA ou Eclipse.  
+- Connaissances de base en Java et, éventuellement, familiarité avec Maven.
 
-## What is “how to index java”?
+## Configuration de GroupDocs.Search for Java
 
-L'indexation de documents Java consiste à créer une structure de données recherchable (un index) qui associe le contenu des documents aux termes recherchables, permettant une récupération rapide des fichiers pertinents à partir de requêtes par mots‑clés.
-
-## Why Use GroupDocs.Search for Java?
-- **Vitesse :** Des algorithmes optimisés offrent des résultats de requête rapides même sur de grandes collections.  
-- **Scalabilité :** Gère des milliers de documents sans sacrifier les performances.  
-- **Flexibilité :** Prend en charge divers formats de fichiers et propose le chargement paresseux pour les gros fichiers.  
-- **Facilité d'intégration :** Configuration Maven simple et API claire.
-
-## Prerequisites
-
-### Required Libraries and Dependencies
-- **GroupDocs.Search for Java** : Assurez‑vous que la version 25.4 ou supérieure est installée.  
-- **Apache Commons IO** : Nécessaire pour les utilitaires de gestion de fichiers.
-
-### Environment Setup Requirements
-- Java Development Kit (JDK) 8 ou supérieur.  
-- Environnement de développement intégré (IDE) tel qu'IntelliJ IDEA ou Eclipse.
-
-### Knowledge Prerequisites
-- Compréhension de base de la programmation Java et des concepts orientés objet.  
-- Une familiarité avec Maven pour la gestion des dépendances est bénéfique mais pas obligatoire.
-
-## Setting Up GroupDocs.Search for Java
-
-Configurer votre environnement de projet avec GroupDocs.Search implique les étapes suivantes avec Maven :
-
-**Maven Configuration:**  
-Add the following repository and dependency to your `pom.xml` file:
+### Configuration Maven
+Ajoutez le dépôt et la dépendance à votre `pom.xml` :
 
 ```xml
 <repositories>
@@ -87,17 +64,18 @@ Add the following repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-**Direct Download:**  
-Alternatively, download the latest version directly from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+> **Astuce :** Gardez le numéro de version synchronisé avec la dernière version pour bénéficier des améliorations de performances.
 
-### License Acquisition Steps
-- **Essai gratuit :** Commencez avec un essai gratuit pour tester ses capacités.  
-- **Licence temporaire :** Demandez une licence temporaire pour explorer toutes les fonctionnalités sans limitations.  
-- **Achat :** Envisagez d'acheter si cela répond à vos besoins.
+### Téléchargement direct (si vous préférez ne pas utiliser Maven)
+Vous pouvez également télécharger le dernier JAR depuis le site officiel : [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-**Basic Initialization and Setup:**  
+### Acquisition de licence
+- **Essai gratuit :** Testez la bibliothèque sans clé de licence.  
+- **Licence temporaire :** Demandez‑en une pour une évaluation prolongée.  
+- **Licence complète :** Requise pour les déploiements en production.
 
-Once your environment is ready, initialize GroupDocs.Search like this:
+### Initialisation de base
+Créez une classe Java simple pour vérifier que la bibliothèque se charge correctement :
 
 ```java
 import com.groupdocs.search.*;
@@ -110,19 +88,18 @@ public class DocumentIndexing {
 }
 ```
 
-## How to Index Java Documents Using GroupDocs.Search
+L’exécution de ce programme doit afficher le message de confirmation, indiquant que le dossier d’index est prêt.
 
-### Creating and Indexing Documents
+## Comment ajouter des documents à l’index
 
-**Overview:** Learn how to create an index in a specified folder and add documents from streams, streamlining the **create search index** process.
-
-#### Step 1: Create an Index
+### Étape 1 : Créer un dossier d’index
 ```java
 Index index = new Index("YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\DeleteIndexedDocuments", true);
 ```
-- **Paramètres :** Le premier paramètre est le chemin du répertoire où stocker les index. Le second booléen active la mise à jour automatique de l'index s'il existe.
+- Le premier argument est le dossier où les fichiers d’index seront stockés.  
+- Le deuxième argument (`true`) indique à GroupDocs de créer le dossier s’il n’existe pas et de mettre à jour automatiquement un index existant.
 
-#### Step 2: Load and Add Documents from Stream
+### Étape 2 : Charger un document depuis un flux et l’ajouter
 ```java
 String filePath = "YOUR_DOCUMENT_DIRECTORY\\English.docx";
 DocumentLoader documentLoader = new DocumentLoader(filePath);
@@ -130,13 +107,12 @@ Document document = Document.createLazy(DocumentSourceKind.Stream, documentLoade
 Document[] documents = new Document[]{document};
 index.add(documents, new IndexingOptions());
 ```
-- **Explication :** Ici, vous créez un `DocumentLoader` pour lire le fichier et le préparer à l'indexation. La méthode `createLazy` est utilisée pour gérer efficacement les gros fichiers.
+- `DocumentLoader` (défini plus tard) lit le fichier et fournit une clé unique.  
+- `createLazy` garantit que les gros fichiers sont traités efficacement, en chargeant le contenu uniquement lorsque nécessaire.
 
-### Loading Documents from File System
+## Comment charger des documents depuis le système de fichiers
+Voici un chargeur réutilisable qui lit n’importe quel fichier du disque, extrait ses octets et construit un objet `Document` prêt à être indexé.
 
-**Overview:** Implement a custom loader that reads documents directly from your filesystem using Apache Commons IO utilities.
-
-#### Step 1: Define Document Loader
 ```java
 class DocumentLoader {
     private final String filePath;
@@ -157,93 +133,75 @@ class DocumentLoader {
     }
 }
 ```
-- **Détails :** Cette classe lit le fichier dans un tableau d'octets et crée un objet `Document` à partir de celui‑ci.
 
-### Performing Keyword Search in an Index
+> **Pourquoi c’est important :** Utiliser un chargeur dédié isole les préoccupations du système de fichiers de la logique d’indexation, rendant votre code plus propre et plus facile à tester.
 
-**Overview:** Execute search operations on your indexed documents to retrieve relevant information quickly.
-
-#### Step 1: Execute Search
+## Comment effectuer une recherche par mot‑clé dans un index
 ```java
 String query = "moment";
 SearchResult searchResult1 = index.search(query);
 ```
-- **Explication :** Utilisez la méthode `search` avec une requête texte simple pour obtenir des résultats à partir de vos données indexées. Cette approche est efficace pour les scénarios de **recherche de documents java**.
+- Passez n’importe quelle chaîne de texte à `search` et recevez un `SearchResult` contenant les IDs de documents correspondants, des extraits et des scores de pertinence.
 
-### How to Delete Index Entries
-
-**Overview:** Manage your index by deleting specific documents using their keys.
-
-#### Step 1: Delete Document
+## Comment supprimer des documents de l’index
 ```java
 String[] documentKeys = new String[]{documentLoader.getDocumentKey()};
 DeleteResult deleteResult = index.delete(new UpdateOptions(), documentKeys);
 ```
-- **Paramètres :** Passez le tableau des clés de documents que vous souhaitez supprimer de l'index. `UpdateOptions` permet des stratégies de suppression flexibles.
+- Fournissez les clés des documents que vous souhaitez supprimer.  
+- `UpdateOptions` vous permet de contrôler la façon dont la suppression est appliquée (par ex., immédiate vs. par lots).
 
-### Retrieving Indexed Documents Post‑Deletion
-
-**Overview:** After deleting documents, retrieve a list of remaining indexed files to ensure data integrity.
-
-#### Step 1: Get Remaining Documents
+## Comment récupérer les documents indexés après des suppressions
 ```java
 DocumentInfo[] indexedDocuments2 = index.getIndexedDocuments();
 ```
-- **Explication :** Cette étape aide à vérifier l'état actuel de votre index après toute suppression.
+- Cet appel renvoie la liste actuelle des documents encore présents dans l’index, vous aidant à vérifier que les suppressions ont réussi.
 
-## Practical Applications
+## Applications pratiques
+GroupDocs.Search for Java excelle dans les scénarios tels que :
+1. **Portails de documents d’entreprise** – les employés trouvent les politiques, contrats ou manuels en quelques secondes.  
+2. **Gestion de dossiers juridiques** – les avocats trouvent rapidement les clauses de référence parmi des milliers de PDF et de fichiers Word.  
+3. **Bibliothèques numériques** – les universités offrent une recherche en texte intégral sur les articles de recherche et les thèses.
 
-GroupDocs.Search for Java is versatile, offering numerous use cases such as:
+## Considérations de performance
+- **Optimisez régulièrement** l’index (`index.optimize()`) après des mises à jour massives pour maintenir une vitesse de requête élevée.  
+- **Profitez du chargement paresseux** pour les gros fichiers afin d’éviter les erreurs OutOfMemory.  
+- **Ajustez le tas JVM** en fonction de la distribution des tailles de documents ; une configuration typique utilise `-Xmx2g` pour des charges de travail de taille moyenne.
 
-1. **Gestion documentaire d'entreprise :** Recherchez rapidement les documents de l'entreprise pour améliorer la productivité.  
-2. **Analyse de documents juridiques :** Parcourez efficacement les dossiers et textes juridiques pour trouver les précédents pertinents.  
-3. **Systèmes de catalogage de bibliothèque :** Indexez et gérez de grandes collections de livres et de manuscrits pour un accès plus facile.
+## Problèmes courants et solutions
+| Problème | Cause | Solution |
+|----------|-------|----------|
+| Aucun résultat retourné | Termes de requête non indexés ou mots‑vides filtrés | Vérifiez `IndexingOptions` et ajustez la liste des mots‑vides |
+| Erreurs de mémoire insuffisante | Fichiers volumineux chargés de manière anticipée | Passez à `Document.createLazy` ou augmentez le tas JVM |
+| Les documents supprimés apparaissent toujours | Index non rafraîchi après la suppression | Appelez `index.optimize()` ou rouvrez l’instance d’index |
 
-## Performance Considerations
+## Questions fréquentes
+**Q : Puis‑je indexer les PDF, DOCX et PPTX ensemble ?**  
+**R :** Oui, GroupDocs.Search prend en charge un large éventail de formats dès l’installation.
 
-For optimal performance:
+**Q : Comment la fonction “delete documents from index” fonctionne‑t‑elle en interne ?**  
+**R :** La méthode `delete` supprime les postings pour les clés de document spécifiées et met à jour les structures internes, de sorte que l’index reste cohérent sans reconstruction complète.
 
-- **Optimisation de l'index :** Mettez régulièrement à jour votre index pour refléter les changements récents des documents.  
-- **Gestion de la mémoire :** Utilisez efficacement le ramasse‑miettes de Java en gérant les opérations gourmandes en ressources.  
-- **Scalabilité :** Assurez‑vous que votre stratégie d'indexation peut gérer de gros volumes de données sans dégrader les performances.
+**Q : Existe‑t‑il un moyen de surveiller la taille de l’index ?**  
+**R :** Utilisez `index.getStatistics()` pour obtenir le nombre de documents, la taille totale et d’autres métriques utiles.
 
-## Common Issues and Solutions
+**Q : Dois‑je reconstruire l’ensemble de l’index après chaque suppression ?**  
+**R :** Non. Les suppressions sont incrémentales ; seules les entrées concernées sont retirées.
 
-| Issue | Cause | Solution |
-|-------|-------|----------|
-| **Aucun résultat retourné** | Termes de requête non indexés ou mots‑vides filtrés | Vérifiez `IndexingOptions` et ajustez la liste des mots‑vides |
-| **Erreurs de mémoire insuffisante** | Chargement de fichiers très volumineux sans chargement paresseux | Utilisez `Document.createLazy` ou augmentez la taille du tas JVM |
-| **Les documents supprimés apparaissent toujours** | Index non rafraîchi après la suppression | Appelez `index.optimize()` ou rouvrez l'index |
-
-## Frequently Asked Questions
-
-**Q : Puis‑je indexer des PDF, DOCX et PPTX ensemble ?**  
-R : Oui, GroupDocs.Search prend en charge un large éventail de formats dès l'installation.
-
-**Q : Comment fonctionne « how to delete index » en interne ?**  
-R : La méthode `delete` supprime les entrées basées sur les clés de documents et met à jour les listes d'indexation internes pour garder l'index cohérent.
-
-**Q : Existe‑t‑il un moyen de surveiller la taille de l'index ?**  
-R : Utilisez `index.getStatistics()` pour obtenir des informations sur le nombre de documents et la taille de stockage.
-
-**Q : Dois‑je reconstruire l'intégralité de l'index après chaque suppression ?**  
-R : Non, l'opération `delete` met à jour l'index de façon incrémentielle, en préservant les données existantes.
-
-**Q : Que faire si je dois ré‑indexer tous les documents après un changement de schéma ?**  
-R : Créez une nouvelle instance `Index` avec un chemin de dossier différent et ré‑ajoutez tous les documents.
+**Q : Que faire si je dois ré‑indexer tous les fichiers après un changement de schéma ?**  
+**R :** Créez une nouvelle instance `Index` pointant vers un dossier différent et ajoutez à nouveau tous les documents.
 
 ## Conclusion
+Vous disposez maintenant d’une feuille de route complète pour **how to index java** documents en utilisant GroupDocs.Search for Java — de la configuration de l’environnement, à l’ajout de documents à l’index, leur chargement depuis le système de fichiers, l’exécution de recherches, jusqu’à la suppression et la vérification du contenu de l’index. En intégrant ces étapes dans votre application, vous améliorerez considérablement la découvrabilité des documents et la productivité globale.
 
-À présent, vous devriez bien maîtriser **comment indexer des documents java** et effectuer des recherches rapides à l'aide de GroupDocs.Search for Java. Cette bibliothèque puissante peut transformer votre façon de gérer et de récupérer des informations à partir de grandes collections de documents, en faisant un outil indispensable pour toute organisation.
+**Prochaines étapes :**  
+- Expérimentez avec des requêtes complexes (joker, correspondance floue).  
+- Explorez les fonctionnalités avancées telles que la recherche à facettes, les analyseurs personnalisés et l’indexation des métadonnées.  
 
-**Étapes suivantes :**  
-- Expérimentez avec différents types de documents et des requêtes complexes.  
-- Explorez les fonctionnalités avancées telles que la recherche à facettes, l'indexation des métadonnées et les analyseurs personnalisés.
-
-Prêt à démarrer votre parcours d'indexation ? Mettez en œuvre ces techniques dès aujourd'hui et profitez d'une récupération de documents plus rapide et plus précise !
+Bonne indexation !
 
 ---
 
-**Dernière mise à jour :** 2025-12-29  
-**Testé avec :** GroupDocs.Search Java 25.4  
-**Auteur :** GroupDocs
+**Dernière mise à jour :** 2026-03-01  
+**Testé avec :** GroupDocs.Search Java 25.4  
+**Auteur :** GroupDocs

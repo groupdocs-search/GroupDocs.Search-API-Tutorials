@@ -1,46 +1,46 @@
 ---
-date: '2025-12-29'
-description: Leer hoe u een map in Java kunt opschonen, documentbeheer kunt automatiseren
-  en bestanden kunt hernoemen met GroupDocs.Search voor Java. Verhoog de efficiëntie
-  van uw applicaties.
+date: '2026-03-01'
+description: Leer hoe je een directory in Java kunt opschonen, documentbeheer kunt
+  automatiseren, bestanden in Java kunt hernoemen en bestanden in Java kunt kopiëren,
+  terwijl je een doorzoekbare index maakt met GroupDocs.Search voor Java.
 keywords:
 - Java document indexing
 - GroupDocs.Search for Java
 - automate document management
-title: Map opschonen Java – Indexering en hernoemen automatiseren
+title: Clean Directory Java – Automatiseer documentindexering en -hernoeming met GroupDocs.Search
 type: docs
 url: /nl/java/indexing/automate-document-indexing-groupdocs-search-java/
 weight: 1
 ---
 
-# Clean Directory Java – Automatiseer Documentindexering en Hernoemen met GroupDocs.Search
+# Clean Directory Java – Documentindexering en hernoemen automatiseren met GroupDocs.Search
 
-Als je **clean directory java** moet uitvoeren terwijl je documentindexering en -hernoeming automatiseert, ben je hier op het juiste adres. Handmatig bestanden verplaatsen, verwijderen en indexen bijwerken is foutgevoelig en tijdrovend. In deze tutorial laten we zien hoe je Java het zware werk laat doen, met **GroupDocs.Search for Java** om een doorzoekbare index te maken, bestanden te hernoemen en de index automatisch gesynchroniseerd te houden.
+Als je **clean directory java** moet uitvoeren terwijl je documentindexering en hernoemen automatiseert, ben je hier op de juiste plek. Handmatig bestanden verplaatsen, verwijderen en indexen bijwerken is foutgevoelig en tijdrovend. In deze tutorial laten we zien hoe je Java het zware werk laat doen, met behulp van **GroupDocs.Search for Java** om een doorzoekbare index te maken, bestanden te hernoemen en de index automatisch gesynchroniseerd te houden.
 
-## Quick Answers
-- **Wat betekent “clean directory java”?** Het verwijderen van alle bestanden/mappen binnen een doelmap met Java‑code.  
+## Snelle antwoorden
+- **Wat betekent “clean directory java”?** Alle bestanden/mappen binnen een doelmap verwijderen met Java-code.  
 - **Welke bibliotheek maakt de doorzoekbare index?** GroupDocs.Search for Java.  
-- **Hoe hernoem ik een document en houd ik de index up‑to‑date?** Gebruik `File.renameTo()` en meld de wijziging aan de index met `Notification.createRenameNotification`.  
+- **Hoe hernoem ik een document en houd ik de index up-to-date?** Gebruik `File.renameTo()` en meld de wijziging aan de index met `Notification.createRenameNotification`.  
 - **Kan ik bestanden kopiëren nadat de map is opgeschoond?** Ja – Java Streams kunnen bestanden kopiëren terwijl de index behouden blijft.  
-- **Is een licentie vereist voor productie?** Een geldige GroupDocs.Search‑licentie is nodig voor commercieel gebruik.
+- **Is een licentie vereist voor productie?** Een geldige GroupDocs.Search-licentie is nodig voor commercieel gebruik.
 
 ## Wat is “clean directory java”?
-Een map opschonen in Java betekent programmatisch elk bestand en elke submap binnen een opgegeven map verwijderen. Dit is vaak een noodzakelijke stap vóór het kopiëren van nieuwe bestanden of het herbouwen van een index, zodat verouderde data de zoekresultaten niet beïnvloeden.
+Een map opschonen in Java betekent programmatically elk bestand en sub‑folder binnen een opgegeven map verwijderen. Dit is vaak een noodzakelijke stap vóór het kopiëren van nieuwe bestanden of het opnieuw opbouwen van een index, zodat verouderde gegevens de zoekresultaten niet verstoren.
 
-## Waarom documentindexering en -hernoeming automatiseren?
-- **Documentbeheer‑automatisering** vermindert handmatige inspanning en elimineert menselijke fouten.  
-- Een **create searchable index** stap stelt je in staat om elk document direct op inhoud te vinden.  
-- Het hernoemen van bestanden zonder de index bij te werken zou de zoeknauwkeurigheid breken; automatisering houdt alles consistent.  
+## Waarom documentindexering en hernoemen automatiseren?
+- **Document management automation** vermindert handmatige inspanning en elimineert menselijke fouten.  
+- **Create searchable index** stap stelt je in staat om elk document direct op inhoud te vinden.  
+- Bestanden hernoemen zonder de index bij te werken zou de zoeknauwkeurigheid breken; automatisering houdt alles consistent.  
+- **Rename files java** en **copy files java** bewerkingen worden herhaalbaar en betrouwbaar, vooral in grootschalige omgevingen.
 
-## Prerequisites
-
+## Vereisten
 - **GroupDocs.Search for Java** (Versie 25.4 of later)  
-- JDK 8 + en een IDE zoals IntelliJ IDEA of Eclipse  
-- Basiskennis van Java, met name bestand‑I/O  
+- JDK 8 + en een IDE zoals IntelliJ IDEA of Eclipse  
+- Basiskennis van Java, vooral bestand‑I/O  
 
-## Setting Up GroupDocs.Search for Java
+## GroupDocs.Search voor Java instellen
 
-### Maven Dependency
+### Maven‑afhankelijkheid
 Voeg de repository en afhankelijkheid toe aan je `pom.xml`:
 
 ```xml
@@ -61,14 +61,14 @@ Voeg de repository en afhankelijkheid toe aan je `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
-Download anders de nieuwste versie via [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### Directe download
+Je kunt ook de nieuwste versie downloaden van [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License
-Vraag een gratis proefversie, een tijdelijke evaluatielicentie, of koop een volledige licentie voor productiegebruik.
+### Licentie
+Verkrijg een gratis proefversie, een tijdelijke evaluatielicentie, of koop een volledige licentie voor productiegebruik.
 
-### Basic Initialization
-Maak een `Index`‑instantie die de doorzoekbare data zal bevatten:
+### Basisinitialisatie
+Maak een `Index`‑instantie aan die de doorzoekbare gegevens zal bevatten:
 
 ```java
 import com.groupdocs.search.Index;
@@ -81,9 +81,9 @@ public class Main {
 }
 ```
 
-## Implementation Guide
+## Implementatie‑gids
 
-### 1. Add Documents to Index (create searchable index)
+### 1. Documenten toevoegen aan index (create searchable index)
 
 ```java
 import com.groupdocs.search.Index;
@@ -102,11 +102,11 @@ public class DocumentIndexingAndRenaming {
 }
 ```
 
-*Explanation*:  
+*Uitleg*:  
 - `indexFolder` – waar de indexbestanden worden opgeslagen.  
 - `documentFolder` – de bronmap die de bestanden bevat die je doorzoekbaar wilt maken.  
 
-### 2. Rename a Document and Notify the Index
+### 2. Een document hernoemen en de index informeren (rename files java)
 
 ```java
 import com.groupdocs.search.Notification;
@@ -132,15 +132,15 @@ public class DocumentIndexingAndRenaming {
 }
 ```
 
-*Explanation*:  
-- Java’s `File.renameTo()` voert de fysieke hernoeming uit.  
-- `Notification.createRenameNotification()` vertelt GroupDocs.Search dat de bestandsnaam is gewijzigd, waardoor de index accuraat blijft.  
+*Uitleg*:  
+- Java's `File.renameTo()` voert de fysieke hernoeming uit.  
+- `Notification.createRenameNotification()` meldt aan GroupDocs.Search dat de bestandsnaam is gewijzigd, waardoor de index accuraat blijft.  
 
-## Clean Directory Java – Directory Cleaning and File Copying
+## Clean Directory Java – Map opschonen en bestanden kopiëren
 
-Een map netjes houden vóór een bulk‑kopie voorkomt dubbele of verweesde bestanden. Hieronder twee herbruikbare snippets.
+Een map netjes houden vóór een bulk‑kopie voorkomt dubbele of verweesde bestanden. Hieronder staan twee herbruikbare snippets die **java delete files recursively** en **copy files java** demonstreren.
 
-### Step 1: Delete Folder Contents (delete folder contents)
+### Stap 1: Mapinhoud verwijderen (java delete files recursively)
 
 ```java
 import java.io.File;
@@ -160,11 +160,11 @@ public class DirectoryCleaningAndFileCopying {
 }
 ```
 
-*Explanation*:  
+*Uitleg*:  
 - `Files.walk()` doorloopt elk bestand en elke submap.  
-- Sorteren in omgekeerde volgorde zorgt ervoor dat bestanden worden verwijderd vóór hun bovenliggende mappen, waardoor **delete folder contents** effectief wordt uitgevoerd.
+- Sorteren in omgekeerde volgorde zorgt ervoor dat bestanden worden verwijderd vóór hun bovenliggende mappen, waardoor effectief **delete folder contents** wordt uitgevoerd.
 
-### Step 2: Copy Files (copy files java)
+### Stap 2: Bestanden kopiëren (copy files java)
 
 ```java
 import java.io.IOException;
@@ -193,54 +193,52 @@ public class DirectoryCleaningAndFileCopying {
 }
 ```
 
-*Explanation*:  
+*Uitleg*:  
 - De stream filtert alleen reguliere bestanden en kopieert elk naar de doelmap, waarbij bestaande bestanden indien nodig worden overschreven.  
 
-## Practical Applications
-
+## Praktische toepassingen
 - **Enterprise Document Management** – Automatiseer indexering voor duizenden contracten en houd bestandsnamen gesynchroniseerd.  
 - **Legal Firms** – Hernoem snel dossiers terwijl de doorzoekbare inhoud behouden blijft.  
 - **Content Management Systems** – Gebruik het clean‑directory‑patroon om mediamappen te vernieuwen zonder handmatige opschoning.  
 
-## Performance Considerations
-
+## Prestatie‑overwegingen
 - **Index Size** – Compacteer de index periodiek als deze groot wordt.  
 - **Memory Usage** – Verwerk bestanden in batches om `OutOfMemoryError` te voorkomen.  
-- **Concurrency** – Overweeg voor bulk‑operaties Java’s `ExecutorService` om opschoning en kopiëren parallel uit te voeren.  
+- **Concurrency** – Overweeg voor bulk‑operaties Java's `ExecutorService` om opschonen en kopiëren te paralleliseren.  
 
-## Common Issues & Tips
+## Veelvoorkomende problemen & tips
 
 | Issue | Cause | Fix |
 |-------|-------|-----|
-| Rename fails | File is locked or path invalid | Ensure the file isn’t open elsewhere; use `Files.move` for more reliable renames. |
-| Index not updating | Notification not sent | Always call `index.notifyIndex(notification)` followed by `index.update()`. |
-| Stale search results after copy | Index still points to old files | Re‑add the target folder to the index or call `index.update()` after copying. |
+| Hernoemen mislukt | Bestand is vergrendeld of pad ongeldig | Zorg ervoor dat het bestand niet ergens anders geopend is; gebruik `Files.move` voor betrouwbaardere hernoemingen. |
+| Index wordt niet bijgewerkt | Melding niet verzonden | Roep altijd `index.notifyIndex(notification)` aan, gevolgd door `index.update()`. |
+| Verouderde zoekresultaten na kopiëren | Index wijst nog steeds naar oude bestanden | Voeg de doelmap opnieuw toe aan de index of roep `index.update()` aan na het kopiëren. |
+| Trage opschoning bij grote mappen | Enkelvoudige thread-walk | Gebruik parallelle streams of splits de map in kleinere batches. |
+| Machtigingsfouten | Onvoldoende OS-rechten | Voer de JVM uit met de juiste rechten of pas de map‑ACL's aan. |
 
-## Frequently Asked Questions
+## Veelgestelde vragen
 
 **Q: Kan ik een map opschonen die sub‑mappen bevat?**  
-A: Ja. De `Files.walk()`‑aanpak verwijdert recursief alle geneste bestanden en mappen.
+A: Ja. De `Files.walk()`‑methode verwijdert recursief alle geneste bestanden en mappen.
 
-**Q: Moet ik de hele index opnieuw opbouwen na elke hernoeming?**  
-A: Nee. Het verzenden van een rename‑notification en het aanroepen van `index.update()` is voldoende.
+**Q: Moet ik de volledige index opnieuw opbouwen na elke hernoeming?**  
+A: Nee. Het verzenden van een hernoemingsmelding en het aanroepen van `index.update()` is voldoende.
 
-**Q: Hoe groot mag een map zijn voordat ik prestatie‑limieten bereik?**  
-A: Dat hangt af van het JVM‑geheugen; verwerken in kleinere batches of het gebruik van streams helpt bij grote datasets.
+**Q: Hoe groot mag een map zijn die ik kan opschonen voordat ik prestatie‑limieten bereik?**  
+A: Het hangt af van het JVM‑geheugen; verwerken in kleinere batches of met streams helpt grote datasets te beheren.
 
 **Q: Is GroupDocs.Search gratis voor ontwikkeling?**  
 A: Een gratis proefversie is beschikbaar, maar een betaalde licentie is vereist voor productiegebruik.
 
-**Q: Kan ik deze aanpak gebruiken met andere bestandstypen (bijv. PDFs, DOCX)?**  
-A: Absoluut. GroupDocs.Search ondersteunt vele formaten; voeg gewoon de map met die bestanden toe aan de index.
+**Q: Kan ik deze aanpak gebruiken met andere bestandstypen (bijv. PDF’s, DOCX)?**  
+A: Zeker. GroupDocs.Search ondersteunt veel formaten; voeg gewoon de map met die bestanden toe aan de index.
 
-## Conclusion
+## Conclusie
 
-Je hebt nu een complete, productie‑klare oplossing voor **clean directory java**, het toevoegen van documenten aan een doorzoekbare index, het hernoemen van bestanden en het gesynchroniseerd houden van alles met GroupDocs.Search. Pas deze patronen toe om je documentbeheer‑workflow te automatiseren en te profiteren van snellere, betrouwbaardere zoekervaringen.
-
----
-
-**Last Updated:** 2025-12-29  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs  
+Je hebt nu een complete, productie‑klare oplossing voor **clean directory java**, het toevoegen van documenten aan een doorzoekbare index, het hernoemen van bestanden, en het alles gesynchroniseerd houden met GroupDocs.Search. Pas deze patronen toe om je documentbeheer‑workflow te automatiseren en geniet van snellere, betrouwbaardere zoekervaringen.
 
 ---
+
+**Laatst bijgewerkt:** 2026-03-01  
+**Getest met:** GroupDocs.Search 25.4  
+**Auteur:** GroupDocs

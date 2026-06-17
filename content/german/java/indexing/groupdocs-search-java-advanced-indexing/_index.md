@@ -1,8 +1,8 @@
 ---
-date: '2025-12-29'
-description: Erfahren Sie, wie Sie die Suchleistung mithilfe der erweiterten Indexierungsfunktionen
-  von GroupDocs.Search für Java optimieren, einschließlich Abbruch, asynchroner Vorgänge,
-  Multithreading und Metadatenanpassung.
+date: '2026-03-01'
+description: Erfahren Sie, wie Sie die Suchleistung optimieren und die Suchlatenz
+  mithilfe der erweiterten Indexierungsfunktionen von GroupDocs.Search für Java verbessern,
+  einschließlich Abbruch, asynchroner Vorgänge, Multithreading und Metadatenanpassung.
 keywords:
 - GroupDocs.Search Java
 - advanced indexing features
@@ -14,28 +14,28 @@ url: /de/java/indexing/groupdocs-search-java-advanced-indexing/
 weight: 1
 ---
 
-# Optimieren der Suchleistung mit fortgeschrittenen Indexierungstechniken in GroupDocs.Search für Java
+# Suchleistung optimieren mit fortgeschrittenen Indexierungstechniken in GroupDocs.Search für Java
 
-In der heutigen schnelllebigen digitalen Umgebung ist **die Optimierung der Suchleistung** entscheidend, um den Benutzern sofortige Ergebnisse zu liefern. Egal, ob Sie eine benutzerdefinierte Suchmaschine erstellen oder ein bestehendes Dokumentenverwaltungssystem erweitern, die richtige Indexierungsstrategie kann die Latenz und den Ressourcenverbrauch dramatisch reduzieren. In diesem Tutorial führen wir Sie durch die leistungsstärksten Funktionen von GroupDocs.Search für Java – Abbruch, asynchrone Indexierung, Multi‑Threading und Metadaten‑Anpassung – damit Sie **add documents index** schneller und effizienter durchführen können.
+In der heutigen schnelllebigen digitalen Umgebung ist **die Optimierung der Suchleistung** entscheidend, um den Benutzern sofortige Ergebnisse zu liefern. Egal, ob Sie eine benutzerdefinierte Suchmaschine erstellen oder ein bestehendes Dokumentenmanagementsystem erweitern, die richtige Indexierungsstrategie kann die Latenz dramatisch reduzieren, den Ressourcenverbrauch senken und **die Suchlatenz** überall verbessern. In diesem Tutorial führen wir Sie durch die leistungsstärksten Funktionen von GroupDocs.Search für Java — Abbruch, asynchrone Indexierung, Multithreading und Metadaten‑Anpassung — sodass Sie **add documents index** schneller und effizienter durchführen können.
 
 **Was Sie lernen werden**
 
-- Wie man einen Indexierungsvorgang nach einer festgelegten Zeit abbricht
-- Durchführen asynchroner Indexierungsvorgänge und Handhabung von Statusänderungen
-- Konfigurieren von Multi‑Threading für schnellere Indexierung
-- Anpassen von Metadaten‑Indexierungsoptionen
+- Wie Sie einen Indexierungsvorgang nach einer festgelegten Zeit abbrechen  
+- Asynchrone Indexierung durchführen und Statusänderungen verarbeiten  
+- Multithreading für schnellere Indexierung konfigurieren  
+- Optionen zur Metadaten‑Indexierung anpassen  
 
 Stellen wir sicher, dass Sie alles haben, was Sie benötigen, bevor wir in den Code eintauchen.
 
-## Prerequisites
+## Voraussetzungen
 
-- **GroupDocs.Search Library** – Version 25.4 oder höher.  
-- **Java Development Environment** – JDK 8 oder höher wird empfohlen.  
+- **GroupDocs.Search Library** — Version 25.4 oder neuer.  
+- **Java Development Environment** — JDK 8 oder höher wird empfohlen.  
 - Grundlegende Kenntnisse in Java und dem Konzept der Indexierung.
 
-### Setting Up GroupDocs.Search for Java
+### Einrichtung von GroupDocs.Search für Java
 
-#### Maven Installation
+#### Maven-Installation
 
 Fügen Sie das Repository und die Abhängigkeit zu Ihrer `pom.xml`‑Datei hinzu:
 
@@ -57,13 +57,13 @@ Fügen Sie das Repository und die Abhängigkeit zu Ihrer `pom.xml`‑Datei hinzu
 </dependencies>
 ```
 
-#### Direct Download
+#### Direkter Download
 
-Alternativ laden Sie das neueste JAR von [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) herunter.
+Alternativ laden Sie das neueste JAR von [GroupDocs.Search für Java Releases](https://releases.groupdocs.com/search/java/) herunter.
 
-**License Acquisition** – Beginnen Sie mit einer kostenlosen Testversion oder beantragen Sie eine temporäre Lizenz, um das vollständige Funktionsset freizuschalten.
+**Lizenzbeschaffung** — Starten Sie mit einer kostenlosen Testversion oder fordern Sie eine temporäre Lizenz an, um das vollständige Funktionsset freizuschalten.
 
-### Basic Initialization and Setup
+### Grundlegende Initialisierung und Einrichtung
 
 ```java
 import com.groupdocs.search.*;
@@ -79,30 +79,34 @@ public class IndexSetup {
 }
 ```
 
-## Quick Answers
+## Schnelle Antworten
 - **Was bewirkt der Abbruch?** Stoppt die Indexierung nach einer festgelegten Zeit, um Ressourcen freizugeben.  
-- **Kann ich Dokumente asynchron indexieren?** Ja – setzen Sie `options.setAsync(true)`.  
-- **Wie viele Threads kann ich verwenden?** Jede positive ganze Zahl; typische Werte liegen bei 2‑4 für die meisten Server.  
-- **Ist die Metadaten‑Indexierung optional?** Absolut – Sie können sie pro Feld aktivieren oder feinjustieren.  
+- **Kann ich Dokumente asynchron indexieren?** Ja — setzen Sie `options.setAsync(true)`.  
+- **Wie viele Threads kann ich verwenden?** Jede positive ganze Zahl; typische Werte sind 2‑4 für die meisten Server.  
+- **Ist die Metadaten‑Indexierung optional?** Absolut — Sie können sie pro Feld aktivieren oder feinjustieren.  
 - **Benötige ich eine Lizenz für diese Funktionen?** Eine Testversion reicht für Tests; für die Produktion ist eine Voll‑Lizenz erforderlich.
 
-## Was bedeutet „Optimieren der Suchleistung“ in diesem Kontext?
+## Was bedeutet „Suchleistung optimieren“ in diesem Kontext?
 
-Die Optimierung der Suchleistung bedeutet, den Indexierungsprozess so zu konfigurieren, dass er die richtige Menge an CPU, Speicher und Zeit verbraucht und gleichzeitig die relevantesten Ergebnisse sofort liefert. Durch die Steuerung von Abbruch, asynchroner Ausführung, Threading und Metadaten‑Verarbeitung beeinflussen Sie direkt, wie schnell die Engine **add documents index** kann und auf Abfragen reagiert.
+Die Optimierung der Suchleistung bedeutet, den Indexierungsprozess so zu konfigurieren, dass er die richtige Menge an CPU, Speicher und Zeit verbraucht und gleichzeitig die relevantesten Ergebnisse sofort liefert. Durch die Steuerung von Abbruch, asynchroner Ausführung, Thread‑Management und Metadaten‑Handling beeinflussen Sie direkt, wie schnell die Engine **add documents index** kann und auf Abfragen reagiert.
 
 ## Warum fortgeschrittene Indexierungsfunktionen verwenden?
 
-- **Reduzierte Latenz** – Asynchrone und multithreaded Indexierung hält Ihre Anwendung reaktionsfähig.  
-- **Besseres Ressourcen‑Management** – Der Abbruch verhindert unkontrollierte Prozesse.  
-- **Gezielte Suchrelevanz** – Metadaten‑Optionen ermöglichen es, die wichtigsten Informationen hervorzuheben.  
+- **Reduzierte Latenz** — Asynchrone und multithreaded Indexierung hält Ihre Anwendung reaktionsfähig.  
+- **Besseres Ressourcen‑Management** — Abbruch verhindert unkontrollierte Prozesse.  
+- **Gezielte Suchrelevanz** — Metadaten‑Optionen ermöglichen das Hervorheben der wichtigsten Informationen.  
 
-## Implementation Guide
+## Wie verbessert man die Suchlatenz mit fortgeschrittener Indexierung?
 
-### Cancellation Property
+Wenn Sie **die Suchlatenz verbessern** möchten, kombinieren Sie die vorgestellten Funktionen: lange laufende Jobs abbrechen, Indexierung im Hintergrund ausführen und die Arbeit auf mehrere CPU‑Kerne verteilen. Dieser mehrgleisige Ansatz liefert meist die größten Geschwindigkeitsgewinne.
 
-**Übersicht** – Stoppt die Indexierung nach einer festgelegten Dauer, um eine Überbeanspruchung von Ressourcen zu vermeiden.
+## Implementierungsleitfaden
 
-#### Step 1: Set Up the Environment
+### Abbruch‑Eigenschaft
+
+**Übersicht** — Abbruch der Indexierung nach einer festgelegten Dauer, um übermäßigen Ressourcenverbrauch zu vermeiden.
+
+#### Schritt 1: Umgebung einrichten
 
 ```java
 import com.groupdocs.search.*;
@@ -112,7 +116,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\CancellationProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Create Indexing Options with Cancellation
+#### Schritt 2: Indexierungsoptionen mit Abbruch erstellen
 
 ```java
 // Create an instance of Index and IndexingOptions
@@ -132,11 +136,11 @@ index.add(documentFolder, options);
 - `setCancellation()` aktiviert die Funktion.  
 - `cancelAfter(int milliseconds)` definiert das Timeout (3 Sekunden in diesem Beispiel).
 
-### Asynchronous Property
+### Asynchrone Eigenschaft
 
-**Übersicht** – Führt die Indexierung in einem Hintergrund‑Thread aus und lauscht auf Statusänderungen.
+**Übersicht** — Indexierung in einem Hintergrund‑Thread ausführen und auf Statusänderungen hören.
 
-#### Step 1: Set Up the Environment
+#### Schritt 1: Umgebung einrichten
 
 ```java
 import com.groupdocs.search.*;
@@ -146,7 +150,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\IsAsyncProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Subscribe to Status Changed Event
+#### Schritt 2: Auf das Ereignis StatusChanged abonnieren
 
 ```java
 Index index = new Index(indexFolder);
@@ -162,7 +166,7 @@ index.getEvents().StatusChanged.add(new EventHandler<BaseIndexEventArgs>() {
 });
 ```
 
-#### Step 3: Configure Asynchronous Options
+#### Schritt 3: Asynchrone Optionen konfigurieren
 
 ```java
 IndexingOptions options = new IndexingOptions();
@@ -171,11 +175,11 @@ options.setAsync(true);
 index.add(documentFolder, options);
 ```
 
-### Threads Property
+### Thread‑Eigenschaft
 
-**Übersicht** – Beschleunigt die Indexierung durch Nutzung mehrerer CPU‑Kerne.
+**Übersicht** — Indexierung beschleunigen, indem mehrere CPU‑Kerne genutzt werden.
 
-#### Step 1: Set Up Environment
+#### Schritt 1: Umgebung einrichten
 
 ```java
 import com.groupdocs.search.*;
@@ -185,7 +189,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\ThreadsProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Configure Multi‑threading
+#### Schritt 2: Multithreading konfigurieren
 
 ```java
 Index index = new Index(indexFolder);
@@ -197,11 +201,11 @@ options.setThreads(2);
 index.add(documentFolder, options);
 ```
 
-### Metadata Indexing Options Property
+### Metadaten‑Indexierungsoptionen‑Eigenschaft
 
-**Übersicht** – Feinabstimmung, welche Dokumenten‑Metadaten indexiert werden und wie sie gespeichert werden.
+**Übersicht** — Feinabstimmung, welche Dokumenten‑Metadaten indexiert werden und wie sie gespeichert werden.
 
-#### Step 1: Set Up Environment
+#### Schritt 1: Umgebung einrichten
 
 ```java
 import com.groupdocs.search.*;
@@ -211,7 +215,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\MetadataIndexingOptionsProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Configure Metadata Options
+#### Schritt 2: Metadaten‑Optionen konfigurieren
 
 ```java
 Index index = new Index(indexFolder);
@@ -228,50 +232,50 @@ options.getMetadataIndexingOptions().setMaxDoublesToIndexField(10);
 index.add(documentFolder, options);
 ```
 
-## Practical Applications
+## Praktische Anwendungen
 
-1. **Dokumentenverwaltungssysteme** – Verwenden Sie asynchrone Indexierung, um die UI reaktionsfähig zu halten, während große Stapel im Hintergrund verarbeitet werden.  
-2. **Content‑Suchmaschinen** – Setzen Sie den Abbruch ein, um zu verhindern, dass langlaufende Jobs während Spitzenlasten Serverressourcen beanspruchen.  
-3. **Groß‑skalige Ingestion‑Pipelines** – Nutzen Sie Multi‑Threading, um **add documents index** in großem Umfang durchzuführen und die Verarbeitungszeit drastisch zu verkürzen.
+1. **Dokumenten‑Management‑Systeme** — Verwenden Sie asynchrone Indexierung, um die UI reaktionsfähig zu halten, während große Stapel im Hintergrund verarbeitet werden.  
+2. **Content‑Suchmaschinen** — Setzen Sie den Abbruch ein, um lange laufende Jobs während Spitzenlasten nicht Ressourcen blockieren zu lassen.  
+3. **Large‑Scale‑Ingestion‑Pipelines** — Nutzen Sie Multithreading, um **add documents index** in großem Maßstab durchzuführen und die Verarbeitungszeit drastisch zu verkürzen.
 
-## Performance Considerations
+## Leistungsüberlegungen
 
-- **Thread‑Management** – Überwachen Sie die CPU‑Auslastung; zu viele Threads können Overhead durch Kontextwechsel verursachen.  
-- **Speicherverbrauch** – Metadaten‑Grenzwerte (z. B. `setMaxBytesToIndexField`) helfen, den Speicherverbrauch vorhersehbar zu halten.  
-- **Garbage Collection** – Verwenden Sie geeignete JVM‑Flags (`-Xmx`, `-XX:+UseG1GC`) beim Indexieren großer Korpora.
+- **Thread‑Management** — CPU‑Auslastung überwachen; zu viele Threads können Kontext‑Switch‑Overhead verursachen.  
+- **Speicher‑Fußabdruck** — Metadaten‑Grenzwerte (z. B. `setMaxBytesToIndexField`) helfen, den Speicherverbrauch vorhersehbar zu halten.  
+- **Garbage Collection** — Verwenden Sie geeignete JVM‑Flags (`-Xmx`, `-XX:+UseG1GC`) bei der Indexierung riesiger Korpora.
 
-## Common Issues and Solutions
+## Häufige Probleme und Lösungen
 
 | Symptom | Wahrscheinliche Ursache | Lösung |
 |---------|--------------------------|--------|
-| Indexierung endet nie | Abbruch zu niedrig eingestellt | Erhöhen Sie den `cancelAfter`‑Wert oder entfernen Sie den Abbruch für lange Jobs |
-| Keine Status‑Updates im Async‑Modus | Ereignis‑Handler nicht korrekt angebunden | Stellen Sie sicher, dass `index.getEvents().StatusChanged.add(...)` vor `index.add` aufgerufen wird |
+| Indexierung endet nie | Abbruch zu niedrig eingestellt | `cancelAfter`‑Wert erhöhen oder den Abbruch für lange Jobs entfernen |
+| Keine Status‑Updates im Async‑Modus | Ereignis‑Handler nicht korrekt angehängt | Sicherstellen, dass `index.getEvents().StatusChanged.add(...)` vor `index.add` aufgerufen wird |
 | Out‑of‑Memory‑Fehler | Zu viele Threads oder hohe Metadaten‑Grenzwerte | `options.setThreads` reduzieren und Metadaten‑Feld‑Grenzwerte senken |
-| Fehlende Metadaten in den Ergebnissen | Metadaten‑Indexierung deaktiviert | Überprüfen Sie, ob `options.getMetadataIndexingOptions()` konfiguriert ist und nicht auf das Ignorieren von Feldern eingestellt ist |
+| Metadaten fehlen in den Ergebnissen | Metadaten‑Indexierung deaktiviert | `options.getMetadataIndexingOptions()` prüfen und sicherstellen, dass Felder nicht ignoriert werden |
 
-## Frequently Asked Questions
+## Häufig gestellte Fragen
 
-**F: Wie erhalte ich eine temporäre Lizenz für GroupDocs.Search?**  
+**Q: Wie erhalte ich eine temporäre Lizenz für GroupDocs.Search?**  
 A: Besuchen Sie die [temporäre Lizenzseite von GroupDocs](https://purchase.groupdocs.com/temporary-license/).
 
-**F: Kann ich einen Indexierungsvorgang mitten im Prozess abbrechen?**  
-A: Ja – verwenden Sie die Abbruch‑Eigenschaft mit `cancelAfter()` oder rufen Sie `Cancellation.cancel()` programmgesteuert auf.
+**Q: Kann ich einen Indexierungsvorgang mittendrin abbrechen?**  
+A: Ja — verwenden Sie die Abbruch‑Eigenschaft mit `cancelAfter()` oder rufen Sie `Cancellation.cancel()` programmgesteuert auf.
 
-**F: Was sind einige Anwendungsfälle für asynchrone Indexierung?**  
-A: Echtzeit‑Dokumentenabruf, Hintergrund‑Batch‑Verarbeitung und UI‑reaktionsfähige Anwendungen profitieren von asynchroner Indexierung.
+**Q: Welche Anwendungsfälle gibt es für asynchrone Indexierung?**  
+A: Echtzeit‑Dokumentenabruf, Hintergrund‑Batch‑Verarbeitung und UI‑responsive Anwendungen profitieren von asynchroner Indexierung.
 
-**F: Ist es sicher, die Thread‑Anzahl auf einem geteilten Server zu erhöhen?**  
-A: Erhöhen Sie schrittweise und überwachen Sie die CPU‑Auslastung; in stark geteilten Umgebungen halten Sie die Thread‑Anzahl moderat (2‑4).
+**Q: Ist es sicher, die Thread‑Anzahl auf einem geteilten Server zu erhöhen?**  
+A: Erhöhen Sie schrittweise und überwachen Sie die CPU‑Last; in stark geteilten Umgebungen sollten Sie die Thread‑Anzahl modest halten (2‑4).
 
-**F: Wie beeinflusst die Metadaten‑Indexierung die Suchrelevanz?**  
-A: Richtig indexierte Metadaten (Autor, Erstellungsdatum, Tags) können in Abfragen höher gewichtet werden, wodurch die Ergebnisgenauigkeit verbessert wird.
+**Q: Wie wirkt sich die Metadaten‑Indexierung auf die Suchrelevanz aus?**  
+A: Richtig indexierte Metadaten (Autor, Erstellungsdatum, Tags) können in Abfragen höher gewichtet werden, wodurch die Ergebnisgenauigkeit steigt.
 
-## Conclusion
+## Fazit
 
-Durch die Nutzung dieser fortgeschrittenen Funktionen von GroupDocs.Search für Java werden Sie **die Suchleistung optimieren** in einer Vielzahl von Szenarien – von schneller Dokumenten‑Ingestion bis hin zu feinkörniger Metadaten‑Steuerung. Experimentieren Sie mit verschiedenen Konfigurationen, überwachen Sie den Ressourcenverbrauch und passen Sie die Einstellungen an Ihre spezifische Arbeitslast an, um die besten Ergebnisse zu erzielen.
+Durch die Nutzung dieser fortgeschrittenen Funktionen von GroupDocs.Search für Java optimieren Sie die Suchleistung in verschiedensten Szenarien — von schneller Dokumenten‑Ingestion bis hin zur feinkörnigen Metadaten‑Steuerung. Experimentieren Sie mit unterschiedlichen Konfigurationen, überwachen Sie den Ressourcenverbrauch und passen Sie die Einstellungen an Ihre spezifische Arbeitslast an, um die besten Ergebnisse zu erzielen.
 
 ---
 
-**Last Updated:** 2025-12-29  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**Zuletzt aktualisiert:** 2026-03-01  
+**Getestet mit:** GroupDocs.Search 25.4 für Java  
+**Autor:** GroupDocs
