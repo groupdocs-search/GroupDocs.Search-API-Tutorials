@@ -1,58 +1,55 @@
 ---
-date: '2025-12-19'
-description: Naučte se, jak implementovat filtr přípon souborů Java pomocí GroupDocs.Search
+date: '2026-02-21'
+description: Naučte se, jak implementovat filtr přípon souborů v Javě pomocí GroupDocs.Search
   pro Javu, zahrnující logické operátory, data vytvoření/úpravy a filtry cest.
 keywords:
 - Java File Filtering
 - GroupDocs.Search
 - Logical AND OR NOT Filters
-title: Filtr přípony souboru Java pomocí GroupDocs.Search – Průvodce
+title: Filtr přípon souborů v Javě s GroupDocs.Search – Průvodce
 type: docs
 url: /cs/java/advanced-features/master-java-file-filtering-groupdocs-search/
 weight: 1
 ---
 
-# Mistrovství filtru přípony souboru java s GroupDocs.Search
+# Mistrovství filtru rozšíření souboru java s GroupDocs.Search
 
-Správa rostoucího úložiště dokumentů může rychle přerůst v přetížení. Ať už potřebujete indexovat jen konkrétní typy dokumentů nebo vyloučit nepodstatné soubory, **java file extension filter** vám poskytuje jemno‑granulární kontrolu nad tím, co se zpracuje. V tomto průvodci vás provedeme nastavením GroupDocs.Search for Java a ukážeme, jak kombinovat filtrování podle přípony souboru s logickými operátory AND, OR a NOT, stejně jako s filtry pro časové rozmezí a cestu.
+Správa rostoucího úložiště dokumentů může rychle přerůst v přetížení, zejména když potřebujete indexovat jen určité typy souborů. **The java file extension filter** vám umožní říci GroupDocs.Search přesně, které rozšíření zahrnout nebo vyloučit, a poskytuje vám přesnou kontrolu nad vaším indexovacím procesem. V tomto průvodci vás provedeme nastavením GroupDocs.Search pro Java a ukážeme, jak kombinovat filtrování rozšíření souborů s logickými operátory AND, OR a NOT, stejně jako s filtry pro časové rozmezí a cesty.
 
 ## Rychlé odpovědi
-- **Co je java file extension filter?** Konfigurace, která říká GroupDocs.Search, které přípony souborů zahrnout nebo vyloučit během indexování.  
-- **Která knihovna poskytuje tuto funkci?** GroupDocs.Search for Java.  
-- **Potřebuji licenci?** Bezplatná zkušební verze stačí pro vyhodnocení; pro produkční nasazení je vyžadována plná licence.  
-- **Mohu kombinovat filtry?** Ano – můžete řetězit filtry pro příponu, datum, velikost a cestu pomocí logiky AND, OR, NOT.  
-- **Je kompatibilní s Maven?** Naprosto – přidejte závislost GroupDocs.Search do svého `pom.xml`.
+- **What is the java file extension filter?** Konfigurace, která říká GroupDocs.Search, které rozšíření souborů zahrnout nebo vyloučit během indexování.  
+- **Which library provides this feature?** GroupDocs.Search for Java.  
+- **Do I need a license?** Bezplatná zkušební verze funguje pro hodnocení; plná licence je vyžadována pro produkci.  
+- **Can I combine filters?** Ano – můžete řetězit filtry rozšíření, data, velikosti a cesty s logikou AND, OR, NOT.  
+- **Is it Maven‑compatible?** Naprosto – přidejte závislost GroupDocs.Search do vašeho `pom.xml`.
 
-## Úvod
+## Co je java file extension filter?
+A **java file extension filter** je sada pravidel, která vyhodnocuje rozšíření každého souboru před jeho odesláním do indexovacího enginu. Zadáním rozšíření jako `.txt`, `.pdf` nebo `.epub` můžete **include files by extension** nebo **exclude files by extension**, aby byl váš index zaměřený a výsledky vyhledávání relevantní.
 
-Máte potíže s efektivní správou rostoucího úložiště souborů? Ať už potřebujete organizovat dokumenty podle typu nebo během indexování filtrovat nepotřebné soubory, může být úkol bez správných nástrojů náročný. **GroupDocs.Search for Java** je pokročilá knihovna pro vyhledávání, která tyto výzvy zjednodušuje díky výkonným možnostem filtrování souborů. Tento tutoriál vás provede implementací technik filtrování souborů .NET pomocí GroupDocs.Search, se zaměřením na logické filtry AND, OR a NOT.
+## Proč používat filtrování rozšíření souborů s GroupDocs.Search?
+- **Performance:** Přeskakování nechtěných souborů snižuje I/O a zrychluje indexování.  
+- **Storage savings:** Do indexu jsou uloženy jen relevantní dokumenty, což snižuje využití disku.  
+- **Compliance:** Zabraňuje neúmyslnému indexování důvěrných nebo nepodporovaných typů souborů.  
+- **Flexibility:** Kombinujte s funkcemi **date range filter java** pro cílení souborů vytvořených nebo upravených v konkrétních obdobích.
 
-### Co se naučíte
-- Nastavení GroupDocs.Search ve vašem Java prostředí  
-- Implementace různých filtrů: File Extension, Logical Operators (AND, OR, NOT), Creation Time, Modification Time, File Path a Length  
-- Praktické aplikace těchto filtrů pro efektivní správu dokumentů  
-- Tipy na optimalizaci výkonu pro úlohy indexování ve velkém měřítku  
-
-Připraveni odemknout plný potenciál filtrování souborů v Javě? Pojďme nejprve projít požadavky.
-
-## Požadavky
+## Předpoklady
 
 Než začneme, ujistěte se, že máte následující:
 
 ### Požadované knihovny a závislosti
 - **GroupDocs.Search for Java**: Verze 25.4 nebo novější  
-- **Java Development Kit (JDK)**: Ujistěte se, že máte nainstalovanou kompatibilní verzi.
+- **Java Development Kit (JDK)**: Nainstalovaná kompatibilní verze  
 
 ### Nastavení prostředí
-- Integrované vývojové prostředí (IDE): Použijte IntelliJ IDEA, Eclipse nebo jakékoli jiné IDE, které podporuje Maven projekty.
+- Integrated Development Environment (IDE): IntelliJ IDEA, Eclipse nebo jakékoli Maven‑compatible IDE.
 
 ### Předpoklady znalostí
-- Základní znalost programování v Javě  
-- Znalost operací souborového I/O v Javě  
-- Porozumění regulárním výrazům a manipulacím s datum‑časem  
+- Základní programování v Javě  
+- Znalost souborového I/O v Javě  
+- Porozumění regulárním výrazům a zpracování data‑času  
 
 ## Nastavení GroupDocs.Search pro Java
-Abyste mohli začít používat GroupDocs.Search, musíte jej zahrnout jako závislost do svého projektu. Zde je postup:
+Pro zahájení používání GroupDocs.Search musíte zahrnout tuto knihovnu jako závislost ve vašem projektu.
 
 ### Maven konfigurace
 Přidejte následující konfiguraci repozitáře a závislosti do souboru `pom.xml`:
@@ -76,15 +73,15 @@ Přidejte následující konfiguraci repozitáře a závislosti do souboru `pom.
 ```
 
 ### Přímé stažení
-Alternativně si stáhněte nejnovější verzi přímo z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternativně stáhněte nejnovější verzi přímo z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### Získání licence
-1. **Free Trial**: Začněte s bezplatnou zkušební verzí a prozkoumejte funkce GroupDocs.Search.  
-2. **Temporary License**: Požádejte o dočasnou licenci pro přístup k plné funkčnosti bez omezení.  
-3. **Purchase**: Pro dlouhodobé používání zakupte předplatné.  
+1. **Free Trial** – prozkoumejte funkce bez nákladů.  
+2. **Temporary License** – získáte plnou funkčnost na omezené období.  
+3. **Purchase** – získáte trvalou licenci pro produkční použití.  
 
 ### Základní inicializace a nastavení
-Po přidání knihovny inicializujte své indexovací prostředí:
+Jakmile je knihovna přidána, inicializujte své indexovací prostředí:
 
 ```java
 import com.groupdocs.search.*;
@@ -94,96 +91,98 @@ Index index = new Index(indexFolder);
 ```
 
 ## Průvodce implementací
-Nyní se podívejme, jak implementovat různé funkce filtrování souborů pomocí GroupDocs.Search.
+Níže se ponoříme do každého typu filtru, vysvětlíme **proč je důležitý** a poskytneme krok‑za‑krokem kód, který můžete zkopírovat do svého projektu.
 
-### Filtrování podle přípony souboru
-Filtrujte soubory podle jejich přípon během indexování. Tato funkce je užitečná pro zpracování pouze konkrétních typů dokumentů, jako jsou FB2, EPUB a TXT.
+### Filtrování rozšíření souborů
+Filtrujte soubory podle jejich rozšíření během indexování. To je ideální, když chcete zpracovávat jen e‑knihy (`.fb2`, `.epub`) a prosté textové soubory (`.txt`).
 
 #### Přehled
-Filtrujte dokumenty podle přípony souboru pomocí vlastní konfigurace filtru.
+Použijte `DocumentFilter.createFileExtension` k vytvoření whitelistu rozšíření.
 
 #### Kroky implementace
-1. **Vytvořte filtr**:
-    
+1. **Create Filter**:
+
     ```java
     DocumentFilter filter = DocumentFilter.createFileExtension(".fb2", ".epub", ".txt");
     IndexSettings settings = new IndexSettings();
     settings.setDocumentFilter(filter);
     ```
 
-2. **Inicializujte index a přidejte dokumenty**:
-    
+2. **Initialize Index and Add Documents**:
+
     ```java
     Index index = new Index("YOUR_OUTPUT_DIRECTORY\\FileExtensionFilter", settings);
     index.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
 ### Logický NOT filtr
-Vyloučte konkrétní přípony souborů během indexování, například HTM, HTML a PDF.
+Vyloučte konkrétní rozšíření, jako jsou webové stránky a PDF, pokud nejsou ve vašem vyhledávacím scénáři potřeba.
 
 #### Kroky implementace
-1. **Vytvořte vylučovací filtr**:
-    
+1. **Create Exclusion Filter**:
+
     ```java
     DocumentFilter filterNot = DocumentFilter.createFileExtension(".htm", ".html", ".pdf");
     DocumentFilter invertedFilter = DocumentFilter.createNot(filterNot);
     ```
 
-2. **Použijte v nastavení indexu**:
-    
+2. **Apply to Index Settings**:
+
     ```java
     IndexSettings settingsNot = new IndexSettings();
     settingsNot.setDocumentFilter(invertedFilter);
     ```
 
-3. **Přidejte dokumenty**:
-    
+3. **Add Documents**:
+
     ```java
     Index indexNot = new Index("YOUR_OUTPUT_DIRECTORY\\LogicalNotFilter", settingsNot);
     indexNot.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
 ### Logický AND filtr
-Kombinujte více kritérií tak, aby byly zahrnuty jen soubory, které splňují všechny zadané podmínky.
+Kombinujte několik podmínek—datum vytvoření, rozšíření a velikost souboru—tak, aby **only files that meet all criteria** byly indexovány.
 
 #### Přehled
-Použijte logické operace AND k filtrování souborů na základě času vytvoření, přípony souboru a délky.
+`DocumentFilter.createAnd` spojuje více filtrů do jedné pravidla.
 
 #### Kroky implementace
-1. **Definujte filtry**:
-    
+1. **Define Filters**:
+
     ```java
     DocumentFilter filter1 = DocumentFilter.createCreationTimeRange(Utils.createDate(2015, 1, 1), Utils.createDate(2016, 1, 1));
     DocumentFilter filter2 = DocumentFilter.createFileExtension(".txt");
     DocumentFilter filter3 = DocumentFilter.createFileLengthUpperBound(8 * 1024 * 1024);
     ```
 
-2. **Kombinujte filtry**:
-    
+2. **Combine Filters**:
+
     ```java
     DocumentFilter finalFilterAnd = DocumentFilter.createAnd(filter1, filter2, filter3);
     IndexSettings settingsAnd = new IndexSettings();
     settingsAnd.setDocumentFilter(finalFilterAnd);
     ```
 
-3. **Indexujte dokumenty**:
-    
+3. **Index Documents**:
+
     ```java
     Index indexAnd = new Index("YOUR_OUTPUT_DIRECTORY\\LogicalAndFilter", settingsAnd);
     indexAnd.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
 ### Logický OR filtr
+Zahrňte soubory, které splňují **any** z uvedených podmínek—užitečné, když chcete zachytit jak malé textové soubory, tak větší netextové soubory.
+
 #### Kroky implementace
-1. **Definujte filtry**:
-    
+1. **Define Filters**:
+
     ```java
     DocumentFilter txtFilter = DocumentFilter.createFileExtension(".txt");
     DocumentFilter notTxtFilter = DocumentFilter.createNot(txtFilter);
     ```
 
-2. **Kombinujte filtry s logickými podmínkami**:
-    
+2. **Combine Filters with Logical Conditions**:
+
     ```java
     DocumentFilter bound5Filter = DocumentFilter.createFileLengthUpperBound(5 * 1024 * 1024);
     DocumentFilter bound10Filter = DocumentFilter.createFileLengthUpperBound(10 * 1024 * 1024);
@@ -192,8 +191,8 @@ Použijte logické operace AND k filtrování souborů na základě času vytvo�
     DocumentFilter notTxtSizeFilter = DocumentFilter.createAnd(notTxtFilter, bound10Filter);
     ```
 
-3. **Dokončete OR filtr**:
-    
+3. **Finalize OR Filter**:
+
     ```java
     DocumentFilter finalFilterOr = DocumentFilter.createOr(txtSizeFilter, notTxtSizeFilter);
 
@@ -203,87 +202,89 @@ Použijte logické operace AND k filtrování souborů na základě času vytvo�
     indexOr.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Filtry podle času vytvoření
-Filtrujte soubory podle času vytvoření tak, aby byly zahrnuty jen ty v určeném časovém rozmezí.
+### Filtry času vytvoření
+Cílové soubory vytvořené v konkrétním období—klasický scénář **date range filter java**.
 
 #### Kroky implementace
-1. **Definujte filtr pro časové rozmezí**:
-    
+1. **Define Date Range Filter**:
+
     ```java
     DocumentFilter filter3CTime = DocumentFilter.createCreationTimeRange(Utils.createDate(2017, 1, 1), Utils.createDate(2018, 6, 15));
     IndexSettings settingsCTime = new IndexSettings();
     settingsCTime.setDocumentFilter(filter3CTime);
     ```
 
-2. **Indexujte dokumenty**:
-    
+2. **Index Documents**:
+
     ```java
     Index indexCTime = new Index("YOUR_OUTPUT_DIRECTORY\\CreationTimeFilters", settingsCTime);
     indexCTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Filtry podle času úpravy
-Vyloučte soubory upravené po konkrétním datu.
+### Filtry času úpravy
+Vyloučte soubory, které byly upraveny po určitém datu ořezu.
 
 #### Kroky implementace
-1. **Definujte filtr**:
-    
+1. **Define Filter**:
+
     ```java
     DocumentFilter filter2MTime = DocumentFilter.createModificationTimeUpperBound(Utils.createDate(2018, 6, 15));
     IndexSettings settingsMTime = new IndexSettings();
     settingsMTime.setDocumentFilter(filter2MTime);
     ```
 
-2. **Indexujte dokumenty**:
-    
+2. **Index Documents**:
+
     ```java
     Index indexMTime = new Index("YOUR_OUTPUT_DIRECTORY\\ModificationTimeFilters", settingsMTime);
     indexMTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Filtrování podle cesty souboru
-Filtrujte soubory podle jejich cest, aby byly zahrnuty jen soubory umístěné ve specifických adresářích.
+### Filtrování cesty souboru
+Omezte indexování na soubory umístěné ve specifických složkách nebo odpovídající vzoru—ideální pro **include files by extension** v rámci konkrétní hierarchie adresářů.
 
 #### Kroky implementace
-1. **Definujte filtr cesty souboru**:
-    
+1. **Define File Path Filter**:
+
     ```java
     DocumentFilter pathFilter = DocumentFilter.createPath("*.txt", "documents/");
     IndexSettings settingsPath = new IndexSettings();
     settingsPath.setDocumentFilter(pathFilter);
     ```
 
-2. **Inicializujte index a přidejte dokumenty**:
-    
+2. **Initialize Index and Add Documents**:
+
     ```java
     Index indexPath = new Index("YOUR_OUTPUT_DIRECTORY\\FilePathFilter", settingsPath);
     indexPath.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-## Časté úskalí a tipy
-- **Nikdy nemíchejte absolutní a relativní cesty** ve stejné konfiguraci filtru – může to vést k neočekávanému vyloučení.  
-- **Pamatujte na resetování `IndexSettings`** při přepínání mezi různými sadami filtrů; jinak mohou přetrvávat předchozí filtry.  
-- **Velké kolekce souborů** těží z kombinace horního limitu délky s filtrem přípony, aby se snížila spotřeba paměti.  
+## Běžné úskalí a tipy
+
+- **Never mix absolute and relative paths** ve stejné konfiguraci filtru – může to vést k neočekávaným vyloučením.  
+- **Reset the `IndexSettings`** při přepínání sad filtrů; jinak mohou přetrvávat předchozí filtry.  
+- **Combine a length upper bound with an extension filter** pro velké kolekce, aby se udržovala nízká spotřeba paměti.  
+- **Enable logging** (`LoggingOptions.setEnabled(true)`) pro zjištění, proč byl soubor odmítnut.  
 
 ## Často kladené otázky
 
-**Q: Mohu změnit kritéria filtru po vytvoření indexu?**  
-A: Ano. Můžete přestavět index s novým `DocumentFilter` nebo použít inkrementální indexování s aktualizovanými nastaveními.
+**Q: Can I change the filter criteria after the index is created?**  
+A: Ano. Přestavte index s novým `DocumentFilter` nebo použijte inkrementální indexování s aktualizovanými nastaveními.
 
-**Q: Funguje java file extension filter na komprimované archivy (např. ZIP)?**  
-A: GroupDocs.Search může indexovat podporované formáty archivů, ale filtr přípony se vztahuje na samotný archiv, nikoli na vnitřní soubory. V případě potřeby použijte vnořené filtry.
+**Q: Does the java file extension filter work on compressed archives (e.g., ZIP)?**  
+A: GroupDocs.Search může indexovat podporované formáty archivů, ale filtr rozšíření se vztahuje na samotný archiv, ne na vnitřní soubory. Použijte vnořené filtry pro podrobnější kontrolu.
 
-**Q: Jak mohu ladit, proč byl konkrétní soubor vyloučen?**  
-A: Aktivujte logování knihovny (nastavte `LoggingOptions.setEnabled(true)`) a prohlédněte si vygenerovaný log – uvádí, který filtr odmítl každý soubor.
+**Q: How do I debug why a particular file was excluded?**  
+A: Aktivujte logování knihovny (`LoggingOptions.setEnabled(true)`) a prohlédněte si log – uvádí, který filtr odmítl každý soubor.
 
-**Q: Je možné kombinovat java file extension filter s vlastními regex filtry?**  
-A: Naprosto. Můžete zabalit regex filtr do `DocumentFilter.createAnd()` společně s filtrem přípony.
+**Q: Is it possible to combine the java file extension filter with custom regex filters?**  
+A: Naprosto. Zabalte regex filtr do `DocumentFilter.createAnd()` spolu s filtrem rozšíření.
 
-**Q: Jaký dopad na výkon má přidání mnoha filtrů?**  
-A: Každý další filtr přidává během indexování malou režii, ale výhoda snížené velikosti indexu obvykle převáží náklady. Otestujte na vzorku, abyste našli optimální rovnováhu.
+**Q: What performance impact does adding many filters have?**  
+A: Každý filtr přidává během indexování mírnou zátěž, ale snížení množství indexovaných dat obvykle převáží náklady. Otestujte na reprezentativním vzorku, abyste našli optimální rovnováhu.
 
 ---
 
-**Poslední aktualizace:** 2025-12-19  
+**Poslední aktualizace:** 2026-02-21  
 **Testováno s:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs

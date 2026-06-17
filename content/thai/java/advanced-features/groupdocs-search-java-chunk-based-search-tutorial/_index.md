@@ -1,7 +1,7 @@
 ---
-date: '2025-12-19'
-description: เรียนรู้วิธีเพิ่มเอกสารลงในดัชนีและเปิดใช้งานการค้นหาแบบแบ่งส่วนใน Java
-  ด้วย GroupDocs.Search เพื่อเพิ่มประสิทธิภาพสำหรับชุดเอกสารขนาดใหญ่.
+date: '2026-02-21'
+description: เรียนรู้วิธีเพิ่มเอกสารลงในดัชนีและเพิ่มประสิทธิภาพการค้นหาด้วยการค้นหาแบบแบ่งส่วนใน
+  Java โดยใช้ GroupDocs.Search ปรับแต่งหน่วยความจำของดัชนีการค้นหา Java สำหรับชุดเอกสารขนาดใหญ่.
 keywords:
 - chunk-based search
 - GroupDocs.Search Java
@@ -12,33 +12,33 @@ url: /th/java/advanced-features/groupdocs-search-java-chunk-based-search-tutoria
 weight: 1
 ---
 
-# เพิ่มเอกสารลงในดัชนีด้วยการค้นหาแบบชั้นส่วนใน Java
+# เพิ่มเอกสารลงในดัชนีด้วยการค้นหาแบบ chunk‑based ใน Java
 
-ในโลกที่ขับเคลื่อนด้วยข้อมูลในปัจจุบัน ความสามารถในการ **เพิ่มเอกสารลงในดัชนี** อย่างรวดเร็วและจากนั้นทำการค้นหาแบบชั้นส่วนเป็นสิ่งสำคัญสำหรับแอปพลิเคชันใด ๆ ที่จัดการกับคอลเลกชันไฟล์ขนาดใหญ่ ไม่ว่าคุณจะทำงานกับสัญญากฎหมาย, คลังข้อมูลศูนย์ช่วยเหลือลูกค้า, หรือห้องสมุดการวิจัยขนาดมหาศาล บทเรียนนี้จะแสดงให้คุณเห็นขั้นตอนการตั้งค่า GroupDocs.Search สำหรับ Java เพื่อให้คุณสามารถทำดัชนีเอกสารได้อย่างมีประสิทธิภาพและดึงข้อมูลที่เกี่ยวข้องออกมาเป็นชั้นส่วนย่อย ๆ
+ในแอปพลิเคชันสมัยใหม่ที่ต้องการ **add documents to index** อย่างรวดเร็วและจากนั้นทำการค้นหาแบบ chunk‑based อย่างเร็ว คุณจะต้องการโซลูชันที่สามารถขยายได้โดยไม่ทำให้หน่วยความจำพุ่งสูงขึ้น บทแนะนำนี้จะพาคุณผ่านการตั้งค่า GroupDocs.Search สำหรับ Java, การเพิ่มโฟลเดอร์เอกสารหลายโฟลเดอร์, และการกำหนดค่าเอนจินเพื่อ **increase search performance** พร้อมควบคุมการใช้ **java search index memory** ไม่ให้เกินขอบเขต ไม่ว่าคุณจะทำการจัดทำดัชนีสัญญากฎหมาย, ตั๋วสนับสนุน, หรือเอกสารวิจัย ขั้นตอนด้านล่างจะให้การนำไปใช้ในระดับผลิตจริง
 
-## สิ่งที่คุณจะได้เรียนรู้
+## Quick Answers
+- **What is the first step?** Create a search index folder.  
+- **How do I include many files?** Use `index.add()` for each document folder.  
+- **Which option enables chunk search?** `options.setChunkSearch(true)`.  
+- **Can I continue searching after the first chunk?** Yes, call `index.searchNext()` with the token.  
+- **Do I need a license?** A free trial or temporary license works for development; a full license is required for production.  
+
+## What You’ll Learn
 - วิธีสร้างดัชนีการค้นหาในโฟลเดอร์ที่ระบุ  
-- ขั้นตอนการ **เพิ่มเอกสารลงในดัชนี** จากหลายตำแหน่ง  
-- การกำหนดค่าตัวเลือกการค้นหาเพื่อเปิดใช้งานการค้นหาแบบชั้นส่วน  
-- การทำการค้นหาแบบชั้นส่วนครั้งแรกและต่อเนื่อง  
-- สถานการณ์จริงที่การค้นหาเอกสารแบบชั้นส่วนทำให้ประโยชน์สูงสุด
+- ขั้นตอนการ **add documents to index** จากหลายตำแหน่ง  
+- การกำหนดค่า search options เพื่อเปิดใช้งานการค้นหาแบบ chunk‑based  
+- การทำการค้นหาแบบ chunk‑based ครั้งแรกและต่อเนื่อง  
+- สถานการณ์จริงที่การค้นหาเอกสารแบบ chunk‑based มีประโยชน์มาก  
 
-## คำตอบอย่างรวดเร็ว
-- **ขั้นตอนแรกคืออะไร?** สร้างโฟลเดอร์ดัชนีการค้นหา  
-- **จะรวมไฟล์หลายไฟล์ได้อย่างไร?** ใช้ `index.add()` สำหรับแต่ละโฟลเดอร์เอกสาร  
-- **ตัวเลือกใดที่เปิดใช้งานการค้นหาแบบชั้นส่วน?** `options.setChunkSearch(true)`  
-- **สามารถค้นหาต่อหลังจากชั้นแรกได้หรือไม่?** ได้, เรียก `index.searchNext()` พร้อมกับโทเคน  
-- **ต้องมีลิขสิทธิ์หรือไม่?** ลิขสิทธิ์ทดลองหรือชั่วคราวใช้ได้สำหรับการพัฒนา; ต้องมีลิขสิทธิ์เต็มสำหรับการใช้งานในผลิตภัณฑ์
-
-## ข้อกำหนดเบื้องต้น
+## Prerequisites
 เพื่อทำตามคู่มือนี้ โปรดตรวจสอบว่าคุณมี:
 
-- **ไลบรารีที่ต้องการ**: GroupDocs.Search for Java 25.4 หรือใหม่กว่า  
-- **การตั้งค่าสภาพแวดล้อม**: ติดตั้ง Java Development Kit (JDK) ที่เข้ากันได้  
-- **ความรู้เบื้องต้น**: ความเข้าใจพื้นฐานเกี่ยวกับการเขียนโปรแกรม Java และ Maven
+- **Required Libraries**: GroupDocs.Search for Java 25.4 หรือใหม่กว่า  
+- **Environment Setup**: ติดตั้ง Java Development Kit (JDK) ที่เข้ากันได้  
+- **Knowledge Prerequisites**: ความรู้พื้นฐานการเขียนโปรแกรม Java และความคุ้นเคยกับ Maven  
 
-## การตั้งค่า GroupDocs.Search สำหรับ Java
-เริ่มต้นโดยรวม GroupDocs.Search เข้าในโครงการของคุณผ่าน Maven:
+## Setting Up GroupDocs.Search for Java
+เริ่มต้นโดยรวม GroupDocs.Search เข้าในโปรเจกต์ของคุณด้วย Maven:
 
 ```xml
 <repositories>
@@ -60,14 +60,14 @@ weight: 1
 
 หรือดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
 
-### การรับลิขสิทธิ์
+### License Acquisition
 เพื่อทดลองใช้ GroupDocs.Search:
 
-- **ทดลองฟรี** – ทดสอบคุณสมบัติหลักโดยไม่ต้องผูกมัด  
-- **ลิขสิทธิ์ชั่วคราว** – เข้าถึงแบบขยายสำหรับการพัฒนา  
-- **ซื้อ** – ลิขสิทธิ์เต็มสำหรับการใช้งานในผลิตภัณฑ์
+- **Free Trial** – ทดสอบฟีเจอร์หลักโดยไม่มีข้อผูกมัด  
+- **Temporary License** – เข้าถึงแบบขยายสำหรับการพัฒนา  
+- **Purchase** – ไลเซนส์เต็มสำหรับการใช้งานในผลิตภัณฑ์  
 
-### การเริ่มต้นและการตั้งค่าเบื้องต้น
+### Basic Initialization and Setup
 สร้างดัชนีในโฟลเดอร์ที่คุณต้องการให้ข้อมูลที่สามารถค้นหาได้อยู่:
 
 ```java
@@ -82,11 +82,11 @@ public class CreateIndex {
 }
 ```
 
-## วิธีเพิ่มเอกสารลงในดัชนี
-เมื่อดัชนีมีอยู่แล้ว ขั้นตอนต่อไปที่สมเหตุสมผลคือการ **เพิ่มเอกสารลงในดัชนี** จากตำแหน่งที่ไฟล์ของคุณถูกจัดเก็บ
+## How to add documents to index
+เมื่อดัชนีมีอยู่แล้ว ขั้นตอนต่อไปที่สมเหตุสมผลคือการ **add documents to index** จากตำแหน่งที่ไฟล์ของคุณถูกจัดเก็บ
 
-### 1. การสร้างดัชนี
-**ภาพรวม**: ตั้งค่าไดเรกทอรีสำหรับดัชนีการค้นหา
+### 1. Creating an Index
+**Overview**: ตั้งค่าไดเรกทอรีสำหรับดัชนีการค้นหา
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\SearchByChunks";
@@ -96,8 +96,8 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\
 Index index = new Index(indexFolder);
 ```
 
-### 2. การเพิ่มเอกสารลงในดัชนี
-**ภาพรวม**: ดึงไฟล์จากหลายโฟลเดอร์ต้นทาง
+### 2. Adding Documents to Index
+**Overview**: ดึงไฟล์จากหลายโฟลเดอร์ต้นทาง
 
 ```java
 String documentsFolder1 = "YOUR_DOCUMENT_DIRECTORY";
@@ -111,8 +111,8 @@ index.add(documentsFolder2);
 index.add(documentsFolder3);
 ```
 
-### 3. การกำหนดค่าตัวเลือกการค้นหาเพื่อการค้นหาแบบชั้นส่วน
-เปิดใช้งานการค้นหาแบบชั้นส่วนโดยปรับแต่งอ็อบเจ็กต์ options
+### 3. Configuring Search Options for Chunk Search
+เปิดใช้งานการค้นหาแบบ chunk‑based โดยปรับแต่งอ็อบเจ็กต์ options
 
 ```java
 SearchOptions options = new SearchOptions();
@@ -122,8 +122,8 @@ SearchOptions options = new SearchOptions();
 options.setChunkSearch(true);
 ```
 
-### 4. การทำการค้นหาแบบชั้นส่วนครั้งแรก
-รันคิวรีแรกโดยใช้ตัวเลือกที่เปิดใช้งานชั้นส่วน
+### 4. Performing Initial Chunk‑Based Search
+เรียกใช้คำค้นแรกโดยใช้ตัวเลือกที่เปิดใช้งาน chunk
 
 ```java
 String query = "invitation";
@@ -133,8 +133,8 @@ String query = "invitation";
 SearchResult result = index.search(query, options);
 ```
 
-### 5. การทำการค้นหาแบบชั้นส่วนต่อเนื่อง
-วนลูปผ่านชั้นส่วนที่เหลือจนกว่าการค้นหาจะเสร็จสมบูรณ์
+### 5. Continuing Chunk‑Based Search
+วนซ้ำผ่านชังก์ที่เหลือจนกว่าการค้นหาจะเสร็จสมบูรณ์
 
 ```java
 while (result.getNextChunkSearchToken() != null) {
@@ -142,54 +142,74 @@ while (result.getNextChunkSearchToken() != null) {
 }
 ```
 
-## ทำไมต้องใช้การค้นหาแบบชั้นส่วน?
-การค้นหาแบบชั้นส่วนจะแบ่งคอลเลกชันเอกสารขนาดมหาศาลออกเป็นชิ้นส่วนที่จัดการได้ ลดความกดดันของหน่วยความจำและเร่งความเร็วในการตอบสนอง โดยเฉพาะอย่างยิ่งจะเป็นประโยชน์เมื่อ:
+## Why use chunk‑based search?
+การค้นหาแบบ chunk‑based แบ่งคอลเลกชันเอกสารขนาดใหญ่เป็นส่วนย่อยที่จัดการได้ ลดความกดดันของหน่วยความจำและเร่งความเร็วในการตอบสนอง โดยเฉพาะอย่างยิ่งเมื่อ:
 
-1. **ทีมกฎหมาย** ต้องค้นหาข้อความเฉพาะในสัญญานับพันฉบับ  
-2. **พอร์ทัลศูนย์ช่วยเหลือลูกค้า** ต้องแสดงบทความฐานความรู้ที่เกี่ยวข้องโดยทันที  
-3. **นักวิจัย** ต้องคัดกรองข้อมูลชุดใหญ่โดยไม่ต้องโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ
+1. **Legal teams** ต้องค้นหาข้อกำหนดเฉพาะในสัญญานับพันฉบับ  
+2. **Customer support portals** ต้องแสดงบทความฐานความรู้ที่เกี่ยวข้องโดยทันที  
+3. **Researchers** คัดกรองชุดข้อมูลขนาดใหญ่โดยไม่ต้องโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ  
 
-## พิจารณาด้านประสิทธิภาพ
-- **การจัดการหน่วยความจำ** – จัดสรรพื้นที่ heap เพียงพอ (`-Xmx`) สำหรับดัชนีขนาดใหญ่  
-- **การตรวจสอบทรัพยากร** – คอยดูการใช้ CPU ระหว่างการทำดัชนีและการค้นหา  
-- **การบำรุงรักษาดัชนี** – สร้างหรือทำความสะอาดดัชนีเป็นระยะเพื่อกำจัดข้อมูลที่ล้าสมัย
+## How this approach **increases search performance**
+โดยการค้นหาในชังก์ขนาดเล็กแทนไฟล์ทั้งหมด เอนจินสามารถ:
 
-## ข้อผิดพลาดทั่วไปและการแก้ไขปัญหา
-| ปัญหา | สาเหตุ | วิธีแก้ |
-|-------|--------|--------|
-| `OutOfMemoryError` ระหว่างการทำดัชนี | ขนาด heap ต่ำเกินไป | เพิ่มขนาด heap ของ JVM (`-Xmx2g` หรือมากกว่า) |
-| ไม่ได้ผลลัพธ์ใด ๆ | โทเคนชั้นส่วนไม่ได้รับการประมวลผล | ตรวจสอบให้แน่ใจว่า loop `while` ทำงานจนกว่า `getNextChunkSearchToken()` จะเป็น `null` |
-| การค้นหาช้า | ดัชนีไม่ได้ทำให้เป็นออพติไมซ์ | เรียก `index.optimize()` หลังจากการเพิ่มข้อมูลเป็นกลุ่ม |
+- ข้ามส่วนที่ไม่เกี่ยวข้องได้เร็วขึ้น ลดการใช้ CPU  
+- เก็บเฉพาะชังก์ที่กำลังทำงานในหน่วยความจำ ซึ่งช่วยลดการใช้ **java search index memory** โดยตรง  
+- ประมวลผลชังก์แบบขนานบนเครื่องหลายคอร์เพื่อให้ได้ผลลัพธ์เร็วขึ้น  
 
-## คำถามที่พบบ่อย
+## Managing **java search index memory**
+แม้ว่าการค้นหาแบบ chunk‑based จะลดขนาดหน่วยความจำแล้ว คุณยังสามารถปรับจูน JVM เพิ่มเติมได้:
 
-**ถาม: การค้นหาแบบชั้นส่วนคืออะไร?**  
-ตอบ: การค้นหาแบบชั้นส่วนจะแบ่งชุดข้อมูลออกเป็นชิ้นย่อย ๆ ทำให้สามารถสืบค้นข้อมูลจำนวนมากได้อย่างมีประสิทธิภาพโดยไม่ต้องโหลดเอกสารทั้งหมดเข้าสู่หน่วยความจำ
+- จัดสรร heap เพียงพอ (`-Xmx2g` หรือสูงกว่า) ตามขนาดดัชนี  
+- ใช้ `index.optimize()` หลังจากการเพิ่มจำนวนมากเพื่อบีบอัดโครงสร้างดัชนี  
+- ตรวจสอบการหยุดทำงานของ GC ด้วยเครื่องมือเช่น VisualVM เพื่อหลีกเลี่ยงการกระตุกของระบบ  
 
-**ถาม: จะอัปเดตดัชนีด้วยไฟล์ใหม่อย่างไร?**  
-ตอบ: เพียงเรียก `index.add()` พร้อมเส้นทางไปยังเอกสารใหม่; ดัชนีจะรวมไฟล์เหล่านั้นโดยอัตโนมัติ
+## Performance Considerations
+- **Memory Management** – จัดสรร heap เพียงพอ (`-Xmx`) สำหรับดัชนีขนาดใหญ่  
+- **Resource Monitoring** – ติดตามการใช้ CPU ระหว่างการทำดัชนีและการค้นหา  
+- **Index Maintenance** – สร้างหรือทำความสะอาดดัชนีเป็นระยะเพื่อกำจัดข้อมูลที่ล้าสมัย  
 
-**ถาม: GroupDocs.Search รองรับรูปแบบไฟล์ต่าง ๆ หรือไม่?**  
-ตอบ: รองรับ PDF, DOCX, XLSX, PPTX และรูปแบบไฟล์ทั่วไปอื่น ๆ มากมาย
+## Common Pitfalls & Troubleshooting
+| Issue | Why It Happens | Fix |
+|-------|----------------|-----|
+| `OutOfMemoryError` during indexing | Heap size too low | Increase JVM heap (`-Xmx2g` or higher) |
+| No results returned | Chunk token not processed | Ensure the `while` loop runs until `getNextChunkSearchToken()` is `null` |
+| Slow search performance | Index not optimized | Run `index.optimize()` after bulk additions |
 
-**ถาม: จุดคอขวดด้านประสิทธิภาพที่พบบ่อยคืออะไร?**  
-ตอบ: ข้อจำกัดของหน่วยความจำและดัชนีที่ไม่ได้ทำให้เป็นออพติไมซ์เป็นสาเหตุหลัก; ควรจัดสรร heap เพียงพอและทำให้ดัชนีเป็นออพติไมซ์เป็นประจำ
+## Frequently Asked Questions
 
-**ถาม: จะหาเอกสารอธิบายรายละเอียดเพิ่มเติมได้ที่ไหน?**  
-ตอบ: เยี่ยมชม [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/) อย่างเป็นทางการเพื่อดูคู่มือเชิงลึกและอ้างอิง API
+**Q: What is chunk‑based searching?**  
+A: Chunk‑based searching divides the dataset into smaller pieces, allowing efficient queries over large volumes of data without loading entire documents into memory.
 
-## แหล่งข้อมูล
-- **เอกสาร**: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)  
-- **อ้างอิง API**: [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java)  
-- **ดาวน์โหลด**: [GroupDocs.Search Releases](https://releases.groupdocs.com/search/java/)  
+**Q: How do I update my index with new files?**  
+A: Simply call `index.add()` with the path to the new documents; the index will incorporate them automatically.
+
+**Q: Can GroupDocs.Search handle different file formats?**  
+A: Yes, it supports PDFs, DOCX, XLSX, PPTX, and many other common formats.
+
+**Q: What are typical performance bottlenecks?**  
+A: Memory constraints and unoptimized indexes are the most common; allocate sufficient heap and regularly optimize the index.
+
+**Q: Where can I find more detailed documentation?**  
+A: Visit the official [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/) for in‑depth guides and API references.
+
+**Q: Does chunk‑based search work with encrypted PDFs?**  
+A: Yes, as long as you provide the password via the appropriate API overload.
+
+**Q: How can I monitor indexing progress?**  
+A: Use the `Index.add()` overload that returns a `Progress` object or hook into logging callbacks.
+
+## Resources
+- **Documentation**: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)  
+- **API Reference**: [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java)  
+- **Download**: [GroupDocs.Search Releases](https://releases.groupdocs.com/search/java/)  
 - **GitHub**: [GroupDocs.Search GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **สนับสนุนฟรี**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **ลิขสิทธิ์ชั่วคราว**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
+- **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 ---
 
-**อัปเดตล่าสุด:** 2025-12-19  
-**ทดสอบกับ:** GroupDocs.Search 25.4 for Java  
-**ผู้เขียน:** GroupDocs  
+**Last Updated:** 2026-02-21  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  
 
 ---

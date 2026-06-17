@@ -1,8 +1,8 @@
 ---
-date: '2025-12-20'
-description: Tanulja meg, hogyan engedélyezheti a helyesírási javítást Java-ban a
-  GroupDocs.Search használatával, adjon hozzá dokumentumokat az indexhez, és állítsa
-  be a maximális hibaszámot a jobb keresési pontosság érdekében.
+date: '2026-02-21'
+description: Ismerje meg, hogyan engedélyezheti a helyesírási javítást Java-ban a
+  GroupDocs.Search használatával, hogyan adhat dokumentumokat az indexhez, és hogyan
+  állíthatja be a maximális hibaszámot a jobb keresési pontosság érdekében.
 keywords:
 - spelling correction Java
 - GroupDocs.Search tutorial
@@ -13,19 +13,19 @@ url: /hu/java/dictionaries-language-processing/java-groupdocs-search-spelling-co
 weight: 1
 ---
 
-# Hogyan engedélyezzük a helyesírást Java-ban a GroupDocs.Search használatával
+# Hogyan engedélyezzük a helyesírási javítást Java-ban a GroupDocs.Search segítségével
 
-A pontos keresési eredmények elengedhetetlenek minden modern alkalmazás számára. Ebben az útmutatóban megtanulja, hogyan **engedélyezze a helyesírási** javítást Java-ban a GroupDocs.Search segítségével, így a felhasználók a megfelelő eredményeket kapják még akkor is, ha elgépelik a lekérdezéseket. Lépésről lépésre végigvezetjük az index létrehozását, **dokumentumok indexhez adását**, a helyesírási beállítások konfigurálását, és egy olyan keresés futtatását, amely automatikusan javítja a hibákat.
+A pontos keresési eredmények elengedhetetlenek minden modern alkalmazás számára. Ebben az útmutatóban megtanulja, **hogyan engedélyezheti a helyesírási** javítást Java-ban a GroupDocs.Search segítségével, így a felhasználók a megfelelő eredményeket kapják még akkor is, ha elgépelik a lekérdezéseket. Lépésről lépésre bemutatjuk az index létrehozását, **dokumentumok indexhez adását**, a helyesírási beállítások konfigurálását, és egy olyan keresés futtatását, amely automatikusan javítja a hibákat.
 
 ## Gyors válaszok
-- **Mit jelent a “how to enable spelling”?** Aktiválja a beépített helyesírás-ellenőrzőt, amely a keresés során javítja a felhasználói elgépeléseket.  
+- **Mit jelent a „hogyan engedélyezzük a helyesírást”?** Aktiválja a beépített helyesírás-ellenőrzőt, amely a keresés során javítja a felhasználói elütéseket.  
 - **Melyik könyvtár biztosítja ezt a funkciót?** GroupDocs.Search for Java.  
-- **Szükségem van licencre?** Egy ingyenes próbalicenc elegendő értékeléshez; a teljes licenc szükséges a termeléshez.  
-- **Mérhető-e a tolerancia?** Igen – használja a `setMaxMistakeCount` metódust, hogy meghatározza, hány elgépelés engedélyezett.  
-- **Alkalmas nagy indexekre?** Teljesen – a motor a nagy teljesítményű indexelésre és keresésre van optimalizálva.
+- **Szükségem van licencre?** Egy ingyenes próbalicenc elegendő értékeléshez; a teljes licenc a termeléshez kötelező.  
+- **Szabályozhatom a toleranciát?** Igen – a `setMaxMistakeCount` használatával meghatározhatja, hány elütés engedélyezett.  
+- **Alkalmas nagy indexekre?** Teljes mértékben – a motor magas teljesítményű indexelésre és keresésre van optimalizálva.
 
-## Mi a “how to enable spelling” a GroupDocs.Search-ben?
-A helyesírás engedélyezése azt jelzi a keresőmotornak, hogy a lekérdezés hibákat tartalmazó esetben a legközelebbi helyes kifejezéseket keresse. Ez a funkció jelentősen javítja a felhasználói élményt, mivel releváns eredményeket ad vissza még elgépelett bemenet esetén is.
+## Mi az a „hogyan engedélyezzük a helyesírást” a GroupDocs.Search-ben?
+A helyesírás engedélyezése azt mondja a keresőmotornak, hogy a lekérdezés hibákat tartalmaz, amikor a legközelebbi helyes kifejezéseket keresse. Ez a funkció drámaian javítja a felhasználói élményt, mivel releváns eredményeket ad még elgépelés esetén is.
 
 ## Miért engedélyezzük a helyesírási javítást Java alkalmazásokban?
 - **Növeli a felhasználói elégedettséget** – a felhasználóknak nem kell tökéletesen gépelniük.  
@@ -33,7 +33,7 @@ A helyesírás engedélyezése azt jelzi a keresőmotornak, hogy a lekérdezés 
 - **Különböző területeken működik** – a könyvtári katalógusoktól az e‑kereskedelmi termékkeresésekig.
 
 ## Előfeltételek
-- Java Development Kit (JDK) telepítve.  
+- Telepített Java Development Kit (JDK).  
 - Alapvető Java és Maven ismeretek.  
 - Az indexelési koncepciók megértése.  
 - GroupDocs.Search próba vagy licenc kulcs.
@@ -41,8 +41,8 @@ A helyesírás engedélyezése azt jelzi a keresőmotornak, hogy a lekérdezés 
 ### A GroupDocs.Search beállítása Java-hoz
 Integrálja a könyvtárat Maven projektjébe.
 
-**Maven beállítás**  
-Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
+**Maven Setup**  
+Adja hozzá a repót és a függőséget a `pom.xml` fájlhoz:
 
 ```xml
 <repositories>
@@ -62,14 +62,14 @@ Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
 </dependencies>
 ```
 
-**Közvetlen letöltés**  
+**Direct Download**  
 Alternatívaként töltse le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
 ### Licenc beszerzése
-Szerezzen be egy ingyenes próbalicencet értékeléshez. Termelési használathoz vásároljon teljes licencet, vagy kérjen ideiglenes kulcsot a hivatalos weboldalról.
+Szerezzen be egy ingyenes próbalicencet értékeléshez. Termeléshez vásároljon teljes licencet, vagy kérjen ideiglenes kulcsot a hivatalos weboldalon.
 
 ## Hogyan adjunk dokumentumokat az indexhez
-Az index létrehozása bármely keresőképes alkalmazás alapja. Az alábbiakban egy minimális példát láthat, amely **dokumentumokat ad az indexhez** egy mappából.
+Az index létrehozása minden keresés‑engedélyezett alkalmazás alapja. Az alábbi minimális példa **dokumentumok indexhez adását** mutatja egy mappából.
 
 ```java
 import com.groupdocs.search.*;
@@ -91,10 +91,10 @@ public class FeatureIndexAndAddDocuments {
 }
 ```
 
-*Tipp:* Ellenőrizze, hogy az útvonalak helyesek, és hogy az alkalmazásnak írási jogosultsága van az index mappához.
+*Tip:* Ellenőrizze, hogy az útvonalak helyesek-e, és hogy az alkalmazásnak van‑e írási joga az index mappához.
 
 ## Hogyan konfiguráljuk a helyesírási javítást (max hibaszám beállítása)
-Finomhangolhatja a helyesírás-ellenőrzőt az engedélyezésével és a hibák toleranciájának beállításával.
+Finomhangolhatja a helyesírás-ellenőrzőt a engedélyezésével és a hibák toleranciájának beállításával.
 
 ```java
 import com.groupdocs.search.*;
@@ -117,10 +117,10 @@ public class FeatureSpellingCorrectionOptions {
 }
 ```
 
-*Miért fontos a `setMaxMistakeCount`*: Meghatározza, hány elgépelést tolerál a motor. Állítsa be ezt az értéket a saját területének tipikus hibamintái alapján.
+*Miért fontos a `setMaxMistakeCount`*: Meghatározza, hány elütést tolerál a motor. Állítsa be ezt az értéket a saját területének tipikus hibamintái alapján.
 
 ## Hogyan hajtsunk végre helyesírási javított keresést
-Az index elkészülte és a helyesírási beállítások konfigurálva vannak, futtasson egy lekérdezést, amely hibákat tartalmazhat.
+Az index elkészültével és a helyesírási beállítások konfigurálásával futtasson egy lekérdezést, amely hibákat tartalmazhat.
 
 ```java
 import com.groupdocs.search.*;
@@ -148,45 +148,52 @@ public class FeatureSpellingCorrectionSearch {
 }
 ```
 
-A `search()` hívás egy `SearchResult`-ot ad vissza, amely tartalmazza a javított kifejezéseket és a legrelevánsabb dokumentumokat.
+A `search()` hívás egy `SearchResult` objektumot ad vissza, amely tartalmazza a javított kifejezéseket és a legrelevánsabb dokumentumokat.
 
 ## Gyakorlati alkalmazások
-1. **Könyvtári rendszerek:** Javítsa a helytelenül írt könyvcímeket vagy szerzőneveket.  
-2. **E‑kereskedelmi platformok:** Javítsa a felhasználók elgépeléseit a termékkeresésekben a konverziók növelése érdekében.  
-3. **Tartalomkezelő rendszerek:** Javítsa a cikkek visszakeresését a szerkesztői személyzet számára.
+1. **Könyvtári rendszerek:** Hibásan írt könyvcímek vagy szerzőnevek javítása.  
+2. **E‑kereskedelmi platformok:** Felhasználói elütések korrigálása a termékkeresésben a konverzió növelése érdekében.  
+3. **Tartalomkezelő rendszerek:** Cikkek visszakeresésének javítása a szerkesztői személyzet számára.
 
-## Teljesítménybeli megfontolások
-- **Tartsa az indexet naprakészen** – rendszeresen indexeljen új vagy módosított fájlokat.  
-- **Finomhangolja a JVM memória beállításait** – biztosítson elegendő halmot a nagy indexekhez.  
-- **Figyelje a erőforrás-használatot** – szükség esetén állítsa be a garbage‑collector zászlókat.
+## Teljesítmény szempontok
+- **Tartsa naprakészen az indexet** – rendszeresen indexeljen új vagy módosított fájlokat.  
+- **Finomhangolja a JVM memória beállításait** – biztosítson elegendő heapet nagy indexekhez.  
+- **Figyelje az erőforrás‑használatot** – szükség esetén állítsa be a garbage‑collector flag‑eket.
 
-## Gyakran ismételt kérdések
+## Gyakori problémák és hibaelhárítás
+| Tünet | Valószínű ok | Megoldás |
+|-------|--------------|----------|
+| Nincs eredmény a helyesírás engedélyezése után | Az index mappa útvonala hibás vagy üres | Ellenőrizze, hogy az `indexFolder` egy érvényes indexre mutat, és hogy az `index.add()` sikeres volt |
+| A helyesírás-ellenőrző nem javítja a nyilvánvaló elütéseket | A `setMaxMistakeCount` túl alacsonyra van állítva | Növelje a számot 2‑re vagy 3‑ra a toleránsabb javításhoz |
+| Az alkalmazás összeomlik nagy dokumentumkészletek esetén | Nem elegendő JVM heap | Növelje a `-Xmx` opciót (pl. `-Xmx4g`) |
 
-**Q: Mi a GroupDocs.Search?**  
-A: Ez egy Java könyvtár, amely gyors indexelést, fejlett keresési funkciókat és beépített helyesírási javítást biztosít.
+## Gyakran feltett kérdések
+
+**Q: Mi az a GroupDocs.Search?**  
+A: Egy Java könyvtár, amely gyors indexelést, fejlett keresési funkciókat és beépített helyesírási javítást biztosít.
 
 **Q: Hogyan szerezhetek licencet a GroupDocs.Search-hez?**  
-A: Látogassa meg a hivatalos oldalt, hogy letöltsön egy ingyenes próbalicencet vagy megvásároljon egy teljes licencet.
+A: Látogassa meg a hivatalos weboldalt, ahol letöltheti az ingyenes próbalicencet vagy megvásárolhatja a teljes licencet.
 
-**Q: Integrálhatom a GroupDocs.Search-t más Java keretrendszerekkel?**  
-A: Igen, működik a Spring, Jakarta EE és bármely standard Java alkalmazással.
+**Q: Integrálhatom a GroupDocs.Search‑t más Java keretrendszerekkel?**  
+A: Igen, működik Spring‑kel, Jakarta EE‑vel és bármely szabványos Java alkalmazással.
 
 **Q: Milyen gyakori problémák merülnek fel az index beállításakor?**  
-A: Helytelen mappapath-ok, elégtelen fájlhozzáférési jogosultságok vagy hiányzó függőségek a `pom.xml`-ben.
+A: Hibás mappaútvonalak, elégtelen fájlhozzáférési jogosultságok vagy hiányzó függőségek a `pom.xml`‑ben.
 
 **Q: Hogyan javítja a helyesírási javítás a keresési eredményeket?**  
-A: Automatikusan átírja a helytelenül írt lekérdezéseket a legközelebbi helyes kifejezésekre, így relevánsabb találatokat ad vissza.
+A: Automatikusan átírja a hibás lekérdezéseket a legközelebbi helyes kifejezésekre, így relevánsabb találatokat ad.
 
 ## További források
-- [Dokumentáció](https://docs.groupdocs.com/search/java/)
-- [API referencia](https://reference.groupdocs.com/search/java)
-- [Letöltés](https://releases.groupdocs.com/search/java/)
-- [GitHub tároló](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Ingyenes támogatási fórum](https://forum.groupdocs.com/c/search/10)
-- [Ideiglenes licenc](https://purchase.groupdocs.com/temporary-license/)
+- [Documentation](https://docs.groupdocs.com/search/java/)
+- [API Reference](https://reference.groupdocs.com/search/java)
+- [Download](https://releases.groupdocs.com/search/java/)
+- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
+- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Legutóbb frissítve:** 2025-12-20  
-**Tesztelve:** GroupDocs.Search 25.4  
-**Szerző:** GroupDocs
+**Last Updated:** 2026-02-21  
+**Tested With:** GroupDocs.Search 25.4  
+**Author:** GroupDocs
