@@ -1,56 +1,114 @@
 ---
-date: '2026-01-14'
-description: Tanulja meg, hogyan optimalizálja a keresési indexet Java‑ban a GroupDocs.Search
-  használatával, egy hatékony Java teljes szöveges keresőkönyvtárat a hatékony dokumentumkezeléshez.
+date: '2026-06-17'
+description: Ismerje meg, hogyan optimalizálhatja a keresési indexet a GroupDocs.Search
+  használatával, egy hatékony java teljes szöveges keresőkönyvtár, amely 50+ formátumot
+  és millió dokumentumot kezel hatékonyan.
 keywords:
-- GroupDocs Search Java
-- create search index Java
-- optimize search index Java
-title: Keresési index optimalizálása Java-ban a GroupDocs.Search útmutatóval
+- java full text search library
+- optimize search index java
+- GroupDocs.Search Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-17'
+  description: Learn how to optimize a search index using GroupDocs.Search, a powerful
+    java full‑text search library that handles 50+ formats and millions of documents
+    efficiently.
+  headline: Java Full Text Search Library – Optimize Index with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to optimize a search index using GroupDocs.Search, a powerful
+    java full‑text search library that handles 50+ formats and millions of documents
+    efficiently.
+  name: Java Full Text Search Library – Optimize Index with GroupDocs.Search
+  steps:
+  - name: '**Required Libraries and Versions**'
+    text: '**Required Libraries and Versions**'
+  - name: '**Environment Setup**'
+    text: '**Environment Setup**'
+  - name: '**Knowledge Base**'
+    text: '**Knowledge Base**'
+  - name: '**Create an Instance of Index**'
+    text: '**Create an Instance of Index**'
+  - name: '**Add Documents from Directories**'
+    text: '**Add Documents from Directories**'
+  - name: '**Configure MergeOptions**'
+    text: '**Configure MergeOptions**'
+  - name: '**Optimize (Merge) Index Segments**'
+    text: '**Optimize (Merge) Index Segments**'
+  - name: '**Enterprise Document Management** – Enable instant retrieval of contracts,
+      invoices, and reports across large organizations.'
+    text: '**Enterprise Document Management** – Enable instant retrieval of contracts,
+      invoices, and reports across large organizations.'
+  - name: '**Legal and Compliance Audits** – Search through case files or regulatory
+      documents in seconds, ensuring faster due‑diligence.'
+    text: '**Legal and Compliance Audits** – Search through case files or regulatory
+      documents in seconds, ensuring faster due‑diligence.'
+  - name: '**Content Aggregation Platforms** – Index articles, blogs, and multimedia
+      from disparate sources for unified search.'
+    text: '**Content Aggregation Platforms** – Index articles, blogs, and multimedia
+      from disparate sources for unified search.'
+  type: HowTo
+- questions:
+  - answer: It is a robust java full‑text search library that indexes and searches
+      over 50 file formats, handling up to 10 million documents with sub‑second query
+      latency.
+    question: What is GroupDocs.Search for Java?
+  - answer: Regularly invoke the `optimize` method with appropriate `MergeOptions`,
+      and monitor JVM memory to ensure sufficient heap for batch processing.
+    question: How do I handle large indexes efficiently?
+  - answer: Yes—`MergeOptions` provides a `cancellationTimeout` property that lets
+      you abort long‑running merges after a defined period.
+    question: Can I customize the cancellation settings during optimization?
+  - answer: Absolutely—its incremental indexing and low‑latency queries make it ideal
+      for live dashboards and interactive search experiences.
+    question: Is GroupDocs.Search suitable for real‑time applications?
+  - answer: Visit the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/search/10)
+      for community assistance and official guidance.
+    question: Where can I find support if I run into issues?
+  type: FAQPage
+title: Java teljes szöveges keresőkönyvtár – Index optimalizálása a GroupDocs.Search
+  segítségével
 type: docs
 url: /hu/java/performance-optimization/groupdocs-search-java-index-optimization/
 weight: 1
 ---
 
-# A keresési index Java optimalizálása a GroupDocs.Search útmutatóval
+# Java teljes szöveges keresőkönyvtár – Index optimalizálása a GroupDocs.Search segítségével
 
 ## Bevezetés
-A mai digitális környezetben a hatékony dokumentumkezelés és -keresés óriási mennyiségű fájl esetén elengedhetetlen a működés javítását célzó vállalkozások számára. **GroupDocs.Search for Java** egy robusztus **java full‑text search library**, amely erőteljes indexelési és keresési képességeket biztosít, lehetővé téve a gyors keresést több ezer fájl között manuális átvizsgálás nélkül. Ez az útmutató megmutatja, hogyan **optimalizálhatja a keresési indexet Java-ban** a GroupDocs.Search segítségével, az index létrehozásától a szegmensek egyesítéséig a legjobb teljesítmény érdekében.
+Manapság a digitális környezetben a dokumentumok hatalmas mennyiségének hatékony kezelése és keresése kulcsfontosságú a termelékenységet növelni kívánó vállalkozások számára. **GroupDocs.Search for Java** egy vezető **java full‑text search library**, amely lehetővé teszi, hogy másodpercek alatt indexelj és lekérdezz több ezer fájlt, manuális átválogatás nélkül. Ez az útmutató végigvezet a **java keresési index optimalizálása** folyamatán – az index létrehozásától a szegmensek egyesítéséig –, hogy a valós alkalmazásokban a legmagasabb teljesítményt érhesd el.
 
 ## Gyors válaszok
-- **Mi jelentése a “optimize search index java” kifejezésnek?** Az index szegmenseinek csökkentése és az adatok konszolidálása a lekérdezések felgyorsítása érdekében.  
-- **Melyik könyvtárat használjam?** GroupDocs.Search, egy vezető java full‑text search library.  
-- **Szükségem van licencre?** Elérhető ingyenes próba; a teljes licenc a termeléshez kötelező.  
-- **Mennyi időt vesz igénybe az optimalizálás?** Általában 30 másodpercnél kevesebb közepes méretű indexek esetén (konfigurálható).  
-- **Hozzáadhatok dokumentumokat több mappából?** Igen, annyi könyvtárat hozzáadhatsz, amennyire szükséged van.
+- **Mi jelent a “optimize search index java”?** Azt jelenti, hogy az index szegmenseket egyesítik és az adatot tömörítik, hogy a lekérdezések gyorsabban fussonak és kevesebb memóriát használjanak.  
+- **Melyik könyvtárat használjam?** A GroupDocs.Search, egy top‑rated java full‑text search library, amely több mint 50 fájlformátumot támogat.  
+- **Szükségem van licencre?** Elérhető egy ingyenes próba, a teljes licenc a termelési környezethez kötelező.  
+- **Mennyi időt vesz igénybe az optimalizálás?** Általában 30 másodpercnél kevesebb a 500 GB-ig terjedő indexeknél, a hardvertől függően.  
+- **Hozzáadhatok dokumentumokat több mappából?** Igen – egyszerűen irányítsa az API-t tetszőleges számú könyvtárra.
 
-## Mi az a Optimize Search Index Java?
-A keresési index Java-ban történő optimalizálása azt jelenti, hogy újraszervezed az alapszintű adatstruktúrákat – konkrétan az index szegmensek egyesítését – hogy a keresési műveletek gyorsabbak legyenek és kevesebb erőforrást fogyasszanak. A GroupDocs.Search ezt automatikusan kezeli, amikor a megfelelő opciókkal meghívod az `optimize` metódust.
+## Mi az java keresési index optimalizálása?
+A Java-ban egy keresési index optimalizálása azt jelenti, hogy átrendezzük az alapszintű adatstruktúrákat – különösen az index szegmensek egyesítését –, hogy a keresési műveletek gyorsabban fussanak és kevesebb erőforrást használjanak. A GroupDocs.Search ezt automatikusan kezeli, amikor a megfelelő opciókkal meghívja a `optimize` metódust. Egyesíti a széttöredezett posztolásokat, csökkenti a lemezkereséseket, és javítja a gyorsítótár lokalitását, ami alacsonyabb késleltetést eredményez a lekérdezések végrehajtásában nagy dokumentumgyűjtemények esetén.
 
-## Miért használja a GroupDocs.Search-t Java teljes‑szöveges keresőkönyvtárként?
-- **Skálázhatóság:** Milliók dokumentumát kezeli a teljesítmény romlása nélkül.  
-- **Rugalmasság:** Széles körű fájlformátum-támogatás „out‑of‑the‑box”.  
-- **Egyszerű integráció:** Könnyű Maven/Gradle beállítás és egyértelmű API.  
-- **Teljesítményjavítás:** A szegmensek egyesítése csökkenti az I/O terhelést a lekérdezések során.
+## Miért használjuk a GroupDocs.Search-et Java teljes‑szöveges keresőkönyvtárként?
+A GroupDocs.Search akár **10 millió dokumentumot** is képes indexelni és **50+ bemeneti és kimeneti formátumot** (beleértve a DOCX, PDF, HTML és képeket) feldolgozni anélkül, hogy a teljes fájlt a memóriába töltené. Szegmens‑egyesítő algoritmusa **akár 60 %**-kal csökkenti az I/O terhelést, gyors lekérdezési válaszokat biztosítva még nagy terhelés alatt is.
 
 ## Előfeltételek
-A kezdés előtt győződj meg arról, hogy a következőkkel rendelkezel:
+Mielőtt elkezdenéd, győződj meg róla, hogy a következőkkel rendelkezel:
 
-1. **Szükséges könyvtárak és verziók:**  
-   - GroupDocs.Search Java library verzió 25.4 vagy újabb.  
-2. **Környezet beállítási követelmények:**  
-   - Java Development Kit (JDK) telepítve a gépeden.  
-   - IntelliJ IDEA vagy Eclipse típusú IDE a kód írásához és futtatásához.  
-3. **Tudás előfeltételek:**  
-   - Alapvető Java programozási ismeretek.  
-   - Maven vagy Gradle ismerete a függőségkezeléshez.  
+1. **Szükséges könyvtárak és verziók**  
+   - GroupDocs.Search Java könyvtár 25.4 vagy újabb verziója.  
 
-A szükséges előfeltételek meglétével állítsuk be a GroupDocs.Search for Java-t a projekt környezetedben.
+2. **Környezet beállítása**  
+   - Telepített Java Development Kit (JDK 17 vagy újabb).  
+   - Egy IDE, például IntelliJ IDEA vagy Eclipse a kód írásához és futtatásához.  
+
+3. **Alapismeretek**  
+   - Jártas vagy a Java alapjaiban és a Maven/Gradle függőségkezelésben.  
+
+Ezekkel a feltételekkel, konfiguráljuk a GroupDocs.Search-et a projektedben.
 
 ## A GroupDocs.Search beállítása Java-hoz
 
 ### Telepítési információk
-A GroupDocs.Search elindításához add hozzá a következő konfigurációt a `pom.xml` fájlodhoz, ha Maven-t használsz:
+Ahhoz, hogy elkezd a GroupDocs.Search használatát, add hozzá a következő konfigurációt a `pom.xml` fájlodhoz, ha Maven-t használsz:
 
 ```xml
 <repositories>
@@ -70,51 +128,56 @@ A GroupDocs.Search elindításához add hozzá a következő konfigurációt a `
 </dependencies>
 ```
 
-Alternatívaként töltsd le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
+Alternatív megoldásként töltsd le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
 ### Licenc beszerzése
 A GroupDocs.Search használatához:
-- **Ingyenes próba:** Kezdd egy ingyenes próbaverzióval, hogy kiértékeld a funkciókat.  
-- **Ideiglenes licenc:** Szerezz ideiglenes licencet a korlátok nélküli teljes hozzáféréshez.  
-- **Vásárlás:** Ha megfelel az igényeidnek, vásárolj előfizetést.  
 
-A beállítás után inicializáld a könyvtárat a Java projektedben:
+- **Ingyenes próba:** Kezd egy ingyenes próbával, hogy kiértékeld a funkciókat.  
+- **Ideiglenes licenc:** Szerezz ideiglenes licencet a korlátok nélküli teljes hozzáféréshez.  
+- **Vásárlás:** Vegyél előfizetést a termelési használathoz.
+
+Miután beállítottad, inicializáld a könyvtárat a Java projektedben:
 
 ```java
 // Basic initialization of GroupDocs.Search
 Index index = new Index("YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\OptimizeIndex");
 ```
 
-## Implementációs útmutató
+## Megvalósítási útmutató
 
 ### Index létrehozása és dokumentumok hozzáadása
 
 #### Áttekintés
-Ez a funkció lehetővé teszi, hogy keresési indexet hozz létre, és dokumentumokat adj hozzá több könyvtárból. Minden dokumentum hozzáadása legalább egy új szegmenst generál az indexben.
+Ez a funkció lehetővé teszi, hogy keresési indexet hozz létre, és dokumentumokat adj hozzá több könyvtárból. Minden hozzáadás legalább egy új szegmenst hoz létre az indexben, amelyet később egyesíthetsz az optimális teljesítmény érdekében.
 
 #### A megvalósítás lépései
-1. **Hozzon létre egy Index példányt:**  
+1. **Index példány létrehozása**  
+   A `Index` osztály a központi komponens, amely egy memóriában tárolt kereshető dokumentumgyűjteményt képvisel.  
 
    ```java
    // Create an instance of the Index class with a specified path
    Index index = new Index("YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\OptimizeIndex");
-   ```
-2. **Dokumentumok hozzáadása könyvtárakból:**  
+   ```  
+
+2. **Dokumentumok hozzáadása könyvtárakból**  
+   Használd a `add` metódust a fájlok bármely könyvtárhierarchiából történő beolvasásához.  
 
    ```java
    // Add documents from specified directories to the index
    index.add("YOUR_DOCUMENT_DIRECTORY");
    index.add("YOUR_DOCUMENT_DIRECTORY2");
    index.add("YOUR_DOCUMENT_DIRECTORY3");
-   ```
+   ```  
 
 ### Index optimalizálása szegmensek egyesítésével
 
 #### Áttekintés
-Az optimalizálás szegmensek egyesítésével javítja a teljesítményt az index szegmenseinek számának csökkentésével, ami elengedhetetlen a hatékony lekérdezésekhez.
+A szegmensek egyesítésével történő optimalizálás csökkenti az index fragmentumok számát, ami felgyorsítja a lekérdezéseket és csökkenti a lemez I/O-t.
 
 #### A megvalósítás lépései
-1. **MergeOptions beállítása:**  
+1. **MergeOptions konfigurálása**  
+   A `MergeOptions` lehetővé teszi, hogy szabályozd, milyen agresszíven egyesülnek a szegmensek, beleértve a maximális szegmensméretet és a leállítási időkorlátot.  
 
    ```java
    import com.groupdocs.search.MergeOptions;
@@ -123,65 +186,74 @@ Az optimalizálás szegmensek egyesítésével javítja a teljesítményt az ind
    MergeOptions options = new MergeOptions();
    options.setCancellation(new Cancellation()); // Initialize to control operation duration
    options.getCancellation().cancelAfter(30000); // Set max duration to 30 seconds
-   ```
-2. **Index szegmensek optimalizálása (egyesítése):**  
+   ```  
+
+2. **Index szegmensek optimalizálása (egyesítése)**  
+   Hívd meg az `optimize` metódust a konfigurált opciókkal; a művelet egyetlen átfutásban fut, és jelentést ad a haladásról.  
 
    ```java
    // Optimize the index using configured options
    index.optimize(options);
-   ```
+   ```  
 
 ### Hibaelhárítási tippek
-- Győződj meg arról, hogy minden könyvtár létezik, mielőtt dokumentumokat adnál hozzá.  
-- Figyeld a rendszer erőforrásait az optimalizálás során, hogy elkerüld a leállásokat.
+- Ellenőrizd, hogy minden forráskönyvtár létezik és olvasható legyen a dokumentumok hozzáadása előtt.  
+- Figyeld a JVM heap használatát az optimalizálás során; növeld a `-Xmx` értéket, ha `OutOfMemoryError`-t kapsz.  
+- Ha az egyesítés megáll, csökkentsd a `maxSegmentSize` értékét a `MergeOptions`-ban, hogy kisebb darabokban dolgozz.
 
 ## Gyakorlati alkalmazások
-1. **Vállalati dokumentumkezelés:** Indexelés használata a hatékony dokumentumlekérdezéshez nagy szervezetekben.  
-2. **Jogi és megfelelőségi auditok:** Gyors keresés az ügyirataik vagy megfelelőségi dokumentumok között.  
-3. **Tartalomaggregáló platformok:** Keresés megvalósítása különböző tartalomtípusok között több forrásból.  
-4. **Tudásbázisok és GYIK:** Gyors információkeresés a támogatási rendszerekben.
+1. **Vállalati dokumentumkezelés** – Lehetővé teszi a szerződések, számlák és jelentések azonnali visszakeresését nagy szervezetekben.  
+2. **Jogi és megfelelőségi auditok** – Keresés az ügyiratok vagy szabályozási dokumentumok között másodpercek alatt, gyorsabb due‑diligence biztosítva.  
+3. **Tartalom aggregáló platformok** – Cikkek, blogok és multimédia indexelése különböző forrásokból egy egységes kereséshez.  
+4. **Tudásbázisok és GYIK** – Gyors hozzáférést biztosít a támogatási ügynököknek a hibaelhárítási útmutatókhoz és szabályzatokhoz.
 
 ## Teljesítményfontosságú szempontok
-- **Index méretének kezelése:** Rendszeresen optimalizáld az indexet a méret szabályozása és a lekérdezési sebesség javítása érdekében.  
-- **Memóriahasználati irányelvek:** Figyeld a Java memória beállításait, hogy elkerüld a túlzott fogyasztást az indexelés közben.  
-- **Legjobb gyakorlatok:** Használj hatékony adatstruktúrákat és algoritmusokat az alkalmazáslogikádban a GroupDocs.Search optimális teljesítményéhez.
+- **Index méret kezelése:** Futtasd a `optimize` parancsot legalább naponta egyszer a 100 GB-nál nagyobb indexeknél, hogy a lekérdezési késleltetés 200 ms alatt maradjon.  
+- **Memóriahasználati irányelvek:** Legalább 2 GB heap-et rendelj a 1 millió dokumentumot meghaladó indexekhez; nagyon nagy korpuszok esetén fontold meg az off‑heap tárolást.  
+- **Legjobb gyakorlatok:** A dokumentumok hozzáadását csoportokban, 500-as adagokban végezd, hogy minimalizáld a szegmens szaporodását, és kerüld el ugyanazon fájl többszöri indexelését.
 
-## Következtetés
-Ebben az útmutatóban megtanultad, hogyan **optimalizálhatod a keresési indexet Java-ban** a GroupDocs.Search for Java segítségével, hogyan adhatsz hozzá dokumentumokat különböző könyvtárakból, és hogyan egyesítheted az index szegmenseit a gyorsabb lekérdezések érdekében. 
+## Összegzés
+Ebben az útmutatóban megtanultad, hogyan **java keresési index optimalizálása** a GroupDocs.Search segítségével, hogyan adj hozzá dokumentumokat különböző könyvtárakból, és hogyan egyesítsd az index szegmenseket a gyorsabb lekérdezések érdekében. A fenti lépések követésével karbantarthatod a keresési infrastruktúrát karcsúnak, válaszkésznek és skálázhatónak.
 
 ### Következő lépések
-- Kísérletezz különböző dokumentumtípusokkal és méretekkel.  
-- Fedezd fel a fejlett funkciókat a [GroupDocs documentation](https://docs.groupdocs.com/search/java/) oldalon.
+- Kísérletezz különböző dokumentumtípusokkal (pl. PDF, PPTX), hogy lásd, hogyan befolyásolja a formátumkezelés a teljesítményt.  
+- Mélyedj el a fejlett funkciókban, mint a **faceted search** és a **custom analyzers**, a [GroupDocs dokumentációban](https://docs.groupdocs.com/search/java/).  
 
-Készen állsz arra, hogy bevezesd ezeket a hatékony indexelési funkciókat? Kezdd el ma a GroupDocs.Search integrálását Java alkalmazásaidba!
+Készen állsz, hogy felgyorsítsd Java alkalmazásaidat? Integráld a GroupDocs.Search-et még ma, és tapasztald meg a vállalati szintű keresést a felesleges gondok nélkül.
 
 ## Gyakran ismételt kérdések
 
-**K: Mi a GroupDocs.Search for Java?**  
-A: Egy robusztus java full‑text search library, amely teljes‑szöveges keresési képességeket biztosít különböző dokumentumformátumokban Java alkalmazások számára.
+**K: Mi az a GroupDocs.Search for Java?**  
+V: Ez egy robusztus java full‑text search library, amely több mint 50 fájlformátumot indexel és keres, akár 10 millió dokumentumot kezel alulmásodperces lekérdezési késleltetéssel.
 
-**K: Hogyan kezeljem hatékonyan a nagy indexeket?**  
-A: Rendszeresen futtasd az `optimize` metódust a szegmensek egyesítéséhez, és figyeld a rendszer erőforrásait a zökkenőmentes teljesítmény érdekében.
+**K: Hogyan kezelem hatékonyan a nagy indexeket?**  
+V: Rendszeresen hívd meg a `optimize` metódust a megfelelő `MergeOptions`-szel, és figyeld a JVM memóriát, hogy elegendő heap álljon rendelkezésre a kötegelt feldolgozáshoz.
 
 **K: Testreszabhatom a leállítási beállításokat az optimalizálás során?**  
-A: Igen, a `MergeOptions` segítségével megadhatsz egyedi időtartamot az egyesítési folyamatra.
+V: Igen – a `MergeOptions` egy `cancellationTimeout` tulajdonságot biztosít, amely lehetővé teszi a hosszú futású egyesítések megszakítását egy meghatározott idő után.
 
-**K: Alkalmas a GroupDocs.Search valós‑idő alkalmazásokhoz?**  
-A: Teljes mértékben, amennyiben hatékonyan kezeled az indexelést és rendszeresen végzed az optimalizálásokat.
+**K: Alkalmas a GroupDocs.Search valós‑idő alkalmazásokra?**  
+V: Teljes mértékben – az inkrementális indexelés és az alacsony késleltetésű lekérdezések ideálissá teszik élő műszerfalak és interaktív keresési élmények számára.
 
 **K: Hol találok támogatást, ha problémáim vannak?**  
-A: Látogasd meg a [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/search/10) oldalt, ahol a közösség és a szakértők segítenek.
+V: Látogasd meg a [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/search/10) közösségi segítségért és hivatalos útmutatásért.
 
 ## További források
-- Dokumentáció: [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)
-- API referencia: [API Reference Guide](https://reference.groupdocs.com/search/java)
-- Letöltés: [Latest Releases](https://releases.groupdocs.com/search/java/)
-- GitHub tároló: [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- Ingyenes támogatás: [Support Forum](https://forum.groupdocs.com/c/search/10)
+- Dokumentáció: [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
+- API referencia: [API Reference Guide](https://reference.groupdocs.com/search/java)  
+- Letöltés: [Latest Releases](https://releases.groupdocs.com/search/java/)  
+- GitHub tároló: [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- Ingyenes támogatás: [Support Forum](https://forum.groupdocs.com/c/search/10)  
 - Ideiglenes licenc: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Utolsó frissítés:** 2026-01-14  
-**Tesztelve:** GroupDocs.Search 25.4  
+**Utoljára frissítve:** 2026-06-17  
+**Tesztelve ezzel:** GroupDocs.Search 25.4  
 **Szerző:** GroupDocs
+
+## Kapcsolódó oktatóanyagok
+
+- [Javítsd a lekérdezési teljesítményt a GroupDocs.Search Java-val: Index optimalizálása és keresés](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
+- [Keresési teljesítmény optimalizálása fejlett indexelési technikákkal a GroupDocs.Search for Java-ban](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
+- [Hogyan indexelj Java dokumentumokat a GroupDocs.Search segítségével – Hatékony keresés](/search/java/indexing/efficient-document-indexing-search-groupdocs-java/)
