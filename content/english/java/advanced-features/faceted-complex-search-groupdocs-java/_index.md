@@ -1,7 +1,7 @@
 ---
-title: "Create Search Index Java – Faceted & Complex Searches"
-description: "Learn how to create search index Java and implement faceted and complex searches using GroupDocs.Search, boosting search performance and user experience."
-date: "2025-12-16"
+title: "Boolean Operators Java – Create Search Index & Faceted Search"
+description: "Learn how to use boolean operators Java with GroupDocs.Search to create a search index, perform content search Java and faceted queries, boosting performance and user experience."
+date: "2026-02-16"
 weight: 1
 url: "/java/advanced-features/faceted-complex-search-groupdocs-java/"
 keywords:
@@ -11,25 +11,26 @@ keywords:
 type: docs
 ---
 
-# Create Search Index Java – Faceted & Complex Searches
+# Boolean Operators Java – Create Search Index & Faceted Search
 
-Implementing a powerful **search experience** in Java can feel overwhelming, especially when you need to **create search index Java** projects that handle large document collections. Fortunately, **GroupDocs.Search for Java** provides a rich API that lets you build faceted and complex queries with just a few lines of code. In this tutorial you’ll discover how to set up the library, **create a search index Java**, add documents, and run both simple faceted searches and sophisticated multi‑criteria queries.
+Implementing a powerful **search experience** in Java can feel overwhelming, especially when you need to **create a search index Java** that supports **boolean operators Java** for faceted and complex queries. In this tutorial we’ll walk through setting up **GroupDocs.Search for Java**, building an index, adding documents, and crafting both simple faceted searches and sophisticated multi‑criteria queries that use Boolean logic. By the end you’ll understand how to leverage **content search Java**, **filename search Java**, and even **update index java** operations to keep your data fresh.
 
 ## Quick Answers
-- **What is a faceted search?** A way to filter results by predefined categories (e.g., file type, date).  
+- **What is a faceted search?** A way to filter results by predefined categories such as file type or date.  
 - **How do I create a search index Java?** Initialize an `Index` object pointing to a folder and add documents.  
-- **Can I combine multiple criteria?** Yes—use object‑based queries or Boolean operators in a text query.  
+- **Can I combine multiple criteria with boolean operators?** Yes—use object‑based queries or Boolean operators in a text query.  
 - **Do I need a license?** A free trial works for development; a commercial license removes limits.  
 - **Which IDE works best?** Any Java IDE (IntelliJ IDEA, Eclipse, NetBeans) works fine.
 
 ## What is “create search index java”?
-Creating a search index in Java means building a searchable data structure that stores document metadata and content, enabling fast retrieval based on user queries. With GroupDocs.Search, the index lives on disk, can be updated incrementally, and supports advanced features like faceting and complex Boolean logic.
+Creating a search index in Java means building a searchable data structure that stores document metadata and content, enabling fast retrieval based on user queries. With GroupDocs.Search, the index lives on disk, can be updated incrementally, and supports advanced features like faceting, **boolean operators Java**, and complex Boolean logic.
 
 ## Why use GroupDocs.Search for faceted and complex queries?
 - **Out‑of‑the‑box faceting** – filter by fields such as file name, size, or custom metadata.  
-- **Rich query language** – mix text, phrase, and field queries using AND/OR/NOT operators.  
-- **Scalable performance** – indexes millions of documents while keeping search latency low.  
-- **Pure Java** – no native dependencies, works on any platform that runs JDK 8+.
+- **Rich query language** – mix text, phrase, and field queries using AND/OR/NOT operators (the core of **boolean operators java**).  
+- **Scalable performance** – indexes millions of documents while keeping latency low.  
+- **Pure Java** – no native dependencies, works on any platform that runs JDK 8+.  
+- **Easy index maintenance** – call `index.update()` to **update index java** after adding or removing files.
 
 ## Prerequisites
 
@@ -94,7 +95,7 @@ public class SearchSetup {
 
 With the index ready, we can move on to real‑world faceted and complex queries.
 
-## How to create search index java – Simple Faceted Search
+## How to use boolean operators java – Simple Faceted Search
 
 Faceted search lets end‑users narrow results by selecting values from predefined categories (facets). Below is a step‑by‑step walk‑through.
 
@@ -148,7 +149,7 @@ SearchResult result2 = index.search(fieldQuery);
 System.out.println("Documents found (query 2): " + result2.getDocumentCount());
 ```
 
-## How to create search index java – Complex Query Search
+## How to use boolean operators java – Complex Query Search
 
 Complex queries combine multiple fields, Boolean operators, and phrase searches. This is ideal for scenarios like e‑commerce filters or legal document research.
 
@@ -217,19 +218,20 @@ System.out.println("Documents found (complex object query): " + result2.getDocum
 | **Research archives** | Combine author, publication year, keywords | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
 | **Enterprise intranet** | Search by file type and department | `filetype: pdf AND department: HR` |
 
-These examples illustrate why mastering **create search index java** techniques is a game‑changer for any data‑intensive application.
+These examples illustrate why mastering **boolean operators java** and **filename search java** techniques is a game‑changer for any data‑intensive application.
 
 ## Common Pitfalls & Troubleshooting
 
 - **Empty results** – Verify that the documents were successfully added (`index.getDocumentCount()` can help).  
-- **Stale index** – After adding or removing files, call `index.update()` to keep the index in sync.  
+- **Stale index** – After adding or removing files, call `index.update()` to **update index java** and keep the index in sync.  
 - **Incorrect field names** – Use `CommonFieldNames` constants (`Content`, `FileName`, etc.) to avoid typos.  
-- **Performance bottlenecks** – For huge collections, consider enabling `index.setCacheSize()` or using a dedicated SSD for the index folder.
+- **Performance bottlenecks** – For huge collections, consider enabling `index.setCacheSize()` or using a dedicated SSD for the index folder.  
+- **Missing highlights** – To **highlight search results java**, retrieve the matched fragments via `SearchResult.getFragments()` (not shown here but available in the API).  
 
 ## Frequently Asked Questions
 
 **Q: Can I use GroupDocs.Search with Spring Boot?**  
-A: Absolutely. Just add the Maven dependency, configure the index as a Spring bean, and inject it where needed.
+A: Absolutely. Add the Maven dependency, configure the index as a Spring bean, and inject it wherever you need search capabilities.
 
 **Q: Does the library support custom metadata fields?**  
 A: Yes – you can add user‑defined fields during indexing and then facet on them.
@@ -245,12 +247,12 @@ A: Provide the password when adding the document: `index.add(filePath, password)
 
 ## Conclusion
 
-By now you should feel comfortable **creating a search index Java** with GroupDocs.Search, adding documents, and crafting both simple faceted queries and sophisticated Boolean searches. These capabilities empower you to deliver fast, accurate, and user‑friendly search experiences across a wide range of applications—from e‑commerce platforms to enterprise knowledge bases.
+By now you should feel comfortable **creating a search index Java** with GroupDocs.Search, adding documents, and crafting both simple faceted queries and sophisticated Boolean searches using **boolean operators java**. These capabilities empower you to deliver fast, accurate, and user‑friendly search experiences across a wide range of applications—from e‑commerce platforms to enterprise knowledge bases.
 
 Ready for the next step? Explore **GroupDocs.Search’s** advanced features such as **highlighting**, **suggestions**, and **real‑time indexing** to further boost your application’s search power.
 
 ---
 
-**Last Updated:** 2025-12-16  
+**Last Updated:** 2026-02-16  
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
