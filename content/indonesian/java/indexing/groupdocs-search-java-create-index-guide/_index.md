@@ -1,40 +1,44 @@
 ---
-date: '2026-01-01'
+date: '2026-03-09'
 description: Pelajari cara mengeksekusi query pencarian Java, menambahkan dokumen
   ke indeks, dan membangun solusi pencarian teks penuh Java dengan GroupDocs.Search
-  untuk Java.
+  untuk Java, termasuk cara menambahkan folder ke indeks.
 keywords:
 - GroupDocs.Search Java
 - create search index Java
 - manage search indexes
-title: 'pencarian query java - Menguasai GroupDocs.Search Java – Membuat dan Mengelola
-  Indeks Pencarian'
+title: pencarian teks penuh java – Menguasai GroupDocs.Search Java – Membuat dan Mengelola
+  Indeks Pencarian
 type: docs
 url: /id/java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# search query java - Menguasai GroupDocs.Search Java – Membuat dan Mengelola Indeks Pencarian
+: none.
 
-Dalam aplikasi yang berbasis data saat ini, menjalankan **search query java** yang efisien terhadap koleksi dokumen besar adalah kemampuan yang wajib dimiliki. Baik Anda membangun portal dokumen internal, katalog e‑commerce, atau CMS yang kaya konten, indeks pencarian yang terstruktur dengan baik memberikan hasil yang cepat dan akurat. Tutorial ini menunjukkan, langkah demi langkah, cara menyiapkan GroupDocs.Search untuk Java, membuat indeks yang dapat dicari, **menambahkan dokumen ke indeks**, dan menjalankan kueri **full text search java**—semua dengan penjelasan yang jelas dan bersahabat.
+Make sure to keep code block placeholders unchanged.
+
+Now craft final answer.# full text search java – Menguasai GroupDocs.Search Java – Membuat dan Mengelola Indeks Pencarian
+
+Dalam aplikasi yang didorong oleh data saat ini, menjalankan **full text search java** yang efisien terhadap koleksi dokumen besar adalah kemampuan yang wajib dimiliki. Baik Anda membangun portal dokumen internal, katalog e‑commerce, atau CMS yang kaya konten, indeks pencarian yang terstruktur dengan baik memberikan hasil yang cepat dan akurat. Tutorial ini memandu Anda melalui penyiapan GroupDocs.Search untuk Java, membuat indeks yang dapat dicari, **add documents to index**, dan mengeksekusi kueri **full text search java**—semua dijelaskan dengan gaya yang ramah dan langkah demi langkah.
 
 ## Jawaban Cepat
-- **Apa arti “search query java”?** Menjalankan pencarian berbasis teks terhadap indeks yang dibangun dengan GroupDocs.Search dalam aplikasi Java.  
-- **Perpustakaan mana yang menangani pengindeksan?** GroupDocs.Search untuk Java (rilis stabil terbaru).  
+- **Apa arti “full text search java”?** Menjalankan pencarian berbasis teks terhadap indeks yang dibangun dengan GroupDocs.Search dalam aplikasi Java.  
+- **Perpustakaan mana yang menangani pengindeksan?** GroupDocs.Search for Java (rilisan stabil terbaru).  
 - **Apakah saya memerlukan lisensi untuk mencobanya?** Versi percobaan gratis tersedia; lisensi sementara atau penuh diperlukan untuk produksi.  
 - **Bisakah saya mengindeks seluruh folder sekaligus?** Ya – gunakan `index.add("folderPath")` untuk **add folder to index** dalam satu panggilan.  
-- **Apakah pencarian tidak sensitif huruf besar/kecil?** Secara default, GroupDocs.Search melakukan pencarian full‑text yang tidak sensitif huruf besar/kecil.
+- **Apakah pencarian tidak memperhatikan huruf besar/kecil?** Secara default, GroupDocs.Search melakukan pencarian full‑text yang tidak sensitif huruf.
 
-## Apa itu search query java?
-**search query java** hanyalah string teks yang Anda berikan ke metode `search()` dari objek `Index` GroupDocs.Search. Perpustakaan akan mem-parsing kueri, menelusuri istilah yang terindeks, dan mengembalikan dokumen yang cocok secara instan.
+## Apa itu full text search java?
+Operasi **full text search java** hanyalah sebuah string teks yang Anda berikan ke metode `search()` dari objek `Index` GroupDocs.Search. Perpustakaan ini mem‑parsing kueri, memindai istilah yang diindeks, dan langsung mengembalikan dokumen yang cocok.
 
-## Mengapa menggunakan GroupDocs.Search untuk Java?
-- **Kecepatan:** Algoritma bawaan memberikan respons dalam hitungan milidetik bahkan pada jutaan dokumen.  
-- **Dukungan format:** Mengindeks PDF, file Word, lembar Excel, teks biasa, dan banyak format lainnya secara langsung.  
-- **Skalabilitas:** Berfungsi sama baiknya untuk utilitas kecil maupun solusi perusahaan besar.  
+## Mengapa Menggunakan GroupDocs.Search untuk Java?
+- **Speed:** Algoritma bawaan memberikan waktu respons tingkat milidetik bahkan pada jutaan dokumen.  
+- **Format support:** Mengindeks PDF, file Word, lembar Excel, teks biasa, dan banyak format lainnya secara langsung.  
+- **Scalability:** Berfungsi sama baiknya untuk utilitas kecil maupun solusi perusahaan besar.
 
 ## Prasyarat
-Sebelum memulai, pastikan Anda memiliki:
+Sebelum kita mulai, pastikan Anda memiliki:
 
 1. **Java Development Kit (JDK) 8+** – runtime untuk mengompilasi dan menjalankan kode.  
 2. **Maven** – untuk manajemen dependensi (Anda juga dapat menggunakan Gradle, tetapi contoh Maven disediakan).  
@@ -43,7 +47,7 @@ Sebelum memulai, pastikan Anda memiliki:
 ## Menyiapkan GroupDocs.Search untuk Java
 
 ### Pengaturan Maven
-Tambahkan repositori dan dependensi GroupDocs ke `pom.xml` Anda. Ini satu‑satunya perubahan yang diperlukan pada konfigurasi proyek Anda.
+Tambahkan repositori GroupDocs dan dependensi ke `pom.xml` Anda. Ini satu-satunya perubahan yang perlu Anda lakukan pada konfigurasi proyek.
 
 ```xml
 <repositories>
@@ -64,15 +68,15 @@ Tambahkan repositori dan dependensi GroupDocs ke `pom.xml` Anda. Ini satu‑satu
 ```
 
 ### Unduhan Langsung (opsional)
-Jika Anda tidak ingin menggunakan Maven, unduh JAR terbaru dari halaman rilis resmi: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Jika Anda lebih memilih tidak menggunakan Maven, unduh JAR terbaru dari halaman rilis resmi: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### Akuisisi Lisensi
 - **Free Trial:** Ideal untuk mengevaluasi fitur.  
 - **Temporary License:** Digunakan untuk pengujian lanjutan tanpa komitmen.  
-- **Full License:** Disarankan untuk penerapan produksi.
+- **Full License:** Direkomendasikan untuk penerapan produksi.
 
 ### Inisialisasi Dasar
-Potongan kode di bawah ini membuat folder indeks kosong. Ini menjadi dasar bagi setiap **search query java** yang akan Anda jalankan nanti.
+Potongan kode di bawah ini membuat folder indeks kosong. Ini merupakan fondasi untuk setiap **full text search java** yang akan Anda jalankan nanti.
 
 ```java
 import com.groupdocs.search.Index;
@@ -86,17 +90,10 @@ public class GroupDocsSearchSetup {
 }
 ```
 
-## Panduan Implementasi
+## Cara Membuat Indeks Pencarian
 
 ### Membuat Indeks
 Membuat indeks pencarian adalah langkah pertama untuk memungkinkan pengambilan dokumen yang efisien.
-
-#### Gambaran Umum
-Indeks menyimpan istilah yang dapat dicari yang diekstrak dari dokumen Anda, memungkinkan pencarian instan saat Anda mengeksekusi **search query java**.
-
-#### Langkah‑Langkah Membuat Indeks
-1. **Tentukan Direktori Output** – tempat file‑file indeks akan disimpan.  
-2. **Inisialisasi Indeks** – buat instance kelas `Index` dengan folder tersebut.
 
 ```java
 import com.groupdocs.search.Index;
@@ -113,15 +110,8 @@ public class CreateIndexExample {
 }
 ```
 
-### Menambahkan Dokumen ke Indeks
-Setelah indeks ada, Anda perlu **add documents to index** agar dokumen‑dokumen tersebut dapat dicari.
-
-#### Gambaran Umum
-GroupDocs.Search dapat mengolah seluruh folder, secara otomatis mendeteksi tipe file yang didukung. Ini cara paling umum untuk **add folder to index**.
-
-#### Langkah‑Langkah Menambahkan Dokumen
-1. **Tentukan Direktori Dokumen** – tempat file sumber Anda disimpan.  
-2. **Panggil `add()`** – metode ini membaca setiap file dan memperbarui indeks.
+### Menambahkan Folder ke Indeks
+Setelah indeks ada, Anda perlu **add documents to index** agar dokumen menjadi dapat dicari. GroupDocs.Search dapat mengimpor seluruh folder dengan satu panggilan.
 
 ```java
 import com.groupdocs.search.Index;
@@ -142,15 +132,8 @@ public class AddDocumentsToIndexExample {
 }
 ```
 
-### Mencari dalam Indeks
-Dengan dokumen yang telah diindeks, melakukan **full text search java** menjadi sangat mudah.
-
-#### Gambaran Umum
-Metode `search()` menerima string kueri apa pun—kata kunci, frasa, atau bahkan ekspresi Boolean—dan mengembalikan referensi dokumen yang cocok.
-
-#### Langkah‑Langkah Pencarian
-1. **Tentukan Kueri Anda** – misalnya, `"Lorem"` atau `"invoice AND 2024"`.  
-2. **Jalankan Pencarian** – dapatkan objek `SearchResult` dan periksa jumlah hasil.
+### Melakukan full text search java
+Dengan dokumen Anda terindeks, mengeksekusi **full text search java** menjadi sederhana.
 
 ```java
 import com.groupdocs.search.Index;
@@ -175,43 +158,54 @@ public class SearchIndexExample {
 ## Aplikasi Praktis
 GroupDocs.Search untuk Java bersinar dalam banyak skenario dunia nyata:
 
-1. **Sistem Manajemen Dokumen Internal** – pengambilan kebijakan, kontrak, dan manual secara instan.  
-2. **Platform E‑commerce** – pencarian produk cepat di katalog dengan ribuan item.  
-3. **Content Management Systems (CMS)** – memampukan editor dan pengunjung menemukan artikel, media, serta PDF dengan cepat.  
+1. **Internal Document Management Systems** – pengambilan kebijakan, kontrak, dan manual secara instan.  
+2. **E‑commerce Platforms** – pencarian produk cepat di seluruh katalog dengan ribuan item.  
+3. **Content Management Systems (CMS)** – memungkinkan editor dan pengunjung menemukan artikel, media, dan PDF dengan cepat.  
 
 ## Pertimbangan Kinerja
-Agar **search query java** Anda tetap secepat kilat:
+Untuk menjaga **full text search java** Anda tetap sangat cepat:
 
-- **Optimalkan Pengindeksan:** Lakukan re‑indeks hanya pada file yang berubah dan bersihkan entri usang secara berkala.  
-- **Kelola Sumber Daya:** Pantau penggunaan heap JVM; pertimbangkan pengindeksan inkremental untuk dataset yang sangat besar.  
-- **Ikuti Praktik Terbaik:** Gunakan panggilan batch `add()` alih‑alih menambahkan file satu per satu bila memungkinkan.
+- **Optimize Indexing:** Lakukan re‑indeks hanya pada file yang berubah dan bersihkan entri usang secara teratur.  
+- **Manage Resources:** Pantau penggunaan heap JVM; pertimbangkan pengindeksan inkremental untuk kumpulan data besar.  
+- **Follow Best Practices:** Gunakan panggilan batch `add()` alih‑alih menambahkan file satu per satu bila memungkinkan.
 
 ## Masalah Umum & Solusi
 | Gejala | Penyebab Kemungkinan | Solusi |
-|---------|----------------------|--------|
-| Tidak ada hasil yang dikembalikan | Indeks belum dibangun atau dokumen belum ditambahkan | Pastikan `index.add()` berhasil dieksekusi; periksa jalur folder. |
+|--------|----------------------|--------|
+| Tidak ada hasil yang dikembalikan | Indeks belum dibangun atau dokumen belum ditambahkan | Verifikasi `index.add()` berhasil dijalankan; periksa jalur folder. |
 | Kesalahan out‑of‑memory | File sangat besar dimuat sekaligus | Aktifkan pengindeksan inkremental atau tingkatkan heap JVM (`-Xmx`). |
-| Pencarian tidak menemukan istilah | Analyzer tidak dikonfigurasi untuk bahasa | Gunakan `IndexSettings` yang tepat untuk analyzer spesifik bahasa. |
+| Pencarian melewatkan istilah | Analyzer tidak dikonfigurasi untuk bahasa | Gunakan `IndexSettings` yang sesuai untuk mengatur analyzer khusus bahasa. |
 
 ## Pertanyaan yang Sering Diajukan
 
-**T: Format file apa saja yang dapat diindeks oleh GroupDocs.Search?**  
-J: PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, dan banyak format kantor umum lainnya.
+**Q: Format file apa yang dapat diindeks oleh GroupDocs.Search?**  
+A: PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, dan banyak format kantor umum lainnya.
 
-**T: Bisakah saya menjalankan search query java di server remote?**  
-J: Ya. Bangun indeks di server dan ekspos endpoint REST yang meneruskan kueri ke layanan Java.
+**Q: Bisakah saya menjalankan full text search java di server remote?**  
+A: Ya. Bangun indeks di server dan ekspos endpoint REST yang meneruskan kueri ke layanan Java.
 
-**T: Bagaimana cara memperbarui indeks ketika sebuah dokumen berubah?**  
-J: Gunakan `index.update("path/to/changed/file")` untuk menggantikan entri lama tanpa membangun ulang seluruh indeks.
+**Q: Bagaimana cara memperbarui indeks ketika sebuah dokumen berubah?**  
+A: Gunakan `index.update("path/to/changed/file")` untuk mengganti entri lama tanpa membangun ulang seluruh indeks.
 
-**T: Apakah ada cara membatasi hasil pencarian ke folder tertentu?**  
-J: Setelah memperoleh `SearchResult`, filter `result.getDocuments()` berdasarkan path asli mereka.
+**Q: Apakah ada cara membatasi hasil pencarian ke folder tertentu?**  
+A: Setelah memperoleh `SearchResult`, filter `result.getDocuments()` berdasarkan path asli mereka.
 
-**T: Apakah GroupDocs.Search mendukung pencarian fuzzy atau wildcard?**  
-J: Perpustakaan menyertakan dukungan built‑in untuk pencocokan fuzzy (`~`) dan operator wildcard (`*`) dalam string kueri.
+**Q: Apakah GroupDocs.Search mendukung pencarian fuzzy atau wildcard?**  
+A: Perpustakaan ini mencakup dukungan bawaan untuk pencocokan fuzzy (`~`) dan wildcard (`*`) dalam string kueri.
+
+### FAQ Tambahan
+
+**Q: Bagaimana saya dapat meningkatkan peringkat relevansi untuk full text search java saya?**  
+A: Sesuaikan `IndexSettings` seperti pemberian bobot istilah, meningkatkan bidang tertentu, atau mengaktifkan sinonim untuk menyempurnakan relevansi.
+
+**Q: Apakah memungkinkan menghapus dokumen dari indeks?**  
+A: Ya. Panggil `index.delete("path/to/file")` untuk menghapus entri dokumen.
+
+**Q: Apa yang sebenarnya dilakukan “add folder to index” di balik layar?**  
+A: GroupDocs.Search memindai folder secara rekursif, mengekstrak teks dari setiap file yang didukung, mem‑tokenisasi istilah, dan menyimpannya dalam struktur indeks untuk pencarian cepat.
 
 ---
 
-**Terakhir Diperbarui:** 2026-01-01  
-**Diuji Dengan:** GroupDocs.Search 25.4 untuk Java  
+**Terakhir Diperbarui:** 2026-03-09  
+**Diuji Dengan:** GroupDocs.Search 25.4 for Java  
 **Penulis:** GroupDocs
