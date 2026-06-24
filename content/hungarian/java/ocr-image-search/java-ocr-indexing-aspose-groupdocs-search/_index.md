@@ -1,47 +1,48 @@
 ---
-date: '2026-01-11'
-description: Tanulja meg, hogyan használja a GroupDocs for Java OCR indexelést az
-  Aspose.OCR segítségével, amely lehetővé teszi a PDF-ek, képek és beolvasott fájlok
-  hatékony keresését.
+date: '2026-03-20'
+description: Ismerje meg, hogyan valósítható meg a dokumentumkezelés OCR-je a GroupDocs
+  for Java és az Aspose.OCR használatával, amely lehetővé teszi a hatékonyan kereshető
+  PDF-ek, képek és beolvasott fájlok létrehozását.
 keywords:
 - Java OCR indexing
 - document searchability
 - OCR with GroupDocs
-title: Hogyan használjuk a GroupDocs for Java OCR indexelését az Aspose-szal
+title: Dokumentumkezelés OCR a GroupDocs for Java és az Aspose segítségével
 type: docs
 url: /hu/java/ocr-image-search/java-ocr-indexing-aspose-groupdocs-search/
 weight: 1
 ---
 
-# Hogyan használjuk a GroupDocs-ot Java OCR indexeléshez az Aspose-szal
+# Dokumentumkezelő OCR a GroupDocs for Java és Aspose használatával
 
-Ebben az útmutatóban felfedezheti, **hogyan használja a GroupDocs-ot**, hogy OCR‑alapú keresést adjon Java alkalmazásaihoz. A GroupDocs.Search és az Aspose.OCR kombinálásával a képalapú tartalmat kereshető szöveggé alakíthatja, így a dokumentumkezelő rendszerek sokkal hasznosabbá válnak. Lépésről‑lépésre bemutatjuk a beállítást, indexelést, keresést és az egyedi OCR integrációt, mind világos példákkal.
+Ebben az útmutatóban megtudhatja, **hogyan használja a GroupDocs‑ot**, hogy OCR‑alapú keresést adjon Java‑alkalmazásaihoz, ami egy alapvető képesség minden modern **dokumentumkezelő OCR** megoldáshoz. A GroupDocs.Search és az Aspose.OCR kombinálásával a képalapú tartalmat kereshető szöveggé alakíthatja, így a dokumentumkezelő rendszerek sokkal hasznosabbak lesznek a végfelhasználók számára. Lépésről‑lépésre végigvezetjük a beállításon, indexelésen, keresésen és az egyedi OCR integráción, mindezt világos példákkal, amelyeket ma be tud másolni a projektjébe.
 
-## Gyors válaszok
+## Quick Answers
 - **Melyik könyvtár biztosítja az OCR indexelést?** GroupDocs.Search párosítva az Aspose.OCR-rel.  
 - **Melyik Java verzió szükséges?** JDK 8 vagy újabb.  
-- **Szükségem van licencre?** Elérhető egy ingyenes próba, a termeléshez fizetett licenc szükséges.  
-- **Indexelhetek különálló és beágyazott képeket is?** Igen, engedélyezze mindkét opciót az `IndexingOptions`-ban.  
+- **Szükségem van licencre?** Ingyenes próba elérhető; fizetett licenc szükséges a termeléshez.  
+- **Indexelhetek különálló és beágyazott képeket is?** Igen, engedélyezze mindkét lehetőséget az `IndexingOptions`‑ban.  
 - **Támogatott a több szálas feldolgozás?** Igen, párhuzamosíthatja az indexelést nagy adathalmazok esetén.
 
-## Mi az OCR indexelés a GroupDocs-szal?
-Az OCR indexelés a képekből (beleértve a beolvasott PDF-eket) szöveget nyer ki, és egy kereshető indexben tárolja. A GroupDocs.Search kezeli az indexelést és a lekérdezés végrehajtását, míg az Aspose.OCR végzi a tényleges karakterfelismerést.
+## What is Document Management OCR?
+A dokumentumkezelő OCR szöveget nyer ki képekből (beleértve a beolvasott PDF‑eket), és tárolja egy kereshető indexben. A GroupDocs.Search kezeli az indexelést és a lekérdezés végrehajtását, míg az Aspose.OCR végzi a tényleges karakterfelismerést, így egy teljes **dokumentumkezelő OCR** csővezeték áll rendelkezésre.
 
-## Miért használjuk a GroupDocs-ot Java OCR indexeléshez?
+## Why Use GroupDocs for Java OCR Indexing?
 - **Magas pontosság** az Aspose fejlett OCR motorjának köszönhetően.  
-- **Zökkenőmentes Java integráció** Maven vagy közvetlen JAR fájlok segítségével.  
+- **Zökkenőmentes Java integráció** Maven vagy közvetlen JAR‑ok segítségével.  
 - **Rugalmas konfiguráció** különálló vagy beágyazott képekhez.  
-- **Skálázható teljesítmény** több szálas feldolgozással és memóriaoptimalizálással.
+- **Skálázható teljesítmény** több szálas feldolgozással és memóriaoptimalizálással.  
+- **Vállalati szintű licencelés** lehetőségek termelési környezethez.
 
-## Előfeltételek
+## Prerequisites
 - **GroupDocs.Search** ≥ 25.4  
-- **Aspose.OCR** (legújabb verzió)  
-- JDK 8+ és egy IDE (IntelliJ, Eclipse, NetBeans)  
-- Alapvető Java ismeretek; a Maven hasznos, de nem kötelező
+- **Aspose.OCR** (latest version)  
+- JDK 8+ and an IDE (IntelliJ, Eclipse, NetBeans)  
+- Basic Java knowledge; Maven is helpful but not mandatory  
 
-## A GroupDocs.Search beállítása Java-hoz
-### Maven használata
-Adja hozzá a tárolót és a függőséget a `pom.xml`-hez:
+## Setting Up GroupDocs.Search for Java
+### Using Maven
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -60,16 +61,16 @@ Adja hozzá a tárolót és a függőséget a `pom.xml`-hez:
 </dependencies>
 ```
 
-### Közvetlen letöltés
-Alternatívaként töltse le a GroupDocs.Search legújabb Java verzióját a [GroupDocs releases](https://releases.groupdocs.com/search/java/) oldalról.
+### Direct Download
+Alternatively, download the latest version of GroupDocs.Search for Java from [GroupDocs releases](https://releases.groupdocs.com/search/java/).
 
-### Licenc beszerzése
-- **Ingyenes próba** – minden funkció kipróbálása költség nélkül.  
-- **Ideiglenes licenc** – meghosszabbított tesztelési időszak.  
-- **Vásárlás** – szükséges a termelési környezethez.
+### License Acquisition
+- **Ingyenes próba** – explore all features without cost.  
+- **Ideiglenes licenc** – extended testing period.  
+- **Vásárlás** – required for production deployments.
 
-### Alapvető inicializálás és beállítás
-Hozzon létre egy index mappát, és inicializálja az `Index` objektumot:
+## Basic Initialization and Setup
+Create an index folder and initialize the `Index` object:
 
 ```java
 import com.groupdocs.search.Index;
@@ -79,17 +80,17 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/OcrSupport";
 Index index = new Index(indexFolder);
 ```
 
-## Hogyan használjuk a GroupDocs-ot OCR indexeléshez
-### Index létrehozása
-Először állítsa be a mappát, amely az index fájlokat tárolja:
+## How to Use GroupDocs for OCR Indexing
+### Creating an Index
+First, set up the folder that will hold the index files:
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/OcrSupport";
 Index index = new Index(indexFolder);
 ```
 
-### OCR indexelési beállítások konfigurálása
-Engedélyezze az OCR-t a különálló és beágyazott képekhez, és csatlakoztasson egy egyedi OCR csatlakozót:
+### Setting OCR Indexing Options
+Enable OCR for both separate and embedded images, and plug in a custom OCR connector:
 
 ```java
 import com.groupdocs.search.options.IndexingOptions;
@@ -100,16 +101,16 @@ options.getOcrIndexingOptions().setEnabledForEmbeddedImages(true);
 options.getOcrIndexingOptions().setOcrConnector(new OcrConnector());
 ```
 
-### Dokumentumok indexelése
-Adja hozzá a forrásdokumentumokat (PDF-ek, Word fájlok, képek stb.) az indexhez:
+### Indexing Documents
+Add your source documents (PDFs, Word files, images, etc.) to the index:
 
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder, options);
 ```
 
-### Keresés egy indexben
-Futtasson keresési lekérdezést az indexelt tartalomra:
+### Searching in an Index
+Run a search query against the indexed content:
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -117,8 +118,8 @@ String query = "water";
 SearchResult result = index.search(query);
 ```
 
-### OCR csatlakozó megvalósítása
-Használja az Aspose.OCR-t a képek szövegének felismeréséhez. Valósítsa meg a `IOcrConnector` interfészt a következő módon:
+### Implementing an OCR Connector
+Use Aspose.OCR to recognize text from images. Implement the `IOcrConnector` interface as shown:
 
 ```java
 import com.groupdocs.search.options.IOcrConnector;
@@ -142,44 +143,44 @@ public class OcrConnector implements IOcrConnector {
 }
 ```
 
-## Gyakorlati alkalmazások
-1. **Dokumentumkezelő rendszerek** – gyors visszakeresés a beolvasott képeket tartalmazó dokumentumok között.  
+## Practical Applications
+1. **Dokumentumkezelő rendszerek** – gyors visszakeresés a beolvasott képeket tartalmazó dokumentumoknál.  
 2. **Archívum visszakeresés** – történelmi feljegyzések megtalálása hatalmas archívumokban.  
-3. **Jogi dokumentumelemzés** – szerződések és bizonyítékok keresése, amelyek beolvasott aláírásokat vagy diagramokat tartalmaznak.  
+3. **Jogi dokumentum elemzés** – szerződések és bizonyítékok keresése, amelyek beolvasott aláírásokat vagy diagramokat tartalmaznak.  
 4. **Orvosi feljegyzések keresése** – beteg űrlapok, laboreredmények és röntgen annotációk indexelése.
 
-## Teljesítmény szempontok
-- **Index mérete** – hagyja ki a felesleges metaadatokat, hogy az index karcsú maradjon.  
+## Performance Considerations
+- **Index mérete** – zárja ki a felesleges metaadatokat, hogy az index karcsú maradjon.  
 - **Több szálas feldolgozás** – nagy kötegeket párhuzamosan dolgozzon fel az indexelés felgyorsításához.  
 - **Memória kezelés** – figyelje a JVM heapet nagy felbontású képek kezelésekor.
 
-## Gyakori problémák és megoldások
-- **Licenc hibák** – győződjön meg arról, hogy a megfelelő licencfájl az alkalmazás munkakönyvtárában van.  
-- **Hiányzó képek** – ellenőrizze, hogy a kép útvonalak elérhetők és a támogatott formátumok (PNG, JPEG, BMP) használatban vannak.  
-- **Memóriahiány** – növelje a JVM heapet (`-Xmx`) vagy dolgozzon kisebb kötegekkel.
+## Common Issues and Solutions
+- **Licenc hibák** – ensure the correct license file is placed in the application’s working directory.  
+- **Hiányzó képek** – verify image paths are accessible and supported formats (PNG, JPEG, BMP).  
+- **Memóriahiány** – increase JVM heap (`-Xmx`) or process documents in smaller batches.
 
-## Gyakran ismételt kérdések
-**Q: Hogyan oldjam meg a licencelési problémákat a GroupDocs.Search-nél?**  
-A: Szerezzen be egy ideiglenes licencet a [GroupDocs weboldaláról](https://purchase.groupdocs.com/temporary-license/), hogy feloldja a teljes funkciókészletet.
+## Frequently Asked Questions
+**K: Hogyan oldjam meg a licencelési problémákat a GroupDocs.Search‑nél?**  
+V: Obtain a temporary license from the [GroupDocs website](https://purchase.groupdocs.com/temporary-license/) to unlock full features.
 
-**Q: Mi a legjobb módja a nagy dokumentumok indexelésének?**  
-A: Használjon több szálas feldolgozást és kötegelt feldolgozást a teljesítmény javításához és a memória terhelés csökkentéséhez.
+**K: Mi a legjobb módja a nagy dokumentumok indexelésének?**  
+V: Utilize multi‑threading and batch processing to improve performance and reduce memory pressure.
 
-**Q: Testreszabhatom tovább az OCR beállításokat a GroupDocs.Search-ben?**  
-A: Igen, az `IndexingOptions` lehetővé teszi az OCR viselkedés finomhangolását, például a nyelvválasztást és a kép előfeldolgozást.
+**K: Testreszabhatom-e tovább az OCR beállításokat a GroupDocs.Search‑ben?**  
+V: Yes, `IndexingOptions` lets you fine‑tune OCR behavior, such as language selection and image preprocessing.
 
-**Q: Melyek a gyakori hibaelhárítási tippek a GroupDocs.Search használatakor?**  
-A: Ellenőrizze újra a könyvtár útvonalakat, győződjön meg arról, hogy minden függőség jelen van, és tekintse át a napló kimenetet a hiányzó fájlokért.
+**K: Melyek a gyakori hibaelhárítási tippek a GroupDocs.Search használatakor?**  
+V: Double‑check directory paths, verify that all dependencies are present, and review log output for missing files.
 
-**Q: Hogyan integrálhatom az Aspose.OCR-t a meglévő Java alkalmazásomba?**  
-A: Valósítsa meg a `IOcrConnector` interfészt a fent bemutatott módon, ügyelve arra, hogy helyesen kezelje a kép bemenetet.
+**K: Hogyan integrálhatom az Aspose.OCR‑t a meglévő Java alkalmazásomba?**  
+V: Implement the `IOcrConnector` interface as demonstrated above, ensuring you handle image input correctly.
 
-## Források
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java/)
+## Resources
+- [GroupDocs.Search Dokumentáció](https://docs.groupdocs.com/search/java/)
+- [API referencia](https://reference.groupdocs.com/search/java/)
 
 ---
 
-**Utoljára frissítve:** 2026-01-11  
-**Tesztelve a következőkkel:** GroupDocs.Search 25.4, Aspose.OCR legújabb kiadás  
-**Szerző:** GroupDocs
+**Last Updated:** 2026-03-20  
+**Tested With:** GroupDocs.Search 25.4, Aspose.OCR latest release  
+**Author:** GroupDocs

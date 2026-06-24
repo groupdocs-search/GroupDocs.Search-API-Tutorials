@@ -1,47 +1,48 @@
 ---
-date: '2026-01-11'
-description: Dowiedz się, jak używać GroupDocs for Java OCR do indeksowania z Aspose.OCR,
-  umożliwiając potężne możliwości wyszukiwania dokumentów w plikach PDF, obrazach
-  i zeskanowanych dokumentach.
+date: '2026-03-20'
+description: Dowiedz się, jak wdrożyć OCR w zarządzaniu dokumentami przy użyciu GroupDocs
+  for Java z Aspose.OCR, umożliwiając potężne przeszukiwalne pliki PDF, obrazy i zeskanowane
+  dokumenty.
 keywords:
 - Java OCR indexing
 - document searchability
 - OCR with GroupDocs
-title: Jak używać GroupDocs for Java do indeksowania OCR z Aspose
+title: Zarządzanie dokumentami OCR z GroupDocs dla Javy i Aspose
 type: docs
 url: /pl/java/ocr-image-search/java-ocr-indexing-aspose-groupdocs-search/
 weight: 1
 ---
 
-# Jak używać GroupDocs do indeksowania OCR w Javie z Aspose
+# Zarządzanie dokumentami OCR z GroupDocs dla Java i Aspose
 
-W tym przewodniku dowiesz się **jak używać GroupDocs**, aby dodać wyszukiwanie oparte na OCR do swoich aplikacji Java. Łącząc GroupDocs.Search z Aspose.OCR, możesz przekształcić zawartość opartą na obrazach w tekst przeszukiwalny, co sprawia, że systemy zarządzania dokumentami są znacznie bardziej użyteczne. Przejdziemy przez konfigurację, indeksowanie, wyszukiwanie i własną integrację OCR, wszystko z jasnymi, krok po kroku przykładami.
+W tym przewodniku odkryjesz **jak używać GroupDocs**, aby dodać wyszukiwanie oparte na OCR do swoich aplikacji Java, co jest kluczową funkcją każdego nowoczesnego **document management OCR** rozwiązania. Łącząc GroupDocs.Search z Aspose.OCR, możesz przekształcić zawartość opartą na obrazach w tekst możliwy do przeszukania, czyniąc systemy zarządzania dokumentami znacznie bardziej użytecznymi dla użytkowników końcowych. Przejdziemy przez konfigurację, indeksowanie, wyszukiwanie i własną integrację OCR, wszystko z jasnymi, krok po kroku przykładami, które możesz skopiować do swojego projektu już dziś.
 
 ## Szybkie odpowiedzi
-- **Jaka biblioteka zapewnia indeksowanie OCR?** GroupDocs.Search w połączeniu z Aspose.OCR.  
-- **Jakiej wersji Java wymaga?** JDK 8 lub wyższa.  
-- **Czy potrzebna jest licencja?** Dostępna jest bezpłatna wersja próbna; płatna licencja jest wymagana w środowisku produkcyjnym.  
+- **Jaką bibliotekę zapewnia indeksowanie OCR?** GroupDocs.Search paired with Aspose.OCR.  
+- **Która wersja Java jest wymagana?** JDK 8 lub wyższa.  
+- **Czy potrzebna jest licencja?** Dostępna jest darmowa wersja próbna; płatna licencja jest wymagana w produkcji.  
 - **Czy mogę indeksować zarówno osobne, jak i osadzone obrazy?** Tak, włącz obie opcje w `IndexingOptions`.  
 - **Czy obsługiwane jest wielowątkowość?** Tak, możesz równolegle indeksować duże zestawy danych.
 
-## Czym jest indeksowanie OCR w GroupDocs?
-Indeksowanie OCR wyodrębnia tekst z obrazów (w tym zeskanowanych plików PDF) i zapisuje go w przeszukiwalnym indeksie. GroupDocs.Search obsługuje indeksowanie i wykonywanie zapytań, natomiast Aspose.OCR wykonuje rzeczywiste rozpoznawanie znaków.
+## Czym jest Document Management OCR?
+Document management OCR wyodrębnia tekst z obrazów (w tym zeskanowanych PDF‑ów) i przechowuje go w indeksie możliwym do przeszukania. GroupDocs.Search obsługuje indeksowanie i wykonywanie zapytań, podczas gdy Aspose.OCR wykonuje rzeczywiste rozpoznawanie znaków, zapewniając pełny **document management OCR** pipeline.
 
 ## Dlaczego używać GroupDocs do indeksowania OCR w Javie?
-- **Wysoka dokładność** dzięki zaawansowanemu silnikowi OCR od Aspose.  
+- **Wysoka dokładność** dzięki zaawansowanemu silnikowi OCR firmy Aspose.  
 - **Bezproblemowa integracja z Javą** poprzez Maven lub bezpośrednie pliki JAR.  
 - **Elastyczna konfiguracja** dla osobnych lub osadzonych obrazów.  
-- **Skalowalna wydajność** dzięki wielowątkowości i optymalizacji pamięci.
+- **Skalowalna wydajność** dzięki wielowątkowości i optymalizacji pamięci.  
+- **Licencjonowanie gotowe dla przedsiębiorstw** w opcjach wdrożeń produkcyjnych.
 
-## Prerequisites
+## Wymagania wstępne
 - **GroupDocs.Search** ≥ 25.4  
-- **Aspose.OCR** (latest version)  
-- JDK 8+ and an IDE (IntelliJ, Eclipse, NetBeans)  
-- Podstawowa znajomość Java; Maven jest pomocny, ale nieobowiązkowy
+- **Aspose.OCR** (najnowsza wersja)  
+- JDK 8+ oraz środowisko IDE (IntelliJ, Eclipse, NetBeans)  
+- Podstawowa znajomość Javy; Maven jest przydatny, ale nieobowiązkowy  
 
-## Konfiguracja GroupDocs.Search dla Java
-### Using Maven
-Dodaj repozytorium i zależność do swojego `pom.xml`:
+## Konfigurowanie GroupDocs.Search dla Java
+### Korzystanie z Maven
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -60,16 +61,16 @@ Dodaj repozytorium i zależność do swojego `pom.xml`:
 </dependencies>
 ```
 
-### Bezpośrednie pobieranie
-Alternatywnie, pobierz najnowszą wersję GroupDocs.Search dla Java z [wydania GroupDocs](https://releases.groupdocs.com/search/java/).
+### Bezpośrednie pobranie
+Alternatywnie, pobierz najnowszą wersję GroupDocs.Search dla Java z [GroupDocs releases](https://releases.groupdocs.com/search/java/).
 
-### Nabycie licencji
-- **Bezpłatna wersja próbna** – przetestuj wszystkie funkcje bez kosztów.
-- **Licencja tymczasowa** – wydłużony okres testowy.
-- **Zakup** – wymagany przy stosowaniu produkcji.
+### Uzyskiwanie licencji
+- **Free Trial** – przetestuj wszystkie funkcje bez kosztów.  
+- **Temporary License** – wydłużony okres testowy.  
+- **Purchase** – wymagane w wdrożeniach produkcyjnych.
 
-### Podstawowa inicjalizacja i konfiguracja
-Utwórz folder indeksu i zainicjalizuj obiekt `Index`:
+## Podstawowa inicjalizacja i konfiguracja
+Create an index folder and initialize the `Index` object:
 
 ```java
 import com.groupdocs.search.Index;
@@ -80,8 +81,8 @@ Index index = new Index(indexFolder);
 ```
 
 ## Jak używać GroupDocs do indeksowania OCR
-### Creating an Index
-Najpierw skonfiguruj folder, w którym będą przechowywane pliki indeksu:
+### Tworzenie indeksu
+First, set up the folder that will hold the index files:
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/OcrSupport";
@@ -89,7 +90,7 @@ Index index = new Index(indexFolder);
 ```
 
 ### Ustawianie opcji indeksowania OCR
-Włącz OCR zarówno dla osobnych, jak i osadzonych obrazów oraz podłącz własny łącznik OCR:
+Enable OCR for both separate and embedded images, and plug in a custom OCR connector:
 
 ```java
 import com.groupdocs.search.options.IndexingOptions;
@@ -101,7 +102,7 @@ options.getOcrIndexingOptions().setOcrConnector(new OcrConnector());
 ```
 
 ### Indeksowanie dokumentów
-Dodaj swoje dokumenty źródłowe (PDF, pliki Word, obrazy itp.) do indeksu:
+Add your source documents (PDFs, Word files, images, etc.) to the index:
 
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
@@ -109,7 +110,7 @@ index.add(documentsFolder, options);
 ```
 
 ### Wyszukiwanie w indeksie
-Uruchom zapytanie wyszukiwania na zindeksowanej zawartości:
+Run a search query against the indexed content:
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -118,7 +119,7 @@ SearchResult result = index.search(query);
 ```
 
 ### Implementacja łącznika OCR
-Użyj Aspose.OCR do rozpoznawania tekstu z obrazów. Zaimplementuj interfejs `IOcrConnector` jak pokazano:
+Use Aspose.OCR to recognize text from images. Implement the `IOcrConnector` interface as shown:
 
 ```java
 import com.groupdocs.search.options.IOcrConnector;
@@ -143,12 +144,12 @@ public class OcrConnector implements IOcrConnector {
 ```
 
 ## Praktyczne zastosowania
-1. **Systemy zarządzania dokumentami** – szybkie wyszukiwanie dokumentów zawierających zeskanowane obrazy.  
-2. **Wyszukiwanie w archiwach** – odnajdywanie historycznych rekordów w ogromnych archiwach.  
-3. **Analiza dokumentów prawnych** – przeszukiwanie umów i dowodów zawierających zeskanowane podpisy lub diagramy.  
-4. **Wyszukiwanie w dokumentacji medycznej** – indeksowanie formularzy pacjentów, wyników laboratoriów i adnotacji z rentgenów.
+1. **Document Management Systems** – szybkie wyszukiwanie dokumentów zawierających zeskanowane obrazy.  
+2. **Archival Retrieval** – odnajdywanie historycznych rekordów w ogromnych archiwach.  
+3. **Legal Document Analysis** – przeszukiwanie umów i dowodów zawierających zeskanowane podpisy lub diagramy.  
+4. **Medical Records Search** – indeksowanie formularzy pacjentów, wyników laboratoryjnych i adnotacji z prześwietleń rentgenowskich.
 
-## Uwagi dotyczące wydajności
+## Rozważania dotyczące wydajności
 - **Rozmiar indeksu** – wyklucz niepotrzebne metadane, aby utrzymać indeks w lekkiej formie.  
 - **Wielowątkowość** – przetwarzaj duże partie równolegle, aby przyspieszyć indeksowanie.  
 - **Zarządzanie pamięcią** – monitoruj stertę JVM przy obsłudze obrazów wysokiej rozdzielczości.
@@ -160,19 +161,19 @@ public class OcrConnector implements IOcrConnector {
 
 ## Najczęściej zadawane pytania
 **P: Jak rozwiązać problemy z licencjonowaniem w GroupDocs.Search?**  
-A: Uzyskaj tymczasową licencję ze [strony GroupDocs](https://purchase.groupdocs.com/temporary-license/), aby odblokować wszystkie funkcje.
+O: Uzyskaj tymczasową licencję ze [strony GroupDocs](https://purchase.groupdocs.com/temporary-license/), aby odblokować wszystkie funkcje.
 
-**P: Jaki jest najlepszy sposób obsługi indeksowania dużych dokumentów?**  
-A: Wykorzystaj wielowątkowość i przetwarzanie wsadowe, aby poprawić wydajność i zmniejszyć obciążenie pamięci.
+**P: Jaki jest najlepszy sposób radzenia sobie z indeksowaniem dużych dokumentów?**  
+O: Wykorzystaj wielowątkowość i przetwarzanie wsadowe, aby poprawić wydajność i zmniejszyć obciążenie pamięci.
 
 **P: Czy mogę dalej dostosować ustawienia OCR w GroupDocs.Search?**  
-A: Tak, `IndexingOptions` pozwala precyzyjnie dostroić zachowanie OCR, np. wybór języka i wstępne przetwarzanie obrazu.
+O: Tak, `IndexingOptions` pozwala precyzyjnie dostroić zachowanie OCR, takie jak wybór języka i wstępne przetwarzanie obrazu.
 
 **P: Jakie są typowe wskazówki rozwiązywania problemów przy używaniu GroupDocs.Search?**  
-A: Sprawdź dokładnie ścieżki katalogów, upewnij się, że wszystkie zależności są dostępne, oraz przejrzyj logi pod kątem brakujących plików.
+O: Sprawdź ponownie ścieżki katalogów, upewnij się, że wszystkie zależności są obecne, oraz przejrzyj logi pod kątem brakujących plików.
 
 **P: Jak mogę zintegrować Aspose.OCR z istniejącą aplikacją Java?**  
-A: Zaimplementuj interfejs `IOcrConnector` jak pokazano powyżej, zapewniając prawidłowe obsłużenie wejścia obrazu.
+O: Zaimplementuj interfejs `IOcrConnector` jak pokazano powyżej, zapewniając prawidłową obsługę wejścia obrazu.
 
 ## Zasoby
 - [Dokumentacja GroupDocs.Search](https://docs.groupdocs.com/search/java/)
@@ -180,6 +181,6 @@ A: Zaimplementuj interfejs `IOcrConnector` jak pokazano powyżej, zapewniając p
 
 ---
 
-**Ostatnia aktualizacja:** 2026-01-11  
-**Testowano z:** GroupDocs.Search 25.4, Aspose.OCR najnowsza wersja  
-**Author:** GroupDocs
+**Ostatnia aktualizacja:** 2026-03-20  
+**Testowano z:** GroupDocs.Search 25.4, Aspose.OCR latest release  
+**Autor:** GroupDocs
