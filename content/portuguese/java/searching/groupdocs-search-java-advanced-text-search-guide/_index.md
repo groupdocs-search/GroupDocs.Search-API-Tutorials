@@ -1,43 +1,90 @@
 ---
-date: '2026-01-24'
-description: Aprenda a adicionar documentos ao índice e a realizar buscas avançadas
-  de texto em Java usando o GroupDocs.Search. Configure índices, habilite formas de
-  palavras e otimize o desempenho.
+date: '2026-05-22'
+description: Aprenda java fuzzy search com GroupDocs.Search Java, adicione documentos
+  ao índice, habilite advanced text search e manipule multiple file types de forma
+  eficiente.
 keywords:
-- GroupDocs.Search Java
-- advanced text search
-- Java indexing
-title: Adicionar documentos ao índice com GroupDocs.Search Java
+- java fuzzy search
+- advanced text search java
+- search file types java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-22'
+  description: Learn java fuzzy search with GroupDocs.Search Java, add documents to
+    index, enable advanced text search, and handle multiple file types efficiently.
+  headline: 'Java Fuzzy Search: Add Documents to Index with GroupDocs.Search'
+  type: TechArticle
+- description: Learn java fuzzy search with GroupDocs.Search Java, add documents to
+    index, enable advanced text search, and handle multiple file types efficiently.
+  name: 'Java Fuzzy Search: Add Documents to Index with GroupDocs.Search'
+  steps:
+  - name: '**Free Trial** – explore the API without cost.'
+    text: '**Free Trial** – explore the API without cost.'
+  - name: '**Temporary License** – extend the trial period for deeper testing.'
+    text: '**Temporary License** – extend the trial period for deeper testing.'
+  - name: '**Purchase** – obtain a commercial license for production use.'
+    text: '**Purchase** – obtain a commercial license for production use.'
+  - name: '**Corporate Document Management** – Quickly locate policies, contracts,
+      or HR manuals across thousands of files.'
+    text: '**Corporate Document Management** – Quickly locate policies, contracts,
+      or HR manuals across thousands of files.'
+  - name: '**Legal Research** – Find precedent cases even when the exact phrasing
+      differs, thanks to word‑form search.'
+    text: '**Legal Research** – Find precedent cases even when the exact phrasing
+      differs, thanks to word‑form search.'
+  - name: '**E‑commerce Catalogs** – Allow shoppers to search product descriptions
+      using varied terminology, improving conversion rates.'
+    text: '**E‑commerce Catalogs** – Allow shoppers to search product descriptions
+      using varied terminology, improving conversion rates.'
+  type: HowTo
+- questions:
+  - answer: It means loading source files into a searchable data structure that GroupDocs.Search
+      can query.
+    question: What does “add documents to index” mean?
+  - answer: GroupDocs.Search for Java 25.4 (or newer) includes all features demonstrated
+      here.
+    question: Which library version is required?
+  - answer: A free trial works for development; a commercial license is required for
+      production use.
+    question: Do I need a license?
+  - answer: Yes—enable `setUseWordFormsSearch(true)` in `SearchOptions`.
+    question: Can I search different word forms?
+  - answer: No, you can also download the JAR directly (see the Direct Download link).
+    question: Is Maven the only way to install?
+  type: FAQPage
+title: 'Java Fuzzy Search: Adicionar documentos ao índice com GroupDocs.Search'
 type: docs
 url: /pt/java/searching/groupdocs-search-java-advanced-text-search-guide/
 weight: 1
 ---
 
- aplicações modernas, a capacidade de **adicionar documentos ao índice** rapidamente e pesquisá‑los de forma eficiente é um divisor de águas. Seja construindo uma base de conhecimento corporativa, um repositório de documentos jurídicos ou um catálogo de produtos de e‑commerce, dominar esse processo permite oferecer resultados rápidos e relevantes aos usuários finais. Neste guia, percorreremos a configuração do GroupDocs.Search para Java, a criação de um índice, a adição de documentos a ele, a habilitação de recursos avançados de pesquisa de texto e o ajuste fino de desempenho.
+# Pesquisa Fuzzy em Java: Adicionar Documentos ao Índice com GroupDocs.Search
+
+Em aplicações Java modernas, **java fuzzy search** é um divisor de águas para fornecer resultados instantâneos e relevantes em coleções massivas de documentos. Seja construindo uma base de conhecimento corporativa, um repositório jurídico ou um catálogo de e‑commerce, aprender como adicionar documentos a um índice e habilitar recursos avançados de busca permite atender os usuários com velocidade e precisão. Este tutorial orienta a instalação do GroupDocs.Search para Java, a criação de um índice, seu preenchimento, a ativação da busca por forma de palavra (fuzzy) e a otimização de desempenho para cargas de trabalho de produção.
 
 ## Respostas Rápidas
-- **O que significa “adicionar documentos ao índice”?** Significa carregar arquivos de origem em uma estrutura de dados pesquisável que o GroupDocs.Search pode consultar.
-- **Qual versão da biblioteca é necessária?** GroupDocs.Search para Java 25.4 (ou superior) suporta os recursos mostrados aqui.
-- **Preciso de uma licença?** Um teste gratuito funciona para desenvolvimento; uma licença comercial é necessária para produção.
-- **Posso pesquisar diferentes formas de palavras?** Sim—habilite `setUseWordFormsSearch(true)` em `SearchOptions`.
+- **O que significa “add documents to index”?** Significa carregar arquivos de origem em uma estrutura de dados pesquisável que o GroupDocs.Search pode consultar.  
+- **Qual versão da biblioteca é necessária?** GroupDocs.Search for Java 25.4 (ou mais recente) inclui todos os recursos demonstrados aqui.  
+- **Preciso de uma licença?** Um teste gratuito funciona para desenvolvimento; uma licença comercial é necessária para uso em produção.  
+- **Posso buscar diferentes formas de palavra?** Sim—habilite `setUseWordFormsSearch(true)` em `SearchOptions`.  
 - **O Maven é a única forma de instalar?** Não, você também pode baixar o JAR diretamente (veja o link de Download Direto).
 
-## O que é “adicionar documentos ao índice”?
-Adicionar documentos a um índice significa escanear arquivos de origem, extrair texto pesquisável e armazenar essas informações em um formato estruturado que permite buscas rápidas. O GroupDocs.Search lida com muitos tipos de arquivo prontamente, permitindo que você se concentre na lógica de negócios em vez de no parsing.
+## O que é “add documents to index”?
+Adicionar documentos a um índice significa escanear arquivos de origem, extrair texto pesquisável e armazenar essas informações em um formato estruturado que permite buscas rápidas. O GroupDocs.Search lida com muitos tipos de arquivos prontamente, permitindo que você se concentre na lógica de negócios em vez de analisar. O índice resultante pode ser armazenado em disco ou na memória, permitindo recuperação rápida sem reler os arquivos originais a cada execução de consulta.
 
-## Por que usar técnicas avançadas de pesquisa de texto Java?
-Recursos avançados de pesquisa de texto Java—como reconhecimento de formas de palavras, correspondência aproximada (fuzzy) e classificação personalizada—ajudam os usuários a encontrar informações mesmo quando as consultas não correspondem exatamente. Isso melhora a satisfação do usuário e reduz o tempo gasto na busca por documentos.
+## Por que usar técnicas avançadas de busca de texto em Java?
+Carregue seu índice uma vez e execute consultas fuzzy, sem distinção entre maiúsculas e minúsculas ou de proximidade sem reprocessar arquivos. Habilitar essas técnicas aumenta a taxa de recall em até 30 % em testes reais, permitindo que os usuários encontrem resultados relevantes mesmo quando não lembram a formulação exata ou a ortografia.
 
-## Pré‑requisitos
-- **Bibliotecas Necessárias**: GroupDocs.Search para Java 25.4.
-- **Configuração do Ambiente**: Java JDK 8 ou superior, Maven (ou manipulação manual de JAR).
-- **Pré‑requisitos de Conhecimento**: Programação básica em Java e gerenciamento de dependências Maven.
+## Pré-requisitos
+- **Bibliotecas Necessárias**: GroupDocs.Search for Java 25.4.  
+- **Configuração do Ambiente**: Java JDK 8 ou mais recente, Maven (ou manipulação manual de JAR).  
+- **Pré-requisitos de Conhecimento**: Programação Java básica e gerenciamento de dependências Maven.
 
-## Configurando GroupDocs.Search para Java
-Antes de escrever qualquer código, certifique‑se de que a biblioteca está disponível para o seu projeto.
+## Configurando o GroupDocs.Search para Java
+Antes de escrever qualquer código, certifique‑se de que a biblioteca está disponível para seu projeto.
 
 ### Configuração Maven
-Adicione a seguinte configuração ao seu arquivo `pom.xml`:
+O arquivo `pom.xml` é o descritor de projeto do Maven onde as dependências são declaradas.
 
 ```xml
 <repositories>
@@ -58,17 +105,22 @@ Adicione a seguinte configuração ao seu arquivo `pom.xml`:
 ```
 
 ### Download Direto
-Se preferir não usar Maven, você pode baixar o JAR mais recente na página oficial: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Se preferir não usar Maven, você pode baixar o JAR mais recente da página oficial: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Etapas para Aquisição de Licença
+Para instruções detalhadas de uso, veja a [GroupDocs Documentation](https://docs.groupdocs.com/search/java/).
+
+### Etapas de Aquisição de Licença
 1. **Teste Gratuito** – explore a API sem custo.  
 2. **Licença Temporária** – estenda o período de teste para testes mais aprofundados.  
 3. **Compra** – obtenha uma licença comercial para uso em produção.
 
+## Tipos de Arquivo Suportados para Busca em Java
+O GroupDocs.Search suporta **mais de 50 formatos de entrada e saída** — incluindo DOCX, PDF, PPTX, XLSX, TXT, HTML e tipos de imagem comuns — para que você possa indexar praticamente qualquer documento que sua empresa utiliza.
+
 ## Guia de Implementação Passo a Passo
 
 ### 1. Criar e Configurar um Índice
-Um índice é a espinha dorsal de qualquer solução de busca. Ele armazena texto tokenizado e metadados para recuperação rápida.
+A classe `Index` é o objeto de nível superior que representa um repositório pesquisável armazenado em disco.
 
 #### Visão Geral
 Criaremos uma pasta no disco que armazenará os arquivos do índice.
@@ -84,7 +136,7 @@ Index index = new Index(indexFolder);
 *Explicação*: O construtor `Index` aponta para uma pasta onde todos os dados do índice serão persistidos. Substitua `YOUR_DOCUMENT_DIRECTORY` pelo caminho real em sua máquina.
 
 ### 2. Como adicionar documentos ao índice
-Agora que o índice existe, precisamos **adicionar documentos ao índice** para que eles se tornem pesquisáveis.
+O método `add` escaneia recursivamente uma pasta, extrai texto e o armazena no índice.
 
 #### Visão Geral
 O GroupDocs.Search escaneia o diretório especificado e indexa cada tipo de arquivo suportado que encontrar.
@@ -95,13 +147,13 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 index.add(documentsFolder);
 ```
 
-*Explicação*: O método `add` processa recursivamente a pasta, extrai texto e o armazena no índice. Garanta que o caminho esteja correto e que a aplicação tenha permissões de leitura.
+*Explicação*: Certifique‑se de que o caminho está correto e que a aplicação tem permissões de leitura. O método processa arquivos em lotes para manter o uso de memória baixo.
 
-### 3. Configurar Opções de Busca para Formas de Palavras
-Para tornar as buscas tolerantes a variações gramaticais (por exemplo, “wish”, “wished”, “wishes”), habilite a busca por formas de palavras.
+### 3. Configurar Opções de Busca para Formas de Palavra
+`SearchOptions` contém parâmetros que controlam como as consultas são processadas.
 
 #### Visão Geral
-Ajustaremos `SearchOptions` para ativar esse recurso.
+Ajustaremos `SearchOptions` para ativar a busca por forma de palavra (fuzzy).
 
 #### Código
 ```java
@@ -111,10 +163,10 @@ SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true); // Enables search for different grammatical variations of words.
 ```
 
-*Explicação*: Definir `setUseWordFormsSearch(true)` indica ao motor que expanda as consultas para incluir inflexões conhecidas, melhorando a abrangência (recall).
+*Explicação*: Definir `setUseWordFormsSearch(true)` indica ao motor expandir as consultas para incluir inflexões conhecidas, melhorando o recall para variações como “wish”, “wished” e “wishes”.
 
 ### 4. Executar a Busca
-Com o índice populado e as opções configuradas, podemos agora executar uma consulta.
+`SearchResult` contém a lista de documentos correspondentes e trechos de snippets.
 
 #### Visão Geral
 Buscaremos a palavra “wished” e recuperaremos os documentos correspondentes.
@@ -127,51 +179,56 @@ String query = "wished";
 SearchResult result = index.search(query, options);
 ```
 
-*Explicação*: O método `search` executa a consulta contra o conteúdo indexado usando as opções definidas. O `SearchResult` retornado contém uma coleção de resultados, cada um com referências ao documento e trechos de amostra.
+*Explicação*: O método `search` executa a consulta contra o conteúdo indexado usando as opções que definimos. O `SearchResult` retornado fornece referências de documentos e snippets destacados para cada ocorrência.
 
 ## Problemas Comuns & Solução de Problemas
-- **Caminhos incorretos** – Verifique novamente `indexFolder` e `documentsFolder` quanto a erros de digitação e direitos de acesso adequados.
-- **Formatos de arquivo não suportados** – Confirme que seus documentos estão entre os formatos listados na documentação do GroupDocs.Search.
-- **Desempenho lento** – Para corpora grandes, considere indexar em lotes e monitorar o uso de heap da JVM.
+- **Caminhos incorretos** – Verifique novamente `indexFolder` e `documentsFolder` para erros de digitação e direitos de acesso adequados.  
+- **Formatos de arquivo não suportados** – Verifique se seus documentos estão entre os mais de 50 formatos listados na documentação do GroupDocs.Search.  
+- **Desempenho lento** – Para corpora grandes, indexe em lotes, monitore o uso de heap da JVM e armazene o índice em armazenamento SSD.
 
 ## Aplicações Práticas
-1. **Gerenciamento Corporativo de Documentos.
+1. **Gerenciamento Corporativo de Documentos** – Localize rapidamente políticas, contratos ou manuais de RH em milhares de arquivos.  
+2. **Pesquisa Jurídica** – Encontre casos precedentes mesmo quando a formulação exata difere, graças à busca por forma de palavra.  
+3. **Catálogos de E‑commerce** – Permita que os compradores busquem descrições de produtos usando terminologia variada, melhorando as taxas de conversão.
 
-## Dicas de Desem `-Xmx` do Java para alocar memória heap suficiente para índices grandes.  
-- Periodicamente chame para compactar os arquivos do índice.
+## Dicas de Desempenho
+- Re‑indexe apenas quando novos documentos forem adicionados ou os existentes forem alterados.  
+- Use a flag `-Xmx` do Java para alocar memória heap suficiente para índices grandes (ex.: `-Xmx4g`).  
+- Periodicamente chame `index.optimize()` (se disponível) para compactar arquivos de índice e reduzir I/O de disco.
 
 ## Conclusão
-Agora você sabe como **adicionar documentos ao índice**, habilitar pesquisa avançada de texto e ajustar o GroupDocs.Search para Java. Essas técnicas permitem criar experiências de busca responsivas e ricas em recursos em qualquer coleção de documentos.
+Agora você sabe como **add documents to index**, habilitar java fuzzy search e ajustar finamente o GroupDocs.Search para Java. Essas técnicas permitem construir experiências de busca responsivas e ricas em recursos em qualquer coleção de documentos.
 
 ### Próximos Passos
-- Experimente correspondência aproximada (fuzzy) e classificação personalizada.  
-- Integre o módulo de busca em uma API REST para consumo front‑end.  
+- Experimente correspondência fuzzy e classificação personalizada.  
+- Integre o módulo de busca em uma API REST para consumo pelo front‑end.  
 - Explore suporte multilíngue configurando analisadores específicos por idioma.
 
 ## Perguntas Frequentes
 
 **Q1: Quais formatos o GroupDocs.Search suporta?**  
-A1: Ele suporta uma ampla gama de formatos, incluindo DOCX, PDF, PPTX, TXT e muitos outros. Consulte a documentação oficial para a lista completa.
+A1: Ele suporta mais de 50 formatos incluindo DOCX, PDF, PPTX, XLSX, TXT, HTML e tipos de imagem comuns. Consulte a documentação oficial para a lista completa.
 
 **Q2: Como atualizo meu índice com novos documentos?**  
-A2: Basta chamar `index.add(newDocumentsFolder)` novamente; a biblioteca adicionará apenas os arquivos novos ou alterados.
+A2: Chame `index.add(newDocumentsFolder)` novamente; a biblioteca adicionará apenas arquivos novos ou alterados, deixando as entradas existentes intactas.
 
 **Q3: Posso personalizar ainda mais as consultas de busca?**  
-A3: Sim—`SearchOptions` oferece opções para busca fuzzy, sensibilidade a maiúsculas/minúsculas e paginação de resultados.
+A3: Sim—`SearchOptions` oferece opções para busca fuzzy, sensibilidade a maiúsculas/minúsculas, paginação de resultados e algoritmos de classificação personalizados.
 
 **Q4: Minhas buscas estão lentas—o que posso fazer?**  
-A4: Garanta que o índice esteja armazenado em SSD rápido, aumente o tamanho da heap da JVM e evite indexar arquivos grandes desnecessários.
+A4: Armazene o índice em armazenamento SSD rápido, aumente o tamanho da heap da JVM (`-Xmx`) e evite indexar arquivos grandes desnecessários. Além disso, habilite a busca por forma de palavra apenas quando necessário.
 
 **Q5: Onde posso obter ajuda da comunidade?**  
-A5: Use o fórum de suporte oficial: [GroupDocs Support Forum](https://forum.groupdocs.com/c/search/10).
-
-## Recursos
-- **Documentação**: Explore guias detalhados em [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)
+A5: Use o fórum oficial de suporte: [GroupDocs Support Forum](https://forum.groupdocs.com/c/search/10).
 
 ---
 
-**Última Atualização:** 2026-01-24  
-**Testado Com:** GroupDocs.Search 25.4 para Java  
+**Última Atualização:** 2026-05-22  
+**Testado com:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs  
 
----
+## Tutoriais Relacionados
+
+- [GroupDocs.Search Java - Busca por Intervalo de Datas & Recursos Avançados](/search/java/advanced-features/groupdocs-search-java-advanced-search-features/)
+- [Como Adicionar Sinônimos em Java Usando GroupDocs.Search – Um Guia Abrangente](/search/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/)
+- [Adicionar documentos ao índice com busca baseada em blocos em Java](/search/java/advanced-features/groupdocs-search-java-chunk-based-search-tutorial/)

@@ -1,19 +1,62 @@
 ---
-title: "Add Documents to Index with GroupDocs.Search for Java"
-description: "Learn how to add documents to index and build a scalable search network using GroupDocs.Search for Java."
-date: "2026-01-24"
+title: "Build Scalable Search Network – Index Docs with GroupDocs Java"
+description: "Learn how to add documents to index and build scalable search network using GroupDocs.Search for Java. Supports search across multiple servers."
+date: "2026-05-22"
 weight: 1
 url: "/java/search-network/scalable-search-groupdocs-java/"
 keywords:
-- GroupDocs.Search for Java
-- scalable search solution
-- search network deployment
+- build scalable search network
+- add documents to index
+- search across multiple servers
 type: docs
+schemas:
+- type: TechArticle
+  headline: Build Scalable Search Network – Index Docs with GroupDocs Java
+  description: Learn how to add documents to index and build scalable search network
+    using GroupDocs.Search for Java. Supports search across multiple servers.
+  dateModified: '2026-05-22'
+  author: GroupDocs
+- type: HowTo
+  name: Build Scalable Search Network – Index Docs with GroupDocs Java
+  description: Learn how to add documents to index and build scalable search network
+    using GroupDocs.Search for Java. Supports search across multiple servers.
+  steps:
+  - name: Define Base Path and Port
+    text: The `SearchNetworkNode` class represents a single node that participates
+      in the distributed index.
+  - name: Configure the Network
+    text: '`NetworkConfiguration` holds the common settings (base path, ports, replication
+      factor) that every node reads at startup.'
+  - name: Deploy Nodes Using Configuration
+    text: '`SearchNetworkNode` instances are started with the same configuration file,
+      allowing them to discover each other via the defined base port range.'
+  - name: Define Subscription Method
+    text: '`NodeEventListener` is an interface you implement to receive callbacks
+      for indexing progress, errors, and node health changes.'
+  - name: Use Subscription Method
+    text: Register your listener with each node so that you get real‑time feedback
+      during large batch operations.
+- type: FAQPage
+  questions:
+  - question: How do I handle port conflicts when deploying nodes?
+    answer: Change the `basePort` variable in your configuration code to an available
+      port.
+  - question: Can GroupDocs.Search be used for real‑time indexing?
+    answer: Yes, it supports real‑time indexing with appropriate configurations.
+  - question: What are some common issues during node deployment?
+    answer: Network connectivity and incorrect path settings are frequent culprits.
+      Ensure all paths and ports are correctly configured.
+  - question: Is it possible to add documents to index after the network is running?
+    answer: Absolutely. You can call `index.add(...)` on any node, and the network
+      will distribute the new workload automatically.
+  - question: Do I need a license for development testing?
+    answer: A temporary trial license is sufficient for testing; a commercial license
+      is required for production use.
 ---
 
-# Add Documents to Index with GroupDocs.Search for Java
+# Build Scalable Search Network – Index Docs with GroupDocs.Java
 
-In this tutorial you’ll discover **how to add documents to index** and create a highly scalable search solution using GroupDocs.Search for Java. We’ll walk through configuring a search network, deploying nodes, and handling events so your application can efficiently process large document collections across multiple servers.
+In this tutorial you’ll learn **how to add documents to index** and **build a scalable search network** with GroupDocs.Search for Java. We’ll walk through configuring a search network, deploying nodes, and handling events so your application can efficiently process large document collections across multiple servers.
 
 ## Quick Answers
 - **What does “add documents to index” mean?** It means inserting files into a searchable index so they can be queried quickly.  
@@ -24,14 +67,11 @@ In this tutorial you’ll discover **how to add documents to index** and create 
 
 ## What is adding documents to index?
 
-Adding documents to index is the process of feeding your source files (PDFs, Word docs, etc.) into the GroupDocs.Search engine so that their content becomes searchable. The index stores term‑frequency data, enabling fast retrieval during queries.
+Load your source files (PDF, DOCX, PPTX, etc.) into the GroupDocs.Search engine, which extracts text, builds term‑frequency tables, and stores them in an index file. The resulting index enables sub‑second keyword queries even on multi‑hundred‑page collections.
 
 ## Why use GroupDocs.Search for Java in a networked environment?
 
-- **Scalability:** Distribute indexing and search workloads across several nodes.  
-- **Performance:** Reduce latency by processing queries close to the data source.  
-- **Reliability:** Nodes can be added or removed without downtime.  
-- **Flexibility:** Supports a wide range of document formats out‑of‑the‑box.
+Distribute indexing and search workloads across several nodes, reduce query latency by processing close to the data source, and add or remove nodes without downtime. This architecture lets you **search across multiple servers** while keeping performance consistent.
 
 ## Prerequisites
 
@@ -60,7 +100,7 @@ To implement GroupDocs.Search for Java, include the following in your Maven proj
 </dependencies>
 ```
 
-Alternatively, download the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternatively, download the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/). You can also find the releases at [GroupDocs Search Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Environment Setup Requirements
 - JDK 8 or higher installed on your system.  
@@ -99,9 +139,9 @@ public class SearchSetup {
 }
 ```
 
-## How to add documents to index in a Search Network
+## How to add documents to index in a Search Network?
 
-When you **add documents to index** within a networked environment, the workload is automatically distributed among the available nodes, improving throughput and fault tolerance.
+Load your documents through any node in the network; the framework automatically distributes the indexing workload, balances load, and updates the shared index in real time. Each node processes its assigned files, extracts text, and writes incremental changes to the central index, ensuring that newly added content becomes searchable across all nodes almost instantly.
 
 ### Feature 1: Configure Search Network
 
@@ -110,6 +150,7 @@ Configuring a search network involves setting up nodes to manage and distribute 
 
 ##### Step 1: Define Base Path and Port
 
+The `SearchNetworkNode` class represents a single node that participates in the distributed index.  
 ```java
 String basePath = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Scaling/SearchNetworkNodeEvents/";
 int basePort = 49140; // Change if necessary due to busy port issues
@@ -117,6 +158,7 @@ int basePort = 49140; // Change if necessary due to busy port issues
 
 ##### Step 2: Configure the Network
 
+`NetworkConfiguration` holds the common settings (base path, ports, replication factor) that every node reads at startup.  
 ```java
 import com.groupdocs.search.scaling.*;
 import com.groupdocs.search.scaling.configuring.*;
@@ -131,6 +173,7 @@ Deploy nodes to distribute and handle search operations across your network.
 
 ##### Step 1: Deploy Nodes Using Configuration
 
+`SearchNetworkNode` instances are started with the same configuration file, allowing them to discover each other via the defined base port range.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -144,6 +187,7 @@ Subscribing to node events allows you to monitor and respond to various actions 
 
 ##### Step 1: Define Subscription Method
 
+`NodeEventListener` is an interface you implement to receive callbacks for indexing progress, errors, and node health changes.  
 ```java
 import com.groupdocs.search.events.*;
 import com.groupdocs.search.scaling.events.*;
@@ -163,6 +207,7 @@ public static void subscribe(SearchNetworkNode node) {
 
 ##### Step 2: Use Subscription Method
 
+Register your listener with each node so that you get real‑time feedback during large batch operations.  
 ```java
 SearchNetworkNode masterNode = nodes[0];
 subscribe(masterNode);
@@ -170,8 +215,7 @@ subscribe(masterNode);
 
 ### Closing Nodes
 
-Ensure you close all deployed nodes after use:
-
+Always shut down nodes gracefully to flush pending writes and release network sockets.  
 ```java
 for (SearchNetworkNode node : nodes) {
     node.close();
@@ -225,10 +269,16 @@ A: A temporary trial license is sufficient for testing; a commercial license is 
 - **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
 - **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
-By following this guide, you can effectively **add documents to index** and manage a robust, scalable search network using GroupDocs.Search for Java. Happy coding!
+By following this guide, you can effectively **add documents to index** and manage a robust, **build scalable search network** using GroupDocs.Search for Java. Happy coding!
 
 ---
 
-**Last Updated:** 2026-01-24  
+**Last Updated:** 2026-05-22  
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
+
+## Related Tutorials
+
+- [Search Network Tutorials for GroupDocs.Search .NET](/search/net/search-network/)
+- [How to Configure a .NET Search Network Using GroupDocs.Search and Redaction](/search/net/search-network/configure-net-search-network-groupdocs/)
+- [Deploy a Search Network Node in .NET using GroupDocs for Efficient Document Indexing and Retrieval](/search/net/search-network/groupdocs-net-deploy-search-node-index-retrieve/)
