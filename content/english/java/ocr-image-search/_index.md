@@ -4,7 +4,7 @@ description: "Step-by-step tutorials for implementing OCR, extract text from ima
 weight: 7
 url: "/java/ocr-image-search/"
 type: docs
-date: 2026-01-11
+date: 2026-03-17
 ---
 
 # Reverse Image Search Java – GroupDocs.Search OCR Tutorials
@@ -50,6 +50,12 @@ Supply a query image to the `search` method. The engine compares visual fingerpr
 ### Step 5: Retrieve OCR Text (If Needed)
 If you also need the textual content found inside images, query the index for the OCR‑extracted text using standard keyword search.
 
+## How to Perform Reverse Image Lookup in Java
+When you need to **perform reverse image lookup**, you simply pass the query image to the same `search` method used in Step 4. The library automatically generates a visual fingerprint for the query and matches it against the fingerprints stored in the index. This single call handles all the heavy lifting, letting you focus on presenting the results to users.
+
+## How to Extract Text from Images Java
+Beyond visual similarity, you may want to search the textual content inside images. After OCR processing, each image’s extracted text is stored alongside its visual metadata. You can run a regular keyword query against the index to find images that contain specific words, phrases, or numbers—exactly the same way you would search a text document.
+
 ## Common Issues and Solutions
 - **No results returned:** Verify that the image feature extractor is enabled and that the index has been rebuilt after adding new images.  
 - **OCR text is missing:** Ensure the OCR engine is correctly referenced in your project dependencies and that the image format is supported (e.g., PNG, JPEG, TIFF).  
@@ -72,6 +78,12 @@ A: Common formats such as JPEG, PNG, BMP, and TIFF are fully supported out of th
 **Q: How do I update the index when images change?**  
 A: Use the `update` method to re‑process modified images, or delete and re‑add them to keep the index current.
 
+**Q: Can I limit the number of returned results when I perform reverse image lookup?**  
+A: Yes, the `search` method accepts a `top` parameter that lets you specify how many of the best‑matching images to return.
+
+**Q: Does the OCR engine work with low‑resolution images?**  
+A: OCR quality depends on image clarity; for low‑resolution files, consider pre‑processing steps such as upscaling or contrast enhancement before indexing.
+
 ## Additional Resources
 
 ### Available Tutorials
@@ -93,6 +105,6 @@ Learn to implement powerful Java OCR indexing using GroupDocs.Search and Aspose.
 
 ---
 
-**Last Updated:** 2026-01-11  
+**Last Updated:** 2026-03-17  
 **Tested With:** GroupDocs.Search for Java 23.11  
 **Author:** GroupDocs

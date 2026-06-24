@@ -1,15 +1,14 @@
 ---
-date: '2026-01-06'
-description: Ismerje meg, hogyan adhat hozzá dokumentumokat az indexhez, és hogyan
-  kereshet dokumentumokat metaadatok alapján a GroupDocs.Search Java segítségével.
-  Tanulja meg az indexbeállításokat, hozza létre az indexeket, adjon hozzá dokumentumokat,
-  és hajtson végre pontos kereséseket.
+date: '2026-03-17'
+description: Tanulja meg, hogyan adjon dokumentumokat az indexhez, és kereshet dokumentumokat
+  metaadatok alapján a GroupDocs.Search Java segítségével. Ismerje meg az indexbeállításokat,
+  hozza létre az indexeket, adjon hozzá dokumentumokat, és hajtson végre pontos kereséseket.
 keywords:
 - metadata indexing java
 - GroupDocs Search Java
 - document management with metadata
 title: Hogyan adhatunk dokumentumokat az indexhez metaadat-indexeléssel Java-ban a
-  GroupDocs.Search segítségével
+  GroupDocs.Search használatával
 type: docs
 url: /hu/java/indexing/groupdocs-search-java-metadata-indexing/
 weight: 1
@@ -17,27 +16,27 @@ weight: 1
 
 # Hogyan adjunk dokumentumokat az indexhez metaadat-indexeléssel Java-ban a GroupDocs.Search használatával
 
-A modern alkalmazásokban a **dokumentumok hozzáadása az indexhez** gyors és megbízható végrehajtása elengedhetetlen a gyors keresési élmény biztosításához. Akár jogi adattárat, ügyfélszolgálati tudásbázist vagy belső dokumentumportált építesz, a metaadatok kihasználása lehetővé teszi a **dokumentumok keresése metaadatok alapján** például szerző, cím vagy egyéni címkék szerint. Ez az útmutató végigvezet a teljes folyamaton – az index beállításainak konfigurálásán, egy metaadat‑központú index létrehozásán, a fájlok hozzáadásán és a hatékony keresések futtatásán – mindezt a GroupDocs.Search for Java segítségével.
+A dokumentumok gyors és megbízható indexelése bármely modern keresés‑alapú alkalmazás gerince. Akár jogi adattárat, ügyfélszolgálati tudásbázist vagy belső dokumentumportált építesz, a **metadata indexing** lehetővé teszi, hogy *metaadatok alapján keress dokumentumokat*, például szerző, cím vagy egyedi címkék szerint. Ebben az útmutatóban megtanulod, hogyan konfiguráld az index beállításait, hozz létre egy metaadat‑központú indexet, add hozzá a fájljaidat, és futtass pontos kereséseket – mindezt a GroupDocs.Search for Java segítségével.
 
 ## Gyors válaszok
-- **Mi a metaadat-indexelés elsődleges célja?** Lehetővé teszi a gyors kereséseket a dokumentum tulajdonságai alapján, a teljes szöveges tartalom helyett.  
+- **Mi a metaadat-indexelés elsődleges célja?** Lehetővé teszi a gyors keresést a dokumentum tulajdonságai alapján, a teljes szöveges tartalom helyett.  
 - **Melyik metódus adja hozzá a fájlokat az indexhez?** `index.add(YOUR_DOCUMENTS_FOLDER);`  
-- **Kereshetek egyéni metaadatmezők szerint?** Igen, miután a mezők indexelve vannak, közvetlenül lekérdezhetők.  
-- **Szükségem van licencre a fejlesztéshez?** Egy ideiglenes próbaverzió licenc elegendő az értékeléshez; a teljes licenc a termeléshez kötelező.  
+- **Kereshetek egyedi metaadatmezőkkel?** Igen, miután a mezők indexelve lettek, közvetlenül lekérdezhetők.  
+- **Szükségem van licencre a fejlesztéshez?** Egy ideiglenes próba licenc elegendő az értékeléshez; a teljes licenc a termeléshez szükséges.  
 - **Milyen Java verzió szükséges?** JDK 8 vagy újabb ajánlott.
 
 ## Mi a metaadat-indexelés a GroupDocs.Search-ben?
-A metaadat-indexelés kinyeri és tárolja a dokumentum attribútumait (pl. szerző, létrehozás dátuma, egyéni címkék) egy kereshető struktúrában. Amikor **dokumentumok hozzáadása az indexhez**, a motor rögzíti ezeket az attribútumokat, lehetővé téve pontos lekérdezések futtatását, például „keresd meg az összes PDF-et, amelyet *John Doe* írt”.
+A metaadat-indexelés kinyeri és tárolja a dokumentum attribútumait (pl. szerző, létrehozás dátuma, egyedi címkék) egy kereshető struktúrában. Amikor **dokumentumokat adsz hozzá az indexhez**, a motor rögzíti ezeket az attribútumokat, lehetővé téve pontos lekérdezések futtatását, mint például „keresd meg az összes PDF-et, amelyet *John Doe* írt” vagy „keresd a pdf-et szerző szerint”.
 
 ## Miért használjuk a GroupDocs.Search-t metaadat-indexeléshez?
-- **Teljesítmény:** A metaadat keresések könnyűek és ezredmásodpercek alatt visszaadják az eredményeket.  
-- **Rugalmasság:** Széles körű fájlformátumot támogat (PDF, DOCX, PPT stb.).  
+- **Teljesítmény:** A metaadat-keresések könnyűek és milliszekundumok alatt visszaadják az eredményeket.  
+- **Rugalmasság:** Széles körű fájlformátumot támogat (PDF, DOCX, PPT, stb.).  
 - **Skálázhatóság:** Millió dokumentumot kezel minimális memóriahasználattal.
 
 ## Előfeltételek
 - GroupDocs.Search for Java ≥ 25.4.  
 - JDK 8 vagy újabb telepítve és konfigurálva.  
-- Alapvető ismeretek a Java és Maven használatában.
+- Alapvető ismeretek a Java és Maven használatáról.  
 
 ## A GroupDocs.Search for Java beállítása
 
@@ -62,13 +61,13 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-A legújabb binárisokat közvetlenül letöltheted innen: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+A legújabb binárisokat közvetlenül letöltheted a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
 ### Licenc beszerzése
-Ideiglenes licenc beszerzéséhez teszteléshez:
+Ideiglenes licenc beszerzéséhez a teszteléshez:
 
 1. Látogasd meg a GroupDocs weboldalát, és menj a **Purchase** szekcióba.  
-2. Válassz egy **temporary license** csomagot, amely megfelel az értékelési igényeidnek.
+2. Válassz egy **temporary license** tervet, amely megfelel az értékelési igényeidnek.  
 
 ## Lépésről‑lépésre megvalósítás
 
@@ -86,8 +85,8 @@ settings.setIndexType(IndexType.MetadataIndex);  // Focus on metadata indexing
 
 - `setIndexType(IndexType.MetadataIndex)` azt mondja a motornak, hogy a metaadatokat részesítse előnyben a teljes szöveges tartalom helyett.
 
-### 2. funkció: Index létrehozása megadott mappában
-Hozz létre egy fizikai index könyvtárat, ahol az összes metaadat tárolódik:
+### 2. funkció: Index létrehozása egy megadott mappában
+Hozz létre egy fizikai indexkönyvtárat, ahol minden metaadat tárolva lesz:
 
 ```java
 import com.groupdocs.search.Index;
@@ -98,10 +97,10 @@ String YOUR_INDEX_DIRECTORY = "YOUR_DOCUMENT_DIRECTORY\\\\output\\\\AdvancedUsag
 Index index = new Index(YOUR_INDEX_DIRECTORY, settings);
 ```
 
-Cseréld le a `YOUR_DOCUMENT_DIRECTORY`-t arra az útvonalra, amely megfelel a projekt felépítésének.
+Cseréld le a `YOUR_DOCUMENT_DIRECTORY`-t arra az útra, amely megfelel a projekt felépítésének.
 
-### 3. funkció: Hogyan adjunk dokumentumokat az indexhez
-Most, hogy az index létezik, **dokumentumok hozzáadása az indexhez** lehetővé teszi, hogy kereshetővé váljanak:
+### 3. funkció: Dokumentumok hozzáadása az indexhez
+Most, hogy az index létezik, **add documents to index**-et használhatod, hogy kereshetővé tedd őket:
 
 ```java
 String YOUR_DOCUMENTS_FOLDER = "YOUR_DOCUMENT_DIRECTORY";
@@ -111,8 +110,8 @@ index.add(YOUR_DOCUMENTS_FOLDER);
 ```
 
 **Tippek:**  
-- Ellenőrizd, hogy a mappa útvonala helyes-e, és az alkalmazásnak van olvasási jogosultsága.  
-- A GroupDocs.Search automatikusan kinyeri a támogatott metaadatokat minden egyes fájlból.
+- Ellenőrizd, hogy a mappa útvonala helyes, és az alkalmazásnak olvasási jogosultsága van.  
+- A GroupDocs.Search automatikusan kinyeri a támogatott metaadatokat minden fájlból.
 
 ### 4. funkció: Dokumentumok keresése metaadatok alapján
 Futtass egy lekérdezést, amely a metaadatmezőket célozza, például keresd a dokumentumokat, ahol a nyelv angol:
@@ -129,39 +128,44 @@ for (int i = 0; i < result.getDocumentCount(); i++) {
 }
 ```
 
-- `search(query)` átnézi az indexelt metaadatokat és visszaadja a megfelelő dokumentumokat.
+- `search(query)` átnézi az indexelt metaadatokat, és visszaadja a megfelelő dokumentumokat.  
+- **search pdf by author** is also possible by using the author's name as the query string.
 
 ## Gyakorlati alkalmazások
-1. **Vállalati dokumentumkezelés:** Szerződések lekérdezése szerződés dátuma vagy aláíró neve alapján.  
-2. **Digitális könyvtári katalógusok:** A felhasználók böngészhetnek könyveket műfaj, kiadási év vagy szerző szerint.  
-3. **CRM rendszerek:** Gyorsan megtalálhatók az ügyfél fájlok egyéni metaadatok, például ügyfél‑azonosító vagy régió alapján.
+1. **Enterprise Document Management:** Szerződések lekérdezése szerződés dátuma vagy aláíró neve alapján.  
+2. **Digital Library Catalogs:** Lehetővé teszi a felhasználók számára, hogy könyveket műfaj, kiadási év vagy szerző szerint böngésszenek.  
+3. **CRM Systems:** Gyorsan megtalálja az ügyfél fájlokat egyedi metaadatok, például ügyfél‑azonosító vagy régió alapján.  
 
-## Teljesítményfontosságú szempontok
+## Tippek és bevált gyakorlatok
 - **Inkrementális frissítések:** Használd a `index.addOrUpdate()`-t új vagy módosított fájlokhoz a teljes index újraépítése helyett.  
-- **Memóriahangolás:** Állítsd be a JVM heap méretét (`-Xmx`) az indexelt metaadat mennyisége alapján.  
-- **Optimalizált tárolás:** Időnként hívd meg a `index.optimize()`-t az index tömörítéséhez és a lekérdezési sebesség javításához.
+- **Kötegelt feldolgozás:** Több ezer fájl esetén add hozzá őket kisebb kötegekben a memóriahasználat alacsonyan tartása érdekében.  
+- **Metaadat ellenőrzés:** Győződj meg arról, hogy a forrásdokumentumok valóban tartalmazzák a lekérdezni kívánt metaadatokat (pl. szerző mezők a PDF-ekben).  
+
+## Teljesítmény szempontok
+- **Memória hangolás:** Állítsd be a JVM heap méretét (`-Xmx`) az indexelt metaadat mennyisége alapján.  
+- **Optimalizált tárolás:** Időnként hívd meg a `index.optimize()`-t az index tömörítéséhez és a lekérdezési sebesség javításához.  
 
 ## Gyakori problémák és megoldások
 
 | Probléma | Megoldás |
 |----------|----------|
-| **No results returned** | Erősítsd meg, hogy a várt metaadatmezők valóban jelen vannak a forrásfájlokban. |
-| **Permission errors** | Győződj meg arról, hogy a Java folyamatnak olvasási hozzáférése van a dokumentum mappához és az index könyvtárhoz egyaránt. |
-| **Out‑of‑memory errors** | Növeld a JVM heap méretét, vagy kötegeld a `add` műveletet, hogy a fájlokat kisebb csoportokban dolgozd fel. |
+| **Nincs eredmény** | Ellenőrizd, hogy a várt metaadatmezők valóban jelen vannak-e a forrásfájlokban. |
+| **Jogosultsági hibák** | Győződj meg arról, hogy a Java folyamatnak olvasási hozzáférése van mind a dokumentummappához, mind az indexkönyvtárhoz. |
+| **Memóriahiány hibák** | Növeld a JVM heap méretét, vagy kötegeld a `add` műveletet, hogy a fájlokat kisebb csoportokban dolgozd fel. |
 
-## Gyakran Ismételt Kérdések
+## Gyakran feltett kérdések
 
 **Q: Mi a metaadat-indexelés?**  
-A: A metaadat-indexelés a dokumentum attribútumait (szerző, cím, egyéni címkék) egy kereshető struktúrában tárolja, lehetővé téve a gyors keresést a teljes szöveg beolvasása nélkül.
+A: A metaadat-indexelés a dokumentum attribútumait (szerző, cím, egyedi címkék) egy kereshető struktúrában tárolja, lehetővé téve a gyors lekérdezéseket a teljes szöveg átvizsgálása nélkül.
 
 **Q: Hogyan szerezhetek ideiglenes licencet?**  
-A: Látogasd meg a GroupDocs vásárlási oldalt, és kövesd a lépéseket a próbaverzió licenc beszerzéséhez.
+A: Látogasd meg a GroupDocs vásárlási oldalt, és kövesd a lépéseket a próba licenc megszerzéséhez.
 
 **Q: Indexelhetek PDF-eket ezzel a beállítással?**  
 A: Igen, a GroupDocs.Search támogatja a PDF, DOCX, PPT és sok más formátumot.
 
-**Q: Milyen gyakori problémák merülnek fel dokumentumok hozzáadása során?**  
-A: Ellenőrizd a helyes fájlútvonalakat, és győződj meg arról, hogy az alkalmazásnak olvasási jogosultsága van a könyvtárakhoz.
+**Q: Mik a gyakori problémák dokumentumok hozzáadása közben?**  
+A: Ellenőrizd a helyes fájlutakat, és győződj meg arról, hogy az alkalmazásnak olvasási jogosultsága van a könyvtárakhoz.
 
 **Q: Hogyan optimalizálhatom a keresési teljesítményt?**  
 A: Rendszeresen frissítsd az indexet, használj inkrementális hozzáadásokat, és hangold a JVM memória beállításait.
@@ -177,6 +181,6 @@ A: Rendszeresen frissítsd az indexet, használj inkrementális hozzáadásokat,
 
 ---
 
-**Last Updated:** 2026-01-06  
-**Tested With:** GroupDocs.Search Java 25.4  
-**Author:** GroupDocs
+**Legutóbb frissítve:** 2026-03-17  
+**Tesztelve ezzel:** GroupDocs.Search Java 25.4  
+**Szerző:** GroupDocs
