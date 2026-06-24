@@ -1,49 +1,47 @@
 ---
-date: '2025-12-22'
-description: Pelajari cara membuat indeks dan menambahkan dokumen ke indeks menggunakan
-  GroupDocs.Search untuk Java. Tingkatkan kemampuan pencarian Anda pada dokumen hukum,
-  akademik, dan bisnis.
+date: '2026-03-06'
+description: Pelajari cara melakukan pencarian regex di Java dan menambahkan dokumen
+  ke indeks menggunakan GroupDocs.Search untuk Java, meningkatkan pencarian pada file
+  legal, akademik, dan bisnis.
 keywords:
 - GroupDocs.Search in Java
 - document index management
 - Java document search
-title: 'Cara Membuat Indeks dengan GroupDocs.Search di Java - Panduan Lengkap'
+title: pencarian regex java – Buat Indeks dengan GroupDocs.Search di Java
 type: docs
 url: /id/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# Menguasai GroupDocs.Search di Java - Panduan Lengkap untuk Manajemen Indeks dan Pencarian Dokumen
+# Menguasai GroupDocs.Search di Java – regex search java dan Manajemen Indeks
 
 ## Pendahuluan
 
-Apakah Anda kesulitan dengan tugas mengindeks dan mencari melalui sejumlah besar dokumen? Baik Anda menangani berkas hukum, artikel akademik, atau laporan perusahaan, mengetahui **cara membuat indeks** dengan cepat dan akurat sangat penting. **GroupDocs.Search untuk Java** membuat proses ini menjadi sederhana, memungkinkan Anda menambahkan dokumen ke indeks, menjalankan pencarian fuzzy, dan mengeksekusi kueri lanjutan dengan hanya beberapa baris kode.
-
-Di bawah ini Anda akan menemukan semua yang diperlukan untuk memulai, mulai dari penyiapan lingkungan hingga membuat kueri pencarian yang canggih.
+Apakah Anda mengalami kesulitan dalam tugas mengindeks dan mencari melalui sejumlah besar dokumen? Baik Anda menangani berkas hukum, artikel akademik, atau laporan perusahaan, **regex search java** adalah teknik yang kuat yang memungkinkan Anda menemukan pola dalam teks dengan cepat. Dengan **GroupDocs.Search for Java**, Anda dapat membuat indeks, **add documents to index**, dan menjalankan kueri fuzzy, wildcard, atau regular‑expression dengan hanya beberapa baris kode. Di bawah ini Anda akan menemukan semua yang Anda perlukan untuk memulai, mulai dari penyiapan lingkungan hingga merancang kueri pencarian yang canggih.
 
 ## Jawaban Cepat
 - **Apa tujuan utama GroupDocs.Search?** Untuk membuat indeks yang dapat dicari untuk berbagai format dokumen.  
 - **Apakah saya dapat menambahkan dokumen ke indeks setelah dibuat?** Ya—gunakan metode `index.add()` untuk menyertakan file baru.  
-- **Apakah GroupDocs.Search mendukung pencarian fuzzy di Java?** Tentu saja; aktifkan melalui `SearchOptions`.  
+- **Apakah GroupDocs.Search mendukung fuzzy search di Java?** Tentu saja; aktifkan melalui `SearchOptions`.  
 - **Bagaimana cara menjalankan kueri wildcard di Java?** Buat dengan `SearchQuery.createWildcardQuery()`.  
-- **Apakah lisensi diperlukan untuk penggunaan produksi?** Lisensi GroupDocs.Search yang valid diperlukan untuk penyebaran komersial.
+- **Apakah lisensi diperlukan untuk penggunaan produksi?** Lisensi GroupDocs.Search yang valid diperlukan untuk penerapan komersial.
 
-## Apa arti “cara membuat indeks” dalam konteks GroupDocs.Search?
+## Apa itu “how to create index” dalam konteks GroupDocs.Search?
 
-Membuat indeks berarti memindai satu atau lebih dokumen sumber, mengekstrak teks yang dapat dicari, dan menyimpan informasi tersebut dalam format terstruktur yang dapat dipertanyakan secara efisien. Indeks yang dihasilkan memungkinkan pencarian super cepat, bahkan di antara ribuan file.
+Membuat indeks berarti memindai satu atau lebih dokumen sumber, mengekstrak teks yang dapat dicari, dan menyimpan informasi tersebut dalam format terstruktur yang dapat dipertanyakan secara efisien. Indeks yang dihasilkan memungkinkan pencarian sangat cepat, bahkan di antara ribuan file.
 
 ## Mengapa menggunakan GroupDocs.Search untuk Java?
 
-- **Dukungan format yang luas:** PDF, Word, Excel, PowerPoint, dan banyak lagi.  
-- **Fitur bahasa bawaan:** Pencarian fuzzy, wildcard, dan kemampuan regex langsung tersedia.  
-- **Kinerja yang dapat diskalakan:** Menangani koleksi dokumen besar dengan penggunaan memori yang dapat dikonfigurasi.  
+- **Dukungan format luas:** PDF, Word, Excel, PowerPoint, dan banyak lagi.  
+- **Fitur bahasa bawaan:** Fuzzy search, wildcard, dan kemampuan **regex search java** siap pakai.  
+- **Kinerja skalabel:** Menangani koleksi dokumen besar dengan penggunaan memori yang dapat dikonfigurasi.  
 
 ## Prasyarat
 
-- **GroupDocs.Search untuk Java versi 25.4** atau lebih baru.  
+- **GroupDocs.Search for Java versi 25.4** atau lebih baru.  
 - IDE seperti IntelliJ IDEA atau Eclipse yang dapat menangani proyek Maven.  
 - JDK terpasang di mesin Anda.  
-- Familiaritas dasar dengan Java dan konsep pencarian.
+- Pemahaman dasar tentang Java dan konsep pencarian.
 
 ## Menyiapkan GroupDocs.Search untuk Java
 
@@ -70,12 +68,12 @@ Anda dapat menambahkan pustaka melalui Maven atau mengunduhnya secara manual.
 ```
 
 **Unduhan Langsung:**  
-Atau, unduh versi terbaru dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternatifnya, unduh versi terbaru dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Akuisisi Lisensi
-- **Uji Coba Gratis:** Jelajahi fitur tanpa biaya.  
-- **Lisensi Sementara:** Perpanjang penggunaan uji coba.  
-- **Lisensi Penuh:** Diperlukan untuk lingkungan produksi.
+- **Free Trial:** Jelajahi fitur tanpa biaya.  
+- **Temporary License:** Memperpanjang penggunaan percobaan.  
+- **Full License:** Diperlukan untuk lingkungan produksi.
 
 Setelah pustaka tersedia, inisialisasi dalam kode Java Anda:
 
@@ -96,9 +94,9 @@ public class InitializeSearch {
 
 ### Cara Membuat Indeks dengan GroupDocs.Search
 
-Bagian ini memandu Anda melalui proses lengkap membuat indeks dan menambahkan dokumen ke dalamnya.
+Bagian ini memandu Anda melalui proses lengkap membuat indeks dan **add documents to index**.
 
-#### Mendefinisikan Jalur
+#### Mendefinisikan Path
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\CreateAndIndexDocuments";
@@ -119,11 +117,11 @@ index.add(documentsFolder);
 System.out.println("Documents added to the index.");
 ```
 
-> **Pro tip:** Pastikan direktori ada dan hanya berisi file yang ingin Anda jadikan dapat dicari; file yang tidak relevan dapat membuat indeks menjadi lebih besar.
+> **Pro tip:** Pastikan direktori ada dan hanya berisi file yang ingin Anda jadikan dapat dicari; file yang tidak terkait dapat memperbesar ukuran indeks.
 
-### Kueri Kata Sederhana dengan Opsi Pencarian Fuzzy (fuzzy search java)
+### Kueri Kata Sederhana dengan Opsi Fuzzy Search (fuzzy search java)
 
-Pencarian fuzzy membantu ketika pengguna salah mengetik kata atau ketika OCR menghasilkan kesalahan.
+Fuzzy search membantu ketika pengguna salah mengetik kata atau ketika OCR menghasilkan kesalahan.
 
 ```java
 SearchQuery subquery = SearchQuery.createWordQuery("future");
@@ -146,7 +144,7 @@ SearchQuery subquery = SearchQuery.createWildcardQuery(1);
 System.out.println("Wildcard query created.");
 ```
 
-### Pencarian Regex Java
+### Regex Search Java
 
 Ekspresi reguler memberi Anda kontrol detail atas pencocokan pola, sempurna untuk menemukan karakter berulang atau struktur token yang kompleks.
 
@@ -157,7 +155,7 @@ System.out.println("Regex query created to find repeated characters.");
 
 ### Menggabungkan Subkueri menjadi Kueri Pencarian Frasa
 
-Anda dapat mencampur subkueri kata, wildcard, dan regex untuk membangun pencarian frasa yang canggih.
+Anda dapat menggabungkan subkueri kata, wildcard, dan regex untuk membangun pencarian frasa yang canggih.
 
 ```java
 SearchQuery subquery1 = SearchQuery.createWordQuery("future");
@@ -170,7 +168,7 @@ SearchQuery combinedQuery = SearchQuery.createPhraseSearchQuery(subquery1, subqu
 System.out.println("Combined phrase search query created.");
 ```
 
-### Mengonfigurasi dan Menjalankan Pencarian dengan Opsi Kustom
+### Mengonfigurasi dan Melakukan Pencarian dengan Opsi Kustom
 
 Menyesuaikan opsi pencarian memungkinkan Anda mengontrol berapa banyak kemunculan yang dikembalikan, yang berguna untuk korpus besar.
 
@@ -189,43 +187,38 @@ SearchResult result = index.search(query, options);
 System.out.println("Search performed with custom options.");
 ```
 
-## Aplikasi Praktis
+## regex search java – Kasus Penggunaan Umum
 
-1. **Manajemen Dokumen Hukum:** Dengan cepat menemukan peraturan, undang‑undang, dan preseden.  
-2. **Penelitian Akademik:** Mengindeks ribuan makalah penelitian dan mengambil sitasi dalam hitungan detik.  
-3. **Analisis Laporan Bisnis:** Menemukan angka keuangan di seluruh laporan kuartalan yang beragam.  
-4. **Sistem Manajemen Konten (CMS):** Menawarkan pencarian cepat dan akurat bagi pengguna akhir pada posting blog dan artikel.  
-5. **Basis Pengetahuan Dukungan Pelanggan:** Mengurangi waktu respons dengan segera menampilkan panduan pemecahan masalah yang relevan.
+- **Penelitian hukum:** Menemukan klausa yang mengikuti pola tertentu, seperti tanggal dengan format `DD/MM/YYYY`.  
+- **Validasi data:** Mendeteksi pengenal yang tidak terbentuk dengan benar atau karakter berulang dalam log.  
+- **Moderasi konten:** Menemukan kata kasar atau pola terlarang menggunakan regex.  
+- **Analisis keuangan:** Mengekstrak kode transaksi yang cocok dengan templat regex yang diketahui.
 
 ## Pertimbangan Kinerja
 
-- **Optimalkan Pengindeksan:** Lakukan re‑indeks secara berkala dan hapus file usang untuk menjaga indeks tetap ringan.  
+- **Optimalkan Pengindeksan:** Lakukan re‑indeks secara berkala dan hapus file usang untuk menjaga indeks tetap ramping.  
 - **Penggunaan Sumber Daya:** Pantau ukuran heap JVM; indeks besar mungkin memerlukan memori tambahan atau penyimpanan off‑heap.  
 - **Garbage Collection:** Sesuaikan pengaturan GC untuk layanan pencarian yang berjalan lama agar menghindari jeda.
 
-## Kesimpulan
-
-Dengan mengikuti panduan ini, Anda kini mengetahui **cara membuat indeks**, menambahkan dokumen ke indeks, dan memanfaatkan pencarian fuzzy, wildcard, serta regex di Java dengan GroupDocs.Search. Kemampuan ini memungkinkan Anda membangun pengalaman pencarian yang kuat dan dapat diskalakan seiring pertumbuhan data Anda.
-
 ## Pertanyaan yang Sering Diajukan
 
-**T: Apakah saya dapat memperbarui indeks yang ada tanpa membangunnya kembali dari awal?**  
-J: Ya—gunakan `index.add()` untuk menambahkan file baru atau `index.update()` untuk memperbarui dokumen yang berubah.
+**Q: Bisakah saya memperbarui indeks yang ada tanpa membangunnya kembali dari awal?**  
+A: Ya—gunakan `index.add()` untuk menambahkan file baru atau `index.update()` untuk memperbarui dokumen yang berubah.
 
-**T: Bagaimana pencarian fuzzy menangani bahasa yang berbeda?**  
-J: Algoritma fuzzy bawaan bekerja pada karakter Unicode, sehingga mendukung sebagian besar bahasa secara langsung.
+**Q: Bagaimana fuzzy search menangani berbagai bahasa?**  
+A: Algoritma fuzzy bawaan bekerja pada karakter Unicode, sehingga mendukung sebagian besar bahasa secara langsung.
 
-**T: Apakah ada batasan jumlah dokumen yang dapat saya indeks?**  
-J: Secara praktis, batasannya ditentukan oleh ruang disk yang tersedia dan memori JVM; pustaka ini dirancang untuk menangani jutaan dokumen.
+**Q: Apakah ada batasan jumlah dokumen yang dapat saya indeks?**  
+A: Secara praktis, batasannya ditentukan oleh ruang disk yang tersedia dan memori JVM; pustaka ini dirancang untuk jutaan dokumen.
 
-**T: Apakah saya perlu memulai ulang aplikasi setelah mengubah opsi pencarian?**  
-J: Tidak—opsi pencarian diterapkan per kueri, sehingga Anda dapat menyesuaikannya secara dinamis.
+**Q: Apakah saya perlu memulai ulang aplikasi setelah mengubah opsi pencarian?**  
+A: Tidak—opsi pencarian diterapkan per kueri, sehingga Anda dapat menyesuaikannya secara langsung.
 
-**T: Di mana saya dapat menemukan contoh kueri lanjutan lainnya?**  
-J: Dokumentasi resmi GroupDocs.Search dan referensi API menyediakan contoh yang luas untuk skenario kompleks.
+**Q: Di mana saya dapat menemukan contoh kueri lanjutan?**  
+A: Dokumentasi resmi GroupDocs.Search dan referensi API menyediakan contoh yang luas untuk skenario kompleks.
 
 ---
 
-**Terakhir Diperbarui:** 2025-12-22  
-**Diuji Dengan:** GroupDocs.Search untuk Java 25.4  
+**Terakhir Diperbarui:** 2026-03-06  
+**Diuji Dengan:** GroupDocs.Search for Java 25.4  
 **Penulis:** GroupDocs
