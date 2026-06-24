@@ -1,44 +1,63 @@
 ---
-date: '2026-01-06'
-description: Tìm hiểu cách lập chỉ mục văn bản trong Java bằng GroupDocs.Search, bao
-  gồm cách thêm tài liệu vào chỉ mục, cấu hình nén và thực hiện các tìm kiếm nhanh.
+date: '2026-03-15'
+description: Tìm hiểu cách thực hiện tìm kiếm toàn văn bằng Java sử dụng GroupDocs.Search,
+  bao gồm cách thêm thư mục vào chỉ mục, cấu hình nén và thực hiện các truy vấn nhanh.
 keywords:
 - text indexing in Java
 - GroupDocs.Search setup
 - index compression settings
-title: Cách lập chỉ mục văn bản trong Java với hướng dẫn GroupDocs.Search
+title: 'Tìm kiếm toàn văn Java: Cách lập chỉ mục văn bản với GroupDocs.Search'
 type: docs
 url: /vi/java/indexing/master-text-indexing-java-groupdocs-search-guide/
 weight: 1
 ---
 
-# Cách lập chỉ mục văn bản trong Java với hướng dẫn GroupDocs.Search
+Last Updated:** 2026-03-15 => "**Cập nhật lần cuối:** 2026-03-15"
 
-Việc **lập chỉ mục văn bản** một cách hiệu quả là một kỹ năng quan trọng khi xử lý các bộ sưu tập tài liệu khổng lồ. Trong hướng dẫn này, chúng tôi sẽ hướng dẫn cách thiết lập **GroupDocs.Search** trong môi trường Java, cấu hình lưu trữ nén cao, thêm tài liệu vào chỉ mục và thực hiện các tìm kiếm siêu nhanh. Khi kết thúc, bạn sẽ có một giải pháp sẵn sàng cho sản xuất mà có thể tích hợp vào bất kỳ dự án Java nào.
+**Tested With:** GroupDocs.Search 25.4 => "**Kiểm tra với:** GroupDocs.Search 25.4"
+
+**Author:** GroupDocs => "**Tác giả:** GroupDocs"
+
+Make sure to keep bold formatting.
+
+Now ensure we didn't miss any shortcodes; there are none.
+
+Now produce final markdown with translations.
+
+Check for any stray spaces.
+
+Let's assemble.# Tìm kiếm toàn văn Java: Cách lập chỉ mục văn bản với GroupDocs.Search
+
+Nếu bạn cần **java full text search** có khả năng mở rộng tới hàng triệu tài liệu, bạn đang ở đúng nơi. Trong hướng dẫn này, chúng tôi sẽ hướng dẫn cách thiết lập **GroupDocs.Search** trong môi trường Java, cấu hình lưu trữ nén cao, thêm một thư mục để lập chỉ mục và thực hiện các truy vấn siêu nhanh. Khi kết thúc, bạn sẽ có một giải pháp sẵn sàng cho sản xuất mà có thể tích hợp vào bất kỳ dự án Java nào.
 
 ## Câu trả lời nhanh
 - **Thư viện chính là gì?** GroupDocs.Search for Java  
-- **Làm thế nào để thêm tài liệu vào chỉ mục?** Use `index.add(folderPath)`  
+- **Cách thêm thư mục vào chỉ mục?** Use `index.add(folderPath)`  
 - **Tôi có thể cấu hình nén văn bản không?** Yes, via `TextStorageSettings(Compression.High)`  
 - **Phiên bản Java nào được yêu cầu?** JDK 8 or higher  
 - **Nơi nào có thể lấy giấy phép dùng thử?** From the GroupDocs website or the repository page  
 
-## Chỉ mục văn bản là gì và tại sao nó quan trọng?
-Chỉ mục văn bản chuyển đổi các tài liệu thô thành một cấu trúc có thể tìm kiếm, cho phép truy xuất thông tin ngay lập tức. Điều này là thiết yếu cho các ứng dụng như kho lưu trữ pháp lý, thư viện nghiên cứu và cơ sở tri thức doanh nghiệp, nơi người dùng mong đợi phản hồi truy vấn dưới một giây.
+## Java Full Text Search là gì và Tại sao nó quan trọng?
+Java full text search chuyển đổi các tài liệu thô thành cấu trúc có thể tìm kiếm, cho phép truy xuất thông tin ngay lập tức. Điều này rất cần thiết cho các ứng dụng như kho lưu trữ pháp lý, thư viện nghiên cứu và cơ sở tri thức doanh nghiệp, nơi người dùng mong đợi phản hồi truy vấn dưới một giây.
+
+## Tại sao nên sử dụng GroupDocs.Search cho Java Full Text Search?
+- **High performance** – tối ưu hoá việc lập chỉ mục và thực thi truy vấn.  
+- **Built‑in compression** – giảm dung lượng đĩa mà không làm giảm tốc độ.  
+- **Broad format support** – lập chỉ mục PDF, tệp Word, email và nhiều định dạng khác ngay từ đầu.  
+- **Simple API** – các phương thức Java trực quan, dễ tích hợp vào code hiện có.  
 
 ## Yêu cầu trước
+Trước khi bắt đầu, hãy chắc chắn rằng bạn có:
 
-Trước khi bắt đầu, hãy đảm bảo bạn có:
-
-- **GroupDocs.Search for Java** (phiên bản 25.4 hoặc mới hơn)
-- **JDK8+** đã được cài đặt và định cấu hình
-- **Maven** để quản lý phần phụ thuộc
-- Một IDE như IntelliJ IDEA hoặc Eclipse
+- **GroupDocs.Search for Java** (phiên bản 25.4 hoặc mới hơn)  
+- **JDK 8+** đã được cài đặt và cấu hình  
+- **Maven** để quản lý phụ thuộc  
+- Một IDE như IntelliJ IDEA hoặc Eclipse  
 
 ## Cài đặt GroupDocs.Search cho Java
 
 ### Cài đặt Maven
-Thêm kho lưu trữ và phần phụ thuộc vào tệp `pom.xml` của bạn:
+Thêm repository và dependency vào tệp `pom.xml` của bạn:
 
 ```xml
 <repositories>
@@ -58,15 +77,15 @@ Thêm kho lưu trữ và phần phụ thuộc vào tệp `pom.xml` của bạn:
 </dependencies>
 ```
 
-### Tải xuống trực tiếp
-Ngoài ra, hãy tải xuống phiên bản mới nhất từ ​​[GroupDocs.Search for Java Releases](https://releases.groupdocs.com/search/java/).
+### Tải trực tiếp
+Hoặc, tải phiên bản mới nhất từ [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### Nhận giấy phép
-- **Dùng thử miễn phí** – khám phá tất cả các tính năng không cần cam kết.
-- **Giấy phép tạm thời** – thời gian thử nghiệm kéo dài.
-- **Mua** – mở khóa đầy đủ khả năng sản xuất.
+- **Free Trial** – khám phá tất cả tính năng mà không cần cam kết.  
+- **Temporary License** – thời gian thử nghiệm kéo dài.  
+- **Purchase** – mở khóa đầy đủ khả năng sản xuất.  
 
-### Khởi tạo và cài đặt cơ sở
+### Khởi tạo và Cài đặt Cơ bản
 Tạo một lớp Java đơn giản để khởi tạo công cụ tìm kiếm:
 
 ```java
@@ -87,16 +106,15 @@ public class InitializeSearch {
 
 ## Cách lập chỉ mục văn bản với Nén tùy chỉnh
 
-### Bước 1: Xác định thư mục chỉ mục
-Chọn thư mục nơi lưu trữ các tệp chỉ mục:
+### Bước 1: Xác định Thư mục Chỉ mục
+Chọn một thư mục nơi các tệp chỉ mục sẽ được lưu trữ:
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\StoringTextOfIndexedDocuments";
 ```
 
-### Bước 2: Cấu hình cài đặt chỉ mục
-Thiết lập lưu trữ văn bản nén cao để giảm dung lượng ổ đĩa:
-
+### Bước 2: Cấu hình Cài đặt Chỉ mục
+Thiết lập lưu trữ văn bản nén cao để giảm dung lượng đĩa:
 
 ```java
 import com.groupdocs.search.Index;
@@ -108,7 +126,7 @@ IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-### Bước 3: Tạo chỉ mục với Cài đặt tùy chỉnh
+### Bước 3: Tạo Chỉ mục với Cài đặt Tùy chỉnh
 Khởi tạo chỉ mục bằng cấu hình đã định nghĩa ở trên:
 
 ```java
@@ -116,17 +134,17 @@ Index index = new Index(indexFolder, settings);
 System.out.println("Index created with high compression.");
 ```
 
-## Cách thêm tài liệu vào chỉ mục
+## Cách Thêm Thư mục vào Chỉ mục
 
-### Bước 1: Khởi tạo chỉ mục (nếu chưa thực hiện)
-Giả sử thư mục chỉ mục và các cài đặt đã được chuẩn bị:
+### Bước 1: Khởi tạo Chỉ mục (nếu chưa thực hiện)
+Giả sử thư mục chỉ mục và cài đặt đã được chuẩn bị:
 
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Replace with actual document path.
 Index index = new Index(indexFolder);
 ```
 
-### Bước 2: Thêm tài liệu từ thư mục
+### Bước 2: Thêm Tài liệu từ Thư mục
 Lập chỉ mục tất cả các tệp được hỗ trợ trong thư mục đã cho:
 
 ```java
@@ -134,16 +152,16 @@ index.add(documentsFolder);
 System.out.println("Documents added successfully.");
 ```
 
-## Cách tìm kiếm tài liệu đã lập chỉ mục
+## Cách Tìm kiếm Tài liệu Đã được Lập chỉ mục
 
-### Bước 1: Xác định truy vấn tìm kiếm
-Chỉ định thuật ngữ bạn muốn tìm kiếm:
+### Bước 1: Xác định Truy vấn Tìm kiếm
+Xác định từ khóa bạn muốn tìm:
 
 ```java
 String query = "Lorem";  
 ```
 
-### Bước 2: Thực hiện tìm kiếm
+### Bước 2: Thực hiện Tìm kiếm
 Chạy truy vấn trên chỉ mục và lấy kết quả:
 
 ```java
@@ -153,39 +171,50 @@ SearchResult result = index.search(query);
 System.out.println("Search completed. Results found: " + result.getDocumentCount());
 ```
 
-## Ứng dụng thực tiễn
+## Ứng dụng Thực tiễn
 
-Các kịch bản thực tế nơi **cách lập chỉ mục văn bản** tỏa sáng:
+Các kịch bản thực tế nơi **java full text search** tỏa sáng:
 
 1. **Legal Document Management** – truy xuất nhanh các hồ sơ vụ án.  
 2. **Academic Research Libraries** – tra cứu nhanh các bài báo và luận văn.  
 3. **Enterprise Knowledge Bases** – truy cập nhanh vào tài liệu hướng dẫn và câu hỏi thường gặp.  
 4. **Content Management Systems** – khám phá nội dung hiệu quả cho các trang web lớn.  
-5. **Customer Service Archives** – tìm kiếm nhanh các phiếu hỗ trợ và trò chuyện đã qua.  
+5. **Customer Service Archives** – tìm kiếm nhanh các phiếu hỗ trợ và cuộc trò chuyện đã qua.  
 
-## Các yếu tố về hiệu năng
+## Các yếu tố về Hiệu năng
 
-- **Compression vs. Speed**: Nén cao tiết kiệm không gian nhưng có thể gây một chút chi phí trong quá trình lập chỉ mục. Hãy thử cả hai cài đặt cho khối lượng công việc của bạn.  
+- **Compression vs. Speed**: Nén cao tiết kiệm không gian nhưng có thể gây một chút overhead trong quá trình lập chỉ mục. Hãy thử cả hai cài đặt cho tải công việc của bạn.  
 - **Memory Management**: Giám sát việc sử dụng heap khi lập chỉ mục các tập dữ liệu rất lớn.  
 - **Index Updates**: Thường xuyên thêm tài liệu mới hoặc xóa những tài liệu lỗi thời để duy trì kết quả tìm kiếm phù hợp.  
 - **Query Optimization**: Tận dụng cú pháp truy vấn nâng cao của GroupDocs.Search để có kết quả chính xác.  
 
-## Câu hỏi thường gặp
+## Những Sai lầm Thường gặp & Mẹo Chuyên nghiệp
+
+- **Pitfall:** Quên gọi `index.optimize()` sau khi thêm hàng loạt.  
+  **Pro tip:** Chạy `index.optimize()` hàng đêm để giữ chỉ mục gọn gàng.  
+
+- **Pitfall:** Sử dụng nén mặc định (thấp) trên các tập dữ liệu khổng lồ.  
+  **Pro tip:** Chuyển sang `Compression.High` cho môi trường sản xuất để giảm chi phí lưu trữ.  
+
+- **Pitfall:** Không xử lý `IOException` khi thêm tệp từ chia sẻ mạng.  
+  **Pro tip:** Bao bọc `index.add()` trong khối try‑catch và ghi lại bất kỳ lỗi nào để xem xét sau.  
+
+## Câu hỏi Thường gặp
 
 **Q: GroupDocs.Search là gì?**  
-A: Đây là một thư viện Java mạnh mẽ cung cấp khả năng tìm kiếm toàn văn nâng cao, bao gồm lập chỉ mục, nén và hỗ trợ truy vấn phức tạp.
+A: Đó là một thư viện Java mạnh mẽ cung cấp khả năng tìm kiếm toàn văn nâng cao, bao gồm lập chỉ mục, nén và hỗ trợ truy vấn phức tạp.
 
-**Q: Làm thế nào để tôi xử lý bộ dữ liệu lớn với GroupDocs.Search?**  
-A: Kích hoạt nén cao (`Compression.High`) và thường xuyên commit các thay đổi để giữ chỉ mục gọn nhẹ. Ngoài ra, cấp phát đủ bộ nhớ heap.
+**Q: Làm sao để xử lý các tập dữ liệu lớn với GroupDocs.Search?**  
+A: Bật nén cao (`Compression.High`) và định kỳ commit các thay đổi để giữ chỉ mục gọn nhẹ. Ngoài ra, cấp phát đủ bộ nhớ heap.
 
-**Q: Tôi có thể tích hợp GroupDocs.Search với các hệ thống doanh nghiệp hiện có không?**  
+**Q: Tôi có thể tích hợp GroupDocs.Search vào các hệ thống doanh nghiệp hiện có không?**  
 A: Có, thư viện có thể nhúng vào bất kỳ backend dựa trên Java, dịch vụ REST hoặc kiến trúc micro‑services nào.
 
 **Q: Nếu chỉ mục của tôi trở nên lỗi thời thì sao?**  
-A: Sử dụng phương thức `index.add()` để thêm các tệp mới và `index.delete()` để xóa các tệp không còn sử dụng, sau đó chạy lại `index.optimize()` nếu cần.
+A: Sử dụng phương thức `index.add()` để thêm tệp mới và `index.delete()` để xóa những tệp không còn dùng, sau đó chạy lại `index.optimize()` nếu cần.
 
-**Q: Tôi có thể nhận được sự trợ giúp hoặc hỗ trợ ở đâu?**  
-A: Truy cập diễn đàn cộng đồng tại [GroupDocs forums](https://forum.groupdocs.com/c/search/10) để được hỗ trợ và nhận các mẹo thực hành tốt nhất.
+**Q: Tôi có thể nhận hỗ trợ hoặc trợ giúp ở đâu?**  
+A: Truy cập diễn đàn cộng đồng tại [GroupDocs forums](https://forum.groupdocs.com/c/search/10) để được hỗ trợ và các mẹo thực hành tốt nhất.
 
 ## Tài nguyên
 - **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
@@ -194,6 +223,6 @@ A: Truy cập diễn đàn cộng đồng tại [GroupDocs forums](https://forum
 
 ---
 
-**Cập nhật lần cuối:** 2026-01-06  
+**Cập nhật lần cuối:** 2026-03-15  
 **Kiểm tra với:** GroupDocs.Search 25.4  
 **Tác giả:** GroupDocs

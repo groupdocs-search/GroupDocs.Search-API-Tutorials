@@ -1,25 +1,26 @@
 ---
-date: '2026-01-06'
-description: Pelajari cara membuat indeks dokumen Java untuk file yang dilindungi
-  kata sandi menggunakan GroupDocs.Search. Panduan langkah demi langkah dengan kode,
-  tips, dan trik kinerja.
+date: '2026-03-15'
+description: Pelajari cara mengindeks dokumen di Java untuk file yang dilindungi kata
+  sandi menggunakan GroupDocs.Search. Panduan langkah demi langkah dengan kode, tips,
+  dan trik kinerja.
 keywords:
 - indexing password-protected documents Java
 - GroupDocs.Search Java API
 - document management workflow
-title: Buat indeks dokumen Java untuk file yang dilindungi kata sandi
+title: Cara mengindeks dokumen di Java untuk file yang dilindungi kata sandi dengan
+  GroupDocs.Search
 type: docs
 url: /id/java/indexing/mastering-groupdocs-search-java-password-docs/
 weight: 1
 ---
 
-# Buat indeks dokumen java untuk file yang dilindungi kata sandi dengan GroupDocs.Search
+# Cara mengindeks dokumen di Java untuk file yang dilindungi password dengan GroupDocs.Search
 
-Di perusahaan modern, melindungi data sensitif dengan kata sandi sangat penting, tetapi seringkali membuat sulit untuk **create document index java** untuk pengambilan cepat. Tutorial ini menunjukkan secara tepat cara membangun indeks yang dapat dicari dari file yang dilindungi kata sandi menggunakan GroupDocs.Search untuk Java, sambil menjaga alur kerja Anda tetap aman dan efisien.
+Jika Anda bertanya-tanya **bagaimana cara mengindeks dokumen** yang dilindungi dengan password, Anda berada di tempat yang tepat. Di perusahaan modern, melindungi data sensitif dengan password sangat penting, namun hal ini sering menyulitkan pembuatan indeks yang cepat dan dapat dicari. Tutorial ini memandu Anda langkah demi langkah untuk membangun indeks dokumen yang aman dan berperforma tinggi untuk file yang dilindungi password menggunakan GroupDocs.Search untuk Java, sambil menjaga proses tetap sederhana dan dapat dipelihara.
 
 ## Jawaban Cepat
-- **Apa yang dibahas dalam tutorial ini?** Mengindeks dokumen yang dilindungi kata sandi dengan kamus kata sandi dan pendengar acara.  
-- **Pustaka mana yang diperlukan?** GroupDocs.Search for Java (versi terbaru).  
+- **Apa yang dibahas dalam tutorial ini?** Mengindeks dokumen yang dilindungi password dengan kamus password dan event listener.  
+- **Pustaka apa yang diperlukan?** GroupDocs.Search untuk Java (versi terbaru).  
 - **Apakah saya memerlukan lisensi?** Lisensi percobaan gratis sementara tersedia untuk evaluasi.  
 - **Bisakah saya mengindeks tipe file lain?** Ya, GroupDocs.Search mendukung banyak format seperti PDF, DOCX, XLSX, dll.  
 - **Versi Java apa yang dibutuhkan?** JDK 8 atau lebih baru.
@@ -27,22 +28,23 @@ Di perusahaan modern, melindungi data sensitif dengan kata sandi sangat penting,
 ## Apa itu “create document index java”?
 Membuat indeks dokumen di Java berarti membangun struktur data yang dapat dicari yang memetakan istilah ke file tempat istilah tersebut muncul. Dengan GroupDocs.Search, proses ini dapat secara otomatis menangani dokumen terenkripsi, sehingga Anda tidak perlu membuka kunci setiap file secara manual.
 
-## Mengapa menggunakan GroupDocs.Search untuk file yang dilindungi kata sandi?
-- **Zero‑touch unlocking** – menyediakan kata sandi sekali saja melalui kamus atau penangan acara.  
-- **High performance** – mesin pengindeksan yang dioptimalkan yang dapat menangani jutaan dokumen.  
-- **Rich query language** – mendukung operator Boolean, wildcard, dan pencarian fuzzy.  
-- **Cross‑format support** – bekerja dengan lebih dari 100 tipe file secara langsung.
+## Mengapa menggunakan GroupDocs.Search untuk file yang dilindungi password?
+- **Pembukaan kunci tanpa sentuhan** – berikan password sekali melalui kamus atau event handler.  
+- **Performa tinggi** – mesin indeks yang dioptimalkan yang dapat menangani jutaan dokumen.  
+- **Bahasa kueri kaya** – mendukung operator Boolean, wildcard, dan pencarian fuzzy.  
+- **Dukungan lintas format** – bekerja dengan lebih dari 100 tipe file secara langsung.  
+- **Menyederhanakan cara mengindeks dokumen** – API menyembunyikan kompleksitas penanganan file terenkripsi.
 
 ## Prasyarat
-1. **Java Development Kit (JDK) 8+** – terinstal dan dikonfigurasi di PATH Anda.  
+1. **Java Development Kit (JDK) 8+** – terpasang dan dikonfigurasi di PATH Anda.  
 2. **IDE** – IntelliJ IDEA, Eclipse, atau editor yang kompatibel dengan Java.  
 3. **Maven** – untuk manajemen dependensi.  
-4. **GroupDocs.Search for Java** – tambahkan pustaka melalui Maven (lihat di bawah).  
+4. **GroupDocs.Search untuk Java** – tambahkan pustaka melalui Maven (lihat di bawah).  
 
 ## Menyiapkan GroupDocs.Search untuk Java
 
 ### Menggunakan Maven
-Add the repository and dependency to your `pom.xml` file:
+Tambahkan repositori dan dependensi ke file `pom.xml` Anda:
 
 ```xml
 <repositories>
@@ -65,16 +67,16 @@ Add the repository and dependency to your `pom.xml` file:
 ### Unduhan Langsung
 Sebagai alternatif, Anda dapat mengunduh versi terbaru langsung dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-Untuk memulai dengan lisensi percobaan, kunjungi [halaman lisensi sementara GroupDocs](https://purchase.groupdocs.com/temporary-license/) dan ikuti instruksi untuk mendapatkan percobaan gratis Anda.
+Untuk memulai dengan lisensi percobaan, kunjungi [halaman lisensi sementara GroupDocs](https://purchase.groupdocs.com/temporary-license/) dan ikuti petunjuk untuk mendapatkan percobaan gratis Anda.
 
-## Cara membuat document index java menggunakan GroupDocs.Search
+## Cara mengindeks dokumen dengan kamus password
 
-Berikut dua pendekatan praktis. Keduanya memungkinkan Anda **create document index java** sambil menangani kata sandi secara otomatis.
+Berikut dua pendekatan praktis. Keduanya memungkinkan Anda **create document index java** sambil menangani password secara otomatis.
 
-### Pendekatan 1 – Pengindeksan Menggunakan Kamus Kata Sandi
+### Pendekatan 1 – Mengindeks Menggunakan Kamus Password
 
 #### Gambaran Umum
-Simpan kata sandi dokumen dalam kamus sehingga mesin dapat membuka file secara langsung.
+Simpan password dokumen dalam kamus sehingga mesin dapat membuka file secara langsung.
 
 #### Langkah 1: Tentukan Indeks dan Folder Dokumen
 ```java
@@ -88,7 +90,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protec
 Index index = new Index(indexFolder);
 ```
 
-#### Langkah 3: Tambahkan Kata Sandi Dokumen
+#### Langkah 3: Tambahkan Password Dokumen
 ```java
 // Add passwords for specific files using their absolute paths
 String path1 = new File(documentsFolder + "/English.docx").getAbsolutePath();
@@ -112,16 +114,16 @@ SearchResult result = index.search(query);
 // Handle search results (e.g., display or process them)
 ```
 
-**Tip:** Jika Anda memiliki banyak file, pertimbangkan memuat kata sandi dari penyimpanan aman (database, Azure Key Vault, dll.) alih-alih menuliskannya secara hard‑code.
+**Tip:** Jika Anda memiliki banyak file, pertimbangkan memuat password dari penyimpanan aman (database, Azure Key Vault, dll.) alih-alih menuliskannya secara hard‑code.
 
 #### Pemecahan Masalah
-- Pastikan setiap kata sandi cocok dengan kata sandi perlindungan sebenarnya pada file.  
+- Pastikan setiap password cocok dengan password perlindungan sebenarnya pada file.  
 - Periksa kembali jalur file; jalur yang salah memicu `FileNotFoundException`.
 
-### Pendekatan 2 – Pengindeksan Menggunakan Pendengar Acara untuk Persyaratan Kata Sandi
+### Pendekatan 2 – Mengindeks Menggunakan Event Listener untuk Permintaan Password
 
 #### Gambaran Umum
-Berikan kata sandi secara dinamis ketika mesin memicu acara password‑required.
+Berikan password secara dinamis ketika mesin memicu event password‑required.
 
 #### Langkah 1: Tentukan Indeks dan Folder Dokumen
 ```java
@@ -135,7 +137,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protec
 Index index = new Index(indexFolder);
 ```
 
-#### Langkah 3: Langganan ke Acara Password‑Required
+#### Langkah 3: Langganan ke Event Password‑Required
 ```java
 index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArgs>() {
     @Override
@@ -163,26 +165,32 @@ SearchResult result = index.search(query);
 ```
 
 #### Pemecahan Masalah
-- Pastikan penangan acara mencakup semua ekstensi file yang perlu Anda indeks.  
-- Uji dengan beberapa file contoh terlebih dahulu untuk memastikan kata sandi diterapkan.
+- Pastikan event handler mencakup semua ekstensi file yang perlu Anda indeks.  
+- Uji dengan beberapa file contoh terlebih dahulu untuk memastikan password diterapkan.
 
 ## Aplikasi Praktis
-1. **Enterprise Document Management:** Automasi pengindeksan kontrak rahasia, file HR, dan laporan keuangan.  
-2. **Legal Archives:** Dengan cepat mengambil file kasus sambil tetap mengenkripsi saat disimpan.  
-3. **Healthcare Records:** Indeks PDF pasien dan dokumen Word tanpa mengekspos PHI.
+
+1. **Manajemen Dokumen Perusahaan:** Mengotomatiskan pengindeksan kontrak rahasia, file HR, dan laporan keuangan.  
+2. **Arsip Hukum:** Dengan cepat mengambil file kasus sambil tetap mengenkripsi saat disimpan.  
+3. **Rekam Medis:** Mengindeks PDF dan dokumen Word pasien tanpa mengungkapkan PHI.
 
 ## Pertimbangan Kinerja
-- **Memory Allocation:** Alokasikan memori heap yang cukup (`-Xmx2g` atau lebih tinggi) untuk batch besar.  
-- **Parallel Indexing:** Gunakan `index.addAsync(...)` atau jalankan beberapa thread pengindeksan untuk throughput yang lebih cepat.  
-- **Index Maintenance:** Secara berkala panggil `index.optimize()` untuk memadatkan indeks dan meningkatkan kecepatan kueri.
+- **Alokasi Memori:** Alokasikan memori heap yang cukup (`-Xmx2g` atau lebih tinggi) untuk batch besar.  
+- **Pengindeksan Paralel:** Gunakan `index.addAsync(...)` atau jalankan beberapa thread pengindeksan untuk throughput lebih cepat.  
+- **Pemeliharaan Indeks:** Secara periodik panggil `index.optimize()` untuk memadatkan indeks dan meningkatkan kecepatan kueri.
+
+## Masalah Umum dan Solusinya
+- **Password Salah:** Dokumen dilewati dan peringatan dicatat. Periksa kembali kamus password atau event handler Anda.  
+- **Format Tidak Didukung:** Instal plugin format yang diperlukan atau konversi file ke tipe yang didukung sebelum mengindeks.  
+- **File Besar:** Tingkatkan ukuran heap dan pertimbangkan mengindeksnya dalam batch yang lebih kecil.
 
 ## Pertanyaan yang Sering Diajukan
 
 **Q: Bagaimana saya menangani format file yang berbeda?**  
 A: GroupDocs.Search mendukung PDF, DOCX, XLSX, PPTX, dan banyak lagi. Instal plugin format yang sesuai jika diperlukan.
 
-**Q: Apa yang terjadi jika kata sandi salah?**  
-A: Dokumen akan dilewati, dan peringatan dicatat. Periksa kembali kamus kata sandi atau logika penangan acara Anda.
+**Q: Apa yang terjadi jika password salah?**  
+A: Dokumen dilewati, dan peringatan dicatat. Verifikasi sumber password Anda.
 
 **Q: Bisakah saya mengindeks file yang disimpan di cloud?**  
 A: Ya, tetapi mereka harus diunduh ke folder sementara lokal terlebih dahulu, karena mesin bekerja dengan jalur sistem file.
@@ -191,20 +199,20 @@ A: Ya, tetapi mereka harus diunduh ke folder sementara lokal terlebih dahulu, ka
 A: Sesuaikan pengaturan skor melalui `IndexOptions`, gunakan sinonim, dan manfaatkan sintaks kueri lanjutan (`field:term~` untuk pencocokan fuzzy).
 
 **Q: Apa yang harus saya lakukan jika pengindeksan gagal untuk beberapa file?**  
-A: Tinjau output log; penyebab umum adalah kata sandi yang hilang, file rusak, atau format yang tidak didukung.
+A: Tinjau output log; penyebab umum adalah password yang hilang, file rusak, atau format yang tidak didukung.
 
 ## Sumber Daya
-- [Dokumentasi GroupDocs.Search](https://docs.groupdocs.com/search/java/)
-- [Referensi API](https://reference.groupdocs.com/search/java)
-- [Unduh GroupDocs.Search](https://releases.groupdocs.com/search/java/)
-- [Repositori GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Forum Dukungan Gratis](https://forum.groupdocs.com/c/search/10)
-- [Informasi Lisensi Sementara](https://purchase.groupdocs.com/temporary-license/)
+- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
+- [API Reference](https://reference.groupdocs.com/search/java)
+- [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)
+- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
+- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
 
-Dengan mengikuti panduan ini, Anda kini tahu cara **create document index java** untuk file yang dilindungi kata sandi, meningkatkan keamanan dan kemampuan penemuan dalam aplikasi Anda.
+Dengan mengikuti panduan ini, Anda kini mengetahui **bagaimana cara mengindeks dokumen** untuk file yang dilindungi password, meningkatkan keamanan dan kemampuan penemuan dalam aplikasi Anda.
 
 ---
 
-**Terakhir Diperbarui:** 2026-01-06  
-**Diuji Dengan:** GroupDocs.Search 25.4 untuk Java  
+**Terakhir Diperbarui:** 2026-03-15  
+**Diuji Dengan:** GroupDocs.Search 25.4 for Java  
 **Penulis:** GroupDocs

@@ -1,36 +1,49 @@
 ---
-date: '2026-01-03'
-description: Scopri come aggiungere documenti all'indice e configurare la cartella
-  dell'indice utilizzando GroupDocs.Search per Java. Ottimizza le prestazioni di ricerca
-  con questa guida passo passo.
+date: '2026-03-15'
+description: Scopri come creare un indice di documenti, aggiungere documenti all'indice
+  e ottimizzare le prestazioni di ricerca utilizzando GroupDocs.Search per Java.
 keywords:
 - document indexing with GroupDocs.Search for Java
 - setting up GroupDocs.Search
 - Java document management
-title: Come aggiungere documenti all'indice con GroupDocs.Search per Java
+title: Come creare un indice di documenti e aggiungere documenti con GroupDocs.Search
+  per Java
 type: docs
 url: /it/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
 
-# Come aggiungere documenti all'indice con GroupDocs.Search per Java
+ "Issue" to "Problema", "Solution" to "Soluzione". Also rows content: translate sentences but keep code parts unchanged.
 
-Cercare attraverso grandi collezioni di documenti può essere impegnativo, ma **GroupDocs.Search** per Java semplifica l'**aggiunta di documenti all'indice** e il loro recupero rapido. In questa guida vedrai come configurare la cartella dell'indice, aggiungere documenti all'indice e **ottimizzare le prestazioni di ricerca** per applicazioni reali.
+Also need to translate "Quick Answers" etc.
+
+Let's produce.
+
+Be careful not to translate URLs.
+
+Also "step-by-step" etc.
+
+Let's write translation.
+
+# Come creare un indice di documenti e aggiungere documenti con GroupDocs.Search per Java
+
+Se devi **creare file di indice di documenti** che ti consentono di cercare migliaia di PDF, DOCX, TXT e altri formati istantaneamente, GroupDocs.Search per Java ti offre un’API pulita per farlo. In questo tutorial imparerai a configurare la cartella dell’indice, **aggiungere documenti all’indice** e **ottimizzare le prestazioni di ricerca** per scenari reali di ricerca full‑text in Java.
 
 ## Risposte rapide
-- **Qual è il primo passo?** Installa GroupDocs.Search via Maven o scarica la libreria.  
-- **Come aggiungo documenti all'indice?** Chiama `index.add(yourDocumentsFolder)` dopo aver inizializzato l'indice.  
-- **Quale cartella dovrebbe contenere l'indice?** Usa una cartella dedicata come `output` e configurala con `new Index(indexFolder)`.  
-- **Posso migliorare la velocità di ricerca?** Sì—mantieni regolarmente l'indice ed esegui l'indicizzazione in un thread in background.  
-- **Ho bisogno di una licenza?** Una licenza di prova o temporanea è sufficiente per i test; è necessaria una licenza completa per la produzione.
+- **Qual è il primo passo?** Installa GroupDocs.Search tramite Maven o scarica la libreria.  
+- **Come aggiungo documenti all’indice?** Chiama `index.add(yourDocumentsFolder)` dopo aver inizializzato l’indice.  
+- **Quale cartella deve contenere l’indice?** Usa una cartella dedicata come `output` e configurala con `new Index(indexFolder)`.  
+- **Posso migliorare la velocità di ricerca?** Sì—mantieni regolarmente l’indice ed esegui l’indicizzazione in un thread di background.  
+- **È necessaria una licenza?** Una licenza di prova o temporanea è sufficiente per i test; per la produzione è richiesta una licenza completa.
 
-## Cos'è “aggiungere documenti all'indice”?
-Aggiungere documenti a un indice significa elaborare i file sorgente (PDF, DOCX, TXT, ecc.) e memorizzare token ricercabili in un archivio dati strutturato. Questo consente query full‑text rapide su tutto il contenuto indicizzato.
+## Che cos’è un indice di documenti?
+Un indice di documenti è un archivio di dati strutturato che contiene token ricercabili estratti dai tuoi file sorgente. **Creando un indice di documenti**, abiliti query full‑text rapide su tutto il contenuto indicizzato senza dover scansionare ogni file a runtime.
 
 ## Perché usare GroupDocs.Search per Java?
-- **Alte prestazioni** – le ottimizzazioni integrate mantengono bassa la latenza di ricerca anche con milioni di file.  
-- **Integrazione semplice** – API semplice per creare indici, aggiungere documenti ed eseguire query.  
-- **Architettura scalabile** – funziona on‑premises o nel cloud, e può essere personalizzata con funzionalità di sinonimi o ranking.
+- **Alte prestazioni** – ottimizzazioni integrate mantengono la latenza bassa anche con milioni di file.  
+- **Integrazione semplice** – API intuitiva per creare indici, aggiungere documenti ed eseguire query.  
+- **Architettura scalabile** – funziona on‑premise o nel cloud e può essere personalizzata con funzionalità di sinonimi o ranking.  
+- **Ricerca full‑text in Java** – supporta un’ampia gamma di formati out‑of‑the‑box.
 
 ## Prerequisiti
 - **Java Development Kit (JDK)** 8 o superiore.  
@@ -38,7 +51,7 @@ Aggiungere documenti a un indice significa elaborare i file sorgente (PDF, DOCX,
 - **Maven** per la gestione delle dipendenze.  
 - Familiarità di base con la programmazione Java.
 
-## Configurazione di GroupDocs.Search per Java
+## Configurare GroupDocs.Search per Java
 
 ### Installazione con Maven
 Aggiungi quanto segue al tuo file `pom.xml`:
@@ -62,12 +75,12 @@ Aggiungi quanto segue al tuo file `pom.xml`:
 ```
 
 ### Download diretto
-In alternativa, scarica l'ultima versione direttamente da [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+In alternativa, scarica l’ultima versione direttamente da [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Acquisizione della licenza
 1. **Prova gratuita** – esplora tutte le funzionalità senza impegno.  
-2. **Licenza temporanea** – estendi i test oltre il periodo di prova.  
-3. **Acquisto** – ottieni una licenza completa per l'uso in produzione.
+2. **Licenza temporanea** – estendi il periodo di test oltre la prova.  
+3. **Acquisto** – ottieni una licenza completa per l’uso in produzione.
 
 ### Inizializzazione di base
 
@@ -85,59 +98,68 @@ public class InitializeGroupDocs {
 }
 ```
 
-## Come aggiungere documenti all'indice
+## Come aggiungere documenti all’indice
 
-### Passo 1: Configura la cartella dell'indice e la cartella sorgente
+### Passo 1: Configurare la cartella dell’indice e la cartella sorgente
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\SynonymSearch";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Replace with your actual document path
 ```
-*Spiegazione*: `indexFolder` è dove verrà memorizzato l'indice ricercabile, mentre `documentsFolder` punta ai file che desideri **aggiungere all'indice**.
+*Spiegazione*: `indexFolder` è dove verrà memorizzato l’indice ricercabile, mentre `documentsFolder` punta ai file che vuoi **aggiungere all’indice**.
 
-### Passo 2: Crea l'indice (configura la cartella dell'indice)
+### Passo 2: Creare l’indice (configurare la cartella dell’indice)
 ```java
 Index index = new Index(indexFolder);
 ```
 *Spiegazione*: Questa riga crea una nuova istanza di indice che scrive i dati nella cartella configurata.
 
-### Passo 3: Aggiungi documenti per l'indicizzazione
+### Passo 3: Aggiungere documenti per l’indicizzazione
 ```java
 index.add(documentsFolder);
 ```
-*Spiegazione*: Il metodo `add` scansiona `documentsFolder` e **aggiunge documenti all'indice**, rendendo il loro contenuto ricercabile.
+*Spiegazione*: Il metodo `add` analizza `documentsFolder` e **aggiunge i documenti all’indice**, rendendo il loro contenuto ricercabile.
 
 #### Suggerimenti per la risoluzione dei problemi
-- **Dipendenze mancanti** – verifica nuovamente le voci Maven in `pom.xml`.  
-- **Percorso cartella non valido** – assicurati che sia `indexFolder` sia `documentsFolder` esistano e siano accessibili dalla JVM.  
+- **Dipendenze mancanti** – verifica le voci Maven in `pom.xml`.  
+- **Percorso della cartella non valido** – assicurati che `indexFolder` e `documentsFolder` esistano e siano accessibili dalla JVM.  
+
+## Gestire documenti di grandi dimensioni
+Quando lavori con PDF da gigabyte o collezioni massive di DOCX, considera quanto segue:
+
+1. **Elaborazione a batch** – suddividi la cartella sorgente in sotto‑cartelle più piccole e chiama `index.add()` per ogni batch.  
+2. **Indicizzazione in background** – esegui il codice di indicizzazione su un thread separato così l’applicazione principale rimane reattiva.  
+3. **Ottimizzazione dell’heap** – aumenta l’impostazione JVM `-Xmx` per fornire alla procedura abbastanza memoria per i file di grandi dimensioni.
+
+## Ottimizzare le prestazioni di ricerca
+Per **ottimizzare le prestazioni di ricerca** e **migliorare la latenza**, segui queste best practice:
+
+- **Unire regolarmente i segmenti dell’indice** – riduce il numero di letture su disco durante le query.  
+- **Usare `index.update()`** (se disponibile) dopo aggiunte massive invece di ricreare l’indice da zero.  
+- **Monitorare l’utilizzo dell’heap** – gli indici grandi possono consumare molta memoria; regola le opzioni JVM di conseguenza.  
+- **Abilitare il caching** per le query eseguite frequentemente, se il modello della tua applicazione lo consente.
 
 ## Applicazioni pratiche
-1. **Gestione documentale aziendale** – recupera rapidamente contratti, politiche o file HR.  
+1. **Gestione documentale aziendale** – recupera rapidamente contratti, policy o file HR.  
 2. **Ricerca legale** – individua fascicoli e precedenti con latenza minima.  
 3. **Biblioteche accademiche** – consenti agli studiosi di cercare tra migliaia di articoli di ricerca.
 
-## Considerazioni sulle prestazioni
-- **Ottimizza le prestazioni di ricerca** ricostruendo o unendo regolarmente i segmenti dell'indice.  
-- **Gestione delle risorse** – monitora l'uso dell'heap; aumenta la memoria JVM se indicizzi grandi collezioni.  
-- **Best practice** – esegui l'indicizzazione in un thread separato per mantenere reattiva l'applicazione principale.
-
 ## Problemi comuni e soluzioni
-
 | Problema | Soluzione |
 |----------|-----------|
-| Errori out‑of‑memory durante l'indicizzazione di massa | Dividi la cartella sorgente in batch più piccoli e indicizza ogni batch separatamente. |
-| La ricerca restituisce risultati obsoleti | Riapri l'oggetto `Index` dopo aggiornamenti importanti o chiama `index.update()` se disponibile. |
+| Errori di out‑of‑memory durante l’indicizzazione massiva | Suddividi la cartella sorgente in batch più piccoli e indicizza ciascun batch separatamente. |
+| La ricerca restituisce risultati obsoleti | Ri‑apri l’oggetto `Index` dopo aggiornamenti importanti o chiama `index.update()` se disponibile. |
 | Licenza non riconosciuta | Verifica che il percorso del file di licenza sia corretto e che la versione della licenza corrisponda alla versione della libreria. |
 
 ## Domande frequenti
 
 **D: Qual è la versione minima di Java richiesta?**  
-R: Java 8 o superiore è consigliato per la piena compatibilità.
+R: Java 8 o superiore è consigliata per la piena compatibilità.
 
 **D: Come posso gestire set di documenti molto grandi in modo efficiente?**  
-R: Usa l'elaborazione a batch, esegui l'indicizzazione in thread in background e regola le impostazioni di memoria JVM.
+R: Usa l’elaborazione a batch, esegui l’indicizzazione in thread di background e ottimizza le impostazioni di memoria della JVM.
 
 **D: GroupDocs.Search può essere distribuito in un ambiente cloud?**  
-R: Sì, ma assicurati che la posizione di archiviazione della cartella dell'indice sia accessibile a tutte le istanze.
+R: Sì, ma assicurati che la posizione di archiviazione della cartella dell’indice sia accessibile a tutte le istanze.
 
 **D: Quali vantaggi offre la ricerca con sinonimi?**  
 R: Espande i termini di ricerca con parole correlate, migliorando il recall senza sacrificare la precisione.
@@ -153,10 +175,10 @@ R: Visita il riferimento API ufficiale su [GroupDocs.Search API Reference](https
 - Supporto gratuito: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
 - Licenza temporanea: [Acquire a License](https://purchase.groupdocs.com/temporary-license/) 
 
-Seguendo questi passaggi ora sai come **aggiungere documenti all'indice**, configurare la cartella dell'indice e **ottimizzare le prestazioni di ricerca** con GroupDocs.Search per Java. Buon coding!
+Seguendo questi passaggi ora sai come **creare un indice di documenti**, aggiungere documenti all’indice, configurare la cartella dell’indice e **ottimizzare le prestazioni di ricerca** con GroupDocs.Search per Java. Buon coding!
 
 ---
 
-**Ultimo aggiornamento:** 2026-01-03  
+**Ultimo aggiornamento:** 2026-03-15  
 **Testato con:** GroupDocs.Search 25.4 per Java  
 **Autore:** GroupDocs

@@ -1,7 +1,7 @@
 ---
-date: '2026-01-06'
+date: '2026-03-15'
 description: Pelajari cara menangani peristiwa pengindeksan Java menggunakan GroupDocs.Search
-  untuk Java, mencakup pengaturan, langganan peristiwa, dan praktik terbaik.
+  untuk Java, mencakup pengaturan, berlangganan peristiwa, dan praktik terbaik.
 keywords:
 - GroupDocs.Search for Java
 - indexing event handling
@@ -12,41 +12,41 @@ url: /id/java/indexing/mastering-groupdocs-search-indexing-event-handling-java/
 weight: 1
 ---
 
-# Cara menangani peristiwa pengindeksan java dengan GroupDocs.Search
+ content.# Cara menangani indexing events java dengan GroupDocs.Search
 
-## Introduction
-Dalam aplikasi modern, kemampuan untuk **menangani peristiwa pengindeksan java** sangat penting untuk menjaga indeks pencarian tetap dapat diandalkan dan responsif. GroupDocs.Search untuk Java menyediakan API berbasis peristiwa yang kuat yang memungkinkan Anda merespons setiap tahap siklus hidup pengindeksan—baik itu pembaruan kemajuan, kesalahan, atau notifikasi penyelesaian. Dalam panduan ini kami akan menjelaskan cara menyiapkan pustaka, berlangganan ke peristiwa paling berguna, dan menerapkan teknik ini dalam skenario manajemen dokumen dunia nyata.
+Dalam aplikasi modern, kemampuan untuk **handle indexing events java** sangat penting untuk menjaga indeks pencarian tetap dapat diandalkan dan responsif. GroupDocs.Search untuk Java menyediakan API berbasis peristiwa yang kuat yang memungkinkan Anda merespons setiap tahap siklus hidup pengindeksan—baik itu pembaruan kemajuan, kesalahan, atau notifikasi penyelesaian. Dalam panduan ini kami akan menjelaskan cara menyiapkan pustaka, berlangganan ke peristiwa paling berguna, dan menerapkan teknik ini dalam skenario manajemen dokumen dunia nyata.
 
-**Apa yang akan Anda pelajari:**
-- Menginstal dan mengonfigurasi GroupDocs.Search untuk Java.
+**Apa yang akan Anda pelajari**
+- Menginstal dan mengkonfigurasi GroupDocs.Search untuk Java.
 - Berlangganan ke peristiwa kunci seperti penyelesaian operasi, kesalahan, perubahan kemajuan, dan lainnya.
 - Tips praktis untuk mengintegrasikan penanganan peristiwa ke dalam sistem manajemen dokumen.
+- Kasus penggunaan dunia nyata yang menggambarkan mengapa handling indexing events java dapat secara dramatis meningkatkan keandalan dan pengalaman pengguna.
 
 Siap meningkatkan keandalan pencarian Anda? Mari kita mulai!
 
 ## Jawaban Cepat
-- **Apa manfaat utama dari menangani peristiwa pengindeksan java?** Memungkinkan Anda memantau, mencatat, dan merespons kemajuan serta masalah pengindeksan secara real time.  
-- **Pustaka mana yang menyediakan kemampuan ini?** GroupDocs.Search untuk Java.  
-- **Apakah saya memerlukan lisensi untuk mencobanya?** Versi percobaan gratis atau lisensi sementara tersedia untuk evaluasi.  
-- **Versi Java apa yang dibutuhkan?** JDK 8 atau lebih tinggi.  
-- **Bisakah saya menjalankan pengindeksan secara asynchronous?** Ya—gunakan API asynchronous untuk menghindari pemblokiran thread utama.
+- **Apa manfaat utama dari handling indexing events java?** Ini memungkinkan Anda memantau, mencatat, dan merespons kemajuan pengindeksan serta masalah secara real time.  
+- **Perpustakaan mana yang menyediakan kemampuan ini?** GroupDocs.Search for Java.  
+- **Apakah saya memerlukan lisensi untuk mencobanya?** Uji coba gratis atau lisensi sementara tersedia untuk evaluasi.  
+- **Versi Java apa yang diperlukan?** JDK 8 atau lebih tinggi.  
+- **Bisakah saya menjalankan pengindeksan secara asynchronous?** Ya—gunakan API asynchronous untuk menghindari pemblokiran thread utama.  
 
-## Apa arti menangani peristiwa pengindeksan java?
-Menangani peristiwa pengindeksan java berarti melampirkan logika khusus pada callback yang dikeluarkan oleh GroupDocs.Search selama proses pengindeksan. Callback (atau peristiwa) ini memberi Anda akses ke detail seperti tipe operasi, cap waktu, pesan kesalahan, dan persentase kemajuan, memungkinkan Anda mencatat informasi, memperbarui komponen UI, atau memicu proses hilir secara otomatis.
+## Apa arti menangani indexing events java?
+Handling indexing events java berarti melampirkan logika khusus ke callback yang dikeluarkan oleh GroupDocs.Search selama proses pengindeksan. Callback (atau peristiwa) ini memberi Anda akses ke detail seperti tipe operasi, stempel waktu, pesan kesalahan, dan persentase kemajuan, memungkinkan Anda mencatat informasi, memperbarui komponen UI, atau memicu proses hilir secara otomatis.
 
 ## Mengapa menggunakan penanganan peristiwa GroupDocs.Search untuk Java?
-- **Visibilitas real‑time:** Langsung mengetahui kapan pengindeksan dimulai, berlangsung, atau gagal.  
-- **Keandalan yang lebih baik:** Menangkap dan mencatat kesalahan sebelum memengaruhi pengguna.  
-- **Pengalaman pengguna yang lebih baik:** Menampilkan bilah kemajuan atau notifikasi dalam aplikasi Anda.  
-- **Otomasi:** Memulai tugas pasca‑pengindeksan seperti penyegaran cache atau analitik.
+- **Visibilitas real‑time:** Ketahui secara instan kapan pengindeksan dimulai, berlangsung, atau gagal.  
+- **Keandalan yang ditingkatkan:** Tangkap dan catat kesalahan sebelum memengaruhi pengguna.  
+- **Pengalaman pengguna yang lebih baik:** Tampilkan bilah kemajuan atau notifikasi dalam aplikasi Anda.  
+- **Otomatisasi:** Jalankan tugas pasca‑pengindeksan seperti penyegaran cache atau analitik.  
 
 ## Prasyarat
-- **Pustaka yang Diperlukan** – Tambahkan GroupDocs.Search ke proyek Anda (lihat cuplikan Maven di bawah).  
+- **Perpustakaan yang Diperlukan** – Tambahkan GroupDocs.Search ke proyek Anda (lihat cuplikan Maven di bawah).  
 - **Lingkungan** – JDK 8+, IntelliJ IDEA atau Eclipse.  
-- **Pengetahuan dasar** – Familiaritas dengan Java dan pemrograman berbasis peristiwa membantu, namun langkah‑langkah dijelaskan secara detail.
+- **Pengetahuan dasar** – Familiaritas dengan Java dan pemrograman berbasis peristiwa membantu, tetapi langkah‑langkah dijelaskan secara detail.
 
-### Pustaka yang Diperlukan
-Sertakan GroupDocs.Search sebagai dependensi. Untuk pengguna Maven, tambahkan konfigurasi berikut:
+### Perpustakaan yang Diperlukan
+Sertakan GroupDocs.Search sebagai dependensi. Untuk pengguna Maven, tambahkan konfigurasi ini:
 
 ```xml
 <repositories>
@@ -69,11 +69,11 @@ Sertakan GroupDocs.Search sebagai dependensi. Untuk pengguna Maven, tambahkan ko
 Untuk unduhan langsung, kunjungi [halaman rilis GroupDocs.Search untuk Java](https://releases.groupdocs.com/search/java/).
 
 ### Penyiapan Lingkungan
-- JDK 8 atau yang lebih baru.  
+- JDK 8 atau lebih baru.  
 - IDE seperti IntelliJ IDEA atau Eclipse.
 
 ### Prasyarat Pengetahuan
-Pemahaman dasar tentang pemrograman Java dan desain berbasis peristiwa akan berguna tetapi tidak wajib; setiap langkah dijelaskan dengan bahasa yang sederhana.
+Pemahaman dasar tentang pemrograman Java dan desain berbasis peristiwa akan bermanfaat tetapi tidak wajib; setiap langkah dijelaskan dengan bahasa yang sederhana.
 
 ## Menyiapkan GroupDocs.Search untuk Java
 
@@ -104,9 +104,9 @@ Sebagai alternatif, unduh versi terbaru dari [rilis GroupDocs.Search untuk Java]
 
 ### Perolehan Lisensi
 Untuk menggunakan GroupDocs.Search secara efektif:
-- **Percobaan Gratis** – Mulai dengan percobaan gratis untuk menjelajahi fitur.  
+- **Uji Coba Gratis** – Mulailah dengan uji coba gratis untuk menjelajahi fitur.  
 - **Lisensi Sementara** – Dapatkan lisensi sementara untuk evaluasi tanpa batasan.  
-- **Pembelian** – Pertimbangkan membeli jika alat ini memenuhi kebutuhan produksi Anda.
+- **Pembelian** – Pertimbangkan untuk membeli jika alat ini memenuhi kebutuhan produksi Anda.
 
 ### Inisialisasi dan Penyiapan Dasar
 Berikut cara menginisialisasi dan menyiapkan indeks:
@@ -122,11 +122,11 @@ Index index = new Index(indexFolder);
 ```
 
 ## Panduan Implementasi
-Berikut kami menjelaskan peristiwa paling umum yang ingin Anda tangani ketika **menangani peristiwa pengindeksan java**.
+Di bawah ini kami menjelaskan peristiwa paling umum yang ingin Anda tangani ketika Anda **handle indexing events java**.
 
 ### FITUR: OperationFinishedEvent
 #### Gambaran Umum
-`OperationFinishedEvent` dipicu setelah operasi pengindeksan selesai, memungkinkan Anda mencatat hasilnya atau memulai proses lain.
+`OperationFinishedEvent` dipicu setelah operasi pengindeksan selesai, memungkinkan Anda mencatat hasil atau memulai proses lain.
 
 #### Langkah Implementasi
 **Langkah 1: Buat Indeks**
@@ -162,51 +162,66 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-### Tips Pemecahan Masalah
-- Pastikan direktori output dapat ditulisi untuk menghindari kesalahan izin.  
-- Gunakan jalur absolut untuk direktori guna mencegah masalah dengan jalur relatif.
+### FITUR: ErrorOccurredEvent
+*Pola yang sama berlaku – buat indeks, berlangganan ke `ErrorOccurred`, lalu mulai mengindeks. Peristiwa ini menyediakan detail kesalahan yang dapat Anda catat atau kirim ke sistem pemantauan.*
 
-*(Lanjutkan struktur serupa untuk peristiwa lain seperti `ErrorOccurredEvent`, `OperationProgressChangedEvent`, dll., masing‑masing dalam sub‑bagian terpisah.)*
+### FITUR: OperationProgressChangedEvent
+*Gunakan peristiwa ini untuk menerima persentase kemajuan secara periodik. Perbarui komponen UI atau tulis kemajuan ke file log untuk keperluan audit.*
+
+*(Lanjutkan struktur serupa untuk peristiwa lain seperti `PasswordRequestedEvent`, `FileProcessingStartedEvent`, dll., masing‑masing dalam sub‑bagian tersendiri.)*
 
 ## Aplikasi Praktis
 Kemampuan penanganan peristiwa ini bersinar dalam banyak skenario dunia nyata:
+
 1. **Sistem Manajemen Dokumen** – Secara otomatis mencatat status pengindeksan dan menangani kesalahan untuk meningkatkan pengalaman pengguna.  
-2. **Portal Konten** – Menampilkan kemajuan pengindeksan secara langsung sehingga pengguna tahu kapan pencarian siap.  
-3. **Repositori Aman** – Meminta kata sandi pada file yang dilindungi melalui callback peristiwa secara mulus.
+2. **Portal Konten** – Tampilkan kemajuan pengindeksan secara langsung sehingga pengguna tahu kapan pencarian siap.  
+3. **Repositori Aman** – Meminta kata sandi pada file yang dilindungi secara mulus melalui callback peristiwa.  
+4. **Pipeline Analitik** – Memicu pekerjaan analitik hilir segera setelah dokumen baru diindeks.
 
 ## Pertimbangan Kinerja
 Saat menangani koleksi dokumen besar:
-- Pilih pengindeksan asynchronous untuk menjaga UI tetap responsif.  
-- Pantau penggunaan memori dan lepaskan sumber daya setelah pengindeksan.  
-- Kecualikan tipe file yang tidak diperlukan melalui `FileFilter` di `IndexSettings`.
+- • Pilih pengindeksan asynchronous untuk menjaga UI tetap responsif.  
+- • Pantau penggunaan memori dan lepaskan sumber daya setelah pengindeksan.  
+- • Kecualikan tipe file yang tidak diperlukan melalui `FileFilter` di `IndexSettings`.  
+
+## Masalah Umum dan Solusinya
+
+| Masalah | Penyebab | Solusi |
+|-------|-------|----------|
+| **Izin ditolak pada folder output** | Proses tidak memiliki hak menulis. | Pastikan direktori dapat ditulis atau jalankan JVM dengan izin yang sesuai. |
+| **Tidak ada peristiwa kemajuan yang dipicu** | Langganan peristiwa terlewat atau ditambahkan setelah pengindeksan dimulai. | Berlangganan ke peristiwa **sebelum** memanggil `index.add(...)`. |
+| **File yang dilindungi kata sandi menyebabkan kesalahan** | Tidak ada handler kata sandi yang didefinisikan. | Implementasikan `PasswordRequestedEvent` dan berikan kata sandi secara programatik. |
+| **Kekurangan memori untuk batch besar** | Semua dokumen dimuat ke memori sekaligus. | Gunakan API asynchronous dan proses dokumen dalam batch yang lebih kecil. |
 
 ## Pertanyaan yang Sering Diajukan
 
 **T: Bagaimana cara menangani kesalahan pengindeksan secara efektif?**  
-J: Berlangganan ke `ErrorOccurredEvent` dan terapkan logika untuk mencatat detail kesalahan atau memberi peringatan kepada administrator.
+Berlangganan ke `ErrorOccurredEvent` dan implementasikan logika untuk mencatat detail kesalahan atau memberi peringatan kepada administrator.
 
 **T: Bisakah saya menyesuaikan file mana yang diindeks?**  
-J: Ya—gunakan opsi `FileFilter` di `IndexSettings` untuk menentukan pola inklusi atau eksklusi.
+Ya—gunakan opsi `FileFilter` di `IndexSettings` untuk menentukan pola inklusi atau eksklusi.
 
 **T: Bagaimana jika saya membutuhkan pembaruan kemajuan real‑time untuk kumpulan dokumen besar?**  
-J: Manfaatkan `OperationProgressChangedEvent` untuk menerima persentase kemajuan secara periodik dan memperbarui UI Anda sesuai.
+Manfaatkan `OperationProgressChangedEvent` untuk menerima persentase kemajuan secara periodik dan memperbarui UI Anda sesuai.
 
 **T: Apakah memungkinkan mengindeks dokumen yang dilindungi kata sandi tanpa input manual?**  
-J: Ya—tangani peristiwa permintaan kata sandi dan berikan kata sandi secara programatis.
+Ya—tangani peristiwa permintaan kata sandi dan berikan kata sandi secara programatik.
 
-**T: Apakah GroupDocs.Search mendukung pengindeksan asynchronous secara bawaan?**  
-J: Tentu saja. Gunakan metode API asynchronous untuk memulai pengindeksan pada thread terpisah dan menjaga aplikasi Anda tetap responsif.
+**T: Apakah GroupDocs.Search mendukung pengindeksan asynchronous secara langsung?**  
+Tentu saja. Gunakan metode API asynchronous untuk memulai pengindeksan pada thread terpisah dan menjaga aplikasi Anda tetap responsif.
 
-## Resources
-- **Documentation**: [Dokumentasi GroupDocs.Search Java](https://docs.groupdocs.com/search/java/)  
-- **API Reference**: [Referensi API GroupDocs](https://reference.groupdocs.com/search/java)  
-- **Download**: [Rilis Terbaru](https://releases.groupdocs.com/search/java/)  
-- **GitHub**: [Repositori GroupDocs.Search untuk Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Free Support**: [Forum GroupDocs](https://forum.groupdocs.com/c/search/10)  
-- **Temporary License**: [Dapatkan Lisensi Sementara](https://purchase.groupdocs.com/temporary-license/)  
+## Sumber Daya
+- **Dokumentasi**: [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
+- **Referensi API**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
+- **Unduh**: [Latest Releases](https://releases.groupdocs.com/search/java/)  
+- **GitHub**: [GroupDocs.Search for Java Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **Dukungan Gratis**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
+- **Lisensi Sementara**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 Siap melangkah ke tahap berikutnya? Jelajahi API lengkap, bereksperimen dengan peristiwa tambahan, dan integrasikan pola ini ke dalam aplikasi berfokus dokumen Anda sendiri.
 
-**Terakhir Diperbarui:** 2026-01-06  
+---
+
+**Terakhir Diperbarui:** 2026-03-15  
 **Diuji Dengan:** GroupDocs.Search 25.4 untuk Java  
 **Penulis:** GroupDocs

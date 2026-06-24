@@ -1,47 +1,49 @@
 ---
-date: '2026-01-03'
-description: Ismerje meg, hogyan adhat dokumentumokat az indexhez, és hogyan konfigurálhatja
-  az index mappáját a GroupDocs.Search for Java használatával. Optimalizálja a keresési
-  teljesítményt ezzel a lépésről‑lépésre útmutatóval.
+date: '2026-03-15'
+description: Tanulja meg, hogyan hozhat létre dokumentumindexet, adjon dokumentumokat
+  az indexhez, és optimalizálja a keresési teljesítményt a GroupDocs.Search for Java
+  segítségével.
 keywords:
 - document indexing with GroupDocs.Search for Java
 - setting up GroupDocs.Search
 - Java document management
-title: Hogyan adjon dokumentumokat az indexhez a GroupDocs.Search for Java segítségével
+title: Hogyan hozzunk létre dokumentumindexet és adjunk hozzá dokumentumokat a GroupDocs.Search
+  for Java segítségével
 type: docs
 url: /hu/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
 
-# Hogyan adjunk dokumentumokat az indexhez a GroupDocs.Search for Java segítségével
+# Hogyan hozzunk létre dokumentum indexet és adjunk dokumentumokat a GroupDocs.Search for Java segítségével
 
-Nagy dokumentumgyűjtemények keresése kihívást jelenthet, de a **GroupDocs.Search** for Java megkönnyíti a **dokumentumok indexhez adását** és azok gyors visszakeresését. Ebben az útmutatóban megmutatjuk, hogyan konfiguráljuk az index mappát, hogyan adjunk dokumentumokat az indexhez, és hogyan **optimalizáljuk a keresési teljesítményt** valós alkalmazásokhoz.
+Ha **dokumentum indexet** kell létrehoznod, amely lehetővé teszi több ezer PDF, DOCX, TXT és egyéb formátum azonnali keresését, a GroupDocs.Search for Java tiszta API-t biztosít ehhez. Ebben az útmutatóban megtanulod, hogyan konfiguráld az index mappát, **dokumentumok hozzáadása az indexhez**, és **a keresési teljesítmény optimalizálása** a valós, java teljes szöveges keresési forgatókönyvekhez.
 
 ## Gyors válaszok
-- **Mi az első lépés?** Telepítse a GroupDocs.Search‑t Maven‑en keresztül vagy töltse le a könyvtárat.  
-- **Hogyan adhatok dokumentumokat az indexhez?** Hívja a `index.add(yourDocumentsFolder)` metódust az index inicializálása után.  
-- **Melyik mappát kell az index tárolására használni?** Használjon egy dedikált mappát, például `output`, és konfigurálja a `new Index(indexFolder)` segítségével.  
-- **Javíthatom a keresési sebességet?** Igen – rendszeresen karbantartsa az indexet, és futtassa az indexelést háttérszálon.  
-- **Szükségem van licencre?** Teszteléshez egy próba vagy ideiglenes licenc elegendő; a termeléshez teljes licenc szükséges.
+- **Mi az első lépés?** Telepítsd a GroupDocs.Search-t Maven-en keresztül vagy töltsd le a könyvtárat.  
+- **Hogyan adhatok dokumentumokat az indexhez?** Hívd meg a `index.add(yourDocumentsFolder)` metódust az index inicializálása után.  
+- **Melyik mappát kell az index tárolására használni?** Használj egy dedikált mappát, például `output`, és konfiguráld a `new Index(indexFolder)` segítségével.  
+- **Javíthatom a keresés sebességét?** Igen – rendszeresen karbantartsd az indexet, és futtasd az indexelést háttérszálon.  
+- **Szükségem van licencre?** A próbaverzió vagy ideiglenes licenc teszteléshez elegendő; a teljes licenc a termeléshez kötelező.
 
-## Mi az a „dokumentumok indexhez adása”?
-A dokumentumok indexhez adása azt jelenti, hogy a forrásfájlokat (PDF, DOCX, TXT stb.) feldolgozzuk, és kereshető tokeneket tárolunk egy strukturált adattárban. Ez lehetővé teszi a gyors, teljes szöveges lekérdezéseket az összes indexelt tartalomra.
+## Mi az a dokumentum index?
+A dokumentum index egy strukturált adatbázis, amely a forrásfájlokból kinyert kereshető tokeneket tartalmazza. **Dokumentum index létrehozásával** lehetővé teszed a gyors, teljes szöveges lekérdezéseket az összes indexelt tartalomra anélkül, hogy futásidőben minden fájlt beolvasnál.
 
-## Miért használjuk a GroupDocs.Search for Java‑t?
-- **Magas teljesítmény** – a beépített optimalizációk alacsony keresési késleltetést biztosítanak még milliók fájljai esetén is.  
+## Miért használjuk a GroupDocs.Search for Java-t?
+- **Magas teljesítmény** – a beépített optimalizációk alacsony késleltetést biztosítanak még milliók fájljai esetén is.  
 - **Könnyű integráció** – egyszerű API indexek létrehozásához, dokumentumok hozzáadásához és lekérdezések végrehajtásához.  
-- **Skálázható architektúra** – működik helyi környezetben vagy a felhőben, és testreszabható szinonima vagy rangsorolási funkciókkal.
+- **Skálázható architektúra** – működik helyi környezetben vagy a felhőben, és testreszabható szinonima vagy rangsorolási funkciókkal.  
+- **Java teljes szöveges keresés** – natívan támogatja a széles formátumtartományt.
 
 ## Előfeltételek
 - **Java Development Kit (JDK)** 8 vagy újabb.  
-- **IDE**, például IntelliJ IDEA vagy Eclipse.  
+- **IDE** mint az IntelliJ IDEA vagy Eclipse.  
 - **Maven** a függőségkezeléshez.  
 - Alapvető ismeretek a Java programozásban.
 
 ## A GroupDocs.Search for Java beállítása
 
 ### Maven telepítés
-Adja hozzá a következőt a `pom.xml` fájlhoz:
+Add the following to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -62,12 +64,12 @@ Adja hozzá a következőt a `pom.xml` fájlhoz:
 ```
 
 ### Közvetlen letöltés
-Alternatívaként töltse le a legújabb verziót közvetlenül a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
+Alternatívaként töltsd le a legújabb verziót közvetlenül a [GroupDocs.Search for Java kiadások](https://releases.groupdocs.com/search/java/) oldaláról.
 
 ### Licenc beszerzése
-1. **Ingyenes próba** – minden funkció kipróbálása kötelezettség nélkül.  
-2. **Ideiglenes licenc** – a tesztelés meghosszabbítása a próbaidőn túl.  
-3. **Megvásárlás** – teljes licenc beszerzése a termeléshez.
+1. **Ingyenes próba** – felfedezheted az összes funkciót kötelezettség nélkül.  
+2. **Ideiglenes licenc** – meghosszabbíthatod a tesztelést a próbaidőn túl.  
+3. **Vásárlás** – teljes licencet szerezhetsz a termelési használathoz.
 
 ### Alap inicializálás
 
@@ -87,76 +89,85 @@ public class InitializeGroupDocs {
 
 ## Hogyan adjunk dokumentumokat az indexhez
 
-### 1. lépés: Az index mappa és a forrás mappa konfigurálása
+### 1. lépés: Az index mappa és a forrásmappa konfigurálása
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\SynonymSearch";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Replace with your actual document path
 ```
-*Magyarázat*: az `indexFolder` az a hely, ahol a kereshető index tárolódik, míg a `documentsFolder` azokra a fájlokra mutat, amelyeket **az indexhez szeretne adni**.
+*Magyarázat*: az `indexFolder` az a hely, ahol a kereshető index tárolódik, míg a `documentsFolder` azokra a fájlokra mutat, amelyeket **dokumentumok hozzáadása az indexhez** szeretnél.
 
 ### 2. lépés: Az index létrehozása (index mappa konfigurálása)
 ```java
 Index index = new Index(indexFolder);
 ```
-*Magyarázat*: Ez a sor egy új index példányt hoz létre, amely az adatokat a konfigurált mappába írja.
+*Magyarázat*: Ez a sor egy új index példányt hoz létre, amely az általad konfigurált mappába írja az adatokat.
 
 ### 3. lépés: Dokumentumok hozzáadása az indexeléshez
 ```java
 index.add(documentsFolder);
 ```
-*Magyarázat*: Az `add` metódus beolvassa a `documentsFolder` tartalmát és **dokumentumokat ad az indexhez**, így azok tartalma kereshetővé válik.
+*Magyarázat*: Az `add` metódus beolvassa a `documentsFolder` tartalmát és **dokumentumokat ad hozzá az indexhez**, így a tartalmuk kereshetővé válik.
 
 #### Hibaelhárítási tippek
-- **Hiányzó függőségek** – ellenőrizze kétszer a Maven bejegyzéseket a `pom.xml`‑ben.  
-- **Érvénytelen mappa útvonal** – győződjön meg róla, hogy az `indexFolder` és a `documentsFolder` létezik, és a JVM hozzáfér.
+- **Hiányzó függőségek** – ellenőrizd duplán a Maven bejegyzéseket a `pom.xml`-ben.  
+- **Érvénytelen mappa útvonal** – győződj meg róla, hogy az `indexFolder` és a `documentsFolder` létezik és a JVM számára elérhető.
+
+## Nagy dokumentumok kezelése
+Amikor gigabájt méretű PDF-ekkel vagy hatalmas DOCX gyűjteményekkel dolgozol, vedd figyelembe a következőket:
+
+1. **Kötegelt feldolgozás** – oszd fel a forrásmappát kisebb alkönyvtárakra, és hívd meg a `index.add()`-ot minden köteghez.  
+2. **Háttér indexelés** – futtasd az indexelő kódot külön szálon, hogy a fő alkalmazásod reagálókész maradjon.  
+3. **Heap finomhangolás** – növeld a JVM `-Xmx` beállítását, hogy a folyamatnak elegendő memóriája legyen a nagy fájlokhoz.
+
+## A keresési teljesítmény optimalizálása
+A **keresési teljesítmény optimalizálásához** és a **keresési késleltetés javításához** kövesd az alábbi legjobb gyakorlatokat:
+
+- **Rendszeresen egyesítsd az index szegmenseket** – ez csökkenti a lemezolvasások számát a lekérdezések során.  
+- **Használd a `index.update()`-et** (ha elérhető) a tömeges hozzáadások után, ahelyett, hogy a teljes indexet újra létrehoznád.  
+- **Figyeld a heap használatát** – a nagy indexek jelentős memóriát fogyaszthatnak; ennek megfelelően állítsd be a JVM opciókat.  
+- **Engedélyezd a gyorsítótárazást** a gyakran futtatott lekérdezésekhez, ha az alkalmazásod mintája ezt megengedi.
 
 ## Gyakorlati alkalmazások
-1. **Vállalati dokumentumkezelés** – szerződések, szabályzatok vagy HR fájlok gyors visszakeresése.  
-2. **Jogi kutatás** – esetfájlok és precedensek megtalálása minimális késleltetéssel.  
-3. **Akademiai könyvtárak** – lehetővé teszi a kutatók számára, hogy több ezer kutatási anyagot keressenek.
-
-## Teljesítmény szempontok
-- **A keresési teljesítmény optimalizálása** rendszeres újraépítéssel vagy index szegmensek egyesítésével.  
-- **Erőforrás-kezelés** – figyelje a heap használatot; növelje a JVM memóriát nagy gyűjtemények indexelése esetén.  
-- **Legjobb gyakorlatok** – futtassa az indexelést külön szálon, hogy a fő alkalmazás reagálóképessége megmaradjon.
+1. **Vállalati dokumentumkezelés** – gyorsan visszakeresheted a szerződéseket, szabályzatokat vagy HR fájlokat.  
+2. **Jogi kutatás** – minimális késleltetéssel találhatod meg az ügyiratokat és precedenseket.  
+3. **Akadémiai könyvtárak** – lehetővé teszi a kutatók számára, hogy több ezer tudományos cikk között keressenek.
 
 ## Gyakori problémák és megoldások
-
 | Probléma | Megoldás |
 |----------|----------|
-| Memóriahiányos hibák tömeges indexelés közben | Ossza fel a forrásmappát kisebb kötegekre, és minden köteghez külön indexeljen. |
-| A keresés elavult eredményeket ad | Nagy frissítések után nyissa újra a `Index` objektumot, vagy hívja a `index.update()` metódust, ha elérhető. |
-| A licenc nem ismerhető fel | Ellenőrizze, hogy a licencfájl útvonala helyes-e, és hogy a licenc verziója megegyezik-e a könyvtár verziójával. |
+| Memóriahiányos hibák tömeges indexelés közben | Oszd fel a forrásmappát kisebb kötegekre, és indexeld őket külön-külön. |
+| A keresés elavult eredményeket ad | Nagy frissítések után nyisd újra az `Index` objektumot, vagy hívd meg a `index.update()`-et, ha elérhető. |
+| A licenc nem ismerhető fel | Ellenőrizd, hogy a licencfájl útvonala helyes-e, és hogy a licenc verziója megegyezik-e a könyvtár verziójával. |
 
-## Gyakran ismételt kérdések
+## Gyakran feltett kérdések
 
-**Q: Mi a minimális Java verzió, amely szükséges?**  
-A: A Java 8 vagy újabb ajánlott a teljes kompatibilitáshoz.
+**K: Mi a minimális Java verzió, ami szükséges?**  
+V: A Java 8 vagy újabb ajánlott a teljes kompatibilitáshoz.
 
-**Q: Hogyan kezelhetek nagyon nagy dokumentumkészleteket hatékonyan?**  
-A: Használjon kötegelt feldolgozást, futtassa az indexelést háttérszálakon, és állítsa be a JVM memória beállításait.
+**K: Hogyan kezelhetem hatékonyan a nagyon nagy dokumentumkészleteket?**  
+V: Használj kötegelt feldolgozást, futtasd az indexelést háttérszálakon, és finomhangold a JVM memória beállításait.
 
-**Q: Telepíthető a GroupDocs.Search felhő környezetben?**  
-A: Igen, de győződjön meg róla, hogy az index mappa tárolási helye minden példány számára elérhető.
+**K: A GroupDocs.Search telepíthető felhő környezetben?**  
+V: Igen, de biztosítsd, hogy az index mappa tárolási helye minden példány számára elérhető legyen.
 
-**Q: Milyen előnyökkel jár a szinonima keresés?**  
-A: Kiterjeszti a lekérdezési kifejezéseket kapcsolódó szavakra, ezáltal növelve a találati arányt anélkül, hogy a pontosságot csökkentené.
+**K: Milyen előnyökkel jár a szinonima keresés?**  
+V: Kiterjeszti a lekérdezési kifejezéseket kapcsolódó szavakkal, ezáltal növelve a visszahívást anélkül, hogy a pontosságot csökkentené.
 
-**Q: Hol találhatók a részletesebb dokumentációk?**  
-A: Látogassa meg a hivatalos API referenciát a [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java) oldalon.
+**K: Hol találok részletesebb dokumentációt?**  
+V: Látogasd meg a hivatalos API referenciát a [GroupDocs.Search API Referencia](https://reference.groupdocs.com/search/java) oldalon.
 
-## Erőforrások
-- Dokumentáció: [GroupDocs Search for Java](https://docs.groupdocs.com/search/java/)  
-- API referencia: [GroupDocs Search API](https://reference.groupdocs.com/search/java)  
-- Letöltés: [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- GitHub: [GroupDocs.Search on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- Ingyenes támogatás: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- Ideiglenes licenc: [Acquire a License](https://purchase.groupdocs.com/temporary-license/) 
+## Források
+- Dokumentáció: [GroupDocs Search for Java](https://docs.groupdocs.com/search/java/)
+- API Referencia: [GroupDocs Search API](https://reference.groupdocs.com/search/java)
+- Letöltés: [Legújabb kiadások](https://releases.groupdocs.com/search/java/)
+- GitHub: [GroupDocs.Search a GitHub-on](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- Ingyenes támogatás: [GroupDocs Fórum](https://forum.groupdocs.com/c/search/10)
+- Ideiglenes licenc: [Licenc beszerzése](https://purchase.groupdocs.com/temporary-license/) 
 
-Az alábbi lépések követésével most már tudja, hogyan **adjon dokumentumokat az indexhez**, hogyan konfigurálja az index mappát, és hogyan **optimalizálja a keresési teljesítményt** a GroupDocs.Search for Java segítségével. Boldog kódolást!
+Ezeket a lépéseket követve most már tudod, hogyan **hozz létre dokumentum indexet**, adj dokumentumokat az indexhez, konfiguráld az index mappát, és **optimalizáld a keresési teljesítményt** a GroupDocs.Search for Java segítségével. Boldog kódolást!
 
 ---
 
-**Utoljára frissítve:** 2026-01-03  
+**Utolsó frissítés:** 2026-03-15  
 **Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs

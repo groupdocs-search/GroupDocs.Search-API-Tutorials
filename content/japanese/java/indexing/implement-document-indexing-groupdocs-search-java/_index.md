@@ -1,45 +1,58 @@
 ---
-date: '2026-01-03'
-description: GroupDocs.Search for Java を使用して、ドキュメントをインデックスに追加し、インデックスフォルダーを設定する方法を学びましょう。このステップバイステップガイドで検索パフォーマンスを最適化します。
+date: '2026-03-15'
+description: GroupDocs.Search for Java を使用して、ドキュメントインデックスの作成、インデックスへのドキュメント追加、検索パフォーマンスの最適化方法を学びましょう。
 keywords:
 - document indexing with GroupDocs.Search for Java
 - setting up GroupDocs.Search
 - Java document management
-title: GroupDocs.Search for Javaでインデックスにドキュメントを追加する方法
+title: GroupDocs.Search for Javaでドキュメントインデックスを作成し、ドキュメントを追加する方法
 type: docs
 url: /ja/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
 
-# GroupDocs.Search for Javaでインデックスにドキュメントを追加する方法
+-15 => same format.
 
-大量のドキュメントを検索するのは難しいことがありますが、Java 用 **GroupDocs.Search** を使えば **インデックスにドキュメントを追加** して高速に取得できます。このガイドでは、インデックスフォルダーの設定方法、ドキュメントのインデックスへの追加方法、そして実際のアプリケーションで **検索パフォーマンスを最適化** する方法を紹介します。
+**Tested With:** GroupDocs.Search 25.4 for Java
+
+**Author:** GroupDocs
+
+These are fine.
+
+Now ensure we preserve all markdown formatting.
+
+Let's assemble final content.
+
+# GroupDocs.Search for Java を使用してドキュメントインデックスを作成し、ドキュメントを追加する方法
+
+数千の PDF、DOCX、TXT などの形式を瞬時に検索できる **document index** ファイルを作成する必要がある場合、GroupDocs.Search for Java はそれを実現するシンプルな API を提供します。このチュートリアルでは、インデックスフォルダーの設定方法、**add documents to index**、そして実際の Java フルテキスト検索シナリオ向けに **optimize search performance** する方法を学びます。
 
 ## Quick Answers
 - **最初のステップは何ですか？** Maven で GroupDocs.Search をインストールするか、ライブラリをダウンロードします。  
 - **インデックスにドキュメントを追加するには？** インデックスを初期化した後、`index.add(yourDocumentsFolder)` を呼び出します。  
-- **インデックスはどのフォルダーに保存すべきですか？** `output` のような専用フォルダーを作成し、`new Index(indexFolder)` で設定します。  
-- **検索速度を向上させることはできますか？** はい—インデックスを定期的にメンテナンスし、バックグラウンドスレッドでインデックス作成を実行します。  
-- **ライセンスは必要ですか？** テスト用にはトライアルまたは一時ライセンスで動作しますが、本番環境では正式ライセンスが必要です。
+- **インデックスを保存するフォルダーはどこですか？** `output` のような専用フォルダーを使用し、`new Index(indexFolder)` で設定します。  
+- **検索速度を向上させられますか？** はい—インデックスを定期的にメンテナンスし、バックグラウンドスレッドでインデックス作成を実行します。  
+- **ライセンスは必要ですか？** テスト用にはトライアルまたは一時ライセンスで動作しますが、本番環境ではフルライセンスが必要です。
 
-## “インデックスにドキュメントを追加” とは？
-インデックスにドキュメントを追加するとは、PDF、DOCX、TXT などのソースファイルを処理し、検索可能なトークンを構造化データストアに保存することです。これにより、インデックス化されたすべてのコンテンツに対して高速な全文検索が可能になります。
+## What is a document index?
+ドキュメントインデックスは、ソースファイルから抽出された検索可能なトークンを格納する構造化データストアです。**document index** を作成することで、実行時に各ファイルを走査せずに、インデックス化されたすべてのコンテンツに対して高速なフルテキストクエリが可能になります。
 
-## なぜ Java 用 GroupDocs.Search を使うのか？
-- **高性能** – 数百万ファイルでも検索レイテンシを低く保つ最適化が組み込まれています。  
-- **簡単な統合** – インデックス作成、ドキュメント追加、クエリ実行のためのシンプルな API を提供します。  
-- **スケーラブルなアーキテクチャ** – オンプレミスでもクラウドでも動作し、シノニムやランキング機能でカスタマイズ可能です。
+## Why use GroupDocs.Search for Java?
+- **High performance** – 組み込みの最適化により、数百万ファイルでもレイテンシが低く抑えられます。  
+- **Easy integration** – インデックス作成、ドキュメント追加、クエリ実行のためのシンプルな API。  
+- **Scalable architecture** – オンプレミスでもクラウドでも動作し、同義語やランキング機能でカスタマイズ可能。  
+- **Java full text search** – 多種多様なフォーマットを箱から出すだけでサポートします。
 
-## 前提条件
+## Prerequisites
 - **Java Development Kit (JDK)** 8 以上。  
-- **IDE**（IntelliJ IDEA や Eclipse など）。  
+- **IDE**（IntelliJ IDEA または Eclipse など）。  
 - **Maven**（依存関係管理用）。  
 - Java プログラミングの基本的な知識。
 
-## GroupDocs.Search for Java のセットアップ
+## Setting Up GroupDocs.Search for Java
 
-### Maven インストール
-`pom.xml` に以下を追加してください。
+### Maven Installation
+`pom.xml` ファイルに以下を追加します：
 
 ```xml
 <repositories>
@@ -59,15 +72,15 @@ weight: 1
 </dependencies>
 ```
 
-### 直接ダウンロード
-あるいは、[GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) から最新バージョンを直接ダウンロードします。
+### Direct Download
+または、最新バージョンを直接 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) からダウンロードしてください。
 
-### ライセンス取得
-1. **無料トライアル** – すべての機能を制限なしで試せます。  
-2. **一時ライセンス** – トライアル期間を超えてテストしたい場合に使用します。  
-3. **購入** – 本番環境での使用に完全ライセンスを取得します。
+### License Acquisition
+1. **Free Trial** – コミットなしで全機能を試せます。  
+2. **Temporary License** – トライアル期間を超えてテストできます。  
+3. **Purchase** – 本番環境で使用するフルライセンスを取得します。
 
-### 基本的な初期化
+### Basic Initialization
 
 ```java
 import com.groupdocs.search.Index;
@@ -83,77 +96,87 @@ public class InitializeGroupDocs {
 }
 ```
 
-## インデックスにドキュメントを追加する方法
+## How to add documents to index
 
-### 手順 1: インデックスフォルダーとソースフォルダーを設定
+### Step 1: Configure the index folder and source folder
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\SynonymSearch";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Replace with your actual document path
 ```
-*説明*: `indexFolder` は検索インデックスが保存される場所で、`documentsFolder` は **インデックスにドキュメントを追加** したいファイルが格納されているフォルダーです。
+*Explanation*: `indexFolder` は検索可能なインデックスが保存される場所で、`documentsFolder` は **add documents to index** したいファイルを指します。
 
-### 手順 2: インデックスを作成（インデックスフォルダーを設定）
+### Step 2: Create the index (configure index folder)
 ```java
 Index index = new Index(indexFolder);
 ```
-*説明*: この行は、設定したフォルダーにデータを書き込む新しいインデックスインスタンスを作成します。
+*Explanation*: この行は、設定したフォルダーにデータを書き込む新しいインデックスインスタンスを作成します。
 
-### 手順 3: インデックス作成のためにドキュメントを追加
+### Step 3: Add documents for indexing
 ```java
 index.add(documentsFolder);
 ```
-*説明*: `add` メソッドが `documentsFolder` をスキャンし、**インデックスにドキュメントを追加** して内容を検索可能にします。
+*Explanation*: `add` メソッドは `documentsFolder` をスキャンし、**adds documents to index** して内容を検索可能にします。
 
-#### トラブルシューティングのヒント
+#### Troubleshooting Tips
 - **依存関係が不足している** – `pom.xml` の Maven エントリを再確認してください。  
-- **フォルダーパスが無効** – `indexFolder` と `documentsFolder` の両方が存在し、JVM からアクセス可能であることを確認します。  
+- **フォルダーパスが無効** – `indexFolder` と `documentsFolder` の両方が存在し、JVM からアクセス可能であることを確認してください。  
 
-## 実用例
-1. **エンタープライズ文書管理** – 契約書、ポリシー、HR ファイルを迅速に取得。  
-2. **法務リサーチ** – ケースファイルや判例を最小のレイテンシで検索。  
-3. **学術図書館** – 何千もの研究論文を横断検索できる環境を提供。
+## Handling large documents
+ギガバイトサイズの PDF や大量の DOCX コレクションを扱う場合、以下を検討してください：
 
-## パフォーマンス上の考慮点
-- **検索パフォーマンスを最適化** するために、インデックスセグメントを定期的に再構築またはマージします。  
-- **リソース管理** – ヒープ使用量を監視し、大規模コレクションをインデックス化する場合は JVM メモリを増やします。  
-- **ベストプラクティス** – インデックス作成は別スレッドで実行し、メインアプリケーションの応答性を保ちます。
+1. **Batch processing** – ソースフォルダーを小さなサブフォルダーに分割し、各バッチで `index.add()` を呼び出します。  
+2. **Background indexing** – インデックス作成コードを別スレッドで実行し、メインアプリケーションの応答性を保ちます。  
+3. **Heap tuning** – 大きなファイル用に十分なメモリを確保するため、JVM の `-Xmx` 設定を増やします。
 
-## よくある問題と解決策
-| Issue | Solution |
+## Optimizing search performance
+**search performance** を最適化し、**search latency** を改善するために、以下のベストプラクティスに従ってください：
+
+- **インデックスセグメントを定期的にマージ** – クエリ時のディスク読み取り回数を減らします。  
+- **`index.update()` を使用**（利用可能な場合） – バルク追加後はインデックスを最初から作り直すのではなく、`index.update()` を使用します。  
+- **ヒープ使用量を監視** – 大規模インデックスは大量のメモリを消費する可能性があるため、JVM オプションを調整してください。  
+- **キャッシュを有効化** – アプリケーションのパターンが許す場合、頻繁に実行されるクエリに対してキャッシュを有効にします。
+
+## Practical Applications
+1. **エンタープライズ文書管理** – 契約書、ポリシー、HR ファイルなどを迅速に取得。  
+2. **法務リサーチ** – ケースファイルや判例を最小の遅延で検索。  
+3. **学術図書館** – 研究者が数千の論文を横断検索できるようにする。
+
+## Common Issues and Solutions
+| 問題 | 解決策 |
 |-------|----------|
-| バルクインデックス中の Out‑of‑memory エラー | ソースフォルダーを小さなバッチに分割し、各バッチを個別にインデックス化します。 |
+| バルクインデックス作成中のメモリ不足エラー | ソースフォルダーを小さなバッチに分割し、各バッチを個別にインデックスします。 |
 | 検索結果が古いままになる | 大規模な更新後に `Index` オブジェクトを再オープンするか、利用可能なら `index.update()` を呼び出します。 |
-| ライセンスが認識されない | ライセンスファイルのパスが正しいか、ライセンスバージョンがライブラリバージョンと一致しているか確認してください。 |
+| ライセンスが認識されない | ライセンスファイルのパスが正しいこと、ライセンスバージョンがライブラリバージョンと一致していることを確認してください。 |
 
 ## Frequently Asked Questions
 
-**Q: 必要な最低 Java バージョンは何ですか？**  
-A: 完全な互換性のために Java 8 以上が推奨されます。
+**Q: 必要な最小 Java バージョンは何ですか？**  
+A: 完全な互換性のために、Java 8 以上が推奨されます。
 
 **Q: 非常に大規模なドキュメントセットを効率的に処理するには？**  
-A: バッチ処理を利用し、バックグラウンドスレッドでインデックス作成を行い、JVM のメモリ設定を調整します。
+A: バッチ処理を使用し、インデックス作成をバックグラウンドスレッドで実行し、JVM のメモリ設定を調整してください。
 
 **Q: GroupDocs.Search をクラウド環境にデプロイできますか？**  
-A: はい。ただし、インデックスフォルダーの保存場所がすべてのインスタンスからアクセス可能であることを確認してください。
+A: はい、ただしインデックスフォルダーの保存場所がすべてのインスタンスからアクセス可能であることを確認してください。
 
-**Q: シノニム検索のメリットは何ですか？**  
-A: クエリ語に関連語を追加して検索範囲を広げ、リコール率を向上させつつ精度を維持します。
+**Q: 同義語検索の利点は何ですか？**  
+A: クエリ語句を関連語で拡張し、精度を損なうことなくリコールを向上させます。
 
-**Q: 詳細なドキュメントはどこで入手できますか？**  
-A: 公式 API リファレンスの [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java) をご覧ください。
+**Q: より高度なドキュメントはどこで見つけられますか？**  
+A: 公式 API リファレンスは [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java) をご覧ください。
 
 ## Resources
-- ドキュメント: [GroupDocs Search for Java](https://docs.groupdocs.com/search/java/)  
-- API リファレンス: [GroupDocs Search API](https://reference.groupdocs.com/search/java)  
-- ダウンロード: [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- GitHub: [GroupDocs.Search on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- 無料サポート: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- 一時ライセンス取得: [Acquire a License](https://purchase.groupdocs.com/temporary-license/)  
+- ドキュメント: [GroupDocs Search for Java](https://docs.groupdocs.com/search/java/)
+- API リファレンス: [GroupDocs Search API](https://reference.groupdocs.com/search/java)
+- ダウンロード: [Latest Releases](https://releases.groupdocs.com/search/java/)
+- GitHub: [GroupDocs.Search on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- 無料サポート: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
+- 一時ライセンス: [Acquire a License](https://purchase.groupdocs.com/temporary-license/) 
 
-これらの手順に従えば、**インデックスにドキュメントを追加** し、インデックスフォルダーを設定し、GroupDocs.Search for Java で **検索パフォーマンスを最適化** できるようになります。コーディングを楽しんでください！
+これらの手順に従うことで、**create document index**、インデックスへのドキュメント追加、インデックスフォルダーの設定、そして GroupDocs.Search for Java を使用した **optimize search performance** の方法が分かります。コーディングを楽しんでください！
 
 ---
 
-**最終更新日:** 2026-01-03  
-**テスト環境:** GroupDocs.Search 25.4 for Java  
-**作者:** GroupDocs
+**Last Updated:** 2026-03-15  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs
