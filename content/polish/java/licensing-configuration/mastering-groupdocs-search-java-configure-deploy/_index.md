@@ -1,48 +1,50 @@
 ---
-date: '2026-01-08'
+date: '2026-05-02'
 description: Dowiedz się, jak skonfigurować wyszukiwanie i włączyć aktualizacje wyszukiwania
   w czasie rzeczywistym przy użyciu GroupDocs.Search dla Javy. Przewodnik krok po
   kroku dotyczący konfiguracji sieci, wdrażania węzłów i indeksowania.
 keywords:
-- GroupDocs.Search for Java
-- configure search network in Java
-- deploying nodes in search network
-title: 'Jak skonfigurować wyszukiwanie za pomocą GroupDocs.Search w Javie - przewodnik
-  po konfiguracji i wdrożeniu'
+- how to configure search
+- real time search updates
+- add directories to index
+- configure master node
+- optimize shard size
+title: Jak skonfigurować wyszukiwanie z GroupDocs.Search w Javie – przewodnik po konfiguracji
+  i wdrożeniu
 type: docs
 url: /pl/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/
 weight: 1
 ---
 
-# Jak skonfigurować wyszukiwanie z GroupDocs.Search w Javie
+# Jak skonfigurować wyszukiwanie przy użyciu GroupDocs.Search w Javie
 
-W dzisiejszym szybkim świecie cyfrowym **jak skonfigurować wyszukiwanie** efektywnie może decydować o sukcesie projektu. Niezależnie od tego, czy masz do czynienia z tysiącami umów, prac badawczych czy wewnętrznych raportów, dobrze zaprojektowana sieć wyszukiwania pozwala znaleźć właściwy dokument w kilka sekund. Ten samouczek przeprowadzi Cię przez konfigurację sieci wyszukiwania, wdrażanie węzłów oraz włączanie **aktualizacji wyszukiwania w czasie rzeczywistym** z GroupDocs.Search dla Javy.
+W dzisiejszym szybko zmieniającym się świecie cyfrowym, **jak skonfigurować wyszukiwanie** efektywnie może decydować o sukcesie projektu. Niezależnie od tego, czy obsługujesz tysiące umów, prac badawczych czy wewnętrznych raportów, dobrze zaprojektowana sieć wyszukiwania pozwala znaleźć właściwy dokument w kilka sekund. Ten samouczek przeprowadzi Cię przez konfigurowanie sieci wyszukiwania, wdrażanie węzłów oraz włączanie **aktualizacji wyszukiwania w czasie rzeczywistym** z GroupDocs.Search dla Javy.
 
 ## Szybkie odpowiedzi
 - **Jaki jest podstawowy cel sieci wyszukiwania?** Aby rozłożyć indeksowanie i przetwarzanie zapytań na wiele węzłów w celu skalowalności i szybkości.  
-- **Jakiej wersji biblioteki potrzebuję?** GroupDocs.Search dla Javy v25.4 lub nowszej.  
-- **Czy potrzebna jest licencja?** Darmowa wersja próbna wystarcza do oceny; licencja komercyjna jest wymagana w środowisku produkcyjnym.  
-- **Jak obsługiwane są aktualizacje w czasie rzeczywistym?** Poprzez subskrypcję zdarzeń węzła, które wyzwalają się przy zmianach indeksowania.  
-- **Czy mogę dodawać nowe foldery dokumentów w locie?** Tak — użyj metody `addDirectories` indeksatora.
+- **Która wersja biblioteki jest wymagana?** GroupDocs.Search for Java v25.4 lub nowsza.  
+- **Czy potrzebna jest licencja?** Darmowa wersja próbna działa w celach ewaluacyjnych; licencja komercyjna jest wymagana w środowisku produkcyjnym.  
+- **Jak obsługiwane są aktualizacje w czasie rzeczywistym?** Poprzez subskrypcję zdarzeń węzła, które wyzwalane są przy zmianach indeksowania.  
+- **Czy mogę dodawać nowe foldery dokumentów w locie?** Tak — użyj metody `addDirectories` indeksera.
 
 ## Co oznacza „jak skonfigurować wyszukiwanie” w kontekście GroupDocs?
-Konfiguracja wyszukiwania oznacza ustawienie **sieci wyszukiwania**, która wie, gdzie znajdują się Twoje dokumenty, jak węzły się komunikują i jak koordynowane jest indeksowanie. Po skonfigurowaniu sieci możesz dodawać lub usuwać węzły bez przestojów, zapewniając ciągły dostęp do aktualnych wyników wyszukiwania.
+Konfigurowanie wyszukiwania oznacza utworzenie **sieci wyszukiwania**, która wie, gdzie znajdują się Twoje dokumenty, jak węzły się komunikują i jak koordynowane jest indeksowanie. Po skonfigurowaniu sieci możesz dodawać lub usuwać węzły bez przestojów, zapewniając ciągły dostęp do aktualnych wyników wyszukiwania.
 
-## Dlaczego warto używać GroupDocs.Search dla Javy?
-- **Skalowalność:** Rozkład obciążenia na wiele maszyn.  
-- **Aktualizacje w czasie rzeczywistym:** Natychmiastowe odzwierciedlanie nowo zaindeksowanych plików w całej sieci.  
-- **Łatwość integracji:** Proste ustawienie Maven i przejrzyste API w Javie.  
-- **Gotowość przedsiębiorstwa:** Obsługa dużych korpusów i złożonych scenariuszy zapytań.
+## Dlaczego używać GroupDocs.Search dla Javy?
+- **Skalowalność:** Rozdzielaj obciążenia na wiele maszyn.  
+- **Aktualizacje w czasie rzeczywistym:** Natychmiast odzwierciedlaj nowo zaindeksowane pliki w całej sieci.  
+- **Łatwość integracji:** Prosta konfiguracja Maven i przejrzyste API Javy.  
+- **Gotowość dla przedsiębiorstw:** Obsługuje duże korpusy i złożone scenariusze zapytań.
 
 ## Wymagania wstępne
 - **Java Development Kit (JDK) 8+** zainstalowany.  
 - **Maven** do zarządzania zależnościami.  
-- Podstawowa znajomość Javy, Maven oraz koncepcji wyszukiwania.  
+- Podstawowa znajomość Javy, Maven oraz koncepcji wyszukiwania.
 
 ## Konfiguracja GroupDocs.Search dla Javy
 
 ### Zależność Maven
-Dodaj repozytorium i zależność do swojego `pom.xml`:
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -62,12 +64,12 @@ Dodaj repozytorium i zależność do swojego `pom.xml`:
 </dependencies>
 ```
 
-**Bezpośrednie pobranie:** Bibliotekę można również pobrać z [Wydania GroupDocs.Search dla Javy](https://releases.groupdocs.com/search/java/).
+**Bezpośrednie pobranie:** Możesz również pobrać bibliotekę z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Uzyskanie licencji
-- **Darmowa wersja próbna:** Pobierz licencję próbną, aby wypróbować wszystkie funkcje.  
-- **Licencja tymczasowa:** Poproś o przedłużony okres oceny.  
-- **Licencja komercyjna:** Wymagana w środowiskach produkcyjnych.
+### Uzyskiwanie licencji
+- **Free Trial:** Uzyskaj licencję próbną, aby wypróbować wszystkie funkcje.  
+- **Temporary License:** Poproś o tymczasową licencję na dłuższy okres oceny.  
+- **Commercial License:** Wymagana w środowiskach produkcyjnych.
 
 ### Podstawowa inicjalizacja
 ```java
@@ -81,7 +83,7 @@ Configuration config = new Configuration(basePath, basePort);
 
 ## Jak skonfigurować sieć wyszukiwania w Javie
 
-### Krok 1: Import wymaganych pakietów
+### Krok 1: Importuj wymagane pakiety
 ```java
 import com.groupdocs.search.scaling.ConfiguringSearchNetwork;
 import com.groupdocs.search.scaling.Configuration;
@@ -94,39 +96,39 @@ int basePort = 49112;
 
 Configuration configuration = ConfiguringSearchNetwork.configure(basePath, basePort);
 ```
-- **Parametry:** `basePath` wskazuje na folder z dokumentami; `basePort` to port TCP używany do komunikacji węzłów.
+- **Parameters:** `basePath` wskazuje na folder z dokumentami; `basePort` to port TCP używany do komunikacji między węzłami.
 
 ## Wdrażanie węzłów sieci wyszukiwania
 
-### Krok 1: Import pakietu wdrożeniowego
+### Krok 1: Importuj pakiet wdrożeniowy
 ```java
 import com.groupdocs.search.scaling.SearchNetworkDeployment;
 import com.groupdocs.search.scaling.SearchNetworkNode;
 ```
 
-### Krok 2: Wdrożenie węzłów
+### Krok 2: Wdroż węzły
 ```java
 String[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, configuration);
 SearchNetworkNode masterNode = nodes[0]; // Designate the first node as the master node
 ```
-- **Węzeł główny:** Koordynuje wyszukiwania i indeksowanie we wszystkich węzłach.
+- **Master Node:** Koordynuje wyszukiwania i indeksowanie we wszystkich węzłach. Możesz **skonfigurować ustawienia master node** takie jak przydział shardów i kontrole zdrowia.
 
 ## Subskrypcja zdarzeń węzła dla aktualizacji wyszukiwania w czasie rzeczywistym
 
-### Krok 1: Import pakietu zdarzeń
+### Krok 1: Importuj pakiet zdarzeń
 ```java
 import com.groupdocs.search.scaling.SearchNetworkNodeEvents;
 ```
 
-### Krok 2: Subskrybuj zdarzenia węzła głównego
+### Krok 2: Subskrybuj zdarzenia master node
 ```java
 SearchNetworkNodeEvents.subscribe(masterNode);
 ```
-- **Obsługa zdarzeń:** Umożliwia **aktualizacje wyszukiwania w czasie rzeczywistym** przy dodawaniu, aktualizacji lub usuwaniu dokumentów.
+- **Event Handling:** Umożliwia **aktualizacje wyszukiwania w czasie rzeczywistym** za każdym razem, gdy dokumenty są dodawane, aktualizowane lub usuwane.
 
 ## Dodawanie katalogów do indeksowania
 
-### Krok 1: Import pakietu indeksatora
+### Krok 1: Importuj pakiet indeksera
 ```java
 import com.groupdocs.search.examples.Utils;
 import com.groupdocs.search.scaling.Indexer;
@@ -137,11 +139,11 @@ import com.groupdocs.search.scaling.Indexer;
 Indexer indexer = masterNode.getIndexer();
 indexer.addDirectories("YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-- **Dynamiczne indeksowanie:** Dodawaj dowolną liczbę folderów; sieć automatycznie je zaindeksuje.
+- **Dynamic Indexing:** Użyj metody `addDirectories`, aby **dodać katalogi do indeksu** w locie bez ponownego uruchamiania sieci.
 
 ## Pobieranie zaindeksowanych dokumentów
 
-### Krok 1: Import pakietu wyszukiwarki
+### Krok 1: Importuj pakiet wyszukiwarki
 ```java
 import com.groupdocs.search.scaling.Searcher;
 import com.groupdocs.search.scaling.NetworkDocumentInfo;
@@ -170,47 +172,51 @@ for (int i = 0; i < shardIndices.length; i++) {
     }
 }
 ```
-- **Zarządzanie shardami:** Efektywnie obsługuje duże zestawy danych, rozdzielając dokumenty na shardy.
+- **Shard Management:** Efektywnie obsługuje duże zestawy danych, rozdzielając dokumenty na shardy. Aby **optymalizować rozmiar sharda**, monitoruj statystyki shardów i dostosuj konfigurację `shardSize` w przyszłych wersjach.
+
+## Dlaczego to ma znaczenie dla Twojego projektu
+Poprawnie skonfigurowana sieć wyszukiwania eliminuje wąskie gardła, zmniejsza opóźnienia i zapewnia, że użytkownicy zawsze widzą najnowszą wersję dokumentu. Aktualizacje w czasie rzeczywistym oraz możliwość **dodawania katalogów do indeksu** bez przestojów są szczególnie cenne dla kancelarii prawnych, instytucji badawczych i każdej organizacji, która pracuje z nieustannie zmieniającymi się zbiorami dokumentów.
 
 ## Praktyczne zastosowania
-1. **Zarządzanie dokumentami w przedsiębiorstwie:** Centralizacja wyszukiwania wśród milionów plików.  
-2. **Kancelarie prawne:** Szybkie odnajdywanie aktów spraw, umów i dowodów.  
-3. **Badania akademickie:** Indeksowanie czasopism i prac w celu natychmiastowego dostępu.
+1. **Enterprise Document Management:** Centralizuj wyszukiwanie wśród milionów plików.  
+2. **Legal Firms:** Szybko znajdź akta spraw, umowy i dowody.  
+3. **Academic Research:** Indeksuj czasopisma i artykuły w celu natychmiastowego pobierania.
 
 ## Rozważania dotyczące wydajności
-- **Optymalizacja indeksowania:** Planuj regularne odświeżanie indeksu i usuwanie przestarzałych danych.  
-- **Zarządzanie pamięcią:** Monitoruj stertę JVM, szczególnie przy obsłudze dużych shardów.  
-- **Planowanie skalowalności:** Dodawaj węzły w miarę wzrostu korpusu; sieć automatycznie równoważy obciążenie.
+- **Optimize Indexing:** Planuj regularne odświeżanie indeksu i usuwanie przestarzałych danych.  
+- **Memory Management:** Monitoruj stertę JVM, szczególnie przy obsłudze dużych shardów.  
+- **Scalability Planning:** Dodawaj węzły w miarę wzrostu korpusu; sieć automatycznie równoważy obciążenie.  
+- **Optimize shard size:** Mniejsze shardy poprawiają opóźnienie zapytań, większe shardy zmniejszają narzut. Dostosuj w zależności od sprzętu i wzorców zapytań.
 
 ## Typowe problemy i rozwiązania
 | Problem | Przyczyna | Rozwiązanie |
 |-------|-------|-----|
-| Węzły nie mogą się połączyć | Konflikt portu lub zapora | Upewnij się, że `basePort` jest otwarty i nie jest używany przez inne usługi |
+| Węzły nie mogą się połączyć | Konflikt portów lub zapora sieciowa | Upewnij się, że `basePort` jest otwarty i nie jest używany przez inne usługi |
 | Indeks nie aktualizuje się | Brak subskrypcji zdarzeń | Wywołaj `SearchNetworkNodeEvents.subscribe(masterNode)` po wdrożeniu |
-| Błędy Out‑of‑memory | Zbyt wiele dużych shardów w pamięci | Zmniejsz rozmiar shardu lub zwiększ stertę JVM (`-Xmx` flag) |
+| Błędy braku pamięci | Załadowano zbyt wiele dużych shardów | Zmniejsz rozmiar sharda lub zwiększ stertę JVM (flaga `-Xmx`) |
 
 ## Najczęściej zadawane pytania
 
-**P: Czy mogę dodać nowe katalogi po uruchomieniu sieci?**  
-O: Tak — użyj metody `indexer.addDirectories()`; subskrybowane zdarzenia będą propagować aktualizacje w czasie rzeczywistym.
+**Q: Czy mogę dodać nowe katalogi po uruchomieniu sieci?**  
+A: Tak — użyj metody `indexer.addDirectories()`; subskrybowane zdarzenia będą propagować aktualizacje w czasie rzeczywistym.
 
-**P: Jak monitorować stan węzła?**  
-O: Każdy `SearchNetworkNode` udostępnia API statusu; zintegrować je z wybranym narzędziem monitorującym.
+**Q: Jak monitorować stan zdrowia węzła?**  
+A: Każdy `SearchNetworkNode` udostępnia API statusu; zintegrować z wybranym narzędziem monitorującym.
 
-**P: Czy można uruchomić węzeł główny na osobnym komputerze?**  
-O: Oczywiście. Wystarczy, aby wszystkie węzły używały tego samego `basePort` i mogły się ze sobą komunikować w sieci.
+**Q: Czy można uruchomić master node na osobnym komputerze?**  
+A: Oczywiście. Wystarczy, aby wszystkie węzły używały tego samego `basePort` i mogły się ze sobą komunikować w sieci.
 
-**P: Jakie formaty plików są obsługiwane?**  
-O: GroupDocs.Search obsługuje PDF, Word, Excel, PowerPoint, zwykły tekst i wiele innych formatów od razu po instalacji.
+**Q: Jakie formaty plików są obsługiwane?**  
+A: GroupDocs.Search obsługuje PDF‑y, Word, Excel, PowerPoint, zwykły tekst i wiele innych od razu po instalacji.
 
-**P: Czy po dodaniu nowego węzła trzeba restartować sieć?**  
-O: Nie — węzły mogą być dodawane i usuwane dynamicznie; węzeł główny automatycznie zrównoważy shardy.
+**Q: Czy muszę restartować sieć po dodaniu nowego węzła?**  
+A: Nie — węzły mogą być dodawane lub usuwane dynamicznie; master node automatycznie zrównoważy shardy.
 
 ## Zakończenie
-Masz już kompletną, krok‑po‑kroku wiedzę o **jak skonfigurować wyszukiwanie** przy użyciu GroupDocs.Search dla Javy, od początkowej konfiguracji po aktualizacje w czasie rzeczywistym i rozproszone indeksowanie. Wykorzystaj te wzorce, aby budować szybkie, skalowalne i niezawodne rozwiązania wyszukiwania dokumentów w dowolnej branży.
+Teraz, gdy wiesz **jak skonfigurować wyszukiwanie** przy użyciu GroupDocs.Search dla Javy, możesz tworzyć szybkie, skalowalne i niezawodne rozwiązania wyszukiwania dokumentów, które nadążają za rozwojem Twojej organizacji. Zastosuj te wzorce, aby stworzyć doświadczenia wyszukiwania w czasie rzeczywistym i rozproszone w każdej branży.
 
 ---
 
-**Ostatnia aktualizacja:** 2026-01-08  
-**Testowano z:** GroupDocs.Search dla Javy 25.4  
+**Ostatnia aktualizacja:** 2026-05-02  
+**Testowano z:** GroupDocs.Search for Java 25.4  
 **Autor:** GroupDocs

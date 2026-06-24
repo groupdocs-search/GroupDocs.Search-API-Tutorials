@@ -1,14 +1,16 @@
 ---
-date: '2026-01-08'
-description: Aprenda a configurar la búsqueda y habilitar actualizaciones de búsqueda
+date: '2026-05-02'
+description: Aprende a configurar la búsqueda y habilitar actualizaciones de búsqueda
   en tiempo real usando GroupDocs.Search para Java. Guía paso a paso sobre la configuración
   de la red, el despliegue de nodos y la indexación.
 keywords:
-- GroupDocs.Search for Java
-- configure search network in Java
-- deploying nodes in search network
-title: 'Cómo configurar la búsqueda con GroupDocs.Search en Java - Guía de configuración
-  y despliegue'
+- how to configure search
+- real time search updates
+- add directories to index
+- configure master node
+- optimize shard size
+title: Cómo configurar la búsqueda con GroupDocs.Search en Java - Guía de configuración
+  y despliegue
 type: docs
 url: /es/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/
 weight: 1
@@ -16,23 +18,23 @@ weight: 1
 
 # Cómo configurar la búsqueda con GroupDocs.Search en Java
 
-En el mundo digital de hoy, que avanza rápidamente, **cómo configurar la búsqueda** de manera eficiente puede determinar el éxito o fracaso de un proyecto. Ya sea que estés manejando miles de contratos, artículos de investigación o informes internos, una red de búsqueda bien diseñada te permite localizar el documento correcto en segundos. Este tutorial te guía a través de la configuración de una red de búsqueda, el despliegue de nodos y la habilitación de **actualizaciones de búsqueda en tiempo real** con GroupDocs.Search para Java.
+En el mundo digital de hoy, que avanza rápidamente, **cómo configurar la búsqueda** de manera eficiente puede determinar el éxito o fracaso de un proyecto. Ya sea que manejes miles de contratos, artículos de investigación o informes internos, una red de búsqueda bien diseñada te permite localizar el documento correcto en segundos. Este tutorial te guía a través de la configuración de una red de búsqueda, el despliegue de nodos y la habilitación de **actualizaciones de búsqueda en tiempo real** con GroupDocs.Search para Java.
 
 ## Respuestas rápidas
-- **¿Cuál es el propósito principal de una red de búsqueda?** Distribuir la indexación y el procesamiento de consultas entre múltiples nodos para escalabilidad y velocidad.  
-- **¿Qué versión de la biblioteca se requiere?** GroupDocs.Search para Java v25.4 o superior.  
-- **¿Necesito una licencia?** Una prueba gratuita sirve para evaluación; se requiere una licencia comercial para producción.  
-- **¿Cómo se manejan las actualizaciones en tiempo real?** Suscribiéndose a los eventos de nodo que se disparan al producirse cambios en la indexación.  
+- **¿Cuál es el propósito principal de una red de búsqueda?** Para distribuir la indexación y el procesamiento de consultas entre varios nodos para escalabilidad y velocidad.  
+- **¿Qué versión de la biblioteca se requiere?** GroupDocs.Search for Java v25.4 o superior.  
+- **¿Necesito una licencia?** Una prueba gratuita funciona para evaluación; se requiere una licencia comercial para producción.  
+- **¿Cómo se manejan las actualizaciones en tiempo real?** Suscribiéndose a los eventos de nodo que se disparan al cambiar la indexación.  
 - **¿Puedo agregar nuevas carpetas de documentos sobre la marcha?** Sí—utiliza el método `addDirectories` del indexador.
 
-## ¿Qué significa “cómo configurar la búsqueda” en el contexto de GroupDocs?
-Configurar la búsqueda significa establecer una **red de búsqueda** que sabe dónde se encuentran tus documentos, cómo se comunican los nodos y cómo se coordina la indexación. Una vez que la red está configurada, puedes agregar o eliminar nodos sin tiempo de inactividad, garantizando acceso continuo a resultados de búsqueda actualizados.
+## Qué significa “cómo configurar la búsqueda” en el contexto de GroupDocs?
+Configurar la búsqueda significa establecer una **red de búsqueda** que sabe dónde se encuentran tus documentos, cómo se comunican los nodos y cómo se coordina la indexación. Una vez que la red está configurada, puedes agregar o eliminar nodos sin tiempo de inactividad, garantizando el acceso continuo a resultados de búsqueda actualizados.
 
-## ¿Por qué usar GroupDocs.Search para Java?
+## Por qué usar GroupDocs.Search para Java?
 - **Escalabilidad:** Distribuir la carga de trabajo entre múltiples máquinas.  
 - **Actualizaciones en tiempo real:** Reflejar instantáneamente los archivos recién indexados en toda la red.  
 - **Facilidad de integración:** Configuración simple con Maven y APIs Java claras.  
-- **Listo para empresas:** Maneja grandes corpora y escenarios de consultas complejas.
+- **Listo para empresas:** Maneja grandes corpora y escenarios de consulta complejos.
 
 ## Requisitos previos
 - **Java Development Kit (JDK) 8+** instalado.  
@@ -62,12 +64,12 @@ Agrega el repositorio y la dependencia a tu `pom.xml`:
 </dependencies>
 ```
 
-**Descarga directa:** También puedes obtener la biblioteca desde [lanzamientos de GroupDocs.Search para Java](https://releases.groupdocs.com/search/java/).
+**Descarga directa:** También puedes obtener la biblioteca desde [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Obtención de licencia
 - **Prueba gratuita:** Obtén una licencia de prueba para explorar todas las funciones.  
 - **Licencia temporal:** Solicita períodos de evaluación extendidos.  
-- **Licencia comercial:** Requerida para implementaciones en producción.  
+- **Licencia comercial:** Requerida para implementaciones en producción.
 
 ### Inicialización básica
 ```java
@@ -109,7 +111,7 @@ import com.groupdocs.search.scaling.SearchNetworkNode;
 String[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, configuration);
 SearchNetworkNode masterNode = nodes[0]; // Designate the first node as the master node
 ```
-- **Nodo maestro:** Coordina búsquedas e indexación en todos los nodos.
+- **Nodo maestro:** Coordina búsquedas e indexación entre todos los nodos. Puedes **configurar el nodo maestro** con ajustes como la asignación de fragmentos y verificaciones de salud.
 
 ## Suscripción a eventos de nodo para actualizaciones de búsqueda en tiempo real
 
@@ -137,7 +139,7 @@ import com.groupdocs.search.scaling.Indexer;
 Indexer indexer = masterNode.getIndexer();
 indexer.addDirectories("YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-- **Indexación dinámica:** Agrega tantas carpetas como necesites; la red las indexará automáticamente.
+- **Indexación dinámica:** Usa el método `addDirectories` para **agregar directorios al índice** sobre la marcha sin reiniciar la red.
 
 ## Recuperación de documentos indexados
 
@@ -170,32 +172,35 @@ for (int i = 0; i < shardIndices.length; i++) {
     }
 }
 ```
-- **Gestión de fragmentos (shards):** Maneja eficientemente grandes conjuntos de datos distribuyendo los documentos entre fragmentos.
+- **Gestión de fragmentos:** Maneja eficientemente grandes conjuntos de datos distribuyendo documentos entre fragmentos. Para **optimizar el tamaño de los fragmentos**, monitorea las estadísticas de fragmentos y ajusta la configuración `shardSize` en versiones futuras.
+
+## Por qué esto es importante para tu proyecto
+Una red de búsqueda configurada correctamente elimina cuellos de botella, reduce la latencia y garantiza que los usuarios siempre vean la versión más reciente de un documento. Las actualizaciones en tiempo real y la capacidad de **agregar directorios al índice** sin tiempo de inactividad son especialmente valiosas para despachos legales, instituciones de investigación y cualquier organización que maneje colecciones de documentos que cambian constantemente.
 
 ## Aplicaciones prácticas
-1. **Gestión documental empresarial:** Centraliza la búsqueda en millones de archivos.  
+1. **Gestión empresarial de documentos:** Centraliza la búsqueda en millones de archivos.  
 2. **Despachos legales:** Localiza rápidamente expedientes, contratos y pruebas.  
 3. **Investigación académica:** Indexa revistas y artículos para una recuperación instantánea.
 
 ## Consideraciones de rendimiento
 - **Optimizar la indexación:** Programa actualizaciones regulares del índice y elimina datos obsoletos.  
-- **Gestión de memoria:** Monitorea el heap de la JVM, especialmente al manejar fragmentos grandes.  
-- **Planificación de escalabilidad:** Agrega nodos a medida que tu corpus crece; la red balancea automáticamente la carga.
+- **Gestión de memoria:** Monitorea el heap de JVM, especialmente al manejar fragmentos grandes.  
+- **Planificación de escalabilidad:** Agrega nodos a medida que tu corpus crece; la red balancea automáticamente la carga.  
+- **Optimizar el tamaño de los fragmentos:** Los fragmentos más pequeños mejoran la latencia de consultas, mientras que los fragmentos más grandes reducen la sobrecarga. Ajusta según tu hardware y patrones de consulta.
 
 ## Problemas comunes y soluciones
-
 | Problema | Causa | Solución |
 |----------|-------|----------|
 | Los nodos no pueden conectarse | Conflicto de puertos o firewall | Asegúrate de que `basePort` esté abierto y no sea usado por otros servicios |
 | El índice no se actualiza | Falta suscripción a eventos | Llama a `SearchNetworkNodeEvents.subscribe(masterNode)` después del despliegue |
-| Errores de falta de memoria | Demasiados fragmentos grandes cargados | Reduce el tamaño de los fragmentos o incrementa el heap de la JVM (bandera `-Xmx`) |
+| Errores de falta de memoria | Demasiados fragmentos grandes cargados | Reduce el tamaño de los fragmentos o aumenta el heap de JVM (`-Xmx` flag) |
 
 ## Preguntas frecuentes
 
 **P: ¿Puedo agregar nuevos directorios después de que la red esté en funcionamiento?**  
 R: Sí—utiliza el método `indexer.addDirectories()`; los eventos suscritos propagarán actualizaciones en tiempo real.
 
-**P: ¿Cómo puedo monitorear la salud de los nodos?**  
+**P: ¿Cómo monitorizo la salud de los nodos?**  
 R: Cada `SearchNetworkNode` ofrece APIs de estado; intégralas con la herramienta de monitoreo que prefieras.
 
 **P: ¿Es posible ejecutar el nodo maestro en una máquina separada?**  
@@ -208,10 +213,10 @@ R: GroupDocs.Search soporta PDFs, Word, Excel, PowerPoint, texto plano y muchos 
 R: No—los nodos pueden agregarse o eliminarse dinámicamente; el nodo maestro reequilibrará los fragmentos automáticamente.
 
 ## Conclusión
-Ahora tienes una comprensión completa, paso a paso, de **cómo configurar la búsqueda** usando GroupDocs.Search para Java, desde la configuración inicial hasta las actualizaciones en tiempo real y la indexación distribuida. Aplica estos patrones para crear soluciones de búsqueda documental rápidas, escalables y fiables para cualquier sector.
+Ahora que sabes **cómo configurar la búsqueda** usando GroupDocs.Search para Java, puedes crear soluciones de búsqueda de documentos rápidas, escalables y fiables que se mantengan al ritmo del crecimiento de tu organización. Aplica estos patrones para crear experiencias de búsqueda distribuidas y en tiempo real para cualquier sector.
 
 ---
 
-**Última actualización:** 2026-01-08  
+**Última actualización:** 2026-05-02  
 **Probado con:** GroupDocs.Search for Java 25.4  
 **Autor:** GroupDocs
