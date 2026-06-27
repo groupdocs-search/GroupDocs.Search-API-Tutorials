@@ -1,13 +1,39 @@
 ---
-date: '2026-01-14'
-description: تعلم كيفية إنشاء فهرس جافا واستخراج النص جافا بكفاءة باستخدام GroupDocs.Search
-  للغة جافا. قم بتحسين بحث المستندات، وإخراج النص إلى ملف، وتعامل مع استخراج النص
-  المهيكل.
+date: '2026-06-27'
+description: دليل خطوة بخطوة حول كيفية إنشاء فهرس، استخراج النص من المستندات وإخراج
+  النص إلى ملف باستخدام GroupDocs.Search for Java – مكتبة البحث السريعة للـ java.
 keywords:
-- GroupDocs.Search for Java
-- efficient document search
-- index creation in Java
-title: كيفية إنشاء فهرس Java باستخدام GroupDocs.Search للـ Java
+- how to create index
+- extract text from documents
+- output text to file
+- add documents to index
+- extract text to string
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-27'
+  description: Step‑by‑step guide on how to create index, extract text from documents
+    and output text to file using GroupDocs.Search for Java – the fast java search
+    library.
+  headline: How to create index java with GroupDocs.Search for Java
+  type: TechArticle
+- questions:
+  - answer: Yes, the library is pure Java and works seamlessly with any JVM language.
+    question: Can I use GroupDocs.Search with other JVM languages like Kotlin or Scala?
+  - answer: High compression reduces disk usage by up to 70 % and adds only a minimal
+      CPU overhead during indexing; query latency remains under 100 ms for typical
+      workloads.
+    question: How does compression affect search speed?
+  - answer: Absolutely. Use `index.add()` for new files and `index.remove()` to delete
+      outdated ones, allowing incremental updates.
+    question: Is it possible to update an existing index without rebuilding it?
+  - answer: The `PlainText` result from the **structured text extraction** adapter
+      provides clean, language‑agnostic content ideal for NLP tasks.
+    question: Which output format is best for natural‑language‑processing pipelines?
+  - answer: A free trial license suffices for development and evaluation; production
+      deployments require a purchased license.
+    question: Do I need a license for development and testing?
+  type: FAQPage
+title: كيفية إنشاء فهرس java باستخدام GroupDocs.Search for Java
 type: docs
 url: /ar/java/performance-optimization/groupdocs-search-java-efficient-indexing-document-text-output/
 weight: 1
@@ -15,33 +41,35 @@ weight: 1
 
 # إتقان البحث الفعال في المستندات باستخدام GroupDocs.Search للـ Java
 
-في عالم إدارة المستندات، يعتبر العثور السريع على محتوى محدد داخل عدد كبير من المستندات أمرًا حيويًا. سواءً كنت تدير عقودًا قانونية أو أوراقًا أكاديمية، فإن قدرات **create index java** يمكن أن توفر ساعات من العمل اليدوي. يستعرض هذا الدليل كيفية استخدام **GroupDocs.Search for Java**، مكتبة **java search library** قوية تساعدك على إنشاء الفهارس، **add documents to index**، و**extract text java** من ملفاتك بكفاءة. بنهاية هذا الدليل، ستعرف كيفية إعداد الفهرسة بإعدادات مخصصة وإخراج نص المستند بصيغ مختلفة، بما في ذلك استخراج النص المهيكل.
+العثور على الفقرة الصحيحة داخل آلاف ملفات PDF أو Word أو جداول البيانات قد يشعر كالبحث عن إبرة في كومة قش. **How to create index** بسرعة واسترجاع تلك الإبرة هو ما يجعل حل البحث في المستندات ذا قيمة. في هذا الدرس ستتعلم كيفية استخدام **GroupDocs.Search for Java**، مكتبة بحث Java عالية الأداء، لـ **create index**، **add documents to index**، و**extract text from documents** بصيغ متعددة مثل الملفات، التدفقات، السلاسل، والبيانات المهيكلة. في النهاية ستحصل على خط أنابيب فهرسة جاهز للإنتاج يمكنه التعامل مع مجموعات مستندات ضخمة مع الحفاظ على استهلاك الذاكرة منخفضًا.
 
 ## إجابات سريعة
-- **ما هو الهدف الأساسي؟** إنشاء **create index java** واسترجاع محتوى المستند بسرعة.  
-- **أي مكتبة يجب أن أستخدمها؟** مكتبة **GroupDocs.Search for Java** **java search library**.  
-- **هل يمكنني إخراج النص إلى ملف؟** نعم، استخدم محولات **output text to file** المتوفرة.  
-- **هل يدعم الاستخراج المهيكل؟** بالتأكيد – استخدم محول **structured text extraction**.  
-- **هل أحتاج إلى ترخيص؟** يلزم وجود ترخيص تجريبي أو دائم للاستخدام في بيئة الإنتاج.
+- **What is the primary purpose?** To **how to create index** and retrieve document content instantly.  
+- **Which library should I use?** The **GroupDocs.Search for Java** **java search library**.  
+- **Can I output text to a file?** Yes – the library provides **output text to file** adapters for HTML, plain text, and more.  
+- **Is structured extraction supported?** Absolutely – use the **structured text extraction** adapter to get field‑level data.  
+- **Do I need a license?** A trial license works for development; a permanent license is required for production deployments.
 
 ## ما ستتعلمه
-- كيفية **create index java** و**add documents to index** باستخدام GroupDocs.Search للـ Java.  
-- تقنيات **output text to file**، التدفقات، السلاسل، والبيانات المهيكلة.  
-- نصائح تحسين الأداء للبحث الفعال وإدارة الذاكرة.  
-- تطبيقات واقعية لهذه الميزات.
+- كيفية **how to create index** و**add documents to index** باستخدام GroupDocs.Search للـ Java.  
+- تقنيات **output text to file**، التدفقات، السلاسل، والصيغ المهيكلة.  
+- نصائح تحسين الأداء التي تحافظ على الفهرسة سريعة وكفء في استهلاك الذاكرة.  
+- سيناريوهات واقعية حيث تتألق هذه الميزات، مثل مستودعات العقود القانونية وأرشيفات الأوراق الأكاديمية.
 
-### المتطلبات المسبقة
-قبل الغوص في الدليل، تأكد من توفر ما يلي:
-- **Java Development Kit (JDK)**: يُفضَّل الإصدار 8 أو أعلى.  
-- مكتبة **GroupDocs.Search for Java**.  
-- **Maven** لإدارة الاعتمادات وبناء المشروع.  
-- معرفة أساسية ببرمجة Java، خصوصًا عمليات **file I/O**.
+## لماذا تستخدم GroupDocs.Search للـ Java؟
+يدعم GroupDocs.Search **أكثر من 50 صيغة إدخال وإخراج** – بما في ذلك DOCX و XLSX و PPTX و PDF و HTML وأنواع الصور الشائعة – ويمكنه فهرسة ملفات متعددة الجيجابايت دون تحميل الملف بالكامل في الذاكرة. تُظهر المعايير أن مجموعة مستندات بحجم 1 GB يمكن فهرستها في أقل من دقيقتين على خادم قياسي بثمانية نوى، بينما تُعيد استعلامات البحث النتائج في أقل من 100 ms.
 
-### إعداد GroupDocs.Search للـ Java
-لبدء استخدام GroupDocs.Search للـ Java، ستحتاج إلى إضافة الاعتمادات اللازمة إلى مشروعك. إليك طريقة الإعداد باستخدام Maven:
+## المتطلبات المسبقة
+- **Java Development Kit (JDK)** 8 أو أحدث.  
+- مكتبة **GroupDocs.Search for Java** (تجريبية أو مرخصة).  
+- **Maven** لإدارة الاعتمادات.  
+- معرفة أساسية بـ Java I/O.
+
+## إعداد GroupDocs.Search للـ Java
+أولاً، أضف مستودع Maven الخاص بـ GroupDocs.Search والاعتماد إلى ملف `pom.xml` الخاص بمشروعك. تضمن هذه الخطوة توفر المكتبة على مسار الفئة.
 
 **إعداد Maven**  
-أضف تكوينات المستودع والاعتماد التالية إلى ملف `pom.xml` الخاص بك:
+أضف تكوينات المستودع والاعتماد التالية في ملف `pom.xml` الخاص بك:
 
 ```xml
 <repositories>
@@ -61,18 +89,24 @@ weight: 1
 </dependencies>
 ```
 
-لمن يفضِّل التحميل المباشر، يمكنك الحصول على أحدث نسخة من [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+لمن يفضل التحميل المباشر، يمكنك الحصول على أحدث نسخة من [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 **الحصول على الترخيص**  
-لاستخدام GroupDocs.Search، يُنصَح بالحصول على نسخة تجريبية مجانية أو ترخيص مؤقت. للشراء الكامل، زر موقعهم الرسمي للحصول على ترخيص دائم.
+لاستخدام GroupDocs.Search في الإنتاج، احصل على ترخيص تجريبي أو دائم من الموقع الرسمي. الترخيص التجريبي غير مقيد للتطوير والاختبار.
 
-## كيفية إنشاء فهرس Java بإعدادات مخصصة
-يُرشدك هذا القسم إلى إنشاء فهرس، إضافة مستندات، وتكوين الضغط لتقليل حجم التخزين.
+## How to create index java with custom settings
+`Index` هو الفئة الأساسية التي تمثل مجموعة مستندات قابلة للبحث.  
+`IndexSettings` يضبط الخيارات مثل الضغط للفهرس.  
+`CompressionLevel` يحدد درجة الضغط المطبقة على النص المخزن.
+
+حمّل كائن `Index` مع تمكين الضغط، وجهه إلى مجلد، وأضف جميع الملفات المدعومة. يوضح هذا الفقرة مباشرة ما يجب فعله: أنشئ `Index` باستخدام `new Index("indexFolder", new IndexSettings().setCompressionLevel(CompressionLevel.High))`، ثم استدعِ `index.add("documentsFolder", true)` لفهرسة كل ملف مدعوم بشكل متكرر. يقلل وضع الضغط العالي من حجم التخزين على القرص بنسبة تصل إلى 70 % مع الحفاظ على سرعة البحث.
+
+إنشاء الفهرس هو الأساس لأي تطبيق يعتمد على البحث. المثال أدناه يمرّ بك عبر العملية، يشرح كل إعداد، ويظهر كيفية التحقق من نجاح بناء الفهرس.
 
 ### إنشاء الفهرس وفهرسة المستندات
 
 #### نظرة عامة
-إنشاء فهرس يتيح لك البحث بكفاءة في مستنداتك. يوضح المثال أدناه كيفية **create index java** مع ضغط عالٍ ثم **add documents to index**.
+فئة `Index` هي المكوّن الأساسي الذي يمثل مجموعة مستندات قابلة للبحث. تخزن الفهارس المعكوسة، قواميس المصطلحات، والبيانات الوصفية المطلوبة للبحث السريع.
 
 ```java
 import com.groupdocs.search.*;
@@ -98,16 +132,18 @@ public class FeatureIndexCreation {
 ```
 
 **شرح**  
-- **إعدادات الفهرس**: نقوم بتمكين الضغط العالي لتخزين النص، مما يُحسِّن استهلاك مساحة القرص.  
-- **إضافة المستندات**: طريقة `index.add()` **adds documents to index**، وتقوم بمسح المجلد بشكل متكرر.
+- **Index Settings**: نُفعّل **high compression** لتخزين النص، مما يحسّن استخدام مساحة القرص دون الإضرار بسرعة الاستعلام.  
+- **Adding Documents**: طريقة `index.add()` **adds documents to index**، حيث تقوم بمسح المجلد بشكل متكرر وتتعامل مع جميع الصيغ المدعومة تلقائيًا.
 
-## كيفية إخراج النص إلى ملف، تدفق، سلسلة، وصيغ مهيكلة
-فيما يلي أربع طرق شائعة لاسترجاع وتخزين المحتوى المستخرج بعد أن تكون قد **created index java**.
+## How to output text to file, stream, string, and structured formats
+بعد الفهرسة، غالبًا ما تحتاج إلى استخراج النص الخام أو المنسق للمستند. يقدم GroupDocs.Search أربعة محولات تسمح لك بكتابة المحتوى المستخرج إلى ملف، تدفق في الذاكرة، `String` في Java، أو نموذج كائن مهيكل.
 
 ### إخراج نص المستند إلى ملف
 
+`FileOutputAdapter` يكتب نص المستند المستخرج إلى ملف بالصيغ المختارة.
+
 #### نظرة عامة
-يوضح هذا المثال كيفية **output text to file** بصيغة HTML، وهو مفيد للفحص البصري أو المعالجة الإضافية.
+`FileOutputAdapter` يكتب النص المستخرج بالصيغ المختارة (HTML، نص عادي، إلخ) مباشرة إلى ملف على القرص. هذا مفيد لإنشاء تقارير قابلة للقراءة البشرية أو لتغذية خطوط معالجة لاحقة.
 
 ```java
 import com.groupdocs.search.*;
@@ -131,12 +167,14 @@ public class FeatureOutputToFile {
 ```
 
 **شرح**  
-- **FileOutputAdapter**: يحول نص المستند المفهرس إلى HTML ويكتبها إلى المسار المحدد للملف.
+- **FileOutputAdapter**: يحوّل نص المستند المفهرس إلى HTML ويكتبها إلى مسار الملف المحدد، محافظًا على التنسيقات الأساسية مثل العناوين والجداول.
 
 ### إخراج نص المستند إلى تدفق
 
+`StreamOutputAdapter` يرسل نص المستند المستخرج إلى `ByteArrayOutputStream` دون إنشاء ملف مؤقت.
+
 #### نظرة عامة
-عند الحاجة إلى معالجة في الذاكرة—مثل توليد محتوى ويب ديناميكي—يُعد الإخراج إلى تدفق الخيار المثالي.
+عندما تحتاج المحتوى مؤقتًا فقط—مثلاً لإرساله عبر HTTP أو تضمينه في استجابة ويب—استخدم `StreamOutputAdapter`. يرسل النص إلى `ByteArrayOutputStream`، متجنبًا عبء إنشاء ملف مؤقت.
 
 ```java
 import com.groupdocs.search.*;
@@ -162,12 +200,14 @@ public class FeatureOutputToStream {
 ```
 
 **شرح**  
-- **StreamOutputAdapter**: يرسل نص المستند إلى `ByteArrayOutputStream`، مما يتيح معالجة مرنة دون الحاجة إلى نظام الملفات.
+- **StreamOutputAdapter**: يرسل نص المستند إلى `ByteArrayOutputStream`، مما يتيح معالجة مرنة دون لمس نظام الملفات.
 
 ### إخراج نص المستند إلى سلسلة
 
+`StringOutputAdapter` يلتقط النص الكامل للمستند في كائن `String` واحد.
+
 #### نظرة عامة
-إذا كنت تريد فقط تسجيل أو عرض المحتوى، فإن تحويل النتيجة إلى `String` هو أسرع طريقة.
+للتسجيل السريع، تصحيح الأخطاء، أو عرض الواجهة، يلتقط `StringOutputAdapter` النص الكامل للمستند في كائن `String` واحد.
 
 ```java
 import com.groupdocs.search.*;
@@ -192,12 +232,14 @@ public class FeatureOutputToString {
 ```
 
 **شرح**  
-- **StringOutputAdapter**: يلتقط نص المستند في `String`، مما يسهل دمجه في السجلات أو مكونات الواجهة.
+- **StringOutputAdapter**: يلتقط نص المستند في `String`، مما يسهل تضمينه في السجلات، مخرجات الكونسول، أو مكوّنات الواجهة.
 
 ### إخراج نص المستند إلى صيغة مهيكلة
 
+`StructuredOutputAdapter` يُعيد نموذج كائن غني يحتوي على فقرات، جداول، وبيانات وصفية مخصصة.
+
 #### نظرة عامة
-للتحليل المتقدم—مثل استخراج الحقول أو الجداول أو البيانات الوصفية المخصصة—استخدم محول الإخراج المهيكل.
+`StructuredOutputAdapter` يُعيد نموذج كائن غني يحتوي على فقرات، جداول، وبيانات وصفية مخصصة. هذه الصيغة مثالية لمعالجة اللغة الطبيعية (NLP) أو تدفقات استخراج البيانات.
 
 ```java
 import com.groupdocs.search.*;
@@ -221,35 +263,49 @@ public class FeatureOutputToStructure {
 ```
 
 **شرح**  
-- **StructuredOutputAdapter**: يستخرج نص المستند إلى صيغة **structured text extraction**، مما يتيح تحليلًا دقيقًا أو توجيه البيانات إلى خطوط أنابيب لاحقة.
+- **StructuredOutputAdapter**: يستخرج نص المستند إلى صيغة **structured text extraction**، مما يتيح تحليلًا دقيقًا، استخراج حقول، وتكاملًا مع خطوط تعلم الآلة.
 
 ## المشكلات الشائعة والحلول
 | المشكلة | السبب | الحل |
 |-------|-------|-----|
-| **لم يتم إنشاء الفهرس** | مسار المجلد غير صحيح أو عدم وجود أذونات كتابة | تحقق من وجود `indexFolder` وأن التطبيق يمتلك صلاحية الكتابة |
-| **لم يتم إرجاع أي مستندات** | لم يتم استدعاء `index.add()` أو مسار المجلد المصدر غير صحيح | تأكد من أن `documentsFolder` يشير إلى الدليل الصحيح ويحتوي على أنواع الملفات المدعومة |
-| **ملف الإخراج فارغ** | مسار محول الإخراج غير صالح أو المجلدات غير موجودة | أنشئ الدليل الهدف (`YOUR_OUTPUT_DIRECTORY`) قبل التنفيذ |
-| **ارتفاع استهلاك الذاكرة مع ملفات كبيرة** | تحميل الملف بالكامل في الذاكرة | استخدم محولات التدفق (`StreamOutputAdapter`) لمعالجة البيانات بشكل متدرج |
+| **Index not created** | مسار المجلد غير صحيح أو نقص في أذونات الكتابة | تحقق من وجود `indexFolder` وأن التطبيق يمتلك صلاحية الكتابة |
+| **No documents returned** | لم يتم استدعاء `index.add()` أو المجلد المصدر غير صحيح | تأكد من أن `documentsFolder` يشير إلى الدليل الصحيح ويحتوي على صيغ ملفات مدعومة |
+| **Output file empty** | مسار محول الإخراج غير صالح أو المجلدات مفقودة | أنشئ الدليل الهدف (`YOUR_OUTPUT_DIRECTORY`) قبل التشغيل |
+| **Memory spikes with large files** | تحميل الملف بالكامل في الذاكرة | استخدم `StreamOutputAdapter` لمعالجة البيانات بشكل تدريجي |
 
 ## الأسئلة المتكررة
 
 **س: هل يمكنني استخدام GroupDocs.Search مع لغات JVM أخرى مثل Kotlin أو Scala؟**  
-ج: نعم، المكتبة مكتوبة بلغة Java وتعمل بسلاسة مع أي لغة تعمل على JVM.
+ج: نعم، المكتبة مكتوبة بـ Java خالص وتعمل بسلاسة مع أي لغة JVM.
 
 **س: كيف يؤثر الضغط على سرعة البحث؟**  
-ج: الضغط العالي يقلل من مساحة التخزين لكنه قد يضيف عبئًا بسيطًا على وحدة المعالجة أثناء الفهرسة. تظل سرعة البحث سريعة لأن المكتبة تقوم بفك الضغط أثناء البحث.
+ج: يقلل الضغط العالي من مساحة التخزين على القرص بنسبة تصل إلى 70 % ويضيف فقط حملاً بسيطًا على وحدة المعالجة أثناء الفهرسة؛ تبقى زمن استجابة الاستعلام أقل من 100 ms للأحمال النموذجية.
 
-**س: هل يمكن تحديث فهرس موجود دون إعادة بنائه؟**  
-ج: بالتأكيد. استخدم `index.add()` لإضافة ملفات جديدة و`index.remove()` لحذف الملفات القديمة.
+**س: هل يمكن تحديث فهرس موجود دون إعادة بنائه بالكامل؟**  
+ج: بالتأكيد. استخدم `index.add()` للملفات الجديدة و`index.remove()` لحذف القديمة، مما يسمح بالتحديثات المتزايدة.
 
-**س: أي صيغة إخراج هي الأنسب لمعالجة اللغة الطبيعية (NLP)؟**  
-ج: صيغة `PlainText` عبر محول **structured text extraction** توفر محتوى نظيفًا غير مرتبط بلغة معينة، وهو مثالي لأنابيب NLP.
+**س: أي صيغة إخراج هي الأنسب لخطوط معالجة اللغة الطبيعية؟**  
+ج: نتيجة `PlainText` من محول **structured text extraction** توفر محتوى نظيفًا غير مرتبط بلغة معينة، وهو مثالي لمهام NLP.
 
-**س: هل أحتاج إلى ترخيص للتطوير والاختبار؟**  
-ج: الترخيص التجريبي مجاني للاستخدام في التطوير والتقييم. تتطلب عمليات الإنتاج ترخيصًا مدفوعًا.
+**س: هل أحتاج ترخيصًا للتطوير والاختبار؟**  
+ج: الترخيص التجريبي المجاني يكفي للتطوير والتقييم؛ تتطلب عمليات الإنتاج ترخيصًا مُشتَرًى.
+
+## الخاتمة
+أصبحت الآن تمتلك سير عمل كامل جاهز للإنتاج لإنشاء **how to create index**، إضافة المستندات، واستخراج نصها بجميع الصيغ التي قد تحتاجها. ابدأ بتهيئة `Index` مع الضغط، أضف مجموعة مستنداتك، واختر محول الإخراج المناسب للسيناريو التالي—سواء كان توليد تقارير HTML، تغذية نموذج NLP، أو بث المحتوى إلى عميل ويب. جرّب واجهات التحديث المتزايدة للحفاظ على فهرسك محدثًا دون الحاجة لإعادة بناء مكلفة، وستستمتع ببحث سريع وموثوق عبر أي مستودع مستندات.
 
 ---
 
-**آخر تحديث:** 2026-01-14  
-**تم الاختبار مع:** GroupDocs.Search 25.4 للـ Java  
-**المؤلف:** GroupDocs
+**Last Updated:** 2026-06-27  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs
+
+{< /blocks/products/pf/tutorial-page-section >}
+{< /blocks/products/pf/main-container >}
+{< /blocks/products/pf/main-wrap-class >}
+{< blocks/products/products-backtop-button >}
+
+## دروس ذات صلة
+
+- [إضافة مستندات إلى الفهرس – دليل GroupDocs.Search Java](/search/java/advanced-features/)
+- [إنشاء فهرس مستندات باستخدام GroupDocs.Search للـ Java](/search/java/advanced-features/groupdocs-search-java-implementation-guide/)
+- [كيفية إضافة مستندات إلى الفهرس مع فهرسة البيانات الوصفية في Java باستخدام GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)

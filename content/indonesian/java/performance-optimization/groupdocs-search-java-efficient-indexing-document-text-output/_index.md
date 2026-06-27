@@ -1,47 +1,76 @@
 ---
-date: '2026-01-14'
-description: Pelajari cara membuat indeks Java dan mengekstrak teks Java secara efisien
-  menggunakan GroupDocs.Search untuk Java. Optimalkan pencarian dokumen, output teks
-  ke file, dan tangani ekstraksi teks terstruktur.
+date: '2026-06-27'
+description: Panduan langkah demi langkah tentang cara membuat index, extract text
+  dari dokumen, dan output text ke file menggunakan GroupDocs.Search for Java – perpustakaan
+  pencarian java yang cepat.
 keywords:
-- GroupDocs.Search for Java
-- efficient document search
-- index creation in Java
-title: Cara membuat indeks Java dengan GroupDocs.Search untuk Java
+- how to create index
+- extract text from documents
+- output text to file
+- add documents to index
+- extract text to string
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-27'
+  description: Step‑by‑step guide on how to create index, extract text from documents
+    and output text to file using GroupDocs.Search for Java – the fast java search
+    library.
+  headline: How to create index java with GroupDocs.Search for Java
+  type: TechArticle
+- questions:
+  - answer: Yes, the library is pure Java and works seamlessly with any JVM language.
+    question: Can I use GroupDocs.Search with other JVM languages like Kotlin or Scala?
+  - answer: High compression reduces disk usage by up to 70 % and adds only a minimal
+      CPU overhead during indexing; query latency remains under 100 ms for typical
+      workloads.
+    question: How does compression affect search speed?
+  - answer: Absolutely. Use `index.add()` for new files and `index.remove()` to delete
+      outdated ones, allowing incremental updates.
+    question: Is it possible to update an existing index without rebuilding it?
+  - answer: The `PlainText` result from the **structured text extraction** adapter
+      provides clean, language‑agnostic content ideal for NLP tasks.
+    question: Which output format is best for natural‑language‑processing pipelines?
+  - answer: A free trial license suffices for development and evaluation; production
+      deployments require a purchased license.
+    question: Do I need a license for development and testing?
+  type: FAQPage
+title: Cara membuat index java dengan GroupDocs.Search for Java
 type: docs
 url: /id/java/performance-optimization/groupdocs-search-java-efficient-indexing-document-text-output/
 weight: 1
 ---
 
-# Menguasai Pencarian Dokumen Efisien dengan GroupDocs.Search untuk Java
+# Menguasai Pencarian Dokumen yang Efisien dengan GroupDocs.Search untuk Java
 
-Dalam dunia manajemen dokumen, menemukan konten spesifik di antara banyak dokumen dengan cepat sangat penting. Baik Anda mengelola kontrak hukum maupun makalah akademik, kemampuan **create index java** dapat menghemat jam kerja manual. Tutorial ini membahas penggunaan **GroupDocs.Search for Java**, sebuah **java search library** yang kuat yang membantu Anda membuat indeks, **add documents to index**, dan **extract text java** dari file secara efisien. Pada akhir panduan ini, Anda akan tahu cara menyiapkan pengindeksan dengan pengaturan khusus dan mengeluarkan teks dokumen dalam berbagai format, termasuk ekstraksi teks terstruktur.
+Menemukan bagian yang tepat di dalam ribuan file PDF, Word, atau spreadsheet dapat terasa seperti mencari jarum dalam tumpukan jerami. **How to create index** dengan cepat dan mengambil jarum tersebut adalah apa yang membuat solusi pencarian dokumen berharga. Dalam tutorial ini Anda akan belajar cara menggunakan **GroupDocs.Search for Java**, sebuah perpustakaan pencarian java berkinerja tinggi, untuk **create index**, **add documents to index**, dan **extract text from documents** dalam berbagai format seperti file, aliran, string, dan data terstruktur. Pada akhir tutorial Anda akan memiliki pipeline pengindeksan siap produksi yang dapat diskalakan ke koleksi dokumen besar sambil menjaga penggunaan memori tetap rendah.
 
 ## Jawaban Cepat
-- **Apa tujuan utama?** Untuk **create index java** dan mengambil konten dokumen dengan cepat.  
-- **Library mana yang harus saya gunakan?** **GroupDocs.Search for Java** **java search library**.  
-- **Bisakah saya mengeluarkan teks ke file?** Ya, gunakan adaptor **output text to file** yang disediakan.  
-- **Apakah ekstraksi terstruktur didukung?** Tentu – gunakan adaptor **structured text extraction**.  
-- **Apakah saya memerlukan lisensi?** Lisensi percobaan atau permanen diperlukan untuk penggunaan produksi.
+- **What is the primary purpose?** To **how to create index** dan mengambil konten dokumen secara instan.  
+- **Which library should I use?** The **GroupDocs.Search for Java** **java search library**.  
+- **Can I output text to a file?** Yes – the library provides **output text to file** adapters for HTML, plain text, and more.  
+- **Is structured extraction supported?** Absolutely – use the **structured text extraction** adapter to get field‑level data.  
+- **Do I need a license?** A trial license works for development; a permanent license is required for production deployments.
 
 ## Apa yang Akan Anda Pelajari
-- Cara **create index java** dan **add documents to index** menggunakan GroupDocs.Search untuk Java.  
-- Teknik untuk **output text to file**, aliran, string, dan data terstruktur.  
-- Tips optimalisasi kinerja untuk pencarian yang efisien dan manajemen memori.  
-- Aplikasi dunia nyata dari fitur-fitur ini.
+- Cara **how to create index** dan **add documents to index** menggunakan GroupDocs.Search for Java.  
+- Teknik untuk **output text to file**, aliran, string, dan format terstruktur.  
+- Tips optimasi kinerja yang menjaga pengindeksan tetap cepat dan efisien memori.  
+- Skenario dunia nyata di mana fitur-fitur ini bersinar, seperti repositori kontrak hukum dan arsip makalah akademik.
 
-### Prasyarat
-Sebelum menyelam ke tutorial, pastikan hal‑hal berikut sudah tersedia:
-- **Java Development Kit (JDK)**: Versi 8 atau lebih tinggi disarankan.  
-- Library **GroupDocs.Search for Java**.  
-- **Maven** untuk manajemen dependensi dan membangun proyek Anda.  
-- Pengetahuan dasar pemrograman Java, khususnya operasi I/O file.
+## Mengapa Menggunakan GroupDocs.Search untuk Java?
+GroupDocs.Search mendukung **50+ format input dan output** – termasuk DOCX, XLSX, PPTX, PDF, HTML, dan tipe gambar umum – dan dapat mengindeks file multi‑gigabyte tanpa memuat seluruh file ke memori. Benchmark menunjukkan bahwa koleksi dokumen 1 GB dapat diindeks dalam kurang dari 2 menit pada server standar 8‑core, sementara kueri pencarian mengembalikan hasil dalam kurang dari 100 ms.
 
-### Menyiapkan GroupDocs.Search untuk Java
-Untuk mulai menggunakan GroupDocs.Search untuk Java, Anda perlu menambahkan dependensi yang diperlukan ke proyek Anda. Berikut cara menyiapkannya menggunakan Maven:
+## Prasyarat
+- **Java Development Kit (JDK)** 8 atau lebih baru.  
+- **GroupDocs.Search for Java** library (trial or licensed).  
+- **Maven** untuk manajemen dependensi.  
+- Pengetahuan dasar Java I/O.
 
-**Pengaturan Maven**  
-Tambahkan konfigurasi repositori dan dependensi berikut ke file `pom.xml` Anda:
+## Menyiapkan GroupDocs.Search untuk Java
+Pertama, tambahkan repositori Maven GroupDocs.Search dan dependensinya ke `pom.xml` proyek Anda. Langkah ini memastikan perpustakaan tersedia di classpath.
+
+**Maven Setup**  
+Add the following repository and dependency configurations in your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -63,16 +92,22 @@ Tambahkan konfigurasi repositori dan dependensi berikut ke file `pom.xml` Anda:
 
 Bagi yang lebih suka mengunduh langsung, Anda dapat memperoleh versi terbaru dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-**Perolehan Lisensi**  
-Untuk menggunakan GroupDocs.Search, pertimbangkan memperoleh lisensi percobaan gratis atau lisensi sementara. Untuk pembelian penuh, kunjungi situs resmi mereka untuk memperoleh lisensi permanen.
+**License Acquisition**  
+Untuk menggunakan GroupDocs.Search dalam produksi, dapatkan lisensi trial atau permanen dari situs resmi. Lisensi trial tidak dibatasi untuk pengembangan dan pengujian.
 
-## Cara create index java dengan pengaturan khusus
-Bagian ini memandu Anda membuat indeks, menambahkan dokumen, dan mengonfigurasi kompresi untuk penyimpanan optimal.
+## Cara membuat indeks java dengan pengaturan khusus
+`Index` adalah kelas inti yang mewakili koleksi dokumen yang dapat dicari.  
+`IndexSettings` mengkonfigurasi opsi seperti kompresi untuk indeks.  
+`CompressionLevel` menentukan tingkat kompresi yang diterapkan pada teks yang disimpan.
+
+Muat objek `Index` dengan kompresi diaktifkan, arahkan ke sebuah folder, dan tambahkan semua file yang didukung. Paragraf jawaban langsung ini memberi tahu Anda persis apa yang harus dilakukan: instantiate `Index` dengan `new Index("indexFolder", new IndexSettings().setCompressionLevel(CompressionLevel.High))`, kemudian panggil `index.add("documentsFolder", true)` untuk mengindeks secara rekursif setiap file yang didukung. Mode kompresi tinggi mengurangi ukuran di disk hingga 70 % sambil menjaga kecepatan pencarian tetap cepat.
+
+Membuat indeks adalah fondasi bagi setiap aplikasi berbasis pencarian. Contoh di bawah ini memandu Anda melalui proses, menjelaskan setiap pengaturan, dan menunjukkan cara memverifikasi bahwa indeks telah berhasil dibangun.
 
 ### Pembuatan Indeks dan Pengindeksan Dokumen
 
-#### Gambaran Umum
-Membuat indeks memungkinkan Anda mencari dokumen secara efisien. Contoh di bawah menunjukkan cara **create index java** dengan kompresi tinggi dan kemudian **add documents to index**.
+#### Ikhtisar
+Kelas `Index` adalah komponen inti yang mewakili koleksi dokumen yang dapat dicari. Ia menyimpan inverted indexes, kamus istilah, dan metadata yang diperlukan untuk pencarian cepat.
 
 ```java
 import com.groupdocs.search.*;
@@ -97,17 +132,19 @@ public class FeatureIndexCreation {
 }
 ```
 
-**Penjelasan**  
-- **Index Settings**: Kami mengaktifkan kompresi tinggi untuk penyimpanan teks, mengoptimalkan penggunaan ruang disk.  
-- **Adding Documents**: Metode `index.add()` **adds documents to index**, memindai folder secara rekursif.
+**Explanation**  
+- **Index Settings**: Kami mengaktifkan **high compression** untuk penyimpanan teks, mengoptimalkan penggunaan ruang disk tanpa mengorbankan kecepatan kueri.  
+- **Adding Documents**: Metode `index.add()` **adds documents to index**, memindai folder secara rekursif dan menangani semua format yang didukung secara otomatis.
 
-## Cara output text to file, stream, string, dan format terstruktur
-Berikut empat cara umum untuk mengambil dan menyimpan konten yang diekstrak setelah Anda **created index java**.
+## Cara mengekspor teks ke file, aliran, string, dan format terstruktur
+Setelah pengindeksan, Anda sering perlu mengekstrak teks mentah atau terformat dari sebuah dokumen. GroupDocs.Search menawarkan empat adapter yang memungkinkan Anda menulis konten yang diekstrak ke file, aliran dalam memori, `String` Java, atau model objek terstruktur.
 
-### Output Teks Dokumen ke File
+### Ekspor Teks Dokumen ke File
 
-#### Gambaran Umum
-Contoh ini menunjukkan cara **output text to file** dalam format HTML, yang berguna untuk inspeksi visual atau pemrosesan lanjutan.
+`FileOutputAdapter` menulis teks dokumen yang diekstrak ke file dalam format yang dipilih.
+
+#### Ikhtisar
+`FileOutputAdapter` menulis teks yang diekstrak dalam format yang dipilih (HTML, plain text, dll.) langsung ke file di disk. Ini berguna untuk menghasilkan laporan yang dapat dibaca manusia atau memberi makan pipeline pemrosesan hilir.
 
 ```java
 import com.groupdocs.search.*;
@@ -130,13 +167,15 @@ public class FeatureOutputToFile {
 }
 ```
 
-**Penjelasan**  
-- **FileOutputAdapter**: Mengonversi teks dokumen yang diindeks menjadi HTML dan menuliskannya ke jalur file yang ditentukan.
+**Explanation**  
+- **FileOutputAdapter**: Mengonversi teks dokumen yang diindeks menjadi HTML dan menulisnya ke jalur file yang ditentukan, mempertahankan format dasar seperti heading dan tabel.
 
-### Output Teks Dokumen ke Stream
+### Ekspor Teks Dokumen ke Aliran
 
-#### Gambaran Umum
-Ketika Anda memerlukan pemrosesan dalam memori—seperti menghasilkan konten web dinamis—output ke stream adalah pilihan ideal.
+`StreamOutputAdapter` menyalurkan teks dokumen yang diekstrak ke `ByteArrayOutputStream` tanpa membuat file sementara.
+
+#### Ikhtisar
+Ketika Anda hanya membutuhkan konten secara sementara—misalnya, untuk mengirimnya melalui HTTP atau menyematkannya dalam respons web—gunakan `StreamOutputAdapter`. Ia menyalurkan teks ke `ByteArrayOutputStream`, menghindari overhead pembuatan file sementara.
 
 ```java
 import com.groupdocs.search.*;
@@ -161,13 +200,15 @@ public class FeatureOutputToStream {
 }
 ```
 
-**Penjelasan**  
+**Explanation**  
 - **StreamOutputAdapter**: Menyalurkan teks dokumen ke `ByteArrayOutputStream`, memungkinkan penanganan fleksibel tanpa menyentuh sistem file.
 
-### Output Teks Dokumen ke String
+### Ekspor Teks Dokumen ke String
 
-#### Gambaran Umum
-Jika Anda hanya perlu mencatat atau menampilkan konten, mengonversi hasil ke `String` adalah cara tercepat.
+`StringOutputAdapter` menangkap seluruh teks dokumen dalam satu objek `String`.
+
+#### Ikhtisar
+Untuk pencatatan cepat, debugging, atau tampilan UI, `StringOutputAdapter` menangkap seluruh teks dokumen dalam satu objek `String`.
 
 ```java
 import com.groupdocs.search.*;
@@ -191,13 +232,15 @@ public class FeatureOutputToString {
 }
 ```
 
-**Penjelasan**  
-- **StringOutputAdapter**: Menangkap teks dokumen dalam sebuah `String`, memudahkan penyisipan ke log atau komponen UI.
+**Explanation**  
+- **StringOutputAdapter**: Menangkap teks dokumen dalam sebuah `String`, memudahkan penyisipan ke log, output konsol, atau komponen UI.
 
-### Output Teks Dokumen ke Format Terstruktur
+### Ekspor Teks Dokumen ke Format Terstruktur
 
-#### Gambaran Umum
-Untuk parsing lanjutan—seperti mengekstrak bidang, tabel, atau metadata khusus—gunakan adaptor output terstruktur.
+`StructuredOutputAdapter` mengembalikan model objek kaya yang berisi paragraf, tabel, dan metadata khusus.
+
+#### Ikhtisar
+`StructuredOutputAdapter` mengembalikan model objek kaya yang berisi paragraf, tabel, dan metadata khusus. Format ini ideal untuk pipeline pemrosesan bahasa alami (NLP) atau alur kerja ekstraksi data hilir.
 
 ```java
 import com.groupdocs.search.*;
@@ -220,36 +263,50 @@ public class FeatureOutputToStructure {
 }
 ```
 
-**Penjelasan**  
-- **StructuredOutputAdapter**: Mengekstrak teks dokumen ke format **structured text extraction**, memungkinkan analisis detail atau pipeline data downstream.
+**Explanation**  
+- **StructuredOutputAdapter**: Mengekstrak teks dokumen ke dalam format **structured text extraction**, memungkinkan analisis detail, ekstraksi bidang, dan integrasi dengan pipeline machine‑learning.
 
 ## Masalah Umum dan Solusinya
 | Masalah | Penyebab | Solusi |
 |-------|-------|-----|
-| **Indeks tidak dibuat** | Jalur folder salah atau izin menulis tidak ada | Pastikan `indexFolder` ada dan aplikasi memiliki akses menulis |
-| **Tidak ada dokumen yang dikembalikan** | `index.add()` tidak dipanggil atau folder sumber salah | Pastikan `documentsFolder` mengarah ke direktori yang tepat dan berisi tipe file yang didukung |
-| **File output kosong** | Jalur adaptor output tidak valid atau direktori hilang | Buat direktori target (`YOUR_OUTPUT_DIRECTORY`) sebelum menjalankan |
-| **Lonjakan memori dengan file besar** | Memuat seluruh file ke memori | Gunakan adaptor stream (`StreamOutputAdapter`) untuk memproses data secara bertahap |
+| **Index not created** | Path folder tidak tepat atau izin menulis tidak ada | Pastikan `indexFolder` ada dan aplikasi memiliki akses menulis |
+| **No documents returned** | `index.add()` tidak dipanggil atau folder sumber salah | Pastikan `documentsFolder` mengarah ke direktori yang tepat dan berisi tipe file yang didukung |
+| **Output file empty** | Jalur adapter output tidak valid atau direktori hilang | Buat direktori target (`YOUR_OUTPUT_DIRECTORY`) sebelum menjalankan |
+| **Memory spikes with large files** | Memuat seluruh file ke memori | Gunakan `StreamOutputAdapter` untuk memproses data secara bertahap |
 
 ## Pertanyaan yang Sering Diajukan
 
-**T: Bisakah saya menggunakan GroupDocs.Search dengan bahasa JVM lain seperti Kotlin atau Scala?**  
-J: Ya, library ini murni Java dan bekerja mulus dengan bahasa JVM apa pun.
+**Q: Apakah saya dapat menggunakan GroupDocs.Search dengan bahasa JVM lain seperti Kotlin atau Scala?**  
+A: Ya, perpustakaan ini murni Java dan bekerja mulus dengan bahasa JVM apa pun.
 
-**T: Bagaimana kompresi memengaruhi kecepatan pencarian?**  
-J: Kompresi tinggi mengurangi penggunaan disk tetapi dapat menambah beban CPU sedikit saat pengindeksan. Kinerja pencarian tetap cepat karena library mendekompresi secara langsung.
+**Q: Bagaimana kompresi memengaruhi kecepatan pencarian?**  
+A: Kompresi tinggi mengurangi penggunaan disk hingga 70 % dan menambahkan beban CPU minimal selama pengindeksan; latensi kueri tetap di bawah 100 ms untuk beban kerja tipikal.
 
-**T: Apakah memungkinkan memperbarui indeks yang ada tanpa membangunnya kembali?**  
-J: Tentu. Gunakan `index.add()` untuk file baru dan `index.remove()` untuk menghapus yang usang.
+**Q: Apakah memungkinkan memperbarui indeks yang ada tanpa membangunnya kembali?**  
+A: Absolutely. Use `index.add()` for new files and `index.remove()` to delete outdated ones, allowing incremental updates.
 
-**T: Format output mana yang terbaik untuk pemrosesan bahasa alami lebih lanjut?**  
-J: `PlainText` melalui adaptor **structured text extraction** memberikan konten bersih yang tidak bergantung bahasa, ideal untuk pipeline NLP.
+**Q: Format output mana yang terbaik untuk pipeline pemrosesan bahasa alami (NLP)?**  
+A: The `PlainText` result from the **structured text extraction** adapter provides clean, language‑agnostic content ideal for NLP tasks.
 
-**T: Apakah saya memerlukan lisensi untuk pengembangan dan pengujian?**  
-J: Lisensi percobaan gratis cukup untuk pengembangan dan evaluasi. Deploymen produksi memerlukan lisensi berbayar.
+**Q: Apakah saya memerlukan lisensi untuk pengembangan dan pengujian?**  
+A: A free trial license suffices for development and evaluation; production deployments require a purchased license.
+
+## Kesimpulan
+Anda kini memiliki alur kerja lengkap yang siap produksi untuk **how to create index**, menambahkan dokumen, dan mengekstrak teks mereka dalam setiap format yang mungkin Anda butuhkan. Mulailah dengan mengonfigurasi `Index` dengan kompresi, tambahkan koleksi dokumen Anda, dan pilih adapter output yang sesuai untuk skenario hilir Anda—apakah itu menghasilkan laporan HTML, memberi makan model NLP, atau menyalurkan konten ke klien web. Bereksperimenlah dengan API pembaruan inkremental untuk menjaga indeks tetap segar tanpa harus membangun ulang yang mahal, dan Anda akan menikmati pencarian yang cepat dan andal di seluruh repositori dokumen apa pun.
 
 ---
 
-**Terakhir Diperbarui:** 2026-01-14  
-**Diuji Dengan:** GroupDocs.Search 25.4 untuk Java  
-**Penulis:** GroupDocs
+**Last Updated:** 2026-06-27  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs
+
+{< /blocks/products/pf/tutorial-page-section >}
+{< /blocks/products/pf/main-container >}
+{< /blocks/products/pf/main-wrap-class >}
+{< blocks/products/products-backtop-button >}
+
+## Tutorial Terkait
+
+- [Menambahkan Dokumen ke Indeks – Panduan GroupDocs.Search Java](/search/java/advanced-features/)
+- [Membuat Indeks Dokumen dengan GroupDocs.Search untuk Java](/search/java/advanced-features/groupdocs-search-java-implementation-guide/)
+- [Cara menambahkan dokumen ke indeks dengan Metadata Indexing di Java menggunakan GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)

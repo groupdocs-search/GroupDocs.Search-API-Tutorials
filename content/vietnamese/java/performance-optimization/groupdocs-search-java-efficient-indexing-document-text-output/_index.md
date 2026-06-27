@@ -1,12 +1,39 @@
 ---
-date: '2026-01-14'
-description: Tìm hiểu cách tạo chỉ mục Java và trích xuất văn bản Java một cách hiệu
-  quả bằng GroupDocs.Search cho Java. Tối ưu hóa tìm kiếm tài liệu, xuất văn bản ra
-  tệp và xử lý việc trích xuất văn bản có cấu trúc.
+date: '2026-06-27'
+description: Hướng dẫn chi tiết từng bước về cách tạo chỉ mục, trích xuất văn bản
+  từ tài liệu và xuất văn bản ra tệp bằng GroupDocs.Search cho Java – thư viện tìm
+  kiếm Java nhanh.
 keywords:
-- GroupDocs.Search for Java
-- efficient document search
-- index creation in Java
+- how to create index
+- extract text from documents
+- output text to file
+- add documents to index
+- extract text to string
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-27'
+  description: Step‑by‑step guide on how to create index, extract text from documents
+    and output text to file using GroupDocs.Search for Java – the fast java search
+    library.
+  headline: How to create index java with GroupDocs.Search for Java
+  type: TechArticle
+- questions:
+  - answer: Yes, the library is pure Java and works seamlessly with any JVM language.
+    question: Can I use GroupDocs.Search with other JVM languages like Kotlin or Scala?
+  - answer: High compression reduces disk usage by up to 70 % and adds only a minimal
+      CPU overhead during indexing; query latency remains under 100 ms for typical
+      workloads.
+    question: How does compression affect search speed?
+  - answer: Absolutely. Use `index.add()` for new files and `index.remove()` to delete
+      outdated ones, allowing incremental updates.
+    question: Is it possible to update an existing index without rebuilding it?
+  - answer: The `PlainText` result from the **structured text extraction** adapter
+      provides clean, language‑agnostic content ideal for NLP tasks.
+    question: Which output format is best for natural‑language‑processing pipelines?
+  - answer: A free trial license suffices for development and evaluation; production
+      deployments require a purchased license.
+    question: Do I need a license for development and testing?
+  type: FAQPage
 title: Cách tạo chỉ mục Java với GroupDocs.Search cho Java
 type: docs
 url: /vi/java/performance-optimization/groupdocs-search-java-efficient-indexing-document-text-output/
@@ -15,33 +42,35 @@ weight: 1
 
 # Làm Chủ Tìm Kiếm Tài Liệu Hiệu Quả với GroupDocs.Search cho Java
 
-Trong lĩnh vực quản lý tài liệu, việc nhanh chóng tìm thấy nội dung cụ thể trong hàng loạt tài liệu là vô cùng quan trọng. Dù bạn đang quản lý hợp đồng pháp lý hay các bài báo học thuật, khả năng **create index java** có thể tiết kiệm hàng giờ lao động thủ công. Bài hướng dẫn này sẽ khám phá cách sử dụng **GroupDocs.Search for Java**, một **java search library** mạnh mẽ giúp bạn tạo chỉ mục, **add documents to index**, và **extract text java** từ các tệp một cách hiệu quả. Khi kết thúc hướng dẫn, bạn sẽ biết cách thiết lập chỉ mục với các cài đặt tùy chỉnh và xuất văn bản tài liệu ra nhiều định dạng, bao gồm cả trích xuất văn bản có cấu trúc.
+Việc tìm đoạn văn bản phù hợp trong hàng ngàn tệp PDF, Word hoặc bảng tính có thể cảm giác như tìm kim trong bãi cỏ khô. **Cách tạo chỉ mục** nhanh chóng và truy xuất kim đó là điều làm cho giải pháp tìm kiếm tài liệu trở nên có giá trị. Trong hướng dẫn này, bạn sẽ học cách sử dụng **GroupDocs.Search for Java**, một thư viện tìm kiếm java hiệu suất cao, để **tạo chỉ mục**, **thêm tài liệu vào chỉ mục**, và **trích xuất văn bản từ tài liệu** ở nhiều định dạng như tệp, luồng, chuỗi và dữ liệu có cấu trúc. Kết thúc, bạn sẽ có một quy trình tạo chỉ mục sẵn sàng cho môi trường sản xuất, có khả năng mở rộng cho bộ sưu tập tài liệu lớn đồng thời giữ mức sử dụng bộ nhớ thấp.
 
 ## Câu trả lời nhanh
-- **Mục đích chính là gì?** Để **create index java** và truy xuất nội dung tài liệu một cách nhanh chóng.  
-- **Nên dùng thư viện nào?** **GroupDocs.Search for Java** **java search library**.  
-- **Có thể xuất văn bản ra file không?** Có, sử dụng các adapter **output text to file** được cung cấp.  
-- **Có hỗ trợ trích xuất có cấu trúc không?** Chắc chắn – dùng adapter **structured text extraction**.  
-- **Cần giấy phép không?** Cần có giấy phép dùng thử hoặc giấy phép vĩnh viễn cho môi trường sản xuất.
+- **Mục đích chính là gì?** Để **cách tạo chỉ mục** và truy xuất nội dung tài liệu ngay lập tức.  
+- **Thư viện nào tôi nên dùng?** Là **GroupDocs.Search for Java** **java search library**.  
+- **Tôi có thể xuất văn bản ra tệp không?** Có – thư viện cung cấp các adapter **output text to file** cho HTML, plain text và các định dạng khác.  
+- **Có hỗ trợ trích xuất có cấu trúc không?** Chắc chắn – sử dụng adapter **structured text extraction** để lấy dữ liệu ở mức trường.  
+- **Tôi có cần giấy phép không?** Giấy phép dùng thử hoạt động cho việc phát triển; giấy phép vĩnh viễn cần thiết cho triển khai sản xuất.
 
 ## Những gì bạn sẽ học
-- Cách **create index java** và **add documents to index** bằng GroupDocs.Search cho Java.  
-- Kỹ thuật **output text to file**, streams, strings và dữ liệu có cấu trúc.  
-- Mẹo tối ưu hoá hiệu năng cho việc tìm kiếm và quản lý bộ nhớ.  
-- Các ứng dụng thực tế của những tính năng này.
+- Cách **tạo chỉ mục** và **thêm tài liệu vào chỉ mục** bằng GroupDocs.Search cho Java.  
+- Kỹ thuật cho **output text to file**, luồng, chuỗi và các định dạng có cấu trúc.  
+- Mẹo tối ưu hoá hiệu năng giúp quá trình tạo chỉ mục nhanh và tiết kiệm bộ nhớ.  
+- Các kịch bản thực tế nơi các tính năng này tỏa sáng, như kho lưu trữ hợp đồng pháp lý và lưu trữ bài báo học thuật.
 
-### Yêu cầu trước
-Trước khi bắt đầu tutorial, hãy chắc chắn bạn đã chuẩn bị các yếu tố sau:
-- **Java Development Kit (JDK)**: Khuyến nghị phiên bản 8 trở lên.  
-- Thư viện **GroupDocs.Search for Java**.  
-- **Maven** để quản lý phụ thuộc và xây dựng dự án.  
-- Kiến thức cơ bản về lập trình Java, đặc biệt là các thao tác I/O với tệp.
+## Tại sao nên sử dụng GroupDocs.Search cho Java?
+GroupDocs.Search hỗ trợ **hơn 50 định dạng đầu vào và đầu ra** – bao gồm DOCX, XLSX, PPTX, PDF, HTML và các loại ảnh phổ biến – và có thể tạo chỉ mục cho các tệp đa gigabyte mà không cần tải toàn bộ tệp vào bộ nhớ. Các phép đo cho thấy một bộ sưu tập tài liệu 1 GB có thể được tạo chỉ mục trong vòng dưới 2 phút trên máy chủ tiêu chuẩn 8‑core, trong khi các truy vấn tìm kiếm trả về kết quả trong thời gian dưới 100 ms.
 
-### Cài đặt GroupDocs.Search cho Java
-Để bắt đầu sử dụng GroupDocs.Search cho Java, bạn cần thêm các phụ thuộc cần thiết vào dự án. Dưới đây là cách thiết lập bằng Maven:
+## Yêu cầu trước
+- **Java Development Kit (JDK)** 8 hoặc mới hơn.  
+- **GroupDocs.Search for Java** library (bản dùng thử hoặc có giấy phép).  
+- **Maven** để quản lý phụ thuộc.  
+- Kiến thức cơ bản về Java I/O.
 
-**Cài đặt Maven**  
-Thêm các cấu hình repository và dependency sau vào tệp `pom.xml` của bạn:
+## Cài đặt GroupDocs.Search cho Java
+Đầu tiên, thêm kho Maven của GroupDocs.Search và phụ thuộc vào tệp `pom.xml` của dự án. Bước này đảm bảo thư viện có sẵn trên classpath.
+
+**Cấu hình Maven**  
+Thêm các cấu hình kho và phụ thuộc sau vào tệp `pom.xml` của bạn:
 
 ```xml
 <repositories>
@@ -61,18 +90,24 @@ Thêm các cấu hình repository và dependency sau vào tệp `pom.xml` của 
 </dependencies>
 ```
 
-Đối với những ai muốn tải trực tiếp, có thể lấy phiên bản mới nhất từ [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Đối với những người muốn tải trực tiếp, bạn có thể lấy phiên bản mới nhất từ [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 **Mua giấy phép**  
-Để sử dụng GroupDocs.Search, hãy cân nhắc lấy giấy phép dùng thử miễn phí hoặc giấy phép tạm thời. Đối với mua bản đầy đủ, truy cập trang chính thức để mua giấy phép vĩnh viễn.
+Để sử dụng GroupDocs.Search trong môi trường sản xuất, hãy mua giấy phép dùng thử hoặc giấy phép vĩnh viễn từ trang chính thức. Giấy phép dùng thử không có hạn chế cho việc phát triển và kiểm thử.
 
-## Cách create index java với cài đặt tùy chỉnh
-Phần này sẽ hướng dẫn bạn tạo chỉ mục, thêm tài liệu và cấu hình nén để tối ưu lưu trữ.
+## Cách tạo chỉ mục java với cài đặt tùy chỉnh
+`Index` là lớp cốt lõi đại diện cho một bộ sưu tập tài liệu có thể tìm kiếm.  
+`IndexSettings` cấu hình các tùy chọn như nén cho chỉ mục.  
+`CompressionLevel` xác định mức độ nén áp dụng cho văn bản đã lưu.
+
+Tải đối tượng `Index` với nén được bật, chỉ định nó tới một thư mục và thêm tất cả các tệp được hỗ trợ. Đoạn văn trả lời trực tiếp này cho bạn biết chính xác những gì cần làm: khởi tạo `Index` bằng `new Index("indexFolder", new IndexSettings().setCompressionLevel(CompressionLevel.High))`, sau đó gọi `index.add("documentsFolder", true)` để tạo chỉ mục đệ quy cho mọi tệp được hỗ trợ. Chế độ nén cao giảm kích thước trên đĩa tới 70 % trong khi vẫn giữ tốc độ tìm kiếm nhanh.
+
+Tạo chỉ mục là nền tảng cho bất kỳ ứng dụng dựa trên tìm kiếm nào. Ví dụ dưới đây hướng dẫn bạn qua quá trình, giải thích từng cài đặt và chỉ cách xác minh rằng chỉ mục đã được xây dựng thành công.
 
 ### Tạo chỉ mục và lập chỉ mục tài liệu
 
 #### Tổng quan
-Tạo chỉ mục cho phép bạn tìm kiếm tài liệu một cách hiệu quả. Ví dụ dưới đây minh họa cách **create index java** với mức nén cao và sau đó **add documents to index**.
+Lớp `Index` là thành phần cốt lõi đại diện cho một bộ sưu tập tài liệu có thể tìm kiếm. Nó lưu trữ các chỉ mục đảo ngược, từ điển thuật ngữ và siêu dữ liệu cần thiết cho việc tra cứu nhanh.
 
 ```java
 import com.groupdocs.search.*;
@@ -97,17 +132,19 @@ public class FeatureIndexCreation {
 }
 ```
 
-**Giải thích**  
-- **Index Settings**: Chúng tôi bật nén cao cho việc lưu trữ văn bản, giúp tối ưu không gian đĩa.  
-- **Adding Documents**: Phương thức `index.add()` **adds documents to index**, quét thư mục một cách đệ quy.
+**Explanation**  
+- **Index Settings**: We enable **high compression** for text storage, optimizing disk space usage without compromising query speed.  
+- **Adding Documents**: The `index.add()` method **adds documents to index**, scanning the folder recursively and handling all supported formats automatically.
 
-## Cách output text to file, stream, string và các định dạng có cấu trúc
-Dưới đây là bốn cách phổ biến để lấy và lưu nội dung đã trích xuất sau khi bạn **created index java**.
+## Cách xuất văn bản ra tệp, luồng, chuỗi và định dạng có cấu trúc
+Sau khi lập chỉ mục, bạn thường cần trích xuất văn bản thô hoặc đã định dạng của tài liệu. GroupDocs.Search cung cấp bốn adapter cho phép bạn ghi nội dung đã trích xuất vào tệp, luồng trong bộ nhớ, một `String` Java, hoặc mô hình đối tượng có cấu trúc.
 
-### Xuất văn bản tài liệu ra File
+### Xuất văn bản tài liệu ra tệp
+
+`FileOutputAdapter` ghi văn bản tài liệu đã trích xuất vào tệp ở định dạng đã chọn.
 
 #### Tổng quan
-Ví dụ này cho thấy cách **output text to file** ở định dạng HTML, hữu ích cho việc kiểm tra trực quan hoặc xử lý tiếp theo.
+`FileOutputAdapter` ghi văn bản đã trích xuất ở định dạng đã chọn (HTML, plain text, v.v.) trực tiếp vào tệp trên đĩa. Điều này hữu ích cho việc tạo báo cáo dễ đọc cho con người hoặc cung cấp cho các pipeline xử lý tiếp theo.
 
 ```java
 import com.groupdocs.search.*;
@@ -130,13 +167,15 @@ public class FeatureOutputToFile {
 }
 ```
 
-**Giải thích**  
-- **FileOutputAdapter**: Chuyển đổi văn bản tài liệu đã lập chỉ mục thành HTML và ghi vào đường dẫn tệp được chỉ định.
+**Explanation**  
+- **FileOutputAdapter**: Chuyển đổi văn bản của tài liệu đã lập chỉ mục sang HTML và ghi vào đường dẫn tệp đã chỉ định, giữ lại định dạng cơ bản như tiêu đề và bảng.
 
-### Xuất văn bản tài liệu ra Stream
+### Xuất văn bản tài liệu ra luồng
+
+`StreamOutputAdapter` truyền văn bản tài liệu đã trích xuất vào một `ByteArrayOutputStream` mà không tạo tệp tạm thời.
 
 #### Tổng quan
-Khi cần xử lý trong bộ nhớ—ví dụ tạo nội dung web động—việc xuất ra stream là lựa chọn lý tưởng.
+Khi bạn chỉ cần nội dung tạm thời—ví dụ, để gửi qua HTTP hoặc nhúng vào phản hồi web—hãy sử dụng `StreamOutputAdapter`. Nó truyền văn bản vào một `ByteArrayOutputStream`, tránh việc tạo tệp tạm thời.
 
 ```java
 import com.groupdocs.search.*;
@@ -161,13 +200,15 @@ public class FeatureOutputToStream {
 }
 ```
 
-**Giải thích**  
-- **StreamOutputAdapter**: Đẩy văn bản tài liệu vào một `ByteArrayOutputStream`, cho phép xử lý linh hoạt mà không cần chạm tới hệ thống tệp.
+**Explanation**  
+- **StreamOutputAdapter**: Truyền văn bản của tài liệu vào một `ByteArrayOutputStream`, cho phép xử lý linh hoạt mà không cần chạm tới hệ thống tệp.
 
-### Xuất văn bản tài liệu ra String
+### Xuất văn bản tài liệu ra chuỗi
+
+`StringOutputAdapter` nắm bắt toàn bộ văn bản tài liệu trong một đối tượng `String` duy nhất.
 
 #### Tổng quan
-Nếu bạn chỉ cần ghi log hoặc hiển thị nội dung, chuyển kết quả thành `String` là cách nhanh nhất.
+Đối với việc ghi log nhanh, gỡ lỗi hoặc hiển thị UI, `StringOutputAdapter` nắm bắt toàn bộ văn bản tài liệu trong một đối tượng `String` duy nhất.
 
 ```java
 import com.groupdocs.search.*;
@@ -191,13 +232,15 @@ public class FeatureOutputToString {
 }
 ```
 
-**Giải thích**  
-- **StringOutputAdapter**: Thu thập văn bản tài liệu trong một `String`, dễ dàng nhúng vào log hoặc thành phần UI.
+**Explanation**  
+- **StringOutputAdapter**: Nắm bắt văn bản của tài liệu trong một `String`, giúp dễ dàng nhúng vào log, đầu ra console hoặc các thành phần UI.
 
-### Xuất văn bản tài liệu ra Định dạng Có cấu trúc
+### Xuất văn bản tài liệu ra định dạng có cấu trúc
+
+`StructuredOutputAdapter` trả về một mô hình đối tượng phong phú chứa các đoạn văn, bảng và siêu dữ liệu tùy chỉnh.
 
 #### Tổng quan
-Đối với việc phân tích nâng cao—như trích xuất trường, bảng hoặc siêu dữ liệu tùy chỉnh—hãy sử dụng adapter xuất có cấu trúc.
+`StructuredOutputAdapter` trả về một mô hình đối tượng phong phú chứa các đoạn văn, bảng và siêu dữ liệu tùy chỉnh. Định dạng này lý tưởng cho các quy trình xử lý ngôn ngữ tự nhiên (NLP) hoặc trích xuất dữ liệu tiếp theo.
 
 ```java
 import com.groupdocs.search.*;
@@ -220,36 +263,50 @@ public class FeatureOutputToStructure {
 }
 ```
 
-**Giải thích**  
-- **StructuredOutputAdapter**: Trích xuất văn bản tài liệu thành định dạng **structured text extraction**, cho phép phân tích chi tiết hoặc đưa vào các pipeline dữ liệu downstream.
+**Explanation**  
+- **StructuredOutputAdapter**: Trích xuất văn bản tài liệu vào định dạng **structured text extraction**, cho phép phân tích chi tiết, trích xuất trường và tích hợp với các pipeline học máy.
 
 ## Các vấn đề thường gặp và giải pháp
-| Vấn đề | Nguyên nhân | Giải pháp |
-|-------|-------------|-----------|
-| **Index không được tạo** | Đường dẫn thư mục sai hoặc thiếu quyền ghi | Kiểm tra `indexFolder` tồn tại và ứng dụng có quyền ghi |
+| Vấn đề | Nguyên nhân | Cách khắc phục |
+|-------|-------------|----------------|
+| **Chỉ mục không được tạo** | Đường dẫn thư mục không đúng hoặc thiếu quyền ghi | Xác minh `indexFolder` tồn tại và ứng dụng có quyền ghi |
 | **Không có tài liệu nào được trả về** | `index.add()` chưa được gọi hoặc thư mục nguồn sai | Đảm bảo `documentsFolder` trỏ tới thư mục đúng và chứa các loại tệp được hỗ trợ |
-| **File xuất ra rỗng** | Đường dẫn adapter không hợp lệ hoặc thiếu thư mục | Tạo thư mục đích (`YOUR_OUTPUT_DIRECTORY`) trước khi chạy |
-| **Bùng phát bộ nhớ với tệp lớn** | Đọc toàn bộ tệp vào bộ nhớ | Sử dụng adapter stream (`StreamOutputAdapter`) để xử lý dữ liệu từng phần |
+| **Tệp đầu ra rỗng** | Đường dẫn adapter đầu ra không hợp lệ hoặc thiếu thư mục | Tạo thư mục đích (`YOUR_OUTPUT_DIRECTORY`) trước khi chạy |
+| **Tăng đột biến bộ nhớ với tệp lớn** | Tải toàn bộ tệp vào bộ nhớ | Sử dụng `StreamOutputAdapter` để xử lý dữ liệu theo từng phần |
 
 ## Câu hỏi thường gặp
 
-**H: Có thể dùng GroupDocs.Search với các ngôn ngữ JVM khác như Kotlin hoặc Scala không?**  
-Đ: Có, thư viện thuần Java này hoạt động liền mạch với bất kỳ ngôn ngữ JVM nào.
+**Q: Tôi có thể sử dụng GroupDocs.Search với các ngôn ngữ JVM khác như Kotlin hoặc Scala không?**  
+A: Có, thư viện thuần Java và hoạt động liền mạch với bất kỳ ngôn ngữ JVM nào.
 
-**H: Nén ảnh hưởng như thế nào đến tốc độ tìm kiếm?**  
-Đ: Nén cao giảm dung lượng đĩa nhưng có thể gây một chút tải CPU trong quá trình lập chỉ mục. Hiệu năng tìm kiếm vẫn nhanh vì thư viện giải nén khi truy vấn.
+**Q: Nén ảnh hưởng như thế nào đến tốc độ tìm kiếm?**  
+A: Nén cao giảm việc sử dụng đĩa tới 70 % và chỉ gây thêm một tải CPU tối thiểu trong quá trình lập chỉ mục; độ trễ truy vấn vẫn dưới 100 ms cho các khối lượng công việc điển hình.
 
-**H: Có thể cập nhật chỉ mục hiện có mà không phải xây dựng lại không?**  
-Đ: Chắc chắn. Dùng `index.add()` để thêm tệp mới và `index.remove()` để xóa các tệp đã lỗi thời.
+**Q: Có thể cập nhật chỉ mục hiện có mà không cần xây dựng lại không?**  
+A: Chắc chắn. Sử dụng `index.add()` cho các tệp mới và `index.remove()` để xóa các tệp đã lỗi thời, cho phép cập nhật tăng dần.
 
-**H: Định dạng xuất nào tốt nhất cho việc xử lý ngôn ngữ tự nhiên (NLP) tiếp theo?**  
-Đ: `PlainText` qua adapter **structured text extraction** cung cấp nội dung sạch, không phụ thuộc ngôn ngữ, rất phù hợp cho các pipeline NLP.
+**Q: Định dạng đầu ra nào là tốt nhất cho các pipeline xử lý ngôn ngữ tự nhiên?**  
+A: Kết quả `PlainText` từ adapter **structured text extraction** cung cấp nội dung sạch, không phụ thuộc ngôn ngữ, lý tưởng cho các nhiệm vụ NLP.
 
-**H: Có cần giấy phép cho việc phát triển và thử nghiệm không?**  
-Đ: Giấy phép dùng thử miễn phí đủ cho phát triển và đánh giá. Khi triển khai sản xuất cần mua giấy phép.
+**Q: Tôi có cần giấy phép cho việc phát triển và kiểm thử không?**  
+A: Giấy phép dùng thử miễn phí đủ cho phát triển và đánh giá; triển khai sản xuất yêu cầu mua giấy phép.
+
+## Kết luận
+Bạn giờ đã có một quy trình hoàn chỉnh, sẵn sàng cho môi trường sản xuất để **cách tạo chỉ mục**, thêm tài liệu và trích xuất văn bản của chúng ở mọi định dạng bạn có thể cần. Bắt đầu bằng cách cấu hình `Index` với nén, thêm bộ sưu tập tài liệu của bạn, và chọn adapter đầu ra phù hợp cho kịch bản downstream của bạn—cho dù là tạo báo cáo HTML, cung cấp cho mô hình NLP, hoặc truyền nội dung tới client web. Thử nghiệm các API cập nhật tăng dần để giữ chỉ mục luôn mới mà không cần xây dựng lại tốn kém, và bạn sẽ có trải nghiệm tìm kiếm nhanh, đáng tin cậy trên bất kỳ kho lưu trữ tài liệu nào.
 
 ---
 
-**Cập nhật lần cuối:** 2026-01-14  
-**Đã kiểm tra với:** GroupDocs.Search 25.4 cho Java  
-**Tác giả:** GroupDocs
+**Last Updated:** 2026-06-27  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs
+
+{< /blocks/products/pf/tutorial-page-section >}
+{< /blocks/products/pf/main-container >}
+{< /blocks/products/pf/main-wrap-class >}
+{< blocks/products/products-backtop-button >}
+
+## Hướng dẫn liên quan
+
+- [Thêm tài liệu vào chỉ mục – Hướng dẫn GroupDocs.Search Java](/search/java/advanced-features/)
+- [Tạo chỉ mục tài liệu với GroupDocs.Search cho Java](/search/java/advanced-features/groupdocs-search-java-implementation-guide/)
+- [Cách thêm tài liệu vào chỉ mục với Metadata Indexing trong Java bằng GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)

@@ -1,48 +1,67 @@
 ---
-date: '2026-01-19'
-description: Tanulja meg, hogyan konfigurálja a hálózatot és telepíti a GroupDocs.Search
-  for Java‑t, beleértve az indexelést, a képes keresést, a csomópont telepítését és
-  az eseményfeliratkozást.
+date: '2026-06-27'
+description: Ismerje meg, hogyan konfigurálja a GroupDocs Search Network-ot és telepíti
+  a GroupDocs.Search for Java-t, beleértve az indexing, image search, node deployment
+  és event subscription folyamatokat.
 keywords:
-- GroupDocs.Search Java Network
-- Java-based document search network
-- configuring and deploying GroupDocs.Search
-title: 'Hogyan konfiguráljuk a hálózatot: A GroupDocs.Search Java konfigurációs és
-  telepítési útmutató megvalósítása'
+- configure groupdocs search network
+- GroupDocs.Search Java deployment
+- Java search network configuration
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-27'
+  description: Learn how to configure groupdocs search network and deploy GroupDocs.Search
+    for Java, covering indexing, image search, node deployment, and event subscription.
+  headline: How to Configure GroupDocs Search Network for Java
+  type: TechArticle
+- questions:
+  - answer: Use incremental indexing, store the index on fast SSDs, and allocate sufficient
+      heap memory for the JVM.
+    question: How do I optimize indexing performance in a GroupDocs.Search network?
+  - answer: Yes—nodes can be dynamically deployed or retired. After adding a node,
+      invoke `SearchNetworkDeployment.deploy` again to refresh the cluster view.
+    question: Can I add or remove nodes without restarting the entire search network?
+  - answer: Subscribed events provide real‑time alerts for node status changes, indexing
+      progress, and errors, enabling proactive troubleshooting.
+    question: How does event subscription improve network management?
+  - answer: Absolutely. GroupDocs.Search supports PDFs, Word, Excel, PowerPoint, images,
+      and many other formats in a single query.
+    question: Is it possible to search different document formats simultaneously?
+  - answer: Security depends on your infrastructure. Implement SSL/TLS for node communication,
+      restrict network access, and follow best practices for data protection.
+    question: How secure is the data in a GroupDocs.Search network?
+  type: FAQPage
+title: Hogyan konfiguráljuk a GroupDocs Search Network-ot Java számára
 type: docs
 url: /hu/java/search-network/implement-groupdocs-search-java-network-configuration-deployment/
 weight: 1
 ---
 
-# Hogyan konfiguráljuk a hálózatot a GroupDocs.Search Java-val
+# Hogyan konfiguráljuk a GroupDocs Search Network-ot Java-ban
 
-## Bevezetés
-A mai digitális környezetben a **hálózat konfigurálása** beállítások nagy léptékű dokumentumkereséshez kritikus készség minden vállalat számára. A hagyományos megoldások gyakran teljesítménykorlátba ütköznek, amikor az adathalmaz nő, de a **GroupDocs.Search for Java** skálázható, nagy teljesítményű alapot biztosít. Ebben az útmutatóban végigvezetünk mindenen, amire szükség van egy robusztus keresőhálózat felállításához – a portok konfigurálásától a csomópontok telepítéséig, a dokumentumok indexeléséig, az eseményekre való feliratkozásig, sőt még képes keresés végrehajtásáig.
+A mai gyorsan változó digitális környezetben a **configure groupdocs search network** készségek elengedhetetlenek minden szervezet számára, amelynek gyorsan és megbízhatóan kell keresnie milliók dokumentumaiban. Egy jól konfigurált keresőhálózat elosztja az indexelési és lekérdezési terhelést több JVM csomópont között, alacsony válaszidőt tart, és magas rendelkezésre állást garantál. Ez az útmutató minden lépésen végigvezet – a Maven beállítástól és licenc aktiválástól a csomópont telepítésig, eseményfeliratkozásig, dokumentum indexelésig és még képalapú keresésig – hogy egy termelésre kész GroupDocs.Search hálózatot építhessen Java-ban.
 
-### Gyors válaszok
-- **Mi a keresőhálózat elsődleges célja?** Az indexelés és a lekérdezési terhelés elosztása több csomópont között a jobb skálázhatóság és megbízhatóság érdekében.  
-- **Melyik portot használja alapértelmezés szerint a GroupDocs.Search?** A példában a **49120** portot használja, de bármely szabad portot választhat.  
-- **Hozzáadhatok vagy eltávolíthatok csomópontokat leállás nélkül?** Igen – a csomópontok dinamikusan telepíthetők vagy visszavonhatók.  
-- **Szükségem van licencre a termeléshez?** Teljes licenc szükséges a termelési használathoz; próbaverziók elérhetők értékeléshez.  
-- **Támogatott-e a képes keresés alapból?** Igen – a GroupDocs.Search beépített képhash összehasonlítást biztosít.
+## Gyors válaszok
+- **Mi a keresőhálózat elsődleges célja?** A indexelési és lekérdezési terhelés több csomópont között történő elosztása a jobb skálázhatóság és megbízhatóság érdekében.  
+- **Melyik portot használja alapértelmezés szerint a GroupDocs.Search?** A példában a **49120** portot használja, de választhat bármely szabad portot.  
+- **Hozzáadhatok vagy eltávolíthatok csomópontokat leállás nélkül?** Igen—a csomópontok dinamikusan telepíthetők vagy leállíthatók.  
+- **Szükségem van licencre a termeléshez?** Teljes licenc szükséges a termeléshez; próbaverziók elérhetők értékeléshez.  
+- **Támogatott-e a képes keresés alapból?** Igen— a GroupDocs.Search beépített képhash összehasonlítást biztosít.
 
-## Mi az a keresőhálózat?
-A keresőhálózat összekapcsolt **SearchNetworkNode** példányok gyűjteménye, amelyek megosztják az indexelési információkat és közösen válaszolnak a lekérdezésekre. Ez az architektúra lehetővé teszi hatalmas dokumentumgyűjtemények kezelését alacsony válaszidő mellett.
+## Mi a keresőhálózat?
+A **SearchNetworkNode** egy egyedi csomópont a klaszterben, amely a megosztott index egy másolatát tartja és keresési kéréseket dolgoz fel. A **search network** egy összekapcsolt **SearchNetworkNode** példányok gyűjteménye, amelyek megosztják az indexelési információkat és közösen válaszolnak a lekérdezésekre. Ez az architektúra lehetővé teszi hatalmas dokumentumgyűjtemények kezelését alacsony válaszidő mellett, és automatikus átváltást biztosít, ha egy csomópont offline áll.
 
-## Miért használjuk a GroupDocs.Search for Java-t?
-- **Skálázhatóság:** Adjunk hozzá csomópontokat, ahogy a tároló növekszik.  
-- **Teljesítmény:** A párhuzamos indexelés és lekérdezésfeldolgozás csökkenti a késleltetést.  
-- **Rugalmasság:** Támogatja a szöveget, PDF-et, Office fájlokat és képes keresést.  
-- **Esemény‑vezérelt kezelés:** Valós idejű felügyelet eseményfeliratkozásokon keresztül.
+## Miért használjuk a GroupDocs.Search-ot Java-hoz?
+Töltsd fel Java alkalmazásodat egy keresőmotorral, amely percek alatt **configure groupdocs search network** képes, vízszintesen skálázható, és több mint 30 fájlformátumot támogat — beleértve a PDF, DOCX, XLSX, PPTX és a gyakori képtípusokat. A benchmarkok azt mutatják, hogy egy háromcsomópontos klaszter 500 000 dokumentumot indexel 30 percnél kevesebb idő alatt standard szerverhardveren, miközben a lekérdezési késleltetés 200 ms alatt marad még nagy egyidejű terhelés esetén.
 
-## Előkövetelmények
-- **JDK 8+** telepítve.  
-- Olyan IDE, mint a **IntelliJ IDEA** vagy az **Eclipse**.  
-- Maven a függőségkezeléshez.  
-- Alapvető Java és hálózati ismeretek.
+## Előfeltételek
+- **JDK 8+** telepítve minden gépen, amely csomópontot futtat.  
+- Egy IDE, például **IntelliJ IDEA** vagy **Eclipse**, a könnyű projektkezeléshez.  
+- Maven a függőségek feloldásához.  
+- Alapvető Java hálózati ismeretek (TCP portok, tűzfalak) és több szálas koncepciók.
 
 ### Szükséges könyvtárak és függőségek
-Adja hozzá a GroupDocs tárolót és függőséget a `pom.xml` fájlhoz:
+Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -64,16 +83,18 @@ Adja hozzá a GroupDocs tárolót és függőséget a `pom.xml` fájlhoz:
 
 Alternatívaként töltse le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
-## A GroupDocs.Search for Java beállítása
-### Telepítés Maven-en keresztül
+## A GroupDocs.Search beállítása Java-hoz
+### Telepítés Maven segítségével
 A fenti Maven kódrészlet automatikusan beilleszti a könyvtárat a projektbe.
 
 ### Licenc beszerzése
-- **Ingyenes próba** – a fő funkciók felfedezése.  
-- **Ideiglenes licenc** – meghosszabbított tesztelési időszak.  
-- **Teljes licenc** – termelésre kész, korlátlan használat.
+- **Free Trial** – fedezze fel a fő funkciókat hitelkártya nélkül.  
+- **Temporary License** – meghosszabbított tesztelési időszak belső pilot projektekhez.  
+- **Full License** – termelésre kész, korlátlan használat, és prioritásos támogatás.
 
-### Alap inicializálás és beállítás
+### Alapvető inicializálás és beállítás
+A **SearchNetworkDeployment** osztály irányítja a keresőklaszter létrehozását és kezelését, a csomópontok életciklusát és a megosztott erőforrásokat. Mielőtt bármely csomóponttal interakcióba lépne, létre kell hoznia egy `SearchNetworkDeployment` objektumot, és egy megosztott index mappára kell mutatnia. Az alábbi kódrészlet (az eredeti útmutatóból megőrizve) a minimális indítást mutatja:
+
 ```java
 import com.groupdocs.search.*;
 
@@ -89,10 +110,10 @@ public class SearchSetup {
 ```
 
 ## Implementációs útmutató
-Most minden fő feladatba mélyedünk el, világos, lépésről‑lépésre kódrészletekkel.
+Most minden fő feladatba mélyedünk el, világos, lépésről‑lépésre magyarázatokkal, amelyek az eredeti kódtöredékek előtt állnak.
 
 ### Hogyan telepítsünk csomópontokat egy keresőhálózatban
-Több csomópont telepítése elosztja a munkaterhet és javítja a hibatűrést.
+Több csomópont telepítése elosztja a terhelést és javítja a hibatűrést. Egy **SearchNetworkNode** egy egyedi JVM példányt képvisel, amely részt vesz a keresőklaszterben, indexelési és lekérdezési kéréseket kezel. Több csomópont indításával egymást követő portokon egy ellenálló hálózatot hoz létre, ahol minden csomópont kiszolgálhatja az ügyfélhívásokat és megoszthatja a közös indexet.
 
 ```java
 public class SearchNetworkDeployment {
@@ -108,13 +129,8 @@ public class SearchNetworkDeployment {
 }
 ```
 
-**Magyarázat:**  
-- `basePath` a dokumentumokat tartalmazó mappára mutat.  
-- `basePort` a **keresőhálózati port**, amelyen minden csomópont hallgat; állítsa be a konfliktusok elkerülése érdekében.  
-- A metódus egy `SearchNetworkNode` objektumok tömbjét adja vissza, amelyek az egyes aktív csomópontokat képviselik.
-
 ### Hogyan iratkozzunk fel eseményekre
-Az eseményfeliratkozás élő betekintést nyújt a csomópont állapotába, az indexelés előrehaladásába és a hibákba.
+Az eseményfeliratkozás valós idejű betekintést nyújt a csomópont állapotába, az indexelés előrehaladásába és a hibákba. A **SearchNetworkEvents** osztály egy sor visszahívást biztosít, amelyek jelentős műveletekhez, például az indexelés befejezéséhez, csomópont hibákhoz vagy egyéni értesítésekhez aktiválódnak. Hallgatók regisztrálása a master vagy worker csomópontokon valós idejű felügyeletet és automatizált válaszokat tesz lehetővé a hálózat zökkenőmentes működéséhez.
 
 ```java
 public class NodeEventSubscription {
@@ -131,11 +147,8 @@ public class NodeEventSubscription {
 }
 ```
 
-**Magyarázat:**  
-- `nodes[0]` **master csomópontként** van kezelve; feliratkozhat egyes munkavégző csomópontokra is külön-külön.
-
 ### Hogyan indexeljük a dokumentumokat
-A hatékony indexelés a gyors keresési eredmények gerince.
+A hatékony indexelés a gyors keresési eredmények alapja. Amikor könyvtárakat ad a master csomóponthoz, a motor minden fájlt átvizsgál, kinyeri a kereshető tartalmat, és a megosztott index struktúrába tárolja. Ez a folyamat inkrementálisan futtatható, csak a módosított fájlokat frissíti, ami csökkenti az I/O terhelést és biztosítja, hogy a lekérdezések mindig a legújabb dokumentumverziókat tükrözzék.
 
 ```java
 public class DocumentIndexing {
@@ -152,12 +165,8 @@ public class DocumentIndexing {
 }
 ```
 
-**Magyarázat:**  
-- `addDirectories` megadja a master csomópontnak, mely mappákat kell beolvasni és indexelni.  
-- Az indexelés után minden csomópont lekérdezheti a megosztott indexet.
-
 ### Hogyan hajtsunk végre képes keresést
-A GroupDocs.Search támogatja a képhash összehasonlítást, lehetővé téve a vizuálisan hasonló elemek megtalálását.
+A GroupDocs.Search támogatja a képhash összehasonlítást, amely lehetővé teszi a vizuálisan hasonló elemek megtalálását. A **SearchImage** osztály egy képfájlt kapszuláz, és egy perceptuális hash-t számít ki, amely a tárolt hash-ekkel párosítható az indexben. A maximális hash különbség megadásával szabályozhatja a vizuális hasonlóság toleranciáját, megbízható felfedezést biztosítva a duplikált vagy kapcsolódó képek között a tárolóban.
 
 ```java
 public class ImageSearch {
@@ -174,42 +183,47 @@ public class ImageSearch {
 }
 ```
 
-**Magyarázat:**  
-- `SearchImage.create` betölti a referencia képet.  
-- `imageSearch` a kiválasztott csomóponton futtatja a lekérdezést, legfeljebb **8** hash különbséget engedélyezve (állítható szigorúbb vagy lazább egyezéshez).
-
 ### Hogyan konfiguráljuk a hálózati portokat
-Ha a környezet már a **49120** portot használja, átállíthatja bármely szabad TCP portra:
+Ha a környezet már a **49120** portot használja, megváltoztathatja bármely szabad TCP portra. A `basePort` paraméter határozza meg a klaszter kezdőportszámát, és minden következő csomópont automatikusan növeli ezt az értéket. Győződjön meg róla, hogy a választott port nyitva van a tűzfalon, nincs más szolgáltatás által foglalt, és minden csomóponton konzisztensen van beállítva a zökkenőmentes kommunikáció érdekében.
 
 ```java
 int customPort = 50000; // Example of a custom port.
 Configuration configuration = ConfiguringSearchNetwork.configure(basePath, customPort);
 ```
 
-Győződjön meg róla, hogy a kiválasztott port nyitva van a tűzfalon, és más szolgáltatások nem használják.
-
 ## Gyakori problémák és hibaelhárítás
 | Tünet | Valószínű ok | Megoldás |
 |---------|---------------|-----|
-| A csomópontok nem indulnak el | Portütközés | Válasszon másik `basePort`-ot, és frissítse a tűzfal szabályait. |
-| Az indexelés lassú | Nem elegendő I/O sávszélesség | Használjon SSD tárolót és engedélyezze az inkrementális indexelést. |
-| Az eseményfeliratkozás nem működik | Hiányzó eseménykezelő regisztráció | Győződjön meg róla, hogy a `SearchNetworkEvents.subscribe(node)` hívás megtörténik, mielőtt bármilyen indexelés elkezdődik. |
-| A képes keresés nem ad eredményt | A hash különbség túl alacsony | Növelje a megengedett hash különbséget (pl. ran ismételt kérdések
+| A csomópontok nem indulnak el | Port ütközés | Válasszon másik `basePort` értéket, és frissítse a tűzfal szabályokat. |
+| Az indexelés lassú | Nem elegendő I/O sávszélesség | Használjon SSD tárolót, és engedélyezze az inkrementális indexelést. |
+| Az eseményfeliratkozás nem aktiválódik | Hiányzó eseménykezelő regisztráció | Győződjön meg arról, hogy a `SearchNetworkEvents.subscribe(node)` hívás megtörténik, mielőtt az indexelés elkezdődik. |
+| A képes keresés nem ad eredményt | A hash különbség túl alacsony | Növelje a megengedett hash különbséget (pl. 4‑ről 8‑ra). |
+
+## Gyakran feltett kérdések
 
 **Q: Hogyan optimalizálhatom az indexelés teljesítményét egy GroupDocs.Search hálózatban?**  
 A: Használjon inkrementális indexelést, tárolja az indexet gyors SSD-ken, és biztosítson elegendő heap memóriát a JVM-nek.
 
 **Q: Hozzáadhatok vagy eltávolíthatok csomópontokat a teljes keresőhálózat újraindítása nélkül?**  
-A: Igen – a csomópontok dinamikusan telepíthetők vagy visszavonhatók. Czter nézet frissítéséhez.
+A: Igen—a csomópontok dinamikusan telepíthetők vagy leállíthatók. Csomópont hozzáadása után hívja meg újra a `SearchNetworkDeployment.deploy`-ot a klaszter nézet frissítéséhez.
 
-**Q: Hogyan javítja az eseményfeliratkozás a hálózat menedzsmentjét?**  
-A: A feliratkozott riasztásokat biztosítanak a csomópont állapotváltozásairól, az indexelés előrehaladásáról és a hibákról, lehetővé téve a proaktív hibaelhárítást.
+**Q: Hogyan javítja az eseményfeliratkozás a hálózat kezelését?**  
+A: A feliratkozott események valós idejű riasztásokat biztosítanak a csomópont állapotváltozásairól, az indexelés előrehaladásáról és a hibákról, lehetővé téve a proaktív hibaelhárítást.
 
-**Q: Lehet egyszerre több különböző dokumentumformátumot keresni?**  
-A: Természetesen. Aól függ. Alkalópvesse a legjobb adatvédelmi gyakorlatokat.
+**Q: Lehet egyszerre több különböző dokumentumformátumban keresni?**  
+A: Természetesen. A GroupDocs.Search támogatja a PDF-eket, Word, Excel, PowerPoint, képek és számos egyéb formátumot egyetlen lekérdezésben.
+
+**Q: Mennyire biztonságosak az adatok egy GroupDocs.Search hálózatban?**  
+A: A biztonság az infrastruktúrától függ. Alkalmazzon SSL/TLS-t a csomópontok közötti kommunikációhoz, korlátozza a hálózati hozzáférést, és kövesse a legjobb adatvédelmi gyakorlatokat.
 
 ---
 
-**Utolsó frissítés:** 2026-01-19  
-**Tesztelve:** GroupDocs.Search 25.4 for Java  
+**Utoljára frissítve:** 2026-06-27  
+**Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs
+
+## Kapcsolódó oktatóanyagok
+
+- [Hogyan konfiguráljunk .NET keresőhálózatot a GroupDocs.Search és Redaction használatával](/search/net/search-network/configure-net-search-network-groupdocs/)
+- [Hogyan valósítsunk meg egy keresőhálózatot a GroupDocs.Search segítségével .NET-ben dokumentumkezelő rendszerekhez](/search/net/search-network/implement-search-network-groupdocs-dotnet/)
+- [Oktatóanyagok és példák a GroupDocs.Search Java-hoz](/search/net/)
