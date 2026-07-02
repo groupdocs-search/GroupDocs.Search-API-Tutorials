@@ -13,45 +13,45 @@ url: /th/java/performance-optimization/implement-optimize-groupdocs-search-java/
 weight: 1
 ---
 
-# Perform Text Search with GroupDocs.Search for Java
-## Performance Optimization
-## How to Implement and Optimize a Search Network with GroupDocs.Search for Java
+# ทำการค้นหาข้อความด้วย GroupDocs.Search สำหรับ Java
+## การเพิ่มประสิทธิภาพประสิทธิภาพ
+## วิธีการใช้และเพิ่มประสิทธิภาพเครือข่ายการค้นหาด้วย GroupDocs.Search สำหรับ Java
 
-### Introduction
-ในโลกที่ขับเคลื่อนด้วยข้อมูลในปัจจุบัน ความสามารถในการ **perform text search** อย่างรวดเร็วในคอลเลกชันเอกสารขนาดมหาศาลเป็นข้อได้เปรียบในการแข่งขัน ไม่ว่าคุณจะสร้างฐานความรู้ภายใน, คลังข้อมูลคดีกฎหมาย, หรือแคตาล็อกสินค้าสำหรับอี‑คอมเมิร์ซ เครือข่ายการค้นหาที่ปรับแต่งอย่างดีสามารถปรับปรุงความพึงพอใจของผู้ใช้ได้อย่างมาก ในคู่มือนี้คุณจะได้เรียนรู้วิธี **set up search network**, **create searchable index**, **optimize search performance**, และแม้กระทั่ง **delete documents index** เมื่อจำเป็น—ทั้งหมดโดยใช้ GroupDocs.Search สำหรับ Java.
+### การแนะนำ
+**ดำเนินการค้นหาข้อความอย่างรวดเร็ว** อย่างรวดเร็วในความร้อนเอกสารขนาดที่เป็นจุดสังเกตสร้างฐานความรู้ภายใน, คลังคดีกฎหมาย, หรือแคตาล็อกสินค้าสำหรับอี–คอมเมิร์ซ เครือข่ายการค้นหาที่ปรับแต่งอย่างดีสามารถปรับปรุงประสิทธิภาพได้อย่างละเอียดในคู่มือนี้โดยเฉพาะ **ตั้งค่าเครือข่ายการค้นหา**, **สร้างดัชนีที่ค้นหาได้**, **เพิ่มประสิทธิภาพการค้นหา**, และ **ลบดัชนีเอกสาร** จำเป็นต้องมี—ทั้งหมด GroupDocs.Search Java.
 
-**What You'll Learn**
-- Configuring a search network with GroupDocs.Search  
-- Deploying nodes within the network  
-- Indexing documents efficiently (`index documents java`)  
-- Performing text searches across your network (`perform text search`)  
-- Deleting specific documents from the index (`delete documents index`)  
+**สิ่งที่คุณจะได้เรียนรู้**
+- การกำหนดค่าเครือข่ายการค้นหาด้วย GroupDocs.Search
+- การปรับใช้โหนดภายในเครือข่าย
+- การจัดทำดัชนีเอกสารอย่างมีประสิทธิภาพ (`ดัชนีเอกสาร java`)
+- ทำการค้นหาข้อความในเครือข่ายของคุณ (`ดำเนินการค้นหาข้อความ`)
+- การลบเอกสารเฉพาะออกจากดัชนี (`ลบดัชนีเอกสาร`)
 
-มาดำดิ่งเข้าไปว่าคุณสามารถใช้คุณลักษณะเหล่านี้เพื่อสร้างประสบการณ์การค้นหาที่เพิ่มประสิทธิภาพได้อย่างไร
+มาดำดิ่งอย่างต่อเนื่องว่าต้องใช้ความพยายามอย่างมากในการสร้างประสบการณ์ที่ค้นพบได้อย่างไร
 
-## Quick Answers
-- **What is the main purpose of GroupDocs.Search for Java?** It provides full‑text search across many document formats.  
-- **How do I perform text search in a distributed environment?** Deploy a search network, index documents on a master node, then query any node.  
-- **Can I delete documents from the index without rebuilding it?** Yes, use the Delete API to remove selected files.  
-- **What Java version is required?** JDK 8 or higher.  
-- **Is a license needed for production?** A valid GroupDocs.Search license is required; a free trial is available.
+## คำตอบด่วน
+- **วัตถุประสงค์หลักของ GroupDocs.Search for Java คืออะไร**มีการค้นหาข้อความแบบเต็มในเอกสารหลายรูปแบบ
+- **ฉันจะค้นหาข้อความในสภาพแวดล้อมแบบกระจายได้อย่างไร**ปรับใช้เครือข่ายการค้นหา จัดทำดัชนีเอกสารบนโหนดหลัก จากนั้นสอบถามโหนดใดๆ
+- **ฉันสามารถลบเอกสารออกจากดัชนีโดยไม่ต้องสร้างใหม่ได้หรือไม่**ได้ ใช้ Delete API เพื่อลบไฟล์ที่เลือก
+- **ต้องใช้ Java เวอร์ชันใด**JDK8 หรือสูงกว่า
+- **จำเป็นต้องมีใบอนุญาตสำหรับการผลิตหรือไม่**จำเป็นต้องมีใบอนุญาต GroupDocs.Search ที่ถูกต้อง มีการทดลองใช้ฟรี
 
-## What is “perform text search”?
-การทำการค้นหาข้อความหมายถึงการสอบถามดัชนีข้อความเต็มเพื่อดึงเอกสารที่มีคีย์เวิร์ดหรือวลีที่ระบุ GroupDocs.Search สร้างดัชนีแบบย้อนกลับซึ่งทำให้การค้นหาเหล่านี้เร็วมาก แม้จะมีไฟล์หลายพันไฟล์
+## “ดำเนินการค้นหาข้อความ” คืออะไร?
+ค้นหาข้อความหมายถึงการสอบถามดัชนีข้อความเต็มเพื่อดึงเอกสารที่มีคีย์ข้อมูลหรือตัวอย่าง GroupDocs.Search สร้างดัชนีแบบย้อนกลับกู้คืนข้อมูลเร็วมากเพื่อตรวจสอบไฟล์ไฟล์
 
-## Why set up a search network?
-เครือข่ายการค้นหาจะแบ่งการทำดัชนีและภาระการสอบถามไปยังหลายโหนด ทำให้คุณสามารถ **optimize search performance**, ขยายแนวนอน, และรักษาความพร้อมใช้งานสูง สถาปัตยกรรมนี้เหมาะสำหรับคลังเอกสารระดับองค์กรที่ความหน่วงและอัตราการผ่านข้อมูลเป็นสิ่งสำคัญ
+## ทำไมต้องตั้งเครือข่ายการค้นหา?
+เครือข่ายจะแบ่งการทำดัชนีและเส้นทางการสอบถามไปยังหลาย ๆ กรณีที่ต้องการ **เพิ่มประสิทธิภาพการค้นหา**, ขยายใหญ่, และรักษาความพร้อมใช้งานสูงนี้เหมาะสำหรับคลังเอกสารระดับองค์กรที่ความจดจำและมีความสำคัญผ่านข้อมูลที่สำคัญ
 
-### Prerequisites
-- **Required Libraries:** GroupDocs.Search for Java version 25.4 (latest).  
-- **Environment:** Java JDK 8+, Maven.  
-- **Knowledge:** ความรู้พื้นฐานการเขียนโปรแกรม Java และความคุ้นเคยกับแนวคิดเครือข่าย
+### ข้อกำหนดเบื้องต้น
+- **ไลบรารีที่จำเป็น:** GroupDocs.Search สำหรับ Java เวอร์ชัน 25.4 (ล่าสุด)
+- **สภาพแวดล้อม:** JavaJDK8+, Maven
+- **ความรู้:** ความรู้พื้นฐานเกี่ยวกับ Java และการตรวจสอบแนวคิดเครือข่าย
 
-### Setting Up GroupDocs.Search for Java
-เพื่อเริ่มต้น, ผสานรวม GroupDocs.Search เข้ากับโครงการ Java ของคุณโดยใช้การตั้งค่าดังต่อไปนี้:
+### การตั้งค่า GroupDocs.Search สำหรับ Java
+เพื่อเริ่มต้น, ไดรฟ์รวม GroupDocs.Search ค้นหาโครงการ Java ของคุณเพิ่มเติมเพื่อค้นหา:
 
-#### Maven Setup
-Add the repository and dependency to your `pom.xml` file:
+#### การตั้งค่า Maven
+เพิ่มพื้นที่เก็บข้อมูลและการพึ่งพาไปยังไฟล์ `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -71,14 +71,14 @@ Add the repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-#### Direct Download
-Alternatively, you can [download the latest version directly from GroupDocs](https://releases.groupdocs.com/search/java/).
+#### ดาวน์โหลดโดยตรง
+หรือคุณสามารถ [ดาวน์โหลดเวอร์ชันล่าสุดได้โดยตรงจาก GroupDocs](https://releases.groupdocs.com/search/java/)
 
-#### License Acquisition
-GroupDocs มีการทดลองใช้ฟรี ซึ่งช่วยให้คุณประเมินคุณลักษณะก่อนการซื้อ คุณสามารถรับใบอนุญาตชั่วคราวโดยทำตามขั้นตอนใน [purchase page](https://purchase.groupdocs.com/temporary-license/) ของพวกเขา สิ่งนี้จะเปิดใช้งานฟังก์ชันเต็มในช่วงการทดสอบของคุณ.
+#### การได้มาซึ่งใบอนุญาต
+GroupDocs ตรวจสอบตัวอย่างฟรีที่จะช่วยให้ประเมินได้มากขึ้นก่อนที่จะมีการรับฟังความคิดเห็นเพียงเล็กน้อยโดยขั้นตอนใน [หน้าการซื้อ](https://purchase.groupdocs.com/temporary-license/) เอกสารประกอบจะทำหน้าที่ตรวจสอบการทำงานในช่วงเต็มการทดสอบของคุณ
 
-#### Basic Initialization and Setup
-Initialize GroupDocs.Search in your Java application with:
+#### การเริ่มต้นและการตั้งค่าพื้นฐาน
+เริ่มต้น GroupDocs.Search ในแอปพลิเคชัน Java ของคุณด้วย:
 
 ```java
 import com.groupdocs.search.*;
@@ -91,12 +91,12 @@ class SearchNetworkSetup {
 }
 ```
 
-### Implementation Guide
+### คู่มือการใช้งาน
 
-#### Configuring the Search Network
-**Overview:** สร้าง base path และ port สำหรับเครือข่ายการค้นหาของคุณ เพื่อให้โหนดสื่อสารได้อย่างมีประสิทธิภาพ.
+#### การกำหนดค่าเครือข่ายการค้นหา
+**ภาพรวม:** สร้างเส้นทางฐานและพอร์ตสำหรับเครือข่ายการค้นหาของคุณเพื่อให้สามารถสื่อสารได้อย่างมีประสิทธิภาพ
 
-##### Step 1: Define Base Configuration
+##### ขั้นตอนที่ 1: กำหนดการกำหนดค่าฐาน
 ```java
 import com.groupdocs.search.options.*;
 import com.groupdocs.search.scaling.configuring.*;
@@ -110,11 +110,11 @@ Configuration configuration = ConfiguringSearchNetwork.configure(basePath, baseP
   - `basePath`: เส้นทางไดเรกทอรีสำหรับการดำเนินการเครือข่าย.  
   - `basePort`: หมายเลขพอร์ตที่ใช้โดยเครือข่ายการค้นหา.
 
-##### Step 2: Troubleshooting
-ตรวจสอบให้แน่ใจว่าพอร์ตที่ระบุไม่ได้ถูกบล็อกโดยการตั้งค่าไฟร์วอลล์หรือใช้งานโดยแอปพลิเคชันอื่น ปรับเปลี่ยนตามความจำเป็นเพื่อหลีกเลี่ยงความขัดแย้ง.
+##### ขั้นตอนที่ 2: การแก้ไขปัญหา
+ตรวจสอบพอร์ตพอร์ตไม่ได้ถูกบล็อกโดยไฟร์วอลล์หรือใช้งานโดยแอปพลิเคชันอื่น ๆ ตามการรวบรวมข้อมูลต่างๆ
 
-#### Deploying Search Network Nodes
-**Overview:** Using your configuration, deploy nodes across your network for distributed indexing and searching.
+#### การปรับใช้โหนดเครือข่ายการค้นหา
+**ภาพรวม:** ใช้การกำหนดค่าของคุณ ทำให้โหนดใช้งานได้ทั่วทั้งเครือข่ายของคุณสำหรับการจัดทำดัชนีและการค้นหาแบบกระจาย
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -130,8 +130,8 @@ SearchNetworkNode[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, c
 - **Key Configuration Options:**  
   - **Base Path & Port:** ค่าต่าง ๆ นี้ควรตรงกับที่ใช้ในการกำหนดค่าเริ่มต้นเพื่อความสอดคล้อง.
 
-#### Indexing Documents (`create searchable index`)
-**Overview:** Add documents to the search index efficiently using a master node.
+#### การสร้างดัชนีเอกสาร (`สร้างดัชนีที่ค้นหาได้`)
+**ภาพรวม:** เพิ่มเอกสารลงในดัชนีการค้นหาอย่างมีประสิทธิภาพโดยใช้โหนดหลัก
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -145,11 +145,11 @@ IndexingDocuments.addDirectories(masterNode, documentsPath);
   - `masterNode`: โหนดหลักที่จัดการการทำดัชนีเอกสาร.  
   - `documentsPath`: เส้นทางไปยังไดเรกทอรีที่มีเอกสาร.
 
-##### Troubleshooting Tips
-ตรวจสอบว่าเส้นทางเอกสารของคุณถูกต้องและเข้าถึงได้ ตรวจสอบสิทธิ์ให้อนุญาตการอ่านจากไดเรกทอรีเหล่านี้.
+##### เคล็ดลับการแก้ปัญหา
+คำสั่งเส้นทางเอกสารของคุณถูกต้องและเข้าถึงได้สิทธิ์การควบคุมเพื่อให้สามารถตรวจสอบได้จากทั้งหมดนี้
 
-#### Searching Text in Network (`perform text search`)
-**Overview:** Perform comprehensive text searches across your indexed network.
+#### ค้นหาข้อความในเครือข่าย (`ดำเนินการค้นหาข้อความ`)
+**ภาพรวม:** ทำการค้นหาข้อความที่ครอบคลุมทั่วทั้งเครือข่ายที่จัดทำดัชนีไว้
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -163,8 +163,8 @@ TextSearchInNetwork.searchAll(masterNode, query, false);
   - `query`: ข้อความที่คุณกำลังค้นหา.  
   - `masterNode`: โหนดที่ทำการค้นหา.
 
-#### Deleting Documents from Index (`delete documents index`)
-**Overview:** Remove specific documents from your index using their file paths.
+#### การลบเอกสารออกจากดัชนี (`delete documents index`)
+**ภาพรวม:** ลบเอกสารเฉพาะออกจากดัชนีของคุณโดยใช้เส้นทางไฟล์
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -187,44 +187,44 @@ void deleteDocuments(SearchNetworkNode node, String... filePaths) {
   - `node`: โหนดเป้าหมายสำหรับการดำเนินการลบ.  
   - `filePaths`: เส้นทางของเอกสารที่จะลบออกจากดัชนี.
 
-##### Troubleshooting
-ตรวจสอบว่าเส้นทางไฟล์แม่นยำและไฟล์มีอยู่ในไดเรกทอรีของคุณ หากปัญหายังคงอยู่ ให้ตรวจสอบสิทธิ์เครือข่ายและการเชื่อมต่อ.
+##### การแก้ไขปัญหา
+ให้คุณทราบเส้นทางการเดินทางและไฟล์ที่มีอยู่ในบัญชีของคุณหากปัญหานั้นไม่ได้ตรวจสอบสิทธิ์เครือข่ายและการตัดสินใจ
 
-### Practical Applications
-1. **Enterprise Document Management:** ปรับปรุงการดึงข้อมูลความรู้ภายใน.  
-2. **Legal Case Analysis:** ค้นหาไฟล์คดีที่เกี่ยวข้องอย่างรวดเร็วในหลายคลังข้อมูล.  
-3. **E‑commerce Platforms:** เพิ่มความเร็วการค้นหาผลิตภัณฑ์โดยทำดัชนีคำอธิบายและรีวิว.  
-4. **Academic Research:** ค้นหาห้องสมุดดิจิทัลขนาดใหญ่ของเอกสารและวิทยานิพนธ์อย่างมีประสิทธิภาพ.  
-5. **Customer Support Systems:** ลดเวลาตอบสนองโดยให้เจ้าหน้าที่ค้นหาตั๋วเก่าได้ทันที.
+### การใช้งานจริง
+1. **การจัดการเอกสารองค์กร:** ปรับปรุงการดึงข้อมูลความรู้ภายใน.
+2. **การวิเคราะห์กรณีทางกฎหมาย:** ค้นหาไฟล์คดีอย่างรวดเร็วในคลังข้อมูล
+3. **แพลตฟอร์มอีคอมเมิร์ซ:** เพิ่มความเร็วของผลิตภัณฑ์โดยทำดัชนีคำอธิบายและรีวิว
+4. **ผลงานวิจัยทางวิชาการ:** ค้นหาห้องสมุดดิจิทัลขนาดใหญ่ของเอกสารและวิทยานิพนธ์อย่างมีประสิทธิภาพ
+5. **ระบบสนับสนุนลูกค้า:** ลดเวลาเพื่อให้สามารถค้นหาตั๋วเก่าได้ทันที
 
-### Performance Considerations
-- **Optimize Indexing Speed:** เพิ่มเอกสารใหม่อย่างต่อเนื่องในช่วงเวลาที่ไม่มีการใช้งานหนักเพื่อรักษาความหน่วงต่ำ.  
-- **Resource Usage Guidelines:** ตรวจสอบการใช้ CPU และหน่วยความจำ โดยเฉพาะเมื่อขยายจำนวนโหนด.  
-- **Java Memory Management:** ปรับตั้งค่า heap ของ JVM ตามภาระงานของคุณ (เช่น `-Xmx2g` สำหรับดัชนีขนาดกลาง).
+### ข้อควรพิจารณาด้านประสิทธิภาพ
+- **เพิ่มประสิทธิภาพความเร็วการจัดทำดัชนี:** เพิ่มเอกสารใหม่อย่างต่อเนื่องซึ่งถือเป็นการใช้งานหนักที่ความต่ำ
+- **แนวทางการใช้ทรัพยากร:** การตัดการใช้ CPU และการบีบอัดเมื่อมีการขยายจำนวนคอนโซล
+- **Java Memory Management:**โบสถ์ตั้งค่าฮีปของ JVM ตามเส้นทางงานของคุณ (เช่น `-Xmx2g` สำหรับดัชนีช่องทางการติดต่อ)
 
-### Conclusion
-โดยทำตามคู่มือนี้คุณได้เรียนรู้วิธี **set up search network**, **create searchable index**, **perform text search**, และ **delete documents index** ด้วยการใช้ GroupDocs.Search สำหรับ Java ความสามารถเหล่านี้ทำให้การดึงเอกสารที่เร็วและเชื่อถือได้ในสภาพแวดล้อมแบบกระจาย
+### บทสรุป
+โดยทำตามคู่มือนี้อย่างเป็นทางการ **ตั้งค่าเครือข่ายการค้นหา**, **สร้างดัชนีที่ค้นหาได้**, **ดำเนินการค้นหาข้อความ**, และ **ลบดัชนีเอกสาร** ด้วยการใช้ GroupDocs.ค้นหาสำหรับ Java ความสามารถที่ทำให้การดึงเอกสารที่เร็วและเชื่อถือได้สามารถตรวจสอบแบบกระจาย
 
-**Next Steps**
-- ทดลองใช้การกำหนดค่าโหนดต่าง ๆ เพื่อค้นหาความสมดุลที่เหมาะสมที่สุดสำหรับภาระงานของคุณ.  
-- ศึกษาเพิ่มเติมเกี่ยวกับตัวเลือกการทำดัชนีขั้นสูง เช่น ตัววิเคราะห์แบบกำหนดเองและการปรับความเกี่ยวข้อง.  
-- สำรวจการบูรณาการกับผลิตภัณฑ์ GroupDocs อื่น ๆ เพื่อการประมวลผลเอกสารแบบครบวงจร.
+**ขั้นตอนต่อไป**
+- การแสดงความเห็นต่างในลักษณะที่แตกต่างกันอย่างเห็นได้ชัดที่สุดสำหรับการพิจารณางานของคุณ
+- ศึกษาเพิ่มเติมเกี่ยวกับการค้นคว้าข้อมูลเชิงลึก เช่น วิเคราะห์และการอ้างอิงความเกี่ยวข้อง
+- การที่เราจะรู้สึกดีกับผลิตภัณฑ์ GroupDocs อื่น ๆ เพื่อสุขภาพเอกสารแบบครบวงจร
 
-## Frequently Asked Questions
+## คำถามที่พบบ่อย
 
-**Q: What is the primary use case for GroupDocs.Search for Java?**  
-A: มันให้การค้นหาข้อความเต็มรูปแบบในหลายรูปแบบเอกสาร ทำให้คุณสามารถ **perform text search** ในคลังข้อมูลขนาดใหญ่ได้.
+**ถาม: กรณีการใช้งานหลักของ GroupDocs.Search สำหรับ Java คืออะไร**
+ตอบ: สามารถให้ค้นหาข้อความในรูปแบบต่างๆ ของเอกสารได้ **ดำเนินการค้นหาข้อความ** ในคลังข้อมูลขนาดใหญ่ได้
 
-**Q: How can I improve search speed in a large network?**  
-A: ปรับใช้โหนดเพิ่มเติม, ปรับจูน heap ของ JVM, และกำหนดเวลาการทำดัชนีในช่วงที่มีการใช้งานน้อยเพื่อ **optimize search performance**.
+**ถาม: ฉันจะปรับปรุงความเร็วในการค้นหาในเครือข่ายขนาดใหญ่ได้อย่างไร**
+ตอบ: หากต้องการข้อมูลเพิ่มเติม, ทัวร์จูนฮีปของ JVM, และการตรวจสอบดัชนีในช่วงที่มีการใช้งานน้อยเพื่อ **เพิ่มประสิทธิภาพการค้นหา**.
 
-**Q: Is it possible to delete a single document without re‑indexing the whole collection?**  
-A: ได้, ใช้ API **delete documents index** ตามตัวอย่างโค้ดเพื่อเอาไฟล์เฉพาะออก.
+**ถาม: เป็นไปได้ไหมที่จะลบเอกสารเพียงฉบับเดียวโดยไม่สร้างดัชนีใหม่ทั้งคอลเลกชัน**
+ตอบ: ได้แล้ว ใช้ API **ลบดัชนีเอกสาร** ตามตัวอย่างโค้ดเพื่อเอาไฟล์เฉพาะออก
 
-**Q: Do I need a license for development?**  
-A: ใบอนุญาตทดลองใช้ฟรีเพียงพอสำหรับการทดสอบ; ต้องมีใบอนุญาตเชิงพาณิชย์สำหรับการใช้งานในสภาพแวดล้อมการผลิต.
+**ถาม: ฉันต้องมีใบอนุญาตเพื่อการพัฒนาหรือไม่**
+ตอบ: ทั้งหมดนี้เป็นตัวอย่างฟรีสำหรับการทดสอบ; จะต้องมีการดำเนินการอีกครั้งสำหรับการผลิต
 
-**Q: Can I index PDFs, Word files, and emails together?**  
+**ถาม: ฉันสามารถจัดทำดัชนี PDF, ไฟล์ Word และอีเมลร่วมกันได้หรือไม่**  
 A: แน่นอน—GroupDocs.Search รองรับรูปแบบไฟล์หลากหลายตั้งแต่แรก.
 
 ---

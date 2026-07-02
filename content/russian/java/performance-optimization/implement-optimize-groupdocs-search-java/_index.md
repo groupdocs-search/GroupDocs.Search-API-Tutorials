@@ -13,46 +13,48 @@ url: /ru/java/performance-optimization/implement-optimize-groupdocs-search-java/
 weight: 1
 ---
 
-# Perform Text Search with GroupDocs.Search for Java
-## Performance Optimization
+# Выполните текстовый поиск с помощью GroupDocs.Search для Java
+## Оптимизация производительности
 
-## How to Implement and Optimize a Search Network with GroupDocs.Search for Java
+## Как реализовать и оптимизировать поисковую сеть с помощью GroupDocs.Search для Java
 
-### Introduction
-В современном мире, ориентированном на данные, возможность **perform text search** быстро по огромным коллекциям документов является конкурентным преимуществом. Независимо от того, создаёте ли вы внутреннюю базу знаний, репозиторий юридических дел или каталог товаров для e‑commerce, правильно настроенная поисковая сеть может существенно повысить удовлетворённость пользователей. В этом руководстве вы узнаете, как **set up search network**, **create searchable index**, **optimize search performance**, а также **delete documents index** при необходимости — используя GroupDocs.Search для Java.
+### Введение
+В настоящее время, ориентированный на данные, возможность **выполнять текстовый поиск** быстро по настольным коллекциям документов является конкурентным преимуществом. Независимо от того, создаете ли вы внутренние базы знаний, храните юридические товары или каталог товаров для электронной коммерции, правильно настроенная поисковая сеть может повысить удовлетворенность пользователей. В этом руководстве вы узнаете, как **настроить поисковую сеть**, **создать индекс с возможностью поиска**, **оптимизировать производительность поиска**, а также **удалить индекс документов** при необходимости — с помощью GroupDocs.Search для Java.
 
-**What You'll Learn**
-- Настройка поисковой сети с GroupDocs.Search  
-- Развёртывание узлов в сети  
-- Эффективное индексирование документов (`index documents java`)  
-- Выполнение текстовых поисков по вашей сети (`perform text search`)  
-- Удаление конкретных документов из индекса (`delete documents index`)  
+**Что вы узнаете**
+- Настройка поисковой сети с GroupDocs.Search
+- Развёртывание узлов в сети.
+- Эффективное индексирование документов («индексные документы Java»)
+- Выполнение текстовых поисковиков в вашей сети («выполнить текстовый поиск»)
+- Удаление конкретных документов из индекса («удалить индекс документов»)
 
-Давайте погрузимся в то, как вы можете использовать эти возможности для создания оптимизированного поискового опыта.
+Давайте преобразуемся в то, как вы можете использовать эти возможности для создания поискового опыта.
 
-## Quick Answers
-- **What is the main purpose of GroupDocs.Search for Java?** It provides full‑text search across many document formats.  
-- **How do I perform text search in a distributed environment?** Deploy a search network, index documents on a master node, then query any node.  
-- **Can I delete documents from the index without rebuilding it?** Yes, use the Delete API to remove selected files.  
-- **What Java version is required?** JDK 8 or higher.  
-- **Is a license needed for production?** A valid GroupDocs.Search license is required; a free trial is available.
+## Быстрые ответы
+- **Какова основная цель GroupDocs.Search для Java?**Он обеспечивает полнотекстовый поиск во многих форматах документов.
+- **Как выполнить текстовый поиск в распределенной среде?**Разверните поисковую сеть, проиндексируйте документы на главном узле, а затем запросите любой узел.
+- **Могу ли я удалять документы из индекса, не перестраивая его?**Да, используйте API удаления для удаления выбранных файлов.
+- **Какая версия Java требуется?**JDK8 или выше.
+— **Требуется ли лицензия для использования в производственной среде?** Требуется действующая лицензия GroupDocs.Search; доступна бесплатная пробная версия.
 
-## What is “perform text search”?
-Performing text search means querying a full‑text index to retrieve documents that contain the specified keywords or phrases. GroupDocs.Search builds an inverted index that makes these look‑ups extremely fast, even across thousands of files.
+## Что такое «выполнение текстового поиска»?
+Выполнение текстового поиска означает запрос к полнотекстовому индексу для извлечения документов, содержащих указанные ключевые слова или фразы. GroupDocs.Search создает инвертированный индекс, что делает эти поиски чрезвычайно быстрыми, даже при работе с тысячами файлов.
 
-## Why set up a search network?
-A search network distributes indexing and query workloads across multiple nodes, allowing you to **optimize search performance**, scale horizontally, and maintain high availability. This architecture is ideal for enterprise‑level document repositories where latency and throughput matter.
+## Зачем создавать поисковую сеть?
+Поисковая сеть распределяет нагрузку индексирования и запросов между несколькими узлами, что позволяет **оптимизировать производительность поиска**, масштабироваться горизонтально и поддерживать высокую доступность. Эта архитектура идеально подходит для корпоративных хранилищ документов, где важны задержка и пропускная способность.
 
-### Prerequisites
-- **Required Libraries:** GroupDocs.Search for Java version 25.4 (latest).  
-- **Environment:** Java JDK 8+, Maven.  
-- **Knowledge:** Basic Java programming and familiarity with network concepts.
+### Предварительные условия
+- **Необходимые библиотеки:** GroupDocs.Search для Java версии 25.4 (последняя).
 
-### Setting Up GroupDocs.Search for Java
-To begin, integrate GroupDocs.Search into your Java project using the following setup:
+- **Среда:** JavaJDK8+, Maven.
 
-#### Maven Setup
-Add the repository and dependency to your `pom.xml` file:
+- **Знания:** Базовые знания программирования на Java и знакомство с сетевыми концепциями.
+
+### Настройка GroupDocs.Search для Java
+Для начала интегрируйте GroupDocs.Search в свой Java-проект, используя следующую настройку:
+
+#### Настройка Maven
+Добавьте репозиторий и зависимость в файл `pom.xml`:
 
 ```xml
 <repositories>
@@ -72,14 +74,14 @@ Add the repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-#### Direct Download
-Alternatively, you can [download the latest version directly from GroupDocs](https://releases.groupdocs.com/search/java/).
+#### Прямая загрузка
+В качестве альтернативы вы можете [скачать последнюю версию напрямую с GroupDocs](https://releases.groupdocs.com/search/java/).
 
-#### License Acquisition
-GroupDocs offers a free trial, which allows you to evaluate its features before purchase. You can obtain a temporary license by following the steps on their [purchase page](https://purchase.groupdocs.com/temporary-license/). This will enable full functionality during your testing phase.
+#### Получение лицензии
+GroupDocs предлагает бесплатную пробную версию, которая позволяет оценить ее возможности перед покупкой. Вы можете получить временную лицензию, следуя инструкциям на их [странице покупки](https://purchase.groupdocs.com/temporary-license/). Это позволит использовать все функции на этапе тестирования.
 
-#### Basic Initialization and Setup
-Initialize GroupDocs.Search in your Java application with:
+#### Базовая инициализация и настройка
+Инициализируйте GroupDocs.Search в вашем Java-приложении с помощью:
 
 ```java
 import com.groupdocs.search.*;
@@ -92,12 +94,12 @@ class SearchNetworkSetup {
 }
 ```
 
-### Implementation Guide
+### Руководство по внедрению
 
-#### Configuring the Search Network
-**Overview:** Establish a base path and port for your search network, allowing nodes to communicate effectively.
+#### Настройка поисковой сети
+**Обзор:** Установите базовый путь и порт для вашей поисковой сети, чтобы узлы могли эффективно взаимодействовать.
 
-##### Step 1: Define Base Configuration
+##### Шаг 1: Определение базовой конфигурации
 
 ```java
 import com.groupdocs.search.options.*;
@@ -108,15 +110,17 @@ int basePort = 49104; // Change if necessary.
 Configuration configuration = ConfiguringSearchNetwork.configure(basePath, basePort);
 ```
 
-- **Parameters:**  
-  - `basePath`: Directory path for network operations.  
-  - `basePort`: Port number used by the search network.
+- **Параметры:**
 
-##### Step 2: Troubleshooting
-Ensure that your specified port is not blocked by firewall settings or being used by another application. Adjust as necessary to avoid conflicts.
+- `basePath`: Путь к каталогу для сетевых операций.
 
-#### Deploying Search Network Nodes
-**Overview:** Using your configuration, deploy nodes across your network for distributed indexing and searching.
+- `basePort`: Номер порта, используемого поисковой сетью.
+
+##### Шаг 2: Устранение неполадок
+Убедитесь, что указанный вами порт не заблокирован настройками брандмауэра и не используется другим приложением. При необходимости внесите корректировки, чтобы избежать конфликтов.
+
+#### Развертывание узлов поисковой сети
+**Обзор:** Используя вашу конфигурацию, разверните узлы в вашей сети для распределенного индексирования и поиска.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -129,11 +133,12 @@ SearchNetworkNode[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, c
 // Nodes are now deployed and ready for further operations.
 ```
 
-- **Key Configuration Options:**  
-  - **Base Path & Port:** These values should match those used in your initial configuration to ensure consistency.
+- **Основные параметры конфигурации:**
 
-#### Indexing Documents (`create searchable index`)
-**Overview:** Add documents to the search index efficiently using a master node.
+- **Базовый путь и порт:** Эти значения должны совпадать с теми, которые использовались в вашей первоначальной конфигурации для обеспечения согласованности.
+
+#### Индексирование документов (`создать индекс для поиска`)
+**Обзор:** Эффективное добавление документов в поисковый индекс с помощью главного узла.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -143,15 +148,15 @@ SearchNetworkNode masterNode = nodes[0];
 IndexingDocuments.addDirectories(masterNode, documentsPath);
 ```
 
-- **Purpose:**  
-  - `masterNode`: The primary node managing document indexing.  
-  - `documentsPath`: Path to the directory containing documents.
+- **Назначение:**
+- `masterNode`: Основной узел, управляющий индексированием документов.
+- `documentsPath`: Путь к каталогу, содержащему документы.
 
-##### Troubleshooting Tips
-Verify that your document paths are correct and accessible. Ensure permissions allow reading from these directories.
+##### Советы по устранению неполадок
+Убедитесь, что пути к документам указаны правильно и доступны. Убедитесь, что права доступа позволяют читать из этих каталогов.
 
-#### Searching Text in Network (`perform text search`)
-**Overview:** Perform comprehensive text searches across your indexed network.
+#### Поиск текста в сети (`выполнить текстовый поиск`)
+**Обзор:** Выполняйте комплексный текстовый поиск по индексированной сети.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -161,12 +166,13 @@ SearchNetworkNode masterNode = nodes[0];
 TextSearchInNetwork.searchAll(masterNode, query, false);
 ```
 
-- **Parameters:**  
-  - `query`: The text you're searching for.  
-  - `masterNode`: Node conducting the search.
+- **Параметры:**
 
-#### Deleting Documents from Index (`delete documents index`)
-**Overview:** Remove specific documents from your index using their file paths.
+- `query`: Текст, который вы ищете.
+- `masterNode`: Узел, выполняющий поиск.
+
+#### Удаление документов из индекса (`удалить документы из индекса`)
+**Обзор:** Удаляйте определенные документы из индекса, используя их пути к файлам.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -185,52 +191,55 @@ void deleteDocuments(SearchNetworkNode node, String... filePaths) {
 }
 ```
 
-- **Method Purpose:**  
-  - `node`: The target node for deletion operations.  
-  - `filePaths`: Paths of documents to be removed from the index.
+- **Назначение метода:**
 
-##### Troubleshooting
-Ensure file paths are precise and that files exist in your directory. If issues persist, check network permissions and connectivity.
+- `node`: Целевой узел для операций удаления.
+- `filePaths`: Пути к документам, которые необходимо удалить из индекса.
 
-### Practical Applications
-1. **Enterprise Document Management:** Streamline internal knowledge retrieval.  
-2. **Legal Case Analysis:** Quickly locate relevant case files across multiple repositories.  
-3. **E‑commerce Platforms:** Boost product search speed by indexing descriptions and reviews.  
-4. **Academic Research:** Efficiently search large digital libraries of papers and theses.  
-5. **Customer Support Systems:** Reduce response time by enabling agents to search past tickets instantly.
+##### Устранение неполадок
+Убедитесь, что пути к файлам указаны точно и что файлы существуют в вашем каталоге. Если проблемы сохраняются, проверьте сетевые разрешения и подключение.
 
-### Performance Considerations
-- **Optimize Indexing Speed:** Incrementally add new documents during off‑peak hours to keep latency low.  
-- **Resource Usage Guidelines:** Monitor CPU and memory, especially when scaling the number of nodes.  
-- **Java Memory Management:** Tune JVM heap settings based on your workload (e.g., `-Xmx2g` for medium‑size indexes).
+### Практическое применение
+1. **Управление документами предприятия:** Оптимизация внутреннего поиска знаний.
+2. **Анализ юридических дел:** Быстрый поиск соответствующих файлов дел в нескольких хранилищах.
+3. **Платформы электронной коммерции:** Повышение скорости поиска товаров за счет индексирования описаний и отзывов.
+4. **Академические исследования:** Эффективный поиск в больших цифровых библиотеках статей и диссертаций.
+5. **Системы поддержки клиентов:** Сокращение времени ответа за счет возможности мгновенного поиска по прошлым заявкам.
 
-### Conclusion
-By following this guide you’ve learned how to **set up search network**, **create searchable index**, **perform text search**, and **delete documents index** using GroupDocs.Search for Java. These capabilities enable fast, reliable document retrieval across distributed environments.
+### Рекомендации по производительности
+- **Оптимизация скорости индексирования:** Добавляйте новые документы постепенно в непиковые часы, чтобы минимизировать задержку.
+- **Рекомендации по использованию ресурсов:** Отслеживайте загрузку ЦП и памяти, особенно при увеличении количества узлов.
+- **Управление памятью Java:** Настройте параметры кучи JVM в зависимости от вашей рабочей нагрузки (например, `-Xmx2g` для индексов среднего размера).
 
-**Next Steps**
-- Experiment with different node configurations to find the optimal balance for your workload.  
-- Dive deeper into advanced indexing options such as custom analyzers and relevance tuning.  
-- Explore integration with other GroupDocs products for end‑to‑end document processing.
+### Заключение
+Следуя этому руководству, вы научились **настраивать поисковую сеть**, **создавать индекс для поиска**, **выполнять текстовый поиск** и **удалять индекс документов** с помощью GroupDocs.Search для Java. Эти возможности обеспечивают быстрый и надежный поиск документов в распределенных средах.
 
-## Frequently Asked Questions
+**Дальнейшие шаги**
+- Экспериментируйте с различными конфигурациями узлов, чтобы найти оптимальный баланс для вашей рабочей нагрузки.
 
-**Q: What is the primary use case for GroupDocs.Search for Java?**  
-A: It provides full‑text search across many document formats, allowing you to **perform text search** in large repositories.
+- Подробнее изучите расширенные параметры индексирования, такие как пользовательские анализаторы и настройка релевантности.
 
-**Q: How can I improve search speed in a large network?**  
-A: Deploy additional nodes, tune the JVM heap, and schedule indexing during low‑traffic periods to **optimize search performance**.
+— Изучите возможности интеграции с другими продуктами GroupDocs для комплексной обработки документов.
 
-**Q: Is it possible to delete a single document without re‑indexing the whole collection?**  
-A: Yes, use the **delete documents index** API as shown in the code example to remove specific files.
+## Часто задаваемые вопросы
 
-**Q: Do I need a license for development?**  
-A: A free trial license is sufficient for testing; a commercial license is required for production deployments.
+**В: Каково основное назначение GroupDocs.Search для Java?**
+О: Он обеспечивает полнотекстовый поиск по множеству форматов документов, позволяя **выполнять текстовый поиск** в больших хранилищах.
 
-**Q: Can I index PDFs, Word files, and emails together?**  
-A: Absolutely—GroupDocs.Search supports a wide range of formats out of the box.
+**В: Как можно повысить скорость поиска в большой сети?**
+О: Разверните дополнительные узлы, настройте кучу JVM и запланируйте индексирование на периоды низкой нагрузки, чтобы **оптимизировать производительность поиска**.
 
----
+**В: Можно ли удалить один документ без переиндексации всей коллекции?**
+О: Да, используйте API **удаления документов из индекса**, как показано в примере кода, для удаления конкретных файлов.
 
-**Last Updated:** 2026-01-16  
-**Tested With:** GroupDocs.Search for Java 25.4  
-**Author:** GroupDocs
+**В: Нужна ли лицензия для разработки?**
+О: Для тестирования достаточно бесплатной пробной лицензии; для развертывания в производственной среде требуется коммерческая лицензия.
+
+**В: Можно ли индексировать PDF-файлы, файлы Word и электронные письма одновременно?**
+О: Безусловно — GroupDocs.Search поддерживает широкий спектр форматов «из коробки».
+
+--
+
+**Последнее обновление:** 16.01.2026
+**Протестировано с:** GroupDocs.Search для Java 25.4
+**Автор:** GroupDocs

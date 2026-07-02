@@ -11,34 +11,35 @@ url: /th/java/search-network/configuring-groupdocs-search-java-optimize-networks
 weight: 1
 ---
 
-# Configure GroupDocs.Search Network in Java – Boost Search
+# กำหนดค่า GroupDocs.Search Network ใน Java - Boost Search
 
-ในแอปพลิเคชันที่ขับเคลื่อนด้วยข้อมูลในปัจจุบัน **configure groupdocs search network** เป็นขั้นตอนสำคัญในการให้ผลลัพธ์ที่เร็วและแม่นยำในคอลเลกชันเอกสารขนาดใหญ่ ไม่ว่าคุณจะสร้างพอร์ทัลการค้นหาแบบองค์กรทั้งหมดหรือขยายโซลูชันที่มีอยู่แล้ว การตั้งค่า GroupDocs.Search network อย่างเหมาะสมจะช่วยให้คุณสเกลแนวนอน เพิ่มการสนับสนุนคำพ้องความหมาย และรักษาความหน่วงเวลาให้ต่ำ ในบทเรียนนี้คุณจะได้เรียนรู้วิธีตั้งค่า ปรับใช้ และปรับจูน GroupDocs.Search network ด้วย Java พร้อมเคล็ดลับการเพิ่มคำพ้องความหมายลงในดัชนีและการจัดการวงจรชีวิตของโหนด
+แอปพลิเคชันที่อุดมด้วยข้อมูลในปัจจุบัน **กำหนดค่าเครือข่ายการค้นหา groupdocs** เป็นขั้นตอนสำคัญในการให้ผลลัพธ์ที่เร็วและนำไปสู่ประสิทธิภาพในเอกสารขนาดใหญ่สำหรับสร้างระบบแบบทั้งหมดหรือขยายความเข้มข้นของพลังงานแล้วนั้น GroupDocs.Search network มอบสเกลองค์กรที่เพิ่มคำร้องให้และรักษาความสดใหม่ให้ต่ำในซีรีย์นี้ตรวจสอบและปรับจูน GroupDocs.Search network ด้วย Java เคล็ดลับเพิ่มเติมคำพ้องลงไปที่ดัชนีและการจัดการระบบใน
 
-## Quick Answers
-- **What is the primary benefit of configuring a GroupDocs.Search network?** It enables distributed indexing and querying, improving performance and scalability.  
-- **Do I need a license to run the examples?** A free trial works for development; a commercial license is required for production.  
-- **Can synonyms be added without rebuilding the index?** Yes—use the synonym dictionary at runtime to **add synonyms to index**.  
-- **How many nodes can I deploy?** You can deploy as many nodes as your infrastructure allows; each node runs on its own port.  
+## คำตอบด่วน
+- **ประโยชน์หลักของการกำหนดค่าเครือข่าย GroupDocs.Search คืออะไร**ช่วยให้สามารถจัดทำดัชนีและการสืบค้นแบบกระจาย ปรับปรุงประสิทธิภาพและความสามารถในการปรับขนาด
+- **ฉันจำเป็นต้องมีใบอนุญาตเพื่อเรียกใช้ตัวอย่างหรือไม่**การทดลองใช้ฟรีใช้งานได้เพื่อการพัฒนา ต้องมีใบอนุญาตเชิงพาณิชย์สำหรับการผลิต
+- **สามารถเพิ่มคำพ้องความหมายโดยไม่ต้องสร้างดัชนีใหม่ได้หรือไม่**ใช่—ใช้พจนานุกรมคำพ้องความหมายในขณะรันไทม์เพื่อ **เพิ่มคำพ้องความหมายในดัชนี**
+- **ฉันสามารถปรับใช้โหนดได้กี่โหนด?** คุณสามารถปรับใช้โหนดได้มากเท่าที่โครงสร้างพื้นฐานของคุณอนุญาต โดยแต่ละโหนดจะทำงานบนพอร์ตของตัวเอง
 
-## What is configuring a GroupDocs.Search network?
-Configuring a GroupDocs.Search network means defining the folder structure, ports, and node settings that let multiple JVM instances collaborate on indexing and searching. This setup creates a master‑node that coordinates workers (shards) and ensures queries are executed across the entire dataset.
+## การกำหนดค่าเครือข่าย GroupDocs.Search คืออะไร?
 
-## Why configure a GroupDocs.Search network?
-- **Scalability** – Distribute indexing load across several machines.  
-- **Reliability** – Nodes can be added or removed without downtime.  
-- **Search relevance** – Add synonyms to index for richer results.  
-- **Performance** – Parallel query execution reduces response time.
+การกำหนดค่าเครือข่าย GroupDocs.Search หมายถึงการกำหนดโครงสร้างโฟลเดอร์ พอร์ต และการตั้งค่าโหนดที่ช่วยให้ JVM หลายอินสแตนซ์ทำงานร่วมกันในการจัดทำดัชนีและการค้นหา การตั้งค่านี้จะสร้างโหนดหลักที่ประสานงานกับโหนดรอง (ชาร์ด) และรับประกันว่าการค้นหาจะถูกดำเนินการทั่วทั้งชุดข้อมูล
 
-## Prerequisites
-- Java Development Kit (JDK) 8 or newer  
-- Maven for building the project  
-- Basic familiarity with Java syntax  
-- Access to the GroupDocs.Search for Java library (downloaded via Maven or the official release page)
+## เหตุใดจึงต้องกำหนดค่าเครือข่าย GroupDocs.Search?
+- **ความสามารถในการขยายขนาด** – กระจายภาระการจัดทำดัชนีไปยังเครื่องหลายเครื่อง
+- **ความน่าเชื่อถือ** – สามารถเพิ่มหรือลบโหนดได้โดยไม่ต้องหยุดการทำงาน
+- **ความเกี่ยวข้องของการค้นหา** – เพิ่มคำพ้องความหมายลงในดัชนีเพื่อผลลัพธ์ที่สมบูรณ์ยิ่งขึ้น
+- **ประสิทธิภาพ** – การดำเนินการค้นหาแบบขนานช่วยลดเวลาตอบสนอง
 
-## Setting Up GroupDocs.Search for Java
+## ข้อกำหนดเบื้องต้น
+- Java Development Kit (JDK) เวอร์ชัน 8 หรือใหม่กว่า
+- Maven สำหรับสร้างโปรเจ็กต์
+- ความคุ้นเคยพื้นฐานกับไวยากรณ์ของ Java
+- การเข้าถึงไลบรารี GroupDocs.Search for Java (ดาวน์โหลดผ่าน Maven หรือหน้าดาวน์โหลดอย่างเป็นทางการ)
 
-Add the repository and dependency to your Maven **pom.xml**:
+## การตั้งค่า GroupDocs.Search for Java
+
+เพิ่ม repository และ dependency ลงในไฟล์ **pom.xml** ของ Maven:
 
 ```xml
 <repositories>
@@ -58,15 +59,15 @@ Add the repository and dependency to your Maven **pom.xml**:
 </dependencies>
 ```
 
-Alternatively, download the latest version directly from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+หรืออีกทางเลือกหนึ่ง ดาวน์โหลดเวอร์ชันล่าสุดได้โดยตรงจาก [GroupDocs.Search สำหรับรุ่น Java](https://releases.groupdocs.com/search/java/)
 
-### License Acquisition
-- **Free Trial** – Explore core features without cost.  
-- **Temporary License** – Unlock full capabilities for short‑term testing.  
-- **Commercial License** – Required for production deployments.
+### การขอรับใบอนุญาต
+- **ทดลองใช้ฟรี** – สำรวจคุณสมบัติหลักได้โดยไม่มีค่าใช้จ่าย
+- **ใบอนุญาตชั่วคราว** – ปลดล็อกความสามารถเต็มรูปแบบสำหรับการทดสอบระยะสั้น
+- **ใบอนุญาตเชิงพาณิชย์** – จำเป็นสำหรับการใช้งานจริง
 
-### Basic Initialization and Setup
-Create a simple Java class to verify the library loads correctly:
+### การเริ่มต้นและการตั้งค่าพื้นฐาน
+สร้างคลาส Java อย่างง่ายเพื่อตรวจสอบว่าไลบรารีโหลดได้อย่างถูกต้อง:
 
 ```java
 import com.groupdocs.search.*;
@@ -81,10 +82,10 @@ public class SearchSetup {
 }
 ```
 
-## Step‑by‑Step Guide to Configure GroupDocs.Search Network
+## คู่มือทีละขั้นตอนในการกำหนดค่าเครือข่าย GroupDocs.Search
 
-### 1. Configuring the Search Network
-Define the base document folder and the starting port for node communication.
+### 1. การกำหนดค่าเครือข่ายการค้นหา
+กำหนดโฟลเดอร์เอกสารหลักและพอร์ตเริ่มต้นสำหรับการสื่อสารของโหนด
 
 ```java
 import com.groupdocs.search.dictionaries.*;
@@ -102,11 +103,11 @@ public class ConfigureSearchNetwork {
 }
 ```
 
-- **basePath** – Where dictionaries (e.g., synonym files) reside.  
-- **basePort** – The first port; subsequent nodes increment from this value.
+- **basePath** – ตำแหน่งที่เก็บพจนานุกรม (เช่น ไฟล์คำพ้องความหมาย)
+- **basePort** – พอร์ตแรก โหนดถัดไปจะเพิ่มค่าจากค่านี้
 
-### 2. Deploying Search Network Nodes
-Spin up multiple worker nodes that share the same configuration.
+### 2. การติดตั้งโหนดเครือข่ายการค้นหา
+สร้างโหนดผู้ปฏิบัติงานหลายโหนดที่มีการกำหนดค่าเดียวกัน
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -124,10 +125,10 @@ public class DeploySearchNetworkNodes {
 }
 ```
 
-Each node runs on its own port (basePort + index) and holds a shard of the overall index.
+แต่ละโหนดทำงานบนพอร์ตของตัวเอง (basePort+index) และเก็บส่วนหนึ่งของดัชนีโดยรวมไว้
 
-### 3. Subscribing to Node Events
-Monitor health, indexing progress, and error conditions by attaching an event listener to the master node.
+### 3. การสมัครรับเหตุการณ์ของโหนด
+ตรวจสอบสถานะสุขภาพ ความคืบหน้าในการจัดทำดัชนี และสภาวะข้อผิดพลาดโดยการแนบตัวรับฟังเหตุการณ์เข้ากับโหนดหลัก
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -143,10 +144,10 @@ public class SubscribeToNodeEvents {
 }
 ```
 
-Event callbacks let you react to node start/stop, indexing completion, and unexpected failures.
+การเรียกกลับเหตุการณ์ช่วยให้คุณตอบสนองต่อการเริ่มต้น/หยุดโหนด การเสร็จสิ้นการจัดทำดัชนี และความล้มเหลวที่ไม่คาดคิด
 
-### 4. Adding Synonyms to a Node’s Indexer  
-Enhance relevance by **add synonyms to index** at runtime.
+### 4. การเพิ่มคำพ้องความหมายลงในตัวจัดทำดัชนีของโหนด
+เพิ่มความเกี่ยวข้องโดย **เพิ่มคำพ้องความหมายลงในดัชนี** ในระหว่างการทำงาน
 
 ```java
 import com.groupdocs.search.dictionaries.*;
@@ -173,11 +174,11 @@ public class AddSynonyms {
 }
 ```
 
-- **group** – Array of terms that should be treated as equivalents.  
-- **clearBeforeAdding** – Set to `true` if you want to replace existing entries.
+- **group** – อาร์เรย์ของคำที่ควรได้รับการพิจารณาว่าเทียบเท่ากัน
+- **clearBeforeAdding** – ตั้งค่าเป็น `true` หากคุณต้องการแทนที่รายการที่มีอยู่
 
-### 5. Adding Directories for Indexing
-Tell the master node which folders contain the documents you want searchable.
+### 5. การเพิ่มไดเร็กทอรีสำหรับการจัดทำดัชนี
+บอกโหนดหลักว่าโฟลเดอร์ใดมีเอกสารที่คุณต้องการให้ค้นหาได้
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -194,10 +195,10 @@ public class AddDirectoriesForIndexing {
 }
 ```
 
-The method scans the directory recursively and distributes files across shards.
+วิธีการนี้จะสแกนไดเร็กทอรีแบบเรียกซ้ำและกระจายไฟล์ไปยังชาร์ดต่างๆ
 
-### 6. Performing Text Search in the Network
-Execute a query across all nodes, optionally forcing exact‑match behavior.
+### 6. การค้นหาข้อความในเครือข่าย
+ดำเนินการค้นหาในทุกโหนด โดยอาจบังคับให้ค้นหาแบบตรงกันทุกประการ
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -216,10 +217,10 @@ public class PerformTextSearch {
 }
 ```
 
-Switch `exactMatchOnly` to `true` when you need strict term matching without stemming.
+เปลี่ยน `exactMatchOnly` เป็น `true` เมื่อคุณต้องการการค้นหาแบบตรงตัวโดยไม่ตัดคำลงท้าย
 
-### 7. Closing Network Nodes
-Release resources gracefully once processing is complete.
+### 7. การปิดโหนดเครือข่าย
+ปล่อยทรัพยากรอย่างนุ่มนวลเมื่อการประมวลผลเสร็จสิ้น
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -235,41 +236,45 @@ public class CloseNetworkNodes {
 }
 ```
 
-Proper shutdown prevents memory leaks and keeps the JVM healthy.
+การปิดระบบอย่างถูกต้องจะช่วยป้องกันการรั่วไหลของหน่วยความจำและรักษาสภาพการทำงานของ JVM ให้สมบูรณ์
 
-## Practical Applications
-| Scenario | How the network helps |
+## การประยุกต์ใช้งานจริง
+| สถานการณ์ | เครือข่ายช่วยได้อย่างไร |
+
 |----------|-----------------------|
-| **Enterprise Search** | Distribute indexing across data‑center servers for petabyte‑scale corpora. |
-| **Document Management** | Add synonyms to index so users find documents even with varied terminology. |
-| **E‑commerce Catalog** | Deploy region‑specific nodes to serve localized product searches quickly. |
-| **Content Management** | Keep content searchable while editors add new files to specific directories. |
 
-## Common Issues & Solutions
-- **Port Conflicts** – Ensure each node’s port (basePort + index) is free; adjust `basePort` if needed.  
-- **Synonym Not Applied** – Verify you called `indexer.setDictionary(dictionary)` after adding terms.  
-- **Node Not Responding** – Subscribe to events; look for `NodeFailed` callbacks to diagnose network problems.  
-- **Memory Leak on Close** – Always invoke `node.close()` for every deployed node.
+| **การค้นหาระดับองค์กร** | กระจายการจัดทำดัชนีไปยังเซิร์ฟเวอร์ศูนย์ข้อมูลสำหรับคลังข้อมูลขนาดเพตาไบต์ |
+| **การจัดการเอกสาร** | เพิ่มคำพ้องความหมายลงในดัชนีเพื่อให้ผู้ใช้สามารถค้นหาเอกสารได้แม้จะมีคำศัพท์ที่หลากหลาย |
+| **แคตตาล็อกอีคอมเมิร์ซ** | ปรับใช้โหนดเฉพาะภูมิภาคเพื่อให้บริการการค้นหาสินค้าในพื้นที่ได้อย่างรวดเร็ว |
+| **การจัดการเนื้อหา** | ทำให้เนื้อหาสามารถค้นหาได้ในขณะที่บรรณาธิการเพิ่มไฟล์ใหม่ลงในไดเร็กทอรีเฉพาะ |
 
-## Frequently Asked Questions
+## ปัญหาและวิธีแก้ไขทั่วไป
+- **ความขัดแย้งของพอร์ต** – ตรวจสอบให้แน่ใจว่าพอร์ตของแต่ละโหนด (basePort+index) ว่าง ปรับ `basePort` หากจำเป็น
 
-**Q: How does deploying multiple nodes improve search performance?**  
-A: Each node indexes a shard of the data, allowing parallel processing and reducing query latency as the workload is shared.
+- **ไม่ได้ใช้คำพ้องความหมาย** – ตรวจสอบว่าคุณเรียกใช้ `indexer.setDictionary(dictionary)` หลังจากเพิ่มคำศัพท์แล้ว - **โหนดไม่ตอบสนอง** – สมัครรับเหตุการณ์ ตรวจสอบการเรียกกลับ `NodeFailed` เพื่อวินิจฉัยปัญหาเครือข่าย
 
-**Q: Can I add synonyms without re‑indexing existing documents?**  
-A: Yes, you can **add synonyms to index** at runtime via the synonym dictionary; the changes take effect immediately for new queries.
+- **หน่วยความจำรั่วไหลเมื่อปิด** – เรียกใช้ `node.close()` ทุกครั้งสำหรับทุกโหนดที่ใช้งาน
 
-**Q: Is subscribing to node events mandatory?**  
-A: While not required for basic operation, event subscription gives you visibility into node health and helps you react to failures promptly.
+## คำถามที่พบบ่อย
 
-**Q: What are best practices for managing node resources?**  
-A: Regularly close idle nodes, monitor JVM memory usage, and recycle nodes during off‑peak hours to keep resource consumption optimal.
+**ถาม: การใช้งานหลายโหนดช่วยปรับปรุงประสิทธิภาพการค้นหาได้อย่างไร?**
+ตอบ: แต่ละโหนดจะจัดทำดัชนีข้อมูลส่วนหนึ่ง ทำให้สามารถประมวลผลแบบขนานและลดความหน่วงของคิวรี เนื่องจากมีการแบ่งงานกัน
 
-**Q: Does GroupDocs.Search support non‑text formats like PDFs or images?**  
-A: Absolutely. The library extracts text from PDFs, Office files, and even performs OCR on images, making them searchable out‑of‑the‑box.
+**ถาม: ฉันสามารถเพิ่มคำพ้องความหมายโดยไม่ต้องจัดทำดัชนีเอกสารที่มีอยู่ใหม่ได้หรือไม่?**
+ตอบ: ได้ คุณสามารถ **เพิ่มคำพ้องความหมายลงในดัชนี** ได้ในขณะทำงานผ่านพจนานุกรมคำพ้องความหมาย การเปลี่ยนแปลงจะมีผลทันทีสำหรับคิวรีใหม่
+
+**ถาม: การสมัครรับเหตุการณ์ของโหนดเป็นสิ่งจำเป็นหรือไม่?**
+ตอบ: แม้ว่าจะไม่จำเป็นสำหรับการทำงานพื้นฐาน แต่การสมัครรับเหตุการณ์จะช่วยให้คุณมองเห็นสถานะของโหนดและช่วยให้คุณตอบสนองต่อความล้มเหลวได้อย่างรวดเร็ว
+
+
+**ถาม: แนวทางปฏิบัติที่ดีที่สุดสำหรับการจัดการทรัพยากรโหนดคืออะไร?**
+ตอบ: ปิดโหนดที่ไม่ได้ใช้งานเป็นประจำ ตรวจสอบการใช้งานหน่วยความจำ JVM และรีไซเคิลโหนดในช่วงเวลาที่ไม่ใช่ช่วงเวลาที่มีการใช้งานสูงสุด เพื่อให้การใช้ทรัพยากรอยู่ในระดับที่เหมาะสมที่สุด
+
+**ถาม: GroupDocs.Search รองรับรูปแบบที่ไม่ใช่ข้อความ เช่น PDF หรือรูปภาพหรือไม่?**
+ตอบ: ได้อย่างแน่นอน ไลบรารีนี้สามารถดึงข้อความจาก PDF ไฟล์ Office และยังทำการ OCR บนรูปภาพ ทำให้สามารถค้นหาได้ทันที
 
 ---
 
-**Last Updated:** 2026-01-16  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**อัปเดตล่าสุด:** 2026-01-16
+**ทดสอบกับ:** GroupDocs.Search 25.4 สำหรับ Java
+**ผู้เขียน:** GroupDocs
