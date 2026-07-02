@@ -1,37 +1,38 @@
 ---
-date: '2025-12-19'
-description: 了解如何在 GroupDocs.Search for Java 中向索引添加文档并禁用停用词，以提升搜索精度和查询准确性。
+date: '2026-02-19'
+description: 了解如何在搜索中禁用停用词并使用 GroupDocs.Search for Java 将文档添加到索引，以提升查询准确性。
 keywords:
 - add documents to index
 - disable stop words java
 - configure index settings
-title: 在 GroupDocs.Search Java 中添加文档到索引并禁用停用词，以提升搜索准确性
+title: 搜索中的停用词：使用 GroupDocs.Search Java 将文档添加到索引
 type: docs
 url: /zh/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/
 weight: 1
 ---
 
-# 将文档添加到索引并在 GroupDocs.Search Java 中禁用停用词，以提升搜索准确性
+# 搜索中的停用词：使用 GroupDocs.Search Java 将文档添加到索引
 
-您是否希望 **将文档添加到索引**，同时确保没有关键词被忽略？本教程将指导您使用 GroupDocs.Search for Java 微调搜索体验。通过学习如何 **在 Java 中禁用停用词**，您将实现更精确的搜索查询，并充分利用每个已索引的文档。
+如果您需要 **将文档添加到索引**，并确保没有重要的词——尤其是常见词——被忽略，那么您来对地方了。在本指南中，我们将展示如何使用 GroupDocs.Search for Java **禁用搜索中的停用词**，使每个标记（即使是 “on”、 “by” 或 “the”）都可被搜索，从而让结果更加准确。
 
-## 快速解答
-- **“将文档添加到索引” 是什么意思？** 它指的是将源文件加载到可搜索的索引中，以便能够高效地进行查询。  
-- **为什么要禁用停用词？** 为了在搜索中包含常见词（例如 “on”、 “the”），当这些词在您的领域中具有意义时。  
+## 快速答疑
+- **“将文档添加到索引” 是什么意思？** 这意味着将源文件加载到可搜索的索引中，以便能够高效地进行查询。  
+- **为什么要禁用停用词？** 当这些常用词在您的业务领域中具有实际意义时（例如 “on”、 “the”），将它们加入搜索可以提升检索的完整性。  
 - **需要哪个库版本？** GroupDocs.Search for Java 25.4 或更高版本。  
-- **我需要许可证吗？** 免费试用可用于评估；生产环境需要永久许可证。  
-- **我可以在 Maven 项目中使用吗？** 可以——只需添加下面显示的仓库和依赖即可。
+- **需要许可证吗？** 评估阶段可使用免费试用版；生产环境必须使用正式许可证。  
+- **可以在 Maven 项目中使用吗？** 可以——只需在下面添加仓库和依赖即可。
 
-## 在 GroupDocs.Search 中，“将文档添加到索引” 是什么？
-将文档添加到索引意味着将文件（来自文件夹或流）导入到搜索引擎能够快速查询的数据结构中。索引完成后，每个单词——包括通常被视为停用词的词——都可以被搜索。
+## 什么是搜索中的停用词，为什么可能需要禁用它们？
+停用词是搜索引擎为加快查询速度而自动过滤的高频词。虽然这对通用网页搜索有帮助，但在法律合同、电子商务目录或技术手册等专业领域，这些词（如 “on”、 “by”、 “as”）往往承载真实含义。禁用停用词后，您可以把每个词都视为重要，确保不遗漏任何相关文档。
 
-## 为什么在 Java 中禁用停用词？
-禁用停用词可以让您将每个标记视为重要。这对于法律研究、电子商务产品目录或任何词语如 “on” 或 “by” 具有意义的场景至关重要。
+## 在 GroupDocs.Search 中添加文档到索引是如何工作的？
+当您添加文档时，库会读取每个文件，对其内容进行分词，并将分词结果存储在优化的数据结构（即索引）中。完成索引后，搜索引擎能够在毫秒级返回匹配的文档，即使是大型集合也不例外。
 
 ## 前置条件
-- **必需的库**：GroupDocs.Search for Java 25.4（或更高）。  
-- **开发环境**：IntelliJ IDEA、Eclipse，或您喜欢的任何 Java IDE。  
-- **基础知识**：熟悉 Java 语法和索引概念。
+
+- **必需库**：GroupDocs.Search for Java 25.4（或更新版本）。  
+- **开发环境**：IntelliJ IDEA、Eclipse 或您喜欢的任何 Java IDE。  
+- **基础知识**：熟悉 Java 语法以及索引的概念。
 
 ## 设置 GroupDocs.Search for Java
 
@@ -59,16 +60,16 @@ weight: 1
 
 ### 直接下载
 
-或者，从 [GroupDocs.Search for Java 发行版](https://releases.groupdocs.com/search/java/) 下载最新版本。
+或者，从 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) 下载最新版本。
 
-#### 获取许可证的步骤
+#### 许可证获取步骤
 - **免费试用** – 立即开始测试。  
-- **临时许可证** – 获取有限时间的密钥以获得完整功能。  
-- **购买** – 获得用于生产的永久许可证。
+- **临时许可证** – 获取限时密钥以获得完整功能。  
+- **购买** – 为生产使用获取永久许可证。
 
-## 基本初始化和设置
+## 基本初始化与设置
 
-创建 `IndexSettings` 实例以控制索引的行为：
+创建 `IndexSettings` 实例以控制索引行为：
 
 ```java
 import com.groupdocs.search.IndexSettings;
@@ -77,9 +78,9 @@ import com.groupdocs.search.IndexSettings;
 IndexSettings settings = new IndexSettings();
 ```
 
-## 如何在 Java 中禁用停用词
+## 如何在搜索中禁用停用词（Java）
 
-以下代码行关闭了内置的停用词过滤器：
+下面这行代码可关闭内置的停用词过滤器：
 
 ```java
 // Disable the use of stop words
@@ -87,7 +88,7 @@ tsettings.setUseStopWords(false);
 ```
 
 *参数*：`setUseStopWords` 接受布尔值。  
-*目的*：确保每个单词——包括常见的停用词——都被索引并可搜索。
+*目的*：确保每个词——包括常见停用词——都被索引并可搜索。
 
 ## 如何将文档添加到索引
 
@@ -113,7 +114,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-现在，`YOUR_DOCUMENT_DIRECTORY` 中的每个文件都已 **添加到索引**，并可进行查询。
+现在，`YOUR_DOCUMENT_DIRECTORY` 中的每个文件都会 **被添加到索引**，并可供查询使用。
 
 ## 执行搜索查询
 
@@ -127,57 +128,58 @@ tString query = "on";
 SearchResult result = index.search(query);
 ```
 
-由于停用词已被禁用，搜索时会考虑词语 `"on"`，返回本来会被忽略的匹配结果。
+由于已禁用停用词，搜索词 `"on"` 将被纳入检索，返回原本会被忽略的匹配结果。
 
-## 实际应用
-1. **企业文档搜索** – 确保关键术语不会被过滤。  
-2. **电子商务平台** – 通过对产品描述中的每个词进行索引，提升商品发现率。  
-3. **法律研究工具** – 捕获每个法律术语，即使是通常被视为停用词的词。
+## 实际应用场景
+
+1. **企业文档搜索** – 确保关键术语不被过滤。  
+2. **电子商务平台** – 通过索引产品描述中的每个词提升商品发现率。  
+3. **法律检索工具** – 捕获每个法律术语，即使它们通常被视为停用词。
 
 ## 性能考虑
-- **优化提示**：定期更新并修剪索引，以保持搜索速度。  
-- **资源使用**：监控 JVM 堆大小；大型索引可能需要调优垃圾回收设置。  
-- **Java 内存管理**：使用高效的数据结构，并考虑对非常大的语料库使用堆外存储。
 
-## 常见问题及解决方案
+- **优化技巧**：定期更新并清理索引，以保持搜索速度。  
+- **资源使用**：监控 JVM 堆大小；大型索引可能需要调优垃圾回收设置。  
+- **Java 内存管理**：使用高效的数据结构，并在处理超大语料库时考虑离堆存储。
+
+## 常见问题与解决方案
 
 | 症状 | 可能原因 | 解决办法 |
 |---|---|---|
-| 常用词无结果 | `setUseStopWords(true)`（默认） | 如上所示，调用 `setUseStopWords(false)`。 |
-| 索引期间内存不足错误 | 一次索引过多大型文件 | 分批索引文件；增加 `-Xmx` JVM 参数。 |
-| 搜索返回过时数据 | 添加新文件后索引未刷新 | 调用 `index.update()` 或重新添加已更改的文档。 |
+| 常用词无搜索结果 | `setUseStopWords(true)`（默认） | 按上述方式调用 `setUseStopWords(false)`。 |
+| 索引时出现内存溢出 | 一次性索引过多大文件 | 将文件分批索引；增大 `-Xmx` JVM 参数。 |
+| 搜索返回旧数据 | 添加新文件后未刷新索引 | 调用 `index.update()` 或重新添加已更改的文档。 |
 
 ## 常见问答
 
 **Q: 什么是停用词？**  
-A: 停用词是许多搜索引擎为加快查询而忽略的常见词（例如 “the”、 “is”、 “on”）。禁用它们后，您可以将每个标记视为可搜索的。
+A: 停用词是许多搜索引擎为加快查询速度而忽略的常用词（如 “the”、 “is”、 “on”）。禁用它们后，您可以把每个标记都视为可搜索的。
 
-**Q: 为什么在搜索索引中禁用停用词？**  
-A: 当需要精确短语匹配时——例如在法律或技术文档中——每个词都有意义，因此需要包含停用词。
+**Q: 为什么要在搜索索引中禁用停用词？**  
+A: 在需要精确短语匹配的场景（如法律或技术文档）中，每个词都有意义，必须包含停用词。
 
 **Q: GroupDocs.Search 如何处理大规模数据集？**  
-A: 该库使用优化的数据结构和增量索引，即使在拥有数百万文档的情况下也能保持低内存使用。
+A: 该库使用优化的数据结构和增量索引技术，即使面对数百万文档也能保持低内存占用。
 
-**Q: 我可以将 GroupDocs.Search 集成到其他 Java 应用程序中吗？**  
-A: 可以，API 设计为易于嵌入任何基于 Java 的系统，从 Web 服务到桌面应用程序。
+**Q: 我可以将 GroupDocs.Search 集成到其他 Java 应用吗？**  
+A: 可以，API 设计为可轻松嵌入任何基于 Java 的系统，无论是 Web 服务还是桌面应用。
 
-**Q: 如果搜索结果不准确，我该怎么办？**  
-A: 确认索引已包含所有必需的文档（`add documents to index`），如有需要确保已禁用停用词过滤，并考虑在重大更改后重新构建索引。
+**Q: 如果搜索结果不准确该怎么办？**  
+A: 确认索引已包含所有必需文档（`add documents to index`），确保已根据需要禁用停用词过滤，并在重大更改后考虑重新构建索引。
 
-## 资源
-- **文档**: [GroupDocs 搜索文档](https://docs.groupdocs.com/search/java/)  
-- **API 参考**: [GroupDocs API 参考](https://reference.groupdocs.com/search/java)  
-- **下载**: [获取最新的 GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
-- **GitHub 仓库**: [在 GitHub 上浏览](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **免费支持**: [加入 GroupDocs 论坛](https://forum.groupdocs.com/c/search/10)  
-- **临时许可证**: [申请临时许可证](https://purchase.groupdocs.com/temporary-license/)
+## 其他资源
 
-通过本指南，您现在了解如何 **将文档添加到索引** 并 **在 Java 中禁用停用词**，以在您的 Java 应用程序中提供更准确的搜索结果。
+- **文档**：[GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
+- **API 参考**：[GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
+- **下载**：[获取最新的 GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
+- **GitHub 仓库**：[Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **免费支持**：[加入 GroupDocs 论坛](https://forum.groupdocs.com/c/search/10)  
+- **临时许可证**：[申请临时许可证](https://purchase.groupdocs.com/temporary-license/)
+
+通过本指南，您已经掌握了如何 **将文档添加到索引** 并 **在搜索中禁用停用词**，从而在 Java 应用中提供更精准的检索结果。
 
 ---
 
-**最后更新：** 2025-12-19  
+**最后更新：** 2026-02-19  
 **测试环境：** GroupDocs.Search for Java 25.4  
-**作者：** GroupDocs  
-
----
+**作者：** GroupDocs
