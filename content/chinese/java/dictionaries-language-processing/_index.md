@@ -7,7 +7,7 @@ url: /zh/java/dictionaries-language-processing/
 weight: 5
 ---
 
- final content.# Language Processing Java – 使用 GroupDocs.Search 创建同义词词典
+# Language Processing Java – 使用 GroupDocs.Search 创建同义词词典
 
 在本指南中，您将学习如何 **创建同义词词典**，作为强大的 **language processing java** 策略的一部分。教程结束时，您将了解为何同义词处理、拼写纠正和自定义词典对于在依赖 GroupDocs.Search 的 Java 应用程序中提供准确搜索结果至关重要。
 

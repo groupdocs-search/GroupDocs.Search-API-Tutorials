@@ -12,9 +12,7 @@ url: /it/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-_0}} etc.
-
-Now produce final answer.# Estrarre testo da PDF Java: creare indice di documenti con GroupDocs.Search
+# Estrarre testo da PDF Java: creare indice di documenti con GroupDocs.Search
 
 In questa guida pratica scoprirai **come estrarre testo da PDF Java** dalle applicazioni e trasformare quel contenuto grezzo in un indice veloce e ricercabile a testo pieno. Che tu stia costruendo una base di conoscenza interna, un portale di ricerca contratti o un motore di ricerca personalizzato, i passaggi seguenti ti guideranno attraverso tutto — dall'estrazione del testo dai PDF alla serializzazione dei dati, alla creazione dell'indice e infine all'esecuzione delle query. Immergiamoci e vediamo perché GroupDocs.Search rende l'intero processo fluido e scalabile.
 

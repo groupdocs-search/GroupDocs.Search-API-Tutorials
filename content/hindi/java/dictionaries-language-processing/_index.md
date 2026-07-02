@@ -8,35 +8,7 @@ url: /hi/java/dictionaries-language-processing/
 weight: 5
 ---
 
-ार्थी शब्दों को समर्थन देता है; बस वाक्यांश को समानार्थी सेट में एकल प्रविष्टि के रूप में परिभाषित करें।"
-
-After that, horizontal rule? There's "---". Keep as is.
-
-Then:
-
-**Last Updated:** 2026-02-19  
-**Tested With:** GroupDocs.Search for Java 23.9  
-**Author:** GroupDocs
-
-Translate labels but keep dates.
-
-"**अंतिम अपडेट:** 2026-02-19  
-**परीक्षित संस्करण:** GroupDocs.Search for Java 23.9  
-**लेखक:** GroupDocs"
-
-Make sure formatting same (**bold**). Keep line breaks.
-
-Now ensure we kept all markdown formatting.
-
-Check for any shortcodes: none.
-
-Check code fences: none.
-
-Check images: none.
-
-All good.
-
-Now produce final content.# भाषा प्रसंस्करण जावा – GroupDocs.Search के साथ समानार्थी शब्दकोश बनाएं
+# भाषा प्रसंस्करण जावा – GroupDocs.Search के साथ समानार्थी शब्दकोश बनाएं
 
 इस गाइड में आप सीखेंगे कि कैसे **समानार्थी शब्दकोश** बनाया जाए, जो एक मजबूत **भाषा प्रसंस्करण जावा** रणनीति का हिस्सा है। ट्यूटोरियल के अंत तक आप समझेंगे कि समानार्थी शब्दों का प्रबंधन, वर्तनी सुधार, और कस्टम शब्दकोश क्यों आवश्यक हैं ताकि GroupDocs.Search पर निर्भर जावा एप्लिकेशन में सटीक खोज परिणाम प्रदान किए जा सकें।
 

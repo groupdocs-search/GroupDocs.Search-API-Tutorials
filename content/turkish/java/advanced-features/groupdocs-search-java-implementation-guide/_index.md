@@ -12,25 +12,7 @@ url: /tr/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-](https://purchase.groupdocs.com/temporary-license/) 
-
-Translate the labels.
-
-Next line "---" keep.
-
-Then "**Last Updated:** 2026-02-19" keep date.
-
-"**Tested With:** GroupDocs.Search 25.4 for Java" translate maybe keep as is but label Turkish: "**Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java"
-
-"**Author:** GroupDocs" translate "**Yazar:** GroupDocs"
-
-Make sure to keep bold formatting.
-
-Now produce final markdown with translations.
-
-Check that we didn't translate any URLs or code placeholders. Good.
-
-Now output.# PDF Java'dan Metin Çıkarma: GroupDocs.Search ile Belge Dizini Oluşturma
+# PDF Java'dan Metin Çıkarma: GroupDocs.Search ile Belge Dizini Oluşturma
 
 Bu uygulamalı rehberde **PDF Java'dan metin nasıl çıkarılır** keşfedecek ve bu ham içeriği hızlı, tam metin aranabilir bir dizine dönüştüreceksiniz. İster dahili bir bilgi tabanı, bir sözleşme arama portalı ya da özel bir arama motoru oluşturuyor olun, aşağıdaki adımlar her şeyi adım adım gösterir—PDF'lerden metin çekmekten veriyi serileştirmeye, dizini oluşturmaya ve sonunda sorgular çalıştırmaya kadar. Hadi başlayalım ve GroupDocs.Search'in tüm süreci nasıl sorunsuz ve ölçeklenebilir kıldığını görelim.
 

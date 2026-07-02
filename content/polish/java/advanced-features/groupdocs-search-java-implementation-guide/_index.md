@@ -12,18 +12,6 @@ url: /pl/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
- z:** GroupDocs.Search 25.4 for Java"
-
-**Author:** GroupDocs  
-
-Translate: "**Autor:** GroupDocs"
-
-Now ensure we keep markdown formatting.
-
-Check for any missing items: There's a note about "For Polish, ensure proper RTL formatting if needed" but not needed.
-
-Now produce final output with all translations.
-
 # Wyodrębnianie tekstu z PDF w Javie: Tworzenie indeksu dokumentów z GroupDocs.Search
 
 W tym praktycznym przewodniku odkryjesz **jak wyodrębnić tekst z PDF w Javie** aplikacji i przekształcić tę surową treść w szybki, pełnotekstowy indeks możliwy do przeszukiwania. Niezależnie od tego, czy budujesz wewnętrzną bazę wiedzy, portal do wyszukiwania umów, czy własną wyszukiwarkę, poniższe kroki przeprowadzą Cię przez wszystko — od wyciągania tekstu z PDF‑ów, przez serializację danych, tworzenie indeksu, aż po wykonywanie zapytań. Zanurzmy się i zobaczmy, dlaczego GroupDocs.Search sprawia, że cały proces jest płynny i skalowalny.

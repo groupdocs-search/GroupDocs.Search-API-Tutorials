@@ -9,9 +9,7 @@ url: /es/java/dictionaries-language-processing/
 weight: 5
 ---
 
-: bold.
-
-Now produce final content.# Procesamiento de lenguaje Java – Crear diccionario de sinónimos con GroupDocs.Search
+# Procesamiento de lenguaje Java – Crear diccionario de sinónimos con GroupDocs.Search
 
 En esta guía aprenderá cómo **crear un diccionario de sinónimos** como parte de una estrategia robusta de **procesamiento de lenguaje java**. Al final del tutorial comprenderá por qué el manejo de sinónimos, la corrección ortográfica y los diccionarios personalizados son esenciales para ofrecer resultados de búsqueda precisos en aplicaciones Java que dependen de GroupDocs.Search.
 

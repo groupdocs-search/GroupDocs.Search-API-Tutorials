@@ -8,33 +8,7 @@ url: /pt/java/dictionaries-language-processing/
 weight: 5
 ---
 
-6-02-19  
-**Tested With:** GroupDocs.Search for Java 23.9  
-**Author:** GroupDocs
-
-Translate:
-
-"---  
-
-**Última atualização:** 2026-02-19  
-**Testado com:** GroupDocs.Search para Java 23.9  
-**Autor:** GroupDocs"
-
-Make sure to keep the horizontal rule (---) unchanged.
-
-Now produce final markdown with all translations.
-
-Check for any shortcodes: none.
-
-Check code blocks: none.
-
-Check images: none.
-
-Check URLs unchanged.
-
-All good.
-
-Now output only translated content.# Processamento de linguagem Java – Criar dicionário de sinônimos com GroupDocs.Search
+# Processamento de linguagem Java – Criar dicionário de sinônimos com GroupDocs.Search
 
 Neste guia você aprenderá a **criar um dicionário de sinônimos** como parte de uma estratégia robusta de **language processing java**. Ao final do tutorial você entenderá por que o tratamento de sinônimos, correção ortográfica e dicionários personalizados são essenciais para fornecer resultados de busca precisos em aplicações Java que utilizam o GroupDocs.Search.
 

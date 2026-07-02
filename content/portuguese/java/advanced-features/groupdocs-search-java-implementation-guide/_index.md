@@ -12,29 +12,7 @@ url: /pt/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
- with CODE_BLOCK_0. Should preserve exactly.
-
-Also there is a blockquote with Tip and Pro tip. Need translate the text but keep formatting.
-
-Also bullet points.
-
-Let's produce translation.
-
-Be careful: "Extract Text from PDF Java: Build Document Index with GroupDocs.Search" -> translate title.
-
-"Extract Text from PDF Java" maybe "Extrair Texto de PDF Java". Keep "GroupDocs.Search" unchanged.
-
-Proceed.
-
-Also "Quick Answers" -> "Respostas Rápidas".
-
-Check each bullet.
-
-Make sure to keep code block placeholders unchanged.
-
-Also keep markdown links unchanged.
-
-Now produce final output.# Extrair Texto de PDF Java: Crie um Índice de Documentos com GroupDocs.Search
+# Extrair Texto de PDF Java: Crie um Índice de Documentos com GroupDocs.Search
 
 Neste guia prático, você descobrirá **como extrair texto de PDF Java** em aplicações e transformar esse conteúdo bruto em um índice de pesquisa de texto completo rápido. Seja construindo uma base de conhecimento interna, um portal de busca de contratos ou um mecanismo de busca personalizado, os passos abaixo orientam tudo – desde a extração de texto de PDFs até a serialização dos dados, criação do índice e, finalmente, a execução de consultas. Vamos mergulhar e ver por que o GroupDocs.Search torna todo o processo fluido e escalável.
 

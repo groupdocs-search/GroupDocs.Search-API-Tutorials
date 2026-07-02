@@ -13,15 +13,7 @@ url: /cs/java/dictionaries-language-processing/disable-stop-words-groupdocs-sear
 weight: 1
 ---
 
-6-02-19  
-**Tested With:** GroupDocs.Search for Java 25.4  
-**Author:** GroupDocs  
-
-Translate final note.
-
-Make sure to keep markdown formatting.
-
-Let's produce final translation.# Stop Words ve vyhledávání: Přidání dokumentů do indexu pomocí GroupDocs.Search Java
+# Stop Words ve vyhledávání: Přidání dokumentů do indexu pomocí GroupDocs.Search Java
 
 ## Rychlé odpovědi
 - **Co znamená “add documents to index”?** Znamená to načtení vašich zdrojových souborů do vyhledávatelného indexu, aby mohly být efektivně dotazovány.  

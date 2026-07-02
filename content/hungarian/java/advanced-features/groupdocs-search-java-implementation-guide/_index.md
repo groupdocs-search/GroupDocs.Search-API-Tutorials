@@ -12,13 +12,7 @@ url: /hu/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-**Author:** GroupDocs" translate.
-
-Now ensure we preserve markdown formatting, code block placeholders remain exactly.
-
-Also ensure we keep bold formatting (**). Keep URLs unchanged.
-
-Let's produce final content.# PDF Java szöveg kinyerése: Dokumentumindex létrehozása a GroupDocs.Search segítségével
+# PDF Java szöveg kinyerése: Dokumentumindex létrehozása a GroupDocs.Search segítségével
 
 Ebben a gyakorlati útmutatóban felfedezheted, **hogyan kell szöveget kinyerni PDF Java** alkalmazásokból, és hogyan alakíthatod ezt a nyers tartalmat egy gyors, teljes‑szöveges kereshető indexszé. Akár belső tudásbázist, szerződés‑kereső portált vagy egyedi keresőmotort építesz, az alábbi lépések mindent végigvezetnek – a PDF‑ekből való szövegkinyeréstől az adatok sorosításán, az index létrehozásán, egészen a lekérdezések futtatásáig. Merüljünk el, és nézzük meg, miért teszi a GroupDocs.Search a teljes folyamatot zökkenőmentessé és skálázhatóvá.
 

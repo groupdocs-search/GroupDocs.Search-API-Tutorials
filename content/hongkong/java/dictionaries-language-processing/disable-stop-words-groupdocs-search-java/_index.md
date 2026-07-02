@@ -11,9 +11,7 @@ url: /zh-hant/java/dictionaries-language-processing/disable-stop-words-groupdocs
 weight: 1
 ---
 
- elements: code block placeholders remain. Ensure no extra spaces.
-
-Now produce final answer.# 搜尋中的停用詞：使用 GroupDocs.Search Java 將文件加入索引
+# 搜尋中的停用詞：使用 GroupDocs.Search Java 將文件加入索引
 
 如果您需要 **add documents to index** 同時確保沒有重要的詞彙——尤其是常見詞——被忽略，您來對地方了。在本指南中，我們將示範如何使用 GroupDocs.Search for Java **disable stop words in search**，讓每個標記（即使是 “on”、 “by” 或 “the”）都可被搜尋，從而使結果更為精確。
 

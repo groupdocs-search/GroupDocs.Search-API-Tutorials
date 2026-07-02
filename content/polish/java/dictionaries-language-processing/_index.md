@@ -8,15 +8,7 @@ url: /pl/java/dictionaries-language-processing/
 weight: 5
 ---
 
-Author:** GroupDocs -> same.
-
-Now ensure markdown formatting preserved.
-
-Check for any shortcodes: none.
-
-Check code block: none.
-
-Now produce final content.# Przetwarzanie języka w Javie – Tworzenie słownika synonimów z GroupDocs.Search
+# Przetwarzanie języka w Javie – Tworzenie słownika synonimów z GroupDocs.Search
 
 ## Szybkie odpowiedzi
 - **Co robi słownik synonimów?** Mapuje alternatywne słowa na wspólny termin, dzięki czemu silnik wyszukiwania traktuje je jako równoważne.  

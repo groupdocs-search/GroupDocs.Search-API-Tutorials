@@ -14,31 +14,29 @@ url: /hu/java/dictionaries-language-processing/disable-stop-words-groupdocs-sear
 weight: 1
 ---
 
- style.
+# Stop Words a keresésben: Dokumentumok az indexhez a GroupDocs.Search Java-val
 
-Now produce final answer.# Stop Words a keresésben: Dokumentumok hozzáadása az indexhez a GroupDocs.Search Java-val
+Ha **dokumentumokat kell hozzáadni az indexhez**, mindenképpen szeretnéd, hogy semmi fontos kifejezés – különösen a gyakoriak – ne legyen figyelmen kívül hagyva, jó helyen jársz. Ebben az útmutatóban megmutatjuk, hogyan **tiltsd le a stop szavakat a keresésben** a GroupDocs.Search for Java, így minden token (még a „on”, „by” vagy „the”) kereshető lesz, és az eredmények sokkal pontosabbak.
 
-Ha **dokumentumokat kell hozzáadni az indexhez**, miközben biztosítani szeretnéd, hogy semmilyen fontos kifejezés – különösen a gyakoriak – ne legyen figyelmen kívül hagyva, jó helyen jársz. Ebben az útmutatóban megmutatjuk, hogyan **tiltsd le a stop szavakat a keresésben** a GroupDocs.Search for Java használatával, így minden token (még a „on”, „by” vagy „the”) kereshető lesz, és az eredmények sokkal pontosabbak.
-
-## Quick Answers
-- **Mit jelent a „dokumentumok hozzáadása az indexhez”?** Azt jelenti, hogy betöltöd a forrásfájlokat egy kereshető indexbe, hogy hatékonyan lekérdezhetők legyenek.  
-- **Miért szeretném letiltani a stop szavakat?** Ahhoz, hogy a gyakori szavakat (pl. „on”, „the”) is belefoglaljuk a keresésekbe, ha ezek a kifejezések jelentősek a saját területeden.  
-- **Melyik könyvtárverzió szükséges?** GroupDocs.Search for Java 25.4 vagy újabb.  
-- **Szükségem van licencre?** Egy ingyenes próba a kiértékeléshez megfelelő; a termeléshez állandó licenc szükséges.  
+## Gyors válaszok
+- **Mit jelent a „dokumentumok végrehajtása az indexhez”?** Azt jelenti, hogy betöltöd a forrás fájlokat egy kereshető indexbe, hogy hatékonyan lekérdezhetők legyenek.
+- **Miért szeretném letiltani a stop szavakat?** Ahhoz, hogy a gyakori szavakat (pl. „on”, „the”) is belefoglaljuk a keresésekbe, ha ezek a kifejezések jelentősek a saját területeden.
+- **Melyik könyvtárverzió szükséges?** GroupDocs.Search for Java25.4 vagy újabb.
+- **Szükségem van licencre?** Egy ingyenes próba a kiértékeléshez megfelelő; a termeléshez állandó licenc szükséges.
 - **Használhatom ezt Maven projektben?** Igen – csak add hozzá az alább látható tárolót és függőséget.
 
 ## Mik azok a stop szavak a keresésben, és miért szeretnéd letiltani őket?
-A stop szavak gyakori kifejezések, amelyeket sok keresőmotor automatikusan kiszűr a lekérdezések felgyorsítása érdekében. Bár ez javítja a teljesítményt általános webkereséseknél, speciális területeken – jogi szerződések, e‑commerce katalógusok vagy műszaki kézikönyvek – pontatlan eredményeket okozhat, ahol az olyan szavak, mint a „on”, „by” vagy „as” valódi jelentéssel bírnak. A stop szavak letiltása lehetővé teszi, hogy minden szót jelentősnek tekints, biztosítva, hogy semmilyen releváns dokumentum ne maradjon ki.
+A stop gyakori kifejezések, amelyeket sok kereső szavakmotor kiszűr a lekérdezések felgyorsítása érdekében. Bár ez javítja a teljesítményt általános webkereséseknél, speciális területeken – jogi szerződések, e‑commerce katalógusok vagy műszaki kézikönyvek – pontatlan eredményeket okozhat, ahol az olyan szavak, mint a „on”, „by” vagy „as” valódi jelentéssel bírnak. A stop letilt maradása lehetővé teszi, hogy minden szót jelentősnek tekints, biztosítva, hogy valóban megfelelő szavak dokumentumot ne hagyjon ki.
 
 ## Hogyan működik a dokumentumok indexhez adása a GroupDocs.Search-ban?
-Amikor dokumentumokat adsz hozzá, a könyvtár beolvassa minden fájlt, tokenizálja a tartalmát, és a tokeneket egy optimalizált adatstruktúrában (az indexben) tárolja. Az indexelés után a motor ezrek milliszekundum alatt képes visszaadni a megfelelő dokumentumokat, még nagy gyűjtemények esetén is.
+Amikor dokumentumokat adsz hozzá, a könyvtár beolvassa minden fájlt, tokenizálja a tartalmat, és a tokeneket egy optimalizált adatstruktúrában (az indexben) tárolja. Az indexelés után a motor ezrek milliszekundum alatt képes visszaadni a megfelelő dokumentumokat, még nagy gyűjtemények esetén is.
 
 ## Előfeltételek
-- **Szükséges könyvtárak**: GroupDocs.Search for Java 25.4 (vagy újabb).  
-- **Fejlesztői környezet**: IntelliJ IDEA, Eclipse vagy bármely kedvelt Java IDE.  
+- **Szükséges könyvtárak**: GroupDocs.Search for Java25.4 (vagy újabb).
+- **Fejlesztői környezet**: IntelliJ IDEA, Eclipse vagy bármely kedvelt Java IDE.
 - **Alapvető tudás**: Java szintaxis és az indexelés fogalmának ismerete.
 
-## A GroupDocs.Search for Java beállítása
+## A GroupDocs.Search for Java beállítás
 
 ### Maven telepítés
 

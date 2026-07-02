@@ -12,7 +12,7 @@ url: /sv/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
- produce final content.# Extrahera text från PDF Java: Bygg dokumentindex med GroupDocs.Search
+# Extrahera text från PDF Java: Bygg dokumentindex med GroupDocs.Search
 
 I den här praktiska guiden kommer du att upptäcka **hur man extraherar text från PDF Java**-applikationer och omvandlar det råa innehållet till ett snabbt, fulltextssökbart index. Oavsett om du bygger en intern kunskapsbas, en portal för kontraktsökning eller en anpassad sökmotor, går stegen nedan igenom allt—från att hämta text från PDF-filer till att serialisera data, skapa indexet och slutligen köra frågor. Låt oss dyka ner och se varför GroupDocs.Search gör hela processen smidig och skalbar.
 

@@ -13,34 +13,34 @@ url: /pt/java/dictionaries-language-processing/disable-stop-words-groupdocs-sear
 weight: 1
 ---
 
-# Stop Words in Search: Add Documents to Index with GroupDocs.Search Java
+# Pare palavras na pesquisa: adicione documentos ao índice com GroupDocs.Search Java
 
-Se você precisa **adicionar documentos ao índice** garantindo que nenhum termo importante—especialmente os mais comuns—seja ignorado, está no lugar certo. Neste guia mostraremos como **desativar stop words na pesquisa** usando o GroupDocs.Search para Java, de modo que cada token (mesmo “on”, “by” ou “the”) se torne pesquisável e seus resultados sejam muito mais precisos.
+Se você precisa **adicionar documentos ao índice** garantindo que nenhum termo importante—especialmente os mais comuns—seja ignorado, não está no lugar certo. Neste guia mostraremos como **desativar palavras de parada na pesquisa** usando o GroupDocs.Search para Java, de modo que cada token (mesmo “on”, “by” ou “the”) se torna pesquisável e seus resultados são muito mais precisos.
 
-## Quick Answers
-- **O que significa “add documents to index”?** Significa carregar seus arquivos de origem em um índice pesquisável para que possam ser consultados de forma eficiente.  
-- **Por que eu desativaria stop words?** Para incluir palavras comuns (ex.: “on”, “the”) nas pesquisas quando esses termos são relevantes para o seu domínio.  
-- **Qual versão da biblioteca é necessária?** GroupDocs.Search for Java 25.4 ou posterior.  
-- **Preciso de licença?** Um teste gratuito funciona para avaliação; uma licença permanente é necessária para produção.  
-- **Posso usar isso em um projeto Maven?** Sim – basta adicionar o repositório e a dependência mostrados abaixo.
+## Respostas rápidas
+- **O que significa “adicionar documentos ao índice”?** Significa carregar seus arquivos de origem em um índice pesquisável para que possam ser consultados de forma eficiente.
+- **Por que eu desativaria stopwords?** Para incluir palavras comuns (ex.: “on”, “the”) nas pesquisas quando esses termos são relevantes para o seu domínio.
+- **Qual versão da biblioteca é necessária?** GroupDocs.Search for Java25.4 ou posterior.
+- **Preciso de licença?** Um teste gratuito funciona para avaliação; uma licença permanente é necessária para produção.
+- **Posso usar isso em um projeto Maven?** Sim – basta adicionar o repositório e a dependência mostrada abaixo.
 
-## What are stop words in search and why might you want to disable them?
-Stop words são termos frequentes que muitos mecanismos de busca filtram automaticamente para acelerar as consultas. Embora isso melhore o desempenho em buscas genéricas na web, pode prejudicar a precisão em domínios especializados—contratos legais, catálogos de e‑commerce ou manuais técnicos—onde palavras como “on”, “by” ou “as” carregam significado real. Desativar stop words permite tratar cada palavra como significativa, garantindo que nenhum documento relevante seja perdido.
+## O que são palavras irrelevantes na pesquisa e por que você pode querer desativá-las?
+Palavras de parada são termos frequentes que muitos mecanismos de busca filtram automaticamente para acelerar as consultas. Embora isso seja melhor o desempenho em buscas genéricas na web, pode prejudicar a precisão em domínios especializados—contratos legais, catálogos de e-commerce ou manuais técnicos—onde palavras como “on”, “by” ou “as” carregam significado real. Desativar palavras irrelevantes permite tratar cada palavra como significativa, garantindo que nenhum documento relevante seja perdido.
 
-## How does adding documents to index work in GroupDocs.Search?
-Ao adicionar documentos, a biblioteca lê cada arquivo, tokeniza seu conteúdo e armazena os tokens em uma estrutura de dados otimizada (o índice). Uma vez indexado, o motor pode recuperar documentos correspondentes em milissegundos, mesmo para coleções grandes.
+## Como funciona a adição de documentos ao índice no GroupDocs.Search?
+Ao adicionar documentos, a biblioteca lê cada arquivo, tokeniza seu conteúdo e armazena os tokens em uma estrutura de dados otimizada (o índice). Uma vez indexado, o motor pode recuperar documentos correspondentes em milissegundos, mesmo para grandes coleções.
 
-## Prerequisites
+## Pré-requisitos
 
-- **Bibliotecas Necessárias**: GroupDocs.Search for Java 25.4 (ou mais recente).  
-- **Ambiente de Desenvolvimento**: IntelliJ IDEA, Eclipse ou qualquer IDE Java de sua preferência.  
+- **Bibliotecas Necessárias**: GroupDocs.Search for Java25.4 (ou mais recente).
+- **Ambiente de Desenvolvimento**: IntelliJ IDEA, Eclipse ou qualquer IDE Java de sua preferência.
 - **Conhecimento Básico**: Familiaridade com a sintaxe Java e o conceito de indexação.
 
-## Setting Up GroupDocs.Search for Java
+## Configurando GroupDocs.Search para Java
 
-### Maven Installation
+### Instalação do Maven
 
-Se você usa Maven, inclua o seguinte no seu `pom.xml`:
+Se você usa Maven, incluindo o seguinte em seu `pom.xml`:
 
 ```xml
 <repositories>
@@ -60,16 +60,16 @@ Se você usa Maven, inclua o seguinte no seu `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
+### Download direto
 
 Alternativamente, faça o download da versão mais recente em [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-#### License Acquisition Steps
-- **Free Trial** – comece a testar imediatamente.  
-- **Temporary License** – obtenha uma chave temporária para funcionalidade completa.  
-- **Purchase** – adquira uma licença permanente para uso em produção.
+#### Etapas de aquisição de licença
+- **Teste Gratuito** – comece a testar imediatamente.
+- **Licença Temporária** – Obtenha uma chave temporária para funcionalidade completa.
+- **Compra** – adquire uma licença permanente para uso em produção.
 
-## Basic Initialization and Setup
+## Inicialização e configuração básicas
 
 Crie uma instância de `IndexSettings` para controlar o comportamento do índice:
 
@@ -80,21 +80,21 @@ import com.groupdocs.search.IndexSettings;
 IndexSettings settings = new IndexSettings();
 ```
 
-## How to disable stop words in search (Java)
+## Como desativar palavras irrelevantes na pesquisa (Java)
 
-A linha a seguir desativa o filtro interno de stop‑words:
+A linha a seguir desativa o filtro interno de palavras irrelevantes:
 
 ```java
 // Disable the use of stop words
 tsettings.setUseStopWords(false);
 ```
 
-*Parâmetros*: `setUseStopWords` aceita um boolean.  
-*Objetivo*: Garante que cada palavra—incluindo stop words comuns—seja indexada e pesquisável.
+*Parâmetros*: `setUseStopWords` aceita um boolean.
+*Objetivo*: Garantir que cada palavra—incluindo stopwords comuns—seja indexada e pesquisável.
 
-## How to add documents to index
+## Como adicionar documentos ao índice
 
-### Defining the Output Directory
+### Definindo o diretório de saída
 
 ```java
 import com.groupdocs.search.Index;
@@ -106,7 +106,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\IndexingWithStopWords";
 Index index = new Index(indexFolder, settings);
 ```
 
-### Specifying the Document Directory
+### Especificando o diretório do documento
 
 ```java
 // Define the path to your document directory
@@ -118,7 +118,7 @@ index.add(documentsFolder);
 
 Agora cada arquivo em `YOUR_DOCUMENT_DIRECTORY` é **added documents to index** e está pronto para consultas.
 
-## Performing a Search Query
+## Executando uma consulta de pesquisa
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -132,56 +132,56 @@ SearchResult result = index.search(query);
 
 Como as stop words estão desativadas, o termo `"on"` será considerado durante a pesquisa, retornando correspondências que de outra forma seriam ignoradas.
 
-## Practical Applications
+## Aplicações Práticas
 
-1. **Enterprise Document Search** – Garanta que terminologia crítica não seja filtrada.  
-2. **E‑commerce Platforms** – Melhore a descoberta de produtos indexando cada palavra nas descrições.  
-3. **Legal Research Tools** – Capture todos os termos jurídicos, mesmo aqueles normalmente tratados como stop words.
+1. **Enterprise Document Search** – Garanta que a terminologia crítica não seja filtrada.
+2. **Plataformas de comércio eletrônico** – Melhore a descoberta de produtos indexando cada palavra nas seguranças.
+3. **Ferramentas de pesquisa jurídica** – Capture todos os termos jurídicos, mesmo aqueles normalmente tratados como palavras irrelevantes.
 
-## Performance Considerations
+## Considerações de desempenho
 
-- **Optimization Tips**: Atualize e faça a limpeza do índice regularmente para manter alta velocidade de busca.  
-- **Resource Usage**: Monitore o tamanho do heap da JVM; índices grandes podem exigir ajustes nas configurações de coleta de lixo.  
-- **Java Memory Management**: Use estruturas de dados eficientes e considere armazenamento off‑heap para corpora muito grandes.
+- **Dicas de otimização**: Atualize e faça a limpeza do índice regularmente para manter alta velocidade de busca.
+- **Uso de Recursos**: Monitora o tamanho do heap da JVM; índices grandes podem exigir ajustes nas configurações de coleta de lixo.
+- **Gerenciamento de memória Java**: use estruturas de dados eficientes e considere o armazenamento fora do heap para corpos muito grandes.
 
-## Common Issues and Solutions
+## Problemas e soluções comuns
 
-| Symptom | Likely Cause | Fix |
+| Sintoma | Causa provável | Correção |
 |---|---|---|
-| No results for common words | `setUseStopWords(true)` (default) | Call `setUseStopWords(false)` as shown above. |
-| Out‑of‑memory errors during indexing | Indexing too many large files at once | Index files in batches; increase `-Xmx` JVM option. |
-| Search returns stale data | Index not refreshed after adding new files | Call `index.update()` or re‑add the changed documents. |
+| Nenhum resultado para palavras comuns | `setUseStopWords(true)` (padrão) | Chame `setUseStopWords(false)` como mostrado acima. |
+| Erros de falta de memória durante a indexação | Indexação de muitos arquivos grandes simultaneamente | Indexe os arquivos em lotes; aumente a opção `-Xmx` da JVM. |
+| A pesquisa retorna dados desatualizados | Índice não atualizado após a adição de novos arquivos | Chame `index.update()` ou adicione novamente os documentos alterados. |
 
-## Frequently Asked Questions
+## Perguntas Frequentes
 
-**Q: What are stop words?**  
-A: Stop words are common terms (e.g., “the”, “is”, “on”) that many search engines ignore to speed up queries. Disabling them lets you treat every token as searchable.
+**P: O que são stopwords?**
+R: Stopwords são termos comuns (por exemplo, “o”, “é”, “em”) que muitos mecanismos de busca ignoram para acelerar as consultas. Desativá-las permite que você trate cada token como pesquisável.
 
-**Q: Why disable stop words in search indexes?**  
-A: When exact phrase matching is required—such as in legal or technical documents—every word carries meaning, so you need to include stop words.
+**P: Por que desativar stopwords nos índices de pesquisa?**
+R: Quando a correspondência exata de frases é necessária — como em documentos jurídicos ou técnicos — cada palavra tem significado, portanto, você precisa incluir stopwords. **P: Como o GroupDocs.Search lida com grandes conjuntos de dados?**
 
-**Q: How does GroupDocs.Search handle large datasets?**  
-A: The library uses optimized data structures and incremental indexing to keep memory usage low, even with millions of documents.
+R: A biblioteca utiliza estruturas de dados otimizadas e indexação incremental para manter o uso de memória baixo, mesmo com milhões de documentos.
 
-**Q: Can I integrate GroupDocs.Search with other Java applications?**  
-A: Yes, the API is designed for easy embedding into any Java‑based system, from web services to desktop apps.
+**P: Posso integrar o GroupDocs.Search com outros aplicativos Java?**
+R: Sim, a API foi projetada para fácil incorporação em qualquer sistema baseado em Java, desde serviços web até aplicativos desktop.
 
-**Q: What should I do if my search results are not accurate?**  
-A: Verify that the index includes all required documents (`add documents to index`), ensure stop‑word filtering is disabled if needed, and consider re‑building the index after major changes.
+**P: O que devo fazer se meus resultados de pesquisa não forem precisos?**
+R: Verifique se o índice inclui todos os documentos necessários (`adicione documentos ao índice`), certifique-se de que a filtragem de palavras irrelevantes esteja desativada, se necessário, e considere reconstruir o índice após alterações significativas.
 
-## Additional Resources
+**P: O que devo fazer se meus resultados de pesquisa não forem precisos?**
+R: Verifique se o índice inclui todos os documentos necessários (`adicione documentos ao índice`), certifique-se de que a filtragem de palavras irrelevantes esteja desativada, se necessário, e considere reconstruir o índice após alterações importantes. ## Recursos Adicionais
 
-- **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
-- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
-- **Download**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
-- **GitHub Repository**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- **Free Support**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
-- **Temporary License**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **Documentação**: [Documentação da Pesquisa do GroupDocs](https://docs.groupdocs.com/search/java/)
+- **Referência da API**: [Referência da API do GroupDocs](https://reference.groupdocs.com/search/java)
+- **Download**: [Obtenha a versão mais recente do GroupDocs.Search para Java](https://releases.groupdocs.com/search/java/)
+- **Repositório do GitHub**: [Explore no GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Suporte Gratuito**: [Participe do Fórum do GroupDocs](https://forum.groupdocs.com/c/search/10)
+- **Licença Temporária**: [Solicite uma Licença Temporária](https://purchase.groupdocs.com/temporary-license/)
 
-Seguindo este guia, você agora sabe como **add documents to index** e **disable stop words in search** para oferecer resultados mais precisos em suas aplicações Java.
+Seguindo este guia, você agora sabe como **adicionar documentos ao índice** e **desativar palavras de parada na pesquisa** para oferecer resultados mais precisos em suas aplicações Java.
 
 ---
 
-**Last Updated:** 2026-02-19  
-**Tested With:** GroupDocs.Search for Java 25.4  
-**Author:** GroupDocs
+**Última atualização:** 19/02/2026
+**Testado com:** GroupDocs.Search for Java25.4
+**Autor:** GroupDocs

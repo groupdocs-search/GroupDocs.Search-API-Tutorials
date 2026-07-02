@@ -153,24 +153,24 @@ Da Stop‑Words deaktiviert sind, wird der Begriff `"on"` bei der Suche berücks
 | Out‑of‑Memory-Fehler beim Indexieren | Zu viele große Dateien gleichzeitig indexieren | Dateien stapelweise indexieren; erhöhen Sie die JVM‑Option `-Xmx`. |
 | Suche liefert veraltete Daten | Index nach dem Hinzufügen neuer Dateien nicht aktualisiert | Rufen Sie `index.update()` auf oder fügen Sie die geänderten Dokumente erneut hinzu. |
 
-## Frequently Asked Questions
+## Häufig gestellte Fragen
 
-**Q: What are stop words?**  
-A: Stop words are common terms (e.g., “the”, “is”, “on”) that many search engines ignore to speed up queries. Deactivating them lets you treat every token as searchable.
+**F: Was sind Stoppwörter?**
+A: Stoppwörter sind häufige Ausdrücke (z. B. „der“, „ist“, „auf“), die viele Suchmaschinen ignorieren, um Suchanfragen zu beschleunigen. Durch Deaktivieren der Stoppwörter wird jedes Token als suchbar behandelt.
 
-**Q: Why disable stop words in search indexes?**  
-A: When exact phrase matching is required—such as in legal or technical documents—every word carries meaning, so you need to include stop words.
+**F: Warum sollte man Stoppwörter in Suchindizes deaktivieren?**
+A: Wenn eine exakte Übereinstimmung von Phrasen erforderlich ist – beispielsweise in juristischen oder technischen Dokumenten –, ist jedes Wort relevant. Daher müssen Stoppwörter verwendet werden.
 
-**Q: How does GroupDocs.Search handle large datasets?**  
-A: The library uses optimized data structures and incremental indexing to keep memory usage low, even with millions of documents.
+**F: Wie verarbeitet GroupDocs.Search große Datensätze?**
+A: Die Bibliothek verwendet optimierte Datenstrukturen und inkrementelle Indizierung, um den Speicherverbrauch auch bei Millionen von Dokumenten gering zu halten.
 
-**Q: Can I integrate GroupDocs.Search with other Java applications?**  
-A: Yes, the API is designed for easy embedding into any Java‑based system, from web services to desktop apps.
+**F: Kann ich GroupDocs.Search in andere Java-Anwendungen integrieren?**
+A: Ja, die API ist für die einfache Einbettung in jedes Java-basierte System konzipiert, von Webdiensten bis hin zu Desktop-Anwendungen.
 
-**Q: What should I do if my search results are not accurate?**  
-A: Verify that the index includes all required documents (`add documents to index`), ensure stop‑word filtering is disabled if needed, and consider re‑building the index after major changes.
+**F: Was kann ich tun, wenn meine Suchergebnisse nicht korrekt sind?**
+A: Überprüfen Sie, ob der Index alle erforderlichen Dokumente enthält (‚Dokumente zum Index hinzufügen‘), deaktivieren Sie gegebenenfalls die Stoppwortfilterung und erwägen Sie, den Index nach größeren Änderungen neu zu erstellen.
 
-## Additional Resources
+## Weitere Ressourcen
 
 - **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)

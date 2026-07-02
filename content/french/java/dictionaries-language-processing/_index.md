@@ -8,7 +8,7 @@ url: /fr/java/dictionaries-language-processing/
 weight: 5
 ---
 
- produce final content.# Traitement du langage Java – Créer un dictionnaire de synonymes avec GroupDocs.Search
+# Traitement du langage Java – Créer un dictionnaire de synonymes avec GroupDocs.Search
 
 Dans ce guide, vous apprendrez à **créer un dictionnaire de synonymes** dans le cadre d’une stratégie robuste de **traitement du langage java**. À la fin du tutoriel, vous comprendrez pourquoi la gestion des synonymes, la correction orthographique et les dictionnaires personnalisés sont essentiels pour fournir des résultats de recherche précis dans les applications Java qui utilisent GroupDocs.Search.
 

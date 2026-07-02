@@ -11,19 +11,7 @@ url: /zh/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-最后更新：** 2026-02-19"
-
-**Tested With:** GroupDocs.Search 25.4 for Java  
-
-Translate: "**测试环境：** GroupDocs.Search 25.4 for Java"
-
-**Author:** GroupDocs  
-
-Translate: "**作者：** GroupDocs"
-
-Make sure to keep formatting.
-
-Now produce final output.# 从 PDF Java 中提取文本：使用 GroupDocs.Search 构建文档索引
+# 从 PDF Java 中提取文本：使用 GroupDocs.Search 构建文档索引
 
 在本实战指南中，您将了解 **如何从 PDF Java** 应用程序中提取文本，并将这些原始内容转换为快速的全文可搜索索引。无论您是构建内部知识库、合同搜索门户，还是自定义搜索引擎，以下步骤将带您完成全部过程——从从 PDF 中提取文本、序列化数据、创建索引，到最终执行查询。让我们深入了解为何 GroupDocs.Search 能让整个流程顺畅且可扩展。
 

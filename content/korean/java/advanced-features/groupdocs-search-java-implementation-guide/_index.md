@@ -12,17 +12,7 @@ url: /ko/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-:** GroupDocs"
-
-Make sure bold formatting stays.
-
-Now produce final markdown with Korean translations.
-
-Check for any missing elements: code block placeholders remain. No actual code blocks.
-
-Make sure to preserve list formatting, headings, blockquotes.
-
-Now produce final answer.# PDF Java에서 텍스트 추출: GroupDocs.Search로 문서 인덱스 구축
+# PDF Java에서 텍스트 추출: GroupDocs.Search로 문서 인덱스 구축
 
 이 실습 가이드에서는 **PDF Java** 애플리케이션에서 텍스트를 추출하고 해당 원시 콘텐츠를 빠르고 전체 텍스트 검색이 가능한 인덱스로 전환하는 방법을 알아봅니다. 내부 지식 베이스, 계약 검색 포털 또는 맞춤형 검색 엔진을 구축하든, 아래 단계에서는 PDF에서 텍스트를 추출하고 데이터를 직렬화하며 인덱스를 생성하고 최종적으로 쿼리를 실행하는 전체 과정을 안내합니다. 이제 시작하여 GroupDocs.Search가 전체 프로세스를 얼마나 원활하고 확장 가능하게 만드는지 확인해 보세요.
 

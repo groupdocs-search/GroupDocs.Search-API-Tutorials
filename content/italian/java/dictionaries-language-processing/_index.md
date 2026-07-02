@@ -8,15 +8,7 @@ url: /it/java/dictionaries-language-processing/
 weight: 5
 ---
 
-:** 2026-02-19 => "**Ultimo aggiornamento:** 2026-02-19"
-
-**Tested With:** GroupDocs.Search for Java 23.9 => "**Testato con:** GroupDocs.Search per Java 23.9"
-
-**Author:** GroupDocs => "**Autore:** GroupDocs"
-
-Make sure to keep bold formatting.
-
-Now produce final content.# Elaborazione del linguaggio Java – Creare un dizionario dei sinonimi con GroupDocs.Search
+# Elaborazione del linguaggio Java – Creare un dizionario dei sinonimi con GroupDocs.Search
 
 In questa guida imparerai a **creare un dizionario dei sinonimi** come parte di una solida strategia di **elaborazione del linguaggio Java**. Alla fine del tutorial comprenderai perché la gestione dei sinonimi, la correzione ortografica e i dizionari personalizzati sono essenziali per fornire risultati di ricerca accurati nelle applicazioni Java che si basano su GroupDocs.Search.
 

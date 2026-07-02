@@ -12,41 +12,43 @@ url: /hi/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-खक:** GroupDocs"
-
-Make sure to keep markdown formatting.
-
-Now produce final content.# PDF Java से टेक्स्ट निकालें: GroupDocs.Search के साथ डॉक्यूमेंट इंडेक्स बनाएं
+# PDF Java से टेक्स्ट निकालें: GroupDocs.Search के साथ डॉक्यूमेंट इंडेक्स बनाएं
 
 इस व्यावहारिक गाइड में आप जानेंगे **कैसे PDF Java** एप्लिकेशन से टेक्स्ट निकाला जाए और उस कच्चे कंटेंट को तेज़, पूर्ण‑टेक्स्ट खोज योग्य इंडेक्स में बदला जाए। चाहे आप एक आंतरिक नॉलेज बेस, कॉन्ट्रैक्ट‑सर्च पोर्टल, या कस्टम सर्च इंजन बना रहे हों, नीचे दिए गए चरण आपको सब कुछ समझाते हैं—PDF से टेक्स्ट निकालने से लेकर डेटा को सीरियलाइज़ करने, इंडेक्स बनाने, और अंत में क्वेरी चलाने तक। चलिए देखते हैं कि GroupDocs.Search पूरी प्रक्रिया को कैसे सहज और स्केलेबल बनाता है।
 
-## Quick Answers
-- **मुख्य उद्देश्य क्या है?** PDF Java फ़ाइलों से टेक्स्ट निकालना और GroupDocs.Search के साथ खोज योग्य डॉक्यूमेंट इंडेक्स बनाना।  
-- **कौन सा लाइब्रेरी संस्करण?** GroupDocs.Search 25.4 (या नवीनतम रिलीज़)।  
-- **क्या मुझे लाइसेंस चाहिए?** विकास के लिए फ्री ट्रायल काम करता है; प्रोडक्शन के लिए पूर्ण लाइसेंस आवश्यक है।  
-- **क्या मैं PDFs को इंडेक्स कर सकता हूँ?** हाँ—PDF टेक्स्ट निकालें और उसे इंडेक्स में जोड़ें।  
-- **सर्च कैसे चलाएँ?** डेटा जोड़ने के बाद `index.search(query)` मेथड का उपयोग करें।
+## हाजिर जवाब
+- **मुख्य उद्देश्य क्या है?** PDF Java सेक्शन से टेक्स्ट निकालना और GroupDocs.Search के साथ सर्च करने लायक डॉक्यूमेंट इंडेक्स बनाना।
 
-## What is a Document Index?
-डॉक्यूमेंट इंडेक्स आपके फ़ाइलों से निकाले गए खोज योग्य शब्दों का एक संरचित संग्रह है। डॉक्यूमेंट इंडेक्स बनाकर आप बड़े रिपॉज़िटरीज़ में तेज़ पूर्ण‑टेक्स्ट खोज सक्षम करते हैं, जिससे पुनर्प्राप्ति गति और सटीकता में उल्लेखनीय सुधार होता है।
+- **कौन सा लाइब्रेरी एडिशन?** GroupDocs.Search 25.4 (या लेटेस्ट रिलीज़)।
 
-## Why Use GroupDocs.Search for Java?
-- **मजबूत एक्सट्रैक्शन** – PDFs, Word, Excel आदि को संभालता है।  
-- **आसान सीरियलाइज़ेशन** – निकाले गए डेटा को बाइट एरेज़ के रूप में संग्रहीत करें ताकि बाद में पुन: उपयोग किया जा सके।  
-- **स्केलेबल इंडेक्सिंग** – लाखों डॉक्यूमेंट्स को कुशलता से इंडेक्स करें।  
-- **शक्तिशाली क्वेरी भाषा** – जटिल पूर्ण‑टेक्स्ट सर्च Java क्वेरीज़ को सपोर्ट करती है।
+- **क्या मुझे लाइसेंस चाहिए?** डेवलपमेंट के लिए फ्री ट्रायल काम करता है; प्रोडक्शन के लिए फुल लाइसेंस ज़रूरी है।
 
-## Prerequisites
-- **GroupDocs.Search for Java** (वर्ज़न 25.4 या नया)।  
-- **Java Development Kit (JDK)** जो आपके GroupDocs संस्करण के साथ संगत हो।  
-- IntelliJ IDEA या Eclipse जैसे IDE।  
+- **क्या मैं PDFs को इंडेक्स कर सकता हूँ?** हाँ—PDF टेक्स्ट हटाकर उसे इंडेक्स में जोड़ें।
+
+- **सर्च कैसे चलाएँ?** डेटा जोड़ने के बाद `index.search(query)` मेथड का इस्तेमाल करें।
+
+## डॉक्यूमेंट इंडेक्स क्या है?
+
+डॉक्यूमेंट इंडेक्स आपके सेक्शन से निकाले गए सर्च करने लायक शब्दों का एक इंडेक्स कलेक्शन है। डॉक्यूमेंट इंडेक्स बनाकर आप बड़े रिपॉजिटरीज़ में तेज़ फुल-टेक्स्ट सर्च कर पाते हैं, जिससे इंडेक्स स्पीड और इंडेक्स में खास सुधार होता है।
+
+## Java के लिए GroupDocs.Search का इस्तेमाल क्यों करें?
+
+- **मजबूत एक्सट्रैक्शन** – PDFs, Word, Excel आदि को संभालता है।
+- **आसान सीरियलाइजेशन** – निकाले गए डेटा को बाइट एरेज़ के रूप में प्रोसेस करें ताकि बाद में पुन: उपयोग किया जा सके।
+- **स्केलेबल इंडेक्सिंग** – लाखों डॉक्यूमेंट्स को टाइप से मैप करें।
+- **शक्तिशाली क्वेरी भाषा** – कॉम्प्लेक्स फुल-टेक्स्ट सर्च Java क्वेरीज़ को सपोर्ट करती है।
+
+## प्रीरिक्विजिट्स
+- **GroupDocs.Search for Java** (वर्जन 25.4 या नया)।
+- **Java डेवलपमेंट किट (JDK)** जो आपके GroupDocs एडिशन के साथ संगत हो।
+- IntelliJ IDEA या Eclipse जैसे IDE।
 - डिपेंडेंसी मैनेजमेंट के लिए Maven।
 
-## Setting Up GroupDocs.Search for Java
+## GroupDocs.Search for Java सेट अप करना
 सबसे पहले, लाइब्रेरी को अपने प्रोजेक्ट में जोड़ें।
 
-**Maven Setup**  
-Include the following in your `pom.xml` file:
+**Maven सेटअप**
+अपनी `pom.xml` फ़ाइल में ये चीज़ें शामिल करें:
 
 ```xml
 <repositories>
@@ -66,16 +68,16 @@ Include the following in your `pom.xml` file:
 </dependencies>
 ```
 
-**Direct Download**  
-वैकल्पिक रूप से, नवीनतम संस्करण को [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) से डाउनलोड करें।
+**डायरेक्ट डाउनलोड**
+वैकल्पिक रूप से, नवीनतम संस्करण को [GroupDocs.Search for Java रिलीज़](https://releases.groupdocs.com/search/java/) से डाउनलोड करें।
 
-### License Acquisition
-- **फ्री ट्रायल** – अस्थायी लाइसेंस के साथ सभी फीचर्स का परीक्षण करें।  
-- **पर्चेज** – पूर्ण एक्सेस और प्रायोरिटी सपोर्ट प्राप्त करें।
+### लाइसेंस अधिग्रहण
+- **फ्री ट्रायल** – अस्थायी लाइसेंस के साथ सभी फीचर्स का परीक्षण करें।
+- **परचेज** – पूर्ण एक्सेस और प्रायोरिटी सपोर्ट प्राप्त करें।
 
-## Step‑by‑Step Implementation
+## स्टेप-बाय-स्टेप इम्प्लीमेंटेशन
 
-### How to extract text from PDFs (and other documents)
+### PDF (और अन्य डॉक्यूमेंट्स) से टेक्स्ट कैसे निकालें
 कच्चा या फॉर्मेटेड टेक्स्ट निकालना डॉक्यूमेंट इंडेक्स बनाने की पहली कदम है। जब आप **PDF Java से टेक्स्ट निकालते** हैं, तो आप सर्च इंजन को ऐसा कुछ प्रदान करते हैं जिसे वह समझ सके।
 
 ```java
@@ -92,8 +94,8 @@ ExtractedData extractedData = extractor.extract(document, extractionOptions);
 
 > **टिप:** यदि आपको फॉर्मेटिंग के बिना साधारण टेक्स्ट चाहिए तो `setUseRawTextExtraction(true)` सेट करें।
 
-### How to serialize extracted data
-Serialization lets you store the extracted data for later indexing.
+### निकाले गए डेटा को सीरियलाइज़ कैसे करें
+सीरियलाइज़ेशन से आप निकाले गए डेटा को बाद में इंडेक्स करने के लिए स्टोर कर सकते हैं।
 
 ```java
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -101,7 +103,7 @@ extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
 
-### How to deserialize extracted data
+### निकाले गए डेटा को डीसीरियलाइज़ कैसे करें
 जब आप इंडेक्स बनाने के लिए तैयार हों, तो बाइट एरे को वापस ऑब्जेक्ट में कनवर्ट करें।
 
 ```java
@@ -109,7 +111,7 @@ ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 ```
 
-### How to create document index
+### डॉक्यूमेंट इंडेक्स कैसे बनाएं
 अब जब आपके पास `deserializedData` है, तो आप वह इंडेक्स बना सकते हैं जो खोज योग्य शब्दों को रखेगा।
 
 ```java
@@ -117,7 +119,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataE
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
 
-### How to add data to index and perform a search
+### इंडेक्स में डेटा कैसे जोड़ें और सर्च कैसे करें
 डेटा जोड़ना और इंडेक्स को क्वेरी करना **PDF Java से टेक्स्ट निकालें** वर्कफ़्लो को पूरा करता है।
 
 ```java
@@ -132,17 +134,17 @@ SearchResult result = index.search(query);
 
 > **प्रो टिप:** `index.search("your query", SearchOptions)` का उपयोग करके रिलेवेंस रैंकिंग को फाइन‑ट्यून करें।
 
-## Common Use Cases
+## आम इस्तेमाल के मामले
 1. **डॉक्यूमेंट मैनेजमेंट सिस्टम** – कॉन्ट्रैक्ट, इनवॉइस या पॉलिसी को जल्दी से खोजें।  
 2. **कंटेंट‑बेस्ड सर्च इंजन** – पूर्ण‑टेक्स्ट सर्च Java क्षमताओं के साथ आंतरिक नॉलेज बेस को सशक्त बनाएं।  
 3. **डेटा आर्काइविंग सॉल्यूशन्स** – ऐतिहासिक रिकॉर्ड को तुरंत पुनर्प्राप्ति के लिए इंडेक्स करें।
 
-## Performance Considerations
+## परफ़ॉर्मेंस से जुड़ी बातें
 - **मेमोरी मैनेजमेंट:** बड़े डॉक्यूमेंट बैच के लिए JVM हीप साइज समायोजित करें।  
 - **इंडेक्सिंग विकल्प:** अनावश्यक फीचर्स (जैसे टर्म वेक्टर) को डिसेबल करके इंडेक्सिंग को तेज़ करें।  
 - **नियमित अपडेट:** प्रदर्शन पैचों का लाभ उठाने के लिए GroupDocs.Search को अपडेट रखें।
 
-## Frequently Asked Questions
+## अक्सर पूछे जाने वाले सवाल
 
 **प्रश्न:** बहुत बड़े PDF फ़ाइलों को प्रभावी ढंग से कैसे संभालें?  
 **उत्तर:** `Extractor` का उपयोग करके फ़ाइल को स्ट्रीम करें और चंक्स में प्रोसेस करें; आवश्यकता होने पर JVM हीप बढ़ाएँ।
@@ -159,7 +161,7 @@ SearchResult result = index.search(query);
 **प्रश्न:** नए GroupDocs.Search संस्करण में अपग्रेड कैसे करें?  
 **उत्तर:** अपने `pom.xml` में संस्करण संख्या अपडेट करें और `mvn clean install` चलाएँ; ब्रेकिंग चेंजेज़ के लिए माइग्रेशन गाइड देखें।
 
-## Resources
+## रिसोर्स
 - **डॉक्यूमेंटेशन:** [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)  
 - **API रेफ़रेंस:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
 - **डाउनलोड:** [GroupDocs Downloads](https://releases.groupdocs.com/search/java/)  
