@@ -1,7 +1,7 @@
 ---
 title: "Add documents to index with chunk-based search in Java"
-description: "Learn how to add documents to index and enable chunk-based search in Java using GroupDocs.Search, boosting performance for large document sets."
-date: "2025-12-19"
+description: "Learn how to add documents to index and increase search performance with chunk‑based search in Java using GroupDocs.Search, optimizing java search index memory for large document sets."
+date: "2026-02-21"
 weight: 1
 url: "/java/advanced-features/groupdocs-search-java-chunk-based-search-tutorial/"
 keywords:
@@ -13,21 +13,21 @@ type: docs
 
 # Add documents to index with chunk-based search in Java
 
-In today's data‑driven world, being able to **add documents to index** quickly and then perform chunk‑based searches is essential for any application that handles large collections of files. Whether you're dealing with legal contracts, customer support archives, or massive research libraries, this tutorial shows you exactly how to set up GroupDocs.Search for Java so you can index documents efficiently and retrieve relevant information in bite‑sized chunks.
-
-## What You'll Learn
-- How to create a search index in a specified folder.  
-- Steps to **add documents to index** from multiple locations.  
-- Configuring search options to enable chunk‑based searching.  
-- Performing initial and subsequent chunk‑based searches.  
-- Real‑world scenarios where chunk‑based document search shines.
+In modern applications that need to **add documents to index** quickly and then perform fast, chunk‑based queries, you’ll want a solution that scales without blowing up memory. This tutorial walks you through setting up GroupDocs.Search for Java, adding multiple document folders, and configuring the engine to **increase search performance** while keeping **java search index memory** usage under control. Whether you’re indexing legal contracts, support tickets, or research papers, the steps below will give you a production‑ready implementation.
 
 ## Quick Answers
 - **What is the first step?** Create a search index folder.  
 - **How do I include many files?** Use `index.add()` for each document folder.  
 - **Which option enables chunk search?** `options.setChunkSearch(true)`.  
 - **Can I continue searching after the first chunk?** Yes, call `index.searchNext()` with the token.  
-- **Do I need a license?** A free trial or temporary license works for development; a full license is required for production.
+- **Do I need a license?** A free trial or temporary license works for development; a full license is required for production.  
+
+## What You’ll Learn
+- How to create a search index in a specified folder.  
+- Steps to **add documents to index** from multiple locations.  
+- Configuring search options to enable chunk‑based searching.  
+- Performing initial and subsequent chunk‑based searches.  
+- Real‑world scenarios where chunk‑based document search shines.  
 
 ## Prerequisites
 To follow this guide, ensure you have:
@@ -148,6 +148,20 @@ Chunk‑based searching breaks massive document collections into manageable piec
 2. **Customer support portals** must surface relevant knowledge‑base articles instantly.  
 3. **Researchers** sift through extensive datasets without loading entire files into memory.
 
+## How this approach **increases search performance**
+By searching smaller chunks rather than whole files, the engine can:
+
+- Skip irrelevant sections early, cutting CPU cycles.  
+- Keep only the active chunk in memory, which directly lowers **java search index memory** consumption.  
+- Parallelize chunk processing on multi‑core machines for faster results.
+
+## Managing **java search index memory**
+While chunk‑based search already reduces memory footprint, you can further tune the JVM:
+
+- Allocate sufficient heap (`-Xmx2g` or higher) based on index size.  
+- Use `index.optimize()` after bulk additions to compress the index structure.  
+- Monitor GC pauses with tools like VisualVM to avoid latency spikes.
+
 ## Performance Considerations
 - **Memory Management** – Allocate sufficient heap space (`-Xmx`) for large indexes.  
 - **Resource Monitoring** – Keep an eye on CPU usage during indexing and search operations.  
@@ -177,6 +191,12 @@ A: Memory constraints and unoptimized indexes are the most common; allocate suff
 **Q: Where can I find more detailed documentation?**  
 A: Visit the official [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/) for in‑depth guides and API references.
 
+**Q: Does chunk‑based search work with encrypted PDFs?**  
+A: Yes, as long as you provide the password via the appropriate API overload.
+
+**Q: How can I monitor indexing progress?**  
+A: Use the `Index.add()` overload that returns a `Progress` object or hook into logging callbacks.
+
 ## Resources
 - **Documentation**: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API Reference**: [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java)  
@@ -187,7 +207,7 @@ A: Visit the official [GroupDocs.Search Documentation](https://docs.groupdocs.co
 
 ---
 
-**Last Updated:** 2025-12-19  
+**Last Updated:** 2026-02-21  
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs  
 

@@ -1,8 +1,8 @@
 ---
-date: '2025-12-19'
+date: '2026-02-21'
 description: GroupDocs.Search for Java kullanarak bir Java dosya uzantısı filtresinin
-  nasıl uygulanacağını öğrenin; mantıksal operatörler, oluşturma/değiştirme tarihleri
-  ve yol filtrelerini kapsar.
+  nasıl uygulanacağını, mantıksal operatörler, oluşturma/değiştirme tarihleri ve yol
+  filtrelerini kapsayacak şekilde öğrenin.
 keywords:
 - Java File Filtering
 - GroupDocs.Search
@@ -13,50 +13,47 @@ url: /tr/java/advanced-features/master-java-file-filtering-groupdocs-search/
 weight: 1
 ---
 
-# GroupDocs.Search ile java file extension filter'ı ustalaşma
+# GroupDocs.Search ile java file extension filter'ı ustalıkla kullanma
 
-Artan bir belge deposunu yönetmek hızla bunaltıcı bir hâle gelebilir. Yalnızca belirli belge türlerini indekslemek ya da alakasız dosyaları dışlamak isterken, **java file extension filter** işlenmesi gereken dosyalar üzerinde ince ayar kontrolü sağlar. Bu rehberde GroupDocs.Search for Java kurulumunu adım adım gösterecek ve dosya‑uzantısı filtrelemesini mantıksal AND, OR ve NOT operatörleriyle, ayrıca tarih‑aralığı ve yol filtreleriyle nasıl birleştireceğinizi anlatacağız.
+Artan bir belge deposunu yönetmek hızla bunaltıcı hâle gelebilir, özellikle yalnızca belirli dosya türlerini indekslemeniz gerektiğinde. **The java file extension filter** GroupDocs.Search'e hangi uzantıların dahil edileceğini veya hariç tutulacağını tam olarak söylemenizi sağlar ve indeksleme hattı üzerinde hassas kontrol sunar. Bu rehberde GroupDocs.Search for Java kurulumunu adım adım gösteriyor ve dosya uzantısı filtrelemesini mantıksal AND, OR ve NOT operatörleriyle, ayrıca tarih aralığı ve yol filtreleriyle nasıl birleştireceğinizi anlatacağız.
 
 ## Hızlı Yanıtlar
-- **java file extension filter nedir?** GroupDocs.Search'ün indeksleme sırasında hangi dosya uzantılarını dahil edeceğini ya da hariç tutacağını belirten bir yapılandırma.  
-- **Bu özelliği hangi kütüphane sağlar?** GroupDocs.Search for Java.  
-- **Lisans gerekir mi?** Değerlendirme için ücretsiz deneme yeterlidir; üretim ortamı için tam lisans gereklidir.  
-- **Filtreleri birleştirebilir miyim?** Evet – uzantı, tarih, boyut ve yol filtrelerini AND, OR, NOT mantığıyla zincirleyebilirsiniz.  
-- **Maven uyumlu mu?** Kesinlikle – `pom.xml` dosyanıza GroupDocs.Search bağımlılığını ekleyin.
+- **What is the java file extension filter?** İndeksleme sırasında GroupDocs.Search'e hangi dosya uzantılarının dahil edileceğini veya hariç tutulacağını söyleyen bir yapılandırmadır.  
+- **Which library provides this feature?** GroupDocs.Search for Java.  
+- **Do I need a license?** Değerlendirme için ücretsiz deneme çalışır; üretim için tam lisans gereklidir.  
+- **Can I combine filters?** Evet – uzantı, tarih, boyut ve yol filtrelerini AND, OR, NOT mantığıyla zincirleyebilirsiniz.  
+- **Is it Maven‑compatible?** Kesinlikle – GroupDocs.Search bağımlılığını `pom.xml` dosyanıza ekleyin.
 
-## Giriş
+## java file extension filter nedir?
+Bir **java file extension filter**, her dosyanın uzantısını indeksleme motoruna gönderilmeden önce değerlendiren bir kural setidir. `.txt`, `.pdf` veya `.epub` gibi uzantılar belirleyerek **include files by extension** veya **exclude files by extension** yapabilir ve indeksinizi odaklı, arama sonuçlarınızı ilgili tutabilirsiniz.
 
-Artan bir dosya deposunu verimli bir şekilde yönetmekte zorlanıyor musunuz? Belgeleri türlerine göre düzenlemek ya da indeksleme sırasında gereksiz dosyaları filtrelemek istiyorsanız, doğru araçlar olmadan bu görev göz korkutucu olabilir. **GroupDocs.Search for Java**, güçlü dosya filtreleme yetenekleriyle bu zorlukları basitleştiren gelişmiş bir arama kütüphanesidir. Bu öğreticide .NET Dosya Filtreleme tekniklerini GroupDocs.Search kullanarak uygulamayı, Mantıksal AND, OR ve NOT Filtrelerine odaklanarak anlatacağız.
+## GroupDocs.Search ile file‑extension filtering neden kullanılmalı?
+- **Performance:** İstenmeyen dosyaları atlamak I/O'yu azaltır ve indekslemeyi hızlandırır.  
+- **Storage savings:** Yalnızca ilgili belgeler indeks içinde saklanır, disk kullanımını azaltır.  
+- **Compliance:** Gizli veya desteklenmeyen dosya türlerinin yanlışlıkla indekslenmesini önler.  
+- **Flexibility:** Belirli dönemlerde oluşturulan veya değiştirilen dosyaları hedeflemek için **date range filter java** özellikleriyle birleştirin.
 
-### Öğrenecekleriniz
-- Java ortamınızda GroupDocs.Search kurulumunu yapma  
-- Çeşitli filtreleri uygulama: Dosya Uzantısı, Mantıksal Operatörler (AND, OR, NOT), Oluşturulma Zamanı, Değiştirilme Zamanı, Dosya Yolu ve Uzunluk  
-- Bu filtrelerin belge yönetiminde gerçek dünya uygulamaları  
-- Büyük ölçekli indeksleme görevleri için performans optimizasyon ipuçları  
+## Önkoşullar
 
-Java’da dosya filtrelemenin tam potansiyelini ortaya çıkarmaya hazır mısınız? Öncelikle gereksinimlere göz atalım.
-
-## Gereksinimler
-
-Başlamadan önce aşağıdakilerin kurulu olduğundan emin olun:
+Başlamadan önce, aşağıdakilere sahip olduğunuzdan emin olun:
 
 ### Gerekli Kütüphaneler ve Bağımlılıklar
-- **GroupDocs.Search for Java**: 25.4 veya daha yeni bir sürüm  
-- **Java Development Kit (JDK)**: Sisteminizde uyumlu bir sürüm yüklü olmalı  
+- **GroupDocs.Search for Java**: Versiyon 25.4 veya üzeri  
+- **Java Development Kit (JDK)**: Uyumluluk sağlayan sürüm yüklü  
 
 ### Ortam Kurulumu
-- Entegre Geliştirme Ortamı (IDE): IntelliJ IDEA, Eclipse veya Maven projelerini destekleyen herhangi bir IDE kullanın.
+- Entegre Geliştirme Ortamı (IDE): IntelliJ IDEA, Eclipse veya Maven‑compatible herhangi bir IDE.
 
-### Bilgi Gereksinimleri
-- Java programlamaya temel hakimiyet  
-- Java’da dosya I/O işlemlerine aşinalık  
-- Düzenli ifadeler ve tarih‑zaman manipülasyonlarını anlama  
+### Bilgi Önkoşulları
+- Temel Java programlama  
+- Java'da dosya I/O'ya aşinalık  
+- Düzenli ifadeler ve tarih‑zaman işleme konularının anlaşılması  
 
 ## GroupDocs.Search for Java Kurulumu
-GroupDocs.Search'ü kullanmaya başlamak için projenize bağımlılık olarak eklemeniz gerekir. İşte nasıl yapılacağı:
+GroupDocs.Search'i kullanmaya başlamak için projenize bağımlılık olarak eklemeniz gerekir.
 
 ### Maven Yapılandırması
-Aşağıdaki depo ve bağımlılık yapılandırmasını `pom.xml` dosyanıza ekleyin:
+`pom.xml` dosyanıza aşağıdaki depo ve bağımlılık yapılandırmasını ekleyin:
 
 ```xml
 <repositories>
@@ -77,15 +74,15 @@ Aşağıdaki depo ve bağımlılık yapılandırmasını `pom.xml` dosyanıza ek
 ```
 
 ### Doğrudan İndirme
-Alternatif olarak, en yeni sürümü doğrudan [GroupDocs.Search for Java sürümleri](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
+Alternatif olarak, en son sürümü doğrudan [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
 
 #### Lisans Edinme
-1. **Ücretsiz Deneme**: GroupDocs.Search özelliklerini keşfetmek için ücretsiz deneme ile başlayın.  
-2. **Geçici Lisans**: Sınırlama olmadan tam işlevselliğe erişmek için geçici lisans başvurusu yapın.  
-3. **Satın Alma**: Uzun vadeli kullanım için bir abonelik satın alın.  
+1. **Free Trial** – özellikleri ücretsiz keşfedin.  
+2. **Temporary License** – sınırlı bir süre tam işlevsellik elde edin.  
+3. **Purchase** – üretim kullanımı için kalıcı bir lisans edinin.  
 
 ### Temel Başlatma ve Kurulum
-Kütüphane eklendikten sonra indeksleme ortamınızı başlatın:
+Kütüphane eklendikten sonra, indeksleme ortamınızı başlatın:
 
 ```java
 import com.groupdocs.search.*;
@@ -95,98 +92,98 @@ Index index = new Index(indexFolder);
 ```
 
 ## Uygulama Kılavuzu
-Şimdi, GroupDocs.Search kullanarak çeşitli dosya filtreleme özelliklerini nasıl uygulayacağınızı inceleyelim.
+Aşağıda her filtre türüne derinlemesine bakacağız, **neden önemli olduğunu** açıklayacağız ve projenize kopyalayabileceğiniz adım adım kodları sunacağız.
 
 ### Dosya Uzantısı Filtreleme
-İndeksleme sırasında dosyaları uzantılarına göre filtreleyin. Bu özellik, yalnızca FB2, EPUB ve TXT gibi belirli belge türlerini işlemek istediğinizde faydalıdır.
+İndeksleme sırasında dosyaları uzantılarına göre filtreleyin. Bu, yalnızca e‑kitapları (`.fb2`, `.epub`) ve düz metin dosyalarını (`.txt`) işlemek istediğinizde mükemmeldir.
 
 #### Genel Bakış
-Özel bir filtre yapılandırmasıyla dosya uzantısına göre belgeleri filtreleyin.
+`DocumentFilter.createFileExtension` kullanarak uzantıları beyaz listeye ekleyin.
 
 #### Uygulama Adımları
-1. **Filtre Oluşturma**:
-    
+1. **Create Filter**:
+
     ```java
     DocumentFilter filter = DocumentFilter.createFileExtension(".fb2", ".epub", ".txt");
     IndexSettings settings = new IndexSettings();
     settings.setDocumentFilter(filter);
     ```
 
-2. **İndeksi Başlat ve Belgeleri Ekle**:
-    
+2. **Initialize Index and Add Documents**:
+
     ```java
     Index index = new Index("YOUR_OUTPUT_DIRECTORY\\FileExtensionFilter", settings);
     index.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
 ### Mantıksal NOT Filtre
-HTM, HTML ve PDF gibi belirli dosya uzantılarını indeksleme sırasında dışlayın.
+Arama senaryonuzda ihtiyaç duyulmadığında web sayfaları ve PDF'ler gibi belirli uzantıları hariç tutun.
 
 #### Uygulama Adımları
-1. **Hariç Tutma Filtresi Oluşturma**:
-    
+1. **Create Exclusion Filter**:
+
     ```java
     DocumentFilter filterNot = DocumentFilter.createFileExtension(".htm", ".html", ".pdf");
     DocumentFilter invertedFilter = DocumentFilter.createNot(filterNot);
     ```
 
-2. **İndeks Ayarlarına Uygulama**:
-    
+2. **Apply to Index Settings**:
+
     ```java
     IndexSettings settingsNot = new IndexSettings();
     settingsNot.setDocumentFilter(invertedFilter);
     ```
 
-3. **Belgeleri Ekleme**:
-    
+3. **Add Documents**:
+
     ```java
     Index indexNot = new Index("YOUR_OUTPUT_DIRECTORY\\LogicalNotFilter", settingsNot);
     indexNot.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
 ### Mantıksal AND Filtre
-Tüm belirtilen koşulları karşılayan dosyaları dahil etmek için birden fazla kriteri birleştirin.
+Birden fazla koşulu—oluşturma tarihi, uzantı ve dosya boyutu—birleştirerek **tüm kriterleri karşılayan dosyalar** indekslenir.
 
 #### Genel Bakış
-Oluşturulma zamanı, dosya uzantısı ve uzunluk gibi kriterlere göre dosyaları filtrelemek için mantıksal AND işlemleri kullanın.
+`DocumentFilter.createAnd` birden çok filtreyi tek bir kurala birleştirir.
 
 #### Uygulama Adımları
-1. **Filtreleri Tanımlama**:
-    
+1. **Define Filters**:
+
     ```java
     DocumentFilter filter1 = DocumentFilter.createCreationTimeRange(Utils.createDate(2015, 1, 1), Utils.createDate(2016, 1, 1));
     DocumentFilter filter2 = DocumentFilter.createFileExtension(".txt");
     DocumentFilter filter3 = DocumentFilter.createFileLengthUpperBound(8 * 1024 * 1024);
     ```
 
-2. **Filtreleri Birleştirme**:
-    
+2. **Combine Filters**:
+
     ```java
     DocumentFilter finalFilterAnd = DocumentFilter.createAnd(filter1, filter2, filter3);
     IndexSettings settingsAnd = new IndexSettings();
     settingsAnd.setDocumentFilter(finalFilterAnd);
     ```
 
-3. **Belgeleri İndeksleme**:
-    
+3. **Index Documents**:
+
     ```java
     Index indexAnd = new Index("YOUR_OUTPUT_DIRECTORY\\LogicalAndFilter", settingsAnd);
     indexAnd.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
 ### Mantıksal OR Filtre
-Belirtilen kriterlerden herhangi birini karşılayan dosyaları dahil edin.
+Belirtilen koşullardan **herhangi birini** karşılayan dosyaları dahil edin—küçük metin dosyalarını ve daha büyük metin dışı dosyaları yakalamak istediğinizde faydalıdır.
 
 #### Uygulama Adımları
-1. **Filtreleri Tanımlama**:
-    
+1. **Define Filters**:
+
     ```java
     DocumentFilter txtFilter = DocumentFilter.createFileExtension(".txt");
     DocumentFilter notTxtFilter = DocumentFilter.createNot(txtFilter);
     ```
 
-2. **Mantıksal Koşullarla Filtreleri Birleştirme**:
-    
+2. **Combine Filters with Logical Conditions**:
+
     ```java
     DocumentFilter bound5Filter = DocumentFilter.createFileLengthUpperBound(5 * 1024 * 1024);
     DocumentFilter bound10Filter = DocumentFilter.createFileLengthUpperBound(10 * 1024 * 1024);
@@ -195,8 +192,8 @@ Belirtilen kriterlerden herhangi birini karşılayan dosyaları dahil edin.
     DocumentFilter notTxtSizeFilter = DocumentFilter.createAnd(notTxtFilter, bound10Filter);
     ```
 
-3. **OR Filtreyi Sonlandırma**:
-    
+3. **Finalize OR Filter**:
+
     ```java
     DocumentFilter finalFilterOr = DocumentFilter.createOr(txtSizeFilter, notTxtSizeFilter);
 
@@ -206,88 +203,89 @@ Belirtilen kriterlerden herhangi birini karşılayan dosyaları dahil edin.
     indexOr.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Oluşturulma Zamanı Filtreleri
-Dosyaları, belirli bir tarih aralığı içinde kalanları dahil etmek için oluşturulma zamanına göre filtreleyin.
+### Oluşturma Zamanı Filtreleri
+Belirli bir dönemde oluşturulan dosyaları hedefleyin—klasik bir **date range filter java** senaryosu.
 
 #### Uygulama Adımları
-1. **Tarih Aralığı Filtresi Tanımlama**:
-    
+1. **Define Date Range Filter**:
+
     ```java
     DocumentFilter filter3CTime = DocumentFilter.createCreationTimeRange(Utils.createDate(2017, 1, 1), Utils.createDate(2018, 6, 15));
     IndexSettings settingsCTime = new IndexSettings();
     settingsCTime.setDocumentFilter(filter3CTime);
     ```
 
-2. **Belg İndeksleme**:
-    
+2. **Index Documents**:
+
     ```java
     Index indexCTime = new Index("YOUR_OUTPUT_DIRECTORY\\CreationTimeFilters", settingsCTime);
     indexCTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Değiştirilme Zamanı Filtreleri
-Belirli bir tarihten sonra değiştirilmiş dosyaları dışlayın.
+### Değiştirme Zamanı Filtreleri
+Belirli bir kesim tarihinden sonra değiştirilmiş dosyaları hariç tutun.
 
 #### Uygulama Adımları
-1. **Filtre Tanımlama**:
-    
+1. **Define Filter**:
+
     ```java
     DocumentFilter filter2MTime = DocumentFilter.createModificationTimeUpperBound(Utils.createDate(2018, 6, 15));
     IndexSettings settingsMTime = new IndexSettings();
     settingsMTime.setDocumentFilter(filter2MTime);
     ```
 
-2. **Belgeleri İndeksleme**:
-    
+2. **Index Documents**:
+
     ```java
     Index indexMTime = new Index("YOUR_OUTPUT_DIRECTORY\\ModificationTimeFilters", settingsMTime);
     indexMTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
 ### Dosya Yolu Filtreleme
-Dosyaları, belirli dizinlerde bulunanları dahil etmek için dosya yollarına göre filtreleyin.
+İndekslemeyi belirli klasörlerde bulunan veya bir desenle eşleşen dosyalarla sınırlayın—belirli bir dizin hiyerarşisinde **include files by extension** için idealdir.
 
 #### Uygulama Adımları
-1. **Dosya Yolu Filtresi Tanımlama**:
-    
+1. **Define File Path Filter**:
+
     ```java
     DocumentFilter pathFilter = DocumentFilter.createPath("*.txt", "documents/");
     IndexSettings settingsPath = new IndexSettings();
     settingsPath.setDocumentFilter(pathFilter);
     ```
 
-2. **İndeksi Başlat ve Belgeleri Ekle**:
-    
+2. **Initialize Index and Add Documents**:
+
     ```java
     Index indexPath = new Index("YOUR_OUTPUT_DIRECTORY\\FilePathFilter", settingsPath);
     indexPath.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-## Yaygın Hatalar ve İpuçları
+## Yaygın Tuzaklar ve İpuçları
 
-- **Aynı filtre yapılandırmasında mutlak ve göreli yolları karıştırmayın** – bu, beklenmeyen dışlamalara yol açabilir.  
-- **`IndexSettings`i sıfırlamayı unutmayın**; bir filtre setinden diğerine geçerken önceki filtreler kalabilir.  
-- **Büyük dosya koleksiyonları**, bellek kullanımını düşük tutmak için uzunluk üst sınırıyla uzantı filtresini birleştirerek fayda sağlar.  
+- **Never mix absolute and relative paths** aynı filtre yapılandırmasında – beklenmeyen hariç tutmalara yol açabilir.  
+- **Reset the `IndexSettings`** filtre setlerini değiştirirken; aksi takdirde önceki filtreler kalabilir.  
+- **Combine a length upper bound with an extension filter** büyük koleksiyonlarda bellek kullanımını düşük tutmak için.  
+- **Enable logging** (`LoggingOptions.setEnabled(true)`) bir dosyanın neden reddedildiğini görmek için.  
 
-## Sık Sorulan Sorular
+## Sıkça Sorulan Sorular
 
-**S: İndeks oluşturulduktan sonra filtre kriterlerini değiştirebilir miyim?**  
-C: Evet. Yeni bir `DocumentFilter` ile indeksi yeniden oluşturabilir veya güncellenmiş ayarlarla artımlı indeksleme yapabilirsiniz.
+**Q: İndeks oluşturulduktan sonra filtre kriterlerini değiştirebilir miyim?**  
+A: Evet. Yeni bir `DocumentFilter` ile indeksi yeniden oluşturun veya güncellenmiş ayarlarla artımlı indekslemeyi kullanın.
 
-**S: java file extension filter sıkıştırılmış arşivlerde (ör. ZIP) çalışır mı?**  
-C: GroupDocs.Search desteklenen arşiv formatlarını indeksleyebilir, ancak uzantı filtresi arşivin kendisine uygulanır, içindeki dosyalara değil. Gerekirse iç içe filtreler kullanın.
+**Q: java file extension filter sıkıştırılmış arşivlerde (ör. ZIP) çalışır mı?**  
+A: GroupDocs.Search desteklenen arşiv formatlarını indeksleyebilir, ancak uzantı filtresi arşivin kendisine uygulanır, iç dosyalara değil. Daha derin kontrol için iç içe filtreler kullanın.
 
-**S: Belirli bir dosyanın neden dışlandığını nasıl debug ederim?**  
-C: Kütüphanenin günlük kaydını etkinleştirin (`LoggingOptions.setEnabled(true)`) ve oluşturulan log dosyasını inceleyin – hangi filtrenin dosyayı reddettiği raporlanır.
+**Q: Belirli bir dosyanın neden dışlandığını nasıl hata ayıklayabilirim?**  
+A: Kütüphanenin kaydını etkinleştirin (`LoggingOptions.setEnabled(true)`) ve logu inceleyin – hangi filtrenin her dosyayı reddettiğini raporlar.
 
-**S: java file extension filter'ı özel regex filtreleriyle birleştirmek mümkün mü?**  
-C: Kesinlikle. Uzantı filtresiyle birlikte `DocumentFilter.createAnd()` içinde bir regex filtresi sarabilirsiniz.
+**Q: java file extension filter'ı özel regex filtreleriyle birleştirmek mümkün mü?**  
+A: Kesinlikle. Bir regex filtresini `DocumentFilter.createAnd()` içinde uzantı filtresiyle birlikte sarabilirsiniz.
 
-**S: Çok sayıda filtre eklemek performansı nasıl etkiler?**  
-C: Her ek filtre indeksleme sırasında küçük bir ek yük getirir, ancak indeks boyutunun azalması genellikle maliyeti aşar. Optimal dengeyi bulmak için örnek bir veri setiyle test edin.
+**Q: Birçok filtre eklemenin performans üzerindeki etkisi nedir?**  
+A: Her filtre indeksleme sırasında hafif bir ek yük getirir, ancak indekslenen veri azalması genellikle maliyeti aşar. Optimal dengeyi bulmak için temsilci bir örnekle test edin.
 
 ---
 
-**Son Güncelleme:** 2025-12-19  
-**Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java  
+**Son Güncelleme:** 2026-02-21  
+**Test Edilen:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs

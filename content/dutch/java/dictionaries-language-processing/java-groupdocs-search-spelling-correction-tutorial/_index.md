@@ -1,13 +1,13 @@
 ---
-date: '2025-12-20'
-description: Leer hoe je spellingcorrectie in Java kunt inschakelen met GroupDocs.Search,
-  documenten aan de index kunt toevoegen en de maximale fouttolerantie kunt instellen
-  voor betere zoeknauwkeurigheid.
+date: '2026-02-21'
+description: Leer hoe je spellingcorrectie in Java inschakelt met GroupDocs.Search,
+  documenten aan de index toevoegt en de maximale fouttolerantie instelt voor betere
+  zoeknauwkeurigheid.
 keywords:
 - spelling correction Java
 - GroupDocs.Search tutorial
 - Java search functionality
-title: Hoe spelling inschakelen in Java met GroupDocs.Search
+title: Hoe spelling in Java inschakelen met GroupDocs.Search
 type: docs
 url: /nl/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/
 weight: 1
@@ -15,27 +15,27 @@ weight: 1
 
 # Hoe spelling inschakelen in Java met GroupDocs.Search
 
-Nauwkeurige zoekresultaten zijn essentieel voor elke moderne applicatie. In deze tutorial leer je **hoe spelling in te schakelen** in Java met GroupDocs.Search, zodat gebruikers de juiste resultaten krijgen, zelfs wanneer ze zoekopdrachten verkeerd typen. We lopen door het maken van een index, **documenten aan de index toevoegen**, het configureren van spellingopties, en het uitvoeren van een zoekopdracht die fouten automatisch corrigeert.
+Nauwkeurige zoekresultaten zijn essentieel voor elke moderne applicatie. In deze tutorial leer je **hoe spelling in te schakelen** in Java met GroupDocs.Search, zodat gebruikers de juiste resultaten krijgen, zelfs wanneer ze zoekopdrachten verkeerd typen. We lopen stap voor stap door het maken van een index, **documenten aan de index toevoegen**, het configureren van spellingopties, en het uitvoeren van een zoekopdracht die automatisch fouten corrigeert.
 
 ## Snelle antwoorden
-- **Wat betekent “hoe spelling in te schakelen”?** Het activeert de ingebouwde spellingscontrole die typefouten van gebruikers tijdens een zoekopdracht corrigeert.  
-- **Welke bibliotheek biedt deze functie?** GroupDocs.Search voor Java.  
+- **Wat betekent “hoe spelling in te schakelen”?** Het activeert de ingebouwde spell‑checker die typefouten van gebruikers corrigeert tijdens een zoekopdracht.  
+- **Welke bibliotheek biedt deze functie?** GroupDocs.Search for Java.  
 - **Heb ik een licentie nodig?** Een gratis proeflicentie werkt voor evaluatie; een volledige licentie is vereist voor productie.  
-- **Kan ik de tolerantie regelen?** Ja – gebruik `setMaxMistakeCount` om te definiëren hoeveel typefouten toegestaan zijn.  
+- **Kan ik de tolerantie regelen?** Ja – gebruik `setMaxMistakeCount` om te definiëren hoeveel typefouten zijn toegestaan.  
 - **Is het geschikt voor grote indexen?** Absoluut – de engine is geoptimaliseerd voor high‑performance indexering en zoeken.
 
 ## Wat betekent “hoe spelling in te schakelen” in GroupDocs.Search?
-Spelling inschakelen vertelt de zoekmachine om te zoeken naar de dichtstbijzijnde correcte termen wanneer een query fouten bevat. Deze functie verbetert de gebruikerservaring aanzienlijk door relevante resultaten te retourneren, zelfs bij verkeerd gespelde invoer.
+Spelling inschakelen vertelt de zoekmachine om naar de dichtstbijzijnde correcte termen te zoeken wanneer een query fouten bevat. Deze functie verbetert de gebruikerservaring aanzienlijk door relevante resultaten te retourneren, zelfs bij verkeerd gespelde invoer.
 
 ## Waarom spellingcorrectie inschakelen in Java‑applicaties?
 - **Verhoogt de tevredenheid van gebruikers** – gebruikers hoeven niet perfect te typen.  
-- **Vermindert bounce‑rates** – nauwkeurigere resultaten houden bezoekers betrokken.  
+- **Vermindert bounce‑rates** – meer accurate resultaten houden bezoekers betrokken.  
 - **Werkt over verschillende domeinen** – van bibliotheekcatalogi tot e‑commerce productzoekopdrachten.
 
 ## Voorvereisten
-- Java Development Kit (JDK) geïnstalleerd.
-- Basiskennis van Java en Maven.
-- Begrip van indexeringsconcepten.
+- Java Development Kit (JDK) geïnstalleerd.  
+- Basiskennis van Java en Maven.  
+- Begrip van indexeringsconcepten.  
 - Een GroupDocs.Search proef- of licentiesleutel.
 
 ### GroupDocs.Search voor Java instellen
@@ -66,10 +66,10 @@ Voeg de repository en afhankelijkheid toe aan je `pom.xml`‑bestand:
 Of download de nieuwste versie van [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Licentie‑acquisitie
-Verkrijg een gratis proeflicentie voor evaluatie. Voor productiegebruik, koop een volledige licentie of vraag een tijdelijke sleutel aan via de officiële site.
+Verkrijg een gratis proeflicentie voor evaluatie. Voor productie‑gebruik, koop een volledige licentie of vraag een tijdelijke sleutel aan via de officiële site.
 
 ## Hoe documenten aan de index toevoegen
-Een index maken is de basis voor elke zoek‑geactiveerde applicatie. Hieronder staat een minimaal voorbeeld dat **documenten aan de index toevoegt** vanuit een map.
+Het creëren van een index is de basis voor elke zoek‑geactiveerde applicatie. Hieronder staat een minimaal voorbeeld dat **documenten aan de index toevoegt** vanuit een map.
 
 ```java
 import com.groupdocs.search.*;
@@ -91,10 +91,10 @@ public class FeatureIndexAndAddDocuments {
 }
 ```
 
-*Tip:* Controleer of de paden correct zijn en of de applicatie schrijfrechten heeft op de indexmap.
+*Tip:* Controleer of de paden correct zijn en dat de applicatie schrijfrechten heeft op de indexmap.
 
-## Hoe spellingcorrectie configureren (maximale fouttolerantie instellen)
-Je kunt de spellingscontrole fijn afstemmen door deze in te schakelen en de fouttolerantie in te stellen.
+## Hoe spellingcorrectie configureren (set max mistake count)
+Je kunt de spell‑checker fijn afstellen door deze in te schakelen en de tolerantie voor fouten in te stellen.
 
 ```java
 import com.groupdocs.search.*;
@@ -117,10 +117,10 @@ public class FeatureSpellingCorrectionOptions {
 }
 ```
 
-*Waarom `setMaxMistakeCount` belangrijk is:* Het definieert hoeveel typefouten de engine tolereert. Pas deze waarde aan op basis van de typische foutpatronen in jouw domein.
+*Waarom `setMaxMistakeCount` belangrijk is:* Het definieert hoeveel typefouten de engine zal tolereren. Pas deze waarde aan op basis van de typische foutpatronen in jouw domein.
 
 ## Hoe een spelling‑gecorrigeerde zoekopdracht uit te voeren
-Met de index gereed en spellingopties geconfigureerd, voer je een query uit die fouten kan bevatten.
+Met de index gereed en de spellingopties geconfigureerd, voer je een query uit die fouten kan bevatten.
 
 ```java
 import com.groupdocs.search.*;
@@ -152,13 +152,20 @@ De `search()`‑aanroep retourneert een `SearchResult` die gecorrigeerde termen 
 
 ## Praktische toepassingen
 1. **Bibliotheeksystemen:** Corrigeer verkeerd gespelde boektitels of auteursnamen.  
-2. **E‑commerce platformen:** Corrigeer typefouten van gebruikers in productzoekopdrachten om conversies te verhogen.  
-3. **Content Management Systemen:** Verbeter het ophalen van artikelen voor redactioneel personeel.
+2. **E‑commerce platforms:** Corrigeer gebruikers‑typefouten in productzoekopdrachten om conversies te verhogen.  
+3. **Content‑managementsystemen:** Verbeter het ophalen van artikelen voor redactioneel personeel.
 
 ## Prestatie‑overwegingen
 - **Houd de index up‑to‑date** – indexeer nieuwe of gewijzigde bestanden regelmatig opnieuw.  
 - **Stem JVM‑geheugeninstellingen af** – wijs voldoende heap toe voor grote indexen.  
-- **Monitor resourcegebruik** – pas indien nodig de garbage‑collector‑vlaggen aan.
+- **Monitor het resource‑gebruik** – pas garbage‑collector‑flags aan indien nodig.
+
+## Veelvoorkomende problemen & probleemoplossing
+| Symptoom | Waarschijnlijke oorzaak | Oplossing |
+|----------|--------------------------|-----------|
+| Geen resultaten teruggegeven na het inschakelen van spelling | Pad naar indexmap is onjuist of leeg | Controleer of `indexFolder` naar een geldige index wijst en dat `index.add()` geslaagd is |
+| Spell‑checker corrigeert duidelijke typefouten niet | `setMaxMistakeCount` is te laag ingesteld | Verhoog de teller naar 2 of 3 voor meer tolerante correctie |
+| Applicatie crasht bij grote documentensets | Onvoldoende JVM‑heap | Verhoog de `-Xmx`‑optie (bijv. `-Xmx4g`) |
 
 ## Veelgestelde vragen
 
@@ -174,7 +181,7 @@ A: Ja, het werkt met Spring, Jakarta EE en elke standaard Java‑applicatie.
 **Q: Wat zijn veelvoorkomende problemen bij het opzetten van een index?**  
 A: Onjuiste mappaden, onvoldoende bestandsrechten, of ontbrekende afhankelijkheden in `pom.xml`.
 
-**Q: Hoe verbetert spellingscorrectie de zoekresultaten?**  
+**Q: Hoe verbetert spell‑correctie zoekresultaten?**  
 A: Het herschrijft automatisch verkeerd gespelde queries naar hun dichtstbijzijnde correcte termen, waardoor relevantere resultaten worden geretourneerd.
 
 ## Aanvullende bronnen
@@ -187,6 +194,6 @@ A: Het herschrijft automatisch verkeerd gespelde queries naar hun dichtstbijzijn
 
 ---
 
-**Laatst bijgewerkt:** 2025-12-20  
+**Laatst bijgewerkt:** 2026-02-21  
 **Getest met:** GroupDocs.Search 25.4  
 **Auteur:** GroupDocs

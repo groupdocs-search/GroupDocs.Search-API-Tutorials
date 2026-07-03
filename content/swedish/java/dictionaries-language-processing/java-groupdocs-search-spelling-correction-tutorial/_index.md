@@ -1,12 +1,12 @@
 ---
-date: '2025-12-20'
+date: '2026-02-21'
 description: Lär dig hur du aktiverar stavningskorrigering i Java med GroupDocs.Search,
-  lägger till dokument i indexet och anger maximalt antal fel för bättre sökprecision.
+  lägger till dokument i indexet och ställer in maximalt antal fel för bättre sökprecision.
 keywords:
 - spelling correction Java
 - GroupDocs.Search tutorial
 - Java search functionality
-title: Hur man aktiverar stavning i Java med GroupDocs.Search
+title: Hur du aktiverar stavningskontroll i Java med GroupDocs.Search
 type: docs
 url: /sv/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/
 weight: 1
@@ -14,22 +14,22 @@ weight: 1
 
 # Hur man aktiverar stavningskontroll i Java med GroupDocs.Search
 
-Exakta sökresultat är avgörande för alla moderna applikationer. I den här handledningen kommer du att lära dig **hur man aktiverar stavningskontroll** i Java med GroupDocs.Search, så att användare får rätt resultat även när de skriver fel i sina sökningar. Vi går igenom att skapa ett index, **lägga till dokument i indexet**, konfigurera stavningsalternativ och köra en sökning som automatiskt korrigerar fel.
+Exakta sökresultat är avgörande för alla moderna applikationer. I den här handledningen lär du dig **hur man aktiverar stavnings**korrektion i Java med GroupDocs.Search, så att användare får rätt resultat även när de skriver fel i sina frågor. Vi går igenom hur man skapar ett index, **lägger till dokument i index**, konfigurerar stavningsalternativ och kör en sökning som automatiskt korrigerar misstag.
 
 ## Snabba svar
-- **Vad betyder “hur man aktiverar stavningskontroll”?** Det aktiverar den inbyggda stavningskontrollen som korrigerar användarens skrivfel under en sökning.  
+- **Vad betyder “hur man aktiverar stavningskontroll”?** Det aktiverar den inbyggda stavningskontrollen som rättar användarens skrivfel under en sökning.  
 - **Vilket bibliotek tillhandahåller denna funktion?** GroupDocs.Search för Java.  
 - **Behöver jag en licens?** En gratis provlicens fungerar för utvärdering; en full licens krävs för produktion.  
 - **Kan jag styra toleransen?** Ja – använd `setMaxMistakeCount` för att definiera hur många skrivfel som tillåts.  
-- **Är den lämplig för stora index?** Absolut – motorn är optimerad för högpresterande indexering och sökning.
+- **Är det lämpligt för stora index?** Absolut – motorn är optimerad för högpresterande indexering och sökning.
 
-## Vad betyder “hur man aktiverar stavningskontroll” i GroupDocs.Search?
+## Vad är “hur man aktiverar stavningskontroll” i GroupDocs.Search?
 Att aktivera stavningskontroll får sökmotorn att leta efter de närmaste korrekta termerna när en fråga innehåller fel. Denna funktion förbättrar användarupplevelsen avsevärt genom att returnera relevanta resultat även med felstavat inmatning.
 
-## Varför aktivera stavningskorrigering i Java‑applikationer?
-- **Ökar användartillfredsställelsen** – användare behöver inte skriva perfekt.  
+## Varför aktivera stavningskorrektion i Java‑applikationer?
+- **Ökar användartillfredsställelse** – användare behöver inte skriva perfekt.  
 - **Minskar avvisningsfrekvensen** – mer exakta resultat håller besökare engagerade.  
-- **Fungerar över olika domäner** – från bibliotekskataloger till e‑handelsproduktsökningar.
+- **Fungerar över domäner** – från biblioteks kataloger till e‑handels produktsökningar.
 
 ## Förutsättningar
 - Java Development Kit (JDK) installerat.  
@@ -37,7 +37,7 @@ Att aktivera stavningskontroll får sökmotorn att leta efter de närmaste korre
 - Förståelse för indexeringskoncept.  
 - En GroupDocs.Search‑prov eller licensnyckel.
 
-### Så här ställer du in GroupDocs.Search för Java
+### Installera GroupDocs.Search för Java
 Integrera biblioteket i ditt Maven‑projekt.
 
 **Maven‑inställning**  
@@ -64,11 +64,11 @@ Lägg till repository och beroende i din `pom.xml`‑fil:
 **Direkt nedladdning**  
 Alternativt, ladda ner den senaste versionen från [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Licensförvärv
+### Licensanskaffning
 Skaffa en gratis provlicens för utvärdering. För produktionsbruk, köp en full licens eller begär en tillfällig nyckel från den officiella webbplatsen.
 
-## Hur man lägger till dokument i indexet
-Att skapa ett index är grunden för alla sök‑aktiverade applikationer. Nedan är ett minimalt exempel som **lägger till dokument i indexet** från en mapp.
+## Hur man lägger till dokument i index
+Att skapa ett index är grunden för alla sök‑aktiverade applikationer. Nedan är ett minimalt exempel som **lägger till dokument i index** från en mapp.
 
 ```java
 import com.groupdocs.search.*;
@@ -92,7 +92,7 @@ public class FeatureIndexAndAddDocuments {
 
 *Tips:* Verifiera att sökvägarna är korrekta och att applikationen har skrivbehörighet till indexmappen.
 
-## Hur man konfigurerar stavningskorrigering (ange max antal fel)
+## Hur man konfigurerar stavningskorrektion (ange max antal misstag)
 Du kan finjustera stavningskontrollen genom att aktivera den och ange toleransen för fel.
 
 ```java
@@ -118,8 +118,8 @@ public class FeatureSpellingCorrectionOptions {
 
 *Varför `setMaxMistakeCount` är viktigt:* Det definierar hur många skrivfel motorn kommer att tolerera. Justera detta värde baserat på ditt domäns typiska felmönster.
 
-## Hur man utför en stavningskorrigerad sökning
-När indexet är klart och stavningsalternativen konfigurerade, kör en fråga som kan innehålla fel.
+## Hur man utför en stavnings‑korrigerad sökning
+När indexet är klart och stavningsalternativen är konfigurerade, kör en fråga som kan innehålla misstag.
 
 ```java
 import com.groupdocs.search.*;
@@ -151,41 +151,48 @@ public class FeatureSpellingCorrectionSearch {
 
 ## Praktiska tillämpningar
 1. **Bibliotekssystem:** Korrigera felstavade boktitlar eller författarnamn.  
-2. **E‑handelsplattformar:** Rätta användares skrivfel i produktsökningar för att öka konverteringar.  
+2. **E‑handelsplattformar:** Fixa användares skrivfel i produktsökningar för att öka konverteringar.  
 3. **Content Management Systems:** Förbättra artikelsökning för redaktionell personal.
 
 ## Prestandaöverväganden
-- **Håll indexet uppdaterat** – indexera om nya eller ändrade filer regelbundet.  
-- **Justera JVM‑minnesinställningar** – tilldela tillräckligt heap för stora index.  
+- **Håll indexet uppdaterat** – åter‑indexera nya eller ändrade filer regelbundet.  
+- **Justera JVM‑minnesinställningar** – tilldela tillräckligt heap‑minne för stora index.  
 - **Övervaka resursanvändning** – justera garbage‑collector‑flaggor vid behov.
+
+## Vanliga problem & felsökning
+| Symptom | Trolig orsak | Åtgärd |
+|---------|--------------|-----|
+| Inga resultat returneras efter att stavningskontrollen aktiverats | Indexmappens sökväg är felaktig eller tom | Verifiera att `indexFolder` pekar på ett giltigt index och att `index.add()` lyckades |
+| Stavningskontrollen korrigerar inte uppenbara fel | `setMaxMistakeCount` är satt för lågt | Öka antalet till 2 eller 3 för mer tolerant korrigering |
+| Applikationen kraschar vid stora dokumentuppsättningar | Otillräckligt JVM‑heap | Öka `-Xmx`‑alternativet (t.ex. `-Xmx4g`) |
 
 ## Vanliga frågor
 
 **Q: Vad är GroupDocs.Search?**  
-A: Det är ett Java‑bibliotek som erbjuder snabb indexering, avancerade sökfunktioner och inbyggd stavningskorrigering.
+A: Det är ett Java‑bibliotek som erbjuder snabb indexering, avancerade sökfunktioner och inbyggd stavningskorrektion.
 
 **Q: Hur får jag en licens för GroupDocs.Search?**  
-A: Besök den officiella webbplatsen för att ladda ner en gratis provlicens eller köpa en full licens.
+A: Besök den officiella webbplatsen för att ladda ner en gratis prov eller köpa en full licens.
 
 **Q: Kan jag integrera GroupDocs.Search med andra Java‑ramverk?**  
 A: Ja, det fungerar med Spring, Jakarta EE och alla standard‑Java‑applikationer.
 
 **Q: Vilka är vanliga problem när man sätter upp ett index?**  
-A: Felaktiga mappvägar, otillräckliga filbehörigheter eller saknade beroenden i `pom.xml`.
+A: Felaktiga mapp‑sökvägar, otillräckliga filbehörigheter eller saknade beroenden i `pom.xml`.
 
-**Q: Hur förbättrar stavningskorrigering sökresultaten?**  
+**Q: Hur förbättrar stavningskorrektion sökresultaten?**  
 A: Den omskriver automatiskt felstavade frågor till deras närmaste korrekta termer, vilket ger mer relevanta träffar.
 
 ## Ytterligare resurser
-- [Dokumentation](https://docs.groupdocs.com/search/java/)
-- [API‑referens](https://reference.groupdocs.com/search/java)
-- [Nedladdning](https://releases.groupdocs.com/search/java/)
-- [GitHub‑arkiv](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Gratis supportforum](https://forum.groupdocs.com/c/search/10)
-- [Tillfällig licens](https://purchase.groupdocs.com/temporary-license/)
+- [Documentation](https://docs.groupdocs.com/search/java/)
+- [API Reference](https://reference.groupdocs.com/search/java)
+- [Download](https://releases.groupdocs.com/search/java/)
+- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
+- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Senast uppdaterad:** 2025-12-20  
+**Senast uppdaterad:** 2026-02-21  
 **Testad med:** GroupDocs.Search 25.4  
 **Författare:** GroupDocs

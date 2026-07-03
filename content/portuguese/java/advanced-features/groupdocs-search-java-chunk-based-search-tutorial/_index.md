@@ -1,8 +1,8 @@
 ---
-date: '2025-12-19'
-description: Aprenda como adicionar documentos ao índice e habilitar a pesquisa baseada
-  em fragmentos em Java usando o GroupDocs.Search, aumentando o desempenho para grandes
-  conjuntos de documentos.
+date: '2026-02-21'
+description: Aprenda como adicionar documentos ao índice e aumentar o desempenho da
+  pesquisa com busca baseada em blocos em Java usando o GroupDocs.Search, otimizando
+  a memória do índice de pesquisa Java para grandes conjuntos de documentos.
 keywords:
 - chunk-based search
 - GroupDocs.Search Java
@@ -13,30 +13,30 @@ url: /pt/java/advanced-features/groupdocs-search-java-chunk-based-search-tutoria
 weight: 1
 ---
 
-# Adicionar documentos ao índice com pesquisa baseada em fragmentos em Java
+# Adicionar documentos ao índice com pesquisa baseada em blocos em Java
 
-No mundo orientado a dados de hoje, ser capaz de **adicionar documentos ao índice** rapidamente e, em seguida, executar pesquisas baseadas em fragmentos é essencial para qualquer aplicação que manipule grandes coleções de arquivos. Seja lidando com contratos legais, arquivos de suporte ao cliente ou vastas bibliotecas de pesquisa, este tutorial mostra exatamente como configurar o GroupDocs.Search para Java para que você possa indexar documentos de forma eficiente e recuperar informações relevantes em fragmentos pequenos.
+Em aplicações modernas que precisam **adicionar documentos ao índice** rapidamente e, em seguida, executar consultas rápidas baseadas em blocos, você desejará uma solução que escale sem estourar a memória. Este tutorial orienta você a configurar o GroupDocs.Search para Java, adicionar várias pastas de documentos e configurar o mecanismo para **aumentar o desempenho da pesquisa** enquanto mantém o uso de **java search index memory** sob controle. Seja indexando contratos legais, tickets de suporte ou artigos de pesquisa, os passos abaixo fornecerão uma implementação pronta para produção.
+
+## Respostas Rápidas
+- **Qual é o primeiro passo?** Crie uma pasta de índice de pesquisa.  
+- **Como incluo muitos arquivos?** Use `index.add()` para cada pasta de documentos.  
+- **Qual opção habilita a pesquisa por blocos?** `options.setChunkSearch(true)`.  
+- **Posso continuar a pesquisa após o primeiro bloco?** Sim, chame `index.searchNext()` com o token.  
+- **Preciso de uma licença?** Um teste gratuito ou licença temporária funciona para desenvolvimento; uma licença completa é necessária para produção.  
 
 ## O que você aprenderá
 - Como criar um índice de pesquisa em uma pasta especificada.  
-- Etapas para **adicionar documentos ao índice** a partir de múltiplas localizações.  
-- Configuração de opções de pesquisa para habilitar a pesquisa baseada em fragmentos.  
-- Execução de pesquisas iniciais e subsequentes baseadas em fragmentos.  
-- Cenários do mundo real onde a pesquisa de documentos baseada em fragmentos se destaca.
+- Passos para **adicionar documentos ao índice** a partir de múltiplas localidades.  
+- Configurar opções de pesquisa para habilitar a pesquisa baseada em blocos.  
+- Executar pesquisas iniciais e subsequentes baseadas em blocos.  
+- Cenários reais onde a pesquisa de documentos baseada em blocos se destaca.  
 
-## Respostas rápidas
-- **Qual é o primeiro passo?** Crie uma pasta de índice de pesquisa.  
-- **Como incluir muitos arquivos?** Use `index.add()` para cada pasta de documentos.  
-- **Qual opção habilita a pesquisa por fragmentos?** `options.setChunkSearch(true)`.  
-- **Posso continuar pesquisando após o primeiro fragmento?** Sim, chame `index.searchNext()` com o token.  
-- **Preciso de licença?** Uma avaliação gratuita ou licença temporária funciona para desenvolvimento; uma licença completa é necessária para produção.
+## Pré-requisitos
+Para seguir este guia, certifique-se de que você tem:
 
-## Pré‑requisitos
-Para seguir este guia, certifique‑se de que você tem:
-
-- **Bibliotecas necessárias**: GroupDocs.Search para Java 25.4 ou posterior.  
+- **Bibliotecas necessárias**: GroupDocs.Search for Java 25.4 ou posterior.  
 - **Configuração do ambiente**: Um Java Development Kit (JDK) compatível instalado.  
-- **Pré‑requisitos de conhecimento**: Programação básica em Java e familiaridade com Maven.
+- **Pré-requisitos de conhecimento**: Programação básica em Java e familiaridade com Maven.
 
 ## Configurando o GroupDocs.Search para Java
 Para começar, integre o GroupDocs.Search ao seu projeto usando Maven:
@@ -61,14 +61,14 @@ Para começar, integre o GroupDocs.Search ao seu projeto usando Maven:
 
 Alternativamente, faça o download da versão mais recente em [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Aquisição de licença
+### Aquisição de Licença
 Para experimentar o GroupDocs.Search:
 
-- **Avaliação gratuita** – teste os recursos principais sem compromisso.  
+- **Teste gratuito** – teste os recursos principais sem compromisso.  
 - **Licença temporária** – acesso estendido para desenvolvimento.  
 - **Compra** – licença completa para uso em produção.
 
-### Inicialização e configuração básicas
+### Inicialização e Configuração Básicas
 Crie um índice na pasta onde você deseja que os dados pesquisáveis residam:
 
 ```java
@@ -84,9 +84,9 @@ public class CreateIndex {
 ```
 
 ## Como adicionar documentos ao índice
-Agora que o índice existe, o próximo passo lógico é **adicionar documentos ao índice** a partir das localizações onde seus arquivos estão armazenados.
+Agora que o índice existe, o próximo passo lógico é **adicionar documentos ao índice** a partir dos locais onde seus arquivos estão armazenados.
 
-### 1. Criando um índice
+### 1. Criando um Índice
 **Visão geral**: Configure um diretório para o índice de pesquisa.
 
 ```java
@@ -97,8 +97,8 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\
 Index index = new Index(indexFolder);
 ```
 
-### 2. Adicionando documentos ao índice
-**Visão geral**: Importe arquivos de várias pastas de origem.
+### 2. Adicionando Documentos ao Índice
+**Visão geral**: Traga arquivos de várias pastas de origem.
 
 ```java
 String documentsFolder1 = "YOUR_DOCUMENT_DIRECTORY";
@@ -112,8 +112,8 @@ index.add(documentsFolder2);
 index.add(documentsFolder3);
 ```
 
-### 3. Configurando opções de pesquisa para pesquisa por fragmentos
-Habilite a pesquisa baseada em fragmentos ajustando o objeto de opções.
+### 3. Configurando Opções de Pesquisa para Busca por Blocos
+Habilite a pesquisa baseada em blocos ajustando o objeto de opções.
 
 ```java
 SearchOptions options = new SearchOptions();
@@ -123,8 +123,8 @@ SearchOptions options = new SearchOptions();
 options.setChunkSearch(true);
 ```
 
-### 4. Executando a pesquisa inicial baseada em fragmentos
-Execute a primeira consulta usando as opções habilitadas para fragmentos.
+### 4. Executando a Busca Inicial Baseada em Blocos
+Execute a primeira consulta usando as opções habilitadas para blocos.
 
 ```java
 String query = "invitation";
@@ -134,8 +134,8 @@ String query = "invitation";
 SearchResult result = index.search(query, options);
 ```
 
-### 5. Continuando a pesquisa baseada em fragmentos
-Itere pelos fragmentos restantes até que a pesquisa seja concluída.
+### 5. Continuando a Busca Baseada em Blocos
+Itere pelos blocos restantes até que a busca esteja completa.
 
 ```java
 while (result.getNextChunkSearchToken() != null) {
@@ -143,41 +143,61 @@ while (result.getNextChunkSearchToken() != null) {
 }
 ```
 
-## Por que usar pesquisa baseada em fragmentos?
-A pesquisa baseada em fragmentos divide coleções massivas de documentos em partes gerenciáveis, reduzindo a pressão de memória e acelerando os tempos de resposta. É especialmente benéfica quando:
+## Por que usar busca baseada em blocos?
+A busca baseada em blocos divide coleções massivas de documentos em peças manejáveis, reduzindo a pressão de memória e acelerando os tempos de resposta. É especialmente benéfica quando:
 
 1. **Equipes jurídicas** precisam localizar cláusulas específicas em milhares de contratos.  
 2. **Portais de suporte ao cliente** devem exibir artigos relevantes da base de conhecimento instantaneamente.  
-3. **Pesquisadores** analisam conjuntos de dados extensos sem carregar arquivos inteiros na memória.
+3. **Pesquisadores** vasculham conjuntos de dados extensos sem carregar arquivos inteiros na memória.  
 
-## Considerações de desempenho
-- **Gerenciamento de memória** – Aloque espaço de heap suficiente (`-Xmx`) para índices grandes.  
-- **Monitoramento de recursos** – Fique atento ao uso de CPU durante as operações de indexação e pesquisa.  
-- **Manutenção do índice** – Reconstrua ou limpe periodicamente o índice para descartar dados obsoletos.
+## Como esta abordagem **aumenta o desempenho da pesquisa**
+Ao pesquisar blocos menores em vez de arquivos inteiros, o mecanismo pode:
 
-## Armadilhas comuns e solução de problemas
+- Ignorar seções irrelevantes cedo, reduzindo ciclos de CPU.  
+- Manter apenas o bloco ativo na memória, o que reduz diretamente o consumo de **java search index memory**.  
+- Paralelizar o processamento de blocos em máquinas multi‑core para resultados mais rápidos.  
+
+## Gerenciando **java search index memory**
+Embora a busca baseada em blocos já reduza a pegada de memória, você pode ajustar ainda mais a JVM:
+
+- Alocar heap suficiente (`-Xmx2g` ou superior) com base no tamanho do índice.  
+- Use `index.optimize()` após adições em massa para comprimir a estrutura do índice.  
+- Monitore pausas de GC com ferramentas como VisualVM para evitar picos de latência.  
+
+## Considerações de Desempenho
+- **Gerenciamento de memória** – Alocar espaço de heap suficiente (`-Xmx`) para índices grandes.  
+- **Monitoramento de recursos** – Fique de olho no uso de CPU durante as operações de indexação e busca.  
+- **Manutenção do índice** – Reconstrua ou limpe periodicamente o índice para descartar dados obsoletos.  
+
+## Armadilhas Comuns & Solução de Problemas
 | Problema | Por que acontece | Solução |
-|----------|------------------|---------|
-| `OutOfMemoryError` durante a indexação | Heap insuficiente | Aumente o heap da JVM (`-Xmx2g` ou superior) |
-| Nenhum resultado retornado | Token de fragmento não processado | Garanta que o loop `while` execute até `getNextChunkSearchToken()` ser `null` |
-| Desempenho de pesquisa lento | Índice não otimizado | Execute `index.optimize()` após adições em massa |
+|----------|------------------|--------|
+| `OutOfMemoryError` during indexing | Tamanho do heap muito baixo | Aumente o heap da JVM (`-Xmx2g` ou superior) |
+| No results returned | Token de bloco não processado | Garanta que o loop `while` execute até que `getNextChunkSearchToken()` seja `null` |
+| Slow search performance | Índice não otimizado | Execute `index.optimize()` após adições em massa |
 
-## Perguntas frequentes
+## Perguntas Frequentes
 
-**Q: O que é pesquisa baseada em fragmentos?**  
-A: A pesquisa baseada em fragmentos divide o conjunto de dados em partes menores, permitindo consultas eficientes em grandes volumes de dados sem carregar documentos inteiros na memória.
+**Q: O que é busca baseada em blocos?**  
+A: A busca baseada em blocos divide o conjunto de dados em peças menores, permitindo consultas eficientes sobre grandes volumes de dados sem carregar documentos inteiros na memória.
 
 **Q: Como atualizo meu índice com novos arquivos?**  
 A: Basta chamar `index.add()` com o caminho para os novos documentos; o índice os incorporará automaticamente.
 
-**Q: O GroupDocs.Search suporta diferentes formatos de arquivo?**  
+**Q: O GroupDocs.Search pode lidar com diferentes formatos de arquivo?**  
 A: Sim, ele suporta PDFs, DOCX, XLSX, PPTX e muitos outros formatos comuns.
 
 **Q: Quais são os gargalos de desempenho típicos?**  
 A: Restrições de memória e índices não otimizados são os mais comuns; aloque heap suficiente e otimize o índice regularmente.
 
 **Q: Onde posso encontrar documentação mais detalhada?**  
-A: Visite a documentação oficial do [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/) para guias aprofundados e referências de API.
+A: Visite a [Documentação oficial do GroupDocs.Search](https://docs.groupdocs.com/search/java/) para guias detalhados e referências de API.
+
+**Q: A busca baseada em blocos funciona com PDFs criptografados?**  
+A: Sim, desde que você forneça a senha via a sobrecarga de API apropriada.
+
+**Q: Como posso monitorar o progresso da indexação?**  
+A: Use a sobrecarga `Index.add()` que retorna um objeto `Progress` ou conecte-se a callbacks de registro.
 
 ## Recursos
 - **Documentação**: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)  
@@ -185,11 +205,11 @@ A: Visite a documentação oficial do [GroupDocs.Search Documentation](https://d
 - **Download**: [GroupDocs.Search Releases](https://releases.groupdocs.com/search/java/)  
 - **GitHub**: [GroupDocs.Search GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Suporte gratuito**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **Licença temporária**: [Obter uma Licença Temporária](https://purchase.groupdocs.com/temporary-license)
+- **Licença temporária**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 ---
 
-**Última atualização:** 2025-12-19  
+**Última atualização:** 2026-02-21  
 **Testado com:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs  
 
