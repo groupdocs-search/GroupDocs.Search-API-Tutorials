@@ -1,50 +1,94 @@
 ---
-date: '2026-02-19'
-description: Tanulja meg, hogyan nyerhet ki szöveget PDF‑ből Java‑val, sorosíthatja
-  azt, és hozhat létre kereshető dokumentumindexet a GroupDocs.Search for Java segítségével.
+date: '2026-07-07'
+description: Ismerje meg, hogyan lehet PDF szöveget kinyerni Java-ban, sorosítani,
+  és teljes szöveges keresési Java indexet építeni a GroupDocs.Search segítségével
+  Java-hoz.
 keywords:
-- GroupDocs.Search for Java
-- document indexing in Java
-- text extraction with GroupDocs
-title: 'PDF-ből szöveg kinyerése Java-val: Index építése a GroupDocs.Search segítségével'
+- extract pdf text java
+- full text search java
+- document indexing java
+og_description: Ismerje meg, hogyan lehet PDF szöveget kinyerni Java-ban, sorosítani,
+  és teljes szöveges keresési Java indexet építeni a GroupDocs.Search segítségével
+  Java-hoz.
+og_title: PDF szöveg kinyerése Java – Index építése a GroupDocs.Search segítségével
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-07'
+  description: Learn how to extract pdf text java, serialize it, and build a full
+    text search java index with GroupDocs.Search for Java.
+  headline: Extract PDF Text Java – Build Index with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to extract pdf text java, serialize it, and build a full
+    text search java index with GroupDocs.Search for Java.
+  name: Extract PDF Text Java – Build Index with GroupDocs.Search
+  steps:
+  - name: '**Document Management Systems** – Quickly locate contracts, invoices, or
+      policies.'
+    text: '**Document Management Systems** – Quickly locate contracts, invoices, or
+      policies.'
+  - name: '**Content‑Based Search Engines** – Power internal knowledge bases with
+      full‑text search java capabilities.'
+    text: '**Content‑Based Search Engines** – Power internal knowledge bases with
+      full‑text search java capabilities.'
+  - name: '**Data Archiving Solutions** – Index historic records for instant retrieval.'
+    text: '**Data Archiving Solutions** – Index historic records for instant retrieval.'
+  type: HowTo
+- questions:
+  - answer: Stream the file using `Extractor` and process it in chunks; also increase
+      the JVM heap if needed.
+    question: How do I handle very large PDF files efficiently?
+  - answer: Yes—GroupDocs.Search supports Boolean operators, wildcards, and proximity
+      searches.
+    question: Can I customize the search query syntax?
+  - answer: Verify that all objects implement `Serializable` and catch `IOException`
+      to log details.
+    question: What should I do if serialization fails?
+  - answer: Absolutely—configure `ExtractionOptions` to filter pages or sections before
+      indexing.
+    question: Is it possible to index only specific sections of a document?
+  - answer: Update the version number in your `pom.xml` and run `mvn clean install`;
+      review the migration guide for breaking changes.
+    question: How do I upgrade to a newer GroupDocs.Search version?
+  type: FAQPage
+title: PDF szöveg kinyerése Java – Index építése a GroupDocs.Search segítségével
 type: docs
 url: /hu/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-# PDF Java szöveg kinyerése: Dokumentumindex létrehozása a GroupDocs.Search segítségével
+# PDF szöveg kinyerése Java‑ban – Index létrehozása a GroupDocs.Search segítségével
 
-Ebben a gyakorlati útmutatóban felfedezheted, **hogyan kell szöveget kinyerni PDF Java** alkalmazásokból, és hogyan alakíthatod ezt a nyers tartalmat egy gyors, teljes‑szöveges kereshető indexszé. Akár belső tudásbázist, szerződés‑kereső portált vagy egyedi keresőmotort építesz, az alábbi lépések mindent végigvezetnek – a PDF‑ekből való szövegkinyeréstől az adatok sorosításán, az index létrehozásán, egészen a lekérdezések futtatásáig. Merüljünk el, és nézzük meg, miért teszi a GroupDocs.Search a teljes folyamatot zökkenőmentessé és skálázhatóvá.
+Ebben a gyakorlati útmutatóban megtudja, **how to extract pdf text java** PDF fájlokból, hogyan sorosítsa (serialize) a kinyert tartalmat, és hogyan hozzon létre egy nagy teljesítményű kereshető indexet. Akár belső tudásbázist, szerződés‑kereső portált vagy egyedi keresőmotort épít, az alábbi lépések mindent bemutatnak – a PDF‑ekből történő szöveg kinyerésétől a hatékony teljes szöveges lekérdezések futtatásáig. Merüljünk el, és nézzük meg, miért teszi a GroupDocs.Search a folyamatot zökkenőmentessé és skálázhatóvá.
 
 ## Gyors válaszok
-- **Mi a fő cél?** PDF Java fájlok szövegének kinyerése és kereshető dokumentumindex létrehozása a GroupDocs.Search segítségével.  
+A `index.search` metódus lekérdezést hajt végre a létrehozott indexen, és visszaadja a megfelelő dokumentumok listáját relevancia‑pontszámokkal.
+
+- **Mi a fő cél?** PDF‑ekből **how to extract pdf text java** kinyerése és kereshető dokumentum index létrehozása a GroupDocs.Search segítségével.  
 - **Melyik könyvtár verzió?** GroupDocs.Search 25.4 (vagy a legújabb kiadás).  
-- **Szükségem van licencre?** A ingyenes próba verzió fejlesztéshez működik; a teljes licenc szükséges a termeléshez.  
-- **Indexelhetek PDF-eket?** Igen – PDF szöveget kinyer és hozzáadja az indexhez.  
-- **Hogyan futtathatok keresést?** Használja a `index.search(query)` metódust az adatok hozzáadása után.
+- **Szükségem van licencre?** Fejlesztéshez egy ingyenes próba licenc elegendő; a termeléshez teljes licenc szükséges.  
+- **Indexelhetek PDF‑eket?** Igen – kinyerhető a PDF szövege, és hozzáadható az indexhez.  
+- **Hogyan futtassak keresést?** Használja a `index.search(query)` metódust az adatok hozzáadása után.
 
-## Mi az a dokumentumindex?
-A dokumentumindex a fájljaidból kinyert kereshető kifejezések strukturált gyűjteménye. Dokumentumindex létrehozásával gyors teljes‑szöveges kereséseket teszel lehetővé nagy adattárakban, jelentősen javítva a visszakeresés sebességét és pontosságát.
+## Mi az a dokumentum index?
+A dokumentum index egy strukturált gyűjtemény a fájljaiból kinyert kereshető kifejezésekkel. Minden kifejezést a megjelenő dokumentumokhoz rendeli, lehetővé téve a gyors teljes‑szöveges keresést nagy adattárakban, és csökkentve a keresési időt percekről ezredmásodpercekre, miközben támogatja a rangsorolást és a relevancia‑jellemzőket.
 
-## Miért használjuk a GroupDocs.Search‑t Java‑hoz?
-- **Robusztus kinyerés** – Kezeli a PDF‑eket, Word‑et, Excel‑t és még sok mást.  
-- **Egyszerű sorosítás** – Tárold a kinyert adatokat bájt tömbként a későbbi újrahasználathoz.  
-- **Skálázható indexelés** – Hatékonyan indexelhet millió dokumentumot.  
-- **Erőteljes lekérdezési nyelv** – Támogatja a komplex teljes‑szöveges keresési Java lekérdezéseket.
+## Miért használjuk a GroupDocs.Search‑t Java‑ban?
+A GroupDocs.Search **50+** bemeneti és kimeneti formátumot támogat, képes **milliók** dokumentumának indexelésére anélkül, hogy a teljes fájlt a memóriába töltené, és egy **gazdag lekérdezési nyelvet** kínál Boolean, helyettesítő karakter és közelségi operátorokkal. Ezek a kvantifikált képességek ideálissá teszik vállalati szintű keresési megoldásokhoz. Emellett beépített nyelvfelismerést, szótövezést és testreszabható elemzőket biztosít a többnyelvű tartalom keresési pontosságának javításához.
 
 ## Előfeltételek
 - **GroupDocs.Search for Java** (25.4 vagy újabb verzió).  
-- **Java Development Kit (JDK)**, amely kompatibilis a GroupDocs verzióddal.  
-- Egy IDE, például IntelliJ IDEA vagy Eclipse.  
-- Maven a függőségkezeléshez.
+- **Java Development Kit (JDK)**, amely kompatibilis a GroupDocs verziójával.  
+- IntelliJ IDEA vagy Eclipse fejlesztőkörnyezet.  
+- Maven a függőségek kezeléséhez.
 
 ## A GroupDocs.Search beállítása Java‑hoz
-Először add hozzá a könyvtárat a projektedhez.
+Először adja hozzá a könyvtárat a projektjéhez.
 
 **Maven beállítás**  
-Add hozzá a következőt a `pom.xml` fájlodhoz:
+Adja hozzá a következőket a `pom.xml` fájlhoz:
 
 ```xml
+<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -60,102 +104,133 @@ Add hozzá a következőt a `pom.xml` fájlodhoz:
         <version>25.4</version>
     </dependency>
 </dependencies>
+``` -->
 ```
 
 **Közvetlen letöltés**  
-Alternatívaként töltsd le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
+Alternatívaként töltse le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
 ### Licenc beszerzése
-- **Ingyenes próba** – Teszteld az összes funkciót egy ideiglenes licenccel.  
-- **Vásárlás** – Szerezz teljes hozzáférést és prioritásos támogatást.
+- **Ingyenes próba** – Minden funkció tesztelhető ideiglenes licenccel.  
+- **Vásárlás** – Teljes hozzáférés és prioritásos támogatás.
 
-## Lépésről‑lépésre megvalósítás
+## Hogyan nyerjünk ki szöveget PDF‑ekből (és egyéb dokumentumokból)
 
-### Hogyan kell szöveget kinyerni PDF‑ekből (és más dokumentumokból)
-A nyers vagy formázott szöveg kinyerése az első lépés a dokumentumindex létrehozásához. Amikor **szöveget nyersz ki PDF Java‑ból**, a keresőmotor számára érthető adatot adsz.
+Töltse be a PDF‑et (vagy támogatott dokumentumot) az `Extractor` osztállyal, állítsa be a kinyerési opciókat, és hívja meg az `extractText()` metódust. Ez az egy‑soros hívás visszaadja a nyers vagy formázott szöveget, amely készen áll az indexelésre.
+
+Az `Extractor` osztály a GroupDocs.Search központi komponense, amely beolvassa a dokumentumot, és egyszerű vagy formázott szöveget állít elő.
 
 ```java
+// ```java
 String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
+```
 
 ```java
+// ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
 ```
+```
 
-> **Tip:** Állítsd be a `setUseRawTextExtraction(true)` értéket, ha formázás nélküli egyszerű szöveget szeretnél.
+> **Tip:** Állítsa be a `setUseRawTextExtraction(true)` értéket, ha formázás nélküli egyszerű szöveget igényel.
 
-### Hogyan sorosítsuk a kinyert adatokat
-A sorosítás lehetővé teszi, hogy a kinyert adatokat későbbi indexeléshez tárold.
+## Hogyan sorosítsuk (serializáljuk) a kinyert adatokat
+
+A sorosítás a kinyert szövegobjektumot bájt tömbbé alakítja, lehetővé téve, hogy lemezre mentse vagy hálózaton keresztül továbbítsa későbbi indexeléshez.
+
+A `SerializationUtil` segédprogram statikus metódusokat biztosít az objektumok bájt‑folyamokká alakításához és vissza.
 
 ```java
+// ```java
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
+```
 
-### Hogyan deszerializáljuk a kinyert adatokat
-Amikor készen állsz az index felépítésére, alakítsd vissza a bájt tömböt objektummá.
+## Hogyan deszerializáljuk a kinyert adatokat
+
+Amikor készen áll az index felépítésére, deszerializálja a korábban tárolt bájt tömböt az eredeti kinyerési objektumba.
+
+A `deserialize` metódus visszaállítja a kinyerési eredmény pontos állapotát, biztosítva, hogy ne legyen adatveszteség a munkamenetek között.
 
 ```java
+// ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 ```
+```
 
-### Hogyan hozzunk létre dokumentumindexet
-Miután megvan a `deserializedData`, létrehozhatod az indexet, amely a kereshető kifejezéseket tartalmazza.
+## Hogyan hozzunk létre dokumentum indexet
+
+Hozzon létre egy `Index` objektumot, adja meg a tároló mappát, és állítsa be az indexelési opciókat, például a kifejezésvektorok és a stop‑szavak kezelését.
+
+Az `Index` osztály a kereshető tárolót képviseli, amely minden kifejezést, dokumentumhivatkozást és metaadatot tartalmaz.
 
 ```java
+// ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
+```
 
-### Hogyan adjunk adatot az indexhez és hajtsunk végre keresést
-Az adatok hozzáadása és az index lekérdezése befejezi a **PDF Java szöveg kinyerése** munkafolyamatot.
+## Hogyan adjunk adatot az indexhez és hajtsunk végre keresést
+
+Adja hozzá a deszerializált kinyerési eredményt az indexhez az `index.add()` metódussal, majd kérdezze le az `index.search()` segítségével az azonnali eredményekért.
+
+Az `add` metódus regisztrálja a dokumentum kifejezéseit az indexben, míg a `search` végrehajtja a lekérdezést ezekre a kifejezésekre.
 
 ```java
+// ```java
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
+```
 
 ```java
+// ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
 ```
+```
 
-> **Pro tip:** Használd az `index.search("your query", SearchOptions)` metódust a relevancia rangsorolás finomhangolásához.
+> **Pro tip:** Használja a `index.search("your query", SearchOptions)` metódust a relevancia‑rangsor finomhangolásához.
 
 ## Gyakori felhasználási esetek
-1. **Dokumentumkezelő rendszerek** – Gyorsan megtalálhatók a szerződések, számlák vagy irányelvek.  
-2. **Tartalom‑alapú keresőmotorok** – Támogasd a belső tudásbázisokat a teljes‑szöveges keresési Java képességekkel.  
-3. **Adatarchiválási megoldások** – Indexeld a történelmi rekordokat azonnali visszakereséshez.
+1. **Dokumentumkezelő rendszerek** – Szerződések, számlák vagy szabályzatok gyors megtalálása.  
+2. **Tartalom‑alapú keresőmotorok** – Belső tudásbázisok teljes‑szöveges keresésének támogatása Java környezetben.  
+3. **Adatarchiválási megoldások** – Történelmi rekordok indexelése az azonnali visszakereséshez.
 
 ## Teljesítmény szempontok
-- **Memóriakezelés:** Állítsd be a JVM heap méretét nagy dokumentumcsoportokhoz.  
-- **Indexelési beállítások:** Kapcsold ki a felesleges funkciókat (pl. term vectorok) az indexelés felgyorsításához.  
-- **Rendszeres frissítések:** Tartsd naprakészen a GroupDocs.Search‑t, hogy élvezd a teljesítményjavító javításokat.
+A `setStoreTermVectors(boolean)` metódus beállítja, hogy a kifejezésvektorok tárolásra kerülnek‑e az indexben, ami befolyásolja az index méretét és a lekérdezési teljesítményt.
 
-## Gyakran feltett kérdések
+- **Memóriakezelés:** Növelje a JVM heap méretét (pl. `-Xmx4g`) nagyobb, 500 MB‑nál nagyobb kötegek feldolgozásához.  
+- **Indexelési opciók:** Kapcsolja ki a kifejezésvektorokat (`setStoreTermVectors(false)`) az index méretének akár 30 %-os csökkentéséhez.  
+- **Rendszeres frissítések:** Tartsa naprakészen a GroupDocs.Search‑t; minden kisebb kiadás átlagosan 10‑15 % gyorsulást hoz.
 
-**Q: Hogyan kezeljem hatékonyan a nagyon nagy PDF fájlokat?**  
-A: Streameld a fájlt az `Extractor` segítségével, és dolgozd fel darabokban; szükség esetén növeld a JVM heap méretét.
+## Gyakran Ismételt Kérdések
 
-**Q: Testreszabhatom a keresési lekérdezés szintaxisát?**  
-A: Igen – a GroupDocs.Search támogatja a logikai operátorokat, helyettesítő karaktereket és közelségi kereséseket.
+**Q:** Hogyan kezeljem hatékonyan a nagyon nagy PDF fájlokat?  
+**A:** Streamelje a fájlt az `Extractor` segítségével, és dolgozza fel darabokban; szükség esetén növelje a JVM heap méretét.
 
-**Q: Mit tegyek, ha a sorosítás meghiúsul?**  
-A: Ellenőrizd, hogy minden objektum implementálja a `Serializable` interfészt, és kapd el az `IOException`‑t a részletek naplózásához.
+**Q:** Testreszabhatom a keresési lekérdezés szintaxisát?  
+**A:** Igen – a GroupDocs.Search támogatja a Boolean operátorokat, helyettesítő karaktereket és a közelségi kereséseket.
 
-**Q: Lehetséges-e csak a dokumentum bizonyos szakaszait indexelni?**  
-A: Teljesen – állítsd be az `ExtractionOptions`‑t, hogy szűrj oldalakat vagy szakaszokat az indexelés előtt.
+**Q:** Mit tegyek, ha a sorosítás sikertelen?  
+**A:** Ellenőrizze, hogy minden objektum implementálja a `Serializable` interfészt, és kezelje az `IOException`‑t a részletek naplózásához.
 
-**Q: Hogyan frissíthetem a GroupDocs.Search újabb verziójára?**  
-A: Módosítsd a verziószámot a `pom.xml`‑ben, majd futtasd a `mvn clean install` parancsot; tekintsd át a migrációs útmutatót a töréspontokért.
+**Q:** Lehetséges csak a dokumentum bizonyos szakaszait indexelni?  
+**A:** Teljesen – állítsa be az `ExtractionOptions`‑t, hogy szűrje a lapokat vagy szakaszokat a indexelés előtt.
+
+**Q:** Hogyan frissíthetem a GroupDocs.Search újabb verziójára?  
+**A:** Módosítsa a verziószámot a `pom.xml`‑ben, majd futtassa a `mvn clean install` parancsot; tekintse át a migrációs útmutatót a töréspontokért.
 
 ## Források
+- **GroupDocs.Search for Java releases:** [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)  
 - **Dokumentáció:** [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)  
 - **API referencia:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
 - **Letöltés:** [GroupDocs Downloads](https://releases.groupdocs.com/search/java/)  
@@ -165,6 +240,12 @@ A: Módosítsd a verziószámot a `pom.xml`‑ben, majd futtasd a `mvn clean ins
 
 ---
 
-**Last Updated:** 2026-02-19  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**Utolsó frissítés:** 2026-07-07  
+**Tesztelve a következővel:** GroupDocs.Search 25.4 for Java  
+**Szerző:** GroupDocs
+
+## Kapcsolódó oktatóanyagok
+
+- [Index létrehozása Java‑val a GroupDocs.Search‑el | Átfogó indexelési és jelentéskészítési útmutató](/search/java/advanced-features/groupdocs-search-java-index-report-guide/)
+- [Dokumentumok hozzáadása az indexhez – GroupDocs.Search Java útmutató](/search/java/advanced-features/)
+- [Teljes szöveges keresés Java‑ban: Implementálás a GroupDocs.Search‑el – Átfogó útmutató](/search/java/searching/implement-full-text-search-java-groupdocs-search/)

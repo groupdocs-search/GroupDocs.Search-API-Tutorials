@@ -1,57 +1,103 @@
 ---
-date: '2026-01-16'
-description: Lär dig hur du utför textsökning och optimerar sökprestanda med GroupDocs.Search
-  för Java. Inkluderar steg för att skapa ett söknätverk, skapa ett sökbart index
-  och ta bort dokumentindex.
+date: '2026-07-07'
+description: Lär dig hur du tar bort index, utför full text search i Java och optimerar
+  search performance med GroupDocs.Search for Java. Steg‑för‑steg‑guide med network
+  setup och indexing.
 keywords:
-- GroupDocs.Search for Java
-- search network optimization
-- document indexing with GroupDocs
-title: Utför textsökning med GroupDocs.Search för Java
+- how to delete index
+- remove indexed files
+- full text search java
+- optimize search performance
+- create searchable index
+og_description: Hur man tar bort index och utför full text search i Java med GroupDocs.Search.
+  Följ den här guiden för att sätta upp ett search network, skapa ett searchable index
+  och optimera search performance.
+og_title: Hur man tar bort index och utför textsökning med GroupDocs.Search for Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-07'
+  description: Learn how to delete index, perform full text search Java, and optimize
+    search performance using GroupDocs.Search for Java. Step‑by‑step guide with network
+    setup and indexing.
+  headline: How to Delete Index and Perform Text Search with GroupDocs.Search for
+    Java
+  type: TechArticle
+- questions:
+  - answer: It provides full‑text search across many document formats, allowing you
+      to **perform text search** in large repositories.
+    question: What is the primary use case for GroupDocs.Search for Java?
+  - answer: Deploy additional nodes, tune the JVM heap, and schedule indexing during
+      low‑traffic periods to **optimize search performance**.
+    question: How can I improve search speed in a large network?
+  - answer: Yes, use the **delete documents index** API as shown in the code example
+      to remove specific files.
+    question: Is it possible to delete a single document without re‑indexing the whole
+      collection?
+  - answer: A free trial license is sufficient for testing; a commercial license is
+      required for production deployments.
+    question: Do I need a license for development?
+  - answer: Absolutely—GroupDocs.Search supports a wide range of formats out of the
+      box.
+    question: Can I index PDFs, Word files, and emails together?
+  type: FAQPage
+title: Hur man tar bort index och utför textsökning med GroupDocs.Search for Java
 type: docs
 url: /sv/java/performance-optimization/implement-optimize-groupdocs-search-java/
 weight: 1
 ---
 
-# Utför textsökning med GroupDocs.Search för Java
-## Prestandaoptimering
+# Hur man tar bort index och utför textsökning med GroupDocs.Search för Java
 
-## Så implementerar och optimerar du ett söknätverk med GroupDocs.Search för Java
-
-### Introduktion
-I dagens datadrivna värld är förmågan att **utföra textsökning** snabbt över enorma dokumentsamlingar en konkurrensfördel. Oavsett om du bygger en intern kunskapsbas, ett juridiskt ärendearkiv eller en e‑handels produktkatalog, kan ett väloptimerat söknätverk dramatiskt förbättra användartillfredsställelsen. I den här guiden lär du dig hur du **sätter upp ett söknätverk**, **skapar ett sökbart index**, **optimerar sökprestanda**, och till och med **tar bort dokumentindex** vid behov — allt med GroupDocs.Search för Java.
-
-**Vad du kommer att lära dig**
-- Konfigurera ett söknätverk med GroupDocs.Search  
-- Distribuera noder inom nätverket  
-- Indexera dokument effektivt (`index documents java`)  
-- Utföra textsökningar över ditt nätverk (`perform text search`)  
-- Ta bort specifika dokument från indexet (`delete documents index`)  
-
-Låt oss dyka ner i hur du kan utnyttja dessa funktioner för att skapa en optimerad sökupplevelse.
+I dagens datadrivna värld är **hur man tar bort index** snabbt samtidigt som man levererar blixtsnabb fulltextsökning i Java en konkurrensfördel. Oavsett om du bygger en intern kunskapsbas, ett juridiskt ärendearkiv eller en e‑handels produktkatalog, kan ett väloptimerat söknätverk dramatiskt förbättra användartillfredsställelsen. I den här guiden lär du dig hur du **konfigurerar ett söknätverk**, **skapar ett sökbart index**, **optimerar sökprestanda** och **tar bort dokument från indexet** när det behövs – allt med GroupDocs.Search för Java.
 
 ## Snabba svar
-- **Vad är huvudsyftet med GroupDocs.Search för Java?** Det tillhandahåller fulltextsökning över många dokumentformat.  
-- **Hur utför jag textsökning i en distribuerad miljö?** Distribuera ett söknätverk, indexera dokument på en master‑nod, och fråga vilken nod som helst.  
-- **Kan jag ta bort dokument från indexet utan att bygga om det?** Ja, använd Delete‑API‑t för att ta bort valda filer.  
+- **Vad är huvudsyftet med GroupDocs.Search för Java?** Det tillhandahåller fulltextsökning över 50+ dokumentformat, vilket möjliggör snabb nyckelordsåtervinning.  
+- **Hur utför jag textsökning i en distribuerad miljö?** Distribuera ett söknätverk, indexera dokument på en masternod och fråga sedan någon nod.  
+- **Kan jag ta bort dokument från indexet utan att bygga om det?** Ja, använd Delete‑API:t för att ta bort valda filer, vilket effektivt *hur man tar bort index* utan full omindexering.  
 - **Vilken Java‑version krävs?** JDK 8 eller högre.  
-- **Behövs en licens för produktion?** En giltig GroupDocs.Search‑licens krävs; en gratis provversion finns tillgänglig.
+- **Behövs en licens för produktion?** En giltig GroupDocs.Search‑licens krävs; en gratis provperiod finns tillgänglig.
 
-## Vad betyder “perform text search”?
-Att utföra textsökning innebär att fråga ett fulltextindex för att hämta dokument som innehåller de angivna nyckelorden eller fraserna. GroupDocs.Search bygger ett omvänt index som gör dessa uppslag extremt snabba, även över tusentals filer.
+## Vad är “utföra textsökning”?
+Att utföra textsökning betyder att fråga ett fulltext‑index för att hämta dokument som innehåller de angivna nyckelorden eller fraserna. GroupDocs.Search bygger ett inverterat index som gör dessa uppslag extremt snabba, även över tusentals filer.
 
 ## Varför sätta upp ett söknätverk?
-Ett söknätverk distribuerar indexerings‑ och frågelaster över flera noder, vilket gör att du kan **optimera sökprestanda**, skala horisontellt och upprätthålla hög tillgänglighet. Denna arkitektur är idealisk för företags‑nivå dokumentarkiv där latens och genomströmning är viktiga.
+Ett söknätverk distribuerar indexerings‑ och frågelaster över flera noder, vilket låter dig **optimera sökprestanda**, skala horisontellt och upprätthålla hög tillgänglighet. Denna arkitektur är idealisk för företagsnivå‑dokumentarkiv där latens och genomströmning är kritiska.
 
-### Förutsättningar
-- **Nödvändiga bibliotek:** GroupDocs.Search för Java version 25.4 (senaste).  
-- **Miljö:** Java JDK 8+, Maven.  
-- **Kunskap:** Grundläggande Java‑programmering och bekantskap med nätverkskoncept.
+## Hur man implementerar och optimerar ett söknätverk med GroupDocs.Search för Java
+Läs in din konfiguration, starta en masternod och lägg sedan till arbetsnoder som delar samma basväg och port. Genom att distribuera nätverket på detta sätt kan vilken nod som helst hantera indexering eller frågebegäran, vilket ger konsekventa svarstider även när antalet dokument växer till hundratusentals.
 
-### Installera GroupDocs.Search för Java
+### Steg‑för‑steg‑översikt
+1. **Definiera en grundkonfiguration** som inkluderar en delad katalog och en TCP‑port.  
+2. **Starta masternoden** för att hantera indexet och samordna arbetsnoderna.  
+3. **Lägg till arbetsnoder** som ansluter till masternoden, vilket möjliggör parallell indexering och sökning.  
+4. **Övervaka resursanvändning** och justera JVM‑heap‑inställningar för att hålla latensen låg.
+
+## Hur man tar bort index i GroupDocs.Search för Java
+`SearchNode` representerar en nod i GroupDocs.Search‑nätverket som hanterar indexerings‑ och frågeoperationer. `delete`‑metoden tar bort angivna dokument från indexet.
+
+### Direkta borttagningssteg
+- Anropa `delete`‑metoden på `SearchNode`‑instansen.  
+- Ange en array med relativa filsökvägar.  
+- Bekräfta ändringarna; indexet uppdateras omedelbart och efterföljande sökningar returnerar inte längre de borttagna filerna.
+
+## Vad är ett söknätverk?
+Ett **söknätverk** är en kluster av sammankopplade noder som delar ett gemensamt indexförråd, vilket möjliggör distribuerad indexering och frågeexekvering. Det möjliggör horisontell skalning och feltolerans för stora dokumentsamlingar.
+
+## Hur man skapar ett sökbart index (indexera dokument java)
+`add`‑metoden indexerar ett dokument i sök‑indexet. Lägg till dokument i masternoden med `add`‑metoden; nätverket sprider ändringarna till alla arbetsnoder. Detta säkerställer att varje nod kan besvara frågor mot det senaste indexet utan ytterligare synkroniseringssteg.
+
+### Nyckelåtgärder
+- Peka masternoden mot mappen som innehåller källfilerna.  
+- Anropa indexeringsrutinen; nätverket bearbetar varje fil och uppdaterar det inverterade indexet.  
+- Verifiera att indexfilerna visas i den angivna lagringskatalogen.
+
+## Hur man tar bort indexerade filer (ta bort indexerade filer)
+När ett dokument blir föråldrat, anropa `delete`‑API:t med dess sökväg. Systemet tar bort filens poster från det inverterade indexet, frigör lagring och förhindrar föråldrade resultat.
+
+## Konfigurera GroupDocs.Search för Java
 För att börja, integrera GroupDocs.Search i ditt Java‑projekt med följande installation:
 
-#### Maven‑installation
+### Maven‑inställning
 Lägg till repository och beroende i din `pom.xml`‑fil:
 
 ```xml
@@ -72,13 +118,13 @@ Lägg till repository och beroende i din `pom.xml`‑fil:
 </dependencies>
 ```
 
-#### Direkt nedladdning
+### Direktnedladdning
 Alternativt kan du [ladda ner den senaste versionen direkt från GroupDocs](https://releases.groupdocs.com/search/java/).
 
-#### Licensanskaffning
-GroupDocs erbjuder en gratis provversion, som låter dig utvärdera funktionerna innan köp. Du kan få en temporär licens genom att följa stegen på deras [köpsida](https://purchase.groupdocs.com/temporary-license/). Detta möjliggör full funktionalitet under din testfas.
+### Licensanskaffning
+GroupDocs erbjuder en gratis provperiod, som låter dig utvärdera funktionerna innan köp. Du kan få en tillfällig licens genom att följa stegen på deras [köpsida](https://purchase.groupdocs.com/temporary-license/). Detta möjliggör full funktionalitet under din testfas.
 
-#### Grundläggande initiering och konfiguration
+### Grundläggande initiering och konfiguration
 Initiera GroupDocs.Search i din Java‑applikation med:
 
 ```java
@@ -92,13 +138,12 @@ class SearchNetworkSetup {
 }
 ```
 
-### Implementeringsguide
+## Implementeringsguide
 
-#### Konfigurera söknätverket
-**Översikt:** Ange en basväg och port för ditt söknätverk så att noder kan kommunicera effektivt.
+### Konfigurering av söknätverket
+**Översikt:** Etablera en basväg och port för ditt söknätverk så att noderna kan kommunicera effektivt.
 
-##### Steg 1: Definiera grundkonfiguration
-
+#### Steg 1: Definera grundkonfiguration
 ```java
 import com.groupdocs.search.options.*;
 import com.groupdocs.search.scaling.configuring.*;
@@ -112,10 +157,10 @@ Configuration configuration = ConfiguringSearchNetwork.configure(basePath, baseP
   - `basePath`: Katalogsökväg för nätverksoperationer.  
   - `basePort`: Portnummer som används av söknätverket.
 
-##### Steg 2: Felsökning
+#### Steg 2: Felsökning
 Se till att den angivna porten inte blockeras av brandväggen eller används av en annan applikation. Justera vid behov för att undvika konflikter.
 
-#### Distribuera söknätverksnoder
+### Distribuera söknätverksnoder
 **Översikt:** Med din konfiguration, distribuera noder över ditt nätverk för distribuerad indexering och sökning.
 
 ```java
@@ -130,10 +175,10 @@ SearchNetworkNode[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, c
 ```
 
 - **Viktiga konfigurationsalternativ:**  
-  - **Basväg & Port:** Dessa värden bör matcha de som användes i din initiala konfiguration för att säkerställa konsistens.
+  - **Basväg & Port:** Dessa värden bör matcha dem som användes i din initiala konfiguration för att säkerställa konsistens.
 
-#### Indexera dokument (`create searchable index`)
-**Översikt:** Lägg till dokument i sökindexet effektivt med en master‑nod.
+### Indexering av dokument (`skapa sökbart index`)
+**Översikt:** Lägg till dokument i sök‑indexet effektivt med en masternod.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -147,10 +192,10 @@ IndexingDocuments.addDirectories(masterNode, documentsPath);
   - `masterNode`: Den primära noden som hanterar dokumentindexering.  
   - `documentsPath`: Sökväg till katalogen som innehåller dokumenten.
 
-##### Felsökningstips
-Verifiera att dina dokumentsökvägar är korrekta och åtkomliga. Säkerställ att behörigheter tillåter läsning från dessa kataloger.
+#### Felsökningstips
+Verifiera att dina dokumentvägar är korrekta och åtkomliga. Säkerställ att behörigheter tillåter läsning från dessa kataloger.
 
-#### Söka text i nätverket (`perform text search`)
+### Sökning av text i nätverk (`utföra textsökning`)
 **Översikt:** Utför omfattande textsökningar över ditt indexerade nätverk.
 
 ```java
@@ -165,7 +210,7 @@ TextSearchInNetwork.searchAll(masterNode, query, false);
   - `query`: Texten du söker efter.  
   - `masterNode`: Nod som utför sökningen.
 
-#### Ta bort dokument från index (`delete documents index`)
+### Radera dokument från index (`radera dokumentindex`)
 **Översikt:** Ta bort specifika dokument från ditt index med deras filsökvägar.
 
 ```java
@@ -189,28 +234,28 @@ void deleteDocuments(SearchNetworkNode node, String... filePaths) {
   - `node`: Målnoden för borttagningsoperationer.  
   - `filePaths`: Sökvägar till dokument som ska tas bort från indexet.
 
-##### Felsökning
-Se till att filsökvägarna är exakt och att filerna finns i din katalog. Om problem kvarstår, kontrollera nätverksbehörigheter och anslutning.
+#### Felsökning
+Säkerställ att filsökvägarna är exakt korrekta och att filerna finns i din katalog. Om problem kvarstår, kontrollera nätverksbehörigheter och anslutning.
 
-### Praktiska tillämpningar
+## Praktiska tillämpningar
 1. **Företagsdokumenthantering:** Effektivisera intern kunskapsåtervinning.  
 2. **Juridisk ärendeanalys:** Snabbt lokalisera relevanta ärendefiler över flera arkiv.  
 3. **E‑handelsplattformar:** Öka produktsökningens hastighet genom att indexera beskrivningar och recensioner.  
-4. **Akademisk forskning:** Sök effektivt i stora digitala bibliotek av artiklar och avhandlingar.  
+4. **Akademisk forskning:** Sök effektivt i stora digitala bibliotek med artiklar och avhandlingar.  
 5. **Kundsupportsystem:** Minska svarstiden genom att låta agenter söka i tidigare ärenden omedelbart.
 
-### Prestandaöverväganden
-- **Optimera indexeringshastighet:** Lägg till nya dokument inkrementellt under låglasttimmar för att hålla latensen låg.  
-- **Riktlinjer för resursanvändning:** Övervaka CPU och minne, särskilt när antalet noder skalas.  
-- **Java‑minneshantering:** Justera JVM‑heap‑inställningar baserat på din arbetsbelastning (t.ex. `-Xmx2g` för medelstora index).
+## Prestandaöverväganden
+- **Optimera indexeringshastigheten:** Lägg till nya dokument inkrementellt under låglasttider för att hålla latensen låg.  
+- **Riktlinjer för resursanvändning:** Övervaka CPU och minne, särskilt när antalet noder ökas.  
+- **Java‑minneshantering:** Justera JVM‑heap‑inställningar efter din arbetsbelastning (t.ex. `-Xmx2g` för medelstora index).
 
-### Slutsats
-Genom att följa den här guiden har du lärt dig hur du **sätter upp söknätverk**, **skapar ett sökbart index**, **utför textsökning**, och **tar bort dokumentindex** med GroupDocs.Search för Java. Dessa funktioner möjliggör snabb, pålitlig dokumenthämtning i distribuerade miljöer.
+## Slutsats
+Genom att följa den här guiden har du lärt dig hur du **konfigurerar ett söknätverk**, **skapar ett sökbart index**, **utför textsökning** och **tar bort dokumentindex** med GroupDocs.Search för Java. Dessa funktioner möjliggör snabb, pålitlig dokumenthämtning i distribuerade miljöer.
 
 **Nästa steg**
 - Experimentera med olika nodkonfigurationer för att hitta den optimala balansen för din arbetsbelastning.  
 - Fördjupa dig i avancerade indexeringsalternativ såsom anpassade analysatorer och relevansjustering.  
-- Utforska integration med andra GroupDocs‑produkter för en end‑to‑end‑dokumentprocess.
+- Utforska integration med andra GroupDocs‑produkter för en komplett dokumentbehandlingskedja.
 
 ## Vanliga frågor
 
@@ -218,19 +263,25 @@ Genom att följa den här guiden har du lärt dig hur du **sätter upp söknätv
 A: Det tillhandahåller fulltextsökning över många dokumentformat, vilket låter dig **utföra textsökning** i stora arkiv.
 
 **Q: Hur kan jag förbättra sökhastigheten i ett stort nätverk?**  
-A: Distribuera ytterligare noder, finjustera JVM‑heapen och schemalägg indexering under lågtrafikperioder för att **optimera sökprestanda**.
+A: Distribuera fler noder, justera JVM‑heapen och schemalägg indexering under perioder med låg trafik för att **optimera sökprestanda**.
 
-**Q: Är det möjligt att ta bort ett enskilt dokument utan att återindexera hela samlingen?**  
-A: Ja, använd **delete documents index**‑API:t som visas i kodexemplet för att ta bort specifika filer.
+**Q: Är det möjligt att ta bort ett enskilt dokument utan att omindexera hela samlingen?**  
+A: Ja, använd **radera dokumentindex**‑API:t som visas i kodexemplet för att ta bort specifika filer.
 
 **Q: Behöver jag en licens för utveckling?**  
-A: En gratis provlicens räcker för testning; en kommersiell licens krävs för produktionsdistributioner.
+A: En gratis provlicens räcker för testning; en kommersiell licens krävs för produktionsmiljöer.
 
-**Q: Kan jag indexera PDF‑, Word‑filer och e‑postmeddelanden tillsammans?**  
-A: Absolut — GroupDocs.Search stöder ett brett sortiment av format direkt ur lådan.
+**Q: Kan jag indexera PDF‑, Word‑filer och e‑post samtidigt?**  
+A: Absolut – GroupDocs.Search stöder ett brett utbud av format direkt ur lådan.
 
 ---
 
-**Senast uppdaterad:** 2026-01-16  
+**Senast uppdaterad:** 2026-07-07  
 **Testat med:** GroupDocs.Search för Java 25.4  
 **Författare:** GroupDocs
+
+## Relaterade handledningar
+
+- [How to Index Text in Java with GroupDocs.Search Guide](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
+- [Optimize Search Performance with Advanced Indexing Techniques in GroupDocs.Search for Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
+- [Improve Query Performance with GroupDocs.Search Java: Optimize Index & Search](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
