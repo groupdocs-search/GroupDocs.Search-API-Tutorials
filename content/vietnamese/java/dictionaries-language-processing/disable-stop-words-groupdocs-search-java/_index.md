@@ -1,39 +1,88 @@
 ---
-date: '2026-02-19'
-description: Tìm hiểu cách tắt từ dừng trong tìm kiếm và thêm tài liệu vào chỉ mục
-  với GroupDocs.Search cho Java, nâng cao độ chính xác của truy vấn.
+date: '2026-07-07'
+description: Tìm hiểu cách vô hiệu hoá stop words trong Java và thêm tài liệu vào
+  chỉ mục bằng GroupDocs.Search cho Java, nâng cao độ chính xác và hiệu suất tìm kiếm.
 keywords:
-- add documents to index
 - disable stop words java
-- configure index settings
-title: 'Từ dừng trong tìm kiếm: Thêm tài liệu vào chỉ mục với GroupDocs.Search Java'
+- add documents to index
+- groupdocs search java
+og_description: Vô hiệu hoá stop words trong Java và thêm tài liệu vào chỉ mục với
+  GroupDocs.Search cho Java. Thực hiện theo hướng dẫn từng bước này để cải thiện độ
+  chính xác truy vấn và hiệu suất.
+og_title: Vô hiệu hoá stop words trong Java – Thêm tài liệu vào chỉ mục với GroupDocs
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-07'
+  description: Learn how to disable stop words java and add documents to index using
+    GroupDocs.Search for Java, boosting search accuracy and performance.
+  headline: Disable Stop Words Java – Add Docs to Index with GroupDocs
+  type: TechArticle
+- description: Learn how to disable stop words java and add documents to index using
+    GroupDocs.Search for Java, boosting search accuracy and performance.
+  name: Disable Stop Words Java – Add Docs to Index with GroupDocs
+  steps:
+  - name: '**Enterprise Document Search** – Preserve critical terminology that would
+      be stripped by default stop‑word lists.'
+    text: '**Enterprise Document Search** – Preserve critical terminology that would
+      be stripped by default stop‑word lists.'
+  - name: '**E‑commerce Platforms** – Boost product discoverability by indexing every
+      word in descriptions, model numbers, and specifications.'
+    text: '**E‑commerce Platforms** – Boost product discoverability by indexing every
+      word in descriptions, model numbers, and specifications.'
+  - name: '**Legal Research Tools** – Capture every legal term, even those commonly
+      treated as stop words, to avoid missing crucial clauses.'
+    text: '**Legal Research Tools** – Capture every legal term, even those commonly
+      treated as stop words, to avoid missing crucial clauses.'
+  type: HowTo
+- questions:
+  - answer: Stop words are common terms (e.g., “the”, “is”, “on”) that many search
+      engines ignore to speed up queries. Disabling them lets you treat every token
+      as searchable.
+    question: What are stop words?
+  - answer: When exact phrase matching is required—such as in legal or technical documents—every
+      word carries meaning, so you need to include stop words.
+    question: Why disable stop words in search indexes?
+  - answer: The library uses optimized data structures and incremental indexing to
+      keep memory usage low, even with **millions of documents**.
+    question: How does GroupDocs.Search handle large datasets?
+  - answer: Yes, the API is designed for easy embedding into any Java‑based system,
+      from web services to desktop apps.
+    question: Can I integrate GroupDocs.Search with other Java applications?
+  - answer: Verify that the index includes all required files (`add documents to index`),
+      ensure stop‑word filtering is disabled when needed, and consider rebuilding
+      the index after major changes.
+    question: What should I do if my search results are not accurate?
+  type: FAQPage
+title: Vô hiệu hoá stop words trong Java – Thêm tài liệu vào chỉ mục với GroupDocs
 type: docs
 url: /vi/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/
 weight: 1
 ---
 
-# Từ Dừng trong Tìm Kiếm: Thêm Tài Liệu vào Chỉ Mục với GroupDocs.Search Java
+# Vô hiệu hoá Stop Words Java – Thêm Tài liệu vào Chỉ mục với GroupDocs
 
-Nếu bạn cần **add documents to index** trong khi đảm bảo rằng không có thuật ngữ quan trọng nào—đặc biệt là các từ phổ biến—bị bỏ qua, bạn đã đến đúng nơi. Trong hướng dẫn này, chúng tôi sẽ chỉ cho bạn cách **disable stop words in search** bằng cách sử dụng GroupDocs.Search for Java, để mọi token (ngay cả “on”, “by”, hoặc “the”) đều có thể tìm kiếm và kết quả của bạn sẽ chính xác hơn nhiều.
+Trong hướng dẫn này, bạn sẽ khám phá cách **vô hiệu hoá stop words java** khi thêm các tệp của mình vào một chỉ mục có thể tìm kiếm với GroupDocs.Search cho Java. Bằng cách tắt bộ lọc stop‑word tích hợp, mọi token—bao gồm các từ thông thường như “on”, “by”, hoặc “the”—sẽ trở nên có thể tìm kiếm, giúp cải thiện đáng kể độ liên quan của kết quả cho các lĩnh vực chuyên biệt như hợp đồng pháp lý, danh mục thương mại điện tử, hoặc sách hướng dẫn kỹ thuật.
 
 ## Câu trả lời nhanh
-- **What does “add documents to index” mean?** Nó có nghĩa là tải các tệp nguồn của bạn vào một chỉ mục có thể tìm kiếm để chúng có thể được truy vấn một cách hiệu quả.  
-- **Why would I disable stop words?** Để bao gồm các từ phổ biến (ví dụ, “on”, “the”) trong các tìm kiếm khi những thuật ngữ này có ý nghĩa đối với lĩnh vực của bạn.  
-- **Which library version is required?** GroupDocs.Search for Java 25.4 hoặc mới hơn.  
-- **Do I need a license?** Bản dùng thử miễn phí đủ cho việc đánh giá; một giấy phép vĩnh viễn là bắt buộc cho môi trường sản xuất.  
-- **Can I use this in a Maven project?** Có – chỉ cần thêm kho và phụ thuộc như dưới đây.
+- **“Thêm tài liệu vào chỉ mục” có nghĩa là gì?** Nó có nghĩa là tải các tệp nguồn của bạn vào một chỉ mục có thể tìm kiếm để chúng có thể được truy vấn một cách hiệu quả.  
+- **Tại sao tôi lại muốn vô hiệu hoá stop words?** Để bao gồm các từ thông thường (ví dụ: “on”, “the”) trong các tìm kiếm khi những từ này có ý nghĩa đối với lĩnh vực của bạn.  
+- **Phiên bản thư viện nào được yêu cầu?** GroupDocs.Search for Java 25.4 hoặc mới hơn.  
+- **Tôi có cần giấy phép không?** Bản dùng thử miễn phí hoạt động cho việc đánh giá; giấy phép vĩnh viễn là bắt buộc cho môi trường sản xuất.  
+- **Tôi có thể sử dụng điều này trong dự án Maven không?** Có – chỉ cần thêm kho và phụ thuộc được hiển thị bên dưới.
 
-## Từ dừng trong tìm kiếm là gì và tại sao bạn có thể muốn tắt chúng?
-Từ dừng là các thuật ngữ xuất hiện thường xuyên mà nhiều công cụ tìm kiếm tự động lọc bỏ để tăng tốc truy vấn. Mặc dù điều này cải thiện hiệu suất cho các tìm kiếm web chung, nó có thể làm giảm độ chính xác trong các lĩnh vực chuyên biệt—hợp đồng pháp lý, danh mục thương mại điện tử, hoặc sách hướng dẫn kỹ thuật—nơi những từ như “on”, “by”, hoặc “as” mang ý nghĩa thực tế. Việc tắt từ dừng cho phép bạn xem mỗi từ là quan trọng, đảm bảo không có tài liệu liên quan nào bị bỏ lỡ.
+## Stop words là gì trong tìm kiếm và tại sao bạn có thể muốn vô hiệu hoá chúng?
 
-## Quá trình thêm tài liệu vào chỉ mục hoạt động như thế nào trong GroupDocs.Search?
-Khi bạn add documents, thư viện sẽ đọc mỗi tệp, tách nội dung thành các token, và lưu các token vào một cấu trúc dữ liệu tối ưu (chỉ mục). Khi đã được lập chỉ mục, công cụ có thể truy xuất các tài liệu phù hợp trong vòng vài mili giây, ngay cả với các bộ sưu tập lớn.
+Stop words là các thuật ngữ tần suất cao mà nhiều công cụ tìm kiếm tự động lọc ra để tăng tốc xử lý truy vấn. Vô hiệu hoá chúng đảm bảo **mọi từ**—bao gồm cả những từ thường bị bỏ qua—được đóng góp vào chỉ mục tìm kiếm, điều này rất quan trọng khi những từ này mang ý nghĩa đặc thù cho miền. Ví dụ, trong một hợp đồng pháp lý, từ “by” có thể phân biệt các bên, và trong danh mục sản phẩm “on” có thể là một phần của tên mẫu.
+
+## Thêm tài liệu vào chỉ mục hoạt động như thế nào trong GroupDocs.Search?
+
+Khi bạn thêm tài liệu, GroupDocs.Search đọc từng tệp, tách nội dung thành các token và lưu các token này vào một chỉ mục ngược tối ưu. Cấu trúc này cho phép truy xuất trong thời gian dưới một giây ngay cả với các bộ sưu tập chứa **hàng trăm ngàn tệp**. Thư viện cũng hỗ trợ cập nhật tăng dần, vì vậy bạn có thể giữ chỉ mục luôn mới mà không cần xây dựng lại từ đầu.
 
 ## Yêu cầu trước
 
-- **Required Libraries**: GroupDocs.Search for Java 25.4 (hoặc mới hơn).  
-- **Development Environment**: IntelliJ IDEA, Eclipse, hoặc bất kỳ IDE Java nào bạn thích.  
-- **Basic Knowledge**: Hiểu biết về cú pháp Java và khái niệm lập chỉ mục.
+- **Thư viện yêu cầu**: GroupDocs.Search for Java 25.4 (hoặc mới hơn).  
+- **Môi trường phát triển**: IntelliJ IDEA, Eclipse, hoặc bất kỳ IDE Java nào bạn thích.  
+- **Kiến thức cơ bản**: Quen thuộc với cú pháp Java và khái niệm lập chỉ mục.
 
 ## Cài đặt GroupDocs.Search cho Java
 
@@ -61,14 +110,16 @@ Nếu bạn đang sử dụng Maven, hãy thêm đoạn sau vào file `pom.xml` 
 
 ### Tải trực tiếp
 
-Hoặc, tải phiên bản mới nhất từ [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Ngoài ra, tải phiên bản mới nhất từ [phiên bản phát hành GroupDocs.Search cho Java](https://releases.groupdocs.com/search/java/).
 
-#### Các bước lấy giấy phép
-- **Free Trial** – bắt đầu thử nghiệm ngay lập tức.  
-- **Temporary License** – nhận khóa có thời hạn để sử dụng đầy đủ chức năng.  
-- **Purchase** – mua giấy phép vĩnh viễn cho môi trường sản xuất.
+#### Các bước nhận giấy phép
+- **Bản dùng thử** – bắt đầu kiểm tra ngay lập tức.  
+- **Giấy phép tạm thời** – nhận khóa có thời hạn để có đầy đủ chức năng.  
+- **Mua** – đảm bảo giấy phép vĩnh viễn cho việc sử dụng trong môi trường sản xuất.
 
 ## Khởi tạo và Cấu hình Cơ bản
+
+`IndexSettings` là một lớp cấu hình định nghĩa cách chỉ mục được xây dựng, tìm kiếm và các tính năng nào được bật.
 
 Tạo một thể hiện của `IndexSettings` để kiểm soát cách chỉ mục hoạt động:
 
@@ -79,21 +130,22 @@ import com.groupdocs.search.IndexSettings;
 IndexSettings settings = new IndexSettings();
 ```
 
-## Cách tắt từ dừng trong tìm kiếm (Java)
+## Cách vô hiệu hoá stop words trong tìm kiếm (Java)?
 
-Dòng sau sẽ tắt bộ lọc từ dừng tích hợp sẵn:
+`IndexSettings` là đối tượng cấu hình kiểm soát hành vi của chỉ mục tìm kiếm. Mặc định nó bật bộ lọc stop‑word tích hợp. Để tắt bộ lọc này, gọi phương thức `setUseStopWords(false)` trên thể hiện `IndexSettings`. Lệnh duy nhất này vô hiệu hoá việc loại bỏ stop‑word, đảm bảo mọi token—bao gồm các từ thông thường như “on” hoặc “the”—được lập chỉ mục và có thể truy vấn.
+
+## Cách thêm tài liệu vào chỉ mục
+
+Thêm tài liệu vào chỉ mục được thực hiện bằng cách tạo một đối tượng `Index` với `IndexSettings` mong muốn và sau đó gọi phương thức `add` cho mỗi tệp hoặc thư mục. Thư viện đọc từng tài liệu, tách nội dung thành các token và lưu các thuật ngữ này vào chỉ mục ngược, khiến chúng có thể tìm kiếm ngay lập tức. Bạn có thể chỉ định thư mục đầu ra cụ thể và chỉ ra thư mục nguồn chứa các tệp cần lập chỉ mục.
+
+### Xác định Thư mục Đầu ra
 
 ```java
 // Disable the use of stop words
 tsettings.setUseStopWords(false);
 ```
 
-*Parameters*: `setUseStopWords` chấp nhận một giá trị boolean.  
-*Purpose*: Đảm bảo rằng mọi từ—bao gồm cả các từ dừng phổ biến—đều được lập chỉ mục và có thể tìm kiếm.
-
-## Cách thêm tài liệu vào chỉ mục
-
-### Xác định Thư mục Đầu ra
+### Chỉ định Thư mục Tài liệu
 
 ```java
 import com.groupdocs.search.Index;
@@ -105,7 +157,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\IndexingWithStopWords";
 Index index = new Index(indexFolder, settings);
 ```
 
-### Chỉ định Thư mục Tài liệu
+## Thực hiện Truy vấn Tìm kiếm
 
 ```java
 // Define the path to your document directory
@@ -115,9 +167,61 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-Bây giờ mọi tệp trong `YOUR_DOCUMENT_DIRECTORY` đã **added documents to index** và sẵn sàng cho việc truy vấn.
+Vì `disable stop words java` đang hoạt động, một truy vấn chứa thuật ngữ `"on"` sẽ được đánh giá, trả về các kết quả mà nếu không sẽ bị bộ lọc mặc định bỏ qua.
 
-## Thực hiện Truy vấn Tìm kiếm
+## Ứng dụng Thực tiễn
+
+1. **Tìm kiếm Tài liệu Doanh nghiệp** – Bảo tồn thuật ngữ quan trọng mà danh sách stop‑word mặc định sẽ loại bỏ.  
+2. **Nền tảng Thương mại điện tử** – Tăng khả năng khám phá sản phẩm bằng cách lập chỉ mục mọi từ trong mô tả, số model và thông số kỹ thuật.  
+3. **Công cụ Nghiên cứu Pháp lý** – Ghi lại mọi thuật ngữ pháp lý, ngay cả những từ thường được coi là stop words, để tránh bỏ lỡ các điều khoản quan trọng.
+
+## Các lưu ý về Hiệu năng
+
+- **Mẹo tối ưu hoá**: Thường xuyên cập nhật và loại bỏ các phần không cần thiết trong chỉ mục để duy trì tốc độ tìm kiếm cao. GroupDocs.Search có thể xử lý **lên tới 1 triệu tài liệu** trong khi vẫn giữ thời gian truy vấn dưới một giây.  
+- **Sử dụng tài nguyên**: Giám sát kích thước heap của JVM; các chỉ mục lớn có thể yêu cầu heap tối đa (`-Xmx`) 4 GB hoặc hơn.  
+- **Quản lý bộ nhớ Java**: Sử dụng tùy chọn lưu trữ off‑heap cho các tập dữ liệu rất lớn để giữ dung lượng trên heap dưới 2 GB.
+
+## Các vấn đề thường gặp và Giải pháp
+
+| Triệu chứng | Nguyên nhân có thể | Cách khắc phục |
+|---|---|---|
+| Không có kết quả cho các từ thông thường | `setUseStopWords(true)` (mặc định) | Gọi `setUseStopWords(false)` như đã trình bày ở trên. |
+| Lỗi hết bộ nhớ trong quá trình lập chỉ mục | Lập chỉ mục quá nhiều tệp lớn cùng một lúc | Lập chỉ mục theo lô; tăng tùy chọn JVM `-Xmx`. |
+| Kết quả tìm kiếm cũ | Chỉ mục không được làm mới sau khi thêm tệp mới | Gọi `index.update()` hoặc thêm lại các tài liệu đã thay đổi. |
+
+## Câu hỏi thường gặp
+
+**Q: Stop words là gì?**  
+A: Stop words là các thuật ngữ phổ biến (ví dụ: “the”, “is”, “on”) mà nhiều công cụ tìm kiếm bỏ qua để tăng tốc truy vấn. Vô hiệu hoá chúng cho phép bạn xem mọi token như một từ có thể tìm kiếm.
+
+**Q: Tại sao phải vô hiệu hoá stop words trong các chỉ mục tìm kiếm?**  
+A: Khi cần khớp cụm từ chính xác—như trong tài liệu pháp lý hoặc kỹ thuật—mọi từ đều mang ý nghĩa, vì vậy bạn cần bao gồm cả stop words.
+
+**Q: GroupDocs.Search xử lý tập dữ liệu lớn như thế nào?**  
+A: Thư viện sử dụng các cấu trúc dữ liệu tối ưu và lập chỉ mục tăng dần để giữ mức sử dụng bộ nhớ thấp, ngay cả với **hàng triệu tài liệu**.
+
+**Q: Tôi có thể tích hợp GroupDocs.Search với các ứng dụng Java khác không?**  
+A: Có, API được thiết kế để dễ dàng nhúng vào bất kỳ hệ thống dựa trên Java nào, từ dịch vụ web đến ứng dụng desktop.
+
+**Q: Tôi nên làm gì nếu kết quả tìm kiếm không chính xác?**  
+A: Kiểm tra xem chỉ mục đã bao gồm tất cả các tệp cần thiết (`add documents to index`), đảm bảo bộ lọc stop‑word đã được tắt khi cần, và cân nhắc xây dựng lại chỉ mục sau các thay đổi lớn.
+
+## Tài nguyên bổ sung
+
+- **Tài liệu GroupDocs Search**: [https://docs.groupdocs.com/search/java/](https://docs.groupdocs.com/search/java/)
+- **Tham chiếu API GroupDocs**: [https://reference.groupdocs.com/search/java](https://reference.groupdocs.com/search/java)
+- **Tải phiên bản mới nhất của GroupDocs.Search cho Java**: [https://releases.groupdocs.com/search/java/](https://releases.groupdocs.com/search/java/)
+- **Khám phá trên GitHub**: [https://github.com/groupdocs-search/GroupDocs.Search-for-Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Tham gia Diễn đàn GroupDocs**: [https://forum.groupdocs.com/c/search/10](https://forum.groupdocs.com/c/search/10)
+- **Đăng ký Giấy phép Tạm thời**: [https://purchase.groupdocs.com/temporary-license/](https://purchase.groupdocs.com/temporary-license/)
+
+Bằng cách làm theo hướng dẫn này, bạn đã biết cách **thêm tài liệu vào chỉ mục** và **vô hiệu hoá stop words java** để cung cấp kết quả tìm kiếm chính xác hơn trong các ứng dụng Java của mình.
+
+---
+
+**Cập nhật lần cuối:** 2026-07-07  
+**Kiểm tra với:** GroupDocs.Search for Java 25.4  
+**Tác giả:** GroupDocs  
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -129,58 +233,8 @@ tString query = "on";
 SearchResult result = index.search(query);
 ```
 
-Vì các từ dừng đã bị tắt, thuật ngữ `"on"` sẽ được xét trong quá trình tìm kiếm, trả về các kết quả mà nếu không sẽ bị bỏ qua.
+## Các hướng dẫn liên quan
 
-## Ứng dụng Thực tiễn
-
-1. **Enterprise Document Search** – Đảm bảo thuật ngữ quan trọng không bị lọc bỏ.  
-2. **E‑commerce Platforms** – Cải thiện khả năng tìm kiếm sản phẩm bằng cách lập chỉ mục mọi từ trong mô tả sản phẩm.  
-3. **Legal Research Tools** – Ghi lại mọi thuật ngữ pháp lý, ngay cả những từ thường được coi là từ dừng.
-
-## Các cân nhắc về Hiệu suất
-
-- **Optimization Tips**: Thường xuyên cập nhật và loại bỏ các phần không cần thiết của chỉ mục để duy trì tốc độ tìm kiếm cao.  
-- **Resource Usage**: Giám sát kích thước heap của JVM; các chỉ mục lớn có thể cần điều chỉnh cài đặt thu gom rác.  
-- **Java Memory Management**: Sử dụng các cấu trúc dữ liệu hiệu quả và cân nhắc lưu trữ off‑heap cho các tập dữ liệu rất lớn.
-
-## Các vấn đề thường gặp và Giải pháp
-
-| Symptom | Likely Cause | Fix |
-|---|---|---|
-| Không có kết quả cho các từ phổ biến | `setUseStopWords(true)` (mặc định) | Gọi `setUseStopWords(false)` như đã trình bày ở trên. |
-| Lỗi thiếu bộ nhớ trong quá trình lập chỉ mục | Lập chỉ mục quá nhiều tệp lớn cùng lúc | Lập chỉ mục các tệp theo lô; tăng tùy chọn JVM `-Xmx`. |
-| Kết quả tìm kiếm trả về dữ liệu cũ | Chỉ mục không được làm mới sau khi thêm tệp mới | Gọi `index.update()` hoặc thêm lại các tài liệu đã thay đổi. |
-
-## Câu hỏi thường gặp
-
-**Q: What are stop words?**  
-A: Stop words là các thuật ngữ phổ biến (ví dụ, “the”, “is”, “on”) mà nhiều công cụ tìm kiếm bỏ qua để tăng tốc truy vấn. Việc tắt chúng cho phép bạn xem mỗi token là có thể tìm kiếm.
-
-**Q: Why disable stop words in search indexes?**  
-A: Khi cần khớp chính xác cụm từ—như trong tài liệu pháp lý hoặc kỹ thuật—mọi từ đều mang ý nghĩa, vì vậy bạn cần bao gồm các từ dừng.
-
-**Q: How does GroupDocs.Search handle large datasets?**  
-A: Thư viện sử dụng các cấu trúc dữ liệu tối ưu và lập chỉ mục tăng dần để giữ mức sử dụng bộ nhớ thấp, ngay cả với hàng triệu tài liệu.
-
-**Q: Can I integrate GroupDocs.Search with other Java applications?**  
-A: Có, API được thiết kế để dễ dàng nhúng vào bất kỳ hệ thống nào dựa trên Java, từ dịch vụ web đến ứng dụng desktop.
-
-**Q: What should I do if my search results are not accurate?**  
-A: Kiểm tra xem chỉ mục đã bao gồm tất cả các tài liệu cần thiết (`add documents to index`) chưa, đảm bảo bộ lọc từ dừng đã được tắt nếu cần, và cân nhắc xây dựng lại chỉ mục sau các thay đổi lớn.
-
-## Tài nguyên bổ sung
-
-- **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
-- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
-- **Download**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
-- **GitHub Repository**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- **Free Support**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
-- **Temporary License**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
-
-Bằng cách làm theo hướng dẫn này, bạn đã biết cách **add documents to index** và **disable stop words in search** để cung cấp kết quả chính xác hơn trong các ứng dụng Java của mình.
-
----
-
-**Cập nhật lần cuối:** 2026-02-19  
-**Kiểm tra với:** GroupDocs.Search for Java 25.4  
-**Tác giả:** GroupDocs
+- [Xử lý Ngôn ngữ Java – Tạo Từ điển Đồng nghĩa với GroupDocs.Search](/search/java/dictionaries-language-processing/)
+- [Cách thêm tài liệu vào chỉ mục với Lập chỉ mục Metadata trong Java bằng GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [Cách Thêm Tài liệu vào Chỉ mục với GroupDocs.Search cho Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)

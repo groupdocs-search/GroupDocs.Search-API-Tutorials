@@ -1,43 +1,86 @@
 ---
-date: '2026-02-19'
-description: GroupDocs.Search for Java を使用して検索時のストップワードを無効にし、ドキュメントをインデックスに追加して、クエリの精度を向上させる方法を学びましょう。
+date: '2026-07-07'
+description: GroupDocs.Search for Java を使用して、Java のStop Wordsを無効化し、ドキュメントをインデックスに追加する方法を学び、検索精度とパフォーマンスを向上させます。
 keywords:
-- add documents to index
 - disable stop words java
-- configure index settings
-title: 検索におけるストップワード：GroupDocs.Search Javaでドキュメントをインデックスに追加
+- add documents to index
+- groupdocs search java
+og_description: GroupDocs.Search for Java を使用して、Java のStop Wordsを無効化し、ドキュメントをインデックスに追加します。step‑by‑step
+  ガイドに従い、クエリ精度とパフォーマンスを向上させます。
+og_title: JavaのStop Words無効化 – GroupDocsでドキュメントをインデックスに追加
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-07'
+  description: Learn how to disable stop words java and add documents to index using
+    GroupDocs.Search for Java, boosting search accuracy and performance.
+  headline: Disable Stop Words Java – Add Docs to Index with GroupDocs
+  type: TechArticle
+- description: Learn how to disable stop words java and add documents to index using
+    GroupDocs.Search for Java, boosting search accuracy and performance.
+  name: Disable Stop Words Java – Add Docs to Index with GroupDocs
+  steps:
+  - name: '**Enterprise Document Search** – Preserve critical terminology that would
+      be stripped by default stop‑word lists.'
+    text: '**Enterprise Document Search** – Preserve critical terminology that would
+      be stripped by default stop‑word lists.'
+  - name: '**E‑commerce Platforms** – Boost product discoverability by indexing every
+      word in descriptions, model numbers, and specifications.'
+    text: '**E‑commerce Platforms** – Boost product discoverability by indexing every
+      word in descriptions, model numbers, and specifications.'
+  - name: '**Legal Research Tools** – Capture every legal term, even those commonly
+      treated as stop words, to avoid missing crucial clauses.'
+    text: '**Legal Research Tools** – Capture every legal term, even those commonly
+      treated as stop words, to avoid missing crucial clauses.'
+  type: HowTo
+- questions:
+  - answer: Stop words are common terms (e.g., “the”, “is”, “on”) that many search
+      engines ignore to speed up queries. Disabling them lets you treat every token
+      as searchable.
+    question: What are stop words?
+  - answer: When exact phrase matching is required—such as in legal or technical documents—every
+      word carries meaning, so you need to include stop words.
+    question: Why disable stop words in search indexes?
+  - answer: The library uses optimized data structures and incremental indexing to
+      keep memory usage low, even with **millions of documents**.
+    question: How does GroupDocs.Search handle large datasets?
+  - answer: Yes, the API is designed for easy embedding into any Java‑based system,
+      from web services to desktop apps.
+    question: Can I integrate GroupDocs.Search with other Java applications?
+  - answer: Verify that the index includes all required files (`add documents to index`),
+      ensure stop‑word filtering is disabled when needed, and consider rebuilding
+      the index after major changes.
+    question: What should I do if my search results are not accurate?
+  type: FAQPage
+title: JavaのStop Words無効化 – GroupDocsでドキュメントをインデックスに追加
 type: docs
 url: /ja/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/
 weight: 1
 ---
 
-# 検索におけるストップワード: GroupDocs.Search Javaでインデックスにドキュメントを追加
+# Stop Words Java を無効化 – GroupDocs でインデックスにドキュメントを追加
 
-重要な用語（特に一般的なもの）が無視されないように **add documents to index** したい場合は、ここが最適です。このガイドでは GroupDocs.Search for Java を使用して **disable stop words in search** の方法を示します。これにより、すべてのトークン（「on」や「by」や「the」さえも）が検索可能になり、結果が格段に正確になります。
+このチュートリアルでは、GroupDocs.Search for Java を使用してファイルを検索可能なインデックスに追加する際に **disable stop words java** を無効にする方法を紹介します。組み込みのストップワードフィルタをオフにすることで、「on」や「by」や「the」などの一般的な単語を含むすべてのトークンが検索可能になり、法的契約書、eコマースカタログ、技術マニュアルなどの専門分野で結果の関連性が大幅に向上します。
 
-## よくある質問
-- **“add documents to index” とは何ですか？** ソースファイルを検索可能なインデックスにロードし、効率的にクエリできるようにすることです。  
-- **なぜストップワードを無効にするのですか？** ドメイン固有で重要な意味を持つ一般的な単語（例: “on”, “the”）を検索に含めるためです。  
-- **必要なライブラリのバージョンは？** GroupDocs.Search for Java 25.4 以降。  
-- **ライセンスは必要ですか？** 評価用の無料トライアルは利用可能です。製品環境では永続ライセンスが必要です。  
-- **Maven プロジェクトで使用できますか？** はい – 下記のリポジトリと依存関係を追加するだけです。
+## クイック回答
+- **What does “add documents to index” mean?** ソースファイルを検索可能なインデックスにロードし、効率的にクエリできるようにすることを意味します。  
+- **Why would I disable stop words?** ドメインで意味のある場合に、検索に一般的な単語（例: “on”, “the”）を含めるためです。  
+- **Which library version is required?** GroupDocs.Search for Java 25.4 以降。  
+- **Do I need a license?** 評価には無料トライアルが利用でき、製品版には永続ライセンスが必要です。  
+- **Can I use this in a Maven project?** はい – 下記のリポジトリと依存関係を追加するだけです。
 
-## 検索におけるストップワードとは何ですか？また、なぜストップワードを無効にする必要があるのでしょうか？
-ストップワードは検索エンジンがクエリの高速化のために自動的に除外する頻出語です。汎用ウェブ検索ではパフォーマンス向上に寄与しますが、法務契約書、e‑コマースカタログ、技術マニュアルなどの専門領域では「on」や「by」や「as」などが実質的な意味を持つため、精度が低下します。ストップワードを無効化すると、すべての単語を重要とみなすことができ、関連ドキュメントが見逃されません。
+## 検索におけるストップワードとは何か、そしてなぜ無効にしたいのか
+ストップワードは、多くの検索エンジンがクエリ処理を高速化するために自動的に除外する高頻度語です。これらを無効にすると、**every word**（従来は無視されていた語も含む）が検索インデックスに寄与し、これらの語がドメイン固有の意味を持つ場合に重要になります。例えば、法的契約書では “by” が当事者を区別する語となり、製品カタログでは “on” がモデル名の一部になることがあります。
 
-## GroupDocs.Search でドキュメントをインデックスに追加する仕組みは？
-ドキュメントを追加すると、ライブラリは各ファイルを読み取り、内容をトークン化し、最適化されたデータ構造（インデックス）にトークンを格納します。インデックス化が完了すれば、エンジンは大規模コレクションでもミリ秒単位で一致するドキュメントを取得できます。
+## GroupDocs.Search でドキュメントをインデックスに追加する仕組み
+ドキュメントを追加すると、GroupDocs.Search は各ファイルを読み取り、コンテンツをトークン化し、最適化された逆インデックスにトークンを保存します。この構造により、**hundreds of thousands of files**（数十万ファイル）を含むコレクションでもサブ秒の検索が可能になります。また、ライブラリはインクリメンタル更新をサポートしているため、インデックスをゼロから再構築せずに最新の状態に保つことができます。
 
 ## 前提条件
+- **Required Libraries**: GroupDocs.Search for Java 25.4（またはそれ以降）。  
+- **Development Environment**: IntelliJ IDEA、Eclipse、またはお好みの Java IDE。  
+- **Basic Knowledge**: Java の構文とインデックス作成の概念に慣れていること。
 
-- **必須ライブラリ**: GroupDocs.Search for Java 25.4（またはそれ以降）。  
-- **開発環境**: IntelliJ IDEA、Eclipse、またはお好みの Java IDE。  
-- **基本知識**: Java の構文とインデックス概念に慣れていること。
-
-## Java 版 GroupDocs.Search のセットアップ
-
-### Maven のインストール
-
+## GroupDocs.Search for Java のセットアップ
+### Maven インストール
 Maven を使用している場合は、`pom.xml` に以下を追加してください。
 
 ```xml
@@ -59,17 +102,17 @@ Maven を使用している場合は、`pom.xml` に以下を追加してくだ�
 ```
 
 ### 直接ダウンロード
-
-あるいは、[GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) から最新バージョンをダウンロードします。
+あるいは、最新バージョンを [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) からダウンロードしてください。
 
 #### ライセンス取得手順
 - **Free Trial** – すぐにテストを開始できます。  
-- **Temporary License** – フル機能を一定期間利用できるキーを取得します。  
-- **Purchase** – 本番環境向けに永続ライセンスを取得します。
+- **Temporary License** – フル機能を利用できる期間限定キーを取得します。  
+- **Purchase** – 本番環境で使用する永続ライセンスを取得します。
 
 ## 基本的な初期化とセットアップ
+IndexSettings は、インデックスの構築方法、検索方法、および有効化される機能を定義する構成クラスです。
 
-インデックスの動作を制御するために `IndexSettings` のインスタンスを作成します。
+`IndexSettings` のインスタンスを作成して、インデックスの動作を制御します。
 
 ```java
 import com.groupdocs.search.IndexSettings;
@@ -78,21 +121,20 @@ import com.groupdocs.search.IndexSettings;
 IndexSettings settings = new IndexSettings();
 ```
 
-## 検索におけるストップワードの無効化方法（Java）
+## 検索でストップワードを無効にする方法 (Java)
+IndexSettings は検索インデックスの動作を制御する構成オブジェクトです。デフォルトでは組み込みのストップワードフィルタが有効になっています。このフィルタをオフにするには、`IndexSettings` インスタンスで `setUseStopWords(false)` メソッドを呼び出します。この一度の呼び出しでストップワードの除去が無効になり、**on** や **the** などの一般的な単語を含むすべてのトークンがインデックス化され、クエリ可能になります。
 
-組み込みのストップワードフィルタをオフにするには、次の行を使用します。
+## ドキュメントをインデックスに追加する方法
+インデックスにドキュメントを追加するには、目的の `IndexSettings` を使用して `Index` オブジェクトを作成し、各ファイルまたはフォルダーに対してその `add` メソッドを呼び出します。ライブラリは各ドキュメントを読み取り、コンテンツをトークン化し、結果の用語を逆インデックスに保存し、即座に検索可能にします。インデックスを特定の出力ディレクトリに設定し、インデックス対象のファイルが格納されたソースフォルダーを指定できます。
+
+### 出力ディレクトリの定義
 
 ```java
 // Disable the use of stop words
 tsettings.setUseStopWords(false);
 ```
 
-*Parameters*: `setUseStopWords` はブール値を受け取ります。  
-*Purpose*: 一般的なストップワードを含むすべての単語がインデックス化され、検索可能になることを保証します。
-
-## インデックスへのドキュメントの追加方法
-
-### 出力ディレクトリの定義
+### ドキュメントディレクトリの指定
 
 ```java
 import com.groupdocs.search.Index;
@@ -104,7 +146,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\IndexingWithStopWords";
 Index index = new Index(indexFolder, settings);
 ```
 
-### 文書ディレクトリの指定
+## 検索クエリの実行
 
 ```java
 // Define the path to your document directory
@@ -114,9 +156,56 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-これで `YOUR_DOCUMENT_DIRECTORY` 内のすべてのファイルが **add documents to index** され、クエリ実行の準備が整います。
+`disable stop words java` が有効なため、`"on"` を含むクエリも評価され、デフォルトフィルタで無視されるはずの一致が返されます。
 
-## 検索クエリの実行
+## 実用的な応用例
+1. **Enterprise Document Search** – デフォルトのストップワードリストで除去される重要な用語を保持します。  
+2. **E‑commerce Platforms** – 説明文、モデル番号、仕様書のすべての単語をインデックス化することで、製品の発見性を向上させます。  
+3. **Legal Research Tools** – 通常はストップワードとして扱われることが多い法的用語もすべて取得し、重要な条項を見逃さないようにします。
+
+## パフォーマンス上の考慮点
+- **Optimization Tips**: インデックスを定期的に更新・削除して検索速度を高く保ちます。GroupDocs.Search は **up to 1 million documents**（最大100万ドキュメント）を処理し、サブ秒のクエリ時間を維持できます。  
+- **Resource Usage**: JVM ヒープサイズを監視してください。大規模インデックスでは最大ヒープ（`-Xmx`）を 4 GB 以上にする必要がある場合があります。  
+- **Java Memory Management**: 非常に大規模なコーパスの場合、オンヒープのフットプリントを 2 GB 未満に抑えるためにオフヒープストレージオプションを使用してください。
+
+## よくある問題と解決策
+| 症状 | 考えられる原因 | 対策 |
+|---|---|---|
+| 一般的な単語で結果が返らない | `setUseStopWords(true)`（デフォルト） | 上記のように `setUseStopWords(false)` を呼び出します。 |
+| インデックス作成中のメモリ不足エラー | 一度に多数の大きなファイルをインデックスしようとする | ファイルをバッチ処理でインデックスし、`-Xmx` JVM オプションを増やします。 |
+| 検索結果が古いデータを返す | 新しいファイルを追加した後にインデックスが更新されていない | `index.update()` を呼び出すか、変更されたドキュメントを再度追加します。 |
+
+## よくある質問
+**Q: What are stop words?**  
+A: ストップワードは、検索エンジンがクエリを高速化するために無視する一般的な語（例: “the”, “is”, “on”）です。これらを無効にすると、すべてのトークンを検索可能にできます。
+
+**Q: Why disable stop words in search indexes?**  
+A: 法的文書や技術文書のように正確なフレーズ一致が必要な場合、すべての単語が意味を持つため、ストップワードも含める必要があります。
+
+**Q: How does GroupDocs.Search handle large datasets?**  
+A: ライブラリは最適化されたデータ構造とインクリメンタルインデックスを使用し、**millions of documents**（数百万ドキュメント）でもメモリ使用量を低く抑えます。
+
+**Q: Can I integrate GroupDocs.Search with other Java applications?**  
+A: はい、API はウェブサービスからデスクトップアプリまで、あらゆる Java ベースのシステムに簡単に組み込めるよう設計されています。
+
+**Q: What should I do if my search results are not accurate?**  
+A: インデックスに必要なすべてのファイルが含まれているか（`add documents to index`）を確認し、必要に応じてストップワードフィルタが無効になっているかを確認し、重大な変更後はインデックスの再構築を検討してください。
+
+## 追加リソース
+- **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
+- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
+- **Download**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
+- **GitHub Repository**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Free Support**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
+- **Temporary License**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+このガイドに従うことで、**add documents to index** と **disable stop words java** の方法を理解し、Java アプリケーションでより正確な検索結果を提供できるようになりました。
+
+---
+
+**Last Updated:** 2026-07-07  
+**Tested With:** GroupDocs.Search for Java 25.4  
+**Author:** GroupDocs  
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -128,58 +217,7 @@ tString query = "on";
 SearchResult result = index.search(query);
 ```
 
-ストップワードが無効化されているため、検索語句 `"on"` も検索対象となり、通常は無視されるマッチが返されます。
-
-## 実践的な応用例
-
-1. **Enterprise Document Search** – 重要な用語がフィルタリングされないようにします。  
-2. **E‑commerce Platforms** – 商品説明のすべての単語をインデックス化し、製品発見を向上させます。  
-3. **Legal Research Tools** – 法的文書において、一般的にストップワードとみなされる語句もすべて捕捉します。
-
-## パフォーマンスに関する考慮事項
-
-- **Optimization Tips**: インデックスは定期的に更新・削除して、検索速度を高く保ちます。  
-- **Resource Usage**: JVM ヒープサイズを監視してください。大規模インデックスではガベージコレクション設定の調整が必要になることがあります。  
-- **Java Memory Management**: 効率的なデータ構造を使用し、非常に大きなコーパスの場合はオフヒープストレージの導入も検討してください。
-
-## よくある問題とその解決策
-
-| 症状 | 考えられる原因 | 解決策 |
-|---|---|---|
-| No results for common words | `setUseStopWords(true)`（デフォルト） | 上記のように `setUseStopWords(false)` を呼び出す。 |
-| Out‑of‑memory errors during indexing | 一度に大量の大きなファイルをインデックス化している | バッチ処理でファイルを分割し、`-Xmx` JVM オプションでヒープを増やす。 |
-| Search returns stale data | ドキュメント追加後にインデックスが更新されていない | `index.update()` を呼び出すか、変更されたドキュメントを再追加する。 |
-
-## よくある質問
-
-**Q: ストップワードとは何ですか？**  
-A: ストップワードは多くの検索エンジンがクエリ高速化のために無視する一般的な語（例: “the”, “is”, “on”）です。無効化すると、すべてのトークンが検索対象になります。
-
-**Q: 検索インデックスでストップワードを無効にする理由は何ですか？**  
-A: 正確なフレーズマッチが必要な法務・技術文書などでは、すべての単語が意味を持つため、ストップワードを含める必要があります。
-
-**Q: GroupDocs.Search は大規模なデータセットをどのように処理しますか？**  
-A: ライブラリは最適化されたデータ構造とインクリメンタルインデックスを使用し、数百万件のドキュメントでもメモリ使用量を抑えます。
-
-**Q: GroupDocs.Search を他の Java アプリケーションと統合できますか？**  
-A: はい。API は Web サービスからデスクトップアプリまで、あらゆる Java ベースのシステムに簡単に組み込めるよう設計されています。
-
-**Q: 検索結果が正確でない場合はどうすればよいですか？**  
-A: インデックスにすべての必要なドキュメントが含まれているか（`add documents to index`）を確認し、必要に応じてストップワードフィルタが無効化されているかをチェックしてください。大幅な変更後はインデックスの再構築も検討してください。
-
-## その他のリソース
-
-- **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
-- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-- **Download**: [Get the latest GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
-- **GitHub Repository**: [Explore on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Free Support**: [Join GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **Temporary License**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
-
-このガイドに従えば、**add documents to index** と **disable stop words in search** の方法が分かり、Java アプリケーションでより正確な検索結果を提供できるようになります。
-
----
-
-**Last Updated:** 2026-02-19  
-**Tested With:** GroupDocs.Search for Java 25.4  
-**Author:** GroupDocs
+## 関連チュートリアル
+- [Language Processing Java – GroupDocs.Search で同義語辞書を作成](/search/java/dictionaries-language-processing/)
+- [Java で GroupDocs.Search を使用したメタデータインデックスでドキュメントをインデックスに追加する方法](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [GroupDocs.Search for Java でドキュメントをインデックスに追加する方法](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
