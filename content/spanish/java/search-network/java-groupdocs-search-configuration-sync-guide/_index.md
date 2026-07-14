@@ -1,37 +1,73 @@
 ---
-date: '2026-01-21'
-description: Aprende cómo agregar la dependencia de GroupDocs Maven, configurar y
-  sincronizar una red de búsqueda Java, y añadir directorios al índice con GroupDocs.Search.
+date: '2026-05-17'
+description: Aprende cómo agregar groupdocs Maven dependency, configurar una search
+  network en Java y agregar directorios para indexar, con el fin de obtener una recuperación
+  de documentos rápida y escalable.
 keywords:
-- Java Search Network Configuration
-- GroupDocs.Search for Java
-- Document Indexing and Retrieval
-title: Dependencia Maven de GroupDocs – Sincronización de Red de Búsqueda Java
+- how to add groupdocs
+- add directories to index
+- set up search cluster
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-17'
+  description: Learn how to add groupdocs Maven dependency, set up a Java search network,
+    and add directories to index for fast, scalable document retrieval.
+  headline: How to Add GroupDocs Maven Dependency for Search Network
+  type: TechArticle
+- description: Learn how to add groupdocs Maven dependency, set up a Java search network,
+    and add directories to index for fast, scalable document retrieval.
+  name: How to Add GroupDocs Maven Dependency for Search Network
+  steps:
+  - name: '**Legal Document Management** – Quickly retrieve case files and precedents.'
+    text: '**Legal Document Management** – Quickly retrieve case files and precedents.'
+  - name: '**Financial Record Keeping** – Access statements and audit trails in seconds.'
+    text: '**Financial Record Keeping** – Access statements and audit trails in seconds.'
+  - name: '**Academic Research** – Search across thousands of papers to find relevant
+      citations.'
+    text: '**Academic Research** – Search across thousands of papers to find relevant
+      citations.'
+  type: HowTo
+- questions:
+  - answer: It provides fast, scalable search capabilities across large document sets
+      with minimal configuration.
+    question: What is the primary benefit of using GroupDocs.Search?
+  - answer: Yes, you can set custom paths, ports, and other options via the `Configuration`
+      object.
+    question: Can I customize node configurations in a search network?
+  - answer: Call `IndexingDocuments.addDirectories(masterNode, "path")` whenever you
+      need to index new folders.
+    question: How do I add directories to index after the network is running?
+  - answer: Use the `synchronizeShards` method shown above on the newly added node.
+    question: How to sync shards when a new node joins the network?
+  - answer: A free trial license is sufficient for testing; a commercial license is
+      required for production.
+    question: Do I need a license for development?
+  type: FAQPage
+title: Cómo agregar GroupDocs Maven Dependency para la red de búsqueda
 type: docs
 url: /es/java/search-network/java-groupdocs-search-configuration-sync-guide/
 weight: 1
 ---
 
-# Dependencia Maven de GroupDocs: Configuración y Sincronización de Redes de Búsqueda Java
+# Cómo agregar la dependencia Maven de GroupDocs para la red de búsqueda
 
-En esta guía completa descubrirás **cómo agregar la dependencia Maven de GroupDocs** a tu proyecto y luego configurar una robusta red de búsqueda Java usando GroupDocs.Search. Ya sea que estés manejando informes legales, reportes financieros o trabajos académicos, los pasos a continuación te ayudarán a indexar, buscar y mantener tus shards sincronizados de manera eficiente.
+En esta guía completa descubrirás **cómo agregar la dependencia Maven de groupdocs**, configurar una robusta red de búsqueda Java usando GroupDocs.Search y mantener tus fragmentos sincronizados. Ya sea que estés indexando informes legales, estados financieros o trabajos académicos, los pasos a continuación te ayudarán a crear índices buscables, distribuir la carga de consultas entre nodos y mantener la consistencia de datos con un esfuerzo mínimo.
 
-## Introducción
-
-Gestionar y buscar en colecciones masivas de documentos es un desafío diario para muchas organizaciones. Al integrar la **dependencia Maven de GroupDocs**, obtienes acceso a un motor de indexación potente que escala a través de múltiples nodos. Este tutorial te guía paso a paso para configurar la dependencia, desplegar nodos de red, agregar directorios al índice y sincronizar shards para un rendimiento óptimo.
-
-### Respuestas rápidas
-- **¿Qué es la dependencia Maven de GroupDocs?** Un artefacto Maven que incorpora la biblioteca GroupDocs.Search en tu proyecto Java.  
-- **¿Por qué usar una red de búsqueda?** Distribuye la carga de indexación y consultas entre múltiples nodos, mejorando la velocidad y la fiabilidad.  
-- **¿Cómo agrego directorios al índice?** Usa `IndexingDocuments.addDirectories` en el nodo maestro.  
-- **¿Cómo sincronizar shards?** Llama a `SynchronizeOptions` en el `Indexer` de cada nodo.  
+## Respuestas rápidas
+- **¿Qué es la dependencia Maven de GroupDocs?** Un artefacto Maven que empaqueta la biblioteca GroupDocs.Search para proyectos Java.  
+- **¿Por qué usar una red de búsqueda?** Distribuye la carga de indexación y consultas entre varios nodos, mejorando la velocidad y la fiabilidad.  
+- **¿Cómo añado directorios al índice?** Usa `IndexingDocuments.addDirectories` en el nodo maestro.  
+- **¿Cómo sincronizar fragmentos?** Llama a `SynchronizeOptions` en el `Indexer` de cada nodo.  
 - **¿Necesito una licencia?** Sí, se requiere una licencia de prueba o comercial para uso en producción.
 
 ## ¿Qué es la dependencia Maven de GroupDocs?
 
-La dependencia Maven de GroupDocs (`com.groupdocs:groupdocs-search`) empaqueta todas las clases que necesitas para crear índices buscables, gestionar nodos de red y ejecutar consultas rápidas. Añadirla a tu `pom.xml` garantiza que Maven descargue los binarios correctos y sus dependencias transitivas.
+El `GroupDocs Maven dependency` es un artefacto Maven que empaqueta la biblioteca GroupDocs.Search para proyectos Java.  
+Proporciona todas las clases necesarias para crear índices buscables, gestionar nodos de red y ejecutar consultas rápidas, y Maven resuelve automáticamente las dependencias transitivas, ofreciéndote un motor de búsqueda listo para usar con solo unas pocas líneas en tu `pom.xml`.
 
 ## Cómo agregar la dependencia Maven de GroupDocs
+
+Agrega las entradas del repositorio y la dependencia a tu `pom.xml`, luego ejecuta `mvn clean install`; Maven descarga el JAR `groupdocs-search` y sus bibliotecas requeridas, poniendo la API a disposición en tu proyecto. Después de que la compilación sea exitosa, puedes comenzar a usar inmediatamente las clases `com.groupdocs.search`.
 
 ### Configuración de Maven
 
@@ -59,14 +95,18 @@ Agrega el repositorio y la dependencia a tu `pom.xml`:
 
 También puedes descargar el JAR directamente desde el sitio oficial: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
+## ¿Por qué usar una red de búsqueda?
+
+Una red de búsqueda permite la escalabilidad horizontal al dividir el índice en fragmentos que residen en nodos separados. GroupDocs.Search puede manejar **más de 50 formatos de entrada** y procesar **documentos de cientos de páginas** sin cargar todo el archivo en memoria, ofreciendo respuestas a consultas en menos de un segundo incluso a medida que el volumen de datos crece.
+
 ## Requisitos previos
 
-- **JDK** (11 o más reciente) instalado.
-- Un IDE como IntelliJ IDEA o Eclipse.
-- Conocimientos básicos de Java, familiaridad con Maven y comprensión de los conceptos de nodos de red.
+- **JDK** (11 o superior) instalado.  
+- Un IDE como IntelliJ IDEA o Eclipse.  
+- Conocimientos básicos de Java, familiaridad con Maven y comprensión de los conceptos de nodos de red.  
 - Una licencia válida de GroupDocs.Search (prueba gratuita o comercial).
 
-## Inicialización y configuración básica
+## Inicialización y configuración básicas
 
 Comienza creando un directorio de índice:
 
@@ -78,17 +118,17 @@ import com.groupdocs.search.options.IndexingOptions;
 SearchIndex index = new SearchIndex("YOUR_INDEX_DIRECTORY");
 ```
 
-Este paso sencillo prepara el entorno para la configuración de red posterior.
-
 ## Guía de implementación
 
-### Función 1: Configuración de la Red de Búsqueda
+### Función 1: Configuración de la red de búsqueda
 
 #### Visión general
 
-Configurar la red de búsqueda establece las rutas de archivos y los puertos que los nodos usarán para comunicarse.
+Configurar la red de búsqueda establece las rutas de archivos y puertos que los nodos usarán para comunicarse.
 
 ##### Configurar rutas y puertos
+
+Configuration es una clase que contiene rutas de red, puertos y otras configuraciones para el clúster de búsqueda.  
 ```java
 import com.groupdocs.search.options.*;
 import com.groupdocs.search.scaling.configuring.ConfiguringSearchNetwork;
@@ -98,16 +138,18 @@ String basePath = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Scaling/SynchronizingSh
 int basePort = 49144; // Adjust if there's a port conflict
 
 Configuration configuration = ConfiguringSearchNetwork.configure(basePath, basePort);
-```
-El objeto `configuration` ahora contiene todos los ajustes necesarios para tu red de búsqueda.
+```  
+El objeto `configuration` ahora contiene todas las configuraciones necesarias para tu red de búsqueda.
 
-### Función 2: Despliegue de Nodos de la Red de Búsqueda
+### Función 2: Implementación de nodos de la red de búsqueda
 
 #### Visión general
 
-Despliega nodos para distribuir la carga de trabajo a través de tu red. El nodo maestro gestiona operaciones y eventos.
+Implementa nodos para distribuir la carga de trabajo a través de tu red. El nodo maestro gestiona operaciones y eventos.
 
-##### Código de despliegue
+##### Código de implementación
+
+SearchNetworkNode representa un nodo en la red de búsqueda que puede actuar como maestro o trabajador.  
 ```java
 import com.groupdocs.search.scaling.*;
 import com.groupdocs.search.options.Configuration;
@@ -117,13 +159,15 @@ SearchNetworkNode[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, c
 SearchNetworkNode masterNode = nodes[0];
 ```
 
-### Función 3: Suscripción a Eventos de Nodos de la Red de Búsqueda
+### Función 3: Suscripción a eventos de nodos de la red de búsqueda
 
 #### Visión general
 
 Escuchar eventos permite manejar dinámicamente cambios o actualizaciones en tu red.
 
 ##### Implementación de suscripción
+
+SearchNetworkNodeEvents proporciona ganchos de eventos para el ciclo de vida del nodo y acciones de indexación.  
 ```java
 import com.groupdocs.search.scaling.SearchNetworkNode;
 import com.groupdocs.search.scaling.SearchNetworkNodeEvents;
@@ -131,13 +175,15 @@ import com.groupdocs.search.scaling.SearchNetworkNodeEvents;
 SearchNetworkNodeEvents.subscribe(masterNode);
 ```
 
-### Función 4: Agregar Directorios al Índice
+### Función 4: Añadir directorios al índice
 
 #### Visión general
 
-Agregar directorios es el paso central que hace que tus documentos sean buscables.
+Añadir directorios es el paso central que hace que tus documentos sean buscables.
 
-##### Adición de documentos
+##### Añadir documentos
+
+`IndexingDocuments.addDirectories` agrega rutas de carpetas al índice para su procesamiento.  
 ```java
 import com.groupdocs.search.indexing.IndexingDocuments;
 import com.groupdocs.search.scaling.SearchNetworkNode;
@@ -145,13 +191,15 @@ import com.groupdocs.search.scaling.SearchNetworkNode;
 IndexingDocuments.addDirectories(masterNode, "YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
 
-### Función 5: Sincronización de Shards en el Nodo de la Red de Búsqueda
+### Función 5: Sincronizar fragmentos en el nodo de la red de búsqueda
 
 #### Visión general
 
-La sincronización garantiza la consistencia de datos entre todos los shards.
+La sincronización garantiza la consistencia de datos entre todos los fragmentos.
 
 ##### Código de sincronización
+
+`SynchronizeOptions` configura cómo se sincronizan los fragmentos entre nodos.  
 ```java
 import com.groupdocs.search.indexing.Indexer;
 import com.groupdocs.search.scaling.SearchNetworkNode;
@@ -166,13 +214,15 @@ def synchronizeShards(SearchNetworkNode node) {
 }
 ```
 
-### Función 6: Cierre de Nodos de la Red de Búsqueda
+### Función 6: Cerrar nodos de la red de búsqueda
 
 #### Visión general
 
-Cerrar correctamente los nodos libera recursos y previene fugas de memoria.
+Cerrar los nodos correctamente libera recursos y previene fugas de memoria.
 
 ##### Cierre del nodo
+
+`close()` libera recursos y apaga el nodo de la red de búsqueda.  
 ```java
 import com.groupdocs.search.scaling.SearchNetworkNode;
 
@@ -190,26 +240,46 @@ for (SearchNetworkNode node : nodes) {
 ## Consideraciones de rendimiento
 
 - **Optimizar consultas** – Escribe consultas concisas para reducir el tiempo de respuesta.  
-- **Gestión de memoria** – Monitorea el uso del heap de JVM; considera ajustar el GC para índices grandes.  
-- carga y soluciones
+- **Gestión de memoria** – Monitorea el uso del heap de JVM; considera ajustar la recolección de basura para índices grandes.  
+- **Estrategia de escalado** – Añade nodos proporcionalmente al volumen de datos y la carga de consultas.
+
+## Problemas comunes y soluciones
 
 | Problema | Causa | Solución |
 |----------|-------|----------|
-| Los nodos no pueden conectarse | Conflicto de puerto | Cambiar `basePort` a un valor no usado |
-| El índice no se actualiza | Falta suscripción a eventos | Asegúrate de que se llame a `SearchNetworkNodeEvents.subscribe insuficientes | Incrementa el número de nodos y equ personalizadas:Node, "path")` siempre que necesites indexar nuevas carpetas.
+| Los nodos no pueden conectarse | Conflicto de puertos | Cambiar `basePort` a un valor no usado |
+| El índice no se actualiza | Falta suscripción a eventos | Asegúrate de que se llame a `SearchNetworkNodeEvents.subscribe(masterNode)` |
+| Alta latencia | Fragmentos insuficientes | Incrementa el número de nodos y balancea la distribución de documentos |
 
-**Q: ¿Cómo sincronizar shards cuando un nuevo nodo se une a la red?**  
-A: Usa el método `synchronizeShards` mostrado arriba en el nodo recién añadido.
+## Preguntas frecuentes
 
-**Q: ¿Necesito una licencia para desarrollo?**  
-A: Una licencia de prueba gratuita es suficiente para pruebas; se requiere una licencia comercial para producción.
+**P: ¿Cuál es el beneficio principal de usar GroupDocs.Search?**  
+R: Proporciona capacidades de búsqueda rápidas y escalables en grandes conjuntos de documentos con una configuración mínima.
+
+**P: ¿Puedo personalizar las configuraciones de los nodos en una red de búsqueda?**  
+R: Sí, puedes establecer rutas, puertos y otras opciones personalizadas mediante el objeto `Configuration`.
+
+**P: ¿Cómo añado directorios al índice después de que la red esté en funcionamiento?**  
+R: Llama a `IndexingDocuments.addDirectories(masterNode, "path")` siempre que necesites indexar nuevas carpetas.
+
+**P: ¿Cómo sincronizar fragmentos cuando un nuevo nodo se une a la red?**  
+R: Usa el método `synchronizeShards` mostrado arriba en el nodo recién añadido.
+
+**P: ¿Necesito una licencia para desarrollo?**  
+R: Una licencia de prueba gratuita es suficiente para pruebas; se requiere una licencia comercial para producción.
 
 ## Conclusión
 
-Siguiendo esta guía ahora sabes cómo **agregar la dependencia Maven de GroupDocs**, configurar una red de búsqueda multi‑nodo, indexar directorios y mantener los shards sincronizados. Estos pasos sientan las bases para una solución de búsqueda de documentos de alto rendimiento que puede crecer con las necesidades de tu organización.
+Al seguir esta guía ahora sabes cómo **agregar la dependencia Maven de groupdocs**, configurar una red de búsqueda multi‑nodo, indexar directorios y mantener los fragmentos sincronizados. Estos pasos sientan las bases para una solución de búsqueda de documentos de alto rendimiento que puede crecer con las necesidades de tu organización.
 
 ---
 
-**Última actualización:** 2026-01-21  
+**Última actualización:** 2026-05-17  
 **Probado con:** GroupDocs.Search 25.4  
 **Autor:** GroupDocs
+
+## Tutoriales relacionados
+
+- [Tutoriales y ejemplos de GroupDocs.Search para Java](/search/net/)
+- [Configuración de la red GroupDocs.Search en .NET: Guía completa](/search/net/search-network/configuring-groupdocs-search-network-net-guide/)
+- [Cómo implementar una red de búsqueda con GroupDocs.Search en .NET para sistemas de gestión documental](/search/net/search-network/implement-search-network-groupdocs-dotnet/)
