@@ -1,47 +1,47 @@
 ---
-date: '2026-01-11'
-description: Scopri come utilizzare l'indicizzazione OCR di GroupDocs per Java con
-  Aspose.OCR, abilitando potenti capacità di ricerca dei documenti su PDF, immagini
-  e file scansionati.
+date: '2026-03-20'
+description: Scopri come implementare l'OCR per la gestione dei documenti usando GroupDocs
+  per Java con Aspose.OCR, consentendo potenti PDF ricercabili, immagini e file scannerizzati.
 keywords:
 - Java OCR indexing
 - document searchability
 - OCR with GroupDocs
-title: Come usare GroupDocs per Java per l'indicizzazione OCR con Aspose
+title: Gestione Documenti OCR con GroupDocs per Java e Aspose
 type: docs
 url: /it/java/ocr-image-search/java-ocr-indexing-aspose-groupdocs-search/
 weight: 1
 ---
 
-# Come utilizzare GroupDocs per l'OCR indexing in Java con Aspose
+# Document Management OCR with GroupDocs for Java and Aspose
 
-In questa guida scoprirai **come utilizzare GroupDocs** per aggiungere la ricerca basata su OCR alle tue applicazioni Java. Combinando GroupDocs.Search con Aspose.OCR, puoi trasformare i contenuti basati su immagini in testo ricercabile, rendendo i sistemi di gestione documentale molto più utili. Ti guideremo attraverso la configurazione, l'indicizzazione, la ricerca e l'integrazione OCR personalizzata, il tutto con esempi chiari passo‑a‑passo.
+In questa guida scoprirai **come usare GroupDocs** per aggiungere la ricerca potenziata da OCR alle tue applicazioni Java, una funzionalità fondamentale per qualsiasi moderna soluzione di **document management OCR**. Combinando GroupDocs.Search con Aspose.OCR, puoi trasformare contenuti basati su immagine in testo ricercabile, rendendo i sistemi di gestione documentale molto più utili per gli utenti finali. Ti guideremo attraverso configurazione, indicizzazione, ricerca e integrazione OCR personalizzata, con esempi chiari passo‑passo che potrai copiare nel tuo progetto subito.
 
-## Risposte rapide
-- **Quale libreria fornisce l'indicizzazione OCR?** GroupDocs.Search paired with Aspose.OCR.  
-- **Quale versione di Java è richiesta?** JDK 8 or higher.  
-- **È necessaria una licenza?** A free trial is available; a paid license is required for production.  
-- **Posso indicizzare sia immagini separate che incorporate?** Yes, enable both options in `IndexingOptions`.  
-- **Il multi‑threading è supportato?** Yes, you can parallelize indexing for large data sets.
+## Quick Answers
+- **Quale libreria fornisce l’indicizzazione OCR?** GroupDocs.Search associato a Aspose.OCR.  
+- **Quale versione di Java è necessaria?** JDK 8 o superiore.  
+- **È necessaria una licenza?** È disponibile una prova gratuita; per la produzione è richiesta una licenza a pagamento.  
+- **Posso indicizzare sia immagini separate che incorporate?** Sì, abilita entrambe le opzioni in `IndexingOptions`.  
+- **Il multi‑threading è supportato?** Sì, puoi parallelizzare l’indicizzazione per grandi set di dati.
 
-## Cos'è l'indicizzazione OCR con GroupDocs?
-L'indicizzazione OCR estrae il testo dalle immagini (inclusi PDF scansionati) e lo memorizza in un indice ricercabile. GroupDocs.Search gestisce l'indicizzazione e l'esecuzione delle query, mentre Aspose.OCR esegue il riconoscimento dei caratteri.
+## What is Document Management OCR?
+Il document management OCR estrae testo dalle immagini (inclusi PDF scansionati) e lo memorizza in un indice ricercabile. GroupDocs.Search gestisce l’indicizzazione e l’esecuzione delle query, mentre Aspose.OCR esegue il riconoscimento dei caratteri, fornendoti una pipeline completa di **document management OCR**.
 
-## Perché utilizzare GroupDocs per l'indicizzazione OCR in Java?
+## Why Use GroupDocs for Java OCR Indexing?
 - **Alta precisione** grazie al motore OCR avanzato di Aspose.  
 - **Integrazione Java senza soluzione di continuità** tramite Maven o JAR diretti.  
 - **Configurazione flessibile** per immagini separate o incorporate.  
-- **Prestazioni scalabili** con multi‑threading e ottimizzazioni della memoria.
+- **Prestazioni scalabili** con multi‑threading e ottimizzazioni di memoria.  
+- **Opzioni di licenza enterprise‑ready** per distribuzioni in produzione.
 
-## Prerequisiti
+## Prerequisites
 - **GroupDocs.Search** ≥ 25.4  
-- **Aspose.OCR** (latest version)  
-- JDK 8+ and an IDE (IntelliJ, Eclipse, NetBeans)  
-- Basic Java knowledge; Maven is helpful but not mandatory
+- **Aspose.OCR** (ultima versione)  
+- JDK 8+ e un IDE (IntelliJ, Eclipse, NetBeans)  
+- Conoscenza di base di Java; Maven è utile ma non obbligatorio  
 
-## Configurazione di GroupDocs.Search per Java
-### Utilizzo di Maven
-Add the repository and dependency to your `pom.xml`:
+## Setting Up GroupDocs.Search for Java
+### Using Maven
+Aggiungi il repository e la dipendenza al tuo `pom.xml`:
 
 ```xml
 <repositories>
@@ -60,16 +60,16 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-### Download diretto
-In alternativa, scarica l'ultima versione di GroupDocs.Search per Java da [GroupDocs releases](https://releases.groupdocs.com/search/java/).
+### Direct Download
+In alternativa, scarica l’ultima versione di GroupDocs.Search per Java da [GroupDocs releases](https://releases.groupdocs.com/search/java/).
 
-### Acquisizione della licenza
-- **Free Trial** – explore all features without cost.  
-- **Temporary License** – extended testing period.  
-- **Purchase** – required for production deployments.
+### License Acquisition
+- **Free Trial** – esplora tutte le funzionalità senza costi.  
+- **Temporary License** – periodo di test esteso.  
+- **Purchase** – richiesta per le distribuzioni in produzione.
 
-### Inizializzazione e configurazione di base
-Create an index folder and initialize the `Index` object:
+## Basic Initialization and Setup
+Crea una cartella per l’indice e inizializza l’oggetto `Index`:
 
 ```java
 import com.groupdocs.search.Index;
@@ -79,17 +79,17 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/OcrSupport";
 Index index = new Index(indexFolder);
 ```
 
-## Come utilizzare GroupDocs per l'indicizzazione OCR
-### Creazione di un indice
-First, set up the folder that will hold the index files:
+## How to Use GroupDocs for OCR Indexing
+### Creating an Index
+Per prima cosa, imposta la cartella che conterrà i file dell’indice:
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/OcrSupport";
 Index index = new Index(indexFolder);
 ```
 
-### Configurazione delle opzioni di indicizzazione OCR
-Enable OCR for both separate and embedded images, and plug in a custom OCR connector:
+### Setting OCR Indexing Options
+Abilita l’OCR sia per immagini separate che incorporate e collega un connettore OCR personalizzato:
 
 ```java
 import com.groupdocs.search.options.IndexingOptions;
@@ -100,16 +100,16 @@ options.getOcrIndexingOptions().setEnabledForEmbeddedImages(true);
 options.getOcrIndexingOptions().setOcrConnector(new OcrConnector());
 ```
 
-### Indicizzazione dei documenti
-Add your source documents (PDFs, Word files, images, etc.) to the index:
+### Indexing Documents
+Aggiungi i documenti di origine (PDF, file Word, immagini, ecc.) all’indice:
 
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder, options);
 ```
 
-### Ricerca in un indice
-Run a search query against the indexed content:
+### Searching in an Index
+Esegui una query di ricerca sul contenuto indicizzato:
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -117,8 +117,8 @@ String query = "water";
 SearchResult result = index.search(query);
 ```
 
-### Implementazione di un connettore OCR
-Use Aspose.OCR to recognize text from images. Implement the `IOcrConnector` interface as shown:
+### Implementing an OCR Connector
+Usa Aspose.OCR per riconoscere il testo dalle immagini. Implementa l’interfaccia `IOcrConnector` come mostrato:
 
 ```java
 import com.groupdocs.search.options.IOcrConnector;
@@ -142,44 +142,44 @@ public class OcrConnector implements IOcrConnector {
 }
 ```
 
-## Applicazioni pratiche
-1. **Document Management Systems** – fast retrieval of documents containing scanned images.  
-2. **Archival Retrieval** – locate historical records within massive archives.  
-3. **Legal Document Analysis** – search contracts and evidence that include scanned signatures or diagrams.  
-4. **Medical Records Search** – index patient forms, lab results, and X‑ray annotations.
+## Practical Applications
+1. **Document Management Systems** – recupero rapido di documenti contenenti immagini scansionate.  
+2. **Archival Retrieval** – individuare record storici all’interno di archivi massivi.  
+3. **Legal Document Analysis** – cercare contratti e prove che includono firme o diagrammi scansionati.  
+4. **Medical Records Search** – indicizzare moduli paziente, risultati di laboratorio e annotazioni di raggi‑X.
 
-## Considerazioni sulle prestazioni
-- **Index Size** – exclude unnecessary metadata to keep the index lean.  
-- **Multi‑Threading** – process large batches in parallel to speed up indexing.  
-- **Memory Management** – monitor JVM heap when handling high‑resolution images.
+## Performance Considerations
+- **Dimensione dell’indice** – escludi metadati non necessari per mantenere l’indice snello.  
+- **Multi‑Threading** – elabora grandi lotti in parallelo per velocizzare l’indicizzazione.  
+- **Gestione della memoria** – monitora l’heap JVM quando gestisci immagini ad alta risoluzione.
 
-## Problemi comuni e soluzioni
-- **License Errors** – ensure the correct license file is placed in the application’s working directory.  
-- **Missing Images** – verify image paths are accessible and supported formats (PNG, JPEG, BMP).  
-- **Out‑Of‑Memory** – increase JVM heap (`-Xmx`) or process documents in smaller batches.
+## Common Issues and Solutions
+- **Errori di licenza** – assicurati che il file di licenza corretto sia posizionato nella directory di lavoro dell’applicazione.  
+- **Immagini mancanti** – verifica che i percorsi delle immagini siano accessibili e che i formati siano supportati (PNG, JPEG, BMP).  
+- **Out‑Of‑Memory** – aumenta l’heap JVM (`-Xmx`) o elabora i documenti in lotti più piccoli.
 
-## Domande frequenti
-**Q: Come risolvere i problemi di licenza con GroupDocs.Search?**  
-A: Ottieni una licenza temporanea dal [sito GroupDocs](https://purchase.groupdocs.com/temporary-license/) per sbloccare tutte le funzionalità.
+## Frequently Asked Questions
+**Q: How do I resolve licensing issues with GroupDocs.Search?**  
+A: Obtain a temporary license from the [GroupDocs website](https://purchase.groupdocs.com/temporary-license/) to unlock full features.
 
-**Q: Qual è il modo migliore per gestire l'indicizzazione di grandi documenti?**  
-A: Utilizza il multi‑threading e l'elaborazione a batch per migliorare le prestazioni e ridurre la pressione sulla memoria.
+**Q: What is the best way to handle large document indexing?**  
+A: Utilize multi‑threading and batch processing to improve performance and reduce memory pressure.
 
-**Q: Posso personalizzare ulteriormente le impostazioni OCR in GroupDocs.Search?**  
-A: Sì, `IndexingOptions` consente di regolare finemente il comportamento OCR, come la selezione della lingua e la pre‑elaborazione delle immagini.
+**Q: Can I customize OCR settings further in GroupDocs.Search?**  
+A: Yes, `IndexingOptions` lets you fine‑tune OCR behavior, such as language selection and image preprocessing.
 
-**Q: Quali sono alcuni consigli comuni per la risoluzione dei problemi quando si utilizza GroupDocs.Search?**  
-A: Verifica nuovamente i percorsi delle directory, assicurati che tutte le dipendenze siano presenti e controlla l'output dei log per eventuali file mancanti.
+**Q: What are some common troubleshooting tips when using GroupDocs.Search?**  
+A: Double‑check directory paths, verify that all dependencies are present, and review log output for missing files.
 
-**Q: Come posso integrare Aspose.OCR nella mia applicazione Java esistente?**  
-A: Implementa l'interfaccia `IOcrConnector` come mostrato sopra, assicurandoti di gestire correttamente l'input delle immagini.
+**Q: How can I integrate Aspose.OCR with my existing Java application?**  
+A: Implement the `IOcrConnector` interface as demonstrated above, ensuring you handle image input correctly.
 
-## Risorse
+## Resources
 - [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
 - [API Reference](https://reference.groupdocs.com/search/java/)
 
 ---
 
-**Last Updated:** 2026-01-11  
+**Last Updated:** 2026-03-20  
 **Tested With:** GroupDocs.Search 25.4, Aspose.OCR latest release  
 **Author:** GroupDocs
