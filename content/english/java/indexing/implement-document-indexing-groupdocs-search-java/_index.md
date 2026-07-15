@@ -1,7 +1,7 @@
 ---
-title: "How to Add Documents to Index with GroupDocs.Search for Java"
-description: "Learn how to add documents to index and configure the index folder using GroupDocs.Search for Java. Optimize search performance with this step‑by‑step guide."
-date: "2026-01-03"
+title: "How to Create Document Index and Add Documents with GroupDocs.Search for Java"
+description: "Learn how to create document index, add documents to index, and optimize search performance using GroupDocs.Search for Java."
+date: "2026-03-15"
 weight: 1
 url: "/java/indexing/implement-document-indexing-groupdocs-search-java/"
 keywords:
@@ -11,9 +11,9 @@ keywords:
 type: docs
 ---
 
-# How to Add Documents to Index with GroupDocs.Search for Java
+# How to Create Document Index and Add Documents with GroupDocs.Search for Java
 
-Searching through large collections of documents can be challenging, but **GroupDocs.Search** for Java makes it easy to **add documents to index** and retrieve them quickly. In this guide you’ll see how to configure the index folder, add documents to index, and **optimize search performance** for real‑world applications.
+If you need to **create document index** files that let you search thousands of PDFs, DOCX, TXT, and other formats instantly, GroupDocs.Search for Java gives you a clean API to do just that. In this tutorial you’ll learn how to configure the index folder, **add documents to index**, and **optimize search performance** for real‑world, java full text search scenarios.
 
 ## Quick Answers
 - **What is the first step?** Install GroupDocs.Search via Maven or download the library.  
@@ -22,13 +22,14 @@ Searching through large collections of documents can be challenging, but **Group
 - **Can I improve search speed?** Yes—regularly maintain the index and run indexing in a background thread.  
 - **Do I need a license?** A trial or temporary license works for testing; a full license is required for production.
 
-## What is “add documents to index”?
-Adding documents to an index means processing source files (PDF, DOCX, TXT, etc.) and storing searchable tokens in a structured data store. This enables fast, full‑text queries across all indexed content.
+## What is a document index?
+A document index is a structured data store that contains searchable tokens extracted from your source files. By **creating a document index**, you enable fast, full‑text queries across all indexed content without scanning each file at runtime.
 
 ## Why use GroupDocs.Search for Java?
-- **High performance** – built‑in optimizations keep search latency low even with millions of files.  
+- **High performance** – built‑in optimizations keep latency low even with millions of files.  
 - **Easy integration** – simple API for creating indexes, adding documents, and executing queries.  
-- **Scalable architecture** – works on‑premises or in the cloud, and can be customized with synonym or ranking features.
+- **Scalable architecture** – works on‑premises or in the cloud, and can be customized with synonym or ranking features.  
+- **Java full text search** – supports a wide range of formats out‑of‑the‑box.
 
 ## Prerequisites
 - **Java Development Kit (JDK)** 8 or higher.  
@@ -108,15 +109,25 @@ index.add(documentsFolder);
 - **Missing dependencies** – double‑check the Maven entries in `pom.xml`.  
 - **Invalid folder path** – ensure both `indexFolder` and `documentsFolder` exist and are accessible by the JVM.  
 
+## Handling large documents
+When you work with gigabyte‑size PDFs or massive DOCX collections, consider the following:
+
+1. **Batch processing** – split the source folder into smaller sub‑folders and call `index.add()` for each batch.  
+2. **Background indexing** – run the indexing code on a separate thread so your main application stays responsive.  
+3. **Heap tuning** – increase the JVM `-Xmx` setting to give the process enough memory for large files.
+
+## Optimizing search performance
+To **optimize search performance** and **improve search latency**, follow these best practices:
+
+- **Regularly merge index segments** – this reduces the number of disk reads during queries.  
+- **Use `index.update()`** (if available) after bulk additions instead of recreating the index from scratch.  
+- **Monitor heap usage** – large indexes can consume significant memory; adjust JVM options accordingly.  
+- **Enable caching** for frequently run queries if your application pattern permits it.
+
 ## Practical Applications
 1. **Enterprise Document Management** – quickly retrieve contracts, policies, or HR files.  
 2. **Legal Research** – locate case files and precedents with minimal latency.  
 3. **Academic Libraries** – enable scholars to search across thousands of research papers.
-
-## Performance Considerations
-- **Optimize search performance** by regularly rebuilding or merging index segments.  
-- **Resource Management** – monitor heap usage; increase JVM memory if indexing large collections.  
-- **Best Practices** – run indexing in a separate thread to keep your main application responsive.
 
 ## Common Issues and Solutions
 | Issue | Solution |
@@ -150,10 +161,10 @@ A: Visit the official API reference at [GroupDocs.Search API Reference](https://
 - Free Support: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)
 - Temporary License: [Acquire a License](https://purchase.groupdocs.com/temporary-license/) 
 
-By following these steps you now know how to **add documents to index**, configure the index folder, and **optimize search performance** with GroupDocs.Search for Java. Happy coding!
+By following these steps you now know how to **create document index**, add documents to index, configure the index folder, and **optimize search performance** with GroupDocs.Search for Java. Happy coding!
 
 ---
 
-**Last Updated:** 2026-01-03  
+**Last Updated:** 2026-03-15  
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
