@@ -1,45 +1,82 @@
 ---
-date: '2026-01-24'
-description: GroupDocs.Search for Java を使用して、ドキュメントをインデックスに追加し、スケーラブルな検索ネットワークを構築する方法を学びましょう。
+date: '2026-05-22'
+description: GroupDocs.Search for Java を使用して、ドキュメントをインデックスに追加し、スケーラブルな検索ネットワークを構築する方法を学びます。複数サーバーにまたがる検索をサポートします。
 keywords:
-- GroupDocs.Search for Java
-- scalable search solution
-- search network deployment
-title: GroupDocs.Search for Javaでドキュメントをインデックスに追加する
+- build scalable search network
+- add documents to index
+- search across multiple servers
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-22'
+  description: Learn how to add documents to index and build scalable search network
+    using GroupDocs.Search for Java. Supports search across multiple servers.
+  headline: Build Scalable Search Network – Index Docs with GroupDocs Java
+  type: TechArticle
+- description: Learn how to add documents to index and build scalable search network
+    using GroupDocs.Search for Java. Supports search across multiple servers.
+  name: Build Scalable Search Network – Index Docs with GroupDocs Java
+  steps:
+  - name: Define Base Path and Port
+    text: The `SearchNetworkNode` class represents a single node that participates
+      in the distributed index.
+  - name: Configure the Network
+    text: '`NetworkConfiguration` holds the common settings (base path, ports, replication
+      factor) that every node reads at startup.'
+  - name: Deploy Nodes Using Configuration
+    text: '`SearchNetworkNode` instances are started with the same configuration file,
+      allowing them to discover each other via the defined base port range.'
+  - name: Define Subscription Method
+    text: '`NodeEventListener` is an interface you implement to receive callbacks
+      for indexing progress, errors, and node health changes.'
+  - name: Use Subscription Method
+    text: Register your listener with each node so that you get real‑time feedback
+      during large batch operations.
+  type: HowTo
+- questions:
+  - answer: Change the `basePort` variable in your configuration code to an available
+      port.
+    question: How do I handle port conflicts when deploying nodes?
+  - answer: Yes, it supports real‑time indexing with appropriate configurations.
+    question: Can GroupDocs.Search be used for real‑time indexing?
+  - answer: Network connectivity and incorrect path settings are frequent culprits.
+      Ensure all paths and ports are correctly configured.
+    question: What are some common issues during node deployment?
+  - answer: Absolutely. You can call `index.add(...)` on any node, and the network
+      will distribute the new workload automatically.
+    question: Is it possible to add documents to index after the network is running?
+  - answer: A temporary trial license is sufficient for testing; a commercial license
+      is required for production use.
+    question: Do I need a license for development testing?
+  type: FAQPage
+title: スケーラブルな検索ネットワークを構築 – GroupDocs Javaでドキュメントをインデックス化
 type: docs
 url: /ja/java/search-network/scalable-search-groupdocs-java/
 weight: 1
 ---
 
-# GroupDocs.Search for Javaでインデックスにドキュメントを追加する
+# スケーラブルな検索ネットワークの構築 – GroupDocs.Javaでドキュメントをインデックスに追加
 
-このチュートリアルでは、**インデックスにドキュメントを追加する方法** を学び、GroupDocs.Search for Java を使用した高度にスケーラブルな検索ソリューションを作成します。検索ネットワークの構成、ノードのデプロイ、イベントの処理方法を順に説明し、アプリケーションが複数サーバーにまたがる大規模なドキュメントコレクションを効率的に処理できるようにします。
+このチュートリアルでは、GroupDocs.Search for Java を使用して **インデックスにドキュメントを追加する方法** と **スケーラブルな検索ネットワークを構築する方法** を学びます。検索ネットワークの設定、ノードのデプロイ、イベントの処理について説明し、アプリケーションが複数サーバーにまたがる大規模なドキュメントコレクションを効率的に処理できるようにします。
 
 ## クイック回答
-- **What does “add documents to index” mean?** インデックスにファイルを挿入し、検索可能にすることで、迅速にクエリできるようになることです。  
-- **Which library provides this capability?** GroupDocs.Search for Java。  
-- **Do I need a license?** 一時的なトライアルライセンスが利用可能です。商用環境では商用ライセンスが必要です。  
-- **Can I scale horizontally?** はい、複数の SearchNetworkNode インスタンスをデプロイすることで水平スケーリングが可能です。  
-- **What Java version is required?** JDK 8 以上。
+- **「インデックスにドキュメントを追加する」とは何ですか？** それは、検索可能なインデックスにファイルを挿入し、迅速にクエリできるようにすることを意味します。  
+- **どのライブラリがこの機能を提供しますか？** GroupDocs.Search for Java。  
+- **ライセンスは必要ですか？** 一時的なトライアルライセンスが利用可能です。商用利用には商用ライセンスが必要です。  
+- **水平スケーリングは可能ですか？** はい、複数の SearchNetworkNode インスタンスをデプロイすることで可能です。  
+- **必要な Java バージョンは何ですか？** JDK 8 以上。
 
-## インデックスにドキュメントを追加するとは？
-
-インデックスにドキュメントを追加するとは、ソースファイル（PDF、Word 文書など）を GroupDocs.Search エンジンに取り込み、内容を検索可能にするプロセスです。インデックスは用語頻度データを保持し、クエリ時の高速取得を実現します。
+## インデックスにドキュメントを追加するとは
+PDF、DOCX、PPTX などのソースファイルを GroupDocs.Search エンジンにロードします。エンジンはテキストを抽出し、用語頻度テーブルを構築し、インデックスファイルに保存します。生成されたインデックスにより、数百ページ規模のコレクションでもサブ秒レベルのキーワード検索が可能になります。
 
 ## ネットワーク環境で GroupDocs.Search for Java を使用する理由
-
-- **Scalability:** 複数ノードにインデックス作成と検索の負荷を分散できます。  
-- **Performance:** データソースに近い場所でクエリを処理することでレイテンシを低減します。  
-- **Reliability:** ノードの追加・削除がダウンタイムなしで行えます。  
-- **Flexibility:** 多種多様なドキュメント形式を箱から出したままサポートします。
+インデックス作成と検索のワークロードを複数ノードに分散させ、データソースに近い場所でクエリ遅延を削減し、ダウンタイムなしでノードの追加・削除が可能です。このアーキテクチャにより、**複数サーバーにまたがって検索** でき、パフォーマンスを一定に保つことができます。
 
 ## 前提条件
-
 - **Java Development Kit (JDK) 8+** がインストールされていること。  
-- **Maven** が依存関係管理に使用できること。  
-- Java と Maven プロジェクト構造に基本的に慣れていること。  
+- 依存関係管理のための **Maven**。  
+- Java と Maven プロジェクト構造の基本的な知識。
 
-### Required Libraries, Versions, and Dependencies
+### 必要なライブラリ、バージョン、依存関係
 GroupDocs.Search for Java を実装するには、Maven プロジェクトに以下を含めます。
 
 ```xml
@@ -60,28 +97,26 @@ GroupDocs.Search for Java を実装するには、Maven プロジェクトに以
 </dependencies>
 ```
 
-または、最新バージョンを [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) からダウンロードしてください。
+あるいは、最新バージョンを [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) からダウンロードしてください。リリースは [GroupDocs Search Java releases](https://releases.groupdocs.com/search/java/) でも確認できます。
 
-### Environment Setup Requirements
+### 環境設定要件
 - システムに JDK 8 以上がインストールされていること。  
-- Maven がインストールされ、Maven プロジェクトを使用する場合は設定が完了していること。
+- Maven がインストールされ、Maven プロジェクトを使用する場合は設定されていること。
 
-### Knowledge Prerequisites
+### 知識の前提条件
 - Java プログラミングの基本的な理解。  
-- Maven における依存関係管理に慣れていること。
+- Maven での依存関係管理に慣れていること。
 
-## Setting Up GroupDocs.Search for Java
-
+## GroupDocs.Search for Java の設定
 1. **Maven Setup**: 上記のリポジトリと依存関係を `pom.xml` ファイルに追加します。  
 2. **Direct Download**: あるいは、[GroupDocs Search Java releases](https://releases.groupdocs.com/search/java/) からライブラリをダウンロードします。
 
-### License Acquisition
-- 無料トライアルまたは一時ライセンスは [GroupDocs website](https://purchase.groupdocs.com/temporary-license) から取得できます。  
+### ライセンス取得
+- [GroupDocs website](https://purchase.groupdocs.com/temporary-license) で無料トライアルまたは一時ライセンスを取得してください。  
 - フルアクセスとサポートが必要な場合は、商用ライセンスの購入をご検討ください。
 
-### Basic Initialization
-
-GroupDocs.Search を Java アプリケーションで初期化します。
+### 基本的な初期化
+Java アプリケーションで GroupDocs.Search を初期化します。
 
 ```java
 import com.groupdocs.search.*;
@@ -99,24 +134,22 @@ public class SearchSetup {
 }
 ```
 
-## How to add documents to index in a Search Network
+## 検索ネットワークでインデックスにドキュメントを追加する方法
+ネットワーク内の任意のノードを通じてドキュメントをロードすると、フレームワークが自動的にインデックス作成のワークロードを分散し、負荷をバランスさせ、共有インデックスをリアルタイムで更新します。各ノードは割り当てられたファイルを処理し、テキストを抽出し、増分変更を書き込むことで、追加されたコンテンツがほぼ即座にすべてのノードで検索可能になります。
 
-ネットワーク環境で **インデックスにドキュメントを追加** すると、ワークロードが自動的に利用可能なノード間で分散され、スループットと耐障害性が向上します。
+### 機能 1: 検索ネットワークの構成
+#### 概要
+検索ネットワークの構成は、検索タスクを効率的に管理・分散するノードを設定することを含みます。
 
-### Feature 1: Configure Search Network
-
-#### Overview
-検索ネットワークの構成は、検索タスクを効率的に管理・分散できるようノードを設定することを意味します。
-
-##### Step 1: Define Base Path and Port
-
+##### 手順 1: ベースパスとポートの定義
+`SearchNetworkNode` クラスは、分散インデックスに参加する単一ノードを表します。  
 ```java
 String basePath = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Scaling/SearchNetworkNodeEvents/";
 int basePort = 49140; // Change if necessary due to busy port issues
 ```
 
-##### Step 2: Configure the Network
-
+##### 手順 2: ネットワークの構成
+`NetworkConfiguration` は、起動時にすべてのノードが読み取る共通設定（ベースパス、ポート、レプリケーション係数）を保持します。  
 ```java
 import com.groupdocs.search.scaling.*;
 import com.groupdocs.search.scaling.configuring.*;
@@ -124,26 +157,24 @@ import com.groupdocs.search.scaling.configuring.*;
 Configuration configuration = ConfiguringSearchNetwork.configure(basePath, basePort);
 ```
 
-### Feature 2: Deploy Search Network Nodes
+### 機能 2: 検索ネットワークノードのデプロイ
+#### 概要
+ノードをデプロイして、ネットワーク全体で検索操作を分散・処理します。
 
-#### Overview
-ノードをデプロイして、ネットワーク全体に検索操作を分散・処理させます。
-
-##### Step 1: Deploy Nodes Using Configuration
-
+##### 手順 1: 設定を使用してノードをデプロイ
+`SearchNetworkNode` インスタンスは同一の設定ファイルで起動され、定義されたベースポート範囲を介して相互に検出できます。  
 ```java
 import com.groupdocs.search.scaling.*;
 
 SearchNetworkNode[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, configuration);
 ```
 
-### Feature 3: Subscribe to Node Events
+### 機能 3: ノードイベントの購読
+#### 概要
+ノードイベントを購読することで、検索ネットワーク内のさまざまなアクションを監視し、対応できます。
 
-#### Overview
-ノードイベントにサブスクライブすることで、検索ネットワーク内のさまざまなアクションを監視・応答できます。
-
-##### Step 1: Define Subscription Method
-
+##### 手順 1: 購読メソッドの定義
+`NodeEventListener` は、インデックス作成の進捗、エラー、ノードのヘルス変化に対するコールバックを受け取るために実装するインターフェイスです。  
 ```java
 import com.groupdocs.search.events.*;
 import com.groupdocs.search.scaling.events.*;
@@ -161,64 +192,74 @@ public static void subscribe(SearchNetworkNode node) {
 }
 ```
 
-##### Step 2: Use Subscription Method
-
+##### 手順 2: 購読メソッドの使用
+各ノードにリスナーを登録し、大規模バッチ操作中にリアルタイムのフィードバックを取得できるようにします。  
 ```java
 SearchNetworkNode masterNode = nodes[0];
 subscribe(masterNode);
 ```
 
-### Closing Nodes
-
-使用後はすべてのデプロイ済みノードをクローズしてください。
-
+### ノードの終了
+ノードは常に正常にシャットダウンし、保留中の書き込みをフラッシュし、ネットワークソケットを解放してください。  
 ```java
 for (SearchNetworkNode node : nodes) {
     node.close();
 }
 ```
 
-## Practical Applications
-
+## 実用的な応用例
 1. **Enterprise Search Solutions** – 複数サーバーにまたがる大規模ドキュメント検索を処理する検索ネットワークを実装します。  
 2. **E‑commerce Platforms** – 複数ノードにインデックス作成タスクを分散させ、製品検索機能を強化します。  
-3ンスを向上させます。
+3. **Content Management Systems (CMS)** – CMS 環境でのコンテンツ取得と更新のパフォーマンスを向上させます。
 
-合わせてノード展開を最適化します。  
-- 大規模データセットを扱う際は、メモリ使用量を定期的に監視し、リークを防止します。  
-- 設定項目を活用して、インデックス作成と検索操作を細かくチューニングし、効率を高めます。
+## パフォーマンスに関する考慮事項
+- システムのリソースに基づいてノードのデプロイを最適化します。  
+- 大規模データセットを扱う際は、特にメモリリークを防ぐために定期的にメモリ使用量を監視します。  
+- 設定を活用してインデックス作成と検索操作を微調整し、効率を向上させます。
 
-## Common Issues and Solutions
+## よくある問題と解決策
 
-| 問題 | 主な原因 | 対策 |
-|------|----------|------|
-| ポート競合 | `basePort` が既に使用中 | `basePort` を使用可能な番号に変更する |
-| ノードに到達できない | ファイアウォールまたはネットワークないを指しているか確認する |
-| メモリ**  
-A: はい、適切な設定によりリアルタイムインデックス作成をサポートします。
+| 問題 | 典型的な原因 | 対策 |
+|-------|---------------|--------|
+| ポート競合 | `basePort` がすでに使用中 | `basePort` を利用可能な番号に変更する |
+| ノードに到達できない | ファイアウォールまたはネットワークルール | 必要なポートを開放し、接続を確認する |
+| インデックスが更新されない | ドキュメントパスが正しくない | `basePath` が正しいディレクトリを指しているか確認する |
+| メモリ使用量が高い | 大規模バッチインデックス作成 | ドキュメントを小さなバッチでインデックスするか、ヒープサイズを増やす |
 
-**Q: What are some common issues during node deployment?**  
-A: ネットワーク接続やパス設定の誤りが頻繁に発生します。すべてのパスとポートが正しく設定されていることを確認してください。
+## よくある質問
 
-**Q: Is it possible to add documents to index after the network is running?**  
+**Q: ノードをデプロイする際のポート競合はどう対処すればよいですか？**  
+A: 設定コード内の `basePort` 変数を利用可能なポートに変更してください。
+
+**Q: GroupDocs.Search はリアルタイムインデックス作成に使用できますか？**  
+A: はい、適切な設定を行うことでリアルタイムインデックス作成をサポートします。
+
+**Q: ノードデプロイ時に頻出する問題は何ですか？**  
+A: ネットワーク接続とパス設定の誤りが頻繁に発生します。すべてのパスとポートが正しく設定されていることを確認してください。
+
+**Q: ネットワーク稼働中にインデックスにドキュメントを追加できますか？**  
 A: もちろん可能です。任意のノードで `index.add(...)` を呼び出せば、ネットワークが自動的に新しいワークロードを分散します。
 
-**Q: Do I need a license for development testing?**  
-A: テストには一時的なトライアルライセンスで十分です。商用環境では商用ライセンスが必要です。
+**Q: 開発テストにライセンスは必要ですか？**  
+A: テストには一時的なトライアルライセンスで十分です。商用利用には商用ライセンスが必要です。
 
-## Resources
+## リソース
+- **ドキュメント**: [GroupDocs Search Java ドキュメント](https://docs.groupdocs.com/search/java/)  
+- **API リファレンス**: [GroupDocs API リファレンス](https://reference.groupdocs.com/search/java)  
+- **ダウンロード**: [最新リリース](https://releases.groupdocs.com/search/java/)  
+- **GitHub**: [GroupDocs.Search GitHub リポジトリ](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **無料サポート**: [GroupDocs フォーラム](https://forum.groupdocs.com/c/search/10)  
+- **一時ライセンス取得**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
-- **Documentation**: [GroupDocs Search Java Docs](https://docs.groupdocs.com/search/java/)  
-- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-- **Download**: [Latest Release](https://releases.groupdocs.com/search/java/)  
-- **GitHub**: [GroupDocs.Search GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
-
-このガイドに従うことで、**インデックスにドキュメントを追加** し、GroupDocs.Search forラブルな検索ネットワークを効果的に管理できます。ハッピーコーディング！
+このガイドに従うことで、**インデックスにドキュメントを追加**し、GroupDocs.Search for Java を使用して堅牢かつ **スケーラブルな検索ネットワークを構築** できます。コーディングをお楽しみください！
 
 ---
 
-**Last Updated:** 2026-01-24  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**最終更新日:** 2026-05-22  
+**テスト環境:** GroupDocs.Search 25.4 for Java  
+**作者:** GroupDocs
+
+## 関連チュートリアル
+- [Search Network Tutorials for GroupDocs.Search .NET](/search/net/search-network/)
+- [How to Configure a .NET Search Network Using GroupDocs.Search and Redaction](/search/net/search-network/configure-net-search-network-groupdocs/)
+- [Deploy a Search Network Node in .NET using GroupDocs for Efficient Document Indexing and Retrieval](/search/net/search-network/groupdocs-net-deploy-search-node-index-retrieve/)

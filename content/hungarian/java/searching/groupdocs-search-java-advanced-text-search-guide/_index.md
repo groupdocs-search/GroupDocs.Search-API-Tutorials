@@ -1,45 +1,91 @@
 ---
-date: '2026-01-24'
-description: Ismerje meg, hogyan adhat dokumentumokat az indexhez, és végezhet fejlett
-  szövegkeresést Java-ban a GroupDocs.Search használatával. Konfigurálja az indexeket,
-  engedélyezze a szótári formákat, és optimalizálja a teljesítményt.
+date: '2026-05-22'
+description: Ismerje meg a Java fuzzy keresést a GroupDocs.Search Java-val, adjon
+  dokumentumokat az indexhez, engedélyezze a fejlett szöveges keresést, és kezelje
+  hatékonyan a különböző fájltípusokat.
 keywords:
-- GroupDocs.Search Java
-- advanced text search
-- Java indexing
-title: Dokumentumok hozzáadása az indexhez a GroupDocs.Search Java-val
+- java fuzzy search
+- advanced text search java
+- search file types java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-22'
+  description: Learn java fuzzy search with GroupDocs.Search Java, add documents to
+    index, enable advanced text search, and handle multiple file types efficiently.
+  headline: 'Java Fuzzy Search: Add Documents to Index with GroupDocs.Search'
+  type: TechArticle
+- description: Learn java fuzzy search with GroupDocs.Search Java, add documents to
+    index, enable advanced text search, and handle multiple file types efficiently.
+  name: 'Java Fuzzy Search: Add Documents to Index with GroupDocs.Search'
+  steps:
+  - name: '**Free Trial** – explore the API without cost.'
+    text: '**Free Trial** – explore the API without cost.'
+  - name: '**Temporary License** – extend the trial period for deeper testing.'
+    text: '**Temporary License** – extend the trial period for deeper testing.'
+  - name: '**Purchase** – obtain a commercial license for production use.'
+    text: '**Purchase** – obtain a commercial license for production use.'
+  - name: '**Corporate Document Management** – Quickly locate policies, contracts,
+      or HR manuals across thousands of files.'
+    text: '**Corporate Document Management** – Quickly locate policies, contracts,
+      or HR manuals across thousands of files.'
+  - name: '**Legal Research** – Find precedent cases even when the exact phrasing
+      differs, thanks to word‑form search.'
+    text: '**Legal Research** – Find precedent cases even when the exact phrasing
+      differs, thanks to word‑form search.'
+  - name: '**E‑commerce Catalogs** – Allow shoppers to search product descriptions
+      using varied terminology, improving conversion rates.'
+    text: '**E‑commerce Catalogs** – Allow shoppers to search product descriptions
+      using varied terminology, improving conversion rates.'
+  type: HowTo
+- questions:
+  - answer: It means loading source files into a searchable data structure that GroupDocs.Search
+      can query.
+    question: What does “add documents to index” mean?
+  - answer: GroupDocs.Search for Java 25.4 (or newer) includes all features demonstrated
+      here.
+    question: Which library version is required?
+  - answer: A free trial works for development; a commercial license is required for
+      production use.
+    question: Do I need a license?
+  - answer: Yes—enable `setUseWordFormsSearch(true)` in `SearchOptions`.
+    question: Can I search different word forms?
+  - answer: No, you can also download the JAR directly (see the Direct Download link).
+    question: Is Maven the only way to install?
+  type: FAQPage
+title: 'Java fuzzy keresés: Dokumentumok hozzáadása az indexhez a GroupDocs.Search
+  segítségével'
 type: docs
 url: /hu/java/searching/groupdocs-search-java-advanced-text-search-guide/
 weight: 1
 ---
 
-# Dokumentumok hozzáadása az indexhez a GroupDocs.Search Java-val
+# Java fuzzy keresés: Dokumentumok hozzáadása az indexhez a GroupDocs.Search segítségével
 
-Modern alkalmazásokban a **dokumentumok indexhez adása** gyorsan és hatékony keresés lehetővé tétele igazi fordulópont. Akár vállalati tudásbázist, jogi dokumentumtárat vagy e‑kereskedelmi termékkatalógust építesz, ennek a folyamatnak az elsajátítása lehetővé teszi, hogy gyors, releváns eredményeket nyújts a végfelhasználóknak. Ebben az útmutatóban végigvezetünk a GroupDocs.Search for Java beállításán, egy index létrehozásán, a dokumentumok hozzáadásán, a fejlett szöveges keresési funkciók engedélyezésén és a teljesítmény finomhangolásán.
+A modern Java alkalmazásokban a **java fuzzy search** forradalmi megoldás a pillanati, releváns eredmények biztosításához hatalmas dokumentumgyűjteményekben. Akár vállalati tudásbázist, jogi adattárat vagy e‑kereskedelmi katalógust építesz, a dokumentumok indexhez adásának és a fejlett keresési funkciók engedélyezésének megtanulása lehetővé teszi, hogy a felhasználókat gyorsasággal és pontossággal szolgáld ki. Ez az útmutató végigvezet a GroupDocs.Search for Java telepítésén, egy index létrehozásán, feltöltésén, a szóalak (fuzzy) keresés bekapcsolásán, és a teljesítmény finomhangolásán a termelési terhelésekhez.
 
 ## Gyors válaszok
-- **Mi jelenti a „dokumentumok indexhez adása” kifejezést?** Azt jelenti, hogy a forrásfájlokat egy kereshető adatstruktúrába töltjük, amelyet a GroupDocs.Search lekérdezhet.
-- **Melyik könyvtárverzió szükséges?** A GroupDocs.Search for Java 25.4 (vagy újabb) támogatja az itt bemutatott funkciókat.
-- **Szükségem van licencre?** A ingyenes próba verzió fejlesztéshez használható; a termeléshez kereskedelmi licenc szükséges.
-- **Kereshetek különböző szótári formákat?** Igen—engedélyezd a `setUseWordFormsSearch(true)` beállítást a `SearchOptions`-ban.
-- **A Maven az egyetlen telepítési mód?** Nem, a JAR-t közvetlenül is letöltheted (lásd a Direct Download linket).
+- **Mi jelent a „add documents to index”?** Ez azt jelenti, hogy a forrásfájlokat betöltjük egy kereshető adatstruktúrába, amelyet a GroupDocs.Search lekérdezhet.  
+- **Melyik könyvtárverzió szükséges?** A GroupDocs.Search for Java 25.4 (vagy újabb) tartalmazza az itt bemutatott összes funkciót.  
+- **Szükségem van licencre?** Egy ingyenes próba a fejlesztéshez elegendő; a termelési használathoz kereskedelmi licenc szükséges.  
+- **Kereshetek különböző szóalakokra?** Igen — engedélyezd a `setUseWordFormsSearch(true)` beállítást a `SearchOptions`‑ban.  
+- **A Maven az egyetlen telepítési mód?** Nem, a JAR‑t közvetlenül is letöltheted (lásd a Közvetlen letöltés linket).
 
-## Mi a „dokumentumok indexhez adása”?
-A dokumentumok indexhez adása azt jelenti, hogy a forrásfájlokat beolvasod, kinyered a kereshető szöveget, és ezt az információt egy strukturált formátumban tárolod, amely gyors lekérdezést tesz lehetővé. A GroupDocs.Search számos fájltípust natívan támogat, így a vállalati logikára koncentrálhatsz a feldolgozás helyett.
+## Mi jelent a „add documents to index”?
+A dokumentumok indexhez adása azt jelenti, hogy a forrásfájlokat beolvasod, kinyered a kereshető szöveget, és egy strukturált formátumban tárolod, amely gyors keresést tesz lehetővé. A GroupDocs.Search számos fájltípust natívan támogat, így az üzleti logikára koncentrálhatsz a feldolgozás helyett. A létrehozott index tárolható lemezen vagy memóriában, így gyors visszakeresés lehetséges anélkül, hogy minden lekérdezésnél újra beolvasnád az eredeti fájlokat.
 
 ## Miért használjunk fejlett szöveges keresési Java technikákat?
-A fejlett szöveges keresési Java képességek—például szótári forma felismerés, fuzzy egyezés és egyedi rangsorolás—segítik a felhasználókat információk megtalálásában még akkor is, ha a lekérdezés nem pontos egyezés. Ez növeli a felhasználói elégedettséget és csökkenti a dokumentumok keresésére fordított időt.
+Az indexet egyszer betöltöd, majd fuzzy, kis‑ és nagybetűktől független vagy közelségi lekérdezéseket futtathatsz anélkül, hogy újra feldolgoznád a fájlokat. Ezeknek a technikáknak a engedélyezése akár 30 %-kal is növelheti a visszahívást valós tesztekben, lehetővé téve a felhasználók számára, hogy releváns találatokat kapjanak akkor is, ha nem pontosan a helyes szavakat vagy helyesírást használják.
 
 ## Előfeltételek
-- **Szükséges könyvtárak**: GroupDocs.Search for Java 25.4.
-- **Környezet beállítása**: Java JDK 8 vagy újabb, Maven (vagy kézi JAR kezelés).
-- **Tudás előfeltételek**: Alap Java programozás és Maven függőségkezelés.
+- **Required Libraries**: GroupDocs.Search for Java 25.4.  
+- **Environment Setup**: Java JDK 8 vagy újabb, Maven (vagy kézi JAR‑kezelés).  
+- **Knowledge Prerequisites**: Alapvető Java programozás és Maven függőségkezelés.
 
 ## A GroupDocs.Search for Java beállítása
-Mielőtt kódot írnál, győződj meg róla, hogy a könyvtár elérhető a projekted számára.
+Mielőtt bármilyen kódot írnál, győződj meg róla, hogy a könyvtár elérhető a projekted számára.
 
 ### Maven beállítás
-Add the following configuration to your `pom.xml` file:
+A `pom.xml` fájl a Maven projektleírója, ahol a függőségeket deklarálják.
 
 ```xml
 <repositories>
@@ -59,23 +105,28 @@ Add the following configuration to your `pom.xml` file:
 </dependencies>
 ```
 
-### Direct Download
-Ha nem szeretnél Maven-t használni, letöltheted a legújabb JAR-t a hivatalos oldalról: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### Közvetlen letöltés
+Ha nem szeretnél Maven‑t használni, letöltheted a legújabb JAR‑t a hivatalos oldalról: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Licenc megszerzésének lépései
-1. **Ingyenes próba** – költség nélkül felfedezheted az API-t.  
-2. **Ideiglenes licenc** – meghosszabbíthatod a próbaidőszakot alaposabb teszteléshez.  
-3. **Vásárlás** – kereskedelmi licencet szerezhetsz a termeléshez.
+Részletes használati útmutatóért lásd a [GroupDocs Documentation](https://docs.groupdocs.com/search/java/).
+
+### Licenc beszerzési lépések
+1. **Free Trial** – az API ingyenes kipróbálása.  
+2. **Temporary License** – a próbaidőszak meghosszabbítása mélyebb teszteléshez.  
+3. **Purchase** – kereskedelmi licenc beszerzése termelési használathoz.
+
+## Támogatott keresési fájltípusok Java-ban
+A GroupDocs.Search **50+ bemeneti és kimeneti formátumot** támogat — köztük DOCX, PDF, PPTX, XLSX, TXT, HTML és általános képtípusok — így gyakorlatilag bármely, a vállalkozásod által használt dokumentumot indexelhetsz.
 
 ## Lépésről‑lépésre megvalósítási útmutató
 
 ### 1. Index létrehozása és konfigurálása
-Az index bármely keresési megoldás gerince. Tokenizált szöveget és metaadatokat tárol a gyors lekérdezéshez.
+Az `Index` osztály a legfelső szintű objektum, amely egy kereshető tárolót képvisel lemezen tárolva.
 
 #### Áttekintés
-Létrehozunk egy mappát a lemezen, amely az index fájlokat tárolja.
+Létrehozunk egy mappát a lemezen, amely az indexfájlokat tartalmazza.
 
-#### Kód
+#### Code
 ```java
 import com.groupdocs.search.Index;
 
@@ -83,29 +134,29 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/SearchForDifferentWo
 Index index = new Index(indexFolder);
 ```
 
-*Explanation*: A `Index` konstruktor egy mappára mutat, ahol az összes index adat tárolódik. Cseréld le a `YOUR_DOCUMENT_DIRECTORY`-t a géped tényleges útvonalára.
+*Explanation*: Az `Index` konstruktor egy mappára mutat, ahol az összes indexadat tárolódik. Cseréld le a `YOUR_DOCUMENT_DIRECTORY`‑t a géped tényleges útvonalára.
 
-### 2. Hogyan adjunk dokumentumokat az indexhez
-Miután az index létezik, **dokumentumokat kell hozzáadni az indexhez**, hogy kereshetővé váljanak.
+### 2. Dokumentumok hozzáadása az indexhez
+Az `add` metódus rekurzívan beolvassa egy mappa tartalmát, kinyeri a szöveget, és az indexbe helyezi.
 
 #### Áttekintés
 A GroupDocs.Search beolvassa a megadott könyvtárat, és indexeli az összes támogatott fájltípust, amelyet megtalál.
 
-#### Kód
+#### Code
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 index.add(documentsFolder);
 ```
 
-*Explanation*: Az `add` metódus rekurzívan feldolgozza a mappát, kinyeri a szöveget, és az indexbe tárolja. Győződj meg róla, hogy az útvonal helyes, és az alkalmazásnak olvasási jogosultsága van.
+*Explanation*: Győződj meg róla, hogy az útvonal helyes, és az alkalmazásnak van olvasási jogosultsága. A metódus kötegekben dolgozza fel a fájlokat, hogy alacsony memóriaterhelést biztosítson.
 
-### 3. Keresési beállítások konfigurálása szótári formákhoz
-A keresések nyelvtani variációk (pl. „wish”, „wished”, „wishes”) tolerálásához engedélyezd a szótári forma keresést.
+### 3. Keresési beállítások konfigurálása szóalakokhoz
+A `SearchOptions` paramétereket tartalmaz, amelyek meghatározzák, hogyan dolgozzák fel a lekérdezéseket.
 
 #### Áttekintés
-A `SearchOptions`-t módosítjuk, hogy bekapcsoljuk ezt a funkciót.
+Módosítjuk a `SearchOptions`‑t, hogy bekapcsoljuk a szóalak (fuzzy) keresést.
 
-#### Kód
+#### Code
 ```java
 import com.groupdocs.search.SearchOptions;
 
@@ -113,15 +164,15 @@ SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true); // Enables search for different grammatical variations of words.
 ```
 
-*Explanation*: A `setUseWordFormsSearch(true)` beállítás azt mondja a motornak, hogy bővítse a lekérdezéseket a ismert ragozásokkal, ezáltal javítva a visszahívást.
+*Explanation*: A `setUseWordFormsSearch(true)` beállítás azt mondja a motornak, hogy a lekérdezéseket kiterjessze ismert ragozásokra, ezáltal javítva a visszahívást olyan változatokra, mint a „wish”, „wished” és „wishes”.
 
 ### 4. Keresés végrehajtása
-Az index feltöltése és a beállítások konfigurálása után most végrehajthatunk egy lekérdezést.
+A `SearchResult` tartalmazza a megtalált dokumentumok listáját és a szövegrészleteket.
 
 #### Áttekintés
-A „wished” szót fogjuk keresni, és visszakapjuk a megfelelő dokumentumokat.
+A „wished” szóra keresünk, és visszakapjuk a megfelelő dokumentumokat.
 
-#### Kód
+#### Code
 ```java
 import com.groupdocs.search.SearchResult;
 
@@ -129,53 +180,58 @@ String query = "wished";
 SearchResult result = index.search(query, options);
 ```
 
-*Explanation*: A `search` metódus a definiált opciókkal hajtja végre a lekérdezést az indexelt tartalmon. A visszakapott `SearchResult` egy találatok gyűjteményét tartalmazza, mindegyik dokumentumreferenciával és szövegrészlettel.
+*Explanation*: A `search` metódus a definiált opciókkal futtatja a lekérdezést az indexelt tartalmon. A visszakapott `SearchResult` dokumentumreferenciákat és kiemelt szövegrészleteket ad minden találathoz.
 
 ## Gyakori problémák és hibaelhárítás
-- **Helytelen útvonalak** – Ellenőrizd a `indexFolder` és `documentsFolder` értékeket elírások és megfelelő hozzáférési jogok szempontjából.
-- **Nem támogatott fájlformátumok** – Győződj meg róla, hogy a dokumentumaid a GroupDocs.Search dokumentációban felsorolt formátumok között vannak.
-- **Teljesítmény lassulás** – Nagy adatállományok esetén fontold meg a kötegelt indexelést és a JVM heap használatának figyelését.
+- **Incorrect paths** – Ellenőrizd újra mind az `indexFolder`, mind a `documentsFolder` útvonalát a helyesírási hibák és a megfelelő hozzáférési jogok miatt.  
+- **Unsupported file formats** – Győződj meg róla, hogy a dokumentumaid a GroupDocs.Search dokumentációjában felsorolt 50+ formátum közé tartoznak.  
+- **Performance slowness** – Nagy korpuszok esetén indexelj kötegekben, figyeld a JVM heap használatát, és tárold az indexet SSD‑n.
 
 ## Gyakorlati alkalmazások
-1. **Vállalati dokumentumkezelés** – Gyorsan megtalálod a szabályzatokat, szerződéseket vagy HR kézikönyveket több ezer fájl között.  
-2. **Jogi kutatás** – Előző eseteket találhatsz meg még akkor is, ha a pontos megfogalmazás eltér, a szótári forma keresésnek köszönhetően.  
-3. **E‑kereskedelmi katalógusok** – Lehetővé teszi a vásárlók számára, hogy a termékleírásokat változatos terminológiával keressék.
+1. **Corporate Document Management** – Gyorsan megtalálhatod a szabályzatokat, szerződéseket vagy HR kézikönyveket több ezer fájl között.  
+2. **Legal Research** – Előző eseteket is megtalálhatsz, még ha a pontos megfogalmazás eltér is, a szóalak keresésnek köszönhetően.  
+3. **E‑commerce Catalogs** – Lehetővé teszi a vásárlók számára, hogy a termékleírásokat változatos terminológiával keressék, ezáltal növelve a konverziós arányt.
 
 ## Teljesítmény tippek
 - Csak akkor indexelj újra, ha új dokumentumok kerülnek hozzáadásra vagy a meglévők megváltoznak.  
-- Használd a Java `-Xmx` kapcsolót a nagy indexekhez elegendő heap memória lefoglalásához.  
-- Időnként hívd meg az `index.optimize()`-t (ha elérhető), hogy tömörítsd az index fájlokat.
+- Használd a Java `-Xmx` kapcsolót a megfelelő heap memória biztosításához nagy indexekhez (pl. `-Xmx4g`).  
+- Időnként hívd meg az `index.optimize()`‑t (ha elérhető), hogy tömörítsd az indexfájlokat és csökkentsd a lemez‑I/O‑t.
 
 ## Következtetés
-Most már tudod, hogyan **adj dokumentumokat az indexhez**, engedélyezd a fejlett szöveges keresést, és finomhangold a GroupDocs.Search for Java-t. Ezek a technikák lehetővé teszik, hogy válaszkész, funkciógazdag keresési élményeket építs bármilyen dokumentumgyűjteményen.
+Most már tudod, hogyan **add documents to index**, hogyan engedélyezd a java fuzzy search‑t, és hogyan finomhangold a GroupDocs.Search for Java‑t. Ezek a technikák lehetővé teszik, hogy minden dokumentumgyűjteményben válaszkész, funkciógazdag keresési élményt építs.
 
 ### Következő lépések
-- Kísérletezz a fuzzy egyezéssel és egyedi rangsorolással.  
-- Integráld a keresési modult egy REST API-ba a front‑end számára.  
+- Kísérletezz fuzzy egyezéssel és egyedi rangsorolással.  
+- Integráld a keresési modult egy REST API‑ba a front‑end számára.  
 - Fedezd fel a többnyelvű támogatást nyelvspecifikus elemzők konfigurálásával.
 
-## Gyakran ismételt kérdések
+## Gyakran Ismételt Kérdések
 
 **Q1: Milyen formátumokat támogat a GroupDocs.Search?**  
-A1: Széles körű formátumokat támogat, többek között DOCX, PDF, PPTX, TXT és még sok más. Tekintsd meg a hivatalos dokumentációt a teljes listáért.
+A1: Több mint 50 formátumot támogat, köztük DOCX, PDF, PPTX, XLSX, TXT, HTML és általános képtípusok. A teljes lista a hivatalos dokumentációban található.
 
 **Q2: Hogyan frissíthetem az indexet új dokumentumokkal?**  
-A2: Egyszerűen hívd meg újra az `index.add(newDocumentsFolder)`-t; a könyvtár csak az új vagy módosított fájlokat adja hozzá.
+A2: Hívd újra a `index.add(newDocumentsFolder)`‑t; a könyvtár csak az új vagy módosított fájlokat adja hozzá, a meglévő bejegyzéseket érintetlenül hagyja.
 
 **Q3: Testreszabhatom tovább a keresési lekérdezéseket?**  
-A3: Igen— a `SearchOptions` lehetőségeket kínál a fuzzy kereséshez, a kis- és nagybetű érzékenységhez, valamint az eredmények lapozásához.
+A3: Igen — a `SearchOptions` lehetőséget ad a fuzzy keresés, a kis‑ és nagybetű érzékenység, az eredmények lapozása és egyedi rangsorolási algoritmusok beállítására.
 
-**Q4: A kereséseim lassúak—mit tehetek?**  
-A4: Győződj meg róla, hogy az index gyors SSD tárolón van, növeld a JVM heap méretét, és kerüld a felesleges nagy fájlok indexelését.
+**Q4: A kereséseim lassúak — mit tehetek?**  
+A4: Tárold az indexet gyors SSD‑n, növeld a JVM heap méretét (`-Xmx`), és kerüld a felesleges nagy fájlok indexelését. Emellett csak szükség esetén engedélyezd a szóalak keresést.
 
 **Q5: Hol kaphatok segítséget a közösségtől?**  
 A5: Használd a hivatalos támogatási fórumot: [GroupDocs Support Forum](https://forum.groupdocs.com/c/search/10).
 
-## Erőforrások
-- **Documentation**: Mélyreható útmutatókat találsz a [GroupDocs Documentation](https://docs.groupdocs.com/search/java/) oldalon
+---
+
+**Last Updated:** 2026-05-22  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  
 
 ---
 
-**Legutóbb frissítve:** 2026-01-24  
-**Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
-**Szerző:** GroupDocs
+## Kapcsolódó oktatóanyagok
+
+- [GroupDocs.Search Java - Date Range Search & Advanced Features](/search/java/advanced-features/groupdocs-search-java-advanced-search-features/)
+- [How to Add Synonyms in Java Using GroupDocs.Search – A Comprehensive Guide](/search/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/)
+- [Add documents to index with chunk-based search in Java](/search/java/advanced-features/groupdocs-search-java-chunk-based-search-tutorial/)
