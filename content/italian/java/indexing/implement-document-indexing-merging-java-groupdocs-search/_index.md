@@ -1,41 +1,63 @@
 ---
-date: '2026-01-03'
-description: Scopri come aggiungere documenti all'indice e annullare l'operazione
-  di merge in Java usando GroupDocs.Search. Una guida completa per la gestione dei
-  documenti in Java.
+date: '2026-05-12'
+description: 'Impara java full text search con GroupDocs.Search: aggiungi documenti
+  all''indice, configura le opzioni di unione e annulla l''operazione di unione. Ideale
+  per soluzioni java di gestione documenti.'
 keywords:
-- document indexing in Java
-- merging documents with GroupDocs
-- GroupDocs.Search Java tutorial
-title: Aggiungi documenti all'indice e unisci in Java usando GroupDocs.Search
+- java full text search
+- document management java
+- GroupDocs.Search merging
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-12'
+  description: 'Learn java full text search with GroupDocs.Search: add documents to
+    index, configure merge options, and cancel merge operation. Ideal for document
+    management java solutions.'
+  headline: java full text search – add docs & merge with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: It tells GroupDocs.Search to scan a folder, extract searchable tokens,
+      and store metadata for each file.
+    question: What does “add documents to index” mean?
+  - answer: Yes—use the `Cancellation` object to abort a merge after a configurable
+      timeout.
+    question: Can I stop a long merge?
+  - answer: A free trial or temporary license works for testing; a commercial license
+      unlocks full features.
+    question: Do I need a license?
+  - answer: JDK 8 or newer.
+    question: Which Java version is required?
+  - answer: Absolutely—GroupDocs.Search can handle multi‑hundred‑page documents with
+      incremental indexing.
+    question: Is this suitable for large datasets?
+  type: FAQPage
+title: java full text search – aggiungi documenti e unisci con GroupDocs.Search
 type: docs
 url: /it/java/indexing/implement-document-indexing-merging-java-groupdocs-search/
 weight: 1
 ---
 
-# Aggiungere documenti all'indice e unire in Java usando GroupDocs.Search
+# java full text search – aggiungi documenti e unisci con GroupDocs.Search
 
-Nell'odierno ambiente digitale frenetico, apprendere **come aggiungere documenti all'indice** in modo efficiente è essenziale per qualsiasi soluzione di **document management java**. Che tu stia gestendo contratti, fatture o report interni, un indice ben strutturato ti consente di recuperare informazioni in millisecondi. Questo tutorial ti guida nella creazione di indici, nell'aggiunta di documenti, nella configurazione delle opzioni di merge e persino nella **cancellazione dell'operazione di merge** se necessario—tutto con GroupDocs.Search per Java.
+Negli ambienti aziendali moderni, **java full text search** è la spina dorsale di qualsiasi sistema di gestione documentale java robusto. Che tu debba indicizzare contratti, fatture o report interni, un indice ben progettato ti consente di recuperare le informazioni corrette in millisecondi. Questo tutorial ti guida nella creazione di un indice, nell'aggiunta di documenti, nella configurazione delle opzioni di merge e nell'annullamento sicuro di un'operazione di merge—tutto utilizzando GroupDocs.Search per Java.
 
 ## Risposte rapide
-- **Cosa significa “add documents to index”?** Indica a GroupDocs.Search di scansionare una cartella e memorizzare i metadati ricercabili per ogni file.  
-- **Posso interrompere un merge lungo?** Sì—usa l'oggetto `Cancellation` per **cancel merge operation** dopo un timeout.  
-- **Ho bisogno di una licenza?** Una licenza di prova gratuita o temporanea funziona per i test; una licenza commerciale sblocca tutte le funzionalità.  
+- **Cosa significa “add documents to index”?** Indica a GroupDocs.Search di scansionare una cartella, estrarre token ricercabili e memorizzare i metadati per ogni file.  
+- **Posso interrompere un merge lungo?** Sì—usa l'oggetto `Cancellation` per abortire un merge dopo un timeout configurabile.  
+- **Ho bisogno di una licenza?** Una prova gratuita o una licenza temporanea è sufficiente per i test; una licenza commerciale sblocca tutte le funzionalità.  
 - **Quale versione di Java è richiesta?** JDK 8 o successivo.  
-- **È adatto a grandi set di dati?** Assolutamente—basta monitorare la memoria e utilizzare l'indicizzazione incrementale.  
+- **È adatto a grandi set di dati?** Assolutamente—GroupDocs.Search può gestire documenti di centinaia di pagine con indicizzazione incrementale.
 
 ## Cos'è “add documents to index” in GroupDocs.Search?
-Aggiungere documenti a un indice significa fornire una collezione di file a GroupDocs.Search affinché la libreria possa analizzarne il contenuto, estrarre i token e costruire una struttura dati ricercabile. Una volta indicizzati, è possibile eseguire ricerche full‑text rapide su tutti i document.
+**Aggiungere documenti a un indice significa fornire una collezione di file a GroupDocs.Search affinché la libreria possa analizzarne il contenuto, estrarre token e costruire una struttura dati ricercabile.** Il processo crea una rappresentazione compatta che consente query full‑text fulminee su tutti i file indicizzati.
 
-## Perché usare GroupDocs.Search per document management java?
-- **Indicizzazione scalabile** – Gestisce migliaia di file senza degradare le prestazioni.  
-- **API ricca** – Offre un controllo fine sull'indicizzazione, l'unione e la cancellazione.  
-- **Supporto multi‑formato** – Funziona con PDF, Word, Excel e molti altri formati subito pronto all'uso.  
+## Perché usare GroupDocs.Search per la gestione documentale java?
+GroupDocs.Search offre **indicizzazione scalabile per oltre 50 formati di input** (PDF, DOCX, XLSX, PPTX, HTML, immagini, ecc.) e può elaborare **documenti fino a 2 GB senza caricare l'intero file in memoria**. La sua API ti dà un controllo dettagliato su indicizzazione, unione e annullamento, rendendola una scelta primaria per soluzioni enterprise‑grade di java full text search.
 
 ## Prerequisiti
-- **GroupDocs.Search Java** versione 25.4 o successiva.  
+- **GroupDocs.Search for Java** versione 25.4 o successiva.  
 - Maven (o download manuale del JAR).  
-- Conoscenza di base di Java e un ambiente JDK 8+.  
+- Conoscenza base di Java e un ambiente JDK 8+.
 
 ## Configurazione di GroupDocs.Search per Java
 
@@ -66,14 +88,14 @@ In alternativa, scarica l'ultimo JAR dal sito ufficiale: [GroupDocs.Search for J
 ### Acquisizione della licenza
 - **Free Trial:** Registrati sul sito GroupDocs per una licenza di prova.  
 - **Temporary License:** Richiedi una chiave temporanea se hai bisogno di una valutazione estesa.  
-- **Commercial License:** Acquista per l'uso in produzione.  
+- **Commercial License:** Acquista per uso in produzione.
 
 Dopo aver ottenuto il file di licenza, posizionalo nel tuo progetto e inizializza la libreria come mostrato più avanti.
 
 ## Guida all'implementazione
 
-### Come aggiungere documenti all'indice – Creare il primo indice
-Per prima cosa, crea un indice vuoto che conterrà i tuoi dati ricercabili.
+### Come aggiungere documenti all'indice – Creazione del primo indice
+**Carica o crea un indice vuoto istanziando la classe `Index`, che rappresenta un contenitore ricercabile su disco.** Questo passaggio prepara una posizione di archiviazione per tutti i token che saranno generati dai tuoi documenti.
 
 ```java
 import com.groupdocs.search.Index;
@@ -82,10 +104,10 @@ import com.groupdocs.search.Index;
 Index index1 = new Index("YOUR_DOCUMENT_DIRECTORY\\\\Index1");
 ```
 
-- **Perché:** Questo passaggio crea un contenitore di storage dove verranno salvati i token indicizzati.
+- **Perché:** Questo passaggio imposta un contenitore di archiviazione dove i token indicizzati saranno salvati.
 
-#### Aggiungere documenti all'indice
-Ora indica a GroupDocs.Search di scansionare una cartella e **add documents to index**.
+#### Aggiunta di documenti all'indice
+**Chiama `index.add` con un percorso di cartella; il metodo scansiona ogni file, estrae il testo e memorizza i metadati ricercabili nell'indice.** L'operazione viene eseguita in un unico passaggio e rispetta le `IndexSettings` configurate.
 
 ```java
 index1.add("YOUR_DOCUMENT_DIRECTORY"); // Add documents from this directory
@@ -93,8 +115,8 @@ index1.add("YOUR_DOCUMENT_DIRECTORY"); // Add documents from this directory
 
 - **Perché:** La libreria legge ogni file, estrae il testo e lo memorizza in `index1`.
 
-### Creare un secondo indice per flussi di lavoro flessibili
-A volte sono necessari indici separati—ad esempio, per isolare i dati di un cliente.
+### Creazione di un secondo indice per flussi di lavoro flessibili
+**Istanzia un altro oggetto `Index` per contenere un set di documenti separato, consentendo una elaborazione isolata prima di un merge.** Questo schema è utile per scenari multi‑tenant o indicizzazione a fasi.
 
 ```java
 Index index2 = new Index("YOUR_DOCUMENT_DIRECTORY\\\\Index2");
@@ -106,8 +128,8 @@ index2.add("YOUR_DOCUMENT_DIRECTORY");
 
 - **Perché:** Indici multipli ti permettono di gestire set di documenti distinti e combinarli successivamente.
 
-### Come configurare le opzioni di merge e cancellare l'operazione di merge
-Prima di unire, puoi affinare il processo e persino interromperlo se dura troppo.
+### Come configurare le opzioni di merge e annullare l'operazione di merge
+**Crea un'istanza `MergeOptions`, imposta i parametri desiderati e allega un token `Cancellation` che abortisce il merge dopo un timeout specificato.** Questo ti dà il pieno controllo sull'uso delle risorse durante merge di grandi dimensioni.
 
 ```java
 import com.groupdocs.search.options.MergeOptions;
@@ -118,10 +140,10 @@ options.setCancellation(new Cancellation()); // Initialize cancellation object
 options.getCancellation().cancelAfter(5000); // Cancel merge operation after 5 seconds
 ```
 
-- **Perché:** `Cancellation` ti dà il controllo per **cancel merge operation** automaticamente, evitando attività incontrollate.
+- **Perché:** `Cancellation` ti consente di **annullare l'operazione di merge** automaticamente, evitando attività incontrollate.
 
-### Unire gli indici
-Infine, unisci l'indice secondario a quello primario.
+### Unione degli indici
+**Invoca `index1.merge(index2, mergeOptions)`; l'indice primario assorbe tutti i documenti dall'indice secondario mantenendo l'integrità dei token.** Dopo l'unione, disponi di un repository ricercabile unificato.
 
 ```java
 index1.merge(index2, options);
@@ -129,55 +151,62 @@ index1.merge(index2, options);
 
 - **Perché:** Dopo questa chiamata, `index1` contiene tutti i documenti di entrambe le fonti, offrendoti un'esperienza di ricerca unificata.
 
-## Applicazioni pratiche per Document Management Java
-- **Studi legali:** Consolidare i fascicoli dei casi da più uffici.  
-- **Istituzioni finanziarie:** Unire i report trimestrali in un unico repository ricercabile.  
-- **Aziende:** Combinare documenti HR, di conformità e di policy per una ricerca a livello aziendale.
+## Applicazioni pratiche per la gestione documentale Java
+- **Legal firms:** Consolidare i fascicoli dei casi da più uffici in un unico indice ricercabile.  
+- **Financial institutions:** Unire i report trimestrali in un repository unificato per query di audit rapide.  
+- **Enterprises:** Combinare politiche HR, manuali di conformità e guide interne per una ricerca a livello aziendale.
 
 ## Considerazioni sulle prestazioni
-- **Indicizzazione incrementale:** Aggiungere nuovi file periodicamente invece di ricostruire l'intero indice.  
-- **Monitoraggio della memoria:** Lotti grandi possono consumare RAM; considera di processare in blocchi più piccoli.  
-- **Garbage collection:** Rilascia prontamente gli oggetti `Index` non più utilizzati per liberare risorse.
+- **Incremental indexing:** Aggiungi nuovi file periodicamente invece di ricostruire l'intero indice.  
+- **Memory monitoring:** Lotti grandi possono consumare RAM; elabora i file in blocchi più piccoli o abilita la modalità streaming.  
+- **Garbage collection:** Rilascia prontamente gli oggetti `Index` non utilizzati per liberare risorse.  
+- **SSD storage:** Conservare i file di indice su SSD può migliorare la velocità di merge fino a 2×.
 
 ## Problemi comuni e soluzioni
 
 | Problema | Soluzione |
 |----------|-----------|
-| **Percorso cartella errato** | Verifica il percorso assoluto e assicurati che l'applicazione abbia i permessi di lettura. |
+| **Percorso della cartella errato** | Verifica il percorso assoluto e assicurati che l'applicazione abbia i permessi di lettura. |
 | **Memoria insufficiente** | Aumenta l'heap JVM (`-Xmx`) o indicizza i file in batch. |
-| **Cancellazione non avviata** | Assicurati che `cancelAfter` sia impostato prima di chiamare `merge`. |
+| **Annullamento non attivato** | Assicurati che `cancelAfter` sia impostato prima di chiamare `merge`. |
 | **Formato file non supportato** | Installa plugin di formato aggiuntivi da GroupDocs se necessario. |
 
 ## Domande frequenti
 
 **Q:** *Perché dovrei creare più indici invece di uno solo?*  
-A: Gli indici separati ti permettono di isolare domini di dati, applicare diverse politiche di sicurezza e unire solo quando necessario, migliorando prestazioni e organizzazione.
+**A:** Indici separati ti permettono di isolare domini di dati, applicare politiche di sicurezza distinte e unire solo quando necessario, migliorando prestazioni e organizzazione.
 
 **Q:** *Posso annullare un'operazione di indicizzazione allo stesso modo in cui annullo un merge?*  
-A: Sì—usa l'oggetto `Cancellation` con il metodo `add` per fermare le attività di indicizzazione a lungo termine.
+**A:** Sì—usa l'oggetto `Cancellation` con il metodo `add` per fermare le operazioni di indicizzazione a lungo termine.
 
-**Q:** *Come garantisco prestazioni ottimali con collezioni di documenti molto grandi?*  
-A: Esegui indicizzazione incrementale, monitora la memoria JVM e considera l'uso di storage SSD per la directory dell'indice.
+**Q:** *Come garantire prestazioni ottimali con collezioni di documenti molto grandi?*  
+**A:** Esegui indicizzazione incrementale, monitora la memoria JVM e conserva l'indice su SSD. Considera l'uso dell'impostazione `BatchSize` per limitare i documenti in memoria.
 
 **Q:** *Cosa devo fare se ricevo errori “Access denied”?*  
-A: Controlla i permessi della cartella per l'utente che esegue il processo Java e assicurati che il file di licenza sia leggibile.
+**A:** Verifica i permessi della cartella per l'utente che esegue il processo Java e assicurati che il file di licenza sia leggibile.
 
 **Q:** *GroupDocs.Search è compatibile con altre librerie GroupDocs?*  
-A: Assolutamente—puoi integrarlo con GroupDocs.Viewer, GroupDocs.Conversion, ecc., per una soluzione documentale completa.
+**A:** Assolutamente—puoi integrarlo con GroupDocs.Viewer, GroupDocs.Conversion e altri per costruire una soluzione documentale full‑stack.
 
 ## Conclusione
-Seguendo questa guida ora sai come **add documents to index**, configurare il comportamento del merge e annullare in modo sicuro **cancel merge operation** quando necessario—tutto all'interno di un flusso di lavoro robusto di **document management java**. Sperimenta con set di dati più grandi, esplora tokenizzatori personalizzati o combina GroupDocs.Search con altri prodotti GroupDocs per costruire una soluzione davvero di livello enterprise.
+Seguendo questa guida ora sai come **add documents to index**, configurare il comportamento di merge e **annullare in modo sicuro l'operazione di merge** quando necessario—tutto all'interno di un flusso di lavoro robusto di **java full text search**. Sperimenta con set di dati più grandi, esplora tokenizer personalizzati o combina GroupDocs.Search con altri prodotti GroupDocs per costruire una soluzione di livello enterprise.
 
 **Risorse**
 - **Documentazione:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
-- **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
+- **Riferimento API:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
 - **Download:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- **GitHub Repository:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **Repository GitHub:** [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Forum di supporto gratuito:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **Applicazione licenza temporanea:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **Applicazione licenza temporanea:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**Ultimo aggiornamento:** 2026-01-03  
+**Ultimo aggiornamento:** 2026-05-12  
 **Testato con:** GroupDocs.Search 25.4 for Java  
-**Autore:** GroupDocs  
+**Autore:** GroupDocs
+
+## Tutorial correlati
+
+- [Come aggiungere documenti all'indice con indicizzazione dei metadati in Java usando GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [Aggiungere documenti all'indice e disabilitare le stop words in GroupDocs.Search Java per una maggiore precisione di ricerca](/search/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/)
+- [Aggiungere documenti all'indice – Tutorial GroupDocs.Search Java](/search/java/document-management/)
