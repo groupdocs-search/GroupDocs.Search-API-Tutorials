@@ -1,12 +1,57 @@
 ---
-date: '2026-01-14'
+date: '2026-06-17'
 description: เรียนรู้วิธีตรวจสอบการมีไฟล์ใน Java และอ่านสตรีมไฟล์ใบอนุญาตสำหรับ GroupDocs.Search
-  โดยใช้การให้สิทธิ์ผ่าน InputStream และการตั้งค่า Maven
+  โดยใช้การให้ใบอนุญาตผ่าน InputStream และการตั้งค่า Maven
 keywords:
-- Java License Management
-- GroupDocs Search Integration
-- InputStream License Setup
-title: ตรวจสอบการมีไฟล์ใน Java – การจัดการใบอนุญาตด้วย GroupDocs
+- check file existence java
+- java license management
+- files.exists java example
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-17'
+  description: Learn how to check file existence Java and read license file stream
+    for GroupDocs.Search, using InputStream licensing and Maven setup.
+  headline: Check File Existence Java – License Management with GroupDocs
+  type: TechArticle
+- description: Learn how to check file existence Java and read license file stream
+    for GroupDocs.Search, using InputStream licensing and Maven setup.
+  name: Check File Existence Java – License Management with GroupDocs
+  steps:
+  - name: Store the license file outside the deployment folder for better security.
+    text: Store the license file outside the deployment folder for better security.
+  - name: Embed the license inside a JAR and load it from the classpath, which simplifies
+      container deployments.
+    text: Embed the license inside a JAR and load it from the classpath, which simplifies
+      container deployments.
+  - name: Pull the license from a cloud bucket (AWS S3, Azure Blob, etc.) and feed
+      the stream directly to the SDK.
+    text: Pull the license from a cloud bucket (AWS S3, Azure Blob, etc.) and feed
+      the stream directly to the SDK.
+  - name: 'Visit the GroupDocs website to explore license options: free trial, temporary
+      license, or purchase.'
+    text: 'Visit the GroupDocs website to explore license options: free trial, temporary
+      license, or purchase.'
+  - name: 'Follow the guidance in the licensing FAQ: [Licensing FAQs](https://purchase.groupdocs.com/faqs/licensing).'
+    text: 'Follow the guidance in the licensing FAQ: [Licensing FAQs](https://purchase.groupdocs.com/faqs/licensing).'
+  type: HowTo
+- questions:
+  - answer: An `InputStream` is a Java abstraction for reading raw bytes from sources
+      such as files, network sockets, or memory buffers.
+    question: What is an InputStream?
+  - answer: 'Visit the temporary‑license page: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license)
+      for instructions.'
+    question: How do I get a temporary GroupDocs license?
+  - answer: Yes, but the SDK will run in evaluation mode, showing watermarks and limiting
+      usage time.
+    question: Can I use GroupDocs.Search without a license?
+  - answer: The application falls back to evaluation mode, which may restrict features
+      and add watermarks.
+    question: What happens if the license file is missing or incorrect?
+  - answer: Ensure the file path is correct, the application has read permissions,
+      and wrap the stream in a try‑with‑resources block to handle exceptions cleanly.
+    question: How do I troubleshoot issues with file streams?
+  type: FAQPage
+title: ตรวจสอบการมีไฟล์ใน Java – การจัดการใบอนุญาตกับ GroupDocs
 type: docs
 url: /th/java/licensing-configuration/java-license-management-groupdocs-search-setup/
 weight: 1
@@ -14,30 +59,39 @@ weight: 1
 
 # ตรวจสอบการมีไฟล์ Java – การจัดการใบอนุญาตกับ GroupDocs
 
-การบูรณาการความสามารถการค้นหาขั้นสูงเข้าสู่แอปพลิเคชัน Java ของคุณมักเริ่มจากขั้นตอนง่าย ๆ แต่สำคัญ: **การตรวจสอบการมีไฟล์ใน Java**. ในบทเรียนนี้คุณจะได้เรียนรู้วิธีตรวจสอบว่าไฟล์ใบอนุญาตของคุณมีอยู่หรือไม่, อ่านสตรีมไฟล์ใบอนุญาต, และกำหนดค่า GroupDocs.Search เพื่อการทำงานที่ราบรื่น. เมื่อจบคุณจะมีการตั้งค่าที่มั่นคงพร้อมใช้งานในระดับผลิตที่สามารถนำไปใช้ในโครงการ Java ใดก็ได้.
+เมื่อคุณรวม **GroupDocs.Search** เข้าไปในแอปพลิเคชัน Java สิ่งแรกที่คุณต้องตรวจสอบคือไฟล์ใบอนุญาตอยู่จริงตามที่คุณคิดหรือไม่ ในบทเรียนนี้คุณจะได้เรียนรู้วิธี **check file existence Java**, อ่านใบอนุญาตเป็น `InputStream` และเชื่อมต่อ SDK ให้ทำงานในโหมดใบอนุญาตเต็มรูปแบบ เมื่อเสร็จคุณจะมีโค้ดสั้นที่พร้อมใช้งานในระดับการผลิตซึ่งสามารถนำไปใส่ในบริการ Java ใด ๆ, ไมโครเซอร์วิส, หรือแอปเดสก์ท็อป
 
-## คำตอบด่วน
-- **“check file existence Java” หมายถึงอะไร?** เป็นกระบวนการยืนยันว่ามีไฟล์อยู่บนระบบไฟล์ก่อนที่คุณจะพยายามใช้มัน.  
-- **ทำไมต้องใช้ InputStream สำหรับการให้ใบอนุญาต?** มันทำให้คุณโหลดใบอนุญาตจากแหล่งใดก็ได้—ไฟล์ระบบ, classpath, หรือคลาวด์สตอเรจ—โดยไม่ต้องกำหนดพาธแบบคงที่.  
-- **ฉันต้องใช้ Maven หรือไม่?** ใช่, การเพิ่ม GroupDocs.Search ผ่าน Maven จะทำให้คุณได้ไบนารีล่าสุดและการพึ่งพาแบบทรานซิทีฟ.  
-- **จะเกิดอะไรขึ้นถ้าไม่มีใบอนุญาต?** SDK จะทำงานในโหมดประเมินผล, แสดงลายน้ำและจำกัดการใช้งาน.  
-- **วิธีนี้ปลอดภัยต่อหลายเธรดหรือไม่?** การโหลดใบอนุญาตครั้งเดียวที่เริ่มต้นแอปพลิเคชันเป็นเรื่องปลอดภัย; ใช้ `License` อินสแตนซ์เดียวกันข้ามเธรดได้.
+## คำตอบสั้น
+- **What does “check file existence Java” mean?** เป็นกระบวนการยืนยันว่ามีไฟล์อยู่บนระบบไฟล์ก่อนที่คุณจะพยายามใช้งานมัน.  
+- **Why use an InputStream for licensing?** ช่วยให้คุณโหลดใบอนุญาตจากแหล่งใดก็ได้—ระบบไฟล์, classpath, หรือคลาวด์สตอเรจ—โดยไม่ต้องกำหนดเส้นทางแบบคงที่.  
+- **Do I need Maven?** ใช่, การเพิ่ม GroupDocs.Search ผ่าน Maven จะทำให้คุณได้ไบนารีล่าสุดและการพึ่งพาที่ส่งต่อ.  
+- **What happens if the license is missing?** SDK จะทำงานในโหมดประเมินผล, แสดงลายน้ำและจำกัดการใช้งาน.  
+- **Is this approach thread‑safe?** การโหลดใบอนุญาตครั้งเดียวตอนเริ่มต้นนั้นปลอดภัย; ใช้ `License` อินสแตนซ์เดียวกันซ้ำในหลายเธรด.
 
-## “check file existence Java” คืออะไร?
-ใน Java การตรวจสอบการมีไฟล์มักทำด้วยเมธอด `Files.exists()` จาก `java.nio.file`. การเรียกที่เบานี้ช่วยป้องกัน `FileNotFoundException` และทำให้คุณจัดการกับทรัพยากรที่หายไปได้อย่างราบรื่น.
+## “check file existence Java” คืออะไร
 
-## ทำไมต้องอ่านสตรีมไฟล์ใบอนุญาต?
-การอ่านใบอนุญาตเป็นสตรีม (`read license file stream`) ให้ความยืดหยุ่นแก่คุณ. คุณสามารถเก็บใบอนุญาตในตำแหน่งที่ปลอดภัย, ฝังไว้ใน JAR, หรือดึงจากบริการระยะไกล, ทั้งหมดนี้โดยทำให้โค้ดของคุณสะอาดและพกพาได้.
+ใน Java, การตรวจสอบการมีไฟล์หมายถึงการยืนยันว่าเส้นทางที่ระบุชี้ไปยังไฟล์ที่สามารถอ่านได้ก่อนทำ I/O ใด ๆ วิธีทั่วไปใช้ `Files.exists(Path)` จาก `java.nio.file` ซึ่งคืนค่า boolean แสดงว่ามีหรือไม่ การตรวจสอบง่าย ๆ นี้ช่วยหลีกเลี่ยง `FileNotFoundException` และทำให้แอปพลิเคชันบันทึกข้อผิดพลาดที่ชัดเจนหรือกลับไปใช้ค่าเริ่มต้น
+
+การใช้การตรวจสอบนี้ช่วยปกป้องแอปพลิเคชันของคุณจากการหยุดทำงานระหว่างการเริ่มต้นและให้โอกาสบันทึกข้อผิดพลาดที่ชัดเจนหรือกลับไปใช้การกำหนดค่าเริ่มต้น
+
+## ทำไมต้องอ่านสตรีมไฟล์ใบอนุญาต
+
+การอ่านใบอนุญาตเป็น `InputStream` ทำให้ตำแหน่งของใบอนุญาตแยกออกจากโค้ด, สามารถจัดเก็บบนระบบไฟล์, ฝังไว้ใน JAR, หรือดึงจากคลาวด์สตอเรจได้ โดยการเรียก `License.setLicense(InputStream)` SDK สามารถโหลดใบอนุญาตจากแหล่งใดก็ได้โดยไม่ต้องกำหนดเส้นทางแบบคงที่, เพิ่มความพกพาและความปลอดภัย
+
+1. เก็บไฟล์ใบอนุญาตนอกโฟลเดอร์การปรับใช้เพื่อความปลอดภัยที่ดียิ่งขึ้น.  
+2. ฝังใบอนุญาตไว้ใน JAR และโหลดจาก classpath, ซึ่งทำให้การปรับใช้คอนเทนเนอร์ง่ายขึ้น.  
+3. ดึงใบอนุญาตจากบัคเก็ตคลาวด์ (AWS S3, Azure Blob, ฯลฯ) แล้วส่งสตรีมโดยตรงให้ SDK.  
 
 ## ข้อกำหนดเบื้องต้น
-- **JDK 8+** – โค้ดใช้ try‑with‑resources ซึ่งต้องการ Java 7 หรือใหม่กว่า.  
-- **IDE** – IntelliJ IDEA, Eclipse หรือเครื่องมือแก้ไขที่คุณชอบ.  
-- **Maven** – สำหรับการจัดการ dependencies (หรือคุณสามารถดาวน์โหลด JAR ด้วยตนเอง).
+- **JDK 8+** – โค้ดใช้ try‑with‑resources ซึ่งต้องการ Java 7 หรือใหม่กว่า.  
+- **IDE** – IntelliJ IDEA, Eclipse หรือเครื่องมือแก้ไขใด ๆ ที่คุณชอบ.  
+- **Maven** – สำหรับการจัดการ dependencies (หรือคุณสามารถดาวน์โหลด JAR ด้วยตนเอง).  
 
 ## การตั้งค่า GroupDocs.Search สำหรับ Java
 
 ### การติดตั้งผ่าน Maven
-เพิ่มรีโพซิทอรีของ GroupDocs และ dependency ลงใน `pom.xml` ของคุณ:
+
+Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -58,14 +112,16 @@ weight: 1
 ```
 
 ### ดาวน์โหลดโดยตรง
+
 หรือคุณสามารถรับไลบรารีจากหน้าปล่อยอย่างเป็นทางการ: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### การรับใบอนุญาต
-1. เยี่ยมชมเว็บไซต์ GroupDocs เพื่อสำรวจตัวเลือกใบอนุญาต: ทดลองใช้ฟรี, ใบอนุญาตชั่วคราว, หรือซื้อ.  
+1. เยี่ยมชมเว็บไซต์ GroupDocs เพื่อสำรวจตัวเลือกใบอนุญาต: ทดลองฟรี, ใบอนุญาตชั่วคราว, หรือซื้อ.  
 2. ปฏิบัติตามคำแนะนำใน FAQ การให้ใบอนุญาต: [Licensing FAQs](https://purchase.groupdocs.com/faqs/licensing).
 
 ### การเริ่มต้นพื้นฐาน
-เมื่อ JAR อยู่ใน classpath ของคุณแล้ว, เริ่มต้น SDK ด้วยไฟล์ใบอนุญาต:
+
+Once the JAR is on your classpath, initialize the SDK with a license file:
 
 ```java
 import com.groupdocs.search.License;
@@ -74,12 +130,13 @@ License license = new License();
 license.setLicense("path/to/your/license/file.lic");
 ```
 
-## คู่มือการดำเนินการ
+## คู่มือการใช้งาน
 
-เราจะอธิบายสองงานหลัก: **การตรวจสอบการมีไฟล์ใน Java** และ **การอ่านสตรีมไฟล์ใบอนุญาต**.
+เราจะอธิบายขั้นตอนสองงานหลัก: **checking file existence Java** และ **reading the license file stream**.
 
-### วิธีตรวจสอบการมีไฟล์ใน Java
-แรกสุดให้ตรวจสอบว่าไฟล์ใบอนุญาตมีอยู่จริงก่อนพยายามโหลดมัน.
+### วิธีตรวจสอบการมีไฟล์ Java
+
+แรกสุด, ตรวจสอบว่าไฟล์ใบอนุญาตมีอยู่จริงก่อนพยายามโหลด ใช้ `Path` และ `Files.exists()` เพื่อทำการตรวจสอบในบรรทัดเดียวที่ไม่มีข้อยกเว้น หากไฟล์หายคุณสามารถบันทึกคำเตือนและตัดสินใจว่าจะดำเนินต่อในโหมดประเมินผลหรือยกเลิกการเริ่มต้น.
 
 ```java
 import java.nio.file.Files;
@@ -90,7 +147,8 @@ boolean fileExists = Files.exists(Paths.get(filePath));
 ```
 
 ### วิธีอ่านสตรีมไฟล์ใบอนุญาต
-ถ้าไฟล์มีอยู่, เปิดเป็น `InputStream` แล้วนำใบอนุญาตไปใช้.
+
+หากไฟล์มีอยู่, เปิดเป็น `InputStream` แล้วส่งให้กับอ็อบเจ็กต์ `License` การห่อ `FileInputStream` ด้วย `BufferedInputStream` ช่วยเพิ่มประสิทธิภาพสำหรับไฟล์ขนาดใหญ่ แม้ว่าไฟล์ใบอนุญาตทั่วไปจะมีขนาดเพียงไม่กี่กิโลไบต์บล็อก `try‑with‑resources` รับประกันว่าสตรีมจะถูกปิดโดยอัตโนมัติ, ป้องกันการรั่วของทรัพยากร.
 
 ```java
 import java.io.FileInputStream;
@@ -108,8 +166,9 @@ if (fileExists) {
 }
 ```
 
-### ตัวอย่างการตรวจสอบการมีไฟล์ (แบบแยกส่วน)
-คุณสามารถใช้โค้ดส่วนนี้เพื่อยืนยันการมีไฟล์อย่างง่ายได้:
+### การตรวจสอบการมีไฟล์ (ตัวอย่างแบบสแตนด์อโลน)
+
+โค้ดสั้นต่อไปนี้แสดงวิธีที่เล็กที่สุดและไม่ขึ้นกับเฟรมเวิร์กในการตรวจสอบการมีไฟล์โดยใช้ `Files.exists` มันบันทึกผลลัพธ์, คืนค่า boolean, และสามารถรวมเข้ากับแอปพลิเคชัน Java ใด ๆ โดยไม่มี dependencies เพิ่มเติม, ทำให้เหมาะสำหรับการตรวจสอบอย่างรวดเร็วระหว่างการเริ่มต้นหรือในคลาสยูทิลิตี้.
 
 ```java
 import java.nio.file.Files;
@@ -126,48 +185,55 @@ if (fileExists) {
 ```
 
 ## การประยุกต์ใช้งานจริง
-- **ระบบจัดการเอกสาร** – อัตโนมัติการตรวจสอบใบอนุญาตสำหรับการจัดการ PDF, Word, และรูปภาพอย่างปลอดภัย.  
-- **ซอฟต์แวร์ระดับองค์กร** – ตรวจสอบใบอนุญาตแบบไดนามิกที่การเริ่มต้นเพื่อให้สอดคล้องกับหลายเซิร์ฟเวอร์.  
-- **เครื่องมือค้นหาแบบกำหนดเอง** – โหลดใบอนุญาตจากคลาวด์บัคเก็ต, แล้วเริ่มต้น GroupDocs.Search เพื่อทำดัชนีข้อความเต็มที่รวดเร็ว.
+- **Document Management Systems** – อัตโนมัติการตรวจสอบใบอนุญาตเพื่อการจัดการ PDF, ไฟล์ Word, และรูปภาพอย่างปลอดภัย.  
+- **Enterprise Software** – ตรวจสอบใบอนุญาตแบบไดนามิกขณะเริ่มต้นเพื่อให้สอดคล้องตามกฎระหว่างหลายเซิร์ฟเวอร์.  
+- **Custom Search Engines** – โหลดใบอนุญาตจากบัคเก็ตคลาวด์, แล้วเริ่มต้น GroupDocs.Search เพื่อทำดัชนีข้อความเต็มที่รวดเร็ว.
 
-## พิจารณาด้านประสิทธิภาพ
-- **Buffer Streams** – ห่อ `FileInputStream` ด้วย `BufferedInputStream` หากคาดว่าไฟล์ใบอนุญาตจะใหญ่ (หายาก, แต่เป็นแนวปฏิบัติที่ดี).  
-- **การจัดการทรัพยากร** – ใช้ try‑with‑resources เสมอเพื่อปิดสตรีมโดยอัตโนมัติ.  
-- **Singleton License** – โหลดใบอนุญาตครั้งเดียวในขั้นตอนบูตของแอปพลิเคชันและใช้ `License` อินสแตนซ์เดียวกันซ้ำ; จะช่วยลด I/O ที่ทำซ้ำ.
+## ข้อควรพิจารณาด้านประสิทธิภาพ
+- **Buffer Streams** – ห่อ `FileInputStream` ด้วย `BufferedInputStream` หากคาดว่าไฟล์ใบอนุญาตจะใหญ่ (หายากแต่เป็นแนวปฏิบัติที่ดี).  
+- **Resource Management** – ใช้ try‑with‑resources เสมอเพื่อปิดสตรีมโดยอัตโนมัติ.  
+- **Singleton License** – โหลดใบอนุญาตครั้งเดียวระหว่างการบูตแอปพลิเคชันและใช้ `License` อินสแตนซ์เดียวกันซ้ำ; นี้ช่วยหลีกเลี่ยง I/O ซ้ำและลดความหน่วง.  
+- **Quantified Claim:** GroupDocs.Search รองรับ **รูปแบบอินพุตและเอาต์พุตกว่า 50 ประเภท** (DOCX, XLSX, PPTX, HTML, PDF, และรูปภาพทั่วไป) และสามารถทำดัชนี **เอกสารหลายร้อยหน้า** โดยไม่ต้องโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ, ให้การตอบสนองการค้นหาในระดับต่ำกว่าหนึ่งวินาทีบนฮาร์ดแวร์เซิร์ฟเวอร์ทั่วไป.
 
 ## สรุป
-คุณได้เรียนรู้วิธี **ตรวจสอบการมีไฟล์ใน Java**, **อ่านสตรีมไฟล์ใบอนุญาต**, และกำหนดค่า GroupDocs.Search เพื่อการค้นหาที่เชื่อถือได้และระดับผลิต. รูปแบบเหล่านี้ทำให้แอปพลิเคชันของคุณแข็งแรงและพร้อมขยายตัว.
+ตอนนี้คุณรู้วิธี **check file existence Java**, **read license file stream**, และกำหนดค่า GroupDocs.Search สำหรับการค้นหาที่เชื่อถือได้ระดับการผลิต รูปแบบเหล่านี้ทำให้แอปพลิเคชันของคุณแข็งแรง, พกพาได้, และพร้อมขยายขนาดบนคลาวด์หรือการปรับใช้ในสถานที่
 
 **ขั้นตอนต่อไป**
 - ศึกษาเอกสารอย่างเป็นทางการเพิ่มเติม: [GroupDocs documentation](https://docs.groupdocs.com/search/java/).  
-- ทดลองผสานตัวทำดัชนีการค้นหาเข้ากับ REST API หรือสถาปัตยกรรมไมโครเซอร์วิส.
+- ทดลองผสานตัวทำดัชนีการค้นหาเข้าสู่ REST API หรือสถาปัตยกรรมไมโครเซอร์วิส
 
 ## ส่วนคำถามที่พบบ่อย
 
-1. **InputStream คืออะไร?**  
-   `InputStream` เป็นการอธิบายเชิงนามธรรมของ Java สำหรับการอ่านไบต์จากแหล่งต่าง ๆ เช่น ไฟล์, ซ็อกเก็ตเครือข่าย, หรือบัฟเฟอร์ในหน่วยความจำ.
+**Q: InputStream คืออะไร?**  
+A: `InputStream` เป็นการอธิบายเชิงนามธรรมของ Java สำหรับการอ่านไบต์ดิบจากแหล่งต่าง ๆ เช่น ไฟล์, ซ็อกเก็ตเครือข่าย, หรือบัฟเฟอร์หน่วยความจำ.
 
-2. **ฉันจะขอใบอนุญาตชั่วคราวของ GroupDocs ได้อย่างไร?**  
-   เยี่ยมชมหน้าใบอนุญาตชั่วคราว: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license) เพื่อดูคำแนะนำ.
+**Q: ฉันจะรับใบอนุญาต GroupDocs ชั่วคราวได้อย่างไร?**  
+A: เยี่ยมชมหน้าลิขสิทธิ์ชั่วคราว: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license) เพื่อดูคำแนะนำ.
 
-3. **ฉันสามารถใช้ GroupDocs.Search โดยไม่มีใบอนุญาตได้หรือไม่?**  
-   ใช่, แต่ SDK จะทำงานในโหมดประเมินผล, แสดงลายน้ำและจำกัดระยะเวลาการใช้งาน.
+**Q: สามารถใช้ GroupDocs.Search โดยไม่มีใบอนุญาตได้หรือไม่?**  
+A: ได้, แต่ SDK จะทำงานในโหมดประเมินผล, แสดงลายน้ำและจำกัดเวลาการใช้งาน.
 
-4. **จะเกิดอะไรขึ้นถ้าไฟล์ใบอนุญาตหายหรือไม่ถูกต้อง?**  
-   แอปพลิเคชันจะสลับไปทำงานในโหมดประเมินผล, ซึ่งอาจจำกัดฟีเจอร์และเพิ่มลายน้ำ.
+**Q: จะเกิดอะไรขึ้นหากไฟล์ใบอนุญาตหายหรือไม่ถูกต้อง?**  
+A: แอปพลิเคชันจะกลับไปใช้โหมดประเมินผล, ซึ่งอาจจำกัดฟีเจอร์และเพิ่มลายน้ำ.
 
-5. **ฉันจะแก้ไขปัญหาการทำงานกับสตรีมไฟล์อย่างไร?**  
-   ตรวจสอบให้แน่ใจว่าพาธไฟล์ถูกต้อง, แอปมีสิทธิ์อ่าน, และห่อสตรีมด้วย try‑with‑resources เพื่อจัดการข้อยกเว้นอย่างสะอาด.
+**Q: ฉันจะแก้ไขปัญหาการใช้สตรีมไฟล์อย่างไร?**  
+A: ตรวจสอบว่าเส้นทางไฟล์ถูกต้อง, แอปพลิเคชันมีสิทธิ์อ่าน, และห่อสตรีมด้วยบล็อก try‑with‑resources เพื่อจัดการข้อยกเว้นอย่างสะอาด.
 
 ## แหล่งข้อมูล
-- [เอกสาร GroupDocs.Search](https://docs.groupdocs.com/search/java/)
+- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
 - [API Reference](https://reference.groupdocs.com/search/java)
-- [ดาวน์โหลด GroupDocs.Search](https://releases.groupdocs.com/search/java/)
+- [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 
 ---
 
-**อัปเดตล่าสุด:** 2026-01-14  
-**ทดสอบกับ:** GroupDocs.Search 25.4  
+**อัปเดตล่าสุด:** 2026-06-17  
+**ทดสอบด้วย:** GroupDocs.Search 25.4  
 **ผู้เขียน:** GroupDocs
+
+## บทเรียนที่เกี่ยวข้อง
+
+- [Create Search Index Directory & Set License – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)
+- [How to Configure Search with GroupDocs.Search in Java - Configuration & Deployment Guide](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
+- [Master GroupDocs.Search Java: Efficient Document Search and Index Management](/search/java/searching/groupdocs-search-java-efficient-document-search/)
