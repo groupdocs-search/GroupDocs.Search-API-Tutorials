@@ -1,14 +1,16 @@
 ---
-date: '2026-01-08'
+date: '2026-05-02'
 description: Scopri come configurare la ricerca e abilitare gli aggiornamenti in tempo
   reale della ricerca utilizzando GroupDocs.Search per Java. Guida passo‑passo alla
   configurazione della rete, al deployment dei nodi e all’indicizzazione.
 keywords:
-- GroupDocs.Search for Java
-- configure search network in Java
-- deploying nodes in search network
-title: 'Come configurare la ricerca con GroupDocs.Search in Java - Guida alla configurazione
-  e al dispiegamento'
+- how to configure search
+- real time search updates
+- add directories to index
+- configure master node
+- optimize shard size
+title: Come configurare la ricerca con GroupDocs.Search in Java - Guida alla configurazione
+  e alla distribuzione
 type: docs
 url: /it/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/
 weight: 1
@@ -16,20 +18,20 @@ weight: 1
 
 # Come configurare la ricerca con GroupDocs.Search in Java
 
-Nel mondo digitale odierno, in rapida evoluzione, **come configurare la ricerca** in modo efficiente può determinare il successo o il fallimento di un progetto. Che tu stia gestendo migliaia di contratti, articoli di ricerca o report interni, una rete di ricerca ben progettata ti consente di trovare il documento giusto in pochi secondi. Questo tutorial ti guida nella configurazione di una rete di ricerca, nella distribuzione dei nodi e nell'abilitazione degli **aggiornamenti di ricerca in tempo reale** con GroupDocs.Search per Java.
+Nel mondo digitale di oggi, in rapida evoluzione, **come configurare la ricerca** in modo efficiente può fare la differenza tra il successo e il fallimento di un progetto. Che tu stia gestendo migliaia di contratti, articoli di ricerca o report interni, una rete di ricerca ben progettata ti consente di individuare il documento giusto in pochi secondi. Questo tutorial ti guida nella configurazione di una rete di ricerca, nel deployment dei nodi e nell'abilitazione degli **aggiornamenti di ricerca in tempo reale** con GroupDocs.Search per Java.
 
 ## Risposte rapide
 - **Qual è lo scopo principale di una rete di ricerca?** Per distribuire l'indicizzazione e l'elaborazione delle query su più nodi per scalabilità e velocità.  
 - **Quale versione della libreria è richiesta?** GroupDocs.Search per Java v25.4 o successiva.  
-- **Ho bisogno di una licenza?** Una prova gratuita è sufficiente per la valutazione; è necessaria una licenza commerciale per la produzione.  
-- **Come vengono gestiti gli aggiornamenti in tempo reale?** Sottoscrivendo gli eventi del nodo che si attivano sulle modifiche dell'indicizzazione.  
+- **È necessaria una licenza?** Una prova gratuita è sufficiente per la valutazione; è richiesta una licenza commerciale per la produzione.  
+- **Come vengono gestiti gli aggiornamenti in tempo reale?** Iscrivendosi agli eventi dei nodi che si attivano sulle modifiche dell'indicizzazione.  
 - **Posso aggiungere nuove cartelle di documenti al volo?** Sì—usa il metodo `addDirectories` dell'indicizzatore.
 
-## Cos'è “come configurare la ricerca” nel contesto di GroupDocs?
-Configurare la ricerca significa impostare una **rete di ricerca** che conosce la posizione dei tuoi documenti, come comunicano i nodi e come è coordinata l'indicizzazione. Una volta configurata la rete, puoi aggiungere o rimuovere nodi senza tempi di inattività, garantendo un accesso continuo a risultati di ricerca aggiornati.
+## Cos'è “come configurare la ricerca” in un contesto GroupDocs?
+Configurare la ricerca significa impostare una **rete di ricerca** che conosce la posizione dei tuoi documenti, come i nodi comunicano e come l'indicizzazione è coordinata. Una volta configurata la rete, è possibile aggiungere o rimuovere nodi senza tempi di inattività, garantendo un accesso continuo a risultati di ricerca aggiornati.
 
 ## Perché utilizzare GroupDocs.Search per Java?
-- **Scalabilità:** Distribuire i carichi di lavoro su più macchine.  
+- **Scalabilità:** Distribuire il carico di lavoro su più macchine.  
 - **Aggiornamenti in tempo reale:** Riflettere istantaneamente i file appena indicizzati su tutta la rete.  
 - **Facilità di integrazione:** Configurazione Maven semplice e API Java chiare.  
 - **Pronto per l'impresa:** Gestisce grandi corpora e scenari di query complessi.
@@ -67,7 +69,7 @@ Aggiungi il repository e la dipendenza al tuo `pom.xml`:
 ### Acquisizione della licenza
 - **Prova gratuita:** Ottieni una licenza di prova per esplorare tutte le funzionalità.  
 - **Licenza temporanea:** Richiedi per periodi di valutazione estesi.  
-- **Licenza commerciale:** Necessaria per le distribuzioni in produzione.
+- **Licenza commerciale:** Necessaria per le implementazioni in produzione.
 
 ### Inizializzazione di base
 ```java
@@ -81,7 +83,7 @@ Configuration config = new Configuration(basePath, basePort);
 
 ## Come configurare la rete di ricerca in Java
 
-### Passo 1: Importare i pacchetti richiesti
+### Passo 1: Importare i pacchetti necessari
 ```java
 import com.groupdocs.search.scaling.ConfiguringSearchNetwork;
 import com.groupdocs.search.scaling.Configuration;
@@ -109,16 +111,16 @@ import com.groupdocs.search.scaling.SearchNetworkNode;
 String[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, configuration);
 SearchNetworkNode masterNode = nodes[0]; // Designate the first node as the master node
 ```
-- **Nodo master:** Coordina le ricerche e l'indicizzazione su tutti i nodi.
+- **Nodo master:** Coordina le ricerche e l'indicizzazione su tutti i nodi. Puoi **configurare le impostazioni del nodo master** come l'allocazione degli shard e i controlli di salute.
 
-## Sottoscrizione agli eventi del nodo per aggiornamenti di ricerca in tempo reale
+## Iscrizione agli eventi dei nodi per aggiornamenti di ricerca in tempo reale
 
-### Passo 1: Importare il pacchetto degli eventi
+### Passo 1: Importare il pacchetto eventi
 ```java
 import com.groupdocs.search.scaling.SearchNetworkNodeEvents;
 ```
 
-### Passo 2: Sottoscrivere gli eventi del nodo master
+### Passo 2: Iscriversi agli eventi del nodo master
 ```java
 SearchNetworkNodeEvents.subscribe(masterNode);
 ```
@@ -126,7 +128,7 @@ SearchNetworkNodeEvents.subscribe(masterNode);
 
 ## Aggiunta di directory per l'indicizzazione
 
-### Passo 1: Importare il pacchetto dell'indicizzatore
+### Passo 1: Importare il pacchetto indicizzatore
 ```java
 import com.groupdocs.search.examples.Utils;
 import com.groupdocs.search.scaling.Indexer;
@@ -137,11 +139,11 @@ import com.groupdocs.search.scaling.Indexer;
 Indexer indexer = masterNode.getIndexer();
 indexer.addDirectories("YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-- **Indicizzazione dinamica:** Aggiungi quante cartelle desideri; la rete le indicizzerà automaticamente.
+- **Indicizzazione dinamica:** Usa il metodo `addDirectories` per **aggiungere directory all'indice** al volo senza riavviare la rete.
 
 ## Recupero dei documenti indicizzati
 
-### Passo 1: Importare il pacchetto del motore di ricerca
+### Passo 1: Importare il pacchetto Searcher
 ```java
 import com.groupdocs.search.scaling.Searcher;
 import com.groupdocs.search.scaling.NetworkDocumentInfo;
@@ -170,48 +172,52 @@ for (int i = 0; i < shardIndices.length; i++) {
     }
 }
 ```
-- **Gestione degli shard:** Gestisce in modo efficiente grandi dataset distribuendo i documenti tra gli shard.
+- **Gestione degli shard:** Gestisce in modo efficiente grandi set di dati distribuendo i documenti tra gli shard. Per **ottimizzare la dimensione degli shard**, monitora le statistiche degli shard e regola la configurazione `shardSize` nelle versioni future.
+
+## Perché questo è importante per il tuo progetto
+Una rete di ricerca configurata correttamente elimina i colli di bottiglia, riduce la latenza e garantisce che gli utenti vedano sempre la versione più recente di un documento. Gli aggiornamenti in tempo reale e la possibilità di **aggiungere directory all'indice** senza tempi di inattività sono particolarmente preziosi per studi legali, istituzioni di ricerca e qualsiasi organizzazione che gestisce collezioni di documenti in continua evoluzione.
 
 ## Applicazioni pratiche
-1. **Gestione documentale aziendale:** Centralizza la ricerca su milioni di file.  
-2. **Studi legali:** Trova rapidamente fascicoli, contratti e prove.  
-3. **Ricerca accademica:** Indicizza riviste e articoli per un recupero istantaneo.
+1. **Gestione documentale aziendale:** Centralizzare la ricerca su milioni di file.  
+2. **Studi legali:** Individuare rapidamente fascicoli, contratti e prove.  
+3. **Ricerca accademica:** Indicizzare riviste e articoli per un recupero istantaneo.
 
 ## Considerazioni sulle prestazioni
-- **Ottimizzare l'indicizzazione:** Pianifica aggiornamenti regolari dell'indice e rimuovi dati obsoleti.  
-- **Gestione della memoria:** Monitora l'heap JVM, soprattutto quando gestisci shard di grandi dimensioni.  
-- **Pianificazione della scalabilità:** Aggiungi nodi man mano che il tuo corpus cresce; la rete bilancia automaticamente il carico.
+- **Ottimizzare l'indicizzazione:** Pianificare aggiornamenti regolari dell'indice e rimuovere dati obsoleti.  
+- **Gestione della memoria:** Monitorare l'heap JVM, soprattutto quando si gestiscono shard di grandi dimensioni.  
+- **Pianificazione della scalabilità:** Aggiungere nodi man mano che il corpus cresce; la rete bilancia automaticamente il carico.  
+- **Ottimizzare la dimensione degli shard:** Shard più piccoli migliorano la latenza delle query, mentre shard più grandi riducono l'overhead. Regola in base all'hardware e ai pattern di query.
 
 ## Problemi comuni e soluzioni
 
 | Problema | Causa | Soluzione |
 |----------|-------|-----------|
-| I nodi non possono connettersi | Conflitto di porta o firewall | Assicurati che `basePort` sia aperta e non utilizzata da altri servizi |
-| L'indice non si aggiorna | Sottoscrizione agli eventi mancante | Chiama `SearchNetworkNodeEvents.subscribe(masterNode)` dopo la distribuzione |
-| Errori di out‑of‑memory | Troppi shard di grandi dimensioni caricati | Riduci la dimensione dello shard o aumenta l'heap JVM (`-Xmx` flag) |
+| I nodi non possono connettersi | Conflitto di porta o firewall | Assicurati che `basePort` sia aperto e non sia utilizzato da altri servizi |
+| L'indice non si aggiorna | Sottoscrizione agli eventi mancante | Chiama `SearchNetworkNodeEvents.subscribe(masterNode)` dopo il deployment |
+| Errori di out‑of‑memory | Troppi shard di grandi dimensioni caricati | Riduci la dimensione degli shard o aumenta l'heap JVM (`-Xmx` flag) |
 
 ## Domande frequenti
 
-**D: Posso aggiungere nuove directory dopo che la rete è in esecuzione?**  
-R: Sì—usa il metodo `indexer.addDirectories()`; gli eventi sottoscritti propagheranno gli aggiornamenti in tempo reale.
+**Q: Posso aggiungere nuove directory dopo che la rete è in esecuzione?**  
+A: Sì—usa il metodo `indexer.addDirectories()`; gli eventi sottoscritti propagheranno gli aggiornamenti in tempo reale.
 
-**D: Come monitoro lo stato dei nodi?**  
-R: Ogni `SearchNetworkNode` fornisce API di stato; integrale con lo strumento di monitoraggio che preferisci.
+**Q: Come monitorare lo stato di salute dei nodi?**  
+A: Ogni `SearchNetworkNode` fornisce API di stato; integrale con lo strumento di monitoraggio che preferisci.
 
-**D: È possibile eseguire il nodo master su una macchina separata?**  
-R: Assolutamente. Basta assicurarsi che tutti i nodi condividano lo stesso `basePort` e possano raggiungersi sulla rete.
+**Q: È possibile eseguire il nodo master su una macchina separata?**  
+A: Assolutamente. Basta assicurarsi che tutti i nodi condividano lo stesso `basePort` e possano raggiungersi sulla rete.
 
-**D: Quali formati di file sono supportati?**  
-R: GroupDocs.Search supporta PDF, Word, Excel, PowerPoint, testo semplice e molti altri formati pronti all'uso.
+**Q: Quali formati di file sono supportati?**  
+A: GroupDocs.Search supporta PDF, Word, Excel, PowerPoint, testo semplice e molti altri nativamente.
 
-**D: Devo riavviare la rete dopo aver aggiunto un nuovo nodo?**  
-R: No—i nodi possono essere aggiunti o rimossi dinamicamente; il nodo master riequilibrerà gli shard automaticamente.
+**Q: È necessario riavviare la rete dopo aver aggiunto un nuovo nodo?**  
+A: No—i nodi possono essere aggiunti o rimossi dinamicamente; il nodo master riequilibrerà automaticamente gli shard.
 
 ## Conclusione
-Ora hai una comprensione completa, passo dopo passo, di **come configurare la ricerca** usando GroupDocs.Search per Java, dalla configurazione iniziale agli aggiornamenti in tempo reale e all'indicizzazione distribuita. Applica questi modelli per creare soluzioni di ricerca documentale veloci, scalabili e affidabili per qualsiasi settore.
+Ora che conosci **come configurare la ricerca** usando GroupDocs.Search per Java, puoi costruire soluzioni di ricerca documentale rapide, scalabili e affidabili che tengono il passo con la crescita della tua organizzazione. Applica questi modelli per creare esperienze di ricerca distribuite e in tempo reale per qualsiasi settore.
 
 ---
 
-**Ultimo aggiornamento:** 2026-01-08  
-**Testato con:** GroupDocs.Search for Java 25.4  
-**Autore:** GroupDocs
+**Last Updated:** 2026-05-02  
+**Tested With:** GroupDocs.Search for Java 25.4  
+**Author:** GroupDocs
