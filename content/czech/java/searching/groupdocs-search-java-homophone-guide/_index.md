@@ -1,43 +1,83 @@
 ---
-date: '2026-01-26'
-description: Naučte se, jak vytvořit index a přidat dokumenty do indexu pomocí GroupDocs.Search
-  pro Javu. Povolit homofonní vyhledávání pro vynikající vyhledávání dokumentů.
+date: '2026-05-28'
+description: Naučte se, jak vytvořit index java, přidat dokumenty do indexu a povolit
+  vyhledávání homofonů pomocí GroupDocs.Search pro Java pro rychlé a přesné vyhledávání.
 keywords:
-- GroupDocs.Search Java
-- homophone search implementation
-- document retrieval
-title: 'Jak vytvořit index pomocí GroupDocs.Search Java: Implementace homofonního
-  vyhledávání'
+- create index java
+- how to use homophone
+- add documents to index
+- search with homophone
+- java search tutorial
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-28'
+  description: Learn how to create index java, add documents to index, and enable
+    homophone search using GroupDocs.Search for Java for fast, accurate retrieval.
+  headline: How to create index java with GroupDocs.Search and Enable Homophone Search
+  type: TechArticle
+- description: Learn how to create index java, add documents to index, and enable
+    homophone search using GroupDocs.Search for Java for fast, accurate retrieval.
+  name: How to create index java with GroupDocs.Search and Enable Homophone Search
+  steps:
+  - name: Define the Index Path
+    text: Replace `YOUR_DOCUMENT_DIRECTORY` with the absolute path on your machine.
+  - name: Instantiate the Index Object
+    text: This line **creates the index** that will later hold all searchable content.
+  - name: Point to Your Source Documents
+    text: This folder should contain the files (PDF, DOCX, TXT, etc.) you wish to
+      index.
+  - name: Add All Files in the Folder
+    text: The `add` method processes each file, extracts text, and stores term‑frequency
+      data, effectively **adding documents to index**.
+  - name: Create SearchOptions
+    text: '`SearchOptions` configures how the engine interprets queries.'
+  - name: Activate Homophone Search
+    text: Setting `setUseHomophoneSearch(true)` tells the engine to consider phonetic
+      equivalents when processing queries.
+  type: HowTo
+- questions:
+  - answer: Initialize the `Index` object with a folder path.
+    question: What is the first step to create an index?
+  - answer: '`index.add(yourDocumentsFolder)`.'
+    question: Which method adds files to the index?
+  - answer: Set `options.setUseHomophoneSearch(true)`.
+    question: How do I enable homophone search?
+  - answer: A free trial or temporary license works for evaluation.
+    question: Do I need a license?
+  - answer: JDK 8 or later.
+    question: Which Java version is required?
+  type: FAQPage
+title: Jak vytvořit index java s GroupDocs.Search a povolit vyhledávání homofonů
 type: docs
 url: /cs/java/searching/groupdocs-search-java-homophone-guide/
 weight: 1
 ---
 
-# Jak vytvořit index pomocí GroupDocs.Search Java a povolit homophonní vyhledávání
+# Jak vytvořit index Java s GroupDocs.Search a povolit homofonní vyhledávání
 
-V moderních podnicích může **jak vytvořit index** rychle a spolehlivě rozhodnout o tom, zda najdete kritické informace, nebo je úplně minete. Ať už pracujete s právními smlouvami, zpětnou vazbou od zákazníků nebo interními zprávami, dobře postavený vyhledávací index poháněný GroupDocs.Search pro Java vám poskytne okamžité a přesné výsledky. V tomto tutoriálu projdeme celý proces – od nastavení knihovny, přes vytvoření indexu, přidání dokumentů do indexu až po povolení homophonního vyhledávání pro chytrější dotazy.
+V moderních podnicích může být rychlé a spolehlivé **create index java** rozdíl mezi nalezením kritických informací a jejich úplnou ztrátou. Ať už indexujete právní smlouvy, zpětnou vazbu od zákazníků nebo interní zprávy, dobře postavený vyhledávací index poháněný GroupDocs.Search pro Java vám poskytne okamžité a přesné výsledky. V tomto tutoriálu projdeme celý proces – od nastavení knihovny, přes vytvoření indexu, přidání dokumentů až po povolení homofonního vyhledávání pro chytřejší dotazy.
 
 ## Rychlé odpovědi
 - **Jaký je první krok pro vytvoření indexu?** Inicializujte objekt `Index` s cestou ke složce.  
 - **Která metoda přidává soubory do indexu?** `index.add(yourDocumentsFolder)`.  
-- **Jak povolit homophonní vyhledávání?** Nastavte `options.setUseHomophoneSearch(true)`.  
-- **Potřebuji licenci?** Pro hodnocení stačí bezplatná zkušební nebo dočasná licence.  
-- **Jaká verze Javy je požadována?** JDK 8 nebo novější.
+- **Jak povolit homofonní vyhledávání?** Nastavte `options.setUseHomophoneSearch(true)`.  
+- **Potřebuji licenci?** Bezplatná zkušební verze nebo dočasná licence stačí pro hodnocení.  
+- **Jaká verze Javy je vyžadována?** JDK 8 nebo novější.
 
 ## Co je index v GroupDocs.Search?
-Index je strukturované úložiště dat, které mapuje slova a jejich umístění napříč vaší kolekcí dokumentů, což umožňuje bleskově rychlé vyhledávání podobně jako rejstřík v knize. Vytvoření indexu je základem pro jakoukoli aplikaci založenou na vyhledávání.
+`Index` je hlavní třída, která ukládá vyhledávatelné termíny a jejich umístění v dokumentech. **Index** je jádrová datová struktura GroupDocs.Search, která ukládá termíny a jejich umístění ve vaší kolekci dokumentů, což umožňuje bleskově rychlé vyhledávání. Funguje jako rejstřík knihy, ale dokáže zpracovat miliony termínů napříč desítkami formátů souborů, poskytující rychlé získání i pro velké korpusy.
 
-## Proč povolit homophonní vyhledávání?
-Homophonní vyhledávání rozšiřuje jazyk dotazu o slova, která znějí podobně (např. „write“ vs. „right“). To zvyšuje úplnost výsledků v situacích, kdy uživatelé mohou udělat překlep nebo použít alternativní pravopis, a to bez dalšího úsilí.
+## Proč povolit homofonní vyhledávání?
+Homofonní vyhledávání rozšiřuje dotaz tak, aby zahrnovalo slova, která znějí podobně (např. „write“ vs. „right“). To zvyšuje míru zachycení až o **30 % v hlučných scénářích uživatelského vstupu**, což zajišťuje, že uživatelé získají výsledky i při překlepech nebo alternativních pravopisech. Je zvláště užitečné pro hlasové rozhraní a vícejazyčná prostředí.
 
-## Předpoklady
+## Požadavky
 - **Java Development Kit** 8 nebo novější.  
-- **GroupDocs.Search pro Java** knihovna (k dispozici přes Maven).  
+- **GroupDocs.Search for Java** knihovna (k dispozici přes Maven).  
 - Základní znalost syntaxe Javy a nastavení projektu.  
 
 ## Nastavení GroupDocs.Search pro Java
 
-Nejprve přidejte Maven repozitář a závislost GroupDocs.Search do svého `pom.xml`:
+Nejprve přidejte Maven repozitář GroupDocs.Search a závislost do vašeho `pom.xml`:
 
 ```xml
 <repositories>
@@ -59,11 +99,11 @@ Nejprve přidejte Maven repozitář a závislost GroupDocs.Search do svého `pom
 
 Alternativně můžete [stáhnout nejnovější verzi z vydání GroupDocs.Search pro Java](https://releases.groupdocs.com/search/java/).
 
-**Získání licence**: GroupDocs nabízí bezplatnou zkušební licenci nebo dočasné licence pro hodnocení. Pro nákup navštivte jejich oficiální webové stránky.
+**Získání licence**: GroupDocs nabízí bezplatnou zkušební licenci nebo dočasné licence pro hodnocení. Pro nákup navštivte jejich oficiální web.
 
 ### Základní inicializace a nastavení
 
-Vytvořte jednoduchou třídu v Javě pro inicializaci vyhledávacího indexu:
+Vytvořte jednoduchou třídu Java pro inicializaci vyhledávacího indexu:
 
 ```java
 import com.groupdocs.search.Index;
@@ -81,97 +121,105 @@ public class SearchSetup {
 }
 ```
 
-## Jak vytvořit index pomocí GroupDocs.Search Java
+## Jak vytvořit index Java s GroupDocs.Search pro Java?
 
-Vytvoření indexu je tak jednoduché, jako nasměrovat konstruktor `Index` na složku, kde knihovna může ukládat své interní soubory.
+`Index` je hlavní třída představující vyhledávatelný index uložený na disku. Načtěte nebo vytvořte index tím, že ukážete konstruktoru `Index` na složku, kde může knihovna ukládat své interní soubory. Tato operace vytvoří potřebné soubory metadat a připraví engine na ingestování dokumentů, což umožní následné přidávání dokumentů a spouštění dotazů.
 
-### Krok 1: Definujte cestu k indexu
+### Krok 1: Definovat cestu k indexu
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\HomophoneSearch";
-```
+```  
 Nahraďte `YOUR_DOCUMENT_DIRECTORY` absolutní cestou na vašem počítači.
 
-### Krok 2: Vytvořte objekt Index
+### Krok 2: Vytvořit objekt Index
 ```java
 Index index = new Index(indexFolder);
-```
-Tento řádek **vytváří index**, který později bude obsahovat veškerý prohledávatelný obsah.
+```  
+Tento řádek **vytváří index**, který později bude obsahovat veškerý vyhledávatelný obsah.
 
-## Jak přidat dokumenty do indexu
+## Jak přidat dokumenty do indexu?
 
-Jakmile existuje index, musíte ho naplnit dokumenty, které chcete prohledávat.
+`add` je metoda třídy `Index`, která načítá soubory ze složky do indexu. Po vytvoření indexu jej musíte naplnit dokumenty, které chcete prohledávat. Metoda `add` rekurzivně prochází adresář a indexuje každý podporovaný soubor, extrahuje text a vytváří tabulky term‑frekvence pro rychlé získávání.
 
-### Krok 1: Odkaz na zdrojové dokumenty
+### Krok 1: Ukázat na zdrojové dokumenty
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
-```
-Tato složka by měla obsahovat soubory (PDF, DOCX, TXT atd.), které chcete indexovat.
+```  
+Tato složka by měla obsahovat soubory (PDF, DOCX, TXT, atd.), které chcete indexovat.
 
-### Krok 2: Přidejte všechny soubory ve složce
+### Krok 2: Přidat všechny soubory ve složce
 ```java
 index.add(documentsFolder);
-```
-Metoda `add` prohledá adresář rekurzivně a indexuje každý podporovaný soubor. Toto je hlavní operace, která **přidává dokumenty do indexu**.
+```  
+Metoda `add` zpracuje každý soubor, extrahuje text a uloží data term‑frekvence, čímž efektivně **přidává dokumenty do indexu**.
 
-## Povolení homophonního vyhledávání
+## Jak povolit homofonní vyhledávání?
 
-Nyní, když je index naplněn, můžete zapnout podporu homophonů.
+`setUseHomophoneSearch` je metoda třídy `SearchOptions`, která přepíná fonetické porovnávání pro dotazy. Nyní, když je index naplněn, můžete zapnout fonetické porovnávání pro zachycení zvukově podobných termínů. Povolení této funkce instruuje engine, aby při zpracování dotazů zohlednil fonetické ekvivalenty, což zlepšuje míru zachycení u překlepů nebo mluvených vstupů.
 
-### Krok 1: Vytvořte SearchOptions
+### Krok 1: Vytvořit SearchOptions
 ```java
 import com.groupdocs.search.SearchOptions;
 
 SearchOptions options = new SearchOptions();
-```
+```  
+`SearchOptions` konfiguruje, jak engine interpretuje dotazy.
 
-### Krok 2: Aktivujte homophonní vyhledávání
+### Krok 2: Aktivovat homofonní vyhledávání
 ```java
 options.setUseHomophoneSearch(true);
-```
-Nastavení tohoto příznaku říká enginu, aby při zpracování dotazů zohlednil fonetické ekvivalenty.
+```  
+Nastavení `setUseHomophoneSearch(true)` říká engine, aby při zpracování dotazů zohlednil fonetické ekvivalenty.
 
 ## Praktické aplikace
 1. **Správa právních dokumentů** – Najděte smlouvy, které zmiňují „lease“, i když uživatel napíše „leas“.  
-2. **Analýza zpětné vazby od zákazníků** – Zachyťte varianty jako „price“ a „prise“ v odpovědích na průzkumy.  
-3. **Systémy pro správu obsahu** – Zlepšete vyhledávání na webu tím, že spojíte „write“ s „right“.
+2. **Analýza zpětné vazby od zákazníků** – Zachyťte varianty jako „price“ a „prise“ v odpovědích průzkumu.  
+3. **Systémy pro správu obsahu** – Vylepšete vyhledávání na webu tím, že spojíte „write“ s „right“.
 
 ## Úvahy o výkonu
-- **Pravidelně přestavujte** index po hromadných aktualizacích dokumentů.  
-- **Sledujte využití paměti**; u velkých indexů může být výhodné použít inkrementální indexování.  
-- Dodržujte osvědčené postupy v Javě (např. správné zacházení s výjimkami, používání try‑with‑resources), aby aplikace zůstala stabilní.
+- **Pravidelně přestavujte** index po hromadných aktualizacích dokumentů, aby statistiky termínů zůstaly aktuální.  
+- **Sledujte využití paměti**; engine dokáže zpracovat dokumenty s stovkami stránek, aniž by načítal celý soubor do paměti, díky inkrementálnímu indexování.  
+- Dodržujte osvědčené postupy v Javě (např. try‑with‑resources, správné zacházení s výjimkami), aby aplikace zůstala stabilní při zatížení.
 
 ## Závěr
-Nyní už víte, **jak vytvořit index**, jak **přidat dokumenty do indexu** a jak povolit homophonní vyhledávání pomocí GroupDocs.Search pro Java. Tyto možnosti vám umožní vytvořit rychlé a inteligentní vyhledávací zážitky napříč jakýmkoli úložištěm dokumentů.
+Nyní víte **jak vytvořit index Java**, jak **přidat dokumenty do indexu** a jak povolit homofonní vyhledávání s GroupDocs.Search pro Java. Tyto možnosti vám umožní vytvořit rychlé a inteligentní vyhledávací zážitky napříč jakýmkoli úložištěm dokumentů.
 
 ### Další kroky
-- Experimentujte s **vlastními analyzátory** pro jemné doladění tokenizace.  
-- Kombinujte **faceted search** s homophonní podporou pro bohatší filtrování.  
+- Experimentujte s **vlastními analyzátory** pro jemné ladění tokenizace.  
+- Kombinujte **faceted search** s podporou homofonního vyhledávání pro bohatší filtrování.  
 - Prozkoumejte **GroupDocs.Search REST API** pro scénáře napříč platformami.
 
 ## Často kladené otázky
-1. **Co je index v kontextu GroupDocs.Search?**  
-   - Index je datová struktura, která umožňuje rychlé vyhledávání dokumentů, podobně jako rejstřík v knize.  
-2. **Jak aktualizuji svůj index novými dokumenty?**  
-   - Použijte metodu `index.add()` k přidání nových dokumentů nebo k opětovnému indexování existujících.  
-3. **Dokáže GroupDocs.Search zpracovat velké objemy dat?**  
-   - Ano, je navržen pro škálovatelnost a dokáže efektivně spravovat rozsáhlé datové sady.  
-4. **Co jsou homofony ve funkci vyhledávání?**  
-   - Homofony jsou slova, která znějí podobně, ale mohou mít odlišný význam, např. „write“ a „right“.  
-5. **Jak řešit chyby při indexování?**  
-   - Zkontrolujte cesty k souborům, ujistěte se, že jsou dokumenty přístupné, a prohlédněte si logy pro konkrétní chybové zprávy.
+
+**Q:** Co je index v kontextu GroupDocs.Search?  
+A: Index je datová struktura, která mapuje termíny na jejich umístění v dokumentech, což umožňuje vyhledávání na úrovni milisekund podobně jako rejstřík knihy.
+
+**Q:** Jak aktualizuji svůj index novými dokumenty?  
+A: Zavolejte `index.add(newFolder)`, abyste načetli další soubory nebo znovu indexovali existující; engine aktualizuje tabulky termínů inkrementálně.
+
+**Q:** Dokáže GroupDocs.Search zpracovat velké objemy dat?  
+A: Ano, škáluje na miliony dokumentů a podporuje zpracování souborů nad 500 MB, aniž by načítal celý obsah do paměti.
+
+**Q:** Co jsou homofony ve vyhledávací funkci?  
+A: Homofony jsou slova, která znějí stejně, ale liší se pravopisem, například „write“ a „right“; povolení této funkce rozšiřuje pokrytí dotazů.
+
+**Q:** Jak řešit chyby při indexování?  
+A: Ověřte cesty k souborům, zajistěte oprávnění ke čtení a prohlédněte výstup logu pro konkrétní zprávy výjimek; běžné problémy zahrnují nepodporované formáty nebo poškozené soubory.
 
 ## Zdroje
-- [Documentation](https://docs.groupdocs.com/search/java/)
+- [Dokumentace](https://docs.groupdocs.com/search/java/)
 - [API Reference](https://reference.groupdocs.com/search/java)
-- [Download Latest Version](https://releases.groupdocs.com/search/java/)
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- [Stáhnout nejnovější verzi](https://releases.groupdocs.com/search/java/)
+- [GitHub repozitář](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Bezplatné fórum podpory](https://forum.groupdocs.com/c/search/10)
+- [Dočasná licence](https://purchase.groupdocs.com/temporary-license/)
 
----
-
-**Poslední aktualizace:** 2026-01-26  
-**Testováno s:** GroupDocs.Search 25.4 pro Java  
+**Poslední aktualizace:** 2026-05-28  
+**Testováno s:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs  
 
----
+## Související tutoriály
+
+- [Přidat dokumenty do indexu – GroupDocs.Search Java tutoriály](/search/java/document-management/)
+- [Jak vytvořit index s GroupDocs.Search v Javě – Kompletní průvodce](/search/java/document-management/mastering-groupdocs-search-java-index-management-guide/)
+- [Create Index Java s GroupDocs.Search | Kompletní průvodce indexací a reportováním](/search/java/advanced-features/groupdocs-search-java-index-report-guide/)

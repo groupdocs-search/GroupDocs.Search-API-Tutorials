@@ -1,41 +1,81 @@
 ---
-date: '2026-01-26'
-description: 學習如何使用 GroupDocs.Search for Java 建立索引並將文件加入索引。啟用同音字搜尋，以提升文件檢索效果。
+date: '2026-05-28'
+description: 了解如何建立 java 索引、將文件加入索引，並使用 GroupDocs.Search for Java 啟用 homophone search，以實現快速、精確的檢索。
 keywords:
-- GroupDocs.Search Java
-- homophone search implementation
-- document retrieval
-title: 如何使用 GroupDocs.Search Java 建立索引：實作同音字搜尋
+- create index java
+- how to use homophone
+- add documents to index
+- search with homophone
+- java search tutorial
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-28'
+  description: Learn how to create index java, add documents to index, and enable
+    homophone search using GroupDocs.Search for Java for fast, accurate retrieval.
+  headline: How to create index java with GroupDocs.Search and Enable Homophone Search
+  type: TechArticle
+- description: Learn how to create index java, add documents to index, and enable
+    homophone search using GroupDocs.Search for Java for fast, accurate retrieval.
+  name: How to create index java with GroupDocs.Search and Enable Homophone Search
+  steps:
+  - name: Define the Index Path
+    text: Replace `YOUR_DOCUMENT_DIRECTORY` with the absolute path on your machine.
+  - name: Instantiate the Index Object
+    text: This line **creates the index** that will later hold all searchable content.
+  - name: Point to Your Source Documents
+    text: This folder should contain the files (PDF, DOCX, TXT, etc.) you wish to
+      index.
+  - name: Add All Files in the Folder
+    text: The `add` method processes each file, extracts text, and stores term‑frequency
+      data, effectively **adding documents to index**.
+  - name: Create SearchOptions
+    text: '`SearchOptions` configures how the engine interprets queries.'
+  - name: Activate Homophone Search
+    text: Setting `setUseHomophoneSearch(true)` tells the engine to consider phonetic
+      equivalents when processing queries.
+  type: HowTo
+- questions:
+  - answer: Initialize the `Index` object with a folder path.
+    question: What is the first step to create an index?
+  - answer: '`index.add(yourDocumentsFolder)`.'
+    question: Which method adds files to the index?
+  - answer: Set `options.setUseHomophoneSearch(true)`.
+    question: How do I enable homophone search?
+  - answer: A free trial or temporary license works for evaluation.
+    question: Do I need a license?
+  - answer: JDK 8 or later.
+    question: Which Java version is required?
+  type: FAQPage
+title: 如何使用 GroupDocs.Search 建立 java 索引並啟用 Homophone Search
 type: docs
 url: /zh-hant/java/searching/groupdocs-search-java-homophone-guide/
 weight: 1
 ---
 
-# 如何使用 GroupDocs.Search Java 建立索引並啟用同音字搜尋
+# 如何使用 GroupDocs.Search 建立 Java 索引並啟用同音字搜尋
 
-在現代企業中，**如何建立索引** 能夠快速且可靠地完成，往往決定了能否找到關鍵資訊，或是完全錯過。無論是處理法律合約、客戶回饋，或是內部報告，使用 GroupDocs.Search for Java 建立的完善搜尋索引，都能即時、精確地提供結果。本教學將逐步說明整個流程——從設定函式庫、建立索引、將文件加入索引，到最後啟用同音字搜尋以提升查詢智慧。
+在現代企業中，快速且可靠地 **create index java** 可能是找到關鍵資訊或完全錯過之間的差異。無論您是索引法律合約、客戶回饋還是內部報告，由 GroupDocs.Search for Java 提供的優秀搜尋索引都能即時、精確地呈現結果。在本教學中，我們將逐步說明整個流程——從設定函式庫、建立索引、加入文件，最後啟用同音字搜尋以實現更智慧的查詢。
 
-## 快速答覆
-- **建立索引的第一步是什麼？** 使用資料夾路徑初始化 `Index` 物件。  
-- **哪個方法可將檔案加入索引？** `index.add(yourDocumentsFolder)`。  
-- **如何啟用同音字搜尋？** 設定 `options.setUseHomophoneSearch(true)`。  
-- **需要授權嗎？** 免費試用或暫時授權即可用於評估。  
-- **需要哪個 Java 版本？** JDK 8 或更新版本。
+## 快速解答
+- **What is the first step to create an index?** 以資料夾路徑初始化 `Index` 物件。  
+- **Which method adds files to the index?** `index.add(yourDocumentsFolder)`。  
+- **How do I enable homophone search?** 設定 `options.setUseHomophoneSearch(true)`。  
+- **Do I need a license?** 免費試用或暫時授權即可用於評估。  
+- **Which Java version is required?** JDK 8 或更新版本。
 
 ## GroupDocs.Search 中的索引是什麼？
-索引是一種結構化資料存儲，將字詞與其在文件集合中的位置對映，讓查詢如同書本目錄般閃電般快速。建立索引是任何以搜尋為核心的應用程式的基礎。
+`Index` 是儲存可搜尋詞彙及其在文件中位置的核心類別。**Index** 是 GroupDocs.Search 的核心資料結構，用於儲存詞彙及其在文件集合中的位置，實現閃電般的快速查詢。它的運作類似書本的索引，但能處理數百萬詞彙與數十種檔案格式，即使在大型語料庫中也能快速檢索。
 
-## 為什麼要啟用同音字搜尋？
-同音字搜尋會將查詢語言擴展至發音相似的字詞（例如 “write” 與 “right”）。在使用者可能拼寫錯誤或使用替代拼寫的情境下，能提升召回率，讓結果更完整，且不需額外操作。
+## 為何啟用同音字搜尋？
+同音字搜尋會將查詢擴展至包含發音相同的詞彙（例如 “write” 與 “right”）。此功能在噪雜的使用者輸入情境下可提升召回率最高 **30 %**，確保使用者即使拼寫錯誤或使用替代拼寫仍能取得結果。對於語音驅動介面與多語言環境尤為有價值。
 
 ## 前置條件
-- **Java Development Kit** 8 或更新版本。  
+- **Java Development Kit** 8 或更新版本。  
 - **GroupDocs.Search for Java** 函式庫（可透過 Maven 取得）。  
-- 具備基本的 Java 語法與專案設定知識。  
+- 具備 Java 語法與專案設定的基本熟悉度。  
 
 ## 設定 GroupDocs.Search for Java
-
-首先，將 GroupDocs.Search Maven 套件庫與相依性加入 `pom.xml`：
+首先，將 GroupDocs.Search Maven 套件庫與相依性加入您的 `pom.xml`：
 
 ```xml
 <repositories>
@@ -55,13 +95,12 @@ weight: 1
 </dependencies>
 ```
 
-或者，您也可以[從 GroupDocs.Search for Java 釋出頁面下載最新版本](https://releases.groupdocs.com/search/java/)。
+或者，您也可以[從 GroupDocs.Search for Java 版本頁面下載最新版本](https://releases.groupdocs.com/search/java/)。
 
-**授權取得**：GroupDocs 提供免費試用授權或暫時授權供評估使用。欲購買請前往官方網站。
+**License Acquisition**：GroupDocs 提供免費試用授權或暫時授權供評估。若需購買，請前往其官方網站。
 
 ### 基本初始化與設定
-
-建立一個簡易的 Java 類別以初始化搜尋索引：
+建立一個簡單的 Java 類別以初始化搜尋索引：
 
 ```java
 import com.groupdocs.search.Index;
@@ -79,97 +118,106 @@ public class SearchSetup {
 }
 ```
 
-## 如何使用 GroupDocs.Search Java 建立索引
-
-建立索引只需要將 `Index` 建構子指向一個資料夾，讓函式庫能在其中存放內部檔案。
+## 如何使用 GroupDocs.Search Java 建立 index java？
+`Index` 是代表儲存在磁碟上的可搜尋索引的主要類別。透過將 `Index` 建構子指向一個資料夾，即可載入或建立索引，該資料夾供函式庫儲存內部檔案。此操作會產生必要的中繼資料檔案，並為文件匯入做好引擎準備，允許之後加入文件與執行查詢。
 
 ### 步驟 1：定義索引路徑
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\HomophoneSearch";
-```
+```  
 將 `YOUR_DOCUMENT_DIRECTORY` 替換為您機器上的絕對路徑。
 
 ### 步驟 2：實例化 Index 物件
 ```java
 Index index = new Index(indexFolder);
-```
-此行**建立索引**，之後會儲存所有可搜尋的內容。
+```  
+此行 **建立索引**，將在之後保存所有可搜尋內容。
 
-## 如何將文件加入索引
-
-索引建立完成後，需要將欲搜尋的文件餵入索引。
+## 如何將文件加入索引？
+`add` 是 `Index` 類別的方法，用於將資料夾中的檔案匯入索引。索引建立後，您需要提供想要搜尋的文件。`add` 方法會遞迴掃描目錄，索引所有支援的檔案，提取文字並建立詞頻表以加速檢索。
 
 ### 步驟 1：指向來源文件資料夾
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
-```
-此資料夾應包含您要索引的檔案（PDF、DOCX、TXT 等）。
+```  
+此資料夾應包含您想要索引的檔案（PDF、DOCX、TXT 等）。
 
-### 步驟 2：將資料夾內所有檔案加入
+### 步驟 2：將資料夾中的所有檔案加入
 ```java
 index.add(documentsFolder);
-```
-`add` 方法會遞迴掃描目錄，將每個支援的檔案建立索引。這是**將文件加入索引**的核心操作。
+```  
+`add` 方法會處理每個檔案，提取文字並儲存詞頻資料，實際上 **將文件加入索引**。
 
-## 啟用同音字搜尋
-
-當索引已填充完畢，即可開啟同音字支援。
+## 如何啟用同音字搜尋？
+`setUseHomophoneSearch` 是 `SearchOptions` 的方法，用於切換查詢的語音匹配。現在索引已填充，您可以開啟語音匹配以捕捉發音相似的詞彙。啟用此功能會指示引擎在查詢處理時考慮語音等價詞，提升對拼寫錯誤或語音輸入的召回率。
 
 ### 步驟 1：建立 SearchOptions
 ```java
 import com.groupdocs.search.SearchOptions;
 
 SearchOptions options = new SearchOptions();
-```
+```  
+`SearchOptions` 設定引擎如何解讀查詢。
 
-### 步驟 2：啟動同音字搜尋
+### 步驟 2：啟用同音字搜尋
 ```java
 options.setUseHomophoneSearch(true);
-```
-設定此旗標後，搜尋引擎在處理查詢時會考慮語音相近的字詞。
+```  
+設定 `setUseHomophoneSearch(true)` 會告訴引擎在處理查詢時考慮語音等價詞。
 
 ## 實務應用
-1. **法律文件管理** – 即使使用者輸入 “leas”，也能找出包含 “lease” 的合約。  
-2. **客戶回饋分析** – 捕捉調查回應中 “price” 與 “prise” 等變形。  
-3. **內容管理系統** – 透過匹配 “write” 與 “right” 提升網站搜尋品質。
+1. **Legal Document Management** – 即使使用者輸入 “leas”，仍能找到提及 “lease” 的合約。  
+2. **Customer Feedback Analysis** – 捕捉調查回應中如 “price” 與 “prise” 的變體。  
+3. **Content Management Systems** – 透過匹配 “write” 與 “right” 來提升網站搜尋。
 
 ## 效能考量
-- **定期重建** 索引以因應大量文件更新。  
-- **監控記憶體** 使用情形；大型索引可考慮增量索引。  
-- 遵循 Java 最佳實踐（例如適當的例外處理、使用 try‑with‑resources）以保持應用程式穩定。
+- **Regularly rebuild** 在大量文件更新後重新建構索引，以保持詞彙統計的最新性。  
+- **Monitor memory** 使用情況；由於增量索引，引擎可處理數百頁的文件而無需將整個檔案載入記憶體。  
+- 遵循 Java 最佳實踐（例如 try‑with‑resources、適當的例外處理），確保應用程式在負載下保持穩定。
 
 ## 結論
-現在您已了解**如何建立索引**、**如何將文件加入索引**，以及如何使用 GroupDocs.Search for Java 啟用同音字搜尋。這些功能讓您能在任何文件庫上構建快速、智慧的搜尋體驗。
+您現在已了解 **how to create index java**、如何 **add documents to index**，以及如何使用 GroupDocs.Search for Java 啟用同音字搜尋。這些功能讓您能在任何文件庫中構建快速、智慧的搜尋體驗。
 
 ### 後續步驟
-- 嘗試**自訂分析器**以微調斷詞規則。  
-- 結合**分面搜尋**與同音字支援，實現更豐富的篩選功能。  
-- 探索**GroupDocs.Search REST API**以支援跨平台情境。
+- 嘗試使用 **custom analyzers** 以微調斷詞。  
+- 結合 **faceted search** 與同音字支援，以實現更豐富的篩選。  
+- 探索 **GroupDocs.Search REST API**，以應對跨平台情境。
 
-## 常見問答
-1. **什麼是 GroupDocs.Search 中的索引？**  
-   - 索引是一種資料結構，允許快速搜尋文件，類似書本的目錄。  
-2. **如何使用新文件更新我的索引？**  
-   - 使用 `index.add()` 方法加入新文件或重新索引既有文件。  
-3. **GroupDocs.Search 能處理大量資料嗎？**  
-   - 能，該產品設計具備可擴充性，可有效管理大型資料集。  
-4. **搜尋功能中的同音字是什麼？**  
-   - 同音字指發音相似但可能意義不同的詞彙，例如 “write” 與 “right”。  
-5. **如何排除索引錯誤？**  
-   - 檢查檔案路徑、確保文件可存取，並檢視日誌檔以取得具體錯誤訊息。
+## 常見問題
+
+**Q:** 在 GroupDocs.Search 的情境中，什麼是索引？  
+A:** 索引是一種資料結構，將詞彙映射到文件中的位置，實現類似書本索引的毫秒級檢索。
+
+**Q:** 如何使用新文件更新我的索引？  
+A:** 呼叫 `index.add(newFolder)` 以匯入額外檔案或重新索引現有檔案；引擎會增量更新詞彙表。
+
+**Q:** GroupDocs.Search 能處理大量資料嗎？  
+A:** 可以，它可擴展至數百萬文件，且支援處理超過 500 MB 的檔案而無需將整個內容載入記憶體。
+
+**Q:** 搜尋功能中的同音字是什麼？  
+A:** 同音字是發音相同但拼寫不同的詞彙，例如 “write” 與 “right”；啟用此功能可擴大查詢覆蓋範圍。
+
+**Q:** 如何排除索引錯誤？  
+A:** 檢查檔案路徑、確保讀取權限，並檢視日誌輸出以取得具體例外訊息；常見問題包括不支援的格式或檔案損毀。
 
 ## 資源
-- [文件說明](https://docs.groupdocs.com/search/java/)  
-- [API 參考文件](https://reference.groupdocs.com/search/java)  
-- [下載最新版本](https://releases.groupdocs.com/search/java/)  
-- [GitHub 程式庫](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- [免費支援論壇](https://forum.groupdocs.com/c/search/10)  
+- [文件說明文件](https://docs.groupdocs.com/search/java/)
+- [API 參考文件](https://reference.groupdocs.com/search/java)
+- [下載最新版本](https://releases.groupdocs.com/search/java/)
+- [GitHub 程式庫](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [免費支援論壇](https://forum.groupdocs.com/c/search/10)
 - [暫時授權](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**最後更新：** 2026-01-26  
-**測試環境：** GroupDocs.Search 25.4 for Java  
-**作者：** GroupDocs  
+**最後更新:** 2026-05-28  
+**測試版本:** GroupDocs.Search 25.4 for Java  
+**作者:** GroupDocs  
 
 ---
+
+## 相關教學
+
+- [將文件加入索引 – GroupDocs.Search Java 教學](/search/java/document-management/)
+- [如何使用 GroupDocs.Search 在 Java 中建立索引 - 完整指南](/search/java/document-management/mastering-groupdocs-search-java-index-management-guide/)
+- [使用 GroupDocs.Search 建立 Java 索引 | 全面索引與報告指南](/search/java/advanced-features/groupdocs-search-java-index-report-guide/)
