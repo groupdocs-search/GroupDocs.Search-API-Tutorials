@@ -1,42 +1,54 @@
 ---
-date: '2026-01-11'
-description: Lär dig hur du skapar ett anpassat sökindex med GroupDocs.Search för
-  Java, konfigurerar vanliga och blandade tecken för avancerad OCR och bildsökning.
+date: '2026-03-17'
+description: Lär dig hur du skapar ett index med GroupDocs.Search för Java, konfigurerar
+  vanliga och blandade tecken och optimerar sökningen för juridiska ärendenummer och
+  OCR‑bilder.
 keywords:
 - GroupDocs.Search Java
 - Java OCR character recognition
 - search library Java
-title: Skapa anpassat sökindex med teckenigenkänning – GroupDocs.Search Java
+title: Hur man skapar ett index med teckenigenkänning i Java
 type: docs
 url: /sv/java/ocr-image-search/groupdocs-search-java-character-recognition/
 weight: 1
 ---
 
-# Skapa anpassat sökindex med teckenigenkänning med GroupDocs.Search för Java
+at med:** GroupDocs.Search 25.4 för Java"
 
-I moderna dokumenttunga applikationer är **att skapa ett anpassat sökindex** som förstår nyanserna i din text—såsom bindestreck, understreck eller språk‑specifika symboler—avgörande för snabb och exakt återhämtning. Denna handledning guidar dig genom att konfigurera teckenigenkänning i **GroupDocs.Search för Java**, och täcker både vanliga tecken (bokstäver, siffror, understreck) och blandade tecken (t.ex. bindestreck). I slutet kommer du kunna skräddarsy ett index som passar exakt dina OCR‑ eller bildsök‑scenarier.
+"**Author:** GroupDocs" -> "**Författare:** GroupDocs"
+
+Then "---"
+
+We must ensure we keep all markdown formatting, code block placeholders unchanged.
+
+Check for any other shortcodes: none.
+
+Now produce final translated content.# Så skapar du index med teckenigenkänning med GroupDocs.Search för Java
+
+I moderna dokumenttunga applikationer är **hur man skapar index** som respekterar nyanserna i din text—såsom bindestreck, understreck eller språk‑specifika symboler—viktigt för snabb, exakt återvinning. I den här handledningen går vi igenom hur man konfigurerar teckenigenkänning i **GroupDocs.Search för Java**, och täcker både vanliga tecken (bokstäver, siffror, understreck) och blandade tecken (t.ex. bindestreck). I slutet kommer du att kunna skräddarsy ett index som passar exakt dina OCR‑ eller bildsök‑scenarier, oavsett om du indexerar juridiska ärendenummer, källkods‑arkiv eller flerspråkiga PDF‑filer.
 
 ## Snabba svar
-- **Vad betyder “skapa anpassat sökindex”?** Det innebär att konfigurera ett index så att specifika symboler behandlas som bokstäver eller blandade tecken, snarare än att ignoreras.  
+- **Vad betyder “create custom search index”?** Det betyder att konfigurera ett index för att behandla specifika symboler som bokstäver eller blandade tecken, snarare än att ignorera dem.  
 - **Vilket bibliotek används?** GroupDocs.Search för Java (v25.4 vid skrivtillfället).  
 - **Behöver jag en licens?** En gratis provversion fungerar för utveckling; en betald licens krävs för produktion.  
 - **Kan jag indexera både PDF‑filer och bilder?** Ja—GroupDocs.Search stödjer OCR på bilder och PDF‑filer när det är korrekt konfigurerat.  
 - **Krävs Maven?** Maven är det rekommenderade sättet att hantera beroenden, men du kan också använda Gradle eller manuella JAR‑filer.
 
-## Vad är ett anpassat sökindex?
-Ett anpassat sökindex låter dig definiera hur sökmotorn tolkar tecken. Som standard ignoreras många symboler, vilket kan leda till missade träffar för exempelvis ärendenummer (`ABC-123`) eller kodsnuttar (`my_variable`). Genom att justera alfabet‑ordlistan får du full kontroll över vad motorn betraktar som sökbar text.
+## Vad är ett anpassat sök‑index?
+Ett anpassat sök‑index låter dig definiera hur sökmotorn tolkar tecken. Som standard ignoreras många symboler, vilket kan leda till missade träffar för exempelvis ärendenummer (`2023-AB-456`) eller kodsnuttar (`my_variable`). Genom att justera alfabet‑ordlistan får du full kontroll över vad motorn behandlar som sökbar text.
 
-## Varför konfigurera vanliga och blandade tecken?
-- **Vanliga tecken** (bokstäver, siffror, understreck) behandlas som fristående token, vilket förbättrar exakt‑match‑sökningar.  
-- **Blandade tecken** (bindestreck, snedstreck) förenar ord; att konfigurera dem förhindrar oönskad token‑uppdelning, vilket är kritiskt för juridiska referenser, produktkoder eller källkod‑indexering.
+## Varför konfigurera vanliga och blandade tecken för juridiska ärendenummer?
+- **Vanliga tecken** (bokstäver, siffror, understreck) tokeniseras separat, vilket möjliggör exakt‑matchning sökningar för identifierare.  
+- **Blandade tecken** (bindestreck, snedstreck) håller relaterade token ihop, vilket förhindrar oönskad splittring av ärendenummer, produktkoder eller filsökvägar.  
+- Denna konfiguration **optimerar sök‑index**‑prestanda genom att minska token‑fragmentering och förbättra relevans för OCR‑genererat innehåll.
 
 ## Förutsättningar
-- **JDK 8** eller senare installerad.  
+- **JDK 8** eller senare installerat.  
 - **Maven** för beroendehantering.  
 - Tillgång till **GroupDocs.Search för Java**‑biblioteket (nedladdat via Maven eller den officiella webbplatsen).  
 
 ### Nödvändiga bibliotek och beroenden
-Lägg till repository‑ och beroende‑poster i din `pom.xml` (som visas nedan). XML‑blocket får inte ändras.
+Lägg till repository‑ och beroende‑poster i din `pom.xml` (som visas nedan). XML‑blocket måste förbli oförändrat.
 
 ```xml
 <repositories>
@@ -56,17 +68,17 @@ Lägg till repository‑ och beroende‑poster i din `pom.xml` (som visas nedan)
 </dependencies>
 ```
 
-Du kan också ladda ner de senaste JAR‑filerna från [GroupDocs.Search för Java‑releaser](https://releases.groupdocs.com/search/java/).
+Du kan också ladda ner de senaste JAR‑filerna från [GroupDocs.Search för Java‑utgåvor](https://releases.groupdocs.com/search/java/).
 
-### Licensanskaffning
-- **Gratis prov** – perfekt för tidig experimentering.  
-- **Tillfällig licens** – användbar för längre utvecklingscykler.  
-- **Produktionslicens** – krävs för kommersiell driftsättning.  
+### Licensförvärv
+- **Free Trial** – perfekt för tidig experimentering.  
+- **Temporary License** – användbar för längre utvecklingscykler.  
+- **Production License** – krävs för kommersiell distribution.  
 
-Skaffa en licens via den officiella portalen: [GroupDocs](https://purchase.groupdocs.com/temporary-license/).
+Skaffa en licens från den officiella portalen: [GroupDocs](https://purchase.groupdocs.com/temporary-license/).
 
-### Grundläggande initialisering
-Kodsnutten nedan visar den minsta koden som behövs för att starta ett tomt index. Behåll den oförändrad; vi bygger vidare på den senare.
+### Grundläggande initiering
+Kodsnutten nedan visar den minsta koden som behövs för att starta ett tomt index. Behåll den som den är; vi kommer att bygga vidare på den senare.
 
 ```java
 import com.groupdocs.search.*;
@@ -83,18 +95,18 @@ public class GroupDocsSearchSetup {
 }
 ```
 
-## Installera GroupDocs.Search för Java
+## Konfigurera GroupDocs.Search för Java
 
 ### Installation via Maven
-Maven‑konfigurationen från avsnittet *Förutsättningar* är allt du behöver. Efter att du lagt till den kör du `mvn clean install` för att hämta binärerna.
+Maven‑konfigurationen från *Förutsättningar*-avsnittet är allt du behöver. Efter att du lagt till den, kör `mvn clean install` för att hämta binärerna.
 
-### Miljöinställningar
-- Säkerställ att **indexmappen** och **dokumentmappen** finns på disken.  
-- Använd absoluta sökvägar eller konfigurera din IDE så att relativa sökvägar löses korrekt.  
+### Krav för miljöinställning
+- Se till att **index‑mappen** och **dokument‑mappen** finns på disken.  
+- Använd absoluta sökvägar eller konfigurera din IDE för att lösa relativa sökvägar korrekt.  
 
 ## Implementeringsguide
 
-Nedan går vi igenom två separata funktioner: **vanliga tecken** och **blandade tecken**. Varje funktion följer samma mönster—definiera sökvägar, skapa indexet, sätt teckensnitt‑ordlistan och indexera slutligen dina dokument.
+Nedan går vi igenom två distinkta funktioner: **vanliga tecken** och **blandade tecken**. Varje funktion följer samma mönster—definiera sökvägar, skapa indexet, ange teckensnitt‑ordlistan och slutligen indexera dina dokument.
 
 ### Funktion 1 – Vanliga tecken
 
@@ -103,7 +115,7 @@ Vanliga tecken behandlas som oberoende token. Detta är idealiskt när du vill a
 
 #### Steg‑för‑steg‑implementering
 
-**1️⃣ Ange sökvägar**  
+**1️⃣ Definiera sökvägar**  
 Definiera var indexet ska lagras och var dina källdokument finns.
 
 ```java
@@ -151,11 +163,11 @@ index.add(documentFolder);
 ### Funktion 2 – Blandade tecken
 
 #### Översikt
-Blandade tecken (som bindestreck) förenar ofta två ord. Att markera dem som *blandade* talar om för motorn att hålla de omgivande token‑erna ihop under indexeringen.
+Blandade tecken (som bindestreck) kopplar ofta två ord. Att markera dem som *blandade* instruerar motorn att hålla de omgivande tokenen ihop under indexering.
 
 #### Steg‑för‑steg‑implementering
 
-**1️⃣ Ange sökvägar**  
+**1️⃣ Definiera sökvägar**  
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/CharacterTypes/BlendedCharacters";
@@ -184,49 +196,52 @@ index.add(documentFolder);
 ## Praktiska tillämpningar
 
 ### Användningsfall 1 – Juridisk dokumenthantering
-Juridiska filer innehåller ofta ärendenummer som `2023-AB-456`. Genom att konfigurera understreck och bindestreck returnerar sökningar exakta träffar utan att dela upp identifieraren.
+Juridiska filer innehåller ofta ärendenummer som `2023-AB-456`. Genom att konfigurera understreck och bindestreck returnerar sökningar exakta träffar utan att dela identifieraren, vilket hjälper dig att **söka juridiska ärendenummer** effektivt.
 
-### Användningsfall 2 – Källkodsförråd
-Utvecklare behöver söka i kodsnuttar där understreck (`my_variable`) och bindestreck (`my-function`) är meningsfulla. Anpassad teckenigenkänning säkerställer att sökmotorn respekterar dessa symboler.
+### Användningsfall 2 – Källkods‑arkiv
+Utvecklare behöver söka kodsnuttar där understreck (`my_variable`) och bindestreck (`my-function`) är betydelsefulla. Anpassad teckenigenkänning säkerställer att sökmotorn respekterar dessa symboler.
 
 ### Användningsfall 3 – Flerspråkiga dataset
-När du arbetar med språk som använder ytterligare alfabet kan du utöka den vanliga teckenmängden för att inkludera dessa Unicode‑intervall, vilket garanterar korrekta korsspråkliga sökresultat.
+När du arbetar med språk som använder ytterligare alfabet kan du **utöka Unicode‑teckenuppsättningen** för att inkludera dessa intervall, vilket garanterar korrekta sökresultat över språk.
 
-## Prestanda‑överväganden
+### Användningsfall 4 – Indexera PDF‑bilder
+Om du indexerar skannade PDF‑filer eller bildfiler innehåller OCR‑utdata ofta blandade tecken. Genom att korrekt konfigurera vanliga och blandade tecken **optimeras sök‑index**‑prestanda för bildbaserat innehåll.
 
-- **Resurshantering** – Håll koll på heap‑användning; stora index drar nytta av inkrementella commit‑s.  
-- **Garbage Collection** – Frigör `Index`‑objekt när de är klara så att JVM kan återvinna minnet.  
+## Prestandaöverväganden
+
+- **Resurshantering** – Håll koll på heap‑användning; stora index drar nytta av inkrementella commit.  
+- **Soppsamling** – Frigör `Index`‑objekt när de är klara så att JVM kan återta minnet.  
 - **Indexoptimering** – Anropa periodiskt `index.optimize()` (om tillgängligt) för att komprimera indexet och förbättra frågehastigheten.  
 
 ## Slutsats
 
-Du vet nu hur du **skapar ett anpassat sökindex** som skiljer mellan vanliga och blandade tecken med GroupDocs.Search för Java. Denna fin‑granulerade kontroll ger dig möjlighet att bygga OCR‑medvetna, högpresterande söklösningar skräddarsydda för juridiska, utvecklings‑ eller flerspråkiga miljöer.
+Du vet nu **hur man skapar index** som skiljer mellan vanliga och blandade tecken med GroupDocs.Search för Java. Denna finmaskiga kontroll gör det möjligt att bygga OCR‑medvetna, högpresterande söklösningar anpassade för juridiska, utvecklings‑ eller flerspråkiga miljöer.
 
-**Nästa steg**  
+### Nästa steg
 - Experimentera med ytterligare Unicode‑intervall för icke‑latinska alfabet.  
 - Kombinera teckenkonfiguration med andra GroupDocs.Search‑funktioner som stemming eller synonymer.  
-- Integrera indexet i ett REST‑API för att exponera sökfunktionalitet till front‑end‑applikationer.
+- Integrera indexet i ett REST‑API för att exponera sökfunktioner till front‑end‑applikationer.
 
 ## Vanliga frågor
 
 **Q:** *Vad är syftet med `CharacterType.Letter`?*  
-**A:** Det talar om för indexet att behandla de angivna tecknen som vanliga bokstäver, så att de tokeniseras separat under indexeringen.
+**A:** Det talar om för indexet att behandla de angivna tecknen som vanliga bokstäver, så de tokeniseras separat under indexering.
 
 **Q:** *Kan jag blanda vanliga och blandade tecken i samma index?*  
 **A:** Ja—anropa helt enkelt `setRange` för varje typ; ordlistan hanterar båda konfigurationerna samtidigt.
 
 **Q:** *Behöver jag bygga om indexet efter att ha ändrat alfabetet?*  
-**A:** Absolut. Ändringar i teckenordlistan påverkar tokeniseringen, så du måste åter‑indexera dokumenten för att tillämpa de nya reglerna.
+**A:** Absolut. Ändringar i teckenordlistan påverkar tokenisering, så du måste åter‑indexera dokumenten för att tillämpa de nya reglerna.
 
 **Q:** *Finns det en gräns för hur många anpassade tecken jag kan definiera?*  
-**A:** Biblioteket stödjer hela Unicode‑området; prestandan kan försämras om du lägger till en extremt stor mängd, så begränsa dig till de tecken du faktiskt behöver.
+**A:** Biblioteket stödjer hela Unicode‑intervallet; prestanda kan försämras om du lägger till en extremt stor mängd, så begränsa det till de tecken du faktiskt behöver.
 
 **Q:** *Hur påverkar detta OCR‑noggrannheten?*  
-**A:** Genom att anpassa indexets teckenmängd till OCR‑motorns utdata minskar du falska negativa och förbättrar den övergripande sökrelevansen.
+**A:** Genom att anpassa indexets teckenuppsättning till OCR‑motorns utdata minskar du falska negativa och förbättrar den övergripande sökrelevansen.
 
 ---
 
-**Senast uppdaterad:** 2026-01-11  
+**Senast uppdaterad:** 2026-03-17  
 **Testat med:** GroupDocs.Search 25.4 för Java  
 **Författare:** GroupDocs  
 

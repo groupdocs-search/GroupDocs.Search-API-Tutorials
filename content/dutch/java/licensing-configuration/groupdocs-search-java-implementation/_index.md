@@ -1,48 +1,52 @@
 ---
-date: '2026-01-08'
-description: Leer hoe u zoekresultaten in Java kunt markeren met GroupDocs.Search
-  in Java‑toepassingen, schaalbare zoekopdrachten kunt configureren, netwerkimplementatie
-  en resultaatmarkering.
+date: '2026-03-17'
+description: Leer hoe je zoekresultaten kunt markeren in Java met GroupDocs.Search,
+  configureer een schaalbaar zoeknetwerk, indexeer documenten, voer queries uit en
+  toon gemarkeerde fragmenten.
 keywords:
 - GroupDocs.Search Java
 - distributed searching Java
 - highlight search results Java
-title: Markeer zoekresultaten Java met GroupDocs.Search
+title: Hoe zoekresultaten te markeren in Java met GroupDocs.Search
 type: docs
 url: /nl/java/licensing-configuration/groupdocs-search-java-implementation/
 weight: 1
 ---
 
-# Markeer zoekresultaten Java met GroupDocs.Search
+# Zoekresultaten markeren in Java met GroupDocs.Search
 
-Als je het bent om eindeloos handmatig door documenten te bladeren, biedt **highlight zoekresultaten java** een snelle, betrouwbare manier om precies te vinden wat je nodig hebt. In deze tutorial lopen we stap voor stap door het samengestelde van een gedistribueerd zoeknetwerk, het indexeren van je bestanden, het uitvoeren van queries en uiteindelijk het markeren van de overeenkomsten direct in de documenten. Aan het einde heb je een productie‑klare oplossing die over meerdere knooppunten kan schalen en relevante termen onmiddellijk laat opvallen.
+Als je het zat bent om eindeloos handmatig door documenten te bladeren, **highlight search results java** biedt een snelle, betrouwbare manier om precies te vinden wat je nodig hebt. In deze tutorial lopen we door het configureren van een gedistribueerd zoeknetwerk, het indexeren van je bestanden, het uitvoeren van queries, en uiteindelijk het markeren van de overeenkomsten direct in de documenten. Aan het einde heb je een productie‑klare oplossing die kan schalen over meerdere knooppunten en relevante termen onmiddellijk laat opvallen.
 
 ## Snelle antwoorden
-- **Wat betekent “highlight search results java”?** Het is nuttig naar het programmatisch markeren van gevonden trefwoorden in documenten bij gebruik van Java‑bibliotheken zoals GroupDocs.Search.
-- **Kan ik meerdere termen in hetzelfde document markeren?** Ja – gebruik `HighlightOptions` om te enorme hoeveelheden termen vóór/na elke match worden getoond.
-- **Heb ik een licentie nodig om dit voorbeeld uit te voeren?** Een gratis proefversie van tijdelijke licentie werkt voor testen; een volledige licentie is vereist voor productie.
-- **Welke Java-versie is vereist?** Java8 of hoger.
-- **Is deze aanpak geschikt voor grote documentverzamelingen?** Absoluut – het zoeknetwerk verdeelt index‑ en query‑belasting over knooppunten.
+- **Wat betekent “highlight search results java”?** Het verwijst naar het programmatisch markeren van gevonden sleutelwoorden in documenten bij gebruik van Java‑bibliotheken zoals GroupDocs.Search.  
+- **Kan ik meerdere termen in hetzelfde document markeren?** Ja – gebruik `HighlightOptions` om te definiëren hoeveel termen vóór/na elke overeenkomst worden getoond.  
+- **Heb ik een licentie nodig om dit voorbeeld uit te voeren?** Een gratis proefversie of tijdelijke licentie werkt voor testen; een volledige licentie is vereist voor productie.  
+- **Welke Java‑versie is vereist?** Java 8 of hoger.  
+- **Is deze aanpak geschikt voor grote documentcollecties?** Absoluut – het zoeknetwerk verdeelt indexering en query‑belasting over knooppunten.
 
-## Wat is Markeer zoekresultaten Java?
-**Highlight search results java** is het proces waarbij een zoekquery wordt genomen, nauwkeurige fragmenten in je documenten worden gevonden, en die fragmenten visueel worden gecontroleerd (bijv. door ze te omringen met markeringen of ze als gemarkeerde snippets terug te geven). Dit maakt het voor eind‑gebruikers eenvoudig om de context van elke match te zien zonder het volledige bestand te openen.
+## Wat is Highlight Search Results Java?
+**Highlight search results java** is het proces waarbij een zoekopdracht wordt genomen, overeenkomende fragmenten in je documenten worden gevonden, en die fragmenten visueel worden benadrukt (bijv. door ze te omringen met markeringen of ze als gemarkeerde fragmenten terug te geven). Dit maakt het voor eindgebruikers eenvoudig om de context van elke overeenkomst te zien zonder het volledige bestand te openen.
 
-## Waarom GroupDocs.Search gebruiken voor markeringen?
-GroupDocs.Search biedt een kant-en-klare, krachtige engine die de meeste bestandsformaten ondersteunt, gedistribueerde indexering en feitelijke fragment-highlighters. Het elimineert de beëindiging van eigen parsers om te schrijven van zoekinfrastructuur op laag niveau om te beheren, zodat je je kunt verwerken op een soepele gebruikerservaring.
+## Waarom Highlight Search Results Java belangrijk is
+Het gebruik van **highlight search results java** verbetert de gebruikerservaring door precies te laten zien waar een term voorkomt, vermindert de tijd die wordt besteed aan het openen van irrelevante bestanden, en helpt compliance‑teams snel gevoelige informatie te vinden. In combinatie met een gedistribueerd zoeknetwerk blijft de oplossing responsief, zelfs wanneer de documentencorpus groeit tot miljoenen.
+
+## Waarom GroupDocs.Search gebruiken voor markering?
+GroupDocs.Search biedt een kant‑en‑klaar, high‑performance engine die tientallen bestandsformaten ondersteunt, gedistribueerde indexering en ingebouwde fragment‑markeerders. Het elimineert de noodzaak om aangepaste parsers te schrijven of low‑level zoekinfrastructuur te beheren, zodat je je kunt concentreren op het leveren van een soepele gebruikerservaring.
 
 ## Vereisten
-- **Java Development Kit (JDK) 8+** – zorg dat `java -version` 1.8 of hoger aangegeven.
-- **Maven** – voor afhankelijkheidsbeheer.
-- **GroupDocs.Search for Java 25.4** – de versie die in deze gids wordt gebruikt.
-- Een IDE zoals **IntelliJ IDEA** of **Eclipse** (optioneel maar aanbevolen).
-- Basiskennis van Java en netwerkconcepten.
 
-## GroupDocs instellen. Zoek naar Java
+- **Java Development Kit (JDK) 8+** – zorg ervoor dat `java -version` 1.8 of hoger rapporteert.  
+- **Maven** – voor afhankelijkheidsbeheer.  
+- **GroupDocs.Search for Java 25.4** – de versie die door deze gids wordt gebruikt.  
+- Een IDE zoals **IntelliJ IDEA** of **Eclipse** (optioneel maar aanbevolen).  
+- Basiskennis van Java en netwerconcepten.
 
-Je kunt de bibliotheek in je project opnemen via Maven of door de JAR direct te downloaden.
+## GroupDocs.Search voor Java instellen
 
-### Maven-installatie
-Voeg de repository en afhankelijkheid toe aan je `pom.xml`:
+Je kunt de bibliotheek in je project opnemen via Maven of door de JAR rechtstreeks te downloaden.
+
+### Maven‑configuratie
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -62,16 +66,16 @@ Voeg de repository en afhankelijkheid toe aan je `pom.xml`:
 </dependencies>
 ```
 
-### Direct downloaden
-Download anders de nieuwste JAR vanaf [GroupDocs.Zoek naar Java-releases](https://releases.groupdocs.com/search/java/).
+### Directe download
+Download anders de nieuwste JAR van [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Stappen voor het verwerven van licenties
-- **Gratis proefversie:** Begin met een proefversie om de kernfuncties te verkennen.
-- **licentie via [deze pagina](https://purchase.groupdocs.com/temporary-license/).
-- **Aankoop:** Haal een volledige licentie voor productie‑implementaties.
+### Stappen voor licentie‑verwerving
+- **Free Trial:** Begin met een proefversie om de kernfuncties te verkennen.  
+- **Temporary License:** Verkrijg een uitgebreide testlicentie via [this page](https://purchase.groupdocs.com/temporary-license/).  
+- **Purchase:** Verkrijg een volledige licentie voor productie‑implementaties.
 
 ### Basisinitialisatie en configuratie
-Maak een `Index`‑instantie die wijst naar een kaart waar de zoekindex wordt opgeslagen:
+Create an `Index` instance that points to a folder where the search index will be stored:
 
 ```java
 import com.groupdocs.search.*;
@@ -85,12 +89,12 @@ public class SearchSetup {
 }
 ```
 
-## Implementatiegids
+## Implementatie‑gids
 
-### Hoe u zoekresultaten van Java in een gedistribueerd netwerk kunt markeren
+### Hoe Highlight Search Results Java te gebruiken in een gedistribueerd netwerk
 
-#### Het zoeknetwerk configureren
-Definieer eerst waar je documenten zich bevinden en welke poort het netwerk zal gebruiken.
+#### Configuratie van het zoeknetwerk
+First, define where your documents live and which port the network will use.
 
 ```java
 import com.groupdocs.search.common.*;
@@ -102,11 +106,11 @@ int basePort = 49116; // Change if port is busy
 Configuration configuration = ConfiguringSearchNetwork.configure(basePath, basePort);
 ```
 
-- **`basePath`** – de hoofdkaart die de bestanden bevat die je wilt indexeren.
-- **`basePort`** – de TCP‑poort voor verbindingscommunicatie; kies een ongebruikte poort.
+- **`basePath`** – de hoofdmap die de bestanden bevat die je wilt indexeren.  
+- **`basePort`** – de TCP‑poort voor knooppuntcommunicatie; kies een ongebruikte poort.
 
-#### Zoeknetwerkknooppunten implementeren
-Implementeer één of meer knooppunten op basis van de configuratie. Het eerste knooppunt wordt de master.
+#### Implementatie van zoeknetwerk‑knooppunten
+Deploy one or more nodes based on the configuration. The first node becomes the master.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -115,11 +119,11 @@ SearchNetworkNode[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, c
 SearchNetworkNode masterNode = nodes[0];
 ```
 
-- **`nodes`** – een array van alle actieve knooppunten.
-- **`masterNode`** – coördineert indexering en query-distributie.
+- **`nodes`** – een array van alle actieve knooppunten.  
+- **`masterNode`** – coördineert indexering en query‑distributie.
 
-#### Abonneren op zoeknetwerkknooppuntgebeurtenissen
-Koppel luisteraars aan de masternode om realtime meldingen te ontvangen (bijv. wanneer indexering voltooid is).
+#### Abonneren op zoeknetwerk‑knooppunt‑events
+Attach listeners to the master node to receive real‑time notifications (e.g., when indexing completes).
 
 ```java
 import com.groupdocs.search.scaling.events.*;
@@ -127,8 +131,8 @@ import com.groupdocs.search.scaling.events.*;
 SearchNetworkNodeEvents.subscribe(masterNode);
 ```
 
-#### Directory's indexeren in netwerkknooppunt
-Wijs het knooppunt naar de kaart(pen) die je wilt indexeren. De helper‑klasse `Utils.DocumentsPath` gebruikt naar de voorbeeld‑datamap.
+#### Directories indexeren in netwerk‑knooppunt
+Point the node to the folder(s) you want to index. The helper class `Utils.DocumentsPath` resolves to the sample data folder.
 
 ```java
 import com.groupdocs.search.examples.Utils;
@@ -137,8 +141,8 @@ import com.groupdocs.search.options.*;
 IndexingDocuments.addDirectories(masterNode, Utils.DocumentsPath);
 ```
 
-#### Tekst zoeken op netwerkknooppunten
-Voer een query uit tegen **alle** knooppunten en zaal de beveiligde documenten op.
+#### Tekst zoeken over netwerk‑knooppunten
+Run a query against **all** nodes and retrieve the matching documents.
 
 ```java
 import java.util.ArrayList;
@@ -148,11 +152,11 @@ ArrayList<NetworkFoundDocument> documents = TextSearchInNetwork.searchAll(master
 highlightInDocument(masterNode, documents.get(0), 3); // Highlight results from the first found document.
 ```
 
-- Vervang `"ipsum"` door elke term die je wilt vinden.
-- De `highlightInDocument`‑methode (hieronder) zal de marketing toepassen.
+- Vervang `"ipsum"` door een willekeurige term die je wilt vinden.  
+- De `highlightInDocument`‑methode (hieronder getoond) zal de markering toepassen.
 
-#### Document met meerdere termen markeren – Zoekresultaten markeren
-De volgende methode laat zien hoe fragmenten rond elke match gemarkeerd kunnen worden. Hij toont ook hoe je het aantal verschillende termen kunt regelen, wat voldoet aan het secundaire trefwoord **markeer meerdere termen document**.
+#### Meerdere termen in document markeren – Zoekresultaten markeren
+The following method demonstrates how to highlight fragments around each match. It also shows how to control the number of surrounding terms, satisfying the secondary keyword **highlight multiple terms document**.
 
 ```java
 import com.groupdocs.search.highlighters.*;
@@ -186,68 +190,61 @@ public static void highlightInDocument(
 }
 ```
 
-- **`OutputFormat.PlainText`** – geeft platte tekstfragmenten terug; je kunt overschakelen naar HTML voor een rijkere UI.
-- **`HighlightOptions`** – aantal woorden vóór/na elke match worden opgenomen (`setTermsBefore`, `setTermsAfter`).
-- **`maxFragments`** – beperkt het aantal fragmenten dat per document wordt weergegeven.
+- **`OutputFormat.PlainText`** – geeft platte‑tekst fragmenten terug; je kunt overschakelen naar HTML voor een rijkere UI.  
+- **`HighlightOptions`** – bepaalt hoeveel woorden vóór/na elke overeenkomst worden opgenomen (`setTermsBefore`, `setTermsAfter`).  
+- **`maxFragments`** – beperkt het aantal fragmenten dat je per document weergeeft.
 
-#### Netwerkknooppunten sluiten
-Wanneer je klaar bent, sluit je elk knooppunt om bronnen vrij te geven.
+#### Netwerk‑knooppunten sluiten
+When you’re done, shut down every node to free resources.
 
 ```java
-voor (SearchNetworkNode knooppunt: knooppunten) { 
-knooppunt.close();
+for (SearchNetworkNode node : nodes) {
+    node.close();
 }
 ```
 
 ## Praktische toepassingen
-- **Enterprise Document Management:** Centraliseer bedrijfsbestanden en laat medewerkers direct relevante contracten of beleidsdocumenten vinden.
-- **Juridische dossiers:** Breng snel precedent‑documenten naar voren door belangrijke juridische termen te markeren.
-- **R&D Knowledge Bases:** Onderzoekers kunnen patenten van technische papieren doorzoeken en gemarkeerde fragmenten zien.
-- **E‑commerce Catalogi:** Sta shoppers toe producten te vinden via trefwoorden met gemarkeerde matches in beschrijvingen.
-- **Bibliotheeksystemen:** Leners kunnen zoeken in duizenden boeken en gemarkeerde passages bekijken zonder elk bestand te openen.
 
-## Prestatieoverwegingen
-- **Houd indexen actueel:** Herindex gewijzigde bestanden elke nacht of gebruik incrementele updates.
-- **Maak gebruik van meerdere knooppunten:** Verspreid index‑ en query‑belasting om knelpunten te vermijden.
-- **Tune `HighlightOptions`:** Het verminderen van `termsBefore/After` gebruikte het geheugenverbruik bij zeer grote documenten.
+- **Enterprise Document Management:** Centraliseer bedrijfsbestanden en laat medewerkers direct relevante contracten of beleidsdocumenten vinden.  
+- **Legal Case Files:** Breng snel precedent‑documenten naar voren door belangrijke juridische termen te markeren.  
+- **R&D Knowledge Bases:** Onderzoekers kunnen patenten of technische papers doorzoeken en gemarkeerde fragmenten zien.  
+- **E‑commerce Catalogs:** Sta shoppers toe producten te vinden op basis van trefwoorden met gemarkeerde overeenkomsten in beschrijvingen.  
+- **Library Systems:** Gebruikers kunnen zoeken in duizenden boeken en gemarkeerde passages bekijken zonder elk bestand te openen.
 
-## Veelvoorkomende problemen en probleemoplossing
+## Prestatie‑overwegingen
 
-| Symptoom | Waarschijnlijke oorzaak | Repareren |
-|---------|--------------|-----|
+- **Keep indexes fresh:** Index gewijzigde bestanden elke nacht opnieuw of gebruik incrementele updates.  
+- **Leverage multiple nodes:** Verspreid indexering en query‑belasting over meerdere knooppunten om knelpunten te voorkomen.  
+- **Tune `HighlightOptions`:** Het verminderen van `termsBefore/After` verlaagt het geheugenverbruik voor zeer grote documenten.
 
-| Geen resultaten gevonden | Index niet opgebouwd of verwijst naar de verkeerde map | Controleer `Utils.DocumentsPath` en voer `IndexingDocuments.addDirectories` opnieuw uit |
+## Veelvoorkomende problemen & foutopsporing
 
-| Uitvoer van highlighting is leeg | `HighlightOptions`-limieten te laag of probleem met documentcodering | Verhoog `termsTotal` of zorg ervoor dat de documentcodering wordt ondersteund |
-
-| Poortconflictfout | `basePort` is al in gebruik | Kies een ander poortnummer (bijv. 49117) |
-
-| Licentie-uitzondering | Ontbrekend of verlopen licentiebestand | Plaats een geldig `GroupDocs.Search.lic`-bestand in de applicatiemap |
+| Symptoom | Waarschijnlijke oorzaak | Oplossing |
+|----------|--------------------------|-----------|
+| Geen resultaten teruggekregen | Index niet gebouwd of wijst naar de verkeerde map | Controleer `Utils.DocumentsPath` en voer `IndexingDocuments.addDirectories` opnieuw uit |
+| Markeeroutput is leeg | `HighlightOptions`-limieten te laag of document‑codering probleem | Verhoog `termsTotal` of zorg ervoor dat de codering van het document wordt ondersteund |
+| Poortconflict fout | `basePort` is al in gebruik | Kies een ander poortnummer (bijv. 49117) |
+| Licentie‑exception | Ontbrekend of verlopen licentiebestand | Plaats een geldig `GroupDocs.Search.lic`‑bestand in de applicatiewortel |
 
 ## Veelgestelde vragen
 
-**V: Kan ik meerdere zoeknetwerkknooppunten implementeren voor load balancing?**
-A: Ja, het implementeren van meerdere knooppunten verdeelt de indexerings- en querytaken, waardoor de schaalbaarheid en de responstijd verbeteren.
+**Q: Kan ik meerdere zoeknetwerk‑knooppunten inzetten voor load balancing?**  
+A: Ja, het inzetten van meerdere knooppunten verdeelt indexering en query‑werk, waardoor schaalbaarheid en responstijd verbeteren.
 
-**V: Hoe markeer ik meerdere zoektermen in hetzelfde document?**
-A: Geef een lijst met termen door aan de `highlight`-methode en configureer `HighlightOptions` om de omliggende woorden voor elke overeenkomst weer te geven.
+**Q: Hoe kan ik meerdere zoektermen in hetzelfde document markeren?**  
+A: Geef een lijst met termen door aan de `highlight`‑methode en configureer `HighlightOptions` om omringende woorden voor elke overeenkomst weer te geven.
 
-**V: Is het mogelijk om je te abonneren op realtime zoekgebeurtenissen?**
-A: Absoluut. Gebruik `SearchNetworkNodeEvents.subscribe(masterNode)` om callbacks te ontvangen voor de voortgang van het indexeren, de uitvoering van de query en fouten.
+**Q: Is het mogelijk om je te abonneren op real‑time zoek‑events?**  
+A: Absoluut. Gebruik `SearchNetworkNodeEvents.subscribe(masterNode)` om callbacks te ontvangen voor indexeringsvoortgang, query‑uitvoering en fouten.
 
-**V: Welke bestandsindelingen ondersteunt GroupDocs.Search voor indexering en markering?**
-A: Meer dan 50 indelingen, waaronder DOCX, PDF, HTML, TXT, PPTX en meer.
+**Q: Welke bestandsformaten ondersteunt GroupDocs.Search voor indexering en markering?**  
+A: Meer dan 50 formaten, waaronder DOCX, PDF, HTML, TXT, PPTX en meer.
 
-**V: Hoe kan ik de zoeksnelheid in zeer grote collecties verbeteren?**
-A: Werk de indexen regelmatig bij, verdeel ze over de knooppunten en verfijn `HighlightOptions` om de fragmentgrootte te beperken.
-
-## Conclusie
-Door deze gids te volgen heb je nu een complete, productie‑klare setup voor **highlight zoekresultaten java** met GroupDocs.Search. Je kunt de oplossing over een netwerkschalen, elk ondersteund documenttype indexeren, snelle queries uitvoeren en specifieke snippets veroorzaken die gebruikers precies laten vinden wat ze nodig hebben. Ontdek de volgende stappen – de resultaten veroorzaakt in een web‑UI, faceted search toevoegen, of combineren met OCR voor gescande PDF‑bestanden.
+**Q: Hoe kan ik de zoek‑snelheid verbeteren bij zeer grote collecties?**  
+A: Werk indexen regelmatig bij, verspreid ze over knooppunten, en stem `HighlightOptions` nauwkeurig af om de fragmentgrootte te beperken.
 
 ---
 
-**Laatst bijgewerkt:** 08-01-2026
-**Getest met:** GroupDocs.Zoek naar Java 25.4
-**Auteur:** Groepsdocumenten  
-
----
+**Laatst bijgewerkt:** 2026-03-17  
+**Getest met:** GroupDocs.Search for Java 25.4  
+**Auteur:** GroupDocs

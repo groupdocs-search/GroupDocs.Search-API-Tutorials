@@ -1,7 +1,7 @@
 ---
 title: "How to add documents to index with Metadata Indexing in Java using GroupDocs.Search"
 description: "Learn how to add documents to index and search documents by metadata with GroupDocs.Search Java. Master index settings, create indexes, add documents, and execute precise searches."
-date: "2026-01-06"
+date: "2026-03-17"
 weight: 1
 url: "/java/indexing/groupdocs-search-java-metadata-indexing/"
 keywords:
@@ -13,7 +13,7 @@ type: docs
 
 # How to add documents to index with Metadata Indexing in Java using GroupDocs.Search
 
-In modern applications, **add documents to index** quickly and reliably is essential for delivering fast search experiences. Whether you’re building a legal repository, a customer‑support knowledge base, or an internal document portal, leveraging metadata makes it possible to **search documents by metadata** such as author, title, or custom tags. This guide walks you through the complete process—configuring index settings, creating a metadata‑focused index, adding your files, and running powerful searches—all with GroupDocs.Search for Java.
+Adding documents to an index quickly and reliably is the backbone of any modern search‑driven application. Whether you’re building a legal repository, a customer‑support knowledge base, or an internal document portal, **metadata indexing** lets you *search documents by metadata* such as author, title, or custom tags. In this tutorial you’ll learn how to configure index settings, create a metadata‑focused index, add your files, and run precise searches—all with GroupDocs.Search for Java.
 
 ## Quick Answers
 - **What is the primary purpose of metadata indexing?** It enables fast searches based on document properties rather than full‑text content.  
@@ -23,7 +23,7 @@ In modern applications, **add documents to index** quickly and reliably is essen
 - **What Java version is required?** JDK 8 or higher is recommended.
 
 ## What is metadata indexing in GroupDocs.Search?
-Metadata indexing extracts and stores document attributes (e.g., author, creation date, custom tags) in a searchable structure. When you **add documents to index**, the engine records these attributes, allowing you to run precise queries like “find all PDFs authored by *John Doe*”.
+Metadata indexing extracts and stores document attributes (e.g., author, creation date, custom tags) in a searchable structure. When you **add documents to index**, the engine records these attributes, allowing you to run precise queries like “find all PDFs authored by *John Doe*” or “search pdf by author”.
 
 ## Why use GroupDocs.Search for metadata indexing?
 - **Performance:** Metadata searches are lightweight and return results in milliseconds.  
@@ -125,17 +125,22 @@ for (int i = 0; i < result.getDocumentCount(); i++) {
 }
 ```
 
-- `search(query)` looks through the indexed metadata and returns matching documents.
+- `search(query)` looks through the indexed metadata and returns matching documents.  
+- You can also **search pdf by author** by using the author's name as the query string.
 
 ## Practical Applications
 1. **Enterprise Document Management:** Retrieve contracts by contract date or signatory name.  
 2. **Digital Library Catalogs:** Let users browse books by genre, publication year, or author.  
 3. **CRM Systems:** Quickly locate client files using custom metadata like customer ID or region.  
 
-## Performance Considerations
+## Tips and Best Practices
 - **Incremental Updates:** Use `index.addOrUpdate()` for new or changed files instead of rebuilding the whole index.  
+- **Batch Processing:** When dealing with thousands of files, add them in smaller batches to keep memory usage low.  
+- **Metadata Validation:** Ensure source documents actually contain the metadata you plan to query (e.g., author fields in PDFs).  
+
+## Performance Considerations
 - **Memory Tuning:** Adjust JVM heap size (`-Xmx`) based on the volume of indexed metadata.  
-- **Optimized Storage:** Periodically call `index.optimize()` to compact the index and improve query speed.
+- **Optimized Storage:** Periodically call `index.optimize()` to compact the index and improve query speed.  
 
 ## Common Issues and Solutions
 | Issue | Solution |
@@ -172,6 +177,6 @@ A: Regularly update your index, use incremental adds, and tune JVM memory settin
 
 ---
 
-**Last Updated:** 2026-01-06  
+**Last Updated:** 2026-03-17  
 **Tested With:** GroupDocs.Search Java 25.4  
 **Author:** GroupDocs

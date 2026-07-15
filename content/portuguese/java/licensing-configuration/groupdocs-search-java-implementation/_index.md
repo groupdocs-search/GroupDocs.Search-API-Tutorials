@@ -1,46 +1,74 @@
 ---
-date: '2026-01-08'
-description: Aprenda como realçar resultados de pesquisa Java usando GroupDocs.Search
-  em aplicações Java, configure busca escalável, implantação em rede e realce de resultados.
+date: '2026-03-17'
+description: Aprenda a destacar resultados de pesquisa Java com GroupDocs.Search em
+  Java, configurar uma rede de pesquisa escalável, indexar documentos, executar consultas
+  e exibir trechos destacados.
 keywords:
 - GroupDocs.Search Java
 - distributed searching Java
 - highlight search results Java
-title: Destacar Resultados de Busca Java Usando GroupDocs.Search
+title: Como realçar resultados de pesquisa em Java usando GroupDocs.Search
 type: docs
 url: /pt/java/licensing-configuration/groupdocs-search-java-implementation/
 weight: 1
 ---
 
-# Realçar Resultados de Busca Java Usando GroupDocs.Search
+ suitable for large document collections?** Absolutely – the search network distributes indexing and query load across nodes.
 
-Se você está cansado de vasculhar documentos intermináveis manualmente, **highlight search results java** oferece uma maneira rápida e confiável de encontrar exatamente o que você precisa. Neste tutorial, vamos percorrer a configuração de uma rede de busca distribuída, indexar seus arquivos, executar consultas e, finalmente, realçar as correspondências diretamente dentro dos documentos. Ao final, você terá uma solução pronta para produção que pode escalar em vários nós e fazer os termos relevantes se destacarem instantaneamente.
+## What is Highlight Search Results Java?
+**Highlight search results java** is the process...
+
+... etc.
+
+We need to translate to Portuguese.
+
+We'll keep bold, code formatting.
+
+Let's start constructing the translated markdown.
+
+Be careful with bullet points: translate the text after the dash.
+
+Also translate table.
+
+Also translate "Last Updated", "Tested With", "Author".
+
+Make sure to keep markdown formatting.
+
+Let's produce final content.
+
+# Destaque de Resultados de Busca Java Usando GroupDocs.Search
+
+Se você está cansado de vasculhar documentos intermináveis manualmente, **highlight search results java** oferece uma maneira rápida e confiável de encontrar exatamente o que você precisa. Neste tutorial, percorreremos a configuração de uma rede de busca distribuída, a indexação de seus arquivos, a execução de consultas e, finalmente, o destaque das correspondências diretamente dentro dos documentos. Ao final, você terá uma solução pronta para produção que pode escalar em vários nós e fazer com que os termos relevantes se destaquem instantaneamente.
 
 ## Respostas Rápidas
 - **O que significa “highlight search results java”?** Refere‑se a marcar programaticamente palavras‑chave encontradas dentro de documentos ao usar bibliotecas Java como o GroupDocs.Search.  
-- **Posso realçar vários termos no mesmo documento?** Sim – use `HighlightOptions` para definir quantos termos antes/depois de cada correspondência são mostrados.  
-- **Preciso de uma licença para executar este exemplo?** Uma avaliação gratuita ou licença temporária funciona para testes; uma licença completa é necessária para produção.  
+- **Posso destacar vários termos no mesmo documento?** Sim – use `HighlightOptions` para definir quantos termos antes/depois de cada correspondência devem ser exibidos.  
+- **Preciso de licença para executar este exemplo?** Um teste gratuito ou licença temporária funciona para testes; uma licença completa é necessária para produção.  
 - **Qual versão do Java é necessária?** Java 8 ou superior.  
 - **Esta abordagem é adequada para grandes coleções de documentos?** Absolutamente – a rede de busca distribui a indexação e a carga de consultas entre os nós.
 
 ## O que é Highlight Search Results Java?
-**Highlight search results java** é o processo de receber uma consulta de busca, localizar fragmentos correspondentes em seus documentos e enfatizar visualmente esses fragmentos (por exemplo, envolvendo‑os com marcadores ou retornando‑os como trechos realçados). Isso facilita para os usuários finais ver o contexto de cada correspondência sem abrir o arquivo inteiro.
+**Highlight search results java** é o processo de receber uma consulta de busca, localizar fragmentos correspondentes em seus documentos e enfatizar visualmente esses fragmentos (por exemplo, envolvendo‑os com marcadores ou retornando‑os como trechos destacados). Isso facilita para os usuários finais ver o contexto de cada correspondência sem abrir o arquivo inteiro.
 
-## Por que usar GroupDocs.Search para Realçar?
-GroupDocs.Search fornece um motor pronto para uso e de alto desempenho que suporta pequenos formatos de arquivo, indexação distribuída e realçadores de fragmentos integrados. Ele eliminou a necessidade de escrever análises personalizadas ou gerenciar infraestrutura de busca de baixo nível, permitindo que você se concentre em oferecer uma experiência de usuário fluida.
+## Por que Highlight Search Results Java é Importante
+Usar **highlight search results java** melhora a experiência do usuário ao mostrar exatamente onde um termo aparece, reduz o tempo gasto abrindo arquivos irrelevantes e ajuda equipes de conformidade a localizar rapidamente informações sensíveis. Quando combinado com uma rede de busca distribuída, a solução permanece responsiva mesmo à medida que o corpus de documentos cresce para milhões de itens.
+
+## Por que Usar GroupDocs.Search para Destaque?
+GroupDocs.Search fornece um mecanismo pronto‑para‑uso, de alto desempenho, que suporta dezenas de formatos de arquivo, indexação distribuída e realçadores de fragmentos integrados. Ele elimina a necessidade de escrever analisadores personalizados ou gerenciar infraestrutura de busca de baixo nível, permitindo que você se concentre em oferecer uma experiência de usuário fluida.
 
 ## Pré‑requisitos
-- **Java Development Kit (JDK) 8+** – demonstra‑se que `java -version` exibe 1.8 ou superior.
-- **Maven** – para gerenciamento de dependências.
-- **GroupDocs.Search for Java 25.4** – a versão usada ao longo deste guia.
-- Um IDE como **IntelliJ IDEA** ou **Eclipse** (opcional, mas recomendado).
+
+- **Java Development Kit (JDK) 8+** – certifique‑se de que `java -version` exiba 1.8 ou superior.  
+- **Maven** – para gerenciamento de dependências.  
+- **GroupDocs.Search for Java 25.4** – a versão usada ao longo deste guia.  
+- Uma IDE como **IntelliJ IDEA** ou **Eclipse** (opcional, mas recomendada).  
 - Conhecimento básico de Java e conceitos de rede.
 
 ## Configurando GroupDocs.Search para Java
 
 Você pode adicionar a biblioteca ao seu projeto via Maven ou baixando o JAR diretamente.
 
-###Configuração Maven
+### Configuração Maven
 Adicione o repositório e a dependência ao seu `pom.xml`:
 
 ```xml
@@ -61,16 +89,16 @@ Adicione o repositório e a dependência ao seu `pom.xml`:
 </dependencies>
 ```
 
-### Baixar Direto
-Alternativamente, baixe o JAR mais recente em [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### Download Direto
+Alternativamente, faça o download do JAR mais recente em [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Etapas de Aquisição de Licença
-- **Teste Gratuito:** Comece com uma avaliação para explorar os recursos principais.
-- **Licença Temporária:** Obtenha uma licença de teste contínua em [esta página](https://purchase.groupdocs.com/temporary-license/).
+### Etapas para Aquisição de Licença
+- **Teste Gratuito:** Comece com um teste para explorar os recursos principais.  
+- **Licença Temporária:** Obtenha uma licença de teste estendida em [esta página](https://purchase.groupdocs.com/temporary-license/).  
 - **Compra:** Adquira uma licença completa para implantações em produção.
 
-### Inicialização e Configuração Básica
-Crie uma instância `Index` que aponta para uma pasta onde o índice de pesquisa será armazenado:
+### Inicialização Básica e Configuração
+Crie uma instância de `Index` que aponte para uma pasta onde o índice de busca será armazenado:
 
 ```java
 import com.groupdocs.search.*;
@@ -86,10 +114,10 @@ public class SearchSetup {
 
 ## Guia de Implementação
 
-### Como Realçar Resultados de Busca Java em uma Rede Distribuída
+### Como Destacar Resultados de Busca Java em uma Rede Distribuída
 
 #### Configurando a Rede de Busca
-Primeiro, defina onde seus documentos estão armazenados e qual porta a rede utilizará.
+Primeiro, defina onde seus documentos estão e qual porta a rede usará.
 
 ```java
 import com.groupdocs.search.common.*;
@@ -101,11 +129,11 @@ int basePort = 49116; // Change if port is busy
 Configuration configuration = ConfiguringSearchNetwork.configure(basePath, basePort);
 ```
 
-- **`basePath`** – a pasta raiz que contém os arquivos que você deseja indexar.  
-- **`basePort`** – a porta TCP para comunicação entre nós; escolha uma que não esteja em uso.
+- **`basePath`** – a pasta raiz contendo os arquivos que você deseja indexar.  
+- **`basePort`** – a porta TCP para comunicação entre nós; escolha uma que esteja livre.
 
 #### Implantando Nós da Rede de Busca
-Implante um ou mais nós com base na configuração. O primeiro nó se tornará o mestre.
+Implante um ou mais nós com base na configuração. O primeiro nó torna‑se o mestre.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -114,11 +142,11 @@ SearchNetworkNode[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, c
 SearchNetworkNode masterNode = nodes[0];
 ```
 
-- **`nodes`** – um array de todos os nós em execução.  
+- **`nodes`** – um array com todos os nós em execução.  
 - **`masterNode`** – coordena a indexação e a distribuição de consultas.
 
-#### Inscrevendo‑se em Eventos dos Nós da Rede de Busca
-Conecte ouvintes ao nó mestre para receber notificações em tempo real (por exemplo, quando a indexação for concluída).
+#### Inscrevendo‑se em Eventos de Nó da Rede de Busca
+Anexe ouvintes ao nó mestre para receber notificações em tempo real (por exemplo, quando a indexação for concluída).
 
 ```java
 import com.groupdocs.search.scaling.events.*;
@@ -136,8 +164,8 @@ import com.groupdocs.search.options.*;
 IndexingDocuments.addDirectories(masterNode, Utils.DocumentsPath);
 ```
 
-#### Pesquisando Texto em Todos os Nós da Rede
-Execute uma consulta em **todos** os nós e recupere os documentos correspondentes.
+#### Buscando Texto em Todos os Nós da Rede
+Execute uma consulta contra **todos** os nós e recupere os documentos correspondentes.
 
 ```java
 import java.util.ArrayList;
@@ -148,10 +176,10 @@ highlightInDocument(masterNode, documents.get(0), 3); // Highlight results from 
 ```
 
 - Substitua `"ipsum"` por qualquer termo que você precise encontrar.  
-- O método `highlightInDocument` (mostrado a seguir) aplicará o realce.
+- O método `highlightInDocument` (mostrado a seguir) aplicará o destaque.
 
-#### Destacar Vários Termos no Documento – Realçando Resultados de Busca
-O método a seguir demonstra como realçar fragmentos ao redor de cada correspondência. Ele também mostra como controlar o número de termos circundantes, atendendo à palavra‑chave secundária **highlight multiple terms document**.
+#### Destacar Vários Termos no Documento – Highlighting Search Results
+O método a seguir demonstra como destacar fragmentos ao redor de cada correspondência. Ele também mostra como controlar o número de termos circundantes, atendendo à palavra‑chave secundária **highlight multiple terms document**.
 
 ```java
 import com.groupdocs.search.highlighters.*;
@@ -187,10 +215,10 @@ public static void highlightInDocument(
 
 - **`OutputFormat.PlainText`** – retorna trechos em texto simples; você pode mudar para HTML para uma UI mais rica.  
 - **`HighlightOptions`** – controla quantas palavras antes/depois de cada correspondência são incluídas (`setTermsBefore`, `setTermsAfter`).  
-- **`maxFragments`** – limita o número de trechos que você exibe por documento.
+- **`maxFragments`** – limita o número de trechos exibidos por documento.
 
 #### Encerrando Nós da Rede
-Ao concluir, desligue todos os nós para liberar recursos.
+Quando terminar, desligue cada nó para liberar recursos.
 
 ```java
 for (SearchNetworkNode node : nodes) {
@@ -198,49 +226,50 @@ for (SearchNetworkNode node : nodes) {
 }
 ```
 
-##Práticas Aplicações
-- **Gerenciamento de documentos empresariais:** Centralize arquivos corporativos e permita que os funcionários localizem imediatamente contratos ou políticas relevantes.
-- **Arquivos de Processos Jurídicos:** Encontre rapidamente documentos de realçando termos jurídicos chave.
-- **Bases de Conhecimento de P&D:** Pesquisadores podem buscar patentes ou artigos técnicos e ver trechos reais.
-- **Catálogos de comércio eletrônico:** Permita que os compradores encontrem produtos por palavra-chave com correspondências realçadas nas autoridades.
-- **Sistemas de Bibliotecas:** Os usuários podem pesquisar entre milhares de livros e visualizar trechos reais sem abrir cada arquivo.
+## Aplicações Práticas
+
+- **Gerenciamento Corporativo de Documentos:** Centralize arquivos corporativos e permita que os funcionários localizem instantaneamente contratos ou políticas relevantes.  
+- **Arquivos de Casos Jurídicos:** Destaque rapidamente documentos de precedentes ao marcar termos legais chave.  
+- **Bases de Conhecimento de P&D:** Pesquisadores podem buscar patentes ou artigos técnicos e ver trechos destacados.  
+- **Catálogos de E‑commerce:** Permita que compradores encontrem produtos por palavra‑chave com correspondências destacadas nas descrições.  
+- **Sistemas de Bibliotecas:** Usuários podem pesquisar entre milhares de livros e visualizar passagens destacadas sem abrir cada arquivo.
 
 ## Considerações de Desempenho
-- **Mantenha os índices atualizados:** Reindexe arquivos alterados diariamente ou use atualizações incrementais.
-- **Aproveite múltiplos nós:** Distribua a carga de indexação e consultas para evitar gargalos.
-- **Ajuste `HighlightOptions`:** Reduzir `termsBefore/After` diminui o uso de memória para documentos muito grandes.
 
-## Problemas Comuns e Solução de Problemas
+- **Mantenha os índices atualizados:** Re‑indexe arquivos alterados diariamente ou use atualizações incrementais.  
+- **Aproveite múltiplos nós:** Distribua a carga de indexação e consulta para evitar gargalos.  
+- **Ajuste `HighlightOptions`:** Reduzir `termsBefore/After` diminui o uso de memória em documentos muito grandes.  
 
-| Sintoma | Causa Provável | Correção |
-|--------|----------------|----------|
-| Nenhum resultado retornado | Índice não construído ou apontado para a pasta errada | Verifique `Utils.DocumentsPath` e execute `IndexingDocuments.addDirectories` novamente |
-| A saída de real está vazia | Limites de `HighlightOptions` muito baixos ou problema de negociação do documento | Aumente `termsTotal` ou garanta que a confirmação do documento seja suportada |
+## Problemas Comuns & Solução de Problemas
+
+| Sintoma | Causa Provável | Solução |
+|---------|----------------|---------|
+| Nenhum resultado retornado | Índice não criado ou apontando para pasta errada | Verifique `Utils.DocumentsPath` e execute `IndexingDocuments.addDirectories` novamente |
+| Saída de destaque vazia | Limites de `HighlightOptions` muito baixos ou problema de codificação do documento | Aumente `termsTotal` ou garanta que a codificação do documento seja suportada |
 | Erro de conflito de porta | `basePort` já está em uso | Escolha um número de porta diferente (ex.: 49117) |
 | Exceção de licença | Arquivo de licença ausente ou expirado | Coloque um arquivo `GroupDocs.Search.lic` válido na raiz da aplicação |
 
 ## Perguntas Frequentes
 
-**P: Posso implantar vários nós da rede de busca para balanceamento de carga?**
-R: Sim, implantar vários nós distribui o trabalho de indexação e consultas, melhorando a escalabilidade e o tempo de resposta.
+**P: Posso implantar vários nós da rede de busca para balanceamento de carga?**  
+R: Sim, implantar vários nós distribui o trabalho de indexação e consulta, melhorando a escalabilidade e o tempo de resposta.
 
-**P: Como realço vários termos de busca no mesmo documento?**
-R: Passe uma lista de termos ao método `highlight` e configure `HighlightOptions` para mostrar palavras adjacentes para cada correspondência.
+**P: Como destaco múltiplos termos de busca no mesmo documento?**  
+R: Passe uma lista de termos para o método `highlight` e configure `HighlightOptions` para mostrar palavras circundantes para cada correspondência.
 
-**P: É possível se inscrever em eventos de busca em tempo real?**
+**P: É possível inscrever‑se em eventos de busca em tempo real?**  
 R: Absolutamente. Use `SearchNetworkNodeEvents.subscribe(masterNode)` para receber callbacks de progresso de indexação, execução de consultas e erros.
 
-**P: Quais formatos de arquivo o GroupDocs.Search são suportados para indexação e real?**
-R: Mais de 50 formatos, incluindo DOCX, PDF, HTML, TXT, PPTX e mais.
+**P: Quais formatos de arquivo o GroupDocs.Search suporta para indexação e destaque?**  
+R: Mais de 50 formatos, incluindo DOCX, PDF, HTML, TXT, PPTX e muitos outros.
 
-**P: Como posso melhorar a velocidade de busca em coleções muito grandes?**
-R: Atualize os índices regularmente, distribua-os entre nós e ajuste finamente `HighlightOptions` para limitar o tamanho dos fragmentos.
-
-## Conclusão
-Seguindo este guia, você agora tem uma configuração completa e pronta para produzir **highlight search results java** usando o GroupDocs.Search. Você pode escalar uma solução em uma rede, indexar qualquer tipo de documento suportado, executar consultas rápidas e retornar trechos reais que ajudam os usuários a encontrar exatamente o que precisam. Explore os próximos passos — integrar os resultados em uma interface web, adicionar busca facetada ou combinar com OCR para PDFs escaneados.
+**P: Como melhorar a velocidade de busca em coleções muito grandes?**  
+R: Atualize os índices regularmente, distribua‑os entre nós e ajuste `HighlightOptions` para limitar o tamanho dos fragmentos.
 
 ---
 
-**Última atualização:** 08/01/2026
-**Testado com:** GroupDocs.Search for Java 25.4
-**Autor:** GroupDocs
+**Última Atualização:** 2026-03-17  
+**Testado Com:** GroupDocs.Search for Java 25.4  
+**Autor:** GroupDocs  
+
+---

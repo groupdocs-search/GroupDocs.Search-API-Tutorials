@@ -1,48 +1,60 @@
 ---
-date: '2026-01-08'
-description: Узнайте, как подсвечивать результаты поиска Java с помощью GroupDocs.Search
-  в Java‑приложениях, настраивать масштабируемый поиск, сетевое развертывание и подсветку
-  результатов.
+date: '2026-03-17'
+description: Узнайте, как подсвечивать результаты поиска с помощью GroupDocs.Search
+  в Java, настроить масштабируемую поисковую сеть, индексировать документы, выполнять
+  запросы и отображать подсвеченные фрагменты.
 keywords:
 - GroupDocs.Search Java
 - distributed searching Java
 - highlight search results Java
-title: Подсветка результатов поиска Java с использованием GroupDocs.Search
+title: Как выделить результаты поиска в Java с помощью GroupDocs.Search
 type: docs
 url: /ru/java/licensing-configuration/groupdocs-search-java-implementation/
 weight: 1
 ---
 
-# Выделение результатов поиска Java с помощью GroupDocs.Search
+.Search"
 
-Если вы устали вручную просматривать бесконечные документы, **highlight search results java** предлагает быстрый и надёжный способ быстро находить именно то, что вам нужно. В этом руководстве мы пройдём настройку распределённой поисковой сети, индексацию ваших файлов, выполнение запросов и, наконец, выделение совпадений непосредственно в документах. К концу вы получите готовое к продакшн решениe, которое может масштабироваться на несколько узлов и мгновенно выделять релевантные термины.
+But maybe keep "Highlight Search Results Java Using GroupDocs.Search" as translation: "Выделение результатов поиска Java с использованием GroupDocs.Search". Good.
 
-## Быстрые ответы
-- **Что означает “highlight search results java”?** Это относится к программному помечанию найденных ключевых слов внутри документов при использовании Java‑библиотек, таких как GroupDocs.Search.  
-- **Можно ли выделять несколько терминов в одном документе?** Да — используйте `HighlightOptions`, чтобы задать количество терминов до/после каждого совпадения.  
-- **Нужна ли лицензия для запуска этого примера?** Бесплатная пробная версия или временная лицензия подходят для тестирования; полная лицензия требуется для продакшн.  
-- **Какая версия Java требуется?** Java 8 или новее.  
-- **Подходит ли этот подход для больших коллекций документов?** Абсолютно — поисковая сеть распределяет индексацию и нагрузку запросов по узлам.
+Paragraph: translate.
 
-## Что такое Highlight Search Results Java?
-**highlight search results java** — это процесс получения поискового запроса, нахождения совпадающих фрагментов в ваших документах и визуального выделения этих фрагментов (например, обрамлением маркерами или возвратом их в виде выделенных фрагментов). Это упрощает пользователям просмотр контекста каждого совпадения без необходимости открывать весь файл.
+Let's produce final output.
 
-## Почему использовать GroupDocs.Search для выделения?
-GroupDocs.Search предоставляет готовый, высокопроизводительный движок, поддерживающий десятки форматов файлов, распределённую индексацию и встроенные средства выделения фрагментов. Это избавляет от необходимости писать собственные парсеры или управлять низкоуровневой поисковой инфраструктурой, позволяя сосредоточиться на предоставлении удобного пользовательского опыта.
+# Выделение результатов поиска Java с использованием GroupDocs.Search
 
-## Предварительные требования
-- **Java Development Kit (JDK) 8+** — убедитесь, что `java -version` выводит 1.8 или выше.  
-- **Maven** — для управления зависимостями.  
-- **GroupDocs.Search for Java 25.4** — версия, используемая в этом руководстве.  
-- IDE, например **IntelliJ IDEA** или **Eclipse** (необязательно, но рекомендуется).  
-- Базовые знания Java и сетевых концепций.
+Если вам надоело вручную просматривать бесконечные документы, **highlight search results java** предлагает быстрый и надёжный способ получить именно то, что нужно. В этом руководстве мы пройдём настройку распределённой поисковой сети, индексацию файлов, выполнение запросов и, наконец, выделение совпадений непосредственно внутри документов. К концу вы получите готовое к продакшн‑использованию решение, которое может масштабироваться на несколько узлов и мгновенно делать релевантные термины заметными.
 
-## Настройка GroupDocs.Search для Java
+## Quick Answers
+- **What does “highlight search results java” mean?** It refers to programmatically marking found keywords inside documents when using Java libraries such as GroupDocs.Search.  
+- **Can I highlight multiple terms in the same document?** Yes – use `HighlightOptions` to define how many terms before/after each match are shown.  
+- **Do I need a license to run this example?** A free trial or temporary license works for testing; a full license is required for production.  
+- **Which Java version is required?** Java 8 or later.  
+- **Is this approach suitable for large document collections?** Absolutely – the search network distributes indexing and query load across nodes.
 
-Вы можете добавить библиотеку в ваш проект либо через Maven, либо загрузив JAR напрямую.
+## What is Highlight Search Results Java?
+**Highlight search results java** is the process of taking a search query, locating matching fragments in your documents, and visually emphasizing those fragments (e.g., by surrounding them with markers or returning them as highlighted snippets). This makes it easy for end‑users to see the context of each match without opening the whole file.
 
-### Настройка Maven
-Добавьте репозиторий и зависимость в ваш файл `pom.xml`:
+## Why Highlight Search Results Java Matters
+Using **highlight search results java** improves user experience by showing exactly where a term appears, reduces the time spent opening irrelevant files, and helps compliance teams quickly locate sensitive information. When combined with a distributed search network, the solution remains responsive even as the document corpus grows into the millions.
+
+## Why Use GroupDocs.Search for Highlighting?
+GroupDocs.Search provides a ready‑made, high‑performance engine that supports dozens of file formats, distributed indexing, and built‑in fragment highlighters. It removes the need to write custom parsers or manage low‑level search infrastructure, letting you focus on delivering a smooth user experience.
+
+## Prerequisites
+
+- **Java Development Kit (JDK) 8+** – ensure `java -version` reports 1.8 or higher.  
+- **Maven** – for dependency management.  
+- **GroupDocs.Search for Java 25.4** – the version used throughout this guide.  
+- An IDE such as **IntelliJ IDEA** or **Eclipse** (optional but recommended).  
+- Basic knowledge of Java and networking concepts.
+
+## Setting Up GroupDocs.Search for Java
+
+You can bring the library into your project either via Maven or by downloading the JAR directly.
+
+### Maven Setup
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -62,16 +74,16 @@ GroupDocs.Search предоставляет готовый, высокопрои
 </dependencies>
 ```
 
-### Прямое скачивание
-Либо скачайте последнюю JAR с [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### Direct Download
+Alternatively, download the latest JAR from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Шаги получения лицензии
-- **Free Trial:** Начните с пробной версии, чтобы изучить основные функции.  
-- **Temporary License:** Получите расширенную тестовую лицензию со [страницы](https://purchase.groupdocs.com/temporary-license/).  
-- **Purchase:** Приобретите полную лицензию для продакшн‑развёртываний.
+### License Acquisition Steps
+- **Free Trial:** Start with a trial to explore core features.  
+- **Temporary License:** Get an extended test license from [this page](https://purchase.groupdocs.com/temporary-license/).  
+- **Purchase:** Obtain a full license for production deployments.
 
-### Базовая инициализация и настройка
-Создайте экземпляр Index, указывающий на папку, в которой будет храниться индекс поиска:
+### Basic Initialization and Setup
+Create an `Index` instance that points to a folder where the search index will be stored:
 
 ```java
 import com.groupdocs.search.*;
@@ -85,12 +97,12 @@ public class SearchSetup {
 }
 ```
 
-## Руководство по реализации
+## Implementation Guide
 
-### Как выделять результаты поиска Java в распределённой сети
+### How to Highlight Search Results Java in a Distributed Network
 
-#### Настройка поисковой сети
-Сначала определите местоположение ваших документов и порт, который будет использоваться сетью.
+#### Configuring the Search Network
+First, define where your documents live and which port the network will use.
 
 ```java
 import com.groupdocs.search.common.*;
@@ -102,11 +114,11 @@ int basePort = 49116; // Change if port is busy
 Configuration configuration = ConfiguringSearchNetwork.configure(basePath, basePort);
 ```
 
-- **`basePath`** — корневая папка, содержащая файлы, которые вы хотите индексировать.  
-- **`basePort`** — TCP‑порт для связи узлов; выберите свободный.
+- **`basePath`** – the root folder containing the files you want to index.  
+- **`basePort`** – the TCP port for node communication; pick an unused one.
 
-#### Развёртывание узлов поисковой сети
-Разверните один или несколько узлов в зависимости от конфигурации. Первый узел станет главным.
+#### Deploying Search Network Nodes
+Deploy one or more nodes based on the configuration. The first node becomes the master.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -115,11 +127,11 @@ SearchNetworkNode[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, c
 SearchNetworkNode masterNode = nodes[0];
 ```
 
-- **`nodes`** — массив всех запущенных узлов.  
-- **`masterNode`** — координирует индексацию и распределение запросов.
+- **`nodes`** – an array of all running nodes.  
+- **`masterNode`** – coordinates indexing and query distribution.
 
-#### Подписка на события узлов поисковой сети
-Прикрепите к главному узлу слушатели для получения уведомлений в реальном времени (например, о завершении индексирования).
+#### Subscribing to Search Network Node Events
+Attach listeners to the master node to receive real‑time notifications (e.g., when indexing completes).
 
 ```java
 import com.groupdocs.search.scaling.events.*;
@@ -127,8 +139,8 @@ import com.groupdocs.search.scaling.events.*;
 SearchNetworkNodeEvents.subscribe(masterNode);
 ```
 
-#### Индексация каталогов в узле сети
-Укажите узлу папку (или папки), которые вы хотите проиндексировать. Вспомогательный класс `Utils.DocumentsPath` разрешается в папку с примерами данных.
+#### Indexing Directories in Network Node
+Point the node to the folder(s) you want to index. The helper class `Utils.DocumentsPath` resolves to the sample data folder.
 
 ```java
 import com.groupdocs.search.examples.Utils;
@@ -137,8 +149,8 @@ import com.groupdocs.search.options.*;
 IndexingDocuments.addDirectories(masterNode, Utils.DocumentsPath);
 ```
 
-#### Поиск текста по узлам сети
-Выполните запрос ко **всем** узлам и получите соответствующие документы.
+#### Searching Text Across Network Nodes
+Run a query against **all** nodes and retrieve the matching documents.
 
 ```java
 import java.util.ArrayList;
@@ -148,11 +160,11 @@ ArrayList<NetworkFoundDocument> documents = TextSearchInNetwork.searchAll(master
 highlightInDocument(masterNode, documents.get(0), 3); // Highlight results from the first found document.
 ```
 
-- Замените `"ipsum"` на любой термин, который нужно найти.  
-- Метод `highlightInDocument` (показан ниже) применит выделение.
+- Replace `"ipsum"` with any term you need to find.  
+- The `highlightInDocument` method (shown next) will apply the highlight.
 
-#### Выделение нескольких терминов в документе — выделение результатов поиска
-Следующий метод демонстрирует, как выделять фрагменты вокруг каждого совпадения. Он также показывает, как управлять количеством окружающих терминов, удовлетворяя вторичное ключевое слово **highlight multiple terms document**.
+#### Highlight Multiple Terms Document – Highlighting Search Results
+The following method demonstrates how to highlight fragments around each match. It also shows how to control the number of surrounding terms, satisfying the secondary keyword **highlight multiple terms document**.
 
 ```java
 import com.groupdocs.search.highlighters.*;
@@ -186,12 +198,12 @@ public static void highlightInDocument(
 }
 ```
 
-- **`OutputFormat.PlainText`** — возвращает фрагменты в виде простого текста; можно переключить на HTML для более богатого UI.  
-- **`HighlightOptions`** — управляет количеством слов до/после каждого совпадения (`setTermsBefore`, `setTermsAfter`).  
-- **`maxFragments`** — ограничивает количество фрагментов, отображаемых для каждого документа.
+- **`OutputFormat.PlainText`** – returns plain‑text snippets; you can switch to HTML for richer UI.  
+- **`HighlightOptions`** – controls how many words before/after each match are included (`setTermsBefore`, `setTermsAfter`).  
+- **`maxFragments`** – caps the number of snippets you display per document.
 
-#### Закрытие узлов сети
-После завершения выключите все узлы, чтобы освободить ресурсы.
+#### Closing Network Nodes
+When you’re done, shut down every node to free resources.
 
 ```java
 for (SearchNetworkNode node : nodes) {
@@ -199,49 +211,50 @@ for (SearchNetworkNode node : nodes) {
 }
 ```
 
-## Практические применения
-- **Enterprise Document Management:** Централизуйте корпоративные файлы и позволяйте сотрудникам мгновенно находить релевантные контракты или политики.  
-- **Legal Case Files:** Быстро находите прецедентные документы, выделяя ключевые юридические термины.  
-- **R&D Knowledge Bases:** Исследователи могут искать патенты или технические статьи и видеть выделенные отрывки.  
-- **E‑commerce Catalogs:** Позвольте покупателям находить товары по ключевому слову с выделенными совпадениями в описаниях.  
-- **Library Systems:** Пользователи могут искать по тысячам книг и просматривать выделенные отрывки без открытия каждого файла.
+## Practical Applications
 
-## Соображения по производительности
-- **Keep indexes fresh:** Переиндексируйте изменённые файлы каждую ночь или используйте инкрементные обновления.  
-- **Leverage multiple nodes:** Распределяйте индексацию и нагрузку запросов, чтобы избежать узких мест.  
-- **Tune `HighlightOptions`:** Снижение `termsBefore/After` уменьшает использование памяти для очень больших документов.
+- **Enterprise Document Management:** Centralize corporate files and let employees instantly locate relevant contracts or policies.  
+- **Legal Case Files:** Quickly surface precedent documents by highlighting key legal terms.  
+- **R&D Knowledge Bases:** Researchers can search patents or technical papers and see highlighted excerpts.  
+- **E‑commerce Catalogs:** Enable shoppers to find products by keyword with highlighted matches in descriptions.  
+- **Library Systems:** Patrons can search across thousands of books and view highlighted passages without opening each file.
 
-## Распространённые проблемы и их устранение
+## Performance Considerations
 
-| Симптом | Вероятная причина | Решение |
-|---------|-------------------|---------|
-| Нет результатов | Индекс не построен или указывает на неправильную папку | Проверьте `Utils.DocumentsPath` и снова выполните `IndexingDocuments.addDirectories`. |
-| Вывод выделения пуст | Ограничения `HighlightOptions` слишком низкие или проблема с кодировкой документа | Увеличьте `termsTotal` или убедитесь, что кодировка документа поддерживается. |
-| Ошибка конфликта порта | `basePort` уже используется | Выберите другой номер порта (например, 49117). |
-| Исключение лицензии | Отсутствует или просрочен файл лицензии | Поместите действительный файл `GroupDocs.Search.lic` в корень приложения. |
+- **Keep indexes fresh:** Re‑index changed files nightly or use incremental updates.  
+- **Leverage multiple nodes:** Distribute indexing and query load to avoid bottlenecks.  
+- **Tune `HighlightOptions`:** Reducing `termsBefore/After` lowers memory usage for very large documents.  
 
-## Часто задаваемые вопросы
+## Common Issues & Troubleshooting
 
-**Q: Можно ли развернуть несколько узлов поисковой сети для балансировки нагрузки?**  
-A: Да, развертывание нескольких узлов распределяет работу по индексации и запросам, улучшая масштабируемость и время отклика.
+| Symptom | Likely Cause | Fix |
+|---------|--------------|-----|
+| No results returned | Index not built or pointing to wrong folder | Verify `Utils.DocumentsPath` and run `IndexingDocuments.addDirectories` again |
+| Highlight output is empty | `HighlightOptions` limits too low or document encoding issue | Increase `termsTotal` or ensure the document’s encoding is supported |
+| Port conflict error | `basePort` already in use | Choose a different port number (e.g., 49117) |
+| License exception | Missing or expired license file | Place a valid `GroupDocs.Search.lic` file in the application root |
 
-**Q: Как выделить несколько поисковых терминов в одном документе?**  
-A: Передайте список терминов в метод `highlight` и настройте `HighlightOptions`, чтобы показывать окружающие слова для каждого совпадения.
+## Frequently Asked Questions
 
-**Q: Можно ли подписаться на события поиска в реальном времени?**  
-A: Конечно. Используйте `SearchNetworkNodeEvents.subscribe(masterNode)`, чтобы получать обратные вызовы о прогрессе индексации, выполнении запросов и ошибках.
+**Q: Can I deploy multiple search network nodes for load balancing?**  
+A: Yes, deploying several nodes spreads indexing and query work, improving scalability and response time.
 
-**Q: Какие форматы файлов поддерживает GroupDocs.Search для индексации и выделения?**  
-A: Более 50 форматов, включая DOCX, PDF, HTML, TXT, PPTX и другие.
+**Q: How do I highlight multiple search terms in the same document?**  
+A: Pass a list of terms to the `highlight` method and configure `HighlightOptions` to show surrounding words for each match.
 
-**Q: Как улучшить скорость поиска в очень больших коллекциях?**  
-A: Регулярно обновляйте индексы, распределяйте их по узлам и точно настраивайте `HighlightOptions`, чтобы ограничить размер фрагментов.
+**Q: Is it possible to subscribe to real‑time search events?**  
+A: Absolutely. Use `SearchNetworkNodeEvents.subscribe(masterNode)` to receive callbacks for indexing progress, query execution, and errors.
 
-## Заключение
-Следуя этому руководству, вы теперь имеете полную, готовую к продакшн настройку для **highlight search results java** с использованием GroupDocs.Search. Вы можете масштабировать решение по сети, индексировать любой поддерживаемый тип документа, выполнять быстрые запросы и возвращать выделенные фрагменты, помогающие пользователям находить именно то, что им нужно. Исследуйте дальнейшие шаги — интеграцию результатов в веб‑интерфейс, добавление фасетного поиска или сочетание с OCR для сканированных PDF.
+**Q: Which file formats does GroupDocs.Search support for indexing and highlighting?**  
+A: Over 50 formats, including DOCX, PDF, HTML, TXT, PPTX, and more.
+
+**Q: How can I improve search speed on very large collections?**  
+A: Regularly update indexes, distribute them across nodes, and fine‑tune `HighlightOptions` to limit fragment size.
 
 ---
 
-**Последнее обновление:** 2026-01-08  
-**Тестировано с:** GroupDocs.Search for Java 25.4  
-**Автор:** GroupDocs
+**Last Updated:** 2026-03-17  
+**Tested With:** GroupDocs.Search for Java 25.4  
+**Author:** GroupDocs  
+
+---

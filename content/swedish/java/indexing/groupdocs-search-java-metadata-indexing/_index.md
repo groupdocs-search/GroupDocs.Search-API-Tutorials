@@ -1,46 +1,46 @@
 ---
-date: '2026-01-06'
-description: Lär dig hur du lägger till dokument i index och söker dokument efter
-  metadata med GroupDocs.Search Java. Bemästra indexinställningar, skapa index, lägg
-  till dokument och utför precisa sökningar.
+date: '2026-03-17'
+description: Lär dig hur du lägger till dokument i indexet och söker dokument efter
+  metadata med GroupDocs.Search Java. Behärska indexinställningar, skapa index, lägga
+  till dokument och utföra precisa sökningar.
 keywords:
 - metadata indexing java
 - GroupDocs Search Java
 - document management with metadata
-title: Hur man lägger till dokument i indexet med metadataindexering i Java med GroupDocs.Search
+title: Hur man lägger till dokument i index med metadataindexering i Java med GroupDocs.Search
 type: docs
 url: /sv/java/indexing/groupdocs-search-java-metadata-indexing/
 weight: 1
 ---
 
-# How to add documents to index with Metadata Indexing in Java using GroupDocs.Search
+# Så lägger du till dokument i index med metadataindexering i Java med GroupDocs.Search
 
-I moderna applikationer är det avgörande att **add documents to index** snabbt och pålitligt för att leverera snabba sökupplevelser. Oavsett om du bygger ett juridiskt arkiv, en kund‑support‑kunskapsbas eller en intern dokumentportal, gör utnyttjandet av metadata det möjligt att **search documents by metadata** såsom författare, titel eller anpassade taggar. Denna guide går igenom hela processen — konfiguration av indexinställningar, skapande av ett metadata‑fokuserat index, tillägg av dina filer och körning av kraftfulla sökningar — allt med GroupDocs.Search för Java.
+Att lägga till dokument i ett index snabbt och pålitligt är ryggraden i alla moderna sökdrivna applikationer. Oavsett om du bygger ett juridiskt arkiv, en kunskapsbas för kundsupport eller en intern dokumentportal, gör **metadataindexering** det möjligt att *söka dokument efter metadata* såsom författare, titel eller anpassade taggar. I den här handledningen kommer du att lära dig hur du konfigurerar indexinställningar, skapar ett metadata‑fokuserat index, lägger till dina filer och kör precisa sökningar — allt med GroupDocs.Search för Java.
 
 ## Snabba svar
-- **What is the primary purpose of metadata indexing?** Det möjliggör snabba sökningar baserade på dokumentegenskaper snarare än fulltextinnehåll.  
-- **Which method adds files to the index?** `index.add(YOUR_DOCUMENTS_FOLDER);`  
-- **Can I search by custom metadata fields?** Ja, när fälten har indexerats kan du fråga dem direkt.  
-- **Do I need a license for development?** En tillfällig provlicens räcker för utvärdering; en full licens krävs för produktion.  
-- **What Java version is required?** JDK 8 eller högre rekommenderas.
+- **Vad är det primära syftet med metadataindexering?** Det möjliggör snabba sökningar baserade på dokumentegenskaper snarare än fulltextinnehåll.  
+- **Vilken metod lägger till filer i indexet?** `index.add(YOUR_DOCUMENTS_FOLDER);`  
+- **Kan jag söka med anpassade metadatafält?** Ja, när fälten är indexerade kan du fråga dem direkt.  
+- **Behöver jag en licens för utveckling?** En tillfällig provlicens räcker för utvärdering; en full licens krävs för produktion.  
+- **Vilken Java‑version krävs?** JDK 8 eller högre rekommenderas.
 
 ## Vad är metadataindexering i GroupDocs.Search?
-Metadataindexering extraherar och lagrar dokumentattribut (t.ex. författare, skapelsedatum, anpassade taggar) i en sökbar struktur. När du **add documents to index** registrerar motorn dessa attribut, vilket gör att du kan köra precisa frågor som “hitta alla PDF‑filer skrivna av *John Doe*”.
+Metadataindexering extraherar och lagrar dokumentattribut (t.ex. författare, skapelsedatum, anpassade taggar) i en sökbar struktur. När du **lägger till dokument i indexet**, registrerar motorn dessa attribut, vilket gör att du kan köra precisa frågor som “hitta alla PDF‑filer skrivna av *John Doe*” eller “sök pdf efter författare”.
 
 ## Varför använda GroupDocs.Search för metadataindexering?
-- **Performance:** Metadatasökningar är lätta och returnerar resultat på millisekunder.  
-- **Flexibility:** Stöder ett brett spektrum av filformat (PDF, DOCX, PPT, etc.).  
-- **Scalability:** Hanterar miljontals dokument med minimal minnesanvändning.  
+- **Prestanda:** Metadatasökningar är lätta och returnerar resultat på millisekunder.  
+- **Flexibilitet:** Stöder ett brett spektrum av filformat (PDF, DOCX, PPT osv.).  
+- **Skalbarhet:** Hanterar miljontals dokument med minimal minnesanvändning.  
 
 ## Förutsättningar
 - GroupDocs.Search for Java ≥ 25.4.  
-- JDK 8 eller nyare installerad och konfigurerad.  
-- Grundläggande kunskap om Java och Maven.  
+- JDK 8 or newer installed and configured.  
+- Basic familiarity with Java and Maven.  
 
-## Konfigurering av GroupDocs.Search för Java
+## Setting Up GroupDocs.Search for Java
 
 ### Installationsinstruktioner
-Lägg till GroupDocs‑arkivet och beroendet i din `pom.xml`:
+Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -60,18 +60,18 @@ Lägg till GroupDocs‑arkivet och beroendet i din `pom.xml`:
 </dependencies>
 ```
 
-Du kan också ladda ner de senaste binärerna direkt från [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+You can also download the latest binaries directly from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Licensförvärv
-För att skaffa en tillfällig licens för testning:
+To obtain a temporary license for testing:
 
-1. Besök GroupDocs webbplats och gå till **Purchase**‑avsnittet.  
-2. Välj en **temporary license**‑plan som matchar dina utvärderingsbehov.  
+1. Visit the GroupDocs website and go to the **Purchase** section.  
+2. Choose a **temporary license** plan that matches your evaluation needs.  
 
-## Steg‑för‑steg‑implementering
+## Steg‑för‑steg‑implementation
 
 ### Funktion 1: Konfiguration av indexinställningar
-Konfigurera indexet för att fokusera på metadata:
+Configure the index to focus on metadata:
 
 ```java
 import com.groupdocs.search.IndexSettings;
@@ -84,8 +84,8 @@ settings.setIndexType(IndexType.MetadataIndex);  // Focus on metadata indexing
 
 - `setIndexType(IndexType.MetadataIndex)` talar om för motorn att prioritera metadata framför full‑textinnehåll.
 
-### Funktion 2: Skapa ett index i en specificerad mapp
-Skapa en fysisk indexkatalog där all metadata kommer att lagras:
+### Funktion 2: Skapa ett index i en angiven mapp
+Create a physical index directory where all metadata will be stored:
 
 ```java
 import com.groupdocs.search.Index;
@@ -96,10 +96,10 @@ String YOUR_INDEX_DIRECTORY = "YOUR_DOCUMENT_DIRECTORY\\\\output\\\\AdvancedUsag
 Index index = new Index(YOUR_INDEX_DIRECTORY, settings);
 ```
 
-Ersätt `YOUR_DOCUMENT_DIRECTORY` med den sökväg som matchar ditt projektupplägg.
+Byt ut `YOUR_DOCUMENT_DIRECTORY` mot den sökväg som matchar ditt projektupplägg.
 
-### Funktion 3: Hur man lägger till dokument i index
-Nu när indexet finns kan du **add documents to index** så att de blir sökbara:
+### Funktion 3: Hur man lägger till dokument i indexet
+Now that the index exists, you can **add documents to index** so they become searchable:
 
 ```java
 String YOUR_DOCUMENTS_FOLDER = "YOUR_DOCUMENT_DIRECTORY";
@@ -110,10 +110,10 @@ index.add(YOUR_DOCUMENTS_FOLDER);
 
 **Tips:**  
 - Verifiera att mappens sökväg är korrekt och att applikationen har läsbehörighet.  
-- GroupDocs.Search extraherar automatiskt stödjande metadata från varje fil.
+- GroupDocs.Search extraherar automatiskt stödd metadata från varje fil.
 
 ### Funktion 4: Söka dokument efter metadata
-Kör en fråga som riktar sig mot metadatafält, till exempel att söka efter dokument där språket är engelska:
+Run a query that targets metadata fields, for example searching for documents where the language is English:
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -127,24 +127,29 @@ for (int i = 0; i < result.getDocumentCount(); i++) {
 }
 ```
 
-- `search(query)` söker igenom den indexerade metadata och returnerar matchande dokument.
+- `search(query)` söker igenom den indexerade metadata och returnerar matchande dokument.  
+- Du kan också **search pdf by author** genom att använda författarens namn som söksträng.
 
 ## Praktiska tillämpningar
 1. **Enterprise Document Management:** Hämta kontrakt efter kontraktsdatum eller undertecknares namn.  
-2. **Digital Library Catalogs:** Låt användare bläddra bland böcker efter genre, publiceringsår eller författare.  
+2. **Digital Library Catalogs:** Låt användare bläddra i böcker efter genre, publiceringsår eller författare.  
 3. **CRM Systems:** Lokalisera snabbt kundfiler med hjälp av anpassad metadata som kund‑ID eller region.  
 
-## Prestandaöverväganden
+## Tips och bästa praxis
 - **Incremental Updates:** Använd `index.addOrUpdate()` för nya eller ändrade filer istället för att bygga om hela indexet.  
+- **Batch Processing:** När du hanterar tusentals filer, lägg till dem i mindre batcher för att hålla minnesanvändningen låg.  
+- **Metadata Validation:** Säkerställ att källdokumenten faktiskt innehåller den metadata du planerar att fråga (t.ex. författarfält i PDF‑filer).  
+
+## Prestandaöverväganden
 - **Memory Tuning:** Justera JVM‑heap‑storlek (`-Xmx`) baserat på volymen av indexerad metadata.  
-- **Optimized Storage:** Anropa periodiskt `index.optimize()` för att komprimera indexet och förbättra frågehastigheten.
+- **Optimized Storage:** Anropa periodiskt `index.optimize()` för att komprimera indexet och förbättra frågehastigheten.  
 
 ## Vanliga problem och lösningar
 | Problem | Lösning |
-|---------|---------|
-| **Inga resultat returnerade** | Bekräfta att de metadatafält du förväntar dig faktiskt finns i källfilerna. |
-| **Behörighetsfel** | Säkerställ att Java‑processen har läsåtkomst till både dokumentmappen och indexkatalogen. |
-| **Minnesbristfel** | Öka JVM‑heap‑storlek eller batcha `add`‑operationen för att bearbeta filer i mindre grupper. |
+|-------|----------|
+| **Inga resultat returnerade** | Bekräfta att de metadatafält du förväntar dig faktiskt finns i källdokumenten. |
+| **Behörighetsfel** | Säkerställ att Java‑processen har läsbehörighet till både dokumentmappen och indexkatalogen. |
+| **Out‑of‑memory‑fel** | Öka JVM‑heap‑storleken eller batcha `add`‑operationen för att bearbeta filer i mindre grupper. |
 
 ## Vanliga frågor
 
@@ -152,7 +157,7 @@ for (int i = 0; i < result.getDocumentCount(); i++) {
 A: Metadataindexering lagrar dokumentattribut (författare, titel, anpassade taggar) i en sökbar struktur, vilket möjliggör snabba uppslag utan att skanna fulltext.
 
 **Q: Hur får jag en tillfällig licens?**  
-A: Besök GroupDocs köp‑sida och följ stegen för att skaffa en provlicens.
+A: Besök GroupDocs inköpssida och följ stegen för att skaffa en provlicens.
 
 **Q: Kan jag indexera PDF‑filer med denna konfiguration?**  
 A: Ja, GroupDocs.Search stöder PDF, DOCX, PPT och många andra format.
@@ -161,7 +166,7 @@ A: Ja, GroupDocs.Search stöder PDF, DOCX, PPT och många andra format.
 A: Verifiera korrekta filsökvägar och säkerställ att applikationen har läsbehörighet för katalogerna.
 
 **Q: Hur optimerar jag sökprestanda?**  
-A: Uppdatera regelbundet ditt index, använd inkrementella tillägg och finjustera JVM‑minnesinställningarna.
+A: Uppdatera regelbundet ditt index, använd inkrementella tillägg och justera JVM‑minnesinställningarna.
 
 ## Resurser
 
@@ -174,6 +179,6 @@ A: Uppdatera regelbundet ditt index, använd inkrementella tillägg och finjuste
 
 ---
 
-**Last Updated:** 2026-01-06  
-**Tested With:** GroupDocs.Search Java 25.4  
-**Author:** GroupDocs
+**Senast uppdaterad:** 2026-03-17  
+**Testad med:** GroupDocs.Search Java 25.4  
+**Författare:** GroupDocs
