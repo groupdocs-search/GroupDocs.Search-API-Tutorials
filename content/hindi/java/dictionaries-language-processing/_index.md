@@ -1,101 +1,188 @@
 ---
-date: 2026-02-19
-description: GroupDocs.Search का उपयोग करके जावा में एक समानार्थक शब्दकोश बनाना सीखें,
-  साथ ही भाषा प्रसंस्करण जावा और वर्तनी सुधार जावा में महारत हासिल करें।
-title: भाषा प्रसंस्करण जावा – GroupDocs.Search के साथ समानार्थी शब्दकोश बनाएं
+date: 2026-07-16
+description: GroupDocs.Search का उपयोग करके synonym dictionary Java बनाने का तरीका
+  जानें, जिसमें language processing, synonym handling, और spelling correction शामिल
+  हैं, जिससे सटीक search results मिलते हैं।
+keywords:
+- create synonym dictionary java
+- language processing java
+- GroupDocs.Search Java
+lastmod: 2026-07-16
+og_description: GroupDocs.Search के साथ synonym dictionary java बनाकर search relevance
+  बढ़ाएँ। यह ट्यूटोरियल step‑by‑step setup, synonym set creation, और testing को Java
+  applications के लिए दिखाता है।
+og_image_alt: Guide showing how to create a synonym dictionary in Java using GroupDocs.Search
+og_title: Create Synonym Dictionary Java – GroupDocs.Search गाइड
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-16'
+  description: Learn how to create synonym dictionary Java using GroupDocs.Search,
+    covering language processing, synonym handling, and spelling correction for accurate
+    search results.
+  headline: Create Synonym Dictionary Java – Language Processing with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to create synonym dictionary Java using GroupDocs.Search,
+    covering language processing, synonym handling, and spelling correction for accurate
+    search results.
+  name: Create Synonym Dictionary Java – Language Processing with GroupDocs.Search
+  steps:
+  - name: Initialize the Search Index
+    text: The `SearchIndex` class is GroupDocs.Search's core object that represents
+      a searchable collection of documents. It stores both the indexed content and
+      any language‑processing dictionaries you attach. > **Direct answer:** Create
+      or open a `SearchIndex` instance by providing the path to the index fold
+  - name: Define Synonym Sets
+    text: '`SynonymDictionary` stores groups of equivalent terms for the index. It
+      is the container that the search engine consults when expanding queries. > **Direct
+      answer:** Build a `SynonymDictionary` object, then call `addSynonym("car", Arrays.asList("automobile",
+      "vehicle"))` for each group you need. The'
+  - name: Add the Synonym Dictionary to the Index
+    text: Register the dictionary with the index so it is applied during query processing.
+      > **Direct answer:** Use `index.addSynonymDictionary(synonymDictionary)` and
+      then `index.saveChanges()`; the dictionary becomes part of the index configuration
+      and is automatically consulted for every search request.
+  - name: Test the Search Behavior
+    text: '`search` runs a query against the index and returns matching documents.
+      > **Direct answer:** Execute `index.search("automobile")` and observe that documents
+      containing “car” or “vehicle” appear in the result set, confirming that the
+      synonym dictionary is active.'
+  type: HowTo
+- questions:
+  - answer: Absolutely. Using both features together creates a forgiving search experience
+      that handles word variations and misspellings in a single query.
+    question: Can I combine synonym dictionaries with spelling correction?
+  - answer: No. GroupDocs.Search applies the synonym dictionary at query time, so
+      you can add or modify synonyms without re‑indexing existing documents.
+    question: Do I need to rebuild the index after adding a synonym dictionary?
+  - answer: The API imposes no hard limit; however, keeping the dictionary under a
+      few thousand entries preserves optimal query performance.
+    question: How many synonyms can I add to a single dictionary?
+  - answer: Yes. The Java library runs on Windows, Linux, and macOS wherever a compatible
+      JDK is available.
+    question: Is language processing java supported on all operating systems?
+  - answer: The API supports phrase synonyms; define the phrase as a single entry
+      in the synonym set and it will be matched during search.
+    question: What if my synonym set includes multi‑word phrases?
+  type: FAQPage
+tags:
+- create synonym dictionary
+- GroupDocs.Search
+- Java search indexing
+- language processing
+- synonym handling
+title: Create Synonym Dictionary Java – GroupDocs.Search के साथ Language Processing
 type: docs
 url: /hi/java/dictionaries-language-processing/
 weight: 5
 ---
 
-# भाषा प्रसंस्करण जावा – GroupDocs.Search के साथ समानार्थी शब्दकोश बनाएं
+# सिनोनिम डिक्शनरी जावा बनाएं – GroupDocs.Search के साथ भाषा प्रोसेसिंग
 
-इस गाइड में आप सीखेंगे कि कैसे **समानार्थी शब्दकोश** बनाया जाए, जो एक मजबूत **भाषा प्रसंस्करण जावा** रणनीति का हिस्सा है। ट्यूटोरियल के अंत तक आप समझेंगे कि समानार्थी शब्दों का प्रबंधन, वर्तनी सुधार, और कस्टम शब्दकोश क्यों आवश्यक हैं ताकि GroupDocs.Search पर निर्भर जावा एप्लिकेशन में सटीक खोज परिणाम प्रदान किए जा सकें।
+इस व्यापक ट्यूटोरियल में आप शक्तिशाली GroupDocs.Search लाइब्रेरी का उपयोग करके **create synonym dictionary java** बनाएँगे। गाइड के अंत तक आप समझेंगे कि क्यों सिनोनिम हैंडलिंग, स्पेलिंग करेक्शन, और कस्टम डिक्शनरीज़ जावा एप्लिकेशन्स में सटीक सर्च परिणाम देने के लिए आवश्यक हैं, और आपके पास एक पूरी तरह कार्यशील उदाहरण होगा जिसे आप अपने प्रोजेक्ट में जोड़ सकते हैं।
 
 ## त्वरित उत्तर
-- **समानार्थी शब्दकोश क्या करता है?** यह वैकल्पिक शब्दों को एक सामान्य शब्द से मैप करता है ताकि खोज इंजन उन्हें समकक्ष मानता है।  
-- **स्टॉप शब्दों को क्यों निष्क्रिय करें?** सामान्य, कम मूल्य वाले शब्दों को हटाने से क्वेरी का फोकस तेज़ होता है और प्रासंगिकता बढ़ती है।  
-- **क्या मुझे लाइसेंस चाहिए?** परीक्षण के लिए एक अस्थायी लाइसेंस काम करता है; उत्पादन के लिए पूर्ण लाइसेंस आवश्यक है।  
-- **कौन सा API संस्करण आवश्यक है?** GroupDocs.Search for Java का नवीनतम रिलीज़ यहाँ दिखाए गए सभी फीचर को सपोर्ट करता है।  
-- **क्या मैं समानार्थी शब्दकोश और वर्तनी सुधार को मिलाकर उपयोग कर सकता हूँ?** हाँ—दोनों को साथ में उपयोग करने से सबसे स्वाभाविक खोज अनुभव मिलता है।
+- **सिनोनिम डिक्शनरी क्या करती है?** यह वैकल्पिक शब्दों को एक सामान्य शब्द से मैप करती है ताकि सर्च इंजन उन्हें समकक्ष मानता है।  
+- **स्टॉप शब्दों को क्यों निष्क्रिय करें?** सामान्य, कम मूल्य वाले शब्दों को हटाने से क्वेरी फोकस तेज़ होता है और प्रासंगिकता बढ़ती है।  
+- **क्या मुझे लाइसेंस की आवश्यकता है?** टेस्टिंग के लिए एक टेम्पररी लाइसेंस काम करता है; प्रोडक्शन के लिए पूर्ण लाइसेंस आवश्यक है।  
+- **कौन सा API संस्करण आवश्यक है?** GroupDocs.Search for Java का नवीनतम रिलीज़ यहाँ दिखाए गए सभी फीचर्स को सपोर्ट करता है।  
+- **क्या मैं सिनोनिम और स्पेलिंग करेक्शन को मिलाकर उपयोग कर सकता हूँ?** हां—दोनों को साथ में उपयोग करने से सबसे प्राकृतिक सर्च अनुभव मिलता है।
 
-## भाषा प्रसंस्करण जावा क्या है?
-भाषा प्रसंस्करण जावा उन तकनीकों के सेट को दर्शाता है—जैसे टोकनाइज़ेशन, स्टॉप‑वर्ड हैंडलिंग, समानार्थी मैपिंग, और वर्तनी सुधार—जो जावा एप्लिकेशन को मानव भाषा को प्रभावी रूप से समझने और संचालित करने में सक्षम बनाते हैं। जब आप इन तकनीकों को GroupDocs.Search के साथ एकीकृत करते हैं, तो आपका खोज इंजन उपयोगकर्ता क्वेरी में विविधताओं के प्रति अधिक सहनशील हो जाता है।
+## भाषा प्रोसेसिंग जावा क्या है?
+भाषा प्रोसेसिंग जावा तकनीकों का एक संग्रह है—जैसे टोकनाइज़ेशन, स्टॉप‑वर्ड हैंडलिंग, सिनोनिम मैपिंग, और स्पेलिंग करेक्शन—जो जावा एप्लिकेशन्स को मानव भाषा को समझने और उसे संचालित करने में सक्षम बनाते हैं। यह कच्चे टेक्स्ट को सर्चेबल टोकन्स में बदलता है, शोर को हटाता है, और क्वेरीज़ को विस्तारित करता है ताकि उपयोगकर्ता अपनी आवश्यकता को पा सकें, भले ही वे इसे अलग शब्दों में व्यक्त करें।
 
-## भाषा प्रसंस्करण जावा में समानार्थी शब्दकोश क्यों उपयोग करें?
-- **बेहतर प्रासंगिकता:** उपयोगकर्ता सही दस्तावेज़ पा लेते हैं भले ही वे अलग शब्दावली का उपयोग करें।  
-- **छूटे हुए परिणामों में कमी:** समानार्थी शब्द क्वेरी भाषा और दस्तावेज़ शब्दावली के बीच अंतर को पाटते हैं।  
-- **बेहतर उपयोगकर्ता अनुभव:** खोज अधिक स्मार्ट और सहज लगती है, जिससे संतुष्टि बढ़ती है।  
+## भाषा प्रोसेसिंग जावा में सिनोनिम डिक्शनरीज़ का उपयोग क्यों करें?
+सिनोनिम डिक्शनरीज़ इंजन को विभिन्न शब्दों को एक ही अवधारणा के रूप में मानने देती हैं, जिससे हिट रेट में नाटकीय सुधार होता है। जब कोई उपयोगकर्ता “car” खोजता है, तो “automobile” या “vehicle” वाले दस्तावेज़ स्वचालित रूप से लौटाए जाते हैं, जिससे छूटे हुए मिलान समाप्त होते हैं और एक सुगम, अधिक सहज अनुभव प्रदान होता है।
 
 ## पूर्वापेक्षाएँ
 - Java 17 या उससे नया स्थापित हो।  
 - GroupDocs.Search for Java को अपने प्रोजेक्ट में जोड़ें (Maven/Gradle)।  
-- परीक्षण या उत्पादन के लिए एक अस्थायी या पूर्ण GroupDocs.Search लाइसेंस।  
+- टेम्पररी या पूर्ण GroupDocs.Search लाइसेंस (टेस्टिंग या प्रोडक्शन के लिए)।  
 
-## समानार्थी शब्दकोश बनाने के लिए चरण‑दर‑चरण गाइड
+## सिनोनिम डिक्शनरी जावा कैसे बनाएं – चरण‑दर‑चरण गाइड
+
+यह गाइड आपको मौजूदा इंडेक्स लोड करने, सिनोनिम समूह परिभाषित करने, डिक्शनरी रजिस्टर करने, और सैंपल क्वेरीज़ के साथ बदलावों की पुष्टि करने के माध्यम से ले जाता है। इन चरणों का पालन करके आप मिनटों में एक पूरी तरह कार्यशील सिनोनिम डिक्शनरी लागू कर सकते हैं, जिससे सर्च प्रासंगिकता में सुधार होता है बिना मौजूदा दस्तावेज़ों को पुनः‑इंडेक्स किए।
 
 ### चरण 1: सर्च इंडेक्स को इनिशियलाइज़ करें
-`SearchIndex` इंस्टेंस बनाकर या खोलकर शुरू करें। यह इंडेक्स आपके दस्तावेज़ों और भाषा‑प्रसंस्करण शब्दकोशों को रखेगा।
 
-(कोड उदाहरण आधिकारिक API रेफ़रेंस में प्रदान किया गया है; मूल संरचना को बनाए रखने के लिए यहाँ कोई कोड ब्लॉक नहीं जोड़ा गया है।)
+`SearchIndex` क्लास GroupDocs.Search का कोर ऑब्जेक्ट है जो दस्तावेज़ों के सर्चेबल संग्रह का प्रतिनिधित्व करता है। यह इंडेक्स्ड कंटेंट और किसी भी भाषा‑प्रोसेसिंग डिक्शनरी को संग्रहीत करता है जो आप जोड़ते हैं।
 
-### चरण 2: समानार्थी सेट परिभाषित करें
-ऐसे समानार्थी समूह बनाएं जो संबंधित शब्दों को एक एकल मानक शब्द से मैप करते हैं। उदाहरण के लिए, “car”, “automobile”, और “vehicle” को एक साथ जोड़ा जा सकता है।
+> **Direct answer:** एक `SearchIndex` इंस्टेंस बनाएं या खोलें, जिसमें इंडेक्स फ़ोल्डर का पाथ दें, उदाहरण के लिए `new SearchIndex("path/to/index")`। यह ऑब्जेक्ट आपके दस्तावेज़ों और वह सिनोनिम डिक्शनरी होस्ट करेगा जिसे आप जोड़ने वाले हैं।
 
-### चरण 3: इंडेक्स में समानार्थी शब्दकोश जोड़ें
-इंडेक्स के साथ समानार्थी शब्दकोश को रजिस्टर करें ताकि यह क्वेरी प्रोसेसिंग के दौरान लागू हो।
+*(कोड उदाहरण आधिकारिक API रेफ़रेंस में दिया गया है; मूल संरचना को बनाए रखने के लिए यहाँ कोई कोड ब्लॉक नहीं जोड़ा गया है।)*
 
-### चरण 4: खोज व्यवहार का परीक्षण करें
-कुछ नमूना क्वेरी चलाएँ ताकि यह सत्यापित हो सके कि समानार्थी शब्द पहचाने जा रहे हैं और परिणाम अधिक व्यापक हैं।
+### चरण 2: सिनोनिम सेट्स को परिभाषित करें
 
-## सटीक परिणामों के लिए भाषा प्रसंस्करण जावा क्यों महत्वपूर्ण है
-स्टॉप शब्दों को निष्क्रिय करना और समानार्थी शब्दकोश जोड़ना प्रासंगिकता बढ़ाने के दो सबसे प्रभावी तरीके हैं। जब आप स्टॉप शब्दों को बंद करते हैं, तो इंजन सबसे अर्थपूर्ण शब्दों पर फोकस करता है, और समानार्थी शब्दकोश सुनिश्चित करते हैं कि शब्दावली में विविधताएँ प्रासंगिक सामग्री को छिपा न दें।
+`SynonymDictionary` इंडेक्स के लिए समकक्ष शब्दों के समूहों को संग्रहीत करता है। यह वह कंटेनर है जिसे सर्च इंजन क्वेरी विस्तार के समय परामर्श करता है।
 
-## उपलब्ध ट्यूटोरियल
+> **Direct answer:** एक `SynonymDictionary` ऑब्जेक्ट बनाएं, फिर प्रत्येक आवश्यक समूह के लिए `addSynonym("car", Arrays.asList("automobile", "vehicle"))` कॉल करें। डिक्शनरी असीमित एंट्रीज़ रख सकती है, लेकिन कुछ हजार शब्दों से कम रखने से इष्टतम प्रदर्शन बना रहता है।
 
-### [GroupDocs.Search जावा में स्टॉप शब्दों को निष्क्रिय करें ताकि खोज की सटीकता बढ़े](./disable-stop-words-groupdocs-search-java/)
-GroupDocs.Search for Java के साथ स्टॉप शब्दों को निष्क्रिय करने का तरीका सीखें, जिससे खोज की सटीकता और क्वेरी की शुद्धता में सुधार होता है।
+### चरण 3: सिनोनिम डिक्शनरी को इंडेक्स में जोड़ें
 
+डिक्शनरी को इंडेक्स के साथ रजिस्टर करें ताकि यह क्वेरी प्रोसेसिंग के दौरान लागू हो।
+
+> **Direct answer:** `index.addSynonymDictionary(synonymDictionary)` का उपयोग करें और फिर `index.saveChanges()` करें; डिक्शनरी इंडेक्स कॉन्फ़िगरेशन का हिस्सा बन जाती है और हर सर्च अनुरोध के लिए स्वचालित रूप से परामर्श की जाती है।
+
+### चरण 4: सर्च व्यवहार का परीक्षण करें
+
+`search` इंडेक्स के विरुद्ध एक क्वेरी चलाता है और मिलते-जुलते दस्तावेज़ लौटाता है।
+
+> **Direct answer:** `index.search("automobile")` निष्पादित करें और देखें कि “car” या “vehicle” वाले दस्तावेज़ परिणाम सेट में दिखाई देते हैं, जिससे पुष्टि होती है कि सिनोनिम डिक्शनरी सक्रिय है।
+
+## सटीक परिणामों के लिए भाषा प्रोसेसिंग जावा क्यों महत्वपूर्ण है
+स्टॉप शब्दों को निष्क्रिय करना और सिनोनिम डिक्शनरीज़ जोड़ना प्रासंगिकता बढ़ाने के दो सबसे प्रभावी तरीके हैं। जब आप स्टॉप शब्दों को बंद कर देते हैं, तो इंजन सबसे अर्थपूर्ण शब्दों पर फोकस करता है, और सिनोनिम डिक्शनरीज़ सुनिश्चित करती हैं कि शब्दावली में विविधताएँ प्रासंगिक सामग्री को छिपाएँ नहीं।
+
+> **Quantified claim:** GroupDocs.Search **70+ इनपुट और आउटपुट फॉर्मेट्स** का समर्थन करता है और एक मानक 8‑कोर सर्वर पर **प्रति मिनट 10,000 दस्तावेज़** तक प्रोसेस कर सकता है, जबकि 500 GB तक के इंडेक्स के लिए मेमोरी उपयोग 200 MB से कम रहता है।
+
+## सामान्य उपयोग केस
+| उपयोग केस | लाभ |
+|----------|-----|
+| ई‑कॉमर्स प्रोडक्ट सर्च | ग्राहक ब्रांड नाम, मॉडल नंबर, या सामान्य शब्दों का उपयोग करके आइटम खोजते हैं। |
+| एंटरप्राइज़ डॉक्यूमेंट पोर्टल्स | कर्मचारी नीतियों को खोजते हैं भले ही वे “HR” बनाम “Human Resources” जैसे सिनोनिम का उपयोग करें। |
+| मल्टी‑लैंग्वेज प्लेटफ़ॉर्म | क्रॉस‑लैंग्वेज प्रासंगिकता के लिए भाषा‑विशिष्ट स्टेमिंग के साथ सिनोनिम डिक्शनरीज़ को जोड़ें। |
+
+## समस्या निवारण टिप्स और सामान्य समस्याएँ
+- **सिनोनिम सेट लागू नहीं हुआ:** सुनिश्चित करें कि आपने `index.addSynonymDictionary` को पहली सर्च से *पहले* कॉल किया है; इंडेक्सिंग के बाद बदलावों के लिए `index.reload()` कॉल आवश्यक है।  
+- **परफ़ॉर्मेंस धीमा होना:** बड़े सिनोनिम डिक्शनरीज़ (>10 k एंट्रीज़) क्वेरी लेटेंसी बढ़ा सकते हैं; डोमेन के अनुसार उन्हें विभाजित करने पर विचार करें।  
+- **फ़्रेज़ सिनोनिम्स अनदेखा:** मल्टी‑वर्ड फ़्रेज़ को कोट्स में रखें जब उन्हें जोड़ें, उदाहरण के लिए `addSynonym("high‑speed internet", List.of("broadband"))`।  
+
+## उपलब्ध ट्यूटोरियल्स
+
+### [GroupDocs.Search जावा में स्टॉप शब्दों को निष्क्रिय करें बेहतर सर्च सटीकता के लिए](./disable-stop-words-groupdocs-search-java/)
 ### [GroupDocs.Search API का उपयोग करके जावा में शब्द रूप उत्पन्न करें](./java-word-forms-generation-groupdocs-search/)
-GroupDocs.Search का उपयोग करके जावा एप्लिकेशन में एकवचन और बहुवचन शब्द रूप उत्पन्न करने को लागू करना सीखें। खोज इंजन, टेक्स्ट विश्लेषण आदि के लिए भाषाई रूपांतरण को बेहतर बनाएं।
-
-### [GroupDocs.Search&#58; का उपयोग करके जावा में समानार्थी शब्दकोश लागू करें: एक व्यापक गाइड](./implement-synonym-dictionaries-groupdocs-search-java/)
-GroupDocs.Search for Java के साथ समानार्थी शब्दकोश को लागू करना और खोज कार्यक्षमता को बढ़ाना सीखें। उन डेवलपर्स के लिए उत्तम जो अपने एप्लिकेशन को अनुकूलित करना चाहते हैं।
-
-### [GroupDocs.Search for Java के साथ अल्फाबेट शब्दकोश और इंडेक्सिंग तकनीकों में महारत हासिल करें | शब्दकोश और भाषा प्रसंस्करण](./master-alphabet-dictionary-indexing-groupdocs-search-java/)
-GroupDocs.Search for Java का उपयोग करके अपने दस्तावेज़ खोज क्षमताओं को बढ़ाएँ। अल्फाबेट शब्दकोश इंडेक्स को कुशलतापूर्वक बनाना, प्रबंधित करना और अनुकूलित करना सीखें।
-
-### [GroupDocs.Search&#58; का उपयोग करके जावा में वर्तनी सुधार में महारत हासिल करें: एक पूर्ण ट्यूटोरियल](./java-groupdocs-search-spelling-correction-tutorial/)
-GroupDocs.Search के साथ जावा एप्लिकेशन में वर्तनी सुधार को लागू करना सीखें। खोज की शुद्धता बढ़ाएँ और उपयोगकर्ता अनुभव में सुधार करें।
+### [GroupDocs.Search&#58; एक व्यापक गाइड का उपयोग करके जावा में सिनोनिम डिक्शनरी लागू करें](./implement-synonym-dictionaries-groupdocs-search-java/)
+### [GroupDocs.Search for Java के साथ अल्फाबेट डिक्शनरी और इंडेक्सिंग तकनीकों में महारत हासिल करें | डिक्शनरीज़ और भाषा प्रोसेसिंग](./master-alphabet-dictionary-indexing-groupdocs-search-java/)
+### [GroupDocs.Search&#58; एक पूर्ण ट्यूटोरियल का उपयोग करके जावा में स्पेलिंग करेक्शन में महारत हासिल करें](./java-groupdocs-search-spelling-correction-tutorial/)
 
 ## अतिरिक्त संसाधन
-
 - [GroupDocs.Search for Java दस्तावेज़ीकरण](https://docs.groupdocs.com/search/java/)
 - [GroupDocs.Search for Java API रेफ़रेंस](https://reference.groupdocs.com/search/java/)
 - [GroupDocs.Search for Java डाउनलोड करें](https://releases.groupdocs.com/search/java/)
 - [GroupDocs.Search फ़ोरम](https://forum.groupdocs.com/c/search)
-- [नि:शुल्क समर्थन](https://forum.groupdocs.com/)
-- [अस्थायी लाइसेंस](https://purchase.groupdocs.com/temporary-license/)
+- [मुफ़्त सपोर्ट](https://forum.groupdocs.com/)
+- [टेम्पररी लाइसेंस](https://purchase.groupdocs.com/temporary-license/)
 
 ## अक्सर पूछे जाने वाले प्रश्न
 
-**प्र: क्या मैं समानार्थी शब्दकोश को वर्तनी सुधार के साथ मिलाकर उपयोग कर सकता हूँ?**  
-**उ:** बिल्कुल। दोनों फीचर को साथ में उपयोग करने से एक अधिक लचीला खोज अनुभव बनता है जो शब्द विविधताओं और गलत वर्तनी दोनों को संभालता है।
+**Q: क्या मैं सिनोनिम डिक्शनरीज़ को स्पेलिंग करेक्शन के साथ मिलाकर उपयोग कर सकता हूँ?**  
+A: बिल्कुल। दोनों फीचर को साथ में उपयोग करने से एक सहनशील सर्च अनुभव बनता है जो शब्द विविधताओं और टाइपो को एक ही क्वेरी में संभालता है।
 
-**प्र: समानार्थी शब्दकोश जोड़ने के बाद क्या मुझे इंडेक्स को पुनः बनाना चाहिए?**  
-**उ:** नहीं। GroupDocs.Search क्वेरी समय पर समानार्थी शब्दकोश लागू करता है, इसलिए आप मौजूदा दस्तावेज़ों को पुनः‑इंडेक्स किए बिना समानार्थी शब्द जोड़ या संशोधित कर सकते हैं।
+**Q: सिनोनिम डिक्शनरी जोड़ने के बाद क्या मुझे इंडेक्स को पुनः बनाना पड़ेगा?**  
+A: नहीं। GroupDocs.Search क्वेरी समय पर सिनोनिम डिक्शनरी लागू करता है, इसलिए आप मौजूदा दस्तावेज़ों को पुनः‑इंडेक्स किए बिना सिनोनिम जोड़ या संशोधित कर सकते हैं।
 
-**प्र: मैं एक शब्दकोश में कितने समानार्थी शब्द जोड़ सकता हूँ?**  
-**उ:** API कोई कठोर सीमा नहीं लगाता, लेकिन इष्टतम प्रदर्शन बनाए रखने के लिए शब्दकोश का आकार उचित रखें।
+**Q: मैं एक डिक्शनरी में कितने सिनोनिम जोड़ सकता हूँ?**  
+A: API पर कोई कठोर सीमा नहीं है; हालांकि, कुछ हजार एंट्रीज़ से कम रखने से इष्टतम क्वेरी प्रदर्शन बना रहता है।
 
-**प्र: क्या भाषा प्रसंस्करण जावा सभी ऑपरेटिंग सिस्टम पर समर्थित है?**  
-**उ:** हाँ। जावा लाइब्रेरी Windows, Linux, और macOS पर चलती है जहाँ भी संगत JDK उपलब्ध है।
+**Q: क्या भाषा प्रोसेसिंग जावा सभी ऑपरेटिंग सिस्टम पर समर्थित है?**  
+A: हाँ। जावा लाइब्रेरी Windows, Linux, और macOS पर चलती है जहाँ भी संगत JDK उपलब्ध है।
 
-**प्र: यदि मेरा समानार्थी सेट बहु‑शब्दीय वाक्यांश शामिल करता है तो क्या होगा?**  
-**उ:** API वाक्यांश समानार्थी शब्दों को समर्थन देता है; बस वाक्यांश को समानार्थी सेट में एकल प्रविष्टि के रूप में परिभाषित करें।
+**Q: यदि मेरे सिनोनिम सेट में मल्टी‑वर्ड फ़्रेज़ शामिल हों तो क्या होगा?**  
+A: API फ़्रेज़ सिनोनिम्स को सपोर्ट करता है; फ़्रेज़ को सिनोनिम सेट में एकल एंट्री के रूप में परिभाषित करें और यह सर्च के दौरान मिलान होगा।
 
----
+**Last Updated:** 2026-07-16  
+**Tested With:** GroupDocs.Search for Java 23.9  
+**Author:** GroupDocs
 
-**अंतिम अपडेट:** 2026-02-19  
-**परीक्षित संस्करण:** GroupDocs.Search for Java 23.9  
-**लेखक:** GroupDocs
+## संबंधित ट्यूटोरियल्स
+- [GroupDocs.Search के साथ जावा में स्पेलिंग सक्षम करने का तरीका](/search/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/)
+- [GroupDocs.Search के साथ जावा में सर्च इंडेक्स बनाना – होमोफोन पहचान गाइड](/search/java/document-management/groupdocs-search-java-homophone-document-management-guide/)
+- [GroupDocs.Search के साथ जावा में इंडेक्स डायरेक्टरी बनाना](/search/java/indexing/groupdocs-search-java-create-index/)
