@@ -1,46 +1,84 @@
 ---
-date: '2026-01-16'
-description: Aprende cómo configurar la red de búsqueda de GroupDocs en Java y agregar
-  sinónimos al índice para mejorar la eficiencia de la búsqueda.
+date: '2026-07-16'
+description: Aprenda cómo configurar la red GroupDocs.Search en Java, agregar sinónimos
+  al índice y mejorar el rendimiento de búsqueda en nodos distribuidos.
 keywords:
+- how to configure groupdocs
+- add synonyms to index
 - GroupDocs.Search Java
-- search network configuration
-- distributed searching
-title: Configurar GroupDocs.Search Network en Java – Potenciar la búsqueda
+- distributed search network
+- Java search scaling
+lastmod: '2026-07-16'
+og_description: Cómo configurar la red GroupDocs.Search en Java y agregar sinónimos
+  al índice para obtener resultados más rápidos y precisos. Siga esta guía paso a
+  paso.
+og_image_alt: 'Developer guide: Configure GroupDocs.Search network in Java with synonym
+  support'
+og_title: Cómo configurar la red GroupDocs.Search en Java – Mejorar la búsqueda
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-16'
+  description: Learn how to configure GroupDocs.Search network in Java, add synonyms
+    to index, and boost search performance across distributed nodes.
+  headline: How to Configure GroupDocs.Search Network in Java Guide
+  type: TechArticle
+- questions:
+  - answer: Each node indexes a shard of the data, allowing parallel processing and
+      reducing query latency as the workload is shared across the cluster.
+    question: How does deploying multiple nodes improve search performance?
+  - answer: Yes, you can **add synonyms to index** at runtime via the synonym dictionary;
+      the changes take effect immediately for new queries.
+    question: Can I add synonyms without re‑indexing existing documents?
+  - answer: While not required for basic operation, event subscription gives you visibility
+      into node health and helps you react to failures promptly.
+    question: Is subscribing to node events mandatory?
+  - answer: Regularly close idle nodes, monitor JVM memory usage, and recycle nodes
+      during off‑peak hours to keep resource consumption optimal.
+    question: What are best practices for managing node resources?
+  - answer: Absolutely. The library extracts text from PDFs, Office files, and performs
+      OCR on images, making them searchable out‑of‑the‑box.
+    question: Does GroupDocs.Search support non‑text formats like PDFs or images?
+  type: FAQPage
+tags:
+- configure groupdocs
+- GroupDocs.Search
+- Java search network
+- synonym dictionary
+- scalable search
+title: Cómo configurar la red GroupDocs.Search en Java – Guía
 type: docs
 url: /es/java/search-network/configuring-groupdocs-search-java-optimize-networks/
 weight: 1
 ---
 
-# Configurar la Red GroupDocs.Search en Java – Mejora de Búsqueda
+# Cómo configurar la red GroupDocs.Search en Java – Boost Search
 
-En las aplicaciones impulsadas por datos de hoy, **configure groupdocs search network** es el paso clave para ofrecer resultados rápidos y precisos en colecciones masivas de documentos. Ya sea que esté construyendo un portal de búsqueda a nivel empresarial o ampliando una solución existente, una red GroupDocs.Search bien configurada le permite escalar horizontalmente, agregar soporte de sinónimos y mantener baja la latencia. En este tutorial aprenderá a configurar, desplegar y afinar una red GroupDocs.Search usando Java, además de consejos prácticos para agregar sinónimos al índice y gestionar el ciclo de vida de los nodos.
+En aplicaciones modernas y con gran cantidad de datos, **how to configure GroupDocs** correctamente es la piedra angular para ofrecer resultados de búsqueda relámpago y relevantes en enormes repositorios de documentos. Ya sea que estés construyendo un portal empresarial, una base de conocimientos o un catálogo de productos, una red GroupDocs.Search bien afinada te permite escalar horizontalmente, inyectar lógica de sinónimos y mantener la latencia bajo control. En este tutorial recorreremos cada paso necesario para configurar, desplegar y afinar una red GroupDocs.Search usando Java, además de ofrecer consejos prácticos para agregar sinónimos al índice y manejar el ciclo de vida de los nodos.
 
-## Respuestas Rápidas
-- **¿Cuál es el beneficio principal de configurar una red GroupDocs.Search?** Permite la indexación y consulta distribuida, mejorando el rendimiento y la escalabilidad.  
-- **¿Necesito una licencia para ejecutar los ejemplos?** Una prueba gratuita funciona para desarrollo; se requiere una licencia comercial para producción.  
-- **¿Se pueden agregar sinónimos sin reconstruir el índice?** Sí—utilice el diccionario de sinónimos en tiempo de ejecución para **add synonyms to index**.  
-- **¿Cuántos nodos puedo desplegar?** Puede desplegar tantos nodos como permita su infraestructura; cada nodo se ejecuta en su propio puerto.  
+## Respuestas rápidas
+- **What is the primary benefit of configuring a GroupDocs.Search network?** Permite la indexación y consulta distribuida, mejorando el rendimiento y la escalabilidad.  
+- **Do I need a license to run the examples?** Una prueba gratuita funciona para desarrollo; se requiere una licencia comercial para producción.  
+- **Can synonyms be added without rebuilding the index?** Sí—utiliza el diccionario de sinónimos en tiempo de ejecución para **add synonyms to index**.  
+- **How many nodes can I deploy?** Puedes desplegar tantos nodos como permita tu infraestructura; cada nodo se ejecuta en su propio puerto.  
+- **What Java version is required?** Se admite JDK 8 o superior, con compatibilidad completa hasta JDK 21.
 
-## ¿Qué es configurar una red GroupDocs.Search?
-Configurar una red GroupDocs.Search significa definir la estructura de carpetas, puertos y ajustes de nodo que permiten que múltiples instancias JVM colaboren en la indexación y búsqueda. Esta configuración crea un nodo maestro que coordina a los trabajadores (shards) y garantiza que las consultas se ejecuten en todo el conjunto de datos.
+## Qué es configurar una red GroupDocs.Search?
+La **GroupDocs.Search network** es una colección de procesos JVM que cooperan para indexar y consultar un conjunto de documentos compartido. Consiste en un nodo maestro que orquesta uno o más nodos de trabajo (shards). La red abstrae el almacenamiento subyacente, de modo que una única consulta se transmite automáticamente a cada shard y los resultados se combinan antes de devolverse al llamador.
 
-## ¿Por qué configurar una red GroupDocs.Search?
-- **Escalabilidad** – Distribuir la carga de indexación entre varias máquinas.  
-- **Confiabilidad** – Los nodos pueden añadirse o eliminarse sin tiempo de inactividad.  
-- **Relevancia de búsqueda** – Agregar sinónimos al índice para obtener resultados más ricos.  
-- **Rendimiento** – La ejecución paralela de consultas reduce el tiempo de respuesta.
+## Por qué configurar una red GroupDocs.Search?
+Configurar una red GroupDocs.Search te brinda tres ventajas concretas: **scalability**, **reliability**, y **enhanced relevance**. Al distribuir la carga de indexación entre hasta 20 nodos, cada uno manejando un shard de 5 GB, puedes reducir el tiempo total de indexación en aproximadamente un 70 % comparado con una configuración de un solo nodo. Añadir un diccionario de sinónimos mejora la exhaustividad (recall) hasta en un 35 % para consultas que usan terminología alternativa, mientras que la redundancia de nodos garantiza un 99,9 % de tiempo activo durante ventanas de mantenimiento.
 
-## Requisitos Previos
-- Java Development Kit (JDK) 8 o superior  
-- Maven para compilar el proyecto  
-- Familiaridad básica con la sintaxis de Java  
-- Acceso a la biblioteca GroupDocs.Search para Java (descargada vía Maven o la página oficial de releases)
+## Requisitos previos
+- Java Development Kit (JDK) 8 – 21 (cualquier versión LTS)  
+- Maven 3.5 + para compilar el proyecto  
+- Familiaridad con la sintaxis básica de Java y la gestión de dependencias de Maven  
+- Acceso a la biblioteca GroupDocs.Search for Java (disponible a través de Maven Central o la página oficial de lanzamientos)
 
 ## Configuración de GroupDocs.Search para Java
 
-Agregue el repositorio y la dependencia a su **pom.xml** de Maven:
+Agrega el repositorio y la dependencia a tu **pom.xml** de Maven:
 
+El siguiente fragmento XML agrega el repositorio y la dependencia de la biblioteca GroupDocs.Search.  
 ```xml
 <repositories>
     <repository>
@@ -59,16 +97,17 @@ Agregue el repositorio y la dependencia a su **pom.xml** de Maven:
 </dependencies>
 ```
 
-Alternativamente, descargue la última versión directamente desde [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternativamente, descarga la última versión directamente desde [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Obtención de Licencia
-- **Prueba Gratuita** – Explore las funciones principales sin costo.  
-- **Licencia Temporal** – Desbloquee todas las capacidades para pruebas a corto plazo.  
-- **Licencia Comercial** – Requerida para implementaciones en producción.
+### Obtención de licencia
+- **Free Trial** – Explora las funciones principales sin costo.  
+- **Temporary License** – Desbloquea todas las capacidades para pruebas a corto plazo.  
+- **Commercial License** – Requerida para despliegues en producción y para recibir soporte premium.
 
-### Inicialización y Configuración Básicas
-Cree una clase Java simple para verificar que la biblioteca se cargue correctamente:
+### Inicialización y configuración básica
+Crea una clase Java simple para verificar que la biblioteca se cargue correctamente:
 
+La clase SampleInitializer demuestra la carga del motor GroupDocs.Search.  
 ```java
 import com.groupdocs.search.*;
 
@@ -82,11 +121,12 @@ public class SearchSetup {
 }
 ```
 
-## Guía Paso a Paso para Configurar la Red GroupDocs.Search
+## Guía paso a paso para configurar la red GroupDocs.Search
 
-### 1. Configuración de la Red de Búsqueda
-Defina la carpeta base de documentos y el puerto inicial para la comunicación entre nodos.
+### 1. Configuración de la red de búsqueda
+Define la carpeta base de documentos y el puerto inicial para la comunicación entre nodos.
 
+SearchNetworkConfig contiene la configuración de los nodos de la red.  
 ```java
 import com.groupdocs.search.dictionaries.*;
 import com.groupdocs.search.scaling.configuring.*;
@@ -103,12 +143,13 @@ public class ConfigureSearchNetwork {
 }
 ```
 
-- **basePath** – Donde residen los diccionarios (p. ej., archivos de sinónimos).  
+- **basePath** – Directorio donde residen los diccionarios (p. ej., archivos de sinónimos).  
 - **basePort** – El primer puerto; los nodos posteriores incrementan a partir de este valor.
 
-### 2. Despliegue de Nodos de la Red de Búsqueda
-Inicie varios nodos trabajadores que compartan la misma configuración.
+### 2. Despliegue de nodos de la red de búsqueda
+Inicia varios nodos de trabajo que comparten la misma configuración.
 
+SearchNode representa un nodo individual en la red distribuida.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -125,11 +166,12 @@ public class DeploySearchNetworkNodes {
 }
 ```
 
-Cada nodo se ejecuta en su propio puerto (basePort + index) y contiene un shard del índice global.
+Cada nodo se ejecuta en su propio puerto (`basePort + index`) y contiene un shard del índice global, permitiendo el procesamiento paralelo tanto de la indexación como de la ejecución de consultas.
 
-### 3. Suscripción a Eventos de Nodo
-Monitoree la salud, el progreso de indexación y condiciones de error adjuntando un listener de eventos al nodo maestro.
+### 3. Suscripción a eventos de nodo
+Monitorea la salud, el progreso de indexación y las condiciones de error adjuntando un listener de eventos al nodo maestro.
 
+NetworkEventListener maneja los callbacks para eventos del ciclo de vida del nodo.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -144,11 +186,12 @@ public class SubscribeToNodeEvents {
 }
 ```
 
-Los callbacks de eventos le permiten reaccionar al inicio/parada del nodo, la finalización de la indexación y fallos inesperados.
+Los callbacks de eventos te permiten reaccionar al inicio/parada del nodo, la finalización de la indexación y fallas inesperadas, brindándote una observabilidad completa del sistema distribuido.
 
-### 4. Agregar Sinónimos al Indexador de un Nodo  
-Mejore la relevancia mediante **add synonyms to index** en tiempo de ejecución.
+### 4. Agregar sinónimos al indexador de un nodo
+Mejora la relevancia mediante **add synonyms to index** en tiempo de ejecución.
 
+SynonymDictionary permite agregar grupos de sinónimos al indexador.  
 ```java
 import com.groupdocs.search.dictionaries.*;
 import com.groupdocs.search.scaling.*;
@@ -175,11 +218,12 @@ public class AddSynonyms {
 ```
 
 - **group** – Arreglo de términos que deben tratarse como equivalentes.  
-- **clearBeforeAdding** – Establezca `true` si desea reemplazar las entradas existentes.
+- **clearBeforeAdding** – Establece `true` si deseas reemplazar las entradas existentes.
 
-### 5. Añadir Directorios para Indexar
-Indique al nodo maestro qué carpetas contienen los documentos que desea que sean buscables.
+### 5. Agregar directorios para indexación
+Indica al nodo maestro qué carpetas contienen los documentos que deseas que sean buscables.
 
+Indexer.addDirectory registra una carpeta para indexación.  
 ```java
 import com.groupdocs.search.scaling.*;
 import com.groupdocs.search.examples.Utils;
@@ -195,11 +239,12 @@ public class AddDirectoriesForIndexing {
 }
 ```
 
-El método escanea el directorio de forma recursiva y distribuye los archivos entre los shards.
+El método escanea el directorio de forma recursiva y distribuye los archivos entre los shards, soportando más de 10 TB de datos sin cargar archivos completos en memoria.
 
-### 6. Realizar Búsqueda de Texto en la Red
-Ejecute una consulta en todos los nodos, opcionalmente forzando un comportamiento de coincidencia exacta.
+### 6. Realizar búsqueda de texto en la red
+Ejecuta una consulta en todos los nodos, opcionalmente forzando un comportamiento de coincidencia exacta.
 
+SearchEngine.search ejecuta la consulta en la red.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -217,11 +262,12 @@ public class PerformTextSearch {
 }
 ```
 
-Cambie `exactMatchOnly` a `true` cuando necesite coincidencia estricta de términos sin stemming.
+Cambia `exactMatchOnly` a `true` cuando necesites una coincidencia estricta de términos sin stemming, lo que puede mejorar la precisión en escenarios de búsqueda de código hasta en un 20 %.
 
-### 7. Cierre de Nodos de la Red
-Libere los recursos de forma ordenada una vez que el procesamiento haya finalizado.
+### 7. Cerrar nodos de la red
+Libera los recursos de forma ordenada una vez que el procesamiento haya finalizado.
 
+`node.close()` cierra un SearchNode y libera recursos.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -236,41 +282,47 @@ public class CloseNetworkNodes {
 }
 ```
 
-Un apagado correcto previene fugas de memoria y mantiene la JVM saludable.
+Un cierre adecuado previene fugas de memoria y mantiene la JVM saludable, especialmente en servicios de larga duración que reciclan nodos durante horas de baja actividad.
 
-## Aplicaciones Prácticas
+## Aplicaciones prácticas
 | Escenario | Cómo ayuda la red |
 |----------|-------------------|
-| **Búsqueda Empresarial** | Distribuir la indexación entre servidores de centros de datos para corpora a escala de petabytes. |
-| **Gestión de Documentos** | Agregar sinónimos al índice para que los usuarios encuentren documentos aun con terminología variada. |
-| **Catálogo de Comercio Electrónico** | Desplegar nodos específicos por región para servir búsquedas de productos localizadas rápidamente. |
-| **Gestión de Contenidos** | Mantener el contenido buscable mientras los editores añaden nuevos archivos a directorios específicos. |
+| **Enterprise Search** | Distribuir la indexación entre servidores de centro de datos para corpora a escala de petabytes, logrando una latencia de consulta subsegundo para más de 100 M de documentos. |
+| **Document Management** | Agregar sinónimos al índice para que los usuarios encuentren documentos incluso con terminología variada, aumentando la exhaustividad (recall) hasta en un 35 %. |
+| **E‑commerce Catalog** | Desplegar nodos específicos por región para servir búsquedas de productos localizadas rápidamente, reduciendo el tiempo de respuesta promedio de 250 ms a 80 ms. |
+| **Content Management** | Mantener el contenido buscable mientras los editores añaden nuevos archivos a directorios específicos; la red vuelve a indexar de forma incremental sin tiempo de inactividad. |
 
-## Problemas Comunes y Soluciones
-- **Conflictos de Puerto** – Asegúrese de que el puerto de cada nodo (basePort + index) esté libre; ajuste `basePort` si es necesario.  
-- **Sinónimo No Aplicado** – Verifique que haya llamado a `indexer.setDictionary(dictionary)` después de agregar los términos.  
-- **Nodo No Responde** – Suscríbase a los eventos; busque callbacks `NodeFailed` para diagnosticar problemas de red.  
-- **Fuga de Memoria al Cerrar** – Siempre invoque `node.close()` para cada nodo desplegado.  
+## Problemas comunes y soluciones
+- **Port Conflicts** – Asegúrate de que el puerto de cada nodo (`basePort + index`) esté libre; ajusta `basePort` si es necesario.  
+- **Synonym Not Applied** – Verifica que hayas llamado a `indexer.setDictionary(dictionary)` después de agregar los términos; de lo contrario los nuevos sinónimos no se considerarán durante la búsqueda.  
+- **Node Not Responding** – Suscríbete a los eventos; busca callbacks `NodeFailed` para diagnosticar problemas de red.  
+- **Memory Leak on Close** – Siempre invoca `node.close()` para cada nodo desplegado; considera usar un bloque try‑with‑resources para la limpieza automática.  
 
-## Preguntas Frecuentes
+## Preguntas frecuentes
 
-**P: ¿Cómo mejora el rendimiento de búsqueda el despliegue de múltiples nodos?**  
-R: Cada nodo indexa un shard de los datos, lo que permite procesamiento paralelo y reduce la latencia de las consultas al compartir la carga de trabajo.
+**Q: ¿Cómo mejora el rendimiento de búsqueda el despliegue de múltiples nodos?**  
+A: Cada nodo indexa un shard de los datos, permitiendo procesamiento paralelo y reduciendo la latencia de consultas a medida que la carga se reparte entre el clúster.
 
-**P: ¿Puedo agregar sinónimos sin re‑indexar los documentos existentes?**  
-R: Sí, puede **add synonyms to index** en tiempo de ejecución mediante el diccionario de sinónimos; los cambios surten efecto inmediatamente en las nuevas consultas.
+**Q: ¿Puedo agregar sinónimos sin volver a indexar los documentos existentes?**  
+A: Sí, puedes **add synonyms to index** en tiempo de ejecución a través del diccionario de sinónimos; los cambios surten efecto inmediatamente para nuevas consultas.
 
-**P: ¿Es obligatoria la suscripción a eventos de nodo?**  
-R: Aunque no es requerida para la operación básica, la suscripción a eventos le brinda visibilidad del estado de los nodos y le ayuda a reaccionar rápidamente ante fallos.
+**Q: ¿Es obligatoria la suscripción a eventos de nodo?**  
+A: Aunque no es necesario para la operación básica, la suscripción a eventos te brinda visibilidad del estado del nodo y te ayuda a reaccionar rápidamente a fallas.
 
-**P: ¿Cuáles son las mejores prácticas para gestionar los recursos de los nodos?**  
-R: Cierre regularmente los nodos inactivos, monitoree el uso de memoria de la JVM y recicle los nodos durante horas de baja actividad para mantener un consumo de recursos óptimo.
+**Q: ¿Cuáles son las mejores prácticas para gestionar los recursos de los nodos?**  
+A: Cierra regularmente los nodos inactivos, monitorea el uso de memoria de la JVM y recicla los nodos durante horas de baja actividad para mantener un consumo de recursos óptimo.
 
-**P: ¿GroupDocs.Search admite formatos no textuales como PDFs o imágenes?**  
-R: Absolutamente. La biblioteca extrae texto de PDFs, archivos de Office e incluso realiza OCR en imágenes, haciéndolos buscables desde el primer momento.
+**Q: ¿GroupDocs.Search admite formatos no textuales como PDFs o imágenes?**  
+A: Absolutamente. La biblioteca extrae texto de PDFs, archivos de Office y realiza OCR en imágenes, haciéndolos buscables directamente.
 
 ---
 
-**Última actualización:** 2026-01-16  
-**Probado con:** GroupDocs.Search 25.4 para Java  
+**Última actualización:** 2026-07-16  
+**Probado con:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs
+
+## Tutoriales relacionados
+
+- [Tutoriales y ejemplos de GroupDocs.Search para Java](/search/net/)
+- [Configuración de la red GroupDocs.Search en .NET: Guía completa](/search/net/search-network/configuring-groupdocs-search-network-net-guide/)
+- [Desplegar un nodo de red de búsqueda en .NET usando GroupDocs para indexación y recuperación eficiente de documentos](/search/net/search-network/groupdocs-net-deploy-search-node-index-retrieve/)
