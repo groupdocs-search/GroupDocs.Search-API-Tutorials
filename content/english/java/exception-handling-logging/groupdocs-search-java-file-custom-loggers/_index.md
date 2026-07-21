@@ -1,5 +1,5 @@
 ---
-title: "How to create custom logger and limit log file size with GroupDocs.Search Java"
+title: "Create a custom logger and limit log file size in GroupDocs.Search for Java"
 description: "Learn how to create custom logger, set max log size, and configure console or file logger in GroupDocs.Search for Java."
 date: "2026-02-24"
 weight: 1

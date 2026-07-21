@@ -1,5 +1,5 @@
 ---
-title: "Search by Attribute Java with GroupDocs.Search Guide"
+title: "How to Search by Attribute in Java with GroupDocs.Search"
 description: "Learn how to search by attribute java using GroupDocs.Search. This guide shows batch update document attributes, adding and modifying attributes during indexing."
 date: "2026-02-24"
 weight: 1
@@ -146,7 +146,7 @@ import com.groupdocs.search.events.FileIndexingEventArgs;
 index.getEvents().FileIndexing.add(new EventHandler<FileIndexingEventArgs>() {
     @Override
     public void invoke(Object sender, FileIndexingEventArgs args) {
-        if (args.getDocumentFullPath().endsWith("Lorem ipsum.pdf")) {
+        if (args.getDocumentFullPath().endsWith("SampleDocument.pdf")) {
             args.setAttributes(new String[] { "main", "key" });
         }
     }

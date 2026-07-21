@@ -1,5 +1,5 @@
 ---
-title: "How to Index Documents in Java with GroupDocs.Search – Homophone Support"
+title: "Build a Homophone‑Enabled Document Search Index in Java"
 description: "Learn how to index documents in Java using GroupDocs.Search and discover how to add documents to index with homophone support for better search accuracy."
 date: "2026-02-24"
 weight: 1

@@ -1,5 +1,5 @@
 ---
-title: "Asynchronous Logging Java with GroupDocs.Search – Custom Logger Guide"
+title: "Implement Asynchronous Logging in Java with GroupDocs.Search – Custom Logger Guide"
 description: "Learn asynchronous logging Java techniques using GroupDocs.Search. Create custom logger, log errors console Java, and implement ILogger for thread‑safe logging."
 date: "2026-02-24"
 weight: 1
