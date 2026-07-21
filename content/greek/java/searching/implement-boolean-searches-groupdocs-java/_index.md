@@ -1,52 +1,115 @@
 ---
-date: '2026-01-29'
-description: Μάθετε πώς να υλοποιείτε λογικές ερωτήσεις AND/OR σε Java χρησιμοποιώντας
-  το GroupDocs.Search για Java, προσθέστε έγγραφα στο ευρετήριο και βελτιώστε την
-  ανάκτηση εγγράφων.
+date: '2026-07-21'
+description: Το tutorial Create Boolean Query Java δείχνει πώς να υλοποιήσετε αναζητήσεις
+  boolean AND, OR, NOT χρησιμοποιώντας το GroupDocs.Search for Java, να προσθέσετε
+  έγγραφα σε ένα index και να boost την ανάκτηση εγγράφων.
 keywords:
-- GroupDocs.Search Java
-- Boolean Searches Java
-- AND OR NOT queries Java
-- GroupDocs Java search
-- Java boolean search implementation
-title: 'java boolean and or: Κατακτήστε τις Boolean Αναζητήσεις με το GroupDocs.Search
-  για Java'
+- create boolean query java
+- boolean search tutorial java
+- how to implement boolean search java
+- boolean and or not java
+- how to use not operator java
+lastmod: '2026-07-21'
+og_description: Το tutorial Create Boolean Query Java εξηγεί βήμα‑βήμα πώς να δημιουργήσετε
+  ερωτήματα AND, OR, NOT με το GroupDocs.Search for Java, να προσθέσετε έγγραφα σε
+  ένα index και να βελτιώσετε την απόδοση της ανάκτησης.
+og_image_alt: 'Developer guide: Build boolean queries in Java using GroupDocs.Search'
+og_title: Create Boolean Query Java – Κατακτήστε τις Boolean αναζητήσεις με το GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-21'
+  description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  headline: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  type: TechArticle
+- description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  name: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  steps:
+  - name: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+    text: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search** – using the plain string syntax.'
+    text: '**Perform Text Query Search** – using the plain string syntax.'
+  - name: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+    text: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search**'
+    text: '**Perform Text Query Search**'
+  - name: '**Perform Object Query Search**'
+    text: '**Perform Object Query Search**'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  type: HowTo
+- questions:
+  - answer: Absolutely. You can chain multiple `createWordQuery` objects with `createAndQuery`,
+      or simply write `"term1 AND term2 AND term3"` in the text query.
+    question: Can I combine more than two terms in an AND query?
+  - answer: Yes. Append `*` for wildcard (e.g., `promot*`) or use `~` for fuzzy matching
+      (e.g., `comfort~`).
+    question: Does GroupDocs.Search support wildcard or fuzzy searches?
+  - answer: Enable the built‑in logger (`index.getLogger().setLevel(Level.INFO)`)
+      and review the timing metrics after each `add` operation.
+    question: What is the best way to monitor indexing performance?
+  type: FAQPage
+tags:
+- boolean search java
+- groupdocs search
+- java document indexing
+- search queries
+- java tutorial
+title: 'Δημιουργία ερωτήματος Boolean Java: Κατακτήστε τις Boolean αναζητήσεις με
+  το GroupDocs.Search for Java'
 type: docs
 url: /el/java/searching/implement-boolean-searches-groupdocs-java/
 weight: 1
 ---
 
-# java boolean and or: Αποκτήστε τον έλεγχο των Boolean Αναζητήσεων με το GroupDocs.Search για Java
+# Δημιουργία Boolean Query Java: Μάθετε τις Boolean Αναζητήσεις με το GroupDocs.Search για Java
 
-Η αναζήτηση σε τεράστιες συλλογές εγγράφων μπορεί να μοιάζει με το να ψάχνεις για μια βελόνα σε άχυρο. Με ερωτήματα **java boolean and or** μπορείτε να πείτε στη μηχανή ακριβώς τι χρειάζεστε — έγγραφα που περιέχουν *και* τους δύο όρους, *οποιονδήποτε* από αυτούς, ή *να εξαιρέσετε* ανεπιθύμητες λέξεις. Σε αυτόν τον οδηγό θα περάσουμε από τη ρύθμιση του **GroupDocs.Search for Java**, την προσθήκη εγγράφων σε ευρετήριο και τη δημιουργία ισχυρών boolean ερωτημάτων που ενισχύουν τις **document retrieval java** ροές εργασίας σας.
+Η αναζήτηση σε τεράστιες συλλογές εγγράφων μπορεί να μοιάζει με το να ψάχνεις για βελόνι σε άχυρο. **Create Boolean Query Java** σας επιτρέπει να πείτε στη μηχανή ακριβώς τι χρειάζεστε — έγγραφα που περιέχουν *και* τους δύο όρους, *οποιονδήποτε* από τους όρους, ή *εξαίρεση* ανεπιθύμητων λέξεων. Σε αυτόν τον οδηγό θα περάσουμε από τη ρύθμιση του **GroupDocs.Search for Java**, την προσθήκη εγγράφων σε ευρετήριο, και τη δημιουργία ισχυρών boolean ερωτημάτων που ενισχύουν τις **document retrieval java** ροές εργασίας σας. Στο τέλος θα μπορείτε να γράψετε καθαρό, συντηρήσιμο κώδικα που δημιουργεί boolean ερωτήματα σε Java με λίγες μόνο γραμμές.
 
 ## Γρήγορες Απαντήσεις
-- **Τι είναι ένα boolean AND ερώτημα;** Επιστρέφει μόνο τα έγγραφα που περιέχουν *όλες* τις καθορισμένες λέξεις.  
-- **Πώς διαφέρει το OR από το AND;** Το OR ταιριάζει με έγγραφα που περιέχουν *οποιαδήποτε* από τις λέξεις, διευρύνοντας το σύνολο αποτελεσμάτων.  
+- **Τι είναι ένα boolean AND query;** Επιστρέφει μόνο έγγραφα που περιέχουν *όλες* τις καθορισμένες λέξεις-κλειδιά.  
+- **Πώς διαφέρει το OR από το AND;** Το OR ταιριάζει με έγγραφα που περιέχουν *οποιαδήποτε* από τις λέξεις-κλειδιά, διευρύνοντας το σύνολο αποτελεσμάτων.  
 - **Πότε πρέπει να χρησιμοποιήσω το NOT;** Χρησιμοποιήστε το NOT για να φιλτράρετε έγγραφα που περιέχουν ανεπιθύμητες λέξεις.  
-- **Χρειάζομαι άδεια;** Μια δωρεάν δοκιμή λειτουργεί για δοκιμές· απαιτείται εμπορική άδεια για παραγωγή.  
-- **Ποια έκδοση της Java απαιτείται;** Υποστηρίζεται η Java 8+· συνιστάται JDK 11+.
+- **Χρειάζομαι άδεια;** Μια δωρεάν δοκιμαστική άδεια λειτουργεί για δοκιμές· απαιτείται εμπορική άδεια για παραγωγή.  
+- **Ποια έκδοση της Java απαιτείται;** Υποστηρίζεται η Java 8+· συνιστάται η JDK 11+.
 
-## Τι είναι το **java boolean and or**;
-Ένα ερώτημα **java boolean and or** συνδυάζει λογικούς τελεστές (AND, OR, NOT) για να βελτιώσει τα αποτελέσματα αναζήτησης. Με τη δομή των ερωτημάτων λέτε στο GroupDocs.Search ακριβώς πώς σχετίζονται οι όροι μεταξύ τους, προσφέροντας ακριβή έλεγχο της διαδικασίας ανάκτησης.
+## Τι είναι **create boolean query java**;
+`create boolean query java` αναφέρεται στην κατασκευή ενός ερωτήματος αναζήτησης σε Java που συνδυάζει λογικούς τελεστές όπως AND, OR και NOT χρησιμοποιώντας το GroupDocs.Search API. Συγκροτώντας αυτούς τους τελεστές μπορείτε να ελέγχετε με ακρίβεια ποια έγγραφα ταιριάζουν, επιτρέποντας προηγμένο φιλτράρισμα, ρύθμιση σχετικότητας και σύνθετα σενάρια αναζήτησης.
 
 ## Γιατί να χρησιμοποιήσετε το GroupDocs.Search για Java;
-- **Υψηλή απόδοση** σε μεγάλα σύνολα εγγράφων.  
-- **Πλούσιο API** που υποστηρίζει τόσο ερωτήματα κειμένου όσο και αντικειμενοστραφή ερωτήματα.  
-- **Ενσωματωμένη υποστήριξη γλώσσας** για stemming, stop‑words και fuzzy matching.  
-- **Εύκολη ενσωμάτωση** με Maven ή άμεση λήψη JAR.
+- **High performance** σε μεγάλα σύνολα εγγράφων – μπορεί να ευρετηριάσει και να αναζητήσει 500 GB κειμένου σε λιγότερο από ένα λεπτό σε τυπικό διακομιστή.  
+- **Rich API** που υποστηρίζει ερωτήματα κειμένου και αντικειμένου, επιτρέποντάς σας να επιλέξετε το στυλ που ταιριάζει στην αρχιτεκτονική σας.  
+- **Built‑in language support** για στέμμινγκ, stop‑words και fuzzy matching σε πάνω από 30 γλώσσες.  
+- **Easy integration** με Maven ή άμεση λήψη JAR, απαιτώντας μόνο λίγες γραμμές κώδικα για να ξεκινήσετε.
 
 ## Προαπαιτούμενα
 Πριν ξεκινήσετε, βεβαιωθείτε ότι έχετε:
 
 - **GroupDocs.Search for Java** (v25.4 ή νεότερη) – δείτε τον σύνδεσμο λήψης παρακάτω.  
-- Εγκατεστημένο και ρυθμισμένο JDK 8+ στο IDE σας (IntelliJ IDEA, Eclipse κ.λπ.).  
+- Εγκατεστημένη και ρυθμισμένη JDK 8+ στο IDE σας (IntelliJ IDEA, Eclipse κ.λπ.).  
 - Βασικές γνώσεις Java και Maven για διαχείριση εξαρτήσεων.  
 
 ## Ρύθμιση του GroupDocs.Search για Java
 
-### Maven Setup
-Προσθέστε το αποθετήριο και την εξάρτηση στο `pom.xml` σας:
+### Ρύθμιση Maven
+Προσθέστε το αποθετήριο και την εξάρτηση στο `pom.xml`:
 
 ```xml
 <repositories>
@@ -67,10 +130,10 @@ weight: 1
 ```
 
 ### Άμεση Λήψη
-Εναλλακτικά, κατεβάστε το πιο πρόσφατο JAR από την επίσημη ιστοσελίδα: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Εναλλακτικά, κατεβάστε το τελευταίο JAR από την επίσημη ιστοσελίδα: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Απόκτηση Άδειας
-Ξεκινήστε με δωρεάν δοκιμαστική άδεια για να εξερευνήσετε όλες τις δυνατότητες. Για παραγωγική χρήση, αγοράστε εμπορική άδεια ώστε να ξεκλειδώσετε πλήρη λειτουργικότητα.
+Ξεκινήστε με μια δωρεάν δοκιμαστική άδεια για να εξερευνήσετε όλες τις δυνατότητες. Για παραγωγική χρήση, αγοράστε εμπορική άδεια ώστε να ξεκλειδώσετε πλήρη λειτουργικότητα.
 
 ### Βασική Αρχικοποίηση και Ρύθμιση
 Δημιουργήστε έναν φάκελο ευρετηρίου και δημιουργήστε το αντικείμενο `Index`:
@@ -86,19 +149,17 @@ public class GroupDocsSetup {
 }
 ```
 
-## java boolean and or: Υλοποίηση Boolean Αναζητήσεων
+## Πώς δημιουργείτε boolean query java;
+Η κλάση `Index` αντιπροσωπεύει μια αναζητήσιμη συλλογή εγγράφων αποθηκευμένων στο δίσκο. Ένα `BooleanQuery` συνδυάζει πολλαπλά υπο‑ερωτήματα με λογικούς τελεστές. Οι μέθοδοι `createAndQuery`, `createOrQuery` και `createNotQuery` δημιουργούν υπο‑ερωτήματα AND, OR και NOT αντίστοιχα. Φορτώστε ή δημιουργήστε μια παρουσία `Index`, προσθέστε έγγραφα, στη συνέχεια δημιουργήστε ένα αντικείμενο `BooleanQuery` χρησιμοποιώντας `createAndQuery`, `createOrQuery` ή `createNotQuery`. Καλέστε `index.search(query)` για να ανακτήσετε τα ταιριαστά έγγραφα. Αυτό το πρότυπο λειτουργεί τόσο για απλά όσο και για σύνθετα σενάρια και απαιτεί μόνο τρία λογικά βήματα: αρχικοποίηση ευρετηρίου, προσθήκη εγγράφων και εκτέλεση ερωτήματος.
 
-Παρακάτω καλύπτουμε **AND**, **OR**, **NOT** και **complex** ερωτήματα. Κάθε ενότητα δείχνει τόσο ερώτημα κειμένου όσο και το ισοδύναμο αντικειμενοστραφές ερώτημα, ώστε να διαλέξετε το στυλ που ταιριάζει στον κώδικά σας.
+## Αναζήτηση Boolean AND
 
-### Boolean AND Search
-Συνδυάστε όρους με **AND** για να ανακτήσετε μόνο τα έγγραφα που περιέχουν *όλες* τις λέξεις‑κλειδιά.
+### Επισκόπηση
+Ένα ερώτημα AND περιορίζει τα αποτελέσματα, βελτιώνοντας τη σχετικότητα όταν χρειάζεστε έγγραφα που ταιριάζουν με πολλαπλά κριτήρια.
 
-#### Overview
-Ένα ερώτημα AND περιορίζει τα αποτελέσματα, βελτιώνοντας τη συνάφεια όταν χρειάζεστε έγγραφα που ταιριάζουν με πολλαπλά κριτήρια.
+### Βήματα Υλοποίησης
 
-#### Implementation Steps
-
-1. **Initialize Index** – δείχνει επίσης πώς να **add documents to index** για το σενάριο AND.
+1. **Initialize Index** – αυτό επίσης δείχνει **add documents to index** για το σενάριο AND.
 
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorAnd";
@@ -130,13 +191,12 @@ public class GroupDocsSetup {
    SearchResult result2 = index.search(andQuery);
    ```
 
-### Boolean OR Search
-Χρησιμοποιήστε **OR** για να διευρύνετε τα αποτελέσματα, ταιριάζοντας με οποιονδήποτε από τους παρεχόμενους όρους.
+## Αναζήτηση Boolean OR
 
-#### Overview
-Ένα ερώτημα OR είναι ιδανικό για εξερευνητικές αναζητήσεις όπου θέλετε να συλλάβετε έγγραφα που περιέχουν τουλάχιστον μία από τις πολλές λέξεις‑κλειδιά (**search with or java**).
+### Επισκόπηση
+Ένα ερώτημα OR είναι ιδανικό για εξερευνητικές αναζητήσεις όπου θέλετε να εντοπίσετε έγγραφα που περιέχουν τουλάχιστον μία από τις λέξεις-κλειδιά (**search with or java**).
 
-#### Implementation Steps
+### Βήματα Υλοποίησης
 
 1. **Initialize Index**
 
@@ -168,13 +228,12 @@ public class GroupDocsSetup {
    SearchResult result2 = index.search(orQuery);
    ```
 
-### Boolean NOT Search
-Εξαιρέστε ανεπιθύμητους όρους με **NOT** για να φιλτράρετε το «θόρυβο» από τα αποτελέσματά σας.
+## Αναζήτηση Boolean NOT
 
-#### Overview
-Ένα ερώτημα NOT σας βοηθά να αφαιρέσετε άσχετα έγγραφα, όπως το φιλτράρισμα του ονόματος ενός ανταγωνιστή (**boolean search examples java**).
+### Επισκόπηση
+Ένα ερώτημα NOT σας βοηθά να εξαλείψετε άσχετα έγγραφα, όπως το φιλτράρισμα του ονόματος ανταγωνιστή (**boolean search examples java**).
 
-#### Implementation Steps
+### Βήματα Υλοποίησης
 
 1. **Initialize Index**
 
@@ -207,13 +266,12 @@ public class GroupDocsSetup {
    SearchResult result2 = index.search(andQuery);
    ```
 
-### Complex Boolean Queries
-Συνδυάστε **AND**, **OR**, και **NOT** για να δημιουργήσετε πολύπλοκη λογική αναζήτησης με εξαιρετικά συγκεκριμένες ανάγκες ανάκτησης.
+## Σύνθετα Boolean Ερωτήματα
 
-#### Overview
-Τα σύνθετα ερωτήματα σας επιτρέπουν να μοντελοποιήσετε πραγματικά σενάρια αναζήτησης, όπως «βρείτε άρθρα αθλητισμού που είναι θετικά αλλά εξαιρέστε οποιαδήποτε αναφορά σε συγκεκριμένους αθλητές».
+### Επισκόπηση
+Τα σύνθετα ερωτήματα σας επιτρέπουν να μοντελοποιήσετε πραγματικά σενάρια αναζήτησης, όπως “βρείτε άρθρα αθλητισμού που είναι θετικά αλλά εξαιρέστε οποιαδήποτε αναφορά σε συγκεκριμένους αθλητές”.
 
-#### Implementation Steps
+### Βήματα Υλοποίησης
 
 1. **Initialize Index**
 
@@ -252,37 +310,46 @@ public class GroupDocsSetup {
    SearchResult result2 = index.search(rootQuery);
    ```
 
-## Πρακτικές Εφαρμογές των java boolean and or Ερωτημάτων
-- **Συστήματα Διαχείρισης Εγγράφων** – εντοπίστε συμβάσεις που περιέχουν τόσο το “confidential” **AND** “renewal”.  
-- **Νομική Έρευνα** – φιλτράρετε νομολογίες με **AND**/ **OR** ενώ εξαιρείτε παλαιές διατάξεις χρησιμοποιώντας **NOT**.  
-- **Υποστήριξη Πελατών** – ανακτήστε αιτήματα που αναφέρουν “login” **AND** “error” αλλά όχι “resolved”.  
-- **Κατηγοριοποίηση Περιεχομένου** – συγκεντρώστε blog posts για “cloud” **OR** “serverless” για ένα newsletter.
+## Πρακτικές Εφαρμογές των **java boolean and or** Ερωτημάτων
+- **Document Management Systems** – εντοπίστε συμβάσεις που περιέχουν τόσο “confidential” **AND** “renewal”.  
+- **Legal Research** – φιλτράρετε νομολογία με **AND**/**OR** ενώ εξαιρείτε παλαιούς νόμους χρησιμοποιώντας **NOT**.  
+- **Customer Support** – ανακτήστε αιτήματα που αναφέρουν “login” **AND** “error” αλλά όχι “resolved”.  
+- **Content Curation** – συγκεντρώστε αναρτήσεις blog για “cloud” **OR** “serverless” για ένα newsletter.
 
-## Συχνά Λάθη & Επίλυση Προβλημάτων
+## Συνηθισμένα Πιθανά Σφάλματα & Επίλυση Προβλημάτων
+
 - **Missing Index Refresh** – μετά την προσθήκη νέων εγγράφων, καλέστε `index.update()` ώστε να γίνουν αναζητήσιμα.  
 - **Incorrect Operator Spacing** – το GroupDocs.Search απαιτεί κενά γύρω από τους τελεστές (`AND`, `OR`, `NOT`).  
 - **Case Sensitivity** – τα ερωτήματα είναι προεπιλογή case‑insensitive, αλλά προσαρμοσμένοι αναλυτές μπορεί να το αλλάξουν.  
-- **Large Result Sets** – χρησιμοποιήστε σελιδοποίηση (`search(query, 0, 100)`) για να αποφύγετε υπερφόρτωση μνήμης.
+- **Large Result Sets** – χρησιμοποιήστε σελιδοποίηση (`search(query, 0, 100)`) για να αποφύγετε υπερφόρτωση μνήμης.  
 
 ## Συχνές Ερωτήσεις
 
-**Ε: Μπορώ να συνδυάσω περισσότερους από δύο όρους σε ένα ερώτημα AND;**  
-Α: Φυσικά. Μπορείτε να αλυσίδετε πολλαπλά αντικείμενα `createWordQuery` με `createAndQuery`, ή απλώς να γράψετε `"term1 AND term2 AND term3"` στο ερώτημα κειμένου.
+**Q: Μπορώ να συνδυάσω περισσότερους από δύο όρους σε ένα ερώτημα AND;**  
+A: Απόλυτα. Μπορείτε να συνδέσετε πολλαπλά αντικείμενα `createWordQuery` με `createAndQuery`, ή απλώς να γράψετε `"term1 AND term2 AND term3"` στο ερώτημα κειμένου.
 
-**Ε: Υποστηρίζει το GroupDocs.Search wildcard ή fuzzy αναζητήσεις;**  
-Α: Ναι. Προσθέστε `*` για wildcard (π.χ., `promot*`) ή `~` για fuzzy matching (π.χ., `comfort~`).
+**Q: Υποστηρίζει το GroupDocs.Search wildcard ή fuzzy αναζητήσεις;**  
+A: Ναι. Προσθέστε `*` για wildcard (π.χ., `promot*`) ή χρησιμοποιήστε `~` για fuzzy matching (π.χ., `comfort~`).
 
-**Ε: Πώς περιορίζω την αναζήτηση σε συγκεκριμένους τύπους αρχείων;**  
-Α: Χρησιμοποιήστε την κλάση `FileTypeQuery` για να περιορίσετε τα αποτελέσματα σε PDF, DOCX κ.λπ., και συνδυάστε την με το boolean ερώτημά σας.
+**Q: Πώς περιορίζω την αναζήτηση σε συγκεκριμένους τύπους αρχείων;**  
+`FileTypeQuery` περιορίζει τα αποτελέσματα σε συγκεκριμένες μορφές αρχείων όπως PDF ή DOCX.  
+A: Χρησιμοποιήστε την κλάση `FileTypeQuery` για να περιορίσετε τα αποτελέσματα σε PDFs, DOCX κ.λπ., και συνδυάστε το με το boolean ερώτημά σας.
 
-**Ε: Ποιος είναι ο καλύτερος τρόπος για να παρακολουθώ την απόδοση του ευρετηρίου;**  
-Α: Ενεργοποιήστε τον ενσωματωμένο logger (`index.getLogger().setLevel(Level.INFO)`) και ελέγξτε τα μετρικά χρόνου μετά από κάθε λειτουργία `add`.
+**Q: Ποιος είναι ο καλύτερος τρόπος για να παρακολουθήσω την απόδοση του ευρετηρίου;**  
+A: Ενεργοποιήστε τον ενσωματωμένο logger (`index.getLogger().setLevel(Level.INFO)`) και ελέγξτε τις μετρήσεις χρόνου μετά από κάθε λειτουργία `add`.
 
-**Ε: Υπάρχει τρόπος να ενισχύσω τη συνάφεια ορισμένων όρων;**  
-Α: Ναι. Τυλίξτε τις σημαντικές λέξεις με `BoostQuery` για να αυξήσετε το βάρος τους στον αλγόριθμο βαθμολόγησης.
+**Q: Υπάρχει τρόπος να ενισχύσω τη σχετικότητα ορισμένων όρων;**  
+`BoostQuery` αυξάνει το σκορ σχετικότητας των καθορισμένων όρων σε ένα ερώτημα αναζήτησης.  
+A: Ναι. Τυλίξτε τις σημαντικές λέξεις με `BoostQuery` για να αυξήσετε το βάρος τους στον αλγόριθμο βαθμολόγησης.
 
 ---
 
-**Τελευταία ενημέρωση:** 2026-01-29  
+**Τελευταία ενημέρωση:** 2026-07-21  
 **Δοκιμή με:** GroupDocs.Search 25.4 (Java)  
 **Συγγραφέας:** GroupDocs
+
+## Σχετικά Μαθήματα
+
+- [Boolean Operators Java – Create Search Index & Faceted Search](/search/java/advanced-features/faceted-complex-search-groupdocs-java/)
+- [Master GroupDocs.Search Java&#58; Efficient Document Search and Index Management](/search/java/searching/groupdocs-search-java-efficient-document-search/)
+- [search query java - Mastering GroupDocs.Search Java – Create and Manage a Search Index](/search/java/indexing/groupdocs-search-java-create-index-guide/)

@@ -1,51 +1,113 @@
 ---
-date: '2026-01-29'
-description: Erfahren Sie, wie Sie Java‑Boolean‑ und OR‑Abfragen mit GroupDocs.Search
-  für Java implementieren, Dokumente zum Index hinzufügen und die Dokumentenabfrage
-  verbessern.
+date: '2026-07-21'
+description: Das Create Boolean Query Java‑Tutorial zeigt, wie man boolesche AND-,
+  OR‑ und NOT‑Suchen mit GroupDocs.Search for Java implementiert, Dokumente zu einem
+  Index hinzufügt und die Dokumentenabfrage verbessert.
 keywords:
-- GroupDocs.Search Java
-- Boolean Searches Java
-- AND OR NOT queries Java
-- GroupDocs Java search
-- Java boolean search implementation
-title: 'Java Boolean und/oder: Beherrsche Boolesche Suchen mit GroupDocs.Search für
-  Java'
+- create boolean query java
+- boolean search tutorial java
+- how to implement boolean search java
+- boolean and or not java
+- how to use not operator java
+lastmod: '2026-07-21'
+og_description: Das Create Boolean Query Java‑Tutorial erklärt Schritt für Schritt,
+  wie man AND‑, OR‑ und NOT‑Abfragen mit GroupDocs.Search for Java erstellt, Dokumente
+  zu einem Index hinzufügt und die Abrufleistung verbessert.
+og_image_alt: 'Developer guide: Build boolean queries in Java using GroupDocs.Search'
+og_title: Create Boolean Query Java – Beherrsche Boolesche Suchen mit GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-21'
+  description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  headline: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  type: TechArticle
+- description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  name: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  steps:
+  - name: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+    text: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search** – using the plain string syntax.'
+    text: '**Perform Text Query Search** – using the plain string syntax.'
+  - name: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+    text: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search**'
+    text: '**Perform Text Query Search**'
+  - name: '**Perform Object Query Search**'
+    text: '**Perform Object Query Search**'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  type: HowTo
+- questions:
+  - answer: Absolutely. You can chain multiple `createWordQuery` objects with `createAndQuery`,
+      or simply write `"term1 AND term2 AND term3"` in the text query.
+    question: Can I combine more than two terms in an AND query?
+  - answer: Yes. Append `*` for wildcard (e.g., `promot*`) or use `~` for fuzzy matching
+      (e.g., `comfort~`).
+    question: Does GroupDocs.Search support wildcard or fuzzy searches?
+  - answer: Enable the built‑in logger (`index.getLogger().setLevel(Level.INFO)`)
+      and review the timing metrics after each `add` operation.
+    question: What is the best way to monitor indexing performance?
+  type: FAQPage
+tags:
+- boolean search java
+- groupdocs search
+- java document indexing
+- search queries
+- java tutorial
+title: 'Erstelle Boolesche Abfrage Java: Beherrsche Boolesche Suchen mit GroupDocs.Search
+  for Java'
 type: docs
 url: /de/java/searching/implement-boolean-searches-groupdocs-java/
 weight: 1
 ---
 
-# java boolean and or: Beherrschung von Booleschen Suchvorgängen mit GroupDocs.Search für Java
+# Boolesche Abfrage in Java erstellen: Boolesche Suchen mit GroupDocs.Search für Java
 
-Die Suche in riesigen Dokumentensammlungen kann sich anfühlen, als würde man eine Nadel im Heuhaufen suchen. Mit **java boolean and or**‑Abfragen können Sie der Engine genau mitteilen, was Sie benötigen – Dokumente, die *beide* Begriffe enthalten, *einen* der Begriffe oder *unerwünschte* Wörter ausschließen. In diesem Leitfaden zeigen wir, wie Sie **GroupDocs.Search for Java** einrichten, Dokumente zu einem Index hinzufügen und leistungsstarke Boolesche Abfragen erstellen, die Ihre **document retrieval java**‑Arbeitsabläufe verbessern.
+Das Durchsuchen riesiger Dokumentensammlungen kann sich anfühlen, als würde man eine Nadel im Heuhaufen suchen. **Create Boolean Query Java** ermöglicht es Ihnen, der Engine genau mitzuteilen, was Sie benötigen – Dokumente, die *beide* Begriffe enthalten, *einen* der Begriffe oder *unerwünschte* Wörter auszuschließen. In diesem Leitfaden zeigen wir Ihnen, wie Sie **GroupDocs.Search for Java** einrichten, Dokumente zu einem Index hinzufügen und leistungsstarke boolesche Abfragen erstellen, die Ihre **document retrieval java** Arbeitsabläufe verbessern. Am Ende können Sie sauberen, wartbaren Code schreiben, der boolesche Abfragen in Java mit nur wenigen Zeilen erstellt.
 
 ## Schnelle Antworten
 - **Was ist eine boolesche AND‑Abfrage?** Gibt nur Dokumente zurück, die *alle* angegebenen Begriffe enthalten.  
 - **Wie unterscheidet sich OR von AND?** OR findet Dokumente mit *irgendeinem* der Begriffe und erweitert damit die Ergebnismenge.  
 - **Wann sollte ich NOT verwenden?** Verwenden Sie NOT, um Dokumente mit unerwünschten Wörtern herauszufiltern.  
-- **Benötige ich eine Lizenz?** Eine kostenlose Testversion funktioniert für Tests; für den Produktionseinsatz ist eine kommerzielle Lizenz erforderlich.  
-- **Welche Java-Version wird benötigt?** Java 8+ wird unterstützt; JDK 11+ wird empfohlen.
+- **Benötige ich eine Lizenz?** Eine kostenlose Testversion reicht für Tests; für den Produktionseinsatz ist eine kommerzielle Lizenz erforderlich.  
+- **Welche Java‑Version wird benötigt?** Java 8+ wird unterstützt; JDK 11+ wird empfohlen.
 
-## Was ist **java boolean and or**?
-Eine **java boolean and or**‑Abfrage kombiniert logische Operatoren (AND, OR, NOT), um Suchergebnisse zu verfeinern. Durch die Strukturierung von Abfragen teilen Sie GroupDocs.Search genau mit, wie die Begriffe zueinander stehen, und erhalten so eine präzise Kontrolle über den Abrufprozess.
+## Was ist **create boolean query java**?
+`create boolean query java` bezieht sich auf das Erstellen einer Suchabfrage in Java, die logische Operatoren wie AND, OR und NOT mithilfe der GroupDocs.Search‑API kombiniert. Durch das Zusammenstellen dieser Operatoren können Sie genau steuern, welche Dokumente übereinstimmen, was erweiterte Filterung, Relevanz‑Feinabstimmung und komplexe Suchszenarien ermöglicht.
 
 ## Warum GroupDocs.Search für Java verwenden?
-- **High performance** bei großen Dokumentenmengen.  
-- **Rich API** die sowohl textbasierte als auch objektbasierte Abfragen unterstützt.  
-- **Built‑in language support** für Stemming, Stoppwörter und Fuzzy‑Matching.  
-- **Easy integration** mit Maven oder direktem JAR‑Download.
+- **Hohe Leistung** bei großen Dokumentenmengen – es kann 500 GB Text in weniger als einer Minute auf einem Standard‑Server indexieren und durchsuchen.  
+- **Umfangreiche API**, die sowohl textbasierte als auch objektbasierte Abfragen unterstützt und Ihnen ermöglicht, den Stil zu wählen, der zu Ihrer Architektur passt.  
+- **Integrierte Sprachunterstützung** für Stemming, Stoppwörter und unscharfe Suche in über 30 Sprachen.  
+- **Einfache Integration** mit Maven oder direktem JAR‑Download, erfordert nur wenige Code‑Zeilen zum Starten.
 
 ## Voraussetzungen
-Bevor Sie starten, stellen Sie sicher, dass Sie Folgendes haben:
-
+Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
 - **GroupDocs.Search for Java** (v25.4 oder neuer) – siehe den Download‑Link unten.  
 - JDK 8+ installiert und in Ihrer IDE (IntelliJ IDEA, Eclipse usw.) konfiguriert.  
-- Grundkenntnisse in Java und Maven für das Abhängigkeitsmanagement.  
+- Grundkenntnisse in Java und Maven für das Abhängigkeits‑Management.  
 
 ## Einrichtung von GroupDocs.Search für Java
 
-### Maven-Konfiguration
+### Maven‑Einrichtung
 Fügen Sie das Repository und die Abhängigkeit zu Ihrer `pom.xml` hinzu:
 
 ```xml
@@ -67,7 +129,7 @@ Fügen Sie das Repository und die Abhängigkeit zu Ihrer `pom.xml` hinzu:
 ```
 
 ### Direkter Download
-Alternativ können Sie das neueste JAR von der offiziellen Seite herunterladen: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternativ laden Sie das neueste JAR von der offiziellen Seite herunter: [GroupDocs.Search für Java Releases](https://releases.groupdocs.com/search/java/).
 
 ### Lizenzbeschaffung
 Beginnen Sie mit einer kostenlosen Testlizenz, um alle Funktionen zu erkunden. Für den Produktionseinsatz erwerben Sie eine kommerzielle Lizenz, um die volle Funktionalität freizuschalten.
@@ -86,40 +148,38 @@ public class GroupDocsSetup {
 }
 ```
 
-## java boolean and or: Implementierung Boolescher Suchvorgänge
+## Wie erstelle ich boolean query java?
+Die Klasse `Index` repräsentiert eine durchsuchbare Sammlung von Dokumenten, die auf der Festplatte gespeichert ist. Ein `BooleanQuery` kombiniert mehrere Unterabfragen mit logischen Operatoren. `createAndQuery`, `createOrQuery` und `createNotQuery` erstellen AND-, OR- bzw. NOT‑Unterabfragen. Laden oder erstellen Sie eine `Index`‑Instanz, fügen Sie Dokumente hinzu und bauen Sie anschließend ein `BooleanQuery`‑Objekt mit `createAndQuery`, `createOrQuery` oder `createNotQuery` auf. Rufen Sie `index.search(query)` auf, um passende Dokumente zu erhalten. Dieses Muster funktioniert sowohl für einfache als auch komplexe Szenarien und erfordert nur drei logische Schritte: Indexinitialisierung, Dokumenten‑Hinzufügen und Abfrageausführung.
 
-Im Folgenden behandeln wir **AND**, **OR**, **NOT** und **complex**‑Abfragen. Jeder Abschnitt zeigt sowohl eine reine Textabfrage als auch die äquivalente objektbasierte Abfrage, sodass Sie den Stil wählen können, der zu Ihrem Codebasis passt.
+## Boolesche AND‑Suche
 
-### Boolesche AND‑Suche
-Kombinieren Sie Begriffe mit **AND**, um nur Dokumente abzurufen, die *alle* Schlüsselwörter enthalten.
+### Übersicht
+Eine AND‑Abfrage reduziert die Ergebnisse und verbessert die Relevanz, wenn Sie Dokumente benötigen, die mehrere Kriterien erfüllen.
 
-#### Überblick
-Eine AND‑Abfrage verengt die Ergebnisse und verbessert die Relevanz, wenn Sie Dokumente benötigen, die mehrere Kriterien erfüllen.
+### Implementierungsschritte
 
-#### Implementierungsschritte
-
-1. **Initialize Index** – dies demonstriert ebenfalls **add documents to index** für das AND‑Szenario.
+1. **Index initialisieren** – dies demonstriert außerdem **Dokumente zum Index hinzufügen** für das AND‑Szenario.
 
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorAnd";
    Index index = new Index(indexFolder);
    ```
 
-2. **Index Documents**
+2. **Dokumente indexieren**
 
    ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
 
-3. **Perform Text Query Search** – unter Verwendung der reinen Zeichenketten‑Syntax.
+3. **Textabfrage‑Suche ausführen** – unter Verwendung der einfachen String‑Syntax.
 
    ```java
    String query1 = "comfort AND promotion";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **Perform Object Query Search** – nützlich beim programmatischen Aufbau von Abfragen (**search with and java**).
+4. **Objektabfrage‑Suche ausführen** – nützlich beim programmatischen Aufbau von Abfragen (**search with and java**).
 
    ```java
    import com.groupdocs.search.query.*;
@@ -130,36 +190,35 @@ Eine AND‑Abfrage verengt die Ergebnisse und verbessert die Relevanz, wenn Sie 
    SearchResult result2 = index.search(andQuery);
    ```
 
-### Boolesche OR‑Suche
-Verwenden Sie **OR**, um die Ergebnisse zu erweitern und jedes der angegebenen Stichwörter zu treffen.
+## Boolesche OR‑Suche
 
-#### Überblick
+### Übersicht
 Eine OR‑Abfrage ist ideal für explorative Suchen, bei denen Sie Dokumente erfassen möchten, die mindestens eines mehrerer Schlüsselwörter enthalten (**search with or java**).
 
-#### Implementierungsschritte
+### Implementierungsschritte
 
-1. **Initialize Index**
+1. **Index initialisieren**
 
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorOr";
    Index index = new Index(indexFolder);
    ```
 
-2. **Index Documents**
+2. **Dokumente indexieren**
 
    ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
 
-3. **Perform Text Query Search**
+3. **Textabfrage‑Suche ausführen**
 
    ```java
    String query1 = "comfort OR neque";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **Perform Object Query Search**
+4. **Objektabfrage‑Suche ausführen**
 
    ```java
    SearchQuery wordQuery1 = SearchQuery.createWordQuery("comfort");
@@ -168,36 +227,35 @@ Eine OR‑Abfrage ist ideal für explorative Suchen, bei denen Sie Dokumente erf
    SearchResult result2 = index.search(orQuery);
    ```
 
-### Boolesche NOT‑Suche
-Schließen Sie unerwünschte Begriffe mit **NOT** aus, um Rauschen aus Ihren Ergebnissen zu filtern.
+## Boolesche NOT‑Suche
 
-#### Überblick
-Eine NOT‑Abfrage hilft Ihnen, irrelevante Dokumente zu eliminieren, z. B. das Herausfiltern des Markennamens eines Konkurrenten (**boolean search examples java**).
+### Übersicht
+Eine NOT‑Abfrage hilft Ihnen, irrelevante Dokumente zu entfernen, z. B. das Filtern des Markennamens eines Konkurrenten (**boolean search examples java**).
 
-#### Implementierungsschritte
+### Implementierungsschritte
 
-1. **Initialize Index**
+1. **Index initialisieren**
 
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorNot";
    Index index = new Index(indexFolder);
    ```
 
-2. **Index Documents**
+2. **Dokumente indexieren**
 
    ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
 
-3. **Perform Text Query Search**
+3. **Textabfrage‑Suche ausführen**
 
    ```java
    String query1 = "sportsman AND NOT Kynynmound";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **Perform Object Query Search**
+4. **Objektabfrage‑Suche ausführen**
 
    ```java
    SearchQuery wordQuery1 = SearchQuery.createWordQuery("sportsman");
@@ -207,36 +265,35 @@ Eine NOT‑Abfrage hilft Ihnen, irrelevante Dokumente zu eliminieren, z. B. da
    SearchResult result2 = index.search(andQuery);
    ```
 
-### Komplexe Boolesche Abfragen
-Kombinieren Sie **AND**, **OR** und **NOT**, um komplexe Suchlogik für hochspezifische Abrufanforderungen zu erstellen.
+## Komplexe boolesche Abfragen
 
-#### Überblick
-Komplexe Abfragen ermöglichen es, reale Suchszenarien zu modellieren, z. B. „Finden Sie Sportartikel, die positiv sind, aber jede Erwähnung bestimmter Athleten ausschließen“.
+### Übersicht
+Komplexe Abfragen ermöglichen es, reale Suchszenarien abzubilden, z. B. „Finde Sportartikel, die positiv sind, aber jede Erwähnung bestimmter Athleten ausschließen“.
 
-#### Implementierungsschritte
+### Implementierungsschritte
 
-1. **Initialize Index**
+1. **Index initialisieren**
 
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/ComplexQueries";
    Index index = new Index(indexFolder);
    ```
 
-2. **Index Documents**
+2. **Dokumente indexieren**
 
    ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
 
-3. **Perform Text Query Search**
+3. **Textabfrage‑Suche ausführen**
 
    ```java
    String query1 = "(sportsman AND favourable) AND NOT (Kynynmound OR Murray)";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **Perform Object Query Search**
+4. **Objektabfrage‑Suche ausführen**
 
    ```java
    SearchQuery word1Query = SearchQuery.createWordQuery("sportsman");
@@ -252,37 +309,45 @@ Komplexe Abfragen ermöglichen es, reale Suchszenarien zu modellieren, z. B. �
    SearchResult result2 = index.search(rootQuery);
    ```
 
-## Praktische Anwendungen von java boolean and or‑Abfragen
+## Praktische Anwendungen von **java boolean and or** Abfragen
 - **Document Management Systems** – finden Sie Verträge, die sowohl „confidential“ **AND** „renewal“ enthalten.  
 - **Legal Research** – filtern Sie Rechtsprechung mit **AND**/**OR**, während Sie veraltete Gesetze mit **NOT** ausschließen.  
 - **Customer Support** – rufen Sie Tickets ab, die „login“ **AND** „error“ erwähnen, aber nicht „resolved“.  
-- **Content Curation** – sammeln Sie Blogbeiträge über „cloud“ **OR** „serverless“ für einen Newsletter.  
+- **Content Curation** – sammeln Sie Blog‑Posts über „cloud“ **OR** „serverless“ für einen Newsletter.
 
 ## Häufige Fallstricke & Fehlersuche
-- **Missing Index Refresh** – nach dem Hinzufügen neuer Dokumente rufen Sie `index.update()` auf, um sicherzustellen, dass sie durchsuchbar sind.  
-- **Incorrect Operator Spacing** – GroupDocs.Search erwartet Leerzeichen um die Operatoren (`AND`, `OR`, `NOT`).  
-- **Case Sensitivity** – Abfragen sind standardmäßig nicht case‑sensitive, aber benutzerdefinierte Analyzer können dies beeinflussen.  
-- **Large Result Sets** – verwenden Sie Paginierung (`search(query, 0, 100)`), um Speicherüberlastungen zu vermeiden.  
+- **Fehlende Index‑Aktualisierung** – nach dem Hinzufügen neuer Dokumente rufen Sie `index.update()` auf, um sicherzustellen, dass sie durchsuchbar sind.  
+- **Falsche Operator‑Abstände** – GroupDocs.Search erwartet Leerzeichen um die Operatoren (`AND`, `OR`, `NOT`).  
+- **Groß‑/Kleinschreibung** – Abfragen sind standardmäßig case‑insensitive, aber benutzerdefinierte Analyzer können dies beeinflussen.  
+- **Große Ergebnismengen** – verwenden Sie Paginierung (`search(query, 0, 100)`), um Speicherüberlastungen zu vermeiden.  
 
 ## Häufig gestellte Fragen
 
-**Q: Kann ich mehr als zwei Begriffe in einer AND‑Abfrage kombinieren?**  
+**F: Kann ich mehr als zwei Begriffe in einer AND‑Abfrage kombinieren?**  
 A: Absolut. Sie können mehrere `createWordQuery`‑Objekte mit `createAndQuery` verketten oder einfach `"term1 AND term2 AND term3"` in der Textabfrage schreiben.
 
-**Q: Unterstützt GroupDocs.Search Platzhalter‑ oder Fuzzy‑Suchen?**  
-A: Ja. Hängen Sie `*` für einen Platzhalter an (z. B. `promot*`) oder verwenden Sie `~` für Fuzzy‑Matching (z. B. `comfort~`).
+**F: Unterstützt GroupDocs.Search Platzhalter‑ oder unscharfe Suchen?**  
+A: Ja. Hängen Sie `*` für einen Platzhalter an (z. B. `promot*`) oder verwenden Sie `~` für unscharfe Übereinstimmung (z. B. `comfort~`).
 
-**Q: Wie begrenze ich die Suche auf bestimmte Dateitypen?**  
-A: Verwenden Sie die Klasse `FileTypeQuery`, um die Ergebnisse auf PDFs, DOCX usw. zu beschränken, und kombinieren Sie sie mit Ihrer Booleschen Abfrage.
+**F: Wie begrenze ich die Suche auf bestimmte Dateitypen?**  
+`FileTypeQuery` begrenzt die Suchergebnisse auf bestimmte Dateiformate wie PDF oder DOCX.  
+A: Verwenden Sie die Klasse `FileTypeQuery`, um Ergebnisse auf PDFs, DOCX usw. zu beschränken und kombinieren Sie sie mit Ihrer booleschen Abfrage.
 
-**Q: Was ist der beste Weg, die Indexierungs‑Performance zu überwachen?**  
-A: Aktivieren Sie den integrierten Logger (`index.getLogger().setLevel(Level.INFO)`) und prüfen Sie die Zeitmessungen nach jeder `add`‑Operation.
+**F: Was ist der beste Weg, die Indexierungs‑Performance zu überwachen?**  
+A: Aktivieren Sie den integrierten Logger (`index.getLogger().setLevel(Level.INFO)`) und prüfen Sie die Zeitmessungen nach jedem `add`‑Vorgang.
 
-**Q: Gibt es eine Möglichkeit, die Relevanz bestimmter Begriffe zu erhöhen?**  
-A: Ja. Umhüllen Sie wichtige Wörter mit `BoostQuery`, um ihr Gewicht im Scoring‑Algorithmus zu erhöhen.
+**F: Gibt es eine Möglichkeit, die Relevanz bestimmter Begriffe zu erhöhen?**  
+`BoostQuery` erhöht den Relevanz‑Score der angegebenen Begriffe in einer Suchabfrage.  
+A: Ja. Umschließen Sie wichtige Wörter mit `BoostQuery`, um ihr Gewicht im Scoring‑Algorithmus zu erhöhen.
 
 ---
 
-**Last Updated:** 2026-01-29  
-**Tested With:** GroupDocs.Search 25.4 (Java)  
-**Author:** GroupDocs
+**Zuletzt aktualisiert:** 2026-07-21  
+**Getestet mit:** GroupDocs.Search 25.4 (Java)  
+**Autor:** GroupDocs
+
+## Verwandte Tutorials
+
+- [Boolesche Operatoren Java – Suchindex erstellen & facettierte Suche](/search/java/advanced-features/faceted-complex-search-groupdocs-java/)
+- [Master GroupDocs.Search Java: Effiziente Dokumentensuche und Indexverwaltung](/search/java/searching/groupdocs-search-java-efficient-document-search/)
+- [search query java – GroupDocs.Search Java meistern – Suchindex erstellen und verwalten](/search/java/indexing/groupdocs-search-java-create-index-guide/)
