@@ -1,8 +1,8 @@
 ---
-date: '2025-12-24'
-description: Изучите, как выполнять поиск по атрибуту java с помощью GroupDocs.Search.
-  Это руководство показывает пакетное обновление атрибутов документов, а также добавление
-  и изменение атрибутов во время индексации.
+date: '2026-02-24'
+description: Узнайте, как выполнять поиск по атрибуту Java с помощью GroupDocs.Search.
+  Это руководство демонстрирует пакетное обновление атрибутов документов, а также
+  добавление и изменение атрибутов во время индексации.
 keywords:
 - GroupDocs.Search Java
 - document attribute modification
@@ -13,34 +13,35 @@ url: /ru/java/document-management/groupdocs-search-java-modify-attributes-indexi
 weight: 1
 ---
 
-# Поиск по атрибуту Java с руководством GroupDocs.Search
+# Руководство по поиску по атрибуту Java с GroupDocs.Search
 
-Ищете способ улучшить систему управления документами, динамически изменяя и индексируя атрибуты документов с помощью Java? Вы попали по адресу! Этот учебник подробно рассматривает использование мощной библиотеки GroupDocs.Search for Java для **search by attribute java**, изменения индексированных атрибутов документов и их добавления во время процесса индексации. Независимо от того, создаёте ли вы поисковое решение или оптимизируете документооборот, освоение этих техник имеет решающее значение.
+Ищете способ улучшить систему управления документами, динамически изменяя и индексируя атрибуты документов с помощью Java? Вы попали по адресу! В этом руководстве мы подробно рассмотрим, как использовать мощную библиотеку **GroupDocs.Search for Java** для **search by attribute java**, изменения проиндексированных атрибутов документов и их добавления во время процесса индексации. Независимо от того, создаёте ли вы поисковый портал, архив соответствия требованиям или интеллектуальное приложение, управляемое контентом, освоение этих техник сэкономит ваше время и повысит производительность.
 
 ## Быстрые ответы
-- **What is “search by attribute java”?** Это возможность фильтровать результаты поиска, используя пользовательские метаданные, прикрепленные к каждому документу.  
-- **Can I modify attributes after indexing?** Да — используйте `AttributeChangeBatch` для пакетного обновления атрибутов документов.  
-- **How do I add attributes while indexing?** Подпишитесь на событие `FileIndexing` и задавайте атрибуты программно.  
-- **Do I need a license?** Бесплатная пробная версия подходит для оценки; для продакшн‑использования требуется постоянная лицензия.  
-- **Which Java version is required?** Рекомендуется Java 8 или новее.
+- **Что такое “search by attribute java”?** Это возможность фильтровать результаты поиска, используя пользовательские метаданные, прикреплённые к каждому документу.  
+- **Можно ли изменять атрибуты после индексации?** Да — используйте `AttributeChangeBatch` для пакетного обновления атрибутов документов.  
+- **Как добавить атрибуты во время индексации?** Подпишитесь на событие `FileIndexing` и задавайте атрибуты программно.  
+- **Нужна ли лицензия?** Бесплатная пробная версия подходит для оценки; для продакшна требуется постоянная лицензия.  
+- **Какая версия Java требуется?** Рекомендуется Java 8 или новее.
 
 ## Что такое “search by attribute java”?
-**Search by attribute java** позволяет выполнять запросы к документам на основе их метаданных (атрибутов), а не только содержимого. Прикрепляя пары ключ‑значение, такие как `public`, `main` или `key`, к каждому файлу, вы можете быстро сузить результаты до наиболее релевантного подмножества.
+**Search by attribute java** позволяет выполнять запросы к документам на основе их метаданных (атрибутов), а не только их содержимого. Привязывая пары «ключ‑значение», такие как `public`, `main` или `key`, к каждому файлу, вы можете быстро сузить результаты до наиболее релевантного подмножества.
 
-## Зачем изменять или добавлять атрибуты?
-- **Dynamic categorization** – поддерживайте метаданные в соответствии с бизнес‑правилами.  
-- **Faster filtering** – фильтры по атрибутам оцениваются до полнотекстового поиска, повышая производительность.  
-- **Compliance tracking** – помечайте документы для политик хранения или требований аудита.  
+## Почему стоит использовать динамическое тегирование метаданных?
+- **Dynamic categorization** – поддерживайте метаданные в актуальном состоянии в соответствии с меняющимися бизнес‑правилами.  
+- **Faster filtering** – фильтры по атрибутам оцениваются до полнотекстового поиска, ускоряя время отклика.  
+- **Compliance tracking** – помечайте документы для политик удержания или требований аудита.  
+- **Batch update attributes** – изменяйте множество документов одной операцией без полной переиндексации.
 
-## Требования
+## Предварительные требования
 
-- **Java 8+** (JDK 8 или новее)  
+- **Java 8+** (JDK 8 или новее)  
 - **GroupDocs.Search for Java** library (см. настройку Maven ниже)  
 - Базовое понимание Java и концепций индексации  
 
 ## Настройка GroupDocs.Search for Java
 
-### Настройка Maven
+### Maven Setup
 
 ```xml
 <repositories>
@@ -60,17 +61,17 @@ weight: 1
 </dependencies>
 ```
 
-### Прямая загрузка
+### Direct Download
 
-В качестве альтернативы загрузите последнюю версию с [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).  
-Если вы предпочитаете не использовать инструменты сборки, такие как Maven, скачайте JAR с [GroupDocs website](https://releases.groupdocs.com/search/java/).
+Alternatively, download the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).  
+If you prefer not using a build tool like Maven, download the JAR from the [GroupDocs website](https://releases.groupdocs.com/search/java/).
 
-### Получение лицензии
+### License Acquisition
 
-- Начните с бесплатной пробной версии, чтобы изучить возможности.  
-- Для длительного использования получите временную или полную лицензию через [license page](https://purchase.groupdocs.com/temporary-license).
+- Start with a free trial to explore capabilities.  
+- For extended use, obtain a temporary or full license via the [license page](https://purchase.groupdocs.com/temporary-license).
 
-### Базовая инициализация
+### Basic Initialization
 
 ```java
 import com.groupdocs.search.Index;
@@ -79,22 +80,21 @@ import com.groupdocs.search.Index;
 Index index = new Index("YOUR_OUTPUT_DIRECTORY/ChangeAttributes");
 ```
 
-## Руководство по реализации
+## Как изменить атрибуты документов (пакетное обновление)
 
-### Search by Attribute Java – Изменение атрибутов документа
+### Search by Attribute Java – Changing Document Attributes
 
-#### Обзор
-Вы можете добавлять, удалять или заменять атрибуты в уже проиндексированных документах, позволяя **batch update document attributes** без переиндексации всей коллекции.
+You can add, remove, or replace attributes on already indexed documents, enabling **batch update document attributes** without re‑indexing the whole collection.
 
-#### Пошагово
+### Step‑by‑Step
 
-**Шаг 1: Добавление документов в индекс**  
+**Step 1: Add Documents to Index**  
 
 ```java
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-**Шаг 2: Получение информации об индексированном документе**  
+**Step 2: Retrieve Indexed Document Information**  
 
 ```java
 import com.groupdocs.search.results.DocumentInfo;
@@ -102,7 +102,7 @@ import com.groupdocs.search.results.DocumentInfo;
 DocumentInfo[] documents = index.getIndexedDocuments();
 ```
 
-**Шаг 3: Пакетное обновление атрибутов документа**  
+**Step 3: Batch Update Document Attributes**  
 
 ```java
 import com.groupdocs.search.common.AttributeChangeBatch;
@@ -117,7 +117,7 @@ batch.add(documents[0].getFilePath(), "main", "key"); // Add 'main' and 'key' at
 index.changeAttributes(batch);
 ```
 
-**Шаг 4: Поиск с фильтрами по атрибутам**  
+**Step 4: Search with Attribute Filters**  
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -128,17 +128,18 @@ String query = "length";
 SearchResult result = index.search(query, options); // Perform the search
 ```
 
-### Пакетное обновление атрибутов документа с AttributeChangeBatch
-Класс `AttributeChangeBatch` является основным инструментом для **batch update document attributes**. Группируя изменения в один пакет, вы уменьшаете нагрузку ввода‑вывода и поддерживаете согласованность индекса.
+### Batch Update Document Attributes with AttributeChangeBatch
+The `AttributeChangeBatch` class is the core tool for **batch update document attributes**. By grouping changes into a single batch, you reduce I/O overhead and keep the index consistent.
 
-### Search by Attribute Java – Добавление атрибутов во время индексации
+## Как добавить атрибуты во время индексации
 
-#### Обзор
-Подключитесь к событию `FileIndexing`, чтобы назначать пользовательские атрибуты при добавлении каждого файла в индекс.
+### Search by Attribute Java – Adding Attributes During Indexing
 
-#### Пошагово
+Hook into the `FileIndexing` event to assign custom attributes as each file is added to the index.
 
-**Шаг 1: Подписка на событие FileIndexing**  
+### Step‑by‑Step
+
+**Step 1: Subscribe to the FileIndexing Event**  
 
 ```java
 import com.groupdocs.search.events.EventHandler;
@@ -154,7 +155,7 @@ index.getEvents().FileIndexing.add(new EventHandler<FileIndexingEventArgs>() {
 });
 ```
 
-**Шаг 2: Индексация документов**  
+**Step 2: Index Documents**  
 
 ```java
 index.add("YOUR_DOCUMENT_DIRECTORY");
@@ -162,44 +163,55 @@ index.add("YOUR_DOCUMENT_DIRECTORY");
 
 ## Практические применения
 
-1. **Document Management Systems** – Автоматизируйте категоризацию, добавляя метаданные во время загрузки.  
-2. **Large Content Archives** – Используйте фильтры по атрибутам для сужения поиска, существенно сокращая время отклика.  
-3. **Compliance & Reporting** – Динамически помечайте документы для графиков хранения или аудиторских следов.  
+1. **Document Management Systems** – Automate categorization by adding metadata during ingestion.  
+2. **Large Content Archives** – Use attribute filters to narrow searches, dramatically cutting response times.  
+3. **Compliance & Reporting** – Dynamically tag documents for retention schedules or audit trails.
 
 ## Соображения по производительности
 
-- **Memory Management** – Следите за кучей JVM и при необходимости настраивайте `-Xmx`.  
-- **Batch Processing** – Группируйте изменения атрибутов с помощью `AttributeChangeBatch`, чтобы минимизировать записи в индекс.  
-- **Library Updates** – Обновляйте GroupDocs.Search до последней версии, чтобы получать улучшения производительности.
+- **Memory Management** – Monitor JVM heap and tune `-Xmx` as needed.  
+- **Batch Processing** – Group attribute changes with `AttributeChangeBatch` to minimize index writes.  
+- **Library Updates** – Keep GroupDocs.Search up‑to‑date to benefit from performance patches.
+
+## Распространённые проблемы и решения
+
+| Issue | Why It Happens | How to Fix |
+|-------|----------------|------------|
+| **Attributes not applied** | Event handler not registered before indexing | Ensure `index.getEvents().FileIndexing.add(...)` runs before `index.add(...)`. |
+| **Search returns no results** | Attribute name mismatch (case‑sensitive) | Use exact attribute names when creating filters (`createAttribute("main")`). |
+| **Out‑of‑memory errors** on large batches | Too many changes in a single batch | Split large updates into smaller `AttributeChangeBatch` instances. |
+| **License not recognized** | Using trial JAR without applying license file | Call `License license = new License(); license.setLicense("path/to/license.file");` before any index operation. |
 
 ## Часто задаваемые вопросы
 
-**Q: Какие требования к использованию GroupDocs.Search в Java?**  
-A: Вам нужен Java 8+, библиотека GroupDocs.Search и базовые знания концепций индексации.
+**Q: What are the prerequisites for using GroupDocs.Search in Java?**  
+A: You need Java 8+, the GroupDocs.Search library, and basic knowledge of indexing concepts.
 
-**Q: Как установить GroupDocs.Search через Maven?**  
-A: Добавьте репозиторий и зависимость, указанные в разделе Настройка Maven, в ваш `pom.xml`.
+**Q: How do I install GroupDocs.Search via Maven?**  
+A: Add the repository and dependency shown in the Maven Setup section to your `pom.xml`.
 
-**Q: Можно ли изменять атрибуты после индексации документов?**  
-A: Да, используйте `AttributeChangeBatch` для пакетного обновления атрибутов документов без переиндексации.
+**Q: Can I modify attributes after documents are indexed?**  
+A: Yes, use `AttributeChangeBatch` to batch update document attributes without re‑indexing.
 
-**Q: Что делать, если процесс индексации медленный?**  
-A: Оптимизируйте настройки памяти JVM, используйте пакетные обновления и убедитесь, что используете последнюю версию библиотеки.
+**Q: What if my indexing process is slow?**  
+A: Optimize JVM memory settings, use batch updates, and ensure you’re on the latest library version.
 
-**Q: Где можно найти дополнительные ресурсы по GroupDocs.Search для Java?**  
-A: Посетите [official documentation](https://docs.groupdocs.com/search/java/) или изучите форумы сообщества.
+**Q: Where can I find more resources on GroupDocs.Search for Java?**  
+A: Visit the [official documentation](https://docs.groupdocs.com/search/java/) or explore community forums.
 
 ## Ресурсы
 
-- Документация: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)  
-- Ссылка на API: [API Reference](https://reference.groupdocs.com/search/java)  
-- Скачать: [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- GitHub: [GitHub GroupDocs.Search](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- Бесплатный форум поддержки: [GroupDocs Forums](https://forum.groupdocs.com/c/search/10)  
-- Временная лицензия: [License Page](https://purchase.groupdocs.com/temporary-license)
+- Documentation: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)
+- API Reference: [API Reference](https://reference.groupdocs.com/search/java)
+- Download: [Latest Releases](https://releases.groupdocs.com/search/java/)
+- GitHub: [GitHub GroupDocs.Search](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- Free Support Forum: [GroupDocs Forums](https://forum.groupdocs.com/c/search/10)
+- Temporary License: [License Page](https://purchase.groupdocs.com/temporary-license)
 
 ---
 
-**Последнее обновление:** 2025-12-24  
-**Тестировано с:** GroupDocs.Search 25.4 for Java  
-**Автор:** GroupDocs
+**Last Updated:** 2026-02-24  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  
+
+---

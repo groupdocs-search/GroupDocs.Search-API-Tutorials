@@ -1,8 +1,8 @@
 ---
-date: '2025-12-24'
-description: Naučte se, jak vyhledávat podle atributu Java pomocí GroupDocs.Search.
-  Tento průvodce ukazuje hromadnou aktualizaci atributů dokumentů, přidávání a úpravu
-  atributů během indexování.
+date: '2026-02-24'
+description: Naučte se vyhledávat podle atributu java pomocí GroupDocs.Search. Tento
+  průvodce ukazuje hromadnou aktualizaci atributů dokumentů, přidávání a úpravu atributů
+  během indexování.
 keywords:
 - GroupDocs.Search Java
 - document attribute modification
@@ -13,34 +13,32 @@ url: /cs/java/document-management/groupdocs-search-java-modify-attributes-indexi
 weight: 1
 ---
 
-# Search by Attribute Java with GroupDocs.Search Guide
+# Search by Attribute Java s průvodcem GroupDocs.Search
 
-Hledáte způsob, jak vylepšit svůj systém správy dokumentů dynamickým upravováním a indexováním atributů dokumentů pomocí Javy? Jste na správném místě! Tento tutoriál se podrobně věnuje využití výkonné knihovny GroupDocs.Search pro Java k **search by attribute java**, změně indexovaných atributů dokumentů a jejich přidání během procesu indexování. Ať už budujete vyhledávací řešení nebo optimalizujete pracovní postupy s dokumenty, zvládnutí těchto technik je klíčové.
-
-## Quick Answers
-- **Co je “search by attribute java”?** Jedná se o možnost filtrovat výsledky vyhledávání pomocí vlastních metadat připojených ke každému dokumentu.  
-- **Mohu upravovat atributy po indexování?** Ano – použijte `AttributeChangeBatch` pro hromadnou aktualizaci atributů dokumentů.  
-- **Jak přidám atributy během indexování?** Přihlaste se k události `FileIndexing` a nastavte atributy programově.  
-- **Potřebuji licenci?** Bezplatná zkušební verze stačí pro hodnocení; pro produkční nasazení je vyžadována trvalá licence.  
+## Rychlé odpovědi
+- **Co je “search by attribute java”?** Jedná se o možnost filtrovat výsledky vyhledávání pomocí vlastních metadat připojených k jednotlivým dokumentům.  
+- **Mohu měnit atributy po indexaci?** Ano – použijte `AttributeChangeBatch` pro hromadnou aktualizaci atributů dokumentů.  
+- **Jak přidat atributy během indexace?** Přihlaste se k události `FileIndexing` a nastavte atributy programově.  
+- **Potřebuji licenci?** Bezplatná zkušební verze stačí pro hodnocení; pro produkci je vyžadována trvalá licence.  
 - **Jaká verze Javy je požadována?** Doporučuje se Java 8 nebo novější.
 
-## What is “search by attribute java”?
-**Search by attribute java** vám umožňuje dotazovat dokumenty na základě jejich metadat (atributů) místo pouhého obsahu. Připojením párů klíč‑hodnota, jako jsou `public`, `main` nebo `key`, ke každému souboru můžete rychle zúžit výsledky na nejrelevantnější podmnožinu.
+## Co je “search by attribute java”?
+**Search by attribute java** vám umožňuje dotazovat se na dokumenty na základě jejich metadat (atributů) místo samotného obsahu. Připojením párů klíč‑hodnota jako `public`, `main` nebo `key` k jednotlivým souborům můžete rychle zúžit výsledky na nejrelevantnější podmnožinu.
 
-## Why modify or add attributes?
-- **Dynamická kategorizace** – udržujte metadata v souladu s obchodními pravidly.  
-- **Rychlejší filtrování** – filtry na atributy jsou vyhodnoceny před full‑textovým vyhledáváním, což zvyšuje výkon.  
-- **Sledování souladu** – označujte dokumenty pro retenční politiky nebo auditní požadavky.  
+## Proč používat dynamické označování metadat?
+- **Dynamická kategorizace** – udržujte metadata v souladu s měnícími se obchodními pravidly.  
+- **Rychlejší filtrování** – filtry atributů jsou vyhodnoceny před full‑textovým vyhledáváním, což zvyšuje rychlost odezvy.  
+- **Sledování souladu** – označujte dokumenty pro politiky uchovávání nebo požadavky auditu.  
+- **Hromadná aktualizace atributů** – změňte mnoho dokumentů v jedné operaci bez nutnosti kompletní reindexace.
 
-## Prerequisites
-
-- **Java 8+** (JDK 8 nebo novější)  
+## Předpoklady
+- **Java 8+** (JDK 8 nebo novější)  
 - **GroupDocs.Search for Java** knihovna (viz nastavení Maven níže)  
 - Základní znalost Javy a konceptů indexování  
 
-## Setting Up GroupDocs.Search for Java
+## Nastavení GroupDocs.Search pro Java
 
-### Maven Setup
+### Nastavení Maven
 
 ```xml
 <repositories>
@@ -60,17 +58,16 @@ Hledáte způsob, jak vylepšit svůj systém správy dokumentů dynamickým upr
 </dependencies>
 ```
 
-### Direct Download
+### Přímé stažení
 
-Alternativně si stáhněte nejnovější verzi z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).  
-Pokud nechcete používat nástroj pro správu balíčků jako Maven, stáhněte JAR ze [stránky GroupDocs](https://releases.groupdocs.com/search/java/).
+Alternativně stáhněte nejnovější verzi z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/). Pokud raději nepoužíváte nástroj pro sestavení jako Maven, stáhněte JAR ze [stránky GroupDocs](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
+### Získání licence
 
-- Začněte s bezplatnou zkušební verzí a prozkoumejte funk.  
-- Pro delší používání získáte dočasnou nebo plnou licenci prostřednictvím [license page](https://purchase.groupdocs.com/temporary-license).
+- Začněte s bezplatnou zkušební verzí a prozkoumejte funkce.  
+- Pro delší používání získáte dočasnou nebo plnou licenci na [stránce licence](https://purchase.groupdocs.com/temporary-license).
 
-### Basic Initialization
+### Základní inicializace
 
 ```java
 import com.groupdocs.search.Index;
@@ -79,22 +76,21 @@ import com.groupdocs.search.Index;
 Index index = new Index("YOUR_OUTPUT_DIRECTORY/ChangeAttributes");
 ```
 
-## Implementation Guide
+## Jak upravit atributy dokumentů (hromadná aktualizace)
 
-### Search by Attribute Java – Changing Document Attributes
+### Search by Attribute Java – změna atributů dokumentů
 
-#### Overview
-Můžete přidávat, odebírat nebo nahrazovat atributy u již indexovaných dokumentů, což umožňuje **batch update document attributes** bez nutnosti znovu indexovat celou kolekci.
+Můžete přidávat, odstraňovat nebo nahrazovat atributy u již indexovaných dokumentů, což umožňuje **hromadnou aktualizaci atributů dokumentů** bez nutnosti reindexace celé kolekce.
 
-#### Step‑by‑Step
+### Krok za krokem
 
-**Step 1: Add Documents to Index**  
+**Krok 1: Přidání dokumentů do indexu**  
 
 ```java
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-**Step 2: Retrieve Indexed Document Information**  
+**Krok 2: Získání informací o indexovaném dokumentu**  
 
 ```java
 import com.groupdocs.search.results.DocumentInfo;
@@ -102,7 +98,7 @@ import com.groupdocs.search.results.DocumentInfo;
 DocumentInfo[] documents = index.getIndexedDocuments();
 ```
 
-**Step 3: Batch Update Document Attributes**  
+**Krok 3: Hromadná aktualizace atributů dokumentu**  
 
 ```java
 import com.groupdocs.search.common.AttributeChangeBatch;
@@ -117,7 +113,7 @@ batch.add(documents[0].getFilePath(), "main", "key"); // Add 'main' and 'key' at
 index.changeAttributes(batch);
 ```
 
-**Step 4: Search with Attribute Filters**  
+**Krok 4: Vyhledávání s filtry atributů**  
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -128,17 +124,18 @@ String query = "length";
 SearchResult result = index.search(query, options); // Perform the search
 ```
 
-### Batch Update Document Attributes with AttributeChangeBatch
-Třída `AttributeChangeBatch` je hlavním nástrojem pro **batch update document attributes**. Skupinováním změn do jedné dávky snižujete zátěž I/O a udržujete index konzistentní.
+### Hromadná aktualizace atributů dokumentů pomocí AttributeChangeBatch
+Třída `AttributeChangeBatch` je hlavním nástrojem pro **hromadnou aktualizaci atributů dokumentů**. Skupinováním změn do jednoho batchu snižujete zátěž I/O a udržujete index konzistentní.
 
-### Search by Attribute Java – Adding Attributes During Indexing
+## Jak přidat atributy během indexace
 
-#### Overview
-Připojte se k události `FileIndexing` a při každém přidání souboru do indexu přiřaďte vlastní atributy.
+### Search by Attribute Java – přidávání atributů během indexace
 
-#### Step‑by‑Step
+Napojte se na událost `FileIndexing`, abyste při přidávání každého souboru do indexu přiřadili vlastní atributy.
 
-**Step 1: Subscribe to the FileIndexing Event**  
+### Krok za krokem
+
+**Krok 1: Přihlášení k události FileIndexing**  
 
 ```java
 import com.groupdocs.search.events.EventHandler;
@@ -154,52 +151,58 @@ index.getEvents().FileIndexing.add(new EventHandler<FileIndexingEventArgs>() {
 });
 ```
 
-**Step 2: Index Documents**  
+**Krok 2: Indexování dokumentů**  
 
 ```java
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-## Practical Applications
+## Praktické aplikace
+1. **Systémy pro správu dokumentů** – Automatizujte kategorizaci přidáváním metadat během ingestování.  
+2. **Velké archivy obsahu** – Použijte filtry atributů k omezení vyhledávání, což výrazně zkrátí dobu odezvy.  
+3. **Soulad a reportování** – Dynamicky označujte dokumenty pro plány uchovávání nebo auditní stopy.
 
-1. **Document Management Systems** – Automatizujte kategorizaci přidáváním metadat během ingestování.  
-2. **Large Content Archives** – Používejte filtry na atributy k zúžení vyhledávání, což dramaticky zkracuje dobu odezvy.  
-3. **Compliance & Reporting** – Dynamicky označujte dokumenty pro retenční plány nebo auditní stopy.
+## Úvahy o výkonu
+- **Správa paměti** – Sledujte haldu JVM a podle potřeby upravujte `-Xmx`.  
+- **Dávkové zpracování** – Skupinujte změny atributů pomocí `AttributeChangeBatch`, abyste minimalizovali zápisy do indexu.  
+- **Aktualizace knihovny** – Udržujte GroupDocs.Search aktuální, abyste získali výkonnostní opravy.
 
-## Performance Considerations
+## Časté problémy a řešení
 
-- **Memory Management** – Sledujte haldu JVM a podle potřeby upravte `-Xmx`.  
-- **Batch Processing** – Skupinujte změny atributů pomocí `AttributeChangeBatch`, abyste minimalizovali zápisy do indexu.  
-- **Library Updates** – Udržujte GroupDocs.Search aktuální, abyste těžili z výkonových oprav.
+| Problém | Proč se to stane | Jak opravit |
+|---|---|---|
+| **Atributy nebyly aplikovány** | Obsluha události nebyla zaregistrována před indexací | Ujistěte se, že `index.getEvents().FileIndexing.add(...)` běží před `index.add(...)`. |
+| **Vyhledávání nevrací žádné výsledky** | Nesoulad názvu atributu (rozlišuje velká/malá písmena) | Používejte přesné názvy atributů při vytváření filtrů (`createAttribute("main")`). |
+| **Chyby out‑of‑memory při velkých dávkách** | Příliš mnoho změn v jedné dávce | Rozdělte velké aktualizace na menší instance `AttributeChangeBatch`. |
+| **Licence nebyla rozpoznána** | Používáte trial JAR bez aplikace licenčního souboru | Zavolejte `License license = new License(); license.setLicense("path/to/license.file");` před jakoukoliv operací s indexem. |
 
-## Frequently Asked Questions
+## Často kladené otázky
 
-**Q: What are the prerequisites for using GroupDocs.Search in Java?**  
-A: Potřebujete Java 8+, knihovnu GroupDocs.Search a základní znalosti konceptů indexování.
+**Q: Jaké jsou předpoklady pro používání GroupDocs.Search v Javě?**  
+A: Potřebujete Java 8+, knihovnu GroupDocs.Search a základní znalost konceptů indexování.
 
-**Q: How do I install GroupDocs.Search via Maven?**  
-A: Přidejte repozitář a závislost uvedenou v sekci Maven Setup do svého `pom.xml`.
+**Q: Jak nainstaluji GroupDocs.Search pomocí Maven?**  
+A: Přidejte úložiště a závislost uvedenou v sekci Nastavení Maven do vašeho `pom.xml`.
 
-**Q: Can I modify attributes after documents are indexed?**  
-A: Ano, použijte `AttributeChangeBatch` pro hromadnou aktualizaci atributů dokumentů bez nutnosti re‑indexace.
+**Q: Mohu měnit atributy po indexaci dokumentů?**  
+A: Ano, použijte `AttributeChangeBatch` pro hromadnou aktualizaci atributů dokumentů bez reindexace.
 
-**Q: What if my indexing process is slow?**  
-A: Optimalizujte nastavení paměti JVM, využívejte hromadné aktualizace a ujistěte se, že používáte nejnovější verzi knihovny.
+**Q: Co když je můj proces indexace pomalý?**  
+A: Optimalizujte nastavení paměti JVM, používejte dávkové aktualizace a ujistěte se, že používáte nejnovější verzi knihovny.
 
-**Q: Where can I find more resources on GroupDocs.Search for Java?**  
-A: Navštivte [official documentation](https://docs.groupdocs.com/search/java/) nebo prozkoumejte komunitní fóra.
+**Q: Kde najdu další zdroje o GroupDocs.Search pro Javu?**  
+A: Navštivte [oficiální dokumentaci](https://docs.groupdocs.com/search/java/) nebo prozkoumejte komunitní fóra.
 
-## Resources
-
-- Documentation: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)
+## Zdroje
+- Dokumentace: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)
 - API Reference: [API Reference](https://reference.groupdocs.com/search/java)
-- Download: [Latest Releases](https://releases.groupdocs.com/search/java/)
+- Stáhnout: [Latest Releases](https://releases.groupdocs.com/search/java/)
 - GitHub: [GitHub GroupDocs.Search](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- Free Support Forum: [GroupDocs Forums](https://forum.groupdocs.com/c/search/10)
-- Temporary License: [License Page](https://purchase.groupdocs.com/temporary-license)
+- Bezplatné fórum podpory: [GroupDocs Forums](https://forum.groupdocs.com/c/search/10)
+- Dočasná licence: [License Page](https://purchase.groupdocs.com/temporary-license)
 
 ---
 
-**Last Updated:** 2025-12-24  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**Poslední aktualizace:** 2026-02-24  
+**Testováno s:** GroupDocs.Search 25.4 for Java  
+**Autor:** GroupDocs

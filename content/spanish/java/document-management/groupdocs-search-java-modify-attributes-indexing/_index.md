@@ -1,46 +1,47 @@
 ---
-date: '2025-12-24'
-description: Aprende a buscar por atributo java usando GroupDocs.Search. Esta guía
-  muestra cómo actualizar en lote los atributos de documentos, añadiendo y modificando
+date: '2026-02-24'
+description: Aprende cómo buscar por atributo Java usando GroupDocs.Search. Esta guía
+  muestra cómo actualizar en lote los atributos de los documentos, añadiendo y modificando
   atributos durante la indexación.
 keywords:
 - GroupDocs.Search Java
 - document attribute modification
 - Java indexing techniques
-title: Búsqueda por atributo Java con la guía de GroupDocs.Search
+title: Búsqueda por atributo en Java con la guía de GroupDocs.Search
 type: docs
 url: /es/java/document-management/groupdocs-search-java-modify-attributes-indexing/
 weight: 1
 ---
 
-# Búsqueda por Atributo Java con la Guía de GroupDocs.Search
+# Búsqueda por atributo Java con la guía de GroupDocs.Search
 
-¿Estás buscando mejorar tu sistema de gestión de documentos modificando y indexando atributos de documentos de forma dinámica con Java? ¡Estás en el lugar correcto! Este tutorial profundiza en el uso de la potente biblioteca GroupDocs.Search para Java para **search by attribute java**, cambiar los atributos de documentos indexados y añadirlos durante el proceso de indexación. Ya sea que estés construyendo una solución de búsqueda o optimizando flujos de trabajo de documentos, dominar estas técnicas es fundamental.
+¿Está buscando mejorar su sistema de gestión de documentos modificando e indexando dinámicamente los atributos de los documentos usando Java? ¡Está en el lugar correcto! Este tutorial profundiza en el uso de la potente biblioteca GroupDocs.Search for Java para **search by attribute java**, cambiar los atributos de los documentos indexados y agregarlos durante el proceso de indexación. Ya sea que esté construyendo un portal buscable, un archivo de cumplimiento o una aplicación inteligente basada en contenido, dominar estas técnicas le ahorrará tiempo y mejorará el rendimiento.
 
 ## Respuestas rápidas
 - **¿Qué es “search by attribute java”?** Es la capacidad de filtrar los resultados de búsqueda usando metadatos personalizados adjuntos a cada documento.  
-- **¿Puedo modificar los atributos después de la indexación?** Sí—utiliza `AttributeChangeBatch` para actualizar en lote los atributos de los documentos.  
-- **¿Cómo añado atributos mientras indexo?** Suscríbete al evento `FileIndexing` y establece los atributos programáticamente.  
-- **¿Necesito una licencia?** Una prueba gratuita sirve para evaluación; se requiere una licencia permanente para producción.  
-- **¿Qué versión de Java se necesita?** Se recomienda Java 8 o posterior.
+- **¿Puedo modificar los atributos después de la indexación?** Sí—use `AttributeChangeBatch` para actualizar en lote los atributos de los documentos.  
+- **¿Cómo agrego atributos durante la indexación?** Suscríbase al evento `FileIndexing` y establezca los atributos programáticamente.  
+- **¿Necesito una licencia?** Una prueba gratuita funciona para evaluación; se requiere una licencia permanente para producción.  
+- **¿Qué versión de Java se requiere?** Se recomienda Java 8 o posterior.
 
-## ¿Qué es “search by attribute java”?
-**Search by attribute java** te permite consultar documentos basándote en sus metadatos (atributos) en lugar de solo en su contenido. Al adjuntar pares clave‑valor como `public`, `main` o `key` a cada archivo, puedes reducir rápidamente los resultados al subconjunto más relevante.
+## Qué es “search by attribute java”?
+**Search by attribute java** le permite consultar documentos basados en sus metadatos (atributos) en lugar de solo su contenido. Al adjuntar pares clave‑valor como `public`, `main` o `key` a cada archivo, puede reducir rápidamente los resultados al subconjunto más relevante.
 
-## ¿Por qué modificar o añadir atributos?
-- **Categorización dinámica** – mantiene los metadatos sincronizados con las reglas de negocio.  
-- **Filtrado más rápido** – los filtros de atributos se evalúan antes de la búsqueda de texto completo, mejorando el rendimiento.  
-- **Seguimiento de cumplimiento** – etiqueta documentos para políticas de retención o requisitos de auditoría.  
+## ¿Por qué usar etiquetado dinámico de metadatos?
+- **Categorización dinámica** – mantenga los metadatos sincronizados con las reglas de negocio en evolución.  
+- **Filtrado más rápido** – los filtros de atributos se evalúan antes de la búsqueda de texto completo, lo que acelera los tiempos de respuesta.  
+- **Seguimiento de cumplimiento** – etiquete los documentos para políticas de retención o requisitos de auditoría.  
+- **Actualización masiva de atributos** – cambie muchos documentos en una sola operación sin volver a indexar todo.
 
 ## Requisitos previos
 
-- **Java 8+** (JDK 8 o superior)  
-- Biblioteca **GroupDocs.Search for Java** (ver configuración de Maven a continuación)  
+- **Java 8+** (JDK 8 o posterior)  
+- **Biblioteca GroupDocs.Search for Java** (ver configuración de Maven a continuación)  
 - Conocimientos básicos de Java y conceptos de indexación  
 
 ## Configuración de GroupDocs.Search para Java
 
-### Configuración con Maven
+### Configuración de Maven
 
 ```xml
 <repositories>
@@ -62,13 +63,13 @@ weight: 1
 
 ### Descarga directa
 
-Alternativamente, descarga la última versión desde [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).  
-Si prefieres no usar una herramienta de compilación como Maven, descarga el JAR desde el [sitio web de GroupDocs](https://releases.groupdocs.com/search/java/).
+Alternativamente, descargue la última versión desde [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).  
+Si prefiere no usar una herramienta de compilación como Maven, descargue el JAR desde el [sitio web de GroupDocs](https://releases.groupdocs.com/search/java/).
 
 ### Obtención de licencia
 
-- Comienza con una prueba gratuita para explorar las capacidades.  
-- Para uso prolongado, obtén una licencia temporal o completa a través de la [página de licencias](https://purchase.groupdocs.com/temporary-license).
+- Comience con una prueba gratuita para explorar las capacidades.  
+- Para uso extendido, obtenga una licencia temporal o completa a través de la [página de licencias](https://purchase.groupdocs.com/temporary-license).
 
 ### Inicialización básica
 
@@ -79,16 +80,15 @@ import com.groupdocs.search.Index;
 Index index = new Index("YOUR_OUTPUT_DIRECTORY/ChangeAttributes");
 ```
 
-## Guía de implementación
+## Cómo modificar atributos de documentos (actualización en lote)
 
-### Search by Attribute Java – Cambio de atributos de documentos
+### Search by Attribute Java – Cambiar atributos de documentos
 
-#### Visión general
-Puedes añadir, eliminar o reemplazar atributos en documentos ya indexados, habilitando **batch update document attributes** sin volver a indexar toda la colección.
+Puede agregar, eliminar o reemplazar atributos en documentos ya indexados, lo que permite **batch update document attributes** sin volver a indexar toda la colección.
 
-#### Paso a paso
+### Paso a paso
 
-**Paso 1: Añadir documentos al índice**  
+**Paso 1: Agregar documentos al índice**  
 
 ```java
 index.add("YOUR_DOCUMENT_DIRECTORY");
@@ -128,15 +128,16 @@ String query = "length";
 SearchResult result = index.search(query, options); // Perform the search
 ```
 
-### Actualización en lote de atributos de documentos con AttributeChangeBatch
-La clase `AttributeChangeBatch` es la herramienta principal para **batch update document attributes**. Al agrupar los cambios en un solo lote, reduces la sobrecarga de I/O y mantienes el índice consistente.
+### Actualización masiva de atributos de documentos con AttributeChangeBatch
+La clase `AttributeChangeBatch` es la herramienta principal para **batch update document attributes**. Al agrupar los cambios en un solo lote, reduce la sobrecarga de I/O y mantiene el índice consistente.
 
-### Search by Attribute Java – Añadir atributos durante la indexación
+## Cómo agregar atributos durante la indexación
 
-#### Visión general
-Engancha al evento `FileIndexing` para asignar atributos personalizados a medida que cada archivo se añade al índice.
+### Search by Attribute Java – Agregar atributos durante la indexación
 
-#### Paso a paso
+Enganche al evento `FileIndexing` para asignar atributos personalizados a medida que cada archivo se agrega al índice.
+
+### Paso a paso
 
 **Paso 1: Suscribirse al evento FileIndexing**  
 
@@ -162,32 +163,41 @@ index.add("YOUR_DOCUMENT_DIRECTORY");
 
 ## Aplicaciones prácticas
 
-1. **Sistemas de gestión de documentos** – Automatiza la categorización añadiendo metadatos durante la ingestión.  
-2. **Archivos de contenido grande** – Usa filtros de atributos para reducir búsquedas, disminuyendo drásticamente los tiempos de respuesta.  
-3. **Cumplimiento e informes** – Etiqueta dinámicamente documentos para calendarios de retención o rastros de auditoría.
+1. **Sistemas de gestión de documentos** – Automatice la categorización agregando metadatos durante la ingestión.  
+2. **Grandes archivos de contenido** – Utilice filtros de atributos para reducir búsquedas, disminuyendo drásticamente los tiempos de respuesta.  
+3. **Cumplimiento e informes** – Etiquete dinámicamente los documentos para calendarios de retención o rastros de auditoría.
 
 ## Consideraciones de rendimiento
 
-- **Gestión de memoria** – Monitorea el heap de la JVM y ajusta `-Xmx` según sea necesario.  
-- **Procesamiento en lote** – Agrupa los cambios de atributos con `AttributeChangeBatch` para minimizar escrituras en el índice.  
-- **Actualizaciones de la biblioteca** – Mantén GroupDocs.Search actualizado para beneficiarte de los parches de rendimiento.
+- **Gestión de memoria** – Monitoree el heap de la JVM y ajuste `-Xmx` según sea necesario.  
+- **Procesamiento por lotes** – Agrupe los cambios de atributos con `AttributeChangeBatch` para minimizar escrituras en el índice.  
+- **Actualizaciones de la biblioteca** – Mantenga GroupDocs.Search actualizado para beneficiarse de correcciones de rendimiento.
+
+## Problemas comunes y soluciones
+
+| Problema | Por qué ocurre | Cómo solucionar |
+|----------|----------------|-----------------|
+| **Atributos no aplicados** | Manejador de eventos no registrado antes de la indexación | Asegúrese de que `index.getEvents().FileIndexing.add(...)` se ejecute antes de `index.add(...)`. |
+| **La búsqueda no devuelve resultados** | Desajuste del nombre del atributo (sensible a mayúsculas/minúsculas) | Use nombres de atributo exactos al crear filtros (`createAttribute("main")`). |
+| **Errores de falta de memoria** en lotes grandes | Demasiados cambios en un solo lote | Divida actualizaciones grandes en instancias más pequeñas de `AttributeChangeBatch`. |
+| **Licencia no reconocida** | Uso del JAR de prueba sin aplicar el archivo de licencia | Llame a `License license = new License(); license.setLicense("path/to/license.file");` antes de cualquier operación de índice. |
 
 ## Preguntas frecuentes
 
-**P: ¿Cuáles son los requisitos previos para usar GroupDocs.Search en Java?**  
-R: Necesitas Java 8 la biblioteca GroupDocs.Search y conocimientos básicos de conceptos de indexación.
+**Q: ¿Cuáles son los requisitos previos para usar GroupDocs.Search en Java?**  
+**A:** Necesita Java 8+, la biblioteca GroupDocs.Search y conocimientos básicos de conceptos de indexación.
 
-**P: ¿Cómo instalo GroupDocs.Search vía Maven?**  
-R: Añade el repositorio y la dependencia mostrados en la sección de Configuración con Maven a tu `pom.xml`.
+**Q: ¿Cómo instalo GroupDocs.Search mediante Maven?**  
+**A:** Añada el repositorio y la dependencia mostrados en la sección de Configuración de Maven a su `pom.xml`.
 
-**P: ¿Puedo modificar los atributos después de que los documentos estén indexados?**  
-R: Sí, usa `AttributeChangeBatch` para actualizar en lote los atributos de los documentos sin volver a indexar.
+**Q: ¿Puedo modificar los atributos después de que los documentos estén indexados?**  
+**A:** Sí, use `AttributeChangeBatch` para actualizar en lote los atributos de los documentos sin volver a indexar.
 
-**P: ¿Qué hago si mi proceso de indexación es lento?**  
-R: Optimiza la configuración de memoria de la JVM, usa actualizaciones en lote y asegúrate de estar con la última versión de la biblioteca.
+**Q: ¿Qué hago si mi proceso de indexación es lento?**  
+**A:** Optimice la configuración de memoria de la JVM, use actualizaciones por lotes y asegúrese de estar con la última versión de la biblioteca.
 
-**P: ¿Dónde puedo encontrar más recursos sobre GroupDocs.Search para Java?**  
-R: Visita la [documentación oficial](https://docs.groupdocs.com/search/java/) o explora los foros de la comunidad.
+**Q: ¿Dónde puedo encontrar más recursos sobre GroupDocs.Search para Java?**  
+**A:** Visite la [documentación oficial](https://docs.groupdocs.com/search/java/) o explore los foros de la comunidad.
 
 ## Recursos
 
@@ -200,8 +210,6 @@ R: Visita la [documentación oficial](https://docs.groupdocs.com/search/java/) o
 
 ---
 
-**Última actualización:** 2025-12-24  
-**Probado con:** GroupDocs.Search 25.4 for Java  
-**Autor:** GroupDocs  
-
----
+**Última actualización:** 2026-02-24  
+**Probado con:** GroupDocs.Search 25.4 para Java  
+**Autor:** GroupDocs
