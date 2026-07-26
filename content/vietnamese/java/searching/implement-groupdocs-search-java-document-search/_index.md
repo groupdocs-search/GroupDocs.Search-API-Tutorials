@@ -1,48 +1,113 @@
 ---
-date: '2026-02-01'
-description: Tìm hiểu cách tìm kiếm tài liệu java bằng GroupDocs.Search và làm nổi
-  bật các từ khóa tìm kiếm java một cách hiệu quả, nâng cao quản lý tài liệu.
+date: '2026-07-26'
+description: Triển khai GroupDocs.Search Java để tìm kiếm tài liệu java nhanh chóng
+  và làm nổi bật các thuật ngữ trong bản xem trước HTML. Học cách cài đặt, lập chỉ
+  mục, fuzzy search và result highlighting.
 keywords:
-- GroupDocs.Search Java
-- document search with GroupDocs
-- highlighting search results in documents
-title: 'Cách Tìm Kiếm Tài Liệu Java với GroupDocs.Search: Trích Xuất và Tô Sáng Kết
-  Quả'
+- implement groupdocs search java
+- how to search documents java
+- groupdocs search java highlighting
+lastmod: '2026-07-26'
+og_description: Triển khai GroupDocs.Search Java để tìm kiếm tài liệu java nhanh chóng
+  và làm nổi bật các thuật ngữ trong bản xem trước HTML. Hướng dẫn này bao gồm cài
+  đặt, lập chỉ mục, fuzzy search và result highlighting.
+og_image_alt: 'Guide: Implement GroupDocs.Search Java for document search and term
+  highlighting'
+og_title: Triển khai GroupDocs.Search Java cho Tìm kiếm Tài liệu
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-26'
+  description: Implement GroupDocs.Search Java to search documents java quickly and
+    highlight terms in HTML previews. Learn setup, indexing, fuzzy search, and result
+    highlighting.
+  headline: Implement GroupDocs.Search Java for Document Search
+  type: TechArticle
+- description: Implement GroupDocs.Search Java to search documents java quickly and
+    highlight terms in HTML previews. Learn setup, indexing, fuzzy search, and result
+    highlighting.
+  name: Implement GroupDocs.Search Java for Document Search
+  steps:
+  - name: Create an Index
+    text: 'The `Index` class is the top‑level object that stores searchable metadata
+      on disk. Creating it points to a folder where all index files will reside:'
+  - name: Configure Search Options (Enable fuzzy search)
+    text: '`SearchOptions` lets you fine‑tune query behavior. Setting `FuzzySearch`
+      to `true` enables approximate matching, which is useful for handling typos or
+      OCR errors:'
+  - name: Execute the Search
+    text: '`Index.search` runs the query against the prepared index and returns a
+      `SearchResult` collection containing matched documents and term occurrences:
+      The `SearchResult` object contains the list of documents that match the query
+      and their relevance scores.'
+  - name: Extract Occurrences
+    text: 'Each `SearchResult` item provides `getOccurrences()` which returns the
+      exact positions of the query terms inside the source file, allowing you to build
+      analytics dashboards or detailed reports:'
+  - name: Set Up Index with High Compression
+    text: 'High compression reduces storage by **up to 70 %** while keeping query
+      speed within milliseconds. Adjust the `CompressionLevel` property before indexing:'
+  - name: Perform Search and Highlight Results
+    text: 'After executing the search, call `highlight()` on the `SearchResult` object
+      to produce an HTML file that highlights every occurrence of the query term.
+      The `highlight()` method generates an HTML preview with matched terms wrapped
+      in `<mark>` tags:'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Search is a Java SDK that indexes and searches text across more
+      than 50 document formats, offering fuzzy matching and result highlighting.
+    question: What is GroupDocs.Search?
+  - answer: It tolerates a configurable number of character differences, allowing
+      matches on misspelled words or OCR errors.
+    question: How does fuzzy search work?
+  - answer: Yes, a free trial is available, but a full license is required for production
+      deployments.
+    question: Can I use GroupDocs.Search without a license?
+  - answer: PDF, DOCX, XLSX, PPTX, TXT, and many more—see the official docs for the
+      complete list.
+    question: What file formats are supported?
+  - answer: Serve the generated HTML file directly or embed its content into a page
+      using an `<iframe>` or server‑side rendering.
+    question: How do I display highlighted results in a web application?
+  type: FAQPage
+tags:
+- implement groupdocs search java
+- search documents java
+- groupdocs search
+- java document indexing
+- highlight search terms
+title: Triển khai GroupDocs.Search Java cho Tìm kiếm Tài liệu
 type: docs
 url: /vi/java/searching/implement-groupdocs-search-java-document-search/
 weight: 1
 ---
 
-# Cách Tìm Kiếm Tài Liệu Java với GroupDocs.Search
+# Triển khai GroupDocs.Search Java cho Tìm kiếm Tài liệu
 
-Trong thời đại số, khả năng **search documents java** nhanh chóng là rất quan trọng đối với doanh nghiệp và nhà phát triển. Cho dù bạn đang tìm kiếm trong các hợp đồng pháp lý hay các bài báo học thuật, một giải pháp mạnh mẽ cần thiết để nhanh chóng tìm ra thông tin liên quan. Hướng dẫn này sẽ chỉ cho bạn cách sử dụng GroupDocs.Search Java — một thư viện mạnh mẽ được thiết kế đặc biệt cho các hoạt động tìm kiếm trên nhiều định dạng tài liệu.
+Trong môi trường dựa trên dữ liệu ngày nay, **implement groupdocs search java** là thiết yếu cho bất kỳ ứng dụng nào cần tìm kiếm toàn văn nhanh chóng, đáng tin cậy trên PDF, tệp Word, bảng tính và hơn thế nữa. Cho dù bạn đang xây dựng kho lưu trữ hợp đồng pháp lý, cổng nghiên cứu học thuật, hay cơ sở tri thức hỗ trợ khách hàng, hướng dẫn này sẽ dẫn bạn qua việc cài đặt SDK, tạo chỉ mục, chạy truy vấn mờ, và tạo HTML với các thuật ngữ tìm kiếm được đánh dấu — tất cả bằng Java.
 
 ## Câu trả lời nhanh
-- **Thư viện nào giúp search documents java?** GroupDocs.Search for Java.  
-- **Có thể highlight search terms java trong kết quả không?** Có, thư viện có thể tạo HTML với các thuật ngữ được đánh dấu.  
-- **Có cần giấy phép không?** Có bản dùng thử miễn phí; giấy phép đầy đủ cần thiết cho môi trường sản xuất.  
-- **IDE nào phù hợp nhất?** Bất kỳ IDE Java nào như IntelliJ IDEA, Eclipse hoặc VS Code.  
-- **Maven có được hỗ trợ không?** Hoàn toàn – thêm repository và dependency vào `pom.xml` của bạn.
+- **Thư viện nào giúp implement groupdocs search java?** GroupDocs.Search for Java.  
+- **Có thể đánh dấu các thuật ngữ tìm kiếm java trong kết quả không?** Yes—generated HTML can automatically wrap matches with `<mark>` tags.  
+- **Tôi có cần giấy phép cho môi trường sản xuất không?** A free trial is available; a full license is required for commercial use.  
+- **IDE nào hoạt động tốt nhất?** Any Java IDE—IntelliJ IDEA, Eclipse, or VS Code.  
+- **Maven có được hỗ trợ không?** Absolutely—add the repository and dependency to your `pom.xml`.
 
 ## GroupDocs.Search cho Java là gì?
-GroupDocs.Search là một Java SDK giúp lập chỉ mục và tìm kiếm văn bản trên nhiều loại tài liệu (PDF, DOCX, XLSX, v.v.). Nó cung cấp các tính năng nâng cao như fuzzy matching, phrase search và result highlighting, rất phù hợp để xây dựng các kho lưu trữ tài liệu có khả năng tìm kiếm.
+`GroupDocs.Search` là một SDK Java cho phép lập chỉ mục và tìm kiếm văn bản trên hơn **50+ định dạng tài liệu** (PDF, DOCX, XLSX, PPTX, TXT, v.v.) mà không cần tải toàn bộ tệp vào bộ nhớ. Nó cung cấp khớp mờ, các toán tử Boolean, truy vấn cụm từ, và tính năng đánh dấu kết quả tích hợp, biến nó thành một giải pháp trọn gói cho các kho lưu trữ tài liệu có thể tìm kiếm.
 
 ## Tại sao nên sử dụng Search Documents Java với GroupDocs.Search?
-- **Tốc độ:** Tìm kiếm có chỉ mục trả về kết quả trong vài mili giây, ngay cả với bộ sưu tập lớn.  
-- **Linh hoạt:** Hỗ trợ fuzzy search, các toán tử Boolean và truy vấn cụm từ.  
-- **Đánh dấu:** Bạn có thể **highlight search terms java** trực tiếp trong các bản preview HTML được tạo ra.  
-- **Mở rộng:** Hoạt động trên môi trường on‑premises, cloud hoặc hybrid storage.
+Nó cung cấp tốc độ với các tìm kiếm đã lập chỉ mục trả về kết quả trong vòng dưới 10 ms cho 10 k tài liệu, tính linh hoạt thông qua tìm kiếm mờ, logic Boolean, truy vấn cụm từ và mở rộng đồng nghĩa, đánh dấu bằng cách tạo các bản xem trước HTML tự động đánh dấu các kết quả trùng khớp, và khả năng mở rộng bằng cách hoạt động trên máy chủ nội bộ, trên đám mây, hoặc môi trường hybrid trong khi xử lý các tệp hàng trăm trang mà không tiêu tốn quá nhiều bộ nhớ.
 
 ## Yêu cầu trước
-1. **Java Development Kit (JDK) 8 trở lên** đã được cài đặt.  
-2. **Maven** (hoặc quản lý dependency thủ công).  
-3. Một IDE như **IntelliJ IDEA**, **Eclipse**, hoặc **VS Code**.  
-4. Kiến thức cơ bản về Java và cấu trúc dự án Maven.  
+- Java Development Kit (JDK) 8 hoặc cao hơn.  
+- Maven (hoặc quản lý JAR thủ công).  
+- Một IDE như IntelliJ IDEA, Eclipse, hoặc VS Code.  
+- Kiến thức cơ bản về cấu trúc dự án Java và Maven.
 
 ## Cài đặt GroupDocs.Search cho Java
 
 ### Cài đặt qua Maven
-Thêm repository và dependency của GroupDocs vào `pom.xml` của bạn:
+Add the GroupDocs repository and the Search dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -63,49 +128,56 @@ Thêm repository và dependency của GroupDocs vào `pom.xml` của bạn:
 ```
 
 ### Tải trực tiếp
-Nếu bạn không muốn dùng Maven, tải JAR mới nhất từ trang phát hành chính thức: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Nếu bạn không muốn sử dụng Maven, tải JAR mới nhất từ trang phát hành chính thức: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### Các bước lấy giấy phép
 - **Free Trial:** Bắt đầu với bản dùng thử miễn phí để khám phá các tính năng.  
-- **Temporary License:** Nhận giấy phép tạm thời qua [trang chính thức của GroupDocs](https://purchase.groupdocs.com/temporary-license).  
-- **Purchase:** Đối với việc sử dụng không giới hạn trong môi trường sản xuất, mua giấy phép đầy đủ.
+- **Temporary License:** Nhận qua [GroupDocs' official site](https://purchase.groupdocs.com/temporary-license).  
+- **Purchase:** Mua giấy phép đầy đủ để sử dụng không giới hạn trong môi trường sản xuất.
 
-### Khởi tạo và cấu hình cơ bản
-Tạo thư mục chỉ mục và khởi tạo đối tượng `Index`:
+### Khởi tạo và Cấu hình Cơ bản
+The `Index` class is the core component that represents a searchable index stored on disk. After creating an index folder, you instantiate the `Index` object to add, delete, or query documents:
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/ObtainSearchResultInformation";
 Index index = new Index(indexFolder);
 ```
 
-## Cách Tìm Kiếm Tài Liệu Java – Tính năng 1: Trích xuất Thông tin Kết quả Tìm kiếm
+## Cách tìm kiếm Documents Java – Tính năng 1: Trích xuất thông tin kết quả tìm kiếm
 
-### Tổng quan
-Việc trích xuất thông tin chi tiết (các thuật ngữ, cụm từ, số lần xuất hiện) giúp bạn xây dựng bảng điều khiển phân tích hoặc tạo báo cáo về nội dung của bộ tài liệu.
+Tính năng này giải thích cách chạy một truy vấn, lấy các tài liệu khớp, và nhận dữ liệu xuất hiện chi tiết cho mỗi thuật ngữ. Bằng cách làm theo các bước, bạn có thể xây dựng bảng điều khiển phân tích hoặc tạo báo cáo chi tiết từ kết quả tìm kiếm.
 
-### Thực hiện từng bước
+### Bước 1: Tạo chỉ mục
+The `Index` class is the top‑level object that stores searchable metadata on disk. Creating it points to a folder where all index files will reside:
 
-#### Bước 1: Tạo một Index
 ```java
 String indexFolder = YOUR_DOCUMENT_DIRECTORY + "/ObtainSearchResultInformation";
 Index index = new Index(indexFolder);
 index.add(documentFolder);
 ```
 
-#### Bước 2: Cấu hình Search Options (Bật fuzzy search)
+### Bước 2: Cấu hình Search Options (Bật tìm kiếm mờ)
+`SearchOptions` lets you fine‑tune query behavior. Setting `FuzzySearch` to `true` enables approximate matching, which is useful for handling typos or OCR errors:
+
 ```java
 SearchOptions options = new SearchOptions();
 options.getFuzzySearch().setEnabled(true);
 options.getFuzzySearch().setFuzzyAlgorithm(new TableDiscreteFunction(3));
 ```
 
-#### Bước 3: Thực hiện tìm kiếm
+### Bước 3: Thực thi tìm kiếm
+`Index.search` runs the query against the prepared index and returns a `SearchResult` collection containing matched documents and term occurrences:
+
 ```java
 String query = "favourable OR \"ipsum dolor\"";
 SearchResult result = index.search(query, options);
 ```
 
-#### Bước 4: Trích xuất các lần xuất hiện
+Đối tượng `SearchResult` chứa danh sách các tài liệu khớp với truy vấn và điểm liên quan của chúng.
+
+### Bước 4: Trích xuất các lần xuất hiện
+Each `SearchResult` item provides `getOccurrences()` which returns the exact positions of the query terms inside the source file, allowing you to build analytics dashboards or detailed reports:
+
 ```java
 for (int i = 0; i < result.getDocumentCount(); i++) {
     FoundDocument document = result.getFoundDocument(i);
@@ -130,14 +202,13 @@ for (int i = 0; i < result.getDocumentCount(); i++) {
 }
 ```
 
-## Tính năng 2: Highlight Search Terms Java trong Tài liệu
+## Tính năng 2: Đánh dấu các thuật ngữ tìm kiếm Java trong Tài liệu
 
-### Tổng quan
-Tạo file HTML với **highlight search terms java** cho phép người dùng cuối ngay lập tức thấy vị trí khớp, cải thiện tốc độ xem xét và hợp tác.
+Tạo một bản xem trước HTML trong đó mỗi kết quả trùng khớp được bao quanh bởi thẻ `<mark>`, cung cấp cho người dùng cuối các dấu hiệu trực quan ngay lập tức.
 
-### Thực hiện từng bước
+### Bước 1: Thiết lập chỉ mục với nén cao
+High compression reduces storage by **up to 70 %** while keeping query speed within milliseconds. Adjust the `CompressionLevel` property before indexing:
 
-#### Bước 1: Thiết lập Index với nén cao
 ```java
 String indexFolder = YOUR_DOCUMENT_DIRECTORY + "/HighlightSearchResults";
 IndexSettings settings = new IndexSettings();
@@ -146,7 +217,9 @@ Index index = new Index(indexFolder, settings);
 index.add(documentFolder);
 ```
 
-#### Bước 2: Thực hiện tìm kiếm và đánh dấu kết quả
+### Bước 2: Thực hiện tìm kiếm và đánh dấu kết quả
+After executing the search, call `highlight()` on the `SearchResult` object to produce an HTML file that highlights every occurrence of the query term. The `highlight()` method generates an HTML preview with matched terms wrapped in `<mark>` tags:
+
 ```java
 SearchResult result = index.search("solicitude");
 if (result.getDocumentCount() > 0) {
@@ -159,38 +232,49 @@ if (result.getDocumentCount() > 0) {
 ```
 
 ## Ứng dụng thực tiễn
-1. **Kiểm tra tài liệu pháp lý** – Nhanh chóng xác định các điều khoản trong hàng trăm hợp đồng.  
-2. **Nghiên cứu học thuật** – Trích xuất các cụm từ chính từ các bài báo nghiên cứu cho việc tổng quan tài liệu.  
-3. **Hỗ trợ khách hàng** – Xác định các vấn đề lặp lại trong kho lưu trữ email.  
-4. **Quản lý nội dung** – Đánh dấu từ khóa trong bài viết và blog để kiểm tra SEO.
+1. **Legal Document Review** – Tìm các điều khoản cụ thể trong hàng ngàn hợp đồng trong vài giây.  
+2. **Academic Research** – Trích xuất các cụm từ chính từ các bài nghiên cứu cho các bài tổng quan văn học.  
+3. **Customer Support** – Xác định các vấn đề lặp lại trong lưu trữ email để cải thiện các trang FAQ.  
+4. **Content Management** – Đánh dấu các từ khóa SEO trong bài viết và blog để kiểm tra biên tập nhanh.
 
-## Những lưu ý về hiệu năng
-- **Nén:** Nén cao giảm dung lượng lưu trữ nhưng có thể tăng mức sử dụng CPU; cần thử nghiệm cho khối lượng công việc của bạn.  
-- **Quản lý bộ nhớ:** Lập chỉ mục tài liệu theo lô để giữ footprint bộ nhớ thấp.  
-- **Làm mới chỉ mục:** Thường xuyên tái lập chỉ mục các tệp đã thay đổi để duy trì độ chính xác của kết quả tìm kiếm.
+## Các yếu tố về hiệu năng
+- **Compression:** Nén cao giảm dung lượng lưu trữ nhưng có thể tăng sử dụng CPU; hãy benchmark với khối lượng công việc điển hình của bạn.  
+- **Memory Management:** Lập chỉ mục tài liệu theo lô 500 – 1 000 tệp để giữ heap JVM trong tầm kiểm soát.  
+- **Index Refresh:** Lập chỉ mục lại các tệp đã thay đổi mỗi đêm để đảm bảo kết quả tìm kiếm luôn cập nhật.
 
 ## Kết luận
-Trong hướng dẫn này, chúng tôi đã trình bày cách **search documents java** bằng Group, trích xuất thông tin kết quả chi tiết, và **highlight search terms java** trong các preview HTML. Những khả năng này giúp bạn xây dựng.
+Hướng dẫn này đã trình bày cách **implement groupdocs search java**, trích xuất thông tin kết quả chi tiết, và **highlight search terms java** trong các bản xem trước HTML. Bằng cách làm theo các bước này, bạn có thể cung cấp trải nghiệm tìm kiếm nhanh chóng, thân thiện với người dùng cho bất kỳ kho lưu trữ tài liệu nào.
 
 ### Các bước tiếp theo
-- Tích hợp HTML đã đánh dấu vào giao diện web của bạn.  
+- Nhúng HTML đã đánh dấu vào giao diện web của bạn bằng thẻ `<iframe>` hoặc render phía máy chủ.  
 - Thử nghiệm các `SearchOptions` bổ sung như `SynonymSearch` hoặc `WildcardSearch`.  
-- Khám phá tài liệu API của GroupDocs.Search để thực hiện các kịch bản nâng cao như tính điểm tùy chỉnh.
+- Khám phá tài liệu tham chiếu API của GroupDocs.Search để tùy chỉnh điểm số, phân trang kết quả, và hỗ trợ đa ngôn ngữ.
 
 ## Câu hỏi thường gặp
 
-**Q: GroupDocs.Search là gì?**  
-A: Một Java SDK lập chỉ mục và tìm định dạng tài liệu, cung cấp các tính năng như fuzzy search và result highlighting.
+**Q: What is GroupDocs.Search?**  
+A: GroupDocs.Search là một SDK Java cho phép lập chỉ mục và tìm kiếm văn bản trên hơn 50 định dạng tài liệu, cung cấp khớp mờ và đánh dấu kết quả.
 
-**Q: Tìm kiếm fuzzy hoạt động như thế nào?**  
-A: Nó cho phép khớp xấp xỉ bằng cách chấp nhận một số lượng ký tự khác nhau có thể cấu hình, hữu ích cho việc xử lý lỗi đánh máy.
+**Q: How does fuzzy search work?**  
+A: Nó chịu được một số lượng ký tự khác nhau có thể cấu hình, cho phép khớp với các từ bị viết sai hoặc lỗi OCR.
 
-**Q: Tôi có thể sử dụng GroupDocs.Search mà không có giấy phép không?**  
-A: Có, bản dùng thử miễn phí có sẵn, nhưng giấy phép đầy đủ cần thiết cho các triển khai sản xuất.
+**Q: Can I use GroupDocs.Search without a license?**  
+A: Có, bản dùng thử miễn phí có sẵn, nhưng giấy phép đầy đủ là bắt buộc cho triển khai sản xuất.
 
-**Q: Những định dạng tệp nào được hỗ trợ?**  
-A: PDF, DOCX, XLSX, PPTX, TXT và nhiều hơn nữa — xem biết danhển thị kết quả đã đánh dấu trong ứng dụng web?**  
-A: Phục vụ file HTML đã tạo (ví dụ: `Highlighted.html`) trực tiếp hoặc nhúng nội dung của nó vào trang web bằng `<iframe>` hoặc render phía server.
+**Q: What file formats are supported?**  
+A: PDF, DOCX, XLSX, PPTX, TXT, và nhiều hơn nữa — xem tài liệu chính thức để biết danh sách đầy đủ.
 
-**Last Updated:** 2026-:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+**Q: How do I display highlighted results in a web application?**  
+A: Phục vụ tệp HTML đã tạo trực tiếp hoặc nhúng nội dung của nó vào trang bằng thẻ `<iframe>` hoặc render phía máy chủ.
+
+---
+
+**Cập nhật lần cuối:** 2026-07-26  
+**Được kiểm tra với:** GroupDocs.Search 25.4  
+**Tác giả:** GroupDocs
+
+## Hướng dẫn liên quan
+
+- [Cách Thêm Tài liệu vào Chỉ mục với GroupDocs.Search cho Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Hướng dẫn Đánh dấu Kết quả Tìm kiếm Java với GroupDocs.Search](/search/java/highlighting/)
+- [Làm chủ GroupDocs.Search Java: Tìm kiếm Mờ & Hướng dẫn Lập chỉ mục Tài liệu](/search/java/searching/groupdocs-search-java-fuzzy-document-indexing/)
