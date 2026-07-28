@@ -1,7 +1,8 @@
 ---
-date: '2025-12-26'
-description: Impara come creare un indice ricercabile in Java con GroupDocs.Search
-  per Java, aggiungi file da cercare e aggiungi directory al nodo.
+date: '2026-02-27'
+description: Scopri come creare un indice ricercabile in Java con GroupDocs.Search
+  per Java, aggiungere file da indicizzare, aggiungere directory al nodo e abilitare
+  l'indicizzazione in tempo reale in Java.
 keywords:
 - GroupDocs.Search for Java
 - deploy GroupDocs.Search
@@ -12,33 +13,45 @@ url: /it/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-# Crea un indice ricercabile Java – Distribuisci GroupDocs.Search per Java
+ 2026-02-27  
+**Testato con:** GroupDocs.Search for Java 25.4  
+**Autore:** GroupDocs
 
-Nel mondo odierno guidato dai dati, le applicazioni **creating a searchable index java** devono gestire collezioni di documenti massive in modo efficiente. Che tu stia costruendo un servizio di ricerca di livello enterprise o un progetto più piccolo, una rete di ricerca ben configurata può migliorare drasticamente la velocità di recupero e la rilevanza. In questa guida percorreremo l'intero processo di configurazione di **GroupDocs.Search per Java**, dall'aggiunta di file alla ricerca all'aggiunta di directory al nodo, così potrai iniziare subito a indicizzare i tuoi documenti.
+Make sure to keep the markdown formatting.
 
-## Risposte rapide
-- **What is the primary purpose of GroupDocs.Search?** Fornisce un motore scalabile, basato su Java, per indicizzare e cercare documenti su una rete distribuita.  
-- **Which version should I use?** L'ultima versione stabile (ad es., 25.4) è consigliata per nuovi progetti.  
-- **Do I need a license?** È disponibile una prova gratuita di 30 giorni; è necessaria una licenza permanente per l'uso in produzione.  
-- **Can I add both files and whole directories?** Sì – usa gli helper `addFiles` e `addDirectories` per ingerire i contenuti.  
-- **What Java version is required?** Java 8 o superiore, con Maven per la gestione delle dipendenze.  
+Now produce final content.# Crea indice ricercabile Java – Distribuisci GroupDocs.Search per Java
 
-## Cos'è “create searchable index java”?
-Creare un indice ricercabile in Java significa costruire una struttura dati che mappa i termini ai documenti che li contengono, consentendo query full‑text rapide. GroupDocs.Search astrae il lavoro pesante, permettendoti di concentrarti sull'alimentazione dei documenti e sulla messa a punto del comportamento di ricerca.
+Nel mondo odierno guidato dai dati, le applicazioni **creare un indice ricercabile Java** hanno bisogno di gestire collezioni di documenti massive in modo efficiente. Che tu stia costruendo un servizio di ricerca di livello enterprise o un progetto più piccolo, una rete di ricerca ben configurata può migliorare drasticamente la velocità di recupero e la pertinenza. In questa guida percorreremo l'intero processo di configurazione di **GroupDocs.Search for Java**, dall'aggiunta di file alla ricerca all'aggiunta di directory al nodo, così potrai iniziare subito a indicizzare i tuoi documenti.
+
+> **Perché è importante:** Un indice ricercabile riduce la latenza delle query da secondi a millisecondi, scala con la crescita dei tuoi dati e ti consente di aggiungere potenti capacità di ricerca full‑text a qualsiasi soluzione basata su Java — sia che si tratti di un portale web, di un'app desktop o di un microservizio cloud.
+
+## Risposte Rapide
+- **Qual è lo scopo principale di GroupDocs.Search?** Fornisce un motore scalabile, basato su Java, per l'indicizzazione e la ricerca di documenti su una rete distribuita.  
+- **Quale versione dovrei usare?** L'ultima release stabile (ad es., 25.4) è consigliata per nuovi progetti.  
+- **Ho bisogno di una licenza?** È disponibile una prova gratuita di 30 giorni; è necessaria una licenza permanente per l'uso in produzione.  
+- **Posso aggiungere sia file che intere directory?** Sì – utilizza gli helper `addFiles` e `addDirectories` per ingerire i contenuti.  
+- **Quale versione di Java è richiesta?** Java 8 o superiore, con Maven per la gestione delle dipendenze.  
+- **Come funziona l'indicizzazione in tempo reale Java?** Sottoscrivendo gli eventi del nodo è possibile attivare il re‑indicizzazione automatico quando i file cambiano.
+
+## Cos'è “creare indice ricercabile Java”?
+Creare un indice ricercabile in Java significa costruire una struttura dati che mappa i termini ai documenti che li contengono, consentendo query full‑text rapide. GroupDocs.Search astrae la parte più complessa, permettendoti di concentrarti sull'alimentare i documenti e sulla messa a punto del comportamento di ricerca.
 
 ## Perché usare GroupDocs.Search per Java?
-- **Scalable network architecture** – Distribuisci più nodi che condividono il carico di indicizzazione.  
-- **Rich document format support** – PDF, Word, Excel, PowerPoint, immagini e altro.  
-- **Event‑driven updates** – Iscriviti agli eventi del nodo per mantenere l'indice aggiornato in tempo reale.  
-- **Simple Maven integration** – Aggiungi poche righe a `pom.xml` e inizia a indicizzare.  
+- **Architettura di rete scalabile** – Distribuisci più nodi che condividono il carico di indicizzazione.  
+- **Supporto ricco per formati di documento** – PDF, Word, Excel, PowerPoint, immagini e altro.  
+- **Aggiornamenti basati su eventi** – Sottoscrivi gli eventi del nodo per mantenere l'indice aggiornato in tempo reale.  
+- **Integrazione Maven semplice** – Aggiungi poche righe a `pom.xml` e inizia l'indicizzazione.
+
+## Indicizzazione in tempo reale Java con GroupDocs.Search
+GroupDocs.Search genera eventi ogni volta che un file viene aggiunto, aggiornato o rimosso. Gestendo questi eventi è possibile chiamare `addFiles` o `addDirectories` automaticamente, garantendo che l'indice rimanga sincronizzato senza intervento manuale. Questo approccio è ideale per sistemi di gestione documentale, portali di contenuti e qualsiasi applicazione in cui i dati cambiano frequentemente.
 
 ## Prerequisiti
 - **JDK 8+** installato sulla tua macchina di sviluppo.  
 - Un IDE come **IntelliJ IDEA** o **Eclipse**.  
 - Conoscenza di base di **Java** e **Maven**.  
-- Accesso alla libreria **GroupDocs.Search per Java** (download o Maven).  
+- Accesso alla libreria **GroupDocs.Search for Java** (download o Maven).
 
-## Configurazione di GroupDocs.Search per Java
+## Configurare GroupDocs.Search per Java
 
 ### Dipendenza Maven
 Aggiungi il repository e la dipendenza al tuo `pom.xml`:
@@ -65,13 +78,13 @@ Aggiungi il repository e la dipendenza al tuo `pom.xml`:
 
 Puoi anche scaricare il JAR direttamente dal sito ufficiale: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Acquisizione della licenza
-- **Free Trial:** valutazione di 30 giorni.  
-- **Temporary License:** Richiedi per test estesi.  
-- **Purchase:** Necessario per le distribuzioni in produzione.
+### Acquisizione Licenza
+- **Prova gratuita:** valutazione di 30 giorni.  
+- **Licenza temporanea:** Richiedi per test estesi.  
+- **Acquisto:** Necessario per le distribuzioni in produzione.
 
-### Inizializzazione di base
-Crea un oggetto di configurazione che punta a una cartella dove verranno persistiti i file dell'indice e definisce la porta di comunicazione di base:
+### Inizializzazione Base
+Crea un oggetto di configurazione che punta a una cartella dove saranno memorizzati i file di indice e definisce la porta di comunicazione di base:
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -87,12 +100,12 @@ class InitializeSearch {
 }
 ```
 
-## Come creare searchable index java con GroupDocs.Search?
+## Come creare un indice ricercabile Java con GroupDocs.Search?
 
-Di seguito suddividiamo le funzionalità principali di cui avrai bisogno per **add files to search** e **add directories to node**, oltre a distribuire una rete scalabile.
+Di seguito scomponiamo le funzionalità principali di cui avrai bisogno per **add files to search** e **add directories to node**, oltre a distribuire una rete scalabile.
 
-### Funzione 1 – Configurazione e impostazione della rete
-Configurare la rete di ricerca è il primo passo verso la costruzione di un indice ricercabile.
+### Funzione 1 – Configurazione e Setup della Rete
+Configurare la rete di ricerca è il primo passo per costruire un indice ricercabile.
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -106,10 +119,10 @@ class ConfiguringSearchNetwork {
 }
 ```
 
-- **`basePath`** – Directory dove verranno persistiti i dati dell'indice.  
+- **`basePath`** – Directory in cui i dati dell'indice saranno persistiti.  
 - **`basePort`** – Porta di partenza; ogni nodo incrementerà da questo valore.
 
-### Funzione 2 – Distribuzione dei nodi della rete di ricerca
+### Funzione 2 – Distribuzione dei Nodi della Rete di Ricerca
 Distribuire i nodi distribuisce il carico di indicizzazione su più macchine o processi.
 
 ```java
@@ -123,10 +136,10 @@ class SearchNetworkDeployment {
 }
 ```
 
-Ogni `SearchNetworkNode` esegue il proprio servizio di indicizzazione, consentendoti di **create a searchable index java** che scala orizzontalmente.
+Ogni `SearchNetworkNode` esegue il proprio servizio di indicizzazione, consentendoti di **creare un indice ricercabile Java** che scala orizzontalmente.
 
-### Funzione 3 – Sottoscrizione agli eventi del nodo
-Aggiornamenti in tempo reale mantengono l'indice sincronizzato con le modifiche del file system.
+### Funzione 3 – Sottoscrizione agli Eventi del Nodo
+Gli aggiornamenti in tempo reale mantengono l'indice sincronizzato con le modifiche del file system.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -138,9 +151,9 @@ class SearchNetworkNodeEvents {
 }
 ```
 
-Ascoltando gli eventi, puoi attivare automaticamente la re‑indicizzazione quando arrivano nuovi file.
+Ascoltando gli eventi, puoi attivare automaticamente il re‑indicizzazione quando arrivano nuovi file.
 
-### Funzione 4 – Aggiunta di directory al nodo di rete
+### Funzione 4 – Aggiunta di Directory al Nodo di Rete
 Usa questo helper per **add directories to node**, raccogliendo ricorsivamente tutti i documenti supportati.
 
 ```java
@@ -169,8 +182,8 @@ class DirectoryAdder {
 }
 ```
 
-### Funzione 5 – Aggiunta di file al nodo di rete
-Quando hai bisogno di un controllo fine, **add files to search** individualmente:
+### Funzione 5 – Aggiunta di File al Nodo di Rete
+Quando hai bisogno di un controllo più fine, **add files to search** individualmente:
 
 ```java
 import com.groupdocs.search.Document;
@@ -216,33 +229,45 @@ class FileAdder {
 
 Questo metodo ti offre la flessibilità di indicizzare file provenienti da stream, storage cloud o posizioni temporanee.
 
-## Problemi comuni e soluzioni
+## Casi d'Uso Comuni
+- **Portali documentali enterprise** che necessitano di ricerca istantanea su migliaia di PDF e file Office.  
+- **Piattaforme di e‑discovery legale** dove nuove prove vengono aggiunte continuamente e devono essere ricercabili in tempo reale.  
+- **Sistemi di gestione dei contenuti** che archiviano immagini, presentazioni e fogli di calcolo e richiedono ricerche full‑text.
 
+## Problemi Comuni & Soluzioni
 | Problema | Motivo | Soluzione |
 |----------|--------|-----------|
-| **No documents appear in search results** | Index not committed | Call `node.getIndexer().commit()` after adding files. |
-| **Port conflict error** | Another service uses `basePort` | Choose a different `basePort` or verify free ports. |
-| **Unsupported file format** | Library lacks parser | Ensure the file extension is supported or add a custom extractor. |
+| **Nessun documento appare nei risultati di ricerca** | Indice non committato | Chiama `node.getIndexer().commit()` dopo aver aggiunto i file. |
+| **Errore di conflitto di porta** | Un altro servizio utilizza `basePort` | Scegli un `basePort` diverso o verifica le porte libere. |
+| **Formato file non supportato** | La libreria non dispone di un parser | Assicurati che l'estensione del file sia supportata o aggiungi un estrattore personalizzato. |
 
-## Domande frequenti
+## Suggerimenti per la Risoluzione dei Problemi
+- **Verifica lo stato del nodo:** Usa l'endpoint di health‑check integrato (`http://localhost:{port}/health`) per confermare che ogni nodo sia in esecuzione.  
+- **Monitora l'uso della memoria:** Grandi batch di documenti possono aumentare l'uso di memoria; considera di indicizzare in blocchi più piccoli e chiamare `commit()` periodicamente.  
+- **Controlla i log:** GroupDocs.Search scrive log dettagliati nella cartella `basePath` — rivedili per errori di parsing o timeout di rete.
+
+## Domande Frequenti
 
 **Q: Posso usare GroupDocs.Search su un'applicazione Java basata su cloud?**  
-A: Sì. La libreria funziona con qualsiasi runtime Java, e puoi puntare il `basePath` a una cartella montata in rete o a uno storage cloud montato localmente.
+A: Sì. La libreria funziona con qualsiasi runtime Java, e puoi puntare `basePath` a una cartella montata in rete o a uno storage cloud montato localmente.
 
 **Q: Come aggiorno l'indice quando un file cambia?**  
-A: Iscriviti agli eventi del nodo (vedi Funzione 3) e chiama nuovamente `addFiles` o `addDirectories` per i percorsi modificati.
+A: Sottoscrivi gli eventi del nodo (vedi Funzione 3) e chiama nuovamente `addFiles` o `addDirectories` per i percorsi modificati.
 
-**Q: C'è un limite al numero di nodi che posso distribuire?**  
+**Q: Esiste un limite al numero di nodi che posso distribuire?**  
 A: Praticamente, il limite è definito dall'hardware e dalla larghezza di banda della rete. L'API stessa non impone un limite rigido.
 
 **Q: Devo riavviare i nodi dopo aver aggiunto nuovi file?**  
-A: No. L'aggiunta di file avvia automaticamente l'indicizzazione; è necessario eseguire il commit solo se differisci l'operazione.
+A: No. L'aggiunta di file attiva l'indicizzazione automaticamente; è necessario eseguire il commit solo se differisci l'operazione.
 
-**Q: Quali formati di documento sono supportati di default?**  
+**Q: Quali formati di documento sono supportati nativamente?**  
 A: PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML e molti tipi di immagine. Consulta la documentazione ufficiale per l'elenco completo.
+
+**Q: Come posso abilitare l'indicizzazione in tempo reale Java per una cartella che riceve upload continuamente?**  
+A: Implementa un watcher del file system (ad es., `java.nio.file.WatchService`) che chiama `DirectoryAdder.addDirectories(node, path)` ogni volta che viene rilevato un nuovo file.
 
 ---
 
-**Ultimo aggiornamento:** 2025-12-26  
-**Testato con:** GroupDocs.Search per Java 25.4  
+**Ultimo aggiornamento:** 2026-02-27  
+**Testato con:** GroupDocs.Search for Java 25.4  
 **Autore:** GroupDocs
