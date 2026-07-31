@@ -1,10 +1,6 @@
 ---
 date: '2026-07-31'
-description: Learn how to regex search in Java using GroupDocs.Search. This step‑by‑step
-  tutorial shows setup, index creation, and regex query examples for fast text document
-  analysis.
-images:
-- /java/searching/groupdocs-search-java-regex-tutorial/og-image.png
+description: GroupDocs.Search を使用して Java で正規表現検索を行う方法を学びます。このステップバイステップのチュートリアルでは、セットアップ、インデックス作成、そして高速なテキスト文書分析のための正規表現クエリ例を紹介します。
 keywords:
 - how to regex search
 - regex pattern matching java
@@ -12,11 +8,9 @@ keywords:
 - java regex search examples
 - regex search tutorial java
 lastmod: '2026-07-31'
-og_description: How to regex search in Java using GroupDocs.Search enables fast pattern
-  matching across PDFs, Word, and text files. Follow this guide to set up, index documents,
-  and run powerful regex queries.
+og_description: GroupDocs.Search を使用した Java の正規表現検索は、PDF、Word、テキストファイル全体で高速なパターンマッチングを可能にします。このガイドに従ってセットアップ、文書のインデックス作成、強力な正規表現クエリの実行を行ってください。
 og_image_alt: 'Developer guide: Regex search in Java using GroupDocs.Search'
-og_title: How to Regex Search in Java with GroupDocs.Search Guide
+og_title: GroupDocs.Search ガイドで Java の正規表現検索を行う方法
 schemas:
 - author: GroupDocs
   dateModified: '2026-07-31'
@@ -68,35 +62,35 @@ tags:
 - GroupDocs.Search
 - Java document processing
 - text analysis
-title: How to Regex Search in Java with GroupDocs.Search Guide
+title: GroupDocs.Search ガイドで Java の正規表現検索を行う方法
 type: docs
-url: /java/searching/groupdocs-search-java-regex-tutorial/
+url: /ja/java/searching/groupdocs-search-java-regex-tutorial/
 weight: 1
 ---
 
-# How to Regex Search in Java with GroupDocs.Search
+# JavaでGroupDocs.Searchを使用した正規表現検索の方法
 
-Searching through thousands of text documents can feel like looking for a needle in a haystack. **How to regex search** in Java becomes effortless when you pair the language’s powerful regular‑expression engine with GroupDocs.Search, a library that builds an index for lightning‑fast pattern matching. In the next few minutes you’ll see how to install the library, create an index, add files, and run both simple text‑based and object‑oriented regex queries. By the end you’ll be ready to embed robust pattern‑matching search into any Java application.
+数千ものテキストドキュメントを検索することは、干し草の山から針を探すように感じられます。**Javaで正規表現検索**は、言語の強力な正規表現エンジンと、インデックスを構築して超高速パターンマッチングを実現するGroupDocs.Searchを組み合わせることで、簡単になります。数分でライブラリのインストール方法、インデックスの作成、ファイルの追加、シンプルなテキストベースとオブジェクト指向の正規表現クエリの実行方法を見ていきます。最後には、任意のJavaアプリケーションに堅牢なパターンマッチ検索を組み込む準備が整います。
 
-## Quick Answers
-- **What is the primary library?** GroupDocs.Search for Java  
-- **How do I start?** Add the Maven dependency and instantiate an `Index` object  
-- **Can I filter content with regex?** Yes – use regex queries for content‑filtering scenarios  
-- **Do I need a license?** A free trial or temporary license is required for production use  
-- **Which JDK version is supported?** Java 8 or higher  
+## クイック回答
+- **主要なライブラリは何ですか？** GroupDocs.Search for Java  
+- **どうやって始めますか？** Add the Maven dependency and instantiate an `Index` object  
+- **正規表現でコンテンツをフィルタリングできますか？** Yes – use regex queries for content‑filtering scenarios  
+- **ライセンスは必要ですか？** A free trial or temporary license is required for production use  
+- **サポートされているJDKバージョンはどれですか？** Java 8 or higher  
 
-## What is Regex Search?
-Regex search lets you locate patterns such as dates, email addresses, or repeated characters across many files in a single operation. It turns a plain text query into a powerful, rule‑based scanner that can extract or block content on the fly.
+## 正規表現検索とは？
+正規表現検索を使用すると、日付、メールアドレス、繰り返し文字などのパターンを多数のファイルから単一の操作で特定できます。プレーンテキストのクエリを強力なルールベースのスキャナに変換し、コンテンツをリアルタイムで抽出またはブロックできます。
 
-## Why Use GroupDocs.Search for Regex Search?
-GroupDocs.Search indexes documents once and then reuses that index for every query, delivering **up to 10× faster** searches compared with raw file scanning. The library supports **30+ file formats** (PDF, DOCX, XLSX, PPTX, TXT, HTML, and more) and can handle multi‑hundred‑page files without loading the entire file into memory.
+## 正規表現検索にGroupDocs.Searchを使用する理由
+GroupDocs.Searchはドキュメントを一度インデックス化し、そのインデックスをすべてのクエリで再利用するため、**最大10倍速い**検索を実現します。ライブラリは**30以上のファイル形式**（PDF、DOCX、XLSX、PPTX、TXT、HTML など）をサポートし、メモリに全ファイルをロードせずに数百ページのファイルも処理できます。
 
-## Prerequisites
+## 前提条件
 - Java Development Kit (JDK) 8 or higher  
 - Maven for dependency management  
 - Basic familiarity with Java regular expressions  
 
-### Required Libraries and Dependencies
+### 必要なライブラリと依存関係
 Add GroupDocs.Search to your Maven project:
 
 ```xml
@@ -119,12 +113,12 @@ Add GroupDocs.Search to your Maven project:
 
 Alternatively, download the latest JAR from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
+### ライセンス取得
 Obtain a free trial or temporary license from [GroupDocs.License](https://purchase.groupdocs.com/temporary-license/) and load it at application start‑up.
 
-## Setting Up GroupDocs.Search for Java
+## Java向けGroupDocs.Searchの設定
 
-### Installation Information
+### インストール情報
 1. **Maven Integration:** Add the repository and dependency shown above to your `pom.xml`.  
 2. **Direct Download:** Place the JAR files on your project’s classpath.  
 3. **License Application:** Load the license file at application start‑up.
@@ -143,10 +137,10 @@ public class SearchSetup {
 }
 ```
 
-## Core Components
+## コアコンポーネント
 The `Index` class is the core component that stores searchable tokens extracted from your documents. It enables rapid lookup of any term or pattern without re‑reading the original files.
 
-## How to Create Index
+## インデックスの作成方法
 Creating an index is straightforward: instantiate the `Index` class with a folder path where the index files will be stored. The constructor creates the necessary database files on first use and prepares the engine for adding and searching documents. Once created, reuse the same index for all queries.
 
 ```java
@@ -154,7 +148,7 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\
 Index index = new Index(indexFolder);
 ```
 
-## How to Add Documents
+## ドキュメントの追加方法
 To make a file searchable, call `index.add` with a `Document` (or `DocumentInfo`) instance pointing to the file path. The library parses the content, extracts tokens, and stores them in the index. This operation can be performed for single files or batches, and updates are merged incrementally.
 
 ```java
@@ -162,14 +156,14 @@ index.add("YOUR_DOCUMENT_DIRECTORY");
 system.out.println("Documents added to the index.");
 ```
 
-## How to Perform Regular Expression Search in Text Form
+## テキスト形式で正規表現検索を実行する方法
 `RegexQuery` defines a regular‑expression based search query. Load a `RegexQuery` with a plain‑text pattern and pass it to the `search` method of the `Index`. The engine evaluates the pattern against the indexed tokens and returns matching document references, making one‑off lookups fast and simple.
 
 ```java
 String query1 = "^((.)\\2{1,})";
 ```
 
-## How to Perform Regular Expression Search in Object Form
+## オブジェクト形式で正規表現検索を実行する方法
 `RegexQuery` can also be built as an object and reused across multiple searches. Define the query once, configure options such as case‑insensitivity or fuzzy matching, and invoke `index.search` repeatedly. This approach improves performance when the same pattern is applied to many different document sets.
 
 ```java
@@ -177,27 +171,27 @@ SearchResult result1 = index.search(query1);
 system.out.println("Number of occurrences found: " + result1.getDocumentCount());
 ```
 
-## Content Filtering Regex Use Cases
+## コンテンツフィルタリング正規表現のユースケース
 You can employ regex to automatically block or flag content that matches certain patterns, such as:
 
 - Detecting repeated characters for spam filtering  
 - Finding credit‑card‑like sequences for data‑privacy checks  
 - Extracting dates or IDs for downstream processing  
 
-## Practical Applications
+## 実用的な応用例
 1. **Document Management Systems:** Locate contracts, invoices, or policies by pattern (e.g., invoice numbers).  
 2. **Content Moderation:** Apply regex rules to moderate user‑generated text in forums or chat apps.  
 3. **Data Extraction:** Pull structured data like order numbers from unstructured PDFs or Word files.  
 
-## Performance Considerations
+## パフォーマンス上の考慮点
 - **Index Updates:** Call `index.add` whenever source files change to keep results fresh.  
 - **Memory Management:** For corpora exceeding 1 million documents, enable incremental indexing to keep heap usage under control.  
 - **Regex Design:** Keep patterns concise; a pattern like `\d{4}-\d{2}-\d{2}` runs 3× faster than a wildcard‑heavy expression such as `.*`.  
 
-## Conclusion
+## 結論
 You now know **how to regex search** in Java using GroupDocs.Search, from installing the library and creating an index to executing both text‑based and object‑oriented queries. These techniques let you add fast, pattern‑aware search to any Java application, whether you’re building a document portal, a compliance scanner, or a data‑mining pipeline.
 
-## Frequently Asked Questions
+## よくある質問
 
 **Q:** What is the difference between text‑based and object‑based regex queries in GroupDocs.Search?  
 **A:** Text‑based queries are quick one‑liners, while object‑based queries provide reusable, type‑safe definitions that can be stored and reused across multiple searches.
@@ -214,11 +208,9 @@ You now know **how to regex search** in Java using GroupDocs.Search, from instal
 **Q:** Where can I find more advanced GroupDocs.Search tutorials?  
 **A:** Visit the [GroupDocs Documentation](https://docs.groupdocs.com/search/java/) for deep‑dive guides, API references, and sample projects.
 
----
-
-**Last Updated:** 2026-07-31  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+**最終更新日:** 2026-07-31  
+**テスト環境:** GroupDocs.Search 25.4  
+**作者:** GroupDocs
 
 ```java
 SearchQuery query2 = SearchQuery.createRegexQuery("^(.)\\1{1,}");
@@ -229,8 +221,8 @@ SearchResult result2 = index.search(query2);
 system.out.println("Occurrences found using object form: " + result2.getDocumentCount());
 ```
 
-## Related Tutorials
+## 関連チュートリアル
 
-- [Master GroupDocs.Search Java&#58; Efficient Document Search and Index Management](/search/java/searching/groupdocs-search-java-efficient-document-search/)
-- [Mastering GroupDocs.Search Java&#58; Fuzzy Search & Document Indexing Guide](/search/java/searching/groupdocs-search-java-fuzzy-document-indexing/)
+- [Master GroupDocs.Search Java&#58; 効率的なドキュメント検索とインデックス管理](/search/java/searching/groupdocs-search-java-efficient-document-search/)
+- [Mastering GroupDocs.Search Java&#58; 曖昧検索とドキュメントインデックスガイド](/search/java/searching/groupdocs-search-java-fuzzy-document-indexing/)
 - [How to Index Text in Java with GroupDocs.Search Guide](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
