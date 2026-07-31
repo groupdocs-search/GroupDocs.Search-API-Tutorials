@@ -1,12 +1,72 @@
 ---
-date: '2026-02-03'
-description: Scopri come aggiungere documenti all'indice ed eseguire ricerche efficienti
-  senza distinzione tra maiuscole e minuscole in Java con GroupDocs.Search, utilizzando
-  la sostituzione dei caratteri durante l'indicizzazione.
+date: '2026-07-31'
+description: Scopri come implementare la ricerca senza distinzione tra maiuscole e
+  minuscole in Java aggiungendo documenti a un indice con GroupDocs.Search, usando
+  la sostituzione dei caratteri per normalizzare il testo durante l'indicizzazione.
 keywords:
-- case-insensitive search in Java
-- character replacement during indexing
-- GroupDocs.Search setup
+- case insensitive search java
+- add documents to index
+- character replacement indexing
+lastmod: '2026-07-31'
+og_description: La ricerca senza distinzione tra maiuscole e minuscole in Java ti
+  consente di aggiungere documenti a un indice e interrogarli senza preoccuparti del
+  caso delle lettere. Questa guida mostra come GroupDocs.Search normalizza il testo
+  durante l'indicizzazione per risultati rapidi e affidabili.
+og_image_alt: 'Guide: Add documents to index for case insensitive search in Java using
+  GroupDocs.Search'
+og_title: Ricerca senza distinzione tra maiuscole e minuscole in Java – Indicizza
+  documenti con GroupDocs
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-31'
+  description: Learn how to implement case insensitive search java by adding documents
+    to an index with GroupDocs.Search, using character replacement to normalize text
+    during indexing.
+  headline: Add Documents to Index for Case‑Insensitive Search in Java
+  type: TechArticle
+- description: Learn how to implement case insensitive search java by adding documents
+    to an index with GroupDocs.Search, using character replacement to normalize text
+    during indexing.
+  name: Add Documents to Index for Case‑Insensitive Search in Java
+  steps:
+  - name: Configure `IndexSettings`
+    text: '`IndexSettings` is the configuration object that controls how the index
+      stores and processes text. By setting `useCharacterReplacements` to **true**,
+      you turn on automatic lower‑casing (or any custom mapping you provide).'
+  - name: Define and Add Replacement Pairs
+    text: The replacement dictionary holds pairs such as `'A' → 'a'`, `'É' → 'e'`,
+      etc. Adding these pairs before indexing ensures every token is normalized.
+  - name: Add Documents for Indexing
+    text: GroupDocs.Search scans the target directory, extracts text from each supported
+      file type, applies the replacement map, and writes the tokens to the index storage.
+  - name: Execute Case‑Sensitive Searches
+    text: '`SearchOptions` configures query behavior, such as toggling case sensitivity,
+      allowing fine‑grained control over how searches are performed. `SearchOptions.setUseCaseSensitiveSearch(true)`
+      forces the engine to treat upper‑ and lower‑case characters as distinct during
+      a specific query, overriding the'
+  type: HowTo
+- questions:
+  - answer: Include those characters in your replacement map, mapping them to their
+      ASCII equivalents or keeping them unchanged based on search requirements.
+    question: How do I handle special characters (e.g., “é”, “ß”) during indexing?
+  - answer: Yes. Build a custom replacement array that contains only the characters
+      for the target language before adding it to the dictionary.
+    question: Can I limit character replacement to a specific language?
+  - answer: Optimize the folder structure, remove unnecessary files, and store the
+      index on a high‑speed SSD. Incremental indexing also reduces load overhead.
+    question: What should I do if the index takes a long time to load?
+  - answer: No. Replacements are baked into the indexed data; you must rebuild the
+      index with new settings to change them.
+    question: Is it possible to revert the character replacements after indexing?
+  - answer: The official docs and API reference provide exhaustive details (see Resources
+      below).
+    question: Where can I find more detailed API documentation?
+  type: FAQPage
+tags:
+- case insensitive search
+- GroupDocs.Search
+- Java indexing
+- document search
 title: Aggiungi documenti all'indice per la ricerca senza distinzione tra maiuscole
   e minuscole in Java
 type: docs
@@ -14,26 +74,29 @@ url: /it/java/searching/master-case-insensitive-search-java-groupdocs-search/
 weight: 1
 ---
 
-# Aggiungere Documenti all'Indice percolo in Java
+# Aggiungere Documenti all'Indice per la Ricerca Case‑Insensitive in Java
 
-Quando è necessario **aggiungere documenti all'indice** e garantire che gli utenti possano trovare ciò che cercano indipendentemente dal caso delle lettere, una ricerca non sensibile al mai è essenziale. In questa guida vedremo comeizzato affidabili e non sensibili al caso ogni volta.
+Quando hai bisogno di **case insensitive search java** che trovi in modo affidabile le informazioni indipendentemente da come gli utenti le digitano, la chiave è aggiungere documenti a un indice normalizzando il testo. In questo tutorial vediamo come configurare GroupDocs.Search per Java in modo che ogni documento indicizzato venga automaticamente convertito in minuscolo (o trasformato in altro modo) durante l'indicizzazione, garantendo risultati case‑insensitive senza logica aggiuntiva al momento della query.
 
- “aggiungere documenti all'indice”?** Significa inserire i tuoi file sorgente in un indice ricercabile affinché possano essere interrogati in seguito.  
-- **Perché utilizzare la sostituzione dei caratteri?** Normalizza il testo (ad esempio forzando tutto in minuscolo) così le ricerche ignorano le differenze di caso.  
-- **È necessaria una licenza?** Una prova gratuita è sufficiente per lo sviluppo; è richiesta una licenza completa per la produzione.  
-- **Quale versione di Java è richiesta?** Java 8 o superiore; la libreria è ottimizzata per Java 11+ per la massima compatibilità.  
-- **Posso eseguire ricerche sensibili al caso se necessario?** Sì—le opzioni di ricerca consentono di attivare il comportamento sensibile al caso per ogni query.
+## Risposte Rapide
+- **Cosa significa “add documents to index”?** Significa caricare i file sorgente in una struttura dati ricercabile così che possano essere interrogati in seguito.  
+- **Perché usare la sostituzione dei caratteri?** Normalizza ogni carattere — tipicamente in minuscolo — così le ricerche ignorano automaticamente le differenze di maiuscole/minuscole.  
+- **Ho bisogno di una licenza?** Una prova gratuita funziona per lo sviluppo; è necessaria una licenza completa per le distribuzioni in produzione.  
+- **Quale versione di Java è richiesta?** Java 8 o successiva; la libreria è ottimizzata per Java 11+ per prestazioni ottimali.  
+- **Posso passare a una ricerca case‑sensitive quando necessario?** Sì — le opzioni di ricerca consentono di attivare/disattivare la sensibilità al maiuscolo per ogni query.
 
-## Che cosa significa “aggiungere documenti all'indice” in GroupDocs.Search?
-Aggiungere documenti a un indice significa caricare file (PDF, documenti Word, testo semplice, ecc.) in una struttura dati che GroupDocs.Search può interrogare. La libreria analizza ogni file, estrae il testo ricercabile e lo memorizza in modo da rendere le ricerche rapide ed efficienti.
+## Che cosa significa “add documents to index” in GroupDocs.Search?
+
+Carica i tuoi file sorgente (PDF, DOCX, TXT, ecc.) in un indice ricercabile affinché il motore possa recuperarli rapidamente. Aggiungere documenti a un indice analizza ogni file, estrae il testo semplice e lo memorizza in una struttura dati ottimizzata che consente ricerche veloci.
 
 ## Perché abilitare la sostituzione dei caratteri durante l'indicizzazione?
-La sostituzione dei caratteri trasforma ogni carattere in un equivalente predefinito—di solito minuscolo—mentre l'indice viene costruito. Questo garantisce che una query come **“Promotion”** corrisponda a **“promotion”**, **“PROMOTION”** o a qualsiasi variante mista senza ulteriori sforzi da parte dell'utente.
+
+La sostituzione dei caratteri converte ogni carattere in un equivalente predefinito — più comunemente in minuscolo — mentre l'indice viene costruito. Questo garantisce che le variazioni di maiuscole/minuscole, diacritici o simboli specifici della locale non influenzino i risultati della ricerca. Normalizzando il testo al momento dell'indicizzazione, il motore può confrontare le query con un insieme di token coerente, fornendo un comportamento case‑insensitive rapido e affidabile senza elaborazioni aggiuntive per ogni ricerca.
 
 ## Prerequisiti
-- **GroupDocs.Search per Java** versione 25.4 o più recente.  
+- **GroupDocs.Search for Java** versione 25.4 o successiva (la libreria supporta oltre 30 formati di file e può indicizzare documenti di centinaia di pagine senza caricare l'intero file in memoria).  
 - **Java Development Kit (JDK)** 8 o successivo installato.  
-- Familiarità di base con **Maven** (o capacità di aggiungere manualmente i JAR).  
+- Familiarità di base con **Maven** (o capacità di aggiungere JAR manualmente).  
 
 ## Configurazione di GroupDocs.Search per Java
 
@@ -62,12 +125,12 @@ Aggiungi il repository GroupDocs e la dipendenza al tuo `pom.xml`:
 Se preferisci non usare Maven, scarica l'ultimo JAR dal sito ufficiale: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Acquisizione della Licenza
-- **Prova Gratuita** – scarica una licenza di prova per iniziare a sperimentare.  
-- **Licenza Temporanea** – richiedi una licenza di test estesa dal portale GroupDocs.  
-- **Licenza Completa** – acquista una licenza di produzione quando sei pronto per il rilascio.
+- **Free Trial** – scarica una licenza di prova per iniziare a sperimentare.  
+- **Temporary License** – richiedi una licenza di test estesa dal portale GroupDocs.  
+- **Full License** – acquista una licenza di produzione quando sei pronto a mettere in produzione.
 
 ### Inizializzazione di Base (Creare l'indice)
-Il frammento seguente crea una cartella per l'indice e abilita le sostituzioni dei caratteri:
+Il frammento seguente crea una cartella indice e abilita le sostituzioni dei caratteri:
 
 ```java
 import com.groupdocs.search.Index;
@@ -82,9 +145,11 @@ Index index = new Index(indexFolder, settings);
 ## Guida all'Implementazione
 
 ### Abilitare la Sostituzione dei Caratteri nelle Impostazioni dell'Indice
-Attivare questa funzionalità indica al motore di sostituire i caratteri durante l'indicizzazione, passo fondamentale per il comportamento non sensibile al caso.
+Attivare questa funzionalità indica al motore di sostituire i caratteri durante l'indicizzazione, che è il passaggio fondamentale per il comportamento case‑insensitive.
 
 #### Passo 1: Configurare `IndexSettings`
+`IndexSettings` è l'oggetto di configurazione che controlla come l'indice memorizza e elabora il testo. Impostando `useCharacterReplacements` su **true**, attivi la conversione automatica in minuscolo (o qualsiasi mappatura personalizzata tu fornisca).
+
 ```java
 import com.groupdocs.search.Index;
 import com.groupdocs.search.IndexSettings;
@@ -102,7 +167,9 @@ Index index = new Index(indexFolder, settings);
 ### Configurare le Sostituzioni dei Caratteri
 Mappa ogni carattere al suo equivalente minuscolo (o a qualsiasi mappatura personalizzata necessaria).
 
-#### Passo 2: Definire e Aggiungere le Coppie di Sostituzione
+#### Passo 2: Definire e Aggiungere Coppie di Sostituzione
+Il dizionario di sostituzione contiene coppie come `'A' → 'a'`, `'É' → 'e'`, ecc. Aggiungere queste coppie prima dell'indicizzazione garantisce che ogni token sia normalizzato.
+
 ```java
 import com.groupdocs.search.dictionaries.CharacterReplacementPair;
 
@@ -121,10 +188,12 @@ for (int i = 0; i < characterReplacements.length; i++) {
 index.getDictionaries().getCharacterReplacements().addRange(characterReplacements);
 ```
 
-### Indicizzare i Documenti
-Ora che l'indice è pronto, puoi **aggiungere documenti all'indice** da qualsiasi cartella.
+### Indicizzare Documenti
+Ora che l'indice è pronto, puoi **add documents to index** da qualsiasi cartella.
 
 #### Passo 3: Aggiungere Documenti per l'Indicizzazione
+GroupDocs.Search scansiona la directory di destinazione, estrae il testo da ogni tipo di file supportato, applica la mappa di sostituzione e scrive i token nello storage dell'indice.
+
 ```java
 import com.groupdocs.search.Index;
 
@@ -135,9 +204,12 @@ Index index = new Index(indexFolder, settings);
 index.add(documentFolder);
 ```
 
-### Eseguire Ricer caso, puoi attivare questa opzione per richiesta.
+### Eseguire una Ricerca Case‑Sensitive (Opzionale)
 
-#### Passo 4: Eseguire Ricerche Sensibili al Caso
+#### Passo 4: Eseguire Ricerche Case‑Sensitive
+`SearchOptions` configura il comportamento della query, ad esempio attivando/disattivando la sensibilità al maiuscolo, consentendo un controllo fine su come vengono eseguite le ricerche.  
+`SearchOptions.setUseCaseSensitiveSearch(true)` forza il motore a trattare i caratteri maiuscoli e minuscoli come distinti durante una query specifica, sovrascrivendo il comportamento predefinito case‑insensitive.
+
 ```java
 import com.groupdocs.search.Index;
 import com.groupdocs.search.SearchOptions;
@@ -153,47 +225,60 @@ SearchResult result = index.search(query, options);
 ```
 
 ## Applicazioni Pratiche
-1. **Campagne di Marketing** – Normalizza i nomi dei prodotti affinché i team di vendita possano trovare le risorse senza preoccuparsi del caso.  
-2. **Assistenza Clienti** – Alimenta le caselle di ricerca del help‑desk che restituiscono l'articolo corretto sia che l'utente digiti “login” o “Login”.  
-3. **Cataloghi E‑commerce** – Garantenti trovino gli articoli indipazioni sulle Prestazioni
-- **Organizzare i File Sorgente** – Una gerarchia di cartelle ordinata velocizza il passo **aggiungere documenti all'indice**.  
-- **Monitorare la Memoria** – Corpora di grandi dimensioni possono consumare molta RAM; considera l'indicizzazione incrementale o il processamento a batch.  
-- **Indicizzazione Asincrona** – Se la tua versione di GroupDocs.Search lo supporta, esegui l'indicizzazione in un thread di background per mantenere l'interfaccia reattiva.
+1. **Marketing Campaigns** – Normalizza i nomi dei prodotti affinché i team di vendita possano trovare le risorse senza preoccuparsi delle maiuscole.  
+2. **Customer Support** – Alimenta le caselle di ricerca del help‑desk che restituiscono l'articolo corretto sia che l'utente digiti “login” o “Login”.  
+3. **E‑commerce Catalogs** – Garantisce che gli acquirenti trovino gli articoli indipendentemente da come digitano i titoli dei prodotti, migliorando i tassi di conversione.
+
+## Considerazioni sulle Prestazioni
+- **Organize Source Files** – Una gerarchia di cartelle ordinata riduce il tempo di scansione durante il passaggio **add documents to index**.  
+- **Monitor Memory** – Indicizzare grandi corpora può consumare molta RAM; elaborare i file in batch da 500 – 1 000 elementi mantiene l'uso dell'heap sotto controllo.  
+- **Asynchronous Indexing** – Quando supportato, esegui l'indicizzazione su un thread in background per mantenere l'interfaccia reattiva ed evitare di bloccare le operazioni dell'utente.
 
 ## Problemi Comuni e Risoluzione
-| Sintomo | Causa Probabile | Soluzione |
-|---------|-----------------|-----------|
-| Nessun risultato restituito per un termine noto | Sostituzioni dei caratteri non abilitate | Verifica `settings.setUseCharacterReplacements(true)` e che le sostituzioni siano state aggiunte. |
-| Errore di out‑of‑memory durante l'indicizzazione | Indicizzazione di troppi file di grandi dimensioni contemporaneamente | Indicizza in batch più piccoli o aumenta l'heap JVM (`-Xmx`). |
-| La ricerca restituisce risultati sensibili al caso in modo inatteso | È stato impostato `SearchOptions.setUseCaseSensitiveSearch(true)` | Rimuovi o imposta a `false` per il comportamento predefinito non sensibile al caso. |
+
+| Sintomo | Causa Probabile | Risoluzione |
+|---------|-----------------|-------------|
+| Nessun risultato restituito per un termine noto | Sostituzioni dei caratteri non abilitate | Verifica `settings.setUseCharacterReplacements(true)` e che la mappa di sostituzione contenga i caratteri necessari. |
+| Errore Out‑of‑memory durante l'indicizzazione | Indicizzazione di troppi file grandi contemporaneamente | Indicizza in batch più piccoli o aumenta l'heap JVM (`-Xmx4g`). |
+| La ricerca restituisce risultati case‑sensitive inaspettatamente | `SearchOptions.setUseCaseSensitiveSearch(true)` era impostato | Rimuovi o imposta a `false` per il comportamento predefinito case‑insensitive. |
+| Il tempo di caricamento dell'indice supera le aspettative | Struttura delle cartelle inefficiente o SSD non utilizzato | Riorganizza i file, elimina i documenti inutilizzati e memorizza l'indice su un SSD veloce. |
+| I caratteri speciali vengono ignorati | Mappa di sostituzione priva di voci Unicode | Aggiungi mappature per caratteri come “é”, “ß”, “ø” ai loro equivalenti desiderati. |
 
 ## Domande Frequenti
 
-**D: Come gestisco i caratteri speciali (ad es. “é”, “ß”) durante l'indicizzazione?**  
-R: Includi quei caratteri nella tua mappa di sostituzione. Puoi mappare a equivalenti ASCII o mantenerli invariati, a seconda dei requisiti di ricerca.
+**Q: Come gestisco i caratteri speciali (ad esempio “é”, “ß”) durante l'indicizzazione?**  
+A: Includi quei caratteri nella tua mappa di sostituzione, mappandoli ai loro equivalenti ASCII o lasciandoli invariati in base ai requisiti di ricerca.
 
-**D: Posso limitare la sostituzione dei caratteri a una lingua specifica?**  
-R: Sì. Crea un array di sostituzione personalizzato che contenga solo i caratteri della lingua target prima di aggiungerlo al dizionario.
+**Q: Posso limitare la sostituzione dei caratteri a una lingua specifica?**  
+A: Sì. Crea un array di sostituzione personalizzato che contenga solo i caratteri della lingua target prima di aggiungerlo al dizionario.
 
-**D: Cosa fare se l'indice impiega molto tempo a caricarsi?**  
-R: Ottimizza la struttura delle cartelle, rimuovi i file non necessari e considera di persistere l'indice su un SSD veloce.
+**Q: Cosa devo fare se l'indice impiega molto tempo a caricarsi?**  
+A: Ottimizza la struttura delle cartelle, rimuovi i file non necessari e memorizza l'indice su un SSD ad alta velocità. L'indicizzazione incrementale riduce anche il carico di caricamento.
 
-**D: È possibile annullare le sostituzioni dei caratteri dopo l'indicizzazione?**  
-R: No. Le sostituzioni sono incorporate nei dati indicizzati; è necessario ricostruire l'indice con nuove impostazioni per modificarle.
+**Q: È possibile annullare le sostituzioni dei caratteri dopo l'indicizzazione?**  
+A: No. Le sostituzioni sono incorporate nei dati indicizzati; è necessario ricostruire l'indice con nuove impostazioni per modificarle.
 
-**D: Dove posso trovare una documentazione API più dettagliata?**  
-R: La documentazione ufficiale e il riferimento API forniscono dettagli esaustivi (vedi Risorse sotto).
+**Q: Dove posso trovare una documentazione API più dettagliata?**  
+A: La documentazione ufficiale e il riferimento API forniscono dettagli esaustivi (vedi Risorse sotto).
 
 ## Risorse
-- [Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java)
+- [Documentazione](https://docs.groupdocs.com/search/java/)
+- [Riferimento API](https://reference.groupdocs.com/search/java)
 - [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/) 
+- [Repository GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Forum di Supporto Gratuito](https://forum.groupdocs.com/c/search/10)
+- [Informazioni sulla Licenza Temporanea](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Ultimo Aggiornamento:** 2026-02-03  
+**Ultimo Aggiornamento:** 2026-07-31  
 **Testato Con:** GroupDocs.Search 25.4 per Java  
-**Autore:** GroupDocs
+**Autore:** GroupDocs  
+
+---
+
+## Tutorial Correlati
+
+- [Sostituzione dei Caratteri in GroupDocs.Search Java: Guida Completa per Migliorare la Ricerca Testuale e l'Indicizzazione](/search/java/text-extraction-processing/groupdocs-search-java-character-replacement-guide/)
+- [Aggiungere documenti all'indice: ricerca Java case‑sensitive con GroupDocs](/search/java/searching/master-case-sensitive-searches-java-groupdocs/)
+- [Come Aggiungere Documenti all'Indice con GroupDocs.Search per Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
