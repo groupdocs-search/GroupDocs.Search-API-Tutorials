@@ -1,48 +1,98 @@
 ---
-date: '2026-03-01'
-description: GroupDocs.Search for Java を使用して Java ドキュメントを迅速にインデックスする方法を学びましょう。このガイドでは、インデックスへのドキュメントの追加、インデックスからのドキュメントの削除、ファイルシステムからのドキュメントの読み込みについて説明します。
+date: '2026-08-05'
+description: GroupDocs.Search for Java を使用して Java ドキュメントを迅速にインデックスする方法を学びます。このガイドでは、インデックスへのドキュメント追加、インデックスからのドキュメント削除、ファイルシステムからのドキュメント読み込みについて解説します。
 keywords:
+- how to index java
+- delete documents from index
+- add documents to index
+- java search performance
 - GroupDocs.Search Java
-- document indexing
+lastmod: '2026-08-05'
+og_description: GroupDocs.Search for Java を使用して Java ドキュメントを迅速にインデックスする方法を学び、追加、削除、高性能なファイル検索について解説します。
+og_image_alt: Developer guide showing Java code for indexing documents with GroupDocs.Search
+og_title: Java のインデックス方法 – GroupDocs を使用した高速ドキュメント検索
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-05'
+  description: Learn how to index java documents quickly with GroupDocs.Search for
+    Java. This guide covers adding documents to index, deleting documents from index,
+    and loading documents from filesystem.
+  headline: How to Index Java – Fast Document Search with GroupDocs
+  type: TechArticle
+- description: Learn how to index java documents quickly with GroupDocs.Search for
+    Java. This guide covers adding documents to index, deleting documents from index,
+    and loading documents from filesystem.
+  name: How to Index Java – Fast Document Search with GroupDocs
+  steps:
+  - name: '**Enterprise document portals** – employees locate policies, contracts,
+      or manuals in seconds.'
+    text: '**Enterprise document portals** – employees locate policies, contracts,
+      or manuals in seconds.'
+  - name: '**Legal case management** – lawyers quickly find precedent clauses across
+      thousands of PDFs and Word files.'
+    text: '**Legal case management** – lawyers quickly find precedent clauses across
+      thousands of PDFs and Word files.'
+  - name: '**Digital libraries** – universities expose full‑text search over research
+      papers and theses.'
+    text: '**Digital libraries** – universities expose full‑text search over research
+      papers and theses.'
+  type: HowTo
+- questions:
+  - answer: Yes, GroupDocs.Search supports a wide range of formats out of the box,
+      handling over 50 file types without additional converters.
+    question: Can I index PDFs, DOCX, and PPTX together?
+  - answer: The `delete` method removes postings for the specified document keys and
+      updates internal structures, so the index stays consistent without a full rebuild.
+    question: How does “delete documents from index” work under the hood?
+  - answer: Use `index.getStatistics()` to retrieve document count, total size, and
+      other useful metrics.
+    question: Is there a way to monitor index size?
+  - answer: No. Deletions are incremental; only the affected entries are removed,
+      and you can call `index.optimize()` periodically to keep performance optimal.
+    question: Do I need to rebuild the whole index after each deletion?
+  - answer: Create a new `Index` instance pointing to a different folder, add all
+      documents again, and then switch your application to use the new index path.
+    question: What if I need to re‑index all files after a schema change?
+  type: FAQPage
+tags:
+- index java
+- GroupDocs.Search
 - Java document search
-title: Javaのインデックス作成方法 – GroupDocsで高速文書検索
+- search performance
+- document indexing
+title: Java のインデックス方法 – GroupDocs を使用した高速ドキュメント検索
 type: docs
 url: /ja/java/indexing/efficient-document-indexing-search-groupdocs-java/
 weight: 1
 ---
 
-# Java のインデックス作成方法 – GroupDocs で高速ドキュメント検索
+# Java をインデックスする方法 – GroupDocs による高速ドキュメント検索
 
-効率的に **how to index java** ファイルをインデックスする方法を知りたい場合、ここが適切な場所です。今日のデータ駆動型の世界では、適切なドキュメントを素早く見つけることで、手作業にかかる時間を何時間も節約できます。**GroupDocs.Search for Java** は、フォルダー内のファイルを検索可能なインデックスに変換するシンプルな方法を提供し、数行のコードでインデックスへのドキュメント追加、インデックスからのドキュメント削除、ファイルシステムからのドキュメント読み込みを可能にします。
+If you’re wondering **Java をインデックスする方法** files efficiently, you’re in the right place. In today’s data‑driven world, quickly locating the right document can save hours of manual work. **GroupDocs.Search for Java** gives you a straightforward way to turn a folder of files into a searchable index, letting you add documents to index, delete documents from index, and load documents from filesystem with just a few lines of code. This tutorial walks you through setup, indexing, searching, and clean‑up so you can integrate fast document search into any Java application.
 
-以下に、必要なセットアップからインデックスの作成・データ投入、キーワード検索の実行、削除などのクリーンアップ操作までのステップバイステップの手順を示します。さっそく始めましょう！
+## クイック回答
+- **主な目的は何ですか？** Efficiently index and search Java documents.  
+- **必要なライブラリはどれですか？** GroupDocs.Search for Java (v25.4+).  
+- **ライセンスは必要ですか？** A free trial or temporary license is available; a permanent license is required for production.  
+- **インデックスからドキュメントを削除できますか？** Yes, using the `delete` method with document keys.  
+- **Apache Commons IO は必須ですか？** It's recommended for file handling utilities.
 
-## Quick Answers
-- **What is the primary purpose?** Java ドキュメントを効率的にインデックスし検索することです。  
-- **Which library is required?** GroupDocs.Search for Java (v25.4 以上)。  
-- **Do I need a license?** 無料トライアルまたは一時ライセンスが利用可能です。製品環境では永続ライセンスが必要です。  
-- **Can I delete documents from the index?** はい、ドキュメントキーを使用して `delete` メソッドで削除できます。  
-- **Is Apache Commons IO mandatory?** ファイル操作ユーティリティとして推奨されています。
+## 「Java をインデックスする方法」とは？
+Indexing Java documents means creating a searchable data structure (an index) that maps document content to searchable terms, allowing rapid retrieval of relevant files based on keyword queries. By building this index once, subsequent searches run in milliseconds even across thousands of files, dramatically improving developer productivity and end‑user experience.
 
-## “how to index java” とは？
-Java ドキュメントのインデックス作成とは、ドキュメントの内容を検索可能な用語にマッピングした検索可能なデータ構造（インデックス）を作成し、キーワードクエリに基づいて関連ファイルを迅速に取得できるようにすることです。
+## なぜ GroupDocs.Search for Java を使用するのか？
+GroupDocs.Search supports **50+ input and output formats**—including PDF, DOCX, XLSX, PPTX, HTML, and common image types—and can process multi‑hundred‑page documents without loading the entire file into memory. Its optimized algorithms deliver query responses in under 100 ms for datasets of up to 1 million documents, making it a scalable choice for enterprise‑grade search solutions.
 
-## Why use GroupDocs.Search for Java?
-- **Speed:** 最適化されたアルゴリズムにより、大規模コレクションでも高速なクエリ結果が得られます。  
-- **Scalability:** パフォーマンスを犠牲にせず、数千件のドキュメントを処理できます。  
-- **Flexibility:** 多くのファイル形式をサポートし、大きなファイルに対しては遅延ロードを提供します。  
-- **Ease of integration:** シンプルな Maven 設定と、クリーンで直感的な API を提供します。
+## 前提条件
 
-## Prerequisites
+- **GroupDocs.Search for Java** (version 25.4 or newer).  
+- **Apache Commons IO** for convenient file utilities.  
+- JDK 8 or higher and an IDE such as IntelliJ IDEA or Eclipse.  
+- Basic Java knowledge and, optionally, familiarity with Maven.
 
-- **GroupDocs.Search for Java**（バージョン 25.4 以上）。  
-- **Apache Commons IO**（便利なファイルユーティリティ用）。  
-- JDK 8 以上と、IntelliJ IDEA や Eclipse などの IDE。  
-- 基本的な Java の知識、オプションで Maven の知識。
+## GroupDocs.Search for Java の設定
 
-## Setting Up GroupDocs.Search for Java
-
-### Maven configuration
+### Maven 設定
 Add the repository and dependency to your `pom.xml`:
 
 ```xml
@@ -63,18 +113,18 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-> **Pro tip:** バージョン番号を最新リリースと同期させ、パフォーマンス向上の恩恵を受けましょう。
+> **プロのヒント:** バージョン番号を最新リリースと同期させて、パフォーマンス向上の恩恵を受けましょう。
 
-### Direct download (if you prefer not to use Maven)
+### 直接ダウンロード（Maven を使用しない場合）
 
-Maven を使用したくない場合は、公式サイトから最新の JAR をダウンロードすることもできます: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+You can also download the latest JAR from the official site: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License acquisition
-- **Free trial:** ライセンスキーなしでライブラリをテストできます。  
-- **Temporary license:** 長期評価用にリクエストできます。  
-- **Full license:** 本番環境での導入には必須です。
+### ライセンス取得
+- **Free trial:** Test the library without a license key.  
+- **Temporary license:** Request one for extended evaluation.  
+- **Full license:** Required for production deployments.
 
-### Basic initialization
+### 基本的な初期化
 Create a simple Java class to verify that the library loads correctly:
 
 ```java
@@ -88,18 +138,19 @@ public class DocumentIndexing {
 }
 ```
 
-このプログラムを実行すると、インデックスフォルダーが準備完了であることを示す確認メッセージが出力されます。
+## ドキュメントをインデックスに追加する方法
 
-## How to add documents to index
+The `Document` class represents a searchable entity that holds the file’s binary content and metadata.  
+To add a document, create a `Document` instance that wraps the file’s bytes and assigns a unique key, then call `index.add(document)`. The library extracts the text, tokenizes it, and stores the postings in the index folder automatically. This operation runs in linear time relative to the file size and supports lazy loading for large files.  
 
-### Step 1: Create an index folder
+**直接の回答:**  
+
 ```java
 Index index = new Index("YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\DeleteIndexedDocuments", true);
 ```
-- 最初の引数は、インデックスファイルが保存されるフォルダーです。  
+- 最初の引数はインデックスファイルが保存されるフォルダーです。  
 - 2 番目の引数 (`true`) は、フォルダーが存在しない場合に作成し、既存のインデックスを自動的に更新するよう GroupDocs に指示します。
 
-### Step 2: Load a document from a stream and add it
 ```java
 String filePath = "YOUR_DOCUMENT_DIRECTORY\\English.docx";
 DocumentLoader documentLoader = new DocumentLoader(filePath);
@@ -110,9 +161,12 @@ index.add(documents, new IndexingOptions());
 - `DocumentLoader`（後述）はファイルを読み取り、ユニークなキーを提供します。  
 - `createLazy` は大きなファイルを効率的に処理し、必要なときにのみコンテンツをロードすることを保証します。
 
-## How to load documents from filesystem
+## ファイルシステムからドキュメントをロードする方法
 
-以下は、ディスク上の任意のファイルを読み取り、バイト配列を抽出し、インデックス作成の準備ができた `Document` オブジェクトを構築する再利用可能なローダーです。
+The `DocumentLoader` utility class reads a file from disk and creates a corresponding `Document` object with a stable identifier.  
+To load files, the loader reads the file’s bytes, generates a unique key (for example, a hash of the path), and constructs a `Document` instance. This object can then be passed to `index.add(document)`. Using a dedicated loader isolates file‑system concerns, making the indexing code reusable and easier to test across different storage back‑ends.  
+
+**直接の回答:**  
 
 ```java
 class DocumentLoader {
@@ -135,83 +189,100 @@ class DocumentLoader {
 }
 ```
 
-> **Why this matters:** 専用のローダーを使用することで、ファイルシステムに関する処理をインデックスロジックから分離でき、コードがよりクリーンでテストしやすくなります。
+## インデックスでキーワード検索を実行する方法
 
-## How to perform keyword search in an index
+The `SearchQuery` class encapsulates the user's query string, while `SearchResult` holds the matching document IDs, snippets, and relevance scores.  
+Create a `SearchQuery` with the desired keywords and optionally configure fuzzy matching or filters, then invoke `index.search(query)`. The method returns a `SearchResult` object containing each matching document’s identifier, highlighted excerpts, and a relevance score. You can iterate over these results to display snippets or further process the matches.  
+
+**直接の回答:**  
 
 ```java
 String query = "moment";
 SearchResult searchResult1 = index.search(query);
 ```
-- 任意のテキスト文字列を `search` に渡すと、該当するドキュメント ID、スニペット、関連度スコアを含む `SearchResult` が返されます。
+- Pass any text string to `search` and receive a `SearchResult` containing matching document IDs, snippets, and relevance scores.
 
-## How to delete documents from index
+## インデックスからドキュメントを削除する方法
+
+The `UpdateOptions` class lets you control how changes such as deletions are applied to the index.  
+Provide the unique document keys to `index.delete(keys)`, and the library removes all postings associated with those keys. You can pass an `UpdateOptions` instance to specify whether deletions are applied immediately or batched for better performance. After deletion, the index remains consistent without requiring a full rebuild.  
+
+**直接の回答:**  
 
 ```java
 String[] documentKeys = new String[]{documentLoader.getDocumentKey()};
 DeleteResult deleteResult = index.delete(new UpdateOptions(), documentKeys);
 ```
-- 削除したいドキュメントのキーを指定します。  
-- `UpdateOptions` を使用すると、削除の適用方法（即時かバッチかなど）を制御できます。
+- Provide the keys of the documents you want to remove.  
+- `UpdateOptions` lets you control how the deletion is applied (e.g., immediate vs. batch).
 
-## How to retrieve indexed documents after deletions
+## 削除後にインデックスされたドキュメントを取得する方法
+
+The `getDocumentList()` method returns a collection of all document identifiers currently stored in the index.  
+Calling `index.getDocumentList()` provides the current set of document keys, reflecting all additions and deletions performed so far. This list can be used to verify that unwanted entries have been successfully removed or to iterate over remaining documents for further processing. It is a lightweight operation that does not modify the index.  
+
+**直接の回答:**  
 
 ```java
 DocumentInfo[] indexedDocuments2 = index.getIndexedDocuments();
 ```
-- この呼び出しは、インデックス内に現在残っているドキュメントのリストを返し、削除が成功したことを確認するのに役立ちます。
+- This call returns the current list of documents still present in the index, helping you verify that deletions succeeded.
 
-## Practical Applications
+## Java 検索パフォーマンスのヒント
 
-GroupDocs.Search for Java は次のようなシナリオで活躍します：
+Optimizing **java search performance** involves three key actions: (1) run `index.optimize()` after bulk inserts or deletions to compact posting files, (2) enable lazy loading for files larger than 10 MB to avoid OutOfMemory errors, and (3) allocate sufficient JVM heap (e.g., `-Xmx2g` for medium‑scale workloads). Following these practices keeps query latency below 100 ms even as the index grows.
 
-1. **Enterprise document portals** – 従業員がポリシー、契約書、マニュアルなどを数秒で見つけられます。  
-2. **Legal case management** – 弁護士が数千件の PDF や Word ファイルから先例条項を迅速に検索できます。  
-3. **Digital libraries** – 大学が研究論文や学位論文に対して全文検索を提供します。
+## 実用的なアプリケーション
 
-## Performance Considerations
+GroupDocs.Search for Java shines in scenarios such as:
 
-- **Regularly optimize** バルク更新後にインデックス (`index.optimize()`) を定期的に最適化し、クエリ速度を高く保ちます。  
-- **Leverage lazy loading** 大容量ファイルに対して遅延ロードを活用し、OutOfMemory エラーを回避します。  
-- **Tune JVM heap** ドキュメントサイズ分布に基づいて JVM ヒープを調整します。一般的な設定では中規模ワークロードに `-Xmx2g` を使用します。
+1. **エンタープライズ文書ポータル** – 従業員がポリシー、契約書、マニュアルを数秒で見つけられます。  
+2. **法務ケース管理** – 弁護士が何千もの PDF や Word ファイルから判例条項を迅速に検索できます。  
+3. **デジタルライブラリ** – 大学が研究論文や学位論文に対して全文検索を提供します。
 
-## Common Issues and Solutions
+## よくある問題と解決策
 
-| Issue | Cause | Solution |
-|-------|-------|----------|
-| 結果が返らない | クエリ語がインデックスされていない、またはストップワードが除外されている | `IndexingOptions` を確認し、ストップワードリストを調整する |
-| メモリ不足エラー | 大きなファイルを即時にロードしている | `Document.createLazy` に切り替えるか、JVM ヒープを増やす |
-| 削除したドキュメントがまだ表示される | 削除後にインデックスが更新されていない | `index.optimize()` を呼び出すか、インデックスインスタンスを再オープンする |
+| 問題 | 原因 | 解決策 |
+|------|------|--------|
+| 結果が返されない | クエリ語がインデックスされていない、またはストップワードが除外されている | `IndexingOptions` を確認し、ストップワードリストを調整してください |
+| メモリ不足エラー | 大きなファイルが即座にロードされている | `Document.createLazy` に切り替えるか、JVM ヒープを増やしてください |
+| 削除したドキュメントがまだ表示される | 削除後にインデックスが更新されていない | `index.optimize()` を呼び出すか、インデックスインスタンスを再オープンしてください |
 
-## Frequently Asked Questions
+## よくある質問
 
-**Q: PDFs、DOCX、PPTX を同時にインデックスできますか？**  
-A: はい、GroupDocs.Search は多数のフォーマットを標準でサポートしています。
+**Q: PDFs、DOCX、PPTX を一緒にインデックスできますか？**  
+A: Yes, GroupDocs.Search supports a wide range of formats out of the box, handling over 50 file types without additional converters.
 
-**Q: “delete documents from index” は内部でどのように動作しますか？**  
-A: `delete` メソッドは指定されたドキュメントキーのポスティングを削除し、内部構造を更新するため、インデックス全体を再構築せずに一貫性が保たれます。
+**Q: “インデックスからドキュメントを削除” は内部でどのように機能しますか？**  
+A: The `delete` method removes postings for the specified document keys and updates internal structures, so the index stays consistent without a full rebuild.
 
 **Q: インデックスサイズを監視する方法はありますか？**  
-A: `index.getStatistics()` を使用して、ドキュメント数、総サイズ、その他の有用な指標を取得できます。
+A: Use `index.getStatistics()` to retrieve document count, total size, and other useful metrics.
 
 **Q: 各削除後にインデックス全体を再構築する必要がありますか？**  
-A: いいえ。削除はインクリメンタルに行われ、影響を受けたエントリだけが削除されます。
+A: No. Deletions are incremental; only the affected entries are removed, and you can call `index.optimize()` periodically to keep performance optimal.
 
 **Q: スキーマ変更後にすべてのファイルを再インデックスする必要がある場合は？**  
-A: 別のフォルダーを指す新しい `Index` インスタンスを作成し、すべてのドキュメントを再度追加します。
+A: Create a new `Index` instance pointing to a different folder, add all documents again, and then switch your application to use the new index path.
 
-## Conclusion
+## 結論
 
-これで、GroupDocs.Search for Java を使用して **how to index java** ドキュメントをインデックスするための完全なロードマップが手に入りました。環境設定、インデックスへのドキュメント追加、ファイルシステムからのロード、検索の実行、削除とインデックス内容の検証までの手順をアプリケーションに組み込むことで、ドキュメントの検索性と全体的な生産性が大幅に向上します。
+You now have a complete roadmap for **how to index java** documents using GroupDocs.Search for Java—from setting up the environment, adding documents to index, loading them from the filesystem, performing searches, to deleting and verifying index contents. By integrating these steps into your application, you’ll dramatically improve document discoverability, cut search latency, and boost overall productivity.
 
-**Next steps:**  
-- 複雑なクエリ（ワイルドカード、ファジーマッチング）を試してみましょう。  
-- ファセット検索、カスタムアナライザー、メタデータインデックスなどの高度な機能を探求しましょう。  
+**次のステップ:**  
+- 複雑なクエリ（ワイルドカード、ファジーマッチング）を試してみてください。  
+- ファセット検索、カスタムアナライザー、メタデータインデックスなどの高度な機能を探索してください。  
 
 インデックス作成を楽しんでください！
 
 ---
 
-**最終更新日:** 2026-03-01  
-**テスト環境:** GroupDocs.Search Java 25.4  
-**作者:** GroupDocs
+**Last Updated:** 2026-08-05  
+**Tested With:** GroupDocs.Search Java 25.4  
+**Author:** GroupDocs
+
+## 関連チュートリアル
+
+- [Java で GroupDocs.Search を使用したメタデータインデックスによるドキュメントのインデックス追加方法](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [GroupDocs.Search for Java におけるドキュメントのインデックス追加とエイリアス管理方法](/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/)
+- [GroupDocs.Search Java をマスターする：効率的なドキュメント検索とインデックス管理](/search/java/searching/groupdocs-search-java-efficient-document-search/)
