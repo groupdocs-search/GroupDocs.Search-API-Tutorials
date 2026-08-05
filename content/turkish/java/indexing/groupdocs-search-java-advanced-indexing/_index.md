@@ -1,8 +1,9 @@
 ---
-date: '2025-12-29'
-description: GroupDocs.Search for Java'in gelişmiş indeksleme özelliklerini kullanarak
-  arama performansını nasıl optimize edeceğinizi öğrenin; iptal, asenkron işlemler,
-  çok iş parçacıklı çalışma ve meta veri özelleştirmeyi içeren.
+date: '2026-03-01'
+description: GroupDocs.Search for Java'in gelişmiş indeksleme özelliklerini, iptal,
+  eşzamanlı olmayan işlemler, çok iş parçacıklı çalışma ve meta veri özelleştirmesi
+  dahil olmak üzere kullanarak arama performansını nasıl optimize edeceğinizi ve arama
+  gecikmesini nasıl iyileştireceğinizi öğrenin.
 keywords:
 - GroupDocs.Search Java
 - advanced indexing features
@@ -14,30 +15,30 @@ url: /tr/java/indexing/groupdocs-search-java-advanced-indexing/
 weight: 1
 ---
 
-# GroupDocs.Search for Java'da Gelişmiş Dizinleme Teknikleriyle Arama Performansını Optimize Etme
+# Gelişmiş Dizinleme Teknikleriyle GroupDocs.Search for Java'da Arama Performansını Optimize Etme
 
-Bugünün hızlı tempolu dijital ortamında **arama performansını optimize etmek**, kullanıcılara anlık sonuçlar sunmak için hayati öneme sahiptir. İster özel bir arama motoru oluşturuyor olun, ister mevcut bir belge yönetim sistemini geliştiriyor olun, doğru dizinleme stratejisi gecikmeyi ve kaynak tüketimini büyük ölçüde azaltabilir. Bu öğreticide, GroupDocs.Search for Java’nın en güçlü özelliklerini—iptal, eşzamanlı olmayan dizinleme, çoklu iş parçacığı ve meta veri özelleştirme—adım adım inceleyeceğiz, böylece **add documents index** işlemini daha hızlı ve verimli bir şekilde gerçekleştirebileceksiniz.
+Günümüzün hızlı tempolu dijital ortamında, **optimize search performance** kullanıcılarına anında sonuç sunmak için hayati öneme sahiptir. İster özel bir arama motoru oluşturuyor olun, ister mevcut bir belge yönetim sistemini geliştiriyor olun, doğru dizinleme stratejisi gecikmeyi büyük ölçüde azaltabilir, kaynak tüketimini düşürebilir ve **improve search latency** tüm sistemde iyileştirebilir. Bu öğreticide GroupDocs.Search for Java'nın en güçlü özelliklerini—cancellation, asynchronous indexing, multi‑threading ve metadata customization—adım adım inceleyeceğiz, böylece **add documents index** daha hızlı ve verimli bir şekilde yapabilirsiniz.
 
-**What You’ll Learn**
+**Neler Öğreneceksiniz**
 
-- Belirli bir süreden sonra bir dizinleme işlemini iptal etme
-- Eşzamanlı olmayan dizinleme işlemlerini yürütme ve durum değişikliklerini işleme
-- Daha hızlı dizinleme için çoklu iş parçacığını yapılandırma
-- Meta veri dizinleme seçeneklerini özelleştirme
+- Belirli bir süreden sonra bir dizinleme işlemini iptal etmeyi
+- Asenkron dizinleme işlemlerini gerçekleştirmeyi ve durum değişikliklerini yönetmeyi
+- Daha hızlı dizinleme için çoklu iş parçacığını yapılandırmayı
+- Metadata dizinleme seçeneklerini özelleştirmeyi
 
 Kodlara dalmadan önce ihtiyacınız olan her şeye sahip olduğunuzdan emin olalım.
 
 ## Prerequisites
 
-- **GroupDocs.Search Library** – sürüm 25.4 veya üzeri.  
-- **Java Development Environment** – JDK 8 veya üzeri önerilir.  
+- **GroupDocs.Search Library** – sürüm 25.4 ve üzeri.  
+- **Java Development Environment** – JDK 8 ve üzeri önerilir.  
 - Java ve dizinleme kavramına temel aşinalık.
 
 ### Setting Up GroupDocs.Search for Java
 
 #### Maven Installation
 
-`pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
+Add the repository and dependency to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -80,21 +81,25 @@ public class IndexSetup {
 ```
 
 ## Quick Answers
-- **What does cancellation do?** Belirli bir süreden sonra dizinlemeyi durdurur ve kaynakları serbest bırakır.  
+- **What does cancellation do?** Dizinlemeyi belirli bir süreden sonra durdurarak kaynakları serbest bırakır.  
 - **Can I index documents asynchronously?** Evet – `options.setAsync(true)` ayarlayın.  
-- **How many threads can I use?** Pozitif bir tam sayı; çoğu sunucu için tipik değer 2‑4’tür.  
+- **How many threads can I use?** Pozitif bir tam sayı; çoğu sunucu için tipik değerler 2‑4'tür.  
 - **Is metadata indexing optional?** Kesinlikle – alan bazında etkinleştirebilir veya ince ayar yapabilirsiniz.  
-- **Do I need a license for these features?** Deneme sürümü test için yeterlidir; üretim ortamı için tam lisans gereklidir.
+- **Do I need a license for these features?** Test için bir deneme yeterli; üretim için tam lisans gereklidir.
 
-## What Is “Optimize Search Performance” in This Context?
+## “Optimize Search Performance” Bu Bağlamda Ne Anlama Geliyor?
 
-Arama performansını optimize etmek, dizinleme sürecini CPU, bellek ve zamanı doğru oranda tüketecek şekilde yapılandırmak ve en alakalı sonuçları anında sunmak demektir. İptal, eşzamanlı olmayan yürütme, iş parçacığı ve meta veri yönetimini kontrol ederek, **add documents index** ve sorgulara yanıt verme hızını doğrudan etkilersiniz.
+Arama performansını optimize etmek, dizinleme sürecini CPU, bellek ve zamanı doğru oranda tüketecek şekilde yapılandırmak ve en alakalı sonuçları anında sunmak demektir. İptal, asenkron yürütme, çoklu iş parçacığı ve metadata yönetimini kontrol ederek motorun **add documents index** hızını ve sorgulara yanıt süresini doğrudan etkilersiniz.
 
-## Why Use Advanced Indexing Features?
+## Neden Gelişmiş Dizinleme Özelliklerini Kullanmalısınız?
 
-- **Reduced latency** – Eşzamanlı olmayan ve çok iş parçacıklı dizinleme, uygulamanızın yanıt vermesini sağlar.  
-- **Better resource management** – İptal, kaynak tüketimini kontrol altında tutar.  
-- **Tailored search relevance** – Meta veri seçenekleri, en önemli bilgileri ön plana çıkarmanıza olanak tanır.  
+- **Reduced latency** – Asenkron ve çok iş parçacıklı dizinleme uygulamanızın yanıt vermesini sağlar.  
+- **Better resource management** – İptal, kontrolsüz süreçlerin önüne geçer.  
+- **Tailored search relevance** – Metadata seçenekleri en önemli bilgileri öne çıkarmanıza olanak tanır.  
+
+## Gelişmiş Dizinleme ile arama gecikmesini nasıl iyileştirirsiniz?
+
+**improve search latency** ihtiyacınız olduğunda, keşfedeceğimiz özellikleri birleştirin: uzun süren işleri iptal edin, dizinlemeyi arka planda çalıştırın ve işi birden çok CPU çekirdeğine dağıtın. Bu çok yönlü yaklaşım genellikle en büyük hız artışını sağlar.
 
 ## Implementation Guide
 
@@ -173,7 +178,7 @@ index.add(documentFolder, options);
 
 ### Threads Property
 
-**Overview** – Birden çok CPU çekirdeğini kullanarak dizinleme hızını artırın.
+**Overview** – Birden çok CPU çekirdeğini kullanarak dizinlemeyi hızlandırın.
 
 #### Step 1: Set Up Environment
 
@@ -199,7 +204,7 @@ index.add(documentFolder, options);
 
 ### Metadata Indexing Options Property
 
-**Overview** – Hangi belge meta verilerinin dizinleneceğini ve nasıl saklanacağını ince ayar yapın.
+**Overview** – Hangi belge metadata'sının dizinleneceğini ve nasıl saklanacağını ince ayar yapın.
 
 #### Step 1: Set Up Environment
 
@@ -230,50 +235,48 @@ index.add(documentFolder, options);
 
 ## Practical Applications
 
-1. **Document Management Systems** – Büyük toplu işlemler arka planda yürütülürken UI’nın yanıt vermesini sağlamak için eşzamanlı olmayan dizinleme kullanın.  
-2. **Content Search Engines** – Yoğun trafik zamanlarında uzun süren işleri engellemek için iptal özelliğini uygulayın.  
-3. **Large‑Scale Ingestion Pipelines** – **add documents index** işlemini ölçekli şekilde gerçekleştirmek ve işleme süresini büyük ölçüde kısaltmak için çok iş parçacıklı dizinlemeyi kullanın.
+1. **Document Management Systems** – Büyük toplu işlemler arka planda yürütülürken UI'nun yanıt vermesini sağlamak için asenkron dizinleme kullanın.  
+2. **Content Search Engines** – Yoğun trafik sırasında uzun süren işlerin sunucu kaynaklarını tüketmesini önlemek için iptal uygulayın.  
+3. **Large‑Scale Ingestion Pipelines** – **add documents index** işlemini ölçekli şekilde gerçekleştirmek ve işleme süresini dramatik şekilde kısaltmak için çok iş parçacıklı dizinleme kullanın.
 
 ## Performance Considerations
 
-- **Thread Management** – CPU kullanımını izleyin; çok fazla iş parçacığı bağlam geçişi overhead’ine yol açabilir.  
-- **Memory Footprint** – `setMaxBytesToIndexField` gibi meta veri limitleri, bellek kullanımını öngörülebilir tutar.  
-- **Garbage Collection** – Büyük veri kümelerini dizinlerken uygun JVM bayraklarını (`-Xmx`, `-XX:+UseG1GC`) kullanın.
+- **Thread Management** – CPU kullanımını izleyin; çok fazla iş parçacığı bağlam geçişi yükü oluşturabilir.  
+- **Memory Footprint** – `setMaxBytesToIndexField` gibi metadata limitleri bellek kullanımını öngörülebilir tutar.  
+- **Garbage Collection** – Büyük veri kümeleri dizinlenirken uygun JVM bayraklarını (`-Xmx`, `-XX:+UseG1GC`) kullanın.
 
 ## Common Issues and Solutions
 
-| Symptom | Likely Cause | Fix |
-|---------|--------------|-----|
-| Indexing never finishes | Cancellation set too low | Increase `cancelAfter` value or remove cancellation for long jobs |
-| No status updates in async mode | Event handler not attached correctly | Ensure `index.getEvents().StatusChanged.add(...)` is called before `index.add` |
-| Out‑of‑memory errors | Too many threads or high metadata limits | Reduce `options.setThreads` and lower metadata field limits |
-| Missing metadata in results | Metadata indexing disabled | Verify `options.getMetadataIndexingOptions()` is configured and not set to ignore fields |
+| Semptom | Muhtemel Neden | Çözüm |
+|---------|----------------|-------|
+| Dizinleme hiç bitmiyor | İptal süresi çok düşük ayarlandı | `cancelAfter` değerini artırın veya uzun işler için iptali kaldırın |
+| Asenkron modda durum güncellemeleri yok | Olay işleyicisi doğru bağlanmadı | `index.getEvents().StatusChanged.add(...)` çağrısının `index.add`'den önce yapıldığından emin olun |
+| Bellek yetersizliği hataları | Çok fazla iş parçacığı veya yüksek metadata limitleri | `options.setThreads` değerini azaltın ve metadata alan limitlerini düşürün |
+| Sonuçlarda metadata eksik | Metadata dizinleme devre dışı | `options.getMetadataIndexingOptions()` yapılandırıldığını ve alanları yok sayacak şekilde ayarlanmadığını doğrulayın |
 
 ## Frequently Asked Questions
 
-**Q: How do I obtain a temporary license for GroupDocs.Search?**  
-A: Visit [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/).
+**S: GroupDocs.Search için geçici bir lisans nasıl alınır?**  
+C: [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/) adresini ziyaret edin.
 
-**Q: Can I cancel an indexing operation midway through?**  
-A: Yes – use the cancellation property with `cancelAfter()` or call `Cancellation.cancel()` programmatically.
+**S: Bir dizinleme işlemini ortasında iptal edebilir miyim?**  
+C: Evet – `cancelAfter()` ile iptal özelliğini kullanın veya programmatically `Cancellation.cancel()` çağırın.
 
-**Q: What are some use cases for asynchronous indexing?**  
-A: Real‑time document retrieval, background batch processing, and UI‑responsive applications benefit from async indexing.
+**S: Asenkron dizinleme için hangi kullanım senaryoları vardır?**  
+C: Gerçek zamanlı belge erişimi, arka plan toplu işleme ve UI yanıt verebilirliğinin kritik olduğu uygulamalar asenkron dizinlemeden faydalanır.
 
-**Q: Is it safe to increase the thread count on a shared server?**  
-A: Increase gradually and monitor CPU load; on heavily shared environments, keep the thread count modest (2‑4).
+**S: Paylaşımlı bir sunucuda iş parçacığı sayısını artırmak güvenli mi?**  
+C: Yavaş yavaş artırın ve CPU yükünü izleyin; yoğun paylaşımlı ortamlarda iş parçacığı sayısını mütevazı tutun (2‑4).
 
-**Q: How does metadata indexing affect search relevance?**  
-A: Properly indexed metadata (author, creation date, tags) can be weighted higher in queries, improving result accuracy.
+**S: Metadata dizinleme arama alaka düzeyini nasıl etkiler?**  
+C: Doğru dizinlenmiş metadata (yazar, oluşturma tarihi, etiketler) sorgularda daha yüksek ağırlık alabilir, bu da sonuç doğruluğunu artırır.
 
 ## Conclusion
 
-GroupDocs.Search for Java’nın bu gelişmiş özelliklerini benimseyerek, çeşitli senaryolarda **optimize search performance** elde edebilirsiniz—hızlı belge alımından ince ayarlı meta veri kontrolüne kadar. Farklı yapılandırmalarla deney yapın, kaynak kullanımını izleyin ve ayarları iş yükünüze göre özelleştirerek en iyi sonuçları alın.
+GroupDocs.Search for Java'nın bu gelişmiş özelliklerini benimseyerek **optimize search performance**'ı çeşitli senaryolarda—hızlı belge alımı, ince ayarlı metadata kontrolü gibi—optimize edebilirsiniz. Farklı yapılandırmalarla deney yapın, kaynak kullanımını izleyin ve ayarları iş yükünüze göre özelleştirerek en iyi sonuçları elde edin.
 
 ---
 
-**Last Updated:** 2025-12-29  
+**Last Updated:** 2026-03-01  
 **Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
----
+**Author:** GroupDocs

@@ -1,30 +1,32 @@
 ---
-date: '2025-12-29'
-description: Erfahren Sie, wie Sie Dokumentenpasswörter in Java mit GroupDocs.Search
-  verwalten, durchsuchbare Indizes erstellen und effizient über mehrere Dokumente
-  suchen.
+date: '2026-03-01'
+description: Erfahren Sie, wie Sie das Dokumentenpasswort in Java mit GroupDocs.Search
+  entfernen, durchsuchbare Indizes erstellen und inkrementelles Indexieren in Java
+  aktivieren, um eine effiziente Suche über mehrere Dokumente zu ermöglichen.
 keywords:
+- remove document password
+- incremental indexing java
 - manage document passwords java
 - search across multiple documents
-title: Dokument-Passwörter in Java mit GroupDocs.Search verwalten
+title: Dokumentenpasswort in Java mit GroupDocs.Search entfernen
 type: docs
 url: /de/java/indexing/create-manage-groupdocs-search-java-index/
 weight: 1
 ---
 
-# Dokumentpasswörter in Java mit GroupDocs.Search verwalten
+# Dokumentenpasswort in Java mit GroupDocs.Search entfernen
 
-In modernen Unternehmensanwendungen ist **manage document passwords Java** ein entscheidender Schritt, um sensible Dateien sicher zu halten und gleichzeitig eine schnelle, zuverlässige Suche zu ermöglichen. In diesem Leitfaden zeigen wir Ihnen, wie Sie Indizes mit GroupDocs.Search erstellen und verwalten, Passwörter sicher im Index‑Wörterbuch speichern und dann **search across multiple documents** mühelos durchführen. Egal, ob Sie ein Dokument‑Management‑System aufbauen oder die Suche zu einer bestehenden Java‑App hinzufügen, die nachfolgenden Schritte bringen Sie schnell ans Ziel.
+In modernen Unternehmensanwendungen ist **remove document password** ein entscheidender Schritt, um sensible Dateien sicher zu halten und gleichzeitig eine schnelle, zuverlässige Suche zu ermöglichen. In diesem Leitfaden zeigen wir Ihnen, wie Sie Indizes mit GroupDocs.Search erstellen und verwalten, Passwörter sicher im Index‑Wörterbuch speichern und dann **search across multiple documents** mühelos durchführen. Egal, ob Sie ein Dokumenten‑Management‑System aufbauen oder einer bestehenden Java‑App Suche hinzufügen möchten, die nachfolgenden Schritte bringen Sie schnell ans Ziel.
 
-## Schnelle Antworten
-- **Was bedeutet “manage document passwords Java”?** Es bezieht sich auf das Speichern und Abrufen von Passwörtern für geschützte Dateien direkt im Suchindex.  
-- **Kann ich passwortgeschützte Dateien indexieren?** Ja – fügen Sie die Passwörter dem Index‑Wörterbuch hinzu, bevor Sie indexieren.  
+## Schnellantworten
+- **Was bedeutet “remove document password”?** Es bezieht sich darauf, Passwörter für geschützte Dateien direkt im Suchindex zu speichern und abzurufen.  
+- **Kann ich passwortgeschützte Dateien indexieren?** Ja—fügen Sie die Passwörter dem Index‑Wörterbuch vor dem Indexieren hinzu.  
 - **Wie viele Dokumente kann ich gleichzeitig durchsuchen?** GroupDocs.Search kann **search across multiple documents** in einer einzigen Abfrage.  
-- **Benötige ich eine Lizenz für die Produktion?** Eine Lizenz ist für den Produktionseinsatz erforderlich; ein kostenloser Testzeitraum steht für die Evaluierung zur Verfügung.  
+- **Benötige ich eine Lizenz für die Produktion?** Eine Lizenz ist für den Produktionseinsatz erforderlich; eine kostenlose Testversion ist für die Evaluierung verfügbar.  
 - **Welche Java‑Version wird benötigt?** JDK 8 oder höher.
 
-## Was ist “manage document passwords Java”?
-Das Speichern von Dokumentpasswörtern im Suchindex ermöglicht es der Engine, geschützte Dateien während des Indexierens und Suchens automatisch zu öffnen, wodurch die manuelle Passworteingabe jedes Mal entfällt.
+## Was ist “remove document password”?
+Das Speichern von Dokumentenpasswörtern im Suchindex ermöglicht es der Engine, geschützte Dateien während des Indexierens und Suchens automatisch zu öffnen, wodurch die manuelle Passworteingabe jedes Mal entfällt.
 
 ## Warum GroupDocs.Search für diese Aufgabe verwenden?
 - **Built‑in password dictionary** – Passwörter an Dateipfade binden.  
@@ -75,9 +77,9 @@ public class SearchSetup {
 }
 ```
 
-## Wie verwalte ich Dokumentpasswörter in Java?
+## Wie man das Dokumentenpasswort in Java entfernt?
 
-### 1. Definieren Sie den Indexordner und erstellen Sie den Index
+### 1. Indexordner definieren und Index erstellen
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/Index";
 Index index = new Index(indexFolder);
@@ -90,13 +92,13 @@ if (index.getDictionaries().getDocumentPasswords().getCount() > 0) {
 }
 ```
 
-### 3. Ein Passwort für ein bestimmtes Dokument hinzufügen
+### 3. Passwort für ein bestimmtes Dokument hinzufügen
 ```java
 String documentPath = new File("YOUR_DOCUMENT_DIRECTORY/English.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(documentPath, "123456");
 ```
 
-### 4. Ein Passwort abrufen und entfernen
+### 4. Passwort abrufen und entfernen
 ```java
 if (index.getDictionaries().getDocumentPasswords().contains(documentPath)) {
     String retrievedPassword = index.getDictionaries().getDocumentPasswords().getPassword(documentPath);
@@ -110,17 +112,20 @@ index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/Engl
 index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.docx", "123456");
 ```
 
-## Wie indexiere ich Dokumente mit Passwörtern?
+## Wie man Dokumente mit Passwörtern indexiert?
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-## Wie suche ich über mehrere Dokumente hinweg?
+## Wie man über mehrere Dokumente hinweg sucht?
 ```java
 String searchQuery = "ipsum OR increasing";
 SearchResult searchResult = index.search(searchQuery);
 ```
+
+## Inkrementelles Indexieren in Java mit GroupDocs.Search
+GroupDocs.Search unterstützt **incremental indexing java**, sodass Sie neue oder aktualisierte Dateien zu einem bestehenden Index hinzufügen können, ohne ihn von Grund auf neu zu erstellen. Nachdem Sie ein Dokumentenpasswort entfernt oder aktualisiert haben, rufen Sie einfach `index.add(newDocumentPath)` auf, um die Änderungen anzuhängen.
 
 ## Praktische Anwendungen
 - **Enterprise Document Management** – sichere, durchsuchbare Archive.  
@@ -132,39 +137,48 @@ SearchResult searchResult = index.search(searchQuery);
 - **Memory Monitoring** – den JVM‑Heap bei massiven Importen im Auge behalten.  
 - **Regular Index Maintenance** – neu indexieren, wenn Dateien geändert oder Passwörter aktualisiert werden.  
 
+## Häufige Probleme und Lösungen
+| Problem | Lösung |
+|-------|----------|
+| **Password not applied** | Stellen Sie sicher, dass das Passwort dem Wörterbuch **vor** dem Aufruf von `index.add(...)` hinzugefügt wird. |
+| **Out‑of‑memory errors** | Erhöhen Sie den JVM‑Heap (`-Xmx2g`) oder aktivieren Sie das parallele Indexieren mit einer kleineren Batch‑Größe. |
+| **Search returns no results** | Vergewissern Sie sich, dass das Dokument erfolgreich indexiert wurde und die Abfragesyntax korrekt ist. |
+| **Unable to remove password** | Bestätigen Sie den genauen Dateipfad, der beim Hinzufügen des Passworts verwendet wurde; Pfade müssen exakt übereinstimmen. |
+
 ## Fazit
-Sie wissen jetzt, wie Sie **manage document passwords Java** mit GroupDocs.Search durchführen, robuste Indizes erstellen und leistungsstarke **search across multiple documents** ausführen. Durch die Integration dieser Schritte in Ihre Anwendung bieten Sie sichere, schnelle und skalierbare Sucherlebnisse.
+Sie wissen jetzt, wie man mit GroupDocs.Search **remove document password** durchführt, robuste Indizes erstellt und leistungsstarke **search across multiple documents** ausführt. Durch die Integration dieser Schritte in Ihre Anwendung bieten Sie sichere, schnelle und skalierbare Sucherlebnisse.
 
 **Nächste Schritte**
-- Probieren Sie erweiterte Abfrageoperatoren aus (Platzhalter, unscharfe Suche).  
-- Erkunden Sie inkrementelles Indexieren für Echtzeit‑Updates.  
+- Versuchen Sie erweiterte Abfrageoperatoren (Platzhalter, unscharfe Suche).  
+- Erkunden Sie das inkrementelle Indexieren für Echtzeit‑Updates.  
 - Kombinieren Sie mit anderen GroupDocs‑Produkten für PDF‑Konvertierung oder Annotation.  
 
 ## Häufig gestellte Fragen
 
-**Q: Kann ich große Mengen von Dokumenten indexieren?**  
-A: Ja, GroupDocs.Search ist dafür ausgelegt, umfangreiche Sammlungen effizient zu verarbeiten.
+**Q: Kann ich große Mengen an Dokumenten indexieren?**  
+A: Ja, GroupDocs.Search ist darauf ausgelegt, umfangreiche Sammlungen effizient zu verarbeiten.
 
 **Q: Ist es möglich, einen bestehenden Index mit neuen Dokumenten zu aktualisieren?**  
 A: Absolut! Sie können nach Bedarf Dokumente zu Ihrem Index hinzufügen oder entfernen.
 
-**Q: Wie stelle ich die Sicherheit meiner indizierten Daten sicher?**  
+**Q: Wie stelle ich die Sicherheit meiner indexierten Daten sicher?**  
 A: Verwenden Sie das Dokument‑Passwort‑Wörterbuch und speichern Sie den Index in einem geschützten Verzeichnis.
 
 **Q: Kann GroupDocs.Search verschiedene Dateiformate verarbeiten?**  
 A: Ja, es unterstützt PDFs, Word‑Dateien, Excel‑Tabellen und viele andere gängige Formate.
 
-**Q: Was tun, wenn ich während des Indexierens Leistungsprobleme feststelle?**  
-A: Erwägen Sie die Aktivierung von Parallelverarbeitung, die Erhöhung der Heap‑Größe oder das Anpassen der Indexeinstellungen.
+**Q: Was tun, wenn ich während des Indexierens Leistungsprobleme habe?**  
+A: Erwägen Sie, die Parallelverarbeitung zu aktivieren, die Heap‑Größe zu erhöhen oder die Indexeinstellungen zu optimieren.
 
----
+**Q: Funktioniert incremental indexing java mit bestehenden Indizes, die bereits Passwörter enthalten?**  
+A: Ja—fügen Sie einfach Passwörter dem Wörterbuch hinzu oder aktualisieren Sie sie und rufen Sie `index.add(...)` für die neuen Dateien auf.
 
-**Zuletzt aktualisiert:** 2025-12-29  
-**Getestet mit:** GroupDocs.Search 25.4 für Java  
+**Zuletzt aktualisiert:** 2026-03-01  
+**Getestet mit:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs  
 
-**Ressourcen**  
-- [Documentation](https://docs.groupdocs.com/search/java/)  
-- [API Reference](https://reference.groupdocs.com/search/java)  
-- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+## Ressourcen
+- [Dokumentation](https://docs.groupdocs.com/search/java/)  
+- [API‑Referenz](https://reference.groupdocs.com/search/java)  
+- [GroupDocs.Search für Java herunterladen](https://releases.groupdocs.com/search/java/)  
+- [GitHub‑Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)

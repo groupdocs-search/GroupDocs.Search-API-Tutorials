@@ -1,74 +1,53 @@
 ---
-date: '2025-12-29'
-description: Pelajari cara mengindeks dokumen Java dan membuat indeks pencarian dengan
-  GroupDocs.Search untuk Java. Panduan ini mencakup pengaturan, pengindeksan, pencarian,
-  dan pengelolaan dokumen secara efisien.
+date: '2026-03-01'
+description: Pelajari cara mengindeks dokumen Java dengan cepat menggunakan GroupDocs.Search
+  untuk Java. Panduan ini mencakup menambahkan dokumen ke indeks, menghapus dokumen
+  dari indeks, dan memuat dokumen dari sistem file.
 keywords:
 - GroupDocs.Search Java
 - document indexing
 - Java document search
-title: Cara Mengindeks Dokumen Java dengan GroupDocs.Search – Pencarian Efisien
+title: Cara Mengindeks Java – Pencarian Dokumen Cepat dengan GroupDocs
 type: docs
 url: /id/java/indexing/efficient-document-indexing-search-groupdocs-java/
 weight: 1
 ---
 
-# Cara Mengindeks Dokumen Java dengan GroupDocs.Search – Pencarian Efisien
+# Cara Mengindeks Java – Pencarian Dokumen Cepat dengan GroupDocs
 
-## Pendahuluan
+Jika Anda bertanya-tanya **cara mengindeks java** file secara efisien, Anda berada di tempat yang tepat. Di dunia yang didorong data saat ini, menemukan dokumen yang tepat dengan cepat dapat menghemat jam kerja manual. **GroupDocs.Search for Java** memberi Anda cara sederhana untuk mengubah folder berkas menjadi indeks yang dapat dicari, memungkinkan Anda menambahkan dokumen ke indeks, menghapus dokumen dari indeks, dan memuat dokumen dari sistem file dengan hanya beberapa baris kode.
 
-Apakah Anda kewalahan dengan sejumlah besar dokumen dan bertanya-tanya **how to index java** file dengan cepat? Banyak perusahaan dan individu menghadapi tantangan ini setiap hari. **GroupDocs.Search for Java** menawarkan solusi efisien untuk menyederhanakan pencarian dokumen, membuat prosesnya lebih cepat dan lebih mudah dikelola.
+Di bawah ini Anda akan menemukan panduan langkah demi langkah yang dimulai dengan penyiapan yang diperlukan, melanjutkan ke pembuatan dan pengisian indeks, menunjukkan cara menjalankan pencarian kata kunci, dan diakhiri dengan operasi pembersihan seperti penghapusan. Mari kita mulai!
 
-Dalam tutorial ini, kami akan memandu Anda menggunakan GroupDocs.Search for Java untuk membuat repositori terindeks dari dokumen Anda. Anda akan belajar cara memuat dokumen dari sistem file, melakukan pencarian, mengelola penghapusan, dan mengambil data terindeks secara efisien dan skalabel.
-
-**Apa yang Akan Anda Pelajari:**
-- Menyiapkan dan mengonfigurasi GroupDocs.Search for Java.  
-- **Membuat indeks pencarian** dan mengindeks dokumen dari aliran.  
-- Memuat dokumen dari sistem file.  
-- **Melakukan pencarian kata kunci** pada indeks Anda.  
-- **Cara menghapus indeks** untuk dokumen tertentu.  
-- Mengambil dokumen terindeks setelah penghapusan.
-
-Siap merevolusi cara Anda mengelola pencarian dokumen? Mari mulai dengan prasyarat!
-
-## Quick Answers
+## Jawaban Cepat
 - **Apa tujuan utama?** Mengindeks dan mencari dokumen Java secara efisien.  
-- **Perpustakaan mana yang diperlukan?** GroupDocs.Search for Java (v25.4+).  
+- **Perpustakaan apa yang diperlukan?** GroupDocs.Search for Java (v25.4+).  
 - **Apakah saya memerlukan lisensi?** Versi percobaan gratis atau lisensi sementara tersedia; lisensi permanen diperlukan untuk produksi.  
-- **Bisakah saya menghapus dokumen dari indeks?** Ya, dengan menggunakan metode `delete` dengan kunci dokumen.  
+- **Bisakah saya menghapus dokumen dari indeks?** Ya, menggunakan metode `delete` dengan kunci dokumen.  
 - **Apakah Apache Commons IO wajib?** Disarankan untuk utilitas penanganan file.
 
-## Apa itu “how to index java”?
-Mengindeks dokumen Java berarti membuat struktur data yang dapat dicari (sebuah indeks) yang memetakan konten dokumen ke istilah yang dapat dicari, memungkinkan pengambilan cepat file yang relevan berdasarkan kueri kata kunci.
+## Apa itu “cara mengindeks java”?
+Mengindeks dokumen Java berarti membuat struktur data yang dapat dicari (indeks) yang memetakan konten dokumen ke istilah yang dapat dicari, memungkinkan pengambilan cepat file yang relevan berdasarkan kueri kata kunci.
 
-## Why Use GroupDocs.Search for Java?
-- **Kecepatan:** Algoritma yang dioptimalkan memberikan hasil kueri yang cepat bahkan pada koleksi besar.  
+## Mengapa menggunakan GroupDocs.Search for Java?
+- **Kecepatan:** Algoritma yang dioptimalkan memberikan hasil kueri cepat bahkan pada koleksi besar.  
 - **Skalabilitas:** Menangani ribuan dokumen tanpa mengorbankan kinerja.  
-- **Fleksibilitas:** Mendukung berbagai format file dan menawarkan lazy loading untuk file besar.  
-- **Kemudahan Integrasi:** Pengaturan Maven yang sederhana dan API yang langsung.
+- **Fleksibilitas:** Mendukung banyak format file dan menawarkan lazy loading untuk file besar.  
+- **Kemudahan integrasi:** Pengaturan Maven yang sederhana dan API yang bersih serta intuitif.
 
-## Prerequisites
+## Prasyarat
 
-Sebelum kita mulai, pastikan Anda memiliki hal berikut:
+Sebelum kita mulai, pastikan Anda memiliki:
 
-### Required Libraries and Dependencies
-- **GroupDocs.Search for Java**: Pastikan versi 25.4 atau lebih baru terpasang.  
-- **Apache Commons IO**: Diperlukan untuk utilitas penanganan file.
+- **GroupDocs.Search for Java** (versi 25.4 atau lebih baru).  
+- **Apache Commons IO** untuk utilitas file yang nyaman.  
+- JDK 8 atau lebih tinggi dan IDE seperti IntelliJ IDEA atau Eclipse.  
+- Pengetahuan dasar Java dan, opsional, familiaritas dengan Maven.
 
-### Environment Setup Requirements
-- Java Development Kit (JDK) 8 atau lebih tinggi.  
-- Integrated Development Environment (IDE) seperti IntelliJ IDEA atau Eclipse.
+## Menyiapkan GroupDocs.Search for Java
 
-### Knowledge Prerequisites
-- Pemahaman dasar tentang pemrograman Java dan konsep berorientasi objek.  
-- Keterbiasaan dengan Maven untuk manajemen dependensi bermanfaat tetapi tidak wajib.
-
-## Setting Up GroupDocs.Search for Java
-
-Menyiapkan lingkungan proyek Anda dengan GroupDocs.Search melibatkan langkah-langkah berikut menggunakan Maven:
-
-**Konfigurasi Maven:**  
-Add the following repository and dependency to your `pom.xml` file:
+### Konfigurasi Maven
+Tambahkan repositori dan dependensi ke `pom.xml` Anda:
 
 ```xml
 <repositories>
@@ -88,17 +67,19 @@ Add the following repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-**Unduhan Langsung:**  
-Alternatively, download the latest version directly from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+> **Pro tip:** Jaga nomor versi tetap sinkron dengan rilis terbaru untuk mendapatkan manfaat dari perbaikan kinerja.
 
-### License Acquisition Steps
-- **Uji Coba Gratis:** Mulai dengan uji coba gratis untuk menguji kemampuannya.  
-- **Lisensi Sementara:** Ajukan lisensi sementara untuk menjelajahi semua fitur tanpa batasan.  
-- **Pembelian:** Pertimbangkan untuk membeli jika memenuhi kebutuhan Anda.
+### Unduhan langsung (jika Anda lebih memilih tidak menggunakan Maven)
 
-**Basic Initialization and Setup:**  
+Anda juga dapat mengunduh JAR terbaru dari situs resmi: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-Once your environment is ready, initialize GroupDocs.Search like this:
+### Akuisisi Lisensi
+- **Uji coba gratis:** Menguji perpustakaan tanpa kunci lisensi.  
+- **Lisensi sementara:** Meminta satu untuk evaluasi yang diperpanjang.  
+- **Lisensi penuh:** Diperlukan untuk penyebaran produksi.
+
+### Inisialisasi Dasar
+Buat kelas Java sederhana untuk memverifikasi bahwa perpustakaan dimuat dengan benar:
 
 ```java
 import com.groupdocs.search.*;
@@ -111,19 +92,18 @@ public class DocumentIndexing {
 }
 ```
 
-## How to Index Java Documents Using GroupDocs.Search
+Menjalankan program ini harus mencetak pesan konfirmasi, menunjukkan bahwa folder indeks siap.
 
-### Creating and Indexing Documents
+## Cara menambahkan dokumen ke indeks
 
-**Ikhtisar:** Pelajari cara membuat indeks di folder tertentu dan menambahkan dokumen dari aliran, menyederhanakan proses **create search index**.
-
-#### Step 1: Create an Index
+### Langkah 1: Buat folder indeks
 ```java
 Index index = new Index("YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\DeleteIndexedDocuments", true);
 ```
-- **Parameter:** Parameter pertama adalah path direktori untuk menyimpan indeks. Boolean kedua mengaktifkan pembaruan otomatis indeks jika sudah ada.
+- Argumen pertama adalah folder tempat file indeks akan disimpan.  
+- Argumen kedua (`true`) memberi tahu GroupDocs untuk membuat folder jika belum ada dan memperbarui indeks yang sudah ada secara otomatis.
 
-#### Step 2: Load and Add Documents from Stream
+### Langkah 2: Muat dokumen dari aliran dan tambahkan
 ```java
 String filePath = "YOUR_DOCUMENT_DIRECTORY\\English.docx";
 DocumentLoader documentLoader = new DocumentLoader(filePath);
@@ -131,13 +111,13 @@ Document document = Document.createLazy(DocumentSourceKind.Stream, documentLoade
 Document[] documents = new Document[]{document};
 index.add(documents, new IndexingOptions());
 ```
-- **Penjelasan:** Di sini, Anda membuat `DocumentLoader` untuk membaca file dan menyiapkannya untuk diindeks. Metode `createLazy` digunakan untuk menangani file besar secara efisien.
+- `DocumentLoader` (didefinisikan nanti) membaca file dan menyediakan kunci unik.  
+- `createLazy` memastikan file besar diproses secara efisien, memuat konten hanya saat diperlukan.
 
-### Loading Documents from File System
+## Cara memuat dokumen dari sistem file
 
-**Ikhtisar:** Implementasikan loader kustom yang membaca dokumen langsung dari sistem file Anda menggunakan utilitas Apache Commons IO.
+Berikut adalah loader yang dapat digunakan kembali yang membaca file apa pun dari disk, mengekstrak byte-nya, dan membangun objek `Document` yang siap untuk diindeks.
 
-#### Step 1: Define Document Loader
 ```java
 class DocumentLoader {
     private final String filePath;
@@ -158,91 +138,84 @@ class DocumentLoader {
     }
 }
 ```
-- **Detail:** Kelas ini membaca file ke dalam array byte dan membuat objek `Document` darinya.
 
-### Performing Keyword Search in an Index
+> **Mengapa ini penting:** Menggunakan loader khusus memisahkan masalah sistem file dari logika pengindeksan, membuat kode Anda lebih bersih dan lebih mudah diuji.
 
-**Ikhtisar:** Jalankan operasi pencarian pada dokumen terindeks Anda untuk mengambil informasi yang relevan dengan cepat.
+## Cara melakukan pencarian kata kunci dalam indeks
 
-#### Step 1: Execute Search
 ```java
 String query = "moment";
 SearchResult searchResult1 = index.search(query);
 ```
-- **Penjelasan:** Gunakan metode `search` dengan kueri teks sederhana untuk mendapatkan hasil dari data terindeks Anda. Pendekatan ini efisien untuk skenario **java document search**.
+- Berikan string teks apa pun ke `search` dan terima `SearchResult` yang berisi ID dokumen yang cocok, cuplikan, dan skor relevansi.
 
-### How to Delete Index Entries
+## Cara menghapus dokumen dari indeks
 
-**Ikhtisar:** Kelola indeks Anda dengan menghapus dokumen tertentu menggunakan kunci mereka.
-
-#### Step 1: Delete Document
 ```java
 String[] documentKeys = new String[]{documentLoader.getDocumentKey()};
 DeleteResult deleteResult = index.delete(new UpdateOptions(), documentKeys);
 ```
-- **Parameter:** Berikan array kunci dokumen yang ingin Anda hapus dari indeks. `UpdateOptions` memungkinkan strategi penghapusan yang fleksibel.
+- Berikan kunci dokumen yang ingin Anda hapus.  
+- `UpdateOptions` memungkinkan Anda mengontrol bagaimana penghapusan diterapkan (mis., segera vs. batch).
 
-### Retrieving Indexed Documents Post‑Deletion
+## Cara mengambil dokumen yang diindeks setelah penghapusan
 
-**Ikhtisar:** Setelah menghapus dokumen, ambil daftar file terindeks yang tersisa untuk memastikan integritas data.
-
-#### Step 1: Get Remaining Documents
 ```java
 DocumentInfo[] indexedDocuments2 = index.getIndexedDocuments();
 ```
-- **Penjelasan:** Langkah ini membantu memverifikasi keadaan indeks Anda saat ini setelah penghapusan apa pun.
+- Panggilan ini mengembalikan daftar dokumen saat ini yang masih ada di indeks, membantu Anda memverifikasi bahwa penghapusan berhasil.
 
-## Practical Applications
+## Aplikasi Praktis
 
-1. **Manajemen Dokumen Perusahaan:** Cepat mencari melalui dokumen perusahaan untuk meningkatkan produktivitas.  
-2. **Analisis Dokumen Hukum:** Efisien menyaring berkas kasus dan teks hukum untuk menemukan preseden yang relevan.  
-3. **Sistem Katalog Perpustakaan:** Mengindeks dan mengelola koleksi besar buku serta manuskrip untuk akses yang lebih mudah.
+GroupDocs.Search for Java bersinar dalam skenario seperti:
 
-## Performance Considerations
+1. **Portal dokumen perusahaan** – karyawan menemukan kebijakan, kontrak, atau manual dalam hitungan detik.  
+2. **Manajemen kasus hukum** – pengacara dengan cepat menemukan klausul preseden di antara ribuan file PDF dan Word.  
+3. **Perpustakaan digital** – universitas menyediakan pencarian teks lengkap atas makalah penelitian dan tesis.
 
-Untuk kinerja optimal:
+## Pertimbangan Kinerja
 
-- **Optimasi Indeks:** Secara rutin perbarui indeks Anda untuk mencerminkan perubahan terbaru pada dokumen.  
-- **Manajemen Memori:** Gunakan pengumpulan sampah Java secara efektif dengan mengelola operasi yang berat sumber daya.  
-- **Skalabilitas:** Pastikan strategi pengindeksan Anda dapat menangani volume data besar tanpa menurunkan kinerja.
+- **Optimalkan secara teratur** indeks (`index.optimize()`) setelah pembaruan massal untuk menjaga kecepatan kueri tetap tinggi.  
+- **Manfaatkan lazy loading** untuk file besar guna menghindari kesalahan OutOfMemory.  
+- **Sesuaikan heap JVM** berdasarkan distribusi ukuran dokumen Anda; pengaturan umum menggunakan `-Xmx2g` untuk beban kerja skala menengah.
 
-## Common Issues and Solutions
+## Masalah Umum dan Solusinya
 
-| Issue | Cause | Solution |
+| Masalah | Penyebab | Solusi |
 |-------|-------|----------|
-| **Tidak ada hasil yang dikembalikan** | Istilah kueri tidak diindeks atau stop‑words disaring | Verifikasi `IndexingOptions` dan sesuaikan daftar stop‑words |
-| **Kesalahan kehabisan memori** | Memuat file sangat besar tanpa lazy loading | Gunakan `Document.createLazy` atau tingkatkan ukuran heap JVM |
-| **Dokumen yang dihapus masih muncul** | Indeks tidak diperbarui setelah penghapusan | Panggil `index.optimize()` atau buka kembali indeks |
+| Tidak ada hasil yang dikembalikan | Istilah kueri tidak diindeks atau stop‑words difilter | Verifikasi `IndexingOptions` dan sesuaikan daftar stop‑words |
+| Kesalahan out‑of‑memory | File besar dimuat secara eager | Beralih ke `Document.createLazy` atau tingkatkan heap JVM |
+| Dokumen yang dihapus masih muncul | Indeks tidak diperbarui setelah penghapusan | Panggil `index.optimize()` atau buka kembali instance indeks |
 
-## Frequently Asked Questions
+## Pertanyaan yang Sering Diajukan
 
-**T: Bisakah saya mengindeks PDF, DOCX, dan PPTX bersama-sama?**  
-J: Ya, GroupDocs.Search mendukung berbagai format secara langsung.
+**Q: Bisakah saya mengindeks PDF, DOCX, dan PPTX bersama-sama?**  
+A: Ya, GroupDocs.Search mendukung berbagai format secara langsung.
 
-**T: Bagaimana “how to delete index” bekerja di balik layar?**  
-J: Metode `delete` menghapus entri berdasarkan kunci dokumen dan memperbarui daftar posting internal untuk menjaga konsistensi indeks.
+**Q: Bagaimana cara kerja “delete documents from index” di balik layar?**  
+A: Metode `delete` menghapus posting untuk kunci dokumen yang ditentukan dan memperbarui struktur internal, sehingga indeks tetap konsisten tanpa perlu dibangun ulang sepenuhnya.
 
-**T: Apakah ada cara untuk memantau ukuran indeks?**  
-J: Gunakan `index.getStatistics()` untuk mengambil informasi tentang jumlah dokumen dan ukuran penyimpanan.
+**Q: Apakah ada cara untuk memantau ukuran indeks?**  
+A: Gunakan `index.getStatistics()` untuk mendapatkan jumlah dokumen, total ukuran, dan metrik berguna lainnya.
 
-**T: Apakah saya perlu membangun ulang seluruh indeks setelah setiap penghapusan?**  
-J: Tidak, operasi `delete` memperbarui indeks secara inkremental, mempertahankan data yang ada.
+**Q: Apakah saya perlu membangun ulang seluruh indeks setelah setiap penghapusan?**  
+A: Tidak. Penghapusan bersifat inkremental; hanya entri yang terpengaruh yang dihapus.
 
-**T: Bagaimana jika saya perlu mengindeks ulang semua dokumen setelah perubahan skema?**  
-J: Buat instance `Index` baru dengan path folder yang berbeda dan tambahkan kembali semua dokumen.
+**Q: Bagaimana jika saya perlu mengindeks ulang semua file setelah perubahan skema?**  
+A: Buat instance `Index` baru yang menunjuk ke folder berbeda dan tambahkan semua dokumen lagi.
 
-## Conclusion
+## Kesimpulan
 
-Saat ini, Anda seharusnya memiliki pemahaman yang kuat tentang **how to index java** dokumen dan melakukan pencarian cepat menggunakan GroupDocs.Search for Java. Perpustakaan yang kuat ini dapat mengubah cara Anda mengelola dan mengambil informasi dari koleksi dokumen besar, menjadikannya alat yang tak ternilai bagi organisasi mana pun.
+Anda kini memiliki panduan lengkap untuk **cara mengindeks java** dokumen menggunakan GroupDocs.Search for Java—dari menyiapkan lingkungan, menambahkan dokumen ke indeks, memuatnya dari sistem file, melakukan pencarian, hingga menghapus dan memverifikasi isi indeks. Dengan mengintegrasikan langkah-langkah ini ke dalam aplikasi Anda, Anda akan secara dramatis meningkatkan penemuan dokumen dan produktivitas secara keseluruhan.
 
-**Langkah Selanjutnya:**  
-- Bereksperimen dengan berbagai jenis dokumen dan kueri kompleks.  
-- Jelajahi fitur lanjutan seperti pencarian berfaset, pengindeksan metadata, dan analyzer kustom.
+**Langkah selanjutnya:**  
+- Bereksperimen dengan kueri kompleks (wildcards, pencocokan fuzzy).  
+- Jelajahi fitur lanjutan seperti pencarian berfaset, analyzer kustom, dan pengindeksan metadata.  
 
-Siap memulai perjalanan pengindeksan Anda? Terapkan teknik ini hari ini dan rasakan pengambilan dokumen yang lebih cepat dan lebih akurat!
+Selamat mengindeks!
 
 ---
 
-**Terakhir Diperbarui:** 2025-12-29  
+**Terakhir Diperbarui:** 2026-03-01  
 **Diuji Dengan:** GroupDocs.Search Java 25.4  
 **Penulis:** GroupDocs
