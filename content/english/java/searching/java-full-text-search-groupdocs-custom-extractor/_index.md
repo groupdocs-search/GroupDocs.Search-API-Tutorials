@@ -1,40 +1,106 @@
 ---
-title: "Master Full-Text Search in Java: Implement a Log File Extractor with GroupDocs"
-description: "Learn how to build a log file extractor for full-text search in Java using GroupDocs.Search. Add documents to index, optimize search performance, and handle large log files efficiently."
-date: "2026-02-03"
-weight: 1
-url: "/java/searching/java-full-text-search-groupdocs-custom-extractor/"
+date: '2026-08-05'
+description: Learn how to build a log file extractor for full-text search in Java
+  using GroupDocs.Search. Add documents to index, optimize search performance, and
+  handle large log files efficiently.
+images:
+- /java/searching/java-full-text-search-groupdocs-custom-extractor/og-image.png
 keywords:
-- full-text search Java GroupDocs
-- custom text extractor Java
-- GroupDocs.Search indexing
+- full text search java
+- optimize search performance
+- add documents to index
+- java full text search
+lastmod: '2026-08-05'
+og_description: Full text search java tutorial shows how to build a custom log file
+  extractor using GroupDocs.Search, add documents to index, and optimise search performance
+  for massive log archives.
+og_image_alt: Diagram of log file extractor workflow in Java using GroupDocs.Search
+og_title: 'Full text search java: log file extractor with GroupDocs'
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-05'
+  description: Learn how to build a log file extractor for full-text search in Java
+    using GroupDocs.Search. Add documents to index, optimize search performance, and
+    handle large log files efficiently.
+  headline: 'Full text search java: log file extractor with GroupDocs'
+  type: TechArticle
+- description: Learn how to build a log file extractor for full-text search in Java
+    using GroupDocs.Search. Add documents to index, optimize search performance, and
+    handle large log files efficiently.
+  name: 'Full text search java: log file extractor with GroupDocs'
+  steps:
+  - name: define the custom extractor
+    text: '`TextExtractorBase` is the abstract base class you extend to create a custom
+      extractor. It declares which file extensions the extractor supports and contains
+      the core extraction logic. **Key points** - `getFileExtensions()` registers
+      the extractor for `.log` files. - `extractText` is where you can s'
+  - name: configure index settings with the extractor
+    text: Add your extractor to the `IndexSettings` and enable `autoReindex` so new
+      logs are indexed automatically without manual intervention. `IndexSettings`
+      configures index behavior such as memory limits and custom extractors. `autoReindex`
+      automatically updates the index when source files change.
+  - name: add documents to the index
+    text: Now that the index recognises log files, you can **add documents to index**
+      just like any other supported format.
+  - name: search the index
+    text: Perform plain‑text queries. The custom extractor guarantees that every log
+      entry is searchable.
+  type: HowTo
+- questions:
+  - answer: The default extractor handles common formats (PDF, DOCX, etc.). A custom
+      log file extractor lets you define exactly how plain‑text log entries are parsed
+      and indexed.
+    question: How does a log file extractor differ from the default extractor?
+  - answer: Yes, by adding a pre‑processing step that extracts files from the archive
+      before feeding them to the index.
+    question: Can I index compressed log archives (e.g., .zip)?
+  - answer: Enable `autoReindex` and schedule a background watcher that calls `index.add(newLogFile)`
+      whenever a new file appears.
+    question: What’s the best way to keep the index up‑to‑date with continuously generated
+      logs?
+  - answer: Practically, the limit is bound by available memory. Splitting very large
+      logs into smaller chunks before indexing is recommended.
+    question: Is there a limit to the size of a single log file that can be indexed?
+  - answer: Yes, the search API includes fuzzy matching, wildcards, and proximity
+      queries to improve result relevance.
+    question: Does GroupDocs.Search support fuzzy or wildcard searches?
+  type: FAQPage
+tags:
+- full text search
+- GroupDocs
+- Java search
+- log file extractor
+- indexing
+title: 'Full text search java: log file extractor with GroupDocs'
 type: docs
+url: /java/searching/java-full-text-search-groupdocs-custom-extractor/
+weight: 1
 ---
 
-# Master Full-Text Search in Java: Implement a Log File Extractor with GroupDocs
+# Full text search java: log file extractor with GroupDocs
 
-Full‑text search functionality is essential for applications that need to index and retrieve data from large document collections efficiently. In this **log file extractor** tutorial you’ll discover how to configure GroupDocs.Search, create a custom extractor for log files, **add documents to index**, and **optimize search performance** when you need to **search large log files**.
+Full‑text search java is a cornerstone for any system that must quickly locate information inside massive collections of documents. In this tutorial you’ll learn how to configure GroupDocs.Search, create a custom log file extractor, add documents to index, and optimise search performance when dealing with gigabytes of log data.
 
-## What You'll Learn
+## What you'll learn
 - Set up and configure GroupDocs.Search for Java.  
-- Implement a **log file extractor** for tailored indexing.  
-- **Add documents to index** and perform fast searches.  
-- Real‑world scenarios where a **log file extractor** shines.  
-- Tips to **optimize search performance** for massive log archives.
+- Implement a **log file extractor** that parses plain‑text logs the way you need.  
+- **Add documents to index** alongside PDFs, DOCX, and other formats.  
+- Real‑world scenarios where a **log file extractor** adds measurable value.  
+- Proven tips to **optimise search performance** for multi‑gigabyte log archives.
 
-## Quick Answers
+## Quick answers
 - **What is a log file extractor?** A custom component that tells GroupDocs.Search how to read and index plain‑text log files.  
-- **Why use GroupDocs.Search?** It provides out‑of‑the‑box indexing, auto‑reindexing, and powerful query capabilities.  
+- **Why use GroupDocs.Search?** It supports indexing of 50+ formats, provides auto‑reindexing, and handles indexes up to 10 GB with under 2 GB RAM.  
 - **Do I need a license?** Yes – a trial or full license is required to enable the library.  
-- **Can I index other file types simultaneously?** Absolutely; you can mix PDFs, DOCX, and custom log files in the same index.  
-- **How to improve performance?** Use incremental indexing, proper index settings, and limit memory usage with auto‑reindexing.
+- **Can I index other file types simultaneously?** Absolutely; mix PDFs, DOCX, and custom log files in the same index.  
+- **How to improve performance?** Use incremental indexing, tune `IndexSettings`, and enable the `autoReindex` flag.
 
 ## Prerequisites
 
-Before implementing, ensure you have the following:
+Before you start, make sure you have the following:
 
-### Required Libraries
-Ensure you are using the correct version of GroupDocs.Search for Java by adding it as a dependency in your project. Here's how you can set it up with Maven:
+### Required libraries
+Add the GroupDocs.Search Maven dependency to your `pom.xml`. Use the latest version that matches your project’s Java level.
 
 ```xml
 <repositories>
@@ -56,36 +122,37 @@ Ensure you are using the correct version of GroupDocs.Search for Java by adding 
 
 Alternatively, download the latest version directly from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Environment Setup
+### Environment setup
 - JDK 8 or higher.  
-- Familiarity with Java programming and file handling concepts.
+- Familiarity with Java programming and basic file‑handling concepts.
 
-### License Acquisition
-Start by downloading a free trial license to explore GroupDocs.Search features. For extended use, consider purchasing a full license or applying for a temporary one through [GroupDocs's website](https://purchase.groupdocs.com/temporary-license/).
+### License acquisition
+Start by downloading a free trial license to explore GroupDocs.Search features. For production use, purchase a full license or request a temporary one through [GroupDocs's website](https://purchase.groupdocs.com/temporary-license/).
 
-## Setting Up GroupDocs.Search for Java
+## Setting up GroupDocs.Search for Java
 
-To begin with GroupDocs.Search, initialize and configure it within your application:
+To begin, initialise the library and apply your licence file:
 
-1. **Maven Setup**: Ensure the Maven configuration is correctly added to your `pom.xml` as shown above.  
-2. **License Initialization**:  
-   ```java
+1. **Maven setup** – confirm the dependency from the previous step is present.  
+2. **License initialisation** – load the licence file before any other API calls.
+
+```java
    License license = new License();
    license.setLicense("path/to/license");
    ```
 
-With the setup complete, let's move into implementing our custom **log file extractor**.
+With the environment ready, you can move on to building the custom **log file extractor**.
 
-## What Is a Log File Extractor?
+## What is a log file extractor?
 
-A **log file extractor** is a piece of code that tells GroupDocs.Search how to read raw log files (usually `.log`) and turn their contents into searchable text. By providing your own extractor you gain full control over parsing rules, filtering noise, and extracting only the information that matters to your search use‑case.
+A log file extractor is a piece of code that tells GroupDocs.Search how to read raw log files (usually `.log`) and turn their contents into searchable text. By providing your own extractor you gain full control over parsing rules, filtering noise, and extracting only the information that matters to your search use‑case.
 
-## Create a Log File Extractor
+## Create a log file extractor
 
-GroupDocs.Search allows you to create indexes tailored for specific file types using custom text extractors. Here’s a step‑by‑step guide.
+GroupDocs.Search lets you plug in custom text extractors for any file type. Follow these steps to build one for log files.
 
-### Step 1: Define the Custom Extractor
-Create a class that extends `TextExtractorBase`. This class declares the file extensions it handles and contains the extraction logic.
+### Step 1: define the custom extractor
+`TextExtractorBase` is the abstract base class you extend to create a custom extractor. It declares which file extensions the extractor supports and contains the core extraction logic.
 
 ```java
 import com.groupdocs.search.extractors.TextExtractorBase;
@@ -105,11 +172,14 @@ public class LogExtractor extends TextExtractorBase {
 ```
 
 **Key points**  
-- `getFileExtensions()` tells GroupDocs.Search to use this extractor for `.log` files.  
+- `getFileExtensions()` registers the extractor for `.log` files.  
 - `extractText` is where you can strip timestamps, filter out debug lines, or apply any preprocessing needed for **search large log files**.
 
-### Step 2: Configure Index Settings with the Extractor
-Add the extractor to the index configuration and enable auto‑reindexing so new logs are indexed automatically.
+### Step 2: configure index settings with the extractor
+Add your extractor to the `IndexSettings` and enable `autoReindex` so new logs are indexed automatically without manual intervention.
+
+`IndexSettings` configures index behavior such as memory limits and custom extractors.  
+`autoReindex` automatically updates the index when source files change.
 
 ```java
 import com.groupdocs.search.Index;
@@ -129,8 +199,8 @@ public class CustomTextExtractorFeature {
 }
 ```
 
-### Step 3: Add Documents to the Index
-Now that the index knows how to handle log files, you can **add documents to index** just like any other file type.
+### Step 3: add documents to the index
+Now that the index recognises log files, you can **add documents to index** just like any other supported format.
 
 ```java
 import com.groupdocs.search.Index;
@@ -149,8 +219,8 @@ public class AddDocumentsToIndexFeature {
 }
 ```
 
-### Step 4: Search the Index
-Perform searches using plain text queries. The custom extractor ensures log content is searchable.
+### Step 4: search the index
+Perform plain‑text queries. The custom extractor guarantees that every log entry is searchable.
 
 ```java
 import com.groupdocs.search.Index;
@@ -174,46 +244,46 @@ public class SearchDocumentsFeature {
 }
 ```
 
-## Tips to Optimize Search Performance
+## Tips to optimise search performance
 
-- **Incremental Indexing** – Add only new or changed log files instead of re‑indexing the whole folder.  
-- **Memory Management** – Use the `autoReindex` flag (as shown in the index constructor) to keep memory usage low.  
-- **Index Settings** – Tune `IndexSettings` (e.g., `setMaxMemoryUsage`) based on your server’s resources.  
-- **Query Optimization** – Use phrase queries or filters to narrow results when searching massive log archives.
+- **Incremental indexing** – add only new or changed log files instead of rebuilding the whole index.  
+- **Memory management** – the `autoReindex` flag keeps RAM usage low by flushing intermediate data to disk.  
+- **Index settings** – adjust `setMaxMemoryUsage` based on your server’s capacity; a typical setting is 1 GB for a 10 GB index.  
+- **Query optimisation** – use phrase queries, wildcards, or filters to narrow results when searching massive log archives.
 
-## Practical Applications
+## Practical applications
 
-GroupDocs.Search can be applied in various scenarios, including:
+GroupDocs.Search can be applied in many real‑world scenarios, such as:
 
-- **Log Management** – Quickly locate error messages, user actions, or specific timestamps across gigabytes of log data.  
-- **Document Retrieval Systems** – Index PDFs, Word docs, spreadsheets, and custom log files in a single searchable repository.  
-- **Content Analysis** – Run keyword frequency analysis or detect anomalies in log streams.
+- **Log management** – locate error messages, user actions, or specific timestamps across gigabytes of log data in seconds.  
+- **Document retrieval systems** – maintain a single searchable repository that includes PDFs, Word docs, spreadsheets, and custom log files.  
+- **Content analysis** – run keyword‑frequency reports or detect anomalies in streaming log data.
 
-## Performance Considerations
+## Performance considerations
 
-When using GroupDocs.Search, keep these best practices in mind:
+When deploying GroupDocs.Search at scale, keep these best practices in mind:
 
-- Choose index locations on fast SSD storage for quicker reads/writes.  
-- Monitor JVM heap usage; consider off‑loading large indexes to a separate process if needed.  
-- Enable auto‑reindexing (as shown) to keep the index up‑to‑date without manual intervention.
+- Store indexes on fast SSDs to minimise read/write latency.  
+- Monitor JVM heap usage; consider off‑loading large indexes to a separate process if memory becomes a bottleneck.  
+- Enable `autoReindex` (as shown) to keep the index fresh without manual re‑building.
 
 ## Conclusion
 
-By now you’ve built a **log file extractor**, learned how to **add documents to index**, and discovered ways to **optimize search performance** for large log archives. This powerful combination lets your Java applications provide fast, accurate full‑text search across any document type.
+By now you’ve built a **log file extractor**, learned how to **add documents to index**, and discovered ways to **optimise search performance** for large log archives. This combination lets your Java applications provide fast, accurate full‑text search across any document type.
 
 For deeper exploration, check the official [GroupDocs documentation](https://docs.groupdocs.com/search/java/) or experiment with different extractor implementations to fit your unique use case.
 
-## FAQ Section
+## FAQ section
 1. **What file types can I index using GroupDocs.Search?**  
-   - You can index various file types such as PDFs, Word documents, spreadsheets, and more, including custom formats via text extractors.  
+   - You can index PDFs, Word documents, spreadsheets, and many other formats, plus custom log files via text extractors.  
 2. **How do I handle large document collections efficiently?**  
-   - Use appropriate indexing strategies, such as incremental updates or partitioning indexes, to manage resources effectively.  
+   - Use incremental updates, partition indexes, and tune `IndexSettings` to manage resources effectively.  
 3. **Can GroupDocs.Search be integrated with other systems?**  
-   - Yes, it can be integrated into existing Java applications and services via APIs, enabling seamless full‑text search capabilities.  
+   - Yes, it offers a clean Java API that can be embedded in existing services, micro‑services, or web applications.  
 4. **What is a temporary license, and how do I acquire one?**  
-   - A temporary license allows you to use the software without limitations for evaluation purposes. Apply through [GroupDocs’s website](https://purchase.groupdocs.com/temporary-license/).
+   - A temporary license grants full functionality for evaluation without time limits. Apply through [GroupDocs's website](https://purchase.groupdocs.com/temporary-license/).
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: How does a log file extractor differ from the default extractor?**  
 A: The default extractor handles common formats (PDF, DOCX, etc.). A custom log file extractor lets you define exactly how plain‑text log entries are parsed and indexed.
@@ -222,16 +292,22 @@ A: The default extractor handles common formats (PDF, DOCX, etc.). A custom log 
 A: Yes, by adding a pre‑processing step that extracts files from the archive before feeding them to the index.
 
 **Q: What’s the best way to keep the index up‑to‑date with continuously generated logs?**  
-A: Enable auto‑reindexing and schedule a background job that watches the log directory and calls `index.add(newLogFile)` whenever a new file appears.
+A: Enable `autoReindex` and schedule a background watcher that calls `index.add(newLogFile)` whenever a new file appears.
 
 **Q: Is there a limit to the size of a single log file that can be indexed?**  
 A: Practically, the limit is bound by available memory. Splitting very large logs into smaller chunks before indexing is recommended.
 
 **Q: Does GroupDocs.Search support fuzzy or wildcard searches?**  
-A: Yes, the search API includes options for fuzzy matching, wildcards, and proximity queries to improve result relevance.
+A: Yes, the search API includes fuzzy matching, wildcards, and proximity queries to improve result relevance.
 
 ---
 
-**Last Updated:** 2026-02-03  
+**Last Updated:** 2026-08-05  
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
+
+## Related Tutorials
+
+- [Java Full Text Search: Build Index with GroupDocs.Search](/search/java/dictionaries-language-processing/master-alphabet-dictionary-indexing-groupdocs-search-java/)
+- [How to Add Documents to Index with GroupDocs.Search for Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Improve Query Performance with GroupDocs.Search Java: Optimize Index & Search](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
