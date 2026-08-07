@@ -1,57 +1,57 @@
 ---
-date: '2025-12-19'
-description: Aprenda a adicionar sinônimos, pesquisar com sinônimos e gerenciar grupos
-  de sinônimos em Java usando o GroupDocs.Search. Melhore o desempenho e a confiabilidade
-  do seu índice de pesquisa.
+date: '2026-03-04'
+description: Aprenda a pesquisar com sinônimos em Java usando o GroupDocs.Search,
+  importar dicionários de sinônimos, gerenciar grupos de sinônimos e otimizar seu
+  índice de pesquisa para obter melhores resultados.
 keywords:
 - synonym dictionaries java
 - groupdocs.search synonym implementation
 - java search functionality enhancement
-title: Como adicionar sinônimos em Java usando o GroupDocs.Search – Um guia abrangente
+title: Como pesquisar com sinônimos em Java usando o GroupDocs.Search – Um guia abrangente
 type: docs
 url: /pt/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/
 weight: 1
 ---
 
-# Como Adicionar Sinônimos em Java Usando GroupDocs.Search
+# Como Pesquisar com Sinônimos em Java Usando GroupDocs.Search
 
-Bem-vindo ao nosso guia abrangente sobre **como adicionar sinônimos** em Java com GroupDocs.Search. Seja você quem está construindo um CMS rico em conteúdo, um catálogo de e‑commerce ou um repositório de documentos, habilitar o suporte a sinônimos pode melhorar drasticamente a descoberta dos seus dados. Neste tutorial, você aprenderá a criar e gerenciar dicionários de sinônimos, importar arquivos de dicionário de sinônimos e otimizar seu índice de busca para resultados rápidos e precisos.
+Se você deseja que seus usuários encontrem o conteúdo correto mesmo quando digitam palavras diferentes, **search with synonyms** é a resposta. Neste guia, percorreremos tudo o que você precisa saber — criar um dicionário de sinônimos, importá‑lo/exportá‑lo, gerenciar grupos de sinônimos e, finalmente, executar uma pesquisa que expande automaticamente as consultas usando esses sinônimos. Seja você quem está construindo um CMS, um catálogo de e‑commerce ou um repositório de documentos legais, adicionar suporte a sinônimos pode aumentar drasticamente a relevância e as taxas de conversão.
 
-## Respostas Rápidas
+## Quick Answers
 - **Qual é a etapa principal para adicionar sinônimos?** Inicialize um `Index` e use a API `SynonymDictionary`.  
 - **Posso importar um dicionário de sinônimos?** Sim – use `importDictionary(path)` para carregar um arquivo pré‑construído.  
-- **Como habilito a busca com sinônimos?** Defina `SearchOptions.setUseSynonymSearch(true)`.  
+- **Como habilito a pesquisa com sinônimos?** Defina `SearchOptions.setUseSynonymSearch(true)`.  
 - **É possível gerenciar grupos de sinônimos?** Absolutamente – você pode limpar, adicionar ou recuperar grupos via a API do dicionário.  
-- **O que devo considerar ao otimizar o índice de busca?** Remova regularmente entradas não usadas e ajuste o heap da JVM para grandes conjuntos de dados.  
+- **O que devo considerar ao otimizar o índice de pesquisa?** Remova regularmente entradas não usadas e ajuste o heap da JVM para grandes conjuntos de dados.  
 
-## O Que É “Como Adicionar Sinônimos”?
-Adicionar sinônimos significa definir palavras ou frases alternativas que o mecanismo de busca trata como equivalentes. Isso permite que uma consulta como **“better”** também corresponda a documentos contendo **“improve”**, **“enhance”** ou **“upgrade”**.
+## O que é Search with Synonyms?
+“Search with synonyms” significa que o mecanismo trata um conjunto de palavras ou frases como intercambiáveis. Quando um usuário digita **“better”**, o mecanismo também procura por **“improve”**, **“enhance”**, ou qualquer outro termo que você definiu no mesmo grupo de sinônimos, entregando resultados mais ricos sem alterar a consulta do usuário.
 
-## Por Que Usar Suporte a Sinônimos no GroupDocs.Search?
-- **Experiência do usuário aprimorada:** Os usuários encontram conteúdo relevante mesmo que usem terminologia diferente.  
-- **Taxas de conversão mais altas:** Sites de e‑commerce capturam mais vendas ao corresponder consultas de produtos variadas.  
-- **Manutenção reduzida:** Um dicionário pode atender a múltiplas aplicações, simplificando atualizações.  
+## Por que habilitar o suporte a sinônimos no GroupDocs.Search?
+- **Melhor experiência do usuário:** Os visitantes encontram documentos relevantes mesmo que usem terminologia diferente.  
+- **Taxas de conversão mais altas:** Plataformas de e‑commerce capturam mais vendas ao corresponder termos de produtos variados.  
+- **Manutenção simplificada:** Um dicionário central pode atender a múltiplas aplicações, tornando as atualizações indolores.  
 
-## Pré-requisitos
-- **GroupDocs.Search for Java** versão 25.4 ou mais recente.  
-- Um IDE Java (IntelliJ IDEA, Eclipse, etc.) com suporte a Maven.  
-- Conhecimento básico de Java e familiaridade com a estrutura de projetos Maven.  
+## Prerequisites
+- GroupDocs.Search for Java versão 25.4 ou mais recente.  
+- Uma IDE Java (IntelliJ IDEA, Eclipse, etc.) com suporte ao Maven.  
+- Conhecimento básico de Java e familiaridade com a estrutura de projetos Maven.
 
-### Bibliotecas Necessárias e Versões
+### Required Libraries and Versions
 - GroupDocs.Search for Java versão 25.4 ou superior.
 
-### Configuração do Ambiente
+### Environment Setup
 - IDE de sua escolha (IntelliJ IDEA, Eclipse, etc.).  
 - Maven para gerenciamento de dependências.
 
-### Requisitos de Conhecimento
+### Knowledge Requirements
 - Programação orientada a objetos em Java.  
 - Operações básicas de I/O de arquivos.
 
-## Configurando o GroupDocs.Search para Java
+## Setting Up GroupDocs.Search for Java
 
-### Informações de Instalação
-Adicione o repositório e a dependência ao seu `pom.xml`:
+### Installation Information
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -71,15 +71,15 @@ Adicione o repositório e a dependência ao seu `pom.xml`:
 </dependencies>
 ```
 
-**Download Direto** – você também pode baixar o JAR mais recente em [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+**Download direto** – você também pode baixar o JAR mais recente em [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Aquisição de Licença
-- **Teste Gratuito:** Teste os recursos principais sem licença.  
-- **Licença Temporária:** Amplie as capacidades de teste durante a avaliação.  
+### License Acquisition
+- **Teste gratuito:** Teste recursos principais sem licença.  
+- **Licença temporária:** Amplie as capacidades do teste durante a avaliação.  
 - **Compra:** Necessária para uso em produção e conjunto completo de recursos.
 
-#### Inicialização e Configuração Básicas
-Crie uma instância de `Index`, então adicione documentos para serem pesquisáveis:
+#### Basic Initialization and Setup
+Create an `Index` instance, then add documents to be searchable:
 
 ```java
 import com.groupdocs.search.*;
@@ -94,10 +94,10 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-## Como Adicionar Sinônimos ao Seu Índice de Busca
+## Como adicionar sinônimos ao seu índice de pesquisa
 Criar um índice é a base. A seguir, percorremos as etapas essenciais, cada uma acompanhada do código exato que você precisa.
 
-### Recurso 1: Criando e Indexando um Índice
+### Recurso 1: Criando e indexando um índice
 ```java
 // Create an index in the specified folder
 Index index = new Index(indexFolder);
@@ -106,17 +106,17 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-### Recurso 2: Recuperando Sinônimos para uma Palavra
+### Recurso 2: Recuperando sinônimos para uma palavra
 ```java
 String[] synonyms = index.getDictionaries().getSynonymDictionary().getSynonyms("make");
 ```
 
-### Recurso 3: Recuperando Grupos de Sinônimos
+### Recurso 3: Recuperando grupos de sinônimos
 ```java
 String[][] synonymGroups = index.getDictionaries().getSynonymDictionary().getSynonymGroups("make");
 ```
 
-### Recurso 4: Gerenciando Entradas do Dicionário de Sinônimos
+### Recurso 4: Gerenciando entradas do dicionário de sinônimos
 ```java
 if (index.getDictionaries().getSynonymDictionary().getCount() > 0) {
     index.getDictionaries().getSynonymDictionary().clear();
@@ -131,18 +131,18 @@ String[][] newSynonymGroups = new String[][]{
 index.getDictionaries().getSynonymDictionary().addRange(newSynonymGroups);
 ```
 
-### Recurso 5: Exportando Sinônimos para um Arquivo
+### Recurso 5: Exportando sinônimos para um arquivo
 ```java
 String exportFilePath = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/ManagingDictionaries/SynonymDictionary/Synonyms.dat";
 index.getDictionaries().getSynonymDictionary().exportDictionary(exportFilePath);
 ```
 
-### Recurso 6: Importando Sinônimos de um Arquivo
+### Recurso 6: Importando sinônimos de um arquivo
 ```java
 index.getDictionaries().getSynonymDictionary().importDictionary(exportFilePath);
 ```
 
-### Recurso 7: Realizando Busca com Suporte a Sinônimos
+### Recurso 7: Executando pesquisa com suporte a sinônimos
 ```java
 String query = "better";
 SearchOptions options = new SearchOptions();
@@ -151,60 +151,66 @@ options.setUseSynonymSearch(true);
 SearchResult result = index.search(query, options);
 ```
 
-## Como Buscar com Sinônimos
-Ao habilitar `setUseSynonymSearch(true)`, o mecanismo expande automaticamente a consulta usando o dicionário de sinônimos que você criou ou importou. Esta etapa é crucial para fornecer resultados mais ricos sem alterar o comportamento de busca do usuário.
+## Como pesquisar com sinônimos
+Ao habilitar `setUseSynonymSearch(true)`, o mecanismo expande automaticamente a consulta usando o dicionário de sinônimos que você criou ou importou. Esta etapa é crucial para entregar resultados mais ricos sem mudar o comportamento de pesquisa do usuário.
 
-## Como Importar o Dicionário de Sinônimos
+## Como importar o dicionário de sinônimos
 Se você já possui um arquivo `.dat` preparado por outro ambiente, basta chamar `importDictionary(path)`. Isso é ideal para sincronizar dicionários entre servidores de desenvolvimento, teste e produção.
 
-## Como Gerenciar Grupos de Sinônimos
+## Como gerenciar grupos de sinônimos
 Grupos de sinônimos permitem tratar um conjunto de termos como uma única entidade lógica. Adicionar, limpar ou recuperar grupos é feito através da API `SynonymDictionary`, como mostrado nos trechos de código acima.
 
-## Como Otimizar o Índice de Busca
+## Como otimizar o índice de pesquisa
 - **Remova regularmente entradas não usadas:** Use `clear()` antes de atualizações em massa.  
 - **Ajuste o heap da JVM:** Dicionários grandes podem exigir mais memória.  
 - **Mantenha a biblioteca atualizada:** Novas versões contêm melhorias de desempenho.  
 
-## Aplicações Práticas
-1. **Sistemas de Gerenciamento de Conteúdo (CMS):** Usuários encontram artigos mesmo quando usam terminologia alternativa.  
-2. **Plataformas de E‑commerce:** As buscas de produtos tornam‑se tolerantes a sinônimos como “laptop” vs. “notebook”.  
-3. **Repositórios de Documentos:** Arquivos legais ou médicos se beneficiam de grupos de sinônimos específicos de domínio.  
+## Practical Applications
+1. **Sistemas de gerenciamento de conteúdo (CMS):** Usuários encontram artigos mesmo quando usam terminologia alternativa.  
+2. **Plataformas de e‑commerce:** As buscas de produtos tornam‑se tolerantes a sinônimos como “laptop” vs. “notebook”.  
+3. **Repositórios de documentos:** Arquivos legais ou médicos se beneficiam de grupos de sinônimos específicos do domínio.
 
-## Considerações de Desempenho
-- **Otimize o Armazenamento do Índice:** Reconstrua periodicamente o índice para remover dados obsoletos.  
-- **Gerencie o Uso de Memória:** Monitore o consumo de heap ao carregar arquivos de sinônimos grandes.  
-- **Atualizações Regulares:** Mantenha a versão mais recente do GroupDocs.Search para correções de bugs e ganhos de velocidade.  
+## Performance Considerations
+- **Otimize o armazenamento do índice:** Reconstrua periodicamente o índice para remover dados obsoletos.  
+- **Gerencie o uso de memória:** Monitore o consumo de heap ao carregar arquivos de sinônimos grandes.  
+- **Atualizações regulares:** Mantenha-se na versão mais recente do GroupDocs.Search para correções de bugs e ganhos de velocidade.
 
-## Conclusão
-Agora você tem um roteiro completo, passo a passo, para **como adicionar sinônimos**, importar arquivos de dicionário de sinônimos, gerenciar grupos de sinônimos e **buscar com sinônimos** usando o GroupDocs.Search para Java. Aplique essas técnicas para aumentar a relevância, melhorar a satisfação do usuário e manter seu índice de busca funcionando da melhor forma.
+## Common Issues and Solutions
+| Problema | Causa provável | Solução |
+|----------|----------------|--------|
+| Nenhum resultado de sinônimo aparece | `setUseSynonymSearch(true)` não está definido ou dicionário não importado | Verifique se a opção está habilitada e se o arquivo de dicionário existe. |
+| Erros de falta de memória durante a importação | Arquivo `.dat` muito grande excede o heap da JVM | Aumente o tamanho do heap `-Xmx` ou importe em lotes menores. |
+| Entradas duplicadas nos resultados | O mesmo termo aparece em múltiplos grupos de sinônimos | Consolide grupos sobrepostos usando `clear()` e depois `addRange()`. |
 
-## Perguntas Frequentes
+## Frequently Asked Questions
 
 **Q: Qual é o requisito mínimo de sistema para usar o GroupDocs.Search?**  
-A: Qualquer sistema operacional moderno com um JDK compatível (Java 8 ou mais recente) é suficiente.
+A: Qualquer OS moderno com um JDK compatível (Java 8 ou mais recente) é suficiente.
 
 **Q: Com que frequência devo atualizar meu dicionário de sinônimos?**  
-A: Atualize-o sempre que surgir nova terminologia – use `clear()` seguido de `addRange()` para uma atualização limpa.
+A: Atualize-o sempre que surgirem novos termos — use `clear()` seguido de `addRange()` para uma atualização limpa.
 
 **Q: Posso usar o GroupDocs.Search sem comprar uma licença?**  
 A: Um teste gratuito funciona para avaliação, mas uma licença é necessária para implantações em produção.
 
-**Q: Quais são as melhores práticas para indexar grandes volumes de dados?**  
+**Q: Quais são as melhores práticas para indexar grandes conjuntos de dados?**  
 A: Divida os dados em lotes lógicos, monitore o uso de heap e agende manutenção regular do índice.
 
-**Q: Não estou obtendo as correspondências de sinônimos esperadas—o que devo verificar?**  
+**Q: Não estou vendo correspondências de sinônimos esperadas — o que devo verificar?**  
 A: Verifique se o dicionário foi importado corretamente, se `setUseSynonymSearch(true)` está ativo e se os termos estão presentes nos grupos de sinônimos.
 
-**Recursos**  
-- [Documentação](https://docs.groupdocs.com/search/java/)  
-- [Referência da API](https://reference.groupdocs.com/search/java)  
-- [Download GroupDocs.Search para Java](https://releases.groupdocs.com/search/java/)  
-- [Repositório no GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- [Fórum de Suporte Gratuito](https://forum.groupdocs.com/c/search/10)  
-- [Aquisição de Licença Temporária](https://purchase.groupdocs.com/temporary-license/)
+**Resources**  
+- [Documentation](https://docs.groupdocs.com/search/java/)  
+- [API Reference](https://reference.groupdocs.com/search/java)  
+- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
+- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
+- [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Last Updated:** 2025-12-19  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
+**Última atualização:** 2026-03-04  
+**Testado com:** GroupDocs.Search 25.4 for Java  
+**Autor:** GroupDocs  
+
+---

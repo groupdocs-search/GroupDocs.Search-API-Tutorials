@@ -1,7 +1,8 @@
 ---
-date: '2025-12-18'
-description: GroupDocs.Search ile Java aramalarında özel tarih formatı uygulamayı,
-  tarih aralığı sorgularını, özel desenleri ve performans ipuçlarını öğrenin.
+date: '2026-03-04'
+description: GroupDocs.Search ile özel tarih formatı Java aramaları nasıl uygulanır,
+  tarih aralığı sorguları, özel desenler ve performans ipuçları dahil olmak üzere
+  öğrenin.
 keywords:
 - GroupDocs.Search Java
 - date range searches
@@ -9,15 +10,15 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'Özel Tarih Formatı Java | GroupDocs ile Tarih Aralığı Arama'
+title: Özel Tarih Formatı Java | GroupDocs ile Tarih Aralığı Araması
 type: docs
 url: /tr/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Custom Date Format Java | GroupDocs ile Tarih Aralığı Arama
+# Özel Tarih Biçimi Java | GroupDocs ile Tarih Aralığı Arama
 
-Tarih bazlı belge arama, arşiv sistemi, finansal raporlama aracı veya içerik‑yönetim portalı oluşturuyor olsanız da sık bir gereksinimdir. Bu öğreticide GroupDocs.Search kullanarak **custom date format java** tekniklerini öğrenecek, tarih aralığı sorgularını, özel desen tanımlamalarını ve **optimize search performance** ipuçlarını kapsayacaksınız. Sonunda, kullanıcıların kullandıkları formata bakılmaksızın herhangi bir tarih aralığındaki kayıtları alabilmelerini sağlayacaksınız.
+Tarihine göre belge arama, arşiv sistemi, finansal raporlama aracı veya içerik‑yönetim portalı oluştururken sık karşılaşılan bir gereksinimdir. Bu öğreticide **custom date format java** tekniklerini GroupDocs.Search kullanarak öğrenecek, tarih aralığı sorgularını, özel desen tanımlamalarını ve **optimize search performance** ipuçlarını kapsayacaksınız. Sonunda, kullanıcıların kullandıkları formata bakılmaksızın herhangi bir tarih aralığındaki kayıtları getirebileceksiniz.
 
 ## Hızlı Yanıtlar
 - **İndeksleme için birincil sınıf nedir?** `Index` from the `com.groupdocs.search` package.  
@@ -27,20 +28,20 @@ Tarih bazlı belge arama, arşiv sistemi, finansal raporlama aracı veya içerik
 - **Geliştirme için lisansa ihtiyacım var mı?** A free trial or temporary license is sufficient for testing; a commercial license is required for production.
 
 ## **custom date format java** nedir?
-Bir **custom date format java**, GroupDocs.Search'e varsayılan ISO desenini (YYYY‑MM‑DD) takip etmeyen tarih dizelerini nasıl yorumlayacağını söyler. Kendi deseninizi tanımlayarak—örneğin `MM/dd/yyyy` veya `dd‑MM‑yyyy`—motorun bölgesel veya eski formatları kullanan belgelerdeki tarihleri tanımasını sağlarsınız.
+A **custom date format java** tells GroupDocs.Search how to interpret date strings that don’t follow the default ISO pattern (YYYY‑MM‑DD). By defining your own pattern—such as `MM/dd/yyyy` or `dd‑MM‑yyyy`—you enable the engine to recognize dates embedded in documents that use regional or legacy formats.
 
-## Tarih aralığı sorguları için neden GroupDocs.Search kullanmalı?
-- **Speed:** Built‑in indexing makes look‑ups O(log n).  
-- **Flexibility:** Supports both text‑based and object‑based query creation.  
-- **Multi‑format support:** Handles PDFs, Word, Excel, plain text, and more without extra code.  
+## Neden tarih aralığı sorguları için GroupDocs.Search kullanmalı?
+- **Hız:** Built‑in indexing makes look‑ups O(log n).  
+- **Esneklik:** Supports both text‑based and object‑based query creation.  
+- **Çoklu biçim desteği:** Handles PDFs, Word, Excel, plain text, and more without extra code.  
 
-## GroupDocs.Search ile **search documents by date** nasıl yapılır
-Aşağıda, kütüphaneyi kurma, dosyaları indeksleme ve hem basit hem de gelişmiş tarih aralığı aramaları yürütme adımlarını içeren adım‑adım bir kılavuz bulacaksınız.
+## GroupDocs.Search ile **tarihine göre belge arama** nasıl yapılır
+Below you’ll find a step‑by‑step guide that walks you through setting up the library, indexing files, and executing both simple and advanced date range searches.
 
 ### Önkoşullar
 - Java 8 veya daha yeni bir sürüm yüklü.  
 - Bağımlılık yönetimi için Maven.  
-- Geliştirme için çalışan bir GroupDocs.Search lisansına (deneme veya geçici) erişim.  
+- GroupDocs.Search lisansına erişim (deneme veya geçici lisans geliştirme için yeterlidir).  
 
 ### Java için GroupDocs.Search Kurulumu
 
@@ -66,7 +67,7 @@ Add the repository and dependency to your `pom.xml`:
 ```
 
 #### Doğrudan İndirme
-Alternatif olarak, en son sürümü doğrudan [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
+Alternatively, you can download the latest version directly from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### Temel Başlatma ve Kurulum
 Create an `Index` instance and add your documents:
@@ -103,7 +104,7 @@ String query1 = "daterange(2017-01-01 ~~ 2019-12-31)";
 SearchResult result1 = index.search(query1);
 ```
 
-**Açıklama**: The `daterange` syntax expects dates in `YYYY‑MM‑DD`. It returns all documents whose indexed dates fall within the interval.
+**Explanation**: The `daterange` syntax expects dates in `YYYY‑MM‑DD`. It returns all documents whose indexed dates fall within the interval.
 
 ### Sorgu Nesnesi Kullanma
 For programmatic control and custom parsing, build a `SearchQuery` object:
@@ -123,7 +124,7 @@ SearchQuery query2 = SearchQuery.createDateRangeQuery(Utils.createDate(2017, 1, 
 SearchResult result2 = index.search(query2);
 ```
 
-**Açıklama**: `createDateRangeQuery` lets you supply `java.util.Date` objects, giving you full flexibility over time zones and locale‑specific handling.
+**Explanation**: `createDateRangeQuery` lets you supply `java.util.Date` objects, giving you full flexibility over time zones and locale‑specific handling.
 
 ## Özellik 2: **custom date format java** Desenlerini Belirleme
 
@@ -160,9 +161,9 @@ String query = "daterange(01/01/2017 ~~ 12/31/2019)";
 SearchResult result = index.search(query, options);
 ```
 
-**Açıklama**: By clearing the default formats and adding a `DateFormat` that uses `/` as the separator, the engine now understands dates written as `MM/dd/yyyy`. This is essential for **search documents by date** in regions that prefer month‑first notation.
+**Explanation**: By clearing the default formats and adding a `DateFormat` that uses `/` as the separator, the engine now understands dates written as `MM/dd/yyyy`. This is essential for **search documents by date** in regions that prefer month‑first notation.
 
-## **optimize search performance** için İpuçları
+## **optimize search performance** İpuçları
 - **Index Incrementally**: Add new files to the existing index instead of rebuilding from scratch.  
 - **Prune Stale Data**: Periodically remove documents that are no longer needed.  
 - **Adjust Memory Settings**: Increase the JVM heap (`-Xmx`) when working with large indexes.  
@@ -173,29 +174,34 @@ SearchResult result = index.search(query, options);
 - **Index Access Exceptions**: Confirm that the `indexFolder` path is writable and not locked by another process.  
 
 ## Pratik Uygulamalar
-1. **Archival Systems** – Retrieve records from a specific historical period.  
-2. **Content Management** – Support regional date formats like `dd/MM/yyyy` for European audiences.  
-3. **Financial Software** – Filter transactions by fiscal quarter or year quickly.  
+1. **Arşiv Sistemleri** – Belirli bir tarihsel dönemden kayıtları getir.  
+2. **İçerik Yönetimi** – Avrupa izleyicileri için `dd/MM/yyyy` gibi bölgesel tarih biçimlerini destekle.  
+3. **Finansal Yazılım** – İşlemleri mali çeyrek veya yıla göre hızlıca filtrele.  
 
-## Sonuç
-Artık GroupDocs.Search ile güçlü tarih‑aralığı aramaları oluşturmak için eksiksiz bir **custom date format java** araç kutusuna sahipsiniz. Bu desenleri uygulayın, performansı ince ayarlayın ve uygulamanız her türlü zaman sorgusu için hızlı, doğru sonuçlar sunacaktır.
+## Bunun Önemi
+Implementing **custom date format java** handling removes the friction of dealing with inconsistent date representations across documents. It enables you to **handle multiple date formats** in a single index, ensuring that end‑users get accurate results no matter how dates were originally recorded.
+
+## Sonraki Adımlar
+- `AND`, `OR` ve `NOT` operatörlerini kullanarak daha gelişmiş sorgu kombinasyonlarını keşfet.  
+- Ek zaman damgası meta verilerini indekslemeniz gerekiyorsa özel analizörlerle deneme yap.  
+- Milyonlarca belge için çözümünüzü ölçeklendirmek amacıyla resmi belgelerdeki performans ayarlama rehberini inceleyin.
 
 ## Sıkça Sorulan Sorular
 
-**Q: Metin formu ile nesne‑tabanlı tarih sorguları arasındaki fark nedir?**  
-A: Text form is quick and easy but limited to the default ISO format; object‑based queries let you supply `Date` objects and custom formats for greater flexibility.
+**S: Metin formu ile nesne‑tabanlı tarih sorguları arasındaki fark nedir?**  
+C: Metin formu hızlı ve kolaydır ancak varsayılan ISO formatıyla sınırlıdır; nesne‑tabanlı sorgular `Date` nesneleri ve özel formatlar sağlayarak daha fazla esneklik sunar.
 
-**Q: Tek bir sorguda birden fazla tarih aralığını arayabilir miyim?**  
-A: Yes, combine `daterange` clauses with logical operators like `AND` or `OR` to build complex queries.
+**S: Tek bir sorguda birden fazla tarih aralığı arayabilir miyim?**  
+C: Evet, `daterange` ifadelerini `AND` veya `OR` gibi mantıksal operatörlerle birleştirerek karmaşık sorgular oluşturabilirsiniz.
 
-**Q: Özel tarih formatları aramayı yavaşlatır mı?**  
-A: There is a minor overhead for additional parsing, but the impact is negligible for typical workloads and is outweighed by the accuracy gains.
+**S: Özel tarih biçimleri aramayı yavaşlatır mı?**  
+C: Ek ayrıştırma için küçük bir ek yük vardır, ancak tipik iş yükleri için etkisi önemsizdir ve doğruluk kazançlarıyla dengelenir.
 
-**Q: GroupDocs.Search büyük ölçekli dağıtımlar için uygun mu?**  
-A: Absolutely. With proper indexing strategies and JVM tuning, it scales to millions of documents.
+**S: GroupDocs.Search büyük ölçekli dağıtımlar için uygun mu?**  
+C: Kesinlikle. Doğru indeksleme stratejileri ve JVM ayarlarıyla milyonlarca belgeye ölçeklenebilir.
 
-**Q: Daha fazla Java örneği nerede bulunabilir?**  
-A: Explore the [GroupDocs GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) for additional samples and use‑case implementations.
+**S: Daha fazla Java örneği nerede bulunabilir?**  
+C: Additional samples and use‑case implementations için [GroupDocs GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) adresini inceleyin.
 
 ---
 
@@ -208,6 +214,10 @@ A: Explore the [GroupDocs GitHub repository](https://github.com/groupdocs-search
 - **Ücretsiz Destek Forumu**: [Join the discussion](https://forum.groupdocs.com/c/search/10)
 - **Geçici Lisans**: [Acquire a temporary license here](https://purchase.groupdocs.com/temporary-license/)
 
-**Son Güncelleme:** 2025-12-18  
+---
+
+**Son Güncelleme:** 2026-03-04  
 **Test Edilen Versiyon:** GroupDocs.Search Java 25.4  
-**Yazar:** GroupDocs
+**Yazar:** GroupDocs  
+
+---

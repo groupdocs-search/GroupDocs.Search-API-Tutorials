@@ -1,7 +1,7 @@
 ---
-date: '2025-12-18'
-description: GroupDocs.Search के साथ कस्टम डेट फ़ॉर्मेट जावा सर्च कैसे लागू करें,
-  जिसमें डेट रेंज क्वेरी, कस्टम पैटर्न और प्रदर्शन टिप्स शामिल हैं, सीखें।
+date: '2026-03-04'
+description: GroupDocs.Search के साथ कस्टम डेट फ़ॉर्मेट जावा सर्च को कैसे लागू करें,
+  डेट रेंज क्वेरीज़, कस्टम पैटर्न और प्रदर्शन टिप्स को कवर करते हुए, सीखें।
 keywords:
 - GroupDocs.Search Java
 - date range searches
@@ -9,38 +9,38 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'कस्टम तिथि प्रारूप जावा | ग्रुपडॉक्स के साथ तिथि सीमा खोज'
+title: जावा में कस्टम डेट फ़ॉर्मेट | GroupDocs के साथ डेट रेंज सर्च
 type: docs
 url: /hi/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Custom Date Format Java | ग्रुपडॉक्स के साथ डेट रेंज सर्च
+# कस्टम डेट फॉर्मेट जावा | ग्रुपडॉक्स के साथ डेट रेंज सर्च
 
-डेट के आधार पर दस्तावेज़ों की खोज एक सामान्य आवश्यकता है—चाहे आप एक अभिलेखीय प्रणाली, एक वित्तीय रिपोर्टिंग टूल, या एक कंटेंट‑मैनेजमेंट पोर्टल बना रहे हों। इस ट्यूटोरियल में आप GroupDocs.Search का उपयोग करके **custom date format java** तकनीकों को सीखेंगे, जिसमें डेट रेंज क्वेरीज़, कस्टम पैटर्न परिभाषाएँ, और **optimize search performance** को अनुकूलित करने के टिप्स शामिल हैं। अंत तक, आप उपयोगकर्ताओं को किसी भी डेट अंतराल में पड़ने वाले रिकॉर्ड्स को पुनः प्राप्त करने में सक्षम होंगे, चाहे वे कोई भी फ़ॉर्मेट उपयोग करें।
+दिनांक के आधार पर दस्तावेज़ों की खोज एक सामान्य आवश्यकता है—चाहे आप एक अभिलेखीय प्रणाली, एक वित्तीय रिपोर्टिंग टूल, या एक कंटेंट‑मैनेजमेंट पोर्टल बना रहे हों। इस ट्यूटोरियल में आप GroupDocs.Search का उपयोग करके **custom date format java** तकनीकें सीखेंगे, जिसमें डेट रेंज क्वेरीज़, कस्टम पैटर्न परिभाषाएँ, और **optimize search performance** के टिप्स शामिल हैं। अंत तक, आप उपयोगकर्ताओं को किसी भी डेट अंतराल के भीतर रिकॉर्ड पुनः प्राप्त करने में सक्षम होंगे, चाहे वे जो भी फ़ॉर्मेट उपयोग करें।
 
 ## त्वरित उत्तर
 - **इंडेक्सिंग के लिए मुख्य क्लास कौन सी है?** `Index` from the `com.groupdocs.search` package.  
 - **कस्टम डेट पैटर्न कैसे परिभाषित करें?** Use `DateFormat` with `DateFormatElement` objects and a separator.  
-- **क्या मैं टेक्स्ट क्वेरी के साथ खोज सकता हूँ?** Yes, the `daterange(start ~~ end)` syntax works directly in the query string.  
+- **क्या मैं टेक्स्ट क्वेरी से खोज सकता हूँ?** Yes, the `daterange(start ~~ end)` syntax works directly in the query string.  
 - **कौन से Maven कोऑर्डिनेट्स आवश्यक हैं?** `com.groupdocs:groupdocs-search:25.4` (or newer).  
 - **क्या विकास के लिए लाइसेंस चाहिए?** A free trial or temporary license is sufficient for testing; a commercial license is required for production.
 
 ## क्या है **custom date format java**?
-एक **custom date format java** GroupDocs.Search को बताता है कि वह उन डेट स्ट्रिंग्स को कैसे समझे जो डिफ़ॉल्ट ISO पैटर्न (YYYY‑MM‑DD) का पालन नहीं करतीं। अपना खुद का पैटर्न परिभाषित करके—जैसे `MM/dd/yyyy` या `dd‑MM‑yyyy`—आप इंजन को उन दस्तावेज़ों में एम्बेडेड डेट्स को पहचानने में सक्षम बनाते हैं जो क्षेत्रीय या लेगेसी फ़ॉर्मेट का उपयोग करते हैं।
+एक **custom date format java** GroupDocs.Search को बताता है कि वह उन डेट स्ट्रिंग्स को कैसे समझे जो डिफ़ॉल्ट ISO पैटर्न (YYYY‑MM‑DD) का पालन नहीं करतीं। अपना खुद का पैटर्न परिभाषित करके—जैसे `MM/dd/yyyy` या `dd‑MM‑yyyy`—आप इंजन को उन दस्तावेज़ों में एम्बेडेड डेट्स को पहचानने में सक्षम बनाते हैं जो क्षेत्रीय या लेगेसी फ़ॉर्मेट्स का उपयोग करते हैं।
 
 ## डेट रेंज क्वेरीज़ के लिए GroupDocs.Search क्यों उपयोग करें?
 - **स्पीड:** Built‑in indexing makes look‑ups O(log n).  
 - **लचीलापन:** Supports both text‑based and object‑based query creation.  
-- **मल्टी‑फ़ॉर्मेट सपोर्ट:** Handles PDFs, Word, Excel, plain text, and more without extra code.  
+- **मल्टी‑फ़ॉर्मेट समर्थन:** Handles PDFs, Word, Excel, plain text, and more without extra code.  
 
-## GroupDocs.Search के साथ **search documents by date** कैसे करें
-नीचे आपको एक चरण‑दर‑चरण गाइड मिलेगा जो लाइब्रेरी सेटअप, फ़ाइलों को इंडेक्स करने, और साधारण तथा उन्नत डेट रेंज सर्च को निष्पादित करने की प्रक्रिया दिखाता है।
+## कैसे **search documents by date** करें GroupDocs.Search के साथ
+नीचे आपको एक चरण‑दर‑चरण गाइड मिलेगा जो लाइब्रेरी सेटअप, फ़ाइलों को इंडेक्स करने, और सरल तथा उन्नत डेट रेंज सर्च को निष्पादित करने की प्रक्रिया दिखाता है।
 
 ### पूर्वापेक्षाएँ
 - Java 8 या उससे नया स्थापित हो।  
 - निर्भरता प्रबंधन के लिए Maven।  
-- GroupDocs.Search लाइसेंस तक पहुँच (ट्रायल या टेम्पररी विकास के लिए काम करता है)।  
+- GroupDocs.Search लाइसेंस तक पहुँच (ट्रायल या टेम्पररी लाइसेंस विकास के लिए काम करता है)।  
 
 ### Java के लिए GroupDocs.Search सेटअप करना
 
@@ -69,7 +69,7 @@ Add the repository and dependency to your `pom.xml`:
 वैकल्पिक रूप से, आप नवीनतम संस्करण सीधे [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) से डाउनलोड कर सकते हैं।
 
 #### बेसिक इनिशियलाइज़ेशन और सेटअप
-Create an `Index` instance and add your documents:
+`Index` इंस्टेंस बनाएं और अपने दस्तावेज़ जोड़ें:
 
 ```java
 import com.groupdocs.search.*;
@@ -87,7 +87,7 @@ index.add(documentsFolder);
 ## फीचर 1: डेट रेंज सर्च क्वेरीज़ बनाना
 
 ### टेक्स्ट फ़ॉर्म क्वेरी का उपयोग
-The simplest way is to embed the date range directly in the query string:
+सबसे सरल तरीका है डेट रेंज को सीधे क्वेरी स्ट्रिंग में एम्बेड करना:
 
 ```java
 import com.groupdocs.search.*;
@@ -103,10 +103,10 @@ String query1 = "daterange(2017-01-01 ~~ 2019-12-31)";
 SearchResult result1 = index.search(query1);
 ```
 
-**व्याख्या**: The `daterange` syntax expects dates in `YYYY‑MM‑DD`. It returns all documents whose indexed dates fall within the interval.
+**Explanation**: `daterange` सिंटैक्स `YYYY‑MM‑DD` फ़ॉर्मेट में डेट्स की अपेक्षा करता है। यह सभी दस्तावेज़ लौटाता है जिनकी इंडेक्स्ड डेट्स इस अंतराल में आती हैं।
 
 ### क्वेरी ऑब्जेक्ट का उपयोग
-For programmatic control and custom parsing, build a `SearchQuery` object:
+प्रोग्रामेटिक कंट्रोल और कस्टम पार्सिंग के लिए, एक `SearchQuery` ऑब्जेक्ट बनाएं:
 
 ```java
 import com.groupdocs.search.*;
@@ -123,12 +123,12 @@ SearchQuery query2 = SearchQuery.createDateRangeQuery(Utils.createDate(2017, 1, 
 SearchResult result2 = index.search(query2);
 ```
 
-**व्याख्या**: `createDateRangeQuery` lets you supply `java.util.Date` objects, giving you full flexibility over time zones and locale‑specific handling.
+**Explanation**: `createDateRangeQuery` आपको `java.util.Date` ऑब्जेक्ट्स प्रदान करने की अनुमति देता है, जिससे आप टाइम ज़ोन और लोकेल‑स्पेसिफिक हैंडलिंग पर पूरी लचीलापन प्राप्त करते हैं।
 
 ## फीचर 2: **custom date format java** पैटर्न निर्दिष्ट करना
 
 ### कस्टम डेट फ़ॉर्मेट सेट करना
-Define a `DateFormat` that matches your document’s date representation:
+एक `DateFormat` परिभाषित करें जो आपके दस्तावेज़ की डेट रिप्रेजेंटेशन से मेल खाता हो:
 
 ```java
 import com.groupdocs.search.*;
@@ -160,47 +160,51 @@ String query = "daterange(01/01/2017 ~~ 12/31/2019)";
 SearchResult result = index.search(query, options);
 ```
 
-**व्याख्या**: By clearing the default formats and adding a `DateFormat` that uses `/` as the separator, the engine now understands dates written as `MM/dd/yyyy`. This is essential for **search documents by date** in regions that prefer month‑first notation.
+**Explanation**: डिफ़ॉल्ट फ़ॉर्मेट्स को क्लियर करके और `/` को सेपरेटर के रूप में उपयोग करने वाला `DateFormat` जोड़ने से, इंजन अब `MM/dd/yyyy` के रूप में लिखी गई डेट्स को समझता है। यह उन क्षेत्रों में **search documents by date** करने के लिए आवश्यक है जहाँ महीना‑पहले नोटेशन पसंद किया जाता है।
 
-## **optimize search performance** के लिए टिप्स
-- **इंडेक्स इंक्रीमेंटली**: Add new files to the existing index instead of rebuilding from scratch.  
-- **पुराने डेटा को प्रून करें**: Periodically remove documents that are no longer needed.  
-- **मेमोरी सेटिंग्स समायोजित करें**: Increase the JVM heap (`-Xmx`) when working with large indexes.  
+## **optimize search performance** के टिप्स
+- **इंडेक्स इंक्रीमेंटली**: मौजूदा इंडेक्स में नई फ़ाइलें जोड़ें बजाय पूरी तरह से रीबिल्ड करने के।  
+- **पुराने डेटा को प्रून करें**: समय‑समय पर उन दस्तावेज़ों को हटाएँ जो अब आवश्यक नहीं हैं।  
+- **मेमोरी सेटिंग्स समायोजित करें**: बड़े इंडेक्स के साथ काम करते समय JVM हीप (`-Xmx`) बढ़ाएँ।  
 
 ## सामान्य समस्याएँ और समाधान
-- **डेट पार्सिंग एरर**: Verify that the document’s date strings exactly match the custom pattern you defined.  
-- **मिसिंग रिज़ल्ट्स**: Ensure the indexed fields contain date metadata; otherwise, the engine cannot match date queries.  
-- **इंडेक्स एक्सेस एक्सेप्शन**: Confirm that the `indexFolder` path is writable and not locked by another process.
+- **डेट पार्सिंग त्रुटियाँ**: सुनिश्चित करें कि दस्तावेज़ की डेट स्ट्रिंग्स आपके द्वारा परिभाषित कस्टम पैटर्न से बिल्कुल मेल खाती हों।  
+- **रिज़ल्ट नहीं मिल रहे**: सुनिश्चित करें कि इंडेक्स्ड फ़ील्ड्स में डेट मेटाडाटा मौजूद हो; अन्यथा, इंजन डेट क्वेरीज़ से मेल नहीं कर पाएगा।  
+- **इंडेक्स एक्सेस एक्सेप्शन**: पुष्टि करें कि `indexFolder` पाथ लिखने योग्य है और किसी अन्य प्रोसेस द्वारा लॉक नहीं है।  
 
 ## व्यावहारिक अनुप्रयोग
-1. **Archival Systems** – Retrieve records from a specific historical period.  
-2. **Content Management** – Support regional date formats like `dd/MM/yyyy` for European audiences.  
-3. **Financial Software** – Filter transactions by fiscal quarter or year quickly.
+1. **आर्काइवल सिस्टम** – किसी विशिष्ट ऐतिहासिक अवधि के रिकॉर्ड पुनः प्राप्त करें।  
+2. **कंटेंट मैनेजमेंट** – यूरोपीय दर्शकों के लिए `dd/MM/yyyy` जैसे क्षेत्रीय डेट फ़ॉर्मेट्स का समर्थन करें।  
+3. **फ़ाइनेंशियल सॉफ़्टवेयर** – लेनदेन को वित्तीय तिमाही या वर्ष के अनुसार तेज़ी से फ़िल्टर करें।  
 
-## निष्कर्ष
-अब आपके पास **custom date format java** टूलबॉक्स है जो GroupDocs.Search के साथ शक्तिशाली डेट‑रेंज सर्च बनाने में मदद करता है। इन पैटर्न को लागू करें, प्रदर्शन को फाइन‑ट्यून करें, और आपका एप्लिकेशन किसी भी समय-संबंधी क्वेरी के लिए तेज़, सटीक परिणाम देगा।
+## यह क्यों महत्वपूर्ण है
+**custom date format java** हैंडलिंग को लागू करने से दस्तावेज़ों में असंगत डेट रिप्रेजेंटेशन से जुड़ी जटिलता दूर होती है। यह आपको एक ही इंडेक्स में **multiple date formats** को संभालने की सुविधा देता है, जिससे अंतिम उपयोगकर्ता को सटीक परिणाम मिलते हैं चाहे डेट्स मूल रूप से कैसे भी रिकॉर्ड की गई हों।
+
+## अगले कदम
+- `AND`, `OR`, और `NOT` ऑपरेटर्स का उपयोग करके अधिक उन्नत क्वेरी संयोजन का अन्वेषण करें।  
+- यदि आपको अतिरिक्त टेम्पोरल मेटाडाटा इंडेक्स करने की जरूरत है तो कस्टम एनालाइज़र के साथ प्रयोग करें।  
+- मिलियन‑डॉक्यूमेंट्स के लिए समाधान को स्केल करने हेतु आधिकारिक दस्तावेज़ में परफ़ॉर्मेंस ट्यूनिंग गाइड देखें।  
 
 ## अक्सर पूछे जाने वाले प्रश्न
 
 **Q: टेक्स्ट फ़ॉर्म और ऑब्जेक्ट‑बेस्ड डेट क्वेरीज़ में क्या अंतर है?**  
-A: Text form is quick and easy but limited to the default ISO format; object‑based queries let you supply `Date` objects and custom formats for greater flexibility.
+A: टेक्स्ट फ़ॉर्म तेज़ और आसान है लेकिन डिफ़ॉल्ट ISO फ़ॉर्मेट तक सीमित है; ऑब्जेक्ट‑बेस्ड क्वेरीज़ आपको `Date` ऑब्जेक्ट्स और कस्टम फ़ॉर्मेट्स प्रदान करने की अनुमति देती हैं जिससे लचीलापन बढ़ता है।
 
 **Q: क्या मैं एक ही क्वेरी में कई डेट रेंज खोज सकता हूँ?**  
-A: Yes, combine `daterange` clauses with logical operators like `AND` or `OR` to build complex queries.
+A: हाँ, `daterange` क्लॉज़ को `AND` या `OR` जैसे लॉजिकल ऑपरेटर्स के साथ मिलाकर जटिल क्वेरी बना सकते हैं।
 
-**Q: क्या कस्टम डेट फ़ॉर्मेट सर्च को धीमा कर देंगे?**  
-A: There is a minor overhead for additional parsing, but the impact is negligible for typical workloads and is outweighed by the accuracy gains.
+**Q: क्या कस्टम डेट फ़ॉर्मेट्स सर्च को धीमा करेंगे?**  
+A: अतिरिक्त पार्सिंग के लिए थोड़ा ओवरहेड होता है, लेकिन सामान्य वर्कलोड के लिए इसका प्रभाव नगण्य है और सटीकता में वृद्धि इसे संतुलित करती है।
 
-**Q: क्या GroupDocs.Search बड़े‑पैमाने पर डिप्लॉयमेंट के लिए उपयुक्त है?**  
-A: Absolutely. With proper indexing strategies and JVM tuning, it scales to millions of documents.
+**Q: क्या GroupDocs.Search बड़े‑पैमाने पर डिप्लॉयमेंट्स के लिए उपयुक्त है?**  
+A: बिल्कुल। उचित इंडेक्सिंग रणनीतियों और JVM ट्यूनिंग के साथ, यह मिलियन‑डॉक्यूमेंट्स तक स्केल करता है।
 
-**Q: मैं और अधिक जावा उदाहरण कहाँ पा सकता हूँ?**  
-A: Explore the [GroupDocs GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) for additional samples and use‑case implementations.
+**Q: अधिक जावा उदाहरण कहाँ मिल सकते हैं?**  
+A: अतिरिक्त सैंपल्स और यूज़‑केस इम्प्लीमेंटेशन के लिए [GroupDocs GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) देखें।
 
 ---
 
 **संसाधन**
-
 - **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
 - **Download**: [Get the latest version here](https://releases.groupdocs.com/search/java/)  
@@ -208,6 +212,6 @@ A: Explore the [GroupDocs GitHub repository](https://github.com/groupdocs-search
 - **Free Support Forum**: [Join the discussion](https://forum.groupdocs.com/c/search/10)  
 - **Temporary License**: [Acquire a temporary license here](https://purchase.groupdocs.com/temporary-license/)  
 
-**Last Updated:** 2025-12-18  
-**Tested With:** GroupDocs.Search Java 25.4  
-**Author:** GroupDocs
+**अंतिम अपडेट:** 2026-03-04  
+**परीक्षित संस्करण:** GroupDocs.Search Java 25.4  
+**लेखक:** GroupDocs

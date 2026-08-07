@@ -1,57 +1,57 @@
 ---
-date: '2025-12-19'
-description: Naučte se, jak přidávat synonyma, vyhledávat se synonyma a spravovat
-  skupiny synonym v Javě pomocí GroupDocs.Search. Zvyšte výkon a spolehlivost svého
-  vyhledávacího indexu.
+date: '2026-03-04'
+description: Naučte se vyhledávat se synonymy v Javě pomocí GroupDocs.Search, importovat
+  slovníky synonym, spravovat skupiny synonym a optimalizovat svůj vyhledávací index
+  pro lepší výsledky.
 keywords:
 - synonym dictionaries java
 - groupdocs.search synonym implementation
 - java search functionality enhancement
-title: Jak přidat synonyma v Javě pomocí GroupDocs.Search – komplexní průvodce
+title: Jak vyhledávat se synonymy v Javě pomocí GroupDocs.Search – komplexní průvodce
 type: docs
 url: /cs/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/
 weight: 1
 ---
 
-# Jak přidat synonyma v Javě pomocí GroupDocs.Search
+# Jak vyhledávat se synonymy v Javě pomocí GroupDocs.Search
 
-Welcome to our comprehensive guide on **how to add synonyms** in Java with GroupDocs.Search. Whether you’re building a content‑rich CMS, an e‑commerce catalog, or a document repository, enabling synonym support can dramatically improve the discoverability of your data. In this tutorial you’ll learn to create and manage synonym dictionaries, import synonym dictionary files, and optimize your search index for fast, accurate results.
+Pokud chcete, aby vaši uživatelé našli správný obsah i při zadání různých slov, **vyhledávání se synonymy** je řešením. V tomto průvodci projdeme vše, co potřebujete vědět — vytvoření slovníku synonym, import/export, správu skupin synonym a nakonec spuštění vyhledávání, které automaticky rozšiřuje dotazy pomocí těchto synonym. Ať už budujete CMS, e‑commerce katalog nebo úložiště právních dokumentů, přidání podpory synonym může dramaticky zvýšit relevanci a míru konverze.
 
-## Quick Answers
-- **Jaký je hlavní krok pro přidání synonym?** Initialize an `Index` and use the `SynonymDictionary` API.  
-- **Mohu importovat slovník synonym?** Yes – use `importDictionary(path)` to load a pre‑built file.  
-- **Jak povolit vyhledávání se synonyma?** Set `SearchOptions.setUseSynonymSearch(true)`.  
-- **Je možné spravovat skupiny synonym?** Absolutely – you can clear, add, or retrieve groups via the dictionary API.  
-- **Co byste měli zvážit při optimalizaci vyhledávacího indexu?** Regularly prune unused entries and tune JVM heap for large datasets.  
+## Rychlé odpovědi
+- **Jaký je hlavní krok pro přidání synonym?** Inicializujte `Index` a použijte API `SynonymDictionary`.  
+- **Mohu importovat slovník synonym?** Ano — použijte `importDictionary(path)` k načtení předem vytvořeného souboru.  
+- **Jak povolit vyhledávání se synonymy?** Nastavte `SearchOptions.setUseSynonymSearch(true)`.  
+- **Je možné spravovat skupiny synonym?** Rozhodně — můžete vymazat, přidat nebo načíst skupiny přes API slovníku.  
+- **Co je třeba zvážit při optimalizaci vyhledávacího indexu?** Pravidelně odstraňujte nepoužívané položky a laděte JVM heap pro velké datové sady.  
 
-## Co znamená „Jak přidat synonyma“?
-Adding synonyms means defining alternative words or phrases that the search engine treats as equivalent. This allows a query like **“better”** to also match documents containing **“improve”**, **“enhance”**, or **“upgrade”**.
+## Co je vyhledávání se synonymy?
+„Vyhledávání se synonymy“ znamená, že engine považuje sadu slov nebo frází za zaměnitelné. Když uživatel napíše **„better“**, engine také hledá **„improve“**, **„enhance“** nebo jakýkoli jiný termín, který jste definovali ve stejné skupině synonym, a tak poskytuje bohatší výsledky, aniž by měnil uživatelův dotaz.
 
-## Why Use Synonym Support in GroupDocs.Search?
-- **Zlepšená uživatelská zkušenost:** Users find relevant content even if they use different terminology.  
-- **Vyšší míra konverze:** E‑commerce sites capture more sales by matching varied product queries.  
-- **Snížená údržba:** One dictionary can serve multiple applications, simplifying updates.  
+## Proč povolit podporu synonym v GroupDocs.Search?
+- **Lepší uživatelská zkušenost:** Návštěvníci najdou relevantní dokumenty i při použití odlišné terminologie.  
+- **Vyšší míra konverze:** E‑commerce platformy zachytí více prodejů díky shodě různých výrazů produktů.  
+- **Zjednodušená údržba:** Jeden centrální slovník může sloužit více aplikacím, což usnadňuje aktualizace.  
 
-## Prerequisites
-- **GroupDocs.Search pro Javu** version 25.4 or newer.  
-- A Java IDE (IntelliJ IDEA, Eclipse, etc.) with Maven support.  
-- Basic Java knowledge and familiarity with Maven project structure.
+## Předpoklady
+- GroupDocs.Search for Java verze 25.4 nebo novější.  
+- Java IDE (IntelliJ IDEA, Eclipse, atd.) s podporou Maven.  
+- Základní znalost Javy a povědomí o struktuře Maven projektu.
 
 ### Požadované knihovny a verze
-- GroupDocs.Search pro Javu version 25.4 or higher.
+- GroupDocs.Search for Java verze 25.4 nebo vyšší.
 
 ### Nastavení prostředí
-- IDE dle vašeho výběru (IntelliJ IDEA, Eclipse, etc.).  
-- Maven for dependency management.
+- IDE dle vašeho výběru (IntelliJ IDEA, Eclipse, atd.).  
+- Maven pro správu závislostí.
 
-### Požadavky na znalosti
-- Object‑oriented programming in Java.  
-- Basic file I/O operations.
+### Požadované znalosti
+- Objektově orientované programování v Javě.  
+- Základní operace se soubory (I/O).
 
-## Setting Up GroupDocs.Search for Java
+## Nastavení GroupDocs.Search pro Javu
 
-### Installation Information
-Add the repository and dependency to your `pom.xml`:
+### Informace o instalaci
+Přidejte repozitář a závislost do svého `pom.xml`:
 
 ```xml
 <repositories>
@@ -71,15 +71,15 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-**Direct Download** – you can also download the latest JAR from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+**Direct Download** – můžete také stáhnout nejnovější JAR z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
-- **Free Trial:** Test core features without a license.  
-- **Temporary License:** Extend trial capabilities during evaluation.  
-- **Purchase:** Required for production use and full feature set.
+### Získání licence
+- **Free Trial:** Otestujte základní funkce bez licence.  
+- **Temporary License:** Prodloužte možnosti zkušební verze během hodnocení.  
+- **Purchase:** Požadováno pro produkční nasazení a plnou sadu funkcí.
 
-#### Basic Initialization and Setup
-Create an `Index` instance, then add documents to be searchable:
+#### Základní inicializace a nastavení
+Vytvořte instanci `Index`, poté přidejte dokumenty, které mají být prohledávatelné:
 
 ```java
 import com.groupdocs.search.*;
@@ -95,7 +95,7 @@ index.add(documentsFolder);
 ```
 
 ## Jak přidat synonyma do vašeho vyhledávacího indexu
-Creating an index is the foundation. Below we walk through the essential steps, each paired with the exact code you need.
+Vytvoření indexu je základem. Níže projdeme nezbytné kroky, každé doprovázené přesným kódem, který potřebujete.
 
 ### Funkce 1: Vytvoření a indexování indexu
 ```java
@@ -151,60 +151,64 @@ options.setUseSynonymSearch(true);
 SearchResult result = index.search(query, options);
 ```
 
-## Jak vyhledávat se synonyma
-By enabling `setUseSynonymSearch(true)`, the engine automatically expands the query using the synonym dictionary you built or imported. This step is crucial for delivering richer results without changing the user's search behavior.
+## Jak vyhledávat se synonymy
+Povolením `setUseSynonymSearch(true)` engine automaticky rozšiřuje dotaz pomocí slovníku synonym, který jste vytvořili nebo importovali. Tento krok je klíčový pro poskytování bohatších výsledků, aniž by se měnilo chování uživatele při vyhledávání.
 
 ## Jak importovat slovník synonym
-If you already have a `.dat` file prepared by another environment, simply call `importDictionary(path)`. This is ideal for synchronizing dictionaries across development, staging, and production servers.
+Pokud již máte připravený soubor `.dat` z jiného prostředí, jednoduše zavolejte `importDictionary(path)`. To je ideální pro synchronizaci slovníků mezi vývojovými, testovacími a produkčními servery.
 
 ## Jak spravovat skupiny synonym
-Synonym groups let you treat a set of terms as a single logical entity. Adding, clearing, or retrieving groups is done through the `SynonymDictionary` API, as shown in the code snippets above.
+Skupiny synonym vám umožňují považovat sadu termínů za jeden logický celek. Přidávání, mazání nebo načítání skupin se provádí přes API `SynonymDictionary`, jak je ukázáno v kódech výše.
 
 ## Jak optimalizovat vyhledávací index
-- **Pravidelně odstraňujte nepoužívané položky:** Use `clear()` before bulk updates.  
-- **Upravte haldu JVM:** Large dictionaries may require more memory.  
-- **Udržujte knihovnu aktuální:** New releases contain performance improvements.
+- **Regularly prune unused entries:** Použijte `clear()` před hromadnými aktualizacemi.  
+- **Adjust JVM heap:** Velké slovníky mohou vyžadovat více paměti.  
+- **Keep the library up‑to‑date:** Nové vydání obsahuje vylepšení výkonu.
 
 ## Praktické aplikace
-1. **Systémy pro správu obsahu (CMS):** Users find articles even when they use alternative terminology.  
-2. **E‑commerce platformy:** Product searches become tolerant to synonyms like “laptop” vs. “notebook”.  
-3. **Úložiště dokumentů:** Legal or medical archives benefit from domain‑specific synonym groups.
+1. **Content Management Systems (CMS):** Uživatelé najdou články i při použití alternativní terminologie.  
+2. **E‑commerce Platforms:** Vyhledávání produktů toleruje synonyma jako „laptop“ vs. „notebook“.  
+3. **Document Repositories:** Právní nebo medicínské archivy těží z doménově specifických skupin synonym.
 
 ## Úvahy o výkonu
-- **Optimalizujte úložiště indexu:** Periodically rebuild the index to remove stale data.  
-- **Spravujte využití paměti:** Monitor heap consumption when loading large synonym files.  
-- **Pravidelné aktualizace:** Stay on the latest GroupDocs.Search version for bug fixes and speed gains.
+- **Optimize Index Storage:** Pravidelně přestavujte index, aby se odstranily zastaralá data.  
+- **Manage Memory Usage:** Sledujte spotřebu heapu při načítání velkých souborů synonym.  
+- **Regular Updates:** Zůstávejte na nejnovější verzi GroupDocs.Search pro opravy chyb a zrychlení.
 
-## Závěr
-You now have a complete, step‑by‑step roadmap for **how to add synonyms**, import synonym dictionary files, manage synonym groups, and **search with synonyms** using GroupDocs.Search for Java. Apply these techniques to boost relevance, improve user satisfaction, and keep your search index performing at its best.
+## Časté problémy a řešení
+| Problém | Pravděpodobná příčina | Oprava |
+|-------|--------------|-----|
+| Neobjevují se žádné shody synonym | `setUseSynonymSearch(true)` není nastaveno nebo slovník nebyl importován | Ověřte, že je volba povolena a že soubor slovníku existuje. |
+| Chyby out‑of‑memory během importu | Velmi velký `.dat` soubor přesahuje JVM heap | Zvyšte velikost heapu `-Xmx` nebo importujte po menších částech. |
+| Duplicitní položky ve výsledcích | Stejný termín se vyskytuje ve více skupinách synonym | Konsolidujte překrývající se skupiny pomocí `clear()` a následně `addRange()`. |
 
 ## Často kladené otázky
 
 **Q: Jaký je minimální systémový požadavek pro používání GroupDocs.Search?**  
-A: Any modern OS with a compatible JDK (Java 8 or newer) is sufficient.
+A: Jakýkoli moderní operační systém s kompatibilní JDK (Java 8 nebo novější) je dostačující.
 
 **Q: Jak často bych měl aktualizovat svůj slovník synonym?**  
-A: Update it whenever new terminology emerges—use `clear()` followed by `addRange()` for a clean refresh.
+A: Aktualizujte jej vždy, když se objeví nová terminologie — použijte `clear()` následované `addRange()` pro čistý refresh.
 
-**Q: Mohu spustit GroupDocs.Search bez zakoupení licence?**  
-A: A free trial works for evaluation, but a license is required for production deployments.
+**Q: Můžu spustit GroupDocs.Search bez zakoupení licence?**  
+A: Zkušební verze funguje pro hodnocení, ale licence je vyžadována pro produkční nasazení.
 
 **Q: Jaké jsou osvědčené postupy pro indexování velkých datových sad?**  
-A: Split data into logical batches, monitor heap usage, and schedule regular index maintenance.
+A: Rozdělte data do logických batchí, monitorujte využití heapu a naplánujte pravidelnou údržbu indexu.
 
-**Q: Nevidím očekávané shody synonym – co mám zkontrolovat?**  
-A: Verify that the dictionary is correctly imported, that `setUseSynonymSearch(true)` is active, and that the terms are present in the synonym groups.
+**Q: Nevidím očekávané shody synonym — co mám zkontrolovat?**  
+A: Ověřte, že je slovník správně importován, že je aktivní `setUseSynonymSearch(true)` a že požadované termíny jsou obsaženy ve skupinách synonym.
 
 **Zdroje**  
-- [Dokumentace](https://docs.groupdocs.com/search/java/)  
-- [API reference](https://reference.groupdocs.com/search/java)  
-- [Stáhnout GroupDocs.Search pro Javu](https://releases.groupdocs.com/search/java/)  
-- [GitHub repozitář](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- [Bezplatné fórum podpory](https://forum.groupdocs.com/c/search/10)  
-- [Získání dočasné licence](https://purchase.groupdocs.com/temporary-license/)
+- [Documentation](https://docs.groupdocs.com/search/java/)  
+- [API Reference](https://reference.groupdocs.com/search/java)  
+- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
+- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
+- [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Last Updated:** 2025-12-19  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
+**Poslední aktualizace:** 2026-03-04  
+**Testováno s:** GroupDocs.Search 25.4 for Java  
+**Autor:** GroupDocs

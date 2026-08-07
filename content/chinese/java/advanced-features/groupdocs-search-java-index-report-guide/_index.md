@@ -1,49 +1,49 @@
 ---
-date: '2025-12-18'
-description: 了解如何在 Java 中使用 GroupDocs.Search 创建索引。本指南涵盖索引、添加文档以及报告，以实现最佳搜索性能。
+date: '2026-03-04'
+description: 学习如何使用 GroupDocs.Search 在 Java 中创建索引。本指南涵盖索引、添加文档和报告，以实现最佳搜索性能。
 keywords:
 - GroupDocs.Search Java
 - document indexing
 - search reporting
-title: 使用 GroupDocs.Search 在 Java 中创建索引 | 全面的索引与报告指南
+title: 使用 GroupDocs.Search 在 Java 中创建索引 | 综合索引与报告指南
 type: docs
 url: /zh/java/advanced-features/groupdocs-search-java-index-report-guide/
 weight: 1
 ---
 
-# 使用 GroupDocs.Search 创建 Java 索引 | 全面的索引与报告指南
+# 使用 GroupDocs.Search 创建 Java 索引 | 综合索引与报告指南
 
-在当今数据驱动的世界，**create index java** 是构建快速、可靠搜索体验的基础步骤。无论您在管理法律合同、客户记录，还是任何大型文档库，精心构建的索引都能让您在毫秒级检索信息。在本教程中，您将学习如何设置 GroupDocs.Search、创建索引、添加文档以及生成详细报告——同时关注性能与可扩展性。
+在当今数据驱动的世界中，**create index java** 是构建快速、可靠搜索体验的基础步骤。无论您是管理法律合同、客户记录，还是任何大型文档库，精心构建的索引都能让您在毫秒级检索信息。在本教程中，您将学习如何设置 GroupDocs.Search、创建索引、添加文档以及生成详细报告——同时关注性能和可扩展性。
 
 ## 快速答案
-- **创建 index java 的第一步是什么？** 初始化指向索引文件夹的 `Index` 对象。  
+- **创建 index java 的第一步是什么？** 初始化一个指向索引文件夹的 `Index` 对象。  
 - **哪个库提供 java 文档索引？** GroupDocs.Search for Java。  
-- **如何将文档 java 添加到已有索引？** 对每个文件夹使用 `index.add(path)` 方法。  
-- **哪种工具有助于优化搜索性能？** 定期增量索引和适当的内存设置。  
-- **是否有示例 java 搜索代码？** 以下代码片段演示了完整的端到端工作流。
+- **如何将 java 文档添加到现有索引？** 对每个文件夹使用 `index.add(path)` 方法。  
+- **什么工具有助于优化搜索性能？** 定期增量索引和适当的内存设置。  
+- **是否有 java 搜索示例？** 以下代码片段演示了完整的端到端工作流。
 
-## 您将学到的内容
-- 使用 GroupDocs.Search **create index java**  
-- 将 **add documents java** 添加到已有索引的技巧  
-- 检索并展示用于 **optimize search performance** 的索引报告  
-- 实际案例与 **java document indexing** 的技巧  
+## 您将学习的内容
+- 如何使用 GroupDocs.Search **create index java**  
+- 在现有索引中进行 **add documents to index** 和 **add files to index** 的技术  
+- 检索并显示用于 **optimize search performance** 的索引报告  
+- **java document indexing** 的真实案例和技巧  
 
 ## 前置条件
 
 ### 必需的库和版本
 - **GroupDocs.Search for Java**：版本 25.4 或更高  
-- **Java Development Kit (JDK)**：已正确安装并配置  
+- **Java Development Kit (JDK)**：已正确安装和配置  
 
-### 环境搭建要求
+### 环境设置要求
 建议使用 IntelliJ IDEA、Eclipse 或 NetBeans 等 IDE 来运行代码片段。
 
 ### 知识前提
-基本的 Java 概念（类、方法、文件处理）以及对 Maven 的熟悉度将帮助您顺利跟进。
+基本的 Java 概念（类、方法、文件处理）以及对 Maven 的熟悉将帮助您顺利跟进。
 
-## 为 Java 设置 GroupDocs.Search
+## Setting Up GroupDocs.Search for Java
 
-### Maven 配置
-在 `pom.xml` 中添加仓库和依赖：
+### Maven 设置
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -64,15 +64,15 @@ weight: 1
 ```
 
 ### 直接下载
-您也可以从官方发布页面获取库：[GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)。
+您也可以从官方发布页面获取库文件：[GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### 许可证获取步骤
+### 获取许可证的步骤
 1. **免费试用** – 注册免费试用以探索 GroupDocs 功能。  
 2. **临时许可证** – 访问[临时许可证页面](https://purchase.groupdocs.com/temporary-license/)获取用于扩展测试的临时许可证。  
-3. **购买** – 对于生产使用，请考虑从[GroupDocs 网站](https://purchase.groupdocs.com/)购买完整许可证。
+3. **购买** – 对于生产使用，建议从[GroupDocs 网站](https://purchase.groupdocs.com/)购买完整许可证。  
 
-### 基本初始化与设置
-创建指向存放索引文件的文件夹的 `Index` 实例：
+### 基本初始化和设置
+Create an `Index` instance that points to the folder where index files will be stored:
 
 ```java
 import com.groupdocs.search.*;
@@ -86,9 +86,9 @@ public class InitializeSearch {
 }
 ```
 
-## 实现指南
+## 实施指南
 
-### 如何使用 GroupDocs.Search create index java
+### 如何使用 GroupDocs.Search 创建 index java
 创建索引是为文档集合启用搜索功能的第一步。下面是一个最小示例，用于设置索引文件夹。
 
 ```java
@@ -103,10 +103,10 @@ public class CreateIndexFeature {
 }
 ```
 
-**说明：** `Index` 构造函数接收所有索引数据将存储的路径。该文件夹成为您 **java document indexing** 解决方案的核心。
+**说明：** `Index` 构造函数接收存放所有索引数据的路径。该文件夹成为您的 **java document indexing** 解决方案的核心。
 
-### 将文档 java 添加到索引
-索引创建后，您可以从一个或多个目录中填充文件。
+### 将文档添加到索引
+索引创建后，您可以从一个或多个目录中填充文件。此步骤演示了 **add documents to index** 工作流。
 
 ```java
 import com.groupdocs.search.*;
@@ -127,10 +127,10 @@ public class AddDocumentsToIndexFeature {
 }
 ```
 
-**说明：** `add()` 方法接受文件夹路径并索引其中的所有支持文件。这是 **add documents java** 工作流的核心，并在您多次调用时支持增量索引。
+**说明：** `add()` 方法接受文件夹路径并索引其中的所有支持的文件。这是 **add files to index** 工作流的核心，并在您重复调用时支持增量索引。
 
 ### 获取并显示索引报告
-索引完成后，您通常希望查看帮助 **optimize search performance** 的统计信息。
+索引完成后，您通常会想查看有助于 **optimize search performance** 的统计信息。
 
 ```java
 import com.groupdocs.search.*;
@@ -155,56 +155,60 @@ public class GetIndexingReportsFeature {
 }
 ```
 
-**说明：** 此代码片段获取 `IndexingReport` 对象，其中包含时间戳、文档计数、词项计和大小指标——这些是监控并 **optimize search performance** 的关键数据。
+**说明：** 此代码片段获取包含时间戳、文档计数、词项计数和大小指标的 `IndexingReport` 对象——这些是监控并 **optimize search performance** 的关键数据。
+
+## 为什么 create index java 很重要
+精心设计的索引可以降低查询延迟、减轻服务器负载，并在文档集合增长时平稳扩展。掌握 **create index java**，您就为模糊匹配、分面导航和实时建议等强大搜索功能奠定基础。
 
 ## 实际应用
-GroupDocs.Search 可嵌入许多真实系统：
+GroupDocs.Search 可以嵌入许多真实系统：
 
 1. **法律文档管理** – 快速定位案件文件或法规。  
 2. **客户支持门户** – 即时检索过去的工单和解决方案。  
-3. **企业内容管理 (ECM)** – 跨整个企业仓库进行索引和搜索。
+3. **企业内容管理 (ECM)** – 对整个企业仓库进行索引和搜索。
 
 ## 性能考虑
 为了保持 **java search example** 的快速响应：
 
 - **Incremental indexing java** – 定期添加新文件，而不是重新构建整个索引。  
-- **内存调优** – 调整 JVM 堆大小并为大数据集启用 G1GC。  
-- **报告监控** – 使用索引报告及早发现瓶颈。
+- **Memory tuning** – 调整 JVM 堆大小并为大数据集启用 G1GC。  
+- **Report monitoring** – 使用索引报告提前发现瓶颈。
 
-## 常见问题与解决方案
+## 常见问题及解决方案
+
 | 问题 | 解决方案 |
-|-------|----------|
-| **OutOfMemoryError** 在大批量索引期间出现 | 增加 JVM `-Xmx` 参数值，并考虑将索引拆分为更小的批次。 |
-| **Unsupported file format** 错误 | 确认文件类型在 GroupDocs.Search 支持的格式列表中（DOCX、PDF、TXT 等）。 |
-| **添加文件后索引未更新** | 确保在同一 `Index` 实例上调用 `index.add()`，或在更改后重新打开索引。 |
+|------|----------|
+| **OutOfMemoryError** 在大批量索引期间 | 增加 JVM `-Xmx` 值，并考虑将索引分成更小的批次。 |
+| **Unsupported file format** 错误 | 确认文件类型属于 GroupDocs.Search 支持的格式（DOCX、PDF、TXT 等）。 |
+| **Index not updating** 添加文件后 | 确保在同一 `Index` 实例上调用 `index.add()`，或在更改后重新打开索引。 |
 
-## 常见问答
+## 常见问题解答
 
-**问：我可以使用 GroupDocs.Search 索引不同的文档格式吗？**  
-答：可以，支持 DOCX、PDF、TXT、HTML 等多种常见格式。
+**Q: 我可以使用 GroupDocs.Search 索引不同的文档格式吗？**  
+A: 是的，它支持 DOCX、PDF、TXT、HTML 等多种常见格式。
 
-**问：是否有办法在新文档到达时自动更新索引？**  
-答：完全可以——在自动化任务（如计划任务）中使用 `add()` 方法实现 **incremental indexing java**。
+**Q: 是否有办法在新文档到达时自动更新索引？**  
+A: 当然——在自动化任务（例如计划任务）中使用 `add()` 方法进行 **incremental indexing java**。
 
-**问：如何提升对超大数据集的搜索速度？**  
-答：结合 **incremental indexing java**、适当的 JVM 内存设置，并定期审查索引报告以微调性能。
+**Q: 如何提升对非常大数据集的搜索速度？**  
+A: 将 **incremental indexing java** 与适当的 JVM 内存设置相结合，并定期审查索引报告以微调性能。
 
-**问：GroupDocs.Search 能处理多语言内容吗？**  
-答：可以，只需确保启用了相应的语言分析器。
+**Q: GroupDocs.Search 能处理多语言内容吗？**  
+A: 能，它可以索引多种语言；只需确保已启用相应的语言分析器。
 
-**问：GroupDocs.Search Java 是否提供免费试用？**  
-答：提供，您可以在 GroupDocs 网站上注册免费试用，以评估全部功能后再决定购买。
+**Q: GroupDocs.Search Java 是否提供免费试用？**  
+A: 是的，您可以在 GroupDocs 网站上注册免费试用，以在购买前评估所有功能。
 
 ## 结论
-通过上述步骤，您已经掌握了如何 **create index java**、添加文档以及使用 GroupDocs.Search 生成有价值的报告。这一基础使您能够构建强大的搜索体验，保持索引最新，并在文档集合增长时维持高性能。
+通过上述步骤，您现在了解如何使用 GroupDocs.Search **create index java**、添加文档并生成有洞察力的报告。此基础使您能够构建强大的搜索体验，保持索引最新，并在文档集合增长时保持高性能。
 
-### 后续步骤
-- 探索模糊搜索、同义词处理等高级查询功能。  
-- 将索引与 Web 服务或 REST API 集成，实现实时搜索。  
-- 试验使用云存储（AWS S3、Azure Blob）作为文档来源，以实现可扩展的索引。
+### 下一步
+- 探索高级查询功能，如模糊搜索和同义词处理。  
+- 将索引与 Web 服务或 REST API 集成，以在应用中实现实时搜索。  
+- 尝试使用云存储（AWS S3、Azure Blob）作为文档来源，以实现可扩展的索引。
 
 ---
 
-**最后更新：** 2025-12-18  
+**最后更新：** 2026-03-04  
 **测试环境：** GroupDocs.Search 25.4 for Java  
 **作者：** GroupDocs

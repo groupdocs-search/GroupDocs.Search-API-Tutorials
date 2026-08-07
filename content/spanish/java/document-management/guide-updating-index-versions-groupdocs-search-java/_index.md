@@ -1,38 +1,37 @@
 ---
-date: '2025-12-22'
-description: Aprende cómo gestionar versiones de índices en Java usando GroupDocs.Search
-  para Java. Esta guía explica la actualización de índices, la configuración de la
-  dependencia Maven de GroupDocs y la optimización del rendimiento.
+date: '2026-03-04'
+description: Aprenda cómo actualizar el índice Java usando GroupDocs.Search para Java.
+  Esta guía cubre la incorporación de documentos al índice, la actualización del índice
+  de búsqueda, la configuración de Maven y consejos de rendimiento.
 keywords:
 - GroupDocs.Search for Java
 - document indexing
 - index version update
-title: 'Cómo gestionar versiones de índice en Java con GroupDocs.Search - una guía
-  completa'
+title: Cómo actualizar el índice Java con GroupDocs.Search – Una guía completa
 type: docs
 url: /es/java/document-management/guide-updating-index-versions-groupdocs-search-java/
 weight: 1
 ---
 
-# Cómo gestionar versiones de índices Java con GroupDocs.Search - una guía completa
+# Cómo actualizar el índice Java con GroupDocs.Search – Una guía completa
 
-En el mundo acelerado de la gestión de datos, **manage index versions java** es esencial para mantener tu experiencia de búsqueda rápida y confiable. Con GroupDocs.Search para Java, puedes actualizar y gestionar documentos indexados y versiones de manera fluida, asegurando que cada consulta devuelva los resultados más actuales.
+Mantener tu índice de búsqueda actualizado es una piedra angular de cualquier aplicación de alto rendimiento. En este tutorial aprenderás **cómo actualizar el índice java** con GroupDocs.Search, cubriendo todo, desde agregar documentos al índice, hasta actualizar versiones del índice de búsqueda y afinar el rendimiento. Ya sea que mantengas un CMS, un repositorio legal o un almacén de datos a gran escala, los pasos a continuación te ayudarán a que los resultados de búsqueda sean rápidos y precisos.
 
 ## Respuestas rápidas
-- **¿Qué significa “manage index versions java”?** Se refiere a actualizar y mantener la versión de un índice de búsqueda para que siga siendo compatible con versiones más nuevas de la biblioteca.  
-- **¿Qué artefacto Maven se requiere?** El artefacto `groupdocs-search`, añadido mediante una dependencia Maven.  
-- **¿Necesito una licencia para probarlo?** Sí, hay una licencia de prueba gratuita disponible para evaluación.  
-- **¿Puedo actualizar índices en paralelo?** Absolutamente, usa `UpdateOptions` para habilitar actualizaciones multihilo.  
-- **¿Este enfoque es eficiente en memoria?** Cuando se usa con la configuración adecuada de hilos y limpiezas regulares, minimiza el consumo del heap de Java.
+- **¿Qué significa “update index java”?** Es el proceso de refrescar el índice en disco para que refleje los últimos cambios en los documentos y la versión de la biblioteca.  
+- **¿Qué artefacto Maven necesito?** Añade la dependencia `groupdocs-search` a tu `pom.xml`.  
+- **¿Necesito una licencia para probarlo?** Sí – hay una licencia de prueba gratuita disponible para evaluación.  
+- **¿Puedo actualizar índices en paralelo?** Absolutamente – configura `UpdateOptions` con varios hilos.  
+- **¿Este enfoque es eficiente en memoria?** Los ajustes adecuados de hilos y limpiezas regulares mantienen bajo el uso del heap de Java.
 
-## ¿Qué es “manage index versions java”?
-Gestionar versiones de índices en Java significa mantener la estructura del índice en disco sincronizada con la versión de la biblioteca GroupDocs.Search que estás utilizando. Cuando la biblioteca evoluciona, los índices antiguos pueden necesitar ser actualizados para seguir siendo buscables.
+## ¿Qué es “update index java”?
+Actualizar un índice en Java significa sincronizar la estructura del índice en disco con el conjunto actual de documentos fuente y la versión de la biblioteca GroupDocs.Search que estás usando. Cuando la biblioteca evoluciona, también puede ser necesario **upgrade search index** para mantener la compatibilidad.
 
 ## ¿Por qué usar GroupDocs.Search para Java?
-- **Búsqueda de texto completo robusta** en muchos formatos de documento.  
-- **Integración sencilla** con builds de Maven y Gradle.  
+- **Búsqueda de texto completo robusta** en docenas de formatos de documento.  
+- **Integración fluida con Maven/Gradle** para compilaciones automatizadas.  
 - **Gestión de versiones incorporada** que protege tu inversión a medida que la biblioteca se actualiza.  
-- **Rendimiento escalable** con indexación y actualización multihilo.
+- **Indexación multihilo escalable** para conjuntos de datos grandes.
 
 ## Requisitos previos
 - Java Development Kit (JDK) 8 o superior.  
@@ -71,7 +70,7 @@ Alternativamente, puedes [descargar la última versión directamente](https://re
 ### Obtención de licencia
 GroupDocs ofrece una licencia de prueba gratuita que te permite explorar todas las funciones sin restricciones. Obtén una licencia temporal desde el [portal de compra](https://purchase.groupdocs.com/temporary-license/). Para producción, adquiere una licencia completa.
 
-### Inicialización y configuración básicas
+### Inicialización y configuración básica
 ```java
 import com.groupdocs.search.Index;
 
@@ -84,8 +83,8 @@ Index index = new Index(indexFolder);
 
 ## Guía de implementación
 
-### Actualizar documentos indexados
-Mantener tu índice sincronizado con los archivos fuente es una parte central de **manage index versions java**.
+### Actualizar documentos indexados – **add documents to index**
+Mantener tu índice sincronizado con los archivos fuente es una parte esencial de **update index java**.
 
 #### Implementación paso a paso
 **1. Definir rutas de directorio**  
@@ -140,10 +139,10 @@ SearchResult searchResult2 = index.search(query);
 **Consejos de solución de problemas**
 - Verifica que todas las rutas de archivo sean correctas y accesibles.  
 - Asegúrate de que el proceso tenga permisos de lectura/escritura en la carpeta del índice.  
-- Monitorea el uso de CPU y memoria al incrementar la cantidad de hilos.
+- Monitorea el uso de CPU y memoria al incrementar el número de hilos.
 
-### Actualizar versión del índice
-Cuando actualizas GroupDocs.Search, puede que necesites **manage index versions java** para que los índices existentes sigan siendo utilizables.
+### Actualizar versión del índice – **upgrade search index**
+Cuando actualizas GroupDocs.Search, puede que necesites **upgrade search index** para que los índices existentes sigan siendo utilizables.
 
 #### Implementación paso a paso
 **1. Definir rutas de directorio**  
@@ -173,19 +172,27 @@ if (updater.canUpdateVersion(sourceIndexFolder)) {
 ```
 
 **Consejos de solución de problemas**
-- Confirma que el índice fuente fue creado con una versión anterior compatible.  
+- Confirma que el índice fuente se creó con una versión anterior compatible.  
 - Asegúrate de disponer de suficiente espacio en disco para la carpeta del índice de destino.  
 - Actualiza todas las dependencias Maven a la misma versión para evitar problemas de compatibilidad.
 
 ## Aplicaciones prácticas
 1. **Sistemas de gestión de contenidos** – Mantén los índices de búsqueda actualizados a medida que se añaden o editan artículos, PDFs e imágenes.  
-2. **Repositorios de documentos legales** – Refleja automáticamente enmiendas a contratos, estatutos y expedientes judiciales.  
+2. **Repositorios de documentos legales** – Refleja automáticamente enmiendas a contratos, estatutos y expedientes.  
 3. **Almacenes de datos empresariales** – Refresca regularmente los datos indexados para obtener análisis e informes precisos.
 
 ## Consideraciones de rendimiento
-- **Gestión de hilos** – Usa el multihilo con prudencia; demasiados hilos pueden generar presión en el recolector de basura.  
-- **Monitoreo de memoria** – Llama periódicamente a `System.gc()` o utiliza herramientas de perfilado para observar el uso del heap.  
-- **Optimización de consultas** – Redacta cadenas de búsqueda concisas y aprovecha los filtros para reducir el tamaño del conjunto de resultados.
+- **Gestión de hilos** – Usa la multihilación con sensatez; demasiados hilos pueden generar presión en el GC.  
+- **Monitoreo de memoria** – Llama periódicamente a `System.gc()` o usa herramientas de perfilado para observar el uso del heap.  
+- **Optimización de consultas** – Escribe cadenas de búsqueda concisas y aprovecha los filtros para reducir el tamaño del conjunto de resultados.
+
+## Problemas comunes y soluciones
+| Síntoma | Causa probable | Solución |
+|---------|----------------|----------|
+| `Index not found` error | Ruta de carpeta incorrecta | Verifica `indexFolder` y asegura que el directorio exista. |
+| Out‑of‑memory durante la actualización | Número excesivo de hilos | Reduce `options.setThreads()` o incrementa el heap (`-Xmx`). |
+| No hay resultados después de actualizar la versión | Índice antiguo incompatible | Verifica que `updater.canUpdateVersion()` devuelva `true` antes de continuar. |
+| Excepción de licencia | Licencia de prueba expirada | Solicita una nueva prueba o aplica una clave de licencia comprada. |
 
 ## Preguntas frecuentes
 
@@ -195,8 +202,8 @@ R: Sí, siempre que el índice antiguo siga siendo legible por la biblioteca; el
 **P: ¿Necesito recrear el índice después de cada actualización de la biblioteca?**  
 R: No necesariamente. Actualizar la versión del índice es suficiente en la mayoría de los casos, ahorrando tiempo y recursos.
 
-**P: ¿Cuántos hilos debo usar para índices grandes?**  
-R: Comienza con 2‑4 hilos y monitorea el uso de CPU; incrementa solo si el sistema tiene núcleos y memoria disponibles.
+**P: ¿Cuántos hilos debería usar para índices grandes?**  
+R: Comienza con 2‑4 hilos y monitorea el uso de CPU; incrementa solo si el sistema tiene núcleos y memoria libres.
 
 **P: ¿Una licencia de prueba es suficiente para pruebas de producción?**  
 R: La licencia de prueba elimina los límites de funciones, lo que la hace ideal para entornos de desarrollo y QA.
@@ -205,15 +212,15 @@ R: La licencia de prueba elimina los límites de funciones, lo que la hace ideal
 R: La estructura del índice se migra, pero el contenido buscable permanece sin cambios, por lo que los resultados siguen siendo consistentes.
 
 ## Conclusión
-Siguiendo los pasos anteriores, ahora tienes una comprensión sólida de cómo **manage index versions java** con GroupDocs.Search para Java. Actualizar tanto el contenido de los documentos como la versión del índice garantiza que tu experiencia de búsqueda sea rápida, precisa y compatible con futuras versiones de la biblioteca.
+Siguiendo los pasos anteriores, ahora tienes una comprensión sólida de cómo **update index java** con GroupDocs.Search para Java. Refrescar tanto el contenido de los documentos como las versiones del índice garantiza que tu experiencia de búsqueda sea rápida, precisa y compatible con futuras versiones de la biblioteca.
 
 ### Próximos pasos
 - Experimenta con diferentes configuraciones de `UpdateOptions` para encontrar el punto óptimo para tu carga de trabajo.  
 - Explora funciones avanzadas de consulta como facetas y resaltado que ofrece GroupDocs.Search.  
-- Integra el flujo de trabajo de indexación en tu pipeline CI/CD para actualizaciones automáticas.
+- Integra el flujo de trabajo de indexación en tu pipeline CI/CD para actualizaciones automatizadas.
 
 ---
 
-**Última actualización:** 2025-12-22  
+**Última actualización:** 2026-03-04  
 **Probado con:** GroupDocs.Search 25.4 para Java  
 **Autor:** GroupDocs

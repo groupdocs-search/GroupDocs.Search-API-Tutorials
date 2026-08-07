@@ -1,6 +1,6 @@
 ---
-date: '2025-12-18'
-description: เรียนรู้วิธีการใช้งานการค้นหา Java ด้วยรูปแบบวันที่ที่กำหนดเองใน GroupDocs.Search
+date: '2026-03-04'
+description: เรียนรู้วิธีการทำการค้นหาแบบกำหนดรูปแบบวันที่ใน Java ด้วย GroupDocs.Search
   รวมถึงการค้นหาช่วงวันที่ รูปแบบที่กำหนดเอง และเคล็ดลับด้านประสิทธิภาพ
 keywords:
 - GroupDocs.Search Java
@@ -9,42 +9,42 @@ keywords:
 - custom date formats
 - indexing documents
 - search query optimization
-title: 'รูปแบบวันที่กำหนดเองใน Java | การค้นหาช่วงวันที่ด้วย GroupDocs'
+title: รูปแบบวันที่กำหนดเองใน Java | การค้นหาช่วงวันที่ด้วย GroupDocs
 type: docs
 url: /th/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# รูปแบบวันที่กำหนดเองใน Java | การค้นหาช่วงวันที่ด้วย GroupDocs
+# Custom Date Format Java | Date Range Search with GroupDocs
 
-การค้นหาเอกสารตามวันที่เป็นความต้องการที่พบบ่อย—ไม่ว่าจะเป็นการสร้างระบบจัดเก็บเอกสาร, เครื่องมือรายงานการเงิน, หรือพอร์ทัลการจัดการเนื้อหา ในบทแนะนำนี้คุณจะได้เรียนรู้เทคนิค **custom date format java** ด้วย GroupDocs.Search ซึ่งครอบคลุมการค้นหาช่วงวันที่, การกำหนดรูปแบบที่กำหนดเอง, และเคล็ดลับเพื่อ **optimize search performance**. เมื่อจบคุณจะสามารถให้ผู้ใช้ดึงข้อมูลที่อยู่ในช่วงวันที่ใด ๆ ไม่ว่าจะใช้รูปแบบใดก็ตาม
+การค้นหาเอกสารตามวันที่เป็นความต้องการที่พบบ่อย—ไม่ว่าจะเป็นการสร้างระบบจัดเก็บเอกสาร, เครื่องมือรายงานการเงิน, หรือพอร์ทัลการจัดการเนื้อหา ในบทแนะนำนี้คุณจะได้เรียนรู้เทคนิค **custom date format java** ด้วย GroupDocs.Search ครอบคลุมการค้นหาแบบช่วงวันที่, การกำหนดรูปแบบแบบกำหนดเอง, และเคล็ดลับเพื่อ **optimize search performance** เมื่อจบคุณจะสามารถให้ผู้ใช้ดึงข้อมูลที่อยู่ในช่วงวันที่ใดก็ได้ ไม่ว่าฟอร์แมตจะเป็นแบบใดก็ตาม
 
-## คำตอบด่วน
-- **คลาสหลักสำหรับการทำดัชนีคืออะไร?** `Index` from the `com.groupdocs.search` package.  
-- **คุณกำหนดรูปแบบวันที่กำหนดเองอย่างไร?** Use `DateFormat` with `DateFormatElement` objects and a separator.  
-- **ฉันสามารถค้นหาด้วยข้อความ query ได้หรือไม่?** Yes, the `daterange(start ~~ end)` syntax works directly in the query string.  
-- **ต้องการพิกัด Maven ใด?** `com.groupdocs:groupdocs-search:25.4` (or newer).  
-- **ฉันต้องการใบอนุญาตสำหรับการพัฒนาหรือไม่?** A free trial or temporary license is sufficient for testing; a commercial license is required for production.
+## Quick Answers
+- **What is the primary class for indexing?** `Index` จากแพคเกจ `com.groupdocs.search`  
+- **How do you define a custom date pattern?** ใช้ `DateFormat` พร้อมอ็อบเจกต์ `DateFormatElement` และตัวคั่น  
+- **Can I search with a text query?** ได้, ไวยากรณ์ `daterange(start ~~ end)` ทำงานโดยตรงในสตริงคิวรี  
+- **Which Maven coordinates are required?** `com.groupdocs:groupdocs-search:25.4` (หรือใหม่กว่า)  
+- **Do I need a license for development?** ไลเซนส์ทดลองหรือไลเซนส์ชั่วคราวเพียงพอสำหรับการทดสอบ; ต้องมีไลเซนส์เชิงพาณิชย์สำหรับการใช้งานจริง  
 
-## **custom date format java** คืออะไร?
-**custom date format java** บอกกับ GroupDocs.Search ว่าจะตีความสตริงวันที่ที่ไม่เป็นไปตามรูปแบบ ISO เริ่มต้น (YYYY‑MM‑DD) อย่างไร โดยการกำหนดรูปแบบของคุณเอง—เช่น `MM/dd/yyyy` หรือ `dd‑MM‑yyyy`—คุณทำให้เอนจินสามารถรับรู้วันที่ที่ฝังอยู่ในเอกสารที่ใช้รูปแบบตามภูมิภาคหรือรูปแบบเก่าได้
+## What is **custom date format java**?
+**custom date format java** บอก GroupDocs.Search ว่าจะตีความสตริงวันที่ที่ไม่เป็นไปตามรูปแบบ ISO เริ่มต้น (YYYY‑MM‑DD) อย่างไร โดยการกำหนดรูปแบบของคุณเอง เช่น `MM/dd/yyyy` หรือ `dd‑MM‑yyyy` ทำให้เอนจินสามารถรับรู้วันที่ที่ฝังอยู่ในเอกสารที่ใช้รูปแบบตามภูมิภาคหรือรูปแบบเก่าได้  
 
-## ทำไมต้องใช้ GroupDocs.Search สำหรับการค้นหาช่วงวันที่?
-- **ความเร็ว:** Built‑in indexing makes look‑ups O(log n).  
-- **ความยืดหยุ่น:** Supports both text‑based and object‑based query creation.  
-- **รองรับหลายรูปแบบ:** Handles PDFs, Word, Excel, plain text, and more without extra code.  
+## Why use GroupDocs.Search for date range queries?
+- **Speed:** การทำดัชนีในตัวทำให้การค้นหาเป็น O(log n)  
+- **Flexibility:** รองรับการสร้างคิวรีทั้งแบบข้อความและแบบอ็อบเจกต์  
+- **Multi‑format support:** จัดการ PDF, Word, Excel, plain text และอื่น ๆ โดยไม่ต้องเขียนโค้ดเพิ่ม  
 
-## วิธี **search documents by date** ด้วย GroupDocs.Search
-ด้านล่างคุณจะพบคู่มือแบบขั้นตอนต่อขั้นตอนที่พาคุณผ่านการตั้งค่าห้องสมุด, การทำดัชนีไฟล์, และการดำเนินการค้นหาช่วงวันที่ทั้งแบบง่ายและขั้นสูง
+## How to **search documents by date** with GroupDocs.Search
+ต่อไปนี้เป็นคู่มือขั้นตอนต่อขั้นตอนที่อธิบายการตั้งค่าห้องสมุด, การทำดัชนีไฟล์, และการดำเนินการค้นหาแบบช่วงวันที่ทั้งแบบง่ายและขั้นสูง  
 
-### ข้อกำหนดเบื้องต้น
-- Java 8 หรือใหม่กว่า
-- Maven สำหรับการจัดการ dependencies
-- เข้าถึงใบอนุญาต GroupDocs.Search (รุ่นทดลองหรือชั่วคราวใช้ได้สำหรับการพัฒนา)
+### Prerequisites
+- ติดตั้ง Java 8 หรือใหม่กว่า  
+- มี Maven สำหรับจัดการ dependencies  
+- มีไลเซนส์ GroupDocs.Search (ไลเซนส์ทดลองหรือชั่วคราวใช้ได้สำหรับการพัฒนา)  
 
-### การตั้งค่า GroupDocs.Search สำหรับ Java
+### Setting Up GroupDocs.Search for Java
 
-#### การติดตั้งโดยใช้ Maven
+#### Installation Using Maven
 เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
@@ -65,11 +65,11 @@ weight: 1
 </dependencies>
 ```
 
-#### ดาวน์โหลดโดยตรง
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+#### Direct Download
+หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)  
 
-#### การเริ่มต้นและตั้งค่าเบื้องต้น
-สร้างอินสแตนซ์ `Index` และเพิ่มเอกสารของคุณ:
+#### Basic Initialization and Setup
+สร้างอินสแตนซ์ `Index` แล้วเพิ่มเอกสารของคุณ:
 
 ```java
 import com.groupdocs.search.*;
@@ -84,10 +84,10 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-## ฟีเจอร์ 1: การสร้างคำค้นหาช่วงวันที่
+## Feature 1: Creating Date Range Search Queries
 
-### การใช้ Text Form Query
-วิธีที่ง่ายที่สุดคือการฝังช่วงวันที่โดยตรงในสตริง query:
+### Using Text Form Query
+วิธีที่ง่ายที่สุดคือใส่ช่วงวันที่โดยตรงในสตริงคิวรี:
 
 ```java
 import com.groupdocs.search.*;
@@ -103,10 +103,10 @@ String query1 = "daterange(2017-01-01 ~~ 2019-12-31)";
 SearchResult result1 = index.search(query1);
 ```
 
-**คำอธิบาย**: The `daterange` syntax expects dates in `YYYY‑MM‑DD`. It returns all documents whose indexed dates fall within the interval.
+**Explanation**: ไวยากรณ์ `daterange` ต้องการวันที่ในรูปแบบ `YYYY‑MM‑DD` และจะคืนเอกสารทั้งหมดที่วันที่ที่ทำดัชนีอยู่ในช่วงที่กำหนด  
 
-### การใช้ Query Object
-สำหรับการควบคุมแบบโปรแกรมและการแยกวิเคราะห์แบบกำหนดเอง ให้สร้างอ็อบเจ็กต์ `SearchQuery`:
+### Using Query Object
+หากต้องการควบคุมโปรแกรมและการแปลงแบบกำหนดเอง ให้สร้างอ็อบเจกต์ `SearchQuery`:
 
 ```java
 import com.groupdocs.search.*;
@@ -123,12 +123,12 @@ SearchQuery query2 = SearchQuery.createDateRangeQuery(Utils.createDate(2017, 1, 
 SearchResult result2 = index.search(query2);
 ```
 
-**คำอธิบาย**: `createDateRangeQuery` lets you supply `java.util.Date` objects, giving you full flexibility over time zones and locale‑specific handling.
+**Explanation**: `createDateRangeQuery` ให้คุณส่งอ็อบเจกต์ `java.util.Date` ทำให้คุณจัดการโซนเวลาและการแปลงตาม locale ได้อย่างเต็มที่  
 
-## ฟีเจอร์ 2: การระบุรูปแบบ **custom date format java** 
+## Feature 2: Specifying **custom date format java** Patterns
 
-### การตั้งค่ารูปแบบวันที่กำหนดเอง
-กำหนด `DateFormat` ที่ตรงกับการแสดงวันที่ในเอกสารของคุณ:
+### Setting Custom Date Formats
+กำหนด `DateFormat` ที่ตรงกับรูปแบบวันที่ในเอกสารของคุณ:
 
 ```java
 import com.groupdocs.search.*;
@@ -160,56 +160,61 @@ String query = "daterange(01/01/2017 ~~ 12/31/2019)";
 SearchResult result = index.search(query, options);
 ```
 
-**คำอธิบาย**: By clearing the default formats and adding a `DateFormat` that uses `/` as the separator, the engine now understands dates written as `MM/dd/yyyy`. This is essential for **search documents by date** in regions that prefer month‑first notation.
+**Explanation**: การล้างรูปแบบเริ่มต้นและเพิ่ม `DateFormat` ที่ใช้ `/` เป็นตัวคั่น ทำให้เอนจินเข้าใจวันที่ในรูปแบบ `MM/dd/yyyy` ซึ่งจำเป็นสำหรับ **search documents by date** ในภูมิภาคที่นิยมใช้รูปแบบเดือน‑วัน‑ปี  
 
-## เคล็ดลับเพื่อ **optimize search performance**
-- **เพิ่มดัชนีแบบต่อเนื่อง**: Add new files to the existing index instead of rebuilding from scratch.  
-- **ลบข้อมูลที่ล้าสมัย**: Periodically remove documents that are no longer needed.  
-- **ปรับการตั้งค่าหน่วยความจำ**: Increase the JVM heap (`-Xmx`) when working with large indexes.  
+## Tips to **optimize search performance**
+- **Index Incrementally**: เพิ่มไฟล์ใหม่ลงในดัชนีที่มีอยู่แทนการสร้างใหม่ทั้งหมด  
+- **Prune Stale Data**: ลบเอกสารที่ไม่จำเป็นออกเป็นระยะ  
+- **Adjust Memory Settings**: เพิ่มขนาด heap ของ JVM (`-Xmx`) เมื่อทำงานกับดัชนีขนาดใหญ่  
 
-## ปัญหาที่พบบ่อยและวิธีแก้
-- **ข้อผิดพลาดการแยกวิเคราะห์วันที่**: Verify that the document’s date strings exactly match the custom pattern you defined.  
-- **ผลลัพธ์หายไป**: Ensure the indexed fields contain date metadata; otherwise, the engine cannot match date queries.  
-- **ข้อยกเว้นการเข้าถึงดัชนี**: Confirm that the `indexFolder` path is writable and not locked by another process.  
+## Common Issues and Solutions
+- **Date Parsing Errors**: ตรวจสอบให้แน่ใจว่าสตริงวันที่ในเอกสารตรงกับรูปแบบที่คุณกำหนดไว้  
+- **Missing Results**: ยืนยันว่า ฟิลด์ที่ทำดัชนีมีเมตาดาต้าด้านวันที่; หากไม่มีเอนจินจะไม่สามารถจับคู่คิวรีวันที่ได้  
+- **Index Access Exceptions**: ตรวจสอบว่าเส้นทาง `indexFolder` สามารถเขียนได้และไม่ได้ถูกล็อกโดยโปรเซสอื่น  
 
-## การประยุกต์ใช้งานจริง
-1. **ระบบจัดเก็บเอกสาร** – Retrieve records from a specific historical period.  
-2. **การจัดการเนื้อหา** – Support regional date formats like `dd/MM/yyyy` for European audiences.  
-3. **ซอฟต์แวร์การเงิน** – Filter transactions by fiscal quarter or year quickly.  
+## Practical Applications
+1. **Archival Systems** – ดึงบันทึกจากช่วงเวลาประวัติศาสตร์ที่กำหนด  
+2. **Content Management** – รองรับรูปแบบวันที่ตามภูมิภาคเช่น `dd/MM/yyyy` สำหรับผู้ใช้ยุโรป  
+3. **Financial Software** – กรองธุรกรรมตามไตรมาสหรือปีการเงินอย่างรวดเร็ว  
 
-## สรุป
-คุณตอนนี้มีชุดเครื่องมือ **custom date format java** ครบถ้วนสำหรับการสร้างการค้นหาช่วงวันที่ที่มีประสิทธิภาพด้วย GroupDocs.Search. นำรูปแบบเหล่านี้ไปใช้, ปรับแต่งประสิทธิภาพ, และแอปพลิเคชันของคุณจะให้ผลลัพธ์ที่เร็วและแม่นยำสำหรับการค้นหาเชิงเวลาใด ๆ  
+## Why This Matters
+การจัดการ **custom date format java** ช่วยขจัดความยุ่งยากจากรูปแบบวันที่ที่ไม่สอดคล้องกันในเอกสารหลายประเภท ทำให้คุณสามารถ **handle multiple date formats** ในดัชนีเดียวได้ และผู้ใช้จะได้รับผลลัพธ์ที่แม่นยำไม่ว่าข้อมูลวันที่จะบันทึกไว้ในรูปแบบใด  
 
-## คำถามที่พบบ่อย
+## Next Steps
+- ทดลองผสมผสานคิวรีขั้นสูงด้วยตัวดำเนินการ `AND`, `OR`, และ `NOT`  
+- ทดลองใช้ custom analyzers หากต้องการทำดัชนีเมตาดาต้าเชิงเวลาเพิ่มเติม  
+- ศึกษาคู่มือการปรับจูนประสิทธิภาพในเอกสารอย่างเป็นทางการเพื่อขยายโซลูชันให้รองรับเอกสารหลายล้านฉบับ  
 
-**ถาม: ความแตกต่างระหว่างการค้นหาแบบ text form กับ object‑based คืออะไร?**  
-A: การค้นหาแบบ text form เร็วและง่ายแต่จำกัดอยู่ที่รูปแบบ ISO เริ่มต้น; การค้นหาแบบ object‑based ให้คุณส่งอ็อบเจ็กต์ `Date` และรูปแบบกำหนดเองเพื่อความยืดหยุ่นที่มากขึ้น  
+## Frequently Asked Questions
 
-**ถาม: ฉันสามารถค้นหาหลายช่วงวันที่ใน query เดียวได้หรือไม่?**  
-A: ใช่, รวมเงื่อนไข `daterange` กับตัวดำเนินการเชิงตรรกะเช่น `AND` หรือ `OR` เพื่อสร้าง query ที่ซับซ้อน  
+**Q: What is the difference between text form and object‑based date queries?**  
+A: Text form รวดเร็วและง่ายแต่จำกัดที่รูปแบบ ISO เริ่มต้น; object‑based queries ให้คุณส่งอ็อบเจกต์ `Date` และรูปแบบกำหนดเองเพื่อความยืดหยุ่นมากขึ้น  
 
-**ถาม: รูปแบบวันที่กำหนดเองจะทำให้การค้นหาช้าลงหรือไม่?**  
-A: มีค่าโอเวอร์เฮดเล็กน้อยสำหรับการแยกวิเคราะห์เพิ่มเติม, แต่ผลกระทบนั้นเล็กน้อยสำหรับงานทั่วไปและคุ้มค่ากับความแม่นยำที่เพิ่มขึ้น  
+**Q: Can I search for multiple date ranges in a single query?**  
+A: ใช่, สามารถรวม clause `daterange` ด้วยตัวดำเนินการเชิงตรรกะเช่น `AND` หรือ `OR` เพื่อสร้างคิวรีซับซ้อน  
 
-**ถาม: GroupDocs.Search เหมาะกับการใช้งานขนาดใหญ่หรือไม่?**  
-A: แน่นอน. ด้วยกลยุทธ์การทำดัชนีที่เหมาะสมและการปรับจูน JVM, สามารถขยายได้ถึงหลายล้านเอกสาร  
+**Q: Will custom date formats slow down the search?**  
+A: มีค่าโอเวอร์เฮดจากการแปลงเพิ่มเล็กน้อย แต่ผลกระทบโดยรวมถือว่าไม่สำคัญสำหรับงานทั่วไปและคุ้มค่ากับความแม่นยำที่เพิ่มขึ้น  
 
-**ถาม: ฉันจะหา ตัวอย่าง Java เพิ่มเติมได้จากที่ไหน?**  
-A: Explore the [GroupDocs GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) for additional samples and use‑case implementations.  
+**Q: Is GroupDocs.Search suitable for large‑scale deployments?**  
+A: แน่นอน. ด้วยกลยุทธ์การทำดัชนีที่เหมาะสมและการปรับจูน JVM สามารถรองรับเอกสารระดับล้านฉบับได้  
 
----
-
-**เอกสาร**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
-**อ้างอิง API**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-**ดาวน์โหลด**: [Get the latest version here](https://releases.groupdocs.com/search/java/)  
-**ที่เก็บ GitHub**: [View on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-**ฟอรั่มสนับสนุนฟรี**: [Join the discussion](https://forum.groupdocs.com/c/search/10)  
-**ใบอนุญาตชั่วคราว**: [Acquire a temporary license here](https://purchase.groupdocs.com/temporary-license/)  
+**Q: Where can I find more Java examples?**  
+A: สำรวจ [GroupDocs GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) เพื่อดูตัวอย่างและการใช้งานเพิ่มเติม  
 
 ---
 
-**อัปเดตล่าสุด:** 2025-12-18  
-**ทดสอบด้วย:** GroupDocs.Search Java 25.4  
-**ผู้เขียน:** GroupDocs  
+**Resources**
+
+- **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
+- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
+- **Download**: [Get the latest version here](https://releases.groupdocs.com/search/java/)  
+- **GitHub Repository**: [View on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **Free Support Forum**: [Join the discussion](https://forum.groupdocs.com/c/search/10)  
+- **Temporary License**: [Acquire a temporary license here](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
+
+**Last Updated:** 2026-03-04  
+**Tested With:** GroupDocs.Search Java 25.4  
+**Author:** GroupDocs

@@ -1,10 +1,10 @@
 ---
 title: "Add Documents to Index – GroupDocs.Search Java Tutorials"
-description: "Learn how to add documents to index, update, and remove documents using GroupDocs.Search for Java. A comprehensive document management Java tutorial series."
+description: "Learn how to add documents to index, update document index, and remove document index using GroupDocs.Search for Java. A comprehensive document management Java tutorial series."
 weight: 6
 url: "/java/document-management/"
 type: docs
-date: 2025-12-20
+date: 2026-03-04
 ---
 
 # Add Documents to Index – Document Management Tutorials for GroupDocs.Search Java
@@ -22,14 +22,14 @@ Managing a search index efficiently is essential for any Java‑based applicatio
 Adding documents to an index means inserting the searchable content of a file (PDF, DOCX, TXT, etc.) into a data structure that GroupDocs.Search can query. Once indexed, the document becomes instantly searchable, and any subsequent updates or deletions keep the index in sync with the source files.
 
 ## Why use GroupDocs.Search for document management Java projects?
-- **Scalable performance:** Handles millions of documents with low latency.
-- **Rich language support:** Works with over 100 file formats out‑of‑the‑box.
-- **Built‑in relevance tuning:** Lets you **modify document attributes** to boost ranking.
+- **Scalable performance:** Handles millions of documents with low latency.  
+- **Rich language support:** Works with over 100 file formats out‑of‑the‑box.  
+- **Built‑in relevance tuning:** Lets you **modify document attributes** to boost ranking.  
 - **Seamless integration:** Simple API calls fit naturally into any Java application.
 
 ## Prerequisites
-- Java 8 + development environment.
-- GroupDocs.Search for Java library (downloadable from the official site).
+- Java 8 + development environment.  
+- GroupDocs.Search for Java library (downloadable from the official site).  
 - A valid GroupDocs.Search license (temporary licenses are available for testing).
 
 ## Step‑by‑Step Guide
@@ -59,16 +59,23 @@ After bulk operations, run the optimizer to compress and reorganize the index fi
 
 > *Example call:* `index.optimize();`
 
+#### How to remove document index
+Removing a document from the index is as simple as calling `deleteDocument(documentId)`. This operation frees up space and prevents stale data from affecting relevance scores.
+
+#### How to update document index
+Whenever the source file is edited, invoke `updateDocument(documentId, newFile)` to refresh the indexed content, ensuring that search results always reflect the latest version.
+
 ## Common Use Cases
-- **Legal document repositories:** Quickly add, update, and purge case files while maintaining high relevance.
-- **Enterprise knowledge bases:** Keep internal manuals and policies searchable as they evolve.
+- **Legal document repositories:** Quickly add, update, and purge case files while maintaining high relevance.  
+- **Enterprise knowledge bases:** Keep internal manuals and policies searchable as they evolve.  
 - **E‑commerce catalogs:** Index product specs and remove discontinued items without downtime.
 
 ## Troubleshooting & Tips
 
-- **Pro tip:** Batch add documents during off‑peak hours to avoid performance spikes.
-- **Pitfall:** Forgetting to call `optimize()` after massive deletions can lead to fragmented indexes.
-- **Error handling:** Always wrap index operations in try‑catch blocks to handle `IndexException` gracefully.
+- **Pro tip:** Batch add documents during off‑peak hours to avoid performance spikes.  
+- **Pitfall:** Forgetting to call `optimize()` after massive deletions can lead to fragmented indexes.  
+- **Error handling:** Always wrap index operations in try‑catch blocks to handle `IndexException` gracefully.  
+- **Performance tip:** Use the `IndexSettings` object to tune memory usage when dealing with very large datasets.  
 
 ## Frequently Asked Questions
 
@@ -112,7 +119,7 @@ Learn how to effectively manage document indices with GroupDocs.Search for Java.
 
 ---
 
-**Last Updated:** 2025-12-20  
+**Last Updated:** 2026-03-04  
 **Tested With:** GroupDocs.Search for Java 23.11  
 **Author:** GroupDocs  
 

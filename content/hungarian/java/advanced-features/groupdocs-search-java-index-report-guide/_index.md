@@ -1,5 +1,5 @@
 ---
-date: '2025-12-18'
+date: '2026-03-04'
 description: Tanulja meg, hogyan hozhat létre indexet Java-ban a GroupDocs.Search
   használatával. Ez az útmutató lefedi az indexelést, a dokumentumok hozzáadását és
   a jelentéskészítést az optimális keresési teljesítmény érdekében.
@@ -7,46 +7,46 @@ keywords:
 - GroupDocs.Search Java
 - document indexing
 - search reporting
-title: 'Index létrehozása Java-ban a GroupDocs.Search segítségével | Átfogó indexelési
-  és jelentési útmutató'
+title: Index létrehozása Java-val a GroupDocs.Search segítségével | Átfogó indexelési
+  és jelentéskészítési útmutató
 type: docs
 url: /hu/java/advanced-features/groupdocs-search-java-index-report-guide/
 weight: 1
 ---
 
-# Create Index Java with GroupDocs.Search | Comprehensive Indexing and Reporting Guide
+# Create Index Java with GroupDocs.Search | Átfogó indexelési és jelentési útmutató
 
-A mai adat‑központú világban a **create index java** alapvető lépés a gyors, megbízható keresési élmények kiépítéséhez. Akár jogi szerződéseket, ügyfélnyilvántartásokat vagy bármilyen nagy dokumentumtárat kezel, egy jól megtervezett index lehetővé teszi az információk ezredmásodpercenkénti lekérdezését. Ebben az útmutatóban végigvezetünk a GroupDocs.Search beállításán, egy index létrehozásán, dokumentumok hozzáadásán és részletes jelentések generálásán – mindeközben a teljesítményre és a skálázhatóságra is figyelünk.
+A mai adat‑központú világban a **create index java** alapvető lépés a gyors, megbízható keresési élmények kiépítéséhez. Legyen szó jogi szerződések, ügyfélnyilvántartások vagy bármilyen nagy dokumentumtár kezeléséről, egy jól megtervezett index lehetővé teszi az információk ezredmásodperces visszakeresését. Ebben az oktatóanyagban végigvezetünk a GroupDocs.Search beállításán, egy index létrehozásán, dokumentumok hozzáadásán és részletes jelentések generálásán – mindezt a teljesítmény és a skálázhatóság szem előtt tartásával.
 
 ## Gyors válaszok
-- **Mi az első lépés a create index java létrehozásához?** Hozzon létre egy `Index` objektumot, amely egy mappára mutat, ahol az indexfájlok tárolódnak.  
+- **Mi az első lépés a create index java létrehozásához?** Egy `Index` objektum inicializálása, amely egy mappára mutat az indexfájlok számára.  
 - **Melyik könyvtár biztosítja a java dokumentum indexelést?** GroupDocs.Search for Java.  
-- **Hogyan adhatok hozzá dokumentumokat java-ban egy meglévő indexhez?** Használja a `index.add(path)` metódust minden mappához.  
-- **Melyik eszköz segít optimalizálni a keresési teljesítményt?** Rendszeres inkrementális indexelés és megfelelő memória beállítások.  
-- **Van minta java keresési példa?** Az alábbi kódrészletek egy teljes vég‑től‑végig munkafolyamatot mutatnak be.
+- **Hogyan adhatok hozzá dokumentumokat java‑ban egy meglévő indexhez?** Használja az `index.add(path)` metódust minden egyes mappához.  
+- **Melyik eszköz segít optimalizálni a keresési teljesítményt?** Rendszeres inkrementális indexelés és a megfelelő memória beállítások.  
+- **Van mintakód java keresési példára?** Az alábbi kódrészletek egy teljes vég‑től‑végig munkafolyamatot mutatnak be.
 
-## Mit fog megtanulni
-- Hogyan **create index java** használja a GroupDocs.Search-t  
-- Módszerek a **add documents java** hozzáadására egy meglévő indexhez  
-- Hogyan kérdezze le és jelenítse meg az indexelési jelentéseket a **optimize search performance** érdekében  
-- Valós példák és tippek a **java document indexing**-hez  
+## Amit megtanul
+- Hogyan **create index java** a GroupDocs.Search segítségével  
+- Technikai megoldások a **add documents to index** és **add files to index** végrehajtásához egy meglévő indexben  
+- Hogyan kérhetünk le és jeleníthetünk meg indexelési jelentéseket a **optimize search performance** érdekében  
+- Valós példák és tippek a **java document indexing** használatához  
 
 ## Előfeltételek
 
 ### Szükséges könyvtárak és verziók
 - **GroupDocs.Search for Java**: 25.4 vagy újabb verzió  
-- **Java Development Kit (JDK)**: Megfelelően telepítve és konfigurálva  
+- **Java Development Kit (JDK)**: megfelelően telepítve és konfigurálva  
 
 ### Környezet beállítási követelmények
 Ajánlott egy IDE, például IntelliJ IDEA, Eclipse vagy NetBeans a kódrészletek futtatásához.
 
-### Tudás előfeltételek
-Az alapvető Java koncepciók (osztályok, metódusok, fájlkezelés) és a Maven ismerete segíti a zökkenőmentes követést.
+### Tudásbeli előfeltételek
+Alapvető Java ismeretek (osztályok, metódusok, fájlkezelés) és a Maven ismerete segíti a zökkenőmentes követést.
 
-## A GroupDocs.Search beállítása Java-hoz
+## GroupDocs.Search for Java beállítása
 
 ### Maven beállítás
-Adja hozzá a tárolót és a függőséget a `pom.xml`-hez:
+Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
 
 ```xml
 <repositories>
@@ -67,15 +67,15 @@ Adja hozzá a tárolót és a függőséget a `pom.xml`-hez:
 ```
 
 ### Közvetlen letöltés
-A könyvtárat letöltheti a hivatalos kiadási oldalról is: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+A könyvtárat letöltheti a hivatalos kiadási oldalról: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Licenc beszerzési lépések
-1. **Free Trial** – Regisztráljon egy ingyenes próbaidőszakra a GroupDocs funkciók felfedezéséhez.  
-2. **Temporary License** – Szerezzen ideiglenes licencet a kiterjesztett teszteléshez a [temporary license page](https://purchase.groupdocs.com/temporary-license/) oldalon.  
-3. **Purchase** – Termelési használathoz fontolja meg egy teljes licenc megvásárlását a [GroupDocs website](https://purchase.groupdocs.com/) oldalról.  
+1. **Ingyenes próba** – Regisztráljon egy ingyenes próbaverzióra a GroupDocs funkcióinak felfedezéséhez.  
+2. **Ideiglenes licenc** – Szerezzen ideiglenes licencet a kiterjesztett teszteléshez a [temporary license page](https://purchase.groupdocs.com/temporary-license/) oldalon.  
+3. **Vásárlás** – Termelési környezetben fontolja meg egy teljes licenc megvásárlását a [GroupDocs weboldalán](https://purchase.groupdocs.com/).
 
-### Alap inicializálás és beállítás
-Hozzon létre egy `Index` példányt, amely arra a mappára mutat, ahol az indexfájlok tárolódni fognak:
+### Alapvető inicializálás és beállítás
+Hozzon létre egy `Index` példányt, amely arra a mappára mutat, ahol az indexfájlok tárolódnak:
 
 ```java
 import com.groupdocs.search.*;
@@ -91,8 +91,8 @@ public class InitializeSearch {
 
 ## Implementációs útmutató
 
-### Hogyan hozzunk létre index java-t a GroupDocs.Search segítségével
-Az index létrehozása az első lépés a keresési képességek engedélyezéséhez a dokumentumgyűjteményekben. Az alábbiakban egy minimális példát láthat, amely beállítja az index mappát.
+### Hogyan create index java a GroupDocs.Search segítségével
+Az index létrehozása az első lépés a keresési képességek engedélyezéséhez a dokumentumgyűjteményekben. Az alábbi minimális példa beállítja az index mappáját.
 
 ```java
 import com.groupdocs.search.*;
@@ -106,10 +106,10 @@ public class CreateIndexFeature {
 }
 ```
 
-**Explanation:** A `Index` konstruktor megkapja azt az elérési utat, ahol az összes indexadat tárolódik. Ez a mappa a **java document indexing** megoldásának központjává válik.
+**Magyarázat:** Az `Index` konstruktor megkapja azt az útvonalat, ahol minden index adat tárolódik. Ez a mappa lesz a **java document indexing** megoldásának központja.
 
-### Dokumentumok java hozzáadása az indexhez
-Miután az index létezik, feltöltheti fájlokkal egy vagy több könyvtárból.
+### Dokumentumok hozzáadása az indexhez
+Miután az index létezik, feltöltheti azt fájlokkal egy vagy több könyvtárból. Ez a lépés bemutatja a **add documents to index** munkafolyamatot.
 
 ```java
 import com.groupdocs.search.*;
@@ -130,10 +130,10 @@ public class AddDocumentsToIndexFeature {
 }
 ```
 
-**Explanation:** A `add()` metódus egy mappa elérési utat fogad, és indexeli az összes benne lévő támogatott fájlt. Ez a **add documents java** munkafolyamat központja, és támogatja az inkrementális indexelést, ha többször hívja.
+**Magyarázat:** Az `add()` metódus egy mappautat fogad, és indexeli az összes támogatott fájlt, amelyet tartalmaz. Ez a **add files to index** folyamat magja, és lehetővé teszi az inkrementális indexelést, ha többször hívja.
 
 ### Indexelési jelentések lekérése és megjelenítése
-Az indexelés után gyakran szeretne statisztikákat látni, amelyek segítenek **optimize search performance**.
+Az indexelés után gyakran szeretne statisztikákat látni, amelyek segítenek a **optimize search performance** javításában.
 
 ```java
 import com.groupdocs.search.*;
@@ -158,57 +158,59 @@ public class GetIndexingReportsFeature {
 }
 ```
 
-**Explanation:** Ez a kódrészlet `IndexingReport` objektumokat húz le, amelyek időbélyegeket, dokumentumszámot, kifejezésszámot és méretmetrikákat tartalmaznak – alapvető adatok a felügyelethez és **optimize search performance**.
+**Magyarázat:** Ez a kódrészlet `IndexingReport` objektumokat húz le, amelyek időbélyegeket, dokumentumszámot, kifejezés-számot és méretmetrikákat tartalmaznak – alapvető adatokat a **optimize search performance** nyomon követéséhez.
+
+## Miért fontos a create index java
+Egy jól megtervezett index csökkenti a lekérdezési késleltetést, mérsékli a szerver terhelését, és elegánsan skálázódik a dokumentumgyűjtemény növekedésével. A **create index java** elsajátításával megalapozza a fejlett keresési funkciókat, mint a fuzzy matching, a faceted navigation és a valós‑idő javaslatok.
 
 ## Gyakorlati alkalmazások
 A GroupDocs.Search beágyazható számos valós rendszerbe:
 
-1. **Legal Document Management** – Gyorsan megtalálja az esetfájlokat vagy jogszabályokat.  
-2. **Customer Support Portals** – Azonnal lekérheti a korábbi jegyeket és megoldásokat.  
-3. **Enterprise Content Management (ECM)** – Indexelés és keresés az egész vállalati adattárban.
+1. **Jogos dokumentumkezelés** – Gyorsan megtalálja az ügyiratokat vagy jogszabályokat.  
+2. **Ügyfélszolgálati portálok** – Azonnal visszakeresi a korábbi jegyeket és megoldásokat.  
+3. **Enterprise Content Management (ECM)** – Indexelés és keresés a teljes vállalati adattárban.
 
-## Teljesítmény szempontok
-Az **java search example** gyors és reagálóképes megtartásához:
+## Teljesítményfontosságú szempontok
+A **java search example** gyors és reagálóképes tartásához:
 
-- **Incremental indexing java** – Rendszeresen adjon hozzá új fájlokat a teljes index újbóli felépítése helyett.  
-- **Memory tuning** – Állítsa be a JVM heap méretét, és engedélyezze a G1GC-t nagy adathalmazokhoz.  
+- **Incremental indexing java** – Rendszeresen adjon hozzá új fájlokat a teljes index újraépítése helyett.  
+- **Memory tuning** – Állítsa be a JVM heap méretét, és engedélyezze a G1GC-t nagy adathalmazok esetén.  
 - **Report monitoring** – Használja az indexelési jelentéseket a szűk keresztmetszetek korai felismeréséhez.
 
 ## Gyakori problémák és megoldások
+| Issue | Solution |
+|-------|----------|
+| **OutOfMemoryError** during large batch indexing | Növelje a JVM `-Xmx` értékét, és fontolja meg az indexelést kisebb kötegekben. |
+| **Unsupported file format** error | Ellenőrizze, hogy a fájltípus szerepel-e a GroupDocs.Search által támogatott formátumok között (DOCX, PDF, TXT, stb.). |
+| **Index not updating** after adding files | Győződjön meg róla, hogy ugyanazon `Index` példányon hívja az `index.add()` metódust, vagy nyissa meg újra az indexet a módosítások után. |
 
-| Probléma | Megoldás |
-|----------|----------|
-| **OutOfMemoryError** nagy kötegelt indexelés során | Növelje a JVM `-Xmx` értékét, és fontolja meg az indexelést kisebb kötegekben. |
-| **Unsupported file format** hiba | Ellenőrizze, hogy a fájltípus a GroupDocs.Search által támogatott formátumok (DOCX, PDF, TXT, stb.) között szerepel-e. |
-| **Index not updating** fájlok hozzáadása után | Győződjön meg arról, hogy a `index.add()`-ot ugyanazon `Index` példányon hívja, vagy nyissa meg újra az indexet a változtatások után. |
+## Gyakran Ismételt Kérdések
 
-## Gyakran feltett kérdések
+**Q: Indexelhetek különböző dokumentumformátumokat a GroupDocs.Search‑szel?**  
+A: Igen, támogatja a DOCX, PDF, TXT, HTML és számos egyéb gyakori formátumot.
 
-**Q: Indexelhetek különböző dokumentumformátumokat a GroupDocs.Search segítségével?**  
-A: Igen, támogatja a DOCX, PDF, TXT, HTML és számos más gyakori formátumot.
+**Q: Van lehetőség az index automatikus frissítésére, amikor új dokumentumok érkeznek?**  
+A: Természetesen – használja az `add()` metódust egy automatizált feladatban (például ütemezett feladat) a **incremental indexing java** megvalósításához.
 
-**Q: Van mód arra, hogy az indexet automatikusan frissítse, amikor új dokumentumok érkeznek?**  
-A: Természetesen—használja a `add()` metódust egy automatizált feladatban (pl. ütemezett feladat) a **incremental indexing java**-hoz.
-
-**Q: Hogyan javíthatom a keresés sebességét nagyon nagy adathalmazok esetén?**  
-A: Kombinálja a **incremental indexing java**-t a megfelelő JVM memória beállításokkal, és rendszeresen tekintse át az indexelési jelentéseket a teljesítmény finomhangolásához.
+**Q: Hogyan javíthatom a keresési sebességet nagyon nagy adathalmazok esetén?**  
+A: Kombinálja a **incremental indexing java**-t megfelelő JVM memória beállításokkal, és rendszeresen ellenőrizze az indexelési jelentéseket a teljesítmény finomhangolásához.
 
 **Q: Kezeli a GroupDocs.Search a többnyelvű tartalmat?**  
-A: Igen, több nyelvet is képes indexelni; csak győződjön meg arról, hogy a megfelelő nyelvi elemzők engedélyezve vannak.
+A: Igen, több nyelvet is képes indexelni; csak győződjön meg róla, hogy a megfelelő nyelvi elemzők engedélyezve vannak.
 
-**Q: Elérhető ingyenes próbaidőszak a GroupDocs.Search Java-hoz?**  
-A: Igen, regisztrálhat ingyenes próbaidőszakra a GroupDocs weboldalán, hogy a vásárlás előtt minden funkciót kipróbálhasson.
+**Q: Elérhető ingyenes próba a GroupDocs.Search Java‑hoz?**  
+A: Igen, regisztrálhat egy ingyenes próbaverzióra a GroupDocs weboldalán, hogy minden funkciót kipróbáljon a vásárlás előtt.
 
 ## Következtetés
-A fenti lépések követésével most már tudja, hogyan **create index java**, hogyan adjon hozzá dokumentumokat, és hogyan generáljon átfogó jelentéseket a GroupDocs.Search segítségével. Ez az alap lehetővé teszi, hogy erőteljes keresési élményeket építsen, naprakészen tartsa az indexet, és magas teljesítményt biztosítson a dokumentumgyűjtemény növekedésével.
+A fenti lépések követésével most már tudja, hogyan **create index java**, hogyan adjon hozzá dokumentumokat, és hogyan generáljon átfogó jelentéseket a GroupDocs.Search segítségével. Ez az alap lehetővé teszi erőteljes keresési élmények kiépítését, az index naprakészen tartását és a magas teljesítmény fenntartását a dokumentumgyűjtemény növekedésével együtt.
 
 ### Következő lépések
-- Fedezze fel a fejlett lekérdezési lehetőségeket, például a fuzzy keresést és a szinonima kezelést.  
-- Integrálja az indexet egy webszolgáltatással vagy REST API-val a valós idejű kereséshez az alkalmazásaiban.  
-- Kísérletezzen felhőalapú tárolóval (AWS S3, Azure Blob) dokumentumforrásként a skálázható indexeléshez.
+- Fedezze fel a fejlett lekérdezési lehetőségeket, például a fuzzy search-et és a szinonima‑kezelést.  
+- Integrálja az indexet egy webszolgáltatással vagy REST API‑val a valós‑idő kereséshez alkalmazásaiban.  
+- Kísérletezzen felhőalapú tárolókkal (AWS S3, Azure Blob) a dokumentumforrásként a skálázható indexeléshez.
 
 ---
 
-**Legutóbb frissítve:** 2025-12-18  
-**Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
-**Szerző:** GroupDocs
+**Last Updated:** 2026-03-04  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs
