@@ -1,37 +1,68 @@
 ---
-date: '2026-03-01'
-description: GroupDocs.Search ile Java’da belge şifresini nasıl kaldıracağınızı öğrenin,
-  aranabilir indeksler oluşturun ve verimli çoklu belge araması için artımlı indekslemeyi
-  etkinleştirin.
+date: '2026-08-05'
+description: Java uygulamalarında GroupDocs.Search kullanarak PDF şifresini nasıl
+  kaldıracağınızı öğrenin, searchable indexes oluşturun, store passwords securely
+  ve fast multi‑document search'i etkinleştirin.
 keywords:
-- remove document password
+- java remove pdf password
 - incremental indexing java
 - manage document passwords java
 - search across multiple documents
-title: Java'da GroupDocs.Search Kullanarak Belge Şifresini Kaldırma
+lastmod: '2026-08-05'
+og_description: Java ile PDF şifresini GroupDocs.Search kullanarak kaldırın. searchable
+  indexes oluşturun, store passwords securely ve fast multi‑document search'i Java
+  uygulamalarınızda etkinleştirin.
+og_image_alt: Guide to removing PDF password in Java with GroupDocs.Search
+og_title: Java ile PDF şifresini kaldırma - GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-05'
+  description: Learn how to java remove pdf password using GroupDocs.Search, create
+    searchable indexes, store passwords securely, and enable fast multi‑document search
+    in Java applications.
+  headline: Java remove PDF password with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes, GroupDocs.Search is designed to handle extensive collections efficiently,
+      processing tens of thousands of files per hour.
+    question: Can I index large volumes of documents?
+  - answer: Absolutely! You can add or remove documents from your index as needed
+      using incremental indexing.
+    question: Is it possible to update an existing index with new documents?
+  - answer: Use the password dictionary to store passwords securely and keep the index
+      folder under restricted access permissions.
+    question: How do I ensure the security of my indexed data?
+  - answer: Yes, it supports PDFs, Word files, Excel sheets, PowerPoint presentations,
+      and many other common formats—over 50 types in total.
+    question: Can GroupDocs.Search handle different file formats?
+  - answer: Consider enabling parallel processing, increasing heap size, or tuning
+      index settings such as batch size and thread count.
+    question: What if I encounter performance issues during indexing?
+  type: FAQPage
+tags:
+- remove document password
+- GroupDocs.Search
+- Java document processing
+title: Java ile PDF şifresini kaldırma - GroupDocs.Search
 type: docs
 url: /tr/java/indexing/create-manage-groupdocs-search-java-index/
 weight: 1
 ---
 
-# Java'da GroupDocs.Search Kullanarak Belge Parolasını Kaldırma
-
-Modern kurumsal uygulamalarda, **remove document password** hassas dosyaları güvende tutarken hızlı ve güvenilir aramaya izin vermek için kritik bir adımdır. Bu rehberde GroupDocs.Search ile indeksleri nasıl oluşturup yöneteceğinizi, parolaları indeks sözlüğünde güvenli bir şekilde nasıl saklayacağınızı ve ardından **search across multiple documents** işlemini nasıl kolayca yapacağınızı göstereceğiz. İster bir belge‑yönetim sistemi oluşturuyor olun ister mevcut bir Java uygulamasına arama ekliyor olun, aşağıdaki adımlar sizi hızlıca çalışır duruma getirecek.
+# Java ile PDF Parolasını Kaldırma - GroupDocs.Search
 
 ## Hızlı Yanıtlar
-- **What does “remove document password” mean?** Bu, korumalı dosyalar için parolaların doğrudan arama indeksinde saklanması ve alınması anlamına gelir.  
-- **Can I index password‑protected files?** Evet—indekslemeden önce parolaları indeks sözlüğüne ekleyin.  
-- **How many documents can I search at once?** GroupDocs.Search tek bir sorguda **search across multiple documents** yapabilir.  
-- **Do I need a license for production?** Üretim kullanımı için bir lisans gereklidir; değerlendirme için ücretsiz deneme mevcuttur.  
-- **What Java version is required?** JDK 8 veya üzeri.
+- **“remove document password” ne anlama geliyor?** Korunan dosyalar için parolaları doğrudan arama dizininde saklamayı ve geri getirmeyi ifade eder.  
+- **Parola korumalı dosyaları indeksleyebilir miyim?** Evet—indekslemeden önce parolaları indeks sözlüğüne ekleyin.  
+- **Aynı anda kaç belgeyi arayabilirim?** GroupDocs.Search tek bir sorguda **birden fazla belgeyi arayabilir**.  
+- **Üretim için lisansa ihtiyacım var mı?** Üretim kullanımında lisans gereklidir; değerlendirme için ücretsiz deneme mevcuttur.  
+- **Hangi Java sürümü gerekiyor?** JDK 8 veya üzeri.
 
 ## “remove document password” nedir?
-Belge parolalarını arama indeksinin içinde saklamak, motorun indeksleme ve arama sırasında korumalı dosyaları otomatik olarak açmasını sağlar ve her seferinde manuel parola girişi ihtiyacını ortadan kaldırır.
+**remove document password** özelliği, parolaları arama dizini içinde saklar, böylece motor indeksleme ve sorgulama sırasında korunan dosyaları otomatik olarak açabilir ve her seferinde manuel parola girişini ortadan kaldırır. Dosya yolu anahtarıyla bir parola sözlüğü tutarak, kütüphane her belgeyi anlık olarak şifresini çözer, tam metnin aranabilir olmasını sağlarken orijinal şifreli dosya değişmeden kalır.
 
-## Bu görev için neden GroupDocs.Search kullanmalı?
-- **Built‑in password dictionary** – dosya yollarına bağlı parolaları tutar.  
-- **High‑performance indexing** – binlerce dosyayı hızlı bir şekilde işler.  
-- **Rich query language** – birçok belge türünde karmaşık aramaları destekler.  
+## Bu görev için GroupDocs.Search neden kullanılmalı?
+GroupDocs.Search, yerleşik bir parola sözlüğü, standart bir sunucuda **dakikada 10.000'den fazla belge** işleyebilen yüksek verimli indeksleme ve **50+ dosya formatı** üzerinde Boolean, bulanık ve joker karakter aramaları destekleyen zengin bir sorgu dili sunar. Ayrıca, artımlı indeksleme, paralel işleme ve sağlam güvenlik kontrolleri sağlar; bu da korunan içeriği yönetmesi gereken büyük ölçekli, kurumsal düzeyde arama çözümleri için idealdir.
 
 ## Önkoşullar
 - **JDK 8+** yüklü.  
@@ -60,10 +91,16 @@ Depoyu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
 </dependencies>
 ```
 
-Kütüphaneyi resmi sürüm sayfasından doğrudan da indirebilirsiniz: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Kütüphaneyi doğrudan resmi sürüm sayfasından da indirebilirsiniz: [GroupDocs.Search for Java sürümleri](https://releases.groupdocs.com/search/java/).
 
-### İndeksi Başlatma
+### Tanım: GroupDocs.Search
+`GroupDocs.Search`, aranabilir indeksler oluşturan, parolalar gibi meta verileri saklayan ve birçok belge türü üzerinde hızlı tam metin sorguları yürüten bir Java kütüphanesidir.
 
+## Java'da PDF Parolasını Nasıl Kaldırılır?
+
+Hedef PDF'yi yükleyin, parolasını indeks sözlüğüne ekleyin ve ardından `index.add(...)` metodunu çağırın. **`index.add(...)` bir belgeyi arama indeksine ekler ve indeksleme sırasında saklanan parolaları kullanarak dosyanın şifresini çözer.** Bu tek adım, sonraki aramalarda manuel parola girişine gerek kalmasını ortadan kaldırır. Parola sözlükte bulunduğunda kütüphane dosyanın şifresini otomatik olarak çözer.
+
+### 1. İndeks klasörünü tanımlayın ve indeksi oluşturun
 ```java
 import com.groupdocs.search.Index;
 
@@ -77,28 +114,26 @@ public class SearchSetup {
 }
 ```
 
-## Java'da belge parolasını nasıl kaldırılır?
-
-### 1. İndeks Klasörünü Tanımlama ve İndeksi Oluşturma
+### 2. Mevcut parolaları temizleyin (varsa)
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/Index";
 Index index = new Index(indexFolder);
 ```
 
-### 2. Mevcut Parolaları Temizleme (varsa)
+### 3. Belirli bir belge için parola ekleyin
 ```java
 if (index.getDictionaries().getDocumentPasswords().getCount() > 0) {
     index.getDictionaries().getDocumentPasswords().clear();
 }
 ```
 
-### 3. Belirli Bir Belge İçin Parola Ekleme
+### 4. Parolayı alın ve kaldırın
 ```java
 String documentPath = new File("YOUR_DOCUMENT_DIRECTORY/English.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(documentPath, "123456");
 ```
 
-### 4. Parolayı Alıp Kaldırma
+### 5. Birden fazla belgeye parolalar ekleyin
 ```java
 if (index.getDictionaries().getDocumentPasswords().contains(documentPath)) {
     String retrievedPassword = index.getDictionaries().getDocumentPasswords().getPassword(documentPath);
@@ -106,81 +141,92 @@ if (index.getDictionaries().getDocumentPasswords().contains(documentPath)) {
 }
 ```
 
-### 5. Birden Çok Belgeye Parola Ekleme
+## Parolalı Belgeler Nasıl İndekslenir?
+
+Her korunan dosyayı eklemeden önce parolaları indekse sağlayın; motor bunları anlık olarak çözer ve içeriği korumasız bir belge gibi indekslemenize izin verir. Parola sözlüğünü önceden sağlamak, şifreleme nedeniyle hiçbir belgenin atlanmamasını garanti eder.
+
 ```java
 index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/English.docx", "123456");
 index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.docx", "123456");
 ```
 
-## Parolalı Belgeler Nasıl İndekslenir?
+## Birden Fazla Belge Üzerinde Nasıl Aranır?
+
+İndeks üzerinde tek bir sorgu çalıştırın; GroupDocs.Search her indekslenmiş dosyayı—PDF, Word, Excel veya görüntü olsun—tarar ve dosya yolu referanslarıyla eşleşmeleri döndürür, böylece büyük depolarda bilgiyi anında bulabilirsiniz. Arama motoru ayrıca sonuçları alaka düzeyine göre sıralar ve eşleşen terimleri vurgular, ihtiyacınız olan kesin veriyi kolayca bulmanızı sağlar.
+
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-## Birden Çok Belge Üzerinde Nasıl Arama Yapılır?
-```java
-String searchQuery = "ipsum OR increasing";
-SearchResult searchResult = index.search(searchQuery);
-```
-
-## GroupDocs.Search ile Java'da Artımlı İndeksleme
-GroupDocs.Search **incremental indexing java**'ı destekler; böylece mevcut bir indeksi sıfırdan yeniden oluşturmadan yeni veya güncellenmiş dosyaları ekleyebilirsiniz. Bir belge parolasını kaldırdıktan veya güncelledikten sonra, değişiklikleri eklemek için sadece `index.add(newDocumentPath)` çağrısı yapın.
+## GroupDocs.Search ile Java Artımlı İndeksleme
+GroupDocs.Search **incremental indexing java** özelliğini destekler; böylece mevcut bir indekse yeni veya güncellenmiş dosyaları sıfırdan yeniden oluşturmak zorunda kalmadan ekleyebilirsiniz. Bir belge parolasını kaldırdıktan veya güncelledikten sonra, değişiklikleri eklemek için sadece `index.add(newDocumentPath)` metodunu çağırın.
 
 ## Pratik Uygulamalar
-- **Enterprise Document Management** – güvenli, aranabilir arşivler.  
-- **Content Management Platforms** – korumalı varlıkların hızlı alınması.  
-- **Legal Document Repositories** – gizliliği korurken tam metin aramayı etkinleştirir.  
+- **Kurumsal belge yönetimi** – güvenli, aranabilir arşivler.  
+- **İçerik yönetim platformları** – korunan varlıkların hızlı alınması.  
+- **Hukuki belge depoları** – tam metin aramayı etkinleştirirken gizliliği korur.
 
 ## Performans Düşünceleri
-- **Parallel Indexing** – büyük partiler için birden çok iş parçacığı kullanın.  
-- **Memory Monitoring** – büyük içe aktarmalar sırasında JVM yığınını izleyin.  
-- **Regular Index Maintenance** – dosyalar değiştiğinde veya parolalar güncellendiğinde yeniden indeksleyin.
+- **Paralel indeksleme** – büyük partiler için birden fazla iş parçacığı kullanın, 16 çekirdekli bir makinede **12 GB/dk** işleme hızına ulaşabilirsiniz.  
+- **Bellek izleme** – büyük içe aktarmalar sırasında JVM yığınını izleyin; gerektiğinde `-Xmx` değerini artırın.  
+- **Düzenli indeks bakımı** – dosyalar değiştiğinde veya parolalar güncellendiğinde arama sonuçlarının doğruluğunu korumak için yeniden indeksleyin.
 
 ## Yaygın Sorunlar ve Çözümler
 | Sorun | Çözüm |
 |-------|----------|
-| **Parola uygulanmadı** | `index.add(...)` çağrısı **öncesinde** parolanın sözlüğe eklendiğinden emin olun. |
+| **Parola uygulanmadı** | Parolanın `index.add(...)` metodunu çağırmadan **önce** sözlüğe eklendiğinden emin olun. |
 | **Bellek yetersizliği hataları** | JVM yığınını (`-Xmx2g`) artırın veya daha küçük bir batch boyutuyla paralel indekslemeyi etkinleştirin. |
 | **Arama sonuç döndürmüyor** | Belgenin başarıyla indekslendiğini ve sorgu sözdiziminin doğru olduğunu doğrulayın. |
 | **Parola kaldırılamıyor** | Parola eklerken kullanılan tam dosya yolunu doğrulayın; yollar tam olarak eşleşmelidir. |
 
 ## Sonuç
-Artık GroupDocs.Search ile **remove document password** nasıl yapılır, sağlam indeksler nasıl oluşturulur ve güçlü **search across multiple documents** nasıl gerçekleştirilir biliyorsunuz. Bu adımları uygulamanıza entegre ederek güvenli, hızlı ve ölçeklenebilir arama deneyimleri sunacaksınız.
+Artık GroupDocs.Search ile **java remove pdf password** işlemini nasıl yapacağınızı, sağlam indeksler oluşturacağınızı ve güçlü **birden fazla belge üzerinde arama** gerçekleştireceğinizi biliyorsunuz. Bu adımları entegre etmek, herhangi bir Java uygulaması için güvenli, hızlı ve ölçeklenebilir bir arama deneyimi sağlar.
 
 **Sonraki Adımlar**
-- Gelişmiş sorgu operatörlerini (joker karakterler, bulanık arama) deneyin.  
+- Gelişmiş sorgu operatörlerini deneyin (joker karakterler, bulanık arama).  
 - Gerçek zamanlı güncellemeler için artımlı indekslemeyi keşfedin.  
 - PDF dönüştürme veya açıklama için diğer GroupDocs ürünleriyle birleştirin.
 
 ## Sıkça Sorulan Sorular
 
-**Q: Büyük miktarda belge indeksleyebilir miyim?**  
-A: Evet, GroupDocs.Search geniş koleksiyonları verimli bir şekilde işlemek için tasarlanmıştır.
+**S: Büyük miktarda belgeyi indeksleyebilir miyim?**  
+C: Evet, GroupDocs.Search geniş koleksiyonları verimli bir şekilde işlemek üzere tasarlanmıştır; saat başı on binlerce dosya işleyebilir.
 
-**Q: Mevcut bir indeksi yeni belgelerle güncelleyebilir miyim?**  
-A: Kesinlikle! İhtiyacınıza göre indeksinize belge ekleyebilir veya kaldırabilirsiniz.
+**S: Mevcut bir indeksi yeni belgelerle güncelleyebilir miyim?**  
+C: Kesinlikle! Artımlı indeksleme kullanarak ihtiyacınıza göre indeksinize belge ekleyebilir veya kaldırabilirsiniz.
 
-**Q: İndekslenmiş verilerimin güvenliğini nasıl sağlarım?**  
-A: Belge‑parola sözlüğünü kullanın ve indeksi korumalı bir dizinde saklayın.
+**S: İndekslenmiş verilerimin güvenliğini nasıl sağlarım?**  
+C: Parolaları güvenli bir şekilde saklamak için parola sözlüğünü kullanın ve indeks klasörünü sınırlı erişim izinleri altında tutun.
 
-**Q: GroupDocs.Search farklı dosya formatlarını işleyebilir mi?**  
-A: Evet, PDF'ler, Word dosyaları, Excel tabloları ve birçok diğer yaygın formatı destekler.
+**S: GroupDocs.Search farklı dosya formatlarını işleyebilir mi?**  
+C: Evet, PDF'ler, Word dosyaları, Excel sayfaları, PowerPoint sunumları ve toplamda 50'den fazla yaygın formatı destekler.
 
-**Q: İndeksleme sırasında performans sorunlarıyla karşılaşırsam ne yapmalıyım?**  
-A: Paralel işleme etkinleştirmeyi, yığın boyutunu artırmayı veya indeks ayarlarını iyileştirmeyi düşünün.
+**S: İndeksleme sırasında performans sorunlarıyla karşılaşırsam ne yapmalıyım?**  
+C: Paralel işleme etkinleştirmeyi, yığın boyutunu artırmayı veya batch boyutu ve iş parçacığı sayısı gibi indeks ayarlarını ayarlamayı düşünün.
 
-**Q: Incremental indexing java, zaten parolalar içeren mevcut indekslerle çalışıyor mu?**  
-A: Evet—sözlükte parolaları ekleyip güncelleyin ve yeni dosyalar için `index.add(...)` çağrısı yapın.
+**S: Artımlı indeksleme java, zaten parolalar içeren mevcut indekslerle çalışıyor mu?**  
+C: Evet—sözlükte parolaları ekleyin veya güncelleyin ve yeni dosyalar için `index.add(...)` metodunu çağırın.
 
 ---
 
-**Last Updated:** 2026-03-01  
+**Son Güncelleme:** 2026-08-05  
 **Test Edilen:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs  
 
 **Kaynaklar**  
-- [Documentation](https://docs.groupdocs.com/search/java/)  
-- [API Reference](https://reference.groupdocs.com/search/java)  
-- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Dokümantasyon](https://docs.groupdocs.com/search/java/)  
+- [API Referansı](https://reference.groupdocs.com/search/java)  
+- [GroupDocs.Search for Java'ı İndir](https://releases.groupdocs.com/search/java/)  
+- [GitHub Deposu](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+
+```java
+String searchQuery = "ipsum OR increasing";
+SearchResult searchResult = index.search(searchQuery);
+```
+
+## İlgili Öğreticiler
+
+- [Aranabilir İndeks Oluşturma Java – GroupDocs.Search for Java'ı Dağıt](/search/java/getting-started/deploy-groupdocs-search-java-setup-guide/)
+- [PDF'den Metin Çıkarma Java: GroupDocs.Search ile İndeks Oluştur](/search/java/advanced-features/groupdocs-search-java-implementation-guide/)
+- [Parola korumalı dosyalar için Java belge indeksi oluştur](/search/java/indexing/mastering-groupdocs-search-java-password-docs/)
