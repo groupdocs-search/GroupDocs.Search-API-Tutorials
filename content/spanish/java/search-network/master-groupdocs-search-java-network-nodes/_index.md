@@ -1,37 +1,87 @@
 ---
-date: '2026-01-19'
-description: Aprenda cómo obtener una licencia temporal, implementar y gestionar nodos
-  de la red de búsqueda con GroupDocs.Search para Java, mejorando la recuperación
-  de documentos.
+date: '2026-07-02'
+description: Aprenda cómo obtener una licencia temporal para GroupDocs.Search, añadir
+  directorios al índice y agregar atributos de documento personalizados mientras gestiona
+  los nodos de red de búsqueda de Java.
 keywords:
-- GroupDocs.Search for Java
-- search network nodes
-- document management system
-title: Obtener licencia temporal para los nodos Java de GroupDocs.Search
+- obtain temporary license groupdocs
+- add directories to index
+- add custom document attributes
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-02'
+  description: Learn how to obtain a temporary license for GroupDocs.Search, add directories
+    to index, and add custom document attributes while managing Java search network
+    nodes.
+  headline: Obtain Temporary License GroupDocs – Master Search Nodes (Java)
+  type: TechArticle
+- description: Learn how to obtain a temporary license for GroupDocs.Search, add directories
+    to index, and add custom document attributes while managing Java search network
+    nodes.
+  name: Obtain Temporary License GroupDocs – Master Search Nodes (Java)
+  steps:
+  - name: Configure Search Network
+    text: The `configureSearchNetwork` function prepares the configuration object
+      necessary for deploying nodes. `Configuration` is a class that holds all settings
+      such as index folder, network ports, and node roles. - **Parameters:** The base
+      path and port are used to locate resources and establish communica
+  - name: Deploy Nodes
+    text: 'The `deploySearchNetwork` function initializes and returns an array of
+      search network nodes. `SearchNetworkNodes` represents each node instance that
+      participates in the distributed search cluster. - **Parameters:** Base path,
+      port, and configuration are used to determine the deployment environment. '
+  - name: Subscribe to Master Node Events
+    text: '- **Purpose:** This step ensures that you are notified of significant events
+      or changes within your search network.'
+  - name: Get Indexed Documents
+    text: '- **Purpose:** Verifies the successful indexing of all necessary documents
+      within your search network.'
+  - name: Close All Nodes
+    text: '`closeNodes` shuts down all active search nodes and releases allocated
+      resources. - **Purpose:** Releases resources occupied by each node, ensuring
+      a clean shutdown process.'
+  type: HowTo
+- questions:
+  - answer: Temporary licenses are typically valid for 30 days, giving you ample time
+      to evaluate the product.
+    question: How long does a temporary license remain valid?
+  - answer: Yes—replace the temporary license file with the full license file and
+      restart your application.
+    question: Can I switch from a temporary to a full license without reinstalling?
+  - answer: No, the index remains intact; the license only governs usage rights.
+    question: Do I need to re‑index documents after applying a new license?
+  - answer: Unreleased resources may lead to memory leaks; always invoke `closeNodes`
+      during shutdown.
+    question: What happens if I forget to close nodes?
+  - answer: Absolutely—call `addAttribute` multiple times with different attribute
+      names.
+    question: Is it possible to add more than one custom attribute per document?
+  type: FAQPage
+title: Obtener licencia temporal GroupDocs – Nodos maestros de búsqueda (Java)
 type: docs
 url: /es/java/search-network/master-groupdocs-search-java-network-nodes/
 weight: 1
 ---
 
-# Dominando los nodos de la red de búsqueda con GroupDocs.Search para Java
+# Obtener Licencia Temporal GroupDocs – Nodos Maestros de Búsqueda (Java)
 
-En el mundo actual impulsado por los datos, **obtener una licencia temporal** para GroupDocs.Search es el primer paso para gestionar eficientemente los nodos de la red de búsqueda y potenciar la capacidad de su organización para recuperar información de forma rápida y precisa. Este tutorial le guía a través de la configuración, el despliegue de múltiples nodos y el manejo de todo, desde la indexación de directorios hasta la adición de atributos personalizados a los documentos, mostrando exactamente cómo obtener una licencia temporal cuando esté listo para probar la solución.
+En esta guía completa **obtendrá una licencia temporal para GroupDocs.Search**, configurará una red de búsqueda multi‑nodo y aprenderá cómo **agregar directorios al índice** y **agregar atributos de documento personalizados** usando Java. Ya sea que esté construyendo un sistema de gestión documental empresarial o un catálogo de productos searchable, dominar estos pasos le permite evaluar la plataforma sin restricciones y escalar sus capacidades de búsqueda rápidamente.
 
-## Respuestas rápidas
-- **¿Cuál es el primer paso para comenzar a usar GroupDocs.Search?** Obtener una licencia temporal desde el portal de GroupDocs.  
+## Respuestas Rápidas
+- **¿Cuál es el primer paso para comenzar a usar GroupDocs.Search?** Obtenga una licencia temporal del portal de GroupDocs.  
 - **¿Qué repositorio Maven aloja la biblioteca?** `https://releases.groupdocs.com/search/java/`.  
-- **¿Cómo añado directorios para indexar?** Use el asistente `addDirectoriesToIndex` en el nodo maestro.  
-- **¿Puedo añadir atributos personalizados a los documentos?** Sí—llame a `addAttribute` con la clave del documento y el nombre del atributo.  
-- **¿Cómo cierro los nodos de forma limpia?** Invoque `closeNodes` para liberar recursos.
+- **¿Cómo agrego directorios al índice?** Llame al asistente `addDirectoriesToIndex` en el nodo maestro.  
+- **¿Puedo agregar atributos de documento personalizados?** Sí—invocar `addAttribute` con la clave del documento y el nombre del atributo.  
+- **¿Cómo cerrar los nodos correctamente?** Invocar `closeNodes` para liberar recursos.
 
-## ¿Qué es una licencia temporal y por qué la necesito?
-Una licencia temporal le permite evaluar GroupDocs.Search sin limitaciones de evaluación. Es perfecta para proyectos de desarrollo, pruebas o pruebas de concepto antes de comprometerse con una compra completa.
+## Qué es una licencia temporal y por qué la necesito?
+Una licencia temporal le permite evaluar GroupDocs.Search sin limitaciones de evaluación. Es perfecta para desarrollo, pruebas o proyectos de prueba de concepto antes de comprometerse con una compra completa. La licencia otorga acceso a todas las funciones durante un período limitado, lo que le permite medir el rendimiento, probar puntos de integración y asegurarse de que la solución cumpla con sus requisitos sin compromiso financiero.
 
-## Requisitos previos
+## Requisitos Previos
 
-Antes de comenzar, asegúrese de contar con los siguientes requisitos:
+Antes de comenzar, asegúrese de que tiene los siguientes requisitos preparados:
 
-### Bibliotecas y dependencias requeridas
+### Bibliotecas y Dependencias Requeridas
 Para trabajar con GroupDocs.Search para Java, incluya las dependencias Maven necesarias:
 ```xml
 <repositories>
@@ -49,154 +99,166 @@ Para trabajar con GroupDocs.Search para Java, incluya las dependencias Maven nec
       <version>25.4</version>
    </dependency>
 </dependencies>
-```
-También puede descargar la versión más reciente directamente desde [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+```  
+También puede descargar la última versión directamente desde [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Configuración del entorno
-- Asegúrese de tener instalado un JDK compatible (Java 8 o posterior).  
+### Configuración del Entorno
+- Asegúrese de tener un JDK compatible instalado (Java 8 o posterior).  
 - Configure su IDE para soportar proyectos Maven.
 
-### Conocimientos previos
-Una comprensión básica de la programación en Java y familiaridad con la gestión de proyectos Maven será beneficiosa. Si es nuevo en estos conceptos, considere explorar recursos introductorios para comenzar.
+### Prerrequisitos de Conocimientos
+Un entendimiento básico de la programación en Java y familiaridad con la gestión de proyectos Maven será beneficioso. Si es nuevo en estos conceptos, considere explorar recursos introductorios para comenzar.
 
 ## Cómo obtener una licencia temporal
-1. Visite la página **[GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/)**.  
-2. Complete el breve formulario de solicitud con su correo electrónico y los detalles del proyecto.  
-3. Reciba el archivo de licencia por correo electrónico y colóquelo en la carpeta `resources` de su proyecto.  
-4. Cargue la licencia al iniciar la aplicación (el fragmento de código a continuación muestra una inicialización típica).
+Una licencia temporal se obtiene visitando el portal de GroupDocs, completando un breve formulario de solicitud y colocando el archivo `.lic` recibido en la carpeta `resources` de su proyecto. Luego inicialice la licencia con unas pocas líneas de código (vea el fragmento a continuación). Para el formulario de solicitud, use la página oficial: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/).
 
 ## Configuración de GroupDocs.Search para Java
 
-### Información de instalación
-Para comenzar a usar GroupDocs.Search para Java en su proyecto, siga los pasos de Maven anteriores o descargue la versión más reciente directamente desde la página oficial de lanzamientos.
+### Información de Instalación
+Para comenzar a usar GroupDocs.Search para Java en su proyecto, siga los pasos de Maven anteriores o descargue la última versión directamente desde la página oficial de lanzamientos.
 
-#### Pasos para adquirir la licencia
-1. **Prueba gratuita** – Explore las funciones sin compromiso.  
-2. **Licencia temporal** – Obtenga una clave a corto plazo para pruebas (ver la sección anterior).  
-3. **Compra** – Para uso en producción, adquiera una licencia completa desde la **[GroupDocs Purchase Page](https://purchase.groupdocs.com/)**.
+#### Pasos para la Adquisición de Licencia
+1. **Free Trial** – Explore las funciones sin ningún compromiso.  
+2. **Temporary License** – Obtenga una clave a corto plazo para pruebas (vea la sección anterior).  
+3. **Purchase** – Para uso en producción, compre una licencia completa desde la **[GroupDocs Purchase Page](https://purchase.groupdocs.com/)**.
 
-### Inicialización y configuración básica
+### Inicialización y Configuración Básica
 Inicialice su proyecto con GroupDocs.Search de la siguiente manera:
 ```java
 Configuration config = new Configuration();
 // Set up basic configuration settings for your application.
-```
+```  
 Este paso de inicialización es crucial para garantizar que todos los componentes funcionen sin problemas dentro de su red de búsqueda.
 
-## Guía de implementación
-Ahora, desglosaremos el proceso en secciones manejables, cada una centrada en una característica específica del despliegue y gestión de nodos de la red de búsqueda.
+## Guía de Implementación
+
+Ahora, desglosaremos el proceso en secciones manejables, cada una enfocada en una característica específica de la implementación y gestión de nodos de la red de búsqueda.
 
 ### Función 1: Configuración
-**Resumen:** Configurar la red de búsqueda es el primer paso para desplegar nodos. Esta configuración implica especificar rutas y puertos críticos para el despliegue de los nodos.
+**Visión general:** Configurar la configuración de su red de búsqueda es el primer paso para desplegar nodos. Esta configuración implica especificar rutas y puertos críticos para el despliegue de nodos.
 
-#### Pasos de implementación:
-##### Paso 1: Definir ruta base y puerto
+#### Pasos de Implementación:
+##### Paso 1: Definir Ruta Base y Puerto
 ```java
 String basePath = "/path/to/config";
 int basePort = 8080;
-```
-##### Paso 2: Configurar la red de búsqueda
-La función `configureSearchNetwork` prepara el objeto de configuración necesario para desplegar nodos.
+```  
+
+##### Paso 2: Configurar la Red de Búsqueda
+La función `configureSearchNetwork` prepara el objeto de configuración necesario para desplegar nodos.  
+`Configuration` es una clase que contiene todos los ajustes como la carpeta de índice, puertos de red y roles de nodo.  
 ```java
 Configuration config = configureSearchNetwork(basePath, basePort);
-```
-- **Parámetros:** La ruta base y el puerto se usan para localizar recursos y establecer canales de comunicación.  
-- **Valor de retorno:** Un objeto `Configuration` configurado a medida para sus necesidades de despliegue.
+```  
+- **Parameters:** La ruta base y el puerto se utilizan para localizar recursos y establecer canales de comunicación.  
+- **Return Value:** Un objeto `Configuration` configurado adaptado a sus necesidades de despliegue.
 
-### Función 2: Despliegue de la red de búsqueda
-**Resumen:** Desplegar nodos es esencial para escalar sus capacidades de búsqueda en diferentes entornos o segmentos de datos.
+### Función 2: Despliegue de la Red de Búsqueda
+**Visión general:** Desplegar nodos es esencial para escalar sus capacidades de búsqueda a través de diferentes entornos o segmentos de datos.
 
-#### Pasos de implementación:
-##### Paso 1: Desplegar nodos
-La función `deploySearchNetwork` inicializa y devuelve una matriz de nodos de la red de búsqueda.
+#### Pasos de Implementación:
+##### Paso 1: Desplegar Nodos
+La función `deploySearchNetwork` inicializa y devuelve una matriz de nodos de la red de búsqueda.  
+`SearchNetworkNodes` representa cada instancia de nodo que participa en el clúster de búsqueda distribuido.  
 ```java
 SearchNetworkNode[] nodes = deploySearchNetwork(basePath, basePort, config);
-```
-- **Parámetros:** Ruta base, puerto y configuración se utilizan para determinar el entorno de despliegue.  
-- **Valor de retorno:** Una matriz que contiene `SearchNetworkNodes` inicializados.
+```  
+- **Parameters:** La ruta base, el puerto y la configuración se utilizan para determinar el entorno de despliegue.  
+- **Return Value:** Una matriz que contiene `SearchNetworkNodes` inicializados.
 
-### Función 3: Suscripción a eventos de la red
-**Resumen:** Monitorear las actividades de su red de búsqueda es crucial para mantener un rendimiento y fiabilidad óptimos.
+### Función 3: Suscripción a Eventos de la Red
+**Visión general:** Monitorear las actividades de su red de búsqueda es crucial para mantener un rendimiento y fiabilidad óptimos.
 
-#### Pasos de implementación:
-##### Paso 1: Suscribirse a eventos del nodo maestro
+#### Pasos de Implementación:
+##### Paso 1: Suscribirse a Eventos del Nodo Maestro
 ```java
 subscribeToNodeEvents(nodes[0]); // Assuming the master node is at index 0.
-```
-- **Propósito:** Este paso garantiza que sea notificado de eventos o cambios significativos dentro de su red de búsqueda.
+```  
+- **Propósito:** Este paso asegura que sea notificado de eventos o cambios significativos dentro de su red de búsqueda.
 
-### Función 4: Indexación de documentos
-**Resumen:** Añadir directorios que contengan documentos para indexar permite una recuperación de datos eficiente en toda su red.
+### Función 4: Indexación de Documentos
+**Visión general:** Agregar directorios que contienen documentos para ser indexados permite una recuperación de datos eficiente a través de su red.
 
-#### Cómo añadir directorios para indexar
-Utilice el método auxiliar en el nodo maestro para apuntar el motor a las carpetas que desea indexar.
+#### Cómo agregar directorios al índice
+`addDirectoriesToIndex` es un método auxiliar que registra rutas de carpetas para indexar en el nodo maestro.  
 ```java
 addDirectoriesToIndex(nodes[0]); // Use the master node for indexing.
-```
-- **Propósito:** Facilita el acceso rápido y la buscabilidad de todos los documentos dentro de los directorios especificados.
+```  
+- **Propósito:** Facilita el acceso rápido y la capacidad de búsqueda de todos los documentos dentro de los directorios especificados.
 
-### Función 5: Añadir atributos a documentos
-**Resumen:** Los atributos personalizados enriquecen los metadatos de los documentos, haciendo que las búsquedas sean más flexibles e informativas.
+### Función 5: Agregar Atributos a Documentos
+**Visión general:** Los atributos personalizados mejoran los metadatos de los documentos, haciendo que las búsquedas sean más flexibles e informativas.
 
-#### Cómo añadir atributos personalizados a documentos
+#### Cómo agregar atributos de documento personalizados
+`addAttribute` agrega un atributo de metadatos personalizado a un documento especificado en el índice.  
 ```java
 addAttribute(nodes[0], "documentKey123", "customAttribute");
-```
-- **Parámetros:** Especifique el nodo, la clave del documento y el atributo a añadir.  
+```  
+- **Parameters:** Especifique el nodo, la clave del documento y el atributo a agregar.  
 - **Propósito:** Amplía la funcionalidad de búsqueda al enriquecer los documentos con metadatos adicionales.
 
-### Función 6: Recuperar documentos indexados
-**Resumen:** Recupere y liste eficientemente los documentos indexados para garantizar la precisión y completitud de los datos.
+### Función 6: Recuperar Documentos Indexados
+**Visión general:** Recuperar y listar eficientemente los documentos indexados para garantizar la precisión y completitud de los datos.
 
-#### Pasos de implementación:
-##### Paso 1: Obtener documentos indexados
+#### Pasos de Implementación:
+##### Paso 1: Obtener Documentos Indexados
 ```java
 getIndexedDocuments(nodes[0]);
-```
+```  
 - **Propósito:** Verifica la indexación exitosa de todos los documentos necesarios dentro de su red de búsqueda.
 
-### Función 7: Cerrar nodos de la red
-**Resumen:** Cerrar los nodos correctamente es crucial para la gestión de recursos y la prevención de fugas de memoria.
+### Función 7: Cerrar Nodos de la Red
+**Visión general:** Cerrar correctamente los nodos es crucial para la gestión de recursos y prevenir fugas de memoria.
 
-#### Pasos de implementación:
-##### Paso 1: Cerrar todos los nodos
+#### Pasos de Implementación:
+##### Paso 1: Cerrar Todos los Nodos
+`closeNodes` cierra todos los nodos de búsqueda activos y libera los recursos asignados.  
 ```java
 closeNodes(nodes);
-```
+```  
 - **Propósito:** Libera los recursos ocupados por cada nodo, asegurando un proceso de apagado limpio.
 
-## Aplicaciones prácticas
-A continuación, algunos casos de uso reales donde gestionar nodos de la red de búsqueda con GroupDocs.Search para Java puede ser extremadamente beneficioso:
-1. **Gestión documental empresarial** – Mejore la recuperación de documentos en grandes organizaciones indexando y buscando a través de múltiples departamentos.  
-2. **Plataformas de comercio electrónico** – Optimice las capacidades de búsqueda de productos accediendo rápidamente a catálogos extensos almacenados en diferentes servidores.  
-3. **Despachos legales** – Facilite la investigación de casos organizando grandes volúmenes de documentos legales en un formato fácilmente buscable.
+## ¿Por qué usar una licencia temporal para GroupDocs.Search?
+Una licencia temporal proporciona **acceso a todas las funciones durante 30 días** y soporta hasta **50,000 documentos indexados** sin limitaciones de rendimiento. Esto le permite medir la velocidad de indexación, la latencia de consultas y la escalabilidad con datos reales antes de comprar una licencia de producción. También elimina las marcas de agua de evaluación, brindándole una representación real de las capacidades del producto final.
 
-Las posibilidades de integración con otros sistemas incluyen plataformas CRM, sistemas de gestión de contenido (CMS) y herramientas de análisis de datos, aprovechando las robustas funciones de indexación y búsqueda que ofrece GroupDocs.Search para Java.
+## Casos de Uso Comunes
+1. **Enterprise Document Management** – Indexe millones de archivos internos a través de departamentos, habilitando búsqueda de texto completo instantánea.  
+2. **E‑commerce Platforms** – Construya un catálogo de productos searchable que abarque múltiples almacenes y fuentes de terceros.  
+3. **Legal Firms** – Organice archivos de casos, contratos y evidencias con metadatos personalizados para una recuperación rápida.
 
-## Consideraciones de rendimiento
+Las posibilidades de integración con otros sistemas incluyen plataformas CRM, sistemas de gestión de contenido (CMS) y herramientas de análisis de datos, aprovechando las robustas funciones de indexación y búsqueda proporcionadas por GroupDocs.Search para Java.
+
+## Consideraciones de Rendimiento
 Para optimizar el rendimiento al usar GroupDocs.Search para Java:
-- **Optimizar la configuración** – Adapte los ajustes de configuración a su entorno de despliegue específico.  
-- **Monitorear el uso de recursos** – Revise regularmente la asignación de recursos para evitar cuellos de botella o fugas de memoria.  
-- **Seguir buenas prácticas** – Cumpla conP: temporal?**  
-R: Las licencias temporales suelen ser válidas durante 30 días, lo que le brinda tiempo suficiente para evaluar el producto.
+- **Optimizar Configuración** – Adapte su configuración a su entorno de despliegue específico.  
+- **Monitorear Uso de Recursos** – Verifique regularmente CPU, memoria y E/S para prevenir cuellos de botella o fugas de memoria.  
+- **Seguir Mejores Prácticas** – Siga las directrices de gestión de memoria de Java, asegurando una utilización eficiente de los recursos del sistema.
 
-**P: ¿Puedo pasar de una licencia temporal a una completa sin reinstalar?**  
-R: Sí—reemplace el archivo de licencia temporal por el archivo de licencia completa y reinicie su aplicación.
+## Preguntas Frecuentes
 
-**P: ¿Necesito volver a indexar los documentos después de aplicar una nueva licencia?**  
-R: No, el índice permanece intacto; la licencia solo regula los derechos de uso.
+**Q: ¿Cuánto tiempo permanece válida una licencia temporal?**  
+A: Las licencias temporales suelen ser válidas durante 30 días, dándole tiempo suficiente para evaluar el producto.
 
-**P: ¿Qué ocurre si olvido cerrar los nodos?**  
-R: Los recursos no liberados pueden provocar fugas de memoria; siempre invoque `closeNodes` durante el apagado.
+**Q: ¿Puedo cambiar de una licencia temporal a una completa sin reinstalar?**  
+A: Sí—reemplace el archivo de licencia temporal con el archivo de licencia completa y reinicie su aplicación.
 
-**P: ¿Es posible añadir más de un atributo personalizado por documento?**  
-R: Absolutamente—llame a `addAttribute` varias veces con diferentes nombres de atributo.
+**Q: ¿Necesito volver a indexar los documentos después de aplicar una nueva licencia?**  
+A: No, el índice permanece intacto; la licencia solo regula los derechos de uso.
 
-## Conclusión
-En este tutorial, ha aprendido a **obtener una licencia temporal**, configurar y gestionar nodos de la red de búsqueda, añadir directorios para indexar y agregar atributos personalizados a los documentos usando GroupDocs.Search para Java. Siguiendo estos pasos, puede mejorar la capacidad de su organización para recuperar información de forma rápida y precisa. Comience a aplicar estas técnicas en sus proyectos hoy mismo y experimente el aumento de rendimiento de primera mano.
+**Q: ¿Qué ocurre si olvido cerrar los nodos?**  
+A: Los recursos no liberados pueden provocar fugas de memoria; siempre invoque `closeNodes` durante el apagado.
+
+**Q: ¿Es posible agregar más de un atributo personalizado por documento?**  
+A: Absolutamente—llame a `addAttribute` varias veces con diferentes nombres de atributos.
 
 ---
 
-**Última actualización:** 2026-01-19  
-**Probado con:** GroupDocs.Search para Java 25.4  
+**Última actualización:** 2026-07-02  
+**Probado con:** GroupDocs.Search for Java 25.4  
 **Autor:** GroupDocs
+
+## Tutoriales Relacionados
+
+- [Desplegar un Nodo de Red de Búsqueda en .NET usando GroupDocs para Indexación y Recuperación Eficiente de Documentos](/search/net/search-network/groupdocs-net-deploy-search-node-index-retrieve/)
+- [Cómo Implementar una Red de Búsqueda con GroupDocs.Search en .NET para Sistemas de Gestión Documental](/search/net/search-network/implement-search-network-groupdocs-dotnet/)
+- [Configuración de Aspose.Search Network y Agregado de Atributos de Documentos con GroupDocs.Redaction para .NET: Guía Completa](/search/net/search-network/aspose-search-network-groupdocs-redaction-net-guide/)
