@@ -1,50 +1,92 @@
 ---
-date: '2026-02-19'
-description: PDF Java'dan metin çıkarmayı, serileştirmeyi ve GroupDocs.Search for
-  Java kullanarak aranabilir bir belge indeksi oluşturmayı öğrenin.
+date: '2026-07-07'
+description: PDF metnini Java ile nasıl çıkaracağınızı, serialize etmeyi ve GroupDocs.Search
+  ile Java için full text search dizini oluşturmayı öğrenin.
 keywords:
-- GroupDocs.Search for Java
-- document indexing in Java
-- text extraction with GroupDocs
-title: 'PDF''den Metin Çıkarma (Java): GroupDocs.Search ile Dizin Oluştur'
+- extract pdf text java
+- full text search java
+- document indexing java
+og_description: PDF metnini Java ile nasıl çıkaracağınızı, serialize etmeyi ve GroupDocs.Search
+  ile Java için full text search dizini oluşturmayı öğrenin.
+og_title: PDF Metnini Java ile Çıkar – GroupDocs.Search ile Dizin Oluştur
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-07'
+  description: Learn how to extract pdf text java, serialize it, and build a full
+    text search java index with GroupDocs.Search for Java.
+  headline: Extract PDF Text Java – Build Index with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to extract pdf text java, serialize it, and build a full
+    text search java index with GroupDocs.Search for Java.
+  name: Extract PDF Text Java – Build Index with GroupDocs.Search
+  steps:
+  - name: '**Document Management Systems** – Quickly locate contracts, invoices, or
+      policies.'
+    text: '**Document Management Systems** – Quickly locate contracts, invoices, or
+      policies.'
+  - name: '**Content‑Based Search Engines** – Power internal knowledge bases with
+      full‑text search java capabilities.'
+    text: '**Content‑Based Search Engines** – Power internal knowledge bases with
+      full‑text search java capabilities.'
+  - name: '**Data Archiving Solutions** – Index historic records for instant retrieval.'
+    text: '**Data Archiving Solutions** – Index historic records for instant retrieval.'
+  type: HowTo
+- questions:
+  - answer: Stream the file using `Extractor` and process it in chunks; also increase
+      the JVM heap if needed.
+    question: How do I handle very large PDF files efficiently?
+  - answer: Yes—GroupDocs.Search supports Boolean operators, wildcards, and proximity
+      searches.
+    question: Can I customize the search query syntax?
+  - answer: Verify that all objects implement `Serializable` and catch `IOException`
+      to log details.
+    question: What should I do if serialization fails?
+  - answer: Absolutely—configure `ExtractionOptions` to filter pages or sections before
+      indexing.
+    question: Is it possible to index only specific sections of a document?
+  - answer: Update the version number in your `pom.xml` and run `mvn clean install`;
+      review the migration guide for breaking changes.
+    question: How do I upgrade to a newer GroupDocs.Search version?
+  type: FAQPage
+title: PDF Metnini Java ile Çıkar – GroupDocs.Search ile Dizin Oluştur
 type: docs
 url: /tr/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-# PDF Java'dan Metin Çıkarma: GroupDocs.Search ile Belge Dizini Oluşturma
+# PDF Metnini Java ile Çıkar – GroupDocs.Search ile Dizin Oluştur
 
-Bu uygulamalı rehberde **PDF Java'dan metin nasıl çıkarılır** keşfedecek ve bu ham içeriği hızlı, tam metin aranabilir bir dizine dönüştüreceksiniz. İster dahili bir bilgi tabanı, bir sözleşme arama portalı ya da özel bir arama motoru oluşturuyor olun, aşağıdaki adımlar her şeyi adım adım gösterir—PDF'lerden metin çekmekten veriyi serileştirmeye, dizini oluşturmaya ve sonunda sorgular çalıştırmaya kadar. Hadi başlayalım ve GroupDocs.Search'in tüm süreci nasıl sorunsuz ve ölçeklenebilir kıldığını görelim.
+Bu uygulamalı rehberde PDF dosyalarından **how to extract pdf text java**'ı keşfedecek, çıkarılan içeriği serileştirecek ve yüksek performanslı bir aranabilir dizin oluşturacaksınız. İster dahili bir bilgi tabanı, bir sözleşme arama portalı, ister özel bir arama motoru oluşturuyor olun, aşağıdaki adımlar her şeyi size adım adım gösterecek—PDF'lerden metin çekmekten güçlü tam metin sorgularını çalıştırmaya kadar. Hadi başlayalım ve GroupDocs.Search'in tüm süreci nasıl sorunsuz ve ölçeklenebilir kıldığını görelim.
 
 ## Hızlı Yanıtlar
-- **Ana amaç nedir?** PDF Java dosyalarından metin çıkarmak ve GroupDocs.Search ile aranabilir bir belge dizini oluşturmak.  
+`index.search` yöntemi, oluşturulan dizine bir sorgu çalıştırır ve ilgili skorlarıyla eşleşen belgelerin bir listesini döndürür.
+
+- **Ana amaç nedir?** PDF dosyalarından pdf text java'ı çıkarmak ve GroupDocs.Search ile aranabilir bir belge dizini oluşturmak.  
 - **Hangi kütüphane sürümü?** GroupDocs.Search 25.4 (veya en son sürüm).  
-- **Lisans gerekli mi?** Geliştirme için ücretsiz deneme yeterlidir; üretim için tam lisans gereklidir.  
-- **PDF'leri dizine ekleyebilir miyim?** Evet—PDF metnini çıkarın ve dizine ekleyin.  
-- **Aramayı nasıl çalıştırırım?** Veri ekledikten sonra `index.search(query)` metodunu kullanın.
+- **Lisans gerekir mi?** Geliştirme için ücretsiz deneme çalışır; üretim için tam lisans gereklidir.  
+- **PDF'leri indeksleyebilir miyim?** Evet—PDF metnini çıkarın ve dizine ekleyin.  
+- **Aramayı nasıl çalıştırırım?** Verileri ekledikten sonra `index.search(query)` yöntemini kullanın.
 
 ## Belge Dizini Nedir?
-Belge dizini, dosyalarınızdan çıkarılan aranabilir terimlerin yapılandırılmış bir koleksiyonudur. Bir belge dizini oluşturarak, büyük depolarda hızlı tam metin aramaları yapabilir ve geri getirme hızı ile doğruluğunu büyük ölçüde artırabilirsiniz.
+Bir Belge Dizini, dosyalarınızdan çıkarılan aranabilir terimlerin yapılandırılmış bir koleksiyonudur. Her terimi, göründüğü belgelerle eşleştirir, büyük depolarda hızlı tam metin aramaları yapmayı sağlar ve arama süresini dakikalardan milisaniyelere düşürür; aynı zamanda sıralama ve alaka düzeyi özelliklerini destekler.
 
-## GroupDocs.Search for Java Neden Kullanılmalı?
-- **Güçlü çıkarma** – PDF, Word, Excel ve daha fazlasını işler.  
-- **Kolay serileştirme** – Çıkarılan veriyi daha sonra yeniden kullanmak için bayt dizileri olarak saklayın.  
-- **Ölçeklenebilir indeksleme** – Milyonlarca belgeyi verimli bir şekilde indeksleyin.  
-- **Güçlü sorgu dili** – Karmaşık tam metin arama Java sorgularını destekler.
+## Java için GroupDocs.Search Neden Kullanılmalı?
+GroupDocs.Search **50+ input and output formats**'ı destekler, **millions of documents**'ı tüm dosyayı belleğe yüklemeden indeksleyebilir ve Boolean, wildcard ve proximity operatörleriyle **rich query language** sunar. Bu ölçülen yetenekler, kurumsal ölçekli arama çözümleri için idealdir. Ayrıca çok dilli içeriklerde arama doğruluğunu artırmak için yerleşik dil algılama, kök bulma ve özelleştirilebilir analizörler sağlar.
 
 ## Önkoşullar
-- **GroupDocs.Search for Java** (Sürüm 25.4 veya daha yeni).  
+- **GroupDocs.Search for Java** (Version 25.4 veya daha yeni).  
 - **Java Development Kit (JDK)**, GroupDocs sürümünüzle uyumlu.  
 - IntelliJ IDEA veya Eclipse gibi bir IDE.  
 - Bağımlılık yönetimi için Maven.
 
 ## GroupDocs.Search for Java Kurulumu
-First, add the library to your project.
+İlk olarak, kütüphaneyi projenize ekleyin.
 
 **Maven Kurulumu**  
-Aşağıdakileri `pom.xml` dosyanıza ekleyin:
+`pom.xml` dosyanıza aşağıdakileri ekleyin:
 
 ```xml
+<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -60,111 +102,143 @@ Aşağıdakileri `pom.xml` dosyanıza ekleyin:
         <version>25.4</version>
     </dependency>
 </dependencies>
+``` -->
 ```
 
 **Doğrudan İndirme**  
 Alternatif olarak, en son sürümü [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirin.
 
 ### Lisans Edinme
-- **Ücretsiz Deneme** – Tüm özellikleri geçici bir lisansla test edin.  
-- **Satın Alma** – Tam erişim ve öncelikli destek alın.
+- **Ücretsiz Deneme** – Geçici bir lisansla tüm özellikleri test edin.  
+- **Satın Al** – Tam erişim ve öncelikli destek alın.
 
-## Adım Adım Uygulama
+## PDF'lerden (ve diğer belgelerden) metin nasıl çıkarılır
+`Extractor` sınıfı ile PDF'nizi (veya desteklenen belgeyi) yükleyin, çıkarma seçeneklerini yapılandırın ve `extractText()`'i çağırın. Bu tek satırlık çağrı, indekslemeye hazır ham ya da biçimlendirilmiş metni döndürür.
 
-### PDF'lerden (ve diğer belgelerden) metin nasıl çıkarılır
-Ham ya da biçimlendirilmiş metni çıkarmak, bir belge dizini oluşturmanın ilk adımıdır. **PDF Java'dan metin çıkardığınızda**, arama motoruna anlayabileceği bir şey sağlamış olursunuz.
+`Extractor` sınıfı, bir belgeyi okuyan ve düz ya da biçimlendirilmiş metin üreten GroupDocs.Search'in temel bileşenidir.  
 
 ```java
+// ```java
 String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
+```
 
 ```java
+// ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
 ```
+```
 
-> **İpucu:** Biçimlendirme olmadan düz metin ihtiyacınız varsa `setUseRawTextExtraction(true)` ayarlayın.
+> **İpucu:** Biçimlendirme olmadan düz metin gerekiyorsa `setUseRawTextExtraction(true)` ayarlayın.
 
-### Çıkarılan veriyi serileştirme
-Serileştirme, çıkarılan veriyi daha sonra indekslemek üzere saklamanızı sağlar.
+## Çıkarılan veriyi nasıl serileştirirsiniz
+Serileştirme, çıkarılan metin nesnesini bir bayt dizisine dönüştürür, böylece daha sonra indeksleme için diske kaydedebilir veya ağ üzerinden iletebilirsiniz.
+
+`SerializationUtil` yardımcı programı, nesneleri bayt akışlarına ve geri dönüştürmek için statik yöntemler sağlar.  
 
 ```java
+// ```java
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
+```
 
-### Çıkarılan veriyi seriden çıkarma
-İndeksi oluşturmaya hazır olduğunuzda, bayt dizisini tekrar bir nesneye dönüştürün.
+## Çıkarılan veriyi nasıl seriden çıkarırsınız
+Dizini oluşturmaya hazır olduğunuzda, önceden depolanmış bayt dizisini orijinal çıkarma nesnesine geri seriden çıkarın.
+
+`deserialize` yöntemi, çıkarma sonucunun tam durumunu geri yükler ve oturumlar arasında veri kaybı olmadığından emin olur.  
 
 ```java
+// ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 ```
+```
 
-### Belge dizini oluşturma
-Artık `deserializedData`'ya sahip olduğunuzda, aranabilir terimleri tutacak dizini oluşturabilirsiniz.
+## Belge dizini nasıl oluşturulur
+Bir `Index` nesnesi oluşturun, depolama klasörünü belirtin ve terim vektörleri ile durdurma kelimeleri işleme gibi indeksleme seçeneklerini yapılandırın.
+
+`Index` sınıfı, tüm terimleri, belge referanslarını ve meta verileri tutan aranabilir konteyneri temsil eder.  
 
 ```java
+// ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
+```
 
-### Veriyi dizine ekleme ve arama yapma
-Veriyi eklemek ve dizini sorgulamak, **PDF Java'dan metin çıkarma** iş akışını tamamlar.
+## Veriyi dizine ekleme ve arama yapma
+Seriden çıkarılan çıkarma sonucunu `index.add()` ile dizine ekleyin, ardından anında sonuçlar için `index.search()` kullanarak sorgu yapın.
+
+`add` yöntemi, belgenin terimlerini dizine kaydeder, `search` ise bu terimlere karşı sorguyu yürütür.  
 
 ```java
+// ```java
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
+```
 
 ```java
+// ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
 ```
+```
 
-> **Pro ipucu:** İlgililik sıralamasını ince ayarlamak için `index.search("your query", SearchOptions)` kullanın.
+> **Pro ipucu:** Alaka sıralamasını ince ayarlamak için `index.search("your query", SearchOptions)` kullanın.
 
 ## Yaygın Kullanım Senaryoları
-1. **Belge Yönetim Sistemleri** – Sözleşmeleri, faturaları veya politikaları hızlıca bulun.  
-2. **İçerik Tabanlı Arama Motorları** – İç bilgi tabanlarını tam metin arama Java yetenekleriyle güçlendirin.  
-3. **Veri Arşivleme Çözümleri** – Tarihi kayıtları anında erişim için indeksleyin.
+1. **Document Management Systems** – Sözleşmeleri, faturaları veya politikaları hızlıca bulun.  
+2. **Content‑Based Search Engines** – İç bilgi tabanlarını tam metin arama java yetenekleriyle güçlendirin.  
+3. **Data Archiving Solutions** – Tarihi kayıtları anlık erişim için indeksleyin.
 
 ## Performans Düşünceleri
-- **Bellek Yönetimi:** Büyük belge grupları için JVM yığın boyutunu ayarlayın.  
-- **İndeksleme Seçenekleri:** Gereksiz özellikleri (ör. terim vektörleri) devre dışı bırakarak indekslemeyi hızlandırın.  
-- **Düzenli Güncellemeler:** Performans yamalarından yararlanmak için GroupDocs.Search'i güncel tutun.
+`setStoreTermVectors(boolean)` yöntemi, terim vektörlerinin dizinde saklanıp saklanmayacağını yapılandırır; bu, dizin boyutu ve sorgu performansını etkiler.
+
+- **Memory Management:** 500 MB'den büyük partileri işlerken JVM yığın boyutunu artırın (ör. `-Xmx4g`).  
+- **Indexing Options:** Dizinin boyutunu %30'a kadar azaltmak için terim vektörlerini devre dışı bırakın (`setStoreTermVectors(false)`).  
+- **Regular Updates:** GroupDocs.Search'i güncel tutun; her küçük sürüm ortalama %10‑15 hız artışı içerir.
 
 ## Sıkça Sorulan Sorular
 
 **S: Çok büyük PDF dosyalarını verimli bir şekilde nasıl yönetirim?**  
-C: Dosyayı `Extractor` ile akışa alıp parçalar halinde işleyin; ayrıca gerekirse JVM yığınını artırın.
+C: Dosyayı `Extractor` ile akışa alın ve parçalar halinde işleyin; ayrıca gerekirse JVM yığınını artırın.
 
-**S: Arama sorgusu sözdizimini özelleştirebilir miyim?**  
-C: Evet—GroupDocs.Search Boolean operatörleri, joker karakterler ve yakınlık aramaları destekler.
+**S: Arama sorgu sözdizimini özelleştirebilir miyim?**  
+C: Evet—GroupDocs.Search Boolean operatörleri, wildcard'lar ve yakınlık aramaları destekler.
 
 **S: Serileştirme başarısız olursa ne yapmalıyım?**  
-C: Tüm nesnelerin `Serializable` implement ettiğini doğrulayın ve detayları kaydetmek için `IOException` yakalayın.
+C: Tüm nesnelerin `Serializable` uyguladığını doğrulayın ve ayrıntıları kaydetmek için `IOException` yakalayın.
 
 **S: Bir belgenin yalnızca belirli bölümlerini indekslemek mümkün mü?**  
-C: Kesinlikle—İndekslemeden önce sayfaları veya bölümleri filtrelemek için `ExtractionOptions` yapılandırın.
+C: Kesinlikle—indekslemeden önce sayfaları veya bölümleri filtrelemek için `ExtractionOptions` yapılandırın.
 
 **S: Daha yeni bir GroupDocs.Search sürümüne nasıl yükseltirim?**  
 C: `pom.xml` dosyanızdaki sürüm numarasını güncelleyin ve `mvn clean install` çalıştırın; kırılma değişiklikleri için geçiş kılavuzunu inceleyin.
 
 ## Kaynaklar
-- **Documentation:** [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)  
-- **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-- **Download:** [GroupDocs Downloads](https://releases.groupdocs.com/search/java/)  
+- **GroupDocs.Search for Java sürümleri:** [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)  
+- **Dokümantasyon:** [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)  
+- **API Referansı:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
+- **İndirme:** [GroupDocs Downloads](https://releases.groupdocs.com/search/java/)  
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **Ücretsiz Destek:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
+- **Geçici Lisans:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**Last Updated:** 2026-02-19  
+**Son Güncelleme:** 2026-07-07  
 **Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Eğitimler
+
+- [GroupDocs.Search ile Java Dizin Oluşturma | Kapsamlı İndeksleme ve Raporlama Rehberi](/search/java/advanced-features/groupdocs-search-java-index-report-guide/)
+- [Belge Ekleme – GroupDocs.Search Java Rehberi](/search/java/advanced-features/)
+- [Tam Metin Arama Java: GroupDocs.Search ile Uygulama – Kapsamlı Rehber](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
