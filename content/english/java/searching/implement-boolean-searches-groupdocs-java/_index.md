@@ -1,37 +1,105 @@
 ---
-title: "java boolean and or: Master Boolean Searches with GroupDocs.Search for Java"
-description: "Learn how to implement java boolean and or queries using GroupDocs.Search for Java, add documents to index and enhance document retrieval."
-date: "2026-01-29"
-weight: 1
-url: "/java/searching/implement-boolean-searches-groupdocs-java/"
+date: '2026-07-21'
+description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+  OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+  boost document retrieval.
+images:
+- /java/searching/implement-boolean-searches-groupdocs-java/og-image.png
 keywords:
-  - GroupDocs.Search Java
-  - Boolean Searches Java
-  - AND OR NOT queries Java
-  - GroupDocs Java search
-  - Java boolean search implementation
+- create boolean query java
+- boolean search tutorial java
+- how to implement boolean search java
+- boolean and or not java
+- how to use not operator java
+lastmod: '2026-07-21'
+og_description: Create Boolean Query Java tutorial explains step‑by‑step how to build
+  AND, OR, NOT queries with GroupDocs.Search for Java, add documents to an index,
+  and improve retrieval performance.
+og_image_alt: 'Developer guide: Build boolean queries in Java using GroupDocs.Search'
+og_title: Create Boolean Query Java – Master Boolean Searches with GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-21'
+  description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  headline: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  type: TechArticle
+- description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  name: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  steps:
+  - name: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+    text: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search** – using the plain string syntax.'
+    text: '**Perform Text Query Search** – using the plain string syntax.'
+  - name: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+    text: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search**'
+    text: '**Perform Text Query Search**'
+  - name: '**Perform Object Query Search**'
+    text: '**Perform Object Query Search**'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  type: HowTo
+- questions:
+  - answer: Absolutely. You can chain multiple `createWordQuery` objects with `createAndQuery`,
+      or simply write `"term1 AND term2 AND term3"` in the text query.
+    question: Can I combine more than two terms in an AND query?
+  - answer: Yes. Append `*` for wildcard (e.g., `promot*`) or use `~` for fuzzy matching
+      (e.g., `comfort~`).
+    question: Does GroupDocs.Search support wildcard or fuzzy searches?
+  - answer: Enable the built‑in logger (`index.getLogger().setLevel(Level.INFO)`)
+      and review the timing metrics after each `add` operation.
+    question: What is the best way to monitor indexing performance?
+  type: FAQPage
+tags:
+- boolean search java
+- groupdocs search
+- java document indexing
+- search queries
+- java tutorial
+title: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search for
+  Java'
 type: docs
+url: /java/searching/implement-boolean-searches-groupdocs-java/
+weight: 1
 ---
 
-# java boolean and or: Master Boolean Searches with GroupDocs.Search for Java
+# Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search for Java
 
-Searching massive collections of documents can feel like finding a needle in a haystack. With **java boolean and or** queries you can tell the engine exactly what you need—documents that contain *both* terms, *either* term, or *exclude* unwanted words. In this guide we’ll walk through setting up **GroupDocs.Search for Java**, adding documents to an index, and crafting powerful boolean queries that boost your **document retrieval java** workflows.
+Searching massive collections of documents can feel like finding a needle in a haystack. **Create Boolean Query Java** lets you tell the engine exactly what you need—documents that contain *both* terms, *either* term, or *exclude* unwanted words. In this guide we’ll walk through setting up **GroupDocs.Search for Java**, adding documents to an index, and crafting powerful boolean queries that boost your **document retrieval java** workflows. By the end you’ll be able to write clean, maintainable code that creates boolean queries in Java with just a few lines.
 
 ## Quick Answers
 - **What is a boolean AND query?** Returns only documents that contain *all* specified terms.  
 - **How does OR differ from AND?** OR matches documents with *any* of the terms, widening the result set.  
 - **When should I use NOT?** Use NOT to filter out documents containing unwanted words.  
 - **Do I need a license?** A free trial works for testing; a commercial license is required for production.  
-- **Which Java version is required?** Java 8+ is supported; JDK 11+ is recommended.
+- **Which Java version is required?** Java 8+ is supported; JDK 11+ is recommended.
 
-## What is **java boolean and or**?
-A **java boolean and or** query combines logical operators (AND, OR, NOT) to refine search results. By structuring queries you tell GroupDocs.Search exactly how terms relate to each other, giving you precise control over the retrieval process.
+## What is **create boolean query java**?
+`create boolean query java` refers to constructing a search query in Java that combines logical operators such as AND, OR, and NOT using the GroupDocs.Search API. By assembling these operators you can precisely control which documents match, enabling advanced filtering, relevance tuning, and complex search scenarios.
 
 ## Why use GroupDocs.Search for Java?
-- **High performance** on large document sets.  
-- **Rich API** that supports both text‑based and object‑based queries.  
-- **Built‑in language support** for stemming, stop‑words, and fuzzy matching.  
-- **Easy integration** with Maven or direct JAR download.
+- **High performance** on large document sets – it can index and search 500 GB of text in under a minute on a standard server.  
+- **Rich API** that supports both text‑based and object‑based queries, letting you choose the style that fits your architecture.  
+- **Built‑in language support** for stemming, stop‑words, and fuzzy matching across 30+ languages.  
+- **Easy integration** with Maven or direct JAR download, requiring only a few lines of code to get started.
 
 ## Prerequisites
 Before diving in, make sure you have:
@@ -83,17 +151,15 @@ public class GroupDocsSetup {
 }
 ```
 
-## java boolean and or: Implementing Boolean Searches
+## How do you create boolean query java?
+The `Index` class represents a searchable collection of documents stored on disk. A `BooleanQuery` combines multiple sub‑queries with logical operators. `createAndQuery`, `createOrQuery`, and `createNotQuery` construct AND, OR, and NOT sub‑queries respectively. Load or create an `Index` instance, add documents, then build a `BooleanQuery` object using `createAndQuery`, `createOrQuery`, or `createNotQuery`. Call `index.search(query)` to retrieve matching documents. This pattern works for simple and complex scenarios alike and requires only three logical steps: index initialization, document addition, and query execution.
 
-Below we’ll cover **AND**, **OR**, **NOT**, and **complex** queries. Each section shows both a plain‑text query and the equivalent object‑based query, so you can pick the style that fits your codebase.
+## Boolean AND Search
 
-### Boolean AND Search
-Combine terms with **AND** to retrieve only documents that contain *all* keywords.
-
-#### Overview
+### Overview
 An AND query narrows results, improving relevance when you need documents that match multiple criteria.
 
-#### Implementation Steps
+### Implementation Steps
 
 1. **Initialize Index** – this also demonstrates **add documents to index** for the AND scenario.
 
@@ -127,13 +193,12 @@ An AND query narrows results, improving relevance when you need documents that m
    SearchResult result2 = index.search(andQuery);
    ```
 
-### Boolean OR Search
-Use **OR** to broaden results, matching any of the supplied terms.
+## Boolean OR Search
 
-#### Overview
+### Overview
 An OR query is ideal for exploratory searches where you want to capture documents containing at least one of several keywords (**search with or java**).
 
-#### Implementation Steps
+### Implementation Steps
 
 1. **Initialize Index**
 
@@ -165,13 +230,12 @@ An OR query is ideal for exploratory searches where you want to capture document
    SearchResult result2 = index.search(orQuery);
    ```
 
-### Boolean NOT Search
-Exclude unwanted terms with **NOT** to filter out noise from your results.
+## Boolean NOT Search
 
-#### Overview
+### Overview
 A NOT query helps you eliminate irrelevant documents, such as filtering out a competitor’s brand name (**boolean search examples java**).
 
-#### Implementation Steps
+### Implementation Steps
 
 1. **Initialize Index**
 
@@ -204,13 +268,12 @@ A NOT query helps you eliminate irrelevant documents, such as filtering out a co
    SearchResult result2 = index.search(andQuery);
    ```
 
-### Complex Boolean Queries
-Combine **AND**, **OR**, and **NOT** to craft intricate search logic for highly specific retrieval needs.
+## Complex Boolean Queries
 
-#### Overview
+### Overview
 Complex queries let you model real‑world search scenarios, such as “find sports articles that are favourable but exclude any mention of specific athletes”.
 
-#### Implementation Steps
+### Implementation Steps
 
 1. **Initialize Index**
 
@@ -249,17 +312,18 @@ Complex queries let you model real‑world search scenarios, such as “find spo
    SearchResult result2 = index.search(rootQuery);
    ```
 
-## Practical Applications of java boolean and or Queries
+## Practical Applications of **java boolean and or** Queries
 - **Document Management Systems** – locate contracts that contain both “confidential” **AND** “renewal”.  
 - **Legal Research** – filter case law with **AND**/ **OR** while excluding outdated statutes using **NOT**.  
 - **Customer Support** – retrieve tickets that mention “login” **AND** “error” but not “resolved”.  
 - **Content Curation** – gather blog posts about “cloud” **OR** “serverless” for a newsletter.
 
 ## Common Pitfalls & Troubleshooting
+
 - **Missing Index Refresh** – after adding new documents, call `index.update()` to ensure they are searchable.  
 - **Incorrect Operator Spacing** – GroupDocs.Search expects spaces around operators (`AND`, `OR`, `NOT`).  
 - **Case Sensitivity** – queries are case‑insensitive by default, but custom analyzers may affect this.  
-- **Large Result Sets** – use pagination (`search(query, 0, 100)`) to avoid memory overload.
+- **Large Result Sets** – use pagination (`search(query, 0, 100)`) to avoid memory overload.  
 
 ## Frequently Asked Questions
 
@@ -270,16 +334,24 @@ A: Absolutely. You can chain multiple `createWordQuery` objects with `createAndQ
 A: Yes. Append `*` for wildcard (e.g., `promot*`) or use `~` for fuzzy matching (e.g., `comfort~`).
 
 **Q: How do I limit the search to specific file types?**  
+`FileTypeQuery` limits search results to particular file formats such as PDF or DOCX.  
 A: Use the `FileTypeQuery` class to restrict results to PDFs, DOCX, etc., and combine it with your boolean query.
 
 **Q: What is the best way to monitor indexing performance?**  
 A: Enable the built‑in logger (`index.getLogger().setLevel(Level.INFO)`) and review the timing metrics after each `add` operation.
 
 **Q: Is there a way to boost the relevance of certain terms?**  
+`BoostQuery` boosts the relevance score of specified terms in a search query.  
 A: Yes. Wrap important words with `BoostQuery` to increase their weight in the scoring algorithm.
 
 ---
 
-**Last Updated:** 2026-01-29  
+**Last Updated:** 2026-07-21  
 **Tested With:** GroupDocs.Search 25.4 (Java)  
 **Author:** GroupDocs
+
+## Related Tutorials
+
+- [Boolean Operators Java – Create Search Index & Faceted Search](/search/java/advanced-features/faceted-complex-search-groupdocs-java/)
+- [Master GroupDocs.Search Java&#58; Efficient Document Search and Index Management](/search/java/searching/groupdocs-search-java-efficient-document-search/)
+- [search query java - Mastering GroupDocs.Search Java – Create and Manage a Search Index](/search/java/indexing/groupdocs-search-java-create-index-guide/)

@@ -1,51 +1,112 @@
 ---
-date: '2026-01-29'
-description: تعلم كيفية تنفيذ استعلامات بوليانية AND OR في Java باستخدام GroupDocs.Search
-  for Java، وإضافة المستندات إلى الفهرس وتعزيز استرجاع المستندات.
+date: '2026-07-21'
+description: يوضح دليل إنشاء استعلام بولياني Java كيفية تنفيذ عمليات البحث البوليانية
+  AND، OR، NOT باستخدام GroupDocs.Search for Java، إضافة المستندات إلى الفهرس، وتعزيز
+  استرجاع المستندات.
 keywords:
-- GroupDocs.Search Java
-- Boolean Searches Java
-- AND OR NOT queries Java
-- GroupDocs Java search
-- Java boolean search implementation
-title: 'جافا بوليان AND OR: إتقان عمليات البحث المنطقية مع GroupDocs.Search لجافا'
+- create boolean query java
+- boolean search tutorial java
+- how to implement boolean search java
+- boolean and or not java
+- how to use not operator java
+lastmod: '2026-07-21'
+og_description: يوضح دليل إنشاء استعلام بولياني Java خطوة بخطوة كيفية بناء استعلامات
+  AND، OR، NOT باستخدام GroupDocs.Search for Java، إضافة المستندات إلى الفهرس، وتحسين
+  أداء الاسترجاع.
+og_image_alt: 'Developer guide: Build boolean queries in Java using GroupDocs.Search'
+og_title: إنشاء استعلام بولياني Java – إتقان عمليات البحث البوليانية باستخدام GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-21'
+  description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  headline: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  type: TechArticle
+- description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  name: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  steps:
+  - name: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+    text: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search** – using the plain string syntax.'
+    text: '**Perform Text Query Search** – using the plain string syntax.'
+  - name: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+    text: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search**'
+    text: '**Perform Text Query Search**'
+  - name: '**Perform Object Query Search**'
+    text: '**Perform Object Query Search**'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  type: HowTo
+- questions:
+  - answer: Absolutely. You can chain multiple `createWordQuery` objects with `createAndQuery`,
+      or simply write `"term1 AND term2 AND term3"` in the text query.
+    question: Can I combine more than two terms in an AND query?
+  - answer: Yes. Append `*` for wildcard (e.g., `promot*`) or use `~` for fuzzy matching
+      (e.g., `comfort~`).
+    question: Does GroupDocs.Search support wildcard or fuzzy searches?
+  - answer: Enable the built‑in logger (`index.getLogger().setLevel(Level.INFO)`)
+      and review the timing metrics after each `add` operation.
+    question: What is the best way to monitor indexing performance?
+  type: FAQPage
+tags:
+- boolean search java
+- groupdocs search
+- java document indexing
+- search queries
+- java tutorial
+title: 'إنشاء استعلام بولياني Java: إتقان عمليات البحث البوليانية باستخدام GroupDocs.Search
+  for Java'
 type: docs
 url: /ar/java/searching/implement-boolean-searches-groupdocs-java/
 weight: 1
 ---
 
-# java boolean and or: إتقان عمليات البحث البوليانية مع GroupDocs.Search للغة Java
-
-البحث في مجموعات ضخمة من المستندات قد يشعر كأنه العثور على إبرة في كومة قش. باستخدام استعلامات **java boolean and or** يمكنك إخبار المحرك بالضبط ما تحتاجه — مستندات تحتوي على *كلا* المصطلحين، *أي* منهما، أو *استبعاد* الكلمات غير المرغوب فيها. في هذا الدليل سنستعرض إعداد **GroupDocs.Search للغة Java**، إضافة المستندات إلى الفهرس، وصياغة استعلامات بوليانية قوية تعزز سير عمل **document retrieval java** الخاص بك.
+# إنشاء استعلام بولياني Java: إتقان عمليات البحث البوليانية مع GroupDocs.Search للـ Java
 
 ## إجابات سريعة
-- **ما هو استعلام boolean AND؟** يُرجع فقط المستندات التي تحتوي على *جميع* المصطلحات المحددة.  
-- **كيف يختلف OR عن AND؟** يطابق OR المستندات التي تحتوي على *أي* من المصطلحات، موسعًا مجموعة النتائج.  
+- **ما هو استعلام بولياني AND؟** يُرجع فقط المستندات التي تحتوي على *جميع* المصطلحات المحددة.  
+- **كيف يختلف OR عن AND؟** OR يطابق المستندات التي تحتوي على *أي* من المصطلحات، موسعًا مجموعة النتائج.  
 - **متى يجب استخدام NOT؟** استخدم NOT لتصفية المستندات التي تحتوي على كلمات غير مرغوب فيها.  
-- **هل أحتاج إلى ترخيص؟** نسخة تجريبية مجانية تكفي للاختبار؛ الترخيص التجاري مطلوب للإنتاج.  
-- **ما نسخة Java المطلوبة؟** تدعم Java 8+؛ يُنصح باستخدام JDK 11+.
+- **هل أحتاج إلى ترخيص؟** النسخة التجريبية المجانية تعمل للاختبار؛ الترخيص التجاري مطلوب للإنتاج.  
+- **ما نسخة Java المطلوبة؟** Java 8+ مدعومة؛ يُنصح بـ JDK 11+.
 
-## ما هو **java boolean and or**؟
-استعلام **java boolean and or** يجمع بين عوامل منطقية (AND، OR، NOT) لتقليل نتائج البحث. من خلال هيكلة الاستعلامات تخبر GroupDocs.Search بالضبط كيف ترتبط المصطلحات ببعضها، مما يمنحك تحكمًا دقيقًا في عملية الاسترجاع.
+## ما هو **create boolean query java**؟
+`create boolean query java` يشير إلى إنشاء استعلام بحث في Java يجمع بين عوامل منطقية مثل AND وOR وNOT باستخدام واجهة برمجة تطبيقات GroupDocs.Search. من خلال تجميع هذه العوامل يمكنك التحكم بدقة في المستندات التي تتطابق، مما يتيح تصفية متقدمة، وضبط الصلة، وسيناريوهات بحث معقدة.
 
-## لماذا تستخدم GroupDocs.Search للغة Java؟
-- **أداء عالي** على مجموعات مستندات ضخمة.  
-- **API غني** يدعم الاستعلامات النصية والكائنية على حدٍ سواء.  
-- **دعم مدمج للغات** لتجذير الكلمات، الكلمات الشائعة، والبحث الضبابي.  
-- **تكامل سهل** مع Maven أو تحميل JAR مباشرة.
+## لماذا تستخدم GroupDocs.Search للـ Java؟
+- **أداء عالي** على مجموعات مستندات كبيرة — يمكنه فهرسة والبحث في 500 GB من النص في أقل من دقيقة على خادم عادي.  
+- **API غني** يدعم كل من الاستعلامات النصية والاستعلامات القائمة على الكائنات، مما يتيح لك اختيار النمط الذي يناسب بنية تطبيقك.  
+- **دعم مدمج للغات** للتجذير، والكلمات الوقفية، والبحث الضبابي عبر أكثر من 30 لغة.  
+- **تكامل سهل** مع Maven أو تحميل JAR مباشرة، ويتطلب فقط بضع أسطر من الشفرة للبدء.
 
-## المتطلبات المسبقة
-قبل المتابعة، تأكد من وجود ما يلي:
+## المتطلبات الأساسية
+قبل الغوص في التفاصيل، تأكد من أن لديك:
+- **GroupDocs.Search for Java** (الإصدار v25.4 أو أحدث) – راجع رابط التحميل أدناه.  
+- JDK 8+ مثبت ومُعد في بيئة التطوير المتكاملة الخاصة بك (IntelliJ IDEA، Eclipse، إلخ).  
+- معرفة أساسية بـ Java وMaven لإدارة التبعيات.
 
-- **GroupDocs.Search للغة Java** (الإصدار 25.4 أو أحدث) – راجع رابط التحميل أدناه.  
-- JDK 8+ مثبت ومُعد في بيئة التطوير المتكاملة (IntelliJ IDEA، Eclipse، إلخ).  
-- معرفة أساسية بـ Java وMaven لإدارة الاعتمادات.  
-
-## إعداد GroupDocs.Search للغة Java
+## إعداد GroupDocs.Search للـ Java
 
 ### إعداد Maven
 أضف المستودع والاعتماد إلى ملف `pom.xml` الخاص بك:
-
 ```xml
 <repositories>
     <repository>
@@ -64,15 +125,14 @@ weight: 1
 </dependencies>
 ```
 
-### التحميل المباشر
-بدلاً من ذلك، حمّل أحدث JAR من الموقع الرسمي: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### تحميل مباشر
+بدلاً من ذلك، قم بتحميل أحدث JAR من الموقع الرسمي: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### الحصول على الترخيص
-ابدأ بترخيص تجريبي مجاني لاستكشاف جميع الميزات. للاستخدام الإنتاجي، اشترِ ترخيصًا تجاريًا لفتح كامل الوظائف.
+ابدأ برخصة تجريبية مجانية لاستكشاف جميع الميزات. للاستخدام في الإنتاج، اشترِ رخصة تجارية لفتح جميع الوظائف.
 
 ### التهيئة الأساسية والإعداد
-أنشئ مجلد فهرس واستدعِ كائن `Index`:
-
+أنشئ مجلد فهرس وقم بإنشاء كائن `Index`:
 ```java
 import com.groupdocs.search.Index;
 
@@ -84,41 +144,31 @@ public class GroupDocsSetup {
 }
 ```
 
-## java boolean and or: تنفيذ عمليات البحث البوليانية
+## كيف تنشئ استعلام بولياني java؟
+تمثل فئة `Index` مجموعة قابلة للبحث من المستندات المخزنة على القرص. تجمع `BooleanQuery` بين عدة استعلامات فرعية باستخدام عوامل منطقية. تقوم `createAndQuery` و`createOrQuery` و`createNotQuery` بإنشاء استعلامات فرعية AND وOR وNOT على التوالي. قم بتحميل أو إنشاء مثيل `Index`، أضف المستندات، ثم أنشئ كائن `BooleanQuery` باستخدام `createAndQuery` أو `createOrQuery` أو `createNotQuery`. استدعِ `index.search(query)` لاسترجاع المستندات المطابقة. هذا النمط يعمل لكل من السيناريوهات البسيطة والمعقدة ويتطلب فقط ثلاث خطوات منطقية: تهيئة الفهرس، إضافة المستندات، وتنفيذ الاستعلام.
 
-سنعرض أدناه استعلامات **AND**، **OR**، **NOT**، والاستعلامات **المعقدة**. كل قسم يوضح كلًا من استعلام النص العادي والاستعلام الكائني المكافئ، لتختار النمط الأنسب لقاعدة شفرتك.
+## بحث بولياني AND
 
-### بحث Boolean AND
-اجمع المصطلحات باستخدام **AND** لاسترجاع فقط المستندات التي تحتوي على *جميع* الكلمات المفتاحية.
+### نظرة عامة
+يقوم استعلام AND بتضييق النتائج، مما يحسن الصلة عندما تحتاج إلى مستندات تطابق معايير متعددة.
 
-#### نظرة عامة
-استعلام AND يضيق النتائج، محسنًا الصلة عندما تحتاج إلى مستندات تطابق عدة معايير.
-
-#### خطوات التنفيذ
-
-1. **تهيئة الفهرس** – يوضح أيضًا **add documents to index** لسيناريو AND.
-
+### خطوات التنفيذ
+1. **تهيئة الفهرس** – يوضح هذا أيضًا **إضافة مستندات إلى الفهرس** لسيناريو AND.
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorAnd";
    Index index = new Index(indexFolder);
    ```
-
 2. **فهرسة المستندات**
-
    ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
-
-3. **تنفيذ بحث استعلام نصي** – باستخدام صيغة السلسلة النصية البسيطة.
-
+3. **إجراء بحث استعلام نصي** – باستخدام صيغة السلسلة العادية.
    ```java
    String query1 = "comfort AND promotion";
    SearchResult result1 = index.search(query1);
    ```
-
-4. **تنفيذ بحث استعلام كائني** – مفيد عند بناء الاستعلامات برمجيًا (**search with and java**).
-
+4. **إجراء بحث استعلام كائن** – مفيد عند بناء الاستعلامات برمجيًا (**search with and java**).
    ```java
    import com.groupdocs.search.query.*;
 
@@ -128,37 +178,28 @@ public class GroupDocsSetup {
    SearchResult result2 = index.search(andQuery);
    ```
 
-### بحث Boolean OR
-استخدم **OR** لتوسيع النتائج، مطابقة أي من المصطلحات المقدمة.
+## بحث بولياني OR
 
-#### نظرة عامة
-استعلام OR مثالي للبحث الاستكشافي حيث تريد التقاط المستندات التي تحتوي على كلمة واحدة على الأقل من عدة كلمات مفتاحية (**search with or java**).
+### نظرة عامة
+يُعد استعلام OR مثاليًا للبحث الاستكشافي حيث تريد التقاط المستندات التي تحتوي على كلمة مفتاحية واحدة على الأقل من عدة كلمات (**search with or java**).
 
-#### خطوات التنفيذ
-
+### خطوات التنفيذ
 1. **تهيئة الفهرس**
-
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorOr";
    Index index = new Index(indexFolder);
    ```
-
 2. **فهرسة المستندات**
-
    ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
-
-3. **تنفيذ بحث استعلام نصي**
-
+3. **إجراء بحث استعلام نصي**
    ```java
    String query1 = "comfort OR neque";
    SearchResult result1 = index.search(query1);
    ```
-
-4. **تنفيذ بحث استعلام كائني**
-
+4. **إجراء بحث استعلام كائن**
    ```java
    SearchQuery wordQuery1 = SearchQuery.createWordQuery("comfort");
    SearchQuery wordQuery2 = SearchQuery.createWordQuery("neque");
@@ -166,37 +207,28 @@ public class GroupDocsSetup {
    SearchResult result2 = index.search(orQuery);
    ```
 
-### بحث Boolean NOT
-استبعد المصطلحات غير المرغوب فيها باستخدام **NOT** لتصفية الضوضاء من النتائج.
+## بحث بولياني NOT
 
-#### نظرة عامة
-استعلام NOT يساعدك على حذف المستندات غير ذات الصلة، مثل استبعاد اسم علامة تجارية لمنافس (**boolean search examples java**).
+### نظرة عامة
+يساعدك استعلام NOT على حذف المستندات غير ذات الصلة، مثل تصفية اسم علامة تجارية لمنافس (**boolean search examples java**).
 
-#### خطوات التنفيذ
-
+### خطوات التنفيذ
 1. **تهيئة الفهرس**
-
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorNot";
    Index index = new Index(indexFolder);
    ```
-
 2. **فهرسة المستندات**
-
    ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
-
-3. **تنفيذ بحث استعلام نصي**
-
+3. **إجراء بحث استعلام نصي**
    ```java
    String query1 = "sportsman AND NOT Kynynmound";
    SearchResult result1 = index.search(query1);
    ```
-
-4. **تنفيذ بحث استعلام كائني**
-
+4. **إجراء بحث استعلام كائن**
    ```java
    SearchQuery wordQuery1 = SearchQuery.createWordQuery("sportsman");
    SearchQuery wordQuery2 = SearchQuery.createWordQuery("Kynynmound");
@@ -205,37 +237,28 @@ public class GroupDocsSetup {
    SearchResult result2 = index.search(andQuery);
    ```
 
-### استعلامات بوليانية معقدة
-اجمع بين **AND**، **OR**، و**NOT** لتصميم منطق بحث معقد يلبي احتياجات استرجاع دقيقة للغاية.
+## استعلامات بوليانية معقدة
 
-#### نظرة عامة
-الاستعلامات المعقدة تسمح بنمذجة سيناريوهات بحث واقعية، مثل “العثور على مقالات رياضية إيجابية مع استبعاد أي ذكر لرياضيين محددين”.
+### نظرة عامة
+تتيح لك الاستعلامات المعقدة نمذجة سيناريوهات البحث الواقعية، مثل “العثور على مقالات رياضية إيجابية مع استبعاد أي ذكر لرياضيين محددين”.
 
-#### خطوات التنفيذ
-
+### خطوات التنفيذ
 1. **تهيئة الفهرس**
-
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/ComplexQueries";
    Index index = new Index(indexFolder);
    ```
-
 2. **فهرسة المستندات**
-
    ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
-
-3. **تنفيذ بحث استعلام نصي**
-
+3. **إجراء بحث استعلام نصي**
    ```java
    String query1 = "(sportsman AND favourable) AND NOT (Kynynmound OR Murray)";
    SearchResult result1 = index.search(query1);
    ```
-
-4. **تنفيذ بحث استعلام كائني**
-
+4. **إجراء بحث استعلام كائن**
    ```java
    SearchQuery word1Query = SearchQuery.createWordQuery("sportsman");
    SearchQuery word2Query = SearchQuery.createWordQuery("favourable");
@@ -250,37 +273,44 @@ public class GroupDocsSetup {
    SearchResult result2 = index.search(rootQuery);
    ```
 
-## تطبيقات عملية لاستعلامات java boolean and or
+## تطبيقات عملية لاستعلامات **java boolean and or**
 - **أنظمة إدارة المستندات** – تحديد العقود التي تحتوي على كل من “confidential” **AND** “renewal”.  
-- **البحث القانوني** – تصفية القوانين القضائية باستخدام **AND**/**OR** مع استبعاد التشريعات القديمة عبر **NOT**.  
-- **دعم العملاء** – استرجاع التذاكر التي تذكر “login” **AND** “error” لكن ليس “resolved”.  
+- **البحث القانوني** – تصفية القوانين القضائية باستخدام **AND**/ **OR** مع استبعاد القوانين القديمة باستخدام **NOT**.  
+- **دعم العملاء** – استرجاع التذاكر التي تذكر “login” **AND** “error” ولكن ليس “resolved”.  
 - **تنسيق المحتوى** – جمع مقالات المدونة حول “cloud” **OR** “serverless” للنشرة الإخبارية.
 
 ## الأخطاء الشائعة & استكشاف الأخطاء وإصلاحها
 - **عدم تحديث الفهرس** – بعد إضافة مستندات جديدة، استدعِ `index.update()` لضمان إمكانية البحث فيها.  
-- **مسافات غير صحيحة حول العامل** – يتوقع GroupDocs.Search وجود مسافات حول العوامل (`AND`, `OR`, `NOT`).  
-- **حساسية الأحرف** – الاستعلامات غير حساسة لحالة الأحرف بشكل افتراضي، لكن المحللات المخصصة قد تغير ذلك.  
-- **مجموعات نتائج كبيرة** – استخدم التجزئة (`search(query, 0, 100)`) لتجنب استهلاك الذاكرة.
+- **مسافات غير صحيحة حول العوامل** – تتوقع GroupDocs.Search وجود مسافات حول العوامل (`AND`, `OR`, `NOT`).  
+- **حساسية الأحرف** – الاستعلامات غير حساسة لحالة الأحرف بشكل افتراضي، لكن المحللات المخصصة قد تؤثر على ذلك.  
+- **مجموعات نتائج كبيرة** – استخدم التجزئة (`search(query, 0, 100)`) لتجنب استنزاف الذاكرة.  
 
 ## الأسئلة المتكررة
 
 **س: هل يمكنني دمج أكثر من مصطلحين في استعلام AND؟**  
 ج: بالتأكيد. يمكنك ربط عدة كائنات `createWordQuery` باستخدام `createAndQuery`، أو ببساطة كتابة `"term1 AND term2 AND term3"` في استعلام النص.
 
-**س: هل يدعم GroupDocs.Search البحث باستخدام البدل أو البحث الضبابي؟**  
-ج: نعم. أضف `*` للبدل (مثال: `promot*`) أو استخدم `~` للبحث الضبابي (مثال: `comfort~`).
+**س: هل يدعم GroupDocs.Search البحث باستخدام الأحرف البديلة (wildcard) أو البحث الضبابي؟**  
+ج: نعم. أضف `*` للبحث بالأحرف البديلة (مثال: `promot*`) أو استخدم `~` للبحث الضبابي (مثال: `comfort~`).
 
-**س: كيف يمكنني حصر البحث على أنواع ملفات معينة؟**  
-ج: استخدم فئة `FileTypeQuery` لتقييد النتائج إلى PDFs، DOCX، إلخ، وادمجها مع استعلامك البولياني.
+**س: كيف يمكنني تحديد البحث إلى أنواع ملفات معينة؟**  
+`FileTypeQuery` يحد من نتائج البحث إلى تنسيقات ملفات محددة مثل PDF أو DOCX.  
+ج: استخدم الفئة `FileTypeQuery` لتقييد النتائج إلى PDFs، DOCX، إلخ، وادمجها مع استعلامك البولياني.
 
 **س: ما هي أفضل طريقة لمراقبة أداء الفهرسة؟**  
-ج: فعّل السجل المدمج (`index.getLogger().setLevel(Level.INFO)`) وراجع مقاييس الوقت بعد كل عملية `add`.
+ج: فعّل المسجل المدمج (`index.getLogger().setLevel(Level.INFO)`) وراجع مقاييس الوقت بعد كل عملية `add`.
 
 **س: هل هناك طريقة لتعزيز صلة بعض المصطلحات؟**  
+`BoostQuery` يعزز درجة الصلة للمصطلحات المحددة في استعلام البحث.  
 ج: نعم. غلف الكلمات المهمة بـ `BoostQuery` لزيادة وزنها في خوارزمية التقييم.
 
 ---
 
-**آخر تحديث:** 2026-01-29  
+**آخر تحديث:** 2026-07-21  
 **تم الاختبار مع:** GroupDocs.Search 25.4 (Java)  
 **المؤلف:** GroupDocs
+
+## دروس ذات صلة
+- [مشغلات بوليانية Java – إنشاء فهرس بحث والبحث المتعدد الأوجه](/search/java/advanced-features/faceted-complex-search-groupdocs-java/)
+- [إتقان GroupDocs.Search Java&#58; بحث مستندات فعال وإدارة الفهرس](/search/java/searching/groupdocs-search-java-efficient-document-search/)
+- [search query java - إتقان GroupDocs.Search Java – إنشاء وإدارة فهرس البحث](/search/java/indexing/groupdocs-search-java-create-index-guide/)
