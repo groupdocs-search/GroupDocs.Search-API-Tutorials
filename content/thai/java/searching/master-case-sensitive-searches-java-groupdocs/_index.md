@@ -1,45 +1,102 @@
 ---
-date: '2026-02-06'
-description: เรียนรู้วิธีเพิ่มเอกสารลงในดัชนีและเปิดใช้งานการค้นหาที่แยกแยะตัวพิมพ์ใหญ่‑เล็กใน
-  Java ด้วย GroupDocs.Search เพื่อเพิ่มความแม่นยำของแอปพลิเคชันของคุณ
+date: '2026-08-10'
+description: เรียนรู้วิธีสร้าง searchable index Java และเปิดใช้งานการค้นหาแบบ case‑sensitive
+  ด้วย GroupDocs.Search เพื่อเพิ่มความแม่นยำให้กับแอปพลิเคชัน Java
 keywords:
-- case-sensitive searches in Java
-- GroupDocs.Search Java tutorial
-- Java text query search
-- object query search in Java
-title: 'เพิ่มเอกสารลงในดัชนี: การค้นหา Java ที่แยกแยะตัวพิมพ์ใหญ่‑เล็กด้วย GroupDocs'
+- create searchable index java
+- case sensitive search java
+- groupdocs search java tutorial
+- java text query search
+lastmod: '2026-08-10'
+og_description: เรียนรู้วิธีสร้าง searchable index Java และเปิดใช้งานการค้นหาแบบ case‑sensitive
+  ด้วย GroupDocs.Search คู่มือขั้นตอนสำหรับนักพัฒนา Java
+og_image_alt: Guide to creating a searchable index in Java using GroupDocs with case‑sensitive
+  search
+og_title: 'สร้าง searchable index Java: เพิ่มการค้นหาแบบ case‑sensitive ในเอกสาร'
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-10'
+  description: Learn how to create searchable index java and enable case‑sensitive
+    search with GroupDocs.Search, boosting accuracy for Java applications.
+  headline: 'Create searchable index java: add docs case‑sensitive search'
+  type: TechArticle
+- description: Learn how to create searchable index java and enable case‑sensitive
+    search with GroupDocs.Search, boosting accuracy for Java applications.
+  name: 'Create searchable index java: add docs case‑sensitive search'
+  steps:
+  - name: create an index and add your documents
+    text: The `Index` class represents a searchable storage area on disk where documents
+      are indexed. > **Pro tip:** You can call `index.add()` multiple times to **search
+      across multiple directories** in a single index.
+  - name: enable case‑sensitive search
+    text: '`SearchOptions` configures how queries are processed, including case sensitivity
+      and other search behaviors.'
+  - name: execute a case‑sensitive text query
+    text: '`SearchQuery` builds the query object that the engine evaluates against
+      the index. The loop prints the full path of each document that contains the
+      exact case‑matched term.'
+  - name: initialize a second index (optional)
+    text: A second `Index` instance can be created to isolate object‑based searches
+      from plain‑text searches.
+  - name: re‑use the case‑sensitive option
+    text: '`SearchOptions` can be reused across different query types to maintain
+      consistent case handling.'
+  - name: build and run an object query
+    text: '`WordQuery` represents a word‑level search that can be combined with other
+      query types for complex searches. Using `createWordQuery` lets you later combine
+      it with phrase, wildcard, or Boolean queries for more complex scenarios.'
+  type: HowTo
+- questions:
+  - answer: Add documents to an index with `index.add(...)`.
+    question: What is the primary step to start searching?
+  - answer: Set `options.setUseCaseSensitiveSearch(true)`.
+    question: How do you enable case‑sensitive search?
+  - answer: Yes – call `index.add()` for each folder you want to include.
+    question: Can you search across multiple directories?
+  - answer: Use `SearchQuery.createWordQuery(...)`.
+    question: Which method lets you search with objects?
+  - answer: A temporary license is available for trial purposes.
+    question: Do you need a license for testing?
+  type: FAQPage
+tags:
+- create searchable index
+- case-sensitive search
+- groupdocs search
+- java document processing
+title: 'สร้าง searchable index Java: เพิ่มการค้นหาแบบ case‑sensitive ในเอกสาร'
 type: docs
 url: /th/java/searching/master-case-sensitive-searches-java-groupdocs/
 weight: 1
 ---
 
-# เพิ่มเอกสารลงในดัชนี: การเชี่ยวชาญการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็กใน Java ด้วย GroupDocs
+# สร้างดัชนีค้นหาได้ใน Java: เพิ่มเอกสารการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็ก
 
-การดึงข้อมูลที่ต้องการจากคอลเลกชันเอกสารขนาดมหาศาลเป็นความต้องการหลักของแอปพลิเคชันสมัยใหม่ ในคู่มือนี้คุณจะได้เรียนรู้ **วิธีเพิ่มเอกสารลงในดัชนี** และทำ **การค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็ก** ด้วย GroupDocs.Search สำหรับ Java ไม่ว่าคุณจะกำลังสร้างคลังเอกสารทางกฎหมาย, แคตาล็อกอี‑คอมเมิร์ซ หรือระบบจัดการเนื้อหา ผลการค้นหาที่แม่นยำจะทำให้ผู้ใช้พอใจและข้อมูลของคุณเชื่อถือได้
+ในแอปพลิเคชัน Java สมัยใหม่, **creating a searchable index java** เป็นพื้นฐานสำหรับการดึงข้อมูลที่รวดเร็วและแม่นยำจากคอลเลกชันเอกสารขนาดใหญ่ บทแนะนำนี้จะแสดงวิธีเพิ่มเอกสารลงในดัชนี, เปิดการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็ก, และปรับแต่งกระบวนการด้วย GroupDocs.Search ไม่ว่าคุณจะสร้างคลังเอกสารทางกฎหมาย, แคตาล็อกอี‑คอมเมิร์ซ, หรือระบบการจัดการเนื้อหา, ขั้นตอนเหล่านี้จะช่วยให้คุณส่งมอบผลลัพธ์ที่แม่นยำและทำให้ผู้ใช้พึงพอใจ
 
-## Quick Answers
-- **ขั้นตอนแรกที่สำคัญในการเริ่มการค้นหาคืออะไร?** เพิ่มเอกสารลงในดัชนีด้วย `index.add(...)`  
-- **จะเปิดใช้งานการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็กอย่างไร?** ตั้งค่า `options.setUseCaseSensitiveSearch(true)`  
-- **ฉันสามารถค้นหาข้ามหลายไดเรกทอรีได้หรือไม่?** ได้ – เรียก `index.add()` สำหรับแต่ละโฟลเดอร์ที่ต้องการรวม  
-- **เมธอดใดที่ให้ฉันค้นหาด้วยอ็อบเจกต์?** ใช้ `SearchQuery.createWordQuery(...)`  
-- **ต้องการไลเซนส์สำหรับการทดสอบหรือไม่?** มีไลเซนส์ชั่วคราวให้ใช้สำหรับการทดลอง
+## คำตอบด่วน
+- **ขั้นตอนหลักแรกในการเริ่มค้นหาคืออะไร?** เพิ่มเอกสารลงในดัชนีด้วย `index.add(...)`.  
+- **จะเปิดการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็กอย่างไร?** ตั้งค่า `options.setUseCaseSensitiveSearch(true)`.  
+- **คุณสามารถค้นหาข้ามหลายไดเรกทอรีได้หรือไม่?** ได้ – เรียก `index.add()` สำหรับแต่ละโฟลเดอร์ที่ต้องการรวม.  
+- **เมธอดใดที่ให้คุณค้นหาด้วยอ็อบเจ็กต์?** ใช้ `SearchQuery.createWordQuery(...)`.  
+- **คุณต้องการใบอนุญาตสำหรับการทดสอบหรือไม่?** มีใบอนุญาตชั่วคราวสำหรับการทดลองใช้
 
-## What does “add documents to index” mean?
-การเพิ่มเอกสารลงในดัชนีหมายถึงการป้อนไฟล์ต้นทางของคุณ (PDF, Word, ข้อความธรรมดา ฯลฯ) เข้าไปใน GroupDocs.Search เพื่อให้ระบบสร้างโครงสร้างข้อมูลที่สามารถค้นหาได้ เมื่อทำการจัดทำดัชนีแล้วเอนจินจะสามารถดำเนินการค้นหาอย่างรวดเร็ว รวมถึงการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็กด้วย
+## “add documents to index” หมายความว่าอะไร?
+การเพิ่มเอกสารลงในดัชนีหมายถึงการป้อนไฟล์ต้นทางของคุณ (PDF, เอกสาร Word, ข้อความธรรมดา ฯลฯ) เข้าไปใน GroupDocs.Search เพื่อให้สามารถสร้างโครงสร้างข้อมูลที่ค้นหาได้ ดัชนีจะเก็บคำที่แยกโทเค็น, ตำแหน่ง, และเมตาดาต้า ทำให้เอนจินสามารถดำเนินการค้นหาอย่างรวดเร็ว รวมถึงการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็ก และจัดอันดับผลลัพธ์อย่างมีประสิทธิภาพ
 
-## Why enable case‑sensitive search in Java?
-- **การจับคู่คำอย่างแม่นยำ** – แยกความแตกต่างระหว่าง “Apple” (บริษัท) กับ “apple” (ผลไม้)  
-- **การปฏิบัติตามกฎระเบียบ** – บางอุตสาหกรรมต้องการการจับคู่วลีอย่างแม่นยำ  
-- **ความเกี่ยวข้องที่ดีขึ้น** – ผู้ใช้มักคาดหวังผลลัพธ์ที่แยกตามตัวพิมพ์ในบริบททางเทคนิคหรือกฎหมาย
+## ทำไมต้องเปิดการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็กใน Java?
+การเปิดการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็กทำให้เอนจินแยกแยะระหว่างคำที่ต่างกันเพียงแค่ตัวพิมพ์ใหญ่‑เล็ก ซึ่งสำคัญสำหรับโดเมนที่การใช้ตัวพิมพ์ใหญ่มีความหมาย มันทำให้สามารถจับคู่คำอย่างแม่นยำ, รองรับความต้องการด้านการปฏิบัติตามกฎระเบียบ, และเพิ่มความเกี่ยวข้องโดยคืนผลลัพธ์ที่ตรงกับตัวพิมพ์ของคำค้นของผู้ใช้อย่างแม่นยำ
+- **Exact term matching** – เช่น “Apple” (บริษัท) vs. “apple” (ผลไม้).  
+- **Regulatory compliance** – หลายอุตสาหกรรมต้องการการจับคู่วลีอย่างแม่นยำ.  
+- **Improved relevance** – ผู้ใช้ด้านเทคนิคและกฎหมายมักคาดหวังผลลัพธ์ที่แยกตามตัวพิมพ์.
 
-## Prerequisites
-- JDK (แนะนำ Java 17 หรือใหม่กว่า)  
+## ข้อกำหนดเบื้องต้น
+- JDK 17 หรือใหม่กว่า (แนะนำ)  
 - Maven สำหรับการจัดการ dependencies  
 - IDE เช่น IntelliJ IDEA หรือ Eclipse  
 - ความคุ้นเคยพื้นฐานกับการเขียนโปรแกรม Java  
 
-## Setting Up GroupDocs.Search for Java
-ก่อนอื่นให้เพิ่มรีโพสิตอรีของ GroupDocs และ dependency ลงใน `pom.xml` ของคุณ:
+## การตั้งค่า GroupDocs.Search สำหรับ Java
+ส่วนต่อไปนี้เป็นสแนปเพ็ท Maven ที่เพิ่มรีโพซิทอรี GroupDocs.Search และ dependency ที่จำเป็นลงในโปรเจกต์ของคุณ.
 
 ```xml
 <repositories>
@@ -59,15 +116,15 @@ weight: 1
 </dependencies>
 ```
 
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)  
+หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Licensing
-เพื่อเริ่มต้นด้วยรุ่นทดลอง ให้ไปที่ GroupDocs เพื่อรับไลเซนส์ชั่วคราว ซึ่งจะทำให้คุณทดสอบฟีเจอร์ทั้งหมดโดยไม่มีข้อจำกัดใด ๆ  
+### การให้ลิขสิทธิ์
+เพื่อเริ่มต้นด้วยการทดลองใช้, เยี่ยมชม GroupDocs เพื่อรับใบอนุญาตชั่วคราว ซึ่งจะทำให้คุณสามารถทดสอบคุณลักษณะทั้งหมดโดยไม่มีข้อจำกัด.
 
-## How to add documents to index – Text Query Search
+## วิธีสร้าง searchable index java – การค้นหาแบบข้อความ
 
-### Step 1: Create an Index and add your documents
-สร้างโฟลเดอร์ที่ไฟล์ดัชนีจะถูกเก็บไว้ แล้วเพิ่มไดเรกทอรีต้นทางที่มีเอกสารที่คุณต้องการค้นหา
+### ขั้นตอนที่ 1: สร้างดัชนีและเพิ่มเอกสารของคุณ
+`Index` class แสดงพื้นที่จัดเก็บที่ค้นหาได้บนดิสก์ที่เอกสารถูกทำดัชนี.
 
 ```java
 String indexFolder = YOUR_OUTPUT_DIRECTORY + "/CaseSensitiveSearch/QueryInTextForm";
@@ -75,18 +132,18 @@ Index index = new Index(indexFolder);
 index.add(YOUR_DOCUMENT_DIRECTORY); // Add documents to the index
 ```
 
-> **เคล็ดลับ:** คุณสามารถเรียก `index.add()` หลายครั้งเพื่อ **ค้นหาข้ามหลายไดเรกทอรี** ในดัชนีเดียวได้  
+> **เคล็ดลับ:** คุณสามารถเรียก `index.add()` หลายครั้งเพื่อ **ค้นหาข้ามหลายไดเรกทอรี** ในดัชนีเดียว.
 
-### Step 2: Enable case‑sensitive search
-กำหนดค่าตัวเลือกการค้นหาให้คำนึงถึงการใช้ตัวพิมพ์ใหญ่‑เล็ก
+### ขั้นตอนที่ 2: เปิดการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็ก
+`SearchOptions` กำหนดวิธีการประมวลผลคิวรี, รวมถึงการแยกแยะตัวพิมพ์ใหญ่‑เล็กและพฤติกรรมการค้นหาอื่น ๆ.
 
 ```java
 SearchOptions options = new SearchOptions();
 options.setUseCaseSensitiveSearch(true);
 ```
 
-### Step 3: Execute a case‑sensitive text query
-รันคิวรีที่แยกความแตกต่างระหว่าง “Advantages” กับ “advantages”
+### ขั้นตอนที่ 3: ดำเนินการคิวรีข้อความแบบแยกแยะตัวพิมพ์ใหญ่‑เล็ก
+`SearchQuery` สร้างอ็อบเจ็กต์คิวรีที่เอนจินประเมินกับดัชนี.
 
 ```java
 String query = "Advantages";
@@ -98,14 +155,12 @@ for (FoundDocument doc : result.getDocuments()) {
 }
 ```
 
-ลูปนี้จะแสดงพาธเต็มของแต่ละเอกสารที่มีคำที่ตรงกับตัวพิมพ์อย่างแม่นยำ
+ลูปนี้พิมพ์เส้นทางเต็มของแต่ละเอกสารที่มีคำที่ตรงกับตัวพิมพ์แบบแม่นยำ.
 
-## How to add documents to index – Object Query Search
+## วิธีสร้าง searchable index java – การค้นหาแบบอ็อบเจ็กต์
 
-Object queries ให้ความยืดหยุ่นมากขึ้น โดยเฉพาะเมื่อคุณต้องการรวมหลายเงื่อนไขเข้าด้วยกัน
-
-### Step 1: Initialize a second index (optional)
-หากต้องการแยกการค้นหาแบบอ็อบเจกต์ออกจากกัน ให้สร้างโฟลเดอร์ดัชนีอีกอันหนึ่ง
+### ขั้นตอนที่ 1: เริ่มต้นดัชนีที่สอง (ไม่บังคับ)
+อินสแตนซ์ `Index` ที่สองสามารถสร้างเพื่อแยกการค้นหาแบบอ็อบเจ็กต์ออกจากการค้นหาแบบข้อความธรรมดา.
 
 ```java
 String indexFolder = YOUR_OUTPUT_DIRECTORY + "/CaseSensitiveSearch/QueryInObjectForm";
@@ -113,16 +168,16 @@ Index index = new Index(indexFolder);
 index.add(YOUR_DOCUMENT_DIRECTORY); // Add documents to the index
 ```
 
-### Step 2: Re‑use the case‑sensitive option
-อินสแตนซ์ `SearchOptions` เดียวกันสามารถใช้กับการค้นหาแบบอ็อบเจกต์ได้
+### ขั้นตอนที่ 2: ใช้ตัวเลือกแยกแยะตัวพิมพ์ใหญ่‑เล็กซ้ำ
+`SearchOptions` สามารถใช้ซ้ำระหว่างประเภทคิวรีต่าง ๆ เพื่อรักษาการจัดการตัวพิมพ์ที่สอดคล้องกัน.
 
 ```java
 SearchOptions options = new SearchOptions();
 options.setUseCaseSensitiveSearch(true);
 ```
 
-### Step 3: Build and run an object query
-สร้างอ็อบเจกต์ word query แล้วส่งให้เอนจินค้นหา
+### ขั้นตอนที่ 3: สร้างและรันคิวรีอ็อบเจ็กต์
+`WordQuery` แสดงการค้นหาระดับคำที่สามารถรวมกับประเภทคิวรีอื่น ๆ เพื่อการค้นหาที่ซับซ้อนได้.
 
 ```java
 SearchQuery query = SearchQuery.createWordQuery("Advantages");
@@ -134,54 +189,58 @@ for (FoundDocument doc : result.getDocuments()) {
 }
 ```
 
-การใช้ `createWordQuery` ทำให้คุณสามารถต่อมาผสานกับ phrase, wildcard หรือ Boolean query เพื่อสร้างสถานการณ์ที่ซับซ้อนได้  
+การใช้ `createWordQuery` ทำให้คุณสามารถรวมกับ phrase, wildcard, หรือ Boolean queries ในภายหลังสำหรับสถานการณ์ที่ซับซ้อนยิ่งขึ้น.
 
-## Practical Applications
-- **การจัดการเอกสารทางกฎหมาย:** ดึงกฎหมายหรือข้อบังคับที่ต้องแยกตามตัวพิมพ์ใหญ่‑เล็ก  
-- **แพลตฟอร์มอี‑คอมเมิร์ซ:** แยก SKU ของสินค้าเช่น “PRO‑X” กับ “pro‑x”  
-- **ระบบจัดการเนื้อหา (CMS):** ทำให้ผู้เขียนค้นหาหัวข้อหรือแท็กที่ตรงกันได้อย่างแม่นยำ  
+## การประยุกต์ใช้งานจริง
+- **Legal document management:** ดึงกฎหมายที่เฉพาะกรณีที่ตัวพิมพ์ใหญ่มีความสำคัญ.  
+- **E‑commerce platforms:** แยกแยะ SKU ของสินค้าเช่น “PRO‑X” กับ “pro‑x”.  
+- **Content management systems (CMS):** ทำให้ผู้เขียนค้นหาหัวข้อหรือแท็กที่ตรงได้อย่างแม่นยำ.
 
-## Performance Considerations
-- **รักษาดัชนีให้เป็นปัจจุบัน** – ทำการ re‑index เมื่อไฟล์ใหม่ถูกเพิ่มหรือไฟล์เดิมมีการเปลี่ยนแปลง  
-- **ตรวจสอบการใช้หน่วยความจำ** – คอลเลกชันขนาดใหญ่จะได้ประโยชน์จากการทำดัชนีแบบ incremental และการกำหนดขนาด heap ของ JVM อย่างเหมาะสม  
-- **ใช้ประโยชน์จาก garbage collector ของ Java** – ปล่อยอ็อบเจกต์ `Index` เมื่อไม่ต้องการใช้งานแล้ว  
+## ข้อควรพิจารณาด้านประสิทธิภาพ
+- **Keep the index up‑to‑date** – ทำการ re‑index เมื่อไฟล์ใหม่ถูกเพิ่มหรือไฟล์เดิมมีการเปลี่ยนแปลง.  
+- **Monitor memory usage** – คอร์ปัสขนาดใหญ่จะได้ประโยชน์จากการทำดัชนีแบบ incremental และการกำหนดขนาด heap ของ JVM อย่างเหมาะสม.  
+- **Leverage Java’s garbage collector** – ปล่อยอ็อบเจ็กต์ `Index` เมื่อไม่จำเป็นต้องใช้ต่อ.
 
-## Common Issues and Solutions
-| Issue | Solution |
+## ปัญหาทั่วไปและวิธีแก้
+| ปัญหา | วิธีแก้ |
 |-------|----------|
-| `useCaseSensitiveSearch` appears ignored | ตรวจสอบว่าคุณใช้เวอร์ชันล่าสุดของ GroupDocs.Search และว่าดัชนีถูกสร้างใหม่หลังจากเปลี่ยนตัวเลือกนี้ |
-| No results returned for a known term | ตรวจสอบว่าตัวพิมพ์ของคำตรงกับที่จัดทำดัชนีอย่างแม่นยำและว่าเอกสารถูกเพิ่มลงในดัชนีสำเร็จ |
-| Searching many folders slows down | เพิ่มแต่ละโฟลเดอร์แยกกันด้วย `index.add()` และพิจารณาแบ่งดัชนีเป็น shards สำหรับชุดข้อมูลขนาดใหญ่มาก |
+| `useCaseSensitiveSearch` ดูเหมือนถูกละเลย | ตรวจสอบว่าคุณใช้เวอร์ชันล่าสุดของ GroupDocs.Search และดัชนีได้ถูกสร้างใหม่หลังจากเปลี่ยนตัวเลือก. |
+| ไม่มีผลลัพธ์สำหรับคำที่รู้จัก | ตรวจสอบว่าตัวพิมพ์ของคำตรงกันอย่างแม่นยำและเอกสารถูกเพิ่มลงในดัชนีสำเร็จ. |
+| การค้นหาหลายโฟลเดอร์ทำให้ช้า | เพิ่มแต่ละโฟลเดอร์แยกกันด้วย `index.add()` และพิจารณาแยกดัชนีเป็น shards สำหรับชุดข้อมูลขนาดใหญ่มาก. |
 
-## Frequently Asked Questions
+## คำถามที่พบบ่อย
 
-**Q:** ฉันจะจัดการกับชุดข้อมูลขนาดใหญ่ด้วย GroupDocs.Search อย่างไร?  
-**A:** ใช้การแบ่งพาร์ทิชันของดัชนี ปรับแต่งการตั้งค่า memory ของ JVM และทำการ compact ดัชนีเป็นระยะเพื่อรักษาประสิทธิภาพให้สูงสุด  
+**Q:** คุณจัดการชุดข้อมูลขนาดใหญ่กับ GroupDocs.Search อย่างไร?  
+**A:** ใช้การแบ่งพาร์ทิชันดัชนี, ปรับตั้งค่าหน่วยความจำ JVM, และทำการบีบอัดดัชนีเป็นระยะเพื่อรักษาประสิทธิภาพให้ดีที่สุด.
 
 **Q:** ฉันสามารถค้นหาข้ามหลายไดเรกทอรีพร้อมกันได้หรือไม่?  
-**A:** ได้ – เรียก `index.add()` สำหรับแต่ละไดเรกทอรีที่ต้องการรวม แล้วรันคิวรีเดียวบนดัชนีที่รวมกันแล้ว  
+**A:** ได้ – เรียก `index.add()` สำหรับแต่ละไดเรกทอรีที่ต้องการรวม, จากนั้นรันคิวรีเดียวกับดัชนีที่รวมกัน.
 
-**Q:** ปัญหาที่พบบ่อยเมื่อตั้งค่าการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็กคืออะไร?  
-**A:** ลืมทำการสร้างดัชนีใหม่หลังจากเปิดใช้งาน `useCaseSensitiveSearch` หรือใช้ตัวพิมพ์ผิดในสตริงคิวรี  
+**Q:** ข้อผิดพลาดทั่วไปเมื่อตั้งค่าการค้นหาแบบแยกแยะตัวพิมพ์ใหญ่‑เล็กคืออะไร?  
+**A:** ลืมสร้างดัชนีใหม่หลังจากเปิด `useCaseSensitiveSearch`, หรือใช้ตัวพิมพ์ผิดในสตริงคิวรี.
 
 **Q:** ฉันจะแก้ไขข้อผิดพลาดการค้นหาอย่างไร?  
-**A:** ตรวจสอบไฟล์บันทึกที่ GroupDocs.Search สร้างขึ้นเพื่อดู stack trace และยืนยันว่า dependencies ของ Maven ทั้งหมดถูก resolve อย่างถูกต้อง  
+**A:** ตรวจสอบไฟล์บันทึกที่สร้างโดย GroupDocs.Search สำหรับ stack trace, และยืนยันว่า dependencies ของ Maven ทั้งหมดถูกแก้ไขอย่างถูกต้อง.
 
 **Q:** GroupDocs.Search เหมาะกับแอปพลิเคชันแบบเรียล‑ไทม์หรือไม่?  
-**A:** ด้วยกลยุทธ์การทำดัชนีที่เหมาะสม (การอัปเดตแบบ incremental และการแคชในหน่วยความจำ) สามารถให้ผลลัพธ์การค้นหาใกล้เคียงกับเรียล‑ไทม์ได้  
+**A:** ด้วยกลยุทธ์การทำดัชนีที่เหมาะสม (การอัปเดตแบบ incremental และการแคชในหน่วยความจำ), มันสามารถให้ผลลัพธ์การค้นหาใกล้เคียงเรียล‑ไทม์.
 
-## Resources
-- **Documentation:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
-- **API Reference:** [Java API Reference](https://reference.groupdocs.com/search/java)  
-- **Download:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- **GitHub Repository:** [GroupDocs.Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Support Forum:** [GroupDocs Free Support](https://forum.groupdocs.com/c/search/10)  
-- **Temporary License:** [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+## แหล่งข้อมูล
+- **Documentation:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)
+- **API reference:** [Java API Reference](https://reference.groupdocs.com/search/java)
+- **Download:** [Latest Releases](https://releases.groupdocs.com/search/java/)
+- **GitHub repository:** [GroupDocs.Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Support forum:** [GroupDocs Free Support](https://forum.groupdocs.com/c/search/10)
+- **Temporary license:** [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Last Updated:** 2026-02-06  
+**Last Updated:** 2026-08-10  
 **Tested With:** GroupDocs.Search 25.4  
 **Author:** GroupDocs  
 
----
+## บทแนะนำที่เกี่ยวข้อง
+
+- [สร้างดัชนีการค้นหา Java – บทแนะนำ GroupDocs.Search](/search/java/indexing/)
+- [วิธีเพิ่มเอกสารลงในดัชนีด้วย GroupDocs.Search สำหรับ Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [วิธีเพิ่มเอกสารลงในดัชนีด้วย Metadata Indexing ใน Java โดยใช้ GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)

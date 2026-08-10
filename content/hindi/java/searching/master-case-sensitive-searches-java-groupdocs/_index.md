@@ -1,45 +1,103 @@
 ---
-date: '2026-02-06'
-description: GroupDocs.Search के साथ जावा में दस्तावेज़ों को इंडेक्स में जोड़ना और
-  केस‑सेंसिटिव खोज को सक्षम करना सीखें, जिससे आपके एप्लिकेशन की सटीकता बढ़ेगी।
+date: '2026-08-10'
+description: GroupDocs.Search के साथ खोज योग्य अनुक्रमणिका Java बनाना और केस‑सेंसिटिव
+  सर्च सक्षम करना सीखें, जिससे Java एप्लिकेशनों की सटीकता बढ़े।
 keywords:
-- case-sensitive searches in Java
-- GroupDocs.Search Java tutorial
-- Java text query search
-- object query search in Java
-title: 'इंडेक्स में दस्तावेज़ जोड़ें: केस‑सेंसिटिव जावा खोज GroupDocs के साथ'
+- create searchable index java
+- case sensitive search java
+- groupdocs search java tutorial
+- java text query search
+lastmod: '2026-08-10'
+og_description: GroupDocs.Search के साथ खोज योग्य अनुक्रमणिका Java बनाना और केस‑सेंसिटिव
+  सर्च सक्षम करना सीखें। Java डेवलपर्स के लिए स्टेप‑बाय‑स्टेप गाइड।
+og_image_alt: Guide to creating a searchable index in Java using GroupDocs with case‑sensitive
+  search
+og_title: 'खोज योग्य अनुक्रमणिका Java: दस्तावेज़ केस‑सेंसिटिव सर्च जोड़ें'
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-10'
+  description: Learn how to create searchable index java and enable case‑sensitive
+    search with GroupDocs.Search, boosting accuracy for Java applications.
+  headline: 'Create searchable index java: add docs case‑sensitive search'
+  type: TechArticle
+- description: Learn how to create searchable index java and enable case‑sensitive
+    search with GroupDocs.Search, boosting accuracy for Java applications.
+  name: 'Create searchable index java: add docs case‑sensitive search'
+  steps:
+  - name: create an index and add your documents
+    text: The `Index` class represents a searchable storage area on disk where documents
+      are indexed. > **Pro tip:** You can call `index.add()` multiple times to **search
+      across multiple directories** in a single index.
+  - name: enable case‑sensitive search
+    text: '`SearchOptions` configures how queries are processed, including case sensitivity
+      and other search behaviors.'
+  - name: execute a case‑sensitive text query
+    text: '`SearchQuery` builds the query object that the engine evaluates against
+      the index. The loop prints the full path of each document that contains the
+      exact case‑matched term.'
+  - name: initialize a second index (optional)
+    text: A second `Index` instance can be created to isolate object‑based searches
+      from plain‑text searches.
+  - name: re‑use the case‑sensitive option
+    text: '`SearchOptions` can be reused across different query types to maintain
+      consistent case handling.'
+  - name: build and run an object query
+    text: '`WordQuery` represents a word‑level search that can be combined with other
+      query types for complex searches. Using `createWordQuery` lets you later combine
+      it with phrase, wildcard, or Boolean queries for more complex scenarios.'
+  type: HowTo
+- questions:
+  - answer: Add documents to an index with `index.add(...)`.
+    question: What is the primary step to start searching?
+  - answer: Set `options.setUseCaseSensitiveSearch(true)`.
+    question: How do you enable case‑sensitive search?
+  - answer: Yes – call `index.add()` for each folder you want to include.
+    question: Can you search across multiple directories?
+  - answer: Use `SearchQuery.createWordQuery(...)`.
+    question: Which method lets you search with objects?
+  - answer: A temporary license is available for trial purposes.
+    question: Do you need a license for testing?
+  type: FAQPage
+tags:
+- create searchable index
+- case-sensitive search
+- groupdocs search
+- java document processing
+title: 'खोज योग्य अनुक्रमणिका Java: दस्तावेज़ केस‑सेंसिटिव सर्च जोड़ें'
 type: docs
 url: /hi/java/searching/master-case-sensitive-searches-java-groupdocs/
 weight: 1
 ---
 
-# इंडेक्स में दस्तावेज़ जोड़ें: जावा में केस‑सेंसिटिव सर्च को मास्टर करना GroupDocs
+# सर्चेबल इंडेक्स जावा बनाएं: दस्तावेज़ जोड़ें केस‑संवेदनशील खोज
 
-एक बड़े दस्तावेज़ संग्रह से सही जानकारी प्राप्त करना आधुनिक अनुप्रयोगों की मुख्य आवश्यकता है। इस गाइड में, आप सीखेंगे **इंडेक्स में दस्तावेज़ कैसे जोड़ें** और GroupDocs.Search for Java का उपयोग करके **केस‑सेंसिटिव सर्च** कैसे करें। चाहे आप एक कानूनी‑दस्तावेज़ रिपॉजिटरी, ई‑कॉमर्स कैटलॉग, या कंटेंट‑मैनेजमेंट सिस्टम बना रहे हों, सटीक खोज परिणाम उपयोगकर्ताओं को खुश रखते हैं और आपके डेटा को विश्वसनीय बनाते हैं।
+आधुनिक जावा अनुप्रयोगों में, **creating a searchable index java** तेज़ और सटीक जानकारी पुनर्प्राप्ति के लिए बड़े दस्तावेज़ संग्रहों से आधार है। यह ट्यूटोरियल आपको दिखाता है कि कैसे दस्तावेज़ों को इंडेक्स में जोड़ें, केस‑संवेदनशील खोज सक्षम करें, और GroupDocs.Search के साथ प्रक्रिया को फाइन‑ट्यून करें। चाहे आप एक कानूनी रिपॉजिटरी, ई‑कॉमर्स कैटलॉग, या कंटेंट‑मैनेजमेंट सिस्टम बना रहे हों, ये कदम आपको सटीक परिणाम देने में मदद करेंगे जो उपयोगकर्ताओं को संतुष्ट रखें।
 
 ## त्वरित उत्तर
-- **खोज शुरू करने के लिए प्राथमिक कदम क्या है?** `index.add(...)` के साथ इंडेक्स में दस्तावेज़ जोड़ें।
-- **केस‑सेंसिटिव सर्च कैसे सक्षम करें?** `options.setUseCaseSensitiveSearch(true)` सेट करें।
-- **क्या मैं कई डायरेक्टरीज़ में खोज कर सकता हूँ?** हाँ – प्रत्येक फ़ोल्डर को शामिल करने के लिए `index.add()` कॉल करें।
-- **कौन सा मेथड मुझे ऑब्जेक्ट्स के साथ खोजने देता है?** `SearchQuery.createWordQuery(...)` का उपयोग करें।
-- **परीक्षण के लिए मुझे लाइसेंस चाहिए?** परीक्षण उद्देश्यों के लिए एक अस्थायी लाइसेंस उपलब्ध है।
+- **खोज शुरू करने का प्राथमिक कदम क्या है?** Add documents to an index with `index.add(...)`.  
+- **आप केस‑संवेदनशील खोज कैसे सक्षम करते हैं?** Set `options.setUseCaseSensitiveSearch(true)`.  
+- **क्या आप कई डायरेक्टरीज़ में खोज सकते हैं?** Yes – call `index.add()` for each folder you want to include.  
+- **कौन सा मेथड आपको ऑब्जेक्ट्स के साथ खोजने देता है?** Use `SearchQuery.createWordQuery(...)`.  
+- **परीक्षण के लिए आपको लाइसेंस चाहिए?** A temporary license is available for trial purposes.
 
-## “इंडेक्स में दस्तावेज़ जोड़ना” का क्या अर्थ है?
-इंडेक्स में दस्तावेज़ जोड़ना का मतलब है कि आपके स्रोत फ़ाइलों (PDFs, Word दस्तावेज़, प्लेन टेक्स्ट, आदि) को GroupDocs.Search में फीड करना ताकि वह एक सर्चेबल डेटा स्ट्रक्चर बना सके। एक बार इंडेक्स हो जाने पर, इंजन तेज़ क्वेरीज़ चला सकता है, जिसमें केस‑सेंसिटिव खोज भी शामिल है।
+## “इंडेक्स में दस्तावेज़ जोड़ना” क्या मतलब है?
+इंडेक्स में दस्तावेज़ जोड़ना का मतलब है कि आपके स्रोत फ़ाइलों (PDFs, Word docs, plain text, आदि) को GroupDocs.Search में फीड करना ताकि वह एक सर्चेबल डेटा स्ट्रक्चर बना सके। इंडेक्स टोकनाइज़्ड टर्म्स, पोज़िशन और मेटाडेटा को स्टोर करता है, जिससे इंजन तेज़ क्वेरीज़, जिसमें केस‑संवेदनशील क्वेरीज़ भी शामिल हैं, को निष्पादित कर सके और परिणामों को प्रभावी रूप से रैंक कर सके।
 
-## जावा में केस‑सेंसिटिव सर्च को सक्षम क्यों करें?
-- **सटीक शब्द मिलान** – “Apple” (कंपनी) को “apple” (फल) से अलग करें।  
-- **नियामक अनुपालन** – कुछ उद्योगों को सटीक वाक्यांश मिलान की आवश्यकता होती है।  
-- **बेहतर प्रासंगिकता** – उपयोगकर्ता अक्सर तकनीकी या कानूनी संदर्भों में केस‑विशिष्ट परिणामों की अपेक्षा करते हैं।
+## जावा में केस‑संवेदनशील खोज को क्यों सक्षम करें?
+केस‑संवेदनशील खोज को सक्षम करने से इंजन उन शब्दों को अलग पहचानता है जो केवल अक्षर केस में अंतर रखते हैं, जो उन डोमेनों में महत्वपूर्ण है जहाँ बड़े अक्षर का अर्थ होता है। यह सटीक टर्म मिलान की अनुमति देता है, नियामक अनुपालन आवश्यकताओं का समर्थन करता है, और उपयोगकर्ता की क्वेरी केस से बिल्कुल मेल खाने वाले परिणाम लौटाकर प्रासंगिकता को सुधारता है।
+
+- **सटीक टर्म मिलान** – उदाहरण के लिए, “Apple” (company) बनाम “apple” (fruit).  
+- **नियामक अनुपालन** – कई उद्योगों को सटीक वाक्यांश मिलान की आवश्यकता होती है।  
+- **बेहतर प्रासंगिकता** – तकनीकी और कानूनी उपयोगकर्ता अक्सर केस‑विशिष्ट परिणामों की अपेक्षा करते हैं।
 
 ## पूर्वापेक्षाएँ
-- JDK (Java 17 या बाद का अनुशंसित)  
-- डिपेंडेंसी प्रबंधन के लिए Maven  
+- JDK 17 या बाद का (सिफ़ारिश किया गया)  
+- डिपेंडेंसी मैनेजमेंट के लिए Maven  
 - IntelliJ IDEA या Eclipse जैसे IDE  
 - जावा प्रोग्रामिंग की बुनियादी परिचितता  
 
 ## जावा के लिए GroupDocs.Search सेटअप करना
-पहले, अपने `pom.xml` में GroupDocs रिपॉजिटरी और डिपेंडेंसी जोड़ें:
+निम्नलिखित Maven स्निपेट आपके प्रोजेक्ट में GroupDocs.Search रिपॉजिटरी और आवश्यक डिपेंडेंसी जोड़ता है।
 
 ```xml
 <repositories>
@@ -59,15 +117,15 @@ weight: 1
 </dependencies>
 ```
 
-वैकल्पिक रूप से, आप नवीनतम संस्करण सीधे [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) से डाउनलोड कर सकते हैं।
+वैकल्पिक रूप से, आप सीधे [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) से नवीनतम संस्करण डाउनलोड कर सकते हैं।
 
 ### लाइसेंसिंग
-ट्रायल शुरू करने के लिए, अस्थायी लाइसेंस प्राप्त करने हेतु GroupDocs पर जाएँ। यह आपको सभी फीचर्स को बिना किसी सीमा के परीक्षण करने की अनुमति देगा।
+ट्रायल शुरू करने के लिए, GroupDocs पर जाकर एक अस्थायी लाइसेंस प्राप्त करें। इससे आप सभी फीचर्स को बिना किसी प्रतिबंध के परीक्षण कर सकते हैं।
 
-## इंडेक्स में दस्तावेज़ जोड़ें – टेक्स्ट क्वेरी सर्च
+## सर्चेबल इंडेक्स जावा कैसे बनाएं – टेक्स्ट क्वेरी सर्च
 
 ### चरण 1: एक इंडेक्स बनाएं और अपने दस्तावेज़ जोड़ें
-एक फ़ोल्डर बनाएं जहाँ इंडेक्स फ़ाइलें संग्रहीत होंगी, फिर उस स्रोत डायरेक्टरी को जोड़ें जिसमें वे दस्तावेज़ हों जिन्हें आप खोजना चाहते हैं।
+`Index` क्लास डिस्क पर एक सर्चेबल स्टोरेज एरिया को दर्शाता है जहाँ दस्तावेज़ इंडेक्स किए जाते हैं।
 
 ```java
 String indexFolder = YOUR_OUTPUT_DIRECTORY + "/CaseSensitiveSearch/QueryInTextForm";
@@ -75,18 +133,18 @@ Index index = new Index(indexFolder);
 index.add(YOUR_DOCUMENT_DIRECTORY); // Add documents to the index
 ```
 
-> **प्रो टिप:** आप एक ही इंडेक्स में **कई डायरेक्टरीज़ में खोज** करने के लिए `index.add()` को कई बार कॉल कर सकते हैं।
+> **प्रो टिप:** आप `index.add()` को कई बार कॉल कर सकते हैं ताकि एक ही इंडेक्स में **कई डायरेक्टरीज़ में खोज** सकें।
 
-### चरण 2: केस‑सेंसिटिव सर्च सक्षम करें
-सर्च विकल्पों को सेट करें ताकि वह अक्षर केस का सम्मान करे।
+### चरण 2: केस‑संवेदनशील खोज सक्षम करें
+`SearchOptions` क्वेरीज़ के प्रोसेसिंग को कॉन्फ़िगर करता है, जिसमें केस संवेदनशीलता और अन्य खोज व्यवहार शामिल हैं।
 
 ```java
 SearchOptions options = new SearchOptions();
 options.setUseCaseSensitiveSearch(true);
 ```
 
-### चरण 3: केस‑सेंसिटिव टेक्स्ट क्वेरी चलाएँ
-ऐसी क्वेरी चलाएँ जो “Advantages” को “advantages” से अलग करे।
+### चरण 3: केस‑संवेदनशील टेक्स्ट क्वेरी निष्पादित करें
+`SearchQuery` क्वेरी ऑब्जेक्ट बनाता है जिसे इंजन इंडेक्स के विरुद्ध मूल्यांकन करता है।
 
 ```java
 String query = "Advantages";
@@ -100,12 +158,10 @@ for (FoundDocument doc : result.getDocuments()) {
 
 लूप प्रत्येक दस्तावेज़ का पूरा पाथ प्रिंट करता है जिसमें सटीक केस‑मैच्ड टर्म मौजूद है।
 
-## इंडेक्स में दस्तावेज़ जोड़ें – ऑब्जेक्ट क्वेरी सर्च
-
-ऑब्जेक्ट क्वेरीज़ अधिक लचीलापन देती हैं, विशेषकर जब आपको कई मानदंडों को मिलाना हो।
+## सर्चेबल इंडेक्स जावा कैसे बनाएं – ऑब्जेक्ट क्वेरी सर्च
 
 ### चरण 1: दूसरा इंडेक्स इनिशियलाइज़ करें (वैकल्पिक)
-यदि आप ऑब्जेक्ट‑आधारित खोजों को अलग रखना चाहते हैं, तो एक और इंडेक्स फ़ोल्डर बनाएं।
+एक दूसरा `Index` इंस्टेंस बनाया जा सकता है ताकि ऑब्जेक्ट‑आधारित खोजों को प्लेन‑टेक्स्ट खोजों से अलग किया जा सके।
 
 ```java
 String indexFolder = YOUR_OUTPUT_DIRECTORY + "/CaseSensitiveSearch/QueryInObjectForm";
@@ -113,16 +169,16 @@ Index index = new Index(indexFolder);
 index.add(YOUR_DOCUMENT_DIRECTORY); // Add documents to the index
 ```
 
-### चरण 2: केस‑सेंसिटिव विकल्प को पुनः उपयोग करें
-एक ही `SearchOptions` इंस्टेंस ऑब्जेक्ट क्वेरीज़ के लिए काम करता है।
+### चरण 2: केस‑संवेदनशील विकल्प को पुनः उपयोग करें
+`SearchOptions` विभिन्न क्वेरी प्रकारों में पुनः उपयोग किया जा सकता है ताकि केस हैंडलिंग में स्थिरता बनी रहे।
 
 ```java
 SearchOptions options = new SearchOptions();
 options.setUseCaseSensitiveSearch(true);
 ```
 
-### चरण 3: ऑब्जेक्ट क्वेरी बनाएं और चलाएँ
-एक शब्द क्वेरी ऑब्जेक्ट बनाएं और उसे सर्च इंजन को पास करें।
+### चरण 3: एक ऑब्जेक्ट क्वेरी बनाएं और चलाएं
+`WordQuery` शब्द‑स्तर की खोज को दर्शाता है जिसे जटिल खोजों के लिए अन्य क्वेरी प्रकारों के साथ जोड़ा जा सकता है।
 
 ```java
 SearchQuery query = SearchQuery.createWordQuery("Advantages");
@@ -134,41 +190,41 @@ for (FoundDocument doc : result.getDocuments()) {
 }
 ```
 
-`createWordQuery` का उपयोग करने से आप बाद में इसे फ़्रेज़, वाइल्डकार्ड, या बूलियन क्वेरीज़ के साथ मिलाकर अधिक जटिल परिदृश्यों के लिए उपयोग कर सकते हैं।
+`createWordQuery` का उपयोग करने से आप बाद में इसे फ़्रेज़, वाइल्डकार्ड, या बूलियन क्वेरीज़ के साथ जोड़कर अधिक जटिल परिदृश्यों बना सकते हैं।
 
 ## व्यावहारिक अनुप्रयोग
-- **लीगल डॉक्यूमेंट मैनेजमेंट:** ऐसे केस‑स्पेसिफिक स्टैच्यूट्स प्राप्त करें जहाँ कैपिटलाइज़ेशन महत्वपूर्ण हो।  
-- **ई‑कॉमर्स प्लेटफ़ॉर्म:** “PRO‑X” और “pro‑x” जैसे प्रोडक्ट SKU को अलग करें।  
-- **कंटेंट मैनेजमेंट सिस्टम (CMS):** सुनिश्चित करें कि लेखकों को सटीक हेडिंग्स या टैग्स मिलें।
+- **लीगल डॉक्यूमेंट मैनेजमेंट:** ऐसे केस‑स्पेसिफिक स्टैच्यूट्स प्राप्त करें जहाँ कैपिटलाइज़ेशन महत्वपूर्ण है।  
+- **ई‑कॉमर्स प्लेटफ़ॉर्म:** प्रोडक्ट SKU जैसे “PRO‑X” बनाम “pro‑x” को अलग पहचानें।  
+- **कंटेंट मैनेजमेंट सिस्टम (CMS):** सुनिश्चित करें कि लेखक सटीक हेडिंग्स या टैग्स खोज सकें।
 
 ## प्रदर्शन संबंधी विचार
-- **इंडेक्स को अद्यतित रखें** – नई फ़ाइलें जोड़ने या मौजूदा फ़ाइलों में बदलाव होने पर पुनः‑इंडेक्स करें।  
-- **मेमोरी उपयोग की निगरानी करें** – बड़े कॉर्पोरा को इन्क्रीमेंटल इंडेक्सिंग और उचित JVM हीप साइजिंग से लाभ मिलता है।  
-- **जावा के गार्बेज कलेक्टर का उपयोग करें** – जब `Index` ऑब्जेक्ट्स की आवश्यकता न रहे तो उन्हें रिलीज़ करें।
+- **इंडेक्स को अद्यतित रखें** – जब नई फ़ाइलें जोड़ी जाएँ या मौजूदा फ़ाइलें बदलें तो पुनः‑इंडेक्स करें।  
+- **मेमोरी उपयोग की निगरानी करें** – बड़े कॉर्पोरा को इन्क्रिमेंटल इंडेक्सिंग और उचित JVM हीप साइजिंग से लाभ मिलता है।  
+- **जावा के गार्बेज कलेक्टर का उपयोग करें** – जब `Index` ऑब्जेक्ट्स की अब आवश्यकता न हो तो उन्हें रिलीज़ करें।
 
 ## सामान्य समस्याएँ और समाधान
 | समस्या | समाधान |
 |-------|----------|
-| `useCaseSensitiveSearch` अनदेखा हो रहा है | सुनिश्चित करें कि आप नवीनतम GroupDocs.Search संस्करण का उपयोग कर रहे हैं और विकल्प बदलने के बाद इंडेक्स को पुनः बनाय गया है। |
-| ज्ञात शब्द के लिए कोई परिणाम नहीं मिला | सुनिश्चित करें कि शब्द का केस बिल्कुल मेल खाता है और दस्तावेज़ सफलतापूर्वक इंडेक्स में जोड़ा गया है। |
-| कई फ़ोल्डर खोजने से गति धीमी हो जाती है | `index.add()` से प्रत्येक फ़ोल्डर को अलग‑अलग जोड़ें और बहुत बड़े डेटासेट के लिए इंडेक्स को शार्ड्स में विभाजित करने पर विचार करें। |
+| `useCaseSensitiveSearch` दिखाई देता है कि अनदेखा हो रहा है | सुनिश्चित करें कि आप नवीनतम GroupDocs.Search संस्करण का उपयोग कर रहे हैं और विकल्प बदलने के बाद इंडेक्स को पुनः निर्मित किया गया है। |
+| जाने हुए टर्म के लिए कोई परिणाम नहीं मिला | सुनिश्चित करें कि टर्म का केस बिल्कुल मेल खाता है और दस्तावेज़ सफलतापूर्वक इंडेक्स में जोड़ा गया है। |
+| कई फ़ोल्डरों की खोज धीमी हो जाती है | प्रत्येक फ़ोल्डर को `index.add()` से अलग‑अलग जोड़ें और बहुत बड़े डेटासेट के लिए इंडेक्स को शार्ड्स में विभाजित करने पर विचार करें। |
 
 ## अक्सर पूछे जाने वाले प्रश्न
 
-**प्रश्न:** मैं GroupDocs.Search के साथ बड़े डेटासेट को कैसे संभालूँ?  
-**उत्तर:** इंडेक्स पार्टिशनिंग का उपयोग करें, JVM मेमोरी सेटिंग्स को ट्यून करें, और प्रदर्शन को अनुकूल रखने के लिए समय‑समय पर इंडेक्स को कम्पैक्ट करें।
+**Q:** मैं GroupDocs.Search के साथ बड़े डेटासेट को कैसे संभालूँ?  
+**A:** इंडेक्स पार्टिशनिंग का उपयोग करें, JVM मेमोरी सेटिंग्स को ट्यून करें, और प्रदर्शन को इष्टतम रखने के लिए समय‑समय पर इंडेक्स को कॉम्पैक्ट करें।
 
-**प्रश्न:** क्या मैं एक साथ कई डायरेक्टरीज़ में खोज सकता हूँ?  
-**उत्तर:** हाँ – प्रत्येक डायरेक्टरी को शामिल करने के लिए `index.add()` कॉल करें, फिर संयुक्त इंडेक्स पर एक ही क्वेरी चलाएँ।
+**Q:** क्या मैं एक साथ कई डायरेक्टरीज़ में खोज सकता हूँ?  
+**A:** हाँ – प्रत्येक डायरेक्टरी को शामिल करने के लिए `index.add()` कॉल करें, फिर संयुक्त इंडेक्स के विरुद्ध एक ही क्वेरी चलाएँ।
 
-**प्रश्न:** केस‑सेंसिटिव सर्च सेटअप करते समय आम pitfalls क्या हैं?  
-**उत्तर:** `useCaseSensitiveSearch` सक्षम करने के बाद इंडेक्स को पुनः बनाना भूल जाना, या क्वेरी स्ट्रिंग में गलत केस का उपयोग करना।
+**Q:** केस‑संवेदनशील खोज सेटअप करते समय सामान्य pitfalls क्या हैं?  
+**A:** `useCaseSensitiveSearch` को सक्षम करने के बाद इंडेक्स को पुनः बनाना न भूलें, या क्वेरी स्ट्रिंग में गलत केस का उपयोग करना।
 
-**प्रश्न:** मैं सर्च एरर्स को कैसे ट्रबलशूट करूँ?  
-**उत्तर:** GroupDocs.Search द्वारा उत्पन्न लॉग फ़ाइलों में स्टैक ट्रेस देखें, और सुनिश्चित करें कि सभी Maven डिपेंडेंसी सही ढंग से रिजॉल्व्ड हैं।
+**Q:** मैं खोज त्रुटियों का समाधान कैसे करूँ?  
+**A:** GroupDocs.Search द्वारा उत्पन्न लॉग फ़ाइलों में स्टैक ट्रेस देखें, और सुनिश्चित करें कि सभी Maven डिपेंडेंसी सही ढंग से हल हो गई हैं।
 
-**प्रश्न:** क्या GroupDocs.Search रीयल‑टाइम एप्लिकेशन्स के लिए उपयुक्त है?  
-**उत्तर:** उचित इंडेक्सिंग रणनीतियों (इन्क्रीमेंटल अपडेट्स और इन‑मेरी कैशिंग) के साथ, यह निकट‑रीयल‑टाइम सर्च परिणाम प्रदान कर सकता है।
+**Q:** क्या GroupDocs.Search रियल‑टाइम एप्लिकेशन के लिए उपयुक्त है?  
+**A:** उचित इंडेक्सिंग रणनीतियों (इन्क्रिमेंटल अपडेट्स और इन‑मेमोरी कैशिंग) के साथ, यह निकट‑रियल‑टाइम खोज परिणाम प्रदान कर सकता है।
 
 ## संसाधन
 - **डॉक्यूमेंटेशन:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)
@@ -180,8 +236,12 @@ for (FoundDocument doc : result.getDocuments()) {
 
 ---
 
-**अंतिम अपडेट:** 2026-02-06  
-**परीक्षण किया गया:** GroupDocs.Search 25.4  
+**अंतिम अपडेट:** 2026-08-10  
+**परीक्षित संस्करण:** GroupDocs.Search 25.4  
 **लेखक:** GroupDocs  
 
----
+## संबंधित ट्यूटोरियल
+
+- [सर्च इंडेक्स जावा बनाएं – GroupDocs.Search ट्यूटोरियल्स](/search/java/indexing/)
+- [GroupDocs.Search for Java के साथ इंडेक्स में दस्तावेज़ कैसे जोड़ें](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [GroupDocs.Search का उपयोग करके जावा में मेटाडेटा इंडेक्सिंग के साथ इंडेक्स में दस्तावेज़ कैसे जोड़ें](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
