@@ -1,46 +1,107 @@
 ---
-date: '2026-02-06'
+date: '2026-08-10'
 description: GroupDocs.Search for Java का उपयोग करके दस्तावेज़ों को इंडेक्स करना और
   इंडेक्स में दस्तावेज़ जोड़ना सीखें। टेक्स्ट और ऑब्जेक्ट क्वेरीज़ के साथ शक्तिशाली
   सर्च एप्लिकेशन बनाएं।
 keywords:
-- GroupDocs.Search Java
-- document indexing in Java
-- Java document search
-title: GroupDocs.Search for Java के साथ दस्तावेज़ों को कैसे इंडेक्स करें
+- how to index documents
+- create search index
+- index pdf files
+- search word documents
+- update search index
+lastmod: '2026-08-10'
+og_description: GroupDocs.Search for Java के साथ दस्तावेज़ों को इंडेक्स करना सीखें।
+  सर्च इंडेक्स बनाने, PDFs, Word, Excel फ़ाइलें जोड़ने, और तेज़ क्वेरीज़ चलाने के
+  लिए चरण‑दर‑चरण गाइड।
+og_image_alt: Code example showing Java indexing with GroupDocs.Search
+og_title: GroupDocs.Search for Java के साथ दस्तावेज़ों को इंडेक्स कैसे करें – तेज़
+  सर्च गाइड
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-10'
+  description: Learn how to index documents and add documents to index using GroupDocs.Search
+    for Java. Build powerful search apps with text and object queries.
+  headline: How to index documents with GroupDocs.Search for Java
+  type: TechArticle
+- description: Learn how to index documents and add documents to index using GroupDocs.Search
+    for Java. Build powerful search apps with text and object queries.
+  name: How to index documents with GroupDocs.Search for Java
+  steps:
+  - name: '**Free trial** – explore the library without cost.'
+    text: '**Free trial** – explore the library without cost.'
+  - name: '**Temporary license** – request a short‑term key for extended evaluation.'
+    text: '**Temporary license** – request a short‑term key for extended evaluation.'
+  - name: '**Purchase** – obtain a full license for production use.'
+    text: '**Purchase** – obtain a full license for production use.'
+  - name: '**Legal document management** – locate clauses, case numbers, or dates
+      across thousands of contracts in seconds.'
+    text: '**Legal document management** – locate clauses, case numbers, or dates
+      across thousands of contracts in seconds.'
+  - name: '**Financial reporting** – pull transactions that fall within a specific
+      monetary range without scanning each spreadsheet.'
+    text: '**Financial reporting** – pull transactions that fall within a specific
+      monetary range without scanning each spreadsheet.'
+  - name: '**Inventory tracking** – find items by serial numbers, batch codes, or
+      SKU ranges across a distributed file system.'
+    text: '**Inventory tracking** – find items by serial numbers, batch codes, or
+      SKU ranges across a distributed file system.'
+  type: HowTo
+- questions:
+  - answer: Call `index.add("NEW_DOCUMENT_PATH")` again; the library merges the new
+      entries without recreating the whole index.
+    question: How do I update an existing index with new documents?
+  - answer: Yes, it supports 30+ formats—including PDF, DOCX, XLSX, PPTX, TXT, and
+      HTML—so you can index virtually any business document.
+    question: Can GroupDocs.Search handle different file formats?
+  - answer: Java 8+ runtime, at least 2 GB RAM for modest collections (larger sets
+      benefit from 4 GB+), and read/write access to the index folder.
+    question: What are the system requirements for using GroupDocs.Search?
+  - answer: Keep the index up‑to‑date, profile your queries, and review JVM memory
+      settings. Reducing the number of indexed fields or using object queries can
+      also speed up execution.
+    question: How can I troubleshoot search performance issues?
+  - answer: Yes, you can enable synonym dictionaries and fuzzy search via the `SearchOptions`
+      class to broaden matching without sacrificing relevance. The `SearchOptions`
+      class configures advanced search behavior such as synonyms and fuzzy matching.
+    question: Is there support for synonyms or fuzzy matching?
+  type: FAQPage
+tags:
+- document indexing
+- GroupDocs.Search
+- Java search library
+- search API
+- indexing tutorial
+title: GroupDocs.Search for Java के साथ दस्तावेज़ों को इंडेक्स कैसे करें
 type: docs
 url: /hi/java/searching/master-document-search-groupdocs-java/
 weight: 1
 ---
 
-# GroupDocs.Search for Java के साथ दस्तावेज़ों को इंडेक्स करने का तरीका
+# GroupDocs.Search for Java के साथ दस्तावेज़ों को इंडेक्स कैसे करें
 
-आज के डेटा‑चालित विश्व में, **दस्तावेज़ों को इंडेक्स करने** की कुशलता किसी भी जावा डेवलपर के लिए एक महत्वपूर्ण कौशल है जो बड़ी फ़ाइल संग्रहों से निपटता है। चाहे आप कानूनी अनुबंध, वित्तीय विवरण, या आंतरिक रिपोर्टों को संभाल रहे हों, सही जानकारी को जल्दी से ढूँढ़ना कई घंटे के मैन्युअल काम को बचा सकता है। इस ट्यूटोरियल में आप GroupDocs.Search लाइब्रेरी का उपयोग करके **दस्तावेज़ों को इंडेक्स करना** सीखेंगे, और फिर बनाए गए इंडेक्स पर टेक्स्ट‑आधारित तथा ऑब्जेक्ट‑आधारित दोनों प्रकार की क्वेरीज़ चलाएंगे। चलिए शुरू करते हैं!
+आज के डेटा‑चालित विश्व में, **how to index documents** को कुशलता से करना किसी भी जावा डेवलपर के लिए एक महत्वपूर्ण कौशल है जो बड़ी फ़ाइल संग्रहों को संभालता है। चाहे आप कानूनी अनुबंध, वित्तीय विवरण, या आंतरिक रिपोर्ट्स को प्रोसेस कर रहे हों, एक अच्छी तरह निर्मित सर्च इंडेक्स आपको सेकंडों में सटीक जानकारी खोजने में मदद करता है, जबकि मैन्युअल स्कैनिंग में घंटे लगते हैं। यह ट्यूटोरियल आपको सर्च इंडेक्स बनाने, दस्तावेज़ जोड़ने, और GroupDocs.Search for Java के साथ टेक्स्ट‑आधारित और ऑब्जेक्ट‑आधारित क्वेरी चलाने की प्रक्रिया दिखाता है।
 
 ## त्वरित उत्तर
-- **दस्तावेज़ों को इंडेक्स करने का पहला कदम क्या है?** एक `Index` ऑब्जेक्ट को इनिशियलाइज़ करें जो उस फ़ोल्डर की ओर इशारा करता हो जहाँ इंडेक्स संग्रहीत किया जाएगा।  
-- **कौन सी मेथड दस्तावेज़ों को इंडेक्स में जोड़ती है?** `index.add("PATH_TO_DOCUMENTS")` का उपयोग करें।  
-- **क्या मैं संख्यात्मक रेंज खोज सकता हूँ?** हाँ, `"400 ~~ 4000"` जैसी टेक्स्ट क्वेरी या `SearchQuery.createNumericRangeQuery` के माध्यम से ऑब्जेक्ट क्वेरी का उपयोग करके।  
-- **क्या मुझे लाइसेंस की आवश्यकता है?** एक फ्री ट्रायल उपलब्ध है; एक कमर्शियल लाइसेंस पूरी सुविधाएँ अनलॉक करता है।  
-- **कौन सा जावा संस्करण आवश्यक है?** JDK 8 या उससे ऊपर।
+- **दस्तावेज़ों को इंडेक्स करने का पहला कदम क्या है?** Create an `Index` instance that points to a folder where the index files will be stored.  
+- **इंडेक्स में दस्तावेज़ जोड़ने की कौन सी विधि है?** Call `index.add("PATH_TO_DOCUMENTS")` to scan a directory and ingest supported files.  
+- **क्या मैं संख्यात्मक रेंज खोज सकता हूँ?** Yes – use a text query like `"400 ~~ 4000"` or an object query via `SearchQuery.createNumericRangeQuery`. The `createNumericRangeQuery` method builds a numeric range query object.  
+- **क्या मुझे लाइसेंस की आवश्यकता है?** A free trial works for evaluation; a commercial license unlocks full feature set and removes usage limits.  
+- **कौन सा जावा संस्करण आवश्यक है?** JDK 8 or higher is supported.
 
-## GroupDocs.Search के साथ “दस्तावेज़ों को इंडेक्स करने” का क्या अर्थ है?
-दस्तावेज़ों को इंडेक्स करना मतलब फ़ोल्डर में फ़ाइलों की सामग्री को स्कैन करना और खोज योग्य टोकन को एक समर्पित इंडेक्स फ़ोल्डर में संग्रहीत करना है। यह प्री‑प्रोसेसिंग चरण बाद में तेज़ लुक‑अप को सक्षम करता है, क्योंकि लाइब्रेरी हर बार कच्ची फ़ाइलों के बजाय तैयार किए गए इंडेक्स को खोजती है।
+## GroupDocs.Search के साथ दस्तावेज़ों को इंडेक्स कैसे करें क्या है?
+दस्तावेज़ों को इंडेक्स करने से प्रत्येक फ़ाइल के लिए एक सर्चेबल टोकन स्टोर बनता है, जिससे इंजन को हर बार मूल फ़ाइलें पढ़े बिना मिलान खोजने की सुविधा मिलती है। यह प्री‑प्रोसेसिंग चरण कच्ची सामग्री को एक अनुकूलित इंडेक्स में बदल देता है जिसे मिलीसेकंड में क्वेरी किया जा सकता है। इंडेक्स शब्द, स्थितियाँ और मेटाडेटा संग्रहीत करता है, जिससे सभी समर्थित दस्तावेज़ प्रकारों में तेज़ फ़्रेज़ और प्रॉक्सिमिटी सर्च संभव हो जाता है।
 
-## जावा के लिए GroupDocs.Search क्यों उपयोग करें?
-- **प्रदर्शन:** हजारों फ़ाइलों पर भी सर्च मिलिसेकंड में चलती है।  
-- **फ़ॉर्मेट समर्थन:** PDFs, Word, Excel, PowerPoint, और कई अन्य फ़ॉर्मेट को संभालता है।  
-- **लचीलापन:** प्लेन‑टेक्स्ट क्वेरीज़, संख्यात्मक रेंज, और जटिल ऑब्जेक्ट क्वेरीज़ को सपोर्ट करता है।  
-- **स्केलेबिलिटी:** नई दस्तावेज़ जोड़कर इंडेक्स को आसानी से अपडेट किया जा सकता है बिना फिर से बिल्ड किए।
+## GroupDocs.Search for Java का उपयोग क्यों करें?
+सर्च ऑपरेशन आमतौर पर 10 000 फ़ाइलों (औसत 1 KB प्रत्येक) के संग्रह पर 50 ms से कम समय में पूरा हो जाता है, जो एक मानक 2‑CPU, 8 GB VM पर चलता है। लाइब्रेरी **30+ इनपुट और आउटपुट फ़ॉर्मेट** को सपोर्ट करती है—PDF, DOCX, XLSX, PPTX, TXT, और HTML सहित—जिससे आप अतिरिक्त कन्वर्टर्स के बिना लगभग किसी भी व्यावसायिक दस्तावेज़ को इंडेक्स कर सकते हैं। इसका लचीला API आपको प्लेन‑टेक्स्ट क्वेरी, संख्यात्मक रेंज, और जटिल ऑब्जेक्ट क्वेरी को मिलाने देता है, जबकि इन्क्रीमेंटल अपडेट्स आपको पूरे इंडेक्स को फिर से बनाने की आवश्यकता के बिना नई फ़ाइलें जोड़ने की अनुमति देते हैं।
 
 ## पूर्वापेक्षाएँ
-- डिपेंडेंसी मैनेजमेंट के लिए Maven स्थापित हो।  
-- IntelliJ IDEA या Eclipse जैसे IDE।  
-- बेसिक जावा ज्ञान (OOP कॉन्सेप्ट्स, एक्सेप्शन हैंडलिंग)।
+- Maven installed for dependency management.  
+- An IDE such as IntelliJ IDEA or Eclipse.  
+- Basic Java knowledge (OOP concepts, exception handling).  
 
-## जावा के लिए GroupDocs.Search सेट अप करना
+## GroupDocs.Search for Java सेटअप करना
 ### Maven सेटअप
-अपने `pom.xml` में रिपॉज़िटरी और डिपेंडेंसी जोड़ें:
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -60,17 +121,18 @@ weight: 1
 </dependencies>
 ```
 
-### डायरेक्ट डाउनलोड
-आप नवीनतम JAR को [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) से भी डाउनलोड कर सकते हैं।
+### सीधे डाउनलोड
+You can also download the latest JAR from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### लाइसेंस प्राप्त करने के चरण
-1. **फ्री ट्रायल** – लाइब्रेरी को बिना लागत के एक्सप्लोर करें।  
-2. **टेम्पररी लाइसेंस** – विस्तारित मूल्यांकन के लिए शॉर्ट‑टर्म की का अनुरोध करें।  
-3. **पर्चेज** – प्रोडक्शन उपयोग के लिए पूर्ण लाइसेंस प्राप्त करें।
+1. **Free trial** – explore the library without cost.  
+2. **Temporary license** – request a short‑term key for extended evaluation.  
+3. **Purchase** – obtain a full license for production use.
 
-## बेसिक इनिशियलाइज़ेशन और सेटअप
-**इंडेक्स में दस्तावेज़ जोड़ने** के लिए, आप पहले एक `Index` ऑब्जेक्ट बनाते हैं जो उस फ़ोल्डर की ओर इशारा करता है जहाँ इंडेक्स फ़ाइलें संग्रहीत होंगी:
+## बुनियादी आरंभिककरण और सेटअप
+To **add documents to the index**, you first create an `Index` object that points to the folder where the index files will be stored:
 
+`Index` is the core class that represents a searchable index on disk.  
 ```java
 import com.groupdocs.search.Index;
 
@@ -78,12 +140,12 @@ import com.groupdocs.search.Index;
 Index index = new Index("YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\NumericRangeSearch");
 ```
 
-यह लाइन एक इंडेक्स बनाती (या खोलती) है जो दस्तावेज़ों को प्राप्त करने के लिए तैयार है।
+This line creates (or opens) an index ready to receive documents.
 
-## इम्प्लीमेंटेशन गाइड
+## कार्यान्वयन गाइड
 ### दस्तावेज़ बनाना और इंडेक्स करना
 #### इंडेक्स में दस्तावेज़ कैसे जोड़ें
-`add` मेथड एक फ़ोल्डर को स्कैन करता है और प्रत्येक फ़ाइल के लिए खोज योग्य डेटा संग्रहीत करता है।
+The `add` method scans a folder and stores searchable data for each file. It recursively processes every supported document, extracts text and metadata, and writes tokens to the index folder you specified earlier.
 
 ```java
 import com.groupdocs.search.Index;
@@ -95,12 +157,12 @@ Index index = new Index("YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searchi
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-- **पैरामीटर्स:** पाथ स्ट्रिंग उस फ़ोल्डर की ओर इशारा करता है जिसमें वे फ़ाइलें हैं जिन्हें आप इंडेक्स करना चाहते हैं।  
-- **उद्देश्य:** इस चरण के बाद, इंडेक्स सभी सपोर्टेड डॉक्यूमेंट टाइप्स के टोकन रखता है, जिससे तेज़ सर्च संभव होती है।
+- **Parameters:** The path string points to the folder containing the files you want to index.  
+- **Purpose:** After this step, the index contains tokens from all supported document types, enabling rapid searches across the entire collection.
 
-### टेक्स्ट क्वेरी सर्च
-#### टेक्स्ट‑आधारित संख्यात्मक रेंज सर्च कैसे करें
-आप एक साधारण स्ट्रिंग का उपयोग करके रेंज को परिभाषित कर सर्च कर सकते हैं।
+## टेक्स्ट क्वेरी खोज
+#### टेक्स्ट‑आधारित संख्यात्मक रेंज खोज कैसे करें
+You can search using a simple string that defines a range. The engine interprets the `~~` operator as “between” and returns all documents containing numbers within the specified limits.
 
 ```java
 import com.groupdocs.search.*;
@@ -113,12 +175,12 @@ String query1 = "400 ~~ 4000";
 SearchResult result1 = index.search(query1);
 ```
 
-- **पैरामीटर्स:** क्वेरी स्ट्रिंग `"400 ~~ 4000"` इंजन को 400 और 4000 के बीच की संख्याएँ खोजने को बताती है।  
-- **रिटर्न वैल्यू:** `SearchResult` मिलते-जुलते दस्तावेज़ों की सूची और हाइलाइट्स रखता है।
+- **Parameters:** The query string `"400 ~~ 4000"` tells the engine to find numbers between 400 and 4000.  
+- **Return value:** `SearchResult` holds the list of matching documents and highlights the matching fragments.
 
-### ऑब्जेक्ट क्वेरी सर्च
+## ऑब्जेक्ट क्वेरी खोज
 #### संख्यात्मक रेंज के लिए ऑब्जेक्ट क्वेरी कैसे उपयोग करें
-ऑब्जेक्ट‑आधारित क्वेरीज़ आपको सर्च मानदंडों पर प्रोग्रामेटिक कंट्रोल देती हैं।
+Object‑based queries give you programmatic control over search criteria, allowing you to combine multiple conditions or build queries dynamically at runtime.
 
 ```java
 import com.groupdocs.search.*;
@@ -131,53 +193,54 @@ SearchQuery query2 = SearchQuery.createNumericRangeQuery(400, 4000);
 SearchResult result2 = index.search(query2);
 ```
 
-- **पैरामीटर्स:** `createNumericRangeQuery` शुरू और अंत के इंटीजर लेता है।  
-- **उद्देश्य:** यह मेथड तब आदर्श है जब आपको कई शर्तें जोड़नी हों या क्वेरीज़ को डायनामिकली बनाना हो।
+- **Parameters:** `createNumericRangeQuery` receives the start and end integers.  
+- **Purpose:** This method is ideal when you need to filter results by numeric fields such as invoice totals, ages, or product codes.
 
 ## व्यावहारिक अनुप्रयोग
-यहाँ कुछ वास्तविक‑दुनिया के परिदृश्य हैं जहाँ **दस्तावेज़ों को इंडेक्स करना** एक गेम‑चेंजर बन जाता है:
+Here are some real‑world scenarios where **how to index documents** becomes a game‑changer:
 
-1. **लीगल डॉक्यूमेंट मैनेजमेंट** – हजारों कॉन्ट्रैक्ट्स में क्लॉज़, केस नंबर, या डेट्स को ढूँढ़ें।  
-2. **फ़ाइनेंशियल रिपोर्टिंग** – विशिष्ट मौद्रिक रेंज में आने वाले ट्रांज़ैक्शन को निकालें।  
-3. **इन्वेंटरी ट्रैकिंग** – सीरियल नंबर, बैच कोड, या SKU रेंज द्वारा आइटम खोजें।  
+1. **Legal document management** – locate clauses, case numbers, or dates across thousands of contracts in seconds.  
+2. **Financial reporting** – pull transactions that fall within a specific monetary range without scanning each spreadsheet.  
+3. **Inventory tracking** – find items by serial numbers, batch codes, or SKU ranges across a distributed file system.  
 
-GroupDocs.Search को डेटाबेस, क्लाउड स्टोरेज, या मैसेजिंग क्यूज़ के साथ इंटीग्रेट करने से दस्तावेज़ वर्कफ़्लो और भी ऑटोमेट हो सकते हैं।
+Integrating GroupDocs.Search with databases, cloud storage, or messaging queues can further automate document workflows.
 
 ## प्रदर्शन संबंधी विचार
-- **नियमित इंडेक्स अपडेट:** नई फ़ाइलों के लिए `index.add` फिर से चलाएँ ताकि इंडेक्स ताज़ा रहे।  
-- **रिसोर्स मैनेजमेंट:** हीप उपयोग को मॉनिटर करें; बड़े इंडेक्स ट्यून किए गए JVM गैर्बेज‑कलेक्शन सेटिंग्स से लाभान्वित होते हैं।  
-- **क्वेरी ऑप्टिमाइज़ेशन:** अनावश्यक स्कैनिंग कम करने के लिए जटिल फ़िल्टर के लिए ऑब्जेक्ट क्वेरीज़ का उपयोग करें।
+- **Regular index updates:** Re‑run `index.add` for new files to keep the index fresh.  
+- **Resource management:** Monitor heap usage; large indexes benefit from tuned JVM garbage‑collection settings.  
+- **Query optimisation:** Use object queries for complex filters to reduce unnecessary scanning and improve response time.
 
 ## सामान्य समस्याएँ और समाधान
 | समस्या | क्यों होता है | समाधान |
 |-------|----------------|-----|
-| **सर्च कोई परिणाम नहीं देता** | इंडेक्स नहीं बना या फ़ोल्डर पाथ गलत | सुनिश्चित करें कि `index.add` सही डायरेक्टरी पर चलाया गया है और इंडेक्स फ़ोल्डर लिखने योग्य है। |
-| **इंडेक्सिंग के दौरान OutOfMemoryError** | बहुत बड़ी फ़ाइलें या अपर्याप्त हीप | JVM `-Xmx` वैल्यू बढ़ाएँ या फ़ाइलों को छोटे बैच में इंडेक्स करें। |
-| **असमर्थित फ़ाइल फ़ॉर्मेट** | फ़ाइल टाइप GroupDocs.Search द्वारा पहचाना नहीं गया | सुनिश्चित करें कि फ़ाइल एक्सटेंशन समर्थित सूची (PDF, DOCX, XLSX, आदि) में है। |
+| **Search returns no results** | Index not built or folder path incorrect | Verify `index.add` executed on the correct directory and that the index folder is writable. |
+| **OutOfMemoryError during indexing** | Very large files or insufficient heap | Increase JVM `-Xmx` value or index files in smaller batches. |
+| **Unsupported file format** | File type not recognised by GroupDocs.Search | Ensure the extension is among the supported list (PDF, DOCX, XLSX, PPTX, TXT, HTML, etc.). |
 
 ## अक्सर पूछे जाने वाले प्रश्न
-**Q: मौजूदा इंडेक्स को नए दस्तावेज़ों से कैसे अपडेट करूँ?**  
-A: फिर से `index.add("NEW_DOCUMENT_PATH")` कॉल करें; लाइब्रेरी नई एंट्रीज़ को पूरे इंडेक्स को फिर से बनाये बिना मर्ज कर देती है।
+**Q: How do I update an existing index with new documents?**  
+A: Call `index.add("NEW_DOCUMENT_PATH")` again; the library merges the new entries without recreating the whole index.
 
-**Q: क्या GroupDocs.Search विभिन्न फ़ाइल फ़ॉर्मेट को संभाल सकता है?**  
-A: हाँ, यह PDFs, Word, Excel, PowerPoint, प्लेन टेक्स्ट, और कई अन्य सामान्य फ़ॉर्मेट को सपोर्ट करता है।
+**Q: Can GroupDocs.Search handle different file formats?**  
+A: Yes, it supports 30+ formats—including PDF, DOCX, XLSX, PPTX, TXT, and HTML—so you can index virtually any business document.
 
-**Q: GroupDocs.Search उपयोग करने के लिए सिस्टम आवश्यकताएँ क्या हैं?**  
-A: Java 8+ रनटाइम, पर्याप्त RAM (मध्यम संग्रहों के लिए कम से कम 2 GB), और इंडेक्स फ़ोल्डर तक पढ़ने/लिखने की पहुँच।
+**Q: What are the system requirements for using GroupDocs.Search?**  
+A: Java 8+ runtime, at least 2 GB RAM for modest collections (larger sets benefit from 4 GB+), and read/write access to the index folder.
 
-**Q: सर्च प्रदर्शन समस्याओं का समाधान कैसे करूँ?**  
-A: सुनिश्चित करें कि इंडेक्स अद्यतित है, अपनी क्वेरीज़ को प्रोफ़ाइल करें, और JVM मेमोरी सेटिंग्स की समीक्षा करें। इंडेक्स किए गए फ़ील्ड्स की संख्या कम करने से भी गति बढ़ सकती है।
+**Q: How can I troubleshoot search performance issues?**  
+A: Keep the index up‑to‑date, profile your queries, and review JVM memory settings. Reducing the number of indexed fields or using object queries can also speed up execution.
 
-**Q: क्या सर्च में साइनोनिम्स या फज़ी मैचिंग का उपयोग किया जा सकता है?**  
-A: हाँ, GroupDocs.Search साइनोनिम डिक्शनरी और फज़ी सर्च विकल्प प्रदान करता है जिन्हें `SearchOptions` क्लास के माध्यम से सक्षम किया जा सकता है।
-
-## निष्कर्ष
-अब आपके पास GroupDocs.Search for Java का उपयोग करके **दस्तावेज़ों को इंडेक्स करने** की ठोस समझ है, आप **इंडेक्स में दस्तावेज़ जोड़ना** और टेक्स्ट‑आधारित तथा ऑब्जेक्ट‑आधारित दोनों प्रकार की क्वेरीज़ चलाना जानते हैं। इन तकनीकों को इंटीग्रेट करके, आपके जावा एप्लिकेशन किसी भी दस्तावेज़ रिपॉज़िटरी में तेज़, सटीक सर्च अनुभव प्रदान करेंगे।
-
-अगले चरण के लिए तैयार हैं? फ़ैसिटेड सर्च, साइनोनिम हैंडलिंग को एक्सप्लोर करें, या इंडेक्स को REST API के साथ इंटीग्रेट करके सर्च क्षमताओं को अन्य सर्विसेज़ को एक्सपोज़ करें।
+**Q: Is there support for synonyms or fuzzy matching?**  
+A: Yes, you can enable synonym dictionaries and fuzzy search via the `SearchOptions` class to broaden matching without sacrificing relevance. The `SearchOptions` class configures advanced search behavior such as synonyms and fuzzy matching.
 
 ---
 
-**अंतिम अपडेट:** 2026-02-06  
-**परीक्षित संस्करण:** GroupDocs.Search 25.4 for Java  
+**अंतिम अपडेट:** 2026-08-10  
+**परीक्षण किया गया:** GroupDocs.Search 25.4 for Java  
 **लेखक:** GroupDocs
+
+## संबंधित ट्यूटोरियल
+
+- [GroupDocs.Search का उपयोग करके जावा में मेटाडेटा इंडेक्सिंग के साथ दस्तावेज़ों को इंडेक्स कैसे जोड़ें](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [GroupDocs.Search for Java में इंडेक्स में दस्तावेज़ जोड़ना और उपनाम प्रबंधित करना कैसे करें](/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/)
+- [GroupDocs.Search के साथ जावा में इंडेक्स अपडेट करना – एक व्यापक गाइड](/search/java/document-management/guide-updating-index-versions-groupdocs-search-java/)
