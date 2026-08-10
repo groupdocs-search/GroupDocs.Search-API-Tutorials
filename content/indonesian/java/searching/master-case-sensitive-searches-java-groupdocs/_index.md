@@ -1,47 +1,107 @@
 ---
-date: '2026-02-06'
-description: Pelajari cara menambahkan dokumen ke indeks dan mengaktifkan pencarian
-  sensitif huruf besar/kecil di Java dengan GroupDocs.Search, meningkatkan akurasi
-  aplikasi Anda.
+date: '2026-08-10'
+description: Pelajari cara membuat indeks yang dapat dicari java dan mengaktifkan
+  pencarian sensitif huruf dengan GroupDocs.Search, meningkatkan akurasi untuk aplikasi
+  Java.
 keywords:
-- case-sensitive searches in Java
-- GroupDocs.Search Java tutorial
-- Java text query search
-- object query search in Java
-title: 'Tambahkan dokumen ke indeks: pencarian Java yang sensitif huruf besar/kecil
-  dengan GroupDocs'
+- create searchable index java
+- case sensitive search java
+- groupdocs search java tutorial
+- java text query search
+lastmod: '2026-08-10'
+og_description: Pelajari cara membuat indeks yang dapat dicari java dan mengaktifkan
+  pencarian sensitif huruf dengan GroupDocs.Search. Panduan langkah demi langkah untuk
+  pengembang Java.
+og_image_alt: Guide to creating a searchable index in Java using GroupDocs with case‑sensitive
+  search
+og_title: 'Buat indeks yang dapat dicari java: tambahkan pencarian sensitif huruf
+  pada dokumen'
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-10'
+  description: Learn how to create searchable index java and enable case‑sensitive
+    search with GroupDocs.Search, boosting accuracy for Java applications.
+  headline: 'Create searchable index java: add docs case‑sensitive search'
+  type: TechArticle
+- description: Learn how to create searchable index java and enable case‑sensitive
+    search with GroupDocs.Search, boosting accuracy for Java applications.
+  name: 'Create searchable index java: add docs case‑sensitive search'
+  steps:
+  - name: create an index and add your documents
+    text: The `Index` class represents a searchable storage area on disk where documents
+      are indexed. > **Pro tip:** You can call `index.add()` multiple times to **search
+      across multiple directories** in a single index.
+  - name: enable case‑sensitive search
+    text: '`SearchOptions` configures how queries are processed, including case sensitivity
+      and other search behaviors.'
+  - name: execute a case‑sensitive text query
+    text: '`SearchQuery` builds the query object that the engine evaluates against
+      the index. The loop prints the full path of each document that contains the
+      exact case‑matched term.'
+  - name: initialize a second index (optional)
+    text: A second `Index` instance can be created to isolate object‑based searches
+      from plain‑text searches.
+  - name: re‑use the case‑sensitive option
+    text: '`SearchOptions` can be reused across different query types to maintain
+      consistent case handling.'
+  - name: build and run an object query
+    text: '`WordQuery` represents a word‑level search that can be combined with other
+      query types for complex searches. Using `createWordQuery` lets you later combine
+      it with phrase, wildcard, or Boolean queries for more complex scenarios.'
+  type: HowTo
+- questions:
+  - answer: Add documents to an index with `index.add(...)`.
+    question: What is the primary step to start searching?
+  - answer: Set `options.setUseCaseSensitiveSearch(true)`.
+    question: How do you enable case‑sensitive search?
+  - answer: Yes – call `index.add()` for each folder you want to include.
+    question: Can you search across multiple directories?
+  - answer: Use `SearchQuery.createWordQuery(...)`.
+    question: Which method lets you search with objects?
+  - answer: A temporary license is available for trial purposes.
+    question: Do you need a license for testing?
+  type: FAQPage
+tags:
+- create searchable index
+- case-sensitive search
+- groupdocs search
+- java document processing
+title: 'Buat indeks yang dapat dicari java: tambahkan pencarian sensitif huruf pada
+  dokumen'
 type: docs
 url: /id/java/searching/master-case-sensitive-searches-java-groupdocs/
 weight: 1
 ---
 
-# Tambahkan dokumen ke indeks: Menguasai Pencarian Sensitif Huruf di Java dengan GroupDocs
+# Buat indeks dapat dicari java: tambahkan dokumen pencarian sensitif huruf
 
-Mengambil potongan informasi yang tepat dari kumpulan dokumen yang sangat besar adalah kebutuhan inti bagi aplikasi modern. Dalam panduan ini, Anda akan belajar **cara menambahkan dokumen ke indeks** dan melakukan **pencarian sensitif huruf** menggunakan GroupDocs.Search untuk Java. Baik Anda membangun repositori dokumen hukum, katalog e‑commerce, atau sistem manajemen konten, hasil pencarian yang tepat membuat pengguna senang dan data Anda dapat dipercaya.
+Dalam aplikasi Java modern, **membuat indeks dapat dicari java** adalah dasar untuk pengambilan informasi yang cepat dan akurat dari koleksi dokumen besar. Tutorial ini menunjukkan cara menambahkan dokumen ke indeks, mengaktifkan pencarian sensitif huruf, dan menyempurnakan proses dengan GroupDocs.Search. Baik Anda membangun repositori hukum, katalog e‑commerce, atau sistem manajemen konten, langkah‑langkah ini akan membantu Anda memberikan hasil yang tepat sehingga pengguna puas.
 
 ## Jawaban Cepat
-- **Apa langkah utama untuk memulai pencarian?** Tambahkan dokumen ke indeks dengan `index.add(...)`.
-- **Bagaimana mengaktifkan pencarian sensitif huruf?** Setel `options.setUseCaseSensitiveSearch(true)`.
-- **Bisakah saya mencari di beberapa direktori?** Ya – panggil `index.add()` untuk setiap folder yang ingin Anda sertakan.
-- **Metode apa yang memungkinkan saya mencari dengan objek?** Gunakan `SearchQuery.createWordQuery(...)`.
-- **Apakah saya memerlukan lisensi untuk pengujian?** Lisensi sementara tersedia untuk tujuan percobaan.
+- **Apa langkah utama untuk memulai pencarian?** Tambahkan dokumen ke indeks dengan `index.add(...)`.  
+- **Bagaimana cara mengaktifkan pencarian sensitif huruf?** Atur `options.setUseCaseSensitiveSearch(true)`.  
+- **Apakah Anda dapat mencari di beberapa direktori?** Ya – panggil `index.add()` untuk setiap folder yang ingin Anda sertakan.  
+- **Metode mana yang memungkinkan pencarian dengan objek?** Gunakan `SearchQuery.createWordQuery(...)`.  
+- **Apakah Anda memerlukan lisensi untuk pengujian?** Lisensi sementara tersedia untuk tujuan percobaan.
 
 ## Apa arti “menambahkan dokumen ke indeks”?
-Menambahkan dokumen ke indeks berarti memasukkan file sumber Anda (PDF, dokumen Word, teks biasa, dll.) ke dalam GroupDocs.Search sehingga dapat membangun struktur data yang dapat dicari. Setelah diindeks, mesin dapat mengeksekusi kueri cepat, termasuk yang sensitif huruf.
+Menambahkan dokumen ke indeks berarti memasukkan file sumber Anda (PDF, dokumen Word, teks biasa, dll.) ke dalam GroupDocs.Search sehingga dapat membangun struktur data yang dapat dicari. Indeks menyimpan istilah yang ditokenisasi, posisi, dan metadata, memungkinkan mesin mengeksekusi kueri cepat, termasuk yang sensitif huruf, dan memberi peringkat hasil secara efisien.
 
 ## Mengapa mengaktifkan pencarian sensitif huruf di Java?
-- **Pencocokan istilah yang tepat** – membedakan “Apple” (perusahaan) dari “apple” (buah).  
-- **Kepatuhan regulasi** – beberapa industri memerlukan pencocokan frasa yang tepat.  
-- **Relevansi yang lebih baik** – pengguna sering mengharapkan hasil yang spesifik huruf dalam konteks teknis atau hukum.
+Mengaktifkan pencarian sensitif huruf memastikan mesin membedakan antara istilah yang hanya berbeda dalam huruf kapital, yang penting untuk domain di mana kapitalisasi memiliki makna. Ini memungkinkan pencocokan istilah yang tepat, mendukung persyaratan kepatuhan regulasi, dan meningkatkan relevansi dengan mengembalikan hasil yang tepat sesuai dengan huruf pada kueri pengguna.
+
+- **Pencocokan istilah tepat** – misalnya, “Apple” (perusahaan) vs. “apple” (buah).  
+- **Kepatuhan regulasi** – banyak industri memerlukan pencocokan frasa yang tepat.  
+- **Relevansi yang lebih baik** – pengguna teknis dan hukum sering mengharapkan hasil yang spesifik huruf.
 
 ## Prasyarat
-- JDK (Java 17 atau lebih baru disarankan)  
+- JDK 17 atau lebih baru (disarankan)  
 - Maven untuk manajemen dependensi  
 - IDE seperti IntelliJ IDEA atau Eclipse  
 - Familiaritas dasar dengan pemrograman Java  
 
 ## Menyiapkan GroupDocs.Search untuk Java
-Pertama, tambahkan repositori GroupDocs dan dependensinya ke `pom.xml` Anda:
+Snippet Maven berikut menambahkan repositori GroupDocs.Search dan dependensi yang diperlukan ke proyek Anda.
 
 ```xml
 <repositories>
@@ -61,15 +121,15 @@ Pertama, tambahkan repositori GroupDocs dan dependensinya ke `pom.xml` Anda:
 </dependencies>
 ```
 
-Atau, Anda dapat mengunduh versi terbaru langsung dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternatively, you can download the latest version directly from [rilisan GroupDocs.Search untuk Java](https://releases.groupdocs.com/search/java/).
 
 ### Lisensi
-Untuk memulai dengan percobaan, kunjungi GroupDocs untuk memperoleh lisensi sementara. Ini akan memungkinkan Anda menguji semua fitur tanpa batasan.
+Untuk memulai dengan percobaan, kunjungi GroupDocs untuk memperoleh lisensi sementara. Ini akan memungkinkan Anda menguji semua fitur tanpa batasan apa pun.
 
-## Cara menambahkan dokumen ke indeks – Pencarian Kuery Teks
+## Cara membuat indeks dapat dicari java – pencarian kueri teks
 
-### Langkah 1: Buat Indeks dan tambahkan dokumen Anda
-Buat folder tempat file indeks akan disimpan, lalu tambahkan direktori sumber yang berisi dokumen yang ingin Anda cari.
+### Langkah 1: buat indeks dan tambahkan dokumen Anda
+Kelas `Index` mewakili area penyimpanan yang dapat dicari di disk tempat dokumen diindeks.
 
 ```java
 String indexFolder = YOUR_OUTPUT_DIRECTORY + "/CaseSensitiveSearch/QueryInTextForm";
@@ -77,18 +137,18 @@ Index index = new Index(indexFolder);
 index.add(YOUR_DOCUMENT_DIRECTORY); // Add documents to the index
 ```
 
-> **Tips profesional:** Anda dapat memanggil `index.add()` beberapa kali untuk **mencari di banyak direktori** dalam satu indeks.
+> **Tip profesional:** Anda dapat memanggil `index.add()` beberapa kali untuk **mencari di beberapa direktori** dalam satu indeks.
 
-### Langkah 2: Aktifkan pencarian sensitif huruf
-Konfigurasikan opsi pencarian agar memperhatikan kapitalisasi huruf.
+### Langkah 2: aktifkan pencarian sensitif huruf
+`SearchOptions` mengonfigurasi cara kueri diproses, termasuk sensitivitas huruf dan perilaku pencarian lainnya.
 
 ```java
 SearchOptions options = new SearchOptions();
 options.setUseCaseSensitiveSearch(true);
 ```
 
-### Langkah 3: Jalankan kueri teks sensitif huruf
-Jalankan kueri yang membedakan “Advantages” dari “advantages”.
+### Langkah 3: jalankan kueri teks sensitif huruf
+`SearchQuery` membangun objek kueri yang dievaluasi mesin terhadap indeks.
 
 ```java
 String query = "Advantages";
@@ -100,14 +160,12 @@ for (FoundDocument doc : result.getDocuments()) {
 }
 ```
 
-Loop tersebut mencetak jalur lengkap setiap dokumen yang berisi istilah dengan kecocokan huruf yang tepat.
+Loop tersebut mencetak jalur lengkap setiap dokumen yang berisi istilah yang cocok persis dengan huruf.
 
-## Cara menambahkan dokumen ke indeks – Pencarian Kuery Objek
+## Cara membuat indeks dapat dicari java – pencarian kueri objek
 
-Kuery objek memberi Anda fleksibilitas lebih, terutama ketika Anda perlu menggabungkan beberapa kriteria.
-
-### Langkah 1: Inisialisasi indeks kedua (opsional)
-Jika Anda lebih suka memisahkan pencarian berbasis objek, buat folder indeks lain.
+### Langkah 1: inisialisasi indeks kedua (opsional)
+Instansi `Index` kedua dapat dibuat untuk memisahkan pencarian berbasis objek dari pencarian teks biasa.
 
 ```java
 String indexFolder = YOUR_OUTPUT_DIRECTORY + "/CaseSensitiveSearch/QueryInObjectForm";
@@ -115,16 +173,16 @@ Index index = new Index(indexFolder);
 index.add(YOUR_DOCUMENT_DIRECTORY); // Add documents to the index
 ```
 
-### Langkah 2: Gunakan kembali opsi sensitif huruf
-Instansi `SearchOptions` yang sama dapat dipakai untuk kueri objek.
+### Langkah 2: gunakan kembali opsi sensitif huruf
+`SearchOptions` dapat digunakan kembali pada berbagai jenis kueri untuk mempertahankan penanganan huruf yang konsisten.
 
 ```java
 SearchOptions options = new SearchOptions();
 options.setUseCaseSensitiveSearch(true);
 ```
 
-### Langkah 3: Bangun dan jalankan kueri objek
-Buat objek kueri kata dan berikan ke mesin pencari.
+### Langkah 3: bangun dan jalankan kueri objek
+`WordQuery` mewakili pencarian tingkat kata yang dapat digabungkan dengan jenis kueri lain untuk pencarian kompleks.
 
 ```java
 SearchQuery query = SearchQuery.createWordQuery("Advantages");
@@ -136,52 +194,60 @@ for (FoundDocument doc : result.getDocuments()) {
 }
 ```
 
-Menggunakan `createWordQuery` memungkinkan Anda menggabungkannya nanti dengan kueri frasa, wildcard, atau Boolean untuk skenario yang lebih kompleks.
+Menggunakan `createWordQuery` memungkinkan Anda kemudian menggabungkannya dengan kueri frasa, wildcard, atau Boolean untuk skenario yang lebih kompleks.
 
-## Aplikasi Praktis
-- **Manajemen Dokumen Hukum:** Mengambil undang‑undang spesifik kasus di mana kapitalisasi penting.  
-- **Platform E‑commerce:** Membedakan SKU produk seperti “PRO‑X” vs. “pro‑x”.  
-- **Sistem Manajemen Konten (CMS):** Memastikan penulis menemukan judul atau tag yang tepat.
+## Aplikasi praktis
+- **Manajemen dokumen hukum:** Mengambil peraturan spesifik kasus di mana kapitalisasi penting.  
+- **Platform e‑commerce:** Membedakan SKU produk seperti “PRO‑X” vs. “pro‑x”.  
+- **Sistem manajemen konten (CMS):** Memastikan penulis menemukan judul atau tag yang tepat.
 
-## Pertimbangan Kinerja
-- **Jaga indeks tetap terbaru** – lakukan re‑indeks ketika file baru ditambahkan atau yang lama diubah.  
-- **Pantau penggunaan memori** – korpus besar mendapat manfaat dari indeks inkremental dan penyesuaian ukuran heap JVM yang tepat.  
+## Pertimbangan kinerja
+- **Jaga indeks tetap terbaru** – lakukan re‑indeks ketika file baru ditambahkan atau yang ada berubah.  
+- **Pantau penggunaan memori** – korpora besar mendapat manfaat dari indeks inkremental dan penentuan ukuran heap JVM yang tepat.  
 - **Manfaatkan garbage collector Java** – lepaskan objek `Index` ketika tidak lagi diperlukan.
 
-## Masalah Umum dan Solusinya
+## Masalah umum dan solusi
 | Masalah | Solusi |
 |-------|----------|
-| `useCaseSensitiveSearch` tampak diabaikan | Pastikan Anda menggunakan versi GroupDocs.Search terbaru dan indeks dibangun ulang setelah mengubah opsi. |
-| Tidak ada hasil untuk istilah yang diketahui | Pastikan kapitalisasi istilah cocok persis dan dokumen berhasil ditambahkan ke indeks. |
-| Pencarian di banyak folder menjadi lambat | Tambahkan setiap folder secara terpisah dengan `index.add()` dan pertimbangkan membagi indeks menjadi shard untuk dataset sangat besar. |
+| `useCaseSensitiveSearch` tampak diabaikan | Verifikasi bahwa Anda menggunakan versi GroupDocs.Search terbaru dan bahwa indeks telah dibangun ulang setelah mengubah opsi. |
+| Tidak ada hasil yang dikembalikan untuk istilah yang diketahui | Pastikan huruf pada istilah cocok persis dan dokumen berhasil ditambahkan ke indeks. |
+| Mencari banyak folder memperlambat | Tambahkan setiap folder secara terpisah dengan `index.add()` dan pertimbangkan memecah indeks menjadi shard untuk dataset yang sangat besar. |
 
-## Pertanyaan yang Sering Diajukan
+## Pertanyaan yang sering diajukan
 
-**T:** Bagaimana cara menangani dataset besar dengan GroupDocs.Search?  
-**J:** Manfaatkan partisi indeks, sesuaikan pengaturan memori JVM, dan secara periodik kompak indeks untuk menjaga kinerja optimal.
+**Q:** Bagaimana cara menangani dataset besar dengan GroupDocs.Search?  
+**A:** Gunakan partisi indeks, sesuaikan pengaturan memori JVM, dan secara berkala kompak indeks untuk menjaga kinerja optimal.
 
-**T:** Bisakah saya mencari di beberapa direktori secara bersamaan?  
-**J:** Ya – panggil `index.add()` untuk setiap direktori yang ingin Anda sertakan, lalu jalankan satu kueri terhadap indeks gabungan.
+**Q:** Apakah saya dapat mencari di beberapa direktori secara bersamaan?  
+**A:** Ya – panggil `index.add()` untuk setiap direktori yang ingin Anda sertakan, lalu jalankan satu kueri terhadap indeks gabungan.
 
-**T:** Apa jebakan umum saat menyiapkan pencarian sensitif huruf?  
-**J:** Lupa membangun ulang indeks setelah mengaktifkan `useCaseSensitiveSearch`, atau menggunakan kapitalisasi yang salah pada string kueri.
+**Q:** Apa jebakan umum saat menyiapkan pencarian sensitif huruf?  
+**A:** Lupa membangun ulang indeks setelah mengaktifkan `useCaseSensitiveSearch`, atau menggunakan huruf yang salah dalam string kueri.
 
-**T:** Bagaimana cara memecahkan masalah kesalahan pencarian?  
-**J:** Periksa file log yang dihasilkan oleh GroupDocs.Search untuk jejak stack, dan pastikan semua dependensi Maven terresolusi dengan benar.
+**Q:** Bagaimana cara memecahkan masalah kesalahan pencarian?  
+**A:** Periksa file log yang dihasilkan oleh GroupDocs.Search untuk jejak stack, dan pastikan semua dependensi Maven terresolusi dengan benar.
 
-**T:** Apakah GroupDocs.Search cocok untuk aplikasi waktu‑nyata?  
-**J:** Dengan strategi indeks yang tepat (pembaruan inkremental dan caching dalam memori), ia dapat memberikan hasil pencarian hampir secara waktu‑nyata.
+**Q:** Apakah GroupDocs.Search cocok untuk aplikasi real‑time?  
+**A:** Dengan strategi indeks yang tepat (pembaruan inkremental dan caching di memori), dapat memberikan hasil pencarian hampir real‑time.
 
 ## Sumber Daya
-- **Dokumentasi:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)
-- **Referensi API:** [Java API Reference](https://reference.groupdocs.com/search/java)
-- **Unduhan:** [Latest Releases](https://releases.groupdocs.com/search/java/)
-- **Repositori GitHub:** [GroupDocs.Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- **Forum Dukungan:** [GroupDocs Free Support](https://forum.groupdocs.com/c/search/10)
-- **Lisensi Sementara:** [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **Dokumentasi:** [Dokumen GroupDocs.Search Java](https://docs.groupdocs.com/search/java/)  
+- **Referensi API:** [Referensi API Java](https://reference.groupdocs.com/search/java)  
+- **Unduh:** [Rilisan Terbaru](https://releases.groupdocs.com/search/java/)  
+- **Repositori GitHub:** [GroupDocs.Search untuk Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **Forum dukungan:** [Dukungan Gratis GroupDocs](https://forum.groupdocs.com/c/search/10)  
+- **Lisensi sementara:** [Dapatkan Lisensi Sementara](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Terakhir Diperbarui:** 2026-02-06  
+**Terakhir Diperbarui:** 2026-08-10  
 **Diuji Dengan:** GroupDocs.Search 25.4  
-**Penulis:** GroupDocs
+**Penulis:** GroupDocs  
+
+---
+
+## Tutorial Terkait
+
+- [Buat Indeks Pencarian Java – Tutorial GroupDocs.Search](/search/java/indexing/)
+- [Cara Menambahkan Dokumen ke Indeks dengan GroupDocs.Search untuk Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Cara menambahkan dokumen ke indeks dengan Metadata Indexing di Java menggunakan GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
