@@ -1,7 +1,7 @@
 ---
-title: "search query java - Mastering GroupDocs.Search Java – Create and Manage a Search Index"
-description: "Learn how to execute a search query java, add documents to index, and build a full text search java solution with GroupDocs.Search for Java."
-date: "2026-01-01"
+title: "full text search java – Mastering GroupDocs.Search Java – Create and Manage a Search Index"
+description: "Learn how to execute a search query java, add documents to index, and build a full text search java solution with GroupDocs.Search for Java, including how to add folder to index."
+date: "2026-03-09"
 weight: 1
 url: "/java/indexing/groupdocs-search-java-create-index-guide/"
 keywords:
@@ -11,19 +11,19 @@ keywords:
 type: docs
 ---
 
-# search query java - Mastering GroupDocs.Search Java – Create and Manage a Search Index
+# full text search java – Mastering GroupDocs.Search Java – Create and Manage a Search Index
 
-In today's data‑driven applications, running an efficient **search query java** against large document collections is a must‑have capability. Whether you're building an internal document portal, an e‑commerce catalog, or a content‑heavy CMS, a well‑structured search index powers fast, accurate results. This tutorial shows you, step by step, how to set up GroupDocs.Search for Java, create a searchable index, **add documents to index**, and run a **full text search java** query—all with clear, conversational explanations.
+In today’s data‑driven applications, running an efficient **full text search java** against large document collections is a must‑have capability. Whether you’re building an internal document portal, an e‑commerce catalog, or a content‑heavy CMS, a well‑structured search index powers fast, accurate results. This tutorial walks you through setting up GroupDocs.Search for Java, creating a searchable index, **adding documents to index**, and executing a **full text search java** query—all explained in a friendly, step‑by‑step style.
 
 ## Quick Answers
-- **What does “search query java” mean?** Running a text‑based search against an index built with GroupDocs.Search in a Java application.  
+- **What does “full text search java” mean?** Running a text‑based search against an index built with GroupDocs.Search in a Java application.  
 - **Which library handles the indexing?** GroupDocs.Search for Java (latest stable release).  
 - **Do I need a license to try it?** A free trial is available; a temporary or full license is required for production.  
 - **Can I index an entire folder at once?** Yes – use `index.add("folderPath")` to **add folder to index** in one call.  
 - **Is the search case‑insensitive?** By default, GroupDocs.Search performs case‑insensitive full‑text searches.
 
-## What is a search query java?
-A **search query java** is simply a text string you pass to the `search()` method of a GroupDocs.Search `Index` object. The library parses the query, looks through the indexed terms, and returns matching documents instantly.
+## What is full text search java?
+A **full text search java** operation is simply a text string you pass to the `search()` method of a GroupDocs.Search `Index` object. The library parses the query, scans the indexed terms, and instantly returns matching documents.
 
 ## Why use GroupDocs.Search for Java?
 - **Speed:** Built‑in algorithms deliver millisecond‑level response times even on millions of documents.  
@@ -69,7 +69,7 @@ If you prefer not to use Maven, grab the latest JAR from the official release pa
 - **Full License:** Recommended for production deployments.
 
 ### Basic Initialization
-The snippet below creates an empty index folder. It’s the foundation for every **search query java** you’ll run later.
+The snippet below creates an empty index folder. It’s the foundation for every **full text search java** you’ll run later.
 
 ```java
 import com.groupdocs.search.Index;
@@ -83,17 +83,10 @@ public class GroupDocsSearchSetup {
 }
 ```
 
-## Implementation Guide
+## How to create a search index
 
 ### Creating an Index
 Creating a search index is the first step toward enabling efficient document retrieval.
-
-#### Overview
-An index stores searchable terms extracted from your documents, allowing instant look‑ups when you execute a **search query java**.
-
-#### Steps to Create an Index
-1. **Define the Output Directory** – where the index files will live.  
-2. **Initialize the Index** – instantiate the `Index` class with that folder.
 
 ```java
 import com.groupdocs.search.Index;
@@ -110,15 +103,8 @@ public class CreateIndexExample {
 }
 ```
 
-### Adding Documents to the Index
-Now that the index exists, you need to **add documents to index** so they become searchable.
-
-#### Overview
-GroupDocs.Search can ingest an entire folder, automatically detecting supported file types. This is the most common way to **add folder to index**.
-
-#### Steps to Add Documents
-1. **Specify Document Directory** – where your source files are stored.  
-2. **Call `add()`** – the method reads every file and updates the index.
+### Adding a folder to index
+Now that the index exists, you need to **add documents to index** so they become searchable. GroupDocs.Search can ingest an entire folder with a single call.
 
 ```java
 import com.groupdocs.search.Index;
@@ -139,15 +125,8 @@ public class AddDocumentsToIndexExample {
 }
 ```
 
-### Searching within the Index
-With your documents indexed, performing a **full text search java** is straightforward.
-
-#### Overview
-The `search()` method accepts any query string—keywords, phrases, or even Boolean expressions—and returns matching document references.
-
-#### Steps to Search
-1. **Define Your Query** – e.g., `"Lorem"` or `"invoice AND 2024"`.  
-2. **Execute the Search** – retrieve a `SearchResult` object and inspect the count.
+### Performing a full text search java
+With your documents indexed, executing a **full text search java** is straightforward.
 
 ```java
 import com.groupdocs.search.Index;
@@ -177,7 +156,7 @@ GroupDocs.Search for Java shines in many real‑world scenarios:
 3. **Content Management Systems (CMS)** – enable editors and visitors to locate articles, media, and PDFs quickly.  
 
 ## Performance Considerations
-To keep your **search query java** lightning‑fast:
+To keep your **full text search java** lightning‑fast:
 
 - **Optimize Indexing:** Re‑index only changed files and purge obsolete entries regularly.  
 - **Manage Resources:** Monitor JVM heap usage; consider incremental indexing for massive data sets.  
@@ -195,7 +174,7 @@ To keep your **search query java** lightning‑fast:
 **Q: What file formats can GroupDocs.Search index?**  
 A: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many more common office formats.
 
-**Q: Can I run a search query java on a remote server?**  
+**Q: Can I run a full text search java on a remote server?**  
 A: Yes. Build the index on the server and expose a REST endpoint that forwards the query to the Java service.
 
 **Q: How do I update the index when a document changes?**  
@@ -207,8 +186,19 @@ A: After obtaining `SearchResult`, filter `result.getDocuments()` by their origi
 **Q: Does GroupDocs.Search support fuzzy or wildcard searches?**  
 A: The library includes built‑in support for fuzzy matching (`~`) and wildcard (`*`) operators in query strings.
 
+### Additional FAQ
+
+**Q: How can I improve relevance ranking for my full text search java?**  
+A: Adjust `IndexSettings` such as term weighting, boost specific fields, or enable synonyms to fine‑tune relevance.
+
+**Q: Is it possible to delete documents from the index?**  
+A: Yes. Call `index.delete("path/to/file")` to remove a document entry.
+
+**Q: What does “add folder to index” actually do under the hood?**  
+A: GroupDocs.Search scans the folder recursively, extracts text from each supported file, tokenizes terms, and stores them in the index structure for fast lookup.
+
 ---
 
-**Last Updated:** 2026-01-01  
+**Last Updated:** 2026-03-09  
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs

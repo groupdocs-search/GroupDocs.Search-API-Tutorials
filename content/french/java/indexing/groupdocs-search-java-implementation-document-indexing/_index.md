@@ -1,13 +1,13 @@
 ---
-date: '2026-01-01'
+date: '2026-03-09'
 description: Apprenez à créer un index de recherche GroupDocs en Java en utilisant
   GroupDocs.Search. Ce guide montre comment indexer efficacement des documents Java.
 keywords:
 - document indexing
 - GroupDocs.Search for Java
 - Java application search
-title: 'Créer un index de recherche GroupDocs avec GroupDocs.Search pour Java - guide
-  complet'
+title: Créer un index de recherche GroupDocs avec GroupDocs.Search pour Java – Guide
+  complet
 type: docs
 url: /fr/java/indexing/groupdocs-search-java-implementation-document-indexing/
 weight: 1
@@ -15,27 +15,29 @@ weight: 1
 
 # Créer un index de recherche GroupDocs avec GroupDocs.Search pour Java - Guide complet
 
-## Introduction
-Si vous devez **create search index groupdocs** dans une application Java, vous êtes au bon endroit. Dans ce tutoriel, nous parcourrons l’ensemble du processus de configuration de GroupDocs.Search, de création d’un index, d’ajout de fichiers et de récupération du texte des documents — le tout avec du code clair, étape par étape, que vous pouvez copier directement dans votre projet. À la fin, vous saurez exactement **how to index documents java**‑style et serez prêt à intégrer des capacités de recherche puissantes dans n’importe quelle solution d’entreprise.
+Si vous devez **créer un index de recherche groupdocs** dans une application Java, vous êtes au bon endroit. Dans ce tutoriel, nous parcourrons l’ensemble du processus d’installation de GroupDocs.Search, de création d’un index, d’ajout de fichiers et de récupération du texte des documents — le tout avec du code clair, étape par étape, que vous pouvez copier directement dans votre projet. À la fin, vous saurez exactement **comment indexer des documents en Java** et serez prêt à intégrer des capacités de recherche puissantes dans toute solution d’entreprise.
 
-### Réponses rapides
+## Réponses rapides
 - **Quel est le but principal de GroupDocs.Search ?**  
-  Fournir un indexage et une récupération en texte intégral rapides pour une large gamme de formats de documents en Java.
+  Fournir un indexage et une récupération en texte intégral rapides pour un large éventail de formats de documents en Java.  
 - **Quelle version de la bibliothèque est recommandée ?**  
-  La dernière version stable (par ex., 25.4 au moment de la rédaction).
+  La dernière version stable (par ex., 25.4 au moment de la rédaction).  
 - **Ai‑je besoin d’une licence pour exécuter les exemples ?**  
-  Une licence temporaire est disponible pour l’évaluation ; une licence commerciale est requise pour la production.
+  Une licence temporaire est disponible pour l’évaluation ; une licence commerciale est requise pour la production.  
 - **Quelles sont les étapes principales pour créer un index de recherche ?**  
-  Installer la bibliothèque, configurer les paramètres de l’index, ajouter des documents et interroger l’index.
+  Installer la bibliothèque, configurer les paramètres de l’index, ajouter des documents et interroger l’index.  
 - **Puis‑je stocker le texte indexé sous forme compressée ?**  
   Oui – utilisez `TextStorageSettings` avec `Compression.High`.
 
-## Qu’est‑ce que « créer un index de recherche GroupDocs » ?
-Créer un index de recherche avec GroupDocs consiste à construire une structure de données consultable qui associe chaque mot de vos documents à son emplacement. Cela permet des recherches instantanées de mots‑clés, des recherches de phrases et un filtrage avancé sans analyser les fichiers originaux à chaque fois.
+## Comment créer un index de recherche groupdocs avec GroupDocs.Search pour Java
+Créer un index interrogeable est la base de toute solution de recherche rapide. Ci-dessous, nous décomposons le processus en étapes simples, expliquons le « pourquoi » de chaque action et présentons le code exact dont vous avez besoin.
 
-## Pourquoi utiliser GroupDocs.Search pour Java ?
+### Qu’est‑ce que « créer un index de recherche groupdocs » ?
+Créer un index de recherche avec GroupDocs consiste à construire une structure de données interrogeable qui associe chaque mot de vos documents à son emplacement. Cela permet des recherches instantanées de mots‑clés, des recherches de phrases et un filtrage avancé sans analyser les fichiers originaux à chaque fois.
+
+### Pourquoi utiliser GroupDocs.Search pour Java ?
 - **Large prise en charge des formats** – PDFs, Word, Excel, PowerPoint, et bien d’autres.  
-- **Haute performance** – Des algorithmes d’indexation optimisés maintiennent une faible latence de recherche même avec des millions de fichiers.  
+- **Haute performance** – Des algorithmes d’indexation optimisés maintiennent une latence de recherche faible même avec des millions de fichiers.  
 - **Intégration facile** – API Java simple, gestion des dépendances basée sur Maven et documentation claire.
 
 ## Prérequis
@@ -51,7 +53,7 @@ Une programmation Java de base, la familiarité avec les entrées/sorties de fic
 
 ## Configuration de GroupDocs.Search pour Java
 ### Configuration Maven
-Ajoutez le dépôt et la dépendance à votre fichier `pom.xml` :
+Ajoutez le dépôt et la dépendance à votre fichier `pom.xml` :
 ```xml
 <repositories>
     <repository>
@@ -70,22 +72,22 @@ Ajoutez le dépôt et la dépendance à votre fichier `pom.xml` :
 </dependencies>
 ```
 ### Téléchargement direct
-Alternativement, téléchargez la dernière version depuis [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Sinon, téléchargez la dernière version depuis [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Acquisition de licence
 Vous pouvez obtenir une licence temporaire pour explorer pleinement les fonctionnalités de GroupDocs avant l’achat en visitant leur [Temporary License page](https://purchase.groupdocs.com/temporary-license/). Cette période d’essai vous permet d’évaluer la bibliothèque dans votre environnement.
 
 ### Initialisation et configuration de base
-Commencez par créer un objet `Index` qui pointe vers le dossier où les fichiers d’index seront stockés :
+Commencez par créer un objet `Index` qui pointe vers le dossier où les fichiers d’index seront stockés :
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
 ## Guide d’implémentation
-### Comment indexer des documents java avec GroupDocs.Search
+### Comment indexer des documents Java avec GroupDocs.Search
 #### Vue d’ensemble
-Créer un index est la première étape pour activer des capacités de recherche rapides. Ci‑dessous, nous parcourons chaque action requise.
+Créer un index est la première étape pour activer des capacités de recherche rapides. Ci-dessous, nous parcourons chaque action requise.
 
 #### Étape 1 : Spécifier les répertoires
 Définissez où l’index sera stocké et où se trouvent les documents source.
@@ -95,7 +97,7 @@ String documentsFolder = "YOUR_DOCUMENTS_DIRECTORY";
 ```
 
 #### Étape 2 : Créer un index
-Instanciez l’objet `Index` pour commencer à construire la structure consultable.
+Instanciez l’objet `Index` pour commencer à construire la structure interrogeable.
 ```java
 Index index = new Index(indexFolder);
 ```
@@ -107,7 +109,7 @@ index.add(documentsFolder);
 ```
 
 #### Étape 4 : Récupérer les documents indexés
-Une fois l’indexation terminée, vous pouvez énumérer les entrées indexées :
+Une fois l’indexation terminée, vous pouvez énumérer les entrées indexées :
 ```java
 DocumentInfo[] documents = index.getIndexedDocuments();
 for (DocumentInfo document : documents) {
@@ -117,14 +119,14 @@ for (DocumentInfo document : documents) {
 ```
 
 **Paramètres & objectifs des méthodes**  
-- `indexFolder` : chemin où les données d’index sont stockées.  
-- `documentsFolder` : répertoire contenant les fichiers à indexer.
+- `indexFolder` : Chemin où les données d’index sont stockées.  
+- `documentsFolder` : Répertoire contenant les fichiers à indexer.
 
 **Conseils de dépannage**  
 - Vérifiez que les chemins des dossiers sont corrects et accessibles.  
 - Vérifiez les permissions du système de fichiers si vous rencontrez des erreurs « access denied » lors de l’indexation.
 
-### Créer un index avec les paramètres de stockage du texte
+### Création d’un index avec les paramètres de stockage du texte
 #### Vue d’ensemble
 Vous pouvez affiner la façon dont le texte brut de chaque document est stocké, par exemple en activant une compression élevée pour réduire l’utilisation du disque.
 
@@ -142,7 +144,7 @@ Index index = new Index(indexFolder, settings);
 ```
 
 #### Étape 3 : Récupérer et stocker les textes des documents
-Extrayez le texte complet d’un document et enregistrez‑le au format HTML (ou tout autre format supporté).
+Extrayez le texte complet d’un document et enregistrez‑le au format HTML (ou tout autre format pris en charge).
 ```java
 DocumentInfo[] documents = index.getIndexedDocuments();
 if (documents.length > 0) {
@@ -153,7 +155,7 @@ if (documents.length > 0) {
 ```
 
 **Options de configuration clés**  
-- `Compression.High` – optimise le stockage en compressant le texte extrait.
+- `Compression.High` – Optimise le stockage en compressant le texte extrait.
 
 ## Applications pratiques
 1. **Gestion documentaire d’entreprise** – Localisez rapidement contrats, politiques ou rapports dans d’immenses dépôts.  
@@ -161,19 +163,18 @@ if (documents.length > 0) {
 3. **Gestion de documents juridiques** – Permettez la découverte basée sur des mots‑clés à travers les dossiers de cas et les archives de preuves.
 
 ## Considérations de performance
-- **Optimisation de la taille de l’index** – Élaguez périodiquement les entrées obsolètes pour garder l’index léger.  
-- **Gestion de la mémoire** – Ajustez le ramasse‑miettes de la JVM pour les tâches d’indexation à grande échelle.  
+- **Optimisation de la taille de l’index** – Élaguer périodiquement les entrées obsolètes pour garder l’index léger.  
+- **Gestion de la mémoire** – Ajustez le ramasse‑miettes de la JVM pour les travaux d’indexation à grande échelle.  
 - **Bonnes pratiques** – Indexez par lots, réutilisez les instances `Index` et privilégiez les opérations asynchrones pour les charges lourdes.
 
-## Conclusion
-Vous disposez maintenant d’un guide complet, prêt pour la production, sur la façon de **create search index groupdocs** en utilisant GroupDocs.Search pour Java. En suivant les étapes ci‑dessus, vous pouvez ajouter une recherche en texte intégral rapide et fiable à toute solution basée sur Java. Explorez les fonctionnalités de requête avancées, intégrez d’autres services et continuez à expérimenter les paramètres pour correspondre à vos objectifs de performance spécifiques.
+## Problèmes courants et solutions
+| Symptôme | Cause probable | Solution |
+|----------|----------------|----------|
+| “Accès refusé” lors de l’appel à `index.add()` | Permissions de dossier incorrectes | Accorder les droits de lecture/écriture à l’utilisateur du processus |
+| Aucun résultat retourné pour un terme connu | Stockage du texte non activé | Activer `TextStorageSettings` ou ré‑indexer avec les paramètres appropriés |
+| Erreurs de mémoire insuffisante sur de gros lots | Taille du tas JVM trop petite | Augmenter le drapeau `-Xmx` ou traiter les documents par morceaux plus petits |
 
-### Prochaines étapes
-- Essayez la syntaxe de requête avancée (joker, recherche floue, etc.).  
-- Combinez GroupDocs.Search avec un framework UI pour créer un portail de recherche convivial.  
-- Examinez la référence officielle de l’API pour des options de personnalisation supplémentaires.
-
-## Questions fréquentes
+## Questions fréquemment posées
 1. **Qu’est‑ce que GroupDocs.Search pour Java ?**  
    Une bibliothèque puissante qui permet aux développeurs d’ajouter des fonctionnalités de recherche en texte intégral à leurs applications Java de manière efficace.  
 2. **Comment gérer de grands ensembles de données avec GroupDocs.Search ?**  
@@ -181,21 +182,21 @@ Vous disposez maintenant d’un guide complet, prêt pour la production, sur la 
 3. **Puis‑je personnaliser le niveau de compression dans les paramètres de stockage du texte ?**  
    Oui, vous pouvez définir différents niveaux de compression comme `Compression.High` ou `Compression.Low`.  
 4. **Quels types de documents GroupDocs.Search prend‑il en charge ?**  
-   Il prend en charge une large gamme de formats, y compris les PDFs, fichiers Word, feuilles de calcul Excel, présentations PowerPoint, et bien d’autres.  
+   Il prend en charge un large éventail de formats, y compris les PDFs, fichiers Word, feuilles de calcul Excel, présentations PowerPoint et bien d’autres.  
 5. **Existe‑t‑il un support communautaire pour GroupDocs.Search ?**  
-   Oui, vous pouvez accéder à un support gratuit via leur forum à l’adresse [GroupDocs Forum](https://forum.groupdocs.com/c/search/10).
+   Oui, vous pouvez accéder à un support gratuit via leur forum à [GroupDocs Forum](https://forum.groupdocs.com/c/search/10).
 
 ## Ressources
-- **Documentation:** https://docs.groupdocs.com/search/java/
-- **API Reference:** https://reference.groupdocs.com/search/java
-- **Download:** https://releases.groupdocs.com/search/java/
-- **GitHub Repository:** https://github.com/groupdocs-search/GroupDocs.Search-for-Java
-- **Free Support Forum:** https://forum.groupdocs.com/c/search/10
+- **Documentation :** https://docs.groupdocs.com/search/java/  
+- **Référence API :** https://reference.groupdocs.com/search/java  
+- **Téléchargement :** https://releases.groupdocs.com/search/java/  
+- **Dépôt GitHub :** https://github.com/groupdocs-search/GroupDocs.Search-for-Java  
+- **Forum de support gratuit :** https://forum.groupdocs.com/c/search/10  
 
-En utilisant les ressources fournies et en expérimentant différentes configurations, vous pouvez améliorer davantage votre compréhension et votre utilisation de GroupDocs.Search pour Java. Bon codage !
+En utilisant les ressources fournies et en expérimentant différentes configurations, vous pouvez approfondir votre compréhension et votre utilisation de GroupDocs.Search pour Java. Bon codage !
 
 ---
 
-**Last Updated:** 2026-01-01  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+**Dernière mise à jour :** 2026-03-09  
+**Testé avec :** GroupDocs.Search 25.4  
+**Auteur :** GroupDocs
