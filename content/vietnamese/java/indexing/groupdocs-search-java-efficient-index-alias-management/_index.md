@@ -1,42 +1,41 @@
 ---
-date: '2026-01-03'
-description: Học cách thêm tài liệu vào chỉ mục, quản lý các chỉ mục và sử dụng từ
-  điển alias một cách hiệu quả với GroupDocs.Search cho Java.
+date: '2026-03-06'
+description: Tìm hiểu cách thêm nhiều bí danh, thêm tài liệu vào chỉ mục và quản lý
+  các chỉ mục có thể tìm kiếm một cách hiệu quả với GroupDocs.Search cho Java.
 keywords:
 - GroupDocs.Search Java
 - index management
 - alias dictionary
-title: Cách Thêm Tài Liệu Vào Chỉ Mục và Quản Lý Bí Danh trong GroupDocs.Search cho
-  Java
+title: Cách Thêm Nhiều Bí Danh và Thêm Tài Liệu vào Chỉ Mục trong GroupDocs.Search
+  cho Java
 type: docs
 url: /vi/java/indexing/groupdocs-search-java-efficient-index-alias-management/
 weight: 1
 ---
 
-# Thêm Tài Liệu vào Chỉ Mục và Quản Lý Bí Danh trong GroupDocs.Search Java: Hướng Dẫn Toàn Diện
+# Thêm Nhiều Bí Danh và Thêm Tài Liệu vào Chỉ Mục trong GroupDocs.Search Java: Hướng Dẫn Toàn Diện
 
-Trong thế giới dữ liệu ngày nay, khả năng **add documents to index** nhanh chóng và tìm kiếm chúng một cách hiệu quả có thể mang lại cho doanh nghiệp của bạn lợi thế cạnh tranh thực sự. Dù bạn đang xử lý hàng ngàn hợp đồng, danh mục sản phẩm, hay các bài báo nghiên cứu, GroupDocs.Search cho Java giúp bạn dễ dàng tạo các chỉ mục có thể tìm kiếm và tinh chỉnh truy vấn bằng các từ điển bí danh.
-
-Dưới đây, bạn sẽ khám phá mọi thứ cần thiết để thiết lập thư viện, **add documents to index**, quản lý bí danh, và thực hiện các tìm kiếm mạnh mẽ—tất cả được giải thích theo phong cách thân thiện, từng bước một.
+Trong thế giới dựa trên dữ liệu ngày nay, khả năng **thêm nhiều bí danh** trong khi bạn **thêm tài liệu vào chỉ mục** mang lại cho giải pháp tìm kiếm của bạn lợi thế hiệu năng rõ rệt. Dù bạn đang lập chỉ mục hàng ngàn hợp đồng, danh mục sản phẩm, hay các bài báo nghiên cứu, GroupDocs.Search cho Java cho phép bạn **tạo cấu trúc chỉ mục có thể tìm kiếm** và tinh chỉnh các truy vấn với từ điển bí danh — tất cả đều giữ cho việc triển khai đơn giản và nhanh chóng.
 
 ## Câu trả lời nhanh
 - **Bước đầu tiên để bắt đầu sử dụng GroupDocs.Search là gì?** Thêm phụ thuộc Maven và khởi tạo một đối tượng `Index`.  
-- **Làm thế nào để add documents to index?** Gọi `index.add("<folder_path>")` với thư mục chứa các tệp của bạn.  
-- **Tôi có thể tạo bí danh cho các truy vấn phức tạp không?** Có — sử dụng từ điển bí danh để ánh xạ các token ngắn thành các biểu thức truy vấn đầy đủ.  
-- **Có thể xuất và nhập từ điển bí danh không?** Hoàn toàn có thể — sử dụng các phương thức `exportDictionary` và `importDictionary`.  
+- **Làm sao để tôi thêm tài liệu vào chỉ mục?** Gọi `index.add("<folder_path>")` với thư mục chứa các tệp của bạn.  
+- **Tôi có thể tạo bí danh cho các truy vấn phức tạp không?** Có — sử dụng từ điển bí danh để ánh xạ các token ngắn tới các biểu thức truy vấn đầy đủ, và bạn cũng có thể **thêm nhiều bí danh** cùng lúc.  
+- **Có thể xuất và nhập từ điển bí danh không?** Chắc chắn — sử dụng các phương thức `exportDictionary` và `importDictionary`.  
 - **Phiên bản GroupDocs.Search nào được yêu cầu?** Phiên bản 25.4 trở lên (bài hướng dẫn sử dụng 25.4).  
 
-## “add documents to index” là gì?
-Add documents to index có nghĩa là đưa các tệp thô (PDF, DOCX, TXT, v.v.) vào GroupDocs.Search để thư viện có thể phân tích nội dung và xây dựng cấu trúc dữ liệu có thể tìm kiếm. Khi đã được lập chỉ mục, bạn có thể thực hiện các truy vấn toàn văn nhanh chóng trên tất cả các tài liệu đó.
+## “Thêm tài liệu vào chỉ mục” là gì?
+Thêm tài liệu vào một chỉ mục có nghĩa là đưa các tệp thô (PDF, DOCX, TXT, v.v.) vào GroupDocs.Search để thư viện có thể phân tích nội dung và xây dựng một **chỉ mục có thể tìm kiếm**. Khi đã được lập chỉ mục, bạn có thể thực hiện các truy vấn toàn văn nhanh chóng trên tất cả các tài liệu đó.
 
-## Tại sao cần quản lý bí danh?
-Bí danh cho phép bạn thay thế các đoạn truy vấn dài, lặp lại bằng các token ngắn, dễ nhớ (ví dụ, `@t` → `(gravida OR promotion)`). Điều này không chỉ rút ngắn chuỗi tìm kiếm mà còn cải thiện khả năng đọc và bảo trì, đặc biệt khi các truy vấn trở nên phức tạp.
+## Tại sao quản lý bí danh?
+Bí danh cho phép bạn thay thế các đoạn truy vấn dài, lặp lại bằng các token ngắn, dễ nhớ (ví dụ, `@t` → `(gravida OR promotion)`). Điều này không chỉ rút ngắn chuỗi tìm kiếm mà còn cải thiện khả năng đọc, bảo trì, và **tối ưu hiệu năng tìm kiếm**, đặc biệt khi các truy vấn trở nên phức tạp.
 
-## Điều kiện tiên quyết
+## Cách thêm nhiều bí danh?
+GroupDocs.Search cung cấp phương thức tiện lợi `addRange` cho phép bạn chèn nhiều cặp thay thế bí danh cùng một lúc. Hoạt động bulk này giảm tải so với việc thêm từng bí danh một.
 
-Trước khi bắt đầu, hãy chắc chắn rằng bạn có:
+## Yêu cầu trước
 
-- **GroupDocs.Search cho Java** ≥ 25.4.  
+- **GroupDocs.Search for Java** ≥ 25.4.  
 - **JDK** (bất kỳ phiên bản mới nào, ví dụ 11+).  
 - Một IDE như **IntelliJ IDEA** hoặc **Eclipse**.  
 - Kiến thức cơ bản về Java và Maven.  
@@ -44,7 +43,7 @@ Trước khi bắt đầu, hãy chắc chắn rằng bạn có:
 ## Cài đặt GroupDocs.Search cho Java
 
 ### Sử dụng Maven
-Thêm repository và dependency vào file `pom.xml` của bạn:
+Thêm kho và phụ thuộc vào `pom.xml` của bạn:
 
 ```xml
 <repositories>
@@ -65,15 +64,15 @@ Thêm repository và dependency vào file `pom.xml` của bạn:
 ```
 
 ### Tải trực tiếp
-Hoặc tải JAR mới nhất từ trang chính thức:  
-[GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Ngoài ra, tải JAR mới nhất từ trang chính thức:  
+[**Bản phát hành GroupDocs.Search cho Java**](https://releases.groupdocs.com/search/java/).
 
 #### Các bước lấy giấy phép
-1. **Dùng thử miễn phí** – khám phá mọi tính năng mà không cần cam kết.  
-2. **Giấy phép tạm thời** – yêu cầu khóa ngắn hạn để đánh giá.  
-3. **Mua bản đầy đủ** – nhận giấy phép vĩnh viễn cho môi trường sản xuất.  
+1. **Free Trial** – khám phá mọi tính năng mà không cần cam kết.  
+2. **Temporary License** – yêu cầu khóa ngắn hạn để đánh giá.  
+3. **Full Purchase** – mua giấy phép vĩnh viễn cho môi trường sản xuất.  
 
-### Khởi tạo và cấu hình cơ bản
+### Khởi tạo và Cài đặt Cơ bản
 
 ```java
 import com.groupdocs.search.Index;
@@ -93,32 +92,32 @@ public class GroupDocsSetup {
 
 ## Hướng dẫn triển khai
 
-Dưới đây là hướng dẫn chi tiết cho từng tính năng. Bạn có thể đọc phần giải thích trước, sau đó sao chép khối mã tương ứng.
+Dưới đây là hướng dẫn chi tiết cho từng tính năng. Đọc phần giải thích trước, sau đó sao chép khối mã tương ứng.
 
-### Tạo hoặc mở một chỉ mục
+### Tạo hoặc Mở một Chỉ mục
 
-**Cách add documents to index – trước tiên bạn cần một thể hiện Index đang hoạt động.**
+**How to add documents to index – first you need an active Index instance.**
 
 #### Bước 1: Nhập lớp Index
 ```java
 import com.groupdocs.search.Index;
 ```
 
-#### Bước 2: Xác định vị trí lưu các tệp chỉ mục
+#### Bước 2: Xác định nơi các tệp chỉ mục sẽ được lưu trữ
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/Indexes/Index";
 ```
 
-#### Bước 3: Tạo chỉ mục mới hoặc mở chỉ mục đã tồn tại
+#### Bước 3: Tạo một chỉ mục mới hoặc mở một chỉ mục hiện có
 ```java
 Index index = new Index(indexFolder);
 ```
 
-### Thêm tài liệu vào chỉ mục
+### Thêm Tài liệu vào một Chỉ mục
 
-Bây giờ chỉ mục đã tồn tại, hãy **add documents to index**.
+Bây giờ chỉ mục đã tồn tại, hãy **thêm tài liệu vào chỉ mục**.
 
-#### Bước 1: Chỉ định thư mục nguồn của bạn
+#### Bước 1: Chỉ tới thư mục nguồn của bạn
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY/Documents";
 ```
@@ -128,11 +127,11 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY/Documents";
 index.add(documentsFolder);
 ```
 
-> **Mẹo chuyên nghiệp:** Thực hiện bước này mỗi khi có tệp mới đến. GroupDocs.Search sẽ chỉ lập chỉ mục cho nội dung mới, để nguyên các mục đã tồn tại.
+> **Mẹo chuyên nghiệp:** Thực hiện bước này mỗi khi có tệp mới. GroupDocs.Search sẽ chỉ lập chỉ mục nội dung mới, để nguyên các mục đã tồn tại. Đây là bản chất của **incremental indexing java**.
 
-### Quản lý từ điển bí danh
+### Quản lý Từ điển Bí danh
 
-Bí danh cho phép bạn ánh xạ token ngắn thành chuỗi truy vấn phức tạp. Chúng ta sẽ xem cách xóa các mục cũ, thêm bí danh đơn lẻ, và **add multiple aliases** hàng loạt.
+Bí danh cho phép bạn ánh xạ các token ngắn tới các chuỗi truy vấn phức tạp. Chúng tôi sẽ hướng dẫn cách xóa các mục cũ, thêm một bí danh đơn, và **thêm nhiều bí danh** cùng lúc.
 
 #### Xóa các bí danh hiện có
 ```java
@@ -141,13 +140,13 @@ if (index.getDictionaries().getAliasDictionary().getCount() > 0) {
 }
 ```
 
-#### Thêm bí danh đơn lẻ
+#### Thêm một bí danh đơn
 ```java
 index.getDictionaries().getAliasDictionary().add("t", "(gravida OR promotion)");
 index.getDictionaries().getAliasDictionary().add("e", "(viverra OR farther)");
 ```
 
-#### Thêm nhiều bí danh cùng lúc
+#### Thêm nhiều bí danh
 ```java
 AliasReplacementPair[] pairs = new AliasReplacementPair[] {
     new AliasReplacementPair("d", "daterange(2017-01-01 ~~ 2019-12-31)"),
@@ -156,9 +155,9 @@ AliasReplacementPair[] pairs = new AliasReplacementPair[] {
 index.getDictionaries().getAliasDictionary().addRange(pairs);
 ```
 
-### Truy vấn thay thế bí danh
+### Truy vấn Thay thế Bí danh
 
-Bạn có thể lấy văn bản đầy đủ cho bất kỳ bí danh nào đã định nghĩa:
+Bạn có thể lấy văn bản đầy đủ cho bất kỳ bí danh nào bạn đã định nghĩa:
 
 ```java
 if (index.getDictionaries().getAliasDictionary().contains("e")) {
@@ -166,71 +165,74 @@ if (index.getDictionaries().getAliasDictionary().contains("e")) {
 }
 ```
 
-### Xuất và nhập từ điển bí danh
+### Xuất và Nhập Từ điển Bí danh
 
-Xuất bí danh hữu ích cho việc sao lưu hoặc chia sẻ giữa các môi trường.
+Xuất dữ liệu hữu ích cho việc sao lưu hoặc chia sẻ giữa các môi trường.
 
-#### Xuất bí danh
+#### Xuất các bí danh
 ```java
 String fileName = "YOUR_OUTPUT_DIRECTORY/Aliases.dat";
 index.getDictionaries().getAliasDictionary().exportDictionary(fileName);
 ```
 
-#### Nhập bí danh
+#### Nhập các bí danh
 ```java
 index.getDictionaries().getAliasDictionary().importDictionary(fileName);
 ```
 
-### Tìm kiếm bằng truy vấn bí danh
+### Tìm kiếm bằng Truy vấn Bí danh
 
-Với các bí danh đã được thiết lập, chuỗi tìm kiếm của bạn sẽ gọn gàng hơn rất nhiều:
+Với các bí danh đã được thiết lập, chuỗi tìm kiếm của bạn sẽ sạch sẽ hơn nhiều:
 
 ```java
 String query = "@t OR @e";
 SearchResult result = index.search(query);
 ```
 
-Ký hiệu `@` báo cho GroupDocs.Search thay thế token bằng biểu thức đầy đủ trước khi thực thi tìm kiếm.
+Ký hiệu `@` cho GroupDocs.Search biết thay thế token bằng biểu thức đầy đủ trước khi thực hiện tìm kiếm.
 
-## Ứng dụng thực tiễn
+## Ứng dụng Thực tiễn
 
-| Kịch bản | Bí danh giúp gì |
+| Kịch bản | Cách Bí danh Giúp |
 |----------|-------------------|
-| **Quản lý tài liệu pháp lý** | Ánh xạ số vụ (`@case123`) thành các mệnh đề Boolean phức tạp, tăng tốc truy xuất. |
+| **Quản lý tài liệu pháp lý** | Ánh xạ số vụ (`@case123`) tới các mệnh đề Boolean phức tạp, tăng tốc độ truy xuất. |
 | **Tìm kiếm sản phẩm thương mại điện tử** | Thay thế các kết hợp thuộc tính phổ biến (`@sale`) bằng `(discounted OR clearance)`. |
 | **Cơ sở dữ liệu nghiên cứu** | Sử dụng `@year2020` để mở rộng thành bộ lọc khoảng thời gian trên nhiều bài báo. |
 
-## Các lưu ý về hiệu năng
+## Các yếu tố về hiệu năng
 
-- **Lập chỉ mục gia tăng:** Chỉ thêm các tệp mới hoặc đã thay đổi; tránh lập chỉ mục toàn bộ lại.  
-- **Tinh chỉnh JVM:** Cấp phát đủ bộ nhớ heap (`-Xmx4g` cho corpora lớn).  
-- **Cập nhật bí danh theo batch:** Dùng `addRange` để chèn nhiều bí danh một lúc, giảm tải overhead.
+- **Incremental Indexing:** Thêm chỉ các tệp mới hoặc đã thay đổi; tránh lập chỉ mục lại toàn bộ.  
+- **JVM Tuning:** Phân bổ đủ bộ nhớ heap (`-Xmx4g` cho tập dữ liệu lớn).  
+- **Batch Alias Updates:** Sử dụng `addRange` để chèn nhiều bí danh cùng lúc, giảm tải.  
+- **Optimize Search Performance:** Giữ từ điển bí danh gọn nhẹ và tái sử dụng token một cách thông minh để giảm thời gian phân tích truy vấn.
 
-## Kết luận
+## Các vấn đề thường gặp và giải pháp
 
-Bạn đã biết cách **add documents to index**, quản lý từ điển bí danh, và thực hiện các tìm kiếm hiệu quả với GroupDocs.Search cho Java. Những kỹ thuật này sẽ giúp các ứng dụng dựa trên tìm kiếm của bạn nhanh hơn, dễ bảo trì hơn và thân thiện hơn với người dùng cuối.
-
-**Bước tiếp theo:** Thử nghiệm các bộ phân tích tùy chỉnh, khám phá các tùy chọn tìm kiếm mờ, và tích hợp chỉ mục vào dịch vụ web để truy vấn thời gian thực.
+| Vấn đề | Giải pháp |
+|-------|----------|
+| Các tệp mới không thể tìm kiếm được | Chạy lại `index.add(newFolder)`; GroupDocs.Search chỉ lập chỉ mục các tệp chưa được thấy. |
+| Bí danh trả về kết quả rỗng | Kiểm tra khóa bí danh (`@`) có được đặt đúng tiền tố và từ điển chứa token hay không. |
+| Sử dụng bộ nhớ cao khi lập chỉ mục bulk | Tăng bộ nhớ heap JVM (`-Xmx`) và cân nhắc lập chỉ mục theo các batch nhỏ hơn. |
 
 ## Câu hỏi thường gặp
 
-**H: Lợi ích chính của việc sử dụng GroupDocs.Search cho Java là gì?**  
-Đ: Nó cung cấp khả năng lập chỉ mục và tìm kiếm toàn văn mạnh mẽ, cho phép bạn **add documents to index** nhanh chóng và truy vấn chúng với hiệu năng cao.
+**Q: Lợi ích chính của việc sử dụng GroupDocs.Search cho Java là gì?**  
+A: Nó cung cấp khả năng lập chỉ mục mạnh mẽ, sẵn sàng sử dụng và tìm kiếm toàn văn, cho phép bạn **thêm tài liệu vào chỉ mục** nhanh chóng và truy vấn chúng với hiệu năng cao.
 
-**H: Tôi có thể dùng GroupDocs.Search với cơ sở dữ liệu không?**  
-Đ: Có — bạn có thể trích xuất dữ liệu từ bất kỳ nguồn nào (SQL, NoSQL, CSV) và đưa vào chỉ mục bằng các phương thức `add` tương tự.
+**Q: Tôi có thể sử dụng GroupDocs.Search với cơ sở dữ liệu không?**  
+A: Có — trích xuất dữ liệu từ bất kỳ nguồn nào (SQL, NoSQL, CSV) và đưa chúng vào chỉ mục bằng các phương thức `add` tương tự.
 
-**H: Bí danh cải thiện hiệu suất tìm kiếm như thế nào?**  
-Đ: Bí danh cho phép lưu trữ logic truy vấn phức tạp một lần và tái sử dụng bằng các token ngắn, giảm thời gian phân tích truy vấn và giảm thiểu lỗi con người.
+**Q: Bí danh cải thiện hiệu quả tìm kiếm như thế nào?**  
+A: Bí danh cho phép bạn lưu trữ logic truy vấn phức tạp một lần và tái sử dụng nó bằng các token ngắn, giảm thời gian phân tích truy vấn và giảm thiểu lỗi con người khi bạn **tìm kiếm với bí danh**.
 
-**H: Có thể cập nhật một bí danh hiện có mà không phải xây dựng lại toàn bộ từ điển không?**  
-Đ: Hoàn toàn có thể — chỉ cần gọi `add` với cùng khóa; thư viện sẽ ghi đè giá trị cũ.
+**Q: Có thể cập nhật một bí danh hiện có mà không cần xây dựng lại toàn bộ từ điển không?**  
+A: Chắc chắn — chỉ cần gọi `add` với cùng khóa; thư viện sẽ ghi đè giá trị trước đó.
 
-**H: Nếu kết quả tìm kiếm không như mong đợi, tôi nên làm gì?**  
-Đ: Kiểm tra lại các định nghĩa bí danh, lập chỉ mục lại các tài liệu mới thêm, và xem xét cài đặt bộ phân tích để phát hiện vấn đề tokenization.
+**Q: Nếu tìm kiếm của tôi trả về kết quả không mong muốn, tôi nên làm gì?**  
+A: Kiểm tra xem các định nghĩa bí danh có chính xác không, lập chỉ mục lại bất kỳ tài liệu mới nào đã thêm, và kiểm tra cài đặt bộ phân tích để phát hiện vấn đề phân tách token.
 
 ---
 
-**Cập nhật lần cuối:** 2026-01-03  
-**Đã kiểm thử với:** GroupDocs.Search 25.4 cho Java  
+**Cập nhật lần cuối:** 2026-03-06  
+**Kiểm tra với:** GroupDocs.Search 25.4 for Java  
 **Tác giả:** GroupDocs

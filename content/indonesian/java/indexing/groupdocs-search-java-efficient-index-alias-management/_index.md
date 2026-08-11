@@ -1,45 +1,45 @@
 ---
-date: '2026-01-03'
-description: Pelajari cara menambahkan dokumen ke indeks, mengelola indeks, dan menggunakan
-  kamus alias secara efisien dengan GroupDocs.Search untuk Java.
+date: '2026-03-06'
+description: Pelajari cara menambahkan beberapa alias, menambahkan dokumen ke indeks,
+  dan mengelola indeks yang dapat dicari secara efisien dengan GroupDocs.Search untuk
+  Java.
 keywords:
 - GroupDocs.Search Java
 - index management
 - alias dictionary
-title: Cara Menambahkan Dokumen ke Indeks dan Mengelola Alias di GroupDocs.Search
+title: Cara Menambahkan Beberapa Alias dan Menambahkan Dokumen ke Indeks di GroupDocs.Search
   untuk Java
 type: docs
 url: /id/java/indexing/groupdocs-search-java-efficient-index-alias-management/
 weight: 1
 ---
 
-# Menambahkan Dokumen ke Indeks dan Manajemen Alias di GroupDocs.Search Java: Panduan Komprehensif
+# Tambahkan Banyak Alias dan Tambahkan Dokumen ke Indeks di GroupDocs.Search Java: Panduan Komprehensif
 
-Di dunia yang didorong oleh data saat ini, kemampuan untuk **add documents to index** dengan cepat dan mencarinya secara efisien dapat memberi bisnis Anda keunggulan kompetitif yang nyata. Baik Anda menangani ribuan kontrak, katalog produk, atau makalah penelitian, GroupDocs.Search untuk Java memudahkan pembuatan indeks yang dapat dicari dan penyetelan kueri dengan kamus alias.
-
-Di bawah ini Anda akan menemukan semua yang diperlukan untuk menyiapkan pustaka, **add documents to index**, mengelola alias, dan menjalankan pencarian yang kuat—semua dijelaskan dalam gaya langkah‑demi‑langkah yang ramah.
+Di dunia yang didorong oleh data saat ini, kemampuan untuk **menambahkan banyak alias** sambil **menambahkan dokumen ke indeks** memberi solusi pencarian Anda keunggulan kinerja yang jelas. Baik Anda mengindeks ribuan kontrak, katalog produk, atau makalah penelitian, GroupDocs.Search untuk Java memungkinkan Anda **membuat indeks yang dapat dicari** dan menyesuaikan kueri dengan kamus alias—semua sambil menjaga implementasi tetap sederhana dan cepat.
 
 ## Jawaban Cepat
 - **Apa langkah pertama untuk mulai menggunakan GroupDocs.Search?** Tambahkan dependensi Maven dan inisialisasi objek `Index`.  
 - **Bagaimana cara menambahkan dokumen ke indeks?** Panggil `index.add("<folder_path>")` dengan folder yang berisi file Anda.  
-- **Apakah saya dapat membuat alias untuk kueri kompleks?** Ya—gunakan kamus alias untuk memetakan token pendek ke ekspresi kueri lengkap.  
-- **Apakah memungkinkan mengekspor dan mengimpor kamus alias?** Tentu saja—gunakan metode `exportDictionary` dan `importDictionary`.  
-- **Versi GroupDocs.Search apa yang diperlukan?** Versi 25.4 atau yang lebih baru (tutorial ini menggunakan 25.4).  
+- **Apakah saya dapat membuat alias untuk kueri kompleks?** Ya—gunakan kamus alias untuk memetakan token pendek ke ekspresi kueri lengkap, dan Anda juga dapat **menambahkan banyak alias** secara massal.  
+- **Apakah memungkinkan mengekspor dan mengimpor kamus alias?** Tentu—gunakan metode `exportDictionary` dan `importDictionary`.  
+- **Versi GroupDocs.Search apa yang diperlukan?** Versi 25.4 atau lebih baru (tutorial ini menggunakan 25.4).  
 
-## Apa itu “add documents to index”?
-Menambahkan dokumen ke indeks berarti memasukkan file mentah (PDF, DOCX, TXT, dll.) ke dalam GroupDocs.Search sehingga pustaka dapat menganalisis kontennya dan membangun struktur data yang dapat dicari. Setelah diindeks, Anda dapat menjalankan kueri teks penuh yang cepat di seluruh dokumen tersebut.
+## Apa itu “menambahkan dokumen ke indeks”?
+Menambahkan dokumen ke indeks berarti memasukkan file mentah (PDF, DOCX, TXT, dll.) ke dalam GroupDocs.Search sehingga perpustakaan dapat menganalisis kontennya dan membangun **indeks yang dapat dicari**. Setelah diindeks, Anda dapat menjalankan kueri teks lengkap yang cepat pada semua dokumen tersebut.
 
 ## Mengapa Mengelola Alias?
-Alias memungkinkan Anda mengganti fragmen kueri yang panjang dan berulang dengan token pendek yang mudah diingat (misalnya, `@t` → `(gravida OR promotion)`). Ini tidak hanya mempersingkat string pencarian Anda tetapi juga meningkatkan keterbacaan dan pemeliharaan, terutama ketika kueri menjadi kompleks.
+Alias memungkinkan Anda mengganti fragmen kueri yang panjang dan berulang dengan token pendek yang mudah diingat (mis., `@t` → `(gravida OR promotion)`). Ini tidak hanya mempersingkat string pencarian Anda tetapi juga meningkatkan keterbacaan, pemeliharaan, dan **mengoptimalkan kinerja pencarian**, terutama ketika kueri menjadi kompleks.
+
+## Bagaimana cara menambahkan banyak alias?
+GroupDocs.Search menyediakan metode `addRange` yang nyaman yang memungkinkan Anda menyisipkan banyak pasangan pengganti alias sekaligus. Operasi massal ini mengurangi beban dibandingkan menambahkan setiap alias secara terpisah.
 
 ## Prasyarat
 
-Sebelum kita melanjutkan, pastikan Anda memiliki:
-
 - **GroupDocs.Search untuk Java** ≥ 25.4.  
-- **JDK** (versi terbaru, misalnya 11+).  
-- IDE seperti **IntelliJ IDEA** atau **Eclipse**.  
-- Pengetahuan dasar tentang Java dan Maven.  
+- **JDK** (versi terbaru apa pun, mis., 11+).  
+- Sebuah IDE seperti **IntelliJ IDEA** atau **Eclipse**.  
+- Pengetahuan dasar Java dan Maven.  
 
 ## Menyiapkan GroupDocs.Search untuk Java
 
@@ -65,10 +65,10 @@ Tambahkan repositori dan dependensi ke `pom.xml` Anda:
 ```
 
 ### Unduhan Langsung
-Atau, unduh JAR terbaru dari situs resmi:  
+Sebagai alternatif, unduh JAR terbaru dari situs resmi:  
 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-#### Langkah‑Langkah Akuisisi Lisensi
+#### Langkah-langkah Akuisisi Lisensi
 1. **Free Trial** – jelajahi semua fitur tanpa komitmen.  
 2. **Temporary License** – minta kunci jangka pendek untuk evaluasi.  
 3. **Full Purchase** – dapatkan lisensi permanen untuk penggunaan produksi.  
@@ -93,7 +93,7 @@ public class GroupDocsSetup {
 
 ## Panduan Implementasi
 
-Berikut adalah walkthrough lengkap untuk setiap fitur. Bacalah penjelasan terlebih dahulu, kemudian salin blok kode yang sesuai.
+Berikut adalah panduan lengkap untuk setiap fitur. Baca penjelasan terlebih dahulu, kemudian salin blok kode yang sesuai.
 
 ### Membuat atau Membuka Indeks
 
@@ -116,7 +116,7 @@ Index index = new Index(indexFolder);
 
 ### Menambahkan Dokumen ke Indeks
 
-Setelah indeks ada, mari **add documents to index**.
+Sekarang indeks sudah ada, mari **menambahkan dokumen ke indeks**.
 
 #### Langkah 1: Arahkan ke folder sumber Anda
 ```java
@@ -128,11 +128,11 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY/Documents";
 index.add(documentsFolder);
 ```
 
-> **Pro tip:** Jalankan langkah ini setiap kali file baru tiba. GroupDocs.Search hanya akan mengindeks konten baru, meninggalkan entri yang sudah ada tidak berubah.
+> **Tip Pro:** Jalankan langkah ini setiap kali file baru tiba. GroupDocs.Search hanya akan mengindeks konten baru, meninggalkan entri yang ada tidak tersentuh. Inilah esensi dari **incremental indexing java**.
 
 ### Mengelola Kamus Alias
 
-Alias memungkinkan Anda memetakan token pendek ke string kueri yang kompleks. Kami akan membahas menghapus entri lama, menambahkan alias tunggal, dan **add multiple aliases** secara massal.
+Alias memungkinkan Anda memetakan token pendek ke string kueri kompleks. Kami akan membahas cara menghapus entri lama, menambahkan alias tunggal, dan **menambahkan banyak alias** secara massal.
 
 #### Menghapus Alias yang Ada
 ```java
@@ -158,7 +158,7 @@ index.getDictionaries().getAliasDictionary().addRange(pairs);
 
 ### Menanyakan Penggantian Alias
 
-Anda dapat mengambil teks lengkap untuk alias apa pun yang telah Anda definisikan:
+Anda dapat mengambil teks lengkap untuk setiap alias yang telah Anda definisikan:
 
 ```java
 if (index.getDictionaries().getAliasDictionary().contains("e")) {
@@ -168,22 +168,22 @@ if (index.getDictionaries().getAliasDictionary().contains("e")) {
 
 ### Mengekspor dan Mengimpor Kamus Alias
 
-Mengekspor berguna untuk pencadangan atau berbagi lintas lingkungan.
+Mengekspor berguna untuk pencadangan atau berbagi antar lingkungan.
 
-#### Ekspor Alias
+#### Mengekspor Alias
 ```java
 String fileName = "YOUR_OUTPUT_DIRECTORY/Aliases.dat";
 index.getDictionaries().getAliasDictionary().exportDictionary(fileName);
 ```
 
-#### Impor Alias
+#### Mengimpor Alias
 ```java
 index.getDictionaries().getAliasDictionary().importDictionary(fileName);
 ```
 
-### Mencari Menggunakan Kuery Alias
+### Mencari Menggunakan Kueri Alias
 
-Dengan alias yang sudah ada, string pencarian Anda menjadi jauh lebih bersih:
+Dengan alias yang ada, string pencarian Anda menjadi jauh lebih bersih:
 
 ```java
 String query = "@t OR @e";
@@ -196,41 +196,44 @@ Simbol `@` memberi tahu GroupDocs.Search untuk mengganti token dengan ekspresi l
 
 | Skenario | Bagaimana Alias Membantu |
 |----------|--------------------------|
-| **Manajemen Dokumen Hukum** | Memetakan nomor kasus (`@case123`) ke klausa Boolean yang kompleks, mempercepat pengambilan. |
-| **Pencarian Produk E‑commerce** | Mengganti kombinasi atribut umum (`@sale`) dengan `(discounted OR clearance)`. |
-| **Basis Data Penelitian** | Gunakan `@year2020` untuk memperluas ke filter rentang tanggal di banyak makalah. |
+| **Manajemen Dokumen Hukum** | Pemetaan nomor kasus (`@case123`) ke klausa Boolean kompleks, mempercepat pengambilan. |
+| **Pencarian Produk E‑commerce** | Ganti kombinasi atribut umum (`@sale`) dengan `(discounted OR clearance)`. |
+| **Basis Data Penelitian** | Gunakan `@year2020` untuk memperluas menjadi filter rentang tanggal pada banyak makalah. |
 
 ## Pertimbangan Kinerja
 
 - **Incremental Indexing:** Tambahkan hanya file baru atau yang berubah; hindari pengindeksan ulang penuh.  
 - **JVM Tuning:** Alokasikan memori heap yang cukup (`-Xmx4g` untuk korpus besar).  
 - **Batch Alias Updates:** Gunakan `addRange` untuk menyisipkan banyak alias sekaligus, mengurangi beban.  
+- **Optimize Search Performance:** Jaga kamus alias tetap ramping dan gunakan kembali token secara bijak untuk meminimalkan waktu parsing kueri.
 
-## Kesimpulan
+## Masalah Umum dan Solusinya
 
-Anda kini tahu cara **add documents to index**, mengelola kamus alias, dan menjalankan pencarian efisien dengan GroupDocs.Search untuk Java. Teknik ini akan membuat aplikasi berbasis pencarian Anda lebih cepat, lebih mudah dipelihara, dan lebih ramah bagi pengguna akhir.
-
-**Langkah selanjutnya:** Bereksperimen dengan analyzer khusus, jelajahi opsi pencarian fuzzy, dan integrasikan indeks ke layanan web untuk kueri waktu nyata.
+| Masalah | Solusi |
+|---------|--------|
+| File baru tidak dapat dicari | Jalankan `index.add(newFolder)` lagi; GroupDocs.Search hanya mengindeks file yang belum terlihat. |
+| Alias mengembalikan hasil kosong | Verifikasi bahwa kunci alias (`@`) memiliki prefiks yang benar dan kamus berisi token tersebut. |
+| Penggunaan memori tinggi selama pengindeksan massal | Tingkatkan heap JVM (`-Xmx`) dan pertimbangkan mengindeks dalam batch yang lebih kecil. |
 
 ## Pertanyaan yang Sering Diajukan
 
-**T: Apa manfaat utama menggunakan GroupDocs.Search untuk Java?**  
-J: Ia menyediakan kemampuan pengindeksan dan pencarian teks penuh yang kuat, siap pakai, memungkinkan Anda **add documents to index** dengan cepat dan menanyakan mereka dengan kinerja tinggi.
+**Q: Apa manfaat utama menggunakan GroupDocs.Search untuk Java?**  
+A: Ini menyediakan kemampuan pengindeksan dan pencarian teks lengkap yang kuat, siap pakai, memungkinkan Anda **menambahkan dokumen ke indeks** dengan cepat dan menanyakan mereka dengan kinerja tinggi.
 
-**T: Bisakah saya menggunakan GroupDocs.Search dengan basis data?**  
-J: Ya—ekstrak data dari sumber apa pun (SQL, NoSQL, CSV) dan masukkan ke indeks menggunakan metode `add` yang sama.
+**Q: Bisakah saya menggunakan GroupDocs.Search dengan basis data?**  
+A: Ya—ekstrak data dari sumber apa pun (SQL, NoSQL, CSV) dan masukkan ke indeks menggunakan metode `add` yang sama.
 
-**T: Bagaimana alias meningkatkan efisiensi pencarian?**  
-J: Alias memungkinkan Anda menyimpan logika kueri kompleks sekali dan menggunakannya kembali dengan token pendek, mengurangi waktu parsing kueri dan meminimalkan kesalahan manusia.
+**Q: Bagaimana alias meningkatkan efisiensi pencarian?**  
+A: Alias memungkinkan Anda menyimpan logika kueri kompleks sekali dan menggunakannya kembali dengan token pendek, mengurangi waktu parsing kueri dan meminimalkan kesalahan manusia ketika Anda **mencari dengan alias**.
 
-**T: Apakah memungkinkan memperbarui alias yang ada tanpa membangun ulang seluruh kamus?**  
-J: Tentu—cukup panggil `add` dengan kunci yang sama; pustaka akan menimpa nilai sebelumnya.
+**Q: Apakah memungkinkan memperbarui alias yang ada tanpa membangun ulang seluruh kamus?**  
+A: Tentu—cukup panggil `add` dengan kunci yang sama; perpustakaan akan menimpa nilai sebelumnya.
 
-**T: Apa yang harus saya lakukan jika pencarian menghasilkan hasil yang tidak terduga?**  
-J: Periksa kembali definisi alias, lakukan pengindeksan ulang pada dokumen yang baru ditambahkan, dan tinjau pengaturan analyzer untuk masalah tokenisasi.
+**Q: Apa yang harus saya lakukan jika pencarian saya menghasilkan hasil yang tidak terduga?**  
+A: Verifikasi bahwa definisi alias sudah benar, lakukan pengindeksan ulang pada dokumen yang baru ditambahkan, dan periksa pengaturan analyzer untuk masalah tokenisasi.
 
 ---
 
-**Terakhir Diperbarui:** 2026-01-03  
-**Diuji Dengan:** GroupDocs.Search 25.4 untuk Java  
+**Terakhir Diperbarui:** 2026-03-06  
+**Diuji Dengan:** GroupDocs.Search 25.4 for Java  
 **Penulis:** GroupDocs

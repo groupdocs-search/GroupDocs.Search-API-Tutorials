@@ -1,48 +1,49 @@
 ---
-date: '2026-01-03'
-description: Tanulja meg, hogyan adhat dokumentumokat az indexhez, kezelheti az indexeket,
-  és hatékonyan használhat alias szótárakat a GroupDocs.Search for Java-val.
+date: '2026-03-06'
+description: Tanulja meg, hogyan adhat hozzá több alias-t, hogyan adhat dokumentumokat
+  az indexhez, és hogyan kezelheti hatékonyan a kereshető indexeket a GroupDocs.Search
+  for Java segítségével.
 keywords:
 - GroupDocs.Search Java
 - index management
 - alias dictionary
-title: Hogyan adjunk dokumentumokat az indexhez, és kezeljük az aliasokat a GroupDocs.Search
-  for Java-ban
+title: Több alias hozzáadása és dokumentumok indexhez adása a GroupDocs.Search for
+  Java-ban
 type: docs
 url: /hu/java/indexing/groupdocs-search-java-efficient-index-alias-management/
 weight: 1
 ---
 
-# Dokumentumok hozzáadása az indexhez és alias-kezelés a GroupDocs.Search Java-ban: Átfogó útmutató
+# Több alias hozzáadása és dokumentumok indexhez adása a GroupDocs.Search Java-ban: Átfogó útmutató
 
-A mai adat‑központú világban a **dokumentumok indexhez adásának** gyors képessége és a hatékony keresés valódi versenyelőnyt biztosíthat vállalkozásod számára. Akár több ezer szerződés, termékkatalógus vagy kutatási anyag kezeléséről van szó, a GroupDocs.Search for Java egyszerűvé teszi a kereshető indexek létrehozását és a lekérdezések finomhangolását alias-szótárakkal.
-
-Az alábbiakban mindent megtudsz, amire a könyvtár beállításához, a **dokumentumok indexhez adásához**, az aliasok kezeléséhez és a hatékony keresések végrehajtásához szükséged van – mindezt barátságos, lépésről‑lépésre stílusban magyarázzuk.
+A mai adat‑központú világban a **több alias hozzáadása** miközben **dokumentumokat adunk az indexhez** egyértelmű teljesítményelőnyt biztosít a keresési megoldásodnak. Akár több ezer szerződést, termékkatalógust vagy kutatási anyagot indexelsz, a GroupDocs.Search for Java lehetővé teszi **kereshető index** struktúrák létrehozását és a lekérdezések finomhangolását alias szótárakkal — mindezt egyszerűen és gyorsan.
 
 ## Gyors válaszok
-- **Mi az első lépés a GroupDocs.Search használatának megkezdéséhez?** Add hozzá a Maven függőséget és inicializáld az `Index` objektumot.  
-- **Hogyan adhatok dokumentumokat az indexhez?** Hívd meg a `index.add("<folder_path>")` metódust a fájljaidat tartalmazó mappával.  
-- **Létrehozhatok aliasokat összetett lekérdezésekhez?** Igen – használd az alias-szótárat, hogy rövid tokeneket teljes lekérdezési kifejezésekhez rendelj.  
-- **Lehet exportálni és importálni az alias-szótárakat?** Természetesen – használd az `exportDictionary` és `importDictionary` metódusokat.  
-- **Milyen verziójú GroupDocs.Search szükséges?** 25.4 vagy újabb verzió (a bemutató a 25.4-et használja).  
+- **Mi a első lépés a GroupDocs.Search használatának megkezdéséhez?** Adja hozzá a Maven függőséget, és inicializálja az `Index` objektumot.  
+- **Hogyan adhatok dokumentumokat az indexhez?** Hívja meg a `index.add("<folder_path>")` metódust a fájlokat tartalmazó mappával.  
+- **Létrehozhatok aliasokat összetett lekérdezésekhez?** Igen — használja az alias szótárat a rövid tokenek teljes lekérdezési kifejezésekre történő leképezéséhez, és akár **több alias-t is hozzáadhat** tömegesen.  
+- **Lehet exportálni és importálni az alias szótárakat?** Természetesen — használja az `exportDictionary` és `importDictionary` metódusokat.  
+- **Melyik GroupDocs.Search verzió szükséges?** A 25.4 vagy újabb verzió (a bemutató a 25.4-et használja).  
 
 ## Mi az a „dokumentumok indexhez adása”?
-A dokumentumok indexhez adása azt jelenti, hogy nyers fájlokat (PDF, DOCX, TXT stb.) adsz a GroupDocs.Search-nek, hogy a könyvtár elemezhesse a tartalmukat és felépíthessen egy kereshető adatstruktúrát. Az indexelés után gyors, teljes szöveges lekérdezéseket futtathatsz az összes dokumentumon.
+A dokumentumok indexhez adása azt jelenti, hogy nyers fájlokat (PDF, DOCX, TXT stb.) adunk a GroupDocs.Search-nek, hogy a könyvtár elemezhesse a tartalmukat és **kereshető indexet** építsen. Az indexelés után gyors, teljes szöveges lekérdezéseket futtathat minden dokumentumon.
 
 ## Miért kezeljünk aliasokat?
-Az aliasok lehetővé teszik, hogy hosszú, ismétlődő lekérdezésdarabokat rövid, könnyen megjegyezhető tokenekkel helyettesíts (pl. `@t` → `(gravida OR promotion)`). Ez nemcsak lerövidíti a keresési karakterláncokat, hanem javítja az olvashatóságot és a karbantartást, különösen összetett lekérdezések esetén.
+Az aliasok lehetővé teszik, hogy hosszú, ismétlődő lekérdezésdarabokat rövid, könnyen megjegyezhető tokenekkel helyettesítsünk (pl. `@t` → `(gravida OR promotion)`). Ez nemcsak lerövidíti a keresési karakterláncokat, hanem javítja az olvashatóságot, a karbantarthatóságot, és **optimalizálja a keresési teljesítményt**, különösen összetett lekérdezések esetén.
+
+## Hogyan adjunk hozzá több alias-t?
+A GroupDocs.Search egy kényelmes `addRange` metódust biztosít, amely lehetővé teszi, hogy egyszerre sok alias‑helyettesítő párt szúrjon be. Ez a tömeges művelet csökkenti a terhelést az egyes aliasok egyenkénti hozzáadásahoz képest.
 
 ## Előfeltételek
-
 - **GroupDocs.Search for Java** ≥ 25.4.  
 - **JDK** (bármely friss verzió, pl. 11+).  
-- Egy IDE, például **IntelliJ IDEA** vagy **Eclipse**.  
+- **IntelliJ IDEA** vagy **Eclipse** IDE.  
 - Alapvető Java és Maven ismeretek.  
 
 ## A GroupDocs.Search for Java beállítása
 
 ### Maven használata
-Add hozzá a tárolót és a függőséget a `pom.xml`-hez:
+Adja hozzá a tárolót és a függőséget a `pom.xml`-hez:
 
 ```xml
 <repositories>
@@ -63,13 +64,13 @@ Add hozzá a tárolót és a függőséget a `pom.xml`-hez:
 ```
 
 ### Közvetlen letöltés
-Alternatívaként töltsd le a legújabb JAR-t a hivatalos oldalról:  
+Alternatívaként töltse le a legújabb JAR-t a hivatalos oldalról:  
 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### Licenc megszerzésének lépései
-1. **Free Trial** – próbáld ki az összes funkciót kötelezettség nélkül.  
-2. **Temporary License** – kérj egy rövid távú kulcsot értékeléshez.  
-3. **Full Purchase** – szerezz be egy állandó licencet a termeléshez.  
+1. **Free Trial** – minden funkció kipróbálása kötelezettség nélkül.  
+2. **Temporary License** – rövid távú kulcs kérése értékeléshez.  
+3. **Full Purchase** – állandó licenc beszerzése éles használatra.
 
 ### Alapvető inicializálás és beállítás
 
@@ -91,55 +92,55 @@ public class GroupDocsSetup {
 
 ## Implementációs útmutató
 
-Az alábbiakban egy teljes áttekintést találsz minden funkcióról. Először olvasd el a magyarázatokat, majd másold be a megfelelő kódrészletet.
+Az alábbiakban egy teljes áttekintést talál minden funkcióról. Először olvassa el a magyarázatot, majd másolja be a megfelelő kódrészletet.
 
 ### Index létrehozása vagy megnyitása
 
-**Hogyan adhatók dokumentumok az indexhez – először egy aktív Index példányra van szükség.**
+**Hogyan adjon dokumentumokat az indexhez – először szüksége van egy aktív Index példányra.**
 
 #### 1. lépés: Az Index osztály importálása
 ```java
 import com.groupdocs.search.Index;
 ```
 
-#### 2. lépés: Határozd meg, hol tárolódjanak az index fájlok
+#### 2. lépés: Határozza meg, hol tárolódjanak az index fájlok
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/Indexes/Index";
 ```
 
-#### 3. lépés: Hozz létre új indexet vagy nyiss meg egy meglévőt
+#### 3. lépés: Hozzon létre új indexet vagy nyisson meg egy meglévőt
 ```java
 Index index = new Index(indexFolder);
 ```
 
 ### Dokumentumok hozzáadása egy indexhez
 
-Most, hogy az index létezik, **adjunk dokumentumokat az indexhez**.
+Miután az index létezik, **adjunk dokumentumokat az indexhez**.
 
-#### 1. lépés: Mutass a forrásmappára
+#### 1. lépés: Mutasson a forrásmappára
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY/Documents";
 ```
 
-#### 2. lépés: Add hozzá minden támogatott fájlt a mappából
+#### 2. lépés: Adjon hozzá minden támogatott fájlt a mappából
 ```java
 index.add(documentsFolder);
 ```
 
-> **Pro tipp:** Futtasd ezt a lépést minden alkalommal, amikor új fájlok érkeznek. A GroupDocs.Search csak az új tartalmat indexeli, a meglévő bejegyzéseket érintetlenül hagyja.
+> **Pro tipp:** Futtassa ezt a lépést minden alkalommal, amikor új fájlok érkeznek. A GroupDocs.Search csak az új tartalmat indexeli, a meglévő bejegyzéseket érintetlenül hagyja. Ez a **inkrementális indexelés java** lényege.
 
-### Alias-szótár kezelése
+### Alias szótár kezelése
 
-Az aliasok lehetővé teszik, hogy rövid tokeneket összetett lekérdezési karakterláncokhoz rendelj. Bemutatjuk a régi bejegyzések törlését, egyes aliasok hozzáadását, és a **több alias egyszerre** történő hozzáadását.
+Az aliasok lehetővé teszik, hogy rövid tokeneket összetett lekérdezési sztringekhez rendeljünk. Tárgyaljuk a régi bejegyzések törlését, egyes aliasok hozzáadását, és a **több alias tömeges hozzáadását**.
 
-#### Létező aliasok törlése
+#### Meglévő aliasok törlése
 ```java
 if (index.getDictionaries().getAliasDictionary().getCount() > 0) {
     index.getDictionaries().getAliasDictionary().clear();
 }
 ```
 
-#### Egyes aliasok hozzáadása
+#### Egyedi aliasok hozzáadása
 ```java
 index.getDictionaries().getAliasDictionary().add("t", "(gravida OR promotion)");
 index.getDictionaries().getAliasDictionary().add("e", "(viverra OR farther)");
@@ -155,16 +156,13 @@ index.getDictionaries().getAliasDictionary().addRange(pairs);
 ```
 
 ### Alias helyettesítések lekérdezése
-
-Lekérdezheted bármely definiált alias teljes szövegét:
-
 ```java
 if (index.getDictionaries().getAliasDictionary().contains("e")) {
     String replacement = index.getDictionaries().getAliasDictionary().getText("e");
 }
 ```
 
-### Alias-szótár exportálása és importálása
+### Alias szótár exportálása és importálása
 
 Az exportálás hasznos mentéshez vagy környezetek közötti megosztáshoz.
 
@@ -192,43 +190,44 @@ Az `@` szimbólum azt jelzi a GroupDocs.Search-nek, hogy a keresés végrehajtá
 
 ## Gyakorlati alkalmazások
 
-| Forgatókönyv | Hogyan segítenek az aliasok |
-|--------------|-----------------------------|
-| **Jogi dokumentumkezelés** | Térképezd fel a ügyiratszámokat (`@case123`) összetett Boolean kifejezésekre, felgyorsítva a visszakeresést. |
-| **E‑kereskedelmi termékkeresés** | Cseréld le a gyakori attribútum kombinációkat (`@sale`) a `(discounted OR clearance)` kifejezésre. |
-| **Kutatási adatbázisok** | Használd a `@year2020`-at, hogy dátumtartomány-szűrőre bővüljön sok cikk esetén. |
+| Forgatókönyv | Hogyan segítik az aliasok |
+|--------------|---------------------------|
+| **Jogi dokumentumkezelés** | Térképezze a ügyiratszámokat (`@case123`) összetett Boolean kifejezésekre, felgyorsítva a visszakeresést. |
+| **E‑kereskedelmi termékkeresés** | Cserélje le a gyakori attribútum kombinációkat (`@sale`) a `(discounted OR clearance)` kifejezésre. |
+| **Kutatási adatbázisok** | Használja a `@year2020`-at, hogy dátumtartomány szűrőre bővítse sok cikk esetén. |
 
 ## Teljesítményfontosságú szempontok
 
-- **Inkrementális indexelés:** Csak az új vagy módosított fájlokat add hozzá; kerüld a teljes újraindexelést.  
+- **Inkrementális indexelés:** Csak az új vagy módosított fájlokat adja hozzá; kerülje a teljes újraindexelést.  
 - **JVM hangolás:** Rendeljen elegendő heap memóriát (`-Xmx4g` nagy korpuszokhoz).  
-- **Kötegelt alias frissítések:** Használd az `addRange`-t, hogy egyszerre sok alias-t illessz be, csökkentve a terhelést.  
+- **Kötegelt alias frissítések:** Használja az `addRange` metódust, hogy egyszerre sok alias-t szúrjon be, csökkentve a terhelést.  
+- **Keresési teljesítmény optimalizálása:** Tartsa az alias szótárat karcsúnak, és okosan használja újra a tokeneket a lekérdezés-elemzési idő minimalizálása érdekében.
 
-## Következtetés
+## Gyakori problémák és megoldások
 
-Most már tudod, hogyan **adj dokumentumokat az indexhez**, kezeld az alias-szótárat, és hajts végre hatékony kereséseket a GroupDocs.Search for Java-val. Ezek a technikák gyorsabbá, könnyebben karbantarthatóvá és a végfelhasználók számára egyszerűbbé teszik a keresés‑központú alkalmazásokat.
-
-**Következő lépések:** Kísérletezz egyedi elemzőkkel, fedezd fel a fuzzy keresési lehetőségeket, és integráld az indexet egy webszolgáltatásba a valós idejű lekérdezésekhez.
+| Probléma | Megoldás |
+|----------|----------|
+| Az új fájlok nem kereshetők | Futtassa újra a `index.add(newFolder)`-t; a GroupDocs.Search csak a még nem látott fájlokat indexeli. |
+| Az alias üres eredményt ad | Ellenőrizze, hogy az alias kulcs (`@`) helyesen elő van-e fűzve, és hogy a szótár tartalmazza-e a tokent. |
+| Nagy memóriahasználat tömeges indexelés során | Növelje a JVM heap-et (`-Xmx`) és fontolja meg a kisebb kötegekben történő indexelést. |
 
 ## Gyakran ismételt kérdések
 
 **Q: Mi a fő előnye a GroupDocs.Search for Java használatának?**  
-A: Erőteljes, kész indexelési és teljes‑szöveges keresési képességeket biztosít, lehetővé téve, hogy gyorsan **dokumentumokat adj az indexhez**, és nagy teljesítménnyel lekérdezd őket.
+A: Erőteljes, kész indexelési és teljes szöveges keresési képességeket biztosít, lehetővé téve, hogy **gyorsan dokumentumokat adjunk az indexhez**, és magas teljesítménnyel lekérdezzük őket.
 
 **Q: Használhatom a GroupDocs.Search-t adatbázisokkal?**  
-A: Igen – adatot nyerhetsz ki bármely forrásból (SQL, NoSQL, CSV) és a ugyanazokkal az `add` metódusokkal táplálhatod az indexet.
+A: Igen — adatot nyerhet ki bármely forrásból (SQL, NoSQL, CSV) és a `add` metódusokkal adhatja az indexhez.
 
-**Q: Hogyan javítják az aliasok a keresés hatékonyságát?**  
-A: Az aliasok lehetővé teszik, hogy egyszer tárold az összetett lekérdezési logikát, és rövid tokenekkel újrahasználd, csökkentve a lekérdezés-elemzési időt és minimalizálva az emberi hibákat.
+**Q: Hogyan javítják az aliasok a keresési hatékonyságot?**  
+A: Az aliasok lehetővé teszik, hogy a komplex lekérdezési logikát egyszer tárolja, majd rövid tokenekkel újrahasználja, csökkentve a lekérdezés-elemzési időt és minimalizálva az emberi hibákat, amikor **aliasokkal keres**.
 
 **Q: Lehet frissíteni egy meglévő alias-t a teljes szótár újraépítése nélkül?**  
-A: Természetesen – egyszerűen hívd meg az `add`-ot ugyanazzal a kulccsal; a könyvtár felülírja a korábbi értéket.
+A: Természetesen — egyszerűen hívja meg az `add`-ot ugyanazzal a kulccsal; a könyvtár felülírja a korábbi értéket.
 
 **Q: Mit tegyek, ha a keresés váratlan eredményeket ad?**  
-A: Ellenőrizd, hogy az alias definíciók helyesek-e, újraindexeld az újonnan hozzáadott dokumentumokat, és vizsgáld meg az elemző beállításait a tokenizálási problémákért.
+A: Ellenőrizze, hogy az alias definíciók helyesek-e, újraindexelje az újonnan hozzáadott dokumentumokat, és vizsgálja meg az elemző beállításokat a tokenizálási problémákért.
 
----
-
-**Legutóbb frissítve:** 2026-01-03  
+**Utolsó frissítés:** 2026-03-06  
 **Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs

@@ -1,32 +1,36 @@
 ---
-date: 2025-12-29
-description: Postupný návod, jak nakonfigurovat GroupDocs.Search pro vývojáře Java,
-  zahrnující instalaci, licencování a vytvoření vašeho prvního vyhledávacího řešení.
-title: 'Jak konfigurovat GroupDocs.Search - Úvodní tutoriály pro Javu'
+date: 2026-03-06
+description: Naučte se, jak povolit fuzzy vyhledávání v GroupDocs.Search pro Javu,
+  včetně instalace, licencování a vytvoření vašeho prvního vyhledávatelného řešení
+  s fuzzy shodou.
+title: Jak povolit fuzzy vyhledávání pomocí GroupDocs.Search – Úvodní tutoriál pro
+  Javu
 type: docs
 url: /cs/java/getting-started/
 weight: 1
 ---
 
-# Jak nakonfigurovat GroupDocs.Search - Úvodní tutoriály pro Java
+# Jak povolit fuzzy vyhledávání pomocí GroupDocs.Search – Úvodní tutoriál pro Java
 
-Vítejte v dokonalém průvodci **jak nakonfigurovat GroupDocs.Search** pro Java aplikace. V tomto tutoriálu se naučíte základní kroky k instalaci knihovny, nastavení licencování a vytvoření vašeho prvního řešení pro prohledávatelné dokumenty. Ať už začínáte nový projekt nebo integrujete vyhledávání do existujícího kódu, tento návod vám poskytne vše, co potřebujete k rychlému spuštění.
+Vítejte v dokonalém průvodci, jak **konfigurovat GroupDocs.Search** pro Java aplikace — a konkrétně jak **povolit fuzzy vyhledávání**, aby vaši uživatelé mohli najít relevantní dokumenty i když slovo překlepou nebo použijí mírně odlišnou terminologii. V tomto tutoriálu se naučíte nezbytné kroky k instalaci knihovny, nastavení licencování, konfiguraci fuzzy porovnání a vytvoření vašeho prvního řešení pro prohledávatelné dokumenty. Ať už začínáte nový projekt nebo přidáváte vyhledávání do existujícího kódu, provedeme vás vším, co potřebujete k tomu, abyste byli v provozu během méně než 15 minut.
 
 ## Rychlé odpovědi
 - **Jaký je první krok?** Nainstalujte balíček GroupDocs.Search Java pomocí Maven nebo Gradle.  
-- **Potřebuji licenci?** Ano — dočasná licence funguje pro vývoj; plná licence je vyžadována pro produkci.  
-- **Které IDE je nejlepší?** Jakékoli Java IDE (IntelliJ IDEA, Eclipse, VS Code), které podporuje Maven/Gradle projekty.  
-- **Mohu indexovat PDF a Word soubory?** Rozhodně — GroupDocs.Search podporuje širokou škálu formátů dokumentů ihned po instalaci.  
+- **Potřebuji licenci?** Ano — dočasná licence funguje pro vývoj; pro produkci je vyžadována plná licence.  
+- **Které IDE je nejlepší?** Jakékoliv Java IDE (IntelliJ IDEA, Eclipse, VS Code), které podporuje Maven/Gradle projekty.  
+- **Mohu indexovat PDF a Word soubory?** Rozhodně — GroupDocs.Search podporuje širokou škálu formátů dokumentů přímo po vybalení.  
+- **Jak povolit fuzzy vyhledávání?** Nastavte příznak `fuzzySearch` v `SearchOptions` před provedením dotazu.  
 - **Jak dlouho trvá nastavení?** Obvykle méně než 15 minut pro nový projekt.
 
-## Co je „jak nakonfigurovat GroupDocs.Search“?
-Konfigurace GroupDocs.Search znamená připravit knihovnu pro indexování dokumentů, definovat úložiště a aplikovat licenční klíč, aby API mohlo fungovat bez omezení. Správná konfigurace zajišťuje rychlé, přesné výsledky vyhledávání a plynulou integraci s vaším Java kódem.
+## Co znamená „povolit fuzzy vyhledávání“ v GroupDocs.Search?
+Povolení fuzzy vyhledávání znamená zapnutí úrovně tolerance, která umožňuje vyhledávači shodovat termíny s drobnými pravopisnými odchylkami, chybějícími znaky nebo prohozenými písmeny. Tato funkce výrazně zlepšuje uživatelský zážitek v situacích, kdy nelze zaručit přesné pravopisné zadání — například při překlepech, textu generovaném OCR nebo vícejazyčném obsahu.
 
-## Proč konfigurovat GroupDocs.Search pro Java?
-- **Rychlá implementace** — k zahájení indexování a vyhledávání stačí minimální množství kódu.  
-- **Škálovatelné indexování** — zvládá velké kolekce dokumentů bez ztráty výkonu.  
-- **Široká podpora formátů** — pracuje s PDF, DOCX, XLSX, PPTX a mnoha dalšími typy souborů.  
-- **Bezpečné licencování** — zaručuje soulad a odemyká všechny prémiové funkce.
+## Proč konfigurovat GroupDocs.Search pro Java a povolit fuzzy vyhledávání?
+- **Rychlá implementace** — Je potřeba minimální množství kódu pro zahájení indexování, vyhledávání a přidání fuzzy porovnání.  
+- **Škálovatelné indexování** — Zvládá velké kolekce dokumentů bez ztráty výkonu.  
+- **Široká podpora formátů** — Pracuje s PDF, DOCX, XLSX, PPTX a mnoha dalšími typy souborů.  
+- **Bezpečné licencování** — Zaručuje soulad a odemyká všechny prémiové funkce, včetně fuzzy vyhledávání.  
+- **Lepší uživatelský zážitek** — Fuzzy vyhledávání pomáhá uživatelům najít, co potřebují, i při neúplných dotazech.
 
 ## Předpoklady
 - Java Development Kit (JDK) 8 nebo vyšší.  
@@ -36,63 +40,70 @@ Konfigurace GroupDocs.Search znamená připravit knihovnu pro indexování dokum
 ## Průvodce krok za krokem
 
 ### Krok 1: Přidejte GroupDocs.Search do svého projektu
-Přidejte závislost GroupDocs.Search do souboru `pom.xml` (Maven) nebo `build.gradle` (Gradle). Tím zpřístupníte knihovnu vašemu kódu.
+Zahrňte závislost GroupDocs.Search do svého `pom.xml` (Maven) nebo `build.gradle` (Gradle). Tím bude knihovna k dispozici pro váš kód.
 
 ### Krok 2: Aplikujte svou licenci
-Vytvořte objekt `License` a načtěte svůj dočasný nebo trvalý licenční soubor. Tento krok odemkne plnou funkčnost a odstraní omezení hodnocení.
+Vytvořte objekt `License` a načtěte svůj dočasný nebo trvalý licenční soubor. Tento krok odemkne plnou funkčnost, včetně fuzzy vyhledávání, a odstraní omezení evaluační verze.
 
 ### Krok 3: Inicializujte nastavení indexu
-Definujte, kde budou na disku uloženy soubory indexu, a nakonfigurujte libovolné vlastní možnosti indexování, které potřebujete (např. citlivost na velikost písmen, stop‑slova).
+Definujte, kde budou soubory indexu uloženy na disku, a nakonfigurujte jakékoli vlastní možnosti indexování, které potřebujete (např. rozlišování velkých a malých písmen, stop slova).
 
 ### Krok 4: Indexujte své dokumenty
-Použijte třídu `Indexer` k přidání souborů nebo složek do indexu. GroupDocs.Search automaticky rozpozná typ souboru a extrahuje prohledávatelný text.
+Použijte třídu `Indexer` k přidání souborů nebo složek do indexu. GroupDocs.Search automaticky rozpozná typy souborů a extrahuje prohledávatelný text.
 
-### Krok 5: Proveďte vyhledávací dotaz
-Vytvořte objekt `SearchOptions`, zadejte řetězec dotazu a spusťte vyhledávání. API vrátí seznam odpovídajících dokumentů s relevancí.
+### Krok 5: Povolit fuzzy vyhledávání ve vašem dotazu
+Při vytváření objektu `SearchOptions` nastavte příznak `fuzzySearch` (nebo ekvivalentní vlastnost) na `true`. Můžete také upravit úroveň fuzziness, pokud potřebujete přísnější nebo volnější shodu.
 
-### Krok 6: Prohlédněte si výsledky
-Procházejte výsledky vyhledávání, zobrazte názvy souborů a případně zvýrazněte odpovídající výrazy v uživatelském rozhraní.
+### Krok 6: Proveďte vyhledávací dotaz
+Spusťte vyhledávání s nakonfigurovanými `SearchOptions`. API vrátí seznam odpovídajících dokumentů s relevancí, která nyní zahrnuje fuzzy shody.
+
+### Krok 7: Prohlédněte výsledky
+Procházejte výsledky vyhledávání, zobrazte názvy souborů a volitelně zvýrazněte odpovídající termíny v UI. Fuzzy shody budou označeny mírně nižším skóre relevance ve srovnání s přesnými shodami.
 
 ## Časté problémy a řešení
-- **Licence není rozpoznána** — ověřte cestu k licenčnímu souboru a ujistěte se, že odpovídá verzi GroupDocs.Search, kterou používáte.  
-- **Chybějící formáty dokumentů** — nainstalujte volitelný doplněk `groupdocs-conversion`, pokud potřebujete podporu méně běžných typů souborů.  
-- **Úzká místa ve výkonu** — použijte inkrementální indexování a nakonfigurujte složku indexu na SSD úložišti pro rychlejší přístup.
+- **Licence není rozpoznána** — Ověřte cestu k licenčnímu souboru a ujistěte se, že odpovídá verzi GroupDocs.Search, kterou používáte.  
+- **Chybějící formáty dokumentů** — Nainstalujte volitelný doplněk `groupdocs-conversion`, pokud potřebujete podporu méně běžných typů souborů.  
+- **Fuzzy vyhledávání nevrací výsledky** — Potvrďte, že příznak `fuzzySearch` je nastaven na `true` a že délka dotazu splňuje minimální požadovaný počet znaků pro fuzzy porovnání.  
+- **Úzká místa výkonu** — Použijte inkrementální indexování a nakonfigurujte složku indexu na SSD úložišti pro rychlejší přístup.  
 
 ## Často kladené otázky
 
-**Q: Můžu použít GroupDocs.Search na Linux serveru?**  
-A: Ano, knihovna je platformně nezávislá a běží na jakémkoli OS, který podporuje Javu.
+**Q: Mohu používat GroupDocs.Search na Linux serveru?**  
+A: Ano, knihovna je platformově nezávislá a běží na jakémkoli OS, který podporuje Java.
 
 **Q: Jak aktualizuji index po přidání nových souborů?**  
 A: Znovu zavolejte `Indexer` s novými soubory; knihovna je sloučí do existujícího indexu.
 
 **Q: Existuje způsob, jak omezit výsledky vyhledávání na konkrétní složku?**  
-A: Ano, nastavte filtr složky v `SearchOptions` před provedením dotazu.
+A: Ano, nastavte `SearchOptions` tak, aby zahrnoval filtr složky před provedením dotazu.
 
 **Q: Co se stane, když překročím dobu platnosti dočasné licence?**  
-A: API bude nadále fungovat v režimu hodnocení s omezenými funkcemi; nahraďte licenční soubor trvalým klíčem pro obnovení plné funkčnosti.
+A: API bude nadále fungovat v evaluačním režimu s omezenými funkcemi; nahraďte licenční soubor trvalým klíčem pro obnovení plné funkčnosti.
 
 **Q: Podporuje GroupDocs.Search fuzzy vyhledávání?**  
-A: Rozhodně — povolte fuzzy matching v `SearchOptions` a získáte výsledky s drobnými pravopisnými odchylkami.
+A: Rozhodně — povolte fuzzy porovnání v `SearchOptions` pro získání výsledků s drobnými pravopisnými odchylkami.
+
+**Q: Mohu kombinovat fuzzy vyhledávání s dalšími filtry (např. časové rozmezí)?**  
+A: Ano, můžete přidat další filtry do `SearchOptions` a zároveň mít povoleno fuzzy vyhledávání.
 
 ## Další zdroje
 
 ### Dostupné tutoriály
 
-### [Deploy GroupDocs.Search for Java&#58; Comprehensive Setup Guide](./deploy-groupdocs-search-java-setup-guide/)
-Naučte se nasadit a konfigurovat GroupDocs.Search pro Java pomocí tohoto podrobného průvodce. Vylepšete indexování dokumentů a vyhledávací schopnosti ve svých projektech.
+### [Nasazení GroupDocs.Search pro Java: Kompletní průvodce nastavením](./deploy-groupdocs-search-java-setup-guide/)
+Naučte se, jak nasadit a konfigurovat GroupDocs.Search pro Java pomocí tohoto krok za krokem průvodce. Vylepšete indexování dokumentů a vyhledávací schopnosti ve svých projektech.
 
 ### Užitečné odkazy
-- [GroupDocs.Search for Java Documentation](https://docs.groupdocs.com/search/java/)
-- [GroupDocs.Search for Java API Reference](https://reference.groupdocs.com/search/java/)
-- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
-- [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
-- [Free Support](https://forum.groupdocs.com/)
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- [Dokumentace GroupDocs.Search pro Java](https://docs.groupdocs.com/search/java/)
+- [Reference API GroupDocs.Search pro Java](https://reference.groupdocs.com/search/java/)
+- [Stáhnout GroupDocs.Search pro Java](https://releases.groupdocs.com/search/java/)
+- [Fórum GroupDocs.Search](https://forum.groupdocs.com/c/search)
+- [Bezplatná podpora](https://forum.groupdocs.com/)
+- [Dočasná licence](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Poslední aktualizace:** 2025-12-29  
+**Poslední aktualizace:** 2026-03-06  
 **Testováno s:** GroupDocs.Search 23.12 for Java  
 **Autor:** GroupDocs  
 
