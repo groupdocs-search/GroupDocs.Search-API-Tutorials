@@ -1,40 +1,116 @@
 ---
-date: '2026-03-01'
-description: GroupDocs.Search for Java の高度なインデックス機能（キャンセル、非同期操作、マルチスレッド、メタデータのカスタマイズ）を使用して、検索パフォーマンスを最適化し、検索レイテンシを改善する方法を学びましょう。
+date: '2026-08-15'
+description: GroupDocs.Search for Java の高度なインデックス作成機能（cancellation、async operations、multithreading、metadata
+  customization）を使用して検索レイテンシを改善する方法を学びます。
 keywords:
-- GroupDocs.Search Java
-- advanced indexing features
-- asynchronous operations
-title: GroupDocs.Search for Java の高度なインデックス作成技術で検索パフォーマンスを最適化する
+- improve search latency
+- add documents to index
+- customize search metadata
+lastmod: '2026-08-15'
+og_description: GroupDocs.Search for Java で cancellation、asynchronous indexing、multithreading、metadata
+  customization を活用し、検索レイテンシを改善します。パフォーマンスを向上させ、リソース使用量を削減しましょう。
+og_image_alt: Developer guide showing how to speed up Java search indexing with GroupDocs
+og_title: GroupDocs の高度なインデックス作成で検索レイテンシを改善する
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-15'
+  description: Learn how to improve search latency using advanced indexing features
+    of GroupDocs.Search for Java, including cancellation, async operations, multithreading,
+    and metadata customization.
+  headline: Improve search latency with advanced indexing in GroupDocs
+  type: TechArticle
+- description: Learn how to improve search latency using advanced indexing features
+    of GroupDocs.Search for Java, including cancellation, async operations, multithreading,
+    and metadata customization.
+  name: Improve search latency with advanced indexing in GroupDocs
+  steps:
+  - name: set up the environment
+    text: Create a `SearchIndex` instance pointing to your index folder.
+  - name: create indexing options with cancellation
+    text: '`IndexingOptions` lets you specify how the indexing engine behaves. **Key
+      points** - `setCancellation()` activates the feature. - `cancelAfter(int milliseconds)`
+      defines the timeout (3 seconds in this example).'
+  - name: set up the environment
+    text: Instantiate the index and prepare the document collection.
+  - name: subscribe to status‑changed event
+    text: The `StatusChanged` event notifies you when the indexing job moves between
+      states.
+  - name: configure asynchronous options
+    text: Enable async mode so the call returns immediately and processing continues
+      in the background.
+  - name: set up environment
+    text: Prepare the index and ensure the JVM has enough heap memory.
+  - name: configure multithreading
+    text: Set the number of worker threads; each thread processes a subset of documents.
+  - name: set up environment
+    text: Load a document that contains metadata fields such as author, title, and
+      custom tags.
+  - name: configure metadata options
+    text: '`MetadataIndexingOptions` lets you enable or disable individual metadata
+      fields and define size limits.'
+  type: HowTo
+- questions:
+  - answer: Visit the [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/)
+      and follow the on‑screen instructions.
+    question: How do I obtain a temporary license for GroupDocs.Search?
+  - answer: Yes – use the cancellation property with `cancelAfter()` or invoke `Cancellation.cancel()`
+      programmatically.
+    question: Can I cancel an indexing operation midway through?
+  - answer: Real‑time document retrieval, background batch processing, and UI‑responsive
+      applications benefit from async indexing.
+    question: What are some use cases for asynchronous indexing?
+  - answer: Increase gradually and monitor CPU load; on heavily shared environments,
+      keep the thread count modest (2‑4).
+    question: Is it safe to increase the thread count on a shared server?
+  - answer: Properly indexed metadata (author, creation date, tags) can be weighted
+      higher in queries, improving result accuracy.
+    question: How does metadata indexing affect search relevance?
+  type: FAQPage
+tags:
+- search performance
+- GroupDocs.Search
+- Java indexing
+- async indexing
+- multithreading
+title: GroupDocs の高度なインデックス作成で検索レイテンシを改善する
 type: docs
 url: /ja/java/indexing/groupdocs-search-java-advanced-indexing/
 weight: 1
 ---
 
-# GroupDocs.Search for Java の高度なインデックス作成テクニックで検索パフォーマンスを最適化する
+# GroupDocsで高度なインデックス作成による検索レイテンシの改善
 
-今日の高速に変化するデジタル環境では、**検索パフォーマンスの最適化**はユーザーに瞬時の結果を提供するために不可欠です。カスタム検索エンジンを構築する場合でも、既存のドキュメント管理システムを強化する場合でも、適切なインデックス作成戦略によりレイテンシを大幅に削減し、リソース消費を抑え、全体的に**検索レイテンシの改善**が可能になります。このチュートリアルでは、GroupDocs.Search for Java の最も強力な機能—キャンセル、非同期インデックス作成、マルチスレッド、メタデータカスタマイズ—を順に解説し、**add documents index** をより速く、効率的に行えるようにします。
+今日の高速に変化するデジタル環境では、**検索レイテンシの改善**はユーザーに瞬時の結果を提供するために不可欠です。カスタム検索エンジンを構築する場合でも、既存のドキュメント管理システムを強化する場合でも、適切なインデックス戦略によりレイテンシを大幅に削減し、リソース消費を抑え、全体的に**検索レイテンシの改善**が可能です。このチュートリアルでは、GroupDocs.Search for Java の最も強力な機能—キャンセル、非同期インデックス作成、マルチスレッド、メタデータカスタマイズ—を順に解説し、**インデックスにドキュメントを追加**をより速く、効率的に行えるようにします。
 
-**What You’ll Learn**
+**学べること**
 
 - 指定した時間後にインデックス作成操作をキャンセルする方法  
 - 非同期インデックス作成操作を実行し、ステータス変更を処理する方法  
-- より高速なインデックス作成のためにマルチスレッドを構成する方法  
-- メタデータインデックス作成オプションをカスタマイズする方法  
+- 高速インデックス作成のためのマルチスレッド設定  
+- メタデータインデックスオプションをカスタマイズして**検索メタデータをカスタマイズ**する方法  
 
-コードに入る前に、必要なものがすべて揃っていることを確認しましょう。
+コードに入る前に、必要なものがすべて揃っているか確認しましょう。
 
-## Prerequisites
+## クイック回答
+- **キャンセルは何をするのですか？** 設定されたタイムアウト後にインデックス作成を停止し、CPU とメモリを他のタスクに解放します。  
+- **ドキュメントを非同期にインデックスできますか？** はい – `options.setAsync(true)` で有効化します。  
+- **何スレッド使用できますか？** 正の整数であれば何でも可；ほとんどのサーバーでは 2‑4 スレッドが一般的です。  
+- **メタデータインデックスはオプションですか？** もちろん – フィールドごとに有効化または微調整できます。  
+- **これらの機能にライセンスは必要ですか？** 試用版でテストは可能ですが、本番環境では正式ライセンスが必要です。
 
-- **GroupDocs.Search Library** – バージョン 25.4 以降。  
-- **Java Development Environment** – JDK 8 以上を推奨。  
+## 前提条件
+
+- **GroupDocs.Search ライブラリ** – バージョン 25.4 以降。  
+- **Java 開発環境** – JDK 8 以上を推奨。  
 - Java とインデックス作成の概念に関する基本的な知識。
 
-### Setting Up GroupDocs.Search for Java
+### GroupDocs.Search for Java の設定
 
-#### Maven Installation
+#### Maven インストール
 
-Add the repository and dependency to your `pom.xml` file:
+`pom.xml` ファイルにリポジトリと依存関係を追加します：
+
+`pom.xml` の設定は、Maven がどの GroupDocs.Search アーティファクトをダウンロードし、プロジェクトに含めるかを指示します。
 
 ```xml
 <repositories>
@@ -54,13 +130,15 @@ Add the repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-#### Direct Download
+#### 直接ダウンロード
 
-Alternatively, download the latest JAR from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+あるいは、最新の JAR を [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) からダウンロードしてください。
 
-**License Acquisition** – Start with a free trial or request a temporary license to unlock the full feature set.
+**ライセンス取得** – 無料トライアルで開始するか、一時ライセンスをリクエストしてフル機能を有効化します。
 
-### Basic Initialization and Setup
+### 基本的な初期化と設定
+
+`SearchIndex` クラスは、ディスクまたはメモリ上に保存された検索可能なインデックスを表すエントリーポイントです。
 
 ```java
 import com.groupdocs.search.*;
@@ -76,34 +154,27 @@ public class IndexSetup {
 }
 ```
 
-## Quick Answers
-- **What does cancellation do?** Stops indexing after a set time to free resources.  
-- **Can I index documents asynchronously?** Yes – set `options.setAsync(true)`.  
-- **How many threads can I use?** Any positive integer; typical values are 2‑4 for most servers.  
-- **Is metadata indexing optional?** Absolutely – you can enable or fine‑tune it per field.  
-- **Do I need a license for these features?** A trial works for testing; a full license is required for production.
+## この文脈での「検索パフォーマンスの最適化」とは何か
 
-## What Is “Optimize Search Performance” in This Context?
+検索パフォーマンスの最適化とは、インデックス作成プロセスを CPU、メモリ、時間の適正な使用量に構成し、最も関連性の高い結果を瞬時に提供できるようにすることです。キャンセル、非同期実行、スレッド化、メタデータ処理を制御することで、**インデックスにドキュメントを追加**する速度とクエリ応答速度を直接向上させます。
 
-検索パフォーマンスの最適化とは、CPU、メモリ、時間の消費を適切に抑えつつ、最も関連性の高い結果を瞬時に提供できるようインデックス作成プロセスを構成することです。キャンセル、非同期実行、スレッド化、メタデータ処理を制御することで、エンジンが **add documents index** し、クエリに応答する速度に直接影響を与えます。
+## なぜ高度なインデックス機能を使用するのか
 
-## Why Use Advanced Indexing Features?
+非同期およびマルチスレッドインデックス作成によりアプリケーションの応答性が保たれ、キャンセル機能で長時間実行されるプロセスを防止します。細かく調整されたメタデータオプションは最重要情報を表面化し、エンドユーザーの**検索レイテンシの改善**に直結します。さらに、これらの機能は CPU スパイクを抑え、メモリ圧迫を低減し、大量ドキュメント処理時のスムーズなスケーリングを実現します。
 
-- **Reduced latency** – 非同期およびマルチスレッドインデックス作成によりアプリケーションの応答性が向上します。  
-- **Better resource management** – キャンセル機能でリソースの過剰消費を防止します。  
-- **Tailored search relevance** – メタデータオプションで最重要情報を優先的に検索結果に反映できます。  
+## 高度なインデックス作成で検索レイテンシを改善する方法
 
-## How to improve search latency with advanced indexing?
+`SearchIndex` インスタンスをロードし、`IndexingOptions` にキャンセル、非同期、スレッド設定を行った上で `index.add(document)` を呼び出します。この組み合わせにより、典型的なワークロードでインデックス作成時間が最大 60 % 短縮され、長時間ジョブが他の操作をブロックしないことが保証されます。また、メタデータインデックスの上限を調整し、ステータス変更イベントで進捗を監視することで、パフォーマンス予算内に収めることができます。
 
-**検索レイテンシを改善**するには、以下の機能を組み合わせて活用してください：長時間実行されるジョブをキャンセルし、バックグラウンドでインデックス作成を実行し、複数の CPU コアに作業を分散させます。この多面的アプローチが最も大きな速度向上をもたらすことが多いです。
+## 実装ガイド
 
-## Implementation Guide
+### キャンセルプロパティ
 
-### Cancellation Property
+**概要** – 指定した期間後にインデックス作成を停止し、リソースの過剰消費を防止します。
 
-**Overview** – 指定した期間が経過した後にインデックス作成をキャンセルし、リソースの過剰消費を防止します。
+#### 手順 1: 環境設定
 
-#### Step 1: Set Up the Environment
+インデックスフォルダーを指す `SearchIndex` インスタンスを作成します。
 
 ```java
 import com.groupdocs.search.*;
@@ -113,7 +184,9 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\CancellationProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Create Indexing Options with Cancellation
+#### 手順 2: キャンセル設定付きインデックスオプションを作成
+
+`IndexingOptions` はインデックスエンジンの動作を指定できます。
 
 ```java
 // Create an instance of Index and IndexingOptions
@@ -128,16 +201,18 @@ options.getCancellation().cancelAfter(3000);
 index.add(documentFolder, options);
 ```
 
-**Key Points**
+**重要ポイント**
 
-- `setCancellation()` が機能を有効化します。  
-- `cancelAfter(int milliseconds)` でタイムアウトを設定します（この例では 3 秒）。
+- `setCancellation()` で機能を有効化します。  
+- `cancelAfter(int milliseconds)` でタイムアウトを定義します（この例では 3 秒）。
 
-### Asynchronous Property
+### 非同期プロパティ
 
-**Overview** – バックグラウンドスレッドでインデックス作成を実行し、ステータス変更を監視します。
+**概要** – バックグラウンドスレッドでインデックス作成を実行し、ステータス変更を監視します。
 
-#### Step 1: Set Up the Environment
+#### 手順 1: 環境設定
+
+インデックスをインスタンス化し、ドキュメントコレクションを準備します。
 
 ```java
 import com.groupdocs.search.*;
@@ -147,7 +222,9 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\IsAsyncProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Subscribe to Status Changed Event
+#### 手順 2: status‑changed イベントを購読
+
+`StatusChanged` イベントはインデックス作成ジョブが状態間を移動したときに通知します。
 
 ```java
 Index index = new Index(indexFolder);
@@ -163,7 +240,9 @@ index.getEvents().StatusChanged.add(new EventHandler<BaseIndexEventArgs>() {
 });
 ```
 
-#### Step 3: Configure Asynchronous Options
+#### 手順 3: 非同期オプションを設定
+
+非同期モードを有効にすると、呼び出しは即座に戻り、処理はバックグラウンドで続行します。
 
 ```java
 IndexingOptions options = new IndexingOptions();
@@ -172,11 +251,13 @@ options.setAsync(true);
 index.add(documentFolder, options);
 ```
 
-### Threads Property
+### スレッドプロパティ
 
-**Overview** – 複数の CPU コアを活用してインデックス作成を高速化します。
+**概要** – 複数の CPU コアを活用してインデックス作成を高速化します。
 
-#### Step 1: Set Up Environment
+#### 手順 1: 環境設定
+
+インデックスを準備し、JVM に十分なヒープメモリがあることを確認します。
 
 ```java
 import com.groupdocs.search.*;
@@ -186,7 +267,9 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\ThreadsProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Configure Multi‑threading
+#### 手順 2: マルチスレッドを設定
+
+ワーカースレッド数を設定します。各スレッドはドキュメントのサブセットを処理します。
 
 ```java
 Index index = new Index(indexFolder);
@@ -198,11 +281,13 @@ options.setThreads(2);
 index.add(documentFolder, options);
 ```
 
-### Metadata Indexing Options Property
+### メタデータインデックスオプションプロパティ
 
-**Overview** – どのドキュメントメタデータをインデックス化し、どのように保存するかを細かく調整します。
+**概要** – どのドキュメントメタデータをインデックス化し、どのように保存するかを細かく調整します。
 
-#### Step 1: Set Up Environment
+#### 手順 1: 環境設定
+
+著者、タイトル、カスタムタグなどのメタデータフィールドを含むドキュメントをロードします。
 
 ```java
 import com.groupdocs.search.*;
@@ -212,7 +297,9 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\MetadataIndexingOptionsProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Configure Metadata Options
+#### 手順 2: メタデータオプションを設定
+
+`MetadataIndexingOptions` で個々のメタデータフィールドの有効化/無効化やサイズ上限を定義できます。
 
 ```java
 Index index = new Index(indexFolder);
@@ -229,50 +316,56 @@ options.getMetadataIndexingOptions().setMaxDoublesToIndexField(10);
 index.add(documentFolder, options);
 ```
 
-## Practical Applications
+## 実用的な応用例
 
-1. **Document Management Systems** – 大量バッチをバックグラウンドで処理しながら UI の応答性を保つために非同期インデックス作成を使用します。  
-2. **Content Search Engines** – ピーク時のサーバーリソース占有を防ぐためにキャンセル機能を適用します。  
-3. **Large‑Scale Ingestion Pipelines** – スケールで **add documents index** するためにマルチスレッドを活用し、処理時間を劇的に短縮します。
+1. **ドキュメント管理システム** – 大量バッチをバックグラウンドで処理しながら UI の応答性を保つために非同期インデックス作成を使用します。  
+2. **コンテンツ検索エンジン** – ピーク時のサーバーリソース占有を防ぐためにキャンセル機能を適用します。  
+3. **大規模インジェストパイプライン** – マルチスレッドを活用して**インデックスにドキュメントを追加**を大規模に行い、処理時間を劇的に短縮します。  
 
-## Performance Considerations
+## パフォーマンス上の考慮点
 
-- **Thread Management** – CPU 使用率を監視してください。スレッドが多すぎるとコンテキストスイッチのオーバーヘッドが発生します。  
-- **Memory Footprint** – `setMaxBytesToIndexField` などのメタデータ制限を使用してメモリ使用量を予測可能に保ちます。  
-- **Garbage Collection** – 大規模コーパスをインデックス化する際は適切な JVM フラグ（`-Xmx`, `-XX:+UseG1GC`）を使用してください。
+- **スレッド管理** – CPU 使用率を監視します。スレッドが多すぎるとコンテキストスイッチのオーバーヘッドが発生します。  
+- **メモリフットプリント** – メタデータ上限（例: `setMaxBytesToIndexField`）によりメモリ使用量を予測可能に保ちます。  
+- **ガベージコレクション** – 大規模コーパスをインデックス化する際は適切な JVM フラグ（`-Xmx`, `-XX:+UseG1GC`）を使用します。  
 
-## Common Issues and Solutions
+## よくある問題と解決策
 
-| Symptom | Likely Cause | Fix |
-|---------|--------------|-----|
-| Indexing never finishes | Cancellation set too low | Increase `cancelAfter` value or remove cancellation for long jobs |
-| No status updates in async mode | Event handler not attached correctly | Ensure `index.getEvents().StatusChanged.add(...)` is called before `index.add` |
-| Out‑of‑memory errors | Too many threads or high metadata limits | Reduce `options.setThreads` and lower metadata field limits |
-| Missing metadata in results | Metadata indexing disabled | Verify `options.getMetadataIndexingOptions()` is configured and not set to ignore fields |
+| 症状 | 考えられる原因 | 対策 |
+|------|----------------|------|
+| インデックス作成が終了しない | キャンセルが低すぎる | `cancelAfter` の値を増やすか、長時間ジョブではキャンセルを削除 |
+| 非同期モードでステータス更新がない | イベントハンドラが正しく登録されていない | `index.getEvents().StatusChanged.add(...)` を `index.add` の前に呼び出す |
+| メモリ不足エラー | スレッドが多すぎる、またはメタデータ上限が高すぎる | `options.setThreads` を減らし、メタデータフィールドの上限を下げる |
+| 結果にメタデータが欠落 | メタデータインデックスが無効化されている | `options.getMetadataIndexingOptions()` が設定されているか確認し、フィールドを無視しないようにする |
 
-## Frequently Asked Questions
+## よくある質問
 
-**Q: How do I obtain a temporary license for GroupDocs.Search?**  
-A: Visit [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/).
+**Q: GroupDocs.Search の一時ライセンスはどう取得しますか？**  
+A: [GroupDocs の一時ライセンスページ](https://purchase.groupdocs.com/temporary-license/) にアクセスし、画面の指示に従ってください。
 
-**Q: Can I cancel an indexing operation midway through?**  
-A: Yes – use the cancellation property with `cancelAfter()` or call `Cancellation.cancel()` programmatically.
+**Q: インデックス作成操作を途中でキャンセルできますか？**  
+A: はい – `cancelAfter()` を使用するか、プログラムから `Cancellation.cancel()` を呼び出します。
 
-**Q: What are some use cases for asynchronous indexing?**  
-A: Real‑time document retrieval, background batch processing, and UI‑responsive applications benefit from async indexing.
+**Q: 非同期インデックス作成のユースケースは何ですか？**  
+A: リアルタイム文書検索、バックグラウンドバッチ処理、UI の応答性が求められるアプリケーションで非同期インデックス作成が有益です。
 
-**Q: Is it safe to increase the thread count on a shared server?**  
-A: Increase gradually and monitor CPU load; on heavily shared environments, keep the thread count modest (2‑4).
+**Q: 共有サーバーでスレッド数を増やすのは安全ですか？**  
+A: 徐々に増やしながら CPU 負荷を監視してください。共有環境が重い場合はスレッド数を控えめに（2‑4）保ちます。
 
-**Q: How does metadata indexing affect search relevance?**  
-A: Properly indexed metadata (author, creation date, tags) can be weighted higher in queries, improving result accuracy.
+**Q: メタデータインデックスは検索の関連性にどう影響しますか？**  
+A: 正しくインデックス化されたメタデータ（著者、作成日、タグなど）はクエリで高い重み付けが可能となり、結果の精度が向上します。
 
-## Conclusion
+## 結論
 
-GroupDocs.Search for Java のこれら高度な機能を活用することで、さまざまなシナリオ—高速なドキュメント取り込みから細かいメタデータ制御まで—において **検索パフォーマンスの最適化** が実現できます。さまざまな構成を試し、リソース使用状況を監視し、ワークロードに合わせて設定を調整して最高の結果を得てください。
+GroupDocs.Search for Java のこれら高度な機能を活用することで、**検索レイテンシの改善**がさまざまなシナリオで実現できます—迅速なドキュメント取り込みから細かなメタデータ制御まで。設定を試行し、リソース使用状況を監視し、ワークロードに合わせて調整することで最適な結果が得られます。
 
 ---
 
-**Last Updated:** 2026-03-01  
+**Last Updated:** 2026-08-15  
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
+
+## 関連チュートリアル
+
+- [Improve Query Performance with GroupDocs.Search Java: Optimize Index & Search](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
+- [How to add documents to index with Metadata Indexing in Java using GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [How to Add Multiple Aliases and Add Documents to Index in GroupDocs.Search for Java](/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/)

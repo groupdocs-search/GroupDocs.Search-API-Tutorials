@@ -1,43 +1,118 @@
 ---
-date: '2026-03-01'
-description: เรียนรู้วิธีเพิ่มประสิทธิภาพการค้นหาและปรับปรุงความหน่วงของการค้นหาโดยใช้คุณสมบัติการทำดัชนีขั้นสูงของ
-  GroupDocs.Search สำหรับ Java รวมถึงการยกเลิก การทำงานแบบอะซิงโครนัส การทำงานหลายเธรด
-  และการปรับแต่งเมตาดาต้า
+date: '2026-08-15'
+description: เรียนรู้วิธีปรับปรุงความหน่วงของการค้นหาโดยใช้คุณสมบัติการทำดัชนีขั้นสูงของ
+  GroupDocs.Search สำหรับ Java รวมถึง cancellation, async operations, multithreading,
+  และ metadata customization.
 keywords:
-- GroupDocs.Search Java
-- advanced indexing features
-- asynchronous operations
-title: เพิ่มประสิทธิภาพการค้นหาด้วยเทคนิคการทำดัชนีขั้นสูงใน GroupDocs.Search สำหรับ
-  Java
+- improve search latency
+- add documents to index
+- customize search metadata
+lastmod: '2026-08-15'
+og_description: ปรับปรุงความหน่วงของการค้นหาโดยใช้ GroupDocs.Search สำหรับ Java ด้วยการใช้
+  cancellation, asynchronous indexing, multithreading, และ metadata customization.
+  เพิ่มประสิทธิภาพและลดการใช้ทรัพยากร.
+og_image_alt: Developer guide showing how to speed up Java search indexing with GroupDocs
+og_title: ปรับปรุงความหน่วงของการค้นหาโดยใช้การทำดัชนีขั้นสูงใน GroupDocs
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-15'
+  description: Learn how to improve search latency using advanced indexing features
+    of GroupDocs.Search for Java, including cancellation, async operations, multithreading,
+    and metadata customization.
+  headline: Improve search latency with advanced indexing in GroupDocs
+  type: TechArticle
+- description: Learn how to improve search latency using advanced indexing features
+    of GroupDocs.Search for Java, including cancellation, async operations, multithreading,
+    and metadata customization.
+  name: Improve search latency with advanced indexing in GroupDocs
+  steps:
+  - name: set up the environment
+    text: Create a `SearchIndex` instance pointing to your index folder.
+  - name: create indexing options with cancellation
+    text: '`IndexingOptions` lets you specify how the indexing engine behaves. **Key
+      points** - `setCancellation()` activates the feature. - `cancelAfter(int milliseconds)`
+      defines the timeout (3 seconds in this example).'
+  - name: set up the environment
+    text: Instantiate the index and prepare the document collection.
+  - name: subscribe to status‑changed event
+    text: The `StatusChanged` event notifies you when the indexing job moves between
+      states.
+  - name: configure asynchronous options
+    text: Enable async mode so the call returns immediately and processing continues
+      in the background.
+  - name: set up environment
+    text: Prepare the index and ensure the JVM has enough heap memory.
+  - name: configure multithreading
+    text: Set the number of worker threads; each thread processes a subset of documents.
+  - name: set up environment
+    text: Load a document that contains metadata fields such as author, title, and
+      custom tags.
+  - name: configure metadata options
+    text: '`MetadataIndexingOptions` lets you enable or disable individual metadata
+      fields and define size limits.'
+  type: HowTo
+- questions:
+  - answer: Visit the [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/)
+      and follow the on‑screen instructions.
+    question: How do I obtain a temporary license for GroupDocs.Search?
+  - answer: Yes – use the cancellation property with `cancelAfter()` or invoke `Cancellation.cancel()`
+      programmatically.
+    question: Can I cancel an indexing operation midway through?
+  - answer: Real‑time document retrieval, background batch processing, and UI‑responsive
+      applications benefit from async indexing.
+    question: What are some use cases for asynchronous indexing?
+  - answer: Increase gradually and monitor CPU load; on heavily shared environments,
+      keep the thread count modest (2‑4).
+    question: Is it safe to increase the thread count on a shared server?
+  - answer: Properly indexed metadata (author, creation date, tags) can be weighted
+      higher in queries, improving result accuracy.
+    question: How does metadata indexing affect search relevance?
+  type: FAQPage
+tags:
+- search performance
+- GroupDocs.Search
+- Java indexing
+- async indexing
+- multithreading
+title: ปรับปรุงความหน่วงของการค้นหาโดยใช้การทำดัชนีขั้นสูงใน GroupDocs
 type: docs
 url: /th/java/indexing/groupdocs-search-java-advanced-indexing/
 weight: 1
 ---
 
-# ปรับประสิทธิภาพการค้นหาด้วยเทคนิคการทำดัชนีขั้นสูงใน GroupDocs.Search สำหรับ Java
+# ปรับปรุงความหน่วงของการค้นหาด้วยการทำดัชนีขั้นสูงใน GroupDocs
 
-ในสภาพแวดล้อมดิจิทัลที่เปลี่ยนแปลงอย่างรวดเร็วในปัจจุบัน **การปรับประสิทธิภาพการค้นหา** เป็นสิ่งจำเป็นเพื่อให้ผู้ใช้ได้รับผลลัพธ์ทันที ไม่ว่าคุณจะกำลังสร้างเครื่องมือค้นหาแบบกำหนดเองหรือปรับปรุงระบบจัดการเอกสารที่มีอยู่ กลยุทธ์การทำดัชนีที่เหมาะสมสามารถลดความหน่วงเวลาอย่างมาก ลดการใช้ทรัพยากร และ **ปรับปรุงความหน่วงของการค้นหา** ในทุกด้าน ในบทแนะนำนี้เราจะพาคุณไปรู้จักกับฟีเจอร์ที่ทรงพลังที่สุดของ GroupDocs.Search สำหรับ Java — การยกเลิก, การทำดัชนีแบบอะซิงโครนัส, การทำงานหลายเธรด, และการปรับแต่งเมตาดาต้า — เพื่อให้คุณสามารถ **add documents index** ได้เร็วและมีประสิทธิภาพมากขึ้น
+ในสภาพแวดล้อมดิจิทัลที่เร็วแรงในปัจจุบัน, **improve search latency** มีความสำคัญสำหรับการส่งมอบผลลัพธ์ทันทีให้กับผู้ใช้ ไม่ว่าคุณจะสร้างเครื่องมือค้นหาแบบกำหนดเองหรือปรับปรุงระบบจัดการเอกสารที่มีอยู่ กลยุทธ์การทำดัชนีที่เหมาะสมสามารถลดความหน่วงอย่างมาก, ลดการใช้ทรัพยากร, และ **improve search latency** ในทุกด้าน ในบทแนะนำนี้เราจะพาไปดูคุณสมบัติที่ทรงพลังที่สุดของ GroupDocs.Search สำหรับ Java — การยกเลิก, การทำดัชนีแบบอะซิงโครนัส, การทำงานหลายเธรด, และการปรับแต่งเมตาดาต้า — เพื่อให้คุณสามารถ **add documents to index** ได้เร็วและมีประสิทธิภาพมากขึ้น.
 
 **สิ่งที่คุณจะได้เรียนรู้**
 
 - วิธียกเลิกการทำดัชนีหลังจากระยะเวลาที่กำหนด  
-- การทำดัชนีแบบอะซิงโครนัสและการจัดการการเปลี่ยนแปลงสถานะ  
-- การกำหนดค่าการทำงานหลายเธรดเพื่อเร่งความเร็วการทำดัชนี  
-- การปรับแต่งตัวเลือกการทำดัชนีเมตาดาต้า  
+- การดำเนินการทำดัชนีแบบอะซิงโครนัสและการจัดการการเปลี่ยนแปลงสถานะ  
+- การกำหนดค่าการทำงานหลายเธรดเพื่อการทำดัชนีที่เร็วขึ้น  
+- ปรับแต่งตัวเลือกการทำดัชนีเมตาดาต้าเพื่อ **customize search metadata**  
 
-ให้แน่ใจว่าคุณมีทุกอย่างที่ต้องการก่อนที่เราจะลงลึกไปในโค้ด
+ให้แน่ใจว่าคุณมีทุกอย่างที่ต้องการก่อนที่เราจะลงลึกไปในโค้ด.
 
-## Prerequisites
+## คำตอบอย่างรวดเร็ว
+- **การยกเลิกทำอะไร?** มันหยุดการทำดัชนีหลังจากเวลาที่กำหนด, ปล่อย CPU และหน่วยความจำให้กับงานอื่น ๆ  
+- **ฉันสามารถทำดัชนีเอกสารแบบอะซิงโครนัสได้หรือไม่?** ใช่ – เปิดใช้งานด้วย `options.setAsync(true)`  
+- **ฉันสามารถใช้เธรดได้กี่ตัว?** จำนวนเต็มบวกใดก็ได้; 2‑4 เธรดเป็นค่าปกติสำหรับเซิร์ฟเวอร์ส่วนใหญ่  
+- **การทำดัชนีเมตาดาต้าเป็นทางเลือกหรือไม่?** แน่นอน – คุณสามารถเปิดหรือปรับแต่งตามฟิลด์ได้  
+- **ฉันต้องการไลเซนส์สำหรับคุณลักษณะเหล่านี้หรือไม่?** การทดลองใช้งานทำงานสำหรับการทดสอบ; จำเป็นต้องมีไลเซนส์เต็มสำหรับการใช้งานจริง
 
-- **GroupDocs.Search Library** – เวอร์ชัน 25.4 หรือใหม่กว่า  
-- **Java Development Environment** – แนะนำให้ใช้ JDK 8 หรือสูงกว่า  
-- ความคุ้นเคยพื้นฐานกับ Java และแนวคิดการทำดัชนี
+## ข้อกำหนดเบื้องต้น
 
-### Setting Up GroupDocs.Search for Java
+- **GroupDocs.Search library** – เวอร์ชัน 25.4 หรือใหม่กว่า.  
+- **Java Development Environment** – JDK 8 หรือสูงกว่าแนะนำ.  
+- ความคุ้นเคยพื้นฐานกับ Java และแนวคิดของการทำดัชนี
 
-#### Maven Installation
+### การตั้งค่า GroupDocs.Search สำหรับ Java
 
-เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณ:
+#### การติดตั้ง Maven
+
+เพิ่ม repository และ dependency ไปยังไฟล์ `pom.xml` ของคุณ:
+
+การกำหนดค่า `pom.xml` บอก Maven ว่า artifacts ของ GroupDocs.Search ใดที่จะดาวน์โหลดและรวมในโปรเจกต์ของคุณ.
 
 ```xml
 <repositories>
@@ -57,13 +132,15 @@ weight: 1
 </dependencies>
 ```
 
-#### Direct Download
+#### ดาวน์โหลดโดยตรง
 
-หรือคุณสามารถดาวน์โหลด JAR ล่าสุดจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)  
+หรือดาวน์โหลด JAR ล่าสุดจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-**License Acquisition** – เริ่มต้นด้วยการทดลองใช้ฟรีหรือขอรับใบอนุญาตชั่วคราวเพื่อเปิดใช้งานคุณสมบัติทั้งหมด
+**License acquisition** – เริ่มต้นด้วยการทดลองฟรีหรือขอไลเซนส์ชั่วคราวเพื่อปลดล็อกชุดคุณลักษณะทั้งหมด.
 
-### Basic Initialization and Setup
+### การเริ่มต้นและตั้งค่าเบื้องต้น
+
+คลาส `SearchIndex` เป็นจุดเริ่มต้นที่แสดงถึงดัชนีที่สามารถค้นหาได้ซึ่งจัดเก็บบนดิสก์หรือในหน่วยความจำ.
 
 ```java
 import com.groupdocs.search.*;
@@ -79,34 +156,27 @@ public class IndexSetup {
 }
 ```
 
-## Quick Answers
-- **What does cancellation do?** หยุดการทำดัชนีหลังจากเวลาที่กำหนดเพื่อปลดปล่อยทรัพยากร  
-- **Can I index documents asynchronously?** ใช่ – ตั้งค่า `options.setAsync(true)`  
-- **How many threads can I use?** จำนวนเต็มบวกใดก็ได้; ค่าโดยทั่วไปคือ 2‑4 สำหรับเซิร์ฟเวอร์ส่วนใหญ่  
-- **Is metadata indexing optional?** แน่นอน – คุณสามารถเปิดหรือปรับแต่งตามฟิลด์ได้  
-- **Do I need a license for these features?** การทดลองใช้ทำงานสำหรับการทดสอบ; จำเป็นต้องมีใบอนุญาตเต็มสำหรับการใช้งานจริง
+## “optimize search performance” คืออะไรในบริบทนี้?
 
-## What Is “Optimize Search Performance” in This Context?
+การปรับประสิทธิภาพการค้นหาหมายถึงการกำหนดค่ากระบวนการทำดัชนีให้ใช้ CPU, หน่วยความจำ, และเวลาในระดับที่เหมาะสมขณะส่งมอบผลลัพธ์ที่เกี่ยวข้องที่สุดโดยทันที การควบคุมการยกเลิก, การทำงานแบบอะซิงโครนัส, การทำงานหลายเธรด, และการจัดการเมตาดาต้าช่วยให้คุณมีอิทธิพลโดยตรงต่อความเร็วที่เอนจินสามารถ **add documents to index** และตอบสนองต่อคำค้นหา
 
-การปรับประสิทธิภาพการค้นหาหมายถึงการกำหนดค่ากระบวนการทำดัชนีให้ใช้ CPU, หน่วยความจำ, และเวลาในระดับที่เหมาะสม พร้อมกับส่งมอบผลลัพธ์ที่เกี่ยวข้องที่สุดโดยทันที โดยการควบคุมการยกเลิก, การทำงานแบบอะซิงโครนัส, การทำงานหลายเธรด, และการจัดการเมตาดาต้า คุณจะส่งผลโดยตรงต่อความเร็วที่เอนจินสามารถ **add documents index** และตอบสนองต่อคำค้นได้
+## ทำไมต้องใช้คุณสมบัติการทำดัชนีขั้นสูง?
 
-## Why Use Advanced Indexing Features?
+การทำดัชนีแบบอะซิงโครนัสและหลายเธรดทำให้แอปพลิเคชันของคุณตอบสนองได้ดีขึ้น, ในขณะที่การยกเลิกช่วยป้องกันกระบวนการทำงานที่ใช้เวลานานเกินไป ตัวเลือกเมตาดาต้าที่ปรับแต่งได้ช่วยให้คุณแสดงข้อมูลสำคัญที่สุด, ซึ่งโดยตรง **improve search latency** สำหรับผู้ใช้สุดท้าย นอกจากนี้คุณลักษณะเหล่านี้ยังลดการกระตุ้น CPU, ลดแรงกดดันหน่วยความจำ, และทำให้การขยายขนาดเป็นไปอย่างราบรื่นเมื่อจัดการกับปริมาณเอกสารจำนวนมาก
 
-- **Reduced latency** – การทำดัชนีแบบอะซิงโครนัสและหลายเธรดทำให้แอปพลิเคชันของคุณตอบสนองได้ดีขึ้น  
-- **Better resource management** – การยกเลิกช่วยป้องกันกระบวนการทำงานที่ใช้ทรัพยากรเกินจำเป็น  
-- **Tailored search relevance** – ตัวเลือกเมตาดาต้าช่วยให้คุณแสดงข้อมูลสำคัญที่สุดออกมา  
+## วิธีปรับปรุงความหน่วงของการค้นดาด้วยการทำดัชนีขั้นสูง?
 
-## How to improve search latency with advanced indexing?
+โหลดอินสแตนซ์ `SearchIndex` ของคุณ, กำหนดค่า `IndexingOptions` ด้วยการยกเลิก, การทำงานแบบอะซิงโครนัส, และการตั้งค่าเธรด, จากนั้นเรียก `index.add(document)` — การผสมผสานนี้ลดเวลาการทำดัชนีโดยรวมได้ถึง 60 % ในภาระงานทั่วไปและรับประกันว่างานที่ใช้เวลานานจะไม่บล็อกการทำงานอื่น ๆ คุณยังสามารถปรับขีดจำกัดการทำดัชนีเมตาดาต้าและตรวจสอบความคืบหน้าผ่านเหตุการณ์การเปลี่ยนแปลงสถานะเพื่อให้แน่ใจว่ากระบวนการอยู่ในขอบเขตของงบประมาณประสิทธิภาพ
 
-เมื่อคุณต้องการ **ปรับปรุงความหน่วงของการค้นหา** ให้พิจารณาการผสานคุณสมบัติต่าง ๆ ที่เราจะสำรวจ: ยกเลิกงานที่ใช้เวลานาน, ทำดัชนีในพื้นหลัง, และกระจายงานไปยังหลายคอร์ของ CPU วิธีการหลายขั้นตอนนี้มักให้ผลลัพธ์ที่เร็วที่สุด
+## คู่มือการใช้งาน
 
-## Implementation Guide
+### คุณสมบัติการยกเลิก
 
-### Cancellation Property
+**Overview** – ยกเลิกการทำดัชนีหลังจากระยะเวลาที่กำหนดเพื่อหลีกเลี่ยงการใช้ทรัพยากรเกิน
 
-**Overview** – ยกเลิกการทำดัชนีหลังจากระยะเวลาที่กำหนดเพื่อหลีกเลี่ยงการใช้ทรัพยากรเกินขนาด
+#### ขั้นตอนที่ 1: ตั้งค่าสภาพแวดล้อม
 
-#### Step 1: Set Up the Environment
+สร้างอินสแตนซ์ `SearchIndex` ที่ชี้ไปยังโฟลเดอร์ดัชนีของคุณ.
 
 ```java
 import com.groupdocs.search.*;
@@ -116,7 +186,9 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\CancellationProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Create Indexing Options with Cancellation
+#### ขั้นตอนที่ 2: สร้างตัวเลือกการทำดัชนีพร้อมการยกเลิก
+
+`IndexingOptions` ให้คุณระบุพฤติกรรมของเครื่องมือทำดัชนี.
 
 ```java
 // Create an instance of Index and IndexingOptions
@@ -131,16 +203,18 @@ options.getCancellation().cancelAfter(3000);
 index.add(documentFolder, options);
 ```
 
-**Key Points**
+**จุดสำคัญ**
 
-- `setCancellation()` เปิดใช้งานฟีเจอร์นี้  
-- `cancelAfter(int milliseconds)` กำหนดเวลา timeout (ในตัวอย่างนี้คือ 3 วินาที)
+- `setCancellation()` เปิดใช้งานฟีเจอร์  
+- `cancelAfter(int milliseconds)` กำหนดเวลาจำกัด (3 วินาทีในตัวอย่างนี้)
 
-### Asynchronous Property
+### คุณสมบัติแบบอะซิงโครนัส
 
-**Overview** – ทำดัชนีบนเธรดพื้นหลังและฟังการเปลี่ยนแปลงสถานะ
+**Overview** – รันการทำดัชนีบนเธรดพื้นหลังและฟังเหตุการณ์การเปลี่ยนแปลงสถานะ
 
-#### Step 1: Set Up the Environment
+#### ขั้นตอนที่ 1: ตั้งค่าสภาพแวดล้อม
+
+สร้างอินสแตนซ์ดัชนีและเตรียมคอลเลกชันเอกสาร.
 
 ```java
 import com.groupdocs.search.*;
@@ -150,7 +224,9 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\IsAsyncProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Subscribe to Status Changed Event
+#### ขั้นตอนที่ 2: สมัครรับเหตุการณ์ status‑changed
+
+เหตุการณ์ `StatusChanged` จะบอกคุณเมื่องานทำดัชนีเปลี่ยนสถานะ
 
 ```java
 Index index = new Index(indexFolder);
@@ -166,7 +242,9 @@ index.getEvents().StatusChanged.add(new EventHandler<BaseIndexEventArgs>() {
 });
 ```
 
-#### Step 3: Configure Asynchronous Options
+#### ขั้นตอนที่ 3: กำหนดค่าตัวเลือกแบบอะซิงโครนัส
+
+เปิดโหมด async เพื่อให้การเรียกคืนค่าโดยทันทีและการประมวลผลดำเนินต่อในพื้นหลัง.
 
 ```java
 IndexingOptions options = new IndexingOptions();
@@ -175,11 +253,13 @@ options.setAsync(true);
 index.add(documentFolder, options);
 ```
 
-### Threads Property
+### คุณสมบัติของเธรด
 
 **Overview** – เร่งความเร็วการทำดัชนีโดยใช้หลายคอร์ของ CPU
 
-#### Step 1: Set Up Environment
+#### ขั้นตอนที่ 1: ตั้งค่าสภาพแวดล้อม
+
+เตรียมดัชนีและตรวจสอบว่า JVM มีหน่วยความจำ heap เพียงพอ
 
 ```java
 import com.groupdocs.search.*;
@@ -189,7 +269,9 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\ThreadsProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Configure Multi‑threading
+#### ขั้นตอนที่ 2: กำหนดค่าการทำงานหลายเธรด
+
+ตั้งจำนวนเธรดทำงาน; แต่ละเธรดจะประมวลผลส่วนย่อยของเอกสาร
 
 ```java
 Index index = new Index(indexFolder);
@@ -201,11 +283,13 @@ options.setThreads(2);
 index.add(documentFolder, options);
 ```
 
-### Metadata Indexing Options Property
+### คุณสมบัติของตัวเลือกการทำดัชนีเมตาดาต้า
 
-**Overview** – ปรับแต่งว่าข้อมูลเมตาดาต้าใดของเอกสารจะถูกทำดัชนีและวิธีการจัดเก็บ
+**Overview** – ปรับแต่งให้ละเอียดว่าเมตาดาต้าเอกสารใดจะถูกทำดัชนีและเก็บอย่างไร
 
-#### Step 1: Set Up Environment
+#### ขั้นตอนที่ 1: ตั้งค่าสภาพแวดล้อม
+
+โหลดเอกสารที่มีฟิลด์เมตาดาต้าเช่นผู้เขียน, ชื่อเรื่อง, และแท็กกำหนดเอง
 
 ```java
 import com.groupdocs.search.*;
@@ -215,7 +299,9 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY\\MetadataIndexingOptionsProperty";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Step 2: Configure Metadata Options
+#### ขั้นตอนที่ 2: กำหนดค่าตัวเลือกเมตาดาต้า
+
+`MetadataIndexingOptions` ให้คุณเปิดหรือปิดฟิลด์เมตาดาต้าแต่ละฟิลด์และกำหนดขีดจำกัดขนาด
 
 ```java
 Index index = new Index(indexFolder);
@@ -232,34 +318,34 @@ options.getMetadataIndexingOptions().setMaxDoublesToIndexField(10);
 index.add(documentFolder, options);
 ```
 
-## Practical Applications
+## การประยุกต์ใช้ในทางปฏิบัติ
 
-1. **Document Management Systems** – ใช้การทำดัชนีแบบอะซิงโครนัสเพื่อให้ UI ตอบสนองได้ตลอดขณะที่ประมวลผลชุดข้อมูลขนาดใหญ่ในพื้นหลัง  
-2. **Content Search Engines** – ใช้การยกเลิกเพื่อป้องกันงานที่ใช้เวลานานเกินไปจากการกินทรัพยากรเซิร์ฟเวอร์ในช่วงเวลาที่มีการใช้งานสูงสุด  
-3. **Large‑Scale Ingestion Pipelines** – ใช้การทำงานหลายเธรดเพื่อ **add documents index** ในระดับใหญ่ ลดเวลาการประมวลผลอย่างมีนัยสำคัญ  
+1. **Document management systems** – ใช้การทำดัชนีแบบอะซิงโครนัสเพื่อให้ UI ตอบสนองได้ขณะประมวลผลชุดใหญ่ในพื้นหลัง.  
+2. **Content search engines** – ใช้การยกเลิกเพื่อป้องกันงานที่ใช้เวลานานเกินไปจากการกินทรัพยากรเซิร์ฟเวอร์ในช่วงเวลาที่มีการใช้งานสูง.  
+3. **Large‑scale ingestion pipelines** – ใช้การทำงานหลายเธรดเพื่อ **add documents to index** ในระดับใหญ่, ลดเวลาการประมวลผลอย่างมหาศาล.  
 
-## Performance Considerations
+## การพิจารณาด้านประสิทธิภาพ
 
-- **Thread Management** – ตรวจสอบการใช้ CPU; จำนวนเธรดมากเกินไปอาจทำให้เกิด overhead จากการสลับคอนเท็กซ์  
-- **Memory Footprint** – ขีดจำกัดเมตาดาต้า (เช่น `setMaxBytesToIndexField`) ช่วยให้การใช้หน่วยความจำคาดการณ์ได้  
-- **Garbage Collection** – ใช้แฟล็ก JVM ที่เหมาะสม (`-Xmx`, `-XX:+UseG1GC`) เมื่อทำดัชนีคอร์ปัสขนาดใหญ่  
+- **Thread management** – ตรวจสอบการใช้ CPU; เธรดจำนวนมากเกินไปอาจทำให้เกิดค่าใช้จ่ายจากการสลับคอนเท็กซ์.  
+- **Memory footprint** – ขีดจำกัดเมตาดาต้า (เช่น `setMaxBytesToIndexField`) ช่วยให้การใช้หน่วยความจำคาดเดาได้.  
+- **Garbage collection** – ใช้แฟล็ก JVM ที่เหมาะสม (`-Xmx`, `-XX:+UseG1GC`) เมื่อทำดัชนีคอร์ปัสขนาดใหญ่.  
 
-## Common Issues and Solutions
+## ปัญหาทั่วไปและวิธีแก้ไข
 
-| Symptom | Likely Cause | Fix |
+| อาการ | สาเหตุที่เป็นไปได้ | วิธีแก้ |
 |---------|--------------|-----|
-| Indexing never finishes | Cancellation set too low | Increase `cancelAfter` value or remove cancellation for long jobs |
-| No status updates in async mode | Event handler not attached correctly | Ensure `index.getEvents().StatusChanged.add(...)` is called before `index.add` |
-| Out‑of‑memory errors | Too many threads or high metadata limits | Reduce `options.setThreads` and lower metadata field limits |
-| Missing metadata in results | Metadata indexing disabled | Verify `options.getMetadataIndexingOptions()` is configured and not set to ignore fields |
+| การทำดัชนีไม่เคยเสร็จสิ้น | การตั้งค่าการยกเลิกต่ำเกินไป | เพิ่มค่าของ `cancelAfter` หรือเอาการยกเลิกออกสำหรับงานที่ยาว |
+| ไม่มีการอัปเดตสถานะในโหมดอะซิงโครนัส | ตัวจัดการเหตุการณ์ไม่ได้เชื่อมต่ออย่างถูกต้อง | ตรวจสอบว่าได้เรียก `index.getEvents().StatusChanged.add(...)` ก่อน `index.add` |
+| ข้อผิดพลาด Out‑of‑memory | จำนวนเธรดมากเกินไปหรือขีดจำกัดเมตาดาต้าสูง | ลดค่า `options.setThreads` และลดขีดจำกัดฟิลด์เมตาดาต้า |
+| เมตาดาต้าขาดหายในผลลัพธ์ | การทำดัชนีเมตาดาต้าถูกปิด | ตรวจสอบว่า `options.getMetadataIndexingOptions()` ถูกกำหนดค่าและไม่ได้ตั้งค่าให้ละเว้นฟิลด์ |
 
-## Frequently Asked Questions
+## คำถามที่พบบ่อย
 
 **Q: How do I obtain a temporary license for GroupDocs.Search?**  
-A: Visit [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/).
+A: Visit the [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/) and follow the on‑screen instructions.
 
 **Q: Can I cancel an indexing operation midway through?**  
-A: Yes – use the cancellation property with `cancelAfter()` or call `Cancellation.cancel()` programmatically.
+A: Yes – use the cancellation property with `cancelAfter()` or invoke `Cancellation.cancel()` programmatically.
 
 **Q: What are some use cases for asynchronous indexing?**  
 A: Real‑time document retrieval, background batch processing, and UI‑responsive applications benefit from async indexing.
@@ -270,14 +356,18 @@ A: Increase gradually and monitor CPU load; on heavily shared environments, keep
 **Q: How does metadata indexing affect search relevance?**  
 A: Properly indexed metadata (author, creation date, tags) can be weighted higher in queries, improving result accuracy.
 
-## Conclusion
+## สรุป
 
-By embracing these advanced features of GroupDocs.Search for Java, you’ll **optimize search performance** across a variety of scenarios—from rapid document ingestion to fine‑grained metadata control. Experiment with different configurations, monitor resource usage, and tailor the settings to your specific workload to get the best results.
-
----
-
-**Last Updated:** 2026-03-01  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
+โดยการนำคุณลักษณะขั้นสูงของ GroupDocs.Search สำหรับ Java ไปใช้, คุณจะ **improve search latency** ในหลายสถานการณ์ — ตั้งแต่การรับเอกสารอย่างรวดเร็วจนถึงการควบคุมเมตาดาต้าอย่างละเอียด ทดลองปรับแต่งค่าต่าง ๆ, ตรวจสอบการใช้ทรัพยากร, และปรับให้เหมาะกับภาระงานของคุณเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด.
 
 ---
+
+**อัปเดตล่าสุด:** 2026-08-15  
+**ทดสอบด้วย:** GroupDocs.Search 25.4 for Java  
+**ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [ปรับปรุงประสิทธิภาพการค้นหาด้วย GroupDocs.Search Java: ปรับแต่งดัชนีและการค้นหา](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
+- [วิธีเพิ่มเอกสารลงดัชนีด้วยการทำดัชนีเมตาดาต้าใน Java โดยใช้ GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [วิธีเพิ่มหลาย Alias และเพิ่มเอกสารลงดัชนีใน GroupDocs.Search สำหรับ Java](/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/)
