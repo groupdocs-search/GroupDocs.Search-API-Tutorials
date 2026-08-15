@@ -1,48 +1,94 @@
 ---
-date: '2026-02-11'
-description: Naučte se, jak implementovat full‑textové vyhledávání v Javě pomocí GroupDocs.Search.
-  Tento tutoriál o full‑textovém vyhledávání pokrývá přidávání dokumentů do indexu,
-  boolean dotazy v Javě a optimalizaci výkonu vyhledávání.
+date: '2026-08-15'
+description: Naučte se příklad full text search v Java s GroupDocs.Search, zahrnující
+  přidávání dokumentů do indexu, boolean query java a optimalizaci výkonu.
 keywords:
-- full-text search in Java
-- GroupDocs.Search for Java
-- implement full-text search
-title: 'Full Text Search v Javě: Implementace s GroupDocs.Search – Komplexní průvodce'
+- full text search example
+- add documents to index
+- boolean query java
+lastmod: '2026-08-15'
+og_description: Prozkoumejte příklad full text search v Java s GroupDocs.Search. Naučte
+  se, jak přidat dokumenty do indexu, vytvořit boolean query java výrazy a zvýšit
+  výkon vyhledávání.
+og_image_alt: Guide showing how to implement a full text search example in Java with
+  GroupDocs.Search
+og_title: Příklad full text search v Java pomocí GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-15'
+  description: Learn a full text search example in Java with GroupDocs.Search, covering
+    adding documents to index, boolean query java, and performance optimization.
+  headline: Full text search example in Java using GroupDocs.Search
+  type: TechArticle
+- description: Learn a full text search example in Java with GroupDocs.Search, covering
+    adding documents to index, boolean query java, and performance optimization.
+  name: Full text search example in Java using GroupDocs.Search
+  steps:
+  - name: create an index
+    text: The `Index` class is the searchable container that stores indexed documents
+      on disk.
+  - name: add documents (add documents to index)
+    text: You can index everything in a folder or limit to certain extensions using
+      a `DocumentFilter`. > **Explanation:** > - `Index` represents the searchable
+      database. > - `add()` ingests files; the wildcard `*.*` grabs all files, while
+      `DocumentFilter` lets you fine‑tune the **add documents to index** ste
+  - name: execute the search
+    text: '> **Explanation:** > - `search()` runs the query against the index. > -
+      `getDocumentCount()` tells you how many documents matched—useful for quick sanity
+      checks.'
+  type: HowTo
+- questions:
+  - answer: It indexes the raw text of every document so you can query any word or
+      phrase instantly.
+    question: What is full text search example?
+  - answer: GroupDocs.Search for Java handles PDF, DOCX, XLSX, PPTX, HTML, TXT, and
+      over 50 other file types.
+    question: Which library supports multiple formats?
+  - answer: Call the `index.add()` method with a folder path or a custom `DocumentFilter`.
+    question: How do I add documents to index?
+  - answer: Yes—combine terms with AND, OR, NOT for precise results.
+    question: Can I run Boolean queries?
+  - answer: Use incremental indexing, enable result caching, and disable phonetic
+      search unless needed.
+    question: How do I improve performance?
+  type: FAQPage
+tags:
+- full text search
+- GroupDocs.Search
+- Java document indexing
+- search performance
+title: Příklad full text search v Java pomocí GroupDocs.Search
 type: docs
 url: /cs/java/searching/implement-full-text-search-java-groupdocs-search/
 weight: 1
 ---
 
-# Full Text Search Java s GroupDocs.Search
+# Příklad full text search v Javě s GroupDocs.Search
 
-## Úvod
-Pokud se potýkáte s **full text search java** napříč nesčetnými soubory, nejste sami. Ruční prohledávání PDF, Word dokumentů nebo tabulek se rychle stane úzkým hrdlem. Naštěstí GroupDocs.Search pro Java vám umožní tento proces automatizovat a poskytuje rychlé, přesné výsledky pro jakýkoli typ dokumentu. V tomto tutoriálu vás provedeme vším, co potřebujete k nasazení – od nastavení knihovny po přidání dokumentů do indexu, tvorbu boolean dotazů v Java a **optimalizaci výkonu vyhledávání**. Na konci budete mít solidní, produkčně připravenou implementaci full text search java ve vaší aplikaci.
+Pokud potřebujete **příklad full text search**, který funguje napříč PDF, soubory Word, tabulkami a dalšími, jste na správném místě. Ruční procházení tisíců dokumentů je obrovskou překážkou, ale GroupDocs.Search pro Java automatizuje indexování a dotazování s bleskovou rychlostí. V tomto tutoriálu vás provedeme vším, co potřebujete k zahájení — od přidání dokumentů do indexu, tvorby boolean query java výrazů, až po optimalizaci výkonu vyhledávání pro produkční zatížení.
 
 ## Rychlé odpovědi
-- **Co je full text search java?** Technika, která indexuje surový text dokumentů, aby bylo možné okamžitě dotazovat jakékoli slovo nebo frázi.  
-- **Která knihovna podporuje více formátů?** GroupDocs.Search pro Java zpracovává PDF, DOCX, XLSX a mnoho dalších.  
-- **Jak přidám dokumenty do indexu?** Použijte metodu `index.add()` s cestou nebo vlastním `DocumentFilter`.  
-- **Mohu spouštět Boolean dotazy?** Ano – kombinujte termíny pomocí AND, OR, NOT pro přesné výsledky.  
-- **Jak zlepšit výkon?** Pravidelně aktualizujte index, povolte cachování a zapněte fonetické vyhledávání jen v případě potřeby.
+- **Co je příklad full text search?** Indexuje surový text každého dokumentu, takže můžete okamžitě dotazovat jakékoli slovo nebo frázi.  
+- **Která knihovna podporuje více formátů?** GroupDocs.Search pro Java zvládá PDF, DOCX, XLSX, PPTX, HTML, TXT a více než 50 dalších typů souborů.  
+- **Jak přidám dokumenty do indexu?** Zavolejte metodu `index.add()` s cestou ke složce nebo vlastním `DocumentFilter`.  
+- **Mohu spouštět Boolean dotazy?** Ano — kombinujte termíny pomocí AND, OR, NOT pro přesné výsledky.  
+- **Jak mohu zlepšit výkon?** Použijte inkrementální indexování, povolte cachování výsledků a zakážte fonetické vyhledávání, pokud není potřeba.
 
-## Co je Full Text Search Java?
-Full text search java je proces skenování celého textového obsahu dokumentů, uložení do efektivního indexu a následného umožnění rychlých dotazů na klíčová slova nebo fráze. Na rozdíl od jednoduchého vyhledávání podle názvu souboru hledá uvnitř souborů, což je ideální pro systémy správy dokumentů, podpůrné portály a jakýkoli scénář, kde uživatelé potřebují rychle najít informace.
+## Co je příklad full text search?
+Příklad full text search vám umožní prohledat celý textový obsah dokumentů, uložit jej do efektivního indexu a okamžitě získat odpovídající záznamy. Na rozdíl od vyhledávání pouze podle názvu souboru, prohledává vnitřní obsah PDF, Word dokumentů, tabulek a dalších podporovaných formátů, což je ideální pro systémy správy dokumentů, portály podpory a jakoukoli aplikaci, kde uživatelé potřebují rychle najít informace.
 
-## Proč použít GroupDocs.Search pro Java?
-- **Podpora více formátů** – Word, PDF, Excel, PowerPoint a další.  
-- **Škálovatelné indexování** – Zvládne miliony souborů s nízkou spotřebou paměti.  
-- **Pokročilý dotazovací jazyk** – Boolean, fuzzy a fonetické vyhledávání přímo z krabice.  
-- **Jednoduchá integrace** – Jednoduchá Maven závislost a přehledné API.
+## Proč používat GroupDocs.Search pro Javu?
+GroupDocs.Search pro Javu poskytuje podporu více formátů pro více než 50 typů souborů, včetně PDF, DOCX, XLSX, PPTX, HTML a prostého textu. Škáluje na miliony souborů při nízké spotřebě paměti díky ukládání indexu na disk. Knihovna obsahuje pokročilý dotazovací jazyk s vestavěnými Boolean, fuzzy a fonetickými vyhledáváními a integruje se s jedinou Maven závislostí, což vám umožní začít indexovat během několika minut.
 
-## Předpoklady
-Než se pustíme dál, ujistěte se, že máte:
+## Požadavky
+Předtím, než začnete, ujistěte se, že máte:
 
-- **Java 8+** (doporučujeme Java 11 nebo novější).  
+- **Java 11+** (Java 8 funguje, ale Java 11 nebo novější je doporučena pro lepší výkon).  
 - **Maven** pro správu závislostí.  
-- Licenci **GroupDocs.Search** (bezplatná zkušební verze stačí pro vývoj).  
+- Licenci **GroupDocs.Search** (klíč z bezplatné zkušební verze stačí pro vývoj).  
 
 ### Požadované knihovny a závislosti
-Přidejte repozitář a závislost do svého `pom.xml`:
+Přidejte repozitář a závislost do vašeho `pom.xml`:
 
 ```xml
 <repositories>
@@ -62,24 +108,26 @@ Přidejte repozitář a závislost do svého `pom.xml`:
 </dependencies>
 ```
 
+Pro podrobný návod viz [dokumentaci](https://docs.groupdocs.com/search/java/).
+
 ### Nastavení prostředí
-- Nainstalujte JDK (8 nebo novější).  
-- Použijte IDE jako IntelliJ IDEA nebo Eclipse.  
+- Nainstalujte JDK (8 nebo novější) a nakonfigurujte `JAVA_HOME`.  
+- Použijte IDE jako IntelliJ IDEA nebo Eclipse pro snadnější ladění.  
 
-### Znalostní předpoklady
-- Základy programování v Javě.  
-- Znalost souboru `pom.xml` v Maven.  
+### Předpoklady znalostí
+- Základní koncepty programování v Javě.  
+- Znalost struktury `pom.xml` v Maven.  
 
-## Nastavení GroupDocs.Search pro Java
-Knihovnu můžete přidat buď pomocí Maven (viz výše) nebo stažením JAR souboru přímo.
+## Nastavení GroupDocs.Search pro Javu
+Knihovnu můžete přidat přes Maven (ukázáno výše) nebo stáhnout JAR ručně.
 
-### Přímé stažení (pokud dáváte přednost manuálnímu nastavení)
+### Přímé stažení (pokud dáváte přednost ručnímu nastavení)
 Stáhněte si nejnovější balíček z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Kroky pro získání licence
-1. **Free Trial** – Zaregistrujte se a získejte dočasný klíč.  
-2. **Temporary License** – Požádejte o dlouhodobější klíč pro rozšířené testování.  
-3. **Purchase** – Upgradujte na plnou komerční licenci, až budete připraveni.
+### Kroky získání licence
+1. **Free trial** – Zaregistrujte se a získejte dočasný klíč.  
+2. **Temporary license** – Požádejte o delší klíč pro rozšířené testování.  
+3. **Purchase** – Upgradujte na plnou komerční licenci, až budete připraveni na produkci.
 
 ### Základní inicializace a nastavení
 Vytvořte složku pro index na disku a ověřte, že se knihovna načte správně:
@@ -97,20 +145,20 @@ public class SearchSetup {
 }
 ```
 
-> **Pro tip:** Umístěte adresář s indexem na rychlé SSD úložiště pro co nejlepší latenci dotazů.
+> **Tip:** Uchovávejte adresář indexu na rychlém SSD, aby se minimalizovala latence dotazů.
 
-## Průvodce implementací
+## Přidávání dokumentů do indexu
+**Proč je to důležité:** Bez indexovaného obsahu nejsou možné žádné výsledky vyhledávání. Níže ukazujeme, jak přidat celé složky nebo filtrovat konkrétní typy souborů.
 
-### Přidávání dokumentů do indexu
-**Proč je to důležité:** Bez indexovaného obsahu nebudou žádné výsledky vyhledávání. Níže ukazujeme, jak přidat celé složky nebo filtrovat konkrétní typy souborů.
+### Krok 1: vytvořit index
+Třída `Index` je prohledávatelný kontejner, který ukládá indexované dokumenty na disku.
 
-#### Krok 1: Vytvořte index
 ```java
 Index index = new Index("C:\\MyIndex");
 ```
 
-#### Krok 2: Přidejte dokumenty (add documents to index)
-Můžete indexovat vše ve složce nebo omezit na určité přípony:
+### Krok 2: přidat dokumenty (add documents to index)
+Můžete indexovat vše ve složce nebo omezit na určité přípony pomocí `DocumentFilter`.
 
 ```java
 index.add("C:\\Documents\\*.*"); // Adds all documents from the specified directory
@@ -124,106 +172,112 @@ index.add("C:\\Reports", new DocumentFilter() {
 ```
 
 > **Vysvětlení:**  
-> - `Index` představuje vyhledávatelnou databázi.  
-> - `add()` načte soubory; zástupný znak `*.*` zachytí všechny soubory, zatímco `DocumentFilter` vám umožní jemně doladit krok **add documents to index**.
+> - `Index` představuje prohledávatelnou databázi.  
+> - `add()` načítá soubory; zástupný znak `*.*` zachytí všechny soubory, zatímco `DocumentFilter` vám umožní jemně doladit krok **add documents to index**.
 
-### Provedení vyhledávání (search documents java)
+## Provedení vyhledávání (search documents java)
 Nyní, když index obsahuje data, můžete jej dotazovat.
 
-#### Krok 1: Vytvořte dotaz
+### Krok 1: vytvořit dotaz
 ```java
 String query = "GroupDocs";
 ```
 
-#### Krok 2: Proveďte vyhledávání
+### Krok 2: spustit vyhledávání
 ```java
 SearchResult result = index.search(query);
 System.out.println("Documents found: " + result.getDocumentCount());
 ```
 
 > **Vysvětlení:**  
-> - `search()` spustí dotaz proti indexu.  
-> - `getDocumentCount()` udává, kolik dokumentů odpovídá – užitečné pro rychlé ověření.
+> - `search()` spouští dotaz proti indexu.  
+> - `getDocumentCount()` vám říká, kolik dokumentů odpovídá — užitečné pro rychlé ověření.
 
-### Pokročilé techniky dotazování (boolean query java)
-Pro přesnou kontrolu kombinujte termíny pomocí Boolean logiky.
+## Pokročilé techniky dotazování (boolean query java)
+### Boolean dotazy
+Třída `BooleanQuery` vám umožní vytvářet složité výrazy pomocí operátorů AND, OR, NOT.
 
-#### Boolean dotazy
 ```java
 String booleanQuery = "GroupDocs AND Java";
 SearchResult booleanResult = index.search(booleanQuery);
 ```
 
-#### Fonetické vyhledávání (volitelné pro fuzzy shodu)
+### Fonetické vyhledávání (volitelné pro fuzzy shodu)
+Funkce `PhoneticSearch` umožňuje fonetické porovnání pro chybně napsané výrazy, ale přidává režii.
+
 ```java
 index.getSettings().setPhoneticSearch(true);
 ```
 
-> **Kdy použít:** Zapněte fonetické vyhledávání jen tehdy, když uživatelé často chybně zadávají slova; jinak jej nechte vypnuté, aby **optimalizoval výkon vyhledávání**.
+> **Kdy použít:** Povolte fonetické vyhledávání pouze pokud uživatelé často chybně píší výrazy; jinak jej nechte zakázané pro **optimalizaci výkonu vyhledávání**.
 
 ## Časté problémy a řešení
-| Problém | Proč se vyskytuje | Řešení |
-|---------|-------------------|--------|
+| Problém | Proč k tomu dochází | Řešení |
+|---------|----------------------|--------|
 | **Chybějící dokumenty** | Nesprávná cesta k souboru nebo nedostatečná oprávnění | Ověřte cestu a udělte přístup ke čtení |
-| **Pomalé dotazy** | Velký index bez cachování nebo zbytečné fonetické vyhledávání | Povolte cachování, vypněte fonetické vyhledávání a zvažte rozdělení indexu |
-| **Out‑of‑Memory chyby** | Velikost indexu překračuje haldu JVM | Zvyšte `-Xmx` nebo použijte inkrementální indexování |
+| **Pomalé dotazy** | Velký index bez cachování nebo zbytečné fonetické vyhledávání | Povolte cachování, zakažte fonetické vyhledávání a zvažte rozdělení indexu |
+| **Chyby Out‑of‑Memory** | Velikost indexu překračuje haldu JVM | Zvyšte `-Xmx` nebo použijte inkrementální indexování |
 
 ## Praktické aplikace
 GroupDocs.Search vyniká v reálných scénářích:
 
-1. **Content Management Systems** – Poskytuje okamžité full‑textové vyhledávání napříč články, PDF a multimédii.  
-2. **Customer Support Portals** – Agenti mohou během sekund najít relevantní manuály nebo směrnice.  
-3. **Enterprise Document Repositories** – Vyhledává napříč smlouvami, zprávami a dokumenty o shodě, aniž by bylo nutné data přesouvat do samostatné databáze.
+1. **Content management systems** – Poskytuje okamžité full‑text vyhledávání napříč články, PDF a mediálními soubory.  
+2. **Customer support portals** – Agenti mohou během sekund najít relevantní manuály nebo politiky.  
+3. **Enterprise document repositories** – Vyhledává napříč smlouvami, zprávami a dokumenty o shodě, aniž by bylo nutné přesouvat data do samostatné databáze.
 
 ## Úvahy o výkonu
 ### Optimalizace výkonu vyhledávání
-- **Inkrementální indexování:** Přidávejte nebo aktualizujte jen změněné soubory místo přestavování celého indexu.  
-- **Caching:** Ukládejte často používané výsledky dotazů do paměti.  
-- **Monitorování zdrojů:** Přizpůsobte haldu JVM (`-Xmx2g` atd.) podle velikosti indexu.
+- **Incremental indexing:** Přidávejte nebo aktualizujte pouze změněné soubory místo přestavby celého indexu.  
+- **Caching:** Uchovávejte často používané výsledky dotazů v paměti.  
+- **Resource monitoring:** Přizpůsobte haldu JVM (`-Xmx2g` nebo vyšší) podle velikosti indexu.
 
 ### Pokyny pro využití zdrojů
-- Uchovávejte složku s indexem na rychlém disku.  
-- Sledujte CPU a paměť během hromadného indexování; dávkové operace lze omezit, aby nedocházelo k špičkám.
+- Ukládejte složku indexu na rychlý SSD nebo NVMe disk.  
+- Sledujte CPU a paměť během hromadného indexování; omezujte dávkové operace, aby nedocházelo ke špičkám.
 
-### Nejlepší praktiky pro správu paměti v Javě
-- Používejte `try-with-resources` při práci se streamy.  
-- Po použití nastavit velké objekty na `null`, aby se usnadnila garbage collection.
+### Nejlepší postupy pro správu paměti v Javě
+- Používejte `try‑with‑resources` při práci s proudy.  
+- Nastavte velké objekty na null po použití, aby se usnadnila garbage collection.
 
 ## Závěr
-Nyní máte kompletní, produkčně připravenou **full text search java** implementaci pomocí GroupDocs.Search. Od nastavení knihovny, **přidávání dokumentů do indexu**, tvorby **boolean query java** výrazů až po **optimalizaci výkonu vyhledávání**, je vše pokryto.
+Nyní máte kompletní, připravený pro produkci **příklad full text search** v Javě pomocí GroupDocs.Search. Od nastavení knihovny, **přidání dokumentů do indexu**, tvorby **boolean query java** výrazů až po **optimalizaci výkonu vyhledávání**, je pokryt každý krok.
 
 ### Další kroky
-Prozkoumejte pokročilejší funkce, jako jsou vlastní analyzátory, slovníky synonym a integrace cloudového úložiště, v oficiální [dokumentaci](https://docs.groupdocs.com/search/java/).
+Prozkoumejte pokročilejší funkce jako vlastní analyzátory, slovníky synonym a integraci cloudového úložiště v oficiální [dokumentaci GroupDocs.Search](https://docs.groupdocs.com/search/java/).
 
 ---
 
 ## Často kladené otázky
 
 **Q:** Jaké formáty souborů GroupDocs.Search podporuje?  
-**A:** Zpracovává Word, PDF, Excel, PowerPoint, HTML, TXT a mnoho dalších.
+**A:** Více než 50 formátů, včetně PDF, DOCX, XLSX, PPTX, HTML, TXT a mnoha typů obrázků.
 
 **Q:** Jak mám zacházet s velkými datovými sadami?  
-**A:** Rozdělte je do více indexů, aktualizujte je inkrementálně a povolte cachování výsledků.
+**A:** Rozdělte je do více indexů, aktualizujte inkrementálně a povolte cachování výsledků, aby byla latence nízká.
 
 **Q:** Může GroupDocs.Search běžet v cloudových prostředích?  
-**A:** Ano, můžete nasměrovat složku s indexem na připojené cloudové úložiště (např. Azure Blob, AWS S3 přes ovladač souborového systému).
+**A:** Ano — můžete nasměrovat složku indexu na připojené cloudové úložiště (např. Azure Blob, AWS S3 přes ovladač souborového systému).
 
 **Q:** Jaké jsou výhody GroupDocs.Search oproti jiným knihovnám?  
-**A:** Podpora více formátů, vestavěné Boolean/fonetické dotazy a lehké Java API dělají z něj všestrannou volbu.
+**A:** Podpora více formátů, vestavěné Boolean/phonetic dotazy a lehké Java API, které zpracovává miliony dokumentů s nízkou spotřebou paměti.
 
 **Q:** Jak řešit problémy s výkonem?  
-**A:** Zkontrolujte nastavení indexu, vypněte nepotřebné funkce jako fonetické vyhledávání a monitorujte využití paměti/CPU JVM.
+**A:** Prohlédněte nastavení indexu, zakažte fonetické vyhledávání, pokud není potřeba, a sledujte využití paměti/CPU JVM během indexování a dotazování.
 
----
-
-**Poslední aktualizace:** 2026-02-11  
+**Poslední aktualizace:** 2026-08-15  
 **Testováno s:** GroupDocs.Search 25.4  
 **Autor:** GroupDocs  
 
 **Zdroje**  
-- **Dokumentace:** [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)  
-- **API Reference:** [API Reference Guide](https://reference.groupdocs.com/search/java)  
+- **Dokumentace:** [dokumentaci GroupDocs.Search](https://docs.groupdocs.com/search/java/)  
+- **API reference:** [API Reference Guide](https://reference.groupdocs.com/search/java)  
 - **Stáhnout:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
 - **GitHub:** [Source Code on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Podpora:** [Forum and Community Support](https://forum.groupdocs.com/c/search/10)  
 - **Licence:** [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+## Související tutoriály
+
+- [Jak implementovat java full text search: vytvořit adresář indexu s GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Jak přidat dokumenty do indexu s GroupDocs.Search pro Javu](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Zlepšit výkon dotazů s GroupDocs.Search Java: optimalizovat index a vyhledávání](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)

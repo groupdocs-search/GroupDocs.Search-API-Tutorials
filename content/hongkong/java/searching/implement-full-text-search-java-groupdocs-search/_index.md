@@ -1,46 +1,92 @@
 ---
-date: '2026-02-11'
-description: 學習如何使用 GroupDocs.Search 在 Java 中實作全文搜尋。本全文搜尋教學涵蓋將文件加入索引、布林查詢 Java，以及優化搜尋效能。
+date: '2026-08-15'
+description: 了解在 Java 中使用 GroupDocs.Search 的全文搜尋範例，涵蓋將文件加入索引、boolean query java 以及效能優化。
 keywords:
-- full-text search in Java
-- GroupDocs.Search for Java
-- implement full-text search
-title: 全文搜尋 Java：使用 GroupDocs.Search 實作 – 完整指南
+- full text search example
+- add documents to index
+- boolean query java
+lastmod: '2026-08-15'
+og_description: 探索在 Java 中使用 GroupDocs.Search 的全文搜尋範例。了解如何將文件加入索引、編寫 boolean query
+  java 語句，並提升搜尋效能。
+og_image_alt: Guide showing how to implement a full text search example in Java with
+  GroupDocs.Search
+og_title: 使用 GroupDocs.Search 的 Java 全文搜尋範例
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-15'
+  description: Learn a full text search example in Java with GroupDocs.Search, covering
+    adding documents to index, boolean query java, and performance optimization.
+  headline: Full text search example in Java using GroupDocs.Search
+  type: TechArticle
+- description: Learn a full text search example in Java with GroupDocs.Search, covering
+    adding documents to index, boolean query java, and performance optimization.
+  name: Full text search example in Java using GroupDocs.Search
+  steps:
+  - name: create an index
+    text: The `Index` class is the searchable container that stores indexed documents
+      on disk.
+  - name: add documents (add documents to index)
+    text: You can index everything in a folder or limit to certain extensions using
+      a `DocumentFilter`. > **Explanation:** > - `Index` represents the searchable
+      database. > - `add()` ingests files; the wildcard `*.*` grabs all files, while
+      `DocumentFilter` lets you fine‑tune the **add documents to index** ste
+  - name: execute the search
+    text: '> **Explanation:** > - `search()` runs the query against the index. > -
+      `getDocumentCount()` tells you how many documents matched—useful for quick sanity
+      checks.'
+  type: HowTo
+- questions:
+  - answer: It indexes the raw text of every document so you can query any word or
+      phrase instantly.
+    question: What is full text search example?
+  - answer: GroupDocs.Search for Java handles PDF, DOCX, XLSX, PPTX, HTML, TXT, and
+      over 50 other file types.
+    question: Which library supports multiple formats?
+  - answer: Call the `index.add()` method with a folder path or a custom `DocumentFilter`.
+    question: How do I add documents to index?
+  - answer: Yes—combine terms with AND, OR, NOT for precise results.
+    question: Can I run Boolean queries?
+  - answer: Use incremental indexing, enable result caching, and disable phonetic
+      search unless needed.
+    question: How do I improve performance?
+  type: FAQPage
+tags:
+- full text search
+- GroupDocs.Search
+- Java document indexing
+- search performance
+title: 使用 GroupDocs.Search 的 Java 全文搜尋範例
 type: docs
 url: /zh-hant/java/searching/implement-full-text-search-java-groupdocs-search/
 weight: 1
 ---
 
-# 使用 GroupDocs.Search 的 Java 全文搜尋
+# 在 Java 中使用 GroupDocs.Search 的全文搜尋範例
 
-## 介紹
-如果你正為在海量檔案中進行 **full text search java** 而苦惱，並不孤單。手動掃描 PDF、Word 文件或試算表很快就會成為瓶頸。幸運的是，GroupDocs.Search for Java 能讓你自動化此流程，為任何文件類型提供快速、精確的搜尋結果。在本教學中，我們將一步步說明從設定函式庫、將文件加入索引、編寫 boolean query java 語句，到 **optimizing search performance** 的全部要點。完成後，你將在應用程式中擁有一套穩定、可投入生產環境的 full text search java 實作。
+如果您需要一個能夠跨 PDF、Word 檔案、試算表等多種格式運作的 **全文搜尋範例**，您來對地方了。手動掃描數千份文件是巨大的瓶頸，但 GroupDocs.Search for Java 能以極快的速度自動化索引與查詢。在本教學中，我們將逐步說明從將文件加入索引、編寫 Boolean 查詢 Java 陳述式，到為生產工作負載優化搜尋效能的全部步驟。
 
-## 快速答覆
-- **What is full text search java?** 一種將文件原始文字建立索引的技術，讓你能即時查詢任意單字或片語。  
-- **Which library supports multiple formats?** GroupDocs.Search for Java 支援 PDF、DOCX、XLSX 等多種格式。  
-- **How do I add documents to index?** 使用 `index.add()` 方法，傳入路徑或自訂的 `DocumentFilter`。  
-- **Can I run Boolean queries?** 可以——結合 AND、OR、NOT 以取得精確結果。  
-- **How do I improve performance?** 定期更新索引、啟用快取，並在需要時才開啟語音相似搜尋。
+## 快速解答
+- **What is full text search example?** 它會索引每個文件的原始文字，讓您能即時查詢任何單字或片語。  
+- **Which library supports multiple formats?** GroupDocs.Search for Java 支援 PDF、DOCX、XLSX、PPTX、HTML、TXT 以及超過 50 種其他檔案類型。  
+- **How do I add documents to index?** 呼叫 `index.add()` 方法，傳入資料夾路徑或自訂的 `DocumentFilter`。  
+- **Can I run Boolean queries?** 可以——使用 AND、OR、NOT 結合詞彙以取得精確結果。  
+- **How do I improve performance?** 使用增量索引、啟用結果快取，並在不需要時停用語音搜尋。
 
-## 什麼是 Full Text Search Java？
-Full text search java 是掃描文件全部文字內容、將其儲存於高效索引，然後允許快速關鍵字或片語查詢的過程。與僅搜尋檔名不同，它會深入檔案內部，非常適合文件管理系統、支援入口網站，以及任何需要快速定位資訊的情境。
+## 什麼是全文搜尋範例？
+全文搜尋範例讓您掃描文件的全部文字內容，將其儲存在高效的索引中，並即時取得符合的記錄。不同於僅搜尋檔名的方式，它會深入 PDF、Word 文件、試算表及其他支援的格式，因而非常適合文件管理系統、支援入口網站，以及任何需要快速定位資訊的應用程式。
 
 ## 為何使用 GroupDocs.Search for Java？
-- **Multi‑format support** – 支援 Word、PDF、Excel、PowerPoint 等多種格式。  
-- **Scalable indexing** – 能以低記憶體佔用處理數百萬檔案。  
-- **Advanced query language** – 內建 Boolean、fuzzy、phonetic 搜尋。  
-- **Easy integration** – 只需簡單的 Maven 依賴與直觀 API。
+GroupDocs.Search for Java 提供超過 50 種檔案類型的多格式支援，包括 PDF、DOCX、XLSX、PPTX、HTML 以及純文字。它可擴展至數百萬檔案，同時透過將索引儲存於磁碟上以降低記憶體使用量。此函式庫內建進階查詢語言，支援 Boolean、模糊與語音搜尋，且只需一個 Maven 依賴，即可在數分鐘內開始索引。
 
 ## 前置條件
-在開始之前，請確保你已具備：
+在開始之前，請確保您已具備以下條件：
 
-- **Java 8+**（建議使用 Java 11 或更新版本）。  
-- **Maven** 以管理相依性。  
-- 一組 **GroupDocs.Search** 授權（開發階段可使用免費試用版）。
+- **Java 11+**（Java 8 亦可使用，但建議使用 Java 11 或更新版本以獲得更佳效能）。  
+- **Maven** 用於相依性管理。  
+- **GroupDocs.Search** 授權（免費試用金鑰足以用於開發）。
 
 ### 必要的函式庫與相依性
-在 `pom.xml` 中加入以下儲存庫與相依性：
+將以下儲存庫與相依性加入您的 `pom.xml`：
 
 ```xml
 <repositories>
@@ -60,27 +106,29 @@ Full text search java 是掃描文件全部文字內容、將其儲存於高效�
 </dependencies>
 ```
 
-### 環境設定
-- 安裝 JDK（8 版或更新）。  
-- 使用 IntelliJ IDEA、Eclipse 等 IDE。
+For detailed usage see the [documentation](https://docs.groupdocs.com/search/java/).
 
-### 知識前置
-- 基本的 Java 程式設計。  
-- 熟悉 Maven 的 `pom.xml` 結構。
+### 環境設定
+- 安裝 JDK（8 或更新版本）並設定 `JAVA_HOME`。  
+- 使用如 IntelliJ IDEA 或 Eclipse 等 IDE，以便更輕鬆除錯。  
+
+### 知識前提
+- 基本的 Java 程式設計概念。  
+- 熟悉 Maven 的 `pom.xml` 結構。  
 
 ## 設定 GroupDocs.Search for Java
-你可以透過上述的 Maven 方式或直接下載 JAR 檔案來引入函式庫。
+您可以透過 Maven（如上所示）引入函式庫，或手動下載 JAR 檔案。
 
-### 手動下載（若偏好自行設定）
-前往 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) 取得最新套件。
+### 直接下載（若您偏好手動設定）
+從 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) 取得最新套件。
 
 ### 取得授權步驟
-1. **Free Trial** – 註冊並取得臨時金鑰。  
-2. **Temporary License** – 申請較長期的測試金鑰。  
-3. **Purchase** – 準備好後升級為正式商業授權。
+1. **Free trial** – 註冊並取得臨時金鑰。  
+2. **Temporary license** – 申請較長期的金鑰以進行延伸測試。  
+3. **Purchase** – 當您準備好投入生產時，升級為完整商業授權。
 
 ### 基本初始化與設定
-在磁碟上建立索引資料夾，並驗證函式庫能正確載入：
+在磁碟上建立索引資料夾，並驗證函式庫正確載入：
 
 ```java
 import com.groupdocs.search.Index;
@@ -95,20 +143,20 @@ public class SearchSetup {
 }
 ```
 
-> **Pro tip:** 為了獲得最佳查詢延遲，請將索引目錄放在高速 SSD 上。
+> **Pro tip:** 將索引目錄放在快速 SSD 上，以減少查詢延遲。
 
-## 實作指南
+## 將文件加入索引
+**Why this matters:** 沒有已索引的內容就無法產生搜尋結果。以下示範如何加入整個資料夾或篩選特定檔案類型。
 
-### 將文件加入索引
-**為何重要：** 沒有索引內容就不會有搜尋結果。以下示範如何加入整個資料夾或過濾特定檔案類型。
+### 步驟 1：建立索引
+`Index` 類別是可搜尋的容器，負責將已索引的文件儲存在磁碟上。
 
-#### 步驟 1：建立索引
 ```java
 Index index = new Index("C:\\MyIndex");
 ```
 
-#### 步驟 2：加入文件（add documents to index）
-你可以一次索引資料夾內的全部檔案，或只限定特定副檔名：
+### 步驟 2：加入文件（add documents to index）
+您可以索引資料夾中的所有檔案，或使用 `DocumentFilter` 限制特定副檔名。
 
 ```java
 index.add("C:\\Documents\\*.*"); // Adds all documents from the specified directory
@@ -121,107 +169,116 @@ index.add("C:\\Reports", new DocumentFilter() {
 });
 ```
 
-> **說明：**  
+> **說明:**  
 > - `Index` 代表可搜尋的資料庫。  
-> - `add()` 會將檔案寫入索引；通配符 `*.*` 會抓取所有檔案，而 `DocumentFilter` 則可細部調整 **add documents to index** 的行為。
+> - `add()` 讀入檔案；萬用字元 `*.*` 會抓取所有檔案，而 `DocumentFilter` 讓您微調 **add documents to index** 步驟。
 
-### 執行搜尋（search documents java）
-索引完成後，即可對其發出查詢。
+## 執行搜尋（search documents java）
+現在索引已包含資料，您可以對其執行查詢。
 
-#### 步驟 1：建立查詢
+### 步驟 1：建立查詢
 ```java
 String query = "GroupDocs";
 ```
 
-#### 步驟 2：執行搜尋
+### 步驟 2：執行搜尋
 ```java
 SearchResult result = index.search(query);
 System.out.println("Documents found: " + result.getDocumentCount());
 ```
 
-> **說明：**  
-> - `search()` 會對索引執行查詢。  
-> - `getDocumentCount()` 回傳符合條件的文件數量，適合快速驗證結果。
+> **說明:**  
+> - `search()` 在索引上執行查詢。  
+> - `getDocumentCount()` 告訴您匹配的文件數量——有助於快速驗證。
 
-### 進階查詢技巧（boolean query java）
-若需精確控制，可使用 Boolean 邏輯組合關鍵字。
+## 進階查詢技巧（boolean query java）
+若需精確控制，可使用 Boolean 邏輯結合詞彙。
 
-#### Boolean Queries
+### Boolean 查詢
+`BooleanQuery` 類別讓您使用 AND、OR、NOT 運算子建立複雜的表達式。
+
 ```java
 String booleanQuery = "GroupDocs AND Java";
 SearchResult booleanResult = index.search(booleanQuery);
 ```
 
-#### 語音相似搜尋（可選的模糊比對）
+### 語音搜尋（可選的模糊匹配）
+`PhoneticSearch` 功能可對拼寫錯誤的詞彙進行語音匹配，但會增加額外負擔。
+
 ```java
 index.getSettings().setPhoneticSearch(true);
 ```
 
-> **使用時機：** 只有在使用者常常拼寫錯誤時才開啟語音相似搜尋；否則請保持關閉，以 **optimize search performance**。
+> **何時使用:** 只有在使用者常常拼寫錯誤時才啟用語音搜尋；否則，請停用以 **optimize search performance**。
 
 ## 常見問題與解決方案
-| Problem | Why it Happens | Fix |
-|---------|----------------|-----|
-| **Missing Documents** | Incorrect file path or insufficient permissions | Verify the path and grant read access |
-| **Slow Queries** | Large index without caching or unnecessary phonetic search | Enable caching, disable phonetic search, and consider splitting the index |
-| **Out‑of‑Memory Errors** | Index size exceeds JVM heap | Increase `-Xmx` or use incremental indexing |
+
+| 問題 | 發生原因 | 解決方式 |
+|------|----------|----------|
+| **缺少文件** | 檔案路徑不正確或權限不足 | 確認路徑並授予讀取權限 |
+| **查詢緩慢** | 索引過大且未使用快取，或不必要的語音搜尋 | 啟用快取，停用語音搜尋，並考慮將索引拆分 |
+| **記憶體不足錯誤** | 索引大小超過 JVM 堆積記憶體 | 增加 `-Xmx` 設定或使用增量索引 |
 
 ## 實務應用
-GroupDocs.Search 在以下真實情境中表現卓越：
+GroupDocs.Search 在實際情境中表現優異：
 
-1. **Content Management Systems** – 為文章、PDF、媒體檔案提供即時全文搜尋。  
-2. **Customer Support Portals** – 讓客服人員在數秒內找到相關手冊或政策文件。  
-3. **Enterprise Document Repositories** – 在合約、報告、合規文件中搜尋，無需將資料搬移至其他資料庫。
+1. **Content management systems** – 提供跨文章、PDF 與媒體資產的即時全文搜尋。  
+2. **Customer support portals** – 客服人員可在數秒內找到相關手冊或政策。  
+3. **Enterprise document repositories** – 在合約、報告與合規文件中搜尋，無需將資料移至其他資料庫。  
 
 ## 效能考量
-### 最佳化搜尋效能
-- **Incremental Indexing:** 只為變更的檔案新增或更新索引，避免整體重建。  
-- **Caching:** 將常用查詢結果保留於記憶體。  
-- **Resource Monitoring:** 根據索引大小調整 JVM heap（如 `-Xmx2g` 等）。
+### 優化搜尋效能
+- **Incremental indexing:** 僅新增或更新變更的檔案，而非重新建構整個索引。  
+- **Caching:** 將常用的查詢結果保留在記憶體中。  
+- **Resource monitoring:** 根據索引大小調整 JVM 堆積 (`-Xmx2g` 或更高)。  
 
 ### 資源使用指引
-- 將索引資料夾放在快速磁碟上。  
-- 監控批次索引時的 CPU 與記憶體，必要時限制批次速率以避免資源尖峰。
+- 將索引資料夾儲存在快速 SSD 或 NVMe 磁碟上。  
+- 在大量索引期間監控 CPU 與記憶體；限制批次操作以避免峰值。  
 
 ### Java 記憶體管理最佳實踐
-- 使用 `try-with-resources` 處理串流。  
-- 使用完大型物件後設為 `null`，協助垃圾回收。
+- 使用 `try‑with‑resources` 處理串流。  
+- 使用後將大型物件設為 null，以協助垃圾回收。  
 
 ## 結論
-現在你已掌握使用 GroupDocs.Search 完成 **full text search java** 的完整、可投入生產環境的實作流程。從函式庫設定、**adding documents to index**、編寫 **boolean query java** 語句，到 **optimizing search performance**，每一步皆已說明。
+您現在已擁有一個完整、可投入生產的 Java **全文搜尋範例**，使用 GroupDocs.Search。從設定函式庫、**將文件加入索引**、編寫 **boolean query java** 陳述式，到 **優化搜尋效能**，每個步驟皆已說明。  
 
-### 後續步驟
-探索更深入的功能，如自訂分析器、同義詞字典與雲端儲存整合，請參考官方 [documentation](https://docs.groupdocs.com/search/java/)。
+### 往後步驟
+透過查閱官方的 [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/) 以探索更深入的功能，如自訂分析器、同義詞字典與雲端儲存整合。
 
 ---
 
 ## 常見問答
 
 **Q:** GroupDocs.Search 支援哪些檔案格式？  
-**A:** 支援 Word、PDF、Excel、PowerPoint、HTML、TXT 等多種格式。
+**A:** 超過 50 種格式，包括 PDF、DOCX、XLSX、PPTX、HTML、TXT 以及多種影像類型。
 
-**Q:** 大量資料集該如何處理？  
-**A:** 可將資料分割成多個索引、採用增量更新，並啟用結果快取。
+**Q:** 我該如何處理大型資料集？  
+**A:** 將其分割為多個索引，採用增量更新，並啟用結果快取以降低延遲。
 
 **Q:** GroupDocs.Search 能在雲端環境執行嗎？  
-**A:** 能，將索引資料夾指向已掛載的雲端儲存（如 Azure Blob、AWS S3 透過檔案系統驅動）。
+**A:** 可以——您可以將索引資料夾指向已掛載的雲端儲存（例如 Azure Blob、透過檔案系統驅動的 AWS S3）。
 
 **Q:** 與其他函式庫相比，GroupDocs.Search 有何優勢？  
-**A:** 多格式支援、內建 Boolean/phonetic 查詢、輕量的 Java API，使其成為多用途選擇。
+**A:** 多格式支援、內建 Boolean/語音查詢，以及輕量的 Java API，能以低記憶體佔用處理數百萬文件。
 
-**Q:** 如何排除效能問題？  
-**A:** 檢查索引設定、關閉不必要的功能（如 phonetic search），並監控 JVM 記憶體與 CPU 使用情形。
+**Q:** 我該如何排除效能問題？  
+**A:** 檢查索引設定，若不需要則停用語音搜尋，並在索引與查詢期間監控 JVM 記憶體/CPU 使用情況。
 
----
-
-**最後更新：** 2026-02-11  
-**測試版本：** GroupDocs.Search 25.4  
+**最後更新：** 2026-08-15  
+**測試環境：** GroupDocs.Search 25.4  
 **作者：** GroupDocs  
 
 **資源**  
 - **Documentation:** [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)  
-- **API Reference:** [API Reference Guide](https://reference.groupdocs.com/search/java)  
+- **API reference:** [API Reference Guide](https://reference.groupdocs.com/search/java)  
 - **Download:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
 - **GitHub:** [Source Code on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - **Support:** [Forum and Community Support](https://forum.groupdocs.com/c/search/10)  
 - **License:** [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+## 相關教學
+
+- [如何實作 Java 全文搜尋：使用 GroupDocs.Search 建立索引目錄](/search/java/indexing/groupdocs-search-java-create-index/)  
+- [如何使用 GroupDocs.Search for Java 將文件加入索引](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)  
+- [使用 GroupDocs.Search Java 改善查詢效能：優化索引與搜尋](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)

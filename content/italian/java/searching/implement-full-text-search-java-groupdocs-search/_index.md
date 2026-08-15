@@ -1,47 +1,94 @@
 ---
-date: '2026-02-11'
-description: Scopri come implementare la ricerca full‑text in Java usando GroupDocs.Search.
-  Questo tutorial sulla ricerca full‑text copre l'aggiunta di documenti all'indice,
-  le query booleane in Java e l'ottimizzazione delle prestazioni di ricerca.
+date: '2026-08-15'
+description: Scopri un esempio di ricerca full-text in Java con GroupDocs.Search,
+  che copre l'aggiunta di documenti all'indice, le query booleane in Java e l'ottimizzazione
+  delle prestazioni.
 keywords:
-- full-text search in Java
-- GroupDocs.Search for Java
-- implement full-text search
-title: 'Ricerca Full Text Java: Implementazione con GroupDocs.Search – Guida completa'
+- full text search example
+- add documents to index
+- boolean query java
+lastmod: '2026-08-15'
+og_description: Esplora un esempio di ricerca full-text in Java con GroupDocs.Search.
+  Scopri come aggiungere documenti all'indice, creare istruzioni di query booleane
+  in Java e migliorare le prestazioni della ricerca.
+og_image_alt: Guide showing how to implement a full text search example in Java with
+  GroupDocs.Search
+og_title: Esempio di ricerca full-text in Java usando GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-15'
+  description: Learn a full text search example in Java with GroupDocs.Search, covering
+    adding documents to index, boolean query java, and performance optimization.
+  headline: Full text search example in Java using GroupDocs.Search
+  type: TechArticle
+- description: Learn a full text search example in Java with GroupDocs.Search, covering
+    adding documents to index, boolean query java, and performance optimization.
+  name: Full text search example in Java using GroupDocs.Search
+  steps:
+  - name: create an index
+    text: The `Index` class is the searchable container that stores indexed documents
+      on disk.
+  - name: add documents (add documents to index)
+    text: You can index everything in a folder or limit to certain extensions using
+      a `DocumentFilter`. > **Explanation:** > - `Index` represents the searchable
+      database. > - `add()` ingests files; the wildcard `*.*` grabs all files, while
+      `DocumentFilter` lets you fine‑tune the **add documents to index** ste
+  - name: execute the search
+    text: '> **Explanation:** > - `search()` runs the query against the index. > -
+      `getDocumentCount()` tells you how many documents matched—useful for quick sanity
+      checks.'
+  type: HowTo
+- questions:
+  - answer: It indexes the raw text of every document so you can query any word or
+      phrase instantly.
+    question: What is full text search example?
+  - answer: GroupDocs.Search for Java handles PDF, DOCX, XLSX, PPTX, HTML, TXT, and
+      over 50 other file types.
+    question: Which library supports multiple formats?
+  - answer: Call the `index.add()` method with a folder path or a custom `DocumentFilter`.
+    question: How do I add documents to index?
+  - answer: Yes—combine terms with AND, OR, NOT for precise results.
+    question: Can I run Boolean queries?
+  - answer: Use incremental indexing, enable result caching, and disable phonetic
+      search unless needed.
+    question: How do I improve performance?
+  type: FAQPage
+tags:
+- full text search
+- GroupDocs.Search
+- Java document indexing
+- search performance
+title: Esempio di ricerca full-text in Java usando GroupDocs.Search
 type: docs
 url: /it/java/searching/implement-full-text-search-java-groupdocs-search/
 weight: 1
 ---
 
-# Ricerca Full Text Java con GroupDocs.Search
+# Esempio di ricerca full-text in Java con GroupDocs.Search
 
-## Introduzione
-Se stai lottando con **full text search java** su un numero incalcolabile di file, non sei solo. Scansionare manualmente PDF, documenti Word o fogli di calcolo diventa rapidamente un collo di bottiglia. Fortunatamente, GroupDocs.Search per Java ti consente di automatizzare questo processo, offrendo risultati rapidi e accurati per qualsiasi tipo di documento. In questo tutorial vedremo tutto ciò che ti serve per partire—dalla configurazione della libreria all'aggiunta di documenti all'indice, alla creazione di istruzioni boolean query java e **ottimizzazione delle prestazioni di ricerca**. Alla fine avrai un'implementazione solida e pronta per la produzione di full text search java nella tua applicazione.
+Se hai bisogno di un **full text search example** che funzioni su PDF, file Word, fogli di calcolo e altro, sei nel posto giusto. Scansionare manualmente migliaia di documenti è un collo di bottiglia enorme, ma GroupDocs.Search per Java automatizza l'indicizzazione e le query con una velocità fulminea. In questo tutorial vedremo tutto ciò che serve per partire— dall'aggiunta di documenti all'indice, alla creazione di istruzioni boolean query java, fino all'ottimizzazione delle prestazioni di ricerca per carichi di lavoro di produzione.
 
-## Risposte Rapide
-- **Cos’è full text search java?** Una tecnica che indicizza il testo grezzo dei documenti così da poter interrogare qualsiasi parola o frase istantaneamente.  
-- **Quale libreria supporta più formati?** GroupDocs.Search per Java gestisce PDF, DOCX, XLSX e molti altri.  
-- **Come aggiungo documenti all’indice?** Usa il metodo `index.add()` con un percorso o un `DocumentFilter` personalizzato.  
-- **Posso eseguire query Boolean?** Sì—combina termini con AND, OR, NOT per risultati precisi.  
-- **Come miglioro le prestazioni?** Aggiorna regolarmente l’indice, abilita il caching e attiva la ricerca fonetica solo quando necessario.
+## Risposte rapide
+- **What is full text search example?** Indicizza il testo grezzo di ogni documento così puoi interrogare qualsiasi parola o frase istantaneamente.  
+- **Which library supports multiple formats?** GroupDocs.Search for Java gestisce PDF, DOCX, XLSX, PPTX, HTML, TXT e oltre 50 altri tipi di file.  
+- **How do I add documents to index?** Chiama il metodo `index.add()` con il percorso di una cartella o un `DocumentFilter` personalizzato.  
+- **Can I run Boolean queries?** Sì—combina i termini con AND, OR, NOT per risultati precisi.  
+- **How do I improve performance?** Usa l'indicizzazione incrementale, abilita il caching dei risultati e disabilita la ricerca fonetica se non necessaria.
 
-## Cos’è Full Text Search Java?
-Full text search java è il processo di scansione dell’intero contenuto testuale dei documenti, la memorizzazione in un indice efficiente e la successiva possibilità di eseguire query rapide su parole chiave o frasi. A differenza delle semplici ricerche per nome file, guarda all’interno dei file, rendendola ideale per sistemi di gestione documentale, portali di supporto e qualsiasi scenario in cui gli utenti devono trovare informazioni rapidamente.
+## Cos'è un full text search example?
+Un full text search example ti consente di analizzare l'intero contenuto testuale dei documenti, archiviarlo in un indice efficiente e recuperare i record corrispondenti istantaneamente. A differenza delle ricerche basate solo sul nome del file, esamina il contenuto di PDF, documenti Word, fogli di calcolo e altri formati supportati, rendendolo ideale per sistemi di gestione documentale, portali di supporto e qualsiasi applicazione in cui gli utenti devono trovare rapidamente le informazioni.
 
 ## Perché usare GroupDocs.Search per Java?
-- **Supporto multi‑formato** – Word, PDF, Excel, PowerPoint e altro.  
-- **Indicizzazione scalabile** – Gestisce milioni di file con un basso consumo di memoria.  
-- **Linguaggio di query avanzato** – Ricerche Boolean, fuzzy e fonetiche pronte all’uso.  
-- **Integrazione semplice** – Dipendenza Maven facile da aggiungere e API intuitiva.
+GroupDocs.Search per Java offre supporto multi‑formato per oltre 50 tipi di file, tra cui PDF, DOCX, XLSX, PPTX, HTML e testo semplice. Scala a milioni di file mantenendo un basso utilizzo di memoria grazie alla memorizzazione dell'indice su disco. La libreria include un linguaggio di query avanzato con ricerche Boolean, fuzzy e fonetiche integrate, e si integra con una singola dipendenza Maven, consentendoti di iniziare l'indicizzazione in pochi minuti.
 
 ## Prerequisiti
 Prima di iniziare, assicurati di avere:
 
-- **Java 8+** (si consiglia Java 11 o versioni successive).  
+- **Java 11+** (Java 8 funziona, ma Java 11 o versioni successive sono consigliate per migliori prestazioni).  
 - **Maven** per la gestione delle dipendenze.  
-- Una licenza **GroupDocs.Search** (la versione di prova gratuita è sufficiente per lo sviluppo).  
+- Una licenza **GroupDocs.Search** (una chiave di prova gratuita è sufficiente per lo sviluppo).  
 
-### Librerie e Dipendenze Necessarie
+### Librerie e dipendenze richieste
 Aggiungi il repository e la dipendenza al tuo `pom.xml`:
 
 ```xml
@@ -62,27 +109,29 @@ Aggiungi il repository e la dipendenza al tuo `pom.xml`:
 </dependencies>
 ```
 
-### Configurazione dell’Ambiente
-- Installa JDK (8 o versioni successive).  
-- Usa un IDE come IntelliJ IDEA o Eclipse.  
+Per un utilizzo dettagliato vedi la [documentazione](https://docs.groupdocs.com/search/java/).
 
-### Conoscenze Preliminari
-- Programmazione Java di base.  
-- Familiarità con il `pom.xml` di Maven.  
+### Configurazione dell'ambiente
+- Installa il JDK (8 o versioni successive) e configura `JAVA_HOME`.  
+- Usa un IDE come IntelliJ IDEA o Eclipse per un debug più semplice.  
+
+### Prerequisiti di conoscenza
+- Concetti di programmazione Java di base.  
+- Familiarità con la struttura `pom.xml` di Maven.  
 
 ## Configurazione di GroupDocs.Search per Java
-Puoi includere la libreria tramite Maven (come mostrato sopra) oppure scaricando direttamente il JAR.
+Puoi includere la libreria tramite Maven (come mostrato sopra) o scaricare il JAR manualmente.
 
-### Download Diretto (se preferisci una configurazione manuale)
-Scarica il pacchetto più recente da [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### Download diretto (se preferisci la configurazione manuale)
+Scarica l'ultimo pacchetto da [GroupDocs.Search per Java releases](https://releases.groupdocs.com/search/java/).
 
-### Passaggi per Ottenere la Licenza
-1. **Free Trial** – Registrati e ricevi una chiave temporanea.  
-2. **Licenza Temporanea** – Richiedi una chiave a più lungo termine per test estesi.  
-3. **Acquisto** – Passa a una licenza commerciale completa quando sei pronto.
+### Passaggi per l'acquisizione della licenza
+1. **Free trial** – Registrati e ricevi una chiave temporanea.  
+2. **Temporary license** – Richiedi una chiave a più lungo termine per test estesi.  
+3. **Purchase** – Aggiorna a una licenza commerciale completa quando sei pronto per la produzione.
 
-### Inizializzazione e Configurazione di Base
-Crea una cartella indice sul disco e verifica che la libreria venga caricata correttamente:
+### Inizializzazione e configurazione di base
+Crea una cartella indice su disco e verifica che la libreria si carichi correttamente:
 
 ```java
 import com.groupdocs.search.Index;
@@ -97,20 +146,20 @@ public class SearchSetup {
 }
 ```
 
-> **Suggerimento professionale:** Mantieni la directory dell’indice su un SSD veloce per ottenere la latenza di query migliore.
+> **Consiglio professionale:** Mantieni la directory dell'indice su un SSD veloce per ridurre al minimo la latenza delle query.
 
-## Guida all’Implementazione
+## Aggiunta di documenti all'indice
+**Perché è importante:** Nessun risultato di ricerca è possibile senza contenuto indicizzato. Di seguito mostriamo come aggiungere cartelle intere o filtrare tipi di file specifici.
 
-### Aggiunta di Documenti all’Indice
-**Perché è importante:** Nessun risultato di ricerca senza contenuto indicizzato. Di seguito mostriamo come aggiungere cartelle intere o filtrare tipi di file specifici.
+### Passo 1: crea un indice
+La classe `Index` è il contenitore ricercabile che memorizza i documenti indicizzati su disco.
 
-#### Passo 1: Creare un Indice
 ```java
 Index index = new Index("C:\\MyIndex");
 ```
 
-#### Passo 2: Aggiungere Documenti (add documents to index)
-Puoi indicizzare tutto il contenuto di una cartella o limitarti a certe estensioni:
+### Passo 2: aggiungi documenti (add documents to index)
+Puoi indicizzare tutto in una cartella o limitare a certe estensioni usando un `DocumentFilter`.
 
 ```java
 index.add("C:\\Documents\\*.*"); // Adds all documents from the specified directory
@@ -125,105 +174,116 @@ index.add("C:\\Reports", new DocumentFilter() {
 
 > **Spiegazione:**  
 > - `Index` rappresenta il database ricercabile.  
-> - `add()` importa i file; il wildcard `*.*` prende tutti i file, mentre `DocumentFilter` ti permette di affinare il passaggio **add documents to index**.
+> - `add()` importa i file; il wildcard `*.*` prende tutti i file, mentre `DocumentFilter` ti consente di affinare il passo **add documents to index**.
 
-### Eseguire una Ricerca (search documents java)
-Ora che l’indice contiene dati, puoi interrogarlo.
+## Esecuzione di una ricerca (search documents java)
+Ora che l'indice contiene dati, puoi interrogarlo.
 
-#### Passo 1: Creare una Query
+### Passo 1: crea una query
 ```java
 String query = "GroupDocs";
 ```
 
-#### Passo 2: Eseguire la Ricerca
+### Passo 2: esegui la ricerca
 ```java
 SearchResult result = index.search(query);
 System.out.println("Documents found: " + result.getDocumentCount());
 ```
 
 > **Spiegazione:**  
-> - `search()` esegue la query sull’indice.  
+> - `search()` esegue la query sull'indice.  
 > - `getDocumentCount()` indica quanti documenti hanno corrisposto—utile per rapidi controlli di coerenza.
 
-### Tecniche Avanzate di Query (boolean query java)
-Per un controllo preciso, combina i termini con logica Boolean.
+## Tecniche di query avanzate (boolean query java)
+Per un controllo preciso, combina i termini con la logica Boolean.
 
-#### Query Boolean
+### Query Boolean
+La classe `BooleanQuery` ti permette di costruire espressioni complesse usando gli operatori AND, OR, NOT.
+
 ```java
 String booleanQuery = "GroupDocs AND Java";
 SearchResult booleanResult = index.search(booleanQuery);
 ```
 
-#### Ricerche Fonetiche (opzionali per corrispondenza fuzzy)
+### Ricerche fonetiche (opzionale per corrispondenza fuzzy)
+La funzionalità `PhoneticSearch` abilita la corrispondenza fonetica per termini errati, ma aggiunge overhead.
+
 ```java
 index.getSettings().setPhoneticSearch(true);
 ```
 
-> **Quando usarle:** Attiva la ricerca fonetica solo se gli utenti digitano spesso termini in modo errato; altrimenti, mantienila disattivata per **ottimizzare le prestazioni di ricerca**.
+> **Quando usarla:** Abilita la ricerca fonetica solo se gli utenti spesso digitano termini in modo errato; altrimenti, tienila disabilitata per **optimize search performance**.
 
-## Problemi Comuni e Soluzioni
-| Problema | Perché accade | Soluzione |
+## Problemi comuni e soluzioni
+
+| Problem | Why it happens | Fix |
 |---------|----------------|-----|
-| **Documenti Mancanti** | Percorso file errato o permessi insufficienti | Verifica il percorso e concedi i permessi di lettura |
-| **Query Lente** | Indice grande senza caching o ricerca fonetica non necessaria | Abilita il caching, disattiva la ricerca fonetica e valuta di suddividere l’indice |
-| **Errori Out‑of‑Memory** | Dimensione dell’indice supera l’heap JVM | Aumenta `-Xmx` o usa indicizzazione incrementale |
+| **Missing documents** | Percorso del file errato o permessi insufficienti | Verifica il percorso e concedi l'accesso in lettura |
+| **Slow queries** | Indice grande senza caching o ricerca fonetica non necessaria | Abilita il caching, disabilita la ricerca fonetica e considera di dividere l'indice |
+| **Out‑of‑Memory errors** | La dimensione dell'indice supera l'heap JVM | Aumenta `-Xmx` o usa l'indicizzazione incrementale |
 
-## Applicazioni Pratiche
-GroupDocs.Search brilla in scenari reali:
+## Applicazioni pratiche
+GroupDocs.Search si distingue in scenari reali:
 
-1. **Sistemi di Gestione dei Contenuti** – Fornisce ricerca full‑text istantanea su articoli, PDF e media.  
-2. **Portali di Supporto Clienti** – Gli operatori possono trovare manuali o policy pertinenti in pochi secondi.  
-3. **Repository Documentali Aziendali** – Ricerca su contratti, report e documenti di conformità senza spostare i dati in un database separato.
+1. **Content management systems** – Fornisce ricerca full‑text istantanea su articoli, PDF e risorse multimediali.  
+2. **Customer support portals** – Gli agenti possono trovare manuali o politiche pertinenti in pochi secondi.  
+3. **Enterprise document repositories** – Ricerca tra contratti, report e documenti di conformità senza spostare i dati in un database separato.
 
-## Considerazioni sulle Prestazioni
-### Ottimizzazione delle Prestazioni di Ricerca
-- **Indicizzazione Incrementale:** Aggiungi o aggiorna solo i file modificati invece di ricostruire l’intero indice.  
-- **Caching:** Mantieni in memoria i risultati delle query più frequenti.  
-- **Monitoraggio delle Risorse:** Regola l’heap JVM (`-Xmx2g` ecc.) in base alle dimensioni dell’indice.
+## Considerazioni sulle prestazioni
+### Ottimizzazione delle prestazioni di ricerca
+- **Incremental indexing:** Aggiungi o aggiorna solo i file modificati invece di ricostruire l'intero indice.  
+- **Caching:** Mantieni i risultati delle query più usate in memoria.  
+- **Resource monitoring:** Regola l'heap JVM (`-Xmx2g` o superiore) in base alla dimensione dell'indice.
 
-### Linee Guida sull’Uso delle Risorse
-- Mantieni la cartella dell’indice su un disco veloce.  
-- Monitora CPU e memoria durante l’indicizzazione di massa; le operazioni batch possono essere limitate per evitare picchi.
+### Linee guida sull'uso delle risorse
+- Conserva la cartella dell'indice su un SSD o NVMe veloce.  
+- Monitora CPU e memoria durante l'indicizzazione di massa; regola le operazioni batch per evitare picchi.
 
-### Best Practice per la Gestione della Memoria in Java
-- Usa `try-with-resources` quando lavori con stream.  
-- Nullifica gli oggetti di grandi dimensioni dopo l’uso per favorire il garbage collection.
+### Best practice per la gestione della memoria Java
+- Usa `try‑with‑resources` quando lavori con gli stream.  
+- Annulla (null) gli oggetti di grandi dimensioni dopo l'uso per aiutare il garbage collection.
 
 ## Conclusione
-Ora disponi di un’implementazione completa e pronta per la produzione di **full text search java** usando GroupDocs.Search. Dalla configurazione della libreria, **adding documents to index**, alla creazione di istruzioni **boolean query java**, fino a **optimizing search performance**, ogni passaggio è coperto. 
+Ora hai un **full text search example** completo e pronto per la produzione in Java usando GroupDocs.Search. Dalla configurazione della libreria, **adding documents to index**, alla creazione di istruzioni **boolean query java**, fino a **optimizing search performance**, ogni passaggio è coperto.  
 
-### Prossimi Passi
-Esplora funzionalità più approfondite come analizzatori personalizzati, dizionari di sinonimi e integrazione con storage cloud consultando la documentazione ufficiale [documentation](https://docs.groupdocs.com/search/java/).
-
----
-
-## Domande Frequenti
-
-**D:** Quali formati di file supporta GroupDocs.Search?  
-**R:** Gestisce Word, PDF, Excel, PowerPoint, HTML, TXT e molti altri.
-
-**D:** Come devo gestire dataset di grandi dimensioni?  
-**R:** Suddividili in più indici, aggiornali in modo incrementale e abilita il caching dei risultati.
-
-**D:** GroupDocs.Search può funzionare in ambienti cloud?  
-**R:** Sì, puoi puntare la cartella dell’indice a uno storage cloud montato (ad es. Azure Blob, AWS S3 tramite driver filesystem).
-
-**D:** Quali sono i vantaggi di GroupDocs.Search rispetto ad altre librerie?  
-**R:** Supporto multi‑formato, query Boolean/fonetiche integrate e un’API Java leggera lo rendono una scelta versatile.
-
-**D:** Come risolvo problemi di prestazioni?  
-**R:** Rivedi le impostazioni dell’indice, disattiva funzionalità non necessarie come la ricerca fonetica e monitora l’uso di memoria/CPU della JVM.
+### Prossimi passi
+Esplora funzionalità più avanzate come analizzatori personalizzati, dizionari di sinonimi e integrazione con storage cloud consultando la [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/).
 
 ---
 
-**Ultimo Aggiornamento:** 2026-02-11  
-**Testato Con:** GroupDocs.Search 25.4  
-**Autore:** GroupDocs  
+## Domande frequenti
+
+**Q:** Quali formati di file supporta GroupDocs.Search?  
+**A:** Oltre 50 formati, tra cui PDF, DOCX, XLSX, PPTX, HTML, TXT e molti tipi di immagine.
+
+**Q:** Come devo gestire grandi dataset?  
+**A:** Suddividili in più indici, aggiornali in modo incrementale e abilita il caching dei risultati per mantenere bassa la latenza.
+
+**Q:** GroupDocs.Search può funzionare in ambienti cloud?  
+**A:** Sì—puoi puntare la cartella dell'indice a uno storage cloud montato (ad esempio Azure Blob, AWS S3 tramite driver filesystem).
+
+**Q:** Quali sono i vantaggi di GroupDocs.Search rispetto ad altre librerie?  
+**A:** Supporto multi‑formato, query Boolean/phonetic integrate, e un'API Java leggera che elabora milioni di documenti con un basso consumo di memoria.
+
+**Q:** Come risolvere i problemi di prestazioni?  
+**A:** Controlla le impostazioni dell'indice, disabilita la ricerca fonetica se non necessaria e monitora l'uso di memoria/CPU della JVM durante l'indicizzazione e le query.
+
+---
+
+**Last Updated:** 2026-08-15  
+**Tested With:** GroupDocs.Search 25.4  
+**Author:** GroupDocs  
 
 **Risorse**  
-- **Documentazione:** [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)  
-- **Riferimento API:** [API Reference Guide](https://reference.groupdocs.com/search/java)  
+- **Documentation:** [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)  
+- **API reference:** [API Reference Guide](https://reference.groupdocs.com/search/java)  
 - **Download:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
 - **GitHub:** [Source Code on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Supporto:** [Forum and Community Support](https://forum.groupdocs.com/c/search/10)  
-- **Licenza:** [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **Support:** [Forum and Community Support](https://forum.groupdocs.com/c/search/10)  
+- **License:** [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+## Tutorial correlati
+
+- [Come implementare la ricerca full-text java: creare la directory dell'indice con GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Come aggiungere documenti all'indice con GroupDocs.Search per Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Migliorare le prestazioni delle query con GroupDocs.Search Java: ottimizzare indice e ricerca](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
