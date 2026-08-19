@@ -1,8 +1,9 @@
 ---
-date: '2026-01-08'
-description: Scopri come creare una directory di indice di ricerca e applicare la
-  licenza da file in GroupDocs.Search per Java. Segui la nostra guida passo passo
-  per impostare la licenza e iniziare a cercare.
+date: '2026-03-17'
+description: Scopri come creare la directory dell'indice di ricerca e applicare il
+  file di licenza dal disco in GroupDocs.Search per Java. Segui la nostra guida passo‑passo
+  per sbloccare tutte le funzionalità, verificare il file di licenza e iniziare a
+  cercare.
 keywords:
 - create search index directory
 - apply license from file
@@ -16,26 +17,26 @@ weight: 1
 
 # Crea una directory di indice di ricerca & imposta la licenza da file in GroupDocs.Search per Java
 
-Gestire le licenze in modo efficiente è fondamentale, ma prima di poter applicare una licenza è necessario **creare una directory di indice di ricerca** dove GroupDocs.Search memorizzerà i suoi dati. In questa guida percorreremo l'intero processo — dall'impostazione delle dipendenze Maven alla creazione della cartella dell'indice e infine all'applicazione della licenza da un file. Alla fine, avrai un'applicazione Java completamente licenziata e pronta per la ricerca.
+Gestire le licenze in modo efficiente è fondamentale, ma prima di poter applicare una licenza è necessario **creare una directory di indice di ricerca** dove GroupDocs.Search memorizzerà i suoi dati. In questa guida percorreremo l’intero processo—dalla configurazione delle dipendenze Maven alla creazione della cartella dell’indice di ricerca e infine all’applicazione della licenza da un file. Alla fine, avrai un’applicazione Java completamente licenziata e pronta alla ricerca che **sblocca tutte le funzionalità** della libreria.
 
 ## Risposte rapide
 - **Qual è il primo passo?** Crea una directory di indice di ricerca usando `new Index("path/to/index")`.
 - **Come applico la licenza?** Usa `License license = new License(); license.setLicense("path/to/license.lic");`.
-- **È necessario Maven?** Sì, aggiungi il repository e la dipendenza di GroupDocs.Search al file `pom.xml`.
+- **È necessario Maven?** Sì, aggiungi il repository GroupDocs.Search e la dipendenza al file `pom.xml`.
 - **Posso eseguire senza licenza?** La libreria funziona in modalità di valutazione con funzionalità limitate.
 - **Quale versione di Java è richiesta?** Java 8+ è consigliata per la piena compatibilità.
 
 ## Cos'è una “directory di indice di ricerca” e perché è necessaria?
-Una directory di indice di ricerca è una cartella su disco dove GroupDocs.Search memorizza la rappresentazione indicizzata dei tuoi documenti. Senza questa directory il motore di ricerca non ha dove persistere i dati, rendendo impossibili le query. Creare la directory è il passo fondamentale che consente ricerche rapide e accurate su grandi collezioni di documenti.
+Una directory di indice di ricerca è una cartella su disco dove GroupDocs.Search memorizza la rappresentazione indicizzata dei tuoi documenti. Senza questa directory il motore di ricerca non ha dove persistere i dati, quindi le query sarebbero impossibili. Creare la directory è il passo fondamentale che consente ricerche rapide e accurate su grandi collezioni di documenti e **costruisce l’indice di ricerca** che alimenta i risultati delle query.
 
 ## Perché applicare una licenza da file?
-Applicare una licenza da file (`apply license from file`) sblocca l'intero set di funzionalità di GroupDocs.Search, rimuove le filigrane di valutazione e garantisce la conformità ai termini di licenza del fornitore. È un modo semplice e programmatico per mantenere la tua applicazione pronta per la produzione.
+Applicare un **file di licenza** sblocca l’intero set di funzionalità di GroupDocs.Search, rimuove i watermark di valutazione e garantisce la conformità ai termini di licenza del fornitore. È un modo semplice e programmatico per mantenere la tua applicazione pronta per la produzione e **sbloccare tutte le funzionalità** per ogni operazione di ricerca.
 
 ## Prerequisiti
-- **GroupDocs.Search per Java versione 25.4** (o successiva)
-- Un IDE come IntelliJ IDEA o Eclipse
-- Maven per la gestione delle dipendenze
-- Un file di licenza valido di GroupDocs.Search (`.lic`)
+- **GroupDocs.Search per Java versione 25.4** (o successiva)  
+- Un IDE come IntelliJ IDEA o Eclipse  
+- Maven per la gestione delle dipendenze  
+- Un valido **file di licenza** GroupDocs.Search (`.lic`)  
 
 ## Configurazione di GroupDocs.Search per Java
 
@@ -61,10 +62,10 @@ Aggiungi il repository e la dipendenza al tuo `pom.xml` esattamente come mostrat
 ```
 
 ### Download diretto (alternativa)
-Se preferisci non usare Maven, puoi scaricare la libreria dalla pagina ufficiale di rilascio: [GroupDocs.Search per Java releases](https://releases.groupdocs.com/search/java/).
+Se preferisci non usare Maven, puoi scaricare la libreria dalla pagina ufficiale di rilascio: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ## Come creare una directory di indice di ricerca
-Creare la directory dell'indice è semplice. Usa la classe `Index` fornita dall'SDK:
+Creare la directory dell’indice è semplice. Usa la classe `Index` fornita dall'SDK:
 
 ```java
 import com.groupdocs.search.*;
@@ -73,12 +74,12 @@ import com.groupdocs.search.*;
 Index index = new Index("path/to/index/directory");
 ```
 
-> **Consiglio:** Scegli una posizione che la tua applicazione possa leggere/scrivere a runtime, come una cartella all'interno della directory `resources` del progetto o un'unità dati esterna.
+> **Consiglio professionale:** Scegli una posizione a cui la tua applicazione possa leggere/scrivere a runtime, come una cartella all’interno della directory `resources` del progetto o un'unità dati esterna. Questa posizione è il tuo **percorso dell’indice di ricerca**.
 
-## Implementazione di “apply license from file”
+## Implementazione di “applicare licenza da file”
 
 ### Passo 1: Importa i pacchetti necessari
-Queste importazioni ti danno accesso all'API di licenza e alle utility Java NIO per la gestione dei file.
+Queste importazioni ti danno accesso all’API di licenza e alle utility Java NIO per la gestione dei file.
 
 ```java
 import com.groupdocs.search.licenses.License;
@@ -108,32 +109,40 @@ if (Files.exists(Paths.get(licensePath))) {
 ```
 
 #### Spiegazione delle istruzioni chiave
-- `Files.exists(Paths.get(licensePath))` – Controlla in modo sicuro che il file sia raggiungibile.
-- `new License()` – Istanzia l'helper di licenza.
-- `license.setLicense(licensePath)` – Carica e applica la licenza, sbloccando la piena funzionalità.
+- `Files.exists(Paths.get(licensePath))` – Verifica in modo sicuro l'**esistenza del file di licenza**.  
+- `new License()` – Istanzia l'helper di licenza.  
+- `license.setLicense(licensePath)` – Carica e **applica il file di licenza**, sbloccando tutte le funzionalità.
 
 ## Problemi comuni e risoluzione
 
-| Problema | Causa probabile | Soluzione |
-|----------|-----------------|-----------|
-| **File non trovato** | Percorso `licensePath` errato o file mancante | Verifica nuovamente il percorso e assicurati che il file `.lic` sia distribuito con la tua applicazione. |
+| Problema | Probabile causa | Soluzione |
+|----------|----------------|-----------|
+| **File non trovato** | `licensePath` errato o file mancante | Ricontrolla il percorso e assicurati che il file `.lic` sia distribuito con la tua applicazione. |
 | **Permesso negato** | L'applicazione non ha i diritti di lettura | Concedi i permessi di lettura alla directory o esegui la JVM con i privilegi appropriati. |
 | **Licenza non applicata** | Uso di una versione di licenza obsoleta | Verifica che la licenza corrisponda alla versione di GroupDocs.Search in uso. |
 
 ## Applicazioni pratiche
-GroupDocs.Search eccelle in scenari dove è richiesta una ricerca testuale veloce e scalabile:
+GroupDocs.Search eccelle in scenari in cui è necessaria una ricerca testuale veloce e scalabile:
 
-- **Sistemi di gestione dei contenuti** – Indicizza e cerca migliaia di PDF, documenti Word e pagine HTML.
-- **Revisione di documenti legali** – Individua rapidamente clausole in enormi repository di contratti.
-- **Portali di supporto clienti** – Consenti agli operatori di recuperare istantaneamente articoli pertinenti della knowledge‑base.
+- **Sistemi di gestione dei contenuti** – Indicizza e ricerca migliaia di PDF, documenti Word e pagine HTML.  
+- **Revisione di documenti legali** – Trova rapidamente clausole in enormi repository di contratti.  
+- **Portali di supporto clienti** – Consenti agli operatori di recuperare istantaneamente articoli pertinenti della knowledge‑base.  
 
 ## Suggerimenti sulle prestazioni
-- **Ricostruisci regolarmente l'indice** dopo caricamenti massivi per mantenere freschi i risultati di ricerca.
-- **Monitora l'heap della JVM** durante l'indicizzazione di grandi corpora; considera di aumentare `-Xmx` se incontri `OutOfMemoryError`.
-- **Usa l'indicizzazione incrementale** per aggiornamenti in tempo reale invece di una ricostruzione completa dell'indice.
+- **Ricostruisci regolarmente l’indice** dopo caricamenti massivi per mantenere i risultati di ricerca aggiornati.  
+- **Monitora l'heap della JVM** durante l'indicizzazione di grandi corpora; considera di aumentare `-Xmx` se incontri `OutOfMemoryError`.  
+- **Usa l'indicizzazione incrementale** per aggiornamenti in tempo reale invece di una ricostruzione completa dell’indice.  
+
+## Perché è importante
+Creare una **directory di indice di ricerca** affidabile e **applicare correttamente il file di licenza** sono i due pilastri che ti consentono di sfruttare GroupDocs.Search su larga scala. Saltare uno dei due passaggi porta a funzionalità limitate o errori a runtime, il che può bloccare lo sviluppo e frustrare gli utenti finali.
+
+## Errori comuni da evitare
+- Memorizzare il file di licenza all’interno di un JAR di sola lettura – l'SDK necessita di un file fisico su disco.  
+- Hard‑codare percorsi assoluti che differiscono tra ambienti di sviluppo e produzione. Usa percorsi relativi o file di configurazione invece.  
+- Dimenticare di chiamare `license.setLicense(...)` prima di qualsiasi operazione di ricerca; l'SDK verifica la licenza al primo utilizzo.
 
 ## Conclusione
-Ora sai come **creare una directory di indice di ricerca** e **applicare una licenza da file** usando GroupDocs.Search per Java. Questa configurazione sblocca tutta la potenza della libreria, permettendoti di costruire soluzioni di ricerca robuste per qualsiasi applicazione intensiva di documenti.
+Ora sai come **creare una directory di indice di ricerca**, **costruire l’indice di ricerca** e **applicare una licenza da file** usando GroupDocs.Search per Java. Questa configurazione sblocca tutto il potere della libreria, permettendoti di costruire soluzioni di ricerca robuste per qualsiasi applicazione intensiva di documenti.
 
 **Prossimi passi:** sperimenta con funzionalità di query avanzate come la ricerca fuzzy, gli operatori booleani e lo scoring personalizzato per adattare i risultati alle esigenze della tua azienda.
 
@@ -145,14 +154,14 @@ A: Ottieni una prova gratuita da [GroupDocs Temporary License](https://purchase.
 **Q: Posso usare GroupDocs.Search senza Maven?**  
 A: Sì, puoi scaricare i file JAR direttamente e aggiungerli al classpath del tuo progetto.
 
-**Q: Cosa succede se il file di licenza manca a runtime?**  
-A: L'SDK funziona in modalità di valutazione, che limita il numero di documenti ricercabili e può mostrare filigrane.
+**Q: Cosa succede se il file di licenza è mancante a runtime?**  
+A: L'SDK funziona in modalità di valutazione, il che limita il numero di documenti ricercabili e può visualizzare watermark.
 
-**Q: Con quale frequenza dovrei ricostruire il mio indice di ricerca?**  
+**Q: Quanto spesso dovrei ricostruire il mio indice di ricerca?**  
 A: Ricostruisci ogni volta che aggiungi, elimini o modifichi significativamente i documenti per garantire l'accuratezza della ricerca.
 
 **Q: GroupDocs.Search gestisce grandi dataset in modo efficiente?**  
-A: Sì, con strategie di indicizzazione adeguate e una corretta allocazione della memoria JVM, scala a milioni di documenti.
+A: Sì, con strategie di indicizzazione appropriate e un'adeguata allocazione di memoria JVM, scala a milioni di documenti.
 
 ## Risorse aggiuntive
 
@@ -164,6 +173,8 @@ A: Sì, con strategie di indicizzazione adeguate e una corretta allocazione dell
 
 ---
 
-**Ultimo aggiornamento:** 2026-01-08  
-**Testato con:** GroupDocs.Search per Java 25.4  
-**Autore:** GroupDocs
+**Last Updated:** 2026-03-17  
+**Tested With:** GroupDocs.Search for Java 25.4  
+**Author:** GroupDocs  
+
+---

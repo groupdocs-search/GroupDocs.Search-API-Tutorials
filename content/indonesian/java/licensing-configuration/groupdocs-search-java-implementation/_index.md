@@ -1,41 +1,52 @@
 ---
-date: '2026-01-08'
-description: Pelajari cara menyorot hasil pencarian Java menggunakan GroupDocs.Search
-  dalam aplikasi Java, mengonfigurasi pencarian yang dapat diskalakan, penyebaran
-  jaringan, dan penyorotan hasil.
+date: '2026-03-17'
+description: Pelajari cara menyorot hasil pencarian Java dengan GroupDocs.Search di
+  Java, mengonfigurasi jaringan pencarian yang dapat diskalakan, mengindeks dokumen,
+  menjalankan kueri, dan menampilkan potongan yang disorot.
 keywords:
 - GroupDocs.Search Java
 - distributed searching Java
 - highlight search results Java
-title: Sorot Hasil Pencarian Java Menggunakan GroupDocs.Search
+title: Cara Menyorot Hasil Pencarian Java Menggunakan GroupDocs.Search
 type: docs
 url: /id/java/licensing-configuration/groupdocs-search-java-implementation/
 weight: 1
 ---
 
+ and content.
+
+Let's produce final translation.
+
+Be careful with bullet points, keep markdown.
+
+Proceed.
+
 # Sorot Hasil Pencarian Java Menggunakan GroupDocs.Search
 
-Jika Anda lelah menyaring dokumen tak berujung secara manual, **highlight search results java** menawarkan cara yang cepat dan andal untuk menampilkan tepat apa yang Anda butuhkan. Dalam tutorial ini kami akan membahas cara mengonfigurasi jaringan pencarian terdistribusi, mengindeks file Anda, menjalankan kueri, dan akhirnya menyorot kecocokan langsung di dalam dokumen. Pada akhir tutorial, Anda akan memiliki solusi siap produksi yang dapat diskalakan di beberapa node dan membuat istilah relevan langsung menonjol.
+Jika Anda lelah menelusuri dokumen tak berujung secara manual, **highlight search results java** menawarkan cara yang cepat dan andal untuk menampilkan tepat apa yang Anda butuhkan. Pada tutorial ini kami akan membahas cara mengonfigurasi jaringan pencarian terdistribusi, mengindeks file Anda, menjalankan kueri, dan akhirnya menyorot kecocokan langsung di dalam dokumen. Pada akhir tutorial, Anda akan memiliki solusi siap produksi yang dapat diskalakan di beberapa node dan membuat istilah relevan langsung terlihat.
 
 ## Jawaban Cepat
-- **Apa arti “highlight search results java”?** Itu merujuk pada penandaan secara programatik kata kunci yang ditemukan di dalam dokumen saat menggunakan pustaka Java seperti GroupDocs.Search.  
-- **Bisakah saya menyorot beberapa istilah dalam dokumen yang sama?** Ya – gunakan `HighlightOptions` untuk menentukan berapa banyak istilah sebelum/setelah setiap kecocokan yang ditampilkan.  
-- **Apakah saya memerlukan lisensi untuk menjalankan contoh ini?** Lisensi percobaan atau lisensi sementara cukup untuk pengujian; lisensi penuh diperlukan untuk produksi.  
+- **Apa arti “highlight search results java”?** Itu merujuk pada penandaan programatis kata kunci yang ditemukan di dalam dokumen saat menggunakan pustaka Java seperti GroupDocs.Search.  
+- **Apakah saya dapat menyorot beberapa istilah dalam dokumen yang sama?** Ya – gunakan `HighlightOptions` untuk menentukan berapa banyak istilah sebelum/setelah setiap kecocokan yang ditampilkan.  
+- **Apakah saya memerlukan lisensi untuk menjalankan contoh ini?** Lisensi percobaan gratis atau lisensi sementara cukup untuk pengujian; lisensi penuh diperlukan untuk produksi.  
 - **Versi Java apa yang dibutuhkan?** Java 8 atau lebih baru.  
 - **Apakah pendekatan ini cocok untuk koleksi dokumen besar?** Tentu – jaringan pencarian mendistribusikan beban pengindeksan dan kueri ke seluruh node.
 
 ## Apa Itu Highlight Search Results Java?
-**Highlight search results java** adalah proses mengambil kueri pencarian, menemukan fragmen yang cocok dalam dokumen Anda, dan menekankan secara visual fragmen tersebut (misalnya, dengan menambahkan penanda atau mengembalikannya sebagai potongan yang disorot). Hal ini memudahkan pengguna akhir melihat konteks setiap kecocokan tanpa harus membuka seluruh file.
+**Highlight search results java** adalah proses mengambil kueri pencarian, menemukan fragmen yang cocok dalam dokumen Anda, dan menekankan fragmen tersebut secara visual (misalnya, dengan menambahkan penanda atau mengembalikannya sebagai potongan yang disorot). Hal ini memudahkan pengguna akhir melihat konteks setiap kecocokan tanpa harus membuka seluruh file.
 
-## Mengapa Menggunakan GroupDocs.Search untuk Menyorot?
-GroupDocs.Search menyediakan mesin siap pakai berperforma tinggi yang mendukung puluhan format file, pengindeksan terdistribusi, dan penyorot fragmen bawaan. Ini menghilangkan kebutuhan menulis parser khusus atau mengelola infrastruktur pencarian tingkat rendah, sehingga Anda dapat fokus pada memberikan pengalaman pengguna yang mulus.
+## Mengapa Highlight Search Results Java Penting
+Menggunakan **highlight search results java** meningkatkan pengalaman pengguna dengan menampilkan tepat di mana istilah muncul, mengurangi waktu yang dihabiskan membuka file yang tidak relevan, dan membantu tim kepatuhan menemukan informasi sensitif dengan cepat. Ketika digabungkan dengan jaringan pencarian terdistribusi, solusi tetap responsif meskipun korpus dokumen tumbuh menjadi jutaan.
+
+## Mengapa Menggunakan GroupDocs.Search untuk Penyorotan?
+GroupDocs.Search menyediakan mesin siap pakai dengan kinerja tinggi yang mendukung puluhan format file, pengindeksan terdistribusi, dan penyorot fragmen bawaan. Ini menghilangkan kebutuhan menulis parser khusus atau mengelola infrastruktur pencarian tingkat rendah, sehingga Anda dapat fokus pada penyediaan pengalaman pengguna yang mulus.
 
 ## Prasyarat
 
 - **Java Development Kit (JDK) 8+** – pastikan `java -version` menampilkan 1.8 atau lebih tinggi.  
 - **Maven** – untuk manajemen dependensi.  
 - **GroupDocs.Search for Java 25.4** – versi yang digunakan dalam panduan ini.  
-- IDE seperti **IntelliJ IDEA** atau **Eclipse** (opsional namun disarankan).  
+- IDE seperti **IntelliJ IDEA** atau **Eclipse** (opsional tetapi disarankan).  
 - Pengetahuan dasar tentang Java dan konsep jaringan.
 
 ## Menyiapkan GroupDocs.Search untuk Java
@@ -68,8 +79,8 @@ Atau, unduh JAR terbaru dari [GroupDocs.Search for Java releases](https://releas
 
 ### Langkah Akuisisi Lisensi
 - **Percobaan Gratis:** Mulai dengan percobaan untuk menjelajahi fitur inti.  
-- **Lisensi Sementara:** Dapatkan lisensi uji lanjutan dari [halaman ini](https://purchase.groupdocs.com/temporary-license/).  
-- **Pembelian:** Peroleh lisensi penuh untuk penyebaran produksi.
+- **Lisensi Sementara:** Dapatkan lisensi uji coba tambahan dari [halaman ini](https://purchase.groupdocs.com/temporary-license/).  
+- **Pembelian:** Dapatkan lisensi penuh untuk penerapan produksi.
 
 ### Inisialisasi dan Pengaturan Dasar
 Buat instance `Index` yang menunjuk ke folder tempat indeks pencarian akan disimpan:
@@ -88,7 +99,7 @@ public class SearchSetup {
 
 ## Panduan Implementasi
 
-### Cara Menyorot Hasil Pencarian Java dalam Jaringan Terdistribusi
+### Cara Menyorot Highlight Search Results Java dalam Jaringan Terdistribusi
 
 #### Mengonfigurasi Jaringan Pencarian
 Pertama, tentukan di mana dokumen Anda berada dan port apa yang akan digunakan jaringan.
@@ -104,7 +115,7 @@ Configuration configuration = ConfiguringSearchNetwork.configure(basePath, baseP
 ```
 
 - **`basePath`** – folder root yang berisi file yang ingin Anda indeks.  
-- **`basePort`** – port TCP untuk komunikasi node; pilih yang belum terpakai.
+- **`basePort`** – port TCP untuk komunikasi node; pilih yang belum digunakan.
 
 #### Menyebarkan Node Jaringan Pencarian
 Sebarkan satu atau lebih node berdasarkan konfigurasi. Node pertama menjadi master.
@@ -120,7 +131,7 @@ SearchNetworkNode masterNode = nodes[0];
 - **`masterNode`** – mengoordinasikan pengindeksan dan distribusi kueri.
 
 #### Berlangganan ke Event Node Jaringan Pencarian
-Lampirkan listener ke node master untuk menerima notifikasi waktu nyata (misalnya, saat pengindeksan selesai).
+Lampirkan listener ke node master untuk menerima notifikasi waktu nyata (misalnya, ketika pengindeksan selesai).
 
 ```java
 import com.groupdocs.search.scaling.events.*;
@@ -129,7 +140,7 @@ SearchNetworkNodeEvents.subscribe(masterNode);
 ```
 
 #### Mengindeks Direktori di Node Jaringan
-Arahkan node ke folder(s) yang ingin Anda indeks. Kelas pembantu `Utils.DocumentsPath` mengarah ke folder data contoh.
+Arahkan node ke folder(s) yang ingin Anda indeks. Kelas bantuan `Utils.DocumentsPath` mengarah ke folder data contoh.
 
 ```java
 import com.groupdocs.search.examples.Utils;
@@ -150,10 +161,10 @@ highlightInDocument(masterNode, documents.get(0), 3); // Highlight results from 
 ```
 
 - Ganti `"ipsum"` dengan istilah apa pun yang ingin Anda temukan.  
-- Metode `highlightInDocument` (ditunjukkan berikutnya) akan menerapkan sorotan.
+- Metode `highlightInDocument` (ditunjukkan berikutnya) akan menerapkan penyorotan.
 
 #### Menyorot Beberapa Istilah Dokumen – Highlighting Search Results
-Metode berikut mendemonstrasikan cara menyorot fragmen di sekitar setiap kecocokan. Metode ini juga menunjukkan cara mengontrol jumlah istilah di sekitarnya, memenuhi kata kunci sekunder **highlight multiple terms document**.
+Metode berikut memperlihatkan cara menyorot fragmen di sekitar setiap kecocokan. Metode ini juga menunjukkan cara mengontrol jumlah istilah di sekitarnya, memenuhi kata kunci sekunder **highlight multiple terms document**.
 
 ```java
 import com.groupdocs.search.highlighters.*;
@@ -188,7 +199,7 @@ public static void highlightInDocument(
 ```
 
 - **`OutputFormat.PlainText`** – mengembalikan potongan teks biasa; Anda dapat beralih ke HTML untuk UI yang lebih kaya.  
-- **`HighlightOptions`** – mengontrol berapa banyak kata sebelum/setelah setiap kecocokan yang disertakan (`setTermsBefore`, `setTermsAfter`).  
+- **`HighlightOptions`** – mengatur berapa banyak kata sebelum/ setelah setiap kecocokan yang disertakan (`setTermsBefore`, `setTermsAfter`).  
 - **`maxFragments`** – membatasi jumlah potongan yang ditampilkan per dokumen.
 
 #### Menutup Node Jaringan
@@ -205,7 +216,7 @@ for (SearchNetworkNode node : nodes) {
 - **Manajemen Dokumen Perusahaan:** Sentralisasi file korporat dan biarkan karyawan langsung menemukan kontrak atau kebijakan yang relevan.  
 - **Berkas Kasus Hukum:** Cepat menampilkan dokumen preseden dengan menyorot istilah hukum utama.  
 - **Basis Pengetahuan R&D:** Peneliti dapat mencari paten atau makalah teknis dan melihat kutipan yang disorot.  
-- **Katalog E‑commerce:** Memungkinkan pembeli menemukan produk melalui kata kunci dengan sorotan pada deskripsi.  
+- **Katalog E‑commerce:** Memungkinkan pembeli menemukan produk melalui kata kunci dengan kecocokan yang disorot dalam deskripsi.  
 - **Sistem Perpustakaan:** Pengguna dapat mencari di ribuan buku dan melihat bagian yang disorot tanpa membuka setiap file.
 
 ## Pertimbangan Kinerja
@@ -217,19 +228,19 @@ for (SearchNetworkNode node : nodes) {
 ## Masalah Umum & Pemecahan Masalah
 
 | Gejala | Penyebab Kemungkinan | Solusi |
-|---------|----------------------|-------|
+|--------|----------------------|--------|
 | Tidak ada hasil yang dikembalikan | Indeks belum dibangun atau mengarah ke folder yang salah | Verifikasi `Utils.DocumentsPath` dan jalankan kembali `IndexingDocuments.addDirectories` |
 | Output sorotan kosong | `HighlightOptions` terlalu rendah atau masalah enkoding dokumen | Tingkatkan `termsTotal` atau pastikan enkoding dokumen didukung |
 | Kesalahan konflik port | `basePort` sudah digunakan | Pilih nomor port lain (misalnya, 49117) |
-| Pengecualian lisensi | File lisensi hilang atau kedaluwarsa | Tempatkan file `GroupDocs.Search.lic` yang valid di root aplikasi |
+| Pengecualian lisensi | File lisensi hilang atau kedaluwarsa | Letakkan file `GroupDocs.Search.lic` yang valid di root aplikasi |
 
 ## Pertanyaan yang Sering Diajukan
 
 **T: Bisakah saya menyebarkan beberapa node jaringan pencarian untuk load balancing?**  
-J: Ya, menyebarkan beberapa node membagi pekerjaan pengindeksan dan kueri, meningkatkan skalabilitas dan waktu respons.
+J: Ya, menyebarkan beberapa node membagi beban pengindeksan dan kueri, meningkatkan skalabilitas serta waktu respons.
 
 **T: Bagaimana cara menyorot beberapa istilah pencarian dalam dokumen yang sama?**  
-J: Kirimkan daftar istilah ke metode `highlight` dan konfigurasikan `HighlightOptions` untuk menampilkan kata di sekitarnya untuk setiap kecocokan.
+J: Kirimkan daftar istilah ke metode `highlight` dan konfigurasikan `HighlightOptions` untuk menampilkan kata-kata di sekeliling setiap kecocokan.
 
 **T: Apakah memungkinkan berlangganan ke event pencarian waktu nyata?**  
 J: Tentu. Gunakan `SearchNetworkNodeEvents.subscribe(masterNode)` untuk menerima callback tentang progres pengindeksan, eksekusi kueri, dan error.
@@ -238,14 +249,11 @@ J: Tentu. Gunakan `SearchNetworkNodeEvents.subscribe(masterNode)` untuk menerima
 J: Lebih dari 50 format, termasuk DOCX, PDF, HTML, TXT, PPTX, dan lainnya.
 
 **T: Bagaimana cara meningkatkan kecepatan pencarian pada koleksi sangat besar?**  
-J: Perbarui indeks secara rutin, distribusikan ke beberapa node, dan sesuaikan `HighlightOptions` untuk membatasi ukuran fragmen.
-
-## Kesimpulan
-Dengan mengikuti panduan ini Anda kini memiliki setup lengkap dan siap produksi untuk **highlight search results java** menggunakan GroupDocs.Search. Anda dapat menskalakan solusi di seluruh jaringan, mengindeks tipe dokumen apa pun yang didukung, menjalankan kueri cepat, dan mengembalikan potongan yang disorot yang membantu pengguna menemukan apa yang mereka butuhkan. Jelajahi langkah selanjutnya—mengintegrasikan hasil ke UI web, menambahkan pencarian berfaset, atau menggabungkan OCR untuk PDF yang dipindai.
+J: Perbarui indeks secara teratur, distribusikan ke beberapa node, dan optimalkan `HighlightOptions` untuk membatasi ukuran fragmen.
 
 ---
 
-**Terakhir Diperbarui:** 2026-01-08  
+**Terakhir Diperbarui:** 2026-03-17  
 **Diuji Dengan:** GroupDocs.Search for Java 25.4  
 **Penulis:** GroupDocs  
 

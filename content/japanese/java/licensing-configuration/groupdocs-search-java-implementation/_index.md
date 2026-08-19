@@ -1,11 +1,11 @@
 ---
-date: '2026-01-08'
-description: Java アプリケーションで GroupDocs.Search を使用して検索結果をハイライトする方法、スケーラブルな検索の構成、ネットワーク展開、そして結果のハイライトについて学びましょう。
+date: '2026-03-17'
+description: GroupDocs.Search を使用して Java で検索結果をハイライトする方法、スケーラブルな検索ネットワークを構成する方法、ドキュメントをインデックス化する方法、クエリを実行する方法、そしてハイライトされたスニペットを表示する方法を学びましょう。
 keywords:
 - GroupDocs.Search Java
 - distributed searching Java
 - highlight search results Java
-title: GroupDocs.Search を使用した Java の検索結果のハイライト
+title: GroupDocs.Search を使用した Java で検索結果をハイライトする方法
 type: docs
 url: /ja/java/licensing-configuration/groupdocs-search-java-implementation/
 weight: 1
@@ -13,38 +13,37 @@ weight: 1
 
 # GroupDocs.Search を使用した Java のハイライト検索結果
 
-手作業で無数のドキュメントを探し回るのに疲れた方には、**highlight search results java** が必要な情報を迅速かつ確実に抽出する方法を提供します。このチュートリアルでは、分散検索ネットワークの構成、ファイルのインデックス作成、クエリの実行、そして最終的にドキュメント内で一致箇所をハイライトする手順を解説します。最後まで読むと、複数ノードにスケールでき、関連用語を即座に目立たせる本番環境対応のソリューションが手に入ります。
+手作業で膨大な文書をひっくり返すのに疲れた方へ、**highlight search results java** は必要な情報を迅速かつ確実に抽出する方法を提供します。このチュートリアルでは、分散検索ネットワークの構成、ファイルのインデックス作成、クエリの実行、そして最終的に文書内で一致箇所をハイライトする手順を解説します。最後まで読むと、複数ノードにスケールし、関連用語を即座に目立たせる本番環境対応のソリューションが手に入ります。
 
-## クイック回答
+## Quick Answers
+- **What does “highlight search results java” mean?** It refers to programmatically marking found keywords inside documents when using Java libraries such as GroupDocs.Search.  
+- **Can I highlight multiple terms in the same document?** Yes – use `HighlightOptions` to define how many terms before/after each match are shown.  
+- **Do I need a license to run this example?** A free trial or temporary license works for testing; a full license is required for production.  
+- **Which Java version is required?** Java 8 or later.  
+- **Is this approach suitable for large document collections?** Absolutely – the search network distributes indexing and query load across nodes.
 
-- **“highlight search results java” とは何ですか？** Java ライブラリ（例: GroupDocs.Search）を使用して、ドキュメント内で見つかったキーワードをプログラムでマークすることを指します。  
-- **同じドキュメントで複数の用語をハイライトできますか？** はい。`HighlightOptions` を使用して、各一致の前後に表示する用語数を定義できます。  
-- **この例を実行するのにライセンスは必要ですか？** テストには無料トライアルまたは一時ライセンスで動作しますが、本番環境では正式なライセンスが必要です。  
-- **必要な Java バージョンは？** Java 8 以降です。  
-- **大規模なドキュメントコレクションに適していますか？** はい。検索ネットワークはインデックス作成とクエリ負荷をノード間で分散します。  
+## What is Highlight Search Results Java?
+**Highlight search results java** is the process of taking a search query, locating matching fragments in your documents, and visually emphasizing those fragments (e.g., by surrounding them with markers or returning them as highlighted snippets). This makes it easy for end‑users to see the context of each match without opening the whole file.
 
-## Highlight Search Results Java とは？
+## Why Highlight Search Results Java Matters
+Using **highlight search results java** improves user experience by showing exactly where a term appears, reduces the time spent opening irrelevant files, and helps compliance teams quickly locate sensitive information. When combined with a distributed search network, the solution remains responsive even as the document corpus grows into the millions.
 
-**Highlight search results java** は、検索クエリを受け取り、ドキュメント内の一致フラグメントを特定し、それらのフラグメントを視覚的に強調表示（例: マーカーで囲む、ハイライトされたスニペットとして返す）するプロセスです。これにより、エンドユーザーはファイル全体を開かずに各一致のコンテキストを簡単に確認できます。
+## Why Use GroupDocs.Search for Highlighting?
+GroupDocs.Search provides a ready‑made, high‑performance engine that supports dozens of file formats, distributed indexing, and built‑in fragment highlighters. It removes the need to write custom parsers or manage low‑level search infrastructure, letting you focus on delivering a smooth user experience.
 
-## ハイライトに GroupDocs.Search を使用する理由
+## Prerequisites
 
-GroupDocs.Search は、数十種類のファイル形式、分散インデックス作成、組み込みのフラグメントハイライターをサポートする、すぐに使える高性能エンジンを提供します。カスタムパーサーの作成や低レベルの検索インフラ管理が不要になるため、スムーズなユーザー体験の提供に集中できます。
+- **Java Development Kit (JDK) 8+** – ensure `java -version` reports 1.8 or higher.  
+- **Maven** – for dependency management.  
+- **GroupDocs.Search for Java 25.4** – the version used throughout this guide.  
+- An IDE such as **IntelliJ IDEA** or **Eclipse** (optional but recommended).  
+- Basic knowledge of Java and networking concepts.
 
-## 前提条件
+## Setting Up GroupDocs.Search for Java
 
-- **Java Development Kit (JDK) 8+** – `java -version` が 1.8 以上を示すことを確認してください。  
-- **Maven** – 依存関係管理に使用します。  
-- **GroupDocs.Search for Java 25.4** – 本ガイド全体で使用するバージョンです。  
-- **IntelliJ IDEA** や **Eclipse** などの IDE（任意ですが推奨）。  
-- Java とネットワーク概念の基本的な知識。  
+You can bring the library into your project either via Maven or by downloading the JAR directly.
 
-## GroupDocs.Search for Java のセットアップ
-
-ライブラリは Maven で追加するか、JAR を直接ダウンロードしてプロジェクトに組み込むことができます。
-
-### Maven 設定
-
+### Maven Setup
 Add the repository and dependency to your `pom.xml`:
 
 ```xml
@@ -65,18 +64,15 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-### 直接ダウンロード
+### Direct Download
+Alternatively, download the latest JAR from [GroupDocs.Search for Java リリース](https://releases.groupdocs.com/search/java/)。
 
-または、最新の JAR を [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) からダウンロードしてください。
+### License Acquisition Steps
+- **Free Trial:** Start with a trial to explore core features.  
+- **Temporary License:** Get an extended test license from [this page](https://purchase.groupdocs.com/temporary-license/).  
+- **Purchase:** Obtain a full license for production deployments.
 
-### ライセンス取得手順
-
-- **Free Trial:** コア機能を試すためにトライアルから開始します。  
-- **Temporary License:** [このページ](https://purchase.groupdocs.com/temporary-license/) から拡張テストライセンスを取得します。  
-- **Purchase:** 本番環境での導入のために正式ライセンスを取得します。
-
-### 基本的な初期化と設定
-
+### Basic Initialization and Setup
 Create an `Index` instance that points to a folder where the search index will be stored:
 
 ```java
@@ -91,12 +87,11 @@ public class SearchSetup {
 }
 ```
 
-## 実装ガイド
+## Implementation Guide
 
-### 分散ネットワークで Highlight Search Results Java を実装する方法
+### How to Highlight Search Results Java in a Distributed Network
 
-#### 検索ネットワークの構成
-
+#### Configuring the Search Network
 First, define where your documents live and which port the network will use.
 
 ```java
@@ -109,11 +104,10 @@ int basePort = 49116; // Change if port is busy
 Configuration configuration = ConfiguringSearchNetwork.configure(basePath, basePort);
 ```
 
-- **`basePath`** – インデックス対象ファイルが格納されたルートフォルダー。  
-- **`basePort`** – ノード間通信に使用する TCP ポート。使用されていないものを選んでください。  
+- **`basePath`** – the root folder containing the files you want to index.  
+- **`basePort`** – the TCP port for node communication; pick an unused one.
 
-#### 検索ネットワークノードのデプロイ
-
+#### Deploying Search Network Nodes
 Deploy one or more nodes based on the configuration. The first node becomes the master.
 
 ```java
@@ -123,11 +117,10 @@ SearchNetworkNode[] nodes = SearchNetworkDeployment.deploy(basePath, basePort, c
 SearchNetworkNode masterNode = nodes[0];
 ```
 
-- **`nodes`** – 実行中のすべてのノードを格納する配列。  
-- **`masterNode`** – インデックス作成とクエリ配布を調整します。  
+- **`nodes`** – an array of all running nodes.  
+- **`masterNode`** – coordinates indexing and query distribution.
 
-#### 検索ネットワークノードイベントへのサブスクライブ
-
+#### Subscribing to Search Network Node Events
 Attach listeners to the master node to receive real‑time notifications (e.g., when indexing completes).
 
 ```java
@@ -136,8 +129,7 @@ import com.groupdocs.search.scaling.events.*;
 SearchNetworkNodeEvents.subscribe(masterNode);
 ```
 
-#### ネットワークノードでディレクトリをインデックス化
-
+#### Indexing Directories in Network Node
 Point the node to the folder(s) you want to index. The helper class `Utils.DocumentsPath` resolves to the sample data folder.
 
 ```java
@@ -147,8 +139,7 @@ import com.groupdocs.search.options.*;
 IndexingDocuments.addDirectories(masterNode, Utils.DocumentsPath);
 ```
 
-#### ネットワークノード全体でテキスト検索
-
+#### Searching Text Across Network Nodes
 Run a query against **all** nodes and retrieve the matching documents.
 
 ```java
@@ -159,11 +150,10 @@ ArrayList<NetworkFoundDocument> documents = TextSearchInNetwork.searchAll(master
 highlightInDocument(masterNode, documents.get(0), 3); // Highlight results from the first found document.
 ```
 
-- `"ipsum"` を検索したい任意の語句に置き換えてください。  
-- 次に示す `highlightInDocument` メソッドがハイライトを適用します。  
+- Replace `"ipsum"` with any term you need to find.  
+- The `highlightInDocument` method (shown next) will apply the highlight.
 
-#### 複数用語のハイライト – 検索結果のハイライト
-
+#### Highlight Multiple Terms Document – Highlighting Search Results
 The following method demonstrates how to highlight fragments around each match. It also shows how to control the number of surrounding terms, satisfying the secondary keyword **highlight multiple terms document**.
 
 ```java
@@ -198,12 +188,11 @@ public static void highlightInDocument(
 }
 ```
 
-- **`OutputFormat.PlainText`** – プレーンテキストのスニペットを返します。リッチな UI が必要な場合は HTML に切り替え可能です。  
-- **`HighlightOptions`** – 各一致の前後に含める単語数を制御します（`setTermsBefore`, `setTermsAfter`）。  
-- **`maxFragments`** – ドキュメントあたりに表示するスニペット数の上限を設定します。  
+- **`OutputFormat.PlainText`** – returns plain‑text snippets; you can switch to HTML for richer UI.  
+- **`HighlightOptions`** – controls how many words before/after each match are included (`setTermsBefore`, `setTermsAfter`).  
+- **`maxFragments`** – caps the number of snippets you display per document.
 
-#### ネットワークノードの終了
-
+#### Closing Network Nodes
 When you’re done, shut down every node to free resources.
 
 ```java
@@ -212,52 +201,50 @@ for (SearchNetworkNode node : nodes) {
 }
 ```
 
-## 実用的な活用例
+## Practical Applications
 
-- **Enterprise Document Management:** 企業のファイルを一元化し、従業員が関連する契約書やポリシーを即座に検索できるようにします。  
-- **Legal Case Files:** 重要な法的用語をハイライトして、判例文書を迅速に抽出します。  
-- **R&D Knowledge Bases:** 研究者が特許や技術文献を検索し、ハイライトされた抜粋を確認できます。  
-- **E‑commerce Catalogs:** ショッピング客がキーワードで商品を検索し、説明文中のハイライトされた一致を表示できます。  
-- **Library Systems:** 利用者が数千冊の書籍を検索し、各ファイルを開かずにハイライトされた抜粋を閲覧できます。  
+- **Enterprise Document Management:** Centralize corporate files and let employees instantly locate relevant contracts or policies.  
+- **Legal Case Files:** Quickly surface precedent documents by highlighting key legal terms.  
+- **R&D Knowledge Bases:** Researchers can search patents or technical papers and see highlighted excerpts.  
+- **E‑commerce Catalogs:** Enable shoppers to find products by keyword with highlighted matches in descriptions.  
+- **Library Systems:** Patrons can search across thousands of books and view highlighted passages without opening each file.
 
-## パフォーマンス上の考慮点
+## Performance Considerations
 
-- **インデックスを最新に保つ:** 変更されたファイルを毎晩再インデックス化するか、インクリメンタル更新を使用します。  
-- **複数ノードを活用:** インデックス作成とクエリ負荷を分散し、ボトルネックを回避します。  
-- **`HighlightOptions` の調整:** `termsBefore/After` を減らすことで、非常に大きなドキュメントのメモリ使用量を削減できます。  
+- **Keep indexes fresh:** Re‑index changed files nightly or use incremental updates.  
+- **Leverage multiple nodes:** Distribute indexing and query load to avoid bottlenecks.  
+- **Tune `HighlightOptions`:** Reducing `termsBefore/After` lowers memory usage for very large documents.  
 
-## よくある問題とトラブルシューティング
+## Common Issues & Troubleshooting
 
-| 症状 | 想定原因 | 対策 |
-|---------|--------------|-----|
-| 結果が返されない | インデックスが作成されていない、またはフォルダーが間違っている | `Utils.DocumentsPath` を確認し、`IndexingDocuments.addDirectories` を再実行してください |
-| ハイライト出力が空 | `HighlightOptions` の制限が低すぎる、またはドキュメントのエンコーディングの問題 | `termsTotal` を増やすか、ドキュメントのエンコーディングがサポートされていることを確認してください |
-| ポート競合エラー | `basePort` が既に使用中 | 別のポート番号（例: 49117）を選択してください |
-| ライセンス例外 | ライセンスファイルが欠如または期限切れ | 有効な `GroupDocs.Search.lic` ファイルをアプリケーションのルートに配置してください |
+| 症状 | 主な原因 | 対策 |
+|------|----------|------|
+| No results returned | Index not built or pointing to wrong folder | Verify `Utils.DocumentsPath` and run `IndexingDocuments.addDirectories` again |
+| Highlight output is empty | `HighlightOptions` limits too low or document encoding issue | Increase `termsTotal` or ensure the document’s encoding is supported |
+| Port conflict error | `basePort` already in use | Choose a different port number (e.g., 49117) |
+| License exception | Missing or expired license file | Place a valid `GroupDocs.Search.lic` file in the application root |
 
-## よくある質問
+## Frequently Asked Questions
 
-**Q: 複数の検索ネットワークノードをデプロイしてロードバランシングできますか？**  
-A: はい。複数のノードをデプロイすることでインデックス作成とクエリ処理が分散され、スケーラビリティと応答時間が向上します。
+**Q: Can I deploy multiple search network nodes for load balancing?**  
+A: Yes, deploying several nodes spreads indexing and query work, improving scalability and response time.
 
-**Q: 同じドキュメントで複数の検索語句をハイライトするには？**  
-A: `highlight` メソッドに語句のリストを渡し、`HighlightOptions` を設定して各一致の前後語を表示させます。
+**Q: How do I highlight multiple search terms in the same document?**  
+A: Pass a list of terms to the `highlight` method and configure `HighlightOptions` to show surrounding words for each match.
 
-**Q: リアルタイム検索イベントにサブスクライブできますか？**  
-A: もちろんです。`SearchNetworkNodeEvents.subscribe(masterNode)` を使用して、インデックス作成の進捗、クエリ実行、エラーのコールバックを受け取れます。
+**Q: Is it possible to subscribe to real‑time search events?**  
+A: Absolutely. Use `SearchNetworkNodeEvents.subscribe(masterNode)` to receive callbacks for indexing progress, query execution, and errors.
 
-**Q: GroupDocs.Search がインデックス作成とハイライトに対応しているファイル形式は？**  
-A: DOCX、PDF、HTML、TXT、PPTX など、50 以上の形式に対応しています。
+**Q: Which file formats does GroupDocs.Search support for indexing and highlighting?**  
+A: Over 50 formats, including DOCX, PDF, HTML, TXT, PPTX, and more.
 
-**Q: 非常に大規模なコレクションで検索速度を向上させるには？**  
-A: 定期的にインデックスを更新し、ノード間で分散させ、`HighlightOptions` を調整してフラグメントサイズを制限します。
-
-## 結論
-
-このガイドに従うことで、**highlight search results java** を使用した GroupDocs.Search の完全な本番対応セットアップが手に入ります。ネットワーク全体にスケールさせ、サポートされている任意のドキュメントタイプをインデックス化し、高速クエリを実行し、ユーザーが必要な情報を正確に見つけられるハイライトスニペットを返すことができます。次のステップとして、結果を Web UI に統合したり、ファセット検索を追加したり、スキャンした PDF に OCR を組み合わせることを検討してください。
+**Q: How can I improve search speed on very large collections?**  
+A: Regularly update indexes, distribute them across nodes, and fine‑tune `HighlightOptions` to limit fragment size.
 
 ---
 
-**最終更新日:** 2026-01-08  
-**テスト環境:** GroupDocs.Search for Java 25.4  
-**作者:** GroupDocs
+**Last Updated:** 2026-03-17  
+**Tested With:** GroupDocs.Search for Java 25.4  
+**Author:** GroupDocs  
+
+---

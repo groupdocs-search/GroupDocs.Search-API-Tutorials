@@ -1,42 +1,56 @@
 ---
-date: '2026-01-11'
-description: GroupDocs.Search for Java kullanarak özel arama dizini oluşturmayı, gelişmiş
-  OCR ve görüntü araması için normal ve karışık karakterleri yapılandırmayı öğrenin.
+date: '2026-03-17'
+description: GroupDocs.Search for Java ile indeks oluşturmayı, normal ve karışık karakterleri
+  yapılandırmayı ve yasal dava numaraları ile OCR görüntüleri için aramayı optimize
+  etmeyi öğrenin.
 keywords:
 - GroupDocs.Search Java
 - Java OCR character recognition
 - search library Java
-title: Karakter Tanıma ile Özel Arama Dizini Oluşturma – GroupDocs.Search Java
+title: Java'da Karakter Tanıma ile İndeks Oluşturma
 type: docs
 url: /tr/java/ocr-image-search/groupdocs-search-java-character-recognition/
 weight: 1
 ---
 
-# Karakter Tanıma ile GroupDocs.Search for Java Kullanarak Özel Arama Dizini Oluşturma
+ GroupDocs  
 
-Modern belge‑ağırlıklı uygulamalarda, **özel bir arama dizini oluşturmak**, metninizin inceliklerini—tireler, alt çizgiler veya dile özgü semboller gibi—anlayan bir indeks, hızlı ve doğru geri getirme için gereklidir. Bu öğretici, **GroupDocs.Search for Java** içinde karakter tanımasını yapılandırmayı, hem normal karakterleri (harfler, rakamlar, alt çizgiler) hem de birleşik karakterleri (ör. tire) kapsayacak şekilde adım adım gösterir. Sonunda, OCR veya görüntü‑arama senaryonuzun tam ihtiyaçlarına uygun bir indeks oluşturabileceksiniz.
+But keep bold formatting.
+
+Now ensure we didn't translate any URLs, code placeholders, variable names, function names. We kept them.
+
+Check for any markdown links: we kept them.
+
+Check for any shortcodes: none.
+
+Check for any code fences: placeholders only.
+
+Now produce final content.# Karakter Tanıma Kullanarak GroupDocs.Search for Java ile Index Oluşturma
+
+Modern belge‑ağırlıklı uygulamalarda, **index oluşturma** yönteminin metninizin inceliklerini—örneğin tireler, alt çizgiler veya dile özgü semboller—göz önünde bulundurması hızlı ve doğru geri getirme için çok önemlidir. Bu öğreticide **GroupDocs.Search for Java** içinde karakter tanımını yapılandırmayı adım adım göstereceğiz; hem normal karakterleri (harfler, rakamlar, alt çizgiler) hem de birleşik karakterleri (ör. tire) kapsayacak. Sonunda, OCR veya görüntü‑arama senaryonuzun tam ihtiyaçlarına uygun bir index oluşturabileceksiniz; ister yasal dava numaralarını, kaynak‑kod depolarını ya da çok dilli PDF'leri indeksliyor olun.
 
 ## Hızlı Yanıtlar
-- **“Özel arama dizini oluşturmak” ne anlama geliyor?** Belirli sembolleri harf ya da birleşik karakter olarak ele alacak şekilde bir indeks yapılandırmak, bunları yok saymamak demektir.  
+- **“create custom search index” ne anlama geliyor?** Bir index'i belirli sembolleri harf ya da birleşik karakter olarak ele alacak şekilde yapılandırmak, yok saymak yerine.  
 - **Hangi kütüphane kullanılıyor?** GroupDocs.Search for Java (yazım zamanı v25.4).  
-- **Lisans gerekli mi?** Geliştirme için ücretsiz deneme çalışır; üretim için ücretli lisans gerekir.  
-- **Hem PDF hem de görüntüleri indeksleyebilir miyim?** Evet—GroupDocs.Search, doğru yapılandırıldığında görüntüler ve PDF’lerde OCR’ı destekler.  
-- **Maven gerekli mi?** Maven, bağımlılık yönetimi için önerilen yoldur, ancak Gradle ya da manuel JAR’lar da kullanılabilir.
+- **Bir lisansa ihtiyacım var mı?** Geliştirme için ücretsiz deneme yeterlidir; üretim için ücretli lisans gereklidir.  
+- **PDF'leri ve görüntüleri aynı anda indeksleyebilir miyim?** Evet—GroupDocs.Search, doğru yapılandırıldığında görüntüler ve PDF'lerde OCR'ı destekler.  
+- **Maven gerekli mi?** Maven, bağımlılıkları yönetmenin önerilen yoludur, ancak Gradle ya da manuel JAR'lar da kullanılabilir.  
 
-## Özel Arama Dizini Nedir?
-Özel bir arama dizini, arama motorunun karakterleri nasıl yorumladığını tanımlamanıza izin verir. Varsayılan olarak birçok sembol yok sayılır; bu da `ABC-123` gibi dava numaraları ya da `my_variable` gibi kod parçacıkları için eşleşmelerin kaçırılmasına yol açabilir. Alfabe sözlüğünü ayarlayarak, motorun arama yapılabilir metin olarak neyi kabul edeceği üzerinde tam kontrol sahibi olursunuz.
+## Özel Arama Index'i Nedir?
+Özel bir arama index'i, arama motorunun karakterleri nasıl yorumlayacağını tanımlamanıza olanak verir. Varsayılan olarak, birçok sembol yok sayılır; bu da dava numaraları (`2023-AB-456`) veya kod parçacıkları (`my_variable`) gibi şeylerde eşleşmelerin kaçırılmasına yol açabilir. Alfabe sözlüğünü ayarlamak, motorun arama yapılabilir metin olarak neyi kabul edeceği üzerinde tam kontrol sağlar.
 
-## Normal ve Birleşik Karakterleri Neden Yapılandırmalıyız?
-- **Normal karakterler** (harfler, rakamlar, alt çizgiler) bağımsız tokenlar olarak ele alınır, tam eşleşme aramalarını iyileştirir.  
-- **Birleşik karakterler** (tireler, eğik çizgiler) kelimeleri birleştirir; bunları yapılandırmak, istenmeyen token bölünmesini önler ve bu durum yasal referanslar, ürün kodları veya kaynak‑kod indekslemesi için kritiktir.
+## Neden Yasal Dava Numaraları İçin Normal ve Birleşik Karakterleri Yapılandırmalıyız?
+- **Normal karakterler** (harfler, rakamlar, alt çizgiler) ayrı ayrı tokenleştirilir, tanımlayıcılar için tam eşleşmeli aramaları mümkün kılar.  
+- **Birleşik karakterler** (tireler, bölücü çizgiler) ilgili tokenleri bir arada tutar, dava numaraları, ürün kodları veya dosya yollarının istenmeyen bölünmesini önler.  
+- Bu yapılandırma, token parçalanmasını azaltarak ve OCR‑oluşmuş içerik için alaka düzeyini artırarak **arama index'i performansını optimize eder**.  
 
 ## Ön Koşullar
 - **JDK 8** veya daha yeni bir sürüm yüklü olmalı.  
-- **Maven** bağımlılık yönetimi için gerekli.  
+- **Maven**, bağımlılık yönetimi için.  
 - **GroupDocs.Search for Java** kütüphanesine erişim (Maven üzerinden ya da resmi siteden indirilebilir).  
 
 ### Gerekli Kütüphaneler ve Bağımlılıklar
-`pom.xml` dosyanıza aşağıdaki depo ve bağımlılık girdilerini ekleyin. XML bloğu değiştirilmemelidir.
+`pom.xml` dosyanıza (aşağıda gösterildiği gibi) depo ve bağımlılık girişlerini ekleyin. XML bloğu değiştirilmemelidir.
 
 ```xml
 <repositories>
@@ -56,17 +70,17 @@ Modern belge‑ağırlıklı uygulamalarda, **özel bir arama dizini oluşturmak
 </dependencies>
 ```
 
-Ayrıca en yeni JAR’ları [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
+En son JAR dosyalarını ayrıca [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
 
 ### Lisans Edinme
-- **Ücretsiz Deneme** – erken denemeler için idealdir.  
-- **Geçici Lisans** – daha uzun geliştirme döngüleri için kullanışlıdır.  
-- **Üretim Lisansı** – ticari dağıtımda zorunludur.  
+- **Ücretsiz Deneme** – erken denemeler için mükemmeldir.  
+- **Geçici Lisans** – daha uzun geliştirme döngüleri için faydalıdır.  
+- **Üretim Lisansı** – ticari dağıtım için gereklidir.  
 
 Resmi portal üzerinden lisans alın: [GroupDocs](https://purchase.groupdocs.com/temporary-license/).
 
 ### Temel Başlatma
-Aşağıdaki kod parçacığı, boş bir indeks oluşturmak için gereken minimum kodu gösterir. Değiştirmeden bırakın; ilerleyen bölümlerde üzerine ekleyeceğiz.
+Aşağıdaki kod parçacığı, boş bir index oluşturmak için gereken en temel kodu gösterir. Değiştirmeden bırakın; daha sonra üzerine ekleyeceğiz.
 
 ```java
 import com.groupdocs.search.*;
@@ -86,33 +100,33 @@ public class GroupDocsSearchSetup {
 ## GroupDocs.Search for Java Kurulumu
 
 ### Maven ile Kurulum
-*Ön Koşullar* bölümündeki Maven yapılandırması ihtiyacınız olan tek şeydir. Ekledikten sonra `mvn clean install` komutunu çalıştırarak ikili dosyaları indirin.
+*Ön Koşullar* bölümündeki Maven yapılandırması ihtiyacınız olan tek şeydir. Ekledikten sonra ikili dosyaları indirmek için `mvn clean install` komutunu çalıştırın.
 
 ### Ortam Kurulum Gereksinimleri
-- **İndeks klasörü** ve **belge klasörü** diskte mevcut olmalı.  
-- Mutlak yollar kullanın ya da IDE’nizin göreli yolları doğru çözümleyecek şekilde ayarlandığından emin olun.  
+- **index klasörünün** ve **belge klasörünün** diskte mevcut olduğundan emin olun.  
+- Mutlak yollar kullanın veya IDE'nizin göreli yolları doğru çözümleyecek şekilde yapılandırın.  
 
 ## Uygulama Kılavuzu
 
-Aşağıda iki ayrı özelliği adım adım inceliyoruz: **normal karakterler** ve **birleşik karakterler**. Her özellik aynı desen izler—yolları tanımla, indeksi oluştur, karakter sözlüğünü ayarla ve sonunda belgelerini indeksle.
+Aşağıda iki ayrı özelliği ele alıyoruz: **normal karakterler** ve **birleşik karakterler**. Her özellik aynı modeli izler—yolları tanımlayın, index'i oluşturun, karakter sözlüğünü ayarlayın ve son olarak belgelerinizi indeksleyin.
 
 ### Özellik 1 – Normal Karakterler
 
 #### Genel Bakış
-Normal karakterler bağımsız tokenlar olarak ele alınır. Bu, rakamların, harflerin ve alt çizgilerin tam olarak göründükleri gibi aranabilir olmasını istediğinizde idealdir.
+Normal karakterler bağımsız tokenler olarak ele alınır. Bu, rakamların, harflerin ve alt çizgilerin tam olarak göründükleri şekilde aranabilir olmasını istediğinizde idealdir.
 
 #### Adım‑Adım Uygulama
 
 **1️⃣ Yolları Ayarla**  
-İndeksin nerede saklanacağını ve kaynak belgelerinizin nerede bulunduğunu tanımlayın.
+Index'in nerede saklanacağını ve kaynak belgelerinizin nerede olduğunu tanımlayın.
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/CharacterTypes/RegularCharacters";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-**2️⃣ İndeksi Oluştur ve Yapılandır**  
-İndeksi örnekleyin ve önceden var olan alfabe yapılandırmasını temizleyin.
+**2️⃣ Index Oluştur ve Yapılandır**  
+Index'i örnekleyin ve önceden var olan alfabe yapılandırmasını temizleyin.
 
 ```java
 Index index = new Index(indexFolder);
@@ -142,7 +156,7 @@ index.getDictionaries().getAlphabet().setRange(characters, CharacterType.Letter)
 ```
 
 **4️⃣ Belgeleri İndeksle**  
-Kaynak klasörden tüm dosyaları yeni yapılandırılmış indekse ekleyin.
+Kaynak klasörden tüm dosyaları yeni yapılandırılmış index'e ekleyin.
 
 ```java
 index.add(documentFolder);
@@ -151,7 +165,7 @@ index.add(documentFolder);
 ### Özellik 2 – Birleşik Karakterler
 
 #### Genel Bakış
-Birleşik karakterler (tire gibi) genellikle iki kelimeyi birleştirir. Bunları *birleşik* olarak işaretlemek, motorun indeksleme sırasında çevredeki tokenları bir arada tutmasını sağlar.
+Birleşik karakterler (tire gibi) genellikle iki kelimeyi bağlar. Onları *birleşik* olarak işaretlemek, motorun indeksleme sırasında çevredeki tokenleri bir arada tutmasını sağlar.
 
 #### Adım‑Adım Uygulama
 
@@ -162,7 +176,7 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/CharacterType
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-**2️⃣ İndeksi Oluştur ve Yapılandır**  
+**2️⃣ Index Oluştur ve Yapılandır**  
 
 ```java
 Index index = new Index(indexFolder);
@@ -184,48 +198,51 @@ index.add(documentFolder);
 ## Pratik Uygulamalar
 
 ### Kullanım Durumu 1 – Hukuki Belge Yönetimi
-Hukuki dosyalarda genellikle `2023-AB-456` gibi dava numaraları bulunur. Alt çizgi ve tireleri yapılandırarak, aramalar bu tanımlayıcıları bölmeden tam eşleşme döndürür.
+Hukuki dosyalar genellikle `2023-AB-456` gibi dava numaraları içerir. Alt çizgileri ve tireleri yapılandırarak, aramalar tanımlayıcıyı bölmeden tam eşleşmeler döndürür ve **hukuki dava numaralarını** verimli bir şekilde aramanıza yardımcı olur.
 
 ### Kullanım Durumu 2 – Kaynak‑Kod Depoları
-Geliştiriciler, alt çizgi (`my_variable`) ve tire (`my-function`) gibi sembollerin anlamlı olduğu kod parçacıklarını aramak zorundadır. Özel karakter tanıma, arama motorunun bu sembolleri korumasını sağlar.
+Geliştiriciler, alt çizgilerin (`my_variable`) ve tirelerin (`my-function`) anlamlı olduğu kod parçacıklarını aramalıdır. Özel karakter tanıma, arama motorunun bu sembollere saygı göstermesini sağlar.
 
 ### Kullanım Durumu 3 – Çok Dilli Veri Setleri
-Ek alfabeler kullanan dillerle çalışırken, normal karakter kümesini bu Unicode aralıklarını içerecek şekilde genişletebilir, böylece çapraz‑dil arama sonuçlarının doğruluğunu garantileyebilirsiniz.
+Ek alfabeler kullanan dillerle çalışırken, bu aralıkları içerecek şekilde **Unicode karakter setini genişletebilir** ve doğru çok‑dilli arama sonuçları garantileyebilirsiniz.
+
+### Kullanım Durumu 4 – PDF Görüntülerini İndeksleme
+Taralı PDF'leri veya görüntü dosyalarını indeksliyorsanız, OCR çıktısı genellikle karışık karakterler içerir. Normal ve birleşik karakterleri doğru şekilde yapılandırmak, görüntü‑tabanlı içerik için **arama index'i performansını optimize eder**.
 
 ## Performans Düşünceleri
 
-- **Kaynak Yönetimi** – Yığın kullanımına dikkat edin; büyük indeksler artımlı commit’lerden faydalanır.  
-- **Çöp Toplama** – İşiniz bittiğinde `Index` nesnelerini serbest bırakın, böylece JVM belleği geri kazanabilir.  
-- **İndeks Optimizasyonu** – Mümkünse periyodik olarak `index.optimize()` (varsa) çağırarak indeksi sıkıştırın ve sorgu hızını artırın.  
+- **Kaynak Yönetimi** – Yığın kullanımına dikkat edin; büyük index'ler artımlı commit'lerden fayda sağlar.  
+- **Garbage Collection** – İşiniz bittiğinde `Index` nesnelerini serbest bırakın, böylece JVM belleği geri alabilir.  
+- **Index Optimizasyonu** – Index'i sıkıştırmak ve sorgu hızını artırmak için periyodik olarak `index.optimize()` (varsa) çağırın.  
 
 ## Sonuç
 
-Artık **GroupDocs.Search for Java** kullanarak normal ve birleşik karakterleri ayırt eden **özel bir arama dizini** oluşturmayı biliyorsunuz. Bu ince ayar, OCR‑bilinçli, yüksek performanslı arama çözümlerini yasal, geliştirme veya çok dilli ortamlara göre özelleştirmenizi sağlar.
+Artık **index oluşturma** konusunda, GroupDocs.Search for Java kullanarak normal ve birleşik karakterleri ayırt edebileceğinizi biliyorsunuz. Bu ince ayar kontrol, OCR‑bilinçli, yüksek performanslı arama çözümlerini hukuki, geliştirme ya da çok dilli ortamlar için özelleştirmenizi sağlar.
 
-**Sonraki Adımlar**  
-- Latin dışı alfabeler için ek Unicode aralıklarıyla deneyler yapın.  
-- Karakter yapılandırmasını, stemming ya da eş anlamlılar gibi diğer GroupDocs.Search özellikleriyle birleştirin.  
-- İndeksi bir REST API’ye entegre ederek arama yeteneklerini ön‑uç uygulamalarına sunun.
+### Sonraki Adımlar
+- Latin dışı alfabeler için ek Unicode aralıkları denemek.  
+- Karakter yapılandırmasını, kök bulma (stemming) veya eş anlamlılar gibi diğer GroupDocs.Search özellikleriyle birleştirmek.  
+- Index'i bir REST API'ye entegre ederek arama yeteneklerini ön‑uç uygulamalarına sunmak.
 
 ## Sıkça Sorulan Sorular
 
-**S:** *`CharacterType.Letter` ne amaçla kullanılır?*  
-**C:** Sağlanan karakterleri normal harfler olarak ele almasını söyler; böylece indeksleme sırasında ayrı tokenlar olarak işlenir.
+**Q:** *`CharacterType.Letter` ne amaçla kullanılır?*  
+**A:** Index'e sağlanan karakterleri normal harfler olarak ele almasını söyler, böylece indeksleme sırasında ayrı ayrı tokenleştirilir.
 
-**S:** *Aynı indekste normal ve birleşik karakterleri karıştırabilir miyim?*  
-**C:** Evet—her tip için `setRange` metodunu çağırmanız yeterlidir; sözlük her iki yapılandırmayı aynı anda yönetir.
+**Q:** *Aynı index içinde normal ve birleşik karakterleri karıştırabilir miyim?*  
+**A:** Evet—her tip için `setRange` metodunu çağırmanız yeterlidir; sözlük her iki yapılandırmayı aynı anda yönetir.
 
-**S:** *Alfabe değiştirildikten sonra indeksi yeniden oluşturmak gerekir mi?*  
-**C:** Kesinlikle. Karakter sözlüğü değişiklikleri tokenizasyonu etkiler, bu yüzden yeni kuralları uygulamak için belgeleri yeniden indekslemelisiniz.
+**Q:** *Alfabe değiştirildikten sonra index'i yeniden oluşturmalı mıyım?*  
+**A:** Kesinlikle. Karakter sözlüğü değişiklikleri tokenleştirmeyi etkiler, bu yüzden yeni kuralları uygulamak için belgeleri yeniden indekslemeniz gerekir.
 
-**S:** *Tanımlayabileceğim özel karakter sayısında bir sınırlama var mı?*  
-**C:** Kütüphane tam Unicode aralığını destekler; çok büyük bir set eklemek performansı düşürebilir, bu yüzden yalnızca ihtiyacınız olan karakterleri ekleyin.
+**Q:** *Tanımlayabileceğim özel karakter sayısında bir limit var mı?*  
+**A:** Kütüphane tam Unicode aralığını destekler; çok büyük bir set eklenirse performans düşebilir, bu yüzden yalnızca gerçekten ihtiyaç duyduğunuz karakterlerle sınırlayın.
 
-**S:** *Bu, OCR doğruluğunu nasıl etkiler?*  
-**C:** İndeksin karakter setini OCR motorunun çıktısıyla hizalayarak yanlış negatifleri azaltır ve genel arama alaka düzeyini artırır.
+**Q:** *Bu, OCR doğruluğunu nasıl etkiler?*  
+**A:** Index'in karakter setini OCR motorunun çıktısıyla hizalayarak, yanlış negatifleri azaltır ve genel arama alaka düzeyini artırır.
 
 ---
 
-**Son Güncelleme:** 2026-01-11  
+**Son Güncelleme:** 2026-03-17  
 **Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs

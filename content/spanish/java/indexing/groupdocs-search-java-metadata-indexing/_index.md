@@ -1,8 +1,8 @@
 ---
-date: '2026-01-06'
-description: Aprende a agregar documentos al índice y buscar documentos por metadatos
+date: '2026-03-17'
+description: Aprende cómo agregar documentos al índice y buscar documentos por metadatos
   con GroupDocs.Search Java. Domina la configuración del índice, crea índices, agrega
-  documentos y realiza búsquedas precisas.
+  documentos y ejecuta búsquedas precisas.
 keywords:
 - metadata indexing java
 - GroupDocs Search Java
@@ -16,22 +16,22 @@ weight: 1
 
 # Cómo agregar documentos al índice con Indexación de Metadatos en Java usando GroupDocs.Search
 
-En aplicaciones modernas, **agregar documentos al índice** de forma rápida y fiable es esencial para ofrecer experiencias de búsqueda rápidas. Ya sea que estés construyendo un repositorio legal, una base de conocimientos de soporte al cliente o un portal interno de documentos, aprovechar los metadatos permite **buscar documentos por metadatos** como autor, título o etiquetas personalizadas. Esta guía te lleva a través del proceso completo: configurar los ajustes del índice, crear un índice centrado en metadatos, agregar tus archivos y ejecutar búsquedas potentes, todo con GroupDocs.Search para Java.
+Agregar documentos a un índice de forma rápida y fiable es la columna vertebral de cualquier aplicación moderna impulsada por búsqueda. Ya sea que estés construyendo un repositorio legal, una base de conocimientos de soporte al cliente o un portal interno de documentos, **metadata indexing** te permite *buscar documentos por metadatos* como autor, título o etiquetas personalizadas. En este tutorial aprenderás a configurar los ajustes del índice, crear un índice enfocado en metadatos, agregar tus archivos y ejecutar búsquedas precisas, todo con GroupDocs.Search para Java.
 
 ## Respuestas rápidas
-- **¿Cuál es el propósito principal de la indexación de metadatos?** Permite búsquedas rápidas basadas en propiedades del documento en lugar del contenido de texto completo.  
+- **¿Cuál es el propósito principal de la indexación de metadatos?** Permite búsquedas rápidas basadas en las propiedades del documento en lugar del contenido completo.  
 - **¿Qué método agrega archivos al índice?** `index.add(YOUR_DOCUMENTS_FOLDER);`  
 - **¿Puedo buscar por campos de metadatos personalizados?** Sí, una vez que los campos están indexados puedes consultarlos directamente.  
 - **¿Necesito una licencia para desarrollo?** Una licencia de prueba temporal es suficiente para la evaluación; se requiere una licencia completa para producción.  
-- **¿Qué versión de Java se requiere?** Se recomienda JDK 8 o superior.  
+- **¿Qué versión de Java se requiere?** Se recomienda JDK 8 o superior.
 
 ## ¿Qué es la indexación de metadatos en GroupDocs.Search?
-La indexación de metadatos extrae y almacena los atributos del documento (p. ej., autor, fecha de creación, etiquetas personalizadas) en una estructura buscable. Cuando **agregas documentos al índice**, el motor registra estos atributos, lo que te permite ejecutar consultas precisas como “encontrar todos los PDFs creados por *John Doe*”.
+La indexación de metadatos extrae y almacena los atributos del documento (p. ej., autor, fecha de creación, etiquetas personalizadas) en una estructura buscable. Cuando **add documents to index**, el motor registra estos atributos, permitiéndote ejecutar consultas precisas como “find all PDFs authored by *John Doe*” o “search pdf by author”.
 
 ## ¿Por qué usar GroupDocs.Search para la indexación de metadatos?
-- **Rendimiento:** Las búsquedas de metadatos son ligeras y devuelven resultados en milisegundos.  
-- **Flexibilidad:** Soporta una amplia gama de formatos de archivo (PDF, DOCX, PPT, etc.).  
-- **Escalabilidad:** Maneja millones de documentos con una huella de memoria mínima.  
+- **Performance:** Las búsquedas de metadatos son ligeras y devuelven resultados en milisegundos.  
+- **Flexibility:** Soporta una amplia gama de formatos de archivo (PDF, DOCX, PPT, etc.).  
+- **Scalability:** Maneja millones de documentos con una huella de memoria mínima.  
 
 ## Requisitos previos
 - GroupDocs.Search for Java ≥ 25.4.  
@@ -66,13 +66,13 @@ También puedes descargar los binarios más recientes directamente desde [GroupD
 ### Obtención de licencia
 Para obtener una licencia temporal para pruebas:
 
-1. Visita el sitio web de GroupDocs y ve a la sección **Purchase**.  
+1. Visita el sitio web de GroupDocs y dirígete a la sección **Purchase**.  
 2. Elige un plan de **temporary license** que se ajuste a tus necesidades de evaluación.  
 
 ## Implementación paso a paso
 
 ### Función 1: Configuración de ajustes del índice
-Configura el índice para centrarse en los metadatos:
+Configura el índice para enfocarse en metadatos:
 
 ```java
 import com.groupdocs.search.IndexSettings;
@@ -83,7 +83,7 @@ IndexSettings settings = new IndexSettings();
 settings.setIndexType(IndexType.MetadataIndex);  // Focus on metadata indexing
 ```
 
-- `setIndexType(IndexType.MetadataIndex)` indica al motor que priorice los metadatos sobre el contenido de texto completo.
+- `setIndexType(IndexType.MetadataIndex)` indica al motor que priorice los metadatos sobre el contenido completo.
 
 ### Función 2: Creación de un índice en una carpeta especificada
 Crea un directorio físico para el índice donde se almacenarán todos los metadatos:
@@ -100,7 +100,7 @@ Index index = new Index(YOUR_INDEX_DIRECTORY, settings);
 Reemplaza `YOUR_DOCUMENT_DIRECTORY` con la ruta que coincida con la estructura de tu proyecto.
 
 ### Función 3: Cómo agregar documentos al índice
-Ahora que el índice existe, puedes **agregar documentos al índice** para que sean buscables:
+Ahora que el índice existe, puedes **add documents to index** para que se vuelvan buscables:
 
 ```java
 String YOUR_DOCUMENTS_FOLDER = "YOUR_DOCUMENT_DIRECTORY";
@@ -109,12 +109,12 @@ String YOUR_DOCUMENTS_FOLDER = "YOUR_DOCUMENT_DIRECTORY";
 index.add(YOUR_DOCUMENTS_FOLDER);
 ```
 
-**Consejos:**  
+**Tips:**  
 - Verifica que la ruta de la carpeta sea correcta y que la aplicación tenga permisos de lectura.  
 - GroupDocs.Search extrae automáticamente los metadatos compatibles de cada archivo.
 
 ### Función 4: Búsqueda de documentos por metadatos
-Ejecuta una consulta que apunte a campos de metadatos, por ejemplo buscando documentos donde el idioma sea inglés:
+Ejecuta una consulta que apunte a campos de metadatos, por ejemplo buscando documentos donde el idioma sea English:
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -128,54 +128,58 @@ for (int i = 0; i < result.getDocumentCount(); i++) {
 }
 ```
 
-- `search(query)` busca en los metadatos indexados y devuelve los documentos coincidentes.
+- `search(query)` revisa los metadatos indexados y devuelve los documentos coincidentes.  
+- También puedes **search pdf by author** usando el nombre del autor como cadena de consulta.
 
 ## Aplicaciones prácticas
 1. **Enterprise Document Management:** Recupera contratos por fecha de contrato o nombre del firmante.  
 2. **Digital Library Catalogs:** Permite a los usuarios explorar libros por género, año de publicación o autor.  
 3. **CRM Systems:** Localiza rápidamente archivos de clientes usando metadatos personalizados como ID de cliente o región.  
 
+## Consejos y mejores prácticas
+- **Incremental Updates:** Usa `index.addOrUpdate()` para archivos nuevos o modificados en lugar de reconstruir todo el índice.  
+- **Batch Processing:** Cuando trabajes con miles de archivos, agrégalos en lotes más pequeños para mantener bajo el uso de memoria.  
+- **Metadata Validation:** Asegúrate de que los documentos fuente contengan realmente los metadatos que planeas consultar (p. ej., campos de autor en PDFs).  
+
 ## Consideraciones de rendimiento
-- **Actualizaciones incrementales:** Usa `index.addOrUpdate()` para archivos nuevos o modificados en lugar de reconstruir todo el índice.  
-- **Ajuste de memoria:** Ajusta el tamaño del heap de JVM (`-Xmx`) según el volumen de metadatos indexados.  
-- **Almacenamiento optimizado:** Llama periódicamente a `index.optimize()` para compactar el índice y mejorar la velocidad de consulta.  
+- **Memory Tuning:** Ajusta el tamaño del heap de JVM (`-Xmx`) según el volumen de metadatos indexados.  
+- **Optimized Storage:** Llama periódicamente a `index.optimize()` para compactar el índice y mejorar la velocidad de consulta.  
 
 ## Problemas comunes y soluciones
-
-| Problema | Solución |
-|----------|----------|
-| **No se devolvieron resultados** | Confirma que los campos de metadatos que esperas estén realmente presentes en los archivos de origen. |
-| **Errores de permisos** | Asegúrate de que el proceso Java tenga acceso de lectura tanto a la carpeta de documentos como al directorio del índice. |
-| **Errores de falta de memoria** | Incrementa el tamaño del heap de JVM o procesa la operación `add` en lotes para manejar los archivos en grupos más pequeños. |
+| Issue | Solution |
+|-------|----------|
+| **No results returned** | Confirma que los campos de metadatos que esperas estén realmente presentes en los archivos fuente. |
+| **Permission errors** | Asegúrate de que el proceso Java tenga acceso de lectura tanto a la carpeta de documentos como al directorio del índice. |
+| **Out‑of‑memory errors** | Incrementa el tamaño del heap de JVM o divide la operación `add` en grupos más pequeños. |
 
 ## Preguntas frecuentes
 
-**P: ¿Qué es la indexación de metadatos?**  
-**R:** La indexación de metadatos almacena los atributos del documento (autor, título, etiquetas personalizadas) en una estructura buscable, lo que permite búsquedas rápidas sin escanear el texto completo.
+**Q: What is metadata indexing?**  
+A: Metadata indexing stores document attributes (author, title, custom tags) in a searchable structure, enabling fast look‑ups without scanning full text.
 
-**P: ¿Cómo obtengo una licencia temporal?**  
-**R:** Visita la página de compra de GroupDocs y sigue los pasos para adquirir una licencia de prueba.
+**Q: How do I obtain a temporary license?**  
+A: Visit the GroupDocs purchase page and follow the steps to acquire a trial license.
 
-**P: ¿Puedo indexar PDFs con esta configuración?**  
-**R:** Sí, GroupDocs.Search soporta PDF, DOCX, PPT y muchos otros formatos.
+**Q: Can I index PDFs with this setup?**  
+A: Yes, GroupDocs.Search supports PDF, DOCX, PPT, and many other formats.
 
-**P: ¿Cuáles son los problemas comunes al agregar documentos?**  
-**R:** Verifica que las rutas de los archivos sean correctas y que la aplicación tenga permisos de lectura para los directorios.
+**Q: What are common issues when adding documents?**  
+A: Verify correct file paths and ensure the application has read permissions for the directories.
 
-**P: ¿Cómo optimizo el rendimiento de la búsqueda?**  
-**R:** Actualiza regularmente tu índice, usa adiciones incrementales y ajusta la configuración de memoria de la JVM.
+**Q: How do I optimize search performance?**  
+A: Regularly update your index, use incremental adds, and tune JVM memory settings.
 
 ## Recursos
 
-- **Documentación:** [GroupDocs.Search Java Documentation](https://docs.groupdocs.com/search/java/)  
-- **Referencia de API:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-- **Descarga:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- **Repositorio GitHub:** [GroupDocs.Search GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Foro de soporte gratuito:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/search/10)  
-- **Licencia temporal:** [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **Documentation:** [GroupDocs.Search Java Documentation](https://docs.groupdocs.com/search/java/)  
+- **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
+- **Download:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
+- **GitHub Repository:** [GroupDocs.Search GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **Free Support Forum:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/search/10)  
+- **Temporary License:** [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Última actualización:** 2026-01-06  
-**Probado con:** GroupDocs.Search Java 25.4  
-**Autor:** GroupDocs
+**Last Updated:** 2026-03-17  
+**Tested With:** GroupDocs.Search Java 25.4  
+**Author:** GroupDocs
