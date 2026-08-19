@@ -1,5 +1,5 @@
 ---
-title: "How to Create Document Index and Add Documents with GroupDocs.Search for Java"
+title: "How to Create Document Index and Add Documents Using the GroupDocs.Search API for Java"
 description: "Learn how to create document index, add documents to index, and optimize search performance using GroupDocs.Search for Java."
 date: "2026-03-15"
 weight: 1
@@ -37,7 +37,7 @@ A document index is a structured data store that contains searchable tokens extr
 - **Maven** for dependency management.  
 - Basic familiarity with Java programming.
 
-## Setting Up GroupDocs.Search for Java
+## Setting up GroupDocs.Search for java
 
 ### Maven Installation
 Add the following to your `pom.xml` file:
@@ -74,7 +74,7 @@ Alternatively, download the latest version directly from [GroupDocs.Search for J
 import com.groupdocs.search.Index;
 
 public class InitializeGroupDocs {
-    public static void main(String[] args) {
+    public static main(String[] args) {
         // Create an index in the specified folder
         String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output";
         Index index = new Index(indexFolder);
@@ -129,14 +129,14 @@ To **optimize search performance** and **improve search latency**, follow these 
 2. **Legal Research** – locate case files and precedents with minimal latency.  
 3. **Academic Libraries** – enable scholars to search across thousands of research papers.
 
-## Common Issues and Solutions
+## Common issues and solutions
 | Issue | Solution |
 |-------|----------|
 | Out‑of‑memory errors during bulk indexing | Split the source folder into smaller batches and index each batch separately. |
 | Search returns stale results | Re‑open the `Index` object after large updates or call `index.update()` if available. |
 | License not recognized | Verify that the license file path is correct and that the license version matches the library version. |
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: What is the minimum Java version required?**  
 A: Java 8 or higher is recommended for full compatibility.

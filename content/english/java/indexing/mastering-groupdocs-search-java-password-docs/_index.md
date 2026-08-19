@@ -1,5 +1,5 @@
 ---
-title: "How to index docs in Java for password‑protected files with GroupDocs.Search"
+title: "How to index password‑protected documents in Java using GroupDocs.Search"
 description: "Learn how to index docs in Java for password‑protected files using GroupDocs.Search. Step‑by‑step guide with code, tips, and performance tricks."
 date: "2026-03-15"
 weight: 1
@@ -38,7 +38,7 @@ Creating a document index in Java means building a searchable data structure tha
 3. **Maven** – for dependency management.  
 4. **GroupDocs.Search for Java** – add the library via Maven (see below).  
 
-## Setting Up GroupDocs.Search for Java
+## Setting up GroupDocs.Search for java
 
 ### Using Maven
 Add the repository and dependency to your `pom.xml` file:
@@ -70,34 +70,34 @@ To get started with a trial license, visit [GroupDocs' temporary license page](h
 
 Below are two practical approaches. Both let you **create document index java** while handling passwords automatically.
 
-### Approach 1 – Indexing Using a Password Dictionary
+### Approach 1 – indexing using a password dictionary
 
 #### Overview
 Store document passwords in a dictionary so the engine can unlock files on the fly.
 
-#### Step 1: Define the Index and Documents Folder
+#### Step 1: define the index and documents folder
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordDictionary";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Step 2: Create an Index
+#### Step 2: create an index
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Step 3: Add Document Passwords
+#### Step 3: add document passwords
 ```java
 // Add passwords for specific files using their absolute paths
 String path1 = new File(documentsFolder + "/English.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(path1, "123456");
 
-String path2 = new File(documentsFolder + "/Lorem ipsum.docx").getAbsolutePath();
+String path2 = new File(documentsFolder + "/SampleDocument.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(path2, "123456");
 ```
 
-#### Step 4: Index Documents
+#### Step 4: index documents
 ```java
 // Automatically retrieve passwords from the dictionary during indexing
 index.add(documentsFolder);
@@ -105,7 +105,7 @@ index.add(documentsFolder);
 
 #### Step 5: Search in the Index
 ```java
-String query = "ipsum OR increasing";
+String query = "sample OR increasing";
 SearchResult result = index.search(query);
 
 // Handle search results (e.g., display or process them)
@@ -117,24 +117,24 @@ SearchResult result = index.search(query);
 - Verify that each password matches the file’s actual protection password.  
 - Double‑check file paths; a wrong path triggers `FileNotFoundException`.
 
-### Approach 2 – Indexing Using an Event Listener for Password Requirement
+### Approach 2 – indexing using an event listener for password requirement
 
 #### Overview
 Supply passwords dynamically when the engine raises a password‑required event.
 
-#### Step 1: Define the Index and Documents Folder
+#### Step 1: define the index and documents folder
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordEvent";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Step 2: Create an Index
+#### Step 2: create an index
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Step 3: Subscribe to Password‑Required Event
+#### Step 3: subscribe to password‑Required event
 ```java
 index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArgs>() {
     @Override
@@ -147,7 +147,7 @@ index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArg
 });
 ```
 
-#### Step 4: Index Documents
+#### Step 4: index documents
 ```java
 // The event handler will supply passwords as required during indexing
 index.add(documentsFolder);
@@ -155,7 +155,7 @@ index.add(documentsFolder);
 
 #### Step 5: Search in the Index
 ```java
-String query = "ipsum OR increasing";
+String query = "sample OR increasing";
 SearchResult result = index.search(query);
 
 // Handle search results (e.g., display or process them)
@@ -176,12 +176,12 @@ SearchResult result = index.search(query);
 - **Parallel Indexing:** Use `index.addAsync(...)` or run multiple indexing threads for faster throughput.  
 - **Index Maintenance:** Periodically call `index.optimize()` to compact the index and improve query speed.
 
-## Common Issues and Solutions
+## Common issues and solutions
 - **Wrong Password:** The document is skipped and a warning is logged. Double‑check your password dictionary or event handler.  
 - **Unsupported Format:** Install the necessary format plugins or convert files to a supported type before indexing.  
 - **Large Files:** Increase heap size and consider indexing them in smaller batches.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: How do I handle different file formats?**  
 A: GroupDocs.Search supports PDF, DOCX, XLSX, PPTX, and many more. Install the appropriate format plugins if required.
