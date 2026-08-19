@@ -1,48 +1,52 @@
 ---
-date: '2026-01-06'
-description: Apprenez à créer un index de documents Java pour les fichiers protégés
-  par mot de passe avec GroupDocs.Search. Guide pas à pas avec du code, des conseils
-  et des astuces de performance.
+date: '2026-03-15'
+description: Apprenez à indexer des documents en Java pour les fichiers protégés par
+  mot de passe en utilisant GroupDocs.Search. Guide étape par étape avec du code,
+  des astuces et des trucs de performance.
 keywords:
 - indexing password-protected documents Java
 - GroupDocs.Search Java API
 - document management workflow
-title: Créer un index de documents Java pour les fichiers protégés par mot de passe
+title: Comment indexer des documents en Java pour les fichiers protégés par mot de
+  passe avec GroupDocs.Search
 type: docs
 url: /fr/java/indexing/mastering-groupdocs-search-java-password-docs/
 weight: 1
 ---
 
-# Créer un index de documents java pour les fichiers protégés par mot de passe avec GroupDocs.Search
+ placeholders: they are {{CODE_BLOCK_X}}; keep unchanged.
 
-Dans les entreprises modernes, protéger les données sensibles avec des mots de passe est essentiel, mais cela rend souvent difficile la **création d'un index de documents java** pour une récupération rapide. Ce tutoriel vous montre exactement comment construire un index consultable de fichiers protégés par mot de passe en utilisant GroupDocs.Search pour Java, tout en gardant votre flux de travail sécurisé et efficace.
+Now produce final content.# Comment indexer des documents en Java pour les fichiers protégés par mot de passe avec GroupDocs.Search
+
+Si vous vous demandez **comment indexer des documents** protégés par des mots de passe, vous êtes au bon endroit. Dans les entreprises modernes, protéger les données sensibles par mot de passe est essentiel, mais cela rend souvent difficile la création d’un index rapide et consultable. Ce tutoriel vous guide à travers les étapes exactes pour créer un index de documents sécurisé et haute performance pour les fichiers protégés par mot de passe en utilisant GroupDocs.Search pour Java, tout en gardant le processus simple et maintenable.
 
 ## Réponses rapides
-- **Quel est le sujet de ce tutoriel ?** Indexation de documents protégés par mot de passe avec un dictionnaire de mots de passe et un écouteur d'événements.  
-- **Quelle bibliothèque est requise ?** GroupDocs.Search pour Java (dernière version).  
-- **Ai‑je besoin d'une licence ?** Une licence d'essai gratuite temporaire est disponible pour l'évaluation.  
-- **Puis‑je indexer d'autres types de fichiers ?** Oui, GroupDocs.Search prend en charge de nombreux formats comme PDF, DOCX, XLSX, etc.  
-- **Quelle version de Java est requise ?** JDK 8 ou ultérieure.
+- **Que couvre ce tutoriel ?** Indexation de documents protégés par mot de passe avec un dictionnaire de mots de passe et un écouteur d’événements.  
+- **Quelle bibliothèque est requise ?** GroupDocs.Search for Java (dernière version).  
+- **Ai‑je besoin d’une licence ?** Une licence d’essai gratuite temporaire est disponible pour l’évaluation.  
+- **Puis‑je indexer d’autres types de fichiers ?** Oui, GroupDocs.Search prend en charge de nombreux formats comme PDF, DOCX, XLSX, etc.  
+- **Quelle version de Java est nécessaire ?** JDK 8 ou ultérieure.
 
-## Qu’est‑ce que “create document index java” ?
-Créer un index de documents en Java signifie construire une structure de données consultable qui associe les termes aux fichiers où ils apparaissent. Avec GroupDocs.Search, ce processus peut gérer automatiquement les documents chiffrés, de sorte que vous n’avez pas à déverrouiller manuellement chaque fichier.
+## Qu’est‑ce que « create document index java » ?
+Créer un index de documents en Java signifie construire une structure de données consultable qui associe les termes aux fichiers où ils apparaissent. Avec GroupDocs.Search, ce processus peut gérer automatiquement les documents chiffrés, de sorte que vous n’avez pas à déverrouiller chaque fichier manuellement.
 
-## Pourquoi utiliser GroupDocs.Search pour les fichiers protégés par mot de passe ?
-- **Déverrouillage sans intervention** – fournir les mots de passe une fois via un dictionnaire ou un gestionnaire d'événements.  
-- **Haute performance** – moteur d'indexation optimisé qui s'adapte à des millions de documents.  
+## Pourquoi utiliser GroupDocs.Search pour les fichiers protégés par mot de passe ?
+- **Déverrouillage sans intervention** – fournissez les mots de passe une fois via un dictionnaire ou un gestionnaire d’événements.  
+- **Haute performance** – moteur d’indexation optimisé qui s’adapte à des millions de documents.  
 - **Langage de requête riche** – prise en charge des opérateurs booléens, des caractères génériques et de la recherche floue.  
-- **Support multi‑format** – fonctionne avec plus de 100 types de fichiers dès le départ.
+- **Support multi‑format** – fonctionne avec plus de 100 types de fichiers dès l’installation.  
+- **Simplifie l’indexation des documents** – l’API masque la complexité de la gestion des fichiers chiffrés.
 
 ## Prérequis
 1. **Java Development Kit (JDK) 8+** – installé et configuré dans votre PATH.  
 2. **IDE** – IntelliJ IDEA, Eclipse ou tout éditeur compatible Java.  
 3. **Maven** – pour la gestion des dépendances.  
-4. **GroupDocs.Search pour Java** – ajoutez la bibliothèque via Maven (voir ci‑dessous).  
+4. **GroupDocs.Search for Java** – ajoutez la bibliothèque via Maven (voir ci‑dessous).  
 
 ## Configuration de GroupDocs.Search pour Java
 
 ### Utilisation de Maven
-Ajoutez le dépôt et la dépendance à votre fichier `pom.xml` :
+Ajoutez le dépôt et la dépendance à votre fichier `pom.xml` :
 
 ```xml
 <repositories>
@@ -63,13 +67,13 @@ Ajoutez le dépôt et la dépendance à votre fichier `pom.xml` :
 ```
 
 ### Téléchargement direct
-Alternativement, vous pouvez télécharger la dernière version directement depuis [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Sinon, vous pouvez télécharger la dernière version directement depuis [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-Pour commencer avec une licence d'essai, visitez la [page de licence temporaire de GroupDocs](https://purchase.groupdocs.com/temporary-license/) et suivez les instructions pour obtenir votre essai gratuit.
+Pour commencer avec une licence d’essai, rendez‑vous sur la [page de licence temporaire de GroupDocs](https://purchase.groupdocs.com/temporary-license/) et suivez les instructions pour obtenir votre essai gratuit.
 
-## Comment créer un index de documents java avec GroupDocs.Search
+## Comment indexer des documents avec un dictionnaire de mots de passe
 
-Voici deux approches pratiques. Les deux vous permettent de **créer un index de documents java** tout en gérant automatiquement les mots de passe.
+Voici deux approches pratiques. Les deux vous permettent de **create document index java** tout en gérant automatiquement les mots de passe.
 
 ### Approche 1 – Indexation à l’aide d’un dictionnaire de mots de passe
 
@@ -168,44 +172,49 @@ SearchResult result = index.search(query);
 
 ## Applications pratiques
 
-1. **Gestion documentaire d’entreprise :** automatiser l’indexation des contrats confidentiels, des dossiers RH et des rapports financiers.  
-2. **Archives juridiques :** récupérer rapidement les dossiers de cas tout en les maintenant chiffrés au repos.  
-3. **Dossiers de santé :** indexer les PDF et documents Word des patients sans exposer les PHI.
+1. **Gestion documentaire d’entreprise :** Automatisez l’indexation des contrats confidentiels, des dossiers RH et des rapports financiers.  
+2. **Archives juridiques :** Récupérez rapidement les dossiers de cas tout en les maintenant chiffrés au repos.  
+3. **Dossiers de santé :** Indexez les PDF et documents Word des patients sans exposer les PHI.
 
 ## Considérations de performance
-- **Allocation mémoire :** allouez suffisamment de mémoire heap (`-Xmx2g` ou plus) pour les gros lots.  
-- **Indexation parallèle :** utilisez `index.addAsync(...)` ou lancez plusieurs threads d’indexation pour un débit plus rapide.  
-- **Maintenance de l’index :** appelez périodiquement `index.optimize()` pour compacter l’index et améliorer la vitesse des requêtes.
+- **Allocation de mémoire** : Allouez suffisamment de mémoire heap (`-Xmx2g` ou plus) pour les gros lots.  
+- **Indexation parallèle** : Utilisez `index.addAsync(...)` ou lancez plusieurs threads d’indexation pour un débit plus rapide.  
+- **Entretien de l’index** : Appelez périodiquement `index.optimize()` pour compacter l’index et améliorer la vitesse des requêtes.
 
-## Questions fréquentes
+## Problèmes courants et solutions
+- **Mot de passe incorrect** : Le document est ignoré et un avertissement est enregistré. Revérifiez votre dictionnaire de mots de passe ou le gestionnaire d’événement.  
+- **Format non pris en charge** : Installez les plugins de format nécessaires ou convertissez les fichiers vers un type pris en charge avant l’indexation.  
+- **Fichiers volumineux** : Augmentez la taille du heap et envisagez de les indexer par lots plus petits.
+
+## Questions fréquemment posées
 
 **Q : Comment gérer différents formats de fichiers ?**  
 R : GroupDocs.Search prend en charge PDF, DOCX, XLSX, PPTX et bien d’autres. Installez les plugins de format appropriés si nécessaire.
 
 **Q : Que se passe‑t‑il si un mot de passe est incorrect ?**  
-R : Le document est ignoré et un avertissement est enregistré. Revérifiez votre dictionnaire de mots de passe ou la logique du gestionnaire d’événement.
+R : Le document est ignoré et un avertissement est enregistré. Vérifiez votre source de mots de passe.
 
 **Q : Puis‑je indexer des fichiers stockés dans le cloud ?**  
 R : Oui, mais ils doivent d’abord être téléchargés dans un dossier temporaire local, car le moteur travaille avec des chemins du système de fichiers.
 
 **Q : Comment améliorer la pertinence des recherches ?**  
-R : Ajustez les paramètres de scoring via `IndexOptions`, utilisez des synonymes et exploitez la syntaxe de requête avancée (`field:term~` pour la correspondance floue).
+R : Ajustez les paramètres de score via `IndexOptions`, utilisez des synonymes et exploitez la syntaxe de requête avancée (`field:term~` pour la correspondance floue).
 
 **Q : Que faire si l’indexation échoue pour certains fichiers ?**  
-R : Examinez la sortie du journal ; les causes courantes sont des mots de passe manquants, des fichiers corrompus ou des formats non pris en charge.
+R : Examinez la sortie du journal ; les causes fréquentes sont des mots de passe manquants, des fichiers corrompus ou des formats non pris en charge.
 
 ## Ressources
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java)
-- [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+- [Documentation GroupDocs.Search](https://docs.groupdocs.com/search/java/)
+- [Référence API](https://reference.groupdocs.com/search/java)
+- [Télécharger GroupDocs.Search](https://releases.groupdocs.com/search/java/)
+- [Dépôt GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Forum d’assistance gratuit](https://forum.groupdocs.com/c/search/10)
+- [Informations sur la licence temporaire](https://purchase.groupdocs.com/temporary-license/)
 
-En suivant ce guide, vous savez maintenant comment **créer un index de documents java** pour les fichiers protégés par mot de passe, améliorant à la fois la sécurité et la découvrabilité dans vos applications.
+En suivant ce guide, vous savez maintenant **comment indexer des documents** pour les fichiers protégés par mot de passe, améliorant à la fois la sécurité et la découvrabilité dans vos applications.
 
 ---
 
-**Dernière mise à jour :** 2026-01-06  
+**Dernière mise à jour :** 2026-03-15  
 **Testé avec :** GroupDocs.Search 25.4 for Java  
 **Auteur :** GroupDocs
