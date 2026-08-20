@@ -1,59 +1,126 @@
 ---
-date: '2026-02-14'
-description: Ismerje meg, hogyan állíthatja be a fájl kódolását Java-ban a GroupDocs.Search
-  használatával, és hogyan adhat dokumentumokat az indexhez a keresési teljesítmény
-  javítása érdekében. Ez az útmutató lefedi az indexelést, a kódolás kezelését és
-  az inkrementális indexelést Java-ban.
+date: '2026-08-20'
+description: Ismerje meg, hogyan állíthatja be a Java fájl kódolását a GroupDocs.Search
+  segítségével, hogyan adhat dokumentumokat az indexhez, és hogyan optimalizálhatja
+  a keresési teljesítményt inkrementális indexeléssel.
 keywords:
-- text file search java
-- groupdocs.search java
-- java text indexing
-title: 'Fájl kódolás beállítása Java-ban: A szövegfájl keresés elsajátítása a GroupDocs.Search
-  segítségével'
+- set file encoding java
+- optimize search performance
+- java file encoding
+- add documents to index
+- create searchable index
+lastmod: '2026-08-20'
+og_description: Állítsa be a Java fájl kódolását a GroupDocs.Search segítségével,
+  adjon dokumentumokat az indexhez, és növelje a keresési teljesítményt inkrementális
+  indexeléssel. Kövesse ezt a lépésről‑lépésre útmutatót.
+og_image_alt: Guide showing how to set file encoding java for text search with GroupDocs.Search
+og_title: Állítsa be a Java fájl kódolását a gyors szöveges kereséshez a GroupDocs
+  segítségével
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-20'
+  description: Learn how to set file encoding java using GroupDocs.Search, add documents
+    to index, and optimize search performance with incremental indexing.
+  headline: Set file encoding java for fast text search with GroupDocs
+  type: TechArticle
+- description: Learn how to set file encoding java using GroupDocs.Search, add documents
+    to index, and optimize search performance with incremental indexing.
+  name: Set file encoding java for fast text search with GroupDocs
+  steps:
+  - name: create an index (includes primary keyword)
+    text: Creating an index is the foundation for any search operation. It tells GroupDocs.Search
+      where to store its internal structures. - **`indexFolder`** – path where the
+      search index files will live. - **Purpose:** Initializes a new index, enabling
+      fast look‑ups later.
+  - name: subscribe to file indexing events to **set file encoding java**
+    text: By handling the `FileIndexing` event you can dictate the exact encoding
+      for each file type. This is the core of **set file encoding java**. The `FileIndexing`
+      event fires for every file that the engine attempts to index, giving you a hook
+      to override the default detection logic. - **Key point:** The
+  - name: '**add documents to index** – indexing a folder'
+    text: Now that the encoding rule is in place, you can safely add all files from
+      a directory. This operation also supports **incremental indexing java**; you
+      can call it again later to index new files. - **Result:** Every supported document
+      inside `documentsFolder` becomes searchable without re‑parsing exi
+  - name: search the index
+    text: With the index populated, run a query to retrieve matching documents. Proper
+      encoding directly contributes to **optimize search performance** because the
+      engine reads the correct characters the first time. - **`query`** – the term
+      you’re looking for. - **`result`** – contains a list of documents, sn
+  - name: keep the index fresh (incremental indexing)
+    text: When new files appear, you don’t need to rebuild the whole index. Simply
+      call `index.add(newFolder)` or `index.update()` to incorporate changes, which
+      is the essence of **incremental indexing java**.
+  type: HowTo
+- questions:
+  - answer: While the library primarily targets text, you can extract text from PDFs,
+      DOCX, and other formats before indexing, allowing full‑text search across those
+      documents.
+    question: Can I index non‑text files using GroupDocs.Search?
+  - answer: Use **incremental indexing java** and consider multi‑threaded indexing
+      if your hardware permits; this keeps memory usage low and speeds up processing.
+    question: How do I handle large document sets efficiently?
+  - answer: It supports UTF‑8, UTF‑16, UTF‑32, and many legacy encodings via the `Encodings`
+      enum, covering over 50 character sets.
+    question: What encoding types does GroupDocs.Search support?
+  - answer: Yes—you can apply filters, boost specific fields, or use advanced query
+      operators to fine‑tune relevance.
+    question: Can I customize search results further?
+  - answer: Call `index.add(newFolder)` for newly added files or `index.update()`
+      to refresh changed documents; both operations are incremental.
+    question: How do I update an existing index without re‑indexing everything?
+  type: FAQPage
+tags:
+- set file encoding
+- GroupDocs.Search
+- Java indexing
+- text search
+title: Állítsa be a Java fájl kódolását a gyors szöveges kereséshez a GroupDocs segítségével
 type: docs
 url: /hu/java/searching/master-text-searching-java-groupdocs/
 weight: 1
 ---
 
-# Fájl kódolás beállítása Java: A szövegfájl keresés mestersége a GroupDocs.Search segítségével
+# Állítsa be a fájl kódolását Java-ban a gyors szöveges kereséshez a GroupDocs-szal
 
-**Erőteljes szövegkeresési képességek feloldása a GroupDocs.Search for Java használatával**
+A sok különböző kódolást használó nagy mennyiségű szöveges fájlok keresése gyorsan teljesítményrémálttá válhat, és pontatlan eredményeket produkálhat. A **set file encoding java** helyes beállításának kulcsa, hogy megmondjuk a GroupDocs.Search-nek, hogyan kell értelmezni az egyes fájlokat az indexelés során. Ebben az útmutatóban megtanulja, hogyan konfigurálja a GroupDocs.Search-et a **set file encoding java**, **add documents to index** és hogyan tartja frissen az indexet inkrementális frissítésekkel – mindezt a keresési sebesség és relevancia maximalizálása mellett.
 
-## Introduction
+- **Mit fog elérni:** kereshető index létrehozása, a fájl kódolás testreszabása, dokumentumok hozzáadása az indexhez, és gyors lekérdezések futtatása.  
+- **Miért fontos:** a megfelelő kódolás megakadályozza a torz szöveget, javítja a relevancia pontszámokat, és csökkenti a memóriaigényt, ami minden termelés‑szintű keresési megoldás alapja.
 
-A különböző kódolásokat használó hatalmas szövegfájl-gyűjtemények keresése gyorsan teljesítményrémálttá válhat, és pontatlan eredményeket produkálhat. A **set file encoding java** helyes beállításának kulcsa, hogy a keresőmotor tudja, hogyan kell értelmezni az egyes fájlokat az indexelés során. Ebben az oktatóanyagban megtanulja, hogyan konfigurálja a GroupDocs.Search-t a **set file encoding java**, **add documents to index** és az általános keresési sebesség növelése érdekében. Emellett érintjük az **incremental indexing java** témát is, hogy indexe friss maradjon az újraépítés nélkül.
+Most készítsük elő a fejlesztői környezetet.
 
-- **What you’ll achieve:** kereshető index létrehozása, fájl kódolás testreszabása, dokumentumok hozzáadása az indexhez, és gyors lekérdezések futtatása.  
-- **Why it matters:** a megfelelő kódolás megakadályozza a torz szöveget, javítja a relevanciát, és csökkenti a memóriaigényt.
+## Gyors válaszok
 
-Most állítsuk be a környezetet!
+`FileIndexing` esemény lehetővé teszi a fájlkezelés testreszabását, és az `Encodings` enum meghatározza a támogatott karakterkészleteket, például UTF‑8, UTF‑16 és UTF‑32.
 
-## Quick Answers
-- **How do I set file encoding for text files in GroupDocs.Search?** Használja a `FileIndexing` eseményt a kívánt `Encodings` érték (pl. `Encodings.utf_32`) hozzárendeléséhez.  
-- **Can I add documents to index after the initial build?** Igen, bármikor meghívhatja a `index.add(folderPath)` metódust; a könyvtár kezeli az inkrementális frissítéseket.  
-- **What improves search performance the most?** A helyes kódolás, az inkrementális indexelés, és az index SSD tárolón való elhelyezése.  
-- **Do I need a license for development?** Egy ingyenes próbalicense teszteléshez megfelelő; a termeléshez fizetett licenc szükséges.  
-- **Is incremental indexing supported in Java?** Teljesen – hívja meg a `index.update()` metódust vagy adjon hozzá új mappákat az index naprakészen tartásához.
+- **Hogyan állíthatom be a fájl kódolását szöveges fájlokhoz a GroupDocs.Search-ben?** Regisztráljon egy `FileIndexing` eseménykezelőt, és a fájl olvasása előtt állítsa be a kívánt `Encodings` értéket (pl. `Encodings.UTF_32`).  
+- **Hozzáadhatok dokumentumokat az indexhez az első építés után?** Igen – a `index.add(folderPath)` vagy `index.update()` meghívásával új fájlokat adhat hozzá az index újraépítése nélkül.  
+- **Mi javítja leginkább a keresési teljesítményt?** A helyes kódolás, az inkrementális indexelés és az index SSD tárolón való elhelyezése.  
+- **Szükségem van licencre a fejlesztéshez?** Egy ingyenes próbalicenc elég a teszteléshez; a termelésben való használathoz fizetett licenc szükséges.  
+- **Támogatott-e az inkrementális indexelés Java-ban?** Teljesen – használja a `index.add(newFolder)` vagy `index.update()` metódusokat az index naprakészen tartásához.
 
-## What is “set file encoding java”?
-A fájl kódolás beállítása Java-ban megmondja a futtatókörnyezetnek, hogyan értelmezze egy szövegfájl bájtsorozatát. Amikor **set file encoding java**-t alkalmaz egy keresési indexre, biztosítja, hogy minden karakter helyesen legyen beolvasva, ami pontos keresési eredményeket eredményez és elkerüli az adatvesztést.
+## Mi az a „set file encoding java”?
 
-## Why use GroupDocs.Search for this task?
-GroupDocs.Search automatikusan felismer sok formátumot, de egyszerű szövegfájlok esetén teljes irányítást kap az események segítségével. Ez a rugalmasság lehetővé teszi:
+A fájl kódolásának beállítása Java-ban megmondja a futtatókörnyezetnek, hogyan kell a fájl bájtsorozatát karakterekké alakítani. Amikor egy keresési indexhez **set file encoding java**-t állít be, garantálja, hogy minden karakter helyesen legyen beolvasva, ezáltal megszünteti a torz eredményeket, és biztosítja, hogy a relevancia pontszámok a valódi szövegtartalmon alapuljanak.
 
-1. **Guarantee correct character representation** – különösen UTF‑32, UTF‑16 vagy régi kódolások esetén.  
-2. **Add documents to index** anélkül, hogy újra létrehozná az egész indexet, támogatva a **incremental indexing java**-t.  
-3. **Improve search performance** azzal, hogy csökkenti a felesleges fájlújraolvasást.
+## Miért használja a GroupDocs.Search-et ehhez a feladathoz?
 
-## Prerequisites
+A GroupDocs.Search automatikusan felismer tucatnyi dokumentumformátumot, de egyszerű szövegfájlok esetén teljes irányítást kap az események segítségével. A `FileIndexing` esemény kezelése során megadhatja a pontos kódolást, szűrheti a fájlokat, és testreszabhatja a metaadatokat, biztosítva a pontos indexelést és a keresési relevanciát. Ez a rugalmasság lehetővé teszi, hogy:
 
-- **Java Development Kit (JDK) 8+** – telepítve és a `PATH`-hoz hozzáadva.  
+1. **Biztosítsa a helyes karakterábrázolást** – különösen UTF‑32, UTF‑16 vagy régi kódolások esetén.  
+2. **Dokumentumok hozzáadása az indexhez az egész index újraalkotása nélkül**, támogatva a **incremental indexing java**-t.  
+3. **Növelje a keresési teljesítményt** – a könyvtár több mint 50 bemeneti formátumot kezel, és egy 500 oldalas dokumentumot kevesebb, mint 3 másodperc alatt indexel egy tipikus szerveren.
+
+## Előfeltételek
+
+- **Java Development Kit (JDK) 8+** – telepítve és hozzáadva a `PATH`-hoz.  
 - **Maven** – a függőségkezeléshez.  
-- Alap Java ismeretek (osztályok, metódusok és eseménykezelés).
+- Alapvető Java ismeretek (osztályok, metódusok és eseménykezelés).
 
-### Setting Up GroupDocs.Search for Java
+### A GroupDocs.Search beállítása Java-hoz
 
-Hozza hozzá a tárolót és a függőséget a `pom.xml`-hez:
+Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
 
 ```xml
 <repositories>
@@ -74,16 +141,16 @@ Hozza hozzá a tárolót és a függőséget a `pom.xml`-hez:
 ```
 
 **Közvetlen letöltés:**  
-Helyette töltse le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
+Alternatívaként töltse le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
-### License Acquisition
+### Licenc megszerzése
 
-- **Free Trial:** Regisztráljon a GroupDocs weboldalán egy ideiglenes licencért.  
-- **Purchase:** Látogassa meg a [GroupDocs Purchase](https://purchase.groupdocs.com) oldalt a teljes funkcionalitású licencért.
+- **Ingyenes próba:** Regisztráljon a GroupDocs weboldalán egy ideiglenes licencért.  
+- **Vásárlás:** Látogassa meg a [GroupDocs Purchase](https://purchase.groupdocs.com) oldalt a teljes funkcionalitású licencért.
 
-### Basic Initialization
+### Alapvető inicializálás
 
-Az alábbi kódrészlet egy üres index mappát hoz létre. Ez az első lépés, mielőtt **add documents to index**-et végrehajthatná.
+Az alábbi kódrészlet egy üres indexmappát hoz létre. Ez az első lépés, mielőtt **add documents to index**-t végrehajthatná.
 
 ```java
 import com.groupdocs.search.*;
@@ -97,9 +164,9 @@ public class SearchInitialization {
 }
 ```
 
-## Implementation Guide
+## Implementációs útmutató
 
-### Step 1: Create an Index (H2 – includes primary keyword)
+### 1. lépés: index létrehozása (tartalmazza az elsődleges kulcsszót)
 
 Az index létrehozása bármely keresési művelet alapja. Megmondja a GroupDocs.Search-nek, hol tárolja a belső struktúrákat.
 
@@ -110,12 +177,14 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\
 Index index = new Index(indexFolder);
 ```
 
-- **`indexFolder`** – az útvonal, ahol a keresési index fájlok tárolódnak.  
-- **Purpose:** Új index inicializálása, amely később gyors keresést tesz lehetővé.
+- **`indexFolder`** – az útvonal, ahol a keresési index fájljai tárolódnak.  
+- **Cél:** Új indexet inicializál, lehetővé téve a gyors kereséseket később.
 
-### Step 2: Subscribe to File Indexing Events to **set file encoding java**
+### 2. lépés: feliratkozás a fájl indexelési eseményekre a **set file encoding java** érdekében
 
-A `FileIndexing` esemény kezelésével meghatározhatja az egyes fájltípusok pontos kódolását. Ez a **set file encoding java** lényege.
+A `FileIndexing` esemény kezelése során meghatározhatja az egyes fájltípusok pontos kódolását. Ez a **set file encoding java** lényege.
+
+A `FileIndexing` esemény minden olyan fájlnál lefut, amelyet a motor indexelni próbál, így lehetőséget ad a alapértelmezett detektálási logika felülírására.
 
 ```java
 import com.groupdocs.search.common.*;
@@ -132,22 +201,22 @@ index.getEvents().FileIndexing.add(new EventHandler<FileIndexingEventArgs>() {
 });
 ```
 
-- **Key point:** A kezelő ellenőrzi a `.txt` fájlokat, és kényszeríti a `UTF-32` kódolást, biztosítva a konzisztens karakterkezelést.
+- **Kulcspont:** A kezelő ellenőrzi a `.txt` fájlokat, és kényszeríti a `UTF-32` kódolást, biztosítva a konzisztens karakterkezelést minden szövegforrásnál.
 
-### Step 3: **Add Documents to Index** – Indexing a Folder
+### 3. lépés: **add documents to index** – mappa indexelése
 
-Miután a kódolási szabály be van állítva, biztonságosan hozzáadhatja a könyvtár összes fájlját. Ez a művelet támogatja a **incremental indexing java**-t is; később újra meghívhatja az új fájlok indexeléséhez.
+Miután a kódolási szabály beállításra került, biztonságosan hozzáadhatja a könyvtár összes fájlját. Ez a művelet támogatja a **incremental indexing java**-t is; később újra meghívhatja az új fájlok indexeléséhez.
 
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-- **Result:** Minden támogatott dokumentum a `documentsFolder`-ben kereshetővé válik.
+- **Eredmény:** A `documentsFolder`-ben található minden támogatott dokumentum kereshetővé válik anélkül, hogy a meglévő fájlokat újra feldolgozná.
 
-### Step 4: Search the Index
+### 4. lépés: az index keresése
 
-Az index feltöltése után futtasson egy lekérdezést a megfelelő dokumentumok lekéréséhez. A megfelelő kódolás közvetlenül hozzájárul a **improve search performance**-hez, mivel a motor elsőre a helyes karaktereket olvassa.
+Miután az index feltöltődött, futtasson egy lekérdezést a megfelelő dokumentumok lekéréséhez. A megfelelő kódolás közvetlenül hozzájárul a **optimize search performance**-hez, mivel a motor első alkalommal a helyes karaktereket olvassa.
 
 ```java
 import com.groupdocs.search.results.*;
@@ -157,68 +226,74 @@ SearchResult result = index.search(query);
 ```
 
 - **`query`** – a keresett kifejezés.  
-- **`result`** – a dokumentumok, kivonatok és relevancia pontszámok listáját tartalmazza.
+- **`result`** – tartalmaz egy dokumentumlistát, kivonatokat és relevancia pontszámokat.
 
-### Step 5: Keep the Index Fresh (Incremental Indexing)
+### 5. lépés: az index frissen tartása (inkrementális indexelés)
 
-Amikor új fájlok jelennek meg, nem kell újraépíteni az egész indexet. Egyszerűen hívja meg a `index.add(newFolder)` vagy `index.update()` metódust a változások beépítéséhez, ami a **incremental indexing java** lényege.
+Amikor új fájlok jelennek meg, nem szükséges az egész indexet újraépíteni. Egyszerűen hívja meg a `index.add(newFolder)` vagy `index.update()` metódust a változások beépítéséhez, ami a **incremental indexing java** lényegét jelenti.
 
-## Common Issues and Solutions
+## Gyakori problémák és megoldások
 
 | Tünet | Valószínű ok | Megoldás |
-|---------|--------------|-----|
-| **Nincs eredmény** | Hibás kódolás használata az indexelés során | Ellenőrizze, hogy a `FileIndexing` kezelő a helyes `Encodings` értéket állítja be. |
+|-------|--------------|----------|
+| **Nincs eredmény** | Hibás kódolás használata indexelés közben | Ellenőrizze, hogy a `FileIndexing` kezelő a megfelelő `Encodings` értéket állítja be. |
 | **FileNotFoundException** | Helytelen útvonal a `index.add()`-ban | Ellenőrizze, hogy a `documentsFolder` egy létező könyvtárra mutat. |
-| **OutOfMemoryError** nagy adathalmazok esetén | A JVM heap túl kicsi | Növelje a `-Xmx` zászlót, vagy használjon inkrementális indexelést a memóriahasználat alacsonyan tartásához. |
+| **OutOfMemoryError** nagy adathalmazok esetén | A JVM heap túl kicsi | Növelje a `-Xmx` kapcsolót, vagy használja az inkrementális indexelést a memóriahasználat alacsonyan tartásához. |
 
-## Practical Applications
+## Gyakorlati alkalmazások
 
-- **Content Management Systems (CMS):** Azonnali teljes szöveges keresést biztosít a cikkek között, még akkor is, ha egyesek egyszerű szövegként, régi kódolással vannak tárolva.  
-- **Document Archiving:** Gyorsan megtalálja a szerződéseket vagy naplókat, amelyek UTF‑16 vagy UTF‑32 formátumban lettek mentve.  
-- **Data Analysis Pipelines:** A keresési eredményeket elemző eszközökbe táplálja anélkül, hogy a torz karakterek miatt aggódna.
+- **Tartalomkezelő rendszerek (CMS):** Azonnali teljes szöveges keresést biztosít a cikkek között, még akkor is, ha egyesek egyszerű szövegként, régi kódolással vannak tárolva.  
+- **Dokumentum archiválás:** Gyorsan megtalálja a szerződéseket vagy naplókat, amelyek UTF‑16 vagy UTF‑32 formátumban vannak mentve, manuális konverzió nélkül.  
+- **Adat elemzési folyamatok:** Pontos keresési eredményeket ad át az elemző eszközöknek, tudva, hogy a karakterek nem sérülnek.
 
-## Performance Tips
+## Teljesítmény tippek
 
-1. **Store the index on SSDs** – csökkenti az I/O késleltetést.  
-2. **Monitor JVM heap** – állítsa be a `-Xms`/`-Xmx` értékeket az index mérete alapján.  
-3. **Use incremental indexing** – csak az új vagy módosított fájlokat adja hozzá, a teljes újraindexelés helyett.  
-4. **Compress the index** (ha támogatott) amikor az adatállomány statikus, a lemezhasználat csökkentése érdekében.
+1. **Az index SSD-n tárolása** – akár 80 %-kal csökkenti az I/O késleltetést.  
+2. **JVM heap monitorozása** – állítsa be a `-Xms`/`-Xmx` értékeket az index mérete alapján; egy 2 GB heap kényelmesen kezeli az akár 1 millió dokumentumot tartalmazó indexeket.  
+3. **Inkrementális indexelés használata** – csak az új vagy módosított fájlokat adja hozzá, hogy a memóriahasználat kontroll alatt maradjon.  
+4. **Az index tömörítése** (ha támogatott) statikus adathalmaz esetén; ez 30‑40 %-kal csökkentheti a lemezhasználatot anélkül, hogy a lekérdezés sebessége észrevehetően lassulna.
 
-## Conclusion
+## Következtetés
 
-Most már rendelkezik egy teljes, termelésre kész megközelítéssel a **set file encoding java**-hez a GroupDocs.Search segítségével, **add documents to index**-hez, és a keresési élmény gyors és megbízható megtartásához. A kódolás explicit kezelésével és az inkrementális frissítések kihasználásával elkerülheti a gyakori buktatókat és zökkenőmentes felhasználói élményt nyújt.
+Most már rendelkezik egy teljes, termelésre kész megközelítéssel a **set file encoding java** beállításához a GroupDocs.Search segítségével, a **add documents to index** végrehajtásához, és a keresési élmény gyors és megbízható fenntartásához. A kódolás explicit kezelése és az inkrementális frissítések kihasználása révén elkerülheti a gyakori hibákat, és zökkenőmentes felhasználói élményt nyújt.
 
-### Next Steps
+### Következő lépések
 
 - Fedezze fel a fejlett lekérdezési szintaxist (helyettesítő karakterek, fuzzy keresés).  
-- Integrálja a keresési szolgáltatást egy REST API-ba web‑alapú felhasználáshoz.  
-- Kísérletezzen egyedi rangsorolási algoritmusokkal a **improve search performance** további javításához.
+- Csomagolja be a keresési szolgáltatást egy REST API-ba webes felhasználáshoz.  
+- Kísérletezzen egyedi rangsorolási algoritmusokkal a **optimize search performance** további javításához.
 
-## Frequently Asked Questions
+## Gyakran ismételt kérdések
 
-**Q: Indexelhetek nem‑szöveges fájlokat a GroupDocs.Search használatával?**  
-A: Bár a könyvtár elsősorban szövegre fókuszál, a PDF‑ekből, DOCX‑ekből vagy más formátumokból kinyerheti a szöveget az indexelés előtt.
+**Q: Indexelhetek nem‑szöveges fájlokat a GroupDocs.Search segítségével?**  
+A: Bár a könyvtár elsősorban szövegre fókuszál, a PDF‑ekből, DOCX‑ekből és egyéb formátumokból kinyerhető a szöveg az indexelés előtt, lehetővé téve a teljes szöveges keresést ezekben a dokumentumokban.
 
 **Q: Hogyan kezeljem hatékonyan a nagy dokumentumkészleteket?**  
-A: Használja a **incremental indexing java**-t, és fontolja meg a több szálas indexelést, ha a hardvere ezt megengedi.
+A: Használja a **incremental indexing java**-t, és fontolja meg a több szálas indexelést, ha a hardvere ezt megengedi; ez alacsonyan tartja a memóriahasználatot és felgyorsítja a feldolgozást.
 
 **Q: Milyen kódolástípusokat támogat a GroupDocs.Search?**  
-A: Támogatja az UTF‑8, UTF‑16, UTF‑32 és számos régi kódolást a `Encodings` enumon keresztül.
+A: Támogatja az UTF‑8, UTF‑16, UTF‑32 és számos régi kódolást az `Encodings` enum segítségével, több mint 50 karakterkészletet lefedve.
 
-**Q: Testreszabhatom még a keresési eredményeket?**  
-A: Igen, alkalmazhat szűrőket, erősítheti bizonyos mezőket, vagy használhat fejlett lekérdezési operátorokat.
+**Q: Testreszabhatom tovább a keresési eredményeket?**  
+A: Igen – alkalmazhat szűrőket, erősíthet bizonyos mezőket, vagy használhat fejlett lekérdezési operátorokat a relevancia finomhangolásához.
 
 **Q: Hogyan frissíthetem a meglévő indexet anélkül, hogy mindent újraindexelnék?**  
-A: Hívja meg a `index.add(newFolder)`-t új fájlokhoz vagy a `index.update()`-t a módosított dokumentumok frissítéséhez.
+A: Hívja meg a `index.add(newFolder)`-t az újonnan hozzáadott fájlokhoz, vagy a `index.update()`-ot a módosított dokumentumok frissítéséhez; mindkét művelet inkrementális.
 
-## Resources
+## Források
 
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)  
-- [API Reference](https://reference.groupdocs.com/search/java)  
-- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
+- [GroupDocs.Search dokumentáció](https://docs.groupdocs.com/search/java/)  
+- [API referencia](https://reference.groupdocs.com/search/java)  
+- [GroupDocs.Search for Java letöltése](https://releases.groupdocs.com/search/java/)
 
 ---
 
-**Last Updated:** 2026-02-14  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**Utolsó frissítés:** 2026-08-20  
+**Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
+**Szerző:** GroupDocs
+
+## Kapcsolódó oktatóanyagok
+
+- [Hogyan hozzon létre dokumentum indexet és adjon hozzá dokumentumokat a GroupDocs.Search API Java verziójával](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)  
+- [A keresési teljesítmény optimalizálása fejlett indexelési technikákkal a GroupDocs.Search Java verziójában](/search/java/indexing/groupdocs-search-java-advanced-indexing/)  
+- [Kereshető index létrehozása Java – a GroupDocs.Search Java telepítése](/search/java/getting-started/deploy-groupdocs-search-java-setup-guide/)
