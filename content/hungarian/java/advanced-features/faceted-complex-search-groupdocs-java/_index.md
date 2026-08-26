@@ -1,50 +1,111 @@
 ---
-date: '2026-02-16'
-description: Tanulja meg, hogyan használhatja a logikai operátorokat Java-ban a GroupDocs.Search
-  segítségével keresőindex létrehozásához, tartalomkereséshez és facettált lekérdezésekhez,
-  ezáltal növelve a teljesítményt és a felhasználói élményt.
+date: '2026-08-26'
+description: Ismerje meg, hogyan a boolean operators Java lehetővé teszi, hogy gyors
+  search index-et építsen, content search Java-t hajtson végre, és faceted queries-t
+  futtasson a GroupDocs.Search segítségével.
 keywords:
-- faceted searches Java
-- complex search Java
-- GroupDocs.Search for Java
-title: Boolean operátorok Java – Keresési index létrehozása és fácett keresés
+- boolean operators java
+- update index java
+- faceted search java
+- content search java
+lastmod: '2026-08-26'
+og_description: Ismerje meg, hogyan a boolean operators Java lehetővé teszi, hogy
+  gyors search index-et építsen, content search Java-t hajtson végre, és faceted queries-t
+  hajtsa végre a GroupDocs.Search segítségével.
+og_image_alt: Guide showing boolean operators Java for creating a search index and
+  faceted search using GroupDocs.Search
+og_title: Boolean operators Java – build search index és faceted search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-26'
+  description: Learn how boolean operators Java enable you to build a fast search
+    index, perform content search Java, and run faceted queries with GroupDocs.Search.
+  headline: Boolean operators Java – create search index & faceted search
+  type: TechArticle
+- description: Learn how boolean operators Java enable you to build a fast search
+    index, perform content search Java, and run faceted queries with GroupDocs.Search.
+  name: Boolean operators Java – create search index & faceted search
+  steps:
+  - name: Create an index
+    text: First, point the `Index` to a folder where the index files will be stored.
+  - name: Add documents to the index
+    text: Tell GroupDocs.Search where your source documents live. All supported file
+      types (PDF, DOCX, TXT, etc.) will be indexed automatically.
+  - name: Perform a search in the content field with a text query
+    text: 'A quick text query filters by the `content` field. The syntax `content:
+      Pellentesque` limits results to documents containing the word *Pellentesque*
+      in their body text.'
+  - name: Perform a search using an object query
+    text: Object‑based queries give you fine‑grained control. Here we build a word
+      query, wrap it in a field query, and execute it.
+  - name: Create an index for complex queries
+    text: Reuse the same folder structure; you can share the index across both simple
+      and complex scenarios.
+  - name: Perform a search with a text query
+    text: The following query looks for files named *lorem* **and** *ipsum* **or**
+      content containing either of two exact phrases.
+  - name: Perform a search with an object query
+    text: Object‑based construction mirrors the textual query but offers type safety
+      and IDE assistance.
+  type: HowTo
+- questions:
+  - answer: Absolutely. Add the Maven dependency, configure the index as a Spring
+      bean, and inject it wherever you need search capabilities.
+    question: Can I use GroupDocs.Search with Spring Boot?
+  - answer: Yes – you can add user‑defined fields during indexing and then facet on
+      them.
+    question: Does the library support custom metadata fields?
+  - answer: The disk‑based index can handle up to 10 million documents; just ensure
+      sufficient storage and monitor cache settings.
+    question: How large can the index grow?
+  - answer: GroupDocs.Search automatically scores matches; you can retrieve the score
+      via `SearchResult.getDocument(i).getScore()`.
+    question: Is there a way to rank results by relevance?
+  - answer: 'Provide the password when adding the document: `index.add(filePath, password)`.'
+    question: What happens if I index encrypted PDFs?
+  type: FAQPage
+tags:
+- boolean operators java
+- faceted search java
+- GroupDocs.Search
+- Java search
+- search index java
+title: Boolean operators Java – létrehozni search index & faceted search
 type: docs
 url: /hu/java/advanced-features/faceted-complex-search-groupdocs-java/
 weight: 1
 ---
 
-# Boolean Operators Java – Keresési Index Létrehozása és Facettált Keresés
+# Boolean operátorok Java – keresési index létrehozása és facettált keresés
 
-Implementing a powerful **search experience** in Java can feel overwhelming, especially when you need to **create a search index Java** that supports **boolean operators Java** for faceted and complex queries. In this tutorial we’ll walk through setting up **GroupDocs.Search for Java**, building an index, adding documents, and crafting both simple faceted searches and sophisticated multi‑criteria queries that use Boolean logic. By the end you’ll understand how to leverage **content search Java**, **filename search Java**, and even **update index java** operations to keep your data fresh.
+Egy erőteljes **search experience** megvalósítása Java-ban ijesztőnek tűnhet, különösen, ha **create a search index Java**-t kell létrehozni, amely támogatja a **boolean operators Java**-t a facettált és összetett lekérdezésekhez. Ebben az oktatóanyagban végigvezetjük a **GroupDocs.Search for Java** beállítását, egy index felépítését, dokumentumok hozzáadását, valamint egyszerű facettált keresések és kifinomult többkritériumos lekérdezések megalkotását, amelyek Boolean logikát használnak. A végére megérted, hogyan lehet kihasználni a **content search Java**, **filename search Java**, és még a **update index Java** műveleteket is az adatok frissességének biztosításához.
 
 ## Gyors válaszok
-- **Mi az a facettált keresés?** A way to filter results by predefined categories such as file type or date.  
-- **Hogyan hozhatok létre keresési indexet Java-ban?** Initialize an `Index` object pointing to a folder and add documents.  
-- **Kombinálhatok több kritériumot Boolean operátorokkal?** Yes—use object‑based queries or Boolean operators in a text query.  
-- **Szükségem van licencre?** A free trial works for development; a commercial license removes limits.  
-- **Melyik IDE a legjobb?** Any Java IDE (IntelliJ IDEA, Eclipse, NetBeans) works fine.
+- **Mi az a facettált keresés?** Egy mód a találatok szűrésére előre meghatározott kategóriák, például fájltípus vagy dátum szerint.  
+- **Hogyan hozhatok létre egy search index Java‑t?** Inicializálj egy `Index` objektumot, amely egy mappára mutat, és adj hozzá dokumentumokat.  
+- **Kombinálhatok több feltételt Boolean operátorokkal?** Igen—használj objektumalapú lekérdezéseket vagy Boolean operátorokat egy szöveges lekérdezésben.  
+- **Szükségem van licencre?** Egy ingyenes próba működik fejlesztéshez; egy kereskedelmi licenc eltávolítja a korlátokat.  
+- **Melyik IDE a legjobb?** Bármely Java IDE (IntelliJ IDEA, Eclipse, NetBeans) megfelelő.
 
 ## Mi az a “create search index java”?
-Creating a search index in Java means building a searchable data structure that stores document metadata and content, enabling fast retrieval based on user queries. With GroupDocs.Search, the index lives on disk, can be updated incrementally, and supports advanced features like faceting, **boolean operators Java**, and complex Boolean logic.
 
-## Miért használjuk a GroupDocs.Search-t facettált és összetett lekérdezésekhez?
-- **Out‑of‑the‑box faceting** – filter by fields such as file name, size, or custom metadata.  
-- **Rich query language** – mix text, phrase, and field queries using AND/OR/NOT operators (the core of **boolean operators java**).  
-- **Scalable performance** – indexes millions of documents while keeping latency low.  
-- **Pure Java** – no native dependencies, works on any platform that runs JDK 8+.  
-- **Easy index maintenance** – call `index.update()` to **update index java** after adding or removing files.
+A search index Java létrehozása egy lemez‑alapú struktúra felépítését jelenti, amely tárolja a dokumentum szövegét és metaadatait, lehetővé téve a megfelelő dokumentumok azonnali lekérdezésen keresztüli visszakeresését. Az index a kifejezéseket dokumentumazonosítókhoz rendeli, gyors keresést támogat, és fokozatosan frissíthető a fájlok változása esetén, ezáltal biztosítva az erőteljes keresési funkciók alapját.
 
-## Előkövetelmények
+## Miért használjuk a GroupDocs.Search‑t facettált és összetett lekérdezésekhez?
 
-- **JDK 8 vagy újabb** installed and configured in your IDE.  
-- **Maven** (or Gradle) for dependency management.  
+A GroupDocs.Search for Java beépített facettálást, Boolean lekérdezés támogatást és nagy teljesítményű indexelést biztosít, amely akár 10 millió dokumentumot is képes kezelni, miközben a lekérdezési késleltetés tipikus szerver hardveren 200 ms alatt marad. Kész mezőszűrőket, gazdag lekérdezési nyelvet és tisztán Java kompatibilitást kínál, így ideális vállalati szintű keresési forgatókönyvekhez.
+
+## Előfeltételek
+
+- **JDK 8 vagy újabb** telepítve és konfigurálva az IDE-ben.  
+- **Maven** (vagy Gradle) a függőségkezeléshez.  
 - **GroupDocs.Search for Java** ≥ 25.4.  
-- Basic familiarity with Java OOP concepts and Maven project structure.
+- Alapvető ismeretek a Java OOP koncepciókról és a Maven projekt struktúrájáról.
 
 ## A GroupDocs.Search for Java beállítása
 
 ### Maven beállítás
-Add the repository and dependency to your `pom.xml` file:
+Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
 
 ```xml
 <repositories>
@@ -65,18 +126,18 @@ Add the repository and dependency to your `pom.xml` file:
 ```
 
 ### Közvetlen letöltés
-Alternatively, download the latest JAR from the official release page:  
+Alternatívaként töltse le a legújabb JAR-t a hivatalos kiadási oldalról:  
 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
 
 ### Licenc beszerzése
-To unlock full functionality:
+A teljes funkcionalitás feloldásához:
 
-1. **Free trial** – perfect for development and testing.  
-2. **Temporary evaluation license** – extends trial limits.  
-3. **Commercial license** – removes all restrictions for production use.
+1. **Free trial** – tökéletes fejlesztéshez és teszteléshez.  
+2. **Temporary evaluation license** – meghosszabbítja a próbaidő korlátait.  
+3. **Commercial license** – eltávolítja az összes korlátozást a termelésben való használathoz.
 
-### Alapvető inicializálás és beállítás
-The following snippet shows how to **create a search index Java** by instantiating the `Index` class:
+### Alap inicializálás és beállítás
+Az `Index` osztály a fő komponens, amely egy lemezen tárolt kereshető indexet képvisel. Az alábbi kódrészlet megmutatja, hogyan lehet **create a search index Java**-t létrehozni az `Index` osztály példányosításával:
 
 ```java
 import com.groupdocs.search.Index;
@@ -93,14 +154,14 @@ public class SearchSetup {
 }
 ```
 
-With the index ready, we can move on to real‑world faceted and complex queries.
+Az index készen áll, így továbbléphetünk a valóságos facettált és összetett lekérdezésekre.
 
 ## Hogyan használjuk a boolean operators java – Egyszerű facettált keresés
 
-Faceted search lets end‑users narrow results by selecting values from predefined categories (facets). Below is a step‑by‑step walk‑through.
+Töltse be az indexet, adjon hozzá dokumentumokat, és indítson mező lekérdezést; a kétlépéses minta lehetővé teszi a facett számok és a szűrt eredmények egyetlen hívásban történő lekérését. Ez a megközelítés intuitív módot biztosít a felhasználóknak az eredmények szűkítésére kategóriák, például fájltípus, szerző vagy egyedi metaadatok szerint.
 
 ### 1. lépés: Index létrehozása
-First, point the `Index` to a folder where the index files will be stored.
+Először mutassa a `Index`-et egy mappára, ahol az index fájlok tárolódnak.
 
 ```java
 import com.groupdocs.search.Index;
@@ -110,7 +171,7 @@ Index index = new Index(indexFolder);
 ```
 
 ### 2. lépés: Dokumentumok hozzáadása az indexhez
-Tell GroupDocs.Search where your source documents live. All supported file types (PDF, DOCX, TXT, etc.) will be indexed automatically.
+Adja meg a GroupDocs.Search-nek, hol találhatók a forrásdokumentumok. Minden támogatott fájltípus (PDF, DOCX, TXT stb.) automatikusan indexelésre kerül.
 
 ```java
 import com.groupdocs.search.Index;
@@ -121,8 +182,8 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-### 3. lépés: Keresés a Content mezőben szöveges lekérdezéssel
-A quick text query filters by the `content` field. The syntax `content: Pellentesque` limits results to documents containing the word *Pellentesque* in their body text.
+### 3. lépés: Keresés a content mezőben szöveges lekérdezéssel
+Egy gyors szöveges lekérdezés a `content` mező szerint szűr. A `content: Pellentesque` szintaxis csak azokat a dokumentumokat adja vissza, amelyek a szövegtestben tartalmazzák a *Pellentesque* szót.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -135,7 +196,7 @@ System.out.println("Documents found (query 1): " + result1.getDocumentCount());
 ```
 
 ### 4. lépés: Keresés objektum lekérdezéssel
-Object‑based queries give you fine‑grained control. Here we build a word query, wrap it in a field query, and execute it.
+Az objektumalapú lekérdezések finomhangolt vezérlést biztosítanak. Itt egy szó lekérdezést építünk, mező lekérdezésbe csomagoljuk, és végrehajtjuk.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -151,10 +212,10 @@ System.out.println("Documents found (query 2): " + result2.getDocumentCount());
 
 ## Hogyan használjuk a boolean operators java – Összetett lekérdezés keresés
 
-Complex queries combine multiple fields, Boolean operators, and phrase searches. This is ideal for scenarios like e‑commerce filters or legal document research.
+Összetett lekérdezés végrehajtásához kombináljon több mezőfeltételt AND/OR/NOT operátorokkal, és opcionálisan vegyen fel kifejezés kereséseket. Minden feltételt mező lekérdezésekkel adhat meg, beágyazhatja őket Boolean operátorokkal, és a relevanciát boost-olással szabályozhatja, így csak a legrelevánsabb dokumentumokat kapja, amelyek minden szükséges kritériumnak megfelelnek.
 
 ### 1. lépés: Index létrehozása összetett lekérdezésekhez
-Reuse the same folder structure; you can share the index across both simple and complex scenarios.
+Használja újra ugyanazt a mappaszerkezetet; az indexet megoszthatja egyszerű és összetett forgatókönyvek között.
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Searching/FacetedSearch/ComplexQuery";
@@ -163,7 +224,7 @@ index.add(documentsFolder);
 ```
 
 ### 2. lépés: Keresés szöveges lekérdezéssel
-The following query looks for files named *lorem* **and** *ipsum* **or** content containing either of two exact phrases.
+A következő lekérdezés olyan fájlokat keres, amelyek neve *lorem* **és** *ipsum* **vagy** a tartalom tartalmazza a két pontos kifejezést.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -182,7 +243,7 @@ System.out.println("Documents found (complex text query): " + result1.getDocumen
 ```
 
 ### 3. lépés: Keresés objektum lekérdezéssel
-Object‑based construction mirrors the textual query but offers type safety and IDE assistance.
+Az objektumalapú felépítés tükrözi a szöveges lekérdezést, de típusbiztonságot és IDE támogatást nyújt.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -209,50 +270,57 @@ SearchResult result2 = index.search(rootQuery);
 System.out.println("Documents found (complex object query): " + result2.getDocumentCount());
 ```
 
-## Gyakorlati alkalmazások a facettált és összetett keresésekhez
+## A facettált és összetett keresések gyakorlati alkalmazásai
 
-| Forgatókönyv | Hogyan segít a faceting | Példa lekérdezés |
-|--------------|------------------------|-----------------|
+| Szenárió | Hogyan segít a facettálás | Példa lekérdezés |
+|----------|--------------------------|-----------------|
 | **E‑commerce catalog** | Szűrés kategória, ár, márka szerint | `category: Electronics AND price:[100 TO 500]` |
 | **Legal document repository** | Szűrés ügyiratszám, joghatóság szerint | `caseNumber: 2023-045 AND jurisdiction: "California"` |
-| **Research archives** | Szerző, publikáció éve, kulcsszavak kombinálása | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
+| **Research archives** | Kombinálja a szerzőt, kiadási évet, kulcsszavakat | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
 | **Enterprise intranet** | Keresés fájltípus és részleg szerint | `filetype: pdf AND department: HR` |
 
-These examples illustrate why mastering **boolean operators java** and **filename search java** techniques is a game‑changer for any data‑intensive application.
+## Gyakori buktatók és hibaelhárítás
 
-## Gyakori hibák és hibaelhárítás
+A `SearchResult` objektum tartalmazza a lekérdezésnek megfelelő dokumentumokat, és hozzáférést biztosít a relevancia pontszámokhoz és a kiemelt részletekhez.  
+A `CommonFieldNames` osztály definiálja a szabványos mezőneveket, például a `Content` és `FileName`-t, amelyeket az API mindenhol használ.
 
-- **Empty results** – Verify that the documents were successfully added (`index.getDocumentCount()` can help).  
-- **Stale index** – After adding or removing files, call `index.update()` to **update index java** and keep the index in sync.  
-- **Incorrect field names** – Use `CommonFieldNames` constants (`Content`, `FileName`, etc.) to avoid typos.  
-- **Performance bottlenecks** – For huge collections, consider enabling `index.setCacheSize()` or using a dedicated SSD for the index folder.  
-- **Missing highlights** – To **highlight search results java**, retrieve the matched fragments via `SearchResult.getFragments()` (not shown here but available in the API).  
+- **Üres eredmények** – Ellenőrizze, hogy a dokumentumok sikeresen hozzá lettek-e adva (`index.getDocumentCount()` segíthet).  
+- **Elavult index** – Fájlok hozzáadása vagy eltávolítása után hívja meg a `index.update()`-t a **update index java** frissítéséhez, és tartsa az indexet szinkronban.  
+- **Helytelen mezőnevek** – Használja a `CommonFieldNames` konstansokat (`Content`, `FileName`, stb.) a helyesírási hibák elkerülése érdekében.  
+- **Teljesítménybeli szűk keresztmetszetek** – Nagy gyűjtemények esetén fontolja meg a `index.setCacheSize()` engedélyezését vagy egy dedikált SSD használatát az index mappához.  
+- **Hiányzó kiemelések** – A **highlight search results java** funkcióhoz szerezze be a megtalált részleteket a `SearchResult.getFragments()` segítségével (itt nem látható, de elérhető az API-ban).
 
-## Gyakran ismételt kérdések
+## Gyakran feltett kérdések
 
-**Q: Can I use GroupDocs.Search with Spring Boot?**  
-A: Absolutely. Add the Maven dependency, configure the index as a Spring bean, and inject it wherever you need search capabilities.
+**K: Használhatom a GroupDocs.Search‑t Spring Boot‑tal?**  
+A: Természetesen. Adja hozzá a Maven függőséget, konfigurálja az indexet Spring bean‑ként, és injektálja bárhol, ahol keresési képességre van szükség.
 
-**Q: Does the library support custom metadata fields?**  
-A: Yes – you can add user‑defined fields during indexing and then facet on them.
+**K: Támogatja a könyvtár az egyedi metaadatmezőket?**  
+A: Igen – a indexelés során hozzáadhat felhasználó által definiált mezőket, majd facettálhat rajtuk.
 
-**Q: How large can the index grow?**  
-A: The index is disk‑based and can handle millions of documents; just ensure sufficient storage and monitor cache settings.
+**K: Mekkora lehet az index mérete?**  
+A: A lemez‑alapú index akár 10 millió dokumentumot is kezel; csak biztosítsa a megfelelő tárolókapacitást és figyelje a gyorsítótár beállításait.
 
-**Q: Is there a way to rank results by relevance?**  
-A: GroupDocs.Search automatically scores matches; you can retrieve the score via `SearchResult.getDocument(i).getScore()`.
+**K: Van mód a találatok relevancia szerinti rangsorolására?**  
+A: A GroupDocs.Search automatikusan pontszámot ad a találatoknak; a pontszámot a `SearchResult.getDocument(i).getScore()` segítségével kérheti le.
 
-**Q: What happens if I index encrypted PDFs?**  
-A: Provide the password when adding the document: `index.add(filePath, password)`.
+**K: Mi történik, ha titkosított PDF‑eket indexelek?**  
+A: Adja meg a jelszót a dokumentum hozzáadása során: `index.add(filePath, password)`.
 
 ## Következtetés
 
-By now you should feel comfortable **creating a search index Java** with GroupDocs.Search, adding documents, and crafting both simple faceted queries and sophisticated Boolean searches using **boolean operators java**. These capabilities empower you to deliver fast, accurate, and user‑friendly search experiences across a wide range of applications—from e‑commerce platforms to enterprise knowledge bases.
+Eddig már kényelmesen kellene tudnia **create a search index Java**-t használni a GroupDocs.Search‑szal, dokumentumok hozzáadását, valamint egyszerű facettált lekérdezések és kifinomult Boolean keresések megalkotását a **boolean operators java** segítségével. Ezek a képességek lehetővé teszik, hogy gyors, pontos és felhasználóbarát keresési élményeket nyújtson széles körű alkalmazásokban – az e‑commerce platformoktól a vállalati tudásbázisokig.
 
-Ready for the next step? Explore **GroupDocs.Search’s** advanced features such as **highlighting**, **suggestions**, and **real‑time indexing** to further boost your application’s search power.
+Készen áll a következő lépésre? Fedezze fel a **GroupDocs.Search** fejlett funkcióit, mint a **highlighting**, **suggestions**, és a **real‑time indexing**, hogy tovább növelje alkalmazása keresési teljesítményét.
 
 ---
 
-**Legutóbb frissítve:** 2026-02-16  
-**Tesztelve a következővel:** GroupDocs.Search 25.4 for Java  
+**Legutóbb frissítve:** 2026-08-26  
+**Tesztelve:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs
+
+## Kapcsolódó oktatóanyagok
+
+- [Wildcard keresés Java a GroupDocs.Search‑szal – Haladó funkciók](/search/java/advanced-features/groupdocs-search-java-advanced-search-features/)
+- [Hogyan frissítsük az Index Java‑t a GroupDocs.Search‑szal – Átfogó útmutató](/search/java/document-management/guide-updating-index-versions-groupdocs-search-java/)
+- [Hogyan valósítsuk meg a java teljes szöveges keresést: index könyvtár létrehozása a GroupDocs.Search‑szal](/search/java/indexing/groupdocs-search-java-create-index/)

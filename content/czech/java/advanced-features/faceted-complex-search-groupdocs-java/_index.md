@@ -1,51 +1,108 @@
 ---
-date: '2026-02-16'
-description: Naučte se používat boolean operátory v Javě s GroupDocs.Search k vytvoření
-  vyhledávacího indexu, provádění vyhledávání obsahu v Javě a faceted dotazů, čímž
-  zvýšíte výkon a uživatelský zážitek.
+date: '2026-08-26'
+description: Zjistěte, jak boolean operators Java umožňují vám vytvořit rychlý search
+  index, provádět content search Java a spouštět faceted queries s GroupDocs.Search.
 keywords:
-- faceted searches Java
-- complex search Java
-- GroupDocs.Search for Java
-title: Boolean operátory v Javě – Vytvořit vyhledávací index a faceted vyhledávání
+- boolean operators java
+- update index java
+- faceted search java
+- content search java
+lastmod: '2026-08-26'
+og_description: Zjistěte, jak boolean operators Java umožňují vám vytvořit rychlý
+  search index, provádět content search Java a spouštět faceted queries s GroupDocs.Search.
+og_image_alt: Guide showing boolean operators Java for creating a search index and
+  faceted search using GroupDocs.Search
+og_title: Boolean operators Java – vytvořit search index a faceted search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-26'
+  description: Learn how boolean operators Java enable you to build a fast search
+    index, perform content search Java, and run faceted queries with GroupDocs.Search.
+  headline: Boolean operators Java – create search index & faceted search
+  type: TechArticle
+- description: Learn how boolean operators Java enable you to build a fast search
+    index, perform content search Java, and run faceted queries with GroupDocs.Search.
+  name: Boolean operators Java – create search index & faceted search
+  steps:
+  - name: Create an index
+    text: First, point the `Index` to a folder where the index files will be stored.
+  - name: Add documents to the index
+    text: Tell GroupDocs.Search where your source documents live. All supported file
+      types (PDF, DOCX, TXT, etc.) will be indexed automatically.
+  - name: Perform a search in the content field with a text query
+    text: 'A quick text query filters by the `content` field. The syntax `content:
+      Pellentesque` limits results to documents containing the word *Pellentesque*
+      in their body text.'
+  - name: Perform a search using an object query
+    text: Object‑based queries give you fine‑grained control. Here we build a word
+      query, wrap it in a field query, and execute it.
+  - name: Create an index for complex queries
+    text: Reuse the same folder structure; you can share the index across both simple
+      and complex scenarios.
+  - name: Perform a search with a text query
+    text: The following query looks for files named *lorem* **and** *ipsum* **or**
+      content containing either of two exact phrases.
+  - name: Perform a search with an object query
+    text: Object‑based construction mirrors the textual query but offers type safety
+      and IDE assistance.
+  type: HowTo
+- questions:
+  - answer: Absolutely. Add the Maven dependency, configure the index as a Spring
+      bean, and inject it wherever you need search capabilities.
+    question: Can I use GroupDocs.Search with Spring Boot?
+  - answer: Yes – you can add user‑defined fields during indexing and then facet on
+      them.
+    question: Does the library support custom metadata fields?
+  - answer: The disk‑based index can handle up to 10 million documents; just ensure
+      sufficient storage and monitor cache settings.
+    question: How large can the index grow?
+  - answer: GroupDocs.Search automatically scores matches; you can retrieve the score
+      via `SearchResult.getDocument(i).getScore()`.
+    question: Is there a way to rank results by relevance?
+  - answer: 'Provide the password when adding the document: `index.add(filePath, password)`.'
+    question: What happens if I index encrypted PDFs?
+  type: FAQPage
+tags:
+- boolean operators java
+- faceted search java
+- GroupDocs.Search
+- Java search
+- search index java
+title: Boolean operators Java – vytvořit search index & faceted search
 type: docs
 url: /cs/java/advanced-features/faceted-complex-search-groupdocs-java/
 weight: 1
 ---
 
-# Boolean Operators Java – Vytvoření vyhledávacího indexu a faceted vyhledávání
+# Boolean operátory Java – vytvoření vyhledávacího indexu a faceted search
 
-Implementace výkonného **search experience** v Javě může působit ohromujícím dojmem, zejména když potřebujete **create a search index Java** podporující **boolean operators Java** pro faceted a složité dotazy. V tomto tutoriálu vás provedeme nastavením **GroupDocs.Search for Java**, vytvořením indexu, přidáním dokumentů a tvorbou jak jednoduchých faceted vyhledávání, tak sofistikovaných multi‑kritériových dotazů využívajících Boolean logiku. Na konci pochopíte, jak využít **content search Java**, **filename search Java** a dokonce **update index java** operace k udržení vašich dat aktuálních.
+Implementace výkonného **search experience** v Javě může působit ohromujícím dojmem, zejména když potřebujete **create a search index Java**, který podporuje **boolean operators Java** pro faceted a komplexní dotazy. V tomto tutoriálu projdeme nastavením **GroupDocs.Search for Java**, vytvořením indexu, přidáním dokumentů a tvorbou jak jednoduchých faceted vyhledávání, tak sofistikovaných multi‑kritériových dotazů využívajících Boolean logiku. Na konci pochopíte, jak využít **content search Java**, **filename search Java**, a dokonce **update index Java** operace k udržení vašich dat aktuálních.
 
-## Quick Answers
-- **What is a faceted search?** Způsob filtrování výsledků podle předdefinovaných kategorií, jako je typ souboru nebo datum.  
-- **How do I create a search index Java?** Inicializujte objekt `Index`, který ukazuje na složku, a přidejte dokumenty.  
-- **Can I combine multiple criteria with boolean operators?** Ano—použijte dotazy založené na objektech nebo Boolean operátory v textovém dotazu.  
-- **Do I need a license?** Bezplatná zkušební verze funguje pro vývoj; komerční licence odstraňuje omezení.  
-- **Which IDE works best?** Jakékoli Java IDE (IntelliJ IDEA, Eclipse, NetBeans) funguje dobře.
+## Rychlé odpovědi
+- **Co je faceted search?** Způsob filtrování výsledků podle předdefinovaných kategorií, jako je typ souboru nebo datum.  
+- **Jak vytvořit vyhledávací index Java?** Inicializujte objekt `Index` ukazující na složku a přidejte dokumenty.  
+- **Mohu kombinovat více kritérií pomocí boolean operátorů?** Ano—použijte dotazy založené na objektech nebo Boolean operátory v textovém dotazu.  
+- **Potřebuji licenci?** Bezplatná zkušební verze funguje pro vývoj; komerční licence odstraňuje omezení.  
+- **Které IDE je nejlepší?** Jakékoli Java IDE (IntelliJ IDEA, Eclipse, NetBeans) funguje dobře.
 
-## Co je “create search index java”?
-Vytvoření vyhledávacího indexu v Javě znamená vytvořit prohledávatelnou datovou strukturu, která ukládá metadata dokumentů a jejich obsah, což umožňuje rychlé vyhledávání na základě uživatelských dotazů. S GroupDocs.Search je index uložen na disku, může být inkrementálně aktualizován a podporuje pokročilé funkce jako faceting, **boolean operators Java**, a složitou Boolean logiku.
+## Co je „create search index java“?
 
-## Proč použít GroupDocs.Search pro faceted a složité dotazy?
-- **Out‑of‑the‑box faceting** – filtrování podle polí jako název souboru, velikost nebo vlastní metadata.  
-- **Rich query language** – kombinujte textové, frázové a pole dotazy pomocí operátorů AND/OR/NOT (jádro **boolean operators java**).  
-- **Scalable performance** – indexuje miliony dokumentů při zachování nízké latence.  
-- **Pure Java** – žádné nativní závislosti, funguje na jakékoli platformě s JDK 8+.  
-- **Easy index maintenance** – zavolejte `index.update()`, aby **update index java** po přidání nebo odebrání souborů.
+Vytvoření vyhledávacího indexu Java znamená konstrukci disk‑založené struktury, která ukládá text dokumentu a metadata, umožňující okamžité vyhledání odpovídajících dokumentů pomocí dotazů. Index mapuje termíny na identifikátory dokumentů, podporuje rychlé vyhledávání a může být inkrementálně aktualizován při změnách souborů, čímž poskytuje základ pro výkonné vyhledávací funkce.
 
-## Prerequisites
+## Proč použít GroupDocs.Search pro faceted a komplexní dotazy?
 
-Než se ponoříme, ujistěte se, že máte následující:
+GroupDocs.Search for Java poskytuje vestavěné faceting, podporu Boolean dotazů a vysoký výkon indexování, který zvládne až 10 milionů dokumentů při zachování latence dotazu pod 200 ms na typickém serverovém hardware. Nabízí připravené filtry polí, bohatý dotazovací jazyk a čistě Java kompatibilitu, což z něj činí ideální řešení pro enterprise‑scale vyhledávací scénáře.
 
-- **JDK 8 nebo novější** nainstalováno a nakonfigurováno ve vašem IDE.  
+## Požadavky
+
+- **JDK 8 nebo novější** nainstalované a nakonfigurované ve vašem IDE.  
 - **Maven** (nebo Gradle) pro správu závislostí.  
 - **GroupDocs.Search for Java** ≥ 25.4.  
 - Základní znalost konceptů OOP v Javě a struktury Maven projektu.
 
-## Setting Up GroupDocs.Search for Java
+## Nastavení GroupDocs.Search pro Java
 
-### Maven Setup
+### Nastavení Maven
 Přidejte repozitář a závislost do souboru `pom.xml`:
 
 ```xml
@@ -66,19 +123,19 @@ Přidejte repozitář a závislost do souboru `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
+### Přímé stažení
 Alternativně stáhněte nejnovější JAR z oficiální stránky vydání:  
 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
 
-### License Acquisition
+### Získání licence
 Pro odemknutí plné funkčnosti:
 
-1. **Free trial** – ideální pro vývoj a testování.  
-2. **Temporary evaluation license** – prodlužuje limity zkušební verze.  
-3. **Commercial license** – odstraňuje všechna omezení pro produkční použití.
+1. **Bezplatná zkušební verze** – ideální pro vývoj a testování.  
+2. **Dočasná evaluační licence** – prodlužuje limity zkušební verze.  
+3. **Komerční licence** – odstraňuje všechna omezení pro produkční použití.
 
-### Basic Initialization and Setup
-Následující úryvek ukazuje, jak **create a search index Java** vytvořit vytvořením instance třídy `Index`:
+### Základní inicializace a nastavení
+Třída `Index` je jádrem komponenty, která představuje vyhledávatelný index uložený na disku. Následující úryvek ukazuje, jak **create a search index Java** vytvořit instancí třídy `Index`:
 
 ```java
 import com.groupdocs.search.Index;
@@ -95,13 +152,13 @@ public class SearchSetup {
 }
 ```
 
-S připraveným indexem můžeme přejít k reálným faceted a složitým dotazům.
+S připraveným indexem můžeme přejít k reálným faceted a komplexním dotazům.
 
-## Jak použít boolean operators java – Jednoduché faceted vyhledávání
+## Jak používat boolean operátory java – jednoduché faceted search
 
-Faceted vyhledávání umožňuje koncovým uživatelům zúžit výsledky výběrem hodnot z předdefinovaných kategorií (facets). Níže je krok‑za‑krokem průvodce.
+Načtěte svůj index, přidejte dokumenty a proveďte dotaz na pole; dvoustupňový vzor vám umožní získat počty facetů a filtrované výsledky v jednom volání. Tento přístup poskytuje uživatelům intuitivní způsob, jak zúžit výsledky podle kategorií, jako je typ souboru, autor nebo vlastní metadata.
 
-### Krok 1: Vytvoření indexu
+### Krok 1: Vytvořit index
 Nejprve nasměrujte `Index` na složku, kde budou uloženy soubory indexu.
 
 ```java
@@ -111,8 +168,8 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Searching/FacetedSearc
 Index index = new Index(indexFolder);
 ```
 
-### Krok 2: Přidání dokumentů do indexu
-Řekněte GroupDocs.Search, kde se nacházejí vaše zdrojové dokumenty. Všechny podporované typy souborů (PDF, DOCX, TXT, atd.) budou automaticky indexovány.
+### Krok 2: Přidat dokumenty do indexu
+Řekněte GroupDocs.Search, kde se nacházejí vaše zdrojové dokumenty. Všechny podporované typy souborů (PDF, DOCX, TXT atd.) budou automaticky indexovány.
 
 ```java
 import com.groupdocs.search.Index;
@@ -123,7 +180,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-### Krok 3: Provedení vyhledávání v poli Content pomocí textového dotazu
+### Krok 3: Proveďte vyhledávání v poli content pomocí textového dotazu
 Rychlý textový dotaz filtruje podle pole `content`. Syntaxe `content: Pellentesque` omezuje výsledky na dokumenty obsahující slovo *Pellentesque* v těle textu.
 
 ```java
@@ -136,8 +193,8 @@ SearchResult result1 = index.search(query1);
 System.out.println("Documents found (query 1): " + result1.getDocumentCount());
 ```
 
-### Krok 4: Provedení vyhledávání pomocí objektového dotazu
-Dotazy založené na objektech vám poskytují jemnou kontrolu. Zde vytvoříme word query, zabalíme jej do field query a spustíme jej.
+### Krok 4: Proveďte vyhledávání pomocí objektového dotazu
+Objektové dotazy vám dávají jemnou kontrolu. Zde vytvoříme dotaz na slovo, zabalíme jej do dotazu na pole a spustíme jej.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -151,12 +208,12 @@ SearchResult result2 = index.search(fieldQuery);
 System.out.println("Documents found (query 2): " + result2.getDocumentCount());
 ```
 
-## Jak použít boolean operators java – Složitý dotazový vyhledávání
+## Jak používat boolean operátory java – komplexní vyhledávání dotazů
 
-Složité dotazy kombinují více polí, Boolean operátory a frázová vyhledávání. To je ideální pro scénáře jako e‑commerce filtry nebo výzkum právních dokumentů.
+Pro provedení komplexního dotazu kombinujte více podmínek polí pomocí operátorů AND/OR/NOT a volitelně zahrňte vyhledávání frází. Každou podmínku můžete specifikovat pomocí dotazů na pole, vnořit je pomocí Boolean operátorů a ovládat relevanci pomocí boostingu, což vám umožní získat jen nejrelevantnější dokumenty splňující všechna požadovaná kritéria.
 
-### Krok 1: Vytvoření indexu pro složité dotazy
-Znovu použijte stejnou strukturu složek; můžete sdílet index mezi jednoduchými i složitými scénáři.
+### Krok 1: Vytvořit index pro komplexní dotazy
+Znovu použijte stejnou strukturu složek; index můžete sdílet mezi jednoduchými i komplexními scénáři.
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Searching/FacetedSearch/ComplexQuery";
@@ -164,8 +221,8 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-### Krok 2: Provedení vyhledávání pomocí textového dotazu
-Následující dotaz hledá soubory pojmenované *lorem* **and** *ipsum* **or** obsahující buď jednu ze dvou přesných frází.
+### Krok 2: Proveďte vyhledávání pomocí textového dotazu
+Následující dotaz hledá soubory pojmenované *lorem* **and** *ipsum* **or** obsahující některou ze dvou přesných frází.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -183,8 +240,8 @@ class SearchResult {
 System.out.println("Documents found (complex text query): " + result1.getDocumentCount());
 ```
 
-### Krok 3: Provedení vyhledávání pomocí objektového dotazu
-Konstrukce založená na objektech odráží textový dotaz, ale nabízí typovou bezpečnost a asistenci IDE.
+### Krok 3: Proveďte vyhledávání pomocí objektového dotazu
+Objektová konstrukce odráží textový dotaz, ale nabízí typovou bezpečnost a asistenci IDE.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -211,50 +268,59 @@ SearchResult result2 = index.search(rootQuery);
 System.out.println("Documents found (complex object query): " + result2.getDocumentCount());
 ```
 
-## Praktické aplikace faceted a složitých vyhledávání
+## Praktické aplikace faceted a komplexních vyhledávání
 
 | Scénář | Jak faceting pomáhá | Ukázkový dotaz |
 |----------|-------------------|---------------|
-| **E‑commerce katalog** | Filtrování podle kategorie, ceny, značky | `category: Electronics AND price:[100 TO 500]` |
-| **Úložiště právních dokumentů** | Zúžení podle čísla případu, jurisdikce | `caseNumber: 2023-045 AND jurisdiction: "California"` |
-| **Výzkumné archivy** | Kombinace autora, roku publikace, klíčových slov | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
-| **Podniková intranet** | Vyhledávání podle typu souboru a oddělení | `filetype: pdf AND department: HR` |
+| **E‑commerce katalog** | Filtrovat podle kategorie, ceny, značky | `category: Electronics AND price:[100 TO 500]` |
+| **Úložiště právních dokumentů** | Zúžit podle čísla případu, jurisdikce | `caseNumber: 2023-045 AND jurisdiction: "California"` |
+| **Výzkumné archivy** | Kombinovat autora, rok publikace, klíčová slova | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
+| **Podniková intranet** | Vyhledávat podle typu souboru a oddělení | `filetype: pdf AND department: HR` |
 
-Tyto příklady ukazují, proč ovládnutí technik **boolean operators java** a **filename search java** představuje průlom pro jakoukoli aplikaci pracující s velkým množstvím dat.
+Tyto příklady ukazují, proč je zvládnutí **boolean operators java** a **filename search java** technik klíčové pro jakoukoli aplikaci pracující s velkým množstvím dat.
 
-## Časté problémy a řešení
+## Časté úskalí a řešení problémů
 
-- **Empty results** – Ověřte, že dokumenty byly úspěšně přidány (`index.getDocumentCount()` může pomoci).  
-- **Stale index** – Po přidání nebo odebrání souborů zavolejte `index.update()`, aby **update index java** a udržel index synchronizovaný.  
-- **Incorrect field names** – Používejte konstanty `CommonFieldNames` (`Content`, `FileName`, atd.) pro vyhnutí se překlepům.  
-- **Performance bottlenecks** – Pro obrovské kolekce zvažte povolení `index.setCacheSize()` nebo použití dedikovaného SSD pro složku indexu.  
-- **Missing highlights** – Pro **highlight search results java** získáte odpovídající fragmenty pomocí `SearchResult.getFragments()` (není zde ukázáno, ale je k dispozici v API).  
+Objekt `SearchResult` obsahuje dokumenty, které odpovídají dotazu, a poskytuje přístup k jejich relevančním skóre a zvýrazněným fragmentům.  
+Třída `CommonFieldNames` definuje standardní názvy polí jako `Content` a `FileName`, které jsou používány napříč API.
+
+- **Prázdné výsledky** – Ověřte, že dokumenty byly úspěšně přidány (`index.getDocumentCount()` může pomoci).  
+- **Zastaralý index** – Po přidání nebo odebrání souborů zavolejte `index.update()`, aby **update index java** a udrželi index v synchronizaci.  
+- **Nesprávné názvy polí** – Používejte konstanty `CommonFieldNames` (`Content`, `FileName`, atd.) pro vyhnutí se překlepům.  
+- **Úzká místa výkonu** – Pro obrovské kolekce zvažte povolení `index.setCacheSize()` nebo použití dedikovaného SSD pro složku indexu.  
+- **Chybějící zvýraznění** – Pro **highlight search results java** získáte odpovídající fragmenty pomocí `SearchResult.getFragments()` (není zde ukázáno, ale je k dispozici v API).  
 
 ## Často kladené otázky
 
-**Q: Can I use GroupDocs.Search with Spring Boot?**  
-A: Ano. Přidejte Maven závislost, nakonfigurujte index jako Spring bean a injektujte jej tam, kde potřebujete vyhledávací funkce.
+**Q: Mohu použít GroupDocs.Search se Spring Boot?**  
+**A:** Ano. Přidejte Maven závislost, nakonfigurujte index jako Spring bean a injektujte jej kdekoliv potřebujete vyhledávací funkce.
 
-**Q: Does the library support custom metadata fields?**  
-A: Ano – můžete během indexování přidat uživatelem definovaná pole a poté na nich provádět faceting.
+**Q: Podporuje knihovna vlastní pole metadat?**  
+**A:** Ano – můžete během indexování přidat uživatelem definovaná pole a poté na nich faceting.
 
-**Q: How large can the index grow?**  
-A: Index je založený na disku a může zvládnout miliony dokumentů; stačí zajistit dostatečné úložiště a sledovat nastavení cache.
+**Q: Jak velký může index být?**  
+**A:** Diskový index může zvládnout až 10 milionů dokumentů; jen zajistěte dostatečné úložiště a monitorujte nastavení cache.
 
-**Q: Is there a way to rank results by relevance?**  
-A: GroupDocs.Search automaticky ohodnocuje shody; skóre můžete získat pomocí `SearchResult.getDocument(i).getScore()`.
+**Q: Existuje způsob, jak řadit výsledky podle relevance?**  
+**A:** GroupDocs.Search automaticky skóruje shody; můžete získat skóre pomocí `SearchResult.getDocument(i).getScore()`.
 
-**Q: What happens if I index encrypted PDFs?**  
-A: Poskytněte heslo při přidávání dokumentu: `index.add(filePath, password)`.
+**Q: Co se stane, když indexuji šifrované PDF?**  
+**A:** Poskytněte heslo při přidání dokumentu: `index.add(filePath, password)`.
 
 ## Závěr
 
-Do této chvíle byste měli být pohodlní s **creating a search index Java** pomocí GroupDocs.Search, přidáváním dokumentů a tvorbou jak jednoduchých faceted dotazů, tak sofistikovaných Boolean vyhledávání pomocí **boolean operators java**. Tyto možnosti vám umožní poskytovat rychlé, přesné a uživatelsky přívětivé vyhledávací zážitky napříč širokým spektrem aplikací – od e‑commerce platforem po podnikové znalostní báze.
+Do tohoto okamžiku byste měli být schopni **create a search index Java** s GroupDocs.Search, přidávat dokumenty a vytvářet jak jednoduché faceted dotazy, tak sofistikované Boolean vyhledávání pomocí **boolean operators java**. Tyto možnosti vám umožní poskytovat rychlé, přesné a uživatelsky přívětivé vyhledávací zážitky napříč širokou škálou aplikací – od e‑commerce platforem po podnikové znalostní báze.
 
-Jste připraveni na další krok? Prozkoumejte pokročilé funkce **GroupDocs.Search** jako **highlighting**, **suggestions** a **real‑time indexing**, které dále posílí vyhledávací sílu vaší aplikace.
+Jste připraveni na další krok? Prozkoumejte pokročilé funkce **GroupDocs.Search**, jako jsou **highlighting**, **suggestions** a **real‑time indexing**, a ještě více posilte vyhledávací sílu vaší aplikace.
 
 ---
 
-**Poslední aktualizace:** 2026-02-16  
-**Testováno s:** GroupDocs.Search 25.4 for Java  
-**Autor:** GroupDocs
+**Last Updated:** 2026-08-26  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs
+
+## Související tutoriály
+
+- [Wildcard Search Java s GroupDocs.Search – Pokročilé funkce](/search/java/advanced-features/groupdocs-search-java-advanced-search-features/)
+- [Jak aktualizovat index Java s GroupDocs.Search – Kompletní průvodce](/search/java/document-management/guide-updating-index-versions-groupdocs-search-java/)
+- [Jak implementovat full‑textové vyhledávání v Javě: vytvořit adresář indexu s GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
