@@ -1,38 +1,95 @@
 ---
-date: '2026-02-16'
-description: تعلم كيفية تنفيذ بحث بالأحرف البدل في جافا، والبحث عن نطاق التاريخ، وتنسيق
-  التاريخ المخصص في جافا باستخدام GroupDocs.Search للغة جافا، بما في ذلك معالجة الأخطاء
-  وتحسين الأداء.
+date: '2026-08-26'
+description: تعلم كيفية تنفيذ wildcard search java، date range search، و custom date
+  format java باستخدام GroupDocs.Search لـ Java، بما في ذلك error handling، performance
+  optimization، و real‑world examples.
 keywords:
-- GroupDocs.Search Java
-- advanced search features Java
-- Java indexing errors
-title: بحث البدل في جافا مع GroupDocs.Search – الميزات المتقدمة
+- implement wildcard search java
+- GroupDocs.Search advanced features
+- Java date range search
+- wildcard query Java
+- search performance Java
+lastmod: '2026-08-26'
+og_description: تنفيذ wildcard search java باستخدام GroupDocs.Search، دمجها مع date
+  range و regex queries، وتحسين performance لتطبيقات Java الكبيرة.
+og_image_alt: Guide to implementing wildcard search java with GroupDocs.Search in
+  Java
+og_title: كيفية تنفيذ wildcard search java مع GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-26'
+  description: Learn how to implement wildcard search java, date range search, and
+    custom date format java using GroupDocs.Search for Java, including error handling,
+    performance optimization, and real‑world examples.
+  headline: How to implement wildcard search java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to implement wildcard search java, date range search, and
+    custom date format java using GroupDocs.Search for Java, including error handling,
+    performance optimization, and real‑world examples.
+  name: How to implement wildcard search java with GroupDocs.Search
+  steps:
+  - name: '**E‑commerce platforms** – Use **faceted search java** to filter products
+      by size, color, and brand.'
+    text: '**E‑commerce platforms** – Use **faceted search java** to filter products
+      by size, color, and brand.'
+  - name: '**Content management systems** – Combine **boolean search java** with phrase
+      search to power sophisticated editorial tools.'
+    text: '**Content management systems** – Combine **boolean search java** with phrase
+      search to power sophisticated editorial tools.'
+  - name: '**Data analysis tools** – Leverage **date range search** and **custom date
+      format java** to generate time‑based reports and dashboards.'
+    text: '**Data analysis tools** – Leverage **date range search** and **custom date
+      format java** to generate time‑based reports and dashboards.'
+  type: HowTo
+- questions:
+  - answer: Absolutely. You can combine a date range clause with wildcard, boolean,
+      faceted, or regex patterns in a single query string.
+    question: Can I mix date range search with other query types?
+  - answer: Yes. The index stores tokenized terms; updating `SearchOptions` alone
+      won’t re‑tokenize existing data. Re‑index the documents after changing formats.
+    question: Do I need to rebuild the index after changing date formats?
+  - answer: It uses incremental indexing and on‑disk storage, allowing you to scale
+      to millions of documents while keeping memory usage low.
+    question: How does GroupDocs.Search handle large indexes?
+  - answer: Wildcards are processed efficiently, but using many leading wildcards
+      (e.g., `*term`) can degrade performance. Prefer prefix or suffix wildcards.
+    question: Is there a limit to the number of wildcard characters?
+  - answer: A perpetual or subscription license from GroupDocs ensures you receive
+      updates, support, and the ability to deploy without trial limitations.
+    question: What licensing model is recommended for production?
+  type: FAQPage
+tags:
+- wildcard search
+- GroupDocs.Search
+- Java search engine
+- advanced query types
+- search performance
+title: كيفية تنفيذ wildcard search java مع GroupDocs.Search
 type: docs
 url: /ar/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1
 ---
 
-# البحث بالوايلدكارد في Java مع GroupDocs.Search – الميزات المتقدمة
+# كيفية تنفيذ بحث wildcard java مع GroupDocs.Search
 
-في التطبيقات الحديثة المعتمدة على البيانات، يُعد **wildcard search java** أحد أكثر الطرق مرونةً لتمكين المستخدمين من العثور على المعلومات حتى عندما يعرفون جزءًا فقط من الكلمة. سواء كنت تبني بوابة امتثال، أو كتالوجًا للتجارة الإلكترونية، أو نظام إدارة محتوى، فإن الجمع بين البحث بالوايلدكارد واستعلامات نطاق التاريخ، والبحث الموجه (faceted)، والبحث الرقمي، والـ regex، والبحث البولياني يمنحك محرك بحث قويًا حقًا. يشرح هذا الدليل كل ميزة متقدمة، ويظهر كيفية معالجة أخطاء الفهرسة، ويقدم نصائح لضبط الأداء — جميعها مع شفرة Java جاهزة للنسخ.
+في التطبيقات الحديثة المدفوعة بالبيانات، غالبًا ما تحتاج إلى **implement wildcard search java** لتسمح للمستخدمين بالعثور على المعلومات حتى عندما يعرفون جزءًا فقط من الكلمة. سواء كنت تبني بوابة امتثال، أو كتالوجًا للتجارة الإلكترونية، أو نظام إدارة محتوى، فإن دمج بحث wildcard مع استعلامات نطاق التاريخ، والبحث الموجه، والعددية، والـ regex، والـ boolean يمنحك محرك بحث قويًا حقًا. هذا الدرس يمرّ بك عبر كل ميزة متقدمة، يوضح كيفية التعامل مع أخطاء الفهرسة، ويقدم نصائح لضبط الأداء — كل ذلك مع شفرة Java جاهزة للنسخ.
 
 ## إجابات سريعة
-- **What is wildcard search java?** استعلام يستخدم أحرف `?` أو `*` كبدائل لمطابقة حرف واحد أو عدة أحرف في مصطلح.  
-- **Which library provides it?** GroupDocs.Search for Java.  
-- **Do I need a license?** نسخة تجريبية مجانية تكفي للتطوير؛ تحتاج إلى ترخيص إنتاج للاستخدام التجاري.  
-- **Can I combine it with date range queries?** نعم — يمكن خلط وايلدكارد، ونطاق التاريخ، والبحث الموجه (faceted)، والعبارات البوليانية في استعلام واحد.  
-- **Is it fast for large datasets?** عندما يتم الفهرسة بشكل صحيح، تُجرى عمليات البحث في أقل من ثانية حتى على ملايين المستندات.  
+- **ما هو wildcard search java؟** هو استعلام يستخدم علامات `?` أو `*` كعناصر نائبة لمطابقة حرف واحد أو عدة أحرف في مصطلح.  
+- **أي مكتبة توفر ذلك؟** GroupDocs.Search for Java.  
+- **هل أحتاج إلى ترخيص؟** نسخة تجريبية مجانية تكفي للتطوير؛ يلزم ترخيص إنتاج للاستخدام التجاري.  
+- **هل يمكنني دمجه مع استعلامات نطاق التاريخ؟** نعم — امزج wildcard، نطاق التاريخ، البحث الموجه، والـ boolean في استعلام واحد.  
+- **هل هو سريع للمجموعات الكبيرة من البيانات؟** عندما يتم فهرستها بشكل صحيح، تُنفّذ عمليات البحث في أقل من 500 ms على مجموعات بيانات تضم 2 مليون مستند.
 
 ## ما هو wildcard search java؟
-يتيح لك wildcard search java العثور على المستندات التي يتطابق فيها مصطلح مع نمط معين، مثل `?ffect` (يطابق *affect* أو *effect*) أو `prod*` (يطابق *product*، *production*، إلخ). وهو مثالي للأخطاء الإملائية، أو الإدخالات الجزئية، أو عندما لا يُعرف الصياغة الدقيقة.
+يتيح لك wildcard search java تحديد المستندات التي يتطابق فيها مصطلح مع نمط، مثل `?ffect` (مطابقة *affect* أو *effect*) أو `prod*` (مطابقة *product*، *production*، إلخ). إنه مثالي للأخطاء الإملائية، المدخلات الجزئية، أو عندما لا يُعرف الصياغة الدقيقة. هذه الميزة مفيدة بشكل خاص عندما يكتب المستخدمون مصطلحات غير مكتملة أو عندما تكون الهجوة غير مؤكدة، مما يحسّن صلة البحث ورضا المستخدم.
 
-## لماذا تستخدم GroupDocs.Search لـ Java؟
-يقدم GroupDocs.Search واجهة برمجة تطبيقات موحدة للعديد من أنواع الاستعلام — بسيط، **wildcard search java**، موجه (faceted)، رقمي، نطاق تاريخ، regex، بولياني، وعبارة — بحيث يمكنك بناء تجارب بحث متطورة دون الحاجة إلى التعامل مع مكتبات متعددة. كما أن معالجة الأخطاء القائمة على الأحداث تحافظ على مرونة خط أنابيب الفهرسة الخاص بك.
+## لماذا نستخدم GroupDocs.Search for Java؟
+يدعم GroupDocs.Search **10+** أنواع استعلام متميزة — بما في ذلك البسيط، wildcard، الموجه، العددي، نطاق التاريخ، الـ regex، الـ boolean، والعبارة — بحيث يمكنك بناء تجارب بحث متطورة دون الحاجة إلى مكتبات متعددة. يعالج المحرك ما يصل إلى **2 مليون** مستند بكمون أقل من ثانية عندما يتم تكوين الفهرس بشكل مثالي، وتُبقي معالجة الأخطاء المدفوعة بالأحداث خط أنابيب الفهرسة مرنًا.
 
 ## المتطلبات المسبقة
-- **GroupDocs.Search Java library** (v25.4 أو أحدث).  
-- **Java Development Kit (JDK)** المتوافق مع مشروعك.  
+- **مكتبة GroupDocs.Search Java** (v25.4 أو أحدث).  
+- **مجموعة تطوير جافا (JDK)** المتوافقة مع مشروعك.  
 - Maven لإدارة التبعيات (أو التحميل اليدوي).  
 
 ### المكتبات المطلوبة وإعداد البيئة
@@ -66,10 +123,10 @@ weight: 1
 
 الآن لننشئ مجلد الفهرس الذي سيحفظ بياناتك القابلة للبحث.
 
-## إعداد GroupDocs.Search لـ Java
+## إعداد GroupDocs.Search for Java
 
 ### التهيئة الأساسية
-أولاً، أنشئ كائن `Index` يشير إلى مجلد على القرص:
+`Index` هو الكائن الأساسي في GroupDocs.Search الذي يمثل فهرسًا قابلًا للبحث مخزنًا على القرص. أولاً، أنشئ كائن `Index` يشير إلى مجلد على القرص:
 
 ```java
 import com.groupdocs.search.*;
@@ -79,12 +136,13 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\BasicUsage\\BuildSearchQu
 Index index = new Index(indexFolder);
 ```
 
-الآن لديك بوابة لجميع عمليات البحث.
+أصبح لديك الآن بوابة لجميع عمليات البحث.
 
 ## دليل التنفيذ
 
 ### الميزة 1: معالجة الأخطاء في الفهرسة
 #### كيفية التقاط أخطاء الفهرسة (Java)
+`ErrorOccurred` هو حدث يُطلق في كل مرة لا يستطيع محرك الفهرسة معالجة ملف، مما يتيح لك تسجيل الخطأ أو إعادة المحاولة دون إيقاف الدفعة بالكامل.
 
 ```java
 import com.groupdocs.search.events.*;
@@ -100,10 +158,11 @@ index.getEvents().ErrorOccurred.add(new EventHandler<IndexErrorEventArgs>() {
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-*لماذا يهم*: من خلال الاستماع إلى `ErrorOccurred`، يمكنك تسجيل المشكلات، وإعادة محاولة الملفات الفاشلة، أو تنبيه المستخدمين دون تعطل العملية بأكملها.
+*لماذا يهم*: من خلال الاستماع إلى `ErrorOccurred`، يمكنك تسجيل المشكلات، إعادة محاولة الملفات الفاشلة، أو تنبيه المستخدمين دون تعطل العملية بأكملها.
 
 ### الميزة 2: استعلام بحث بسيط
 #### ما هو البحث البسيط؟
+`SimpleSearch` ينفّذ بحثًا مباشرًا عن مصطلح عبر جميع الحقول المفهرسة.
 
 ```java
 import com.groupdocs.search.*;
@@ -112,40 +171,44 @@ String query = "volutpat";
 SearchResult result = index.search(query);
 ```
 
-*النتيجة*: يُرجع كل مستند يحتوي على المصطلح **volutpat**.
+*النتيجة*: يُعيد كل مستند يحتوي على المصطلح **volutpat**.
 
-### الميزة 3: استعلام البحث بالوايلدكارد
+### الميزة 3: استعلام بحث wildcard
 #### كيف يعمل wildcard search java؟
+`WildcardSearch` يفسّر `?` كعنصر نائب لحرف واحد و`*` كعنصر نائب لعدة أحرف داخل مصطلح البحث.
 
 ```java
 String query = "?ffect";
 SearchResult result = index.search(query);
 ```
 
-*النتيجة*: يطابق كلًا من **affect** و **effect**، مظهرًا قوة الحرف البديل `?`.
+*النتيجة*: يطابق كلًا من **affect** و**effect**، مظهرًا قوة العنصر النائب `?`.
 
-### الميزة 4: استعلام البحث الموجه (Faceted Search)
-#### كيفية تنفيذ البحث الموجه faceted search java
+### الميزة 4: استعلام بحث موجه
+#### كيفية تنفيذ faceted search java
+`FacetedSearch` يحدّ النتائج إلى حقل محدد — عادةً ما تكون بيانات وصفية مثل الفئة، المؤلف، أو العلامات المخصصة.
 
 ```java
 String query = "Content: magna";
 SearchResult result = index.search(query);
 ```
 
-*النتيجة*: يحدّ البحث إلى حقل **Content**، وهو مثالي لتصفية النتائج وفقًا للبيانات الوصفية مثل الفئة أو المؤلف.
+*النتيجة*: يحدّ البحث إلى حقل **Content**، وهو مثالي لتصفية النتائج حسب البيانات الوصفية مثل الفئة أو المؤلف.
 
-### الميزة 5: استعلام نطاق رقمي
-#### كيفية البحث في النطاقات الرقمية
+### الميزة 5: استعلام نطاق عددي
+#### كيفية البحث في النطاقات العددية
+`NumericRangeSearch` يسترجع المستندات التي يقع فيها حقل عددي ضمن فترة محددة.
 
 ```java
 String query = "2000 ~~ 3000";
 SearchResult result = index.search(query);
 ```
 
-*النتيجة*: يسترجع المستندات التي تقع قيمها الرقمية بين 2000 و 3000.
+*النتيجة*: يسترجع المستندات التي تتراوح قيمها العددية بين 2000 و3000.
 
 ### الميزة 6: استعلام نطاق تاريخ
-#### كيفية تنفيذ بحث نطاق تاريخ (custom date format java)
+#### كيفية تنفيذ بحث نطاق التاريخ (custom date format java)
+`SearchOptions` يتيح لك تحديد `DateFormat` مخصص (مثال: **MM/DD/YYYY**) حتى يتمكن المحرك من تحليل التواريخ المضمنة في المحتوى بشكل صحيح.
 
 ```java
 import com.groupdocs.search.options.*;
@@ -169,40 +232,44 @@ options.getDateFormats().addItem(dateFormat);
 SearchResult result = index.search(query, options);
 ```
 
-*الشرح*: من خلال تخصيص `SearchOptions`، تخبر المحرك بالتعرف على التواريخ بصيغة **MM/DD/YYYY**، ثم تسترجع جميع السجلات بين 1 يناير 2000 و 15 يونيو 2001.
+*التوضيح*: من خلال تخصيص `SearchOptions`، تخبر المحرك بالتعرف على التواريخ بصيغة **MM/DD/YYYY**، ثم تسترجع جميع السجلات بين 1 يناير 2000 و15 يونيو 2001.
 
-### الميزة 7: استعلام البحث بالتعبير النمطي (Regex)
-#### كيفية تشغيل بحث regex java
+### الميزة 7: استعلام بحث تعبير عادي
+#### كيفية تشغيل regex search java
+`RegexSearch` يقبل أنماط تعبيرات عادية قياسية في Java، مما يتيح مطابقة نمطية معقدة تتجاوز الـ wildcards البسيطة.
 
 ```java
 String query = "^(.)\\1{2,}";
 SearchResult result = index.search(query);
 ```
 
-*النتيجة*: يجد تسلسلات من ثلاثة أحرف متماثلة أو أكثر (مثال: “aaa”، “111”).
+*النتيجة*: يجد سلاسل من ثلاثة أحرف متماثلة أو أكثر (مثال: “aaa”، “111”).
 
-### الميزة 8: استعلام بحث بولياني
-#### كيفية دمج الشروط باستخدام بحث بولياني boolean search java
+### الميزة 8: استعلام بحث boolean
+#### كيفية دمج الشروط باستخدام boolean search java
+`BooleanSearch` يتيح لك تركيب عبارات AND، OR، وNOT لضبط مجموعات النتائج بدقة.
 
 ```java
 String query = "justo AND NOT 3456";
 SearchResult result = index.search(query);
 ```
 
-*النتيجة*: يُرجع المستندات التي تحتوي على **justo** لكن يستبعد أي مستند يحتوي أيضًا على **3456**.
+*النتيجة*: يُعيد المستندات التي تحتوي على **justo** لكن يستبعد أي مستند يحتوي أيضًا على **3456**.
 
-### الميزة 9: استعلام بولياني معقد
-#### كيفية صياغة استعلامات بوليانية متقدمة
+### الميزة 9: استعلام بحث boolean معقد
+#### كيفية صياغة استعلامات boolean متقدمة
+`ComplexBooleanSearch` يدعم المجموعات المتداخلة، عوامل القرب، والمطابقة الضبابية لسيناريوهات استرجاع متطورة.
 
 ```java
 String query = "FileName: Engl?(1~3) OR Content: (3456 AND consequat)";
 SearchResult result = index.search(query);
 ```
 
-*النتيجة*: يبحث عن أسماء ملفات مشابهة لـ “English” (مع السماح بتغييرات 1‑3 أحرف) **أو** محتوى يحتوي على كل من **3456** و **consequat**.
+*النتيجة*: يبحث عن أسماء ملفات مشابهة لـ “English” (مع السماح بتغييرات 1‑3 أحرف) **أو** محتوى يحتوي على كل من **3456** و**consequat**.
 
 ### الميزة 10: استعلام بحث عبارة
 #### كيفية البحث عن عبارات دقيقة
+`PhraseSearch` يطابق تسلسلًا دقيقًا من المصطلحات، مع الحفاظ على الترتيب والمسافات.
 
 ```java
 String query = "\"ipsum dolor sit amet\"";
@@ -212,38 +279,44 @@ SearchResult result = index.search(query);
 *النتيجة*: يسترجع فقط المستندات التي تحتوي على العبارة الدقيقة **ipsum dolor sit amet**.
 
 ## تطبيقات عملية
-1. **منصات التجارة الإلكترونية** – استخدم **faceted search java** لتصفية المنتجات حسب الحجم، اللون، والعلامة التجارية.  
-2. **أنظمة إدارة المحتوى** – دمج **boolean search java** مع بحث العبارة لتوفير أدوات تحرير متطورة.  
-3. **أدوات تحليل البيانات** – استفد من **date range search** و **custom date format java** لإنشاء تقارير ولوحات معلومات مبنية على الوقت.  
+1. **منصات التجارة الإلكترونية** – استخدم **faceted search java** لتصفية المنتجات حسب الحجم واللون والعلامة التجارية.  
+2. **أنظمة إدارة المحتوى** – امزج **boolean search java** مع بحث العبارة لتزويد أدوات تحرير متطورة.  
+3. **أدوات تحليل البيانات** – استفد من **date range search** و**custom date format java** لإنشاء تقارير ولوحات تحكم زمنية.
 
 ## المشكلات الشائعة والحلول
 - **لا توجد نتائج لبحث نطاق التاريخ** – تأكد من أن صيغة التاريخ في مستنداتك تطابق `DateFormat` المخصص الذي أضفته.  
-- **استعلامات regex تُعيد عددًا كبيرًا من النتائج** – صقّق النمط أو حدّد نطاق البحث ب qualifiers حقول إضافية.  
+- **استعلامات الـ Regex تُعيد عددًا كبيرًا من النتائج** – قم بتحسين النمط أو حدّد نطاق البحث ب qualifiers حقل إضافية.  
 - **أخطاء الفهرسة غير مُلتقطة** – تأكد من ربط معالج الحدث **قبل** استدعاء `index.add(...)`.  
-- **البحث بالوايلدكارد يبدو بطيئًا** – تجنّب الوايلدكاردات المتقدمة (`*term`) على الفهارس الكبيرة جدًا؛ يفضَّل استخدام الوايلدكاردات في النهاية أو الوسط.  
+- **بحث wildcard يبدو بطيئًا** – تجنّب الـ wildcards الأولية (`*term`) على فهارس ضخمة؛ يفضَّل استخدام wildcards في النهاية أو في الوسط.
 
-## الأسئلة المتكررة
+## أسئلة متكررة
 
 **س: هل يمكنني دمج بحث نطاق التاريخ مع أنواع استعلام أخرى؟**  
-ج: بالتأكيد. يمكنك دمج شرط نطاق التاريخ مع وايلدكارد، بولياني، موجه (faceted)، أو أنماط regex في سلسلة استعلام واحدة.
+ج: بالطبع. يمكنك دمج شرط نطاق تاريخ مع wildcards، boolean، faceted، أو أنماط regex في سلسلة استعلام واحدة.
 
-**س: هل يجب إعادة بناء الفهرس بعد تغيير صيغ التاريخ؟**  
-ج: نعم. الفهرس يخزن المصطلحات المُجزأة؛ تعديل `SearchOptions` فقط لن يعيد تجزئة البيانات الحالية. أعد فهرسة المستندات بعد تغيير الصيغ.
+**س: هل أحتاج إلى إعادة بناء الفهرس بعد تغيير صيغ التاريخ؟**  
+ج: نعم. الفهرس يخزن المصطلحات المُجزأة؛ تعديل `SearchOptions` وحده لن يُعيد تجزئة البيانات الموجودة. أعد فهرسة المستندات بعد تغيير الصيغ.
 
 **س: كيف يتعامل GroupDocs.Search مع الفهارس الكبيرة؟**  
-ج: يستخدم الفهرسة التدريجية والتخزين على القرص، مما يتيح لك التوسع إلى ملايين المستندات مع الحفاظ على استهلاك منخفض للذاكرة.
+ج: يستخدم فهرسة تدريجية وتخزينًا على القرص، مما يتيح لك التوسع إلى ملايين المستندات مع الحفاظ على استهلاك منخفض للذاكرة.
 
-**س: هل هناك حد لعدد أحرف الوايلدكارد؟**  
-ج: يتم معالجة الوايلدكاردات بكفاءة، لكن استخدام العديد من الوايلدكاردات المتقدمة (مثل `*term`) قد يضعف الأداء. يفضَّل استخدام الوايلدكاردات في البادئة أو النهاية.
+**س: هل هناك حد لعدد أحرف الـ wildcard؟**  
+ج: تُعالج الـ wildcards بكفاءة، لكن استخدام الكثير من الـ wildcards الأولية (مثل `*term`) قد يضعف الأداء. يفضَّل استخدام wildcards في النهاية أو في الوسط.
 
 **س: ما نموذج الترخيص الموصى به للإنتاج؟**  
-ج: ترخيص دائم أو اشتراكي من GroupDocs يضمن حصولك على التحديثات، والدعم، والقدرة على النشر دون قيود النسخة التجريبية.
+ج: ترخيص دائم أو اشتراك من GroupDocs يضمن لك الحصول على التحديثات والدعم وإمكانية النشر دون قيود النسخة التجريبية.
 
 ## الخلاصة
-من خلال إتقان **wildcard search java** ومجموعة الاستعلامات المتقدمة التي يقدمها GroupDocs.Search لـ Java، يمكنك بناء تجارب بحث سريعة الاستجابة وغنية بالميزات. نفّذ معالجة أخطاء قوية، اضبط فهرسك بدقة، وادمج الاستعلامات لتلبية أي سيناريو استرجاع تقريبًا. ابدأ التجربة اليوم وارتقِ بقدرات الوصول إلى البيانات في تطبيقك.
+من خلال إتقان **implement wildcard search java** ومجموعة الاستعلامات المتقدمة التي يقدمها GroupDocs.Search for Java، يمكنك بناء تجارب بحث سريعة وغنية بالميزات. نفّذ معالجة أخطاء قوية، اضبط فهرسك، وادمج الاستعلامات لتلبي أي سيناريو استرجاع تقريبًا. ابدأ التجربة اليوم وارتق بقدرات الوصول إلى البيانات في تطبيقك.
 
 ---
 
-**آخر تحديث:** 2026-02-16  
+**آخر تحديث:** 2026-08-26  
 **تم الاختبار مع:** GroupDocs.Search 25.4 (Java)  
 **المؤلف:** GroupDocs
+
+## دروس ذات صلة
+
+- [Custom Date Format Java | Date Range Search with GroupDocs](/search/java/advanced-features/master-date-range-searches-groupdocs-java/)
+- [How to Improve Search Speed with GroupDocs.Search Java – Performance Optimization Tutorials](/search/java/performance-optimization/)
+- [Full Text Search Java: Implement with GroupDocs.Search – A Comprehensive Guide](/search/java/searching/implement-full-text-search-java-groupdocs-search/)

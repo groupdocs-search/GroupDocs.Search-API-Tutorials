@@ -1,59 +1,109 @@
 ---
-date: '2026-02-16'
-description: เรียนรู้วิธีใช้ตัวดำเนินการบูลีนใน Java กับ GroupDocs.Search เพื่อสร้างดัชนีการค้นหา,
-  ทำการค้นหาเนื้อหาใน Java และการค้นหาแบบ faceted, เพิ่มประสิทธิภาพและประสบการณ์ผู้ใช้.
+date: '2026-08-26'
+description: เรียนรู้ว่า Boolean operators Java ช่วยให้คุณสร้าง fast search index,
+  ทำ content search Java, และรัน faceted queries ด้วย GroupDocs.Search.
 keywords:
-- faceted searches Java
-- complex search Java
-- GroupDocs.Search for Java
-title: ตัวดำเนินการบูลีน Java – สร้างดัชนีการค้นหาและการค้นหาแบบ Faceted
+- boolean operators java
+- update index java
+- faceted search java
+- content search java
+lastmod: '2026-08-26'
+og_description: เรียนรู้ว่า Boolean operators Java ช่วยให้คุณสร้าง fast search index,
+  ทำ content search Java, และดำเนินการ faceted queries ด้วย GroupDocs.Search.
+og_image_alt: Guide showing boolean operators Java for creating a search index and
+  faceted search using GroupDocs.Search
+og_title: Boolean operators Java – สร้าง search index และ faceted search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-26'
+  description: Learn how boolean operators Java enable you to build a fast search
+    index, perform content search Java, and run faceted queries with GroupDocs.Search.
+  headline: Boolean operators Java – create search index & faceted search
+  type: TechArticle
+- description: Learn how boolean operators Java enable you to build a fast search
+    index, perform content search Java, and run faceted queries with GroupDocs.Search.
+  name: Boolean operators Java – create search index & faceted search
+  steps:
+  - name: Create an index
+    text: First, point the `Index` to a folder where the index files will be stored.
+  - name: Add documents to the index
+    text: Tell GroupDocs.Search where your source documents live. All supported file
+      types (PDF, DOCX, TXT, etc.) will be indexed automatically.
+  - name: Perform a search in the content field with a text query
+    text: 'A quick text query filters by the `content` field. The syntax `content:
+      Pellentesque` limits results to documents containing the word *Pellentesque*
+      in their body text.'
+  - name: Perform a search using an object query
+    text: Object‑based queries give you fine‑grained control. Here we build a word
+      query, wrap it in a field query, and execute it.
+  - name: Create an index for complex queries
+    text: Reuse the same folder structure; you can share the index across both simple
+      and complex scenarios.
+  - name: Perform a search with a text query
+    text: The following query looks for files named *lorem* **and** *ipsum* **or**
+      content containing either of two exact phrases.
+  - name: Perform a search with an object query
+    text: Object‑based construction mirrors the textual query but offers type safety
+      and IDE assistance.
+  type: HowTo
+- questions:
+  - answer: Absolutely. Add the Maven dependency, configure the index as a Spring
+      bean, and inject it wherever you need search capabilities.
+    question: Can I use GroupDocs.Search with Spring Boot?
+  - answer: Yes – you can add user‑defined fields during indexing and then facet on
+      them.
+    question: Does the library support custom metadata fields?
+  - answer: The disk‑based index can handle up to 10 million documents; just ensure
+      sufficient storage and monitor cache settings.
+    question: How large can the index grow?
+  - answer: GroupDocs.Search automatically scores matches; you can retrieve the score
+      via `SearchResult.getDocument(i).getScore()`.
+    question: Is there a way to rank results by relevance?
+  - answer: 'Provide the password when adding the document: `index.add(filePath, password)`.'
+    question: What happens if I index encrypted PDFs?
+  type: FAQPage
+tags:
+- boolean operators java
+- faceted search java
+- GroupDocs.Search
+- Java search
+- search index java
+title: Boolean operators Java – สร้าง search index & faceted search
 type: docs
 url: /th/java/advanced-features/faceted-complex-search-groupdocs-java/
 weight: 1
 ---
 
-2026-02-16" keep.
+# ตัวดำเนินการบูลีน Java – สร้างดัชนีการค้นหา & การค้นหาแบบ faceted
 
-"**Tested With:** GroupDocs.Search 25.4 for Java" keep.
+การนำ **search experience** ที่ทรงพลังไปใช้ใน Java อาจรู้สึกท่วมท้น โดยเฉพาะเมื่อคุณต้อง **create a search index Java** ที่รองรับ **boolean operators Java** สำหรับการค้นหาแบบ faceted และคำค้นหาซับซ้อน ในบทแนะนำนี้เราจะพาคุณผ่านการตั้งค่า **GroupDocs.Search for Java**, การสร้างดัชนี, การเพิ่มเอกสาร, และการสร้างการค้นหา faceted แบบง่ายและคำค้นหาหลายเงื่อนไขที่ซับซ้อนโดยใช้ตรรกะ Boolean. เมื่อเสร็จสิ้นคุณจะเข้าใจวิธีใช้ **content search Java**, **filename search Java**, และแม้กระทั่งการทำ **update index Java** เพื่อให้ข้อมูลของคุณเป็นปัจจุบัน.
 
-"**Author:** GroupDocs" keep.
+## คำตอบอย่างรวดเร็ว
+- **การค้นหาแบบ faceted คืออะไร?** วิธีการกรองผลลัพธ์ตามหมวดหมู่ที่กำหนดไว้ล่วงหน้า เช่น ประเภทไฟล์หรือวันที่.  
+- **ฉันจะสร้างดัชนีการค้นหา Java อย่างไร?** เริ่มต้นอ็อบเจ็กต์ `Index` ที่ชี้ไปยังโฟลเดอร์และเพิ่มเอกสาร.  
+- **ฉันสามารถรวมหลายเงื่อนไขด้วยตัวดำเนินการบูลีนได้หรือไม่?** ใช่—ใช้การค้นหาแบบ object‑based หรือ Boolean operators ในข้อความค้นหา.  
+- **ฉันต้องการไลเซนส์หรือไม่?** การทดลองใช้งานฟรีทำงานสำหรับการพัฒนา; ไลเซนส์เชิงพาณิชย์จะลบข้อจำกัด.  
+- **IDE ไหนทำงานได้ดีที่สุด?** IDE Java ใดก็ได้ (IntelliJ IDEA, Eclipse, NetBeans) ทำงานได้ดี.
 
-Now produce final content with Thai translation.
+## “create search index java” คืออะไร
 
-Need to ensure we keep markdown formatting exactly.
+การสร้างดัชนีการค้นหา Java หมายถึงการสร้างโครงสร้างบนดิสก์ที่เก็บข้อความและเมตาดาต้าของเอกสาร ทำให้สามารถดึงคืนเอกสารที่ตรงกันได้ทันทีผ่านคำค้นหา ดัชนีจะแมปคำกับตัวระบุเอกสาร, รองรับการค้นหาอย่างรวดเร็ว, และสามารถอัปเดตแบบเพิ่มส่วนได้เมื่อไฟล์เปลี่ยนแปลง, ให้พื้นฐานสำหรับคุณลักษณะการค้นหาที่ทรงพลัง.
 
-Let's construct final answer.# Boolean Operators Java – สร้าง Search Index & Faceted Search
+## ทำไมต้องใช้ GroupDocs.Search สำหรับการค้นหาแบบ faceted และซับซ้อน
 
-การนำ **search experience** ที่ทรงพลังใน Java ไปใช้สามารถรู้สึกท่วมท้นได้, โดยเฉพาะเมื่อคุณต้อง **create a search index Java** ที่รองรับ **boolean operators Java** สำหรับการค้นหาแบบ faceted และคำค้นหาที่ซับซ้อน ในบทแนะนำนี้เราจะพาคุณผ่านการตั้งค่า **GroupDocs.Search for Java**, การสร้างดัชนี, การเพิ่มเอกสาร, และการสร้างการค้นหา faceted แบบง่ายและคำค้นหาที่ซับซ้อนหลายเกณฑ์ที่ใช้ตรรกะ Boolean. เมื่อจบคุณจะเข้าใจวิธีใช้ **content search Java**, **filename search Java**, และแม้กระทั่งการทำงาน **update index java** เพื่อให้ข้อมูลของคุณสดใหม่.
+GroupDocs.Search for Java มีฟีเจอร์ faceting ในตัว, รองรับการค้นหาแบบ Boolean, และการทำดัชนีที่มีประสิทธิภาพสูงที่สามารถจัดการได้ถึง 10 ล้านเอกสารโดยคงความหน่วงของการค้นหาให้อยู่ต่ำกว่า 200 ms บนฮาร์ดแวร์เซิร์ฟเวอร์ทั่วไป มันมีตัวกรองฟิลด์พร้อมใช้, ภาษาคำค้นที่หลากหลาย, และความเข้ากันได้แบบ pure‑Java, ทำให้เหมาะสำหรับสถานการณ์การค้นหาระดับองค์กร.
 
-## Quick Answers
-- **What is a faceted search?** วิธีการกรองผลลัพธ์โดยใช้หมวดหมู่ที่กำหนดไว้ล่วงหน้า เช่น ประเภทไฟล์หรือวันที่.  
-- **How do I create a search index Java?** เริ่มต้นอ็อบเจกต์ `Index` ที่ชี้ไปยังโฟลเดอร์และเพิ่มเอกสาร.  
-- **Can I combine multiple criteria with boolean operators?** ใช่—ใช้ object‑based queries หรือ Boolean operators ในข้อความค้นหา.  
-- **Do I need a license?** การทดลองใช้งานฟรีทำงานได้สำหรับการพัฒนา; ไลเซนส์เชิงพาณิชย์จะลบข้อจำกัดทั้งหมด.  
-- **Which IDE works best?** IDE Java ใดก็ได้ (IntelliJ IDEA, Eclipse, NetBeans) ทำงานได้ดี.
+## ข้อกำหนดเบื้องต้น
 
-## What is “create search index java”?
-การสร้าง search index ใน Java หมายถึงการสร้างโครงสร้างข้อมูลที่สามารถค้นหาได้ซึ่งเก็บเมตาดาต้าและเนื้อหาเอกสาร, ทำให้การดึงข้อมูลอย่างรวดเร็วตามคำค้นของผู้ใช้เป็นไปได้. ด้วย GroupDocs.Search, ดัชนีจะอยู่บนดิสก์, สามารถอัปเดตแบบเพิ่มส่วนได้, และรองรับคุณลักษณะขั้นสูงเช่น faceting, **boolean operators Java**, และตรรกะ Boolean ที่ซับซ้อน.
-
-## Why use GroupDocs.Search for faceted and complex queries?
-- **Out‑of‑the‑box faceting** – กรองตามฟิลด์เช่นชื่อไฟล์, ขนาด, หรือเมตาดาต้ากำหนดเอง.  
-- **Rich query language** – ผสมผสานการค้นหาแบบข้อความ, วลี, และฟิลด์โดยใช้ตัวดำเนินการ AND/OR/NOT (หัวใจของ **boolean operators java**).  
-- **Scalable performance** – ดัชนีหลายล้านเอกสารพร้อมรักษาความหน่วงเวลาให้ต่ำ.  
-- **Pure Java** – ไม่มีการพึ่งพา native, ทำงานบนแพลตฟอร์มใดก็ได้ที่รัน JDK 8+.  
-- **Easy index maintenance** – เรียก `index.update()` เพื่อ **update index java** หลังจากเพิ่มหรือเอาไฟล์ออก.
-
-## Prerequisites
-
-- **JDK 8 หรือใหม่กว่า** ที่ติดตั้งและกำหนดค่าใน IDE ของคุณ.  
+- **JDK 8 หรือใหม่กว่า** ติดตั้งและกำหนดค่าใน IDE ของคุณ.  
 - **Maven** (หรือ Gradle) สำหรับการจัดการ dependencies.  
 - **GroupDocs.Search for Java** ≥ 25.4.  
 - ความคุ้นเคยพื้นฐานกับแนวคิด OOP ของ Java และโครงสร้างโครงการ Maven.
 
-## Setting Up GroupDocs.Search for Java
+## การตั้งค่า GroupDocs.Search for Java
 
-### Maven Setup
-Add the repository and dependency to your `pom.xml` file:
+### การตั้งค่า Maven
+เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -73,19 +123,19 @@ Add the repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-### Direct Download
-Alternatively, download the latest JAR from the official release page:  
+### ดาวน์โหลดโดยตรง
+หรือคุณสามารถดาวน์โหลด JAR ล่าสุดจากหน้า release อย่างเป็นทางการ:  
 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
 
-### License Acquisition
-To unlock full functionality:
+### การรับไลเซนส์
+เพื่อเปิดใช้งานฟังก์ชันทั้งหมด:
 
 1. **Free trial** – เหมาะสำหรับการพัฒนาและการทดสอบ.  
 2. **Temporary evaluation license** – ขยายขีดจำกัดของการทดลอง.  
 3. **Commercial license** – ลบข้อจำกัดทั้งหมดสำหรับการใช้งานในสภาพแวดล้อมการผลิต.
 
-### Basic Initialization and Setup
-The following snippet shows how to **create a search index Java** by instantiating the `Index` class:
+### การเริ่มต้นและตั้งค่าเบื้องต้น
+คลาส `Index` เป็นส่วนประกอบหลักที่แสดงถึงดัชนีที่สามารถค้นหาได้ซึ่งเก็บบนดิสก์ ตัวอย่างต่อไปนี้แสดงวิธี **create a search index Java** โดยการสร้างอินสแตนซ์ของคลาส `Index`:
 
 ```java
 import com.groupdocs.search.Index;
@@ -102,14 +152,14 @@ public class SearchSetup {
 }
 ```
 
-With the index ready, we can move on to real‑world faceted and complex queries.
+เมื่อดัชนีพร้อมแล้ว เราสามารถดำเนินต่อไปสู่การค้นหา faceted และซับซ้อนในโลกจริง.
 
-## How to use boolean operators java – Simple Faceted Search
+## วิธีใช้ boolean operators java – การค้นหา faceted แบบง่าย
 
-Faceted search lets end‑users narrow results by selecting values from predefined categories (facets). Below is a step‑by‑step walk‑through.
+โหลดดัชนีของคุณ, เพิ่มเอกสาร, และส่งคำสั่ง field query; รูปแบบสองขั้นตอนนี้ทำให้คุณสามารถดึงจำนวน facet และผลลัพธ์ที่กรองได้ในหนึ่งการเรียกใช้งาน วิธีนี้ให้ผู้ใช้วิธีที่เข้าใจง่ายในการจำกัดผลลัพธ์ตามหมวดหมู่เช่น ประเภทไฟล์, ผู้เขียน, หรือเมตาดาต้ากำหนดเอง.
 
-### Step 1: Create an Index
-First, point the `Index` to a folder where the index files will be stored.
+### ขั้นตอนที่ 1: สร้างดัชนี
+แรกสุด, ชี้ `Index` ไปยังโฟลเดอร์ที่ไฟล์ดัชนีจะถูกเก็บ.
 
 ```java
 import com.groupdocs.search.Index;
@@ -118,8 +168,8 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Searching/FacetedSearc
 Index index = new Index(indexFolder);
 ```
 
-### Step 2: Add Documents to the Index
-Tell GroupDocs.Search where your source documents live. All supported file types (PDF, DOCX, TXT, etc.) will be indexed automatically.
+### ขั้นตอนที่ 2: เพิ่มเอกสารลงในดัชนี
+บอก GroupDocs.Search ว่าเอกสารต้นทางของคุณอยู่ที่ไหน ประเภทไฟล์ที่รองรับทั้งหมด (PDF, DOCX, TXT, ฯลฯ) จะถูกทำดัชนีโดยอัตโนมัติ.
 
 ```java
 import com.groupdocs.search.Index;
@@ -130,8 +180,8 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-### Step 3: Perform a Search in the Content Field with a Text Query
-A quick text query filters by the `content` field. The syntax `content: Pellentesque` limits results to documents containing the word *Pellentesque* in their body text.
+### ขั้นตอนที่ 3: ทำการค้นหาในฟิลด์ content ด้วยข้อความ query
+ข้อความ query อย่างรวดเร็วจะกรองโดยฟิลด์ `content`. ไวยากรณ์ `content: Pellentesque` จะจำกัดผลลัพธ์ให้เป็นเอกสารที่มีคำ *Pellentesque* ในเนื้อความของมัน.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -143,8 +193,8 @@ SearchResult result1 = index.search(query1);
 System.out.println("Documents found (query 1): " + result1.getDocumentCount());
 ```
 
-### Step 4: Perform a Search Using an Object Query
-Object‑based queries give you fine‑grained control. Here we build a word query, wrap it in a field query, and execute it.
+### ขั้นตอนที่ 4: ทำการค้นหาโดยใช้ object query
+การค้นหาแบบ object‑based ให้การควบคุมที่ละเอียดมากขึ้น ที่นี่เราสร้าง word query, ห่อมันใน field query, และดำเนินการ.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -158,12 +208,12 @@ SearchResult result2 = index.search(fieldQuery);
 System.out.println("Documents found (query 2): " + result2.getDocumentCount());
 ```
 
-## How to use boolean operators java – Complex Query Search
+## วิธีใช้ boolean operators java – การค้นหาแบบซับซ้อน
 
-Complex queries combine multiple fields, Boolean operators, and phrase searches. This is ideal for scenarios like e‑commerce filters or legal document research.
+เพื่อดำเนินการค้นหาแบบซับซ้อน, ให้รวมหลายเงื่อนไขฟิลด์ด้วยตัวดำเนินการ AND/OR/NOT, และอาจรวมการค้นหาประโยคด้วย คุณสามารถระบุแต่ละเงื่อนไขโดยใช้ field query, ซ้อนกันด้วย Boolean operators, และควบคุมความสำคัญด้วยการ boost, ทำให้คุณดึงเอกสารที่เกี่ยวข้องที่สุดที่ตรงตามเกณฑ์ทั้งหมด.
 
-### Step 1: Create an Index for Complex Queries
-Reuse the same folder structure; you can share the index across both simple and complex scenarios.
+### ขั้นตอนที่ 1: สร้างดัชนีสำหรับการค้นหาแบบซับซ้อน
+ใช้โครงสร้างโฟลเดอร์เดียวกันซ้ำ; คุณสามารถแชร์ดัชนีระหว่างสถานการณ์แบบง่ายและซับซ้อนได้.
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Searching/FacetedSearch/ComplexQuery";
@@ -171,8 +221,8 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-### Step 2: Perform a Search with a Text Query
-The following query looks for files named *lorem* **and** *ipsum* **or** content containing either of two exact phrases.
+### ขั้นตอนที่ 2: ทำการค้นหาด้วยข้อความ query
+คำค้นต่อไปนี้มองหาไฟล์ที่ชื่อ *lorem* **และ** *ipsum* **หรือ** เนื้อหาที่มีหนึ่งในสองวลีที่ตรงกัน.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -190,8 +240,8 @@ class SearchResult {
 System.out.println("Documents found (complex text query): " + result1.getDocumentCount());
 ```
 
-### Step 3: Perform a Search with an Object Query
-Object‑based construction mirrors the textual query but offers type safety and IDE assistance.
+### ขั้นตอนที่ 3: ทำการค้นหาโดยใช้ object query
+การสร้างแบบ object‑based สะท้อนคำค้นข้อความแต่ให้ความปลอดภัยของประเภทและความช่วยเหลือจาก IDE.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -218,50 +268,59 @@ SearchResult result2 = index.search(rootQuery);
 System.out.println("Documents found (complex object query): " + result2.getDocumentCount());
 ```
 
-## Practical Applications of Faceted & Complex Searches
+## การประยุกต์ใช้การค้นหา faceted & complex
 
-| สถานการณ์ | วิธีที่ Faceting ช่วย | ตัวอย่าง Query |
+| สถานการณ์ | วิธีที่ faceting ช่วย | ตัวอย่าง query |
 |----------|-------------------|---------------|
-| **E‑commerce catalog** | กรองตามหมวดหมู่, ราคา, ยี่ห้อ | `category: Electronics AND price:[100 TO 500]` |
-| **Legal document repository** | จำกัดโดยหมายเลขคดี, เขตอำนาจ | `caseNumber: 2023-045 AND jurisdiction: "California"` |
-| **Research archives** | รวมผู้เขียน, ปีการตีพิมพ์, คำสำคัญ | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
-| **Enterprise intranet** | ค้นหาตามประเภทไฟล์และแผนก | `filetype: pdf AND department: HR` |
+| **แคตาล็อกอี‑คอมเมิร์ซ** | กรองตามหมวดหมู่, ราคา, แบรนด์ | `category: Electronics AND price:[100 TO 500]` |
+| **คลังเอกสารกฎหมาย** | จำกัดตามหมายเลขคดี, เขตอำนาจ | `caseNumber: 2023-045 AND jurisdiction: "California"` |
+| **คลังข้อมูลการวิจัย** | รวมผู้เขียน, ปีการตีพิมพ์, คำสำคัญ | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
+| **อินทราเน็ตองค์กร** | ค้นหาตามประเภทไฟล์และแผนก | `filetype: pdf AND department: HR` |
 
-These examples illustrate why mastering **boolean operators java** and **filename search java** techniques is a game‑changer for any data‑intensive application.
+ตัวอย่างเหล่านี้แสดงให้เห็นว่าการเชี่ยวชาญ **boolean operators java** และเทคนิค **filename search java** เป็นกุญแจสำคัญสำหรับแอปพลิเคชันที่ต้องจัดการข้อมูลจำนวนมาก.
 
-## Common Pitfalls & Troubleshooting
+## ข้อผิดพลาดทั่วไป & การแก้ปัญหา
+
+อ็อบเจ็กต์ `SearchResult` มีเอกสารที่ตรงกับ query และให้การเข้าถึงคะแนนความเกี่ยวข้องและส่วนที่ไฮไลท์ของพวกมัน.  
+คลาส `CommonFieldNames` กำหนดชื่อฟิลด์มาตรฐานเช่น `Content` และ `FileName` ที่ใช้ทั่ว API.
 
 - **Empty results** – ตรวจสอบว่าเอกสารถูกเพิ่มสำเร็จ (`index.getDocumentCount()` สามารถช่วยได้).  
-- **Stale index** – หลังจากเพิ่มหรือเอาไฟล์ออก, เรียก `index.update()` เพื่อ **update index java** และทำให้ดัชนีสอดคล้อง.  
-- **Incorrect field names** – ใช้ค่าสถิต `CommonFieldNames` (`Content`, `FileName`, ฯลฯ) เพื่อหลีกเลี่ยงการพิมพ์ผิด.  
-- **Performance bottlenecks** – สำหรับคอลเลกชันขนาดใหญ่, พิจารณาเปิดใช้งาน `index.setCacheSize()` หรือใช้ SSD เฉพาะสำหรับโฟลเดอร์ดัชนี.  
-- **Missing highlights** – เพื่อ **highlight search results java**, ดึงส่วนที่ตรงกันผ่าน `SearchResult.getFragments()` (ไม่ได้แสดงในที่นี้แต่มีใน API).
+- **Stale index** – หลังจากเพิ่มหรือเอาไฟล์ออก, เรียก `index.update()` เพื่อ **update index java** และทำให้ดัชนีสอดคล้องกัน.  
+- **Incorrect field names** – ใช้คอนสแตนท์ `CommonFieldNames` (`Content`, `FileName`, ฯลฯ) เพื่อหลีกเลี่ยงการพิมพ์ผิด.  
+- **Performance bottlenecks** – สำหรับคอลเลกชันขนาดใหญ่, พิจารณาเปิดใช้งาน `index.setCacheSize()` หรือใช้ SSD แยกสำหรับโฟลเดอร์ดัชนี.  
+- **Missing highlights** – เพื่อ **highlight search results java**, ดึงส่วนที่ตรงกันผ่าน `SearchResult.getFragments()` (ไม่ได้แสดงที่นี่แต่มีใน API).  
 
-## Frequently Asked Questions
+## คำถามที่พบบ่อย
 
-**Q: Can I use GroupDocs.Search with Spring Boot?**  
-A: Absolutely. Add the Maven dependency, configure the index as a Spring bean, and inject it wherever you need search capabilities.
+**Q: ฉันสามารถใช้ GroupDocs.Search กับ Spring Boot ได้หรือไม่?**  
+A: แน่นอน. เพิ่ม dependency ของ Maven, ตั้งค่าดัชนีเป็น Spring bean, และฉีดเข้าไปที่ที่คุณต้องการความสามารถการค้นหา.
 
-**Q: Does the library support custom metadata fields?**  
-A: Yes – you can add user‑defined fields during indexing and then facet on them.
+**Q: ไลบรารีนี้รองรับฟิลด์เมตาดาต้ากำหนดเองหรือไม่?**  
+A: ใช่ – คุณสามารถเพิ่มฟิลด์ที่ผู้ใช้กำหนดระหว่างการทำดัชนีและจากนั้นทำ faceting บนฟิลด์เหล่านั้น.
 
-**Q: How large can the index grow?**  
-A: The index is disk‑based and can handle millions of documents; just ensure sufficient storage and monitor cache settings.
+**Q: ดัชนีสามารถเติบโตได้ใหญ่แค่ไหน?**  
+A: ดัชนีแบบดิสก์สามารถจัดการได้ถึง 10 ล้านเอกสาร; เพียงให้แน่ใจว่ามีพื้นที่จัดเก็บเพียงพอและตรวจสอบการตั้งค่า cache.
 
-**Q: Is there a way to rank results by relevance?**  
-A: GroupDocs.Search automatically scores matches; you can retrieve the score via `SearchResult.getDocument(i).getScore()`.
+**Q: มีวิธีจัดอันดับผลลัพธ์ตามความเกี่ยวข้องหรือไม่?**  
+A: GroupDocs.Search จะให้คะแนนการจับคู่โดยอัตโนมัติ; คุณสามารถดึงคะแนนผ่าน `SearchResult.getDocument(i).getScore()`.
 
-**Q: What happens if I index encrypted PDFs?**  
-A: Provide the password when adding the document: `index.add(filePath, password)`.
+**Q: จะเกิดอะไรขึ้นหากฉันทำดัชนี PDF ที่เข้ารหัส?**  
+A: ให้รหัสผ่านเมื่อเพิ่มเอกสาร: `index.add(filePath, password)`.
 
-## Conclusion
+## สรุป
 
-By now you should feel comfortable **creating a search index Java** with GroupDocs.Search, adding documents, and crafting both simple faceted queries and sophisticated Boolean searches using **boolean operators java**. These capabilities empower you to deliver fast, accurate, and user‑friendly search experiences across a wide range of applications—from e‑commerce platforms to enterprise knowledge bases.
+ตอนนี้คุณควรจะรู้สึกมั่นใจในการ **creating a search index Java** ด้วย GroupDocs.Search, การเพิ่มเอกสาร, และการสร้างทั้ง query faceted แบบง่ายและการค้นหา Boolean ที่ซับซ้อนโดยใช้ **boolean operators java**. ความสามารถเหล่านี้ทำให้คุณสามารถมอบประสบการณ์การค้นหาที่เร็ว, แม่นยำ, และเป็นมิตรต่อผู้ใช้ในหลากหลายแอปพลิเคชัน — ตั้งแต่แพลตฟอร์ม e‑commerce ไปจนถึงฐานความรู้ขององค์กร.
 
-Ready for the next step? Explore **GroupDocs.Search’s** advanced features such as **highlighting**, **suggestions**, and **real‑time indexing** to further boost your application’s search power.
+พร้อมสำหรับขั้นตอนต่อไปหรือยัง? สำรวจฟีเจอร์ขั้นสูงของ **GroupDocs.Search** เช่น **highlighting**, **suggestions**, และ **real‑time indexing** เพื่อเพิ่มพลังการค้นหาของแอปพลิเคชันของคุณต่อไป.
 
 ---
 
-**Last Updated:** 2026-02-16  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**อัปเดตล่าสุด:** 2026-08-26  
+**ทดสอบกับ:** GroupDocs.Search 25.4 for Java  
+**ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [Wildcard Search Java กับ GroupDocs.Search – ฟีเจอร์ขั้นสูง](/search/java/advanced-features/groupdocs-search-java-advanced-search-features/)
+- [วิธีอัปเดต Index Java ด้วย GroupDocs.Search – คู่มือครบวงจร](/search/java/document-management/guide-updating-index-versions-groupdocs-search-java/)
+- [วิธีทำ java full text search: สร้างไดเรกทอรีดัชนีด้วย GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)

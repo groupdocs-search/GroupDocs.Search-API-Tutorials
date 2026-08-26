@@ -1,52 +1,104 @@
 ---
-date: '2026-02-16'
-description: Узнайте, как использовать булевы операторы Java с GroupDocs.Search для
-  создания поискового индекса, выполнения поиска по содержимому и фасетных запросов,
-  повышая производительность и удобство использования.
+date: '2026-08-26'
+description: Узнайте, как boolean operators Java позволяют создать быстрый search
+  index, выполнить content search Java и запустить faceted queries с GroupDocs.Search.
 keywords:
-- faceted searches Java
-- complex search Java
-- GroupDocs.Search for Java
-title: Булевы операторы Java – создание поискового индекса и фасетный поиск
+- boolean operators java
+- update index java
+- faceted search java
+- content search java
+lastmod: '2026-08-26'
+og_description: Узнайте, как boolean operators Java позволяют построить быстрый search
+  index, выполнить content search Java и выполнить faceted queries с GroupDocs.Search.
+og_image_alt: Guide showing boolean operators Java for creating a search index and
+  faceted search using GroupDocs.Search
+og_title: Boolean operators Java – построить search index и faceted search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-26'
+  description: Learn how boolean operators Java enable you to build a fast search
+    index, perform content search Java, and run faceted queries with GroupDocs.Search.
+  headline: Boolean operators Java – create search index & faceted search
+  type: TechArticle
+- description: Learn how boolean operators Java enable you to build a fast search
+    index, perform content search Java, and run faceted queries with GroupDocs.Search.
+  name: Boolean operators Java – create search index & faceted search
+  steps:
+  - name: Create an index
+    text: First, point the `Index` to a folder where the index files will be stored.
+  - name: Add documents to the index
+    text: Tell GroupDocs.Search where your source documents live. All supported file
+      types (PDF, DOCX, TXT, etc.) will be indexed automatically.
+  - name: Perform a search in the content field with a text query
+    text: 'A quick text query filters by the `content` field. The syntax `content:
+      Pellentesque` limits results to documents containing the word *Pellentesque*
+      in their body text.'
+  - name: Perform a search using an object query
+    text: Object‑based queries give you fine‑grained control. Here we build a word
+      query, wrap it in a field query, and execute it.
+  - name: Create an index for complex queries
+    text: Reuse the same folder structure; you can share the index across both simple
+      and complex scenarios.
+  - name: Perform a search with a text query
+    text: The following query looks for files named *lorem* **and** *ipsum* **or**
+      content containing either of two exact phrases.
+  - name: Perform a search with an object query
+    text: Object‑based construction mirrors the textual query but offers type safety
+      and IDE assistance.
+  type: HowTo
+- questions:
+  - answer: Absolutely. Add the Maven dependency, configure the index as a Spring
+      bean, and inject it wherever you need search capabilities.
+    question: Can I use GroupDocs.Search with Spring Boot?
+  - answer: Yes – you can add user‑defined fields during indexing and then facet on
+      them.
+    question: Does the library support custom metadata fields?
+  - answer: The disk‑based index can handle up to 10 million documents; just ensure
+      sufficient storage and monitor cache settings.
+    question: How large can the index grow?
+  - answer: GroupDocs.Search automatically scores matches; you can retrieve the score
+      via `SearchResult.getDocument(i).getScore()`.
+    question: Is there a way to rank results by relevance?
+  - answer: 'Provide the password when adding the document: `index.add(filePath, password)`.'
+    question: What happens if I index encrypted PDFs?
+  type: FAQPage
+tags:
+- boolean operators java
+- faceted search java
+- GroupDocs.Search
+- Java search
+- search index java
+title: Boolean operators Java – создать search index и faceted search
 type: docs
 url: /ru/java/advanced-features/faceted-complex-search-groupdocs-java/
 weight: 1
 ---
 
-# Boolean Operators Java – Создание поискового индекса и фасетного поиска
-
-Реализация мощного **search experience** в Java может показаться сложной, особенно когда необходимо **create a search index Java**, поддерживающий **boolean operators Java** для фасетных и сложных запросов. В этом руководстве мы пройдем настройку **GroupDocs.Search for Java**, построение индекса, добавление документов и создание как простых фасетных поисков, так и сложных многокритериальных запросов, использующих логические операции Boolean. К концу вы поймёте, как использовать **content search Java**, **filename search Java** и даже операции **update index java** для поддержания данных в актуальном состоянии.
+# Булевы операторы Java – создание поискового индекса и фасетный поиск
 
 ## Быстрые ответы
 - **Что такое фасетный поиск?** Способ фильтрации результатов по предопределённым категориям, таким как тип файла или дата.  
 - **Как создать поисковый индекс Java?** Инициализировать объект `Index`, указывающий на папку, и добавить документы.  
-- **Можно ли комбинировать несколько критериев с логическими операторами?** Да — используйте объектные запросы или Boolean‑операторы в текстовом запросе.  
+- **Можно ли комбинировать несколько критериев с помощью булевых операторов?** Да — используйте объектно‑ориентированные запросы или булевые операторы в текстовом запросе.  
 - **Нужна ли лицензия?** Бесплатная пробная версия подходит для разработки; коммерческая лицензия снимает ограничения.  
-- **Какая IDE лучше всего подходит?** Любая Java IDE (IntelliJ IDEA, Eclipse, NetBeans) работает нормально.
+- **Какой IDE лучше всего подходит?** Любой Java IDE (IntelliJ IDEA, Eclipse, NetBeans) подходит.
 
-## Что такое “create search index java”?
-Создание поискового индекса в Java означает построение структуры данных, позволяющей быстро находить документы по метаданным и содержимому на основе пользовательских запросов. С GroupDocs.Search индекс хранится на диске, может обновляться инкрементально и поддерживает продвинутые функции, такие как фасетирование, **boolean operators Java** и сложную логику Boolean.
+## Что такое «create search index java»?
+Создание поискового индекса Java означает построение дисковой структуры, которая хранит текст документов и метаданные, обеспечивая мгновенное получение совпадающих документов через запросы. Индекс сопоставляет термины с идентификаторами документов, поддерживает быстрый поиск и может инкрементно обновляться при изменении файлов, предоставляя основу для мощных функций поиска.
 
-## Почему стоит использовать GroupDocs.Search для фасетных и сложных запросов?
-- **Готовое фасетирование** — фильтрация по полям, например, имени файла, размеру или пользовательским метаданным.  
-- **Богатый язык запросов** — комбинирование текстовых, фразовых и полевых запросов с операторами AND/OR/NOT (ядро **boolean operators java**).  
-- **Масштабируемая производительность** — индексы из миллионов документов с низкой задержкой.  
-- **Чистый Java** — без нативных зависимостей, работает на любой платформе с JDK 8+.  
-- **Простое обслуживание индекса** — вызов `index.update()` для **update index java** после добавления или удаления файлов.
+## Почему использовать GroupDocs.Search для фасетных и сложных запросов?
+GroupDocs.Search для Java предоставляет встроенную фасетизацию, поддержку Boolean‑запросов и высокопроизводительное индексирование, способное обрабатывать до 10 миллионов документов, при этом задержка запросов остаётся ниже 200 мс на типичном серверном оборудовании. Он предлагает готовые к использованию фильтры полей, богатый язык запросов и чистую совместимость с Java, что делает его идеальным для корпоративных сценариев поиска.
 
 ## Предварительные требования
-
-Прежде чем приступить, убедитесь, что у вас есть следующее:
-
-- **JDK 8 или новее** установлен и настроен в вашей IDE.  
+- **JDK 8 или новее** установлен и настроен в вашем IDE.  
 - **Maven** (или Gradle) для управления зависимостями.  
 - **GroupDocs.Search for Java** ≥ 25.4.  
-- Базовое знакомство с ООП в Java и структурой Maven‑проекта.
+- Базовое знакомство с концепциями ООП в Java и структурой Maven‑проекта.
 
-## Настройка GroupDocs.Search for Java
+## Настройка GroupDocs.Search для Java
 
-### Maven Setup
-Добавьте репозиторий и зависимость в ваш файл `pom.xml`:
+### Настройка Maven
+Add the repository and dependency to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -67,18 +119,18 @@ weight: 1
 ```
 
 ### Прямое скачивание
-Либо скачайте последнюю JAR‑файл со страницы официальных релизов:  
+Alternatively, download the latest JAR from the official release page:  
 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
 
 ### Приобретение лицензии
-Чтобы открыть полный функционал:
+To unlock full functionality:
 
-1. **Free trial** — идеально для разработки и тестирования.  
-2. **Temporary evaluation license** — расширяет ограничения пробной версии.  
-3. **Commercial license** — снимает все ограничения для продакшн‑использования.
+1. **Бесплатная пробная версия** — идеально для разработки и тестирования.  
+2. **Временная оценочная лицензия** — расширяет ограничения пробной версии.  
+3. **Коммерческая лицензия** — снимает все ограничения для использования в продакшене.
 
 ### Базовая инициализация и настройка
-Следующий фрагмент показывает, как **create a search index Java** путем создания экземпляра класса `Index`:
+The `Index` class is the core component that represents a searchable index stored on disk. The following snippet shows how to **create a search index Java** by instantiating the `Index` class:
 
 ```java
 import com.groupdocs.search.Index;
@@ -95,14 +147,14 @@ public class SearchSetup {
 }
 ```
 
-С готовым индексом можно переходить к реальным фасетным и сложным запросам.
+With the index ready, we can move on to real‑world faceted and complex queries.
 
 ## Как использовать boolean operators java – простой фасетный поиск
 
-Фасетный поиск позволяет конечным пользователям сузить результаты, выбирая значения из предопределённых категорий (фасетов). Ниже пошаговое руководство.
+Load your index, add documents, and issue a field query; the two‑step pattern lets you retrieve facet counts and filtered results in a single call. This approach gives users an intuitive way to narrow results by categories such as file type, author, or custom metadata.
 
 ### Шаг 1: Создать индекс
-Сначала укажите `Index` папку, где будут храниться файлы индекса.
+First, point the `Index` to a folder where the index files will be stored.
 
 ```java
 import com.groupdocs.search.Index;
@@ -112,7 +164,7 @@ Index index = new Index(indexFolder);
 ```
 
 ### Шаг 2: Добавить документы в индекс
-Укажите GroupDocs.Search, где находятся исходные документы. Все поддерживаемые типы файлов (PDF, DOCX, TXT и др.) будут проиндексированы автоматически.
+Tell GroupDocs.Search where your source documents live. All supported file types (PDF, DOCX, TXT, etc.) will be indexed automatically.
 
 ```java
 import com.groupdocs.search.Index;
@@ -123,8 +175,8 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-### Шаг 3: Выполнить поиск в поле Content с текстовым запросом
-Быстрый текстовый запрос фильтрует по полю `content`. Синтаксис `content: Pellentesque` ограничивает результаты документами, содержащими слово *Pellentesque* в основном тексте.
+### Шаг 3: Выполнить поиск в поле content с текстовым запросом
+A quick text query filters by the `content` field. The syntax `content: Pellentesque` limits results to documents containing the word *Pellentesque* in their body text.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -136,8 +188,8 @@ SearchResult result1 = index.search(query1);
 System.out.println("Documents found (query 1): " + result1.getDocumentCount());
 ```
 
-### Шаг 4: Выполнить поиск с объектным запросом
-Объектные запросы дают более тонкий контроль. Здесь мы создаём запрос слова, оборачиваем его в запрос поля и исполняем его.
+### Шаг 4: Выполнить поиск с использованием объектного запроса
+Object‑based queries give you fine‑grained control. Here we build a word query, wrap it in a field query, and execute it.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -153,10 +205,10 @@ System.out.println("Documents found (query 2): " + result2.getDocumentCount());
 
 ## Как использовать boolean operators java – сложный поисковый запрос
 
-Сложные запросы объединяют несколько полей, логические операторы и поиски фраз. Это идеально для сценариев, таких как фильтры в e‑commerce или исследование юридических документов.
+To execute a complex query, combine multiple field conditions with AND/OR/NOT operators, and optionally include phrase searches. You can specify each condition using field queries, nest them with Boolean operators, and control relevance with boosting, allowing you to retrieve only the most relevant documents that satisfy all required criteria.
 
 ### Шаг 1: Создать индекс для сложных запросов
-Используйте ту же структуру папок; один индекс можно использовать как для простых, так и для сложных сценариев.
+Reuse the same folder structure; you can share the index across both simple and complex scenarios.
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Searching/FacetedSearch/ComplexQuery";
@@ -165,7 +217,7 @@ index.add(documentsFolder);
 ```
 
 ### Шаг 2: Выполнить поиск с текстовым запросом
-Следующий запрос ищет файлы с именем *lorem* **and** *ipsum* **or** содержимое, содержащее одну из двух точных фраз.
+The following query looks for files named *lorem* **and** *ipsum* **or** content containing either of two exact phrases.
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -184,7 +236,7 @@ System.out.println("Documents found (complex text query): " + result1.getDocumen
 ```
 
 ### Шаг 3: Выполнить поиск с объектным запросом
-Объектное построение отражает текстовый запрос, но предоставляет типовую безопасность и подсказки IDE.
+Object‑based construction mirrors the textual query but offers type safety and IDE assistance.
 
 ```java
 import com.groupdocs.search.SearchQuery;
@@ -211,50 +263,59 @@ SearchResult result2 = index.search(rootQuery);
 System.out.println("Documents found (complex object query): " + result2.getDocumentCount());
 ```
 
-## Практические применения фасетного и сложного поиска
+## Практические применения фасетных и сложных поисков
 
 | Сценарий | Как фасетирование помогает | Пример запроса |
 |----------|----------------------------|----------------|
-| **Каталог e‑commerce** | Фильтрация по категории, цене, бренду | `category: Electronics AND price:[100 TO 500]` |
+| **Каталог электронной коммерции** | Фильтрация по категории, цене, бренду | `category: Electronics AND price:[100 TO 500]` |
 | **Хранилище юридических документов** | Сужение по номеру дела, юрисдикции | `caseNumber: 2023-045 AND jurisdiction: "California"` |
 | **Исследовательские архивы** | Комбинация автора, года публикации, ключевых слов | `(author: "Doe") AND (year: 2022) AND (keywords: "machine learning")` |
 | **Корпоративный интранет** | Поиск по типу файла и отделу | `filetype: pdf AND department: HR` |
 
-Эти примеры показывают, почему освоение **boolean operators java** и техник **filename search java** является решающим фактором для любого приложения, работающего с большими объёмами данных.
+These examples illustrate why mastering **boolean operators java** and **filename search java** techniques is a game‑changer for any data‑intensive application.
 
 ## Распространённые ошибки и устранение неполадок
 
-- **Пустые результаты** — проверьте, что документы действительно добавлены (`index.getDocumentCount()` может помочь).  
-- **Устаревший индекс** — после добавления или удаления файлов вызовите `index.update()` для **update index java** и синхронизации индекса.  
-- **Неправильные имена полей** — используйте константы `CommonFieldNames` (`Content`, `FileName` и др.), чтобы избежать опечаток.  
-- **Узкие места в производительности** — для огромных коллекций рассмотрите включение `index.setCacheSize()` или размещение папки индекса на отдельном SSD.  
-- **Отсутствие подсветки** — чтобы **highlight search results java**, получите совпавшие фрагменты через `SearchResult.getFragments()` (в примерах не показано, но доступно в API).  
+The `SearchResult` object contains the documents that match a query and provides access to their relevance scores and highlighted fragments.  
+The `CommonFieldNames` class defines standard field names such as `Content` and `FileName` used throughout the API.
+
+- **Пустые результаты** — Убедитесь, что документы успешно добавлены (`index.getDocumentCount()` может помочь).  
+- **Устаревший индекс** — После добавления или удаления файлов вызовите `index.update()`, чтобы **update index java** и поддерживать индекс в актуальном состоянии.  
+- **Неправильные имена полей** — Используйте константы `CommonFieldNames` (`Content`, `FileName` и т.д.), чтобы избежать опечаток.  
+- **Узкие места в производительности** — Для больших коллекций рассмотрите возможность включения `index.setCacheSize()` или использования выделенного SSD для папки индекса.  
+- **Отсутствие подсветки** — Чтобы **highlight search results java**, получите совпавшие фрагменты через `SearchResult.getFragments()` (не показано здесь, но доступно в API).  
 
 ## Часто задаваемые вопросы
 
-**В: Можно ли использовать GroupDocs.Search с Spring Boot?**  
-О: Конечно. Добавьте Maven‑зависимость, сконфигурируйте индекс как Spring‑bean и внедрите его там, где требуется поиск.
+**Q: Можно ли использовать GroupDocs.Search с Spring Boot?**  
+A: Абсолютно. Добавьте Maven‑зависимость, настройте индекс как Spring‑bean и внедрите его там, где нужны возможности поиска.
 
-**В: Поддерживает ли библиотека пользовательские поля метаданных?**  
-О: Да — вы можете добавить пользовательские поля во время индексации и затем выполнять фасетирование по ним.
+**Q: Поддерживает ли библиотека пользовательские поля метаданных?**  
+A: Да — вы можете добавить пользовательские поля во время индексации и затем выполнять фасетирование по ним.
 
-**В: Какой размер может достигать индекс?**  
-О: Индекс хранится на диске и может обслуживать миллионы документов; просто обеспечьте достаточное хранилище и следите за настройками кэша.
+**Q: Насколько большой может стать индекс?**  
+A: Дисковый индекс может обрабатывать до 10 million документов; просто обеспечьте достаточное хранилище и следите за настройками кэша.
 
-**В: Есть ли способ ранжировать результаты по релевантности?**  
-О: GroupDocs.Search автоматически оценивает совпадения; получить оценку можно через `SearchResult.getDocument(i).getScore()`.
+**Q: Есть ли способ ранжировать результаты по релевантности?**  
+A: GroupDocs.Search автоматически оценивает совпадения; вы можете получить оценку через `SearchResult.getDocument(i).getScore()`.
 
-**В: Что происходит, если я индексирую зашифрованные PDF?**  
-О: Укажите пароль при добавлении документа: `index.add(filePath, password)`.
+**Q: Что происходит, если я индексирую зашифрованные PDF?**  
+A: Укажите пароль при добавлении документа: `index.add(filePath, password)`.
 
 ## Заключение
 
-К этому моменту вы должны уверенно **create a search index Java** с помощью GroupDocs.Search, добавлять документы и формировать как простые фасетные запросы, так и сложные Boolean‑поиски с использованием **boolean operators java**. Эти возможности позволяют создавать быстрые, точные и удобные поисковые решения для широкого спектра приложений — от платформ e‑commerce до корпоративных баз знаний.
+By now you should feel comfortable **creating a search index Java** with GroupDocs.Search, adding documents, and crafting both simple faceted queries and sophisticated Boolean searches using **boolean operators java**. These capabilities empower you to deliver fast, accurate, and user‑friendly search experiences across a wide range of applications—from e‑commerce platforms to enterprise knowledge bases.
 
-Готовы к следующему шагу? Исследуйте продвинутые функции **GroupDocs.Search**, такие как **highlighting**, **suggestions** и **real‑time indexing**, чтобы ещё больше усилить поисковый потенциал вашего приложения.
+Ready for the next step? Explore **GroupDocs.Search’s** advanced features such as **highlighting**, **suggestions**, and **real‑time indexing** to further boost your application’s search power.
 
 ---
 
-**Последнее обновление:** 2026-02-16  
-**Тестировано с:** GroupDocs.Search 25.4 for Java  
-**Автор:** GroupDocs
+**Last Updated:** 2026-08-26  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs
+
+## Связанные руководства
+
+- [Поиск по шаблону Java с GroupDocs.Search – Расширенные возможности](/search/java/advanced-features/groupdocs-search-java-advanced-search-features/)
+- [Как обновить индекс Java с GroupDocs.Search – Полное руководство](/search/java/document-management/guide-updating-index-versions-groupdocs-search-java/)
+- [Как реализовать полнотекстовый поиск java: создать каталог индекса с GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)

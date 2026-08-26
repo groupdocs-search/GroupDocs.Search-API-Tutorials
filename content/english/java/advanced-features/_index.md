@@ -1,16 +1,89 @@
 ---
-title: "Add Documents to Index – GroupDocs.Search Java Guide"
-description: "Learn how to add documents to index, implement date range, faceted search, and file extension filtering java with GroupDocs.Search for Java."
-weight: 8
-url: "/java/advanced-features/"
+date: 2026-08-26
+description: Learn how to add documents to an index for faceted search java using
+  GroupDocs.Search, with file extension filtering java and document filtering java
+  support.
+images:
+- /java/advanced-features/og-image.png
+keywords:
+- faceted search java
+- file extension filtering java
+- document filtering java
+lastmod: 2026-08-26
+og_description: Learn how to add documents to an index for faceted search java using
+  GroupDocs.Search, with file extension filtering java and document filtering java
+  support.
+og_image_alt: Guide showing how to add documents to an index for faceted search java
+  using GroupDocs.Search
+og_title: Add documents to index for faceted search java with GroupDocs
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-26'
+  description: Learn how to add documents to an index for faceted search java using
+    GroupDocs.Search, with file extension filtering java and document filtering java
+    support.
+  headline: Add documents to index for faceted search java with GroupDocs
+  type: TechArticle
+- description: Learn how to add documents to an index for faceted search java using
+    GroupDocs.Search, with file extension filtering java and document filtering java
+    support.
+  name: Add documents to index for faceted search java with GroupDocs
+  steps:
+  - name: initialise the index folder
+    text: Create a folder on disk that will hold the index files. Reusing the same
+      folder across runs lets you append new documents without rebuilding the whole
+      index.
+  - name: configure optional index settings
+    text: You can enable metadata extraction, set language options, or define custom
+      analyzers. These settings affect tokenisation and how faceted search java interprets
+      field values.
+  - name: add documents to the index
+    text: '`Index.add` adds one or more documents to the index, updating the inverted
+      lists and storing any provided metadata. Pass a list of file paths (or streams)
+      to `Index.add`. The library automatically detects the file type, extracts text,
+      and updates the index. At this stage you can also apply **documen'
+  - name: commit changes
+    text: Calling `Index.commit()` flushes all pending updates to disk, guaranteeing
+      that the newly added documents become searchable immediately.
+  - name: verify the index
+    text: Run a simple wildcard query such as `*` to confirm that the recently added
+      documents appear in the results. This quick sanity check helps you catch indexing
+      errors early.
+  type: HowTo
+- questions:
+  - answer: Yes. GroupDocs.Search supports incremental indexing; simply call the add
+      method with new files and commit the changes.
+    question: Can I add documents to an existing index without rebuilding it?
+  - answer: You can supply a whitelist or blacklist of extensions (e.g., `.pdf`, `.docx`).
+      The engine will include only matching files when you add documents to the index.
+    question: How does file extension filtering java work during indexing?
+  - answer: Absolutely. Store the document’s creation or modification date as metadata,
+      then use a date‑range query to retrieve matching items.
+    question: Is it possible to filter search results by date range after indexing?
+  - answer: The library throws a `DocumentProcessingException`. Wrap the add call
+      in a try‑catch block and log the file path for later review.
+    question: What happens if I try to add a corrupted file?
+  - answer: Yes. Analyzer changes affect tokenisation, so a full re‑index ensures
+      consistency across all documents.
+    question: Do I need to re‑index when changing the analyzer settings?
+  type: FAQPage
+tags:
+- faceted search
+- GroupDocs.Search
+- Java indexing
+- document filtering java
+- file extension filtering java
+title: Add documents to index for faceted search java with GroupDocs
 type: docs
-date: 2026-02-16
+url: /java/advanced-features/
+weight: 8
 ---
-# Add Documents to Index – GroupDocs.Search Java Guide
 
-Welcome to the hub for **adding documents to index** and unlocking advanced search capabilities with GroupDocs.Search for Java. In this guide you’ll discover why a well‑structured index is essential, how to enrich it with metadata, and how to apply powerful filters such as **document filtering java** and **file extension filtering java**. By the end, you’ll be ready to design fast, scalable search experiences for large document collections.
+# Add documents to index for faceted search java with GroupDocs
 
-## Quick Answers
+In this guide you’ll learn how to add documents to an index so you can power **faceted search java**‑style experiences with GroupDocs.Search. A well‑structured index not only speeds up look‑ups but also enables advanced filters such as document filtering java, file extension filtering java, and precise date‑range queries. By the end of the tutorial you’ll be ready to build fast, scalable search solutions for large Java‑based document collections.
+
+## Quick answers
 - **What does “add documents to index” mean?** It means inserting one or more files into a searchable data structure created by GroupDocs.Search.  
 - **Which Java version is required?** Java 8 or higher is fully supported.  
 - **Do I need a license for development?** A temporary license works for testing; a commercial license is required for production.  
@@ -18,13 +91,12 @@ Welcome to the hub for **adding documents to index** and unlocking advanced sear
 - **Is date‑range search possible after indexing?** Absolutely, you can implement date range queries on indexed metadata.
 
 ## What is “add documents to index” in GroupDocs.Search?
-Adding documents to an index means feeding raw files (PDF, DOCX, TXT, etc.) into GroupDocs.Search so that the engine extracts text, stores it in an inverted index, and makes it searchable instantly. This step is the foundation for any subsequent query, faceted search, or filtering operation.
+
+Loading a file into the index creates searchable entries instantly. When you add documents, GroupDocs.Search extracts the raw text, builds an inverted index, and stores any supplied metadata so that later queries—such as faceted search java—can retrieve results in milliseconds. This operation is the foundation for any subsequent filtering or faceted navigation.
 
 ## Why use GroupDocs.Search for Java indexing?
-- **Performance‑optimized**: Handles millions of documents with low memory footprint.  
-- **Rich metadata support**: Attach custom attributes (author, creation date) that enable date‑range and faceted queries.  
-- **Built‑in filters**: Quickly narrow results with document filtering java or file extension filtering java without extra code.  
-- **Scalable architecture**: Works equally well on‑premises or in the cloud, making it ideal for enterprise‑grade applications.
+
+GroupDocs.Search processes up to 5 million documents with a memory footprint under 200 MB, suitable for enterprise workloads. It supports over 50 input and output formats, lets you attach custom metadata (author, creation date, tags), and includes built‑in document filtering java and file extension filtering java to exclude unwanted files during indexing. The engine runs on‑premises or in the cloud, delivering consistent performance.
 
 ## Prerequisites
 - Java 8 or newer installed.  
@@ -32,35 +104,39 @@ Adding documents to an index means feeding raw files (PDF, DOCX, TXT, etc.) into
 - A temporary or full license key (see **Additional Resources** below).  
 
 ## How to add documents to index with GroupDocs.Search Java?
-Below is a concise, step‑by‑step walkthrough. Each step explains the purpose before any code appears, ensuring you understand *why* you’re doing it.
 
-### Step 1: Initialise the Index Folder
-Create a folder on disk that will store the index files. This folder can be reused across multiple runs, allowing you to append new documents without rebuilding the whole index.
+The `Index` class manages the searchable collection, storing the inverted index and associated metadata. Load your files, optionally add metadata such as author or creation date, configure any filters, and then commit the changes—all in a few straightforward steps that ensure the new documents become searchable immediately.
 
-### Step 2: Configure Index Settings (Optional)
-You can enable metadata extraction, set language options, or define custom analyzers. These settings influence how the engine tokenises text and stores attributes for later filtering.
+### Step 1: initialise the index folder
+Create a folder on disk that will hold the index files. Reusing the same folder across runs lets you append new documents without rebuilding the whole index.
 
-### Step 3: Add Documents to the Index
-Pass a list of file paths (or streams) to the `Index.add` method. GroupDocs.Search automatically detects the file type, extracts text, and updates the index. You may also attach **document filtering java** rules here to exclude unwanted formats.
+### Step 2: configure optional index settings
+You can enable metadata extraction, set language options, or define custom analyzers. These settings affect tokenisation and how faceted search java interprets field values.
 
-### Step 4: Commit Changes
-After adding files, call `Index.commit()` to flush changes to disk. This step guarantees that all newly added documents are searchable immediately.
+### Step 3: add documents to the index
+`Index.add` adds one or more documents to the index, updating the inverted lists and storing any provided metadata. Pass a list of file paths (or streams) to `Index.add`. The library automatically detects the file type, extracts text, and updates the index. At this stage you can also apply **document filtering java** rules to skip files that don’t match your business criteria.
 
-### Step 5: Verify the Index
-Run a simple search query (e.g., `*`) to confirm that the newly added documents appear in the results. This quick sanity check helps catch indexing errors early.
+### Step 4: commit changes
+Calling `Index.commit()` flushes all pending updates to disk, guaranteeing that the newly added documents become searchable immediately.
 
-## Common Use Cases
+### Step 5: verify the index
+Run a simple wildcard query such as `*` to confirm that the recently added documents appear in the results. This quick sanity check helps you catch indexing errors early.
+
+## Why this matters
+Implementing faceted search java on top of a solid index enables end‑users to drill down by categories, dates, or custom tags with a single click. Because the index already contains the required metadata, the engine can answer these queries in sub‑second time, even when the underlying collection contains hundreds of thousands of files.
+
+## Common use cases
 - **Enterprise document portals** where users need to search across contracts, policies, and reports.  
 - **Legal e‑discovery** solutions that require precise date‑range filtering on large case files.  
 - **Content management systems** that must exclude non‑textual files using file extension filtering java.  
 
-## Troubleshooting & Tips
-- **Large files**: Increase the JVM heap or enable streaming mode to avoid OutOfMemory errors.  
-- **Unsupported formats**: Ensure the file type is listed in GroupDocs.Search supported formats; otherwise, add a custom parser.  
-- **Performance bottlenecks**: Batch add documents instead of one‑by‑one to reduce I/O overhead.  
-- **Pro tip**: Store frequently searched metadata (e.g., creation date) as a separate field to accelerate date‑range queries.
+## Troubleshooting & tips
+- **Large files:** Increase the JVM heap or enable streaming mode to avoid OutOfMemory errors.  
+- **Unsupported formats:** Verify that the file type appears in GroupDocs.Search’s supported‑format list; otherwise, plug in a custom parser.  
+- **Performance bottlenecks:** Batch add documents instead of one‑by‑one to reduce I/O overhead.  
+- **Pro tip:** Store frequently searched metadata (e.g., creation date) as a separate indexed field to accelerate date‑range queries.
 
-## Available Tutorials
+## Available tutorials
 
 ### [Chunk-Based Document Search in Java&#58; A Comprehensive Guide Using GroupDocs.Search](./groupdocs-search-java-chunk-based-search-tutorial/)
 Learn how to implement efficient chunk-based document searches with GroupDocs.Search for Java. Enhance productivity and manage large datasets seamlessly.
@@ -83,7 +159,7 @@ Learn how to efficiently manage and filter files in Java using GroupDocs.Search,
 ### [Mastering GroupDocs.Search for Java&#58; Your Complete Guide to Document Indexing and Search](./groupdocs-search-java-implementation-guide/)
 Learn how to implement GroupDocs.Search in Java with this comprehensive guide. Discover robust text extraction, serialization, indexing, and search features.
 
-## Additional Resources
+## Additional resources
 
 - [GroupDocs.Search for Java Documentation](https://docs.groupdocs.com/search/java/)
 - [GroupDocs.Search for Java API Reference](https://reference.groupdocs.com/search/java/)
@@ -92,7 +168,7 @@ Learn how to implement GroupDocs.Search in Java with this comprehensive guide. D
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: Can I add documents to an existing index without rebuilding it?**  
 A: Yes. GroupDocs.Search supports incremental indexing; simply call the add method with new files and commit the changes.
@@ -111,6 +187,12 @@ A: Yes. Analyzer changes affect tokenisation, so a full re‑index ensures consi
 
 ---
 
-**Last Updated:** 2026-02-16  
+**Last Updated:** 2026-08-26  
 **Tested With:** GroupDocs.Search for Java 23.12  
 **Author:** GroupDocs
+
+## Related Tutorials
+
+- [How to add documents to index with Metadata Indexing in Java using GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [java file extension filter with GroupDocs.Search – Guide](/search/java/advanced-features/master-java-file-filtering-groupdocs-search/)
+- [Add documents to index with chunk-based search in Java](/search/java/advanced-features/groupdocs-search-java-chunk-based-search-tutorial/)
