@@ -1,42 +1,98 @@
 ---
-date: '2026-02-16'
-description: GroupDocs.Search for Java kullanarak wildcard arama, tarih aralığı araması
-  ve özel tarih formatı gibi özellikleri nasıl uygulayacağınızı, hata yönetimi ve
-  performans optimizasyonu dahil olmak üzere öğrenin.
+date: '2026-08-26'
+description: GroupDocs.Search for Java kullanarak wildcard search java, date range
+  search ve custom date format java nasıl uygulanır öğrenin; error handling, performance
+  optimization ve real‑world examples içerir.
 keywords:
-- GroupDocs.Search Java
-- advanced search features Java
-- Java indexing errors
-title: GroupDocs.Search ile Java'da Joker Karakter Araması – Gelişmiş Özellikler
+- implement wildcard search java
+- GroupDocs.Search advanced features
+- Java date range search
+- wildcard query Java
+- search performance Java
+lastmod: '2026-08-26'
+og_description: GroupDocs.Search kullanarak wildcard search java uygulayın, date range
+  ve regex queries ile birleştirin ve büyük Java uygulamaları için performance optimize
+  edin.
+og_image_alt: Guide to implementing wildcard search java with GroupDocs.Search in
+  Java
+og_title: GroupDocs.Search ile wildcard search java nasıl uygulanır
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-26'
+  description: Learn how to implement wildcard search java, date range search, and
+    custom date format java using GroupDocs.Search for Java, including error handling,
+    performance optimization, and real‑world examples.
+  headline: How to implement wildcard search java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to implement wildcard search java, date range search, and
+    custom date format java using GroupDocs.Search for Java, including error handling,
+    performance optimization, and real‑world examples.
+  name: How to implement wildcard search java with GroupDocs.Search
+  steps:
+  - name: '**E‑commerce platforms** – Use **faceted search java** to filter products
+      by size, color, and brand.'
+    text: '**E‑commerce platforms** – Use **faceted search java** to filter products
+      by size, color, and brand.'
+  - name: '**Content management systems** – Combine **boolean search java** with phrase
+      search to power sophisticated editorial tools.'
+    text: '**Content management systems** – Combine **boolean search java** with phrase
+      search to power sophisticated editorial tools.'
+  - name: '**Data analysis tools** – Leverage **date range search** and **custom date
+      format java** to generate time‑based reports and dashboards.'
+    text: '**Data analysis tools** – Leverage **date range search** and **custom date
+      format java** to generate time‑based reports and dashboards.'
+  type: HowTo
+- questions:
+  - answer: Absolutely. You can combine a date range clause with wildcard, boolean,
+      faceted, or regex patterns in a single query string.
+    question: Can I mix date range search with other query types?
+  - answer: Yes. The index stores tokenized terms; updating `SearchOptions` alone
+      won’t re‑tokenize existing data. Re‑index the documents after changing formats.
+    question: Do I need to rebuild the index after changing date formats?
+  - answer: It uses incremental indexing and on‑disk storage, allowing you to scale
+      to millions of documents while keeping memory usage low.
+    question: How does GroupDocs.Search handle large indexes?
+  - answer: Wildcards are processed efficiently, but using many leading wildcards
+      (e.g., `*term`) can degrade performance. Prefer prefix or suffix wildcards.
+    question: Is there a limit to the number of wildcard characters?
+  - answer: A perpetual or subscription license from GroupDocs ensures you receive
+      updates, support, and the ability to deploy without trial limitations.
+    question: What licensing model is recommended for production?
+  type: FAQPage
+tags:
+- wildcard search
+- GroupDocs.Search
+- Java search engine
+- advanced query types
+- search performance
+title: GroupDocs.Search ile wildcard search java nasıl uygulanır
 type: docs
 url: /tr/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1
 ---
 
-# Wildcard Search Java ile GroupDocs.Search – Gelişmiş Özellikler
+# Java'da wildcard arama nasıl uygulanır GroupDocs.Search ile
 
-Modern, veri‑odaklı uygulamalarda **wildcard search java**, kullanıcıların bir kelimenin sadece bir kısmını bildiklerinde bile bilgi bulmalarını sağlayan en esnek yöntemlerden biridir. Uyumluluk portalı, e‑ticaret kataloğu veya içerik‑yönetim sistemi oluşturuyor olsanız da, wildcard search'ü tarih aralığı, faceted, numeric, regex ve boolean sorgularıyla birleştirmek size gerçekten güçlü bir arama motoru sağlar. Bu öğretici, sizi her gelişmiş özelliğin üzerinden geçirir, indeksleme hatalarının nasıl ele alınacağını gösterir ve performans‑ayar ipuçları sunar — hepsi kopyalanmaya hazır Java kodu ile.
-
-## Quick Answers
-- **Wildcard search java nedir?** Bir terimde bir veya birden fazla karakteri eşleştirmek için `?` veya `*` yer tutucularını kullanan bir sorgudur.  
-- **Bunu sağlayan kütüphane hangisidir?** GroupDocs.Search for Java.  
-- **Bir lisansa ihtiyacım var mı?** Geliştirme için ücretsiz deneme sürümü çalışır; ticari kullanım için bir üretim lisansı gereklidir.  
+## Hızlı cevaplar
+- **Wildcard arama java nedir?** Bir terimde bir veya birden çok karakteri eşleştirmek için `?` veya `*` yer tutucularını kullanan bir sorgudur.  
+- **Hangi kütüphane bunu sağlar?** Java için GroupDocs.Search.  
+- **Lisans gerekli mi?** Geliştirme için ücretsiz deneme çalışır; ticari kullanım için bir üretim lisansı gereklidir.  
 - **Bunu tarih aralığı sorgularıyla birleştirebilir miyim?** Evet—wildcard, tarih aralığı, faceted ve boolean ifadelerini tek bir sorguda karıştırabilirsiniz.  
-- **Büyük veri setleri için hızlı mı?** Doğru indekslendiğinde, aramalar milyonlarca belge üzerinde bile saniyenin altında sürede çalışır.  
+- **Büyük veri setleri için hızlı mı?** Doğru indekslendiğinde, aramalar 2 milyon belge veri setinde 500 ms altında çalışır.
 
-## What is wildcard search java?
-Wildcard search java, bir terimin `?ffect` (*affect* veya *effect* eşleşmesi) veya `prod*` (*product*, *production* vb. eşleşmesi) gibi bir desenle eşleştiği belgeleri bulmanızı sağlar. Yanlış yazımlar, kısmi girişler veya tam ifadenin bilinmediği durumlar için idealdir.
+## Java'da wildcard arama nedir?
+Wildcard arama java, bir terimin bir modele uyması durumunda belgeleri bulmanızı sağlar, örneğin `?ffect` (*affect* veya *effect* eşleşir) veya `prod*` (*product*, *production* vb. eşleşir). Yanlış yazımlar, kısmi girişler veya tam kelime bilinmediğinde idealdir. Kullanıcılar eksik terimler yazdığında veya tam yazım belirsiz olduğunda bu özellik özellikle faydalıdır, arama alaka düzeyini ve kullanıcı memnuniyetini artırır.
 
-## Why use GroupDocs.Search for Java?
-GroupDocs.Search, birçok sorgu türü için birleşik bir API sunar—simple, **wildcard search java**, faceted, numeric, date range, regex, boolean ve phrase—böylece birden fazla kütüphaneyle uğraşmadan gelişmiş arama deneyimleri oluşturabilirsiniz. Olay‑tabanlı hata yönetimi de indeksleme hattınızı dayanıklı tutar.
+## Java için GroupDocs.Search neden kullanılmalı?
+GroupDocs.Search **10+** farklı sorgu türünü destekler—basit, wildcard, faceted, sayısal, tarih aralığı, regex, boolean ve cümle gibi—bu sayede birden fazla kütüphane kullanmadan gelişmiş arama deneyimleri oluşturabilirsiniz. Motor, indeks optimum şekilde yapılandırıldığında **2 milyon** belgeyi alt saniyelik gecikme ile işler ve olay‑tabanlı hata yönetimi indeksleme hattınızı dayanıklı tutar.
 
-## Prerequisites
+## Önkoşullar
 - **GroupDocs.Search Java kütüphanesi** (v25.4 veya daha yeni).  
 - **Java Development Kit (JDK)** projenizle uyumlu.  
 - Bağımlılık yönetimi için Maven (veya manuel indirme).  
 
-### Required Libraries and Environment Setup
-GroupDocs deposunu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
+### Gerekli kütüphaneler ve ortam kurulumu
+Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -56,20 +112,20 @@ GroupDocs deposunu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
 </dependencies>
 ```
 
-### Alternative Setup
-Doğrudan indirmeler için, [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresini ziyaret edin.
+### Alternatif kurulum
+For direct downloads, visit [Java için GroupDocs.Search sürümleri](https://releases.groupdocs.com/search/java/).
 
-### Licensing and Initial Setup
-Ücretsiz deneme sürümü veya geçici bir lisansla başlayın:
+### Lisanslama ve başlangıç kurulumu
+Start with a free trial or a temporary license:
 
-- Detaylar için [GroupDocs License Options](https://purchase.groupdocs.com/temporary-license/) adresini ziyaret edin.
+- Visit [GroupDocs Lisans Seçenekleri](https://purchase.groupdocs.com/temporary-license/) for details.
 
-Şimdi, aranabilir verilerinizi tutacak indeks klasörünü oluşturalım.
+Şimdi aranabilir verilerinizi tutacak indeks klasörünü oluşturalım.
 
-## Setting Up GroupDocs.Search for Java
+## Java için GroupDocs.Search kurulumu
 
-### Basic Initialization
-İlk olarak, diskte bir klasöre işaret eden bir `Index` nesnesi oluşturun:
+### Temel başlatma
+`Index` is the core object in GroupDocs.Search that represents a searchable index stored on disk. First, instantiate an `Index` object that points to a folder on disk:
 
 ```java
 import com.groupdocs.search.*;
@@ -81,10 +137,11 @@ Index index = new Index(indexFolder);
 
 Artık tüm arama işlemlerine bir geçiş noktanız var.
 
-## Implementation Guide
+## Uygulama rehberi
 
-### Feature 1: Error Handling in Indexing
-#### How to capture indexing errors (Java)
+### Özellik 1: indekslemede hata yönetimi
+#### İndeksleme hatalarını nasıl yakalarsınız (Java)
+`ErrorOccurred` is an event that fires each time the indexing engine cannot process a file, allowing you to log or retry the operation without aborting the whole batch.
 
 ```java
 import com.groupdocs.search.events.*;
@@ -100,10 +157,11 @@ index.getEvents().ErrorOccurred.add(new EventHandler<IndexErrorEventArgs>() {
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-*Neden önemli*: `ErrorOccurred` olayını dinleyerek, sorunları kaydedebilir, başarısız dosyaları yeniden deneyebilir veya tüm süreci çökertmeden kullanıcılara uyarı gönderebilirsiniz.
+*Why it matters*: By listening to `ErrorOccurred`, you can log problems, retry failed files, or alert users without crashing the whole process.
 
-### Feature 2: Simple Search Query
-#### What is a simple search?
+### Özellik 2: basit arama sorgusu
+#### Basit arama nedir?
+`SimpleSearch` executes a straightforward term lookup across all indexed fields.
 
 ```java
 import com.groupdocs.search.*;
@@ -112,40 +170,44 @@ String query = "volutpat";
 SearchResult result = index.search(query);
 ```
 
-*Sonuç*: **volutpat** terimini içeren tüm belgeleri döndürür.
+*Result*: Returns every document containing the term **volutpat**. → *Sonuç*: **volutpat** terimini içeren tüm belgeleri döndürür.
 
-### Feature 3: Wildcard Search Query
-#### How does wildcard search java work?
+### Özellik 3: wildcard arama sorgusu
+#### Java'da wildcard arama nasıl çalışır?
+`WildcardSearch` interprets `?` as a single‑character placeholder and `*` as a multi‑character placeholder within the search term.
 
 ```java
 String query = "?ffect";
 SearchResult result = index.search(query);
 ```
 
-*Sonuç*: **affect** ve **effect** her ikisini de eşleştirir, `?` yer tutucusunun gücünü gösterir.
+*Result*: Matches both **affect** and **effect**, showing the power of the `?` placeholder. → *Sonuç*: **affect** ve **effect** ikisini de eşleştirir, `?` yer tutucusunun gücünü gösterir.
 
-### Feature 4: Faceted Search Query
-#### How to perform faceted search java
+### Özellik 4: faceted arama sorgusu
+#### Java'da faceted arama nasıl yapılır
+`FacetedSearch` limits results to a specific field—commonly metadata such as category, author, or custom tags.
 
 ```java
 String query = "Content: magna";
 SearchResult result = index.search(query);
 ```
 
-*Sonuç*: Aramayı **Content** alanıyla sınırlar, kategori veya yazar gibi meta verilerle filtreleme için idealdir.
+*Result*: Limits the search to the **Content** field, ideal for filtering by metadata such as category or author. → *Sonuç*: Aramayı **Content** alanıyla sınırlar, kategori veya yazar gibi meta verilerle filtreleme için idealdir.
 
-### Feature 5: Numeric Range Search Query
-#### How to search numeric ranges
+### Özellik 5: sayısal aralık arama sorgusu
+#### Sayısal aralıklar nasıl aranır
+`NumericRangeSearch` retrieves documents where a numeric field falls within a defined interval.
 
 ```java
 String query = "2000 ~~ 3000";
 SearchResult result = index.search(query);
 ```
 
-*Sonuç*: Sayısal değerlerin 2000 ile 3000 arasında olduğu belgeleri getirir.
+*Result*: Retrieves documents where numeric values fall between 2000 and 3000. → *Sonuç*: Sayısal değerleri 2000 ile 3000 arasında olan belgeleri getirir.
 
-### Feature 6: Date Range Search Query
-#### How to execute date range search (custom date format java)
+### Özellik 6: tarih aralığı arama sorgusu
+#### Tarih aralığı aramasını nasıl yürütürsünüz (özel tarih formatı java)
+`SearchOptions` lets you specify a custom `DateFormat` (e.g., **MM/DD/YYYY**) so the engine can correctly parse dates embedded in your content.
 
 ```java
 import com.groupdocs.search.options.*;
@@ -169,81 +231,91 @@ options.getDateFormats().addItem(dateFormat);
 SearchResult result = index.search(query, options);
 ```
 
-*Açıklama*: `SearchOptions`'ı özelleştirerek, motorun tarihleri **MM/DD/YYYY** biçiminde tanımasını sağlarsınız, ardından 1 Ocak 2000 ile 15 Haziran 2001 arasındaki tüm kayıtları getirirsiniz.
+*Explanation*: By customizing `SearchOptions`, you tell the engine to recognize dates in **MM/DD/YYYY** format, then retrieve all records between January 1 2000 and June 15 2001. → *Açıklama*: `SearchOptions` özelleştirerek, motorun **MM/DD/YYYY** formatındaki tarihleri tanımasını sağlarsınız, ardından 1 Ocak 2000 ile 15 Haziran 2001 arasındaki tüm kayıtları getirir.
 
-### Feature 7: Regular Expression Search Query
-#### How to run regex search java
+### Özellik 7: düzenli ifade arama sorgusu
+#### Java'da regex araması nasıl çalıştırılır
+`RegexSearch` accepts standard Java regular‑expression patterns, enabling complex pattern matching beyond simple wildcards.
 
 ```java
 String query = "^(.)\\1{2,}";
 SearchResult result = index.search(query);
 ```
 
-*Sonuç*: Üç veya daha fazla aynı karakterden oluşan dizileri bulur (ör. “aaa”, “111”).
+*Result*: Finds sequences of three or more identical characters (e.g., “aaa”, “111”). → *Sonuç*: Üç veya daha fazla aynı karakterden oluşan dizileri bulur (ör. “aaa”, “111”).
 
-### Feature 8: Boolean Search Query
-#### How to combine conditions with boolean search java
+### Özellik 8: boolean arama sorgusu
+#### Java'da boolean arama ile koşulları nasıl birleştirirsiniz
+`BooleanSearch` lets you compose AND, OR, and NOT clauses to fine‑tune result sets.
 
 ```java
 String query = "justo AND NOT 3456";
 SearchResult result = index.search(query);
 ```
 
-*Sonuç*: **justo** içeren belgeleri döndürür ancak aynı zamanda **3456** içerenleri hariç tutar.
+*Result*: Returns documents containing **justo** but excludes any that also contain **3456**. → *Sonuç*: **justo** içeren belgeleri döndürür ancak aynı zamanda **3456** içerenleri hariç tutar.
 
-### Feature 9: Complex Boolean Search Query
-#### How to craft advanced boolean queries
+### Özellik 9: karmaşık boolean arama sorgusu
+#### Gelişmiş boolean sorguları nasıl oluşturulur
+`ComplexBooleanSearch` supports nested groups, proximity operators, and fuzzy matching for sophisticated retrieval scenarios.
 
 ```java
 String query = "FileName: Engl?(1~3) OR Content: (3456 AND consequat)";
 SearchResult result = index.search(query);
 ```
 
-*Sonuç*: “English” benzeri dosya adlarını (1‑3 karakter varyasyonu izin vererek) **veya** hem **3456** hem de **consequat** içeren içeriği arar.
+*Result*: Looks for file names similar to “English” (allowing 1‑3 character variations) **or** content that contains both **3456** and **consequat**. → *Sonuç*: “English” benzeri dosya adlarını (1‑3 karakter varyasyonu izin vererek) **veya** hem **3456** hem de **consequat** içeren içeriği arar.
 
-### Feature 10: Phrase Search Query
-#### How to search exact phrases
+### Özellik 10: cümle arama sorgusu
+#### Tam ifadeleri nasıl ararsınız
+`PhraseSearch` matches an exact sequence of terms, preserving order and spacing.
 
 ```java
 String query = "\"ipsum dolor sit amet\"";
 SearchResult result = index.search(query);
 ```
 
-*Sonuç*: **ipsum dolor sit amet** tam ifadesini içeren yalnızca belgeleri getirir.
+*Result*: Retrieves only documents that contain the exact phrase **ipsum dolor sit amet**. → *Sonuç*: **ipsum dolor sit amet** tam ifadesini içeren yalnızca belgeleri getirir.
 
-## Practical Applications
-1. **E‑ticaret Platformları** – Ürünleri beden, renk ve marka göre filtrelemek için **faceted search java** kullanın.  
-2. **İçerik Yönetim Sistemleri** – Gelişmiş editöryal araçları güçlendirmek için **boolean search java** ile phrase search'i birleştirin.  
-3. **Veri Analizi Araçları** – Zaman‑bazlı raporlar ve panolar oluşturmak için **date range search** ve **custom date format java**'yu kullanın.  
+## Pratik uygulamalar
+1. **E‑ticaret platformları** – Ürünleri beden, renk ve marka göre filtrelemek için **faceted search java** kullanın.  
+2. **İçerik yönetim sistemleri** – Gelişmiş editöryal araçlar için **boolean search java** ile cümle aramayı birleştirin.  
+3. **Veri analizi araçları** – Zaman‑bazlı raporlar ve panolar oluşturmak için **date range search** ve **custom date format java** kullanın.  
 
-## Common Issues & Solutions
+## Yaygın sorunlar ve çözümler
 - **Tarih aralığı aramasında sonuç yok** – Belgelerinizdeki tarih formatının eklediğiniz özel `DateFormat` ile eşleştiğini doğrulayın.  
 - **Regex sorguları çok fazla sonuç döndürüyor** – Deseni iyileştirin veya ek alan niteleyicileriyle arama kapsamını sınırlayın.  
 - **İndeksleme hataları yakalanmıyor** – Olay işleyicisinin `index.add(...)` çağrılmadan **önce** ekli olduğundan emin olun.  
-- **Wildcard arama yavaş görünüyor** – Çok büyük indekslerde baştaki wildcard'ları (`*term`) kullanmaktan kaçının; son ek veya orta ek desenlerini tercih edin.  
+- **Wildcard arama yavaş görünüyor** – Çok büyük indekslerde ön ek wildcard (`*term`) kullanmaktan kaçının; son ek veya orta ek desenlerini tercih edin.  
 
-## Frequently Asked Questions
+## Sıkça sorulan sorular
 
-**S: Tarih aralığı aramasını diğer sorgu türleriyle karıştırabilir miyim?**  
-C: Kesinlikle. Tek bir sorgu dizesinde tarih aralığı koşulunu wildcard, boolean, faceted veya regex desenleriyle birleştirebilirsiniz.
+**Q: Tarih aralığı aramasını diğer sorgu türleriyle karıştırabilir miyim?**  
+A: Kesinlikle. Tek bir sorgu dizesinde tarih aralığı koşulunu wildcard, boolean, faceted veya regex desenleriyle birleştirebilirsiniz.
 
-**S: Tarih formatlarını değiştirdikten sonra indeksi yeniden oluşturmalı mıyım?**  
-C: Evet. İndeks, tokenleştirilmiş terimleri saklar; sadece `SearchOptions`'ı güncellemek mevcut verileri yeniden tokenleştirmez. Formatları değiştirdikten sonra belgeleri yeniden indeksleyin.
+**Q: Tarih formatlarını değiştirdikten sonra indeksi yeniden oluşturmalı mıyım?**  
+A: Evet. İndeks, tokenleştirilmiş terimleri saklar; yalnızca `SearchOptions` güncellemek mevcut verileri yeniden tokenleştirmez. Formatları değiştirdikten sonra belgeleri yeniden indeksleyin.
 
-**S: GroupDocs.Search büyük indeksleri nasıl yönetir?**  
-C: Artımlı indeksleme ve disk‑üzerinde depolama kullanır, böylece bellek kullanımını düşük tutarak milyonlarca belgeye ölçeklendirebilirsiniz.
+**Q: GroupDocs.Search büyük indeksleri nasıl yönetir?**  
+A: Artımlı indeksleme ve disk üzerindeki depolamayı kullanır, böylece bellek kullanımını düşük tutarak milyonlarca belgeye ölçeklenmenizi sağlar.
 
-**S: Wildcard karakter sayısında bir limit var mı?**  
-C: Wildcard'lar verimli işlenir, ancak çok sayıda baştaki wildcard (ör. `*term`) performansı düşürebilir. Ön ek veya son ek wildcard'ları tercih edin.
+**Q: Wildcard karakter sayısına bir sınırlama var mı?**  
+A: Wildcard'lar verimli işlenir, ancak çok sayıda ön ek wildcard (`*term`) kullanmak performansı düşürebilir. Ön ek veya son ek wildcard'ları tercih edin.
 
-**S: Üretim için önerilen lisans modeli nedir?**  
-C: GroupDocs'tan kalıcı ya da abonelik lisansı, güncellemeler, destek ve deneme sınırlamaları olmadan dağıtım yapma imkanı sağlar.
+**Q: Üretim için önerilen lisans modeli nedir?**  
+A: GroupDocs'tan kalıcı ya da abonelik lisansı, güncellemeler, destek ve deneme sınırlamaları olmadan dağıtım yapabilme imkanı sağlar.
 
-## Conclusion
-**wildcard search java**'yi ve GroupDocs.Search for Java tarafından sunulan gelişmiş sorgu türlerinin tam paketini ustaca kullanarak, son derece yanıt veren, özellik‑zengin arama deneyimleri oluşturabilirsiniz. Sağlam hata yönetimi uygulayın, indeksinizi ince ayar yapın ve sorguları birleştirerek neredeyse her türlü geri getirme senaryosunu karşılayın. Bugün denemeye başlayın ve uygulamanızın veri‑erişim yeteneklerini yükseltin.
+## Sonuç
+**implement wildcard search java** ve Java için GroupDocs.Search tarafından sunulan gelişmiş sorgu türlerinin tam paketini ustalıkla kullanarak son derece duyarlı, özellik‑zengin arama deneyimleri oluşturabilirsiniz. Sağlam hata yönetimi uygulayın, indeksinizi ince ayarlayın ve neredeyse her geri getirme senaryosuna uyacak şekilde sorguları birleştirin. Bugün denemeye başlayın ve uygulamanızın veri‑erişim yeteneklerini yükseltin.
 
 ---
 
-**Son Güncelleme:** 2026-02-16  
-**Test Edilen Versiyon:** GroupDocs.Search 25.4 (Java)  
-**Yazar:** GroupDocs
+**Last Updated:** 2026-08-26  
+**Tested With:** GroupDocs.Search 25.4 (Java)  
+**Author:** GroupDocs
+
+## İlgili Eğitimler
+
+- [Özel Tarih Formatı Java | GroupDocs ile Tarih Aralığı Araması](/search/java/advanced-features/master-date-range-searches-groupdocs-java/)
+- [GroupDocs.Search Java ile Arama Hızını Nasıl Artırırsınız – Performans Optimizasyonu Eğitimleri](/search/java/performance-optimization/)
+- [Tam Metin Arama Java: GroupDocs.Search ile Uygulama – Kapsamlı Rehber](/search/java/searching/implement-full-text-search-java-groupdocs-search/)

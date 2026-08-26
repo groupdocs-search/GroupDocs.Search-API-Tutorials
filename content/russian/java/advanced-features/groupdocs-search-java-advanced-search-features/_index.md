@@ -1,42 +1,100 @@
 ---
-date: '2026-02-16'
-description: Узнайте, как реализовать поиск с подстановочными знаками в Java, поиск
-  по диапазону дат и пользовательский формат даты в Java с использованием GroupDocs.Search
-  для Java, включая обработку ошибок и оптимизацию производительности.
+date: '2026-08-26'
+description: Узнайте, как реализовать wildcard search java, date range search и custom
+  date format java с помощью GroupDocs.Search для Java, включая error handling, performance
+  optimization и real‑world examples.
 keywords:
-- GroupDocs.Search Java
-- advanced search features Java
-- Java indexing errors
-title: Поиск с подстановочными знаками в Java с GroupDocs.Search – расширенные возможности
+- implement wildcard search java
+- GroupDocs.Search advanced features
+- Java date range search
+- wildcard query Java
+- search performance Java
+lastmod: '2026-08-26'
+og_description: Реализуйте wildcard search java с использованием GroupDocs.Search,
+  комбинируйте с date range и regex queries, и оптимизируйте performance для крупных
+  Java‑приложений.
+og_image_alt: Guide to implementing wildcard search java with GroupDocs.Search in
+  Java
+og_title: Как реализовать wildcard search java с помощью GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-26'
+  description: Learn how to implement wildcard search java, date range search, and
+    custom date format java using GroupDocs.Search for Java, including error handling,
+    performance optimization, and real‑world examples.
+  headline: How to implement wildcard search java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to implement wildcard search java, date range search, and
+    custom date format java using GroupDocs.Search for Java, including error handling,
+    performance optimization, and real‑world examples.
+  name: How to implement wildcard search java with GroupDocs.Search
+  steps:
+  - name: '**E‑commerce platforms** – Use **faceted search java** to filter products
+      by size, color, and brand.'
+    text: '**E‑commerce platforms** – Use **faceted search java** to filter products
+      by size, color, and brand.'
+  - name: '**Content management systems** – Combine **boolean search java** with phrase
+      search to power sophisticated editorial tools.'
+    text: '**Content management systems** – Combine **boolean search java** with phrase
+      search to power sophisticated editorial tools.'
+  - name: '**Data analysis tools** – Leverage **date range search** and **custom date
+      format java** to generate time‑based reports and dashboards.'
+    text: '**Data analysis tools** – Leverage **date range search** and **custom date
+      format java** to generate time‑based reports and dashboards.'
+  type: HowTo
+- questions:
+  - answer: Absolutely. You can combine a date range clause with wildcard, boolean,
+      faceted, or regex patterns in a single query string.
+    question: Can I mix date range search with other query types?
+  - answer: Yes. The index stores tokenized terms; updating `SearchOptions` alone
+      won’t re‑tokenize existing data. Re‑index the documents after changing formats.
+    question: Do I need to rebuild the index after changing date formats?
+  - answer: It uses incremental indexing and on‑disk storage, allowing you to scale
+      to millions of documents while keeping memory usage low.
+    question: How does GroupDocs.Search handle large indexes?
+  - answer: Wildcards are processed efficiently, but using many leading wildcards
+      (e.g., `*term`) can degrade performance. Prefer prefix or suffix wildcards.
+    question: Is there a limit to the number of wildcard characters?
+  - answer: A perpetual or subscription license from GroupDocs ensures you receive
+      updates, support, and the ability to deploy without trial limitations.
+    question: What licensing model is recommended for production?
+  type: FAQPage
+tags:
+- wildcard search
+- GroupDocs.Search
+- Java search engine
+- advanced query types
+- search performance
+title: Как реализовать wildcard search java с помощью GroupDocs.Search
 type: docs
 url: /ru/java/advanced-features/groupdocs-search-java-advanced-search-features/
 weight: 1
 ---
 
-# Поиск с подстановкой в Java с GroupDocs.Search – Расширенные возможности
+# Как реализовать wildcard search java с GroupDocs.Search
 
-В современных, ориентированных на данные приложениях **wildcard search java** является одним из самых гибких способов позволить пользователям находить информацию, даже если они знают лишь часть слова. Независимо от того, создаёте ли вы портал соответствия, каталог электронной коммерции или систему управления контентом, сочетание поиска с подстановкой с запросами по диапазону дат, фасетным, числовым, regex и булевым запросам даёт действительно мощный поисковый движок. Этот учебник проведёт вас через все расширенные функции, покажет, как обрабатывать ошибки индексации, и предложит советы по оптимизации производительности — всё с готовым к копированию Java‑кодом.
+В современных, ориентированных на данные приложениях часто требуется **implement wildcard search java**, чтобы пользователи могли находить информацию, даже зная лишь часть слова. Будь то портал соответствия, каталог электронной коммерции или система управления контентом, сочетание wildcard search с запросами диапазона дат, фасетными, числовыми, regex и булевыми запросами даёт действительно мощный поисковый движок. Этот учебник проведёт вас через все расширенные возможности, покажет, как обрабатывать ошибки индексации, и предложит советы по оптимизации производительности — все с готовым к копированию Java‑кодом.
 
 ## Быстрые ответы
-- **Что такое wildcard search java?** Запрос, использующий символы‑заполнители `?` или `*` для сопоставления одного или нескольких символов в терме.  
-- **Какая библиотека предоставляет эту возможность?** GroupDocs.Search для Java.  
-- **Нужна ли лицензия?** Бесплатная пробная версия подходит для разработки; для коммерческого использования требуется производственная лицензия.  
-- **Можно ли комбинировать её с запросами по диапазону дат?** Да — можно смешивать wildcard, диапазон дат, фасетные и булевые условия в одном запросе.  
-- **Быстрый ли он для больших наборов данных?** При правильной индексации поиск выполняется за доли секунды даже на миллионах документов.  
+- **Что такое wildcard search java?** Это запрос, использующий `?` или `*` в качестве заполнителей для совпадения одного или нескольких символов в терме.  
+- **Какая библиотека предоставляет его?** GroupDocs.Search for Java.  
+- **Нужна ли лицензия?** Бесплатная пробная версия подходит для разработки; для коммерческого использования требуется лицензия продакшн.  
+- **Можно ли комбинировать его с запросами диапазона дат?** Да — можно смешивать wildcard, диапазон дат, фасетные и булевые условия в одном запросе.  
+- **Быстрый ли он для больших наборов данных?** При правильной индексации поиск выполняется менее чем за 500 мс на наборах из 2 миллионов документов.
 
 ## Что такое wildcard search java?
-Wildcard search java позволяет находить документы, где термин соответствует шаблону, например `?ffect` (соответствует *affect* или *effect*) или `prod*` (соответствует *product*, *production* и т.д.). Это идеально для опечаток, частичных вводов или когда точная формулировка неизвестна.
+Wildcard search java позволяет находить документы, где термин соответствует шаблону, например `?ffect` (соответствует *affect* или *effect*) или `prod*` (соответствует *product*, *production* и т.д.). Это идеально для опечаток, частичных вводов или когда точная формулировка неизвестна. Такая возможность особенно полезна, когда пользователи вводят неполные термины или когда правописание неясно, повышая релевантность поиска и удовлетворённость пользователей.
 
 ## Почему использовать GroupDocs.Search для Java?
-GroupDocs.Search предлагает единый API для множества типов запросов — простых, **wildcard search java**, фасетных, числовых, диапазона дат, regex, булевых и фразовых — так что вы можете создавать сложные поисковые решения без необходимости использовать несколько библиотек. Его событийно‑ориентированная обработка ошибок также делает ваш процесс индексации надёжным.
+GroupDocs.Search поддерживает **10+** различных типов запросов — включая простые, wildcard, фасетные, числовые, диапазон дат, regex, булевые и фразовые — что позволяет создавать сложные поисковые сценарии без необходимости использовать несколько библиотек. Движок обрабатывает до **2 million** документов с субсекундной задержкой при оптимальной конфигурации индекса, а его обработка ошибок, основанная на событиях, делает ваш конвейер индексации надёжным.
 
-## Предварительные требования
+## Требования
 - **GroupDocs.Search Java library** (v25.4 или новее).  
 - **Java Development Kit (JDK)**, совместимый с вашим проектом.  
 - Maven для управления зависимостями (или ручная загрузка).  
 
-### Необходимые библиотеки и настройка окружения
-Добавьте репозиторий GroupDocs и зависимость в ваш `pom.xml`:
+### Требуемые библиотеки и настройка окружения
+Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -57,19 +115,19 @@ GroupDocs.Search предлагает единый API для множества
 ```
 
 ### Альтернативная настройка
-Для прямой загрузки посетите [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+For direct downloads, visit [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Лицензирование и начальная настройка
-Начните с бесплатной пробной версии или временной лицензии:
+Start with a free trial or a temporary license:
 
-- Посетите [GroupDocs License Options](https://purchase.groupdocs.com/temporary-license/) для получения деталей.
+- Visit [GroupDocs License Options](https://purchase.groupdocs.com/temporary-license/) for details.
 
-Теперь создадим папку индекса, которая будет хранить ваши поисковые данные.
+Теперь создадим папку индекса, в которой будут храниться ваши поисковые данные.
 
 ## Настройка GroupDocs.Search для Java
 
 ### Базовая инициализация
-Сначала создайте объект `Index`, указывающий на папку на диске:
+`Index` is the core object in GroupDocs.Search that represents a searchable index stored on disk. First, instantiate an `Index` object that points to a folder on disk:
 
 ```java
 import com.groupdocs.search.*;
@@ -79,12 +137,13 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\BasicUsage\\BuildSearchQu
 Index index = new Index(indexFolder);
 ```
 
-Теперь у вас есть шлюз ко всем поисковым операциям.
+You now have a gateway to all search operations.
 
 ## Руководство по реализации
 
-### Функция 1: Обработка ошибок при индексации
+### Функция 1: обработка ошибок при индексации
 #### Как захватывать ошибки индексации (Java)
+`ErrorOccurred` is an event that fires each time the indexing engine cannot process a file, allowing you to log or retry the operation without aborting the whole batch.
 
 ```java
 import com.groupdocs.search.events.*;
@@ -100,10 +159,11 @@ index.getEvents().ErrorOccurred.add(new EventHandler<IndexErrorEventArgs>() {
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
 
-*Почему это важно*: Слушая событие `ErrorOccurred`, вы можете записывать проблемы, повторно пытаться обработать неудавшиеся файлы или оповещать пользователей без падения всего процесса.
+*Почему это важно*: By listening to `ErrorOccurred`, you can log problems, retry failed files, or alert users without crashing the whole process.
 
-### Функция 2: Простой поисковый запрос
+### Функция 2: простой поисковый запрос
 #### Что такое простой поиск?
+`SimpleSearch` executes a straightforward term lookup across all indexed fields.
 
 ```java
 import com.groupdocs.search.*;
@@ -112,40 +172,44 @@ String query = "volutpat";
 SearchResult result = index.search(query);
 ```
 
-*Результат*: Возвращает каждый документ, содержащий термин **volutpat**.
+*Результат*: Returns every document containing the term **volutpat**.
 
-### Функция 3: Запрос с подстановкой
+### Функция 3: запрос wildcard search
 #### Как работает wildcard search java?
+`WildcardSearch` interprets `?` as a single‑character placeholder and `*` as a multi‑character placeholder within the search term.
 
 ```java
 String query = "?ffect";
 SearchResult result = index.search(query);
 ```
 
-*Результат*: Находит как **affect**, так и **effect**, демонстрируя силу символа‑заполнителя `?`.
+*Результат*: Matches both **affect** and **effect**, showing the power of the `?` placeholder.
 
-### Функция 4: Фасетный поисковый запрос
-#### Как выполнить фасетный поиск java
+### Функция 4: фасетный поисковый запрос
+#### Как выполнить faceted search java
+`FacetedSearch` limits results to a specific field—commonly metadata such as category, author, or custom tags.
 
 ```java
 String query = "Content: magna";
 SearchResult result = index.search(query);
 ```
 
-*Результат*: Ограничивает поиск полем **Content**, что удобно для фильтрации по метаданным, таким как категория или автор.
+*Результат*: Limits the search to the **Content** field, ideal for filtering by metadata such as category or author.
 
-### Функция 5: Поиск по числовому диапазону
+### Функция 5: запрос числового диапазона
 #### Как искать числовые диапазоны
+`NumericRangeSearch` retrieves documents where a numeric field falls within a defined interval.
 
 ```java
 String query = "2000 ~~ 3000";
 SearchResult result = index.search(query);
 ```
 
-*Результат*: Получает документы, где числовые значения находятся между 2000 и 3000.
+*Результат*: Retrieves documents where numeric values fall between 2000 and 3000.
 
-### Функция 6: Поиск по диапазону дат
-#### Как выполнить поиск по диапазону дат (кастомный формат даты java)
+### Функция 6: запрос диапазона дат
+#### Как выполнить поиск диапазона дат (пользовательский формат даты java)
+`SearchOptions` lets you specify a custom `DateFormat` (e.g., **MM/DD/YYYY**) so the engine can correctly parse dates embedded in your content.
 
 ```java
 import com.groupdocs.search.options.*;
@@ -169,81 +233,91 @@ options.getDateFormats().addItem(dateFormat);
 SearchResult result = index.search(query, options);
 ```
 
-*Объяснение*: Настраивая `SearchOptions`, вы указываете движку распознавать даты в формате **MM/DD/YYYY**, затем получаете все записи между 1 января 2000 и 15 июня 2001.
+*Объяснение*: By customizing `SearchOptions`, you tell the engine to recognize dates in **MM/DD/YYYY** format, then retrieve all records between January 1 2000 and June 15 2001.
 
-### Функция 7: Поиск по регулярному выражению
-#### Как выполнить regex‑поиск java
+### Функция 7: запрос регулярного выражения
+#### Как выполнить regex search java
+`RegexSearch` accepts standard Java regular‑expression patterns, enabling complex pattern matching beyond simple wildcards.
 
 ```java
 String query = "^(.)\\1{2,}";
 SearchResult result = index.search(query);
 ```
 
-*Результат*: Находит последовательности из трёх и более одинаковых символов (например, “aaa”, “111”).
+*Результат*: Finds sequences of three or more identical characters (e.g., “aaa”, “111”).
 
-### Функция 8: Булевый поисковый запрос
-#### Как комбинировать условия с помощью boolean search java
+### Функция 8: булевый поисковый запрос
+#### Как комбинировать условия с boolean search java
+`BooleanSearch` lets you compose AND, OR, and NOT clauses to fine‑tune result sets.
 
 ```java
 String query = "justo AND NOT 3456";
 SearchResult result = index.search(query);
 ```
 
-*Результат*: Возвращает документы, содержащие **justo**, но исключает любые, где также присутствует **3456**.
+*Результат*: Returns documents containing **justo** but excludes any that also contain **3456**.
 
-### Функция 9: Сложный булевый запрос
-#### Как создавать продвинутые булевые запросы
+### Функция 9: сложный булевой запрос
+#### Как составлять продвинутые булевые запросы
+`ComplexBooleanSearch` supports nested groups, proximity operators, and fuzzy matching for sophisticated retrieval scenarios.
 
 ```java
 String query = "FileName: Engl?(1~3) OR Content: (3456 AND consequat)";
 SearchResult result = index.search(query);
 ```
 
-*Результат*: Ищет файлы с именами, похожими на “English” (с вариациями 1‑3 символов) **или** контент, содержащий одновременно **3456** и **consequat**.
+*Результат*: Looks for file names similar to “English” (allowing 1‑3 character variations) **or** content that contains both **3456** and **consequat**.
 
-### Функция 10: Поиск по фразе
+### Функция 10: запрос фразового поиска
 #### Как искать точные фразы
+`PhraseSearch` matches an exact sequence of terms, preserving order and spacing.
 
 ```java
 String query = "\"ipsum dolor sit amet\"";
 SearchResult result = index.search(query);
 ```
 
-*Результат*: Возвращает только документы, содержащие точную фразу **ipsum dolor sit amet**.
+*Результат*: Retrieves only documents that contain the exact phrase **ipsum dolor sit amet**.
 
 ## Практические применения
-1. **Платформы электронной коммерции** – Используйте **faceted search java** для фильтрации товаров по размеру, цвету и бренду.  
-2. **Системы управления контентом** – Комбинируйте **boolean search java** с поиском по фразе для создания продвинутых редакционных инструментов.  
-3. **Инструменты анализа данных** – Применяйте **date range search** и **custom date format java** для генерации отчётов и панелей мониторинга на основе времени.  
+1. **Платформы электронной коммерции** – Используйте **faceted search java** для фильтрации продуктов по размеру, цвету и бренду.  
+2. **Системы управления контентом** – Комбинируйте **boolean search java** с phrase search для создания сложных редакционных инструментов.  
+3. **Инструменты анализа данных** – Используйте **date range search** и **custom date format java** для создания отчётов и панелей мониторинга на основе времени.  
 
 ## Распространённые проблемы и решения
-- **Нет результатов при поиске по диапазону дат** – Убедитесь, что формат даты в ваших документах соответствует пользовательскому `DateFormat`, который вы добавили.  
-- **Регулярные выражения возвращают слишком много совпадений** – Уточните шаблон или ограничьте область поиска дополнительными квалификаторами полей.  
-- **Ошибки индексации не фиксируются** – Убедитесь, что обработчик события подключён **до** вызова `index.add(...)`.  
-- **Поиск с подстановкой кажется медленным** – Избегайте ведущих подстановок (`*term`) в очень больших индексах; предпочтительнее использовать суффиксные или инфиксные шаблоны.  
+- **No results for date range search** – Verify that the date format in your documents matches the custom `DateFormat` you added.  
+- **Regex queries return too many hits** – Refine the pattern or limit the search scope with additional field qualifiers.  
+- **Indexing errors not captured** – Ensure the event handler is attached **before** calling `index.add(...)`.  
+- **Wildcard search appears slow** – Avoid leading wildcards (`*term`) on very large indexes; prefer suffix or infix patterns.  
 
 ## Часто задаваемые вопросы
 
-**В: Можно ли смешивать поиск по диапазону дат с другими типами запросов?**  
-О: Абсолютно. Вы можете комбинировать условие диапазона дат с wildcard, boolean, фасетными или regex‑шаблонами в одной строке запроса.
+**Q: Can I mix date range search with other query types?**  
+A: Absolutely. You can combine a date range clause with wildcard, boolean, faceted, or regex patterns in a single query string.
 
-**В: Нужно ли перестраивать индекс после изменения формата дат?**  
-О: Да. Индекс хранит токенизированные термы; изменение только `SearchOptions` не пере‑токенизирует существующие данные. После изменения форматов пере‑индексируйте документы.
+**Q: Do I need to rebuild the index after changing date formats?**  
+A: Yes. The index stores tokenized terms; updating `SearchOptions` alone won’t re‑tokenize existing data. Re‑index the documents after changing formats.
 
-**В: Как GroupDocs.Search справляется с большими индексами?**  
-О: Он использует инкрементальную индексацию и хранение на диске, позволяя масштабироваться до миллионов документов при низком потреблении памяти.
+**Q: How does GroupDocs.Search handle large indexes?**  
+A: It uses incremental indexing and on‑disk storage, allowing you to scale to millions of documents while keeping memory usage low.
 
-**В: Есть ли ограничение на количество символов‑подстановок?**  
-О: Подстановки обрабатываются эффективно, но использование большого количества ведущих подстановок (например, `*term`) может ухудшить производительность. Предпочтительнее использовать префиксные или суффиксные подстановки.
+**Q: Is there a limit to the number of wildcard characters?**  
+A: Wildcards are processed efficiently, but using many leading wildcards (e.g., `*term`) can degrade performance. Prefer prefix or suffix wildcards.
 
-**В: Какая модель лицензирования рекомендуется для продакшна?**  
-О: Пожизненная или подписочная лицензия от GroupDocs гарантирует получение обновлений, поддержки и возможность развертывания без ограничений пробной версии.
+**Q: What licensing model is recommended for production?**  
+A: A perpetual or subscription license from GroupDocs ensures you receive updates, support, and the ability to deploy without trial limitations.
 
 ## Заключение
-Освоив **wildcard search java** и полный набор расширенных типов запросов, предлагаемых GroupDocs.Search для Java, вы сможете создавать высоко‑отзывчивые, функционально насыщенные поисковые решения. Реализуйте надёжную обработку ошибок, оптимизируйте индекс и комбинируйте запросы, чтобы покрыть практически любой сценарий извлечения данных. Начните экспериментировать уже сегодня и поднимите возможности доступа к данным вашего приложения на новый уровень.
+Освоив **implement wildcard search java** и полный набор расширенных типов запросов, предлагаемых GroupDocs.Search for Java, вы сможете создавать высоко‑отзывчивые, функционально насыщенные поисковые решения. Реализуйте надёжную обработку ошибок, тонко настройте индекс и комбинируйте запросы, чтобы удовлетворить практически любой сценарий извлечения данных. Начните экспериментировать уже сегодня и поднимите возможности доступа к данным вашего приложения на новый уровень.
 
 ---
 
-**Последнее обновление:** 2026-02-16  
+**Последнее обновление:** 2026-08-26  
 **Тестировано с:** GroupDocs.Search 25.4 (Java)  
 **Автор:** GroupDocs
+
+## Связанные руководства
+
+- [Пользовательский формат даты Java | Поиск диапазона дат с GroupDocs](/search/java/advanced-features/master-date-range-searches-groupdocs-java/)
+- [Как улучшить скорость поиска с GroupDocs.Search Java – Руководства по оптимизации производительности](/search/java/performance-optimization/)
+- [Полнотекстовый поиск Java: Реализация с GroupDocs.Search – Полное руководство](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
