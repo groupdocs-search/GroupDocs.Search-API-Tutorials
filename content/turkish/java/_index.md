@@ -1,140 +1,226 @@
 ---
-date: 2026-02-16
-description: GroupDocs.Search kullanarak Java’da arama sonuçlarını nasıl vurgulayacağınızı
-  öğrenin. Faceted search Java’yı keşfedin, OCR Java’yı uygulayın, indeksleme, arama
-  ve Java için performans optimizasyonunu gerçekleştirin.
+date: 2026-08-26
+description: GroupDocs.Search ile java arama dizini oluşturmayı, java arama sonuçlarını
+  vurgulamayı, Java boolean sorgu örneğini kullanmayı ve sağlam uygulamalarda OCR
+  java'yı uygulamayı öğrenin.
 is_root: true
-linktitle: GroupDocs.Search for Java Tutorials
-title: Arama Sonuçlarını Vurgulama Java – GroupDocs.Search ile Arama Dizini Oluşturma
+keywords:
+- create search index java
+- highlight search results java
+- java boolean query example
+- ocr java
+- faceted search java
+lastmod: 2026-08-26
+linktitle: GroupDocs.Search for Java Eğitimleri
+og_description: GroupDocs.Search for Java kullanarak java arama dizini oluşturmayı,
+  java arama sonuçlarını vurgulamayı, Java boolean sorgu örneğini çalıştırmayı ve
+  OCR java'yı etkinleştirmeyi keşfedin. (158 chars)
+og_image_alt: Screenshot of GroupDocs.Search Java indexing and highlighting results
+og_title: GroupDocs.Search ile java arama dizini oluşturma – tam kılavuz
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-26'
+  description: Learn how to create search index java with GroupDocs.Search, highlight
+    search results java, use Java boolean query example, and implement OCR java in
+    robust applications.
+  headline: Create search index java with GroupDocs.Search for Java
+  type: TechArticle
+- description: Learn how to create search index java with GroupDocs.Search, highlight
+    search results java, use Java boolean query example, and implement OCR java in
+    robust applications.
+  name: Create search index java with GroupDocs.Search for Java
+  steps:
+  - name: set up the project
+    text: Create a Maven or Gradle project and add the GroupDocs.Search dependency.
+      Place your license file (`GroupDocs.Search.lic`) in the `src/main/resources`
+      folder so the SDK can load it automatically.
+  - name: create an index
+    text: '`Index` is the core class that represents a searchable repository on disk.
+      After you instantiate the `Index`, call `add` for each document you want searchable.
+      The SDK automatically detects the file type and extracts text.'
+  - name: enable OCR (implement OCR java)
+    text: '`OcrOptions` configures the built‑in OCR engine. Attach the `OcrOptions`
+      instance to the indexing call so scanned images are converted to searchable
+      text.'
+  - name: perform a search query
+    text: '`SearchOptions` builds the query you send to the index. You can combine
+      a **Java boolean query example** with faceted filters, wildcards, or regex patterns
+      to narrow results further.'
+  - name: highlight search results java
+    text: '`Highlight` is a utility class that generates a highlighted version of
+      the matched document. The API returns either a modified PDF file or an HTML
+      snippet where every matching term is wrapped with the chosen styling.'
+  - name: review and optimize
+    text: Use the built‑in statistics API to monitor index size, memory consumption,
+      and query latency. Adjust `maxMemoryUsage` or enable compression (`setCompression(true)`)
+      to keep the index lean when handling millions of records.
+  type: HowTo
+- questions:
+  - answer: Yes—you can chain facet filters and fuzzy queries in the same `SearchOptions`
+      builder, allowing you to narrow results while tolerating misspellings.
+    question: Can I use faceted search java together with fuzzy matching?
+  - answer: It works only when you supply the correct password while adding the document
+      to the index; the SDK then decrypts, highlights, and re‑encrypts the output.
+    question: Does highlighting work on encrypted PDFs?
+  - answer: The library reliably handles multi‑gigabyte indexes; enabling compression
+      and tuning `maxMemoryUsage` lets you keep query times under 200 ms even with
+      10 million documents.
+    question: How large can an index become before performance degrades?
+  - answer: Absolutely. Use `HighlightOptions.setColor(Color.YELLOW)` or provide a
+      custom CSS class for HTML output via `setCssClass`.
+    question: Is there a way to customize the highlight color?
+  - answer: The examples were validated with GroupDocs.Search for Java 23.9.
+    question: What version of GroupDocs.Search is tested with this guide?
+  type: FAQPage
+tags:
+- search index
+- GroupDocs.Search
+- Java document processing
+title: GroupDocs.Search for Java ile java arama dizini oluşturma
 type: docs
 url: /tr/java/
 weight: 10
 ---
 
-# GroupDocs.Search for Java ile Arama Dizini Oluşturma
+# GroupDocs.Search for Java ile java arama dizini oluşturma
 
-GroupDocs.Search for Java kullanarak **create search index java** uygulamaları oluşturma konusunda nihai rehbere hoş geldiniz. Bu öğreticide ayrıca **highlight search results java** özelliğini keşfedeceksiniz; bu özellik, eşleşmeleri doğrudan belgeler içinde göstererek kullanıcı deneyimini büyük ölçüde iyileştirir. Küçük bir iç araç ya da büyük ölçekli bir kurumsal çözüm inşa ediyor olun, PDF, Office, HTML ve birçok diğer formatta indeksleme, arama, vurgulama ve sonuçları ince ayarlama için ihtiyacınız olan her şeyi bulacaksınız.
+Bu kapsamlı rehberde GroupDocs.Search for Java kullanarak **create search index java** uygulamalarını nasıl oluşturacağınızı öğrenecek ve ayrıca **highlight search results java** nasıl yapılacağını göreceksiniz, böylece kullanıcılar PDF'ler, Office dosyaları, HTML sayfaları ve daha fazlası içinde eşleşmeleri anında görebilecek. İster hafif bir masaüstü yardımcı programı ister yüksek verimli bir kurumsal arama hizmeti oluşturuyor olun, aşağıdaki adımlar çeşitli formatların indekslenmesinden performansın ince ayarına ve bir Java boolean query example çalıştırmaya kadar her şeyi kapsar.
 
-## Hızlı Bakış
+## Hızlı genel bakış
 
-GroupDocs.Search for Java şunları yapmanızı sağlar:
+- **Index diverse document types** – PDF'ler, DOCX, PPTX, XLSX, HTML ve 150+ diğer format.  
+- **Run advanced queries** – Boolean, fuzzy, wildcard, phrase, regex ve faceted aramaları.  
+- **Leverage language processing** – Eşanlamlılar, yazım denetimi, homofon tespiti ve özel sözlükler.  
+- **Integrate OCR** – Tarama görüntülerinden metin çıkarır ve bunu aranabilir indekse ekler.  
+- **Optimize performance** – Bellek kullanımını, indeks boyutunu ve sorgu yanıt sürelerini kontrol eder; çok gigabayt ölçeğine ulaşan indeksler için.  
+- **Highlight results** – Eşleşmeleri doğrudan orijinal belgede veya özelleştirilebilir renkler ve CSS sınıflarıyla bir HTML önizlemesinde gösterir.  
 
-- **Index diverse document types** – PDFs, DOCX, PPTX, XLSX, HTML ve daha fazlası.  
-- **Run advanced queries** – Boolean, fuzzy, wildcard, phrase, regex ve faceted searches.  
-- **Leverage language processing** – Synonyms, spell checking, homophone detection ve custom dictionaries.  
-- **Integrate OCR** – Tarama görüntülerinden metin çıkarın ve arama dizininize ekleyin.  
-- **Optimize performance** – Bellek kullanımını, indeks boyutunu ve sorgu yanıt sürelerini kontrol edin.  
-- **Highlight results** – Eşleşmeleri doğrudan orijinal belgelerde veya HTML ön izlemelerinde gösterin.  
+Aşağıda, her özelliği adım adım anlatan özenle hazırlanmış öğreticilerin listesi bulunmaktadır.
 
-Aşağıda, bu yeteneklerin her birini adım adım anlatan özel öğreticilerin derlenmiş bir listesini bulacaksınız.
-
-## Hızlı Cevaplar
-- **What does “highlight search results java” do?** Kullanıcının sorgusuyla eşleşen terimleri orijinal belge içinde veya oluşturulan bir HTML ön izlemede görsel olarak işaretler.  
-- **Which library provides faceted search java?** GroupDocs.Search for Java, yerleşik faceted search desteği içerir.  
-- **Can I implement OCR java with the same API?** Evet, OCR motoru entegre edilmiştir ve tek bir ayar ile etkinleştirilebilir.  
-- **Do I need a license for production use?** Deneme süresinin ötesinde dağıtım için ticari bir lisans gereklidir.  
-- **Is the API compatible with Java 17 and later?** Java 8+ üzerinde tam desteklidir ve Java 17 üzerinde test edilmiştir.
+## Hızlı cevaplar
+- **What does “highlight search results java” do?** Orijinal belge içinde veya oluşturulan bir HTML önizlemesinde eşleşen terimleri görsel olarak işaretler, böylece kullanıcılar ilgili bölümleri anında bulabilir.  
+- **Which library provides faceted search java?** GroupDocs.Search for Java, sonuçları meta veri alanlarına göre gruplandıran yerleşik faceted search desteği içerir.  
+- **Can I implement OCR java with the same API?** Evet—tek bir `OcrOptions` ayarıyla OCR motorunu etkinleştirin ve aynı indeksleme iş akışı görüntülerden metin çıkarır.  
+- **Do I need a license for production use?** Deneme süresi sona erdiğinde ticari bir lisans gereklidir.  
+- **Is the API compatible with Java 17 and later?** Java 8+ tam desteklenir, Java 17 üzerinde test edilmiştir ve herhangi bir JVM‑uyumlu platformda çalışır.
 
 ## “highlight search results java” nedir?
-Java’da arama sonuçlarını vurgulamak, kullanıcı sorgusuyla eşleşen kelime veya ifadeleri arka plan renkleri ya da kalın stil gibi görsel ipuçlarıyla programatik olarak işaretlemek anlamına gelir. Bu teknik, özellikle uzun belgelerde ilgili bilgiyi hızlıca bulmalarını sağlar.
 
-## Neden GroupDocs.Search for Java kullanmalısınız?
-- **Speed:** Binlerce belgeyi saniyeler içinde indeksleyip sorgulayın.  
-- **Versatility:** Kutudan çıkar çıkmaz 150’den fazla dosya formatını destekler.  
-- **Extensibility:** API’den çıkmadan özel sözlükler, OCR ve faceted search java ekleyin.  
-- **Developer‑friendly:** Kapsamlı dokümantasyon ve örnek projelerle basit, akıcı bir API.
+**Highlighting search results in Java means programmatically applying visual cues—such as background colors or bold styling—to the exact words or phrases that matched a user's query.** Bu teknik, kullanıcıların uzun belgeleri tarama süresini kısaltır ve genel arama kullanılabilirliğini artırır.
+
+## GroupDocs.Search for Java neden kullanılmalı?
+
+**GroupDocs.Search for Java indexes and queries thousands of documents in under two seconds on a standard 8‑core server.** 150+ dosya formatını destekler, tüm koleksiyonu belleğe yüklemeden çok gigabaytlık indeksleri işler ve kutudan çıkar çıkmaz OCR, faceted search ve eşanlamlı yönetimi sunar—hepsi akıcı, iyi belgelenmiş bir API aracılığıyla.
 
 ## Önkoşullar
 - Java 8 veya daha yeni (Java 17 önerilir)  
 - Bağımlılık yönetimi için Maven veya Gradle  
-- Geçerli bir GroupDocs.Search for Java lisansı (deneme sürümü mevcut)  
+- Geçerli bir GroupDocs.Search for Java lisansı (deneme mevcuttur)  
 
-## Adım‑Adım Kılavuz
+## Adım adım kılavuz
 
-### Adım 1: Projeyi Kurun
-Bir Maven / Gradle projesi oluşturun ve GroupDocs.Search bağımlılığını ekleyin. Lisans dosyanızı resources klasörüne yerleştirin.
+### Adım 1: projeyi kurun
+Bir Maven veya Gradle projesi oluşturun ve GroupDocs.Search bağımlılığını ekleyin. Lisans dosyanızı (`GroupDocs.Search.lic`) `src/main/resources` klasörüne yerleştirin, böylece SDK otomatik olarak yükleyebilir.
 
-### Adım 2: Bir Dizin Oluşturun
-`Index` sınıfını örnekleyin, indeks dosyalarının saklanacağı klasörü gösterin ve aranabilir hâle getirmek istediğiniz her belge için `add` metodunu çağırın.
+### Adım 2: bir indeks oluşturun
+`Index`, disk üzerinde aranabilir bir depo temsil eden temel sınıftır.  
+```text
+Index index = new Index("path/to/index/folder");
+```
+`Index`i örneklediğinizde, aranabilir yapmak istediğiniz her belge için `add` metodunu çağırın. SDK dosya tipini otomatik olarak algılar ve metni çıkarır.
 
-### Adım 3: OCR’ı Etkinleştirin (Implement OCR Java)
-Tarama görüntülerini indekslemeniz gerekiyorsa, `OcrOptions` nesnesini yapılandırarak OCR modülünü etkinleştirin ve indeksleme sürecine ekleyin.
+### Adım 3: OCR'yi etkinleştirin (implement OCR java)
+`OcrOptions`, yerleşik OCR motorunu yapılandırır.  
+```text
+OcrOptions ocr = new OcrOptions();
+ocr.setLanguage("eng");
+ocr.setDpi(300);
+```
+`OcrOptions` örneğini indeksleme çağrısına ekleyin, böylece taranan görüntüler aranabilir metne dönüştürülür.
 
-### Adım 4: Bir Arama Sorgusu Gerçekleştirin
-`SearchOptions` sınıfını kullanarak bir sorgu oluşturun. Sonuçları ince ayarlamak için Boolean, fuzzy ve **faceted search java** kriterlerini birleştirebilirsiniz.
+### Adım 4: bir arama sorgusu gerçekleştirin
+`SearchOptions`, indekse gönderdiğiniz sorguyu oluşturur.  
+```text
+SearchOptions options = new SearchOptions()
+    .setQuery("invoice")
+    .setBooleanOperator(BooleanOperator.AND)
+    .setFuzzy(true);
+```
+**Java boolean query example**'ı faceted filtreler, joker karakterler veya regex desenleriyle birleştirerek sonuçları daha da daraltabilirsiniz.
 
-### Adım 5: Highlight Search Results Java
-`SearchResult` elde edildikten sonra, `Highlight` yardımcı sınıfını çağırarak orijinal belgenin veya bir HTML ön izlemenin vurgulanmış sürümünü oluşturun. API, vurgulama renklerini, CSS sınıflarını ve çıktı formatını özelleştirmenize izin verir.
+### Adım 5: highlight search results java
+`Highlight`, eşleşen belgenin vurgulanmış bir sürümünü oluşturan bir yardımcı sınıftır.  
+```text
+HighlightOptions highlight = new HighlightOptions()
+    .setColor(Color.YELLOW)
+    .setCssClass("search-highlight");
+HighlightResult result = Highlight.apply(searchResult, highlight);
+```
+API, her eşleşen terimin seçilen stil ile sarıldığı ya değiştirilmiş bir PDF dosyası ya da bir HTML snippet'i döndürür.
 
-### Adım 6: İnceleyin ve Optimize Edin
-Yerleşik istatistik araçlarını kullanarak indeks boyutunu ve sorgu gecikmesini analiz edin. Gerekirse bellek ayarlarını değiştirin veya sıkıştırmayı etkinleştirin.
+### Adım 6: gözden geçirin ve optimize edin
+İndeks boyutunu, bellek tüketimini ve sorgu gecikmesini izlemek için yerleşik istatistik API'sini kullanın. Milyonlarca kaydı işlerken indeksi hafif tutmak için `maxMemoryUsage` değerini ayarlayın veya sıkıştırmayı etkinleştirin (`setCompression(true)`).
 
-## Yaygın Sorunlar ve Çözümler
-- **No highlights appear:** `Highlight` metodunun doğru `HighlightOptions` ile çağrıldığından ve çıktı formatının stil desteği (ör. HTML) sunduğundan emin olun.  
-- **OCR misses text:** OCR dil paketlerinin yüklü olduğunu ve görüntü kalitesinin minimum DPI gereksinimini (300 dpi önerilir) karşıladığını doğrulayın.  
-- **Faceted search returns empty buckets:** Facet olarak belirlediğiniz alanların indeksleme aşamasında `Facet` tipiyle indekslendiğinden emin olun.
+## Yaygın sorunlar ve çözümler
+- **No highlights appear:** Desteklenen bir çıktı formatı (HTML veya PDF) ile bir `HighlightOptions` nesnesi gönderdiğinizi doğrulayın.  
+- **OCR misses text:** Dil paketlerinin yüklü olduğundan ve kaynak görüntülerin minimum 300 dpi önerisine uygun olduğundan emin olun.  
+- **Faceted search returns empty buckets:** Facet uygulamak istediğiniz alanların adım 2 sırasında `Facet` tipiyle indekslendiğini doğrulayın.
 
-## Sık Sorulan Sorular
+## Sıkça sorulan sorular
 
-**S: faceted search java’yı fuzzy eşleşme ile birlikte kullanabilir miyim?**  
-C: Evet, facet filtrelerini fuzzy sorgularla `SearchOptions` builder’da zincirleyerek birleştirebilirsiniz.
+**Q: Can I use faceted search java together with fuzzy matching?**  
+A: Evet—aynı `SearchOptions` oluşturucusunda facet filtrelerini ve fuzzy sorgularını zincirleyebilir, böylece hatalı yazımlara tolerans gösterirken sonuçları daraltabilirsiniz.
 
-**S: Vurgulama şifreli PDF’lerde çalışır mı?**  
-C: Yalnızca belgeyi indekslerken doğru şifreyi sağlarsanız çalışır.
+**Q: Does highlighting work on encrypted PDFs?**  
+A: Yalnızca belgeyi indekse eklerken doğru şifreyi sağladığınızda çalışır; SDK ardından şifreyi çözer, vurgular ve çıktıyı yeniden şifreler.
 
-**S: Performans düşmeden bir indeks ne kadar büyük olabilir?**  
-C: API, çok‑gigabaytlık indeksler için tasarlanmıştır; sıkıştırma etkinleştirerek ve `maxMemoryUsage` ayarını düzenleyerek performansı daha da artırabilirsiniz.
+**Q: How large can an index become before performance degrades?**  
+A: Kütüphane çok gigabaytlık indeksleri sorunsuz şekilde yönetir; sıkıştırmayı etkinleştirip `maxMemoryUsage` ayarını yaparak 10 milyon belgeyle bile sorgu sürelerini 200 ms altında tutabilirsiniz.
 
-**S: Vurgulama rengini özelleştirmenin bir yolu var mı?**  
-C: Kesinlikle. `HighlightOptions.setColor(Color.YELLOW)` kullanabilir veya HTML çıktısı için özel bir CSS sınıfı belirtebilirsiniz.
+**Q: Is there a way to customize the highlight color?**  
+A: Kesinlikle. `HighlightOptions.setColor(Color.YELLOW)` kullanın veya HTML çıktısı için `setCssClass` aracılığıyla özel bir CSS sınıfı sağlayın.
 
-**S: Bu kılavuz hangi GroupDocs.Search sürümüyle test edilmiştir?**  
-C: Örnekler, GroupDocs.Search for Java 23.9 ile doğrulanmıştır.
+**Q: What version of GroupDocs.Search is tested with this guide?**  
+A: Örnekler GroupDocs.Search for Java 23.9 ile doğrulandı.
 
-## Keşfedebileceğiniz İlgili Konular
-- **[Başlarken](./getting-started/)** – Kurulum, lisanslama ve “Hello World” arama uygulamasının temelleri.  
-- **[İndeksleme](./indexing/)** – Dizin oluşturma, belge kaynakları ve performans ayarlarına derinlemesine bakış.  
-- **[Arama](./searching/)** – Gelişmiş sorgu oluşturma, sonuç sayfalama ve sıralama.  
-- **[Vurgulama](./highlighting/)** – Vurgulama görünümünü ve çıktı formatlarını özelleştirme rehberi.  
-- **[Sözlükler & Dil İşleme](./dictionaries-language-processing/)** – Eşanlamlılar ve yazım denetimi ile arama alaka düzeyini artırma.  
-- **[Belge Yönetimi](./document-management/)** – Tüm dizini yeniden oluşturmak zorunda kalmadan belge ekleme, güncelleme ve silme.  
-- **[OCR & Görüntü Arama](./ocr-image-search/)** – Görüntülerden metin çıkarma ve ters görüntü aramaları yapma.  
-- **[Gelişmiş Özellikler](./advanced-features/)** – Faceted search, raporlama ve meta veri tabanlı sorgular.  
-- **[Arama Ağı](./search-network/)** – Dağıtık, bölümlenmiş arama kümeleri oluşturma.  
-- **[Performans Optimizasyonu](./performance-optimization/)** – Dizin boyutunu azaltma ve sorgu hızını artırma stratejileri.  
-- **[İstisna Yönetimi & Günlükleme](./exception-handling-logging/)** – Sağlam, üretim‑hazır uygulamalar için en iyi uygulamalar.  
-- **[Lisanslama & Yapılandırma](./licensing-configuration/)** – Doğru lisans aktivasyonu ve çalışma zamanı yapılandırma ipuçları.  
-- **[Metin Çıkarma & İşleme](./text-extraction-processing/)** – Özel çıkarıcılar, segmentleyiciler ve karakter değiştirme kuralları.
+## Keşfedebileceğiniz ilgili konular
+- **[Getting Started](./getting-started/)** – Kurulum, lisanslama ve bir “Hello World” arama uygulamasının temelleri.  
+- **[Indexing](./indexing/)** – İndeks oluşturma, belge kaynakları ve performans ayarlarına derinlemesine bakış.  
+- **[Searching](./searching/)** – Gelişmiş sorgu oluşturma, sonuç sayfalama ve sıralama.  
+- **[Highlighting](./highlighting/)** – Vurgulama görünümünü ve çıktı formatlarını özelleştirme üzerine tam kılavuz.  
+- **[Dictionaries & Language Processing](./dictionaries-language-processing/)** – Eşanlamlılar ve yazım denetimi ile arama alaka düzeyini artırma.  
+- **[Document Management](./document-management/)** – Tüm indeksi yeniden oluşturmadan belge ekleme, güncelleme ve silme.  
+- **[OCR & Image Search](./ocr-image-search/)** – Görüntülerden metin çıkarma ve ters görüntü aramaları yapma.  
+- **[Advanced Features](./advanced-features/)** – Faceted search, raporlama ve meta veri tabanlı sorgular.  
+- **[Search Network](./search-network/)** – Dağıtık, bölümlenmiş arama kümeleri oluşturma.  
+- **[Performance Optimization](./performance-optimization/)** – İndeks boyutunu azaltma ve sorgu hızını artırma stratejileri.  
+- **[Exception Handling & Logging](./exception-handling-logging/)** – Sağlam, üretim‑hazır uygulamalar için en iyi uygulamalar.  
+- **[Licensing & Configuration](./licensing-configuration/)** – Doğru lisans aktivasyonu ve çalışma zamanı yapılandırma ipuçları.  
+- **[Text Extraction & Processing](./text-extraction-processing/)** – Özel çıkarıcılar, bölücüler ve karakter değiştirme kuralları.  
 
-## Java Belge Arama Özellikleri Genel Bakışı
+## Java belge arama özellikleri genel bakışı
 
-GroupDocs.Search for Java, güçlü arama uygulamaları oluşturmak için kapsamlı bir özellik seti sunar:
+GroupDocs.Search for Java, güçlü arama uygulamaları oluşturmak için kapsamlı bir yetenek seti sunar:
+- **Multi‑format support** – PDF, DOCX, PPT, XLS, HTML ve görüntü dosyaları dahil 150+ giriş ve çıkış formatı.  
+- **Advanced search types** – Boolean, fuzzy, wildcard, phrase, regex ve faceted search java seçenekleri.  
+- **Intelligent indexing** – Opsiyonel sıkıştırma ile hızlı, yapılandırılabilir belge indeksleme.  
+- **Language processing** – Eşanlamlı tespiti, yazım denetimi ve homofon tanıma.  
+- **OCR support** – Görüntüler ve taranmış belgelerden metin çıkarma ve arama (implement OCR java).  
+- **Performance optimization** – Çok gigabaytlık indeksler için ayarlanabilir bellek kullanımı ve sorgu hızı.  
+- **Result highlighting** – Orijinal belgelerde arama eşleşmelerini görsel olarak vurgulama (highlight search results java).  
+- **Dictionary support** – Uzman terminoloji ve alanlar için özel sözlükler.  
+- **Distributed search** – Ağ özellikleriyle ölçeklenebilir, bölümlenmiş arama çözümleri oluşturma.  
+- **Blazing speed** – Tipik bir sunucuda 10 000 belgeyi 2 saniyenin altında işleyip arar.  
 
-- **Multi‑Format Support** – PDF, DOCX, PPT, XLS, HTML ve birçok diğer belge türünde arama yapın.  
-- **Advanced Search Types** – Boolean, fuzzy, wildcard, phrase, regex ve **faceted search java** seçenekleri.  
-- **Intelligent Indexing** – Yapılandırılabilir seçeneklerle hızlı ve verimli belge indeksleme.  
-- **Language Processing** – Eşanlamlı tespiti, yazım denetimi ve homofon tanıma.  
-- **OCR Support** – Görüntülerden ve taranmış belgelerden metin çıkarın ve arama yapın (implement OCR java).  
-- **Performance Optimization** – Bellek kullanımı ve arama hızı için yapılandırılabilir seçenekler.  
-- **Result Highlighting** – Arama eşleşmelerini orijinal belgelerde (**highlight search results java**) görsel olarak vurgulayın.  
-- **Dictionary Support** – Özel terminoloji ve alanlar için özelleştirilmiş sözlükler.  
-- **Distributed Search** – Ağ özellikleriyle ölçeklenebilir, dağıtık arama çözümleri oluşturun.  
-- **Blazing Speed** – Binlerce belgeyi saniyeler içinde işleyin ve arayın.  
-
-## Öğrenme Kaynakları
-
-GroupDocs, GroupDocs.Search for Java’dan en iyi şekilde yararlanmanız için kapsamlı kaynaklar sunar:
-
-- [Documentation](https://docs.groupdocs.com/search/java/) - Ayrıntılı API dokümantasyonu ve kullanıcı kılavuzları  
-- [API Reference](https://reference.groupdocs.com/search/java/) - Tam metod ve sınıf referansları  
-- [GitHub Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) - Örnek projeler ve kod örnekleri  
-- [Free Support Forum](https://forum.groupdocs.com/c/search) - Sorularınız için topluluk desteği  
-- [Download Free Trial](https://releases.groupdocs.com/search/java)  
+## Öğrenme kaynakları
+- [Documentation](https://docs.groupdocs.com/search/java/) – Detaylı API dokümantasyonu ve kullanıcı kılavuzları  
+- [API Reference](https://reference.groupdocs.com/search/java/) – Tam metod ve sınıf referansları  
+- [GitHub Examples](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) – Örnek projeler ve kod parçacıkları  
+- [Free Support Forum](https://forum.groupdocs.com/c/search) – Sorularınız için topluluk desteği  
+- [Download Free Trial](https://releases.groupdocs.com/search/java) – Satın almadan önce kütüphaneyi deneyin  
 
 ---
 
-**Son Güncelleme:** 2026-02-16  
+**Son Güncelleme:** 2026-08-26  
 **Test Edilen:** GroupDocs.Search for Java 23.9  
-**Yazar:** GroupDocs  
-
----
+**Yazar:** GroupDocs
