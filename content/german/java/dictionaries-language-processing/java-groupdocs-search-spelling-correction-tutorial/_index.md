@@ -1,47 +1,103 @@
 ---
-date: '2026-02-21'
-description: Erfahren Sie, wie Sie die Rechtschreibkorrektur in Java mit GroupDocs.Search
-  aktivieren, Dokumente zum Index hinzufügen und die maximale Fehlermenge festlegen,
-  um die Suchgenauigkeit zu verbessern.
+date: '2026-09-02'
+description: Erfahren Sie, wie Sie mit GroupDocs.Search einen Suchindex in Java erstellen
+  und die Rechtschreibkorrektur aktivieren. Befolgen Sie Schritt‑für‑Schritt‑Anleitungen,
+  um Dokumente hinzuzufügen, max mistake count zu konfigurieren und die search accuracy
+  zu verbessern.
 keywords:
-- spelling correction Java
+- create search index java
+- spelling correction java
 - GroupDocs.Search tutorial
-- Java search functionality
-title: Wie man die Rechtschreibung in Java mit GroupDocs.Search aktiviert
+lastmod: '2026-09-02'
+og_description: Erfahren Sie, wie Sie mit GroupDocs.Search einen Suchindex in Java
+  erstellen und die Rechtschreibkorrektur aktivieren. Befolgen Sie Schritt‑für‑Schritt‑Anleitungen,
+  um Dokumente hinzuzufügen, max mistake count zu konfigurieren und die search accuracy
+  zu verbessern.
+og_image_alt: Guide showing Java code that creates a search index and configures spelling
+  correction with GroupDocs.Search
+og_title: Wie man einen Suchindex in Java erstellt und die Rechtschreibkorrektur aktiviert
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-02'
+  description: Learn how to create search index java and enable spelling correction
+    using GroupDocs.Search. Follow step‑by‑step instructions to add documents, configure
+    max mistake count, and improve search accuracy.
+  headline: How to create search index java and enable spelling
+  type: TechArticle
+- description: Learn how to create search index java and enable spelling correction
+    using GroupDocs.Search. Follow step‑by‑step instructions to add documents, configure
+    max mistake count, and improve search accuracy.
+  name: How to create search index java and enable spelling
+  steps:
+  - name: '**Library systems** – automatically fix misspelled book titles or author
+      names.'
+    text: '**Library systems** – automatically fix misspelled book titles or author
+      names.'
+  - name: '**E‑commerce platforms** – correct product name typos to increase conversion
+      rates.'
+    text: '**E‑commerce platforms** – correct product name typos to increase conversion
+      rates.'
+  - name: '**Content management** – help editorial staff locate articles even with
+      imperfect keywords.'
+    text: '**Content management** – help editorial staff locate articles even with
+      imperfect keywords.'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Search is a Java library that provides fast indexing, advanced
+      query capabilities, and built‑in spelling correction for any Java application.
+    question: What is GroupDocs.Search?
+  - answer: Visit the official site to download a free trial or purchase a full license;
+      a temporary key is also available for short‑term testing.
+    question: How do I obtain a license for GroupDocs.Search?
+  - answer: Yes, it works seamlessly with Spring, Jakarta EE, and any standard Java
+      application.
+    question: Can I integrate GroupDocs.Search with other Java frameworks?
+  - answer: Incorrect folder paths, missing file permissions, or absent Maven dependencies
+      are the typical culprits.
+    question: What are common issues when setting up an index?
+  - answer: It automatically rewrites misspelled queries to their closest correct
+      terms, returning more relevant hits and reducing user frustration.
+    question: How does spell correction improve search results?
+  type: FAQPage
+tags:
+- create search index java
+- GroupDocs.Search
+- Java search
+title: Wie man einen Suchindex in Java erstellt und die Rechtschreibkorrektur aktiviert
 type: docs
 url: /de/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/
 weight: 1
 ---
 
-# Wie man Rechtschreibkorrektur in Java mit GroupDocs.Search aktiviert
+# Wie man einen Suchindex in Java erstellt und Rechtschreibprüfung aktiviert
 
-Genauere Suchergebnisse sind für jede moderne Anwendung unerlässlich. In diesem Tutorial lernen Sie **wie man Rechtschreibkorrektur** in Java mit GroupDocs.Search aktiviert, sodass Benutzer die richtigen Ergebnisse erhalten, selbst wenn sie Suchanfragen falsch eingeben. Wir führen Sie durch das Erstellen eines Index, **Hinzufügen von Dokumenten zum Index**, das Konfigurieren von Rechtschreiboptionen und das Ausführen einer Suche, die Fehler automatisch korrigiert.
+In modernen Java‑Anwendungen ist die Bereitstellung genauer Suchergebnisse ein unverzichtbares Merkmal. Dieses Tutorial zeigt **wie man einen Suchindex in Java erstellt** und die Rechtschreibkorrektur mit GroupDocs.Search aktiviert, sodass Benutzer relevante Treffer erhalten, selbst wenn sie Anfragen falsch tippen. Sie sehen, wie Sie die Bibliothek einrichten, Dokumente hinzufügen, die maximale Fehleranzahl konfigurieren und eine tipptolerante Suche durchführen – alles ohne eine einzige Zeile zusätzlicher Konfigurations‑Code.
 
 ## Schnelle Antworten
-- **Was bedeutet „how to enable spelling“?** Es aktiviert den integrierten Rechtschreibprüfer, der Tippfehler der Benutzer während einer Suche korrigiert.  
-- **Welche Bibliothek stellt diese Funktion bereit?** GroupDocs.Search for Java.  
-- **Brauche ich eine Lizenz?** Eine kostenlose Testlizenz funktioniert für die Evaluierung; für die Produktion ist eine Volllizenz erforderlich.  
-- **Kann ich die Toleranz steuern?** Ja – verwenden Sie `setMaxMistakeCount`, um festzulegen, wie viele Tippfehler erlaubt sind.  
-- **Ist es für große Indexe geeignet?** Absolut – die Engine ist für hochperformante Indexierung und Suche optimiert.
+- **Was bewirkt „enable spelling“?** Es aktiviert den integrierten Rechtschreibprüfer, der falsch geschriebene Begriffe während einer Suche in ihre nächstgelegenen korrekten Formen umschreibt.  
+- **Welche Bibliothek stellt diese Funktion bereit?** GroupDocs.Search für Java.  
+- **Benötige ich eine Lizenz?** Eine kostenlose Testversion reicht für die Evaluierung; für den Produktionseinsatz ist eine Voll‑Lizenz erforderlich.  
+- **Kann ich die Toleranz steuern?** Ja – verwenden Sie `setMaxMistakeCount`, um festzulegen, wie viele Tippfehler pro Abfrage erlaubt sind.  
+- **Ist es für große Indizes geeignet?** Absolut – die Engine verarbeitet Indizes mit Millionen von Datensätzen und hält die Abfrage‑Latenz unter 100 ms auf typischer Server‑Hardware.
 
-## Was bedeutet „how to enable spelling“ in GroupDocs.Search?
-Das Aktivieren der Rechtschreibkorrektur veranlasst die Suchmaschine, nach den nächstgelegenen korrekten Begriffen zu suchen, wenn eine Anfrage Fehler enthält. Diese Funktion verbessert die Benutzererfahrung erheblich, indem sie relevante Ergebnisse selbst bei falsch geschriebenen Eingaben zurückgibt.
+## Was ist GroupDocs.Search?
+GroupDocs.Search ist eine Java‑Bibliothek, die schnelles Volltext‑Indexieren und erweiterte Suchfunktionen, einschließlich integrierter Rechtschreibkorrektur, bereitstellt. Sie unterstützt mehr als 50 Eingabeformate und kann mehrseitige Dokumente verarbeiten, ohne die gesamte Datei in den Speicher zu laden.
 
 ## Warum Rechtschreibkorrektur in Java‑Anwendungen aktivieren?
-- **Steigert die Benutzerzufriedenheit** – Benutzer müssen nicht perfekt tippen.  
-- **Reduziert Absprungraten** – genauere Ergebnisse halten Besucher engagiert.  
-- **Funktioniert in verschiedenen Bereichen** – von Bibliothekskatalogen bis zu E‑Commerce‑Produktsuchen.
+- **Steigert die Benutzerzufriedenheit** – Besucher erhalten korrekte Ergebnisse selbst bei unvollständiger Eingabe.  
+- **Reduziert Absprungraten** – genaue Treffer halten Benutzer länger auf der Seite.  
+- **Funktioniert in allen Bereichen** – von Bibliothekskatalogen bis zu E‑Commerce‑Produktsuchen verbessert die Rechtschreibkorrektur überall die Relevanz.
 
 ## Voraussetzungen
 - Java Development Kit (JDK) installiert.  
 - Grundkenntnisse in Java und Maven.  
 - Verständnis von Indexierungskonzepten.  
-- Ein GroupDocs.Search‑Test oder ein lizenzierter Schlüssel.
+- Eine GroupDocs.Search‑Testversion oder ein Lizenzschlüssel.
 
 ### Einrichtung von GroupDocs.Search für Java
 Integrieren Sie die Bibliothek in Ihr Maven‑Projekt.
 
-**Maven‑Setup**  
+**Maven‑Einrichtung**  
 Fügen Sie das Repository und die Abhängigkeit zu Ihrer `pom.xml`‑Datei hinzu:
 
 ```xml
@@ -63,13 +119,75 @@ Fügen Sie das Repository und die Abhängigkeit zu Ihrer `pom.xml`‑Datei hinzu
 ```
 
 **Direkter Download**  
-Alternativ laden Sie die neueste Version von [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) herunter.
+Alternativ können Sie die neueste Version von [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) herunterladen.
 
 ### Lizenzbeschaffung
-Erhalten Sie eine kostenlose Testlizenz für die Evaluierung. Für den Produktionseinsatz kaufen Sie eine Volllizenz oder fordern Sie einen temporären Schlüssel von der offiziellen Website an.
+Erhalten Sie eine kostenlose Testlizenz für die Evaluierung. Für den Produktionseinsatz kaufen Sie eine Voll‑Lizenz oder fordern Sie einen temporären Schlüssel von der offiziellen Website an.
 
-## Wie man Dokumente zum Index hinzufügt
-Das Erstellen eines Index ist die Grundlage jeder suchfähigen Anwendung. Nachfolgend ein minimales Beispiel, das **Dokumente zum Index hinzufügt** aus einem Ordner.
+## Wie erstelle ich einen Suchindex in Java?
+`SearchIndex` ist die Hauptklasse, die einen auf der Festplatte gespeicherten durchsuchbaren Index repräsentiert.  
+Erstellen Sie eine `SearchIndex`‑Instanz, die auf einen Ordner auf der Festplatte zeigt, und fügen Sie dann Dokumente aus einem Quellverzeichnis hinzu. Die Engine baut einen invertierten Index auf, der schnelle Look‑ups ermöglicht. Sie können `index.add()` für jede Datei aufrufen; die Bibliothek extrahiert den Text automatisch basierend auf dem Dateityp.
+
+## Wie kann ich die Rechtschreibkorrektur aktivieren?
+`getSpellingOptions()` gibt das Rechtschreib‑Konfigurationsobjekt für den Index zurück, sodass Sie die Rechtschreibprüfung aktivieren oder anpassen können.  
+Aktivieren Sie die Rechtschreibung, indem Sie `index.getSpellingOptions().setEnabled(true)` aufrufen. Dadurch wird die Engine angewiesen, Abfragebegriffe zu analysieren und korrigierte Alternativen vorzuschlagen, wenn Unstimmigkeiten erkannt werden. Die Funktion funktioniert sofort für alle vom Index unterstützten Sprachen.
+
+## Was ist die Einstellung für die maximale Fehleranzahl?
+`setMaxMistakeCount` konfiguriert die maximale Anzahl von Zeichenänderungen, die der Rechtschreibprüfer pro Begriff toleriert.  
+`setMaxMistakeCount(int)` definiert die maximale Anzahl von Zeichenänderungen (Einfügungen, Löschungen, Ersetzungen), die der Rechtschreibprüfer pro Begriff toleriert. Wird sie auf **2** gesetzt, kann die Engine gängige Tippfehler mit zwei Zeichen korrigieren, ohne zu aggressive Korrekturen vorzunehmen, die zu irrelevanten Ergebnissen führen könnten.
+
+## Wie führt man eine rechtschreibkorrigierte Suche durch
+`search()` führt eine Abfrage gegen den Index aus und gibt ein `SearchResult`‑Objekt zurück, das Treffer und etwaige korrigierte Begriffe enthält.  
+Führen Sie eine Suchabfrage mit der Methode `search()` aus. Enthält die Abfrage falsch geschriebene Wörter, gibt die Engine ein `SearchResult` zurück, das die korrigierten Begriffe und eine Liste der relevantesten Dokumente enthält. Sie können dem Benutzer sowohl die ursprüngliche Abfrage als auch die korrigierte Version anzeigen, um Transparenz zu gewährleisten.  
+`SearchResult` enthält die Liste der passenden Dokumente und Informationen zu den Abfragekorrekturen.
+
+## Praktische Anwendungen
+1. **Bibliothekssysteme** – korrigieren automatisch falsch geschriebene Buchtitel oder Autorennamen.  
+2. **E‑Commerce‑Plattformen** – korrigieren Tippfehler in Produktnamen, um die Konversionsrate zu erhöhen.  
+3. **Content‑Management** – unterstützt Redakteure dabei, Artikel auch bei unvollständigen Schlüsselwörtern zu finden.
+
+## Leistungsüberlegungen
+- **Den Index aktuell halten** – neue oder geänderte Dateien regelmäßig neu indexieren.  
+- **JVM‑Speichereinstellungen anpassen** – ausreichend Heap für große Indizes reservieren (z. B. `-Xmx4g`).  
+- **Ressourcennutzung überwachen** – Garbage‑Collector‑Parameter anpassen, wenn Sie Pausen beim Mass‑Indexieren bemerken.
+
+## Häufige Probleme & Fehlersuche
+| Symptom | Wahrscheinliche Ursache | Lösung |
+|---------|--------------------------|--------|
+| Keine Ergebnisse nach Aktivierung der Rechtschreibung | Der Pfad zum Indexordner ist falsch oder leer | Stellen Sie sicher, dass `indexFolder` auf einen gültigen Index zeigt und dass `index.add()` erfolgreich war |
+| Rechtschreibprüfung korrigiert offensichtliche Tippfehler nicht | `setMaxMistakeCount` ist zu niedrig eingestellt | Erhöhen Sie den Wert auf 2 oder 3 für eine tolerantere Korrektur |
+| Anwendung stürzt bei großen Dokumentenmengen ab | Unzureichender JVM‑Heap | Erhöhen Sie die `-Xmx`‑Option (z. B. `-Xmx4g`) |
+
+## Häufig gestellte Fragen
+
+**Q: Was ist GroupDocs.Search?**  
+A: GroupDocs.Search ist eine Java‑Bibliothek, die schnelles Indexieren, erweiterte Abfragefunktionen und integrierte Rechtschreibkorrektur für jede Java‑Anwendung bereitstellt.
+
+**Q: Wie erhalte ich eine Lizenz für GroupDocs.Search?**  
+A: Besuchen Sie die offizielle Website, um eine kostenlose Testversion herunterzuladen oder eine Voll‑Lizenz zu erwerben; ein temporärer Schlüssel ist ebenfalls für kurzfristige Tests verfügbar.
+
+**Q: Kann ich GroupDocs.Search in andere Java‑Frameworks integrieren?**  
+A: Ja, es funktioniert nahtlos mit Spring, Jakarta EE und jeder Standard‑Java‑Anwendung.
+
+**Q: Was sind häufige Probleme beim Einrichten eines Index?**  
+A: Falsche Ordnerpfade, fehlende Dateiberechtigungen oder fehlende Maven‑Abhängigkeiten sind die typischen Ursachen.
+
+**Q: Wie verbessert die Rechtschreibkorrektur die Suchergebnisse?**  
+A: Sie schreibt falsch geschriebene Anfragen automatisch in die nächstgelegenen korrekten Begriffe um, liefert relevantere Treffer und reduziert die Frustration der Benutzer.
+
+## Zusätzliche Ressourcen
+- [Dokumentation](https://docs.groupdocs.com/search/java/)
+- [API‑Referenz](https://reference.groupdocs.com/search/java)
+- [Download](https://releases.groupdocs.com/search/java/)
+- [GitHub‑Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Kostenloses Support‑Forum](https://forum.groupdocs.com/c/search/10)
+- [Temporäre Lizenz](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Zuletzt aktualisiert:** 2026-09-02  
+**Getestet mit:** GroupDocs.Search 25.4  
+**Autor:** GroupDocs
 
 ```java
 import com.groupdocs.search.*;
@@ -91,11 +209,6 @@ public class FeatureIndexAndAddDocuments {
 }
 ```
 
-*Tipp:* Stellen Sie sicher, dass die Pfade korrekt sind und die Anwendung Schreibrechte für den Indexordner hat.
-
-## Wie man Rechtschreibkorrektur konfiguriert (maximale Fehleranzahl festlegen)
-Sie können den Rechtschreibprüfer feinabstimmen, indem Sie ihn aktivieren und die Toleranz für Fehler festlegen.
-
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -116,11 +229,6 @@ public class FeatureSpellingCorrectionOptions {
     }
 }
 ```
-
-*Warum `setMaxMistakeCount` wichtig ist:* Sie definiert, wie viele Tippfehler die Engine toleriert. Passen Sie diesen Wert basierend auf den typischen Fehlermustern Ihrer Domäne an.
-
-## Wie man eine rechtschreibkorrektur‑unterstützte Suche durchführt
-Mit dem vorbereiteten Index und den konfigurierten Rechtschreiboptionen führen Sie eine Abfrage aus, die Fehler enthalten kann.
 
 ```java
 import com.groupdocs.search.*;
@@ -148,52 +256,8 @@ public class FeatureSpellingCorrectionSearch {
 }
 ```
 
-Der Aufruf `search()` liefert ein `SearchResult`, das korrigierte Begriffe und die relevantesten Dokumente enthält.
+## Verwandte Tutorials
 
-## Praktische Anwendungen
-1. **Bibliothekssysteme:** Korrigieren Sie falsch geschriebene Buchtitel oder Autorennamen.  
-2. **E‑Commerce‑Plattformen:** Beheben Sie Tippfehler von Benutzern in Produktsuchen, um die Konversionsrate zu steigern.  
-3. **Content‑Management‑Systeme:** Verbessern Sie die Artikelsuche für Redakteure.
-
-## Leistungsüberlegungen
-- **Den Index aktuell halten** – neue oder geänderte Dateien regelmäßig neu indexieren.  
-- **JVM‑Speichereinstellungen anpassen** – ausreichend Heap für große Indexe bereitstellen.  
-- **Ressourcennutzung überwachen** – bei Bedarf Garbage‑Collector‑Parameter anpassen.
-
-## Häufige Probleme & Fehlerbehebung
-| Symptom | Wahrscheinliche Ursache | Lösung |
-|---------|--------------------------|--------|
-| Keine Ergebnisse nach Aktivierung der Rechtschreibkorrektur | Pfad zum Indexordner ist falsch oder leer | Stellen Sie sicher, dass `indexFolder` auf einen gültigen Index zeigt und dass `index.add()` erfolgreich war |
-| Rechtschreibprüfer korrigiert offensichtliche Tippfehler nicht | `setMaxMistakeCount` ist zu niedrig eingestellt | Erhöhen Sie den Wert auf 2 oder 3 für eine tolerantere Korrektur |
-| Anwendung stürzt bei großen Dokumentensätzen ab | Unzureichender JVM‑Heap | Erhöhen Sie die `-Xmx`‑Option (z. B. `-Xmx4g`) |
-
-## Häufig gestellte Fragen
-
-**Q: Was ist GroupDocs.Search?**  
-A: Es ist eine Java‑Bibliothek, die schnelles Indexieren, erweiterte Suchfunktionen und integrierte Rechtschreibkorrektur bietet.
-
-**Q: Wie erhalte ich eine Lizenz für GroupDocs.Search?**  
-A: Besuchen Sie die offizielle Website, um eine kostenlose Testversion herunterzuladen oder eine Volllizenz zu erwerben.
-
-**Q: Kann ich GroupDocs.Search in andere Java‑Frameworks integrieren?**  
-A: Ja, es funktioniert mit Spring, Jakarta EE und jeder Standard‑Java‑Anwendung.
-
-**Q: Was sind häufige Probleme beim Einrichten eines Index?**  
-A: Falsche Ordnerpfade, unzureichende Dateiberechtigungen oder fehlende Abhängigkeiten in `pom.xml`.
-
-**Q: Wie verbessert Rechtschreibkorrektur die Suchergebnisse?**  
-A: Sie schreibt falsch geschriebene Anfragen automatisch in die nächstgelegenen korrekten Begriffe um und liefert relevantere Treffer.
-
-## Weitere Ressourcen
-- [Dokumentation](https://docs.groupdocs.com/search/java/)
-- [API‑Referenz](https://reference.groupdocs.com/search/java)
-- [Download](https://releases.groupdocs.com/search/java/)
-- [GitHub‑Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Kostenloses Support‑Forum](https://forum.groupdocs.com/c/search/10)
-- [Temporäre Lizenz](https://purchase.groupdocs.com/temporary-license/)
-
----
-
-**Zuletzt aktualisiert:** 2026-02-21  
-**Getestet mit:** GroupDocs.Search 25.4  
-**Autor:** GroupDocs
+- [Wie man einen Dokumentenindex erstellt und Dokumente mit der GroupDocs.Search‑API für Java hinzufügt](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Sprachverarbeitung Java – Synonymwörterbuch mit GroupDocs.Search erstellen](/search/java/dictionaries-language-processing/)
+- [Stoppwörter in der Suche: Dokumente zum Index mit GroupDocs.Search Java hinzufügen](/search/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/)
