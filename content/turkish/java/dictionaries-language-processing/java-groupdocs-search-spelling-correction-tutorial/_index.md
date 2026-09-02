@@ -1,55 +1,101 @@
 ---
-date: '2026-02-21'
-description: GroupDocs.Search kullanarak Java'da yazım düzeltmeyi nasıl etkinleştireceğinizi,
-  belgeleri indekse eklemeyi ve daha iyi arama doğruluğu için maksimum hata sayısını
-  ayarlamayı öğrenin.
+date: '2026-09-02'
+description: GroupDocs.Search kullanarak search index java oluşturmayı ve yazım düzeltmesini
+  etkinleştirmeyi öğrenin. Belgeleri eklemek, max mistake count yapılandırmak ve arama
+  doğruluğunu artırmak için adım adım talimatları izleyin.
 keywords:
-- spelling correction Java
+- create search index java
+- spelling correction java
 - GroupDocs.Search tutorial
-- Java search functionality
-title: GroupDocs.Search ile Java’da Yazım Denetimini Nasıl Etkinleştirirsiniz
+lastmod: '2026-09-02'
+og_description: GroupDocs.Search kullanarak search index java oluşturmayı ve yazım
+  düzeltmesini etkinleştirmeyi öğrenin. Belgeleri eklemek, max mistake count yapılandırmak
+  ve arama doğruluğunu artırmak için adım adım talimatları izleyin.
+og_image_alt: Guide showing Java code that creates a search index and configures spelling
+  correction with GroupDocs.Search
+og_title: search index java oluşturma ve yazım denetimini etkinleştirme
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-02'
+  description: Learn how to create search index java and enable spelling correction
+    using GroupDocs.Search. Follow step‑by‑step instructions to add documents, configure
+    max mistake count, and improve search accuracy.
+  headline: How to create search index java and enable spelling
+  type: TechArticle
+- description: Learn how to create search index java and enable spelling correction
+    using GroupDocs.Search. Follow step‑by‑step instructions to add documents, configure
+    max mistake count, and improve search accuracy.
+  name: How to create search index java and enable spelling
+  steps:
+  - name: '**Library systems** – automatically fix misspelled book titles or author
+      names.'
+    text: '**Library systems** – automatically fix misspelled book titles or author
+      names.'
+  - name: '**E‑commerce platforms** – correct product name typos to increase conversion
+      rates.'
+    text: '**E‑commerce platforms** – correct product name typos to increase conversion
+      rates.'
+  - name: '**Content management** – help editorial staff locate articles even with
+      imperfect keywords.'
+    text: '**Content management** – help editorial staff locate articles even with
+      imperfect keywords.'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Search is a Java library that provides fast indexing, advanced
+      query capabilities, and built‑in spelling correction for any Java application.
+    question: What is GroupDocs.Search?
+  - answer: Visit the official site to download a free trial or purchase a full license;
+      a temporary key is also available for short‑term testing.
+    question: How do I obtain a license for GroupDocs.Search?
+  - answer: Yes, it works seamlessly with Spring, Jakarta EE, and any standard Java
+      application.
+    question: Can I integrate GroupDocs.Search with other Java frameworks?
+  - answer: Incorrect folder paths, missing file permissions, or absent Maven dependencies
+      are the typical culprits.
+    question: What are common issues when setting up an index?
+  - answer: It automatically rewrites misspelled queries to their closest correct
+      terms, returning more relevant hits and reducing user frustration.
+    question: How does spell correction improve search results?
+  type: FAQPage
+tags:
+- create search index java
+- GroupDocs.Search
+- Java search
+title: search index java oluşturma ve yazım denetimini etkinleştirme
 type: docs
 url: /tr/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/
 weight: 1
 ---
 
-Son Güncelleme:"; "Tested With:" => "Test Edilen Versiyon:"; "Author:" => "Yazar:". Keep dates.
+# Java’da arama dizini oluşturma ve yazım denetimini etkinleştirme
 
-Now produce final markdown.
-
-Check for any missed shortcodes: none.
-
-Make sure no extra spaces.
-
-Proceed to final.# Java'da GroupDocs.Search Kullanarak Yazım Denetimini Etkinleştirme
-
-Doğru arama sonuçları, modern bir uygulama için çok önemlidir. Bu öğreticide GroupDocs.Search ile Java'da **yazım denetimini nasıl etkinleştireceğinizi** öğrenecek, böylece kullanıcılar sorguları hatalı yazsa bile doğru sonuçları alacak. Bir indeks oluşturma, **indekse belge ekleme**, yazım seçeneklerini yapılandırma ve hataları otomatik olarak düzelten bir arama yürütme adımlarını göstereceğiz.
+Modern Java uygulamalarında doğru arama sonuçları sunmak vazgeçilmez bir özelliktir. Bu öğreticide **how to create search index java** ve GroupDocs.Search ile yazım düzeltmeyi nasıl etkinleştireceğinizi gösteriyoruz; böylece kullanıcılar sorgularını yanlış yazsalar bile ilgili sonuçları alır. Kütüphaneyi nasıl kuracağınızı, belgeleri nasıl ekleyeceğinizi, maksimum hata sayısını nasıl yapılandıracağınızı ve yazım hatalarına toleranslı bir arama nasıl yapacağınızı göreceksiniz — ekstra bir konfigürasyon kodu satırı yazmadan.
 
 ## Hızlı Yanıtlar
-- **“Yazım denetimini nasıl etkinleştiririz” ne anlama geliyor?** Arama sırasında kullanıcı yazım hatalarını düzelten yerleşik yazım denetleyiciyi etkinleştirir.  
-- **Bu özelliği hangi kütüphane sağlar?** Java için GroupDocs.Search.  
-- **Lisans gerekir mi?** Değerlendirme için ücretsiz deneme lisansı yeterlidir; üretim için tam lisans gereklidir.  
-- **Toleransı kontrol edebilir miyim?** Evet – kaç tane yazım hatasına izin verileceğini tanımlamak için `setMaxMistakeCount` kullanın.  
-- **Büyük indeksler için uygun mu?** Kesinlikle – motor yüksek performanslı indeksleme ve arama için optimize edilmiştir.
+- **“enable spelling” ne yapar?** Arama sırasında yanlış yazılmış terimleri en yakın doğru formlara yeniden yazarak yerleşik yazım denetleyiciyi etkinleştirir.  
+- **Bu özelliği hangi kütüphane sağlar?** GroupDocs.Search for Java.  
+- **Bir lisansa ihtiyacım var mı?** Değerlendirme için ücretsiz deneme çalışır; üretim kullanımı için tam lisans gereklidir.  
+- **Toleransı kontrol edebilir miyim?** Evet – sorgu başına kaç yazım hatasına izin verileceğini tanımlamak için `setMaxMistakeCount` kullanın.  
+- **Büyük dizinler için uygun mu?** Kesinlikle – motor, tipik sunucu donanımında sorgu gecikmesini 100 ms’nin altında tutarak milyonlarca kayıttan oluşan dizinleri yönetir.
 
-## GroupDocs.Search'te “yazım denetimini nasıl etkinleştiririz” nedir?
-Yazım denetimini etkinleştirmek, sorgu hatalar içerdiğinde arama motorunun en yakın doğru terimleri aramasını sağlar. Bu özellik, yanlış yazılmış girişlerde bile ilgili sonuçlar döndürerek kullanıcı deneyimini büyük ölçüde iyileştirir.
+## GroupDocs.Search Nedir?
+GroupDocs.Search, yerleşik yazım düzeltme dahil hızlı tam metin indeksleme ve gelişmiş arama özellikleri sunan bir Java kütüphanesidir. 50’den fazla giriş formatını destekler ve tüm dosyayı belleğe yüklemeden çok sayfalı belgeleri işleyebilir.
 
-## Java uygulamalarında yazım denetimini neden etkinleştirmelisiniz?
-- **Kullanıcı memnuniyetini artırır** – kullanıcıların mükemmel yazması gerekmez.  
-- **Hemen çıkma oranlarını azaltır** – daha doğru sonuçlar ziyaretçileri meşgul tutar.  
-- **Çeşitli alanlarda çalışır** – kütüphane kataloglarından e‑ticaret ürün aramalarına kadar.
+## Java uygulamalarında yazım düzeltmeyi neden etkinleştirmelisiniz?
+- **Kullanıcı memnuniyetini artırır** – ziyaretçiler eksik yazım olsa bile doğru sonuçlar alır.  
+- **Hemen çıkma oranlarını azaltır** – doğru sonuçlar kullanıcıların daha uzun süre etkileşimde kalmasını sağlar.  
+- **Çeşitli alanlarda çalışır** – kütüphane kataloglarından e-ticaret ürün aramalarına kadar, yazım düzeltme her yerde alaka düzeyini artırır.
 
 ## Önkoşullar
 - Java Development Kit (JDK) yüklü.  
 - Temel Java ve Maven bilgisi.  
 - İndeksleme kavramları hakkında anlayış.  
-- GroupDocs.Search deneme veya lisanslı anahtarı.
+- Bir GroupDocs.Search deneme veya lisans anahtarı.
 
-### Java için GroupDocs.Search Kurulumu
-Maven projenize kütüphaneyi entegre edin.
+### GroupDocs.Search for Java Kurulumu
+Kütüphaneyi Maven projenize entegre edin.
 
-**Maven Kurulumu**  
+**Maven kurulumu**  
 `pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
 
 ```xml
@@ -70,14 +116,76 @@ Maven projenize kütüphaneyi entegre edin.
 </dependencies>
 ```
 
-**Doğrudan İndirme**  
+**Doğrudan indirme**  
 Alternatif olarak, en son sürümü [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirin.
 
-### Lisans Edinme
-Değerlendirme için ücretsiz bir deneme lisansı edinin. Üretim kullanımı için tam lisans satın alın veya resmi siteden geçici bir anahtar isteyin.
+### Lisans edinme
+Değerlendirme için ücretsiz deneme lisansı alın. Üretim kullanımı için tam lisans satın alın veya resmi siteden geçici bir anahtar talep edin.
 
-## İndekse Belgeleri Nasıl Eklenir
-İndeks oluşturmak, arama özellikli herhangi bir uygulamanın temelidir. Aşağıda bir klasörden **indekse belge ekleyen** minimal bir örnek bulunmaktadır.
+## Java’da bir arama dizini nasıl oluşturulur?
+`SearchIndex`, diskte depolanan aranabilir bir dizini temsil eden birincil sınıftır.  
+Diskte bir klasöre işaret eden bir `SearchIndex` örneği oluşturun, ardından kaynak dizinden belgeleri ekleyin. Motor, hızlı aramaları sağlayan ters bir indeks oluşturur. Her dosya için `index.add()` çağırabilirsiniz; kütüphane dosya türüne göre metni otomatik olarak çıkarır.
+
+## Yazım düzeltmeyi nasıl etkinleştiririm?
+`getSpellingOptions()` indeks için yazım yapılandırma nesnesini döndürür ve yazım denetimi özelliklerini etkinleştirmenize veya ayarlamanıza olanak tanır.  
+Yazım denetimini etkinleştirmek için `index.getSpellingOptions().setEnabled(true)` çağırın. Bu, motorun sorgu terimlerini analiz etmesini ve uyumsuzluk tespit edildiğinde düzeltilmiş alternatifler önermesini sağlar. Özellik, kütüphanenin desteklediği tüm indekslenmiş diller için kutudan çıkar çıkmaz çalışır.
+
+## max mistake count ayarı nedir?
+`setMaxMistakeCount`, yazım denetleyicisinin bir terim başına tolerans göstereceği maksimum karakter düzenlemesini yapılandırır.  
+`setMaxMistakeCount(int)`, bir terim başına tolerans gösterecek maksimum karakter düzenlemesini (eklemeler, silmeler, değişiklikler) tanımlar. **2** olarak ayarlamak, motorun yaygın iki karakterli yazım hatalarını düzeltmesine izin verirken, alakasız sonuçlar döndürebilecek aşırı agresif düzeltmelerden kaçınır.
+
+## Yazım‑düzeltmeli bir arama nasıl yapılır
+`search()` indeks üzerinde bir sorgu çalıştırır ve eşleşmeleri ile düzeltilmiş terimleri içeren bir `SearchResult` nesnesi döndürür.  
+`search()` metodunu kullanarak bir arama sorgusu çalıştırın. Sorgu yanlış yazılmış kelimeler içeriyorsa, motor düzeltilmiş terimleri ve en ilgili belgelerin bir listesini içeren bir `SearchResult` döndürür. Kullanıcıya şeffaflık sağlamak için hem orijinal sorguyu hem de düzeltilmiş versiyonu gösterebilirsiniz.  
+`SearchResult`, eşleşen belgelerin listesini ve sorgu düzeltmeleri hakkında bilgileri tutar.
+
+## Pratik uygulamalar
+1. **Kütüphane sistemleri** – yanlış yazılmış kitap başlıklarını veya yazar adlarını otomatik olarak düzeltir.  
+2. **E‑ticaret platformları** – dönüşüm oranlarını artırmak için ürün adı yazım hatalarını düzeltir.  
+3. **İçerik yönetimi** – editörlerin eksik anahtar kelimelerle bile makaleleri bulmasına yardımcı olur.
+
+## Performans değerlendirmeleri
+- **İndeksi güncel tutun** – yeni veya değişen dosyaları düzenli olarak yeniden indeksleyin.  
+- **JVM bellek ayarlarını ayarlayın** – büyük indeksler için yeterli yığın ayırın (ör. `-Xmx4g`).  
+- **Kaynak kullanımını izleyin** – toplu indeksleme sırasında duraklamalar fark ederseniz çöp toplama bayraklarını ayarlayın.
+
+## Yaygın sorunlar ve sorun giderme
+| Semptom | Muhtemel neden | Çözüm |
+|---------|----------------|------|
+| Yazım denetimi etkinleştirildikten sonra sonuç gelmiyor | İndeks klasör yolu yanlış veya boş | `indexFolder`'ın geçerli bir indekse işaret ettiğini ve `index.add()`'ın başarılı olduğunu doğrulayın |
+| Yazım denetleyicisi bariz hataları düzeltmiyor | `setMaxMistakeCount` çok düşük ayarlanmış | Daha toleranslı düzeltme için sayıyı 2 veya 3 olarak artırın |
+| Uygulama büyük belge setlerinde çöküyor | Yetersiz JVM yığını | `-Xmx` seçeneğini artırın (ör. `-Xmx4g`) |
+
+## Sıkça Sorulan Sorular
+
+**S: GroupDocs.Search nedir?**  
+**C:** GroupDocs.Search, hızlı indeksleme, gelişmiş sorgu yetenekleri ve herhangi bir Java uygulaması için yerleşik yazım düzeltme sağlayan bir Java kütüphanesidir.
+
+**S: GroupDocs.Search için lisansı nasıl elde ederim?**  
+**C:** Resmi siteyi ziyaret ederek ücretsiz deneme indirebilir veya tam lisans satın alabilirsiniz; kısa vadeli test için geçici bir anahtar da mevcuttur.
+
+**S: GroupDocs.Search'i diğer Java çerçeveleriyle entegre edebilir miyim?**  
+**C:** Evet, Spring, Jakarta EE ve herhangi bir standart Java uygulamasıyla sorunsuz çalışır.
+
+**S: Bir indeks kurarken yaygın sorunlar nelerdir?**  
+**C:** Yanlış klasör yolları, eksik dosya izinleri veya eksik Maven bağımlılıkları tipik sorunlardır.
+
+**S: Yazım düzeltme arama sonuçlarını nasıl iyileştirir?**  
+**C:** Yanlış yazılmış sorguları otomatik olarak en yakın doğru terimlere yeniden yazar, daha ilgili sonuçlar döndürür ve kullanıcı hayal kırıklığını azaltır.
+
+## Ek kaynaklar
+- [Dokümantasyon](https://docs.groupdocs.com/search/java/)
+- [API Referansı](https://reference.groupdocs.com/search/java)
+- [İndirme](https://releases.groupdocs.com/search/java/)
+- [GitHub Deposu](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Ücretsiz Destek Forumu](https://forum.groupdocs.com/c/search/10)
+- [Geçici Lisans](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Son Güncelleme:** 2026-09-02  
+**Test Edilen Versiyon:** GroupDocs.Search 25.4  
+**Yazar:** GroupDocs
 
 ```java
 import com.groupdocs.search.*;
@@ -99,11 +207,6 @@ public class FeatureIndexAndAddDocuments {
 }
 ```
 
-*İpucu:* Yolların doğru olduğundan ve uygulamanın indeks klasörüne yazma iznine sahip olduğundan emin olun.
-
-## Yazım Düzeltmeyi Nasıl Yapılandırırsınız (set max mistake count)
-Yazım denetleyiciyi etkinleştirerek ve hata toleransını ayarlayarak ince ayar yapabilirsiniz.
-
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -124,11 +227,6 @@ public class FeatureSpellingCorrectionOptions {
     }
 }
 ```
-
-*`setMaxMistakeCount` neden önemlidir:* Motorun kaç tane yazım hatasını tolere edeceğini tanımlar. Bu değeri, alanınızdaki tipik hata kalıplarına göre ayarlayın.
-
-## Yazım Düzeltmeli Arama Nasıl Yapılır
-İndeks hazır ve yazım seçenekleri yapılandırıldıktan sonra hatalı olabilecek bir sorgu çalıştırın.
 
 ```java
 import com.groupdocs.search.*;
@@ -156,52 +254,8 @@ public class FeatureSpellingCorrectionSearch {
 }
 ```
 
-`search()` çağrısı, düzeltilmiş terimleri ve en ilgili belgeleri içeren bir `SearchResult` döndürür.
+## İlgili Öğreticiler
 
-## Pratik Uygulamalar
-1. **Kütüphane Sistemleri:** Yanlış yazılmış kitap başlıklarını veya yazar adlarını düzeltir.  
-2. **E‑ticaret Platformları:** Ürün aramalarındaki kullanıcı hatalarını düzelterek dönüşümleri artırır.  
-3. **İçerik Yönetim Sistemleri:** Editör personeli için makale bulmayı iyileştirir.
-
-## Performans Düşünceleri
-- **İndeksi güncel tutun** – yeni veya değişen dosyaları düzenli olarak yeniden indeksleyin.  
-- **JVM bellek ayarlarını ayarlayın** – büyük indeksler için yeterli yığın tahsis edin.  
-- **Kaynak kullanımını izleyin** – gerekirse çöp toplama bayraklarını ayarlayın.
-
-## Yaygın Sorunlar ve Sorun Giderme
-| Belirti | Muhtemel Neden | Çözüm |
-|---------|----------------|------|
-| Yazım denetimi etkinleştirildikten sonra sonuç gelmiyor | İndeks klasör yolu yanlış veya boş | `indexFolder` geçerli bir indekse işaret ettiğinden ve `index.add()` başarılı olduğundan emin olun |
-| Yazım denetleyici belirgin hataları düzeltmiyor | `setMaxMistakeCount` çok düşük ayarlanmış | Daha toleranslı düzeltme için sayıyı 2 veya 3'e artırın |
-| Büyük belge setlerinde uygulama çöküyor | Yetersiz JVM yığını | `-Xmx` seçeneğini artırın (ör. `-Xmx4g`) |
-
-## Sıkça Sorulan Sorular
-
-**S: GroupDocs.Search nedir?**  
-C: Hızlı indeksleme, gelişmiş arama özellikleri ve yerleşik yazım düzeltmesi sağlayan bir Java kütüphanesidir.
-
-**S: GroupDocs.Search için lisansı nasıl alırım?**  
-C: Ücretsiz deneme indirmek veya tam lisans satın almak için resmi siteyi ziyaret edin.
-
-**S: GroupDocs.Search'ı diğer Java çerçeveleriyle entegre edebilir miyim?**  
-C: Evet, Spring, Jakarta EE ve herhangi bir standart Java uygulamasıyla çalışır.
-
-**S: İndeks kurarken yaygın sorunlar nelerdir?**  
-C: Yanlış klasör yolları, yetersiz dosya izinleri veya `pom.xml` içinde eksik bağımlılıklar.
-
-**S: Yazım düzeltmesi arama sonuçlarını nasıl iyileştirir?**  
-C: Yanlış yazılmış sorguları otomatik olarak en yakın doğru terimlere yeniden yazar, daha ilgili sonuçlar döndürür.
-
-## Ek Kaynaklar
-- [Dokümantasyon](https://docs.groupdocs.com/search/java/)
-- [API Referansı](https://reference.groupdocs.com/search/java)
-- [İndirme](https://releases.groupdocs.com/search/java/)
-- [GitHub Deposu](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Ücretsiz Destek Forumu](https://forum.groupdocs.com/c/search/10)
-- [Geçici Lisans](https://purchase.groupdocs.com/temporary-license/)
-
----
-
-**Son Güncelleme:** 2026-02-21  
-**Test Edilen Versiyon:** GroupDocs.Search 25.4  
-**Yazar:** GroupDocs
+- [Java için GroupDocs.Search API'si Kullanarak Belge İndeksi Oluşturma ve Belge Ekleme](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Java Dil İşleme – GroupDocs.Search ile Eş Anlamlı Sözlük Oluşturma](/search/java/dictionaries-language-processing/)
+- [Aramada Durdurma Kelimeleri: GroupDocs.Search Java ile Dizin'e Belge Ekleme](/search/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/)

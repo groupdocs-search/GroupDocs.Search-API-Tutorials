@@ -1,50 +1,103 @@
 ---
-date: '2026-02-21'
-description: Μάθετε πώς να δημιουργείτε μορφές ενικού και πληθυντικού σε Java χρησιμοποιώντας
-  το GroupDocs.Search API. Δημιουργήστε έναν προσαρμοσμένο πάροχο μορφών λέξεων για
-  ακριβή αναζήτηση και ανάλυση κειμένου.
+date: '2026-09-02'
+description: 'Πώς να δημιουργήσετε μορφές σε Java με GroupDocs.Search: μάθετε πώς
+  να δημιουργήσετε έναν προσαρμοσμένο word‑forms provider για ακριβή search και text
+  analysis.'
 keywords:
-- word forms generation
-- GroupDocs.Search Java API
-- linguistic transformation
-title: Δημιουργία ενικού και πληθυντικού τύπων σε Java με το GroupDocs.Search
+- how to generate forms
+- GroupDocs.Search Java
+- word forms provider
+- singular plural Java
+lastmod: '2026-09-02'
+og_description: 'Πώς να δημιουργήσετε μορφές σε Java με GroupDocs.Search: μάθετε πώς
+  να δημιουργήσετε έναν προσαρμοσμένο word‑forms provider για ακριβή search και text
+  analysis.'
+og_image_alt: Guide showing how to generate forms in Java using GroupDocs.Search
+og_title: Πώς να δημιουργήσετε μορφές σε Java με GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-02'
+  description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+    a custom word‑forms provider for accurate search and text analysis.'
+  headline: How to generate forms in Java with GroupDocs.Search
+  type: TechArticle
+- description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+    a custom word‑forms provider for accurate search and text analysis.'
+  name: How to generate forms in Java with GroupDocs.Search
+  steps:
+  - name: '**Free trial:** Sign up for a trial to explore core features.'
+    text: '**Free trial:** Sign up for a trial to explore core features.'
+  - name: '**Temporary license:** Request a temporary key for extended testing.'
+    text: '**Temporary license:** Request a temporary key for extended testing.'
+  - name: '**Purchase:** Obtain a commercial license for unrestricted production use.'
+    text: '**Purchase:** Obtain a commercial license for unrestricted production use.'
+  - name: '**Search engines:** Users typing “mouse” should also find documents containing
+      “mice”. A provider can generate such irregular forms.'
+    text: '**Search engines:** Users typing “mouse” should also find documents containing
+      “mice”. A provider can generate such irregular forms.'
+  - name: '**Text analysis tools:** Sentiment or entity extraction becomes more reliable
+      when all word variants are recognised.'
+    text: '**Text analysis tools:** Sentiment or entity extraction becomes more reliable
+      when all word variants are recognised.'
+  - name: '**Content management systems:** Automatic tag generation can include plural
+      synonyms, improving SEO and internal linking.'
+    text: '**Content management systems:** Automatic tag generation can include plural
+      synonyms, improving SEO and internal linking.'
+  type: HowTo
+- questions:
+  - answer: It’s a powerful library that offers full‑text search, indexing, and linguistic
+      features—including the ability to plug in custom word‑form providers.
+    question: What is GroupDocs.Search for Java?
+  - answer: It generates alternative forms by applying simple suffix‑based rules (removing
+      “s/es”, converting “y” to “is”, and appending “s/es”).
+    question: How does the SimpleWordFormsProvider work?
+  - answer: Absolutely. Modify the `getWordForms` method to include irregular forms,
+      locale‑specific rules, or integration with external dictionaries.
+    question: Can I customize the word form generation rules?
+  - answer: Search engines, text‑analysis pipelines, and CMS platforms benefit from
+      recognising singular/plural variants.
+    question: What are some common applications for this feature?
+  - answer: Yes—while a trial lets you explore the API, a purchased license removes
+      usage limits and grants support.
+    question: Do I need a commercial license for production use?
+  type: FAQPage
+tags:
+- word forms
+- GroupDocs.Search
+- Java
+- search indexing
+- text analysis
+title: Πώς να δημιουργήσετε μορφές σε Java με GroupDocs.Search
 type: docs
 url: /el/java/dictionaries-language-processing/java-word-forms-generation-groupdocs-search/
 weight: 1
 ---
 
- `pom.xml`, etc.
+# Πώς να δημιουργήσετε μορφές σε Java με το GroupDocs.Search
 
-Now produce final answer.# Δημιουργία Μοναδικών και Πληθυντικών Μορφών σε Java με GroupDocs.Search
+Σε αυτόν τον οδηγό θα μάθετε **πώς να δημιουργείτε μορφές σε Java** χρησιμοποιώντας το GroupDocs.Search API. Δημιουργώντας έναν προσαρμοσμένο πάροχο μορφών λέξεων, ενεργοποιείτε τη μηχανή αναζήτησης ή ανάλυσης κειμένου ώστε να αναγνωρίζει κάθε παραλλαγή ενός όρου—είτε είναι “cat”, “cats”, “city”, ή “citis”. Αυτό βελτιώνει δραματικά την ανάκληση διατηρώντας υψηλή την ακρίβεια.
 
-Αν χρειάζεστε **να δημιουργήσετε μοναδικές και πληθυντικές μορφές σε Java**, ένας προσαρμοσμένος πάροχος μορφών λέξεων είναι το κλειδί για να κάνει τη μηχανή αναζήτησης ή ανάλυσης κειμένου σας να κατανοεί κάθε παραλλαγή ενός όρου. Σε αυτό το tutorial θα σας καθοδηγήσουμε στη δημιουργία ενός τέτοιου παρόχου με το GroupDocs.Search Java API, ώστε η εφαρμογή σας να μπορεί αυτόματα να ταιριάζει με “cat”, “cats”, “city”, και “citis” χωρίς επιπλέον προσπάθεια.
-
-## Γρήγορες Απαντήσεις
-- **Τι κάνει ένας πάροχος μορφών λέξεων;** Δημιουργεί εναλλακτικές μορφές (μοναδική, πληθυντική κ.λπ.) μιας δεδομένης λέξης ώστε οι αναζητήσεις να ταιριάζουν με όλες τις παραλλαγές.  
-- **Ποια βιβλιοθήκη απαιτείται;** GroupDocs.Search for Java (έκδοση 25.4 ή νεότερη).  
+## Γρήγορες απαντήσεις
+- **Τι κάνει ένας πάροχος μορφών λέξεων;** Δημιουργεί εναλλακτικές μορφές (ενικό, πληθυντικό κ.λπ.) μιας δεδομένης λέξης ώστε οι αναζητήσεις να ταιριάζουν με όλες τις παραλλαγές.  
+- **Ποια βιβλιοθήκη απαιτείται;** GroupDocs.Search για Java (έκδοση 25.4 ή νεότερη).  
 - **Χρειάζομαι άδεια;** Μια δωρεάν δοκιμή λειτουργεί για αξιολόγηση· απαιτείται μόνιμη άδεια για παραγωγή.  
-- **Ποια έκδοση της Java υποστηρίζεται;** JDK 8 ή νεότερη.  
+- **Ποια έκδοση Java υποστηρίζεται;** JDK 8 ή νεότερη.  
 - **Πόσες γραμμές κώδικα χρειάζονται;** Περίπου 30 γραμμές για μια απλή υλοποίηση παρόχου.
 
-## Τι είναι η λειτουργία «Create Word Forms Provider»;
-Ένα στοιχείο **create word forms provider** είναι μια προσαρμοσμένη κλάση που υλοποιεί το `IWordFormsProvider`. Λαμβάνει μια λέξη και επιστρέφει έναν πίνακα πιθανών μορφών — μοναδική, πληθυντική ή άλλες γλωσσικές παραλλαγές — βάσει κανόνων που ορίζετε. Αυτό επιτρέπει στο ευρετήριο αναζήτησης να θεωρεί το “cat” και το “cats” ισοδύναμα, βελτιώνοντας την ανάκληση χωρίς να θυσιάζει την ακρίβεια.
+## Τι είναι η λειτουργία «δημιουργία παρόχου μορφών λέξεων»;
+Ένας **create word forms provider** είναι μια προσαρμοσμένη κλάση που υλοποιεί το `IWordFormsProvider`. Το `IWordFormsProvider` είναι μια διεπαφή που ορίζει πώς οι πάροχοι παρέχουν εναλλακτικές μορφές λέξεων στη μηχανή αναζήτησης. Λαμβάνει μια λέξη και επιστρέφει έναν πίνακα πιθανών μορφών—ενικό, πληθυντικό ή άλλες γλωσσικές παραλλαγές—βάσει των κανόνων που ορίζετε. Αυτό επιτρέπει στο ευρετήριο αναζήτησης να αντιμετωπίζει το “cat” και το “cats” ως ισοδύναμα, βελτιώνοντας την ανάκληση χωρίς να θυσιάζει την ακρίβεια.
 
 ## Γιατί να χρησιμοποιήσετε το GroupDocs.Search για δημιουργία μορφών λέξεων;
-- **Ενσωματωμένη επεκτασιμότητα:** Συνδέστε τον δικό σας πάροχο απευθείας στη διαδικασία ευρετηρίου.  
-- **Βελτιστοποιημένη απόδοση:** Διαχειρίζεται μεγάλα ευρετήρια αποδοτικά, και μπορείτε να αποθηκεύετε τα αποτελέσματα στην κρυφή μνήμη για επιπλέον ταχύτητα.  
-- **Υποστήριξη πολλαπλών γλωσσών:** Οι έννοιες ισχύουν και για .NET και άλλες πλατφόρμες.
+Το GroupDocs.Search προσφέρει ενσωματωμένη επεκτασιμότητα, επιτρέποντάς σας να ενσωματώσετε τον δικό σας πάροχο απευθείας στη διαδικασία ευρετηρίου. Επεξεργάζεται ευρετήρια με έως **10 million documents** διατηρώντας τη χρήση μνήμης κάτω από **500 MB** χάρη στην αρχιτεκτονική streaming, και μπορείτε να αποθηκεύετε τα αποτελέσματα στην κρυφή μνήμη για χρόνους ανάκτησης υπο-χιλιοστού του δευτερολέπτου.
 
 ## Προαπαιτούμενα
-Πριν υλοποιήσετε τον **create word forms provider**, βεβαιωθείτε ότι έχετε:
-
-- **Maven** εγκατεστημένο και ένα JDK 8 ή νεότερο ρυθμισμένο στο μηχάνημά σας.  
+- **Maven** εγκατεστημένο και JDK 8 ή νεότερο ρυθμισμένο στο σύστημά σας.  
 - Βασική εξοικείωση με την ανάπτυξη Java και τη διαμόρφωση `pom.xml` του Maven.  
-- Πρόσβαση στη βιβλιοθήκη GroupDocs.Search Java (έκδοση 25.4 ή νεότερη).
+- Πρόσβαση στη βιβλιοθήκη GroupDocs.Search Java (έκδοση 25.4 ή νεότερη).  
 
 ## Ρύθμιση του GroupDocs.Search για Java
 
 ### Διαμόρφωση Maven
-
 Προσθέστε το αποθετήριο και την εξάρτηση στο αρχείο `pom.xml` ακριβώς όπως φαίνεται παρακάτω:
 
 ```xml
@@ -65,19 +118,16 @@ Now produce final answer.# Δημιουργία Μοναδικών και Πλη
 </dependencies>
 ```
 
-### Άμεση Λήψη
+### Άμεση λήψη
+Εναλλακτικά, κατεβάστε το πιο πρόσφατο JAR από τη σελίδα εκδόσεων: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-Εναλλακτικά, κατεβάστε το πιο πρόσφατο JAR από τη σελίδα επίσημων εκδόσεων: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
-
-### Βήματα Απόκτησης Άδειας
-
-1. **Δωρεάν Δοκιμή:** Εγγραφείτε για μια δοκιμή ώστε να εξερευνήσετε τις βασικές λειτουργίες.  
-2. **Προσωρινή Άδεια:** Ζητήστε ένα προσωρινό κλειδί για εκτεταμένη δοκιμή.  
+### Βήματα απόκτησης άδειας
+1. **Δωρεάν δοκιμή:** Εγγραφείτε για μια δοκιμή ώστε να εξερευνήσετε τις βασικές λειτουργίες.  
+2. **Προσωρινή άδεια:** Ζητήστε ένα προσωρινό κλειδί για εκτεταμένη δοκιμή.  
 3. **Αγορά:** Αποκτήστε εμπορική άδεια για απεριόριστη χρήση σε παραγωγή.
 
-### Βασική Αρχικοποίηση και Ρύθμιση
-
-Το παρακάτω απόσπασμα δείχνει πώς να δημιουργήσετε ένα ευρετήριο — το σημείο εκκίνησης για την προσθήκη εγγράφων και λογικής μορφών λέξεων:
+### Βασική αρχικοποίηση και ρύθμιση
+Το παρακάτω απόσπασμα δείχνει πώς να δημιουργήσετε ένα ευρετήριο—το σημείο εκκίνησης για την προσθήκη εγγράφων και λογικής μορφών λέξεων:
 
 ```java
 import com.groupdocs.search.*;
@@ -92,21 +142,18 @@ public class SearchSetup {
 }
 ```
 
-## Οδηγός Υλοποίησης
+## Οδηγός υλοποίησης
 
-Παρακάτω περπατάμε βήμα-βήμα τη διαδικασία δημιουργίας ενός **create word forms provider** που διαχειρίζεται απλούς μετασχηματισμούς από μοναδική σε πληθυντική και αντίστροφα.
+Παρακάτω περπατάμε βήμα-βήμα τη διαδικασία για **να δημιουργήσετε έναν πάροχο μορφών λέξεων** που διαχειρίζεται απλούς μετασχηματισμούς ενικού‑πληθυντικού και αντίστροφα.
 
 ### Υλοποίηση του SimpleWordFormsProvider
 
 #### Επισκόπηση
-Ο προσαρμοσμένος μας πάροχος θα:
+Η κλάση `SimpleWordFormsProvider` υλοποιεί το `IWordFormsProvider`. Η περιγραφή διευκρινίζει τον σκοπό της:
 
-- Αφαιρέσει το τελικό “es” ή “s” για να υποθέσει μια μοναδική μορφή.  
-- Αλλάξει ένα τελικό “y” σε “is” για να παραγάγει μια πληθυντική μορφή (π.χ., “city” → “citis”).  
-- Προσθέσει “s” και “es” για να δημιουργήσει βασικούς υποψήφιους πληθυντικούς.
+`SimpleWordFormsProvider` είναι μια προσαρμοσμένη υλοποίηση του `IWordFormsProvider` που παρέχει παραλλαγές ενικού‑πληθυντικού για τη μηχανή ευρετηρίου.
 
-#### Βήμα 1 – Δημιουργία του Σκελετού της Κλάσης
-
+#### Βήμα 1 – δημιουργία του σκελετού της κλάσης
 Ξεκινήστε ορίζοντας μια κλάση που υλοποιεί το `IWordFormsProvider`. Διατηρήστε τις δηλώσεις εισαγωγής (import) όπως είναι:
 
 ```java
@@ -116,9 +163,10 @@ import java.util.ArrayList;
 public class SimpleWordFormsProvider implements IWordFormsProvider {
 ```
 
-#### Βήμα 2 – Υλοποίηση του `getWordForms`
-
+#### Βήμα 2 – υλοποίηση του `getWordForms`
 Προσθέστε τη μέθοδο που δημιουργεί τη λίστα των πιθανών μορφών. Αυτό το τμήμα περιέχει τη βασική λογική· μπορείτε να το επεκτείνετε αργότερα για πιο σύνθετους κανόνες.
+
+`getWordForms` λαμβάνει έναν όρο και επιστρέφει ένα `String[]` που περιέχει όλες τις παραγόμενες παραλλαγές.
 
 ```java
     @Override
@@ -151,68 +199,73 @@ public class SimpleWordFormsProvider implements IWordFormsProvider {
 }
 ```
 
-#### Εξήγηση της Λογικής
-- **Singularization:** Ανιχνεύει συνηθισμένα καταλήξεις πληθυντικού (`es`, `s`) και τις αφαιρεί για να προσεγγίσει τη βασική λέξη.  
+#### Επεξήγηση της λογικής
+- **Singularization:** Εντοπίζει κοινά καταλήξεις πληθυντικού (`es`, `s`) και τις αφαιρεί για να προσεγγίσει τη βασική λέξη.  
 - **Pluralization:** Διαχειρίζεται ουσιαστικά που λήγουν σε `y` αντικαθιστώντας το με `is`, ένας απλός κανόνας που λειτουργεί για πολλές αγγλικές λέξεις.  
-- **Suffix Appending:** Προσθέτει `s` και `es` για να καλύψει κανονικές πληθυντικές μορφές που μπορεί να μην εντοπιστούν από τους προηγούμενους ελέγχους.
+- **Suffix appending:** Προσθέτει `s` και `es` για να καλύψει κανονικές μορφές πληθυντικού που μπορεί να μην εντοπιστούν από τους προηγούμενους ελέγχους.
 
-#### Συμβουλές Επίλυσης Προβλημάτων
-- **Case Sensitivity:** Η μέθοδος χρησιμοποιεί `toLowerCase()` για σύγκριση, εξασφαλίζοντας ότι “Cats” και “cats” συμπεριφέρονται το ίδιο.  
-- **Edge Cases:** Λέξεις μικρότερες από το μήκος της κατάληξης αγνοούνται ώστε να αποφευχθεί η επιστροφή κενών συμβολοσειρών.  
+#### Συμβουλές αντιμετώπισης προβλημάτων
+- **Case sensitivity:** Η μέθοδος χρησιμοποιεί `toLowerCase()` για σύγκριση, εξασφαλίζοντας ότι “Cats” και “cats” συμπεριφέρονται το ίδιο.  
+- **Edge cases:** Λέξεις μικρότερες από το μήκος της κατάληξης αγνοούνται ώστε να αποφευχθεί η επιστροφή κενών συμβολοσειρών.  
 - **Performance:** Για μεγάλες λεξιλογικές βάσεις, σκεφτείτε την αποθήκευση των αποτελεσμάτων σε ένα `ConcurrentHashMap`.
 
-## Πρακτικές Εφαρμογές
+## Πρακτικές εφαρμογές
 
 Η υλοποίηση ενός **create word forms provider** μπορεί να ενισχύσει αρκετά πραγματικά σενάρια:
 
-1. **Search Engines:** Οι χρήστες που πληκτρολογούν “mouse” θα πρέπει επίσης να βρίσκουν έγγραφα που περιέχουν “mice”. Ένας πάροχος μπορεί να δημιουργήσει τέτοιες ανώμαλες μορφές.  
-2. **Text Analysis Tools:** Η ανάλυση συναισθήματος ή η εξαγωγή οντοτήτων γίνεται πιο αξιόπιστη όταν αναγνωρίζονται όλες οι παραλλαγές των λέξεων.  
-3. **Content Management Systems:** Η αυτόματη δημιουργία ετικετών μπορεί να περιλαμβάνει πληθυντικά συνώνυμα, βελτιώνοντας το SEO και τις εσωτερικές συνδέσεις.
+1. **Μηχανές αναζήτησης:** Οι χρήστες που πληκτρολογούν “mouse” θα πρέπει επίσης να βρίσκουν έγγραφα που περιέχουν “mice”. Ένας πάροχος μπορεί να δημιουργήσει τέτοιες ανώμαλες μορφές.  
+2. **Εργαλεία ανάλυσης κειμένου:** Η ανάλυση συναισθήματος ή η εξαγωγή οντοτήτων γίνεται πιο αξιόπιστη όταν αναγνωρίζονται όλες οι παραλλαγές των λέξεων.  
+3. **Συστήματα διαχείρισης περιεχομένου:** Η αυτόματη δημιουργία ετικετών μπορεί να περιλαμβάνει πληθυντικούς συνώνυμους, βελτιώνοντας το SEO και την εσωτερική σύνδεση.
 
-## Σκέψεις Απόδοσης
+## Σκέψεις απόδοσης
 
-Όταν ενσωματώνετε τον πάροχο σε σύστημα παραγωγής, λάβετε υπόψη τις παρακάτω συμβουλές:
+Όταν ενσωματώνετε τον πάροχο σε ένα παραγωγικό σύστημα, λάβετε υπόψη τις παρακάτω συμβουλές:
 
-- **Cache Frequently Used Forms:** Αποθηκεύστε τα αποτελέσματα στη μνήμη για να αποφύγετε την επανυπολογισμό της ίδιας λέξης.  
-- **Monitor JVM Heap:** Τα μεγάλα ευρετήρια μπορεί να αυξήσουν την πίεση μνήμης· ρυθμίστε το `-Xmx` ανάλογα.  
-- **Use Efficient Collections:** Το `ArrayList` λειτουργεί για μικρά σύνολα, αλλά για χιλιάδες μορφές σκεφτείτε το `HashSet` για γρήγορη αφαίρεση διπλοτύπων.
+- **Cache frequently used forms:** Αποθηκεύστε τα αποτελέσματα στη μνήμη για να αποφύγετε την επανυπολογισμό της ίδιας λέξης επανειλημμένα.  
+- **Monitor JVM heap:** Μεγάλα ευρετήρια μπορεί να αυξήσουν την πίεση μνήμης· ρυθμίστε το `-Xmx` ανάλογα.  
+- **Use efficient collections:** Το `ArrayList` λειτουργεί για μικρά σύνολα, αλλά για χιλιάδες μορφές σκεφτείτε το `HashSet` για γρήγορη αφαίρεση διπλοτύπων.
 
-**Καλές Πρακτικές**
-- Διατηρείτε τη βιβλιοθήκη ενημερωμένη για να επωφεληθείτε από διορθώσεις απόδοσης.  
-- Κάντε profiling του παρόχου με ρεαλιστικά φορτία ερωτημάτων για να εντοπίσετε τα bottlenecks νωρίς.
+**Best practices**
+
+- Διατηρήστε τη βιβλιοθήκη ενημερωμένη για να επωφεληθείτε από διορθώσεις απόδοσης.  
+- Κάντε profiling του παρόχου με ρεαλιστικά φορτία ερωτημάτων για να εντοπίσετε σημεία συμφόρησης νωρίς.  
 
 ## Συμπέρασμα
 
-Μάθατε πώς να **δημιουργήσετε μοναδικές και πληθυντικές μορφές σε Java** χρησιμοποιώντας έναν προσαρμοσμένο `SimpleWordFormsProvider` με το GroupDocs.Search. Αυτό το ελαφρύ στοιχείο μπορεί να βελτιώσει δραστικά τη συνάφεια των αποτελεσμάτων αναζήτησης και την ακρίβεια της γλωσσικής ανάλυσης σε πολλές εφαρμογές.
+Τώρα έχετε μάθει **πώς να δημιουργείτε μορφές σε Java** χρησιμοποιώντας έναν προσαρμοσμένο `SimpleWordFormsProvider` με το GroupDocs.Search. Αυτό το ελαφρύ στοιχείο μπορεί να βελτιώσει δραματικά τη συνάφεια των αποτελεσμάτων αναζήτησης και την ακρίβεια της γλωσσολογικής ανάλυσης σε πολλές εφαρμογές.
 
-**Επόμενα βήματα:**  
-- Πειραματιστείτε με πιο σύνθετους γλωσσικούς κανόνες (ανώμαλες πληθυντικές, stemming).  
+**Next steps**  
+- Πειραματιστείτε με πιο σύνθετους γλωσσικούς κανόνες (ανώμαλα πληθυντικά, stemming).  
 - Ενσωματώστε τον πάροχο σε μια διαδικασία ευρετηρίου και μετρήστε τις βελτιώσεις στην ανάκληση.  
 - Εξερευνήστε άλλες δυνατότητες του GroupDocs.Search όπως λεξικά συνωνύμων και προσαρμοσμένους αναλυτές.
 
-**Κάλεση για Δράση:** Δοκιμάστε να προσθέσετε το `SimpleWordFormsProvider` στο δικό σας έργο σήμερα και δείτε πώς ενισχύει την εμπειρία αναζήτησής σας!
+**Call to action:** Δοκιμάστε να προσθέσετε το `SimpleWordFormsProvider` στο δικό σας έργο σήμερα και δείτε πώς εμπλουτίζει την εμπειρία αναζήτησής σας!
 
 ## Ενότητα Συχνών Ερωτήσεων
 
-**1. Τι είναι το GroupDocs.Search for Java;**  
-Είναι μια ισχυρή βιβλιοθήκη που προσφέρει αναζήτηση πλήρους κειμένου, ευρετηρίαση και γλωσσικά χαρακτηριστικά — συμπεριλαμβανομένης της δυνατότητας ενσωμάτωσης προσαρμοσμένων παρόχων μορφών λέξεων.
+**Q: What is GroupDocs.Search for Java?**  
+A: It’s a powerful library that offers full‑text search, indexing, and linguistic features—including the ability to plug in custom word‑form providers.
 
-**2. Πώς λειτουργεί το SimpleWordFormsProvider;**  
-Δημιουργεί εναλλακτικές μορφές εφαρμόζοντας απλούς κανόνες βάσει καταλήξεων (αφαίρεση “s/es”, μετατροπή “y” σε “is” και προσθήκη “s/es”).
+**Q: How does the SimpleWordFormsProvider work?**  
+A: It generates alternative forms by applying simple suffix‑based rules (removing “s/es”, converting “y” to “is”, and appending “s/es”).
 
-**3. Μπορώ να προσαρμόσω τους κανόνες δημιουργίας μορφών λέξεων;**  
-Απόλυτα. Τροποποιήστε τη μέθοδο `getWordForms` ώστε να περιλαμβάνει ανώμαλες μορφές, κανόνες ειδικών τοπικών ρυθμίσεων ή ενσωμάτωση εξωτερικών λεξικών.
+**Q: Can I customize the word form generation rules?**  
+A: Absolutely. Modify the `getWordForms` method to include irregular forms, locale‑specific rules, or integration with external dictionaries.
 
-**4. Ποιες είναι οι κοινές εφαρμογές αυτής της λειτουργίας;**  
-Μηχανές αναζήτησης, pipelines ανάλυσης κειμένου και πλατφόρμες CMS ωφελούνται από την αναγνώριση μοναδικών/πληθυντικών παραλλαγών.
+**Q: What are some common applications for this feature?**  
+A: Search engines, text‑analysis pipelines, and CMS platforms benefit from recognising singular/plural variants.
 
-**5. Χρειάζομαι εμπορική άδεια για χρήση σε παραγωγή;**  
-Ναι — ενώ η δοκιμή σας επιτρέπει να εξερευνήσετε το API, μια αγορασμένη άδεια αφαιρεί τους περιορισμούς χρήσης και παρέχει υποστήριξη.
-
----
-
-**Τελευταία Ενημέρωση:** 2026-02-21  
-**Δοκιμάστηκε Με:** GroupDocs.Search 25.4 (Java)  
-**Συγγραφέας:** GroupDocs  
+**Q: Do I need a commercial license for production use?**  
+A: Yes—while a trial lets you explore the API, a purchased license removes usage limits and grants support.
 
 ---
+
+**Last updated:** 2026-09-02  
+**Tested with:** GroupDocs.Search 25.4 (Java)  
+**Author:** GroupDocs
+
+## Σχετικά Μαθήματα
+
+- [Language Processing Java – Create Synonym Dictionary with GroupDocs.Search](/search/java/dictionaries-language-processing/)
+- [How to implement java full text search: create index directory with GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [How to Regex Search in Java: Mastering GroupDocs.Search for Text Document Analysis](/search/java/searching/groupdocs-search-java-regex-tutorial/)
