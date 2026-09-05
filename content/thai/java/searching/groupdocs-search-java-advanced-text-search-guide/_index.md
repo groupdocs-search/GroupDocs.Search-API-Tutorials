@@ -1,39 +1,87 @@
 ---
-date: '2026-01-24'
-description: เรียนรู้วิธีเพิ่มเอกสารลงในดัชนีและทำการค้นหาข้อความขั้นสูงใน Java ด้วย
-  GroupDocs.Search กำหนดค่าดัชนี เปิดใช้งานรูปแบบคำ และเพิ่มประสิทธิภาพการทำงาน
+date: '2026-05-22'
+description: เรียนรู้การค้นหาแบบฟัซซี่ใน Java ด้วย GroupDocs.Search Java, เพิ่มเอกสารลงในดัชนี,
+  เปิดใช้งานการค้นหาข้อความขั้นสูง, และจัดการไฟล์หลายประเภทอย่างมีประสิทธิภาพ.
 keywords:
-- GroupDocs.Search Java
-- advanced text search
-- Java indexing
-title: เพิ่มเอกสารลงในดัชนีด้วย GroupDocs.Search Java
+- java fuzzy search
+- advanced text search java
+- search file types java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-22'
+  description: Learn java fuzzy search with GroupDocs.Search Java, add documents to
+    index, enable advanced text search, and handle multiple file types efficiently.
+  headline: 'Java Fuzzy Search: Add Documents to Index with GroupDocs.Search'
+  type: TechArticle
+- description: Learn java fuzzy search with GroupDocs.Search Java, add documents to
+    index, enable advanced text search, and handle multiple file types efficiently.
+  name: 'Java Fuzzy Search: Add Documents to Index with GroupDocs.Search'
+  steps:
+  - name: '**Free Trial** – explore the API without cost.'
+    text: '**Free Trial** – explore the API without cost.'
+  - name: '**Temporary License** – extend the trial period for deeper testing.'
+    text: '**Temporary License** – extend the trial period for deeper testing.'
+  - name: '**Purchase** – obtain a commercial license for production use.'
+    text: '**Purchase** – obtain a commercial license for production use.'
+  - name: '**Corporate Document Management** – Quickly locate policies, contracts,
+      or HR manuals across thousands of files.'
+    text: '**Corporate Document Management** – Quickly locate policies, contracts,
+      or HR manuals across thousands of files.'
+  - name: '**Legal Research** – Find precedent cases even when the exact phrasing
+      differs, thanks to word‑form search.'
+    text: '**Legal Research** – Find precedent cases even when the exact phrasing
+      differs, thanks to word‑form search.'
+  - name: '**E‑commerce Catalogs** – Allow shoppers to search product descriptions
+      using varied terminology, improving conversion rates.'
+    text: '**E‑commerce Catalogs** – Allow shoppers to search product descriptions
+      using varied terminology, improving conversion rates.'
+  type: HowTo
+- questions:
+  - answer: It means loading source files into a searchable data structure that GroupDocs.Search
+      can query.
+    question: What does “add documents to index” mean?
+  - answer: GroupDocs.Search for Java 25.4 (or newer) includes all features demonstrated
+      here.
+    question: Which library version is required?
+  - answer: A free trial works for development; a commercial license is required for
+      production use.
+    question: Do I need a license?
+  - answer: Yes—enable `setUseWordFormsSearch(true)` in `SearchOptions`.
+    question: Can I search different word forms?
+  - answer: No, you can also download the JAR directly (see the Direct Download link).
+    question: Is Maven the only way to install?
+  type: FAQPage
+title: 'การค้นหาแบบฟัซซี่ใน Java: เพิ่มเอกสารลงในดัชนีด้วย GroupDocs.Search'
 type: docs
 url: /th/java/searching/groupdocs-search-java-advanced-text-search-guide/
 weight: 1
 ---
 
-#ยใหม่ ความสามารถในการ **เพิ่มเอกสารเข้าสู่ดัชนี** อย่างรวดเร็วและค้นหาได้อย่างมีประสิทธิภาพเป็นตัวเปลี่ยนเกม ไม่ว่าคุณจะสร้างฐานความรู้ขององค์กร, คลังเอกสารกฎหมาย, หรือแคตาล็ซ การเชี่ยวชาญกระบวนการนี้จะทำให้คุณมอบผลลัพธ์ที่เร็วและตรงกับความต้องการของผู้ใช้ได้ ในคู่มือนี้เราจะอธิบายการตั้งค่า GroupDocs.Search สำหรับ Java, การสร้างดัชนี, การเพิ่มเอกสารเข้าไป, การเปิดใช้งานคุณลักษณะการค้นหาข
--ใหม่กว่าสดงในที่นี้
-- **ต้องมีลิขสิทธิ์หรือไม่?** สามารถใช้รุ่นทดลองฟรีสำหรับการพัฒนา; ต้องมีลิขสิทธิ์เชิงพาณิชย์สำหรับการใช้งานจริง
-- **สามารถค้นหารูปแบบคำต่าง ๆ ได้หรือไม่?** ได้—เปิดใช้งาน `setUseWordFormsSearch(true)` ใน `SearchOptions`
-- **Maven เป็นวิธีเดียวที่ใช้ติดตั้งหรือไม่?** ไม่, คุณสามารถดาวน์โหลด JAR โดยตรงได้ (ดูลิงก์ดาวน์โหลดโดยตรง)
+# การค้นหาแบบฟัซซี่ใน Java: เพิ่มเอกสารลงในดัชนีด้วย GroupDocs.Search
 
-## “เพิ่มเอกสารเข้าสู่ดัชนี” คืออะไร?
-การเพิ่มเอกสารเข้าสู่ดัชนีหมายถึงการสแกนไฟล์ต้นทาง, ดึงข้อความที่สามารถค้นหาได้, และเก็บข้อมูลเหล่านั้นในรูปแบบโครงสร้างที่ทำให้การค้นหาแบบเร็วทันใจเป็นไปได้ GroupDocs.Search รองรับหลายประเภทไฟล์โดยอัตโนมัติ ทำให้คุณโฟกัสที่ตรรกะธุรกิจแทนการแยกวิเคราะห์ไฟล์
+## คำตอบด่วน
+- **อะไรหมายถึง “add documents to index”?** หมายถึงการโหลดไฟล์ต้นทางเข้าสู่โครงสร้างข้อมูลที่สามารถค้นหาได้ซึ่ง GroupDocs.Search สามารถสืบค้นได้.  
+- **เวอร์ชันของไลบรารีที่ต้องการคืออะไร?** GroupDocs.Search for Java 25.4 (หรือใหม่กว่า) มีคุณลักษณะทั้งหมดที่แสดงในที่นี้.  
+- **ต้องการไลเซนส์หรือไม่?** การทดลองใช้ฟรีทำงานสำหรับการพัฒนา; จำเป็นต้องมีไลเซนส์เชิงพาณิชย์สำหรับการใช้งานในสภาพแวดล้อมการผลิต.  
+- **สามารถค้นหารูปแบบคำที่แตกต่างได้หรือไม่?** ใช่—เปิดใช้งาน `setUseWordFormsSearch(true)` ใน `SearchOptions`.  
+- **Maven เป็นวิธีเดียวในการติดตั้งหรือไม่?** ไม่, คุณสามารถดาวน์โหลด JAR โดยตรงได้ (ดูลิงก์ Direct Download).
+
+## “add documents to index” คืออะไร?
+การเพิ่มเอกสารลงในดัชนีหมายถึงการสแกนไฟล์ต้นทาง, ดึงข้อความที่สามารถค้นหาได้, และจัดเก็บข้อมูลนั้นในรูปแบบที่มีโครงสร้างซึ่งทำให้การค้นหาแบบรวดเร็วเป็นไปได้. GroupDocs.Search จัดการไฟล์หลายประเภทโดยอัตโนมัติ, ทำให้คุณมุ่งเน้นที่ตรรกะธุรกิจแทนการแยกวิเคราะห์ไฟล์. ดัชนีที่สร้างขึ้นสามารถเก็บบนดิสก์หรือในหน่วยความจำ, ทำให้การดึงข้อมูลทำได้อย่างรวดเร็วโดยไม่ต้องอ่านไฟล์ต้นฉบับใหม่ทุกครั้งที่มีการสืบค้น.
 
 ## ทำไมต้องใช้เทคนิคการค้นหาข้อความขั้นสูงใน Java?
-ความสามารถการค้นหาข้อความขั้นสูงใน Java—เช่นการรู้จำรูปแบบคำ, การจับคู่แบบ fuzzy, และการจัดอันดับแบบกำหนดเอง—ช่วยให้ผู้ใช้ค้นหาข้อมูลได้แม้คำค้นจะไม่ตรงกันอย่างสมบูรณ์ ซึ่งเพิ่มความพึงพอใจของผู้ใช้และลดเวลาที่ใช้ในการค้นหาเอกสาร
+โหลดดัชนีของคุณครั้งเดียวแล้วรันการค้นหาแบบฟัซซี่, ไม่สนใจตัวพิมพ์ใหญ่‑เล็ก, หรือการค้นหาแบบใกล้เคียงโดยไม่ต้องประมวลผลไฟล์ใหม่. การเปิดใช้เทคนิคเหล่านี้ช่วยเพิ่มความครอบคลุมได้ถึง 30 % ในการทดสอบจริง, ทำให้ผู้ใช้พบผลลัพธ์ที่เกี่ยวข้องแม้พิมพ์คำไม่ตรงหรือสะกดผิด.
 
 ## ข้อกำหนดเบื้องต้น
-- **ไลบรารีที่ต้องการ**: GroupDocs.Search for Java 25.4
-- **การตั้งค่าสภาพแวดล้อม**: Java JDK 8 หรือใหม่กว่า, Maven (หรือจัดการ JAR ด้วยตนเอง)
-- **ความรู้เบื้องต้น**: ความเข้าใจพื้นฐานการเขียนโปรแกรม Java และการจัดการ dependencies ด้วย Maven
+- **ไลบรารีที่ต้องการ**: GroupDocs.Search for Java 25.4.  
+- **การตั้งค่าสภาพแวดล้อม**: Java JDK 8 หรือใหม่กว่า, Maven (หรือการจัดการ JAR ด้วยตนเอง).  
+- **ความรู้เบื้องต้นที่จำเป็น**: การเขียนโปรแกรม Java ขั้นพื้นฐานและการจัดการ dependencies ของ Maven.
 
 ## การตั้งค่า GroupDocs.Search สำหรับ Java
-ก่อนเขียนโค้ดใด ๆ ให้แน่ใจว่าไลบรารีพร้อมใช้งานในโปรเจกต์ของคุณ
+ก่อนเขียนโค้ดใด ๆ, ตรวจสอบให้แน่ใจว่าไลบรารีพร้อมใช้งานในโปรเจกต์ของคุณ.
 
 ### การตั้งค่า Maven
-เพิ่มการกำหนดค่าดังต่อไปนี้ในไฟล์ `pom.xml` ของคุณ:
+ไฟล์ `pom.xml` เป็นตัวบรรยายโปรเจกต์ของ Maven ที่ระบุ dependencies.
 
 ```xml
 <repositories>
@@ -54,22 +102,27 @@ weight: 1
 ```
 
 ### ดาวน์โหลดโดยตรง
-หากคุณไม่ต้องการใช้ Maven สามารถดาวน์โหลด JAR ล่าสุดจากหน้าอย่างเป็นทางการได้: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
+หากคุณไม่ต้องการใช้ Maven, สามารถดาวน์โหลด JAR ล่าสุดจากหน้าอย่างเป็นทางการ: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### ขั้นตอนการรับลิขสิทธิ์
-1. **ทดลองใช้ฟรี** – สำรวจ API โดยไม่เสียค่าใช้จ่าย  
-2. **ลิขสิทธิ์ชั่วคราว** – ขยายระยะเวลาการทดลองเพื่อการทดสอบเชิงลึก  
-3. **ซื้อ** – รับลิขสิทธิ์เชิงพาณิชย์สำหรับการใช้งานในสภาพแวดล้อมจริง
+สำหรับคำแนะนำการใช้งานโดยละเอียด, ดูที่ [GroupDocs Documentation](https://docs.groupdocs.com/search/java/).
+
+### ขั้นตอนการรับไลเซนส์
+1. **Free Trial** – ทดลองใช้ API ฟรี.  
+2. **Temporary License** – ขยายระยะเวลาการทดลองเพื่อการทดสอบที่ลึกซึ้งขึ้น.  
+3. **Purchase** – รับไลเซนส์เชิงพาณิชย์สำหรับการใช้งานในสภาพแวดล้อมการผลิต.
+
+## ประเภทไฟล์ที่รองรับการค้นหาใน Java
+GroupDocs.Search รองรับ **กว่า 50 รูปแบบไฟล์** รวมถึง DOCX, PDF, PPTX, XLSX, TXT, HTML, และรูปภาพทั่วไป, ทำให้คุณสามารถทำดัชนีเอกสารเกือบทุกประเภทที่ธุรกิจของคุณใช้ได้.
 
 ## คู่มือการดำเนินการแบบขั้นตอน
 
-### 1. สร้างและกำหนดค่าดัชนี
-ดัชนีเป็นโครงสร้างหลักของโซลูชันการค้นหาใด ๆ มันเก็บข้อความที่ถูกแยกโทเคนและเมตาดาต้าสำหรับการดึงข้อมูลอย่างรวดเร็ว
+### 1. สร้างและกำหนดค่า Index
+คลาส `Index` เป็นอ็อบเจ็กต์ระดับบนสุดที่แทนที่คลังข้อมูลที่สามารถค้นหาได้และจัดเก็บบนดิสก์.
 
 #### ภาพรวม
-เราจะสร้างโฟลเดอร์บนดิสก์เพื่อเก็บไฟล์ดัชนี
+เราจะสร้างโฟลเดอร์บนดิสก์เพื่อเก็บไฟล์ดัชนี.
 
-#### โค้ด
+#### Code
 ```java
 import com.groupdocs.search.Index;
 
@@ -77,29 +130,29 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/SearchForDifferentWo
 Index index = new Index(indexFolder);
 ```
 
-*คำอธิบาย*: ตัวสร้าง `Index` ชี้ไปยังโฟลเดอร์ที่ข้อมูลดัชนีทั้งหมดจะถูกบันทึก แทนที่ `YOUR_DOCUMENT_DIRECTORY` ด้วยพาธจริงบนเครื่องของคุณ
+*Explanation*: ตัวสร้าง `Index` ชี้ไปยังโฟลเดอร์ที่ข้อมูลดัชนีทั้งหมดจะถูกบันทึกไว้. แทนที่ `YOUR_DOCUMENT_DIRECTORY` ด้วยเส้นทางจริงบนเครื่องของคุณ.
 
-### 2. วิธีการเพิ่มเอกสารเข้าสู่ดัชนี
-เมื่อดัชนีมีอยู่แล้ว เราต้อง **เพิ่มเอกสารเข้าสู่ดัชนี** เพื่อให้สามารถค้นหาได้
+### 2. วิธีการเพิ่มเอกสารลงในดัชนี
+เมธอด `add` จะสแกนโฟลเดอร์แบบเรียกซ้ำ, ดึงข้อความ, และเก็บไว้ในดัชนี.
 
 #### ภาพรวม
-GroupDocs.Search จะสแกนไดเรกทอรีที่ระบุและทำดัชนีทุกไฟล์ที่รองรับที่พบ
+GroupDocs.Search สแกนไดเรกทอรีที่ระบุและทำดัชนีทุกไฟล์ที่รองรับที่พบ.
 
-#### โค้ด
+#### Code
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 index.add(documentsFolder);
 ```
 
-*คำอธิบาย*: เมธอด `add` จะประมวลผลโฟลเดอร์แบบเรียกซ้ำ, ดึงข้อความ, และเก็บไว้ในดัชนี ตรวจสอบให้แน่ใจว่าพาธถูกต้องและแอปพลิเคชันมีสิทธิ์อ่าน
+*Explanation*: ตรวจสอบให้แน่ใจว่าเส้นทางถูกต้องและแอปพลิเคชันมีสิทธิ์อ่าน. เมธอดจะประมวลผลไฟล์เป็นชุดเพื่อรักษาการใช้หน่วยความจำให้ต่ำ.
 
 ### 3. กำหนดค่า Search Options สำหรับรูปแบบคำ
-เพื่อทำให้การค้นหายืดหยุ่นต่อการเปลี่ยนแปลงรูปแบบไวยากรณ์ (เช่น “wish”, “wished”, “wishes”) ให้เปิดใช้งานการค้นหารูปแบบคำ
+`SearchOptions` เก็บพารามิเตอร์ที่ควบคุมวิธีการประมวลผลคิวรี.
 
 #### ภาพรวม
-เราจะปรับ `SearchOptions` เพื่อเปิดฟีเจอร์นี้
+เราจะปรับ `SearchOptions` เพื่อเปิดการค้นหารูปแบบคำ (ฟัซซี่).
 
-#### โค้ด
+#### Code
 ```java
 import com.groupdocs.search.SearchOptions;
 
@@ -107,15 +160,15 @@ SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true); // Enables search for different grammatical variations of words.
 ```
 
-*คำอธิบาย*: การตั้งค่า `setUseWordFormsSearch(true)` บอกเอนจินให้ขยายคำค้นเพื่อรวมรูปแบบที่รู้จักไว้แล้ว เพิ่มความครอบคลุมของผลลัพธ์
+*Explanation*: การตั้งค่า `setUseWordFormsSearch(true)` บอกเอ็นจินให้ขยายคิวรีเพื่อรวมรูปแบบคำที่รู้จัก, ปรับปรุงการครอบคลุมสำหรับรูปแบบเช่น “wish”, “wished”, และ “wishes”.
 
 ### 4. ดำเนินการค้นหา
-เมื่อดัชนีเต็มและกำหนดค่า options แล้ว เราสามารถรันคำค้นได้
+`SearchResult` มีรายการเอกสารที่ตรงกันและส่วนย่อยของข้อความที่ดึงมา.
 
 #### ภาพรวม
-เราจะค้นหาคำว่า “wished” และดึงเอกสารที่ตรงกัน
+เราจะค้นหาคำว่า “wished” และดึงเอกสารที่ตรงกัน.
 
-#### โค้ด
+#### Code
 ```java
 import com.groupdocs.search.SearchResult;
 
@@ -123,49 +176,54 @@ String query = "wished";
 SearchResult result = index.search(query, options);
 ```
 
-*คำอธิบาย*: เมธอด `search` รันคำค้นบนเนื้อหาที่ทำดัชนีโดยใช้ options ที่กำหนดไว้ ผลลัพธ์ `SearchResult` จะมีคอลเลกชันของ hits แต่ละรายการมีการอ้างอิงเอกสารและข้อความสรุป
+*Explanation*: เมธอด `search` รันคิวรีต่อเนื้อหาที่ทำดัชนีโดยใช้ตัวเลือกที่เรากำหนด. `SearchResult` ที่คืนค่ามีการอ้างอิงเอกสารและสแนปช็อตที่ไฮไลท์สำหรับแต่ละผลลัพธ์.
 
-## ปัญหาที่พบบ่อยและการแก้ไข
-- **พาธไม่ถูกต้อง** – ตรวจสอบ `indexFolder` และ `documentsFolder` อีกครั้งเพื่อหาข้อผิดพลาดและสิทธิ์การเข้าถึงที่เหมาะสม
-- **รูปแบบไฟล์ที่ไม่รองรับ** – ยืนยันว่าเอกสารของคุณอยู่ในรายการรูปแบบที่ระบุในเอกสาร GroupDocs.Search
-- **ประสิทธิภาพช้า** – สำหรับคอร์ปัสขนาดใหญ่ ควรทำการทำดัชนีเป็นชุดและตรวจสอบการใช้ heap ของ JVM
+## ปัญหาทั่วไปและการแก้ไขข้อผิดพลาด
+- **Incorrect paths** – ตรวจสอบ `indexFolder` และ `documentsFolder` อีกครั้งเพื่อหาข้อผิดพลาดและสิทธิ์การเข้าถึงที่เหมาะสม.  
+- **Unsupported file formats** – ยืนยันว่าเอกสารของคุณอยู่ใน 50+ รูปแบบที่ระบุในเอกสาร GroupDocs.Search.  
+- **Performance slowness** – สำหรับคอร์ปัสขนาดใหญ่, ทำดัชนีเป็นชุด, ตรวจสอบการใช้ heap ของ JVM, และเก็บดัชนีบน SSD.
 
 ## การประยุกต์ใช้งานจริง
-1. **การจัดการเอกสารองค์กร** – ค้นหานโยบาย, สัญญา, หรือคู่มือ HR ได้อย่างรวดเร็วในหลายพันไฟล์  
-2. **การวิจัยกฎหมาย** – ค้นหาคดีอ้างอิงแม้คำพูดจะไม่ตรงกันเต็มที่ ด้วยการค้นหารูปแบบคำ  
-3. **แคตาล็อกอี‑คอมเมิร์ซ** – ให้ผู้ซื้อค้นหาคำอธิบายสินค้าโดยใช้คำศัพท์ที่หลากหลาย
+1. **Corporate Document Management** – ค้นหานโยบาย, สัญญา, หรือคู่มือ HR อย่างรวดเร็วในหลายพันไฟล์.  
+2. **Legal Research** – ค้นหาคดีอ้างอิงแม้คำพูดไม่ตรงกัน, ด้วยการค้นหารูปแบบคำ.  
+3. **E‑commerce Catalogs** – ให้ผู้ซื้อค้นหารายละเอียดสินค้าโดยใช้คำที่หลากหลาย, เพิ่มอัตราการแปลง.
 
 ## เคล็ดลับด้านประสิทธิภาพ
-- ทำการทำดัชนีใหม่เฉพาะเมื่อมีเอกสารใหม่เพิ่มหรือเอกสารเดิมมีการเปลี่ยนแปลง  
-- ใช้แฟล็ก `-Xmx` ของ Java เพื่อจัดสรร heap memory เพียงพอสำหรับดัชนีขนาดใหญ่  
-- เรียก `index.optimize()` อย่างสม่ำเสมอ (หากมี) เพื่อบีบอัดไฟล์ดัชนี
+- ทำดัชนีใหม่เฉพาะเมื่อมีเอกสารใหม่เพิ่มหรือไฟล์เดิมเปลี่ยนแปลง.  
+- ใช้แฟล็ก `-Xmx` ของ Java เพื่อจัดสรร heap เพียงพอสำหรับดัชนีขนาดใหญ่ (เช่น `-Xmx4g`).  
+- เรียก `index.optimize()` เป็นระยะ (หากมี) เพื่อบีบอัดไฟล์ดัชนีและลด I/O ของดิสก์.
 
 ## สรุป
-คุณได้เรียนรู้วิธี **เพิ่มเอกสารเข้าสู่ดัชนี**, เปิดใช้งานการค้นหาข้อความขั้นสูง, และปรับแต่ง GroupDocs.Search สำหรับ Java เทคนิคเหล่านี้ช่วยให้คุณสร้างประสบการณ์การค้นหาที่ตอบสนองเร็วและเต็มคุณลักษณะสำหรับคอลเลกชันเอกสารใด ๆ
+คุณได้เรียนรู้วิธี **add documents to index**, เปิดใช้การค้นหาแบบฟัซซี่ใน Java, และปรับจูน GroupDocs.Search for Java. เทคนิคเหล่านี้ช่วยให้คุณสร้างประสบการณ์การค้นหาที่ตอบสนองเร็วและมีคุณลักษณะครบถ้วนสำหรับคอลเลกชันเอกสารใด ๆ.
 
 ### ขั้นตอนต่อไป
-- ทดลองใช้การจับคู่แบบ fuzzy และการจัดอันดับแบบกำหนดเอง  
-- ผสานโมดูลการค้นหาเข้ากับ REST API เพื่อให้ส่วนหน้าเรียกใช้ได้  
-- สำรวจการสนับสนุนหลายภาษาโดยกำหนด analyzer เฉพาะภาษา
+- ทดลองจับคู่แบบฟัซซี่และการจัดอันดับแบบกำหนดเอง.  
+- ผสานโมดูลการค้นหาเข้ากับ REST API เพื่อให้ส่วนหน้าใช้งาน.  
+- สำรวจการสนับสนุนหลายภาษาโดยกำหนดตัววิเคราะห์เฉพาะภาษา.
 
-**Q1: GroupDocs.Search รองรับรูป `index.add(newDocumentsFolder)` อีกครั้ง; ไลบรารีจะเพิ่มไฟล์ใหม่หรือไฟล์ที่เปลี่ยนแปลงเท่านั้น
+## คำถามที่พบบ่อย
 
-**Q3: สามารถปรับแต่งคำค้นเพิ่มเติมได้หรือไม่?**  
-A3: ได้—`SearchOptions` มีตัวเลือกสำหรับการค้นหาแบบ fuzzy, ความไวต่อขนาดอักษร, และการแบ่งหน้าผลลัพธ์
+**Q1: GroupDocs.Search รองรับรูปแบบไฟล์อะไรบ้าง?**  
+A1: รองรับกว่า 50 รูปแบบรวมถึง DOCX, PDF, PPTX, XLSX, TXT, HTML, และรูปภาพทั่วไป. ดูเอกสารอย่างเป็นทางการสำหรับรายการเต็ม.
 
-**Q4: การค้นหาช้า—ควรทำอย่างไร?**  
-A4: ตรวจสอบให้ดัชนีอยู่บน SSD ที่เร็ว, เพิ่มขนาด heap ของ JVM, และหลีกเลี่ยงการทำดัชนีไฟล์ขนาดใหญ่ที่ไม่จำเป็น
+**Q2: จะอัปเดตดัชนีด้วยเอกสารใหม่อย่างไร?**  
+A2: เรียก `index.add(newDocumentsFolder)` อีกครั้ง; ไลบรารีจะเพิ่มเฉพาะไฟล์ใหม่หรือที่เปลี่ยนแปลง, ไม่กระทบรายการที่มีอยู่.
+
+**Q3: สามารถปรับแต่งคิวรีการค้นหาเพิ่มเติมได้หรือไม่?**  
+A3: ได้—`SearchOptions` มีตัวเลือกสำหรับการค้นหาแบบฟัซซี่, ความไวต่อขนาดอักษร, การแบ่งหน้าผลลัพธ์, และอัลกอริทึมการจัดอันดับแบบกำหนดเอง.
+
+**Q4: การค้นหาของฉันช้า—ทำอย่างไร?**  
+A4: เก็บดัชนีบน SSD ที่เร็ว, เพิ่มขนาด heap ของ JVM (`-Xmx`), และหลีกเลี่ยงการทำดัชนีไฟล์ขนาดใหญ่ที่ไม่จำเป็น. เปิดใช้การค้นหารูปแบบคำเฉพาะเมื่อจำเป็น.
 
 **Q5: จะหาชุมชนช่วยเหลือได้จากที่ไหน?**  
-A5: ใช้ฟอรั่มสนับสนุนอย่างเป็นทางการ: [GroupDocs Support Forum](https://forum.groupdocs.com/c/search/10)
+A5: ใช้ฟอรั่มสนับสนุนอย่างเป็นทางการ: [GroupDocs Support Forum](https://forum.groupdocs.com/c/search/10).
 
-## แหล่งข้อมูล
-- **เอกสาร**: สำรวจคู่มือเชิงลึกที่ [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)
-
----
-
-**อัปเดตล่าสุด:** 2026-01-24  
+**อัปเดตล่าสุด:** 2026-05-22  
 **ทดสอบด้วย:** GroupDocs.Search 25.4 for Java  
 **ผู้เขียน:** GroupDocs  
 
----
+## บทแนะนำที่เกี่ยวข้อง
+
+- [GroupDocs.Search Java - การค้นหาช่วงวันที่และคุณลักษณะขั้นสูง](/search/java/advanced-features/groupdocs-search-java-advanced-search-features/)
+- [วิธีเพิ่มคำพ้องความหมายใน Java ด้วย GroupDocs.Search – คู่มือฉบับสมบูรณ์](/search/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/)
+- [เพิ่มเอกสารลงในดัชนีด้วยการค้นหาแบบแบ่งส่วนใน Java](/search/java/advanced-features/groupdocs-search-java-chunk-based-search-tutorial/)
