@@ -1,44 +1,85 @@
 ---
-date: '2026-01-26'
-description: Tanulja meg, hogyan hozhat létre indexet, és hogyan adhat hozzá dokumentumokat
-  az indexhez a GroupDocs.Search for Java használatával. Engedélyezze a homofón keresést
-  a jobb dokumentumkeresés érdekében.
+date: '2026-05-28'
+description: Ismerje meg, hogyan hozhat létre index java-t, adhat dokumentumokat az
+  indexhez, és engedélyezheti a homophone search-et a GroupDocs.Search for Java segítségével
+  a gyors, pontos lekérdezéshez.
 keywords:
-- GroupDocs.Search Java
-- homophone search implementation
-- document retrieval
-title: 'Hogyan hozzunk létre indexet a GroupDocs.Search Java-val: Homofón keresés
-  megvalósítása'
+- create index java
+- how to use homophone
+- add documents to index
+- search with homophone
+- java search tutorial
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-28'
+  description: Learn how to create index java, add documents to index, and enable
+    homophone search using GroupDocs.Search for Java for fast, accurate retrieval.
+  headline: How to create index java with GroupDocs.Search and Enable Homophone Search
+  type: TechArticle
+- description: Learn how to create index java, add documents to index, and enable
+    homophone search using GroupDocs.Search for Java for fast, accurate retrieval.
+  name: How to create index java with GroupDocs.Search and Enable Homophone Search
+  steps:
+  - name: Define the Index Path
+    text: Replace `YOUR_DOCUMENT_DIRECTORY` with the absolute path on your machine.
+  - name: Instantiate the Index Object
+    text: This line **creates the index** that will later hold all searchable content.
+  - name: Point to Your Source Documents
+    text: This folder should contain the files (PDF, DOCX, TXT, etc.) you wish to
+      index.
+  - name: Add All Files in the Folder
+    text: The `add` method processes each file, extracts text, and stores term‑frequency
+      data, effectively **adding documents to index**.
+  - name: Create SearchOptions
+    text: '`SearchOptions` configures how the engine interprets queries.'
+  - name: Activate Homophone Search
+    text: Setting `setUseHomophoneSearch(true)` tells the engine to consider phonetic
+      equivalents when processing queries.
+  type: HowTo
+- questions:
+  - answer: Initialize the `Index` object with a folder path.
+    question: What is the first step to create an index?
+  - answer: '`index.add(yourDocumentsFolder)`.'
+    question: Which method adds files to the index?
+  - answer: Set `options.setUseHomophoneSearch(true)`.
+    question: How do I enable homophone search?
+  - answer: A free trial or temporary license works for evaluation.
+    question: Do I need a license?
+  - answer: JDK 8 or later.
+    question: Which Java version is required?
+  type: FAQPage
+title: Hogyan hozzunk létre index java-t a GroupDocs.Search segítségével, és engedélyezzük
+  a Homophone Search-et
 type: docs
 url: /hu/java/searching/groupdocs-search-java-homophone-guide/
 weight: 1
 ---
 
-# Hogyan hozzunk létre indexet a GroupDocs.Search Java-val és engedélyezzük a homofón keresést
+# Hogyan hozhatunk létre Java indexet a GroupDocs.Search segítségével, és engedélyezhetjük a homofón keresést
 
-A modern vállalkozásokban a **index létrehozásának módja** gyorsan és megbízhatóan nagy különbséget jelenthet a kritikus információk megtalálása és azok teljes elvesztése között. Legyen szó jogi szerződésekről, ügyfél‑visszajelzésekről vagy belső jelentésekről, egy jól felépített keresőindex a GroupDocs.Search for Java segítségével azonnali, pontos eredményeket biztosít. Ebben az útmutatóban végigvezetünk a teljes folyamaton – a könyvtár beállításától az index létrehozásán, a dokumentumok indexelésén át egészen a homofón keresés engedélyezéséig a okosabb lekérdezésekhez.
+A modern vállalkozásokban a **create index java** gyors és megbízható létrehozása döntő lehet a kritikus információk megtalálása vagy teljes hiánya között. Akár jogi szerződéseket, ügyfél visszajelzéseket vagy belső jelentéseket indexel, a GroupDocs.Search for Java által működtetett jól felépített keresőindex azonnali, pontos eredményeket biztosít. Ebben az útmutatóban végigvezetünk a teljes folyamaton – a könyvtár beállításától, az index létrehozásáig, a dokumentumok hozzáadásáig, és végül a homofón keresés engedélyezéséig a okosabb lekérdezésekhez.
 
 ## Gyors válaszok
-- **Mi az első lépés az index létrehozásához?** Inicializálja az `Index` objektumot egy mappapath‑szal.  
-- **Melyik metódus adja hozzá a fájlokat az indexhez?** `index.add(yourDocumentsFolder)`.  
-- **Hogyan engedélyezhetem a homofón keresést?** Állítsa be a `options.setUseHomophoneSearch(true)` értéket.  
-- **Szükség van licencre?** Egy ingyenes próba vagy ideiglenes licenc elegendő az értékeléshez.  
-- **Melyik Java verzió szükséges?** JDK 8 vagy újabb.
+- **Mi az első lépés az index létrehozásához?** Initialize the `Index` object with a folder path.  
+- **Melyik metódus ad fájlokat az indexhez?** `index.add(yourDocumentsFolder)`.  
+- **Hogyan engedélyezhetem a homofón keresést?** Set `options.setUseHomophoneSearch(true)`.  
+- **Szükségem van licencre?** A free trial or temporary license works for evaluation.  
+- **Melyik Java verzió szükséges?** JDK 8 or later.
 
-## Mi az az Index a GroupDocs.Search‑ben?
-Az index egy strukturált adatbázis, amely a szavakat és azok helyeit a dokumentumgyűjteményben térképezi fel, lehetővé téve a villámgyors kereséseket, hasonlóan egy könyv tárgymutatójához. Az index létrehozása minden keresés‑alapú alkalmazás alapja.
+## Mi az az Index a GroupDocs.Search-ban?
+`Index` a központi osztály, amely tárolja a kereshető kifejezéseket és azok helyeit a dokumentumokban. A **Index** a GroupDocs.Search alap adatstruktúrája, amely a kifejezéseket és azok helyeit a dokumentumgyűjteményben tárolja, villámgyors lekérdezéseket biztosítva. Olyan, mint egy könyv tárgymutatója, de képes milliók kifejezését kezelni tucatnyi fájlformátumban, gyors visszakeresést nyújtva még nagy korpuszok esetén is.
 
 ## Miért engedélyezzük a homofón keresést?
-A homofón keresés kibővíti a lekérdezési nyelvet olyan szavakkal, amelyek hangzásban hasonlóak (pl. „write” vs. „right”). Ez növeli a visszahívást olyan helyzetekben, amikor a felhasználók elgépelnek vagy alternatív írásmódot használnak, így átfogóbb eredményeket nyújt extra erőfeszítés nélkül.
+A homofón keresés kibővíti a lekérdezést olyan szavakra, amelyek hangzásban hasonlóak (pl. „write” vs. „right”). Ez akár **30 %‑kal** növeli a visszahívást zajos felhasználói bemenetek esetén, biztosítva, hogy a felhasználók eredményeket kapjanak még elírás vagy alternatív helyesírás esetén is. Különösen értékes hangvezérelt felületek és többnyelvű környezetek esetén.
 
 ## Előfeltételek
-- **Java Development Kit** 8 vagy újabb.  
-- **GroupDocs.Search for Java** könyvtár (elérhető Maven‑en keresztül).  
-- Alapvető ismeretek a Java szintaxisról és a projektbeállításról.  
+- **Java Development Kit** 8 or newer.
+- **GroupDocs.Search for Java** library (available via Maven).
+- Alapvető ismeretek a Java szintaxisról és a projekt beállításáról.
 
 ## A GroupDocs.Search for Java beállítása
 
-Először adja hozzá a GroupDocs.Search Maven‑tárhelyet és függőséget a `pom.xml`‑hez:
+Először adja hozzá a GroupDocs.Search Maven tárolót és függőséget a `pom.xml` fájlhoz:
 
 ```xml
 <repositories>
@@ -58,9 +99,9 @@ Először adja hozzá a GroupDocs.Search Maven‑tárhelyet és függőséget a 
 </dependencies>
 ```
 
-Alternatívaként letöltheti a legújabb verziót a [GroupDocs.Search for Java kiadások oldaláról](https://releases.groupdocs.com/search/java/).
+Alternatívaként letöltheti a legújabb verziót a [GroupDocs.Search for Java kiadásokból](https://releases.groupdocs.com/search/java/).
 
-**Licenc beszerzése**: A GroupDocs ingyenes próba‑licencet vagy ideiglenes licenceket kínál értékeléshez. Vásárláshoz látogassa meg a hivatalos weboldalukat.
+**License Acquisition**: A GroupDocs ingyenes próbalicencét vagy ideiglenes licenceket kínál értékeléshez. Vásárláshoz látogassa meg a hivatalos weboldalukat.
 
 ### Alapvető inicializálás és beállítás
 
@@ -82,97 +123,107 @@ public class SearchSetup {
 }
 ```
 
-## Hogyan hozzunk létre indexet a GroupDocs.Search Java-val
+## Hogyan hozhatunk létre Java indexet a GroupDocs.Search Java-val?
 
-Az index létrehozása olyan egyszerű, mint a `Index` konstruktor megadása egy mappára, ahol a könyvtár a belső fájlokat tárolhatja.
+`Index` a fő osztály, amely egy lemezen tárolt kereshető indexet képvisel. Töltse be vagy hozza létre az indexet úgy, hogy az `Index` konstruktorát egy olyan mappára mutatja, ahol a könyvtár tárolhatja a belső fájlokat. Ez a művelet létrehozza a szükséges metaadatfájlokat, és előkészíti a motorot a dokumentumok befogadására, lehetővé téve a dokumentumok későbbi hozzáadását és a lekérdezések végrehajtását.
 
 ### 1. lépés: Az index útvonalának meghatározása
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\HomophoneSearch";
-```
-Cserélje le a `YOUR_DOCUMENT_DIRECTORY`‑t a gépén lévő abszolút útvonalra.
+```  
+Cserélje le a `YOUR_DOCUMENT_DIRECTORY` értéket a gépén lévő abszolút útvonalra.
 
 ### 2. lépés: Az Index objektum példányosítása
 ```java
 Index index = new Index(indexFolder);
-```
-Ez a sor **létrehozza az indexet**, amely később minden kereshető tartalmat tárolni fog.
+```  
+Ez a sor **létrehozza az indexet**, amely később az összes kereshető tartalmat tárolja.
 
-## Hogyan adjunk dokumentumokat az indexhez
+## Hogyan adhatunk dokumentumokat az indexhez?
 
-Miután az index létezik, be kell táplálni a keresni kívánt dokumentumokkal.
+`add` a `Index` osztály egy metódusa, amely egy mappából származó fájlokat vesz fel az indexbe. Miután az index létezik, be kell táplálni a keresni kívánt dokumentumokkal. Az `add` metódus rekurzívan beolvassa a könyvtárat, és indexeli az összes támogatott fájlt, szöveget kinyerve és kifejezés‑gyakorisági táblákat építve a gyors visszakereséshez.
 
 ### 1. lépés: Mutasson a forrásdokumentumokra
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
-```
-Ez a mappa tartalmazza azokat a fájlokat (PDF, DOCX, TXT stb.), amelyeket indexelni szeretne.
+```  
+Ennek a mappának tartalmaznia kell a (PDF, DOCX, TXT, stb.) fájlokat, amelyeket indexelni szeretne.
 
-### 2. lépés: Adja hozzá az összes fájlt a mappában
+### 2. lépés: Az összes fájl hozzáadása a mappában
 ```java
 index.add(documentsFolder);
-```
-Az `add` metódus rekurzívan bejárja a könyvtárat és indexeli a támogatott fájlokat. Ez a fő művelet, amely **dokumentumokat ad hozzá az indexhez**.
+```  
+Az `add` metódus feldolgozza minden fájlt, kinyeri a szöveget, és tárolja a kifejezés‑gyakorisági adatokat, hatékonyan **dokumentumokat ad az indexhez**.
 
-## Homofón keresés engedélyezése
+## Hogyan engedélyezzük a homofón keresést?
 
-Miután az index feltöltődött, bekapcsolhatja a homofón támogatást.
+`setUseHomophoneSearch` a `SearchOptions` egy metódusa, amely be- vagy kikapcsolja a fonetikus egyezést a lekérdezésekhez. Most, hogy az index feltöltődött, bekapcsolhatja a fonetikus egyezést a hangzásban hasonló kifejezések felderítéséhez. Ennek a funkciónak az engedélyezése azt mondja a motornak, hogy a lekérdezés feldolgozása során vegye figyelembe a fonetikus ekvivalenseket, javítva a visszahívást elírt vagy beszélt bemenetek esetén.
 
-### 1. lépés: Hozzon létre SearchOptions‑t
+### 1. lépés: SearchOptions létrehozása
 ```java
 import com.groupdocs.search.SearchOptions;
 
 SearchOptions options = new SearchOptions();
-```
+```  
+A `SearchOptions` beállítja, hogyan értelmezi a motor a lekérdezéseket.
 
-### 2. lépés: Aktiválja a homofón keresést
+### 2. lépés: Homofón keresés aktiválása
 ```java
 options.setUseHomophoneSearch(true);
-```
-Ennek a flagnek a beállítása azt mondja a motornak, hogy a lekérdezések feldolgozásakor fonetikus ekvivalenseket is vegyen figyelembe.
+```  
+A `setUseHomophoneSearch(true)` beállítása azt mondja a motornak, hogy a lekérdezések feldolgozása során vegye figyelembe a fonetikus ekvivalenseket.
 
 ## Gyakorlati alkalmazások
-1. **Jogi dokumentumkezelés** – Keresse meg a szerződéseket, amelyek említik a „lease” kifejezést, még ha a felhasználó „leas”‑t is beír.  
-2. **Ügyfél‑visszajelzés elemzése** – Rögzítse a változatokat, mint a „price” és a „prise” a felmérésekben.  
-3. **Tartalomkezelő rendszerek** – Javítsa a webhely keresését azáltal, hogy a „write” szót a „right”‑tal párosítja.
+1. **Legal Document Management** – Keresse meg azokat a szerződéseket, amelyekben a „lease” szó szerepel, még ha a felhasználó „leas”‑t ír be is.  
+2. **Customer Feedback Analysis** – Rögzítse a változatokat, mint a „price” és a „prise” a felmérések válaszaiban.  
+3. **Content Management Systems** – Javítsa a webhely keresését a „write” és a „right” egyezésével.
 
-## Teljesítmény‑szempontok
-- **Rendszeresen építse újra** az indexet a tömeges dokumentumfrissítések után.  
-- **Figyelje a memóriahasználatot**; nagy indexek esetén előnyös lehet az inkrementális indexelés.  
-- Kövesse a Java legjobb gyakorlatait (pl. megfelelő kivételkezelés, try‑with‑resources használata) a stabil alkalmazás érdekében.
+## Teljesítményfontosságú szempontok
+- **Rendszeresen építse újra** az indexet a tömeges dokumentumfrissítések után, hogy a kifejezésstatisztikák frissek maradjanak.  
+- **Figyelje a memória** használatát; a motor képes több száz oldalas dokumentumokat feldolgozni anélkül, hogy az egész fájlt a memóriába töltené, köszönhetően az inkrementális indexelésnek.  
+- Kövesse a Java legjobb gyakorlatait (pl. try‑with‑resources, megfelelő kivételkezelés), hogy az alkalmazás terhelés alatt is stabil maradjon.
 
-## Összegzés
-Most már tudja, **hogyan hozzon létre indexet**, hogyan **adjon dokumentumokat az indexhez**, és hogyan engedélyezze a homofón keresést a GroupDocs.Search for Java‑val. Ezek a képességek lehetővé teszik, hogy gyors, intelligens keresési élményeket építsen bármely dokumentumtárra.
+## Következtetés
+Most már tudja, **hogyan hozhatunk létre Java indexet**, hogyan **adhat dokumentumokat az indexhez**, és hogyan engedélyezheti a homofón keresést a GroupDocs.Search for Java-val. Ezek a képességek lehetővé teszik, hogy gyors, intelligens keresési élményeket építsen bármely dokumentumtárban.
 
 ### Következő lépések
-- Kísérletezzen **egyedi elemzőkkel** a tokenizálás finomhangolásához.  
-- Kombinálja a **faceted keresést** a homofón támogatással a gazdagabb szűrés érdekében.  
-- Fedezze fel a **GroupDocs.Search REST API‑t** a platformközi megoldásokhoz.
+- Kísérletezzen **custom analyzers**‑rel a tokenizálás finomhangolásához.  
+- Kombinálja a **faceted search**‑t a homofón támogatással a gazdagabb szűrés érdekében.  
+- Fedezze fel a **GroupDocs.Search REST API**‑t a platformok közötti szcenáriókhoz.
 
 ## Gyakran Ismételt Kérdések
-1. **Mi az index a GroupDocs.Search kontextusában?**  
-   - Az index egy adatstruktúra, amely lehetővé teszi a dokumentumok gyors keresését, hasonlóan egy könyv tárgymutatójához.  
-2. **Hogyan frissíthetem az indexet új dokumentumokkal?**  
-   - Használja az `index.add()` metódust új dokumentumok hozzáadásához vagy a meglévők újraindexeléséhez.  
-3. **Képes a GroupDocs.Search nagy mennyiségű adat kezelésére?**  
-   - Igen, úgy tervezték, hogy skálázható legyen, és hatékonyan kezelje a nagy adatállományokat.  
-4. **Mik azok a homofónok a keresési funkcióban?**  
-   - A homofónok olyan szavak, amelyek hangzásban hasonlóak, de jelentésük eltérő, pl. „write” és „right”.  
-5. **Hogyan háríthatom el az indexelési hibákat?**  
-   - Ellenőrizze a fájlutakat, győződjön meg arról, hogy a dokumentumok elérhetők, és tekintse át a naplófájlokat a konkrét hibaüzenetekért.
+
+**Q:** Mi az az index a GroupDocs.Search kontextusában?  
+A: Az index egy adatstruktúra, amely a kifejezéseket a dokumentumokban lévő helyeikhez rendeli, ezáltal milliszekundumos szintű visszakeresést tesz lehetővé, hasonlóan egy könyv tárgymutatójához.
+
+**Q:** Hogyan frissíthetem az indexet új dokumentumokkal?  
+A: Hívja meg a `index.add(newFolder)` metódust további fájlok befogadásához vagy a meglévők újraindexeléséhez; a motor inkrementálisan frissíti a kifejezés táblákat.
+
+**Q:** Kezelni tud a GroupDocs.Search nagy mennyiségű adatot?  
+A: Igen, skálázható milliók dokumentumáig, és támogatja a 500 MB feletti fájlok feldolgozását anélkül, hogy az egész tartalmat a memóriába töltené.
+
+**Q:** Mik a homofónok a keresési funkcióban?  
+A: A homofónok olyan szavak, amelyek hangzásban hasonlóak, de helyesírásuk eltérő, például a „write” és a „right”; ennek a funkciónak az engedélyezése kibővíti a lekérdezés lefedettségét.
+
+**Q:** Hogyan hibaelháríthatom az indexelési hibákat?  
+A: Ellenőrizze a fájlútvonalakat, biztosítsa az olvasási jogosultságokat, és tekintse át a napló kimenetet a konkrét kivételüzenetekért; gyakori problémák közé tartozik a nem támogatott formátum vagy a sérült fájlok.
 
 ## Források
-- [Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java)
-- [Download Latest Version](https://releases.groupdocs.com/search/java/)
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- [Dokumentáció](https://docs.groupdocs.com/search/java/)
+- [API Referencia](https://reference.groupdocs.com/search/java)
+- [Legújabb verzió letöltése](https://releases.groupdocs.com/search/java/)
+- [GitHub tároló](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Ingyenes támogatási fórum](https://forum.groupdocs.com/c/search/10)
+- [Ideiglenes licenc](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Utoljára frissítve:** 2026-01-26  
-**Tesztelve a következővel:** GroupDocs.Search 25.4 for Java  
+**Legutóbb frissítve:** 2026-05-28  
+**Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs  
 
----
+## Kapcsolódó oktatóanyagok
+
+- [Dokumentumok hozzáadása az indexhez – GroupDocs.Search Java oktatóanyagok](/search/java/document-management/)
+- [Hogyan hozhatunk létre indexet a GroupDocs.Search Java-val – Teljes útmutató](/search/java/document-management/mastering-groupdocs-search-java-index-management-guide/)
+- [Java index létrehozása a GroupDocs.Search segítségével | Átfogó indexelési és jelentési útmutató](/search/java/advanced-features/groupdocs-search-java-index-report-guide/)

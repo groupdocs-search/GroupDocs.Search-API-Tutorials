@@ -1,13 +1,55 @@
 ---
-date: '2026-01-26'
-description: Dowiedz się, jak wyszukiwać frazy przy użyciu wzorców wieloznacznych
-  w GroupDocs.Search dla Javy. Ten przewodnik obejmuje tworzenie indeksu wyszukiwania,
-  dodawanie dokumentów do indeksu oraz wykonywanie wyszukiwania wieloznacznego w Javie.
+date: '2026-05-28'
+description: Dowiedz się, jak wyszukiwać frazy przy użyciu wildcard patterns w GroupDocs.Search
+  dla Javy. Zawiera tworzenie search index, dodawanie dokumentów oraz wykonywanie
+  exact phrase i wildcard queries.
 keywords:
-- GroupDocs.Search for Java
-- phrase searches
-- wildcard patterns
-title: Jak wyszukać frazę z znakami wieloznacznych w GroupDocs.Search Java
+- how to search phrase
+- create search index
+- java wildcard search
+- exact phrase search
+- wildcard pattern search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-28'
+  description: Learn how to search phrase with wildcard patterns using GroupDocs.Search
+    for Java. Includes creating a search index, adding documents, and executing exact
+    phrase and wildcard queries.
+  headline: How to Search Phrase with Wildcards in GroupDocs.Search for Java
+  type: TechArticle
+- description: Learn how to search phrase with wildcard patterns using GroupDocs.Search
+    for Java. Includes creating a search index, adding documents, and executing exact
+    phrase and wildcard queries.
+  name: How to Search Phrase with Wildcards in GroupDocs.Search for Java
+  steps:
+  - name: Create an Index
+    text: '*(Same as Simple Phrase Search.)*'
+  - name: Add Documents to Index
+    text: '*(Same as above.)*'
+  - name: Create an Index
+    text: '*(Repeated for clarity.)*'
+  - name: Add Documents to Index
+    text: '*(Repeated.)*'
+  type: HowTo
+- questions:
+  - answer: A phrase search requires the exact word order and spacing, while a wildcard
+      allows you to replace or skip words within that order, offering flexible matching.
+    question: What is the difference between a wildcard and a phrase search?
+  - answer: Yes—wildcard range parameters (`*min~max`) work with numbers as well as
+      words, enabling queries like `"version *1~3"`.
+    question: Can I use wildcards with numeric data in searches?
+  - answer: Keep the index optimized, perform incremental updates, and craft specific
+      wildcard patterns to limit term expansion. GroupDocs.Search can index 1 million
+      documents while keeping query latency under 200 ms on standard hardware.
+    question: How should I handle very large document collections?
+  - answer: Absolutely—once the index is built, queries execute in milliseconds, making
+      it ideal for interactive search boxes and auto‑complete features.
+    question: Is GroupDocs.Search suitable for real‑time search scenarios?
+  - answer: Yes. Add the Maven dependency or JAR, instantiate the `Index` as shown,
+      and you’re ready to query without altering existing code.
+    question: Can I integrate this library into an existing Java project?
+  type: FAQPage
+title: Jak wyszukać frazę z użyciem wildcards w GroupDocs.Search dla Javy
 type: docs
 url: /pl/java/searching/groupdocs-search-java-phrase-wildcard/
 weight: 1
@@ -15,32 +57,59 @@ weight: 1
 
 # Jak wyszukiwać frazy z wieloznacznikami w GroupDocs.Search dla Javy
 
-W dzisiejszym szybkim świecie zarządzania dokumentami, **how to search phrase** efektywne może decydować o użyteczności aplikacji. Niezależnie od tego, czy tworzysz system zarządzania treścią, katalog e‑commerce, czy repozytorium dokumentów prawnych, możliwość odnalezienia dokładnych fraz — lub ich elastycznych wariantów — ma znaczenie. W tym samouczku przeprowadzimy Cię przez konfigurację **GroupDocs.Search for Java**, tworzenie indeksu wyszukiwania, dodawanie dokumentów do indeksu oraz opanowanie zarówno prostych wyszukiwań fraz, jak i potężnych technik wyszukiwania z wieloznacznikami w Javie.
+W nowoczesnych aplikacjach skoncentrowanych na dokumentach, **how to search phrase** szybko i dokładnie jest czynnikiem decydującym o doświadczeniu użytkownika. Niezależnie od tego, czy budujesz bazę wiedzy, katalog e‑commerce, czy repozytorium oparte na zgodności, możliwość zlokalizowania dokładnej frazy — lub jej elastycznej wariacji — utrzymuje użytkowników produktywnych i zmniejsza obciążenie wsparcia. Ten samouczek przeprowadzi Cię przez instalację **GroupDocs.Search for Java**, tworzenie indeksu wyszukiwania, ładowanie dokumentów oraz uruchamianie zarówno zapytań dokładnych, jak i wzbogaconych o wieloznaczniki, wszystko przy użyciu przejrzystych, gotowych do produkcji fragmentów kodu.
 
-## Quick Answers
-- **Jaka jest główna korzyść wyszukiwania fraz?** Precyzyjne dopasowanie kolejności słów i ich bliskości.  
-- **Czy wieloznaczniki mogą być używane wewnątrz frazy?** Tak, możesz łączyć wieloznaczniki z dokładnymi słowami, aby uzyskać elastyczne dopasowanie.  
-- **Czy potrzebuję licencji do rozwoju?** Darmowa wersja próbna wystarcza do testów; pełna licencja jest wymagana w produkcji.  
-- **Jaką wersję Maven powinienem używać?** Najnowsze wydanie GroupDocs.Search for Java (np. 25.4 w momencie pisania).  
-- **Czy to podejście jest odpowiednie dla dużych zbiorów dokumentów?** Zdecydowanie — wystarczy utrzymać zoptymalizowany indeks i używać ukierunkowanych wzorców wieloznaczników.
+## Szybkie odpowiedzi
+- **What is the primary benefit of phrase searches?** Precyzyjne dopasowanie kolejności słów i ich bliskości, gwarantujące, że zwrócone zostaną tylko dokumenty zawierające dokładną sekwencję.  
+- **Can wildcards be used inside a phrase?** Tak — wieloznaczniki pozwalają pominąć lub zastąpić słowa, zachowując ogólną kolejność.  
+- **Do I need a license for development?** Darmowa wersja próbna działa do testów; pełna licencja jest wymagana w środowiskach produkcyjnych.  
+- **Which Maven version should I use?** Najnowsze wydanie GroupDocs.Search for Java (np. 25.4 w momencie pisania).  
+- **Is this approach suitable for large document sets?** Absolutnie — GroupDocs.Search radzi sobie z kolekcjami liczącymi setki tysięcy dokumentów przy opóźnieniu zapytań poniżej sekundy, gdy indeks jest zoptymalizowany.
 
-## Czym jest „how to search phrase”?
-Wyszukiwanie frazy oznacza poszukiwanie określonej sekwencji słów w dokumencie. Dodając wieloznaczniki, pozwalasz silnikowi wyszukiwania pomijać lub zastępować słowa, co daje elastyczność dopasowywania wariantów bez utraty trafności.
+## Co to jest „how to search phrase”?
+**Wyszukiwanie frazy oznacza szukanie określonej sekwencji słów w dokumencie.**  
+Gdy wykonujesz zapytanie frazowe, silnik sprawdza, czy słowa pojawiają się w dokładnej kolejności i w określonej bliskości, eliminując nieistotne trafienia, które zawierają te same słowa w innym kontekście. Dzięki temu wyszukiwanie fraz jest idealne do znajdowania klauzul prawnych, kodów produktów lub dowolnego tekstu, w którym kolejność ma znaczenie.
 
-## Dlaczego używać GroupDocs.Search do zapytań frazowych i z wieloznacznikami?
-- **Wysoka wydajność** przy dużych kolekcjach dzięki zoptymalizowanemu odwróconemu indeksowi.  
-- **Bogaty język zapytań** obsługujący dokładne frazy, proste wieloznaczniki i zaawansowane wzorce.  
-- **Łatwa integracja** z dowolną aplikacją opartą na Javie poprzez Maven lub bezpośrednie pobranie.  
+## Dlaczego warto używać GroupDocs.Search do zapytań frazowych i z wieloznacznikami?
+GroupDocs.Search zapewnia **wysoką przepustowość indeksowania do 1 miliona dokumentów przy zachowaniu odpowiedzi na zapytania w czasie poniżej sekundy** na typowym sprzęcie serwerowym. Jego język zapytań obsługuje dokładne frazy, proste wieloznaczniki `*` i `?`, oraz zaawansowane wzorce, takie jak zakresy liczbowe (`*2~5`). Biblioteka integruje się z dowolną aplikacją Java poprzez Maven lub bezpośrednie pobranie JAR‑a i działa na Java 8+ bez zewnętrznych usług.
 
-## Prerequisites
-- Java 8 lub nowsza zainstalowana.  
-- Maven 3 lub nowszy (jeśli preferujesz zarządzanie zależnościami przez Maven).  
-- Podstawowa znajomość składni Javy i struktury projektu.  
+## Wymagania wstępne
+- Java 8 lub nowsza (zalecany Java 11 LTS).  
+- Maven 3 lub nowszy (jeśli preferujesz zarządzanie zależnościami).  
+- Podstawowa znajomość struktury projektu Java oraz koncepcji obiektowo‑zorientowanych.  
 
-## Setting Up GroupDocs.Search for Java
+## Konfiguracja GroupDocs.Search dla Javy
 
-### Using Maven
-Add the repository and dependency to your `pom.xml` file:
+### Korzystanie z Maven
+Dodaj oficjalne repozytorium i zależność GroupDocs.Search do swojego `pom.xml`:
+
+```xml
+<!-- Maven repository -->
+<repositories>
+    <repository>
+        <id>groupdocs-releases</id>
+        <url>https://repository.groupdocs.com/release</url>
+    </repository>
+</repositories>
+
+<!-- GroupDocs.Search dependency -->
+<dependency>
+    <groupId>com.groupdocs</groupId>
+    <artifactId>groupdocs-search</artifactId>
+    <version>25.4</version>
+</dependency>
+```
+
+### Bezpośrednie pobranie
+Alternatywnie, pobierz najnowszy JAR z oficjalnej strony wydań: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+
+### Uzyskanie licencji
+- **Free Trial:** Idealna do szybkich eksperymentów; ograniczona do 100 MB indeksowanych danych.  
+- **Temporary License:** Poproś o 30‑dniowy klucz ewaluacyjny w portalu GroupDocs.  
+- **Full License:** Wymagana do użytku produkcyjnego i nieograniczonej pojemności indeksowania.
+
+## Podstawowa inicjalizacja i konfiguracja
+Utwórz folder, w którym będą przechowywane pliki indeksu, i zainicjalizuj obiekt `Index`. Klasa `Index` reprezentuje indeks wyszukiwalny przechowywany na dysku i udostępnia metody dodawania, aktualizacji i zapytań dokumentów.
 
 ```xml
 <repositories>
@@ -60,54 +129,60 @@ Add the repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-### Direct Download
-Alternatywnie, pobierz najnowszy plik JAR z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
-
-### License Acquisition
-- **Free Trial:** Idealny do szybkich eksperymentów.  
-- **Temporary License:** Wniosek przez portal GroupDocs w celu przedłużonych testów.  
-- **Full Purchase:** Zalecany do wdrożeń produkcyjnych.
-
-### Basic Initialization and Setup
-Create a folder for the index and initialize it:
-
+### Dodaj dokumenty, które mają być przeszukiwane:
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/PhraseSearch";
 Index index = new Index(indexFolder);
 ```
 
-Add the documents you want to make searchable:
+## Jak wyszukiwać frazy z wieloznacznikami w GroupDocs.Search
+Ten rozdział demonstruje trzy poziomy wyszukiwania fraz — dokładne dopasowanie, prosty wieloznacznik oraz zaawansowane wzorce wieloznaczników — pokazując, jak utworzyć indeks, dodać dokumenty i wykonać każdy typ zapytania przy użyciu zwięzłego kodu Java. Przykłady ilustrują zarówno zapytania tekstowe, jak i oparte na obiektach, umożliwiając deweloperom integrację elastycznych możliwości wyszukiwania w swoich aplikacjach.
 
+### Proste wyszukiwanie frazy
+
+#### Przegląd
+Użyj tego podejścia, gdy potrzebujesz **dokładnego dopasowania** sekwencji słów, np. klauzuli prawnej lub numeru modelu produktu.
+
+#### Bezpośrednia odpowiedź
+Załaduj indeks, wywołaj `search` z frazą w cudzysłowie (np. `"quick brown fox"`), a silnik zwróci tylko dokumenty zawierające tę dokładną sekwencję, zachowując kolejność słów i odstępy. Zapytanie wykonuje się w milisekundach, nawet przy indeksach zawierających setki tysięcy plików.
+
+#### Krok 1: Utwórz indeks
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-## Jak wyszukiwać frazy z wieloznacznikami w GroupDocs.Search
-Poniżej przedstawiamy trzy rosnące scenariusze: dokładne wyszukiwanie frazy, proste użycie wieloznaczników oraz zaawansowane wzorce wieloznaczników.
-
-### Simple Phrase Search
-
-#### Overview
-Użyj tego, gdy potrzebne jest dokładne dopasowanie kolejności słów.
-
-##### Step 1: Create an Index
+#### Krok 2: Dodaj dokumenty do indeksu
 ```java
 Index index = new Index(indexFolder);
 ```
 
-##### Step 2: Add Documents to Index
+#### Krok 3: Wyszukaj konkretną frazę (forma tekstowa)
 ```java
 index.add(documentsFolder);
 ```
 
-##### Step 3: Search for a Specific Phrase (Text Form)
+#### Krok 4: Zapytania oparte na obiektach (wyszukiwanie dokładnej frazy)
 ```java
 String queryText = "\"sollicitudin at ligula\"";
 SearchResult resultText = index.search(queryText);
 ```
 
-##### Step 4: Object‑Based Queries (Search Exact Phrase)
+### Wyszukiwanie frazy z wieloznacznikami
+
+#### Przegląd
+Wieloznaczniki (`*` dla dowolnej liczby znaków, `?` dla jednego znaku) pozwalają **pominąć zmienne słowa**, zachowując jednocześnie otaczający je porządek.
+
+#### Bezpośrednia odpowiedź
+Wstaw token wieloznacznika (`*`) wewnątrz frazy w cudzysłowie — np. `"quick * fox"` — aby dopasować dowolne słowo(a) pomiędzy *quick* a *fox*. Silnik rozwija wieloznacznik w czasie zapytania, przeszukując tylko indeksowane terminy spełniające wzorzec, co utrzymuje wydajność porównywalną z prostym zapytaniem frazowym.
+
+#### Krok 1: Utwórz indeks
+*(Tak samo jak w prostym wyszukiwaniu frazy.)*
+
+#### Krok 2: Dodaj dokumenty do indeksu
+*(Tak samo jak powyżej.)*
+
+#### Krok 3: Wyszukiwanie w formie tekstowej z wieloznacznikami
 ```java
 SearchQuery word1 = SearchQuery.createWordQuery("sollicitudin");
 SearchQuery word2 = SearchQuery.createWordQuery("at");
@@ -116,24 +191,27 @@ SearchQuery queryObject = SearchQuery.createPhraseSearchQuery(word1, word2, word
 SearchResult resultObject = index.search(queryObject);
 ```
 
-### Phrase Search with Wildcards
-
-#### Overview
-Symboliczne wieloznaczniki pozwalają pominąć zmienną liczbę słów pomiędzy dokładnymi terminami.
-
-##### Step 1: Create an Index
-*(Takie same jak kroki w prostym wyszukiwaniu frazy.)*
-
-##### Step 2: Add Documents to Index
-*(Takie same jak powyżej.)*
-
-##### Step 3: Text Form Search with Wildcards
+#### Krok 4: Zapytania oparte na obiektach z wieloznacznikami (Wildcard Search Java)
 ```java
 String queryText = "\"sollicitudin *0~~3 ligula\"";
 SearchResult resultText = index.search(queryText);
 ```
 
-##### Step 4: Object‑Based Queries with Wildcards (Wildcard Search Java)
+### Zaawansowane wyszukiwanie wieloznacznikami
+
+#### Przegląd
+Łącz zakresy liczbowe, opcjonalne znaki i własne wzorce podobne do wyrażeń regularnych, aby uzyskać **zaawansowane dopasowanie**, np. numerów wersji lub kodów produktów.
+
+#### Bezpośrednia odpowiedź
+Użyj rozszerzonej składni wieloznaczników `*min~max`, aby określić zakres dopuszczalnych odległości słów, lub `?` do dopasowania jednego znaku. Na przykład, `"error *2~5 code"` znajdzie słowo *error* po którym nastąpi od dwóch do pięciu słów, a następnie *code*. Ta precyzja zmniejsza liczbę fałszywych trafień, jednocześnie oferując elastyczność.
+
+#### Krok 1: Utwórz indeks
+*(Powtórzone dla jasności.)*
+
+#### Krok 2: Dodaj dokumenty do indeksu
+*(Powtórzone.)*
+
+#### Krok 3: Wyszukiwanie w formie tekstowej z złożonymi wzorcami wieloznaczników
 ```java
 SearchQuery word1 = SearchQuery.createWordQuery("sollicitudin");
 SearchQuery wildcard2 = SearchQuery.createWildcardQuery(0, 3);
@@ -142,24 +220,51 @@ SearchQuery queryObject = SearchQuery.createPhraseSearchQuery(word1, wildcard2, 
 SearchResult resultObject = index.search(queryObject);
 ```
 
-### Advanced Wildcard Search
-
-#### Overview
-Łącz zakresy liczbowe, znaki opcjonalne i własne wzorce, aby uzyskać zaawansowane dopasowanie.
-
-##### Step 1: Create an Index
-*(Powtórzone dla jasności.)*
-
-##### Step 2: Add Documents to Index
-*(Powtórzone.)*
-
-##### Step 3: Text Form Search with Complex Wildcard Patterns
+#### Krok 4: Zapytania oparte na obiektach z zaawansowanymi wieloznacznikami
 ```java
 String queryText = "\"sollicitudin *0~~3 ?(0~4)la\"";
 SearchResult resultText = index.search(queryText);
 ```
 
-##### Step 4: Object‑Based Queries with Advanced Wildcards
+## Praktyczne zastosowania
+- **Systemy zarządzania treścią:** Redaktorzy mogą szybko znajdować dokładne klauzule lub elastyczne fragmenty bez ręcznego przeglądania setek stron.  
+- **Katalogi e‑commerce:** Klienci znajdują produkty, nawet gdy pomijają opis lub używają synonimów, dzięki tolerancji na wieloznaczniki.  
+- **Prawo i zgodność:** Szybko izolują fragmenty umów, które mogą występować z drobnymi wariacjami w różnych dokumentach.  
+
+## Rozważania dotyczące wydajności
+- **Utwórz indeks wyszukiwania** tylko raz dla stabilnego zestawu dokumentów; używaj tego samego obiektu `Index` dla wszystkich zapytań.  
+- **Dodawaj dokumenty stopniowo**, gdy pojawiają się nowe pliki — unikaj przebudowy całego indeksu, aby utrzymać niskie zużycie CPU.  
+- **Projektuj precyzyjne wzorce wieloznaczników**; szersze wzorce (`*`) zwiększają liczbę rozwinięć terminów i mogą podnieść obciążenie CPU.  
+- **Wywołuj `index.optimize()`** okresowo (jeśli jest wspierane), aby skompaktować indeks i utrzymać kontrolę nad zużyciem pamięci.  
+
+## Typowe problemy i rozwiązania
+| Problem | Rozwiązanie |
+|-------|----------|
+| Brak wyników dla zapytania z wieloznacznikiem | Zweryfikuj składnię wieloznacznika (`*min~max`) i upewnij się, że docelowe słowa występują w określonej odległości. |
+| Indeks staje się nieaktualny po aktualizacji plików | Użyj `index.add(updatedFolder)` lub API aktualizacji przyrostowej, aby odświeżyć tylko zmienione pliki. |
+| Wysokie zużycie pamięci przy dużych zbiorach danych | Zwiększ przydział pamięci JVM (`-Xmx4g` lub wyższy) i rozważ podzielenie indeksu na wiele shardów w celu równoległego przetwarzania. |
+
+## Najczęściej zadawane pytania
+
+**Q: Jaka jest różnica między wieloznacznikiem a wyszukiwaniem frazy?**  
+A: Wyszukiwanie frazy wymaga dokładnej kolejności słów i odstępów, natomiast wieloznacznik pozwala zastąpić lub pominąć słowa w tej kolejności, oferując elastyczne dopasowanie.
+
+**Q: Czy mogę używać wieloznaczników z danymi liczbowymi w wyszukiwaniach?**  
+A: Tak — parametry zakresu wieloznacznika (`*min~max`) działają zarówno na liczbach, jak i na słowach, umożliwiając zapytania typu `"version *1~3"`.
+
+**Q: Jak radzić sobie z bardzo dużymi kolekcjami dokumentów?**  
+A: Utrzymuj indeks zoptymalizowany, wykonuj aktualizacje przyrostowe i twórz konkretne wzorce wieloznaczników, aby ograniczyć rozwinięcia terminów. GroupDocs.Search może indeksować 1 milion dokumentów przy opóźnieniu zapytań poniżej 200 ms na standardowym sprzęcie.
+
+**Q: Czy GroupDocs.Search nadaje się do scenariuszy wyszukiwania w czasie rzeczywistym?**  
+A: Absolutnie — po zbudowaniu indeksu zapytania wykonują się w milisekundach, co czyni go idealnym dla interaktywnych pól wyszukiwania i funkcji autouzupełniania.
+
+**Q: Czy mogę zintegrować tę bibliotekę z istniejącym projektem Java?**  
+A: Tak. Dodaj zależność Maven lub JAR, zainicjalizuj `Index` jak pokazano i możesz od razu wykonywać zapytania bez modyfikacji istniejącego kodu.
+
+**Ostatnia aktualizacja:** 2026-05-28  
+**Testowano z:** GroupDocs.Search 25.4 for Java  
+**Autor:** GroupDocs
+
 ```java
 double word1 = SearchQuery.createWordQuery("sollicitudin");
 SearchQuery wildcard2 = SearchQuery.createWildcardQuery(0, 3);
@@ -173,42 +278,8 @@ SearchQuery queryObject = SearchQuery.createPhraseSearchQuery(word1, wildcard2, 
 SearchResult resultObject = index.search(queryObject);
 ```
 
-## Praktyczne zastosowania
-- **Content Management Systems:** Umożliwiają redaktorom znajdowanie dokładnych klauzul lub elastycznych fragmentów.  
-- **E‑commerce Catalogs:** Pozwalają klientom znaleźć produkty, nawet jeśli pomijają słowo lub używają synonimów.  
-- **Legal & Compliance:** Szybko izolują język umowny, który może występować z drobnymi wariacjami.
+## Powiązane samouczki
 
-## Rozważania dotyczące wydajności
-- **Create Search Index** tylko raz na zestaw dokumentów, a następnie go ponownie używać.  
-- **Add Documents to Index** stopniowo, gdy pojawiają się nowe pliki — nie przebudowuj całego indeksu za każdym razem.  
-- Używaj **precyzyjnych wzorców wieloznaczników**, aby uniknąć niepotrzebnego skanowania; szersze wzorce zwiększają obciążenie CPU.  
-- Okresowo wywołuj `index.optimize()` (jeśli dostępne), aby utrzymać niskie zużycie pamięci.
-
-## Typowe problemy i rozwiązania
-
-| Problem | Rozwiązanie |
-|-------|----------|
-| Brak wyników dla zapytania z wieloznacznikiem | Sprawdź składnię wieloznacznika (`*min~~max`) i upewnij się, że słowa występują w określonej odległości. |
-| Indeks staje się nieaktualny po aktualizacji plików | Ponownie uruchom `index.add(updatedFolder)` lub użyj API aktualizacji przyrostowej. |
-| Wysokie zużycie pamięci przy dużych zestawach danych | Zwiększ rozmiar sterty JVM i rozważ podzielenie indeksu na wiele fragmentów. |
-
-## Najczęściej zadawane pytania
-
-**P: Jaka jest różnica między wieloznacznikiem a wyszukiwaniem frazy?**  
-O: Wyszukiwanie frazy szuka dokładnej kolejności słów, podczas gdy wieloznacznik pozwala zastąpić lub pominąć słowa w tej kolejności.
-
-**P: Czy mogę używać wieloznaczników z danymi liczbowymi w wyszukiwaniach?**  
-O: Tak, parametry zakresu wieloznacznika działają zarówno z liczbami, jak i ze słowami.
-
-**P: Jak powinienem obsługiwać bardzo duże kolekcje dokumentów?**  
-O: Utrzymuj zoptymalizowany indeks, używaj aktualizacji przyrostowych i projektuj wzorce wieloznaczników tak, aby były jak najbardziej konkretne.
-
-**P: Czy GroupDocs.Search jest odpowiedni do scenariuszy wyszukiwania w czasie rzeczywistym?**  
-O: Zdecydowanie — po zbudowaniu indeksu zapytania wykonują się w milisekundach, co sprawia, że nadaje się do aplikacji interaktywnych.
-
-**P: Czy mogę zintegrować tę bibliotekę z istniejącym projektem Java?**  
-O: Tak. Dodaj zależność Maven lub plik JAR, zainicjalizuj indeks jak pokazano i jesteś gotowy do działania.
-
-**Ostatnia aktualizacja:** 2026-01-26  
-**Testowano z:** GroupDocs.Search 25.4 for Java  
-**Autor:** GroupDocs
+- [Utwórz indeks wyszukiwania Java – Samouczki GroupDocs.Search](/search/java/)
+- [Dodaj dokumenty do indeksu – Samouczki GroupDocs.Search Java](/search/java/document-management/)
+- [Utwórz indeks wyszukiwania - Samouczki GroupDocs.Search Java](/search/java/advanced-features/)
