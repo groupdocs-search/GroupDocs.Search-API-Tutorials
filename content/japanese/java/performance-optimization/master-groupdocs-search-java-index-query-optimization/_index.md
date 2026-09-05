@@ -1,26 +1,84 @@
 ---
-date: '2026-01-21'
-description: GroupDocs.Search Java を使用して、特殊文字を正しくエスケープしながらクエリのパフォーマンスを向上させ、ドキュメントをインデックスに追加する方法を学びましょう。
+date: '2026-05-07'
+description: GroupDocs.Search Java を使用して、クエリパフォーマンスを向上させ、インデックスにドキュメントを追加し、特殊文字を正しくエスケープする方法を学びます。
 keywords:
-- GroupDocs.Search Java
-- document index optimization
-- search query performance
-title: GroupDocs.Search Javaでクエリ性能を向上させる：インデックスと検索の最適化
+- improve query performance
+- escape special characters
+- add documents to index
+- bulk load documents
+- increase search speed
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-07'
+  description: Learn how to improve query performance and add documents to index while
+    correctly escaping special characters query using GroupDocs.Search Java.
+  headline: 'Improve Query Performance with GroupDocs.Search Java: Optimize Index
+    & Search'
+  type: TechArticle
+- description: Learn how to improve query performance and add documents to index while
+    correctly escaping special characters query using GroupDocs.Search Java.
+  name: 'Improve Query Performance with GroupDocs.Search Java: Optimize Index & Search'
+  steps:
+  - name: Configure Character Types
+    text: Treating `&` as a letter and `-` as a separator ensures the search engine
+      parses queries the way you expect.
+  - name: Adding Documents
+    text: The method scans the specified folder recursively and indexes every supported
+      file type, enabling **bulk load documents** in a single call.
+  - name: Escape Special Characters
+    text: Escaping prevents the parser from misinterpreting symbols as operators.
+  - name: Execute Search
+    text: The `search` method returns a `SearchResult` object containing matched documents,
+      snippets, and relevance scores.
+  type: HowTo
+- questions:
+  - answer: Use incremental indexing (`index.add`) and schedule periodic index optimizations.
+      Deploy the index on SSD storage for faster I/O.
+    question: How do I handle extremely large datasets with GroupDocs.Search?
+  - answer: Yes. Define the `Index` bean in a `@Configuration` class and inject it
+      wherever you need search capabilities.
+    question: Can GroupDocs.Search be integrated with Spring Boot?
+  - answer: The characters `()":&|!^~*?` need a preceding backslash (`\`) to be treated
+      as literals.
+    question: Which characters must be escaped in a query?
+  - answer: Call `index.add("NEW_DOCUMENT_DIRECTORY")`; the library will merge new
+      entries without rebuilding the whole index.
+    question: How can I update an existing index with newly uploaded documents?
+  - answer: Absolutely. The library supports fast incremental updates and low‑latency
+      queries, making it ideal for live search boxes.
+    question: Is GroupDocs.Search suitable for real‑time search scenarios?
+  type: FAQPage
+title: GroupDocs.Search Javaでクエリパフォーマンスを向上させる：インデックスと検索を最適化
 type: docs
 url: /ja/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/
 weight: 1
 ---
 
-# Improve Query Performance with GroupDocs.Search Java: Optimize Index & Search
+# GroupDocs.Search Javaでクエリパフォーマンスを向上させる: インデックスと検索の最適化
 
-大量のドキュメントを効率的に管理するには、**クエリパフォーマンスの向上**から始めます。このチュートリアルでは、高性能インデックスの作成と設定できるのエス the main goal?** Improve query performance by fine‑tuning the index and query handling.  
-- **Which library is used?** GroupDocs.Search for Java.  
-- **Do I need a license?** A free trial or temporary license is sufficient for development; a full license is required for production.  
-- **How do I add documents?** Use `index.add("YOUR_DOCUMENT_DIRECTORY")` **How are special characters handled?** Configure What is “improve query performance”?
-Improving query performance means reducing the time it takes for a search request to travel through the index, match terms, and return results. By configuring the index correctly and preparing queries that align with that configuration, you eliminate unnecessary processing and achieve faster response times.
+大量のドキュメントコレクションを効率的に管理するには、**クエリパフォーマンスの向上**から始めます。このチュートリアルでは、高性能インデックスの作成と構成、**インデックスへのドキュメント追加**、そして検索を高速かつ正確に実行できるように**特殊文字クエリをエスケープ**する方法を学びます。企業のナレッジベースや検索可能な e コマースカタログを構築する場合でも、これらの手順をマスターすれば、負荷が高い状況でもアプリケーションの応答性を保つことができます。
 
-## Why use GroupDocs.Search Java for high‑performance searches?
-- **Scalable indexing** – Handles millions use GroupDocs.Search in a Maven project, include the following configurations:
+## クイック回答
+- **What is the main goal?** インデックスとクエリ処理を微調整してクエリパフォーマンスを向上させます。  
+- **Which library is used?** GroupDocs.Search for Java。  
+- **Do I need a license?** 開発には無料トライアルまたは一時ライセンスで十分です。製品環境ではフルライセンスが必要です。  
+- **How do I add documents?** `index.add("YOUR_DOCUMENT_DIRECTORY")` を使用してファイルを一括ロードします。  
+- **How are special characters handled?** 検索を実行する前に、アルファベット辞書を設定し、`()\":&|!^~*?` のような文字をエスケープします。  
+
+## 「クエリパフォーマンス向上」とは何ですか？
+
+クエリパフォーマンスを向上させることは、検索リクエストがインデックスを通過し、用語と照合し、結果を返すまでの時間を短縮することを意味します。インデックスを正しく構成し、その構成に合わせたクエリを準備することで、不要な処理を排除し、応答時間を高速化できます。
+
+## 高性能検索にGroupDocs.Search Javaを使用する理由
+
+GroupDocs.Searchは、標準サーバー上で最大1,000万件のドキュメントを含むインデックスに対して、クエリを50 ms未満で処理し、スケール時に**検索速度の向上**を実現します。このライブラリは30以上のアルファベット用の組み込みアナライザーを提供し、**特殊文字を自動的に処理**するため、追加の前処理なしで信頼性の高い結果が得られます。
+
+## 前提条件
+
+本格的に始める前に、以下の準備ができていることを確認してください：
+
+### 必要なライブラリと依存関係
+MavenプロジェクトでGroupDocs.Searchを使用するには、以下の設定を含めます：
 
 ```xml
 <repositories>
@@ -40,29 +98,29 @@ Improving query performance means reducing the time it takes for a search reques
 </dependencies>
 ```
 
-### Environment Setup
-- JDK 8 or newer installed and configured.  
-- IDE such as IntelliJ IDEA or Eclipse.  
+### 環境設定
+- JDK 8以上がインストールされ、設定されていること。  
+- IntelliJ IDEAやEclipseなどのIDE。
 
-### Knowledge Prerequisites
-- Basic Java programming.  
-- Familiarity with Maven.  
-- Understanding of document management concepts.  
+### 知識の前提条件
+- 基本的なJavaプログラミング。  
+- Mavenに関する知識。  
+- ドキュメント管理の概念の理解。
 
-## Setting Up GroupDocs.Search for Java
+## Java向けGroupDocs.Searchの設定
 
-### 1. Install via Maven or Direct Download
-Add the XML snippet above to your `pom.xml`. If you prefer a manual approach, download the library from the official site:
+### 1. Mavenまたは直接ダウンロードでインストール
+上記のXMLスニペットを `pom.xml` に追加します。手動で行いたい場合は、公式サイトからライブラリをダウンロードしてください：
 
 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
 
-### 2. Acquire a License
-You can obtain a free trial or a temporary license here:
+### 2. ライセンスを取得
+ここから無料トライアルまたは一時ライセンスを取得できます：
 
 [GroupDocs Licensing Page](https://purchase.groupdocs.com/temporary-license)
 
-### 3. Basic Initialization
-Create an `Index` object that points to a folder where the index files will be stored:
+### 3. 基本的な初期化
+`Index` は、ディスク上に保存された検索可能なドキュメントコレクションを表すGroupDocs.Searchのコアオブジェクトです。インデックスファイルが保存されるフォルダーを指す `Index` オブジェクトを作成します：
 
 ```java
 import com.groupdocs.search.*;
@@ -75,37 +133,37 @@ public class SearchInitialization {
 }
 ```
 
-## Implementation Guide
+## 実装ガイド
 
-### Creating and Configuring an Index
-Configuring the alphabet dictionary lets you decide how special characters are treated, which is essential for **improve query performance**.
+### インデックスの作成と構成
+アルファベット辞書を構成することで、特殊文字の扱いを決定でき、これは**クエリパフォーマンス向上**に不可欠です。
 
-#### Step 1: Initialize Index
+#### 手順 1: インデックスの初期化
 ```java
 Index index = new Index("YOUR_DOCUMENT_DIRECTORY/output/AdvancedUsage");
 ```
 
-#### Step 2: Configure Character Types
+#### 手順 2: 文字種の構成
 ```java
 index.getDictionaries().getAlphabet()
     .setRange(new char[] {'&'}, CharacterType.Letter)
     .setRange(new char[] {'-'}, CharacterType.Separator);
 ```
-Treating `&` as a letter and `-` as a separator ensures the search engine parses queries the way you expect.
+`&` を文字として、`-` を区切り文字として扱うことで、検索エンジンが期待通りにクエリを解析します。
 
-### Indexing Documents
-Now let’s **add documents to index** so they become searchable.
+### ドキュメントのインデックス作成
+それでは、**ドキュメントをインデックスに追加**して検索可能にしましょう。
 
-#### Step 3: Adding Documents
+#### 手順 3: ドキュメントの追加
 ```java
 index.add("YOUR_DOCUMENT_DIRECTORY");
 ```
-The method scans the specified folder recursively and indexes every supported file type.
+このメソッドは指定されたフォルダーを再帰的にスキャンし、サポートされているすべてのファイルタイプをインデックス化し、**ドキュメントの一括ロード**を1回の呼び出しで可能にします。
 
-### Preparing the Search Query
-To **escape special characters query**, we first normalize the input based on the alphabet configuration, then add escape sequences.
+### 検索クエリの準備
+**特殊文字クエリをエスケープ**するために、まずアルファベット構成に基づいて入力を正規化し、次にエスケープシーケンスを追加します。
 
-#### Step 4: Modify Special Characters
+#### 手順 4: 特殊文字の変更
 ```java
 StringBuilder result = new StringBuilder();
 String word = "rock&roll-music";
@@ -122,7 +180,7 @@ for (int i = 0; i < word.length(); i++) {
 }
 ```
 
-#### Step 5: Escape Special Characters
+#### 手順 5: 特殊文字のエスケープ
 ```java
 String specialCharacters = "()\":&|!^~*?";
 for (int i = result.length() - 1; i >= 0; i--) {
@@ -136,59 +194,71 @@ if (query.contains(" ")) {
     query = "\"" + query + "\"";
 }
 ```
-Escaping prevents the parser from misinterpreting symbols as operators.
+エスケープにより、パーサーがシンボルを演算子として誤解釈するのを防ぎます。
 
-### Executing the Search
-Finally, run the query against the prepared index.
+### 検索の実行
+`SearchResult` は、クエリによって返される一致したドキュメント、スニペット、関連度スコアのリストをカプセル化します。最後に、準備したインデックスに対してクエリを実行します。
 
-#### Step 6: Execute Search
+#### 手順 6: 検索の実行
 ```java
 import com.groupdocs.search.results.*;
 
 SearchResult searchResult = index.search(query);
 ```
-The `search` method returns a `SearchResult` object containing matched documents, snippets, and relevance scores.
+`search` メソッドは、一致したドキュメント、スニペット、関連度スコアを含む `SearchResult` オブジェクトを返します。
 
-## Practical Applications
+## 実用的な応用例
 
-### Case Study 1: Document Management Systems
-Law firms can quickly locate case files by indexing PDFs, Word documents, and emails. By **improving query performance**, attorneys spend less time waiting for results and more time reviewing content.
+### ケーススタディ 1: ドキュメント管理システム
+法律事務所は、PDF、Word文書、メールをインデックス化することで、ケースファイルを迅速に検索できます。**クエリパフォーマンスを向上**させることで、弁護士は結果を待つ時間を減らし、コンテンツのレビューに多くの時間を割くことができます。
 
-### Case Study 2: E‑commerce Platforms
-Online retailers index product descriptions, specifications, and reviews. Properly escaped queries allow customers to search for phrases like `4‑K TV` without errors, while fast query execution keeps the shopping experience smooth.
+### ケーススタディ 2: ECプラットフォーム
+オンライン小売業者は、製品説明、仕様、レビューをインデックス化します。適切にエスケープされたクエリにより、顧客は `4‑K TV` のようなフレーズをエラーなく検索でき、迅速なクエリ実行がショッピング体験をスムーズに保ちます。
 
-## Performance Considerations & Tips
+## パフォーマンス考慮事項とヒント
 
-- **Refresh the index** after bulk imports or large updates to keep search latency low.  
-- **Allocate sufficient heap memory** (`-Xmx2g` or higher) for large data sets.  
-- **Reuse the `Index` instance** across multiple searches instead of recreating it each time.  
--in tools to identify bottlenecks.  
+- **インデックスをリフレッシュ** してください。大量インポートや大規模な更新後に検索遅延を低く保ちます。  
+- **十分なヒープメモリを割り当て** ます（`-Xmx2g` 以上）大規模データセット用に。  
+- **`Index` インスタンスを再利用** します。毎回再作成するのではなく、複数の検索で使用します。  
+- **クエリ実行をプロファイル** します。Java の組み込みツールを使用してボトルネックを特定します。  
 
-## Common Pitfalls & Solutions
+## よくある落とし穴と解決策
 
-| Issue | Why it Happens | Fix |
+| 問題 | 発生原因 | 解決策 |
 |-------|----------------|-----|
-| Queries return no results after adding new files | Index not updated | Call `index.add(newPath)` or rebuild the index. |
-| Errors indexing (`index  
- a `@Configuration` class and inject it wherever you need search capabilities.
+| 新しいファイルを追加した後、クエリが結果を返さない | インデックスが更新されていない | `index.add(newPath)` を呼び出すか、インデックスを再構築してください。 |
+| 予期しない文字に関するエラー | 特殊文字がエスケープされていない | 検索前に手順 5 のエスケープロジックが実行されていることを確認してください。 |
+| メモリ使用量が高い | 大量の結果セットが一度にロードされる | `searchResult.getDocuments()` を遅延で反復処理するか、`index.search(query, 100)` で結果数を制限してください。 |
 
-**Q: Which characters must be escaped in a query?**  
-A: The characters `()":&|!^~*?` need a preceding backslash (`\`) to be treated as literals.
+## よくある質問
 
-**Q: How can I update an existing index with newly uploaded documents?**  
-A: Call `index.add("NEW_DOCUMENT_DIRECTORY")`; the library will merge new entries without rebuilding the whole index.
+**Q: 極めて大規模なデータセットをGroupDocs.Searchでどのように扱いますか？**  
+A: インクリメンタルインデックス（`index.add`）を使用し、定期的にインデックス最適化をスケジュールします。インデックスは高速I/OのためにSSDストレージ上に配置してください。
 
-**Q: Is GroupDocs.Search suitable for real‑time search scenarios?**  
-A: Absolutely. The library supports fast incremental updates and low‑latency queries, making it ideal for live search boxes.
+**Q: GroupDocs.SearchはSpring Bootと統合できますか？**  
+A: はい。`@Configuration` クラスで `Index` ビーンを定義し、検索機能が必要な場所へインジェクトします。
 
-## Resources
-- [Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/)
+**Q: クエリでエスケープすべき文字はどれですか？**  
+A: 文字 `()\":&|!^~*?` は、リテラルとして扱うために前にバックスラッシュ（`\\`）を付ける必要があります。
+
+**Q: 新しくアップロードされたドキュメントで既存のインデックスを更新するにはどうすればよいですか？**  
+A: `index.add("NEW_DOCUMENT_DIRECTORY")` を呼び出します。ライブラリはインデックス全体を再構築せずに新しいエントリをマージします。
+
+**Q: GroupDocs.Searchはリアルタイム検索シナリオに適していますか？**  
+A: はい。ライブラリは高速なインクリメンタル更新と低遅延クエリをサポートしており、ライブ検索ボックスに最適です。
+
+## リソース
+- [ドキュメント](https://docs.groupdocs.com/search/java/)
+- [APIリファレンス](https://reference.groupdocs.com/)
 
 ---
 
-**Last Updated:** 2026-01-21  
-**Tested With:** GroupDocs.Search Java 25.4  
-**Author:** GroupDocs  
+**最終更新日:** 2026-05-07  
+**テスト環境:** GroupDocs.Search Java 25.4  
+**作者:** GroupDocs  
 
----
+## 関連チュートリアル
+
+- [GroupDocs.Search Javaでインデックスにドキュメントを追加し、ストップワードを無効化して検索精度を向上させる](/search/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/)
+- [インデックスにドキュメントを追加 – GroupDocs.Search Javaチュートリアル](/search/java/document-management/)
+- [GroupDocs.Search for Javaでインデックスにドキュメントを追加し、エイリアスを管理する方法](/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/)
