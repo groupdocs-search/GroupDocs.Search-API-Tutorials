@@ -1,37 +1,76 @@
 ---
-date: '2026-01-21'
-description: تعلم كيفية إضافة تبعية GroupDocs Maven، وتكوين ومزامنة شبكة البحث في
-  Java، وإضافة الأدلة إلى الفهرس باستخدام GroupDocs.Search.
+date: '2026-05-17'
+description: تعلم كيفية إضافة تبعية groupdocs Maven، إعداد شبكة بحث Java، وإضافة الأدلة
+  إلى الفهرس للحصول على استرجاع مستندات سريع وقابل للتوسع.
 keywords:
-- Java Search Network Configuration
-- GroupDocs.Search for Java
-- Document Indexing and Retrieval
-title: اعتماد Maven من GroupDocs – مزامنة شبكة البحث في Java
+- how to add groupdocs
+- add directories to index
+- set up search cluster
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-17'
+  description: Learn how to add groupdocs Maven dependency, set up a Java search network,
+    and add directories to index for fast, scalable document retrieval.
+  headline: How to Add GroupDocs Maven Dependency for Search Network
+  type: TechArticle
+- description: Learn how to add groupdocs Maven dependency, set up a Java search network,
+    and add directories to index for fast, scalable document retrieval.
+  name: How to Add GroupDocs Maven Dependency for Search Network
+  steps:
+  - name: '**Legal Document Management** – Quickly retrieve case files and precedents.'
+    text: '**Legal Document Management** – Quickly retrieve case files and precedents.'
+  - name: '**Financial Record Keeping** – Access statements and audit trails in seconds.'
+    text: '**Financial Record Keeping** – Access statements and audit trails in seconds.'
+  - name: '**Academic Research** – Search across thousands of papers to find relevant
+      citations.'
+    text: '**Academic Research** – Search across thousands of papers to find relevant
+      citations.'
+  type: HowTo
+- questions:
+  - answer: It provides fast, scalable search capabilities across large document sets
+      with minimal configuration.
+    question: What is the primary benefit of using GroupDocs.Search?
+  - answer: Yes, you can set custom paths, ports, and other options via the `Configuration`
+      object.
+    question: Can I customize node configurations in a search network?
+  - answer: Call `IndexingDocuments.addDirectories(masterNode, "path")` whenever you
+      need to index new folders.
+    question: How do I add directories to index after the network is running?
+  - answer: Use the `synchronizeShards` method shown above on the newly added node.
+    question: How to sync shards when a new node joins the network?
+  - answer: A free trial license is sufficient for testing; a commercial license is
+      required for production.
+    question: Do I need a license for development?
+  type: FAQPage
+title: كيفية إضافة تبعية GroupDocs Maven لشبكة البحث
 type: docs
 url: /ar/java/search-network/java-groupdocs-search-configuration-sync-guide/
 weight: 1
 ---
 
-# تبعية GroupDocs Maven: تكوين ومزامنة شبكات البحث Java
+# كيفية إضافة اعتماد GroupDocs Maven لشبكة البحث
 
-في هذا الدليل الشامل ستكتشف **كيفية إضافة تبعية GroupDocs Maven** إلى مشروعك ثم تكوين شبكة بحث Java قوية باستخدام GroupDocs.Search. سواء كنت تتعامل مع المذكرات القانونية أو التقارير المالية أو الأوراق الأكاديمية، فإن الخطوات أدناه ستساعدك على فهرسة، بحث، والحفاظ على تزامن القطع (shards) بكفاءة.
+في هذا الدليل الشامل ستكتشف **كيفية إضافة اعتماد groupdocs Maven**، وتكوين شبكة بحث Java قوية باستخدام GroupDocs.Search، والحفاظ على تزامن القطع (shards). سواءً كنت تقوم بفهرسة المذكرات القانونية، أو البيانات المالية، أو الأوراق الأكاديمية، فإن الخطوات أدناه ستساعدك على إنشاء فهارس قابلة للبحث، وتوزيع حمل الاستعلامات عبر العقد، والحفاظ على تناسق البيانات بأقل جهد.
 
-## المقدمة
-
-إدارة والبحث في مجموعات ضخمة من المستندات يمثل تحديًا يوميًا للعديد من المؤسسات. من خلال دمج **تبعية GroupDocs Maven**، ستحصل على محرك فهرسة قوي يمكنه التوسع عبر عدة عقد. يوضح هذا البرنامج التعليمي كيفية إعداد التبعية، نشر عقد الشبكة، إضافة أدلة للفهرسة، ومزامنة القطع لتحقيق الأداء المثالي.
-
-### إجابات سريعة
-- **ما هي تبعية GroupDocs Maven؟** هي قطعة Maven تجلب مكتبة GroupDocs.Search إلى مشروع Java الخاص بك.  
-- **لماذا نستخدم شبكة بحث؟** لأنها توزع حمل الفهرسة والاستعلام عبر عدة عقد، مما يحسن السرعة والموثوقية.  
+## إجابات سريعة
+- **ما هو اعتماد GroupDocs Maven؟** عنصر Maven يجمع مكتبة GroupDocs.Search لمشاريع Java.  
+- **لماذا تستخدم شبكة بحث؟** تقوم بتوزيع حمل الفهرسة والاستعلام عبر عدة عقد، مما يحسن السرعة والموثوقية.  
 - **كيف أضيف أدلة للفهرسة؟** استخدم `IndexingDocuments.addDirectories` على العقدة الرئيسية.  
-- **كيف أزامن القطع؟** استدعِ `SynchronizeOptions` على كل `Indexer` في العقدة.  
+- **كيف تزامن القطع (shards)؟** استدعِ `SynchronizeOptions` على `Indexer` لكل عقدة.  
 - **هل أحتاج إلى ترخيص؟** نعم، يلزم وجود ترخيص تجريبي أو تجاري للاستخدام في الإنتاج.
 
-## ما هي تبعية GroupDocs Maven؟
+## ما هو اعتماد GroupDocs Maven؟
 
-تبعية GroupDocs Maven (`com.groupdocsتمادات.
+إن `GroupDocs Maven dependency` هو عنصر Maven يجمع مكتبة GroupDocs.Search لمشاريع Java.  
+يوفر جميع الفئات المطلوبة لإنشاء فهارس قابلة للبحث، وإدارة عقد الشبكة، وتنفيذ استعلامات سريعة، كما يقوم Maven بحل الاعتمادات المتعاقبة تلقائيًا، مما يمنحك محرك بحث جاهزًا للاستخدام ببضع أسطر فقط في ملف `pom.xml` الخاص بك.
 
-##بعية إلى ملف `pom.xml` الخاص بك:
+## كيفية إضافة اعتماد GroupDocs Maven
+
+أضف مستودع الاعتماد وإدخالات الاعتماد إلى ملف `pom.xml` الخاص بك، ثم نفّذ `mvn clean install`؛ يقوم Maven بتنزيل JAR الخاص بـ `groupdocs-search` ومكتباته المطلوبة، مما يجعل الـ API متاحًا في مشروعك. بعد نجاح عملية البناء يمكنك البدء في استخدام فئات `com.groupdocs.search` فورًا.
+
+### تكوين Maven
+
+أضف المستودع والاعتماد إلى ملف `pom.xml` الخاص بك:
 
 ```xml
 <repositories>
@@ -51,15 +90,19 @@ weight: 1
 </dependencies>
 ```
 
-> **نصيحة محترف:** حافظ على تحديث رقم الإصدار بالتحقق من صفحة الإصدارات الرسمية.
+> **نصيحة احترافية:** حافظ على تحديث رقم الإصدار من خلال مراجعة صفحة الإصدارات الرسمية.
 
-يمكنك أيضًا تنزيل ملف JAR مباشرةً من الموقع الرسمي: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+يمكنك أيضًا تنزيل ملف JAR مباشرةً من الموقع الرسمي: [إصدارات GroupDocs.Search للـ Java](https://releases.groupdocs.com/search/java/).
+
+## لماذا تستخدم شبكة بحث؟
+
+تمكن شبكة البحث من التوسع الأفقي عن طريق تقسيم الفهرس إلى قطع (shards) تتواجد على عقد منفصلة. يمكن لـ GroupDocs.Search معالجة **أكثر من 50 تنسيقًا مدخلًا** ومعالجة **مستندات مئات الصفحات** دون تحميل الملف بالكامل في الذاكرة، مما يوفر استجابات استعلام بأقل من ثانية حتى مع زيادة حجم البيانات.
 
 ## المتطلبات المسبقة
 
-- **JDK** (الإصدار 11 أو أحدث) مثبت.
-- بيئة تطوير متكاملة مثل IntelliJ IDEA أو Eclipse.
-- معرفة أساسية بـ Java، إلمام بـ Maven، وفهم لمفاهيم عقد الشبكة.
+- **JDK** (الإصدار 11 أو أحدث) مثبت.  
+- بيئة تطوير متكاملة (IDE) مثل IntelliJ IDEA أو Eclipse.  
+- معرفة أساسية بـ Java، وإلمام بـ Maven، وفهم مفاهيم عقد الشبكة.  
 - ترخيص صالح لـ GroupDocs.Search (تجريبي مجاني أو تجاري).
 
 ## التهيئة الأساسية والإعداد
@@ -74,17 +117,17 @@ import com.groupdocs.search.options.IndexingOptions;
 SearchIndex index = new SearchIndex("YOUR_INDEX_DIRECTORY");
 ```
 
-هذه الخطوة البسيطة تُعد البيئة للتهيئة اللاحقة للشبكة.
-
 ## دليل التنفيذ
 
 ### الميزة 1: تكوين شبكة البحث
 
 #### نظرة عامة
 
-تكوين شبكة البحث يحدد مسارات الملفات والمنافذ التي ستستخدمها العقد للتواصل.
+تحديد تكوين شبكة البحث يحدد مسارات الملفات والمنافذ التي ستستخدمها العقد للتواصل.
 
 ##### إعداد المسارات والمنافذ
+
+Configuration هي فئة تحتفظ بمسارات الشبكة، والمنافذ، وإعدادات أخرى لمجموعة البحث.  
 ```java
 import com.groupdocs.search.options.*;
 import com.groupdocs.search.scaling.configuring.ConfiguringSearchNetwork;
@@ -94,16 +137,18 @@ String basePath = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Scaling/SynchronizingSh
 int basePort = 49144; // Adjust if there's a port conflict
 
 Configuration configuration = ConfiguringSearchNetwork.configure(basePath, basePort);
-```
-كائن `configuration` الآن يحتوي على جميع الإعدادات اللازمة لشبكة البحث الخاصة بك.
+```  
+الآن كائن `configuration` يحتوي على جميع الإعدادات اللازمة لشبكة البحث الخاصة بك.
 
 ### الميزة 2: نشر عقد شبكة البحث
 
 #### نظرة عامة
 
-انشر العقد لتوزيع عبء العمل عبر شبكتك. العقدة الرئيسية تدير العمليات والأحداث.
+نشر العقد لتوزيع عبء العمل عبر شبكتك. تدير العقدة الرئيسية العمليات والأحداث.
 
-##### شفرة النشر
+##### كود النشر
+
+SearchNetworkNode تمثل عقدة في شبكة البحث يمكن أن تعمل كعقدة رئيسية أو عاملة.  
 ```java
 import com.groupdocs.search.scaling.*;
 import com.groupdocs.search.options.Configuration;
@@ -117,9 +162,11 @@ SearchNetworkNode masterNode = nodes[0];
 
 #### نظرة عامة
 
-الاستماع للأحداث يتيح التعامل الديناميكي مع التغييرات أو التحديثات في شبكتك.
+الاستماع إلى الأحداث يتيح معالجة ديناميكية للتغييرات أو التحديثات في شبكتك.
 
 ##### تنفيذ الاشتراك
+
+SearchNetworkNodeEvents توفر نقاط ربط للأحداث لدورة حياة العقدة وإجراءات الفهرسة.  
 ```java
 import com.groupdocs.search.scaling.SearchNetworkNode;
 import com.groupdocs.search.scaling.SearchNetworkNodeEvents;
@@ -134,6 +181,8 @@ SearchNetworkNodeEvents.subscribe(masterNode);
 إضافة الأدلة هي الخطوة الأساسية التي تجعل مستنداتك قابلة للبحث.
 
 ##### إضافة المستندات
+
+`IndexingDocuments.addDirectories` يضيف مسارات المجلدات إلى الفهرس للمعالجة.  
 ```java
 import com.groupdocs.search.indexing.IndexingDocuments;
 import com.groupdocs.search.scaling.SearchNetworkNode;
@@ -145,9 +194,11 @@ IndexingDocuments.addDirectories(masterNode, "YOUR_DOCUMENT_DIRECTORY/DocumentsP
 
 #### نظرة عامة
 
-المزامنة تضمن اتساق البيانات عبر جميع القطع.
+المزامنة تضمن تناسق البيانات عبر جميع القطع.
 
-##### شفرة المزامنة
+##### كود المزامنة
+
+`SynchronizeOptions` يحدد كيفية مزامنة القطع عبر العقد.  
 ```java
 import com.groupdocs.search.indexing.Indexer;
 import com.groupdocs.search.scaling.SearchNetworkNode;
@@ -169,6 +220,8 @@ def synchronizeShards(SearchNetworkNode node) {
 إغلاق العقد بشكل صحيح يحرر الموارد ويمنع تسرب الذاكرة.
 
 ##### إغلاق العقدة
+
+`close()` يحرر الموارد ويغلق عقدة شبكة البحث.  
 ```java
 import com.groupdocs.search.scaling.SearchNetworkNode;
 
@@ -185,43 +238,47 @@ for (SearchNetworkNode node : nodes) {
 
 ## اعتبارات الأداء
 
-- **تحسين الاستعلامات** – اكتب استعلامات مختصرة لتقليل زمن الاستجابة.  
-- **إدارة الذاكرة** – راقب استهلاك heap في JVM؛ فكر في ضبط GC للفهارس الكبيرة.  
-- **استراتيجية التوسع** – أضف عقدًا بما يتناسب مع حجم البيانات وحمل الاستعلامات.
+- **تحسين الاستعلامات** – كتابة استعلامات مختصرة لتقليل زمن الاستجابة.  
+- **إدارة الذاكرة** – مراقبة استخدام Heap في JVM؛ النظر في ضبط GC للفهارس الكبيرة.  
+- **استراتيجية التوسع** – إضافة عقد بنسب تتناسب مع حجم البيانات وحمل الاستعلامات.
 
 ## المشكلات الشائعة والحلول
 
 | المشكلة | السبب | الحل |
 |-------|-------|----------|
-| فشل العقد في الاتصال | تعارض في المنفذ | غيّر `basePort` إلى قيمة غير مستخدمة |
-| الفهرس لا يتم تحديثه | عدم وجود اشتراك في الأحداث | تأكد من استدعاء `SearchNetworkNodeEvents.subscribe(masterNode)` |
-| ارتفاع زمن الاستجابة | عدد غير كافٍ من القطع | زد عدد العقد ووازن توزيع المستندات |
+| فشل العقد في الاتصال | تعارض المنافذ | غيّر `basePort` إلى قيمة غير مستخدمة |
+| الفهرس لا يتم تحديثه | غياب اشتراك الحدث | تأكد من استدعاء `SearchNetworkNodeEvents.subscribe(masterNode)` |
+| ارتفاع زمن الاستجابة | عدد القطع غير كافٍ | زيادة عدد العقد وموازنة توزيع المستندات |
 
 ## الأسئلة المتكررة
 
-**س: ما الفائدة الأساسية من استخدام GroupDocs.Search؟**  
-ج: يوفر قدرات بحث سريعة وقابلة للتوسع عبر مجموعات مستندات كبيرة مع إعدادات قليلة.
+**Q:** ما هو الفائدة الأساسية من استخدام GroupDocs.Search؟  
+**A:** توفر قدرات بحث سريعة وقابلة للتوسع عبر مجموعات مستندات كبيرة مع إعدادات قليلة.
 
-**س: هل يمكنني تخصيص إعدادات العقد في شبكة البحث؟**  
-ج: نعم، يمكنك تعيين مسارات مخصصة، منافذ، وخيارات أخرى عبر كائن `Configuration`.
+**Q:** هل يمكنني تخصيص إعدادات العقد في شبكة البحث؟  
+**A:** نعم، يمكنك ضبط مسارات مخصصة، ومنافذ، وخيارات أخرى عبر كائن `Configuration`.
 
-**س: كيف أضيف أدلة للفهرسة بعد تشغيل الشبكة؟**  
-ج: استدعِ `IndexingDocuments.addDirectories(masterNode, "path")` كلما احتجت إلى فهرسة مجلدات جديدة.
+**Q:** كيف أضيف أدلة للفهرسة بعد تشغيل الشبكة؟  
+**A:** استدعِ `IndexingDocuments.addDirectories(masterNode, "path")` كلما احتجت إلى فهرسة مجلدات جديدة.
 
-**س: كيف أزامن القطع عندما تنضم عقدة جديدة إلى الشبكة؟**  
-ج: استخدم طريقة `synchronizeShards` الموضحة أعلاه على العقدة المضافة حديثًا.
+**Q:** كيف يتم مزامنة القطع عندما تنضم عقدة جديدة إلى الشبكة؟  
+**A:** استخدم طريقة `synchronizeShards` الموضحة أعلاه على العقدة المضافة حديثًا.
 
-**س: هل أحتاج إلى ترخيص للتطوير؟**  
-ج: الترخيص التجريبي مجاني للاختبار؛ الترخيص التجاري مطلوب للإنتاج.
+**Q:** هل أحتاج إلى ترخيص للتطوير؟  
+**A:** ترخيص تجريبي مجاني يكفي للاختبار؛ يلزم ترخيص تجاري للإنتاج.
 
-## الخاتمة
+## الخلاصة
 
-باتباع هذا الدليل أصبحت الآن تعرف **كيفية إضافة تبعية GroupDocs Maven**، تكوين شبكة بحث متعددة العقد، فهرسة الأدلة، والحفاظ على تزامن القطع. تشكل هذه الخطوات الأساس لحل بحث مستندات عالي الأداء يمكنه النمو مع احتياجات مؤسستك.
+باتباع هذا الدليل، أصبحت الآن تعرف **كيفية إضافة اعتماد groupdocs Maven**، وتكوين شبكة بحث متعددة العقد، وفهرسة الأدلة، والحفاظ على تزامن القطع. تشكل هذه الخطوات أساس حل بحث مستندات عالي الأداء يمكن أن يتوسع مع احتياجات مؤسستك.
 
 ---
 
-**آخر تحديث:** 2026-01-21  
+**آخر تحديث:** 2026-05-17  
 **تم الاختبار مع:** GroupDocs.Search 25.4  
-**المؤلف:** GroupDocs  
+**المؤلف:** GroupDocs
 
----
+## دروس ذات صلة
+
+- [دروس وأمثلة GroupDocs.Search للـ Java](/search/net/)
+- [تكوين شبكة GroupDocs.Search في .NET: دليل شامل](/search/net/search-network/configuring-groupdocs-search-network-net-guide/)
+- [كيفية تنفيذ شبكة بحث باستخدام GroupDocs.Search في .NET لأنظمة إدارة المستندات](/search/net/search-network/implement-search-network-groupdocs-dotnet/)

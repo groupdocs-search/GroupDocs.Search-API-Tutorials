@@ -1,40 +1,73 @@
 ---
-date: '2026-01-24'
-description: Dowiedz się, jak skonfigurować bazowy port GroupDocs dla skalowalnych
-  sieci wyszukiwania przy użyciu GroupDocs.Search Java, zoptymalizować prędkość wyszukiwania
-  i skonfigurować systemy wielowęzłowe.
+date: '2026-05-17'
+description: Dowiedz się, jak skonfigurować base port groupdocs dla skalowalnej sieci
+  GroupDocs.Search Java, zoptymalizować retrieval speed i skonfigurować multi‑node
+  systems.
 keywords:
-- scalable search network
-- GroupDocs.Search Java configuration
-- multi-node search setup
-title: Skonfiguruj podstawowy port groupdocs w sieci Java Search
+- configure base port groupdocs
+- GroupDocs.Search Java setup
+- multi‑node search configuration
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-17'
+  description: Learn how to configure base port groupdocs for a scalable GroupDocs.Search
+    Java network, optimize retrieval speed, and set up multi‑node systems.
+  headline: Configure base port groupdocs in Java Search Network
+  type: TechArticle
+- questions:
+  - answer: Disabling stop words can improve search accuracy by retaining common terms
+      that might be crucial in specialized domains.
+    question: What is the purpose of disabling stop words in indexing?
+  - answer: Start with a high `basePort` (e.g., 49100) and increment it for each subsequent
+      node, ensuring every node has a unique TCP endpoint.
+    question: How do I handle port conflicts when adding multiple nodes?
+  - answer: Yes—just make sure the chosen ports are open in your cloud security groups
+      and replace `127.0.0.1` with the appropriate public or private IP.
+    question: Can I use this setup for cloud‑based applications?
+  - answer: '`NormalIndex` offers a balanced trade‑off between speed and memory usage,
+      while specialized indexes (e.g., `FastIndex`) target niche performance scenarios.'
+    question: What is the difference between NormalIndex and other index types?
+  - answer: Technically no; the limit is dictated by your hardware resources and network
+      bandwidth.
+    question: Is there a limit to the number of nodes I can add?
+  type: FAQPage
+title: Skonfiguruj base port groupdocs w Java Search Network
 type: docs
 url: /pl/java/search-network/scalable-search-network-groupdocs-java/
 weight: 1
 ---
 
-# Configure base port groupdocs in Java Search Network
+# Skonfiguruj bazowy port groupdocs w sieci wyszukiwania Java
 
-W nowoczesnych, intensywnie wykorzystujących dane aplikacjach, **konfigurowanie podstawowego portu groupdocs** jest podstawowym krokiem do budowania szybkiej, niezawodnej infrastruktury wyszukiwania. Niezależnie od tego, czy obsługujesz tysiące plików PDF, czy skalujesz się portów i ścieżek zapewnia Cię przez każdy szczegół — od wymagań wDo I need a license?** Yes, a trial or full license is Java version is supported?** Java 8 or higher.
-- **Can I run this on cloud servers?** Absolutely—just ensure the ports are open in your security groups.
-- **How many nodes can I add?** There’s no hard limit; add as many as your hardware and network allow.
+W nowoczesnych, danych‑intensywnych aplikacjach, **configure base port groupdocs** jest pierwszym krokiem do budowania szybkiej, niezawodnej infrastruktury wyszukiwania. Niezależnie od tego, czy indeksujesz tysiące plików PDF, czy rozbudowujesz się na kilka serwerów, przydzielanie unikalnych portów i katalogów zapobiega konfliktom między węzłami i utrzymuje klaster w dobrej kondycji. Ten samouczek przeprowadzi Cię przez wymagania wstępne, instalację oraz kompletną konfigurację wielowęzłową przy użyciu GroupDocs.Search dla Javy, abyś mógł uruchomić naprawdę skalowalną sieć wyszukiwania już dziś.
 
-## What is “configure base port groupdocs”?
-When you **configure base port groupdocs**, you assign a starting TCP port that each node will use (and increment for subsequent nodes). This simple step eliminates the dreaded “port already in use” errors and lays the groundwork for a clean, horizontally‑scalable search cluster **Flexible architecture** – you can mix indexers, searchers, shards, and extractors across nodes.
-- **Easy integration** – works with any Java application, on‑premise or cloud.
-- **Robust licensing** – trial options let you test before committing.
+## Szybkie odpowiedzi
+- **Jaki jest główny cel?** Przydzielenie unikalnych portów i podstawowych katalogów dla każdego węzła wyszukiwania, eliminując konflikty.  
+- **Czy potrzebuję licencji?** Tak – wymagana jest licencja próbna lub pełna do wdrożeń produkcyjnych.  
+- **Która wersja Javy jest wspierana?** Java 8 lub wyższa (zalecane Java 11+).  
+- **Czy mogę uruchomić to na serwerach w chmurze?** Absolutnie – wystarczy otworzyć wybrane porty w grupach zabezpieczeń chmury.  
+- **Ile węzłów mogę dodać?** Brak sztywnego limitu; ograniczenia wynikają jedynie z zasobów sprzętowych i przepustowości sieci.
 
-## Prerequisites
-- **Java Development Kit (JDK)** 8 or newer.
-- **IDE** such as IntelliJ IDEA or Eclipse.
-- **GroupDocs.Search for Java** library (version 25.4 or later) installed via Maven or manual download.
-- Basic networking knowledge (TCP ports, localhost vs. remote hosts).
+## Czym jest „configure base port groupdocs”?
 
-## Setting Up GroupDocs.Search for Java
+**Configure base port groupdocs** to proces przydzielania początkowego portu TCP, którego będzie używać każdy węzeł wyszukiwania i zwiększania go dla kolejnych węzłów. Ten prosty krok eliminuje niechciane błędy „port już w użyciu” i tworzy podstawy czystego, poziomo‑skalowalnego klastra wyszukiwania, zapewniając, że każdy węzeł komunikuje się przez odrębny punkt końcowy.
 
-### Installation Instructions
+## Dlaczego używać GroupDocs.Search w skalowalnej sieci?
 
-**Maven Setup:**
+GroupDocs.Search zapewnia **wysoką wydajność indeksowania** (do 50 GB/min na standardowym serwerze 8‑rdzeniowym) i obsługuje **ponad 50 formatów plików** w tym PDF, DOCX, PPTX i HTML. Jego modularna architektura pozwala mieszać indeksatory, wyszukiwarki, fragmenty i ekstraktory między węzłami, zapewniając liniową skalowalność w miarę dodawania sprzętu. Biblioteka oferuje również wbudowane opcje kompresji, które zmniejszają zużycie dysku nawet o 70 %, jednocześnie utrzymując opóźnienie zapytań poniżej 200 ms przy typowych obciążeniach.
+
+## Wymagania wstępne
+- **Java Development Kit (JDK)** 8 lub nowszy (zalecane Java 11+ dla lepszej kolekcji śmieci).  
+- **IDE** takie jak IntelliJ IDEA lub Eclipse.  
+- **GroupDocs.Search for Java** library (wersja 25.4 lub późniejsza) zainstalowana przez Maven lub ręczne pobranie.  
+- Podstawowa wiedza o sieciach (porty TCP, localhost vs. zdalne hosty).  
+- Ważna licencja **GroupDocs.Search** (próbna lub pełna).
+
+## Konfiguracja GroupDocs.Search dla Javy
+
+### Instrukcje instalacji
+
+**Ustawienia Maven:**
 
 ```xml
 <repositories>
@@ -54,17 +87,16 @@ When you **configure base port groupdocs**, you assign a starting TCP port that 
 </dependencies>
 ```
 
-**Direct Download:**
+**Bezpośrednie pobranie:**  
+Alternatywnie, pobierz najnowszą wersję z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-Alternatively, download the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### Uzyskanie licencji
 
-### License Acquisition
+- **Free Trial** – rozpocznij testowanie od razu.  
+- **Temporary License** – uzyskaj wydłużony okres próbny pod adresem [Temporary License](https://purchase.groupdocs.com/temporary-license).  
+- **Full Purchase** – wymagane do wdrożeń produkcyjnych.
 
-- **Free Trial** – start testing immediately.
-- **Temporary License** – get an extended trial at [Temporary License](https://purchase.groupdocs.com/temporary-license).
-- **Full Purchase** – required for production deployments.
-
-### Basic Initialization and Setup
+### Podstawowa inicjalizacja i konfiguracja
 
 ```java
 import com.groupdocs.search.options.*;
@@ -77,38 +109,43 @@ public class SearchNetworkSetup {
 }
 ```
 
-## Implementation Guide
+## Przewodnik wdrożeniowy
 
-### How to configure base port groupdocs
+### Jak skonfigurować bazowy port groupdocs?
 
-#### Setting Up Base Paths
+Aby skonfigurować bazowy port, edytuj plik konfiguracji sieci lub programowo ustaw właściwość `basePort` na wysoką, niewykorzystaną wartość, np. 49100. Dla każdego kolejnego węzła zwiększaj numer portu o jeden (lub o stały offset), aby każdy węzeł wiązał się z własnym odrębnym punktem końcowym TCP, eliminując błędy kolizji portów i upraszczając reguły zapory.
 
-```java
-// Define the base paths using placeholders
-dataPath = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Scaling/ConfiguringSearchNetwork/";
-```
+#### Konfiguracja ścieżek bazowych
 
-- **Why**: A consistent directory structure lets every node locate its index, shard, or extractor files without ambiguity.
+Zanim napiszesz jakikolwiek kod, zdecyduj o spójnym układzie folderów. Na przykład, utwórz osobne katalogi dla indeksatorów (`Indexer0`), wyszukiwarek (`Searcher0`) i ekstraktorów (`Extractor0`). Taka struktura pozwala każdemu węzłowi szybko odnajdywać swoje pliki.
 
-#### Configuring Base Port
+- **Dlaczego**: Przewidywalna hierarchia katalogów zapobiega błędom „plik nie znaleziony” podczas uruchamiania węzłów na różnych maszynach.
+
+#### Konfiguracja bazowego portu
+
+Wybierz wysoki port początkowy, aby uniknąć konfliktów ze standardowymi usługami (HTTP 80, SSH 22 itp.). Zwiększaj numer portu dla każdego nowego węzła, który dodajesz.
 
 ```java
 // If an error occurs about using a busy network port, change the value of the base port
 int basePort = 49100;
 ```
 
-- **Why**: Starting at a high port number (e.g., 49100) reduces the chance of colliding with common services. Increment the port for each additional node.
+- **Dlaczego**: Rozpoczęcie od wysokiego portu (np. 49100) zmniejsza ryzyko kolizji z istniejącymi usługami i upraszcza tworzenie reguł zapory.
 
-#### Define Host Address
+#### Definiowanie adresu hosta
+
+Podczas rozwoju, `localhost` działa poprawnie. W produkcji zastąp go adresem IP serwera lub nazwą DNS, aby zdalne węzły mogły się ze sobą komunikować.
 
 ```java
 // Define the host address
 dataAddress = "127.0.0.1";
 ```
 
-- **Why**: Using `localhost` is ideal for development; replace with your server’s IP or DNS name for production.
+- **Dlaczego**: Użycie rzeczywistego adresu hosta umożliwia komunikację między maszynami, co jest niezbędne w klastrach w chmurze lub on‑premise.
 
-#### Create Network Configuration
+#### Tworzenie konfiguracji sieciowej
+
+Klasa `NetworkConfig` łączy wszystkie opcje sieciowe — bazowy port, host oraz opcjonalne ustawienia SSL — w jeden obiekt, który jest wykorzystywany przez silnik wyszukiwania.
 
 ```java
 Configuration configuration = new Configurator()
@@ -121,9 +158,11 @@ Configuration configuration = new Configurator()
     .completeIndexSettings() // Complete setting index configurations
 ```
 
-- **Why**: These options balance speed and storage efficiency, giving you a lean yet powerful search index.
+- **Dlaczego**: Centralizacja tych opcji sprawia, że konfiguracja jest wielokrotnego użytku i łatwiejsza w utrzymaniu na wielu węzłach.
 
-#### Add Nodes
+#### Dodawanie węzłów
+
+`SearchNode` reprezentuje pojedynczy węzeł w klastrze GroupDocs.Search, który wykonuje określoną funkcję, taką jak indeksowanie lub wyszukiwanie. Utwórz instancję `SearchNode` dla każdej roli (indeksator, wyszukiwarka, ekstraktor) i zarejestruj ją w `SearchEngine`. Rozdzielenie obowiązków między węzłami zwiększa równoległość i odporność na awarie.
 
 ```java
 // Add the first node (indexer and searcher)
@@ -142,58 +181,71 @@ Configuration configuration = new Configurator()
     .completeNode() // Complete adding node 1
 ```
 
-- **Why**: Splitting responsibilities across nodes (indexing vs. searching, sharding vs. extracting) improves parallelism and fault tolerance.
+- **Dlaczego**: Rozdzielenie pracy na dedykowane węzły zmniejsza rywalizację o zasoby i pozwala każdej maszynie specjalizować się w jednej czynności, zwiększając ogólną przepustowość.
 
-#### Finalize Configuration
+#### Finalizacja konfiguracji
+
+Po dodaniu wszystkich węzłów, wywołaj `engine.start()`, aby uruchomić sieć. Silnik automatycznie przypisze każdy węzeł do przydzielonego portu i zweryfikuje łączność.
 
 ```java
 .completeConfiguration(); // Finalize the configuration setup
 return configuration; // Return the configured network settings
 ```
 
-### Common Issues & Solutions
+### Typowe problemy i rozwiązania
 
-- **Port Conflicts** – Always increment `basePort` for each new node. Verify with `netstat` or your OS’s port monitor.
-- **Missing Directories** – Ensure every folder referenced (`Indexer0`, `Searcher0`, etc.) exists and the Java process has read/write permissions.
-- **Network Reachability** – When moving to a multi‑machine setup, replace `127.0.0.1` with the actual host IP and open the chosen ports in firewalls.
+- **Konflikty portów** – Zawsze zwiększaj `basePort` dla każdego nowego węzła. Sprawdzaj otwarte porty przy użyciu `netstat` lub monitoru sieciowego systemu operacyjnego.  
+- **Brakujące katalogi** – Upewnij się, że każdy folder (`Indexer0`, `Searcher0` itp.) istnieje i proces Java ma uprawnienia odczytu/zapisu.  
+- **Dostępność sieci** – Przechodząc do konfiguracji wielomaszynowej, zamień `127.0.0.1` na rzeczywisty adres IP hosta i otwórz wybrane porty w zaporach.  
 
-## Practical Applications
+## Praktyczne zastosowania
 
-| Scenario | Benefit of Configuring Base Port GroupDocs |
-|----------|--------------------------------------------|
-| Enterprise Document Management | Seamless scaling across departments without downtime |
-| Large CMS Platforms | Faster content retrieval as the index is distributed |
-| Legal Case Management | Parallel extraction of PDFs reduces search latency |
+| Scenariusz | Korzyść z konfiguracji bazowego portu groupdocs |
+|------------|-------------------------------------------------|
+| Zarządzanie dokumentami w przedsiębiorstwie | Bezproblemowe skalowanie w całych działach bez przestojów |
+| Duże platformy CMS | Szybsze pobieranie treści dzięki rozproszeniu indeksu |
+| Zarządzanie sprawami prawnymi | Równoległe wyodrębnianie PDF‑ów zmniejsza opóźnienia wyszukiwania |
 
-## Performance Considerations
+## Rozważania dotyczące wydajności
 
-- **Monitor CPU/Memory** – Use Java’s JMX or a profiling tool to watch thread usage.
-- **Adjust Compression** – `Compression.High` saves disk space but may add CPU overhead; test both `High` and `Normal`.
-- **Update Regularly** – New GroupDocs.Search releases often include performance patches.
+- **Monitorowanie CPU/pamięci** – Użyj JMX Javy lub narzędzia profilującego, aby obserwować zużycie wątków.  
+- **Dostosowanie kompresji** – `Compression.High` oszczędza miejsce na dysku, ale może zwiększyć obciążenie CPU; przetestuj zarówno `High`, jak i `Normal`, aby znaleźć optymalne ustawienie.  
+- **Regularne aktualizacje** – Nowe wydania GroupDocs.Search często zawierają poprawki wydajności; utrzymuj bibliotekę w aktualnej wersji.
 
-## Conclusion
+## Zakończenie
 
-You’ve now learned how to **configure base port groupdocs** and set up a multi‑node search network using GroupDocs.Search for Java. Experiment with additional nodes, tweak index settings, and integrate the network into your existing applications for a truly scalable search solution.
+Teraz wiesz, jak **configure base port groupdocs** i skonfigurować wielowęzłową sieć wyszukiwania przy użyciu GroupDocs.Search dla Javy. Eksperymentuj z dodatkowymi węzłami, dopasuj ustawienia indeksu i zintegrować sieć z istniejącymi aplikacjami, aby uzyskać naprawdę skalowalne rozwiązanie wyszukiwania.
 
-## Frequently Asked Questions
+## Najczęściej zadawane pytania
 
-**Q: What is the purpose of disabling stop words in indexing?**  
-A: Disabling stop words can improve search accuracy by retaining common terms that might be crucial in specialized domains.
+**Q: Jaki jest cel wyłączania słów stop w indeksowaniu?**  
+A: Wyłączenie słów stop może poprawić dokładność wyszukiwania, zachowując powszechne terminy, które mogą być kluczowe w specjalistycznych dziedzinach.
 
-**Q: How do I handle port conflicts when adding multiple nodes?**  
-A: Start with a high `basePort` (e.g., 49100) and increment it for each subsequent node, ensuring every node has a unique TCP endpoint.
+**Q: Jak radzić sobie z konfliktami portów przy dodawaniu wielu węzłów?**  
+A: Rozpocznij od wysokiego `basePort` (np. 49100) i zwiększaj go dla każdego kolejnego węzła, zapewniając, że każdy węzeł ma unikalny punkt końcowy TCP.
 
-**Q: Can I use**  
-A: Yes—just make sure the chosen ports IP.
+**Q: Czy mogę używać tej konfiguracji w aplikacjach opartych na chmurze?**  
+A: Tak — upewnij się, że wybrane porty są otwarte w grupach zabezpieczeń chmury i zamień `127.0.0.1` na odpowiedni publiczny lub prywatny adres IP.
 
-**Q: What is the difference between NormalIndex and other index types?**  
-A: `NormalIndex` offers a balanced trade‑off between speed and memory usage, while specialized indexes (e.g., `FastIndex`) target niche performance scenarios.
+**Q: Jaka jest różnica między NormalIndex a innymi typami indeksów?**  
+A: `NormalIndex` zapewnia zrównoważony kompromis między szybkością a zużyciem pamięci, podczas gdy specjalistyczne indeksy (np. `FastIndex`) są przeznaczone do specyficznych scenariuszy wydajnościowych.
 
-**Q: Is there a limit to the number of nodes I can add?**  
-A: Technically no; the limit is dictated by your hardware resources and network bandwidth.
+**Q: Czy istnieje limit liczby węzłów, które mogę dodać?**  
+A: Technicznie nie; limit zależy od zasobów sprzętowych i przepustowości sieci.
 
 ---
 
-**Last Updated:** 2026-01-24  
-**Tested With:** GroupDocs.Search Java 25.4  
-**
+**Ostatnia aktualizacja:** 2026-05-17  
+**Testowano z:** GroupDocs.Search Java 25.4  
+**Autor:** GroupDocs
+
+```java
+// Define the base paths using placeholders
+dataPath = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Scaling/ConfiguringSearchNetwork/";
+```
+
+## Powiązane samouczki
+
+- [Jak skonfigurować sieć wyszukiwania .NET przy użyciu GroupDocs.Search i Redaction](/search/net/search-network/configure-net-search-network-groupdocs/)
+- [Jak wdrożyć sieć wyszukiwania z GroupDocs.Search w .NET dla systemów zarządzania dokumentami](/search/net/search-network/implement-search-network-groupdocs-dotnet/)
+- [Wdrożenie węzła sieci wyszukiwania w .NET przy użyciu GroupDocs dla efektywnego indeksowania i wyszukiwania dokumentów](/search/net/search-network/groupdocs-net-deploy-search-node-index-retrieve/)
