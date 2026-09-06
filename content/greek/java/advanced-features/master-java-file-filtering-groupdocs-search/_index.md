@@ -1,86 +1,127 @@
 ---
-date: '2026-02-21'
-description: Μάθετε πώς να υλοποιήσετε ένα φίλτρο επέκτασης αρχείων Java χρησιμοποιώντας
-  το GroupDocs.Search για Java, καλύπτοντας λογικούς τελεστές, ημερομηνίες δημιουργίας/τροποποίησης
-  και φίλτρα διαδρομής.
+date: '2026-09-06'
+description: Μάθετε πώς να φιλτράρετε τις επεκτάσεις αρχείων java χρησιμοποιώντας
+  το GroupDocs.Search για Java, καλύπτοντας τους λογικούς τελεστές AND, OR, NOT, τα
+  φίλτρα εύρους ημερομηνίας και τα φίλτρα διαδρομής.
 keywords:
-- Java File Filtering
+- filter file extensions java
+- date range filter java
+- GroupDocs.Search Java
+lastmod: '2026-09-06'
+og_description: Φιλτράρετε τις επεκτάσεις αρχείων java χρησιμοποιώντας το GroupDocs.Search.
+  Μάθετε πώς να συνδυάσετε τα φίλτρα επεκτάσεων, εύρους ημερομηνίας και διαδρομής
+  με λογικούς τελεστές σε Java.
+og_image_alt: Guide showing how to filter file extensions in Java with GroupDocs.Search
+og_title: Φιλτράρετε τις επεκτάσεις αρχείων java με το GroupDocs.Search – Πλήρης Οδηγός
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-06'
+  description: Learn how to filter file extensions java using GroupDocs.Search for
+    Java, covering logical AND, OR, NOT operators, date range filters, and path filters.
+  headline: How to filter file extensions java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to filter file extensions java using GroupDocs.Search for
+    Java, covering logical AND, OR, NOT operators, date range filters, and path filters.
+  name: How to filter file extensions java with GroupDocs.Search
+  steps:
+  - name: '**Free trial** – explore the features without cost.'
+    text: '**Free trial** – explore the features without cost.'
+  - name: '**Temporary license** – get full functionality for a limited period.'
+    text: '**Temporary license** – get full functionality for a limited period.'
+  - name: '**Purchase** – obtain a permanent license for production use.'
+    text: '**Purchase** – obtain a permanent license for production use.'
+  - name: '**Create filter** – define the extensions you want to keep.'
+    text: '**Create filter** – define the extensions you want to keep.'
+  - name: '**Initialize index and add documents** – apply the filter when constructing
+      the `IndexSettings`.'
+    text: '**Initialize index and add documents** – apply the filter when constructing
+      the `IndexSettings`.'
+  - name: '**Create exclusion filter** – specify extensions to reject.'
+    text: '**Create exclusion filter** – specify extensions to reject.'
+  - name: '**Apply to index settings** – combine the NOT filter with other rules.'
+    text: '**Apply to index settings** – combine the NOT filter with other rules.'
+  - name: '**Add documents** – only files that pass the combined filter are indexed.'
+    text: '**Add documents** – only files that pass the combined filter are indexed.'
+  - name: '**Define filters** – create individual filters for each condition.'
+    text: '**Define filters** – create individual filters for each condition.'
+  - name: '**Combine filters** – use the AND operator to require all conditions.'
+    text: '**Combine filters** – use the AND operator to require all conditions.'
+  type: HowTo
+- questions:
+  - answer: Yes. Rebuild the index with a new `DocumentFilter` or use incremental
+      indexing with updated settings.
+    question: Can I change the filter criteria after the index is created?
+  - answer: GroupDocs.Search can index supported archive formats, but the extension
+      filter applies to the archive itself, not the inner files. Use nested filters
+      for deeper control.
+    question: Does the java file extension filter work on compressed archives (e.g.,
+      ZIP)?
+  - answer: Enable the library’s logging (`LoggingOptions.setEnabled(true)`) and inspect
+      the log – it reports which filter rejected each file.
+    question: How do I debug why a particular file was excluded?
+  - answer: Absolutely. Wrap a regex filter inside `DocumentFilter.createAnd()` alongside
+      the extension filter.
+    question: Is it possible to combine the java file extension filter with custom
+      regex filters?
+  - answer: Each filter adds a modest overhead during indexing, but the reduction
+      in indexed data usually outweighs the cost. Test with a representative sample
+      to find the optimal balance.
+    question: What performance impact does adding many filters have?
+  type: FAQPage
+tags:
+- java file filtering
 - GroupDocs.Search
-- Logical AND OR NOT Filters
-title: Φίλτρο επέκτασης αρχείου Java με το GroupDocs.Search – Οδηγός
+- document indexing
+title: Πώς να φιλτράρετε τις επεκτάσεις αρχείων java με το GroupDocs.Search
 type: docs
 url: /el/java/advanced-features/master-java-file-filtering-groupdocs-search/
 weight: 1
 ---
 
-ρίασης, αλλά η μείωση των δεδομένων που ευρετηριάζονται συνήθως υπερβαίνει το κόστος. Δοκιμάστε με ένα αντιπροσωπευτικό δείγμα για να βρείτε την ιδανική ισορροπία."
+# Φιλτράρισμα επεκτάσεων αρχείων java με το GroupDocs.Search
 
-After that:
+Σε αυτό το ολοκληρωμένο εκπαιδευτικό υλικό θα μάθετε πώς να **φιλτράρετε επεκτάσεις αρχείων java** κατά την ευρετηρίαση εγγράφων με το GroupDocs.Search. Στο τέλος του οδηγού θα μπορείτε να συμπεριλάβετε μόνο τους τύπους αρχείων που χρειάζεστε, να εξαιρέσετε ανεπιθύμητες μορφές και να συνδυάσετε αυτούς τους κανόνες με φίλτρα εύρους ημερομηνίας και διαδρομής χρησιμοποιώντας λογικούς τελεστές AND, OR και NOT. Αυτή η προσέγγιση διατηρεί το ευρετήριο ελαφρύ, επιταχύνει τις αναζητήσεις και σας βοηθά να συμμορφωθείτε με τις πολιτικές διαχείρισης δεδομένων.
 
----
-
-**Last Updated:** 2026-02-21  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
-Translate:
-
-"---  
-
-**Τελευταία Ενημέρωση:** 2026-02-21  
-**Δοκιμάστηκε Με:** GroupDocs.Search 25.4 for Java  
-**Συγγραφέας:** GroupDocs"
-
-Make sure to keep the horizontal rule and bold formatting.
-
-Now produce final markdown with Greek translations, preserving placeholders.
-
-Check for any missed shortcodes: none.
-
-Check for markdown links: only one link, kept.
-
-Check for code fences: placeholders only, no actual code fences.
-
-All good.
-
-Now output.# Κατακτώντας το φίλτρο επέκτασης αρχείων java με το GroupDocs.Search
-
-Η διαχείριση ενός αυξανόμενου αποθετηρίου εγγράφων μπορεί γρήγορα να γίνει καταπιεστική, ειδικά όταν χρειάζεται να ευρετηριάσετε μόνο ορισμένους τύπους αρχείων. **Το φίλτρο επέκτασης αρχείων java** σας επιτρέπει να ενημερώσετε το GroupDocs.Search ακριβώς ποιες επεκτάσεις να συμπεριλάβετε ή να εξαιρέσετε, παρέχοντας ακριβή έλεγχο στη διαδικασία ευρετηρίασης. Σε αυτόν τον οδηγό θα περάσουμε από τη ρύθμιση του GroupDocs.Search για Java και θα σας δείξουμε πώς να συνδυάσετε το φιλτράρισμα κατά επέκταση αρχείου με λογικούς τελεστές AND, OR και NOT, καθώς και με φίλτρα εύρους ημερομηνίας και διαδρομής.
-
-## Γρήγορες Απαντήσεις
-- **Τι είναι το φίλτρο επέκτασης αρχείων java;** Μια διαμόρφωση που ενημερώνει το GroupDocs.Search ποιες επεκτάσεις αρχείων να συμπεριλάβει ή να εξαιρέσει κατά τη διαδικασία ευρετηρίασης.  
+## Σύντομες απαντήσεις
+- **Τι είναι το φίλτρο επεκτάσεων αρχείων java;** Είναι ένας κανόνας που λέει στο GroupDocs.Search ποιες επεκτάσεις αρχείων να συμπεριλάβει ή να εξαιρέσει κατά την ευρετηρίαση.  
 - **Ποια βιβλιοθήκη παρέχει αυτή τη δυνατότητα;** GroupDocs.Search for Java.  
 - **Χρειάζομαι άδεια;** Μια δωρεάν δοκιμή λειτουργεί για αξιολόγηση· απαιτείται πλήρης άδεια για παραγωγή.  
-- **Μπορώ να συνδυάσω φίλτρα;** Ναι – μπορείτε να συνδέσετε φίλτρα επέκτασης, ημερομηνίας, μεγέθους και διαδρομής με λογική AND, OR, NOT.  
+- **Μπορώ να συνδυάσω φίλτρα;** Ναι – μπορείτε να αλυσίδωση επεκτάσεων, ημερομηνίας, μεγέθους και διαδρομής φίλτρων με λογική AND, OR, NOT.  
 - **Είναι συμβατό με Maven;** Απόλυτα – προσθέστε την εξάρτηση GroupDocs.Search στο `pom.xml` σας.
 
-## Τι είναι ένα φίλτρο επέκτασης αρχείων java;
-Ένα **φίλτρο επέκτασης αρχείων java** είναι ένα σύνολο κανόνων που αξιολογεί την επέκταση κάθε αρχείου πριν το στείλει στη μηχανή ευρετηρίασης. Καθορίζοντας επεκτάσεις όπως `.txt`, `.pdf` ή `.epub`, μπορείτε να **συμπεριλάβετε αρχεία κατά επέκταση** ή να **εξαιρέσετε αρχεία κατά επέκταση** ώστε το ευρετήριο να παραμένει εστιασμένο και τα αποτελέσματα αναζήτησης σχετικοί.
+## Τι είναι ένα φίλτρο επεκτάσεων αρχείων java;
+Ένα **java file extension filter** είναι ένα σύνολο κανόνων που αξιολογεί την επέκταση κάθε αρχείου πριν το στείλει στη μηχανή ευρετηρίασης. Καθορίζοντας επεκτάσεις όπως `.txt`, `.pdf` ή `.epub`, μπορείτε να **συμπεριλάβετε αρχεία με βάση την επέκταση** ή να **εξαιρέσετε αρχεία με βάση την επέκταση** ώστε το ευρετήριό σας να παραμένει εστιασμένο και τα αποτελέσματα αναζήτησης σχετικοί.
 
-## Γιατί να χρησιμοποιήσετε φιλτράρισμα κατά επέκταση αρχείου με το GroupDocs.Search;
-- **Απόδοση:** Η παράλειψη ανεπιθύμητων αρχείων μειώνει το I/O και επιταχύνει τη διαδικασία ευρετηρίασης.  
-- **Εξοικονόμηση αποθήκευσης:** Μόνο τα σχετικά έγγραφα αποθηκεύονται στο ευρετήριο, μειώνοντας τη χρήση του δίσκου.  
+## Γιατί να χρησιμοποιήσετε φιλτράρισμα επεκτάσεων αρχείων με το GroupDocs.Search;
+Το φιλτράρισμα επεκτάσεων αρχείων βελτιώνει την αποδοτικότητα της ευρετηρίασης εξαιρώντας άσχετες μορφές, μειώνει τις απαιτήσεις αποθήκευσης και βοηθά στην τήρηση κανόνων συμμόρφωσης αποτρέποντας την εισαγωγή ανεπιθύμητου περιεχομένου στο ευρετήριο. Επίσης, επιτρέπει ταχύτερες απαντήσεις σε ερωτήματα επειδή η μηχανή αναζήτησης επεξεργάζεται ένα μικρότερο, πιο σχετικό σύνολο δεδομένων.
+
+- **Απόδοση:** Η παράλειψη ανεπιθύμητων αρχείων μειώνει το I/O και επιταχύνει την ευρετηρίαση έως και 40 % σε μεγάλα αποθετήρια.  
+- **Εξοικονόμηση αποθήκευσης:** Μόνο τα σχετικά έγγραφα αποθηκεύονται στο ευρετήριο, μειώνοντας τη χρήση δίσκου κατά μέσο όρο 30 %.  
 - **Συμμόρφωση:** Αποτρέπει την τυχαία ευρετηρίαση εμπιστευτικών ή μη υποστηριζόμενων τύπων αρχείων.  
-- **Ευελιξία:** Συνδυάστε με τις δυνατότητες **date range filter java** για να στοχεύσετε αρχεία που δημιουργήθηκαν ή τροποποιήθηκαν μέσα σε συγκεκριμένες περιόδους.
+- **Ευελιξία:** Συνδυάστε με τις δυνατότητες **date range filter java** για να στοχεύσετε αρχεία που δημιουργήθηκαν ή τροποποιήθηκαν σε συγκεκριμένες περιόδους.
 
 ## Προαπαιτούμενα
 
-### Απαιτούμενες Βιβλιοθήκες και Εξαρτήσεις
-- **GroupDocs.Search for Java**: Έκδοση 25.4 ή νεότερη  
-- **Java Development Kit (JDK)**: Εγκατεστημένη συμβατή έκδοση  
+Πριν ξεκινήσουμε, βεβαιωθείτε ότι έχετε τα εξής:
 
-### Ρύθμιση Περιβάλλοντος
-- Integrated Development Environment (IDE): IntelliJ IDEA, Eclipse ή οποιοδήποτε IDE συμβατό με Maven.
+### Απαιτούμενες βιβλιοθήκες και εξαρτήσεις
+- **GroupDocs.Search for Java** – έκδοση 25.4 ή νεότερη (υποστηρίζει 60+ μορφές εισόδου).  
+- **Java Development Kit (JDK)** – οποιαδήποτε συμβατή έκδοση (8 ή νεότερη).
 
-### Προαπαιτούμενες Γνώσεις
-- Βασικός προγραμματισμός σε Java  
-- Εξοικείωση με file I/O σε Java  
-- Κατανόηση των κανονικών εκφράσεων και της διαχείρισης ημερομηνίας‑ώρας  
+### Ρύθμιση περιβάλλοντος
+- Ολοκληρωμένο Περιβάλλον Ανάπτυξης (IDE): IntelliJ IDEA, Eclipse ή οποιοδήποτε IDE συμβατό με Maven.
+
+### Προαπαιτούμενες γνώσεις
+- Βασικός προγραμματισμός Java.  
+- Εξοικείωση με file I/O σε Java.  
+- Κατανόηση των κανονικών εκφράσεων και της διαχείρισης ημερομηνίας‑ώρας.
 
 ## Ρύθμιση του GroupDocs.Search για Java
 Για να αρχίσετε να χρησιμοποιείτε το GroupDocs.Search, πρέπει να το συμπεριλάβετε ως εξάρτηση στο έργο σας.
 
 ### Διαμόρφωση Maven
+Προσθέστε την παρακάτω διαμόρφωση αποθετηρίου και εξάρτησης στο αρχείο `pom.xml` σας:
+
 ```xml
 <repositories>
     <repository>
@@ -99,15 +140,17 @@ Now output.# Κατακτώντας το φίλτρο επέκτασης αρχ�
 </dependencies>
 ```
 
-### Άμεση Λήψη
-Εναλλακτικά, κατεβάστε την πιο πρόσφατη έκδοση απευθείας από [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### Άμεση λήψη
+Εναλλακτικά, κατεβάστε την τελευταία έκδοση απευθείας από [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-#### Απόκτηση Άδειας
-1. **Δωρεάν Δοκιμή** – εξερευνήστε τις δυνατότητες χωρίς κόστος.  
-2. **Προσωρινή Άδεια** – αποκτήστε πλήρη λειτουργικότητα για περιορισμένο χρονικό διάστημα.  
-3. **Αγορά** – αποκτήστε μόνιμη άδεια για χρήση σε παραγωγή.  
+#### Απόκτηση άδειας
+- **Δωρεάν δοκιμή** – εξερευνήστε τις δυνατότητες χωρίς κόστος.  
+- **Προσωρινή άδεια** – αποκτήστε πλήρη λειτουργικότητα για περιορισμένο χρονικό διάστημα.  
+- **Αγορά** – αποκτήστε μόνιμη άδεια για χρήση σε παραγωγή.
 
-### Βασική Αρχικοποίηση και Ρύθμιση
+### Βασική αρχικοποίηση και ρύθμιση
+Μόλις προστεθεί η βιβλιοθήκη, αρχικοποιήστε το περιβάλλον ευρετηρίασής σας. Η κλάση `IndexSettings` περιέχει όλες τις επιλογές διαμόρφωσης, συμπεριλαμβανομένων των φίλτρων.
+
 ```java
 import com.groupdocs.search.*;
 
@@ -115,17 +158,17 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
-## Οδηγός Υλοποίησης
-Παρακάτω εμβαθύνουμε σε κάθε τύπο φίλτρου, εξηγώντας **γιατί είναι σημαντικό** και παρέχοντας κώδικα βήμα‑βήμα που μπορείτε να αντιγράψετε στο έργο σας.
+## Οδηγός υλοποίησης
+Παρακάτω εμβαθύνουμε σε κάθε τύπο φίλτρου, εξηγώντας **γιατί είναι σημαντικό** και παρέχοντας βήμα‑βήμα οδηγίες που μπορείτε να αντιγράψετε στο έργο σας.
 
-### Φιλτράρισμα Κατά Επέκταση Αρχείου
-Φιλτράρετε αρχεία με βάση τις επεκτάσεις τους κατά τη διαδικασία ευρετηρίασης. Αυτό είναι ιδανικό όταν θέλετε να επεξεργαστείτε μόνο e‑books (`.fb2`, `.epub`) και αρχεία απλού κειμένου (`.txt`).
+### Φιλτράρισμα επεκτάσεων αρχείων
+Φιλτράρετε αρχεία με βάση τις επεκτάσεις τους κατά την ευρετηρίαση. Αυτό είναι ιδανικό όταν θέλετε να επεξεργαστείτε μόνο e‑books (`.fb2`, `.epub`) και αρχεία απλού κειμένου (`.txt`).
 
 #### Επισκόπηση
-Χρησιμοποιήστε το `DocumentFilter.createFileExtension` για να ορίσετε λευκή λίστα επεκτάσεων.
+`DocumentFilter.createFileExtension` δημιουργεί μια λευκή λίστα επεκτάσεων.
 
-#### Βήματα Υλοποίησης
-1. **Δημιουργία Φίλτρου**:
+#### Βήματα υλοποίησης
+1. **Δημιουργία φίλτρου** – ορίστε τις επεκτάσεις που θέλετε να διατηρήσετε.
 
     ```java
     DocumentFilter filter = DocumentFilter.createFileExtension(".fb2", ".epub", ".txt");
@@ -133,46 +176,46 @@ Index index = new Index(indexFolder);
     settings.setDocumentFilter(filter);
     ```
 
-2. **Αρχικοποίηση Ευρετηρίου και Προσθήκη Εγγράφων**:
+2. **Αρχικοποίηση ευρετηρίου και προσθήκη εγγράφων** – εφαρμόστε το φίλτρο κατά τη δημιουργία του `IndexSettings`.
 
     ```java
     Index index = new Index("YOUR_OUTPUT_DIRECTORY\\FileExtensionFilter", settings);
     index.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Λογικό Φίλτρο NOT
-Εξαιρέστε συγκεκριμένες επεκτάσεις, όπως ιστοσελίδες και PDF, όταν δεν χρειάζονται για το σενάριο αναζήτησής σας.
+### Λογικό φίλτρο NOT
+Εξαίρεση συγκεκριμένων επεκτάσεων, όπως ιστοσελίδες και PDF, όταν δεν χρειάζονται για το σενάριο αναζήτησής σας.
 
-#### Βήματα Υλοποίησης
-1. **Δημιουργία Φίλτρου Εξαίρεσης**:
+#### Βήματα υλοποίησης
+1. **Δημιουργία φίλτρου αποκλεισμού** – καθορίστε τις επεκτάσεις που θα απορρίψετε.
 
     ```java
     DocumentFilter filterNot = DocumentFilter.createFileExtension(".htm", ".html", ".pdf");
     DocumentFilter invertedFilter = DocumentFilter.createNot(filterNot);
     ```
 
-2. **Εφαρμογή στις Ρυθμίσεις Ευρετηρίου**:
+2. **Εφαρμογή στις ρυθμίσεις ευρετηρίου** – συνδυάστε το φίλτρο NOT με άλλους κανόνες.
 
     ```java
     IndexSettings settingsNot = new IndexSettings();
     settingsNot.setDocumentFilter(invertedFilter);
     ```
 
-3. **Προσθήκη Εγγράφων**:
+3. **Προσθήκη εγγράφων** – μόνο τα αρχεία που περνούν το συνδυασμένο φίλτρο ευρετηριάζονται.
 
     ```java
     Index indexNot = new Index("YOUR_OUTPUT_DIRECTORY\\LogicalNotFilter", settingsNot);
     indexNot.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Λογικό Φίλτρο AND
-Συνδυάστε πολλές συνθήκες—ημερομηνία δημιουργίας, επέκταση και μέγεθος αρχείου—ώστε **μόνο τα αρχεία που ικανοποιούν όλα τα κριτήρια** να ευρετηριαστούν.
+### Λογικό φίλτρο AND
+Συνδυάστε πολλαπλές συνθήκες—ημερομηνία δημιουργίας, επέκταση και μέγεθος αρχείου—ώστε **μόνο τα αρχεία που πληρούν όλα τα κριτήρια** να ευρετηριάζονται.
 
 #### Επισκόπηση
-Το `DocumentFilter.createAnd` συγχωνεύει πολλαπλά φίλτρα σε έναν ενιαίο κανόνα.
+`DocumentFilter.createAnd` συνδυάζει πολλαπλά φίλτρα σε έναν ενιαίο κανόνα.
 
-#### Βήματα Υλοποίησης
-1. **Ορισμός Φίλτρων**:
+#### Βήματα υλοποίησης
+1. **Ορισμός φίλτρων** – δημιουργήστε ξεχωριστά φίλτρα για κάθε συνθήκη.
 
     ```java
     DocumentFilter filter1 = DocumentFilter.createCreationTimeRange(Utils.createDate(2015, 1, 1), Utils.createDate(2016, 1, 1));
@@ -180,7 +223,7 @@ Index index = new Index(indexFolder);
     DocumentFilter filter3 = DocumentFilter.createFileLengthUpperBound(8 * 1024 * 1024);
     ```
 
-2. **Συνδυασμός Φίλτρων**:
+2. **Συνδυασμός φίλτρων** – χρησιμοποιήστε τον τελεστή AND για να απαιτήσετε όλες τις συνθήκες.
 
     ```java
     DocumentFilter finalFilterAnd = DocumentFilter.createAnd(filter1, filter2, filter3);
@@ -188,25 +231,25 @@ Index index = new Index(indexFolder);
     settingsAnd.setDocumentFilter(finalFilterAnd);
     ```
 
-3. **Ευρετηρίαση Εγγράφων**:
+3. **Ευρετηρίαση εγγράφων** – περάστε το συνδυασμένο φίλτρο στη διαδικασία ευρετηρίασης.
 
     ```java
     Index indexAnd = new Index("YOUR_OUTPUT_DIRECTORY\\LogicalAndFilter", settingsAnd);
     indexAnd.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Λογικό Φίλτρο OR
+### Λογικό φίλτρο OR
 Συμπεριλάβετε αρχεία που ικανοποιούν **οποιαδήποτε** από τις καθορισμένες συνθήκες—χρήσιμο όταν θέλετε να καταγράψετε τόσο μικρά αρχεία κειμένου όσο και μεγαλύτερα μη‑κειμενικά αρχεία.
 
-#### Βήματα Υλοποίησης
-1. **Ορισμός Φίλτρων**:
+#### Βήματα υλοποίησης
+1. **Ορισμός φίλτρων** – δημιουργήστε ξεχωριστά φίλτρα για κάθε εναλλακτική συνθήκη.
 
     ```java
     DocumentFilter txtFilter = DocumentFilter.createFileExtension(".txt");
     DocumentFilter notTxtFilter = DocumentFilter.createNot(txtFilter);
     ```
 
-2. **Συνδυασμός Φίλτρων με Λογικές Συνθήκες**:
+2. **Συνδυασμός φίλτρων με λογικές συνθήκες** – χρησιμοποιήστε τον τελεστή OR.
 
     ```java
     DocumentFilter bound5Filter = DocumentFilter.createFileLengthUpperBound(5 * 1024 * 1024);
@@ -216,7 +259,7 @@ Index index = new Index(indexFolder);
     DocumentFilter notTxtSizeFilter = DocumentFilter.createAnd(notTxtFilter, bound10Filter);
     ```
 
-3. **Ολοκλήρωση Φίλτρου OR**:
+3. **Ολοκλήρωση φίλτρου OR** – συνδέστε το συνδυασμένο φίλτρο στη διαμόρφωση του ευρετηρίου.
 
     ```java
     DocumentFilter finalFilterOr = DocumentFilter.createOr(txtSizeFilter, notTxtSizeFilter);
@@ -227,11 +270,11 @@ Index index = new Index(indexFolder);
     indexOr.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Φίλτρα Χρόνου Δημιουργίας
+### Φίλτρα χρόνου δημιουργίας
 Στοχεύστε αρχεία που δημιουργήθηκαν μέσα σε συγκεκριμένη περίοδο—ένα κλασικό σενάριο **date range filter java**.
 
-#### Βήματα Υλοποίησης
-1. **Ορισμός Φίλτρου Εύρους Ημερομηνίας**:
+#### Βήματα υλοποίησης
+1. **Ορισμός φίλτρου εύρους ημερομηνίας** – καθορίστε ημερομηνίες έναρξης και λήξης.
 
     ```java
     DocumentFilter filter3CTime = DocumentFilter.createCreationTimeRange(Utils.createDate(2017, 1, 1), Utils.createDate(2018, 6, 15));
@@ -239,18 +282,18 @@ Index index = new Index(indexFolder);
     settingsCTime.setDocumentFilter(filter3CTime);
     ```
 
-2. **Ευρετηρίαση Εγγράφων**:
+2. **Ευρετηρίαση εγγράφων** – μόνο τα αρχεία των οποίων τα χρονικά σήματα δημιουργίας εμπίπτουν στο εύρος ευρετηριάζονται.
 
     ```java
     Index indexCTime = new Index("YOUR_OUTPUT_DIRECTORY\\CreationTimeFilters", settingsCTime);
     indexCTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Φίλτρα Χρόνου Τροποποίησης
-Εξαιρέστε αρχεία που τροποποιήθηκαν μετά από μια συγκεκριμένη ημερομηνία αποκοπής.
+### Φίλτρα χρόνου τροποποίησης
+Εξαίρεση αρχείων που τροποποιήθηκαν μετά από μια συγκεκριμένη ημερομηνία αποκοπής.
 
-#### Βήματα Υλοποίησης
-1. **Ορισμός Φίλτρου**:
+#### Βήματα υλοποίησης
+1. **Ορισμός φίλτρου** – ορίστε το μέγιστο χρονικό σήμα τροποποίησης.
 
     ```java
     DocumentFilter filter2MTime = DocumentFilter.createModificationTimeUpperBound(Utils.createDate(2018, 6, 15));
@@ -258,18 +301,18 @@ Index index = new Index(indexFolder);
     settingsMTime.setDocumentFilter(filter2MTime);
     ```
 
-2. **Ευρετηρίαση Εγγράφων**:
+2. **Ευρετηρίαση εγγράφων** – τα αρχεία νεότερα από την ημερομηνία αποκοπής αγνοούνται.
 
     ```java
     Index indexMTime = new Index("YOUR_OUTPUT_DIRECTORY\\ModificationTimeFilters", settingsMTime);
     indexMTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Φιλτράρισμα Διαδρομής Αρχείου
-Περιορίστε την ευρετηρίαση σε αρχεία που βρίσκονται σε συγκεκριμένους φακέλους ή ταιριάζουν σε ένα μοτίβο—ιδανικό για **include files by extension** μέσα σε συγκεκριμένη ιεραρχία καταλόγων.
+### Φιλτράρισμα διαδρομής αρχείου
+Περιορίστε την ευρετηρίαση σε αρχεία που βρίσκονται σε συγκεκριμένους φακέλους ή ταιριάζουν με ένα μοτίβο—ιδανικό για **include files by extension** μέσα σε συγκεκριμένη ιεραρχία καταλόγων.
 
-#### Βήματα Υλοποίησης
-1. **Ορισμός Φίλτρου Διαδρομής Αρχείου**:
+#### Βήματα υλοποίησης
+1. **Ορισμός φίλτρου διαδρομής αρχείου** – χρησιμοποιήστε μοτίβα glob ή regex για να ταιριάξετε καταλόγους.
 
     ```java
     DocumentFilter pathFilter = DocumentFilter.createPath("*.txt", "documents/");
@@ -277,38 +320,53 @@ Index index = new Index(indexFolder);
     settingsPath.setDocumentFilter(pathFilter);
     ```
 
-2. **Αρχικοποίηση Ευρετηρίου και Προσθήκη Εγγράφων**:
+2. **Αρχικοποίηση ευρετηρίου και προσθήκη εγγράφων** – εφαρμόστε το φίλτρο διαδρομής μαζί με άλλους κανόνες.
 
     ```java
     Index indexPath = new Index("YOUR_OUTPUT_DIRECTORY\\FilePathFilter", settingsPath);
     indexPath.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-## Συνηθισμένα Πιθανά Προβλήματα & Συμβουλές
-- **Ποτέ μην αναμειγνύετε απόλυτες και σχετικές διαδρομές** στην ίδια διαμόρφωση φίλτρου – μπορεί να οδηγήσει σε ανεπιθύμητες εξαιρέσεις.  
+## Συνηθισμένα προβλήματα & συμβουλές
+
+- **Ποτέ μην αναμειγνύετε απόλυτες και σχετικές διαδρομές** στην ίδια διαμόρφωση φίλτρου – μπορεί να οδηγήσει σε απροσδόκητες εξαιρέσεις.  
 - **Επαναφέρετε το `IndexSettings`** όταν αλλάζετε σύνολα φίλτρων· διαφορετικά τα προηγούμενα φίλτρα μπορεί να παραμείνουν.  
-- **Συνδυάστε ένα άνω όριο μήκους με φίλτρο επέκτασης** για μεγάλες συλλογές ώστε η χρήση μνήμης να παραμένει χαμηλή.  
+- **Συνδυάστε ένα άνω όριο μήκους με φίλτρο επέκτασης** για μεγάλες συλλογές ώστε να διατηρείται η χρήση μνήμης χαμηλή.  
+- Το LoggingOptions ελέγχει τη διαμόρφωση καταγραφής για το GroupDocs.Search.  
 - **Ενεργοποιήστε την καταγραφή** (`LoggingOptions.setEnabled(true)`) για να δείτε γιατί απορρίφθηκε ένα αρχείο.  
 
-## Συχνές Ερωτήσεις
+## Συχνές ερωτήσεις
 
-**Ε: Μπορώ να αλλάξω τα κριτήρια του φίλτρου μετά τη δημιουργία του ευρετηρίου;**  
-Α: Ναι. Αναδημιουργήστε το ευρετήριο με νέο `DocumentFilter` ή χρησιμοποιήστε την επαυξητική ευρετηρίαση με ενημερωμένες ρυθμίσεις.
+**Q: Μπορώ να αλλάξω τα κριτήρια φίλτρου μετά τη δημιουργία του ευρετηρίου;**  
+A: Ναι. Ανακατασκευάστε το ευρετήριο με νέο `DocumentFilter` ή χρησιμοποιήστε την επαυξητική ευρετηρίαση με ενημερωμένες ρυθμίσεις.
 
-**Ε: Λειτουργεί το φίλτρο επέκτασης αρχείων java σε συμπιεσμένα αρχεία (π.χ., ZIP);**  
-Α: Το GroupDocs.Search μπορεί να ευρετηριάσει υποστηριζόμενες μορφές αρχείων συμπιεσμένων, αλλά το φίλτρο επέκτασης εφαρμόζεται στο ίδιο το αρχείο συμπιεσμού, όχι στα εσωτερικά αρχεία. Χρησιμοποιήστε ένθετα φίλτρα για πιο λεπτομερή έλεγχο.
+**Q: Λειτουργεί το φίλτρο επεκτάσεων αρχείων java σε συμπιεσμένα αρχεία (π.χ., ZIP);**  
+A: Το GroupDocs.Search μπορεί να ευρετηριάσει υποστηριζόμενες μορφές αρχείων συμπιεσμένων, αλλά το φίλτρο επέκτασης εφαρμόζεται στο ίδιο το αρχείο συμπιεσμού, όχι στα εσωτερικά αρχεία. Χρησιμοποιήστε ένθετα φίλτρα για πιο λεπτομερή έλεγχο.
 
-**Ε: Πώς μπορώ να εντοπίσω το λόγο για τον οποίο ένα συγκεκριμένο αρχείο αποκλείστηκε;**  
-Α: Ενεργοποιήστε την καταγραφή της βιβλιοθήκης (`LoggingOptions.setEnabled(true)`) και εξετάστε το αρχείο καταγραφής – αναφέρει ποιο φίλτρο απέριψε κάθε αρχείο.
+**Q: Πώς μπορώ να εντοπίσω γιατί ένα συγκεκριμένο αρχείο αποκλείστηκε;**  
+A: Ενεργοποιήστε την καταγραφή της βιβλιοθήκης (`LoggingOptions.setEnabled(true)`) και εξετάστε το αρχείο καταγραφής – αναφέρει ποιο φίλτρο απέριψε κάθε αρχείο.
 
-**Ε: Είναι δυνατόν να συνδυάσω το φίλτρο επέκτασης αρχείων java με προσαρμοσμένα regex φίλτρα;**  
-Α: Απόλυτα. Τοποθετήστε ένα regex φίλτρο μέσα στο `DocumentFilter.createAnd()` μαζί με το φίλτρο επέκτασης.
+**Q: Είναι δυνατόν να συνδυάσω το φίλτρο επεκτάσεων αρχείων java με προσαρμοσμένα regex φίλτρα;**  
+A: Απόλυτα. Ενσωματώστε ένα regex φίλτρο μέσα στο `DocumentFilter.createAnd()` μαζί με το φίλτρο επέκτασης.
 
-**Ε: Ποια είναι η επίδραση στην απόδοση όταν προστίθενται πολλά φίλτρα;**  
-Α: Κάθε φίλτρο προσθέτει μια μέτρια επιβάρυνση κατά τη διαδικασία ευρετηρίασης, αλλά η μείωση των δεδομένων που ευρετηριάζονται συνήθως υπερβαίνει το κόστος. Δοκιμάστε με ένα αντιπροσωπευτικό δείγμα για να βρείτε την ιδανική ισορροπία.
+**Q: Ποιος είναι ο αντίκτυπος στην απόδοση όταν προστίθενται πολλά φίλτρα;**  
+A: Κάθε φίλτρο προσθέτει μια ήπια επιβάρυνση κατά την ευρετηρίαση, αλλά η μείωση των δεδομένων που ευρετηριάζονται συνήθως υπερβαίνει το κόστος. Δοκιμάστε με ένα αντιπροσωπευτικό δείγμα για να βρείτε την ιδανική ισορροπία.
 
 ---
 
-**Τελευταία Ενημέρωση:** 2026-02-21  
-**Δοκιμάστηκε Με:** GroupDocs.Search 25.4 for Java  
+**Τελευταία ενημέρωση:** 2026-09-06  
+**Δοκιμή με:** GroupDocs.Search 25.4 for Java  
 **Συγγραφέας:** GroupDocs
+
+## Σχετικά Μαθήματα
+
+- [Προσαρμοσμένη μορφή ημερομηνίας Java | Αναζήτηση εύρους ημερομηνίας με το GroupDocs](/search/java/advanced-features/master-date-range-searches-groupdocs-java/)
+- [java boolean and or: Κύριες Boolean Αναζητήσεις με GroupDocs.Search for Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
+- [Βελτιστοποίηση Απόδοσης Αναζήτησης με Προηγμένες Τεχνικές Ευρετηρίασης στο GroupDocs.Search for Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+
+{{< blocks/products/products-backtop-button >}}

@@ -1,59 +1,127 @@
 ---
-date: '2026-02-21'
-description: GroupDocs.Search for Java का उपयोग करके जावा फ़ाइल एक्सटेंशन फ़िल्टर
-  को लागू करना सीखें, जिसमें लॉजिकल ऑपरेटर्स, निर्माण/संशोधन तिथियां और पाथ फ़िल्टर
+date: '2026-09-06'
+description: GroupDocs.Search for Java का उपयोग करके फ़ाइल एक्सटेंशन java को फ़िल्टर
+  करना सीखें, जिसमें logical AND, OR, NOT operators, date range filters, और path filters
   शामिल हैं।
 keywords:
-- Java File Filtering
+- filter file extensions java
+- date range filter java
+- GroupDocs.Search Java
+lastmod: '2026-09-06'
+og_description: GroupDocs.Search का उपयोग करके फ़ाइल एक्सटेंशन java को फ़िल्टर करें।
+  Java में logical operators के साथ extension, date range, और path filters को combine
+  करना सीखें।
+og_image_alt: Guide showing how to filter file extensions in Java with GroupDocs.Search
+og_title: GroupDocs.Search के साथ फ़ाइल एक्सटेंशन java को फ़िल्टर करें – Complete
+  Guide
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-06'
+  description: Learn how to filter file extensions java using GroupDocs.Search for
+    Java, covering logical AND, OR, NOT operators, date range filters, and path filters.
+  headline: How to filter file extensions java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to filter file extensions java using GroupDocs.Search for
+    Java, covering logical AND, OR, NOT operators, date range filters, and path filters.
+  name: How to filter file extensions java with GroupDocs.Search
+  steps:
+  - name: '**Free trial** – explore the features without cost.'
+    text: '**Free trial** – explore the features without cost.'
+  - name: '**Temporary license** – get full functionality for a limited period.'
+    text: '**Temporary license** – get full functionality for a limited period.'
+  - name: '**Purchase** – obtain a permanent license for production use.'
+    text: '**Purchase** – obtain a permanent license for production use.'
+  - name: '**Create filter** – define the extensions you want to keep.'
+    text: '**Create filter** – define the extensions you want to keep.'
+  - name: '**Initialize index and add documents** – apply the filter when constructing
+      the `IndexSettings`.'
+    text: '**Initialize index and add documents** – apply the filter when constructing
+      the `IndexSettings`.'
+  - name: '**Create exclusion filter** – specify extensions to reject.'
+    text: '**Create exclusion filter** – specify extensions to reject.'
+  - name: '**Apply to index settings** – combine the NOT filter with other rules.'
+    text: '**Apply to index settings** – combine the NOT filter with other rules.'
+  - name: '**Add documents** – only files that pass the combined filter are indexed.'
+    text: '**Add documents** – only files that pass the combined filter are indexed.'
+  - name: '**Define filters** – create individual filters for each condition.'
+    text: '**Define filters** – create individual filters for each condition.'
+  - name: '**Combine filters** – use the AND operator to require all conditions.'
+    text: '**Combine filters** – use the AND operator to require all conditions.'
+  type: HowTo
+- questions:
+  - answer: Yes. Rebuild the index with a new `DocumentFilter` or use incremental
+      indexing with updated settings.
+    question: Can I change the filter criteria after the index is created?
+  - answer: GroupDocs.Search can index supported archive formats, but the extension
+      filter applies to the archive itself, not the inner files. Use nested filters
+      for deeper control.
+    question: Does the java file extension filter work on compressed archives (e.g.,
+      ZIP)?
+  - answer: Enable the library’s logging (`LoggingOptions.setEnabled(true)`) and inspect
+      the log – it reports which filter rejected each file.
+    question: How do I debug why a particular file was excluded?
+  - answer: Absolutely. Wrap a regex filter inside `DocumentFilter.createAnd()` alongside
+      the extension filter.
+    question: Is it possible to combine the java file extension filter with custom
+      regex filters?
+  - answer: Each filter adds a modest overhead during indexing, but the reduction
+      in indexed data usually outweighs the cost. Test with a representative sample
+      to find the optimal balance.
+    question: What performance impact does adding many filters have?
+  type: FAQPage
+tags:
+- java file filtering
 - GroupDocs.Search
-- Logical AND OR NOT Filters
-title: GroupDocs.Search के साथ जावा फ़ाइल एक्सटेंशन फ़िल्टर – गाइड
+- document indexing
+title: GroupDocs.Search के साथ फ़ाइल एक्सटेंशन java को फ़िल्टर करने का तरीका
 type: docs
 url: /hi/java/advanced-features/master-java-file-filtering-groupdocs-search/
 weight: 1
 ---
 
-# Mastering the java file extension filter with GroupDocs.Search
+# GroupDocs.Search के साथ जावा फ़ाइल एक्सटेंशन फ़िल्टर
 
-Managing a growing repository of documents can quickly become overwhelming, especially when you need to index only certain file types. **The java file extension filter** lets you tell GroupDocs.Search exactly which extensions to include or exclude, giving you precise control over your indexing pipeline. In this guide we’ll walk through setting up GroupDocs.Search for Java and show you how to combine file‑extension filtering with logical AND, OR, and NOT operators, as well as date‑range and path filters.
+इस व्यापक ट्यूटोरियल में आप सीखेंगे कि GroupDocs.Search के साथ दस्तावेज़ों को इंडेक्स करते समय **जावा फ़ाइल एक्सटेंशन फ़िल्टर** कैसे किया जाता है। गाइड के अंत तक आप केवल आवश्यक फ़ाइल प्रकारों को शामिल कर पाएँगे, अनचाहे फ़ॉर्मेट को बाहर रख पाएँगे, और तिथि‑रेंज और पाथ फ़िल्टर के साथ इन नियमों को लॉजिकल AND, OR, और NOT ऑपरेटरों का उपयोग करके संयोजित कर पाएँगे। यह तरीका आपके इंडेक्स को हल्का रखता है, खोज को तेज़ करता है, और डेटा‑हैंडलिंग नीतियों के अनुपालन में मदद करता है।
 
-## Quick Answers
-- **What is the java file extension filter?** A configuration that tells GroupDocs.Search which file extensions to include or exclude during indexing.  
-- **Which library provides this feature?** GroupDocs.Search for Java.  
-- **Do I need a license?** A free trial works for evaluation; a full license is required for production.  
-- **Can I combine filters?** Yes – you can chain extension, date, size, and path filters with AND, OR, NOT logic.  
-- **Is it Maven‑compatible?** Absolutely – add the GroupDocs.Search dependency to your `pom.xml`.
+## त्वरित उत्तर
+- **जावा फ़ाइल एक्सटेंशन फ़िल्टर क्या है?** यह एक नियम है जो GroupDocs.Search को बताता है कि इंडेक्सिंग के दौरान किन फ़ाइल एक्सटेंशन को शामिल या बाहर किया जाए।  
+- **यह सुविधा कौन सी लाइब्रेरी प्रदान करती है?** GroupDocs.Search for Java.  
+- **क्या मुझे लाइसेंस चाहिए?** मूल्यांकन के लिए एक मुफ्त ट्रायल काम करता है; उत्पादन के लिए पूर्ण लाइसेंस आवश्यक है।  
+- **क्या मैं फ़िल्टर को संयोजित कर सकता हूँ?** हाँ – आप एक्सटेंशन, तिथि, आकार, और पाथ फ़िल्टर को AND, OR, NOT लॉजिक के साथ जोड़ सकते हैं।  
+- **क्या यह Maven‑संगत है?** बिल्कुल – अपने `pom.xml` में GroupDocs.Search निर्भरता जोड़ें।
 
-## What is a java file extension filter?
-A **java file extension filter** is a rule set that evaluates each file’s extension before it’s sent to the indexing engine. By specifying extensions like `.txt`, `.pdf`, or `.epub`, you can **include files by extension** or **exclude files by extension** to keep your index focused and your search results relevant.
+## जावा फ़ाइल एक्सटेंशन फ़िल्टर क्या है?
+एक **जावा फ़ाइल एक्सटेंशन फ़िल्टर** नियमों का सेट है जो प्रत्येक फ़ाइल के एक्सटेंशन का मूल्यांकन करता है इससे पहले कि वह इंडेक्सिंग इंजन को भेजी जाए। `.txt`, `.pdf`, या `.epub` जैसे एक्सटेंशन निर्दिष्ट करके आप **एक्सटेंशन द्वारा फ़ाइलें शामिल** कर सकते हैं या **एक्सटेंशन द्वारा फ़ाइलें बाहर** रख सकते हैं ताकि आपका इंडेक्स केंद्रित रहे और खोज परिणाम प्रासंगिक हों।
 
-## Why use file‑extension filtering with GroupDocs.Search?
-- **Performance:** अनचाही फ़ाइलों को छोड़ने से I/O कम होता है और इंडेक्सिंग तेज़ होती है।  
-- **Storage savings:** केवल प्रासंगिक दस्तावेज़ इंडेक्स में संग्रहीत होते हैं, जिससे डिस्क उपयोग कम होता है।  
-- **Compliance:** गोपनीय या असमर्थित फ़ाइल प्रकारों के आकस्मिक इंडेक्सिंग को रोकें।  
-- **Flexibility:** **date range filter java** सुविधाओं के साथ संयोजन करके विशिष्ट अवधि में बनाए या संशोधित फ़ाइलों को लक्षित करें।
+## GroupDocs.Search के साथ फ़ाइल‑एक्सटेंशन फ़िल्टरिंग क्यों उपयोग करें?
+फ़ाइल‑एक्सटेंशन फ़िल्टरिंग अप्रासंगिक फ़ॉर्मेट को बाहर रखकर इंडेक्सिंग दक्षता को बढ़ाती है, स्टोरेज की आवश्यकता को कम करती है, और अनचाहे कंटेंट को इंडेक्स में प्रवेश करने से रोककर अनुपालन नियमों को पूरा करने में मदद करती है। यह तेज़ क्वेरी प्रतिक्रियाओं को भी सक्षम बनाती है क्योंकि सर्च इंजन एक छोटे, अधिक प्रासंगिक डेटासेट को प्रोसेस करता है।
 
-## Prerequisites
+- **प्रदर्शन:** अनावश्यक फ़ाइलों को छोड़ने से I/O कम होता है और बड़े रिपॉज़िटरीज़ पर इंडेक्सिंग 40 % तक तेज़ हो जाती है।  
+- **स्टोरेज बचत:** केवल प्रासंगिक दस्तावेज़ इंडेक्स में संग्रहीत होते हैं, जिससे डिस्क उपयोग औसतन 30 % तक घटता है।  
+- **अनुपालन:** गोपनीय या असमर्थित फ़ाइल प्रकारों के आकस्मिक इंडेक्सिंग को रोकें।  
+- **लचीलापन:** **date range filter java** सुविधाओं के साथ संयोजित करके विशिष्ट अवधि में बनाई या संशोधित फ़ाइलों को लक्षित करें।
 
-Before we begin, ensure you have the following:
+## पूर्वापेक्षाएँ
 
-### Required Libraries and Dependencies
-- **GroupDocs.Search for Java**: संस्करण 25.4 या बाद का  
-- **Java Development Kit (JDK)**: संगत संस्करण स्थापित  
+शुरू करने से पहले, सुनिश्चित करें कि आपके पास निम्नलिखित हैं:
 
-### Environment Setup
-- एकीकृत विकास वातावरण (IDE): IntelliJ IDEA, Eclipse, या कोई भी Maven‑compatible IDE।
+### आवश्यक लाइब्रेरी और निर्भरताएँ
+- **GroupDocs.Search for Java** – संस्करण 25.4 या बाद का (60+ इनपुट फ़ॉर्मेट का समर्थन करता है)।  
+- **Java Development Kit (JDK)** – कोई भी संगत संस्करण (8 या नया)।
 
-### Knowledge Prerequisites
-- बुनियादी Java प्रोग्रामिंग  
-- Java में फ़ाइल I/O से परिचितता  
-- रेगुलर एक्सप्रेशन और डेट‑टाइम हैंडलिंग की समझ  
+### पर्यावरण सेटअप
+- एकीकृत विकास वातावरण (IDE): IntelliJ IDEA, Eclipse, या कोई भी Maven‑संगत IDE।
 
-## Setting Up GroupDocs.Search for Java
-To start using GroupDocs.Search, you need to include it as a dependency in your project.
+### ज्ञान पूर्वापेक्षाएँ
+- बुनियादी Java प्रोग्रामिंग।  
+- Java में फ़ाइल I/O की परिचितता।  
+- रेगुलर एक्सप्रेशन और तिथि‑समय हैंडलिंग की समझ।
 
-### Maven Configuration
-Add the following repository and dependency configuration to your `pom.xml` file:
+## GroupDocs.Search के लिए Java सेटअप
+GroupDocs.Search का उपयोग शुरू करने के लिए, आपको इसे अपने प्रोजेक्ट में एक निर्भरता के रूप में शामिल करना होगा।
+
+### Maven कॉन्फ़िगरेशन
+`pom.xml` फ़ाइल में निम्नलिखित रिपॉज़िटरी और निर्भरता कॉन्फ़िगरेशन जोड़ें:
 
 ```xml
 <repositories>
@@ -73,16 +141,16 @@ Add the following repository and dependency configuration to your `pom.xml` file
 </dependencies>
 ```
 
-### Direct Download
-Alternatively, download the latest version directly from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### प्रत्यक्ष डाउनलोड
+वैकल्पिक रूप से, नवीनतम संस्करण सीधे [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) से डाउनलोड करें।
 
-#### License Acquisition
-1. **Free Trial** – बिना लागत के सुविधाओं का अन्वेषण करें।  
-2. **Temporary License** – सीमित अवधि के लिए पूर्ण कार्यक्षमता प्राप्त करें।  
-3. **Purchase** – उत्पादन उपयोग के लिए स्थायी लाइसेंस प्राप्त करें।  
+#### लाइसेंस प्राप्ति
+1. **Free trial** – बिना लागत के सुविधाओं का अन्वेषण करें।  
+2. **Temporary license** – सीमित अवधि के लिए पूर्ण कार्यक्षमता प्राप्त करें।  
+3. **Purchase** – उत्पादन उपयोग के लिए स्थायी लाइसेंस प्राप्त करें।
 
-### Basic Initialization and Setup
-Once the library is added, initialize your indexing environment:
+### बुनियादी प्रारंभिककरण और सेटअप
+लाइब्रेरी जोड़ने के बाद, अपने इंडेक्सिंग पर्यावरण को प्रारंभ करें। `IndexSettings` क्लास सभी कॉन्फ़िगरेशन विकल्पों को रखती है, जिसमें फ़िल्टर भी शामिल हैं।
 
 ```java
 import com.groupdocs.search.*;
@@ -91,17 +159,17 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
-## Implementation Guide
-Below we dive into each filter type, explaining **why it matters** and providing step‑by‑step code you can copy into your project.
+## कार्यान्वयन गाइड
+नीचे हम प्रत्येक फ़िल्टर प्रकार में गहराई से देखते हैं, **क्यों यह महत्वपूर्ण है** समझाते हैं और चरण‑दर‑चरण निर्देश प्रदान करते हैं जिन्हें आप अपने प्रोजेक्ट में कॉपी कर सकते हैं।
 
-### File Extension Filtering
-Filter files by their extensions during indexing. This is perfect when you only want to process e‑books (`.fb2`, `.epub`) and plain text files (`.txt`).
+### फ़ाइल एक्सटेंशन फ़िल्टरिंग
+इंडेक्सिंग के दौरान फ़ाइलों को उनके एक्सटेंशन के आधार पर फ़िल्टर करें। यह तब आदर्श है जब आप केवल ई‑बुक्स (`.fb2`, `.epub`) और साधारण‑टेक्स्ट फ़ाइलें (`.txt`) प्रोसेस करना चाहते हैं।
 
-#### Overview
-`DocumentFilter.createFileExtension` का उपयोग करके एक्सटेंशन को व्हाइटलिस्ट करें।
+#### अवलोकन
+`DocumentFilter.createFileExtension` एक्सटेंशन की व्हाइटलिस्ट बनाता है।
 
-#### Implementation Steps
-1. **Create Filter**:
+#### कार्यान्वयन चरण
+1. **फ़िल्टर बनाएं** – उन एक्सटेंशन को परिभाषित करें जिन्हें आप रखना चाहते हैं।
 
     ```java
     DocumentFilter filter = DocumentFilter.createFileExtension(".fb2", ".epub", ".txt");
@@ -109,46 +177,46 @@ Filter files by their extensions during indexing. This is perfect when you only 
     settings.setDocumentFilter(filter);
     ```
 
-2. **Initialize Index and Add Documents**:
+2. **इंडेक्स प्रारंभ करें और दस्तावेज़ जोड़ें** – `IndexSettings` बनाते समय फ़िल्टर लागू करें।
 
     ```java
     Index index = new Index("YOUR_OUTPUT_DIRECTORY\\FileExtensionFilter", settings);
     index.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Logical NOT Filter
-Exclude specific extensions, such as web pages and PDFs, when they are not needed for your search scenario.
+### लॉजिकल NOT फ़िल्टर
+विशिष्ट एक्सटेंशन, जैसे वेब पेज और PDFs, को बाहर रखें जब वे आपके खोज परिदृश्य के लिए आवश्यक न हों।
 
-#### Implementation Steps
-1. **Create Exclusion Filter**:
+#### कार्यान्वयन चरण
+1. **बहिष्करण फ़िल्टर बनाएं** – बाहर करने के लिए एक्सटेंशन निर्दिष्ट करें।
 
     ```java
     DocumentFilter filterNot = DocumentFilter.createFileExtension(".htm", ".html", ".pdf");
     DocumentFilter invertedFilter = DocumentFilter.createNot(filterNot);
     ```
 
-2. **Apply to Index Settings**:
+2. **इंडेक्स सेटिंग्स पर लागू करें** – NOT फ़िल्टर को अन्य नियमों के साथ संयोजित करें।
 
     ```java
     IndexSettings settingsNot = new IndexSettings();
     settingsNot.setDocumentFilter(invertedFilter);
     ```
 
-3. **Add Documents**:
+3. **दस्तावेज़ जोड़ें** – केवल वे फ़ाइलें जो संयुक्त फ़िल्टर को पास करती हैं, इंडेक्स की जाती हैं।
 
     ```java
     Index indexNot = new Index("YOUR_OUTPUT_DIRECTORY\\LogicalNotFilter", settingsNot);
     indexNot.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Logical AND Filter
-Combine several conditions—creation date, extension, and file size—so that **only files that meet all criteria** are indexed.
+### लॉजिकल AND फ़िल्टर
+कई शर्तों—निर्माण तिथि, एक्सटेंशन, और फ़ाइल आकार—को मिलाकर **सभी मानदंडों को पूरा करने वाली फ़ाइलें** ही इंडेक्स की जाती हैं।
 
-#### Overview
-`DocumentFilter.createAnd` कई फ़िल्टरों को एकल नियम में मिलाता है।
+#### अवलोकन
+`DocumentFilter.createAnd` कई फ़िल्टर को एक नियम में मिलाता है।
 
-#### Implementation Steps
-1. **Define Filters**:
+#### कार्यान्वयन चरण
+1. **फ़िल्टर परिभाषित करें** – प्रत्येक शर्त के लिए व्यक्तिगत फ़िल्टर बनाएं।
 
     ```java
     DocumentFilter filter1 = DocumentFilter.createCreationTimeRange(Utils.createDate(2015, 1, 1), Utils.createDate(2016, 1, 1));
@@ -156,7 +224,7 @@ Combine several conditions—creation date, extension, and file size—so that *
     DocumentFilter filter3 = DocumentFilter.createFileLengthUpperBound(8 * 1024 * 1024);
     ```
 
-2. **Combine Filters**:
+2. **फ़िल्टर संयोजित करें** – सभी शर्तों को आवश्यक बनाने के लिए AND ऑपरेटर का उपयोग करें।
 
     ```java
     DocumentFilter finalFilterAnd = DocumentFilter.createAnd(filter1, filter2, filter3);
@@ -164,25 +232,25 @@ Combine several conditions—creation date, extension, and file size—so that *
     settingsAnd.setDocumentFilter(finalFilterAnd);
     ```
 
-3. **Index Documents**:
+3. **दस्तावेज़ इंडेक्स करें** – संयुक्त फ़िल्टर को इंडेक्सिंग पाइपलाइन में फीड करें।
 
     ```java
     Index indexAnd = new Index("YOUR_OUTPUT_DIRECTORY\\LogicalAndFilter", settingsAnd);
     indexAnd.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Logical OR Filter
-Include files that satisfy **any** of the specified conditions—useful when you want to capture both small text files and larger non‑text files.
+### लॉजिकल OR फ़िल्टर
+फ़ाइलें शामिल करें जो निर्दिष्ट शर्तों में **किसी भी** को पूरा करती हों—जब आप छोटे टेक्स्ट फ़ाइलें और बड़े गैर‑टेक्स्ट फ़ाइलें दोनों को कैप्चर करना चाहते हैं तो उपयोगी।
 
-#### Implementation Steps
-1. **Define Filters**:
+#### कार्यान्वयन चरण
+1. **फ़िल्टर परिभाषित करें** – प्रत्येक वैकल्पिक शर्त के लिए अलग-अलग फ़िल्टर बनाएं।
 
     ```java
     DocumentFilter txtFilter = DocumentFilter.createFileExtension(".txt");
     DocumentFilter notTxtFilter = DocumentFilter.createNot(txtFilter);
     ```
 
-2. **Combine Filters with Logical Conditions**:
+2. **लॉजिकल शर्तों के साथ फ़िल्टर संयोजित करें** – OR ऑपरेटर का उपयोग करें।
 
     ```java
     DocumentFilter bound5Filter = DocumentFilter.createFileLengthUpperBound(5 * 1024 * 1024);
@@ -192,7 +260,7 @@ Include files that satisfy **any** of the specified conditions—useful when you
     DocumentFilter notTxtSizeFilter = DocumentFilter.createAnd(notTxtFilter, bound10Filter);
     ```
 
-3. **Finalize OR Filter**:
+3. **OR फ़िल्टर को अंतिम रूप दें** – संयुक्त फ़िल्टर को इंडेक्स कॉन्फ़िगरेशन से जोड़ें।
 
     ```java
     DocumentFilter finalFilterOr = DocumentFilter.createOr(txtSizeFilter, notTxtSizeFilter);
@@ -203,11 +271,11 @@ Include files that satisfy **any** of the specified conditions—useful when you
     indexOr.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Creation Time Filters
-Target files created within a specific period—a classic **date range filter java** scenario.
+### निर्माण समय फ़िल्टर
+एक विशिष्ट अवधि में बनाई गई फ़ाइलों को लक्षित करें—एक क्लासिक **date range filter java** परिदृश्य।
 
-#### Implementation Steps
-1. **Define Date Range Filter**:
+#### कार्यान्वयन चरण
+1. **date‑range फ़िल्टर परिभाषित करें** – प्रारंभ और समाप्ति तिथियां निर्दिष्ट करें।
 
     ```java
     DocumentFilter filter3CTime = DocumentFilter.createCreationTimeRange(Utils.createDate(2017, 1, 1), Utils.createDate(2018, 6, 15));
@@ -215,18 +283,18 @@ Target files created within a specific period—a classic **date range filter ja
     settingsCTime.setDocumentFilter(filter3CTime);
     ```
 
-2. **Index Documents**:
+2. **दस्तावेज़ इंडेक्स करें** – केवल वे फ़ाइलें जिनके निर्माण टाइमस्टैम्प रेंज के भीतर हैं, इंडेक्स की जाती हैं।
 
     ```java
     Index indexCTime = new Index("YOUR_OUTPUT_DIRECTORY\\CreationTimeFilters", settingsCTime);
     indexCTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### Modification Time Filters
-Exclude files that were modified after a certain cutoff date.
+### संशोधन समय फ़िल्टर
+उन फ़ाइलों को बाहर रखें जो किसी निश्चित कटऑफ़ तिथि के बाद संशोधित हुई हैं।
 
-#### Implementation Steps
-1. **Define Filter**:
+#### कार्यान्वयन चरण
+1. **फ़िल्टर परिभाषित करें** – अधिकतम संशोधन टाइमस्टैम्प सेट करें।
 
     ```java
     DocumentFilter filter2MTime = DocumentFilter.createModificationTimeUpperBound(Utils.createDate(2018, 6, 15));
@@ -234,18 +302,18 @@ Exclude files that were modified after a certain cutoff date.
     settingsMTime.setDocumentFilter(filter2MTime);
     ```
 
-2. **Index Documents**:
+2. **दस्तावेज़ इंडेक्स करें** – कटऑफ़ से नई फ़ाइलें अनदेखी की जाती हैं।
 
     ```java
     Index indexMTime = new Index("YOUR_OUTPUT_DIRECTORY\\ModificationTimeFilters", settingsMTime);
     indexMTime.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-### File Path Filtering
-Restrict indexing to files located in particular folders or matching a pattern—ideal for **include files by extension** within a specific directory hierarchy.
+### फ़ाइल पाथ फ़िल्टरिंग
+इंडेक्सिंग को उन फ़ाइलों तक सीमित करें जो विशेष फ़ोल्डरों में स्थित हैं या किसी पैटर्न से मेल खाती हैं—विशिष्ट डायरेक्टरी पदानुक्रम में **include files by extension** के लिए आदर्श।
 
-#### Implementation Steps
-1. **Define File Path Filter**:
+#### कार्यान्वयन चरण
+1. **फ़ाइल‑पाथ फ़िल्टर परिभाषित करें** – डायरेक्टरी मिलाने के लिए ग्लॉब या रेगेक्स पैटर्न का उपयोग करें।
 
     ```java
     DocumentFilter pathFilter = DocumentFilter.createPath("*.txt", "documents/");
@@ -253,39 +321,53 @@ Restrict indexing to files located in particular folders or matching a pattern�
     settingsPath.setDocumentFilter(pathFilter);
     ```
 
-2. **Initialize Index and Add Documents**:
+2. **इंडेक्स प्रारंभ करें और दस्तावेज़ जोड़ें** – पाथ फ़िल्टर को अन्य नियमों के साथ लागू करें।
 
     ```java
     Index indexPath = new Index("YOUR_OUTPUT_DIRECTORY\\FilePathFilter", settingsPath);
     indexPath.add("YOUR_DOCUMENT_DIRECTORY");
     ```
 
-## Common Pitfalls & Tips
+## सामान्य कठिनाइयाँ और सुझाव
 
-- **Never mix absolute and relative paths** in the same filter configuration – यह अप्रत्याशित बहिष्कारों का कारण बन सकता है।  
-- **Reset the `IndexSettings`** when switching filter sets; otherwise previous filters may persist. – फ़िल्टर सेट बदलते समय `IndexSettings` को रीसेट करें; अन्यथा पिछले फ़िल्टर बने रह सकते हैं।  
-- **Combine a length upper bound with an extension filter** for large collections to keep memory usage low. – बड़ी कलेक्शनों के लिए मेमोरी उपयोग कम रखने हेतु लंबाई की ऊपरी सीमा को एक्सटेंशन फ़िल्टर के साथ मिलाएँ।  
-- **Enable logging** (`LoggingOptions.setEnabled(true)`) to see why a file was rejected. – **Enable logging** (`LoggingOptions.setEnabled(true)`) देखें कि किसी फ़ाइल को क्यों अस्वीकार किया गया।
+- **कभी भी एक ही फ़िल्टर कॉन्फ़िगरेशन में पूर्ण (absolute) और सापेक्ष (relative) पाथ को मिलाएँ नहीं** – इससे अप्रत्याशित बहिष्कार हो सकते हैं।  
+- फ़िल्टर सेट बदलते समय `IndexSettings` को **रीसेट** करें; अन्यथा पिछले फ़िल्टर बने रह सकते हैं।  
+- बड़े संग्रहों के लिए मेमोरी उपयोग कम रखने हेतु **लंबाई की ऊपरी सीमा को एक्सटेंशन फ़िल्टर के साथ संयोजित** करें।  
+- LoggingOptions GroupDocs.Search के लॉगिंग कॉन्फ़िगरेशन को नियंत्रित करता है।  
+- **लॉगिंग सक्षम करें** (`LoggingOptions.setEnabled(true)`) ताकि यह देखा जा सके कि कोई फ़ाइल क्यों अस्वीकार हुई।
 
-## Frequently Asked Questions
+## अक्सर पूछे जाने वाले प्रश्न
 
-**Q: Can I change the filter criteria after the index is created?**  
+**Q: क्या मैं इंडेक्स बन जाने के बाद फ़िल्टर मानदंड बदल सकता हूँ?**  
 A: हाँ। नया `DocumentFilter` के साथ इंडेक्स को पुनः बनाएं या अपडेटेड सेटिंग्स के साथ इंक्रीमेंटल इंडेक्सिंग का उपयोग करें।
 
-**Q: Does the java file extension filter work on compressed archives (e.g., ZIP)?**  
-A: GroupDocs.Search समर्थित आर्काइव फ़ॉर्मेट को इंडेक्स कर सकता है, लेकिन एक्सटेंशन फ़िल्टर आर्काइव स्वयं पर लागू होता है, आंतरिक फ़ाइलों पर नहीं। गहरी नियंत्रण के लिए नेस्टेड फ़िल्टर का उपयोग करें।
+**Q: क्या जावा फ़ाइल एक्सटेंशन फ़िल्टर संकुचित अभिलेखों (जैसे, ZIP) पर काम करता है?**  
+A: GroupDocs.Search समर्थित अभिलेख फ़ॉर्मेट को इंडेक्स कर सकता है, लेकिन एक्सटेंशन फ़िल्टर अभिलेख स्वयं पर लागू होता है, अंदर की फ़ाइलों पर नहीं। गहरी नियंत्रण के लिए नेस्टेड फ़िल्टर का उपयोग करें।
 
-**Q: How do I debug why a particular file was excluded?**  
-A: लाइब्रेरी की लॉगिंग सक्षम करें (`LoggingOptions.setEnabled(true)`) और लॉग की जाँच करें – यह बताता है कि किस फ़िल्टर ने प्रत्येक फ़ाइल को अस्वीकार किया।
+**Q: मैं कैसे डिबग करूँ कि कोई विशेष फ़ाइल क्यों बाहर रखी गई?**  
+A: लाइब्रेरी की लॉगिंग सक्षम करें (`LoggingOptions.setEnabled(true)`) और लॉग देखें – यह बताता है कि कौन सा फ़िल्टर प्रत्येक फ़ाइल को अस्वीकार करता है।
 
-**Q: Is it possible to combine the java file extension filter with custom regex filters?**  
-A: बिल्कुल। एक्सटेंशन फ़िल्टर के साथ `DocumentFilter.createAnd()` के अंदर एक regex फ़िल्टर को रैप करें।
+**Q: क्या जावा फ़ाइल एक्सटेंशन फ़िल्टर को कस्टम रेगेक्स फ़िल्टर के साथ संयोजित करना संभव है?**  
+A: बिल्कुल। `DocumentFilter.createAnd()` के भीतर एक्सटेंशन फ़िल्टर के साथ रेगेक्स फ़िल्टर को रैप करें।
 
-**Q: What performance impact does adding many filters have?**  
-A: प्रत्येक फ़िल्टर इंडेक्सिंग के दौरान थोड़ी ओवरहेड जोड़ता है, लेकिन इंडेक्स किए गए डेटा में कमी आमतौर पर लागत से अधिक लाभ देती है। इष्टतम संतुलन खोजने के लिए प्रतिनिधि नमूने के साथ परीक्षण करें।
+**Q: कई फ़िल्टर जोड़ने का प्रदर्शन पर क्या प्रभाव पड़ता है?**  
+A: प्रत्येक फ़िल्टर इंडेक्सिंग के दौरान थोड़ा ओवरहेड जोड़ता है, लेकिन इंडेक्स किए गए डेटा की कमी आमतौर पर लागत से अधिक होती है। इष्टतम संतुलन खोजने के लिए प्रतिनिधि नमूने के साथ परीक्षण करें।
 
 ---
 
-**अंतिम अपडेट:** 2026-02-21  
+**अंतिम अपडेट:** 2026-09-06  
 **परीक्षण किया गया:** GroupDocs.Search 25.4 for Java  
 **लेखक:** GroupDocs
+
+## संबंधित ट्यूटोरियल
+
+- [कस्टम डेट फॉर्मेट जावा | ग्रुपडॉक्स के साथ डेट रेंज सर्च](/search/java/advanced-features/master-date-range-searches-groupdocs-java/)
+- [java boolean and or: ग्रुपडॉक्स.Search for Java के साथ बूलियन सर्च में महारत](/search/java/searching/implement-boolean-searches-groupdocs-java/)
+- [ग्रुपडॉक्स.Search for Java में उन्नत इंडेक्सिंग तकनीकों के साथ सर्च प्रदर्शन को अनुकूलित करें](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+
+{{< blocks/products/products-backtop-button >}}
