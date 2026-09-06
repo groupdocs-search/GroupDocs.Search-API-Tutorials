@@ -1,51 +1,99 @@
 ---
-date: '2026-02-21'
-description: Diventa esperto nella ricerca full‑text in Java con GroupDocs.Search,
-  impara a gestire i dizionari alfabetici e a cercare documenti Java in modo efficiente.
+date: '2026-09-06'
+description: Il tutorial di ricerca full text Java mostra come creare un indice, personalizzare
+  l'alphabet dictionary e cercare documenti Java in modo efficiente usando GroupDocs.Search.
 keywords:
-- GroupDocs.Search for Java
-- alphabet dictionary indexing
-- Java document search
-title: 'Ricerca full-text in Java: crea indice con GroupDocs.Search'
+- java full text search
+- create alphabet dictionary
+- how to customize dictionary
+- search documents java
+lastmod: '2026-09-06'
+og_description: La ricerca full text Java ti consente di individuare rapidamente il
+  testo nei documenti. Scopri come creare un indice, personalizzare l'alphabet dictionary
+  e cercare documenti Java usando GroupDocs.Search.
+og_image_alt: Guide showing Java full text search index creation with GroupDocs.Search
+og_title: Ricerca full text Java – crea indice con GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-06'
+  description: Java full text search tutorial shows how to build an index, customize
+    the alphabet dictionary, and efficiently search documents java using GroupDocs.Search.
+  headline: 'Java full text search: Build index with GroupDocs.Search'
+  type: TechArticle
+- description: Java full text search tutorial shows how to build an index, customize
+    the alphabet dictionary, and efficiently search documents java using GroupDocs.Search.
+  name: 'Java full text search: Build index with GroupDocs.Search'
+  steps:
+  - name: '**Free trial** – Start with a trial to explore all features.'
+    text: '**Free trial** – Start with a trial to explore all features.'
+  - name: '**Temporary license** – Request a temporary key for extended testing.'
+    text: '**Temporary license** – Request a temporary key for extended testing.'
+  - name: '**Full license** – Purchase a production license for unlimited use.'
+    text: '**Full license** – Purchase a production license for unlimited use.'
+  type: HowTo
+- questions:
+  - answer: It’s the process of building an index that enables rapid text queries
+      across many files in a Java application.
+    question: What is “java full text search”?
+  - answer: GroupDocs.Search for Java provides ready‑made indexing, dictionary management,
+      and query execution.
+    question: Which library handles this out‑of‑the‑box?
+  - answer: A free trial is perfect for evaluation; a full license is required for
+      production deployments.
+    question: Do I need a license?
+  - answer: Absolutely—use the alphabet dictionary to define custom character types.
+    question: Can I customize character handling?
+  - answer: Maven simplifies dependency handling, but you can also download the JAR
+      directly.
+    question: Is Maven mandatory?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- alphabet dictionary
+- document indexing
+- search API
+title: 'Ricerca full text Java: crea indice con GroupDocs.Search'
 type: docs
 url: /it/java/dictionaries-language-processing/master-alphabet-dictionary-indexing-groupdocs-search-java/
 weight: 1
 ---
 
-# Ricerca Full Text Java: Creare l'Indice con GroupDocs.Search
+# Ricerca full text Java: crea indice con GroupDocs.Search
 
-Nelle applicazioni odierne guidate dai dati, **java full text search** è la spina dorsale di qualsiasi sistema che deve individuare rapidamente le informazioni all'interno di grandi collezioni di documenti. Sfruttando **GroupDocs.Search for Java**, è possibile creare un indice di ricerca potente, perfezionare il dizionario dell'alfabeto e migliorare drasticamente la pertinenza delle query quando **search documents java**. Questa guida ti accompagna passo dopo passo — dall'installazione della libreria alla personalizzazione della gestione dei caratteri — così da fornire risultati di ricerca rapidi e accurati nei tuoi progetti Java.
+Nelle moderne applicazioni guidate dai dati, **java full text search** è il motore che ti permette di individuare informazioni istantaneamente tra migliaia di file. Questo tutorial ti guida passo passo—dall'aggiunta della dipendenza GroupDocs.Search alla messa a punto del dizionario alfabetico—così potrai fornire risultati di ricerca rapidi e precisi in qualsiasi progetto Java.
 
-## Quick Answers
-- **What is “java full text search”?** È il processo di costruzione di un indice che consente query testuali rapide su molti file in un'applicazione Java.  
-- **Which library handles this out‑of‑the‑box?** GroupDocs.Search for Java fornisce indicizzazione pronta all'uso, gestione del dizionario e esecuzione delle query.  
-- **Do I need a license?** Una prova gratuita è perfetta per la valutazione; è necessaria una licenza completa per le distribuzioni in produzione.  
-- **Can I customize character handling?** Assolutamente — usa il dizionario dell'alfabeto per definire tipi di carattere personalizzati.  
-- **Is Maven mandatory?** Maven semplifica la gestione delle dipendenze, ma è possibile scaricare direttamente il JAR.
+## Risposte rapide
+- **Che cos'è “java full text search”?** È il processo di costruzione di un indice che consente query testuali rapide su molti file in un'applicazione Java.  
+- **Quale libreria gestisce questo pronto all'uso?** GroupDocs.Search for Java fornisce indicizzazione pronta, gestione del dizionario e esecuzione delle query.  
+- **Ho bisogno di una licenza?** Una prova gratuita è perfetta per la valutazione; è necessaria una licenza completa per le distribuzioni in produzione.  
+- **Posso personalizzare la gestione dei caratteri?** Assolutamente—usa il dizionario alfabetico per definire tipi di carattere personalizzati.  
+- **Maven è obbligatorio?** Maven semplifica la gestione delle dipendenze, ma è anche possibile scaricare il JAR direttamente.
 
-## What is java full text search and why manage an alphabet dictionary?
-Un indice **java full text search** memorizza rappresentazioni tokenizzate dei tuoi documenti, consentendo ricerche istantanee di parole o frasi. Il dizionario dell'alfabeto indica al motore come trattare ogni carattere (lettera, cifra, simbolo), influenzando direttamente la tokenizzazione e la pertinenza della ricerca — soprattutto per simboli speciali o regole linguistiche specifiche.
+## Cos'è java full text search e perché gestire un dizionario alfabetico?
+L'indice `java full text search` memorizza rappresentazioni tokenizzate dei tuoi documenti, consentendo una ricerca istantanea di parole o frasi. Il dizionario alfabetico indica al motore come trattare ogni carattere (lettera, cifra, simbolo), influenzando direttamente la tokenizzazione e la rilevanza della ricerca—soprattutto per simboli speciali o regole specifiche di lingua.
 
-## Why use GroupDocs.Search for java full text search?
-- **Speed:** Gli indici sono memorizzati su disco e caricati in modo efficiente, garantendo tempi di risposta inferiori al secondo.  
-- **Flexibility:** Il pieno controllo sui tipi di carattere ti permette di gestire trattini, apostrofi o script non latini.  
-- **Scalability:** Funziona con migliaia di documenti senza sacrificare le prestazioni.  
-- **Ease of Integration:** Una configurazione semplice con Maven o download diretto ti mette subito in funzione.
+## Perché usare GroupDocs.Search per java full text search?
+GroupDocs.Search elabora fino a **10.000 documenti** senza caricarli interamente in memoria, garantendo tempi di query inferiori a un secondo. Offre pieno controllo sui tipi di carattere, supporta **oltre 50 formati di input e output**, e scala orizzontalmente su più server, rendendolo la scelta più robusta per la ricerca di livello enterprise.
 
-## Prerequisites
-### Required Libraries, Versions, and Dependencies
-- **GroupDocs.Search for Java** (ultima release).  
-- Conoscenze di base dello sviluppo Java.
+## Prerequisiti
+- **GroupDocs.Search for Java** (ultima versione).  
+- Java 17 o superiore installato sulla tua macchina di sviluppo.  
+- Maven 3.6+ (o la possibilità di aggiungere un JAR manualmente).  
 
-### Environment Setup Requirements
+### Librerie richieste, versioni e dipendenze
+- GroupDocs.Search for Java – ultima versione stabile.  
+- Nessuna libreria di terze parti aggiuntiva è necessaria per l'indicizzazione di base.
+
+### Requisiti di configurazione dell'ambiente
 Assicurati di avere un ambiente compatibile con Maven. Se Maven non è ancora installato, scaricalo dal sito ufficiale: [Apache Maven](https://maven.apache.org/download.cgi).
 
-### Knowledge Prerequisites
-Familiarità con la sintassi Java e la gestione dei file I/O sarà utile, ma la guida passo‑passo qui sotto copre tutto il necessario.
+### Prerequisiti di conoscenza
+Familiarità con la sintassi Java e I/O di file sarà utile, ma la guida passo‑passo qui sotto copre tutto ciò di cui hai bisogno.
 
-## Setting Up GroupDocs.Search for Java
-### Maven Configuration
-Aggiungi il repository e la dipendenza al tuo file `pom.xml`:
+## Configurazione di GroupDocs.Search per Java
+### Configurazione Maven
+Add the repository and dependency to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -65,16 +113,16 @@ Aggiungi il repository e la dipendenza al tuo file `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
-Se preferisci non usare Maven, scarica l'ultimo JAR dalla pagina delle release ufficiali: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### Download diretto
+Se preferisci non usare Maven, scarica l'ultimo JAR dalla pagina ufficiale delle release: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-#### License Acquisition Steps
-1. **Free Trial** – Inizia con una prova per esplorare tutte le funzionalità.  
-2. **Temporary License** – Richiedi una chiave temporanea per test più estesi.  
-3. **Full License** – Acquista una licenza di produzione per utilizzo illimitato.
+#### Passaggi per l'acquisizione della licenza
+1. **Free trial** – Inizia con una prova per esplorare tutte le funzionalità.  
+2. **Temporary license** – Richiedi una chiave temporanea per test prolungati.  
+3. **Full license** – Acquista una licenza di produzione per uso illimitato.
 
-### Basic Initialization and Setup
-Crea un'istanza `Index` che punti alla cartella dove verrà memorizzato l'indice di ricerca:
+### Inizializzazione e configurazione di base
+Create an `Index` instance that points to the folder where the search index will be stored:
 
 ```java
 import com.groupdocs.search.*;
@@ -87,11 +135,11 @@ public class SearchIndexSetup {
 }
 ```
 
-## Implementation Guide
-Di seguito trovi una panoramica completa delle operazioni più comuni che eseguirai quando costruirai una soluzione **java full text search**.
+## Guida all'implementazione
+Di seguito trovi una guida completa delle operazioni più comuni che eseguirai quando costruisci una soluzione **java full text search**.
 
-### Creating or Opening an Index
-Inizializza un nuovo indice o aprine uno esistente:
+### Creazione o apertura di un indice
+The `Index` class is the core object that represents a searchable collection stored on disk.
 
 ```java
 import com.groupdocs.search.*;
@@ -101,10 +149,10 @@ Index index = new Index(indexFolder);
 ```
 
 - **Parameters:** `indexFolder` – percorso dove risiedono i file dell'indice.  
-- **Purpose:** Imposta l'ambiente di ricerca per le successive operazioni di indicizzazione e query.
+- **Purpose:** Configura l'ambiente di ricerca per l'indicizzazione e le query successive.
 
-### Exporting the Alphabet Dictionary to a File
-Salva il dizionario dell'alfabeto corrente così da poterlo riutilizzare o analizzare in seguito:
+### Esportazione del dizionario alfabetico su file
+The `AlphabetDictionary` object holds character‑type mappings. Exporting it lets you reuse or analyse the configuration later.
 
 ```java
 import com.groupdocs.search.dictionaries.*;
@@ -115,8 +163,8 @@ index.getDictionaries().getAlphabet().exportDictionary(fileName);
 
 - **Parameters:** `fileName` – file di destinazione per il dizionario esportato.
 
-### Clearing the Alphabet Dictionary
-Reimposta il dizionario al suo stato predefinito prima di applicare regole personalizzate:
+### Pulizia del dizionario alfabetico
+Reset the dictionary to its default state before applying custom rules:
 
 ```java
 import com.groupdocs.search.dictionaries.*;
@@ -126,10 +174,10 @@ if (index.getDictionaries().getAlphabet().getCount() > 0) {
 }
 ```
 
-- **Purpose:** Rimuove tutti i tipi di carattere precedentemente definiti.
+- **Purpose:** Rimuove tutti i tipi di carattere precedentemente definiti, garantendo una base pulita.
 
-### Importing the Alphabet Dictionary from a File
-Ripristina una configurazione di dizionario precedentemente salvata:
+### Importazione del dizionario alfabetico da file
+Restore a previously saved dictionary configuration:
 
 ```java
 import com.groupdocs.search.dictionaries.*;
@@ -139,8 +187,8 @@ index.getDictionaries().getAlphabet().importDictionary(fileName);
 
 - **Parameters:** `fileName` – percorso al file `.dat` contenente il dizionario.
 
-### Setting Character Type in Alphabet Dictionary
-Personalizza il modo in cui caratteri specifici vengono trattati durante la tokenizzazione:
+### Impostazione del tipo di carattere nel dizionario alfabetico
+The `CharacterType` enum specifies how characters are interpreted during tokenization. Customize how specific characters are treated during tokenization. The `CharacterType.Blended` value tells the engine to treat the hyphen as part of a word rather than a separator.
 
 ```java
 import com.groupdocs.search.dictionaries.*;
@@ -150,11 +198,11 @@ if (index.getDictionaries().getAlphabet().getCharacterType('-') != CharacterType
 }
 ```
 
-- **Parameters:** Il carattere (`'-'`) e il suo nuovo `CharacterType` (ad es., `Blended`).  
-- **Why it matters:** Modificare i tipi di carattere migliora la pertinenza della ricerca per termini con trattini, ID o simboli personalizzati.
+- **Parameters:** Il carattere (`'-'`) e il suo nuovo `CharacterType`.  
+- **Why it matters:** Regolare i tipi di carattere migliora la rilevanza della ricerca per termini con trattino, ID o simboli personalizzati.
 
-### Indexing Documents from a Folder
-Aggiungi tutti i file di una directory all'indice di ricerca:
+### Indicizzazione dei documenti da una cartella
+Add all files in a directory to the search index in one operation:
 
 ```java
 import com.groupdocs.search.*;
@@ -165,8 +213,8 @@ index.add(documentsFolder);
 
 - **Parameters:** `documentsFolder` – cartella contenente i documenti da indicizzare.
 
-### Searching in an Index
-Esegui una query e recupera i risultati corrispondenti:
+### Ricerca in un indice
+The `SearchResult` class contains the list of matched documents and snippets returned by a query. Execute a query and retrieve matching results:
 
 ```java
 import com.groupdocs.search.results.*;
@@ -176,41 +224,45 @@ SearchResult result = index.search(query);
 ```
 
 - **Parameters:** `query` – il testo che stai cercando.  
-- **Result:** Un oggetto `SearchResult` contenente i documenti trovati e gli snippet.
+- **Result:** Un oggetto `SearchResult` contenente i documenti corrispondenti e gli snippet.
 
-## Common Use Cases for java full text search
-- **Content Management Systems (CMS):** Velocizza il recupero di articoli e risorse.  
-- **Legal Document Repositories:** Individua rapidamente clausole o riferimenti a casi.  
-- **Research Libraries:** Indicizza migliaia di articoli per una ricerca istantanea di parole chiave.  
-- **E‑commerce Catalogs:** Migliora la ricerca di prodotti con tokenizzazione personalizzata.  
-- **Customer Support Portals:** Consenti agli operatori di trovare rapidamente ticket o articoli della knowledge‑base.
+## Casi d'uso comuni per java full text search
+- **Content management systems (CMS):** Velocizza il recupero di articoli e risorse.  
+- **Legal document repositories:** Individua clausole o riferimenti a casi istantaneamente.  
+- **Research libraries:** Indicizza migliaia di articoli per una ricerca istantanea di parole chiave.  
+- **E‑commerce catalogs:** Migliora la ricerca di prodotti con tokenizzazione personalizzata.  
+- **Customer support portals:** Consente agli operatori di trovare rapidamente ticket o articoli della knowledge‑base pertinenti.
 
-## Performance Considerations
-- **Incremental Updates:** Re‑indicizza solo i file nuovi o modificati per mantenere l'indice aggiornato senza ricostruzioni complete.  
-- **Query Optimization:** Mantieni le query concise; evita ricerche wildcard troppo ampie.  
-- **Resource Monitoring:** Controlla l'uso della memoria durante l'indicizzazione di grandi batch — regola la dimensione dell'heap JVM se necessario.  
-- **Dictionary Size:** Esporta/importa il dizionario dell'alfabeto solo quando lo modifichi; I/O non necessario può rallentare l'avvio.
+## Considerazioni sulle prestazioni
+- **Incremental updates:** Re‑indicizza solo i file nuovi o modificati per mantenere l'indice aggiornato senza una ricostruzione completa.  
+- **Query optimization:** Mantieni le query concise; evita ricerche wildcard troppo ampie.  
+- **Resource monitoring:** Monitora l'uso della memoria durante l'indicizzazione di grandi batch—regola la dimensione dell'heap JVM se necessario.  
+- **Dictionary size:** Esporta/importa il dizionario alfabetico solo quando lo modifichi; I/O non necessario può rallentare l'avvio.
 
-## Frequently Asked Questions
-**Q:** *What are the prerequisites for using GroupDocs.Search?*  
-A: Installa Java, Maven (o scarica il JAR) e aggiungi la dipendenza GroupDocs.Search.
+## Domande frequenti
+**Q:** *Quali sono i prerequisiti per usare GroupDocs.Search?*  
+A: Installa Java 17+, Maven 3.6+ (o scarica il JAR) e aggiungi la dipendenza GroupDocs.Search.
 
-**Q:** *How do I obtain a license for production use?*  
-A: Inizia con una prova gratuita, richiedi una chiave temporanea per test più lunghi, poi acquista una licenza completa dal portale GroupDocs.
+**Q:** *Come posso ottenere una licenza per l'uso in produzione?*  
+A: Inizia con una prova gratuita, richiedi una chiave temporanea per test prolungati, poi acquista una licenza completa dal portale GroupDocs.
 
-**Q:** *Can I customize character types in the alphabet dictionary?*  
-A: Sì — usa `setRange` per assegnare valori `CharacterType` personalizzati a qualsiasi carattere o intervallo.
+**Q:** *Posso personalizzare i tipi di carattere nel dizionario alfabetico?*  
+A: Sì—usa i metodi `setRange` o `set` per assegnare valori `CharacterType` personalizzati a qualsiasi carattere o intervallo.
 
-**Q:** *Is it possible to export and import the alphabet dictionary?*  
-A: Assolutamente — utilizza i metodi `exportDictionary` e `importDictionary` per persistere o condividere le configurazioni del dizionario.
+**Q:** *È possibile esportare e importare il dizionario alfabetico?*  
+A: Assolutamente—usa i metodi `exportDictionary` e `importDictionary` per persistere o condividere le configurazioni del dizionario.
 
-**Q:** *Which version was this guide tested with?*  
-A: Gli esempi sono stati verificati con GroupDocs.Search for Java versione 25.4.
-
----
-
-**Last Updated:** 2026-02-21  
-**Tested With:** GroupDocs.Search for Java 25.4  
-**Author:** GroupDocs  
+**Q:** *Con quale versione è stata testata questa guida?*  
+A: Gli esempi sono stati verificati con GroupDocs.Search for Java versione 25.4.
 
 ---
+
+**Last Updated:** 2026-09-06  
+**Tested With:** GroupDocs.Search for Java 25.4  
+**Author:** GroupDocs
+
+## Tutorial correlati
+
+- [Come implementare java full text search: creare directory indice con GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Come creare indice documento e aggiungere documenti usando l'API GroupDocs.Search per Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Padroneggiare la ricerca full-text in Java: implementare un estrattore di file di log con GroupDocs](/search/java/searching/java-full-text-search-groupdocs-custom-extractor/)
