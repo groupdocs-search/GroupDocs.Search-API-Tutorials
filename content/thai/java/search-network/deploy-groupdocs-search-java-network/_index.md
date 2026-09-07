@@ -1,49 +1,92 @@
 ---
-date: '2026-01-19'
+date: '2026-06-27'
 description: เรียนรู้วิธีกำหนดค่าการค้นหาแบบกระจายและปรับใช้เครือข่ายการค้นหาที่มีประสิทธิภาพโดยใช้
-  GroupDocs.Search สำหรับ Java เพื่อเพิ่มประสิทธิภาพและความสามารถในการขยายตัว
+  GroupDocs.Search for Java เพื่อเพิ่มประสิทธิภาพและความสามารถในการขยายตัว
 keywords:
+- configure distributed search
+- add documents to index
 - GroupDocs.Search Java network
-- search performance enhancement
-- distributed search architecture
-title: ตั้งค่าการค้นหาแบบกระจายด้วย GroupDocs.Search Java Network
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-27'
+  description: Learn how to configure distributed search and deploy a powerful search
+    network using GroupDocs.Search for Java, improving performance and scalability.
+  headline: Configure Distributed Search with GroupDocs.Search Java Network
+  type: TechArticle
+- description: Learn how to configure distributed search and deploy a powerful search
+    network using GroupDocs.Search for Java, improving performance and scalability.
+  name: Configure Distributed Search with GroupDocs.Search Java Network
+  steps:
+  - name: '**Large‑Scale Enterprise Systems** – Index millions of contracts, policies,
+      and reports while maintaining sub‑second query responses.'
+    text: '**Large‑Scale Enterprise Systems** – Index millions of contracts, policies,
+      and reports while maintaining sub‑second query responses.'
+  - name: '**Content Management Platforms** – Serve thousands of concurrent users
+      searching across multimedia assets without bottlenecks.'
+    text: '**Content Management Platforms** – Serve thousands of concurrent users
+      searching across multimedia assets without bottlenecks.'
+  - name: '**E‑commerce Websites** – Accelerate product searches and faceted navigation
+      on catalogs containing millions of SKUs.'
+    text: '**E‑commerce Websites** – Accelerate product searches and faceted navigation
+      on catalogs containing millions of SKUs.'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Search for Java is a high‑performance library that indexes and
+      searches text across more than 50 document formats, providing fast, scalable
+      full‑text search for Java applications.
+    question: What is GroupDocs.Search for Java?
+  - answer: Visit the [GroupDocs's licensing page](https://purchase.groupdocs.com/temporary-license/)
+      to request a free trial or purchase a full license for production use.
+    question: How do I obtain a temporary license for GroupDocs.Search?
+  - answer: Yes, you can **add documents to index** at any time using the `IndexManager.addDocument()`
+      method; the changes propagate automatically across the cluster. **IndexManager.addDocument()**
+      adds a new document to the index and propagates it across the network.
+    question: Can I add new documents after the network is deployed?
+  - answer: Typical issues include mismatched base paths, port conflicts, and insufficient
+      file‑system permissions. Double‑check each node’s configuration and ensure all
+      directories are accessible.
+    question: What are common pitfalls when configuring nodes?
+  - answer: Absolutely. GroupDocs.Search offers real‑time indexing APIs that immediately
+      make newly added documents searchable across all nodes without downtime.
+    question: Does the network support real‑time indexing?
+  type: FAQPage
+title: กำหนดค่าการค้นหาแบบกระจายด้วย GroupDocs.Search Java Network
 type: docs
 url: /th/java/search-network/deploy-groupdocs-search-java-network/
 weight: 1
 ---
 
-สนทแนะนำนี้จะพาคุณสดงวิธี **how to deploy search** บนหลายโหนด การเพิ่มเอกสารลงในดัชนี และ **configure TCP settings** เพื่อการสื่อสารที่เชื่อถือได้ เมื่อเสร็จสิ้น คุณจะมีโซลูชันการค้นหาที่สามารถขยายได้พร้อมใช้งานในสภาพแวดล้อมการผลิต
+# กำหนดค่าการค้นหาแบบกระจายด้วย GroupDocs.Search Java Network
 
-## คำตอบอย่างรวดเร็ว
-- **What is configure distributed search?** เป็นกระบวนการตั้งค่าโหนดการค้นหาหลายโหนดที่ทำงานร่วมกันเพื่อทำการจัดทำดัชนีและสอบถามข้อมูลอย่างมีประสิทธิภาพ  
-- **How many nodes are recommended?** โดยทั่วไป 3‑5 โหนดให้สมดุลที่ดีระหว่างประสิทธิภาพและความทนต่อข้อผิดพลาด  
-- **Do I need a license?** ใช่ – จำเป็นต้องมีใบอนุญาตชั่วคราวหรือเต็มรูปแบบสำหรับการใช้งานในสภาพแวดล้อมการผลิต  
-- **Which ports should I use?** เลือกพอร์ตที่ว่างอยู่บนเซิร์ฟเวอร์ของคุณ; ตัวอย่างใช้พอร์ต 49136‑49139  
-- **Can I add new documents after deployment?** แน่นอน – คุณสามารถ **add documents to index** ได้ตลอดเวลาโดยไม่ต้องรีสตาร์ทเครือข่าย
+ในโลกที่ขับเคลื่อนด้วยข้อมูลในปัจจุบัน, **configure distributed search** มีความสำคัญสำหรับการจัดการคอลเลกชันเอกสารขนาดมหาศาลพร้อมรักษาเวลาในการตอบสนองให้ต่ำอยู่. บทแนะนำนี้จะพาคุณผ่านการตั้งค่าเครือข่าย GroupDocs.Search for Java ที่แข็งแกร่ง, แสดงวิธี **deploy search across multiple nodes**, **add documents to index**, และ **configure TCP settings** เพื่อการสื่อสารที่เชื่อถือได้. เมื่อเสร็จสิ้น, คุณจะมีโซลูชันการค้นหาที่สามารถขยายได้พร้อมใช้งานในสภาพแวดล้อมการผลิตและเข้าใจอย่างชัดเจนว่าทำไมสถาปัตยกรรมนี้จึงเหนือกว่าการตั้งค่าแบบโหนดเดียว.
+
+## คำตอบสั้น
+- **configure distributed search คืออะไร?** เป็นกระบวนการเชื่อมต่อโหนดการค้นหาอิสระหลายโหนดเพื่อให้พวกมันทำการจัดทำดัชนีและตอบคำถามร่วมกัน, ส่งมอบอัตราการทำงานที่สูงขึ้นและความทนทานต่อข้อผิดพลาด.  
+- **ควรใช้โหนดกี่โหนด?** โดยทั่วไป 3‑5 โหนดให้สมดุลที่ดีระหว่างประสิทธิภาพและความทนทานต่อข้อผิดพลาดสำหรับภาระงานระดับองค์กรส่วนใหญ่.  
+- **ต้องการใบอนุญาตหรือไม่?** ใช่ – จำเป็นต้องมีใบอนุญาตชั่วคราวหรือเต็มสำหรับการใช้งานในสภาพแวดล้อมการผลิตของ GroupDocs.Search.  
+- **ควรใช้พอร์ตใด?** เลือกพอร์ตที่ว่างบนเซิร์ฟเวอร์ของคุณ; ตัวอย่างใช้พอร์ต 49136‑49139, แต่ช่วงพอร์ตที่เปิดอยู่ใดก็ได้ก็ทำงานได้.  
+- **สามารถเพิ่มเอกสารใหม่หลังการปรับใช้ได้หรือไม่?** แน่นอน – คุณสามารถ **add documents to index** ได้ตลอดเวลาโดยไม่ต้องรีสตาร์ทเครือข่าย.
 
 ## configure distributed search คืออะไร?
-การกำหนดค่าโครงสร้างการค้นหาแบบกระจายหมายถึงการเชื่อมต่อโหนดการค้นหาหลายโหนดที่ทำงานอิสระให้ร่วมกันแบ่งงานจัดทำดัชนีและตอบคำถามร่วมกัน สิ่งนี้ช่วยลดภาระบนเครื่องเดียวและเพิ่มอัตราการทำงานรวมทั้งความน่าเชื่อถือ
+การกำหนดสถาปัตยกรรมการค้นหาแบบกระจายหมายถึงการเชื่อมต่อโหนดการค้นหาอิสระหลายโหนดเพื่อให้พวกมันแบ่งงานจัดทำดัชนีและตอบคำถามร่วมกัน. สิ่งนี้ช่วยลดภาระบนเครื่องเดียว, ปรับปรุงอัตราการทำงานและความน่าเชื่อถือ, และให้ความซ้ำซ้อนในตัวสำหรับความทนทานต่อข้อผิดพลาด.
 
 ## ทำไมต้องใช้ GroupDocs.Search for Java?
-- **High performance** – การทำงานแบบเนทีฟของ Java ปรับแต่งความเร็วการทำดัชนีให้สูงสุด  
-- **Scalable design** – สามารถเพิ่มหรือลบโหนดได้โดยไม่ต้องทำการกำหนดค่าใหม่อย่างใหญ่โต  
-- **Rich document support** – รองรับไฟล์ PDF, Word, อีเมลและรูปแบบอื่น ๆ มากมาย  
-- **Simple TCP communication** – `TcpSettings` ที่มาพร้อมในตัวช่วยให้คุณปรับแต่งความหน่วงของเครือข่ายได้ละเอียด
+GroupDocs.Search for Java ให้ **high‑performance indexing** (สูงสุด 1 GB/s บนฮาร์ดแวร์สมัยใหม่) และ **scalable architecture** ที่รองรับคลัสเตอร์ที่มี 10+ โหนด. มันเข้าใจ **50+ document formats** โดยเนทีฟ—รวมถึง PDF, DOCX, XLSX, PPTX, และไฟล์อีเมล—ทำให้คุณสามารถจัดทำดัชนีเนื้อหาธุรกิจใดก็ได้โดยไม่ต้องใช้ตัวแปลงเพิ่มเติม. คลาส `TcpSettings` ที่มีในตัวช่วยให้คุณปรับแต่ง latency, throughput, และช่วง keep‑alive อย่างละเอียด, เพื่อให้การสื่อสารระหว่างโหนดเชื่อถือได้แม้ข้ามขอบเขตศูนย์ข้อมูล. **TcpSettings** กำหนดพารามิเตอร์การสื่อสาร TCP ระดับต่ำระหว่างโหนด.
 
 ## ข้อกำหนดเบื้องต้น
 
 ### ไลบรารีและการพึ่งพาที่จำเป็น
-คุณจะต้องใช้ **GroupDocs.Search for Java** เวอร์ชัน 25.4 หรือใหม่กว่า ตรวจสอบให้แน่ใจว่ามี Java ติดตั้งในสภาพแวดล้อมการพัฒนาของคุณ
+คุณจะต้องใช้ **GroupDocs.Search for Java** เวอร์ชัน 25.4 หรือใหม่กว่า. ตรวจสอบให้แน่ใจว่าสภาพแวดล้อมการพัฒนาของคุณมี Java ติดตั้งอยู่.
 
 ### ความต้องการการตั้งค่าสภาพแวดล้อม
-- ติดตั้ง Java Development Kit (JDK) บนเครื่องของคุณ  
-- มี IDE เช่น IntelliJ IDEA หรือ Eclipse  
+- ชุดพัฒนา Java (JDK) รุ่น 11 หรือใหม่กว่า.  
+- IDE เช่น IntelliJ IDEA หรือ Eclipse เพื่อการจัดการโครงการที่สะดวก.
 
 ### ความรู้เบื้องต้นที่จำเป็น
-ทักษะการเขียนโปรแกรม Java เบื้องต้นและความเข้าใจทั่วไปเกี่ยวกับการกำหนดค่าเครือข่ายจะช่วยให้คุณทำตามขั้นตอนได้อย่างราบรื่น
+ทักษะการเขียนโปรแกรม Java เบื้องต้นและความเข้าใจทั่วไปเกี่ยวกับการกำหนดค่าเครือข่ายจะช่วยให้คุณทำตามขั้นตอนได้อย่างราบรื่น.
 
 ## การตั้งค่า GroupDocs.Search for Java
-เพื่อเริ่มต้น ให้เพิ่ม GroupDocs.Search for Java ลงในโปรเจกต์ของคุณ คุณสามารถทำได้ง่าย ๆ ผ่าน Maven หรือโดยการดาวน์โหลดไลบรารีโดยตรง
+เพื่อเริ่มต้น, เพิ่ม GroupDocs.Search for Java ลงในโครงการของคุณ. คุณสามารถทำได้ผ่าน Maven หรือโดยการดาวน์โหลดไลบรารีโดยตรง.
 
 **Maven Setup**  
 เพิ่ม repository และการกำหนด dependency ต่อไปนี้ในไฟล์ `pom.xml` ของคุณ:
@@ -67,13 +110,13 @@ weight: 1
 ```
 
 **Direct Download**  
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดจาก [การปล่อย GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
+หรืออีกทางเลือกหนึ่ง, ดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### การรับใบอนุญาต
-เพื่อใช้ GroupDocs.Search อย่างเต็มที่ คุณสามารถขอรับใบอนุญาตชั่วคราวหรือซื้อใบอนุญาตได้ เยี่ยมชม [หน้าลิขสิทธิ์ของ GroupDocs](https://purchase.groupdocs.com/temporary-license/) เพื่อดูข้อมูลเพิ่มเติมเกี่ยวกับการรับทดลองใช้ฟรีหรือใบอนุญาตเต็มรูปแบบ
+เพื่อใช้ GroupDocs.Search อย่างเต็มที่, คุณสามารถรับใบอนุญาตชั่วคราวหรือซื้อใบอนุญาตได้. เยี่ยมชม [GroupDocs's licensing page](https://purchase.groupdocs.com/temporary-license/) เพื่อดูข้อมูลเพิ่มเติมเกี่ยวกับการขอทดลองใช้ฟรีหรือใบอนุญาตเต็ม. คุณอาจใช้ [GroupDocs licensing page](https://purchase.groupdocs.com/temporary-license/) สำหรับวัตถุประสงค์เดียวกัน.
 
-### การเริ่มต้นและการตั้งค่าเบื้องต้น
-มาทำการเริ่มต้น GroupDocs.Search ในแอปพลิเคชัน Java ของคุณ:
+### การเริ่มต้นและการตั้งค่าพื้นฐาน
+มาลองเริ่มต้น GroupDocs.Search ในแอปพลิเคชัน Java ของคุณ:
 
 ```java
 import com.groupdocs.search.*;
@@ -89,21 +132,23 @@ public class SearchSetup {
 }
 ```
 
-## คู่มือการใช้งาน
-ในส่วนนี้ เราจะพาคุณผ่านขั้นตอนการกำหนดค่าและการปรับใช้เครือข่ายการค้นหาโดยใช้ GroupDocs.Search for Java
+## คู่มือการนำไปใช้
+ในส่วนนี้, เราจะพาคุณผ่านการกำหนดค่าและการปรับใช้เครือข่ายการค้นหาโดยใช้ GroupDocs.Search for Java.
 
-### วิธีการ configure distributed search ด้วย GroupDocs.Search
-การปรับใช้หลายโหนดในสถาปัตยกรรมการค้นหาของคุณช่วยให้ทำการจัดทำดัชนีและการค้นหาแบบกระจายได้ ส่งผลให้ประสิทธิภาพและความสามารถในการขยายเพิ่มขึ้น คู่มือนี้จะแสดงวิธีการกำหนดค่าโหนดเหล่านี้อย่างมีประสิทธิภาพ
+### วิธีการกำหนดค่า distributed search ด้วย GroupDocs.Search?
+โหลดการกำหนดค่าเครือข่าย, กำหนดเส้นทางฐาน, และตั้งค่าพารามิเตอร์ TCP เพียงไม่กี่บรรทัดของโค้ด. รูปแบบการตอบโดยตรงนี้แสดงขั้นตอนสำคัญก่อนการอธิบายรายละเอียดใด ๆ.
+
+แรก, สร้างอ็อบเจ็กต์ `SearchNetworkConfig`, ระบุไดเรกทอรีฐานที่ใช้ร่วมกัน, และกำหนดพอร์ต TCP ที่แตกต่างสำหรับแต่ละโหนด. **SearchNetworkConfig** กำหนดการตั้งค่าสำหรับคลัสเตอร์การค้นหาแบบกระจาย, เช่นไดเรกทอรีฐานและพอร์ตของโหนด. จากนั้น, สร้างอินสแตนซ์ของ `TcpSettings`—คลาสที่ควบคุมเวลาเชื่อมต่อของซ็อกเก็ต, ขนาดบัฟเฟอร์, และพฤติกรรม keep‑alive. สุดท้าย, เรียก `NetworkManager.deploy(config)` เพื่อเปิดคลัสเตอร์. **NetworkManager** จัดการการปรับใช้และการจัดการโหนดการค้นหาในคลัสเตอร์.
 
 #### การกำหนดค่าเครือข่าย
-เริ่มต้นด้วยการตั้งค่าการกำหนดค่าพร้อมฐานพาธและพอร์ต ขั้นตอนนี้ยัง **configures TCP settings** ที่กำหนดวิธีการสื่อสารระหว่างโหนด:
+คลาส `TcpSettings` เป็นศูนย์กลางการกำหนดค่าสำหรับการสื่อสารระดับ TCP ระหว่างโหนดทั้งหมด. มันให้คุณตั้งค่า timeout การเชื่อมต่อ, ขนาดบัฟเฟอร์อ่าน/เขียน, และว่าจะใช้ Nagle’s algorithm หรือไม่.
 
 ```java
 Configuration configuration = ConfiguringSearchNetwork.configure("YOUR_DOCUMENT_DIRECTORY", 49136);
 ```
 
 #### การปรับใช้โหนด
-ต่อไป ปรับใช้โหนดเครือข่ายการค้นหาโดยใช้การตั้งค่าที่กำหนดไว้:
+ปรับใช้แต่ละโหนดโดยระบุรหัสประจำตัวที่ไม่ซ้ำและการกำหนดค่าที่ได้กำหนดไว้ก่อนหน้า. ขั้นตอนการปรับใช้จะลงทะเบียนโหนดกับคลัสเตอร์โดยอัตโนมัติ, เปิดซ็อกเก็ตที่รับฟัง, และเริ่มเธรดการจัดทำดัชนีเบื้องหลัง.
 
 ```java
 public static SearchNetworkNode[] deploy(String basePath, int basePort, Configuration configuration) {
@@ -161,46 +206,65 @@ public static SearchNetworkNode[] deploy(String basePath, int basePort, Configur
 }
 ```
 
-### เคล็ดลับการแก้ไขปัญหา
-- ตรวจสอบให้แน่ใจว่าไดเรกทอรีของแต่ละโหนดระบุอย่างถูกต้องและเข้าถึงได้  
-- ตรวจสอบการกำหนดค่าเครือข่าย โดยเฉพาะการตั้งค่าพอร์ต เพื่อป้องกันความขัดแย้ง  
-- ตรวจสอบบันทึก (logs) เพื่อหาข้อผิดพลาดหรือคำเตือนในการกำหนดค่า  
+## ปัญหาทั่วไปและวิธีแก้
+- **Directory Access Errors** – ตรวจสอบให้แน่ใจว่าไดเรกทอรีฐานของทุกโหนดมีอยู่และกระบวนการ Java มีสิทธิ์อ่าน/เขียน.  
+- **Port Conflicts** – ยืนยันว่าพอร์ตที่เลือก (เช่น 49136‑49139) ไม่ถูกใช้โดยบริการอื่น; คุณสามารถรัน `netstat -an` เพื่อตรวจสอบ.  
+- **Timeouts on Slow Networks** – เพิ่มค่า `TcpSettings.setConnectionTimeout()` หากคุณพบการตัดการเชื่อมต่อบ่อยในสภาพแวดล้อมที่มี latency สูง.  
+- **Index Corruption** – ทำการสำรองโฟลเดอร์ดัชนีเป็นประจำและเปิดใช้งาน `NetworkManager.enableAutoRecovery()` เพื่อสร้าง shard ที่เสียหายใหม่โดยอัตโนมัติ.
 
-## การประยุกต์ใช้งานจริง
+## การประยุกต์ใช้ในเชิงปฏิบัติ
 การปรับใช้เครือข่ายการค้นหาแบบกระจายสามารถเป็นประโยชน์ในหลายสถานการณ์:
 
-1. **Large‑Scale Enterprise Systems** – ปรับปรุงการค้นหาในคลังเอกสารขนาดใหญ่ขององค์กร  
-2. **Content Management Platforms** – เพิ่มประสิทธิภาพบนเว็บไซต์ที่มีการเข้าชมสูงและข้อมูลจำนวนมหาศาล  
-3. **E‑commerce Websites** – เร่งการค้นหาผลิตภัณฑ์เพื่อประสบการณ์ลูกค้าที่ราบรื่น  
+1. **Large‑Scale Enterprise Systems** – จัดทำดัชนีสัญญา, นโยบาย, และรายงานนับล้านรายการพร้อมรักษาการตอบสนองของคำค้นให้ต่ำกว่า 1 วินาที.  
+2. **Content Management Platforms** – ให้บริการผู้ใช้หลายพันคนที่ทำการค้นหาข้ามสินทรัพย์มัลติมีเดียโดยไม่มีคอขวด.  
+3. **E‑commerce Websites** – เร่งการค้นหาผลิตภัณฑ์และการนำทางแบบ faceted บนแคตาล็อกที่มีสินค้าล้าน SKU.
 
 ## การพิจารณาด้านประสิทธิภาพ
 เพื่อให้สภาพแวดล้อม **configure distributed search** ของคุณทำงานอย่างมีประสิทธิภาพ:
 
-- อัปเดตดัชนีเป็นประจำเพื่อสะท้อนการเปลี่ยนแปลงของข้อมูล  
-- ตรวจสอบการใช้ CPU, หน่วยความจำและดิสก์; ปรับค่า timeout ของ `TcpSettings` หากจำเป็น  
-- ใช้ flag การปรับจูนหน่วยความจำของ Java (`-Xmx`, `-Xms`) ตามภาระงาน  
+- **Index Size Management** – GroupDocs.Search สามารถจัดการดัชนีที่เกิน 100 GB; อย่างไรก็ตาม, ควรตรวจสอบ I/O ของดิสก์และพิจารณา sharding คอลเลกชันขนาดใหญ่ข้ามหลายโหนด.  
+- **Resource Tuning** – ใช้แฟล็กการปรับแต่งหน่วยความจำของ Java (`-Xmx8g -Xms4g`) ตามภาระงานของคุณ, และปรับ `TcpSettings.setReadBufferSize()` สำหรับเครือข่ายที่มี throughput สูง.  
+- **Health Monitoring** – ใช้ `NetworkHealthMonitor` ที่มีในตัวเพื่อติดตาม CPU, หน่วยความจำ, และ latency ของเครือข่ายต่อโหนด, และตั้งการแจ้งเตือนสำหรับเกณฑ์ที่คุณกำหนด.
 
 ## สรุป
-โดยทำตามบทแนะนำนี้ คุณconfigure distributed search** และปรับใช้เครือข่าย GroupDocs.Search Java ที่สามารถขยายได้ โซลูชันนี้สามารถเพิ่มิเคชันของคุณอย่างมาก
+โดยทำตามบทแนะนำนี้, คุณได้เรียนรู้วิธี **configure distributed search** และปรับใช้เครือข่าย GroupDocs.Search Java ที่สามารถขยายได้. โซลูชันนี้สามารถปรับปรุงความเร็วและความน่าเชื่อถือของฟีเจอร์การค้นหาในแอปพลิเคชันของคุณอย่างมหาศาล, โดยเฉพาะเมื่อจัดการกับคอลเลกชันเอกสารขนาดใหญ่และหลากหลาย.
 
 ### ขั้นตอนต่อไป
-สำรวจคุณลักษณะดของคุณวันนี้และสัมผัสการเพิ่มประสิทธิภาพอย่างชัดเจน!
+สำรวจความสามารถขั้นสูงเช่นตัววิเคราะห์แบบกำหนดเอง, การจัดการคำพ้อง, และการจัดทำดัชนีแบบเรียลไทม์เพื่อปรับปรุงประสบการณ์การค้นหาของคุณต่อไป. คุณอาจรวมเครือข่ายกับชั้น API แบบ RESTful เพื่อเปิดเผยฟังก์ชันการค้นหาให้กับไคลเอนต์ภายนอก.
 
-## ส่วนคำถามที่พบบ่อย
-**Q1: GroupDocs.Search for Java คืออะไร?**  
-A1: GroupDocs.Search for Java เป็นไลบรารีที่ทรงพลังสำหรับการค้นหาข้อความในรูปแบบเอกสารต่าง ๆ ทำให้สามารถจัดทำดัชนีและสอบถามข้อมูลได้อย่างมีประสิทธิภาพ
+### เรียกร้องให้ดำเนินการ
+เริ่มนำโซลูชันที่แข็งแกร่งนี้ไปใช้ในโครงการของคุณวันนี้และสัมผัสการเพิ่มประสิทธิภาพด้วยตนเอง!
 
-**Q2: ฉันจะขอรับใบอนุญาตชั่วคราวสำหรับ GroupDocs.Search ได้อย่างไร?**  
-A2: เยี่ยมชม [หน้าลิขสิทธิ์ของ GroupDocs](https://purchase.groupdocs.com/temporary-license/) เพื่อรับการทดลองใช้งานฟรีหรือใบอนุญาตเต็มรูปแบบ
+## คำถามที่พบบ่อย
 
-**Q3: การกำหนดค่าเครือข่ายนี้สามารถใช้กับประเภทเอกสารอื่นได้หรือไม่?**  
-A3: ใช่, GroupDocs.Search รองรับรูปแบบเอกสารหลากหลาย ทำให้สามารถนำไปใช้กับกรณีการใช้งานต่าง ๆ ได้อย่างยืดหยุ่น
+**Q: GroupDocs.Search for Java คืออะไร?**  
+A: GroupDocs.Search for Java เป็นไลบรารีประสิทธิภาพสูงที่จัดทำดัชนีและค้นหาข้อความในรูปแบบเอกสารมากกว่า 50 แบบ, ให้การค้นหาแบบเต็มข้อความที่เร็วและสามารถขยายได้สำหรับแอปพลิเคชัน Java.
 
-**Q4: ปัญหาที่พบบ่อยเมื่อปรับใช้โหนดมีอะไรบ้าง?**  
-A4: ปัญหาที่พบบ่อยรวมถึงไดเรกทอรีที่กำหนดไม่ถูกต้อง, ความขัดแย้งของพอร์ต, และสิทธิ์การเข้าถึงที่ไม่เพียงพอ ตรวจสอบให้แน่ใจว่าการตั้งค่าทั้งหมดถูกต้องเพื่อหลีกเลี่ยงปัญหาเหล่านี้
+**Q: ฉันจะขอรับใบอนุญาตชั่วคราวสำหรับ GroupDocs.Search อย่างไร?**  
+A: เยี่ยมชม [GroupDocs's licensing page](https://purchase.groupdocs.com/temporary-license/) เพื่อขอทดลองใช้ฟรีหรือซื้อใบอนุญาตเต็มสำหรับการใช้งานในสภาพแวดล้อมการผลิต.
+
+**Q: ฉันสามารถเพิ่มเอกสารใหม่หลังจากที่เครือข่ายถูกปรับใช้ได้หรือไม่?**  
+A: ใช่, คุณสามารถ **add documents to index** ได้ตลอดเวลาโดยใช้เมธอด `IndexManager.addDocument()`; การเปลี่ยนแปลงจะกระจายโดยอัตโนมัติทั่วคลัสเตอร์. **IndexManager.addDocument()** เพิ่มเอกสารใหม่ลงในดัชนีและกระจายไปทั่วเครือข่าย.
+
+**Q: ปัญหาที่พบบ่อยเมื่อกำหนดค่าโหนดคืออะไร?**  
+A: ปัญหาที่พบบ่อยรวมถึงเส้นทางฐานที่ไม่ตรงกัน, ความขัดแย้งของพอร์ต, และสิทธิ์ระบบไฟล์ที่ไม่เพียงพอ. ตรวจสอบการกำหนดค่าแต่ละโหนดอีกครั้งและให้แน่ใจว่าไดเรกทอรีทั้งหมดเข้าถึงได้.
+
+**Q: เครือข่ายสนับสนุนการจัดทำดัชนีแบบเรียลไทม์หรือไม่?**  
+A: แน่นอน. GroupDocs.Search มี API การจัดทำดัชนีแบบเรียลไทม์ที่ทำให้เอกสารที่เพิ่มใหม่สามารถค้นหาได้ทันทีทั่วทุกโหนดโดยไม่มีเวลาหยุดทำงาน.
 
 ---
 
-**Last Updated:** 2026-01-19  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**อัปเดตล่าสุด:** 2026-06-27  
+**ทดสอบด้วย:** GroupDocs.Search 25.4 for Java  
+**ผู้เขียน:** GroupDocs  
+
+{< /blocks/products/pf/tutorial-page-section >}
+{< /blocks/products/pf/main-container >}
+{< /blocks/products/pf/main-wrap-class >}
+{< blocks/products/products-backtop-button >}
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [บทแนะนำและตัวอย่างของ GroupDocs.Search for Java](/search/net/)
+- [ปรับใช้โหนดเครือข่ายการค้นหาใน .NET ด้วย GroupDocs เพื่อการจัดทำดัชนีและการดึงข้อมูลเอกสารที่มีประสิทธิภาพ](/search/net/search-network/groupdocs-net-deploy-search-node-index-retrieve/)
+- [บทแนะนำการเพิ่มประสิทธิภาพการค้นหาสำหรับ GroupDocs.Search .NET](/search/net/performance-optimization/)

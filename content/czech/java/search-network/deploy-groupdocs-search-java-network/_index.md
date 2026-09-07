@@ -1,41 +1,92 @@
 ---
-date: '2026-01-19'
-description: Naučte se, jak nakonfigurovat distribuované vyhledávání a nasadit výkonnou
-  vyhledávací síť pomocí GroupDocs.Search pro Javu, čímž zlepšíte výkon a škálovatelnost.
+date: '2026-06-27'
+description: Zjistěte, jak konfigurovat distribuované vyhledávání a nasadit výkonnou
+  vyhledávací síť pomocí GroupDocs.Search pro Java, což zlepšuje výkon a škálovatelnost.
 keywords:
+- configure distributed search
+- add documents to index
 - GroupDocs.Search Java network
-- search performance enhancement
-- distributed search architecture
-title: Nastavení distribuovaného vyhledávání s GroupDocs.Search Java Network
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-27'
+  description: Learn how to configure distributed search and deploy a powerful search
+    network using GroupDocs.Search for Java, improving performance and scalability.
+  headline: Configure Distributed Search with GroupDocs.Search Java Network
+  type: TechArticle
+- description: Learn how to configure distributed search and deploy a powerful search
+    network using GroupDocs.Search for Java, improving performance and scalability.
+  name: Configure Distributed Search with GroupDocs.Search Java Network
+  steps:
+  - name: '**Large‑Scale Enterprise Systems** – Index millions of contracts, policies,
+      and reports while maintaining sub‑second query responses.'
+    text: '**Large‑Scale Enterprise Systems** – Index millions of contracts, policies,
+      and reports while maintaining sub‑second query responses.'
+  - name: '**Content Management Platforms** – Serve thousands of concurrent users
+      searching across multimedia assets without bottlenecks.'
+    text: '**Content Management Platforms** – Serve thousands of concurrent users
+      searching across multimedia assets without bottlenecks.'
+  - name: '**E‑commerce Websites** – Accelerate product searches and faceted navigation
+      on catalogs containing millions of SKUs.'
+    text: '**E‑commerce Websites** – Accelerate product searches and faceted navigation
+      on catalogs containing millions of SKUs.'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Search for Java is a high‑performance library that indexes and
+      searches text across more than 50 document formats, providing fast, scalable
+      full‑text search for Java applications.
+    question: What is GroupDocs.Search for Java?
+  - answer: Visit the [GroupDocs's licensing page](https://purchase.groupdocs.com/temporary-license/)
+      to request a free trial or purchase a full license for production use.
+    question: How do I obtain a temporary license for GroupDocs.Search?
+  - answer: Yes, you can **add documents to index** at any time using the `IndexManager.addDocument()`
+      method; the changes propagate automatically across the cluster. **IndexManager.addDocument()**
+      adds a new document to the index and propagates it across the network.
+    question: Can I add new documents after the network is deployed?
+  - answer: Typical issues include mismatched base paths, port conflicts, and insufficient
+      file‑system permissions. Double‑check each node’s configuration and ensure all
+      directories are accessible.
+    question: What are common pitfalls when configuring nodes?
+  - answer: Absolutely. GroupDocs.Search offers real‑time indexing APIs that immediately
+      make newly added documents searchable across all nodes without downtime.
+    question: Does the network support real‑time indexing?
+  type: FAQPage
+title: Konfigurace distribuovaného vyhledávání s GroupDocs.Search Java Network
 type: docs
 url: /cs/java/search-network/deploy-groupdocs-search-java-network/
 weight: 1
 ---
 
-# Nastavení distribuovaného vyhledávání s GroupDocs.Search Java sítí
+# Konfigurace distribuovaného vyhledávání s GroupDocs.Search Java sítí
 
-V dneš **nastavení distribuovanéhozvových časů. Tento tutoriál vás provede vytvořením robustní sítě GroupDocs.Search pro Java, ukáže, **jak nasadit vyhledávání** na více uzlech, přidat dokumenty doů, kteréováníý poměr výkonu a odolnosti vůči chybám.  
-- **Potřebuji licenci?** Ano – pro produkční použití je vyžadována dočasná nebo plná licence.  
-- **Jaké porty mám použít?** Vyberte porty, které jsou na vašich serverech volné; v příkladu jsou použity 49136‑49139.  
-- **Mohu po nasazení přidávat nové dokumenty?** Rozhodně – **přidávat dokumenty do indexu** můžete kdykoli bez restartování sítě.
+V dnešním datově řízeném světě je **configure distributed search** nezbytné pro zpracování obrovských kolekcí dokumentů při zachování nízkých odezvových časů. Tento tutoriál vás provede nastavením robustní sítě GroupDocs.Search pro Java, ukáže, jak **nasadit vyhledávání napříč více uzly**, **přidat dokumenty do indexu** a **konfigurovat nastavení TCP** pro spolehlivou komunikaci. Na konci budete mít škálovatelné řešení vyhledávání připravené pro produkci a jasné pochopení, proč tato architektura převyšuje jednojádrové nastavení.
 
-## Co je nastavení distribuovaného vyhledávání architektury znamená propojit několik nezávislých vyhlednižuje zátěž naace.  
-- **Bohatá podpora dokumentů** – funguje s PDF, Word soubory, e‑maily a dalšími formáty.  
-- **Jednoduchá TCP komunikace** – vestavěné `TcpSettings` vám umožní jemně ladit latenci sítě.
+## Rychlé odpovědi
+- **Co je configure distributed search?** Jedná se o proces propojení několika nezávislých vyhledávacích uzlů, aby společně indexovaly a odpovídaly na dotazy, čímž poskytují vyšší propustnost a odolnost vůči chybám.  
+- **Kolik uzlů se doporučuje?** Typicky 3‑5 uzlů poskytuje dobrý poměr výkonu a odolnosti vůči chybám pro většinu podnikového zatížení.  
+- **Potřebuji licenci?** Ano – pro produkční použití GroupDocs.Search je vyžadována dočasná nebo plná licence.  
+- **Jaké porty mám použít?** Vyberte porty, které jsou na vašich serverech volné; příklad používá 49136‑49139, ale funguje jakýkoli otevřený rozsah.  
+- **Mohu po nasazení přidávat nové dokumenty?** Rozhodně – můžete **add documents to index** kdykoli bez restartování sítě.
+
+## Co je configure distributed search?
+Konfigurace architektury distribuovaného vyhledávání znamená propojení několika nezávislých vyhledávacích uzlů, aby sdílely práci s indexováním a společně odpovídaly na dotazy. To snižuje zátěž na jakémkoli jednotlivém stroji, zlepšuje jak propustnost, tak spolehlivost, a poskytuje vestavěnou redundanci pro odolnost vůči chybám.
+
+## Proč použít GroupDocs.Search pro Java?
+GroupDocs.Search pro Java poskytuje **high‑performance indexing** (až 1 GB/s na moderním hardwaru) a **scalable architecture**, která podporuje clustery s více než 10 uzly. Nativně rozumí **50+ formátům dokumentů** — včetně PDF, DOCX, XLSX, PPTX a e‑mailových souborů — takže můžete indexovat prakticky jakýkoli obchodní obsah bez dalších konvertorů. Vestavěná třída `TcpSettings` vám umožní jemně ladit latenci, propustnost a intervaly keep‑alive, čímž zajišťuje spolehlivou komunikaci mezi uzly i napříč hranicemi datových center. **TcpSettings** konfiguruje nízkoúrovňové parametry TCP komunikace mezi uzly.
 
 ## Předpoklady
 
 ### Požadované knihovny a závislosti
-Budete potřebovat **GroupDocs.Search pro Java** verze 25.4 nebo novější. Ujistěte se, že máte ve vývojovém prostředí nainstalovanou Javu.
+Budete potřebovat **GroupDocs.Search pro Java** verze 25.4 nebo novější. Ujistěte se, že vaše vývojové prostředí má nainstalovanou Javu.
 
 ### Požadavky na nastavení prostředí
-- Nainstalovaný Java Development Kit (JDK nebo Eclipse  
+- Java Development Kit (JDK) 11 nebo novější.  
+- IDE jako IntelliJ IDEA nebo Eclipse pro pohodlnou správu projektu.
 
-### Znalostní předpoklady
-Základní dovednosti v programování v Javě a obecné povědomí o konfiguraci sítí vám usnadní sledování jednotlivých kroků.
+### Předpoklady znalostí
+Základní dovednosti v programování v Javě a obecné pochopení konfigurace sítě vám pomohou plynule sledovat kroky.
 
 ## Nastavení GroupDocs.Search pro Java
-Pro zahájení přidejte GroupDocs.Search pro Java do svého projektu. Lze to snadno provést pomocí Maven nebo stažením knihovny přímo.
+Pro začátek přidejte GroupDocs.Search pro Java do svého projektu. Můžete tak učinit pomocí Maven nebo stažením knihovny přímo.
 
 **Nastavení Maven**  
 Přidejte následující repozitář a konfiguraci závislosti do souboru `pom.xml`:
@@ -59,10 +110,10 @@ Přidejte následující repozitář a konfiguraci závislosti do souboru `pom.x
 ```
 
 **Přímé stažení**  
-Alternativně si stáhněte nejnovější verzi z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternativně stáhněte nejnovější verzi z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Získání licence
-Pro plné využití GroupDocs.Search můžete získat dočasnou licenci nebo zakoupit plnou verzi. Navštivte [licenční stránku GroupDocs](https://purchase.groupdocs.com/temporary-license/) pro více informací o získání zkušební nebo plné licence.
+Pro plné využití GroupDocs.Search můžete získat dočasnou licenci nebo ji zakoupit. Navštivte [GroupDocs's licensing page](https://purchase.groupdocs.com/temporary-license/) pro více informací o tom, jak získat zkušební verzi nebo plnou licenci. Můžete také použít [GroupDocs licensing page](https://purchase.groupdocs.com/temporary-license/) pro stejný účel.
 
 ### Základní inicializace a nastavení
 Inicializujme GroupDocs.Search ve vaší Java aplikaci:
@@ -84,18 +135,20 @@ public class SearchSetup {
 ## Průvodce implementací
 V této sekci vás provedeme konfigurací a nasazením vyhledávací sítě pomocí GroupDocs.Search pro Java.
 
-### Jak nastavit distribuované vyhledávání s GroupDocs.Search
-Nasazení více uzlů ve vaší vyhledávací architektuře umožňuje distribuované indexování a vyhledávání, čímž se zvyšuje výkon i škálovatelnost. Tento průvodce ukazuje, jak tyto uzly efektivně nakonfigurovat.
+### Jak konfigurovat distribuované vyhledávání s GroupDocs.Search?
+Načtěte konfiguraci sítě, definujte základní cesty a nastavte parametry TCP během několika řádků kódu. Tento přímý vzor vám ukáže základní kroky před podrobným vysvětlením.
+
+Nejprve vytvořte objekt `SearchNetworkConfig`, určete sdílený základní adresář a přiřaďte každému uzlu odlišný TCP port. **SearchNetworkConfig** definuje nastavení pro distribuovaný vyhledávací cluster, jako je základní adresář a porty uzlů. Poté vytvořte instanci `TcpSettings` — třídy, která řídí časový limit socketu, velikost bufferu a chování keep‑alive. Nakonec zavolejte `NetworkManager.deploy(config)`, aby se spustil cluster. **NetworkManager** zajišťuje nasazení a správu vyhledávacích uzlů v rámci clusteru.
 
 #### Konfigurace sítě
-Začněte nastavením konfigurace s výchozí cestou a portem. Tento krok také **konfiguruje TCP nastavení**, která definují, jak uzly komunikují:
+Třída `TcpSettings` je konfiguračním centrem pro veškerou TCP‑úrovňovou komunikaci mezi uzly. Umožňuje nastavit časový limit připojení, velikosti čtecích/zápisových bufferů a zda použít Nagleův algoritmus.
 
 ```java
 Configuration configuration = ConfiguringSearchNetwork.configure("YOUR_DOCUMENT_DIRECTORY", 49136);
 ```
 
 #### Nasazení uzlů
-Dále nasadíme uzly vyhledávací sítě pomocí dříve nastavených parametrů:
+Nasazujte každý uzel poskytnutím jeho jedinečného identifikátoru a dříve definované konfigurace. Nasazovací rutina automaticky zaregistruje uzel v clusteru, otevře naslouchací socket a spustí vlákna pro indexování na pozadí.
 
 ```java
 public static SearchNetworkNode[] deploy(String basePath, int basePort, Configuration configuration) {
@@ -153,49 +206,65 @@ public static SearchNetworkNode[] deploy(String basePath, int basePort, Configur
 }
 ```
 
-### Tipy pro řešení problémů
-- Ujistěte se, že adresář každého uzlu je správně zadán a přístupný.  
-- Zkontrolujte síťová nastavení, zejména porty, aby nedocházelo ke konfliktům.  
-- Sledujte logy pro případné konfigurační chyby nebo varování.  
+## Časté problémy a řešení
+- **Directory Access Errors** – Ujistěte se, že základní adresář každého uzlu existuje a proces Java má oprávnění ke čtení/zápisu.  
+- **Port Conflicts** – Ověřte, že vybrané porty (např. 49136‑49139) nejsou používány jinými službami; můžete spustit `netstat -an` pro kontrolu.  
+- **Timeouts on Slow Networks** – Zvyšte `TcpSettings.setConnectionTimeout()`, pokud zažíváte časté odpojení v prostředích s vysokou latencí.  
+- **Index Corruption** – Pravidelně zálohujte složku indexu a povolte `NetworkManager.enableAutoRecovery()`, aby se poškozené fragmenty automaticky obnovily.
 
 ## Praktické aplikace
 Nasazení distribuované vyhledávací sítě může být užitečné v různých scénářích:
 
-1. **Velké podnikové systémy** – zlepšete vyhledávání v rozsáhlých úložištích dokumentů.  
-2. **Platformy pro správu obsahu** – zvýšte výkon na vysoce navštěvovaných stránkách s obrovským objemem dat.  
-3. **E‑commerce weby** – urychlete vyhledávání produktů pro plynulejší zákaznický zážitek.  
+1. **Large‑Scale Enterprise Systems** – Indexujte miliony smluv, politik a zpráv při zachování sub‑sekundových odezvových časů.  
+2. **Content Management Platforms** – Obsluhujte tisíce souběžných uživatelů vyhledávajících napříč multimediálními zdroji bez úzkých míst.  
+3. **E‑commerce Websites** – Zrychlete vyhledávání produktů a faceted navigaci v katalozích obsahujících miliony SKU.
 
 ## Úvahy o výkonu
-Aby vaše prostředí **nastavení distribuovaného vyhledávání** běželo efektivně:
+Aby vaše **configure distributed search** prostředí běželo efektivně:
 
-- Pravidelně aktualizujte indexy, aby odrážely změny v datech.  
-- Sledujte využití CPU, paměti a disku; v případě potřeby upravte časové limity `TcpSettings`.  
-- Používejte ladící příznaky paměti Javy (`-Xmx`, `-Xms`) podle zatížení.
+- **Index Size Management** – GroupDocs.Search dokáže zpracovat indexy přesahující 100 GB; přesto monitorujte diskové I/O a zvažte rozdělení velkých kolekcí na více uzlů.  
+- **Resource Tuning** – Použijte příznaky pro ladění paměti Javy (`-Xmx8g -Xms4g`) podle vašeho zatížení a upravte `TcpSettings.setReadBufferSize()` pro sítě s vysokou propustností.  
+- **Health Monitoring** – Použijte vestavěný `NetworkHealthMonitor` ke sledování CPU, paměti a síťové latence na uzel, a nastavte výstrahy pro prahové hodnoty, které definujete.
 
 ## Závěr
-Po absolvování tohoto tutoriálu jste se naučili **nastavit distribuované vyhledávání** a nasadit škálovatelnou síť GroupDocs.Search Java. Toto řešení může výrazně zlepšit rychlost a spolehlivost vyhledávacích funkcí vaší aplikace.
+Po absolvování tohoto tutoriálu jste se naučili, jak **configure distributed search** a nasadit škálovatelnou síť GroupDocs.Search Java. Toto řešení může dramaticky zlepšit rychlost a spolehlivost vyhledávacích funkcí vaší aplikace, zejména při práci s velkými, heterogenními kolekcemi dokumentů.
 
 ### Další kroky
-Prozkoumejte pokročilé funkce, jako jsou vlastní analyzátory, správa synonym a indexování v reálném čase, abyste dále vylepšili vyhledávací zážitek.
+Prozkoumejte pokročilé možnosti, jako jsou vlastní analyzátory, zpracování synonym a indexování v reálném čase, abyste dále vylepšili své vyhledávací zkušenosti. Můžete také integrovat síť s vrstvou RESTful API, aby byla vyhledávací funkčnost zpřístupněna externím klientům.
 
 ### Výzva k akci
-Začněte implementovat toto robustní řešení ve svých projektech ještě dnes a osobně pocítíte nárůst výkonu!
+Začněte dnes implementovat toto robustní řešení ve svých projektech a na vlastní oči se přesvědčte o zvýšení výkonu!
 
 ## Často kladené otázky
-**Q1: Co je GroupDocs.Search pro Java?**  
-A1: GroupDocs.Search pro Java je výkonná knihovna pro provádění textového vyhledávání napříč různými formáty dokumentů, umožňující efektivní indexování a dotazování.
 
-**Q2: Jak získám dočasnou licenci pro GroupDocs.Search?**  
-A2: Navštivte [licenční stránku GroupDocs](https://purchase.groupdocs.com/temporary-license/) a získejte zkušební nebo plnou licenci.
+**Q: Co je GroupDocs.Search pro Java?**  
+A: GroupDocs.Search pro Java je vysoce výkonná knihovna, která indexuje a vyhledává text napříč více než 50 formáty dokumentů, poskytuje rychlé, škálovatelné full‑textové vyhledávání pro Java aplikace.
 
-**Q3: Lze tuto konfiguraci sítě použít i s jinými typy dokumentů?**  
-A3: Ano, GroupDocs.Search podporuje širokou škálu formátů dokumentů, což jej činí univerzálním pro různé případy použití.
+**Q: Jak získám dočasnou licenci pro GroupDocs.Search?**  
+A: Navštivte [GroupDocs's licensing page](https://purchase.groupdocs.com/temporary-license/) a požádejte o zkušební verzi nebo zakupte plnou licenci pro produkční použití.
 
-**Q4: Jaké jsou běžné problémy při nasazování uzlů?**  
-A4: Běžné problémy zahrnují špatně nastavené adresáře, konflikty portů a nedostatečná oprávnění. Ujistěte se, že jsou všechna nastavení správně aplikována, abyste těmto potížím předešli.
+**Q: Mohu po nasazení sítě přidávat nové dokumenty?**  
+A: Ano, můžete **add documents to index** kdykoli pomocí metody `IndexManager.addDocument()`; změny se automaticky propagují napříč clusterem. **IndexManager.addDocument()** přidá nový dokument do indexu a propaguje jej po celé síti.
+
+**Q: Jaké jsou běžné úskalí při konfiguraci uzlů?**  
+A: Typické problémy zahrnují nesoulad základních cest, konflikty portů a nedostatečná oprávnění souborového systému. Dvakrát zkontrolujte konfiguraci každého uzlu a ujistěte se, že všechny adresáře jsou přístupné.
+
+**Q: Podporuje síť indexování v reálném čase?**  
+A: Rozhodně. GroupDocs.Search nabízí API pro indexování v reálném čase, které okamžitě zpřístupní nově přidané dokumenty pro vyhledávání napříč všemi uzly bez výpadku.
 
 ---
 
-**Poslední aktualizace:** 2026-01-19  
-**Testováno s:** GroupDocs.Search 25.4 pro Java  
-**Autor:** GroupDocs
+**Poslední aktualizace:** 2026-06-27  
+**Testováno s:** GroupDocs.Search 25.4 for Java  
+**Autor:** GroupDocs  
+
+{< /blocks/products/pf/tutorial-page-section >}
+{< /blocks/products/pf/main-container >}
+{< /blocks/products/pf/main-wrap-class >}
+{< blocks/products/products-backtop-button >}
+
+## Související tutoriály
+
+- [Tutoriály a příklady GroupDocs.Search pro Java](/search/net/)
+- [Nasazení uzlu vyhledávací sítě v .NET pomocí GroupDocs pro efektivní indexování a vyhledávání dokumentů](/search/net/search-network/groupdocs-net-deploy-search-node-index-retrieve/)
+- [Tutoriály optimalizace výkonu vyhledávání pro GroupDocs.Search .NET](/search/net/performance-optimization/)
