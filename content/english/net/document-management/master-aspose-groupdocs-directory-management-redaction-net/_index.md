@@ -231,6 +231,6 @@ var redactor = new Redactor("YOUR_DOCUMENT_PATH");
 
 ## Related Tutorials
 
-- [Implement GroupDocs.Search & Redaction: Update and Manage Document Indexes in .NET]({{< relref "search/net/document-management/implement-groupdocs-search-redaction-update-index-features/_index.md" >}})
-- [Master Index Creation and Merging with GroupDocs.Redaction .NET for Efficient Document Management]({{< relref "search/net/search-network/master-index-creation-merging-groupdocs-redaction-net/_index.md" >}})
-- [Mastering GroupDocs.Redaction .NET: Efficient Index Creation and Alias Management for Advanced Document Search]({{< relref "search/net/indexing/groupdocs-redaction-net-index-alias-management/_index.md" >}})
+- [Implement GroupDocs.Search & Redaction: Update and Manage Document Indexes in .NET]({{< relref "net/document-management/implement-groupdocs-search-redaction-update-index-features/_index.md" >}})
+- [Master Index Creation and Merging with GroupDocs.Redaction .NET for Efficient Document Management]({{< relref "net/search-network/master-index-creation-merging-groupdocs-redaction-net/_index.md" >}})
+- [Mastering GroupDocs.Redaction .NET: Efficient Index Creation and Alias Management for Advanced Document Search]({{< relref "net/indexing/groupdocs-redaction-net-index-alias-management/_index.md" >}})

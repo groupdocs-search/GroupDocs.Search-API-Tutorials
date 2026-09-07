@@ -113,6 +113,6 @@ A: It does; built‑in analyzers handle Unicode characters for over 30 languages
 
 ## Related Tutorials
 
-- [Create Search Index GroupDocs with GroupDocs.Search for Java – A Complete Guide]({{< relref "/search/java/indexing/groupdocs-search-java-implementation-document-indexing" >}})
-- [How to Create Index and Aliases in GroupDocs.Search Java]({{< relref "/search/java/indexing/groupdocs-search-java-index-alias-management" >}})
-- [How to Add Synonyms in Java Using GroupDocs.Search – A Comprehensive Guide]({{< relref "/search/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java" >}})
+- [Create Search Index GroupDocs with GroupDocs.Search for Java – A Complete Guide]({{< relref "java/indexing/groupdocs-search-java-implementation-document-indexing/_index.md" >}})
+- [How to Create Index and Aliases in GroupDocs.Search Java]({{< relref "java/indexing/groupdocs-search-java-index-alias-management/_index.md" >}})
+- [How to Add Synonyms in Java Using GroupDocs.Search – A Comprehensive Guide]({{< relref "java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/_index.md" >}})

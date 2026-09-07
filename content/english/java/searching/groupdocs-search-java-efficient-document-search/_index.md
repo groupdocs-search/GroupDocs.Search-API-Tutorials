@@ -244,6 +244,6 @@ SearchResult result = index.search(query, options);
 
 ## Related Tutorials
 
-- {{< relref "/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/" >}}  
-- {{< relref "/search/java/indexing/groupdocs-search-java-metadata-indexing/" >}}  
-- {{< relref "/search/java/performance-optimization/groupdocs-search-java-index-optimization/" >}}
+- [How to Add Documents to Index and Manage Aliases in GroupDocs.Search for Java]({{< relref "java/indexing/groupdocs-search-java-efficient-index-alias-management/_index.md" >}})  
+- [How to add documents to index with Metadata Indexing in Java using GroupDocs.Search]({{< relref "java/indexing/groupdocs-search-java-metadata-indexing/_index.md" >}})  
+- [Optimize Search Index Java with GroupDocs.Search Guide]({{< relref "java/performance-optimization/groupdocs-search-java-index-optimization/_index.md" >}})
