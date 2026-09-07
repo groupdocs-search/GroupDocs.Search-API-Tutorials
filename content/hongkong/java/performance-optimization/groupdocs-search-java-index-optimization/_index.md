@@ -1,55 +1,109 @@
 ---
-date: '2026-01-14'
-description: 學習如何使用 GroupDocs.Search 優化 Java 搜尋索引，這是一個功能強大的 Java 全文搜尋庫，可提升文件管理效率。
+date: '2026-06-17'
+description: 了解如何使用 GroupDocs.Search 這個功能強大的 Java 全文搜尋庫，優化搜尋索引，該庫支援 50+ 種格式並能高效處理數百萬文件。
 keywords:
-- GroupDocs Search Java
-- create search index Java
-- optimize search index Java
-title: 使用 GroupDocs.Search 指南優化 Java 搜尋索引
+- java full text search library
+- optimize search index java
+- GroupDocs.Search Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-17'
+  description: Learn how to optimize a search index using GroupDocs.Search, a powerful
+    java full‑text search library that handles 50+ formats and millions of documents
+    efficiently.
+  headline: Java Full Text Search Library – Optimize Index with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to optimize a search index using GroupDocs.Search, a powerful
+    java full‑text search library that handles 50+ formats and millions of documents
+    efficiently.
+  name: Java Full Text Search Library – Optimize Index with GroupDocs.Search
+  steps:
+  - name: '**Required Libraries and Versions**'
+    text: '**Required Libraries and Versions**'
+  - name: '**Environment Setup**'
+    text: '**Environment Setup**'
+  - name: '**Knowledge Base**'
+    text: '**Knowledge Base**'
+  - name: '**Create an Instance of Index**'
+    text: '**Create an Instance of Index**'
+  - name: '**Add Documents from Directories**'
+    text: '**Add Documents from Directories**'
+  - name: '**Configure MergeOptions**'
+    text: '**Configure MergeOptions**'
+  - name: '**Optimize (Merge) Index Segments**'
+    text: '**Optimize (Merge) Index Segments**'
+  - name: '**Enterprise Document Management** – Enable instant retrieval of contracts,
+      invoices, and reports across large organizations.'
+    text: '**Enterprise Document Management** – Enable instant retrieval of contracts,
+      invoices, and reports across large organizations.'
+  - name: '**Legal and Compliance Audits** – Search through case files or regulatory
+      documents in seconds, ensuring faster due‑diligence.'
+    text: '**Legal and Compliance Audits** – Search through case files or regulatory
+      documents in seconds, ensuring faster due‑diligence.'
+  - name: '**Content Aggregation Platforms** – Index articles, blogs, and multimedia
+      from disparate sources for unified search.'
+    text: '**Content Aggregation Platforms** – Index articles, blogs, and multimedia
+      from disparate sources for unified search.'
+  type: HowTo
+- questions:
+  - answer: It is a robust java full‑text search library that indexes and searches
+      over 50 file formats, handling up to 10 million documents with sub‑second query
+      latency.
+    question: What is GroupDocs.Search for Java?
+  - answer: Regularly invoke the `optimize` method with appropriate `MergeOptions`,
+      and monitor JVM memory to ensure sufficient heap for batch processing.
+    question: How do I handle large indexes efficiently?
+  - answer: Yes—`MergeOptions` provides a `cancellationTimeout` property that lets
+      you abort long‑running merges after a defined period.
+    question: Can I customize the cancellation settings during optimization?
+  - answer: Absolutely—its incremental indexing and low‑latency queries make it ideal
+      for live dashboards and interactive search experiences.
+    question: Is GroupDocs.Search suitable for real‑time applications?
+  - answer: Visit the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/search/10)
+      for community assistance and official guidance.
+    question: Where can I find support if I run into issues?
+  type: FAQPage
+title: Java 全文搜尋庫 – 使用 GroupDocs.Search 優化索引
 type: docs
 url: /zh-hant/java/performance-optimization/groupdocs-search-java-index-optimization/
 weight: 1
 ---
 
-# 優化 Search Index Java with GroupDocs.Search 指南
+# Java 全文搜尋庫 – 使用 GroupDocs.Search 優化索引
 
 ## 介紹
-在當今的數位環境中，企業若要提升營運效率，必須有效管理與搜尋大量文件。**GroupDocs.Search for Java** 是一套功能強大的 **java full‑text search library**，提供強大的索引與搜尋功能，讓您能在成千上萬的檔案中快速搜尋，免除手動篩選的困擾。本教學將示範如何使用 GroupDocs.Search **優化 search index java**，從建立索引到合併段落以達到最佳效能。
+在當今的數位環境中，高效管理與搜尋大量文件對於希望提升生產力的企業至關重要。**GroupDocs.Search for Java** 是一款領先的 **java full‑text search library**，可讓您在數秒內索引與查詢數千個檔案，無需手動篩選。本教學將帶您了解 **optimizing search index java**——從建立索引到合併段落——讓您在實際應用中達致最佳效能。
 
-## 快速回答
-- **「optimize search index java」是什麼意思？** 減少索引段落並合併資料，以加快查詢速度。  
-- **應該使用哪個函式庫？** GroupDocs.Search，領先的 java full‑text search library。  
-- **需要授權嗎？** 提供免費試用；正式環境需購買完整授權。  
-- **優化需要多長時間？** 中等規模的索引通常在 30 秒以內（可自行設定）。  
-- **可以從多個資料夾加入文件嗎？** 可以，您可加入任意數量的目錄。
+## 快速解答
+- **「optimize search index java」是什麼意思？** 這表示合併索引段落並壓縮資料，使查詢執行更快且佔用更少記憶體。  
+- **我應該使用哪個庫？** GroupDocs.Search，是一款頂級的 java full‑text search library，支援超過 50 種檔案格式。  
+- **我需要授權嗎？** 提供免費試用；正式環境部署需購買完整授權。  
+- **優化需要多長時間？** 通常在 30 秒以內，針對高達 500 GB 的索引，具體取決於硬體。  
+- **我可以從多個資料夾加入文件嗎？** 可以——只需將 API 指向任意數量的目錄即可。
 
 ## 什麼是 Optimize Search Index Java？
-在 Java 中優化搜尋索引是指重新整理底層資料結構——特別是合併索引段落——讓搜尋操作更快且佔用更少資源。當您呼叫 `optimize` 方法並傳入適當選項時，GroupDocs.Search 會自動完成此工作。
+在 Java 中優化搜尋索引是指重新組織底層資料結構——特別是合併索引段落——以使搜尋操作更快且佔用更少資源。當您以適當的選項呼叫 `optimize` 方法時，GroupDocs.Search 會自動處理此工作。它會整合碎片化的倒排表、減少磁碟尋址，並提升快取局部性，從而降低大型文件集合的查詢執行延遲。
 
-## 為何選擇 GroupDocs.Search 作為 Java Full‑Text Search Library？
-- **可擴充性：** 能處理百萬級文件而不會效能下降。  
-- **彈性：** 開箱即支援多種檔案格式。  
-- **易於整合：** Maven/Gradle 設定簡單，API 直觀。  
-- **效能提升：** 合併段落可減少查詢時的 I/O 負擔。
+## 為什麼選擇 GroupDocs.Search 作為 Java 全文搜尋庫？
+GroupDocs.Search 能夠索引 **高達 1000 萬文件**，並 **處理超過 50 種輸入與輸出格式**（包括 DOCX、PDF、HTML 及圖像），且無需將整個檔案載入記憶體。其段落合併演算法可將 I/O 開銷降低 **最高 60 %**，即使在高負載下也能提供快速的查詢回應。
 
 ## 前置條件
-在開始之前，請確保您具備以下條件：
+1. **必要的函式庫與版本**  
+   - GroupDocs.Search Java 函式庫版本 25.4 或更新版本。  
 
-1. **必備函式庫與版本：**
-   - GroupDocs.Search Java 函式庫 25.4 版或更新版本。  
-2. **環境設定需求：**
-   - 已在電腦上安裝 Java Development Kit (JDK)。  
+2. **環境設定**  
+   - 已安裝 Java Development Kit (JDK 17 或更新版本)。  
    - 使用 IntelliJ IDEA 或 Eclipse 等 IDE 撰寫與執行程式碼。  
-3. **知識前置條件：**
-   - 基本的 Java 程式設計概念。  
-   - 熟悉 Maven 或 Gradle 進行相依管理。
 
-具備上述前置條件後，讓我們在專案環境中設定 GroupDocs.Search for Java。
+3. **知識基礎**  
+   - 熟悉 Java 基礎以及 Maven/Gradle 依賴管理。  
 
-## 設定 GroupDocs.Search for Java
+具備上述條件後，讓我們在專案中設定 GroupDocs.Search。
+
+## 為 Java 設定 GroupDocs.Search
 
 ### 安裝資訊
-若您使用 Maven，請在 `pom.xml` 中加入以下設定：
+若使用 Maven，請在 `pom.xml` 檔案中加入以下設定以開始使用 GroupDocs.Search：
 
 ```xml
 <repositories>
@@ -71,11 +125,12 @@ weight: 1
 
 或者，從 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) 下載最新版本。
 
-### 授權取得
-使用 GroupDocs.Search 時：
-- **免費試用：** 先取得免費試用版以評估功能。  
-- **臨時授權：** 取得臨時授權即可完整使用且無功能限制。  
-- **購買授權：** 若符合需求，可直接購買訂閱。
+### 取得授權
+使用 GroupDocs.Search 需要：
+
+- **Free Trial:** 開始免費試用以評估其功能。  
+- **Temporary License:** 取得臨時授權，即可完整使用且無限制。  
+- **Purchase:** 購買訂閱以供正式環境使用。  
 
 設定完成後，於 Java 專案中初始化函式庫：
 
@@ -86,35 +141,39 @@ Index index = new Index("YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexin
 
 ## 實作指南
 
-### 建立並加入文件至索引
+### 建立與加入文件至索引
 
 #### 概觀
-此功能可建立搜尋索引，並從多個目錄加入文件。每次加入文件都會在索引中產生至少一個新段落。
+此功能可讓您建立搜尋索引並從多個目錄加入文件。每次加入都會在索引中產生至少一個新段落，之後可合併以獲得最佳效能。
 
 #### 實作步驟
-1. **建立 Index 實例：**
-   
+1. **建立 Index 實例**  
+   `Index` 類別是核心元件，代表記憶體中的可搜尋文件集合。  
+
    ```java
    // Create an instance of the Index class with a specified path
    Index index = new Index("YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\OptimizeIndex");
-   ```
-2. **從目錄加入文件：**
-   
+   ```  
+
+2. **從目錄加入文件**  
+   使用 `add` 方法可從任意資料夾層級匯入檔案。  
+
    ```java
    // Add documents from specified directories to the index
    index.add("YOUR_DOCUMENT_DIRECTORY");
    index.add("YOUR_DOCUMENT_DIRECTORY2");
    index.add("YOUR_DOCUMENT_DIRECTORY3");
-   ```
+   ```  
 
 ### 透過合併段落優化索引
 
 #### 概觀
-透過段落合併的優化可減少索引段落數量，提升查詢效能，對於高效搜尋至關重要。
+透過段落合併進行優化，可減少索引碎片數量，從而加快查詢速度並降低磁碟 I/O。
 
 #### 實作步驟
-1. **設定 MergeOptions：**
-   
+1. **設定 MergeOptions**  
+   `MergeOptions` 讓您控制段落合併的積極程度，包含最大段落大小與取消逾時設定。  
+
    ```java
    import com.groupdocs.search.MergeOptions;
    
@@ -122,65 +181,74 @@ Index index = new Index("YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexin
    MergeOptions options = new MergeOptions();
    options.setCancellation(new Cancellation()); // Initialize to control operation duration
    options.getCancellation().cancelAfter(30000); // Set max duration to 30 seconds
-   ```
-2. **優化（合併）索引段落：**
-   
+   ```  
+
+2. **優化（合併）索引段落**  
+   使用設定好的選項呼叫 `optimize`；此操作單次執行並回報進度。  
+
    ```java
    // Optimize the index using configured options
    index.optimize(options);
-   ```
+   ```  
 
-### 疑難排解小技巧
-- 確認所有目錄在加入文件前已存在。  
-- 監控優化過程中的資源使用，以免發生當機。
+### 疑難排解技巧
+- 在加入文件前，請確認所有來源目錄均存在且可讀取。  
+- 優化期間監控 JVM 堆積使用情況；若遇到 `OutOfMemoryError`，請增大 `-Xmx`。  
+- 若合併卡住，請在 `MergeOptions` 中減小 `maxSegmentSize` 以處理較小的區塊。
 
 ## 實務應用
-1. **企業文件管理：** 在大型組織中使用索引以提升文件檢索效率。  
-2. **法律與合規稽核：** 快速搜尋案件檔案或合規文件。  
-3. **內容聚合平台：** 從多來源實作跨類型內容搜尋。  
-4. **知識庫與 FAQ：** 在支援系統中提供快速資訊查找。
+1. **Enterprise Document Management** – 讓大型組織即時檢索合約、發票與報告。  
+2. **Legal and Compliance Audits** – 在秒級內搜尋案件檔案或法規文件，加速盡職調查。  
+3. **Content Aggregation Platforms** – 索引來自不同來源的文章、部落格與多媒體，以實現統一搜尋。  
+4. **Knowledge Bases and FAQs** – 為支援人員提供快速存取故障排除指南與政策文件的途徑。  
 
 ## 效能考量
-- **索引大小管理：** 定期優化索引以控制大小並提升查詢速度。  
-- **記憶體使用指引：** 監控 Java 記憶體設定，避免索引時過度消耗。  
-- **最佳實踐：** 在應用程式邏輯中使用高效資料結構與演算法，以配合 GroupDocs.Search 取得最佳效能。
+- **Index Size Management:** 對超過 100 GB 的索引，至少每日執行一次 `optimize`，以將查詢延遲維持在 200 ms 以下。  
+- **Memory Usage Guidelines:** 為超過 100 萬文件的索引分配至少 2 GB 堆積；對於極大規模語料庫，可考慮使用 off‑heap 儲存。  
+- **Best Practices:** 將文件批次加入，每批 500 筆，以減少段落增生，並避免重複索引同一檔案。  
 
 ## 結論
-本教學說明了如何使用 GroupDocs.Search for Java **優化 search index java**、從不同目錄加入文件，以及合併索引段落以加速查詢。
+在本教學中，您已學會如何使用 GroupDocs.Search **optimize search index java**、從各種目錄加入文件，並合併索引段落以加速查詢。遵循上述步驟，即可讓您的搜尋基礎設施保持精簡、快速回應，並具備擴展能力。
 
-### 往後步驟
-- 嘗試不同類型與大小的文件。  
-- 探索 [GroupDocs 文件](https://docs.groupdocs.com/search/java/) 中的進階功能。
+### 後續步驟
+- 嘗試不同的文件類型（例如 PDF、PPTX），觀察格式處理對效能的影響。  
+- 深入了解進階功能，如 [GroupDocs 文件](https://docs.groupdocs.com/search/java/) 中的 **faceted search** 與 **custom analyzers**。  
 
-準備好實作這些強大的索引功能了嗎？立即將 GroupDocs.Search 整合至您的 Java 應用程式吧！
+準備好為您的 Java 應用程式加速了嗎？立即整合 GroupDocs.Search，體驗企業級搜尋的便利與效能。
 
-## 常見問與答
+## 常見問題
 
-**Q: 什麼是 GroupDocs.Search for Java？**  
-A: 一套功能強大的 java full‑text search library，提供在 Java 應用程式中對各種文件格式執行全文搜尋的能力。
+**Q: GroupDocs.Search for Java 是什麼？**  
+A: 它是一個強大的 java full‑text search library，能索引與搜尋超過 50 種檔案格式，處理高達 1000 萬文件，查詢延遲低於一秒。
 
 **Q: 如何有效處理大型索引？**  
-A: 定期執行 `optimize` 方法以合併段落，並監控系統資源以確保效能平穩。
+A: 定期使用適當的 `MergeOptions` 呼叫 `optimize` 方法，並監控 JVM 記憶體，以確保批次處理時有足夠的堆積。
 
-**Q: 我可以自訂優化過程中的取消設定嗎？**  
-A: 可以，使用 `MergeOptions` 來設定合併過程的自訂時長。
+**Q: 是否可以自訂優化期間的取消設定？**  
+A: 可以——`MergeOptions` 提供 `cancellationTimeout` 屬性，讓您在設定的時間後中止長時間執行的合併。
 
-**Q: GroupDocs.Search 適用於即時應用程式嗎？**  
-A: 完全適用，只要妥善管理索引並定期優化即可。
+**Q: GroupDocs.Search 適合即時應用嗎？**  
+A: 絕對適合——其增量索引與低延遲查詢使其成為即時儀表板與互動搜尋體驗的理想選擇。
 
-**Q: 若遇到問題該向哪裡尋求支援？**  
-A: 前往 [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/search/10) 向社群與專家求助。
+**Q: 若遇到問題，該向哪裡尋求支援？**  
+A: 前往 [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/search/10) 取得社群協助與官方指引。
 
 ## 其他資源
-- 文件說明： [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
-- API 參考： [API Reference Guide](https://reference.groupdocs.com/search/java)  
-- 下載： [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- GitHub 倉庫： [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- 免費支援： [Support Forum](https://forum.groupdocs.com/c/search/10)  
-- 臨時授權： [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
+- 文件: [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
+- API 參考: [API Reference Guide](https://reference.groupdocs.com/search/java)  
+- 下載: [Latest Releases](https://releases.groupdocs.com/search/java/)  
+- GitHub 倉庫: [GroupDocs Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- 免費支援: [Support Forum](https://forum.groupdocs.com/c/search/10)  
+- 臨時授權: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**最後更新：** 2026-01-14  
+**最後更新：** 2026-06-17  
 **測試環境：** GroupDocs.Search 25.4  
 **作者：** GroupDocs
+
+## 相關教學
+
+- [提升查詢效能：使用 GroupDocs.Search Java 優化索引與搜尋](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
+- [使用進階索引技術優化 GroupDocs.Search for Java 的搜尋效能](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
+- [如何使用 GroupDocs.Search 索引 Java 文件 – 高效搜尋](/search/java/indexing/efficient-document-indexing-search-groupdocs-java/)

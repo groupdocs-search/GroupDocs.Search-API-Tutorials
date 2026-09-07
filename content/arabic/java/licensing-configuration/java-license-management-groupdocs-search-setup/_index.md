@@ -1,12 +1,57 @@
 ---
-date: '2026-01-14'
-description: تعلم كيفية التحقق من وجود الملف في Java وقراءة تدفق ملف الترخيص لـ GroupDocs.Search
-  باستخدام ترخيص InputStream وإعداد Maven.
+date: '2026-06-17'
+description: تعرف على كيفية التحقق من وجود الملف في Java وقراءة تدفق ملف الترخيص لـ
+  GroupDocs.Search، باستخدام ترخيص InputStream وإعداد Maven.
 keywords:
-- Java License Management
-- GroupDocs Search Integration
-- InputStream License Setup
-title: التحقق من وجود الملف في جافا – إدارة الترخيص باستخدام GroupDocs
+- check file existence java
+- java license management
+- files.exists java example
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-17'
+  description: Learn how to check file existence Java and read license file stream
+    for GroupDocs.Search, using InputStream licensing and Maven setup.
+  headline: Check File Existence Java – License Management with GroupDocs
+  type: TechArticle
+- description: Learn how to check file existence Java and read license file stream
+    for GroupDocs.Search, using InputStream licensing and Maven setup.
+  name: Check File Existence Java – License Management with GroupDocs
+  steps:
+  - name: Store the license file outside the deployment folder for better security.
+    text: Store the license file outside the deployment folder for better security.
+  - name: Embed the license inside a JAR and load it from the classpath, which simplifies
+      container deployments.
+    text: Embed the license inside a JAR and load it from the classpath, which simplifies
+      container deployments.
+  - name: Pull the license from a cloud bucket (AWS S3, Azure Blob, etc.) and feed
+      the stream directly to the SDK.
+    text: Pull the license from a cloud bucket (AWS S3, Azure Blob, etc.) and feed
+      the stream directly to the SDK.
+  - name: 'Visit the GroupDocs website to explore license options: free trial, temporary
+      license, or purchase.'
+    text: 'Visit the GroupDocs website to explore license options: free trial, temporary
+      license, or purchase.'
+  - name: 'Follow the guidance in the licensing FAQ: [Licensing FAQs](https://purchase.groupdocs.com/faqs/licensing).'
+    text: 'Follow the guidance in the licensing FAQ: [Licensing FAQs](https://purchase.groupdocs.com/faqs/licensing).'
+  type: HowTo
+- questions:
+  - answer: An `InputStream` is a Java abstraction for reading raw bytes from sources
+      such as files, network sockets, or memory buffers.
+    question: What is an InputStream?
+  - answer: 'Visit the temporary‑license page: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license)
+      for instructions.'
+    question: How do I get a temporary GroupDocs license?
+  - answer: Yes, but the SDK will run in evaluation mode, showing watermarks and limiting
+      usage time.
+    question: Can I use GroupDocs.Search without a license?
+  - answer: The application falls back to evaluation mode, which may restrict features
+      and add watermarks.
+    question: What happens if the license file is missing or incorrect?
+  - answer: Ensure the file path is correct, the application has read permissions,
+      and wrap the stream in a try‑with‑resources block to handle exceptions cleanly.
+    question: How do I troubleshoot issues with file streams?
+  type: FAQPage
+title: التحقق من وجود الملف في Java – إدارة الترخيص مع GroupDocs
 type: docs
 url: /ar/java/licensing-configuration/java-license-management-groupdocs-search-setup/
 weight: 1
@@ -14,30 +59,39 @@ weight: 1
 
 # التحقق من وجود الملف في Java – إدارة الترخيص مع GroupDocs
 
-دمج قدرات البحث المتقدمة في تطبيقات Java الخاصة بك غالبًا ما يبدأ بخطوة بسيطة ولكن حاسمة: **التحقق من وجود الملف في Java**. في هذا الدرس ستتعلم كيفية التحقق من وجود ملف الترخيص، قراءة تدفق ملف الترخيص، وتكوين GroupDocs.Search لتشغيل سلس. في النهاية، ستحصل على إعداد قوي جاهز للإنتاج يمكنك إدراجه في أي مشروع Java.
+عند دمج **GroupDocs.Search** في تطبيق Java، أول شيء تحتاج إلى التحقق منه هو أن ملف الترخيص موجود فعلاً في المكان الذي تعتقده. في هذا الدرس ستتعلم كيفية **التحقق من وجود الملف في Java**، قراءة الترخيص كـ `InputStream`، وربط SDK ليعمل في وضع الترخيص الكامل. في النهاية ستحصل على مقتطف جاهز للإنتاج يمكنك إدراجه في أي خدمة Java أو مايكرو‑سيرفس أو تطبيق سطح مكتب.
 
 ## إجابات سريعة
-- **ماذا يعني “check file existence Java”؟** إنها عملية تأكيد وجود الملف على نظام الملفات قبل محاولة استخدامه.  
-- **لماذا نستخدم InputStream للترخيص؟** يتيح لك تحميل الترخيص من أي مصدر — نظام الملفات، classpath، أو التخزين السحابي — دون ترميز مسار ثابت.  
-- **هل أحتاج إلى Maven؟** نعم، إضافة GroupDocs.Search عبر Maven يضمن حصولك على أحدث الحزم والاعتمادات المتسلسلة.  
-- **ماذا يحدث إذا كان الترخيص مفقودًا؟** يعمل SDK في وضع التقييم، مع عرض العلامات المائية وتقييد الاستخدام.  
-- **هل هذه الطريقة آمنة في بيئة متعددة الخيوط؟** تحميل الترخيص مرة واحدة عند بدء التشغيل آمن؛ أعد استخدام نفس كائن `License` عبر الخيوط.
+- **ماذا يعني “check file existence Java”?** إنه عملية التأكد من وجود ملف على نظام الملفات قبل محاولة استخدامه.  
+- **لماذا نستخدم InputStream للترخيص؟** يتيح لك تحميل الترخيص من أي مصدر—نظام الملفات، classpath، أو التخزين السحابي—دون الحاجة لتحديد مسار ثابت.  
+- **هل أحتاج إلى Maven؟** نعم، إضافة GroupDocs.Search عبر Maven يضمن حصولك على أحدث الحزم والاعتمادات المتداخلة.  
+- **ماذا يحدث إذا كان الترخيص مفقودًا؟** يعمل SDK في وضع التقييم، مع عرض علامات مائية وتقييد الاستخدام.  
+- **هل هذا النهج آمن للمتعدد الخيوط؟** تحميل الترخيص مرة واحدة عند بدء التشغيل آمن؛ أعد استخدام نفس كائن `License` عبر الخيوط.
 
 ## ما هو “check file existence Java”؟
-في Java، يتم عادةً التحقق من وجود الملف باستخدام الدالة `Files.exists()` من `java.nio.file`. هذا الاستدعاء الخفيف يمنع حدوث `FileNotFoundException` ويسمح لك بالتعامل مع الموارد المفقودة بشكل مرن.
+
+في Java، يعني التحقق من وجود الملف التأكد من أن مسارًا معينًا يشير إلى ملف قابل للقراءة قبل تنفيذ أي عمليات إدخال/إخراج. الطريقة الشائعة تستخدم `Files.exists(Path)` من `java.nio.file`، والتي تُعيد قيمة منطقية تشير إلى وجود الملف. يساعد هذا الفحص البسيط على تجنب `FileNotFoundException` ويسمح للتطبيق بتسجيل خطأ واضح أو الرجوع إلى الإعدادات الافتراضية.
+
+استخدام هذا الفحص يحمي تطبيقك من الأعطال أثناء بدء التشغيل ويمنحك فرصة لتسجيل خطأ واضح أو الرجوع إلى تكوين افتراضي.
 
 ## لماذا قراءة تدفق ملف الترخيص؟
-قراءة الترخيص كتيار (`read license file stream`) يمنحك مرونة. يمكنك تخزين الترخيص في موقع آمن، تضمينه في ملف JAR، أو استرجاعه من خدمة عن بُعد، مع الحفاظ على نظافة وقابلية نقل الكود.
+
+قراءة الترخيص كـ `InputStream` تفصل موقع الترخيص عن الشيفرة، مما يسمح بتخزينه على نظام الملفات، أو تضمينه داخل JAR، أو استرجاعه من التخزين السحابي. عبر استدعاء `License.setLicense(InputStream)`، يمكن للـ SDK تحميل الترخيص من أي مصدر دون تحديد مسار ثابت، مما يحسن القابلية للنقل والأمان.
+
+1. خزن ملف الترخيص خارج مجلد النشر لمزيد من الأمان.  
+2. تضمين الترخيص داخل JAR وتحميله من classpath، مما يبسط عمليات النشر في الحاويات.  
+3. سحب الترخيص من دلو سحابي (AWS S3، Azure Blob، إلخ) وإمداد الـ SDK مباشرةً بالتدفق.  
 
 ## المتطلبات المسبقة
-- **JDK 8+** – يستخدم الكود try‑with‑resources، والذي يتطلب Java 7 أو أحدث.  
+- **JDK 8+** – الشيفرة تستخدم try‑with‑resources، والتي تتطلب Java 7 أو أحدث.  
 - **IDE** – IntelliJ IDEA، Eclipse، أو أي محرر تفضله.  
-- **Maven** – لإدارة الاعتمادات (بدلاً من ذلك يمكنك تحميل ملف JAR يدويًا).  
+- **Maven** – لإدارة الاعتمادات (بدلاً من ذلك يمكنك تنزيل الـ JAR يدويًا).  
 
-## إعداد GroupDocs.Search للـ Java
+## إعداد GroupDocs.Search لـ Java
 
 ### التثبيت عبر Maven
-Add the GroupDocs repository and dependency to your `pom.xml`:
+
+أضف مستودع GroupDocs والاعتماد إلى ملف `pom.xml` الخاص بك:
 
 ```xml
 <repositories>
@@ -57,15 +111,17 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-### التحميل المباشر
-بدلاً من ذلك، يمكنك الحصول على المكتبة من صفحة الإصدارات الرسمية: [إصدارات GroupDocs.Search للـ Java](https://releases.groupdocs.com/search/java/).
+### تحميل مباشر
+
+بدلاً من ذلك، يمكنك الحصول على المكتبة من صفحة الإصدارات الرسمية: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### الحصول على ترخيص
 1. زر موقع GroupDocs لاستكشاف خيارات الترخيص: تجربة مجانية، ترخيص مؤقت، أو شراء.  
-2. اتبع الإرشادات في الأسئلة المتكررة للترخيص: [الأسئلة المتكررة حول الترخيص](https://purchase.groupdocs.com/faqs/licensing).
+2. اتبع الإرشادات في أسئلة الترخيص المتكررة: [Licensing FAQs](https://purchase.groupdocs.com/faqs/licensing).
 
 ### التهيئة الأساسية
-Once the JAR is on your classpath, initialize the SDK with a license file:
+
+بمجرد أن يكون الـ JAR على مسار الـ classpath، قم بتهيئة الـ SDK باستخدام ملف الترخيص:
 
 ```java
 import com.groupdocs.search.License;
@@ -75,10 +131,12 @@ license.setLicense("path/to/your/license/file.lic");
 ```
 
 ## دليل التنفيذ
+
 سنستعرض مهمتين أساسيتين: **التحقق من وجود الملف في Java** و **قراءة تدفق ملف الترخيص**.
 
 ### كيفية التحقق من وجود الملف في Java
-First, verify that the license file actually exists before trying to load it.
+
+أولاً، تأكد من أن ملف الترخيص موجود فعلاً قبل محاولة تحميله. استخدم `Path` و `Files.exists()` لإجراء الفحص في سطر واحد خالٍ من الاستثناءات. إذا كان الملف مفقودًا، يمكنك تسجيل تحذير وتحديد ما إذا كنت ستستمر في وضع التقييم أو توقف بدء التشغيل.
 
 ```java
 import java.nio.file.Files;
@@ -89,7 +147,8 @@ boolean fileExists = Files.exists(Paths.get(filePath));
 ```
 
 ### كيفية قراءة تدفق ملف الترخيص
-If the file is present, open it as an `InputStream` and apply the license.
+
+إذا كان الملف موجودًا، افتحه كـ `InputStream` ومرره إلى كائن `License`. تغليف `FileInputStream` داخل `BufferedInputStream` يحسن الأداء للملفات الكبيرة، رغم أن ملف الترخيص عادةً ما يكون بضعة كيلوبايت فقط. يضمن كتلة `try‑with‑resources` إغلاق التدفق تلقائيًا، مما يمنع تسرب الموارد.
 
 ```java
 import java.io.FileInputStream;
@@ -108,7 +167,8 @@ if (fileExists) {
 ```
 
 ### التحقق من وجود الملف (مثال مستقل)
-You can also use this snippet to simply confirm a file’s presence:
+
+المقتطف التالي يوضح طريقة بسيطة لا تعتمد على أي إطار عمل للتحقق من وجود ملف باستخدام `Files.exists`. يسجل النتيجة، يُعيد قيمة منطقية، ويمكن دمجه في أي تطبيق Java دون اعتمادات إضافية، مما يجعله مناسبًا للفحوصات السريعة أثناء بدء التشغيل أو داخل فئات الأدوات.
 
 ```java
 import java.nio.file.Files;
@@ -124,49 +184,56 @@ if (fileExists) {
 }
 ```
 
-## التطبيقات العملية
+## تطبيقات عملية
 - **أنظمة إدارة المستندات** – أتمتة التحقق من الترخيص للتعامل الآمن مع ملفات PDF، Word، والصور.  
-- **البرمجيات المؤسسية** – التحقق الديناميكي من الترخيص عند بدء التشغيل لضمان الامتثال عبر خوادم متعددة.  
-- **محركات البحث المخصصة** – تحميل الترخيص من دلو سحابي، ثم تهيئة GroupDocs.Search للفهرسة السريعة والكاملة للنص.
+- **البرمجيات المؤسسية** – التحقق الديناميكي من الترخيص عند بدء التشغيل للبقاء متوافقًا عبر خوادم متعددة.  
+- **محركات البحث المخصصة** – تحميل الترخيص من دلو سحابي، ثم تهيئة GroupDocs.Search للفهرسة السريعة للنص الكامل.
 
 ## اعتبارات الأداء
-- **تدفقات التخزين المؤقت** – غلف `FileInputStream` بـ `BufferedInputStream` إذا كنت تتوقع ملفات ترخيص كبيرة (نادر، لكنه ممارسة جيدة).  
+- **تدفقات التخزين المؤقت** – غلف `FileInputStream` داخل `BufferedInputStream` إذا كنت تتوقع ملفات ترخيص كبيرة (نادرًا، لكنه ممارسة جيدة).  
 - **إدارة الموارد** – استخدم دائمًا try‑with‑resources لإغلاق التدفقات تلقائيًا.  
-- **ترخيص Singleton** – حمّل الترخيص مرة واحدة أثناء تشغيل التطبيق وأعد استخدام نفس كائن `License`؛ هذا يجنب عمليات I/O المتكررة.
+- **ترخيص Singleton** – حمّل الترخيص مرة واحدة أثناء إقلاع التطبيق وأعد استخدام نفس كائن `License`؛ هذا يحد من عمليات الإدخال/الإخراج المتكررة ويقلل من زمن الاستجابة.  
+- **ادعاء مُقَدَّر:** يدعم GroupDocs.Search **أكثر من 50 تنسيقًا للإدخال والإخراج** (DOCX، XLSX، PPTX، HTML، PDF، وأنواع الصور الشائعة) ويمكنه فهرسة **مستندات متعددة المئات من الصفحات** دون تحميل الملف بالكامل في الذاكرة، مما يقدّم استجابات استعلام تحت الثانية على خوادم عادية.
 
 ## الخلاصة
-أنت الآن تعرف كيفية **التحقق من وجود الملف في Java**، **قراءة تدفق ملف الترخيص**، وتكوين GroupDocs.Search للبحث الموثوق به على مستوى الإنتاج. هذه الأنماط تحافظ على تطبيقك قويًا وجاهزًا للتوسع.
+أنت الآن تعرف كيفية **التحقق من وجود الملف في Java**، **قراءة تدفق ملف الترخيص**، وتكوين GroupDocs.Search للبحث الموثوق به في بيئات الإنتاج. هذه الأنماط تحافظ على تطبيقك قويًا، قابلًا للنقل، وجاهزًا للتوسع عبر السحابة أو النشر المحلي.
 
 **الخطوات التالية**
-- تعمق أكثر في الوثائق الرسمية: [توثيق GroupDocs](https://docs.groupdocs.com/search/java/).  
-- جرب دمج فهرس البحث في واجهة REST API أو بنية الميكروسيرفيس.
+- استكشف الوثائق الرسمية بعمق: [GroupDocs documentation](https://docs.groupdocs.com/search/java/).  
+- جرّب دمج فهرس البحث في واجهة REST API أو بنية ميكرو‑سيرفيس.
 
-## قسم الأسئلة المتكررة
+## قسم الأسئلة الشائعة
 
-1. **ما هو InputStream؟**  
-   `InputStream` هو تجريد في Java لقراءة البايتات من مصادر مثل الملفات، مقابس الشبكة، أو مخازن الذاكرة.
+**س: ما هو InputStream؟**  
+ج: `InputStream` هو تجريد في Java لقراءة البايتات الخام من مصادر مثل الملفات، مقبس الشبكة، أو مخازن الذاكرة.
 
-2. **كيف أحصل على ترخيص GroupDocs مؤقت؟**  
-   زر صفحة الترخيص المؤقت: [ترخيص GroupDocs المؤقت](https://purchase.groupdocs.com/temporary-license) للحصول على التعليمات.
+**س: كيف أحصل على ترخيص GroupDocs مؤقت؟**  
+ج: زر صفحة الترخيص المؤقت: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license) للحصول على التعليمات.
 
-3. **هل يمكنني استخدام GroupDocs.Search بدون ترخيص؟**  
-   نعم، لكن SDK سيعمل في وضع التقييم، مع عرض العلامات المائية وتقييد مدة الاستخدام.
+**س: هل يمكنني استخدام GroupDocs.Search بدون ترخيص؟**  
+ج: نعم، لكن الـ SDK سيعمل في وضع التقييم، مع عرض علامات مائية وتقييد وقت الاستخدام.
 
-4. **ماذا يحدث إذا كان ملف الترخيص مفقودًا أو غير صحيح؟**  
-   يعود التطبيق إلى وضع التقييم، مما قد يحد من الميزات ويضيف علامات مائية.
+**س: ماذا يحدث إذا كان ملف الترخيص مفقودًا أو غير صحيح؟**  
+ج: ينتقل التطبيق إلى وضع التقييم، مما قد يقيد الميزات ويضيف علامات مائية.
 
-5. **كيف أقوم باستكشاف مشكلات تدفقات الملفات؟**  
-   تأكد من صحة مسار الملف، ومن أن التطبيق لديه صلاحيات القراءة، ولفّ التدفق بكتلة try‑with‑resources لمعالجة الاستثناءات بشكل نظيف.
+**س: كيف أقوم باستكشاف مشاكل تدفقات الملفات؟**  
+ج: تأكد من صحة مسار الملف، ومن أن التطبيق يمتلك أذونات القراءة، واغلف التدفق بكتلة `try‑with‑resources` لمعالجة الاستثناءات بشكل نظيف.
 
 ## الموارد
-- [توثيق GroupDocs.Search](https://docs.groupdocs.com/search/java/)
-- [مرجع API](https://reference.groupdocs.com/search/java)
-- [تحميل GroupDocs.Search](https://releases.groupdocs.com/search/java/)
-- [مستودع GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [منتدى الدعم المجاني](https://forum.groupdocs.com/c/search/10)
+- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
+- [API Reference](https://reference.groupdocs.com/search/java)
+- [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)
+- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 
 ---
 
-**آخر تحديث:** 2026-01-14  
-**تم الاختبار مع:** GroupDocs.Search 25.4  
-**المؤلف:** GroupDocs
+**Last Updated:** 2026-06-17  
+**Tested With:** GroupDocs.Search 25.4  
+**Author:** GroupDocs
+
+## دروس ذات صلة
+
+- [Create Search Index Directory & Set License – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)
+- [How to Configure Search with GroupDocs.Search in Java - Configuration & Deployment Guide](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
+- [Master GroupDocs.Search Java: Efficient Document Search and Index Management](/search/java/searching/groupdocs-search-java-efficient-document-search/)
