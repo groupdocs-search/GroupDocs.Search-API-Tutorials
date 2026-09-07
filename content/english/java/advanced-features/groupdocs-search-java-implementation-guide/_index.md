@@ -50,13 +50,13 @@ schemas:
       review the migration guide for breaking changes.
     question: How do I upgrade to a newer GroupDocs.Search version?
   type: FAQPage
-title: Extract PDF Text Java – Build Index with GroupDocs.Search
+title: Extract PDF Text with Java and Build Index Using GroupDocs.Search
 type: docs
 url: /java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-# Extract PDF Text Java – Build Index with GroupDocs.Search
+# Extract PDF Text with Java and Build Index Using GroupDocs.Search
 
 In this hands‑on guide you’ll discover **how to extract pdf text java** from PDF files, serialize the extracted content, and create a high‑performance searchable index. Whether you’re building an internal knowledge base, a contract‑search portal, or a custom search engine, the steps below walk you through everything—from pulling text out of PDFs to running powerful full‑text queries. Let’s dive in and see why GroupDocs.Search makes the whole process smooth and scalable.
 
@@ -72,7 +72,7 @@ The `index.search` method runs a query against the created index and returns a l
 ## What is a Document Index?
 A Document Index is a structured collection of searchable terms extracted from your files. It maps each term to the documents in which it appears, enabling rapid full‑text searches across large repositories and reducing lookup time from minutes to milliseconds, while supporting ranking and relevance features.
 
-## Why Use GroupDocs.Search for Java?
+## Why use GroupDocs.Search for java?
 GroupDocs.Search supports **50+ input and output formats**, can index **millions of documents** without loading the entire file into memory, and offers a **rich query language** with Boolean, wildcard, and proximity operators. These quantified capabilities make it ideal for enterprise‑scale search solutions. It also provides built‑in language detection, stemming, and customizable analyzers to improve search accuracy for multilingual content.
 
 ## Prerequisites
@@ -81,7 +81,7 @@ GroupDocs.Search supports **50+ input and output formats**, can index **millions
 - An IDE such as IntelliJ IDEA or Eclipse.  
 - Maven for dependency management.
 
-## Setting Up GroupDocs.Search for Java
+## Setting up GroupDocs.Search for java
 First, add the library to your project.
 
 **Maven Setup**  
@@ -122,7 +122,7 @@ The `Extractor` class is GroupDocs.Search's core component that reads a document
 
 ```java
 // ```java
-String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
+String documentPath = "YOUR_DOCUMENT_DIRECTORY/sample-document.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
@@ -200,7 +200,7 @@ SearchResult result = index.search(query);
 
 > **Pro tip:** Use `index.search("your query", SearchOptions)` to fine‑tune relevance ranking.
 
-## Common Use Cases
+## Common use cases
 1. **Document Management Systems** – Quickly locate contracts, invoices, or policies.  
 2. **Content‑Based Search Engines** – Power internal knowledge bases with full‑text search java capabilities.  
 3. **Data Archiving Solutions** – Index historic records for instant retrieval.
@@ -212,7 +212,7 @@ The `setStoreTermVectors(boolean)` method configures whether term vectors are st
 - **Indexing Options:** Disable term vectors (`setStoreTermVectors(false)`) to reduce index size by up to 30 %.  
 - **Regular Updates:** Keep GroupDocs.Search up‑to‑date; each minor release includes average‑case speed improvements of 10‑15 %.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: How do I handle very large PDF files efficiently?**  
 A: Stream the file using `Extractor` and process it in chunks; also increase the JVM heap if needed.

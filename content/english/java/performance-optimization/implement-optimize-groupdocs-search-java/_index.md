@@ -14,14 +14,14 @@ keywords:
 og_description: How to delete index and perform full text search Java using GroupDocs.Search.
   Follow this guide to set up a search network, create searchable index, and optimize
   search performance.
-og_title: How to Delete Index and Perform Text Search with GroupDocs.Search for Java
+og_title: Delete Index and Execute Full‑Text Search Using GroupDocs.Search for Java
 schemas:
 - author: GroupDocs
   dateModified: '2026-07-07'
   description: Learn how to delete index, perform full text search Java, and optimize
     search performance using GroupDocs.Search for Java. Step‑by‑step guide with network
     setup and indexing.
-  headline: How to Delete Index and Perform Text Search with GroupDocs.Search for
+  headline: Delete Index and Execute Full‑Text Search Using GroupDocs.Search for
     Java
   type: TechArticle
 - questions:
@@ -42,13 +42,13 @@ schemas:
       box.
     question: Can I index PDFs, Word files, and emails together?
   type: FAQPage
-title: How to Delete Index and Perform Text Search with GroupDocs.Search for Java
+title: Delete Index and Execute Full‑Text Search Using GroupDocs.Search for Java
 type: docs
 url: /java/performance-optimization/implement-optimize-groupdocs-search-java/
 weight: 1
 ---
 
-# How to Delete Index and Perform Text Search with GroupDocs.Search for Java
+# Delete Index and Execute Full‑Text Search Using GroupDocs.Search for Java
 
 In today's data‑driven world, **how to delete index** quickly while still delivering lightning‑fast full‑text search Java capabilities is a competitive advantage. Whether you're building an internal knowledge base, a legal‑case repository, or an e‑commerce product catalog, a well‑tuned search network can dramatically improve user satisfaction. In this guide you’ll learn how to **set up a search network**, **create a searchable index**, **optimize search performance**, and **delete documents from the index** when needed—all using GroupDocs.Search for Java.
 
@@ -96,7 +96,7 @@ A **search network** is a cluster of interconnected nodes that share a common in
 ## How to Remove Indexed Files (remove indexed files)
 When a document becomes obsolete, call the `delete` API with its path. The system removes the file’s entries from the inverted index, freeing storage and preventing stale results.
 
-## Setting Up GroupDocs.Search for Java
+## Setting up GroupDocs.Search for java
 To begin, integrate GroupDocs.Search into your Java project using the following setup:
 
 ### Maven Setup
@@ -126,7 +126,7 @@ Alternatively, you can [download the latest version directly from GroupDocs](htt
 ### License Acquisition
 GroupDocs offers a free trial, which allows you to evaluate its features before purchase. You can obtain a temporary license by following the steps on their [purchase page](https://purchase.groupdocs.com/temporary-license/). This will enable full functionality during your testing phase.
 
-### Basic Initialization and Setup
+### Basic initialization and setup
 Initialize GroupDocs.Search in your Java application with:
 
 ```java
@@ -145,7 +145,7 @@ class SearchNetworkSetup {
 ### Configuring the Search Network
 **Overview:** Establish a base path and port for your search network, allowing nodes to communicate effectively.
 
-#### Step 1: Define Base Configuration
+#### Step 1: define base configuration
 ```java
 import com.groupdocs.search.options.*;
 import com.groupdocs.search.scaling.configuring.*;
@@ -159,10 +159,10 @@ Configuration configuration = ConfiguringSearchNetwork.configure(basePath, baseP
   - `basePath`: Directory path for network operations.  
   - `basePort`: Port number used by the search network.
 
-#### Step 2: Troubleshooting
+#### Step 2: troubleshooting
 Ensure that your specified port is not blocked by firewall settings or being used by another application. Adjust as necessary to avoid conflicts.
 
-### Deploying Search Network Nodes
+### Deploying search network nodes
 **Overview:** Using your configuration, deploy nodes across your network for distributed indexing and searching.
 
 ```java
@@ -220,8 +220,8 @@ import com.groupdocs.search.scaling.*;
 
 SearchNetworkNode node = nodes[0];
 String[] filePaths = {
-    "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf",
-    "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.docx"
+    "YOUR_DOCUMENT_DIRECTORY/SampleDocument.pdf",
+    "YOUR_DOCUMENT_DIRECTORY/SampleDocument.docx"
 };
 deleteDocuments(node, filePaths);
 
@@ -259,7 +259,7 @@ By following this guide you’ve learned how to **set up a search network**, **c
 - Dive deeper into advanced indexing options such as custom analyzers and relevance tuning.  
 - Explore integration with other GroupDocs products for end‑to‑end document processing.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: What is the primary use case for GroupDocs.Search for Java?**  
 A: It provides full‑text search across many document formats, allowing you to **perform text search** in large repositories.

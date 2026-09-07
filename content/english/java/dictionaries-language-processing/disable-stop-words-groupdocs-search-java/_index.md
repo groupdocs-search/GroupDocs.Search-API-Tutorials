@@ -10,17 +10,17 @@ keywords:
 - groupdocs search java
 og_description: Disable stop words java and add documents to index with GroupDocs.Search
   for Java. Follow this step‑by‑step guide to improve query accuracy and performance.
-og_title: Disable Stop Words Java – Add Docs to Index with GroupDocs
+og_title: Disable Stop Words in GroupDocs.Search for Java – Add Documents to Index
 schemas:
 - author: GroupDocs
   dateModified: '2026-07-07'
   description: Learn how to disable stop words java and add documents to index using
     GroupDocs.Search for Java, boosting search accuracy and performance.
-  headline: Disable Stop Words Java – Add Docs to Index with GroupDocs
+  headline: Disable Stop Words in GroupDocs.Search for Java – Add Documents to Index
   type: TechArticle
 - description: Learn how to disable stop words java and add documents to index using
     GroupDocs.Search for Java, boosting search accuracy and performance.
-  name: Disable Stop Words Java – Add Docs to Index with GroupDocs
+  name: Disable Stop Words in GroupDocs.Search for Java – Add Documents to Index
   steps:
   - name: '**Enterprise Document Search** – Preserve critical terminology that would
       be stripped by default stop‑word lists.'
@@ -54,13 +54,13 @@ schemas:
       the index after major changes.
     question: What should I do if my search results are not accurate?
   type: FAQPage
-title: Disable Stop Words Java – Add Docs to Index with GroupDocs
+title: Disable Stop Words in GroupDocs.Search for Java – Add Documents to Index
 type: docs
 url: /java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/
 weight: 1
 ---
 
-# Disable Stop Words Java – Add Docs to Index with GroupDocs
+# Disable Stop Words in GroupDocs.Search for Java – Add Documents to Index
 
 In this tutorial you’ll discover how to **disable stop words java** while adding your files to a searchable index with GroupDocs.Search for Java. By turning off the built‑in stop‑word filter, every token—including common words like “on”, “by”, or “the”—becomes searchable, which dramatically improves result relevance for specialized domains such as legal contracts, e‑commerce catalogs, or technical manuals.
 
@@ -85,7 +85,7 @@ When you add documents, GroupDocs.Search reads each file, tokenizes the content,
 - **Development Environment**: IntelliJ IDEA, Eclipse, or any Java IDE you prefer.  
 - **Basic Knowledge**: Familiarity with Java syntax and the concept of indexing.
 
-## Setting Up GroupDocs.Search for Java
+## Setting up GroupDocs.Search for java
 
 ### Maven Installation
 
@@ -113,12 +113,12 @@ If you're using Maven, include the following in your `pom.xml`:
 
 Alternatively, download the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-#### License Acquisition Steps
+#### License acquisition steps
 - **Free Trial** – start testing right away.  
 - **Temporary License** – obtain a time‑limited key for full functionality.  
 - **Purchase** – secure a permanent license for production use.
 
-## Basic Initialization and Setup
+## Basic initialization and setup
 
 IndexSettings is a configuration class that defines how the index is built, searched, and which features are enabled.
 
@@ -143,7 +143,7 @@ Adding documents to the index is performed by creating an `Index` object with th
 
 ```java
 // Disable the use of stop words
-tsettings.setUseStopWords(false);
+settings.setUseStopWords(false);
 ```
 
 ### Specifying the Document Directory
@@ -168,7 +168,7 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-Because `disable stop words java` is active, a query containing the term `"on"` will be evaluated, returning matches that would otherwise be ignored by the default filter.
+Because stop‑word filtering is disabled, a query containing the term `"on"` will be evaluated, returning matches that would otherwise be ignored by the default filter.
 
 ## Practical Applications
 
@@ -182,7 +182,7 @@ Because `disable stop words java` is active, a query containing the term `"on"` 
 - **Resource Usage**: Monitor JVM heap size; large indexes may require a maximum heap (`-Xmx`) of 4 GB or more.  
 - **Java Memory Management**: Use off‑heap storage options for very large corpora to keep the on‑heap footprint under 2 GB.
 
-## Common Issues and Solutions
+## Common issues and solutions
 
 | Symptom | Likely Cause | Fix |
 |---|---|---|
@@ -190,7 +190,7 @@ Because `disable stop words java` is active, a query containing the term `"on"` 
 | Out‑of‑memory errors during indexing | Indexing too many large files at once | Index files in batches; increase `-Xmx` JVM option. |
 | Search returns stale data | Index not refreshed after adding new files | Call `index.update()` or re‑add the changed documents. |
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: What are stop words?**  
 A: Stop words are common terms (e.g., “the”, “is”, “on”) that many search engines ignore to speed up queries. Disabling them lets you treat every token as searchable.
@@ -230,7 +230,7 @@ By following this guide, you now know how to **add documents to index** and **di
 import com.groupdocs.search.results.SearchResult;
 
 // Define your search query
-tString query = "on";
+String query = "on";
 
 // Perform the search operation using the index and the specified query
 SearchResult result = index.search(query);
