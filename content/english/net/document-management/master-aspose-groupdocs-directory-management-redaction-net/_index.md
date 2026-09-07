@@ -1,6 +1,6 @@
 ---
-title: "How to Create Document Index .NET with Aspose.GroupDocs Redaction"
-description: "Step‑by‑step guide to create document index .net using GroupDocs.Redaction for .NET—manage directories, rename files, and keep indexes up to date."
+title: "How to Create a Document Index in .NET with the GroupDocs.Redaction API"
+description: "Step‑by‑step guide to create a document index in .NET using the GroupDocs.Redaction API—manage directories, rename files, and keep indexes up to date."
 date: "2026-06-22"
 weight: 1
 url: "/net/document-management/master-aspose-groupdocs-directory-management-redaction-net/"
@@ -11,15 +11,13 @@ keywords:
 type: docs
 schemas:
 - type: TechArticle
-  headline: How to Create Document Index .NET with Aspose.GroupDocs Redaction
-  description: Step‑by‑step guide to create document index .net using GroupDocs.Redaction
-    for .NET—manage directories, rename files, and keep indexes up to date.
+  headline: How to Create a Document Index in .NET with the GroupDocs.Redaction API
+  description: Step‑by‑step guide to create a document index in .NET using the GroupDocs.Redaction API—manage directories, rename files, and keep indexes up to date.
   dateModified: '2026-06-22'
   author: GroupDocs
 - type: HowTo
-  name: How to Create Document Index .NET with Aspose.GroupDocs Redaction
-  description: Step‑by‑step guide to create document index .net using GroupDocs.Redaction
-    for .NET—manage directories, rename files, and keep indexes up to date.
+  name: How to Create a Document Index in .NET with the GroupDocs.Redaction API
+  description: Step‑by‑step guide to create a document index in .NET using the GroupDocs.Redaction API—manage directories, rename files, and keep indexes up to date.
   steps:
   - name: '**Free Trial** – Get a 30‑day trial from the GroupDocs portal.'
     text: '**Free Trial** – Get a 30‑day trial from the GroupDocs portal.'
@@ -72,10 +70,10 @@ Managing large collections of files can quickly become a nightmare if you don’
 - **Can I rename files without breaking the index?** Yes—use the built‑in `Rename` method and then call `NotifyIndex`.  
 - **Is a license required for production?** A valid GroupDocs.Redaction license is mandatory for production use.
 
-## What Is “Create Document Index .NET”?
+## What is “Create document index .NET”?
 *Create document index .net* refers to the process of building a searchable catalog of files in a .NET application, where each entry stores metadata such as file name, path, and content snippets. This index enables fast look‑ups without scanning the entire filesystem each time.
 
-## Why Use GroupDocs.Redaction for Indexing?
+## Why use GroupDocs.Redaction for indexing?
 GroupDocs.Redaction not only redacts sensitive content but also provides a high‑performance indexing engine that can handle **up to 10,000 documents per minute** on a standard 8‑core server, while keeping memory usage under **200 MB** for most workloads. Its API abstracts away file‑system quirks, giving you a consistent way to manage directories and keep indexes synchronized.
 
 ## Prerequisites
@@ -83,11 +81,11 @@ GroupDocs.Redaction not only redacts sensitive content but also provides a high�
 - Visual Studio 2022 or any .NET‑compatible IDE.  
 - Basic C# knowledge (file I/O, exception handling).  
 
-### Required Libraries, Versions, and Dependencies
+### Required libraries, versions, and dependencies
 - `GroupDocs.Redaction` ≥ 23.10 (supports .NET Standard 2.0 and .NET 5+).  
 - Optional: `Microsoft.Extensions.Logging` for detailed diagnostics.
 
-### Environment Setup Requirements
+### Environment setup requirements
 Add the package via one of the following commands (do **not** modify the placeholders that represent the actual code blocks):
 
 **.NET CLI**  
@@ -103,7 +101,7 @@ Install-Package GroupDocs.Redaction
 **NuGet Package Manager UI**  
 Search for “GroupDocs.Redaction” and install the latest version.
 
-### License Acquisition Steps
+### License acquisition steps
 1. **Free Trial** – Get a 30‑day trial from the GroupDocs portal.  
 2. **Temporary License** – Request a temporary key for extended testing.  
 3. **Purchase** – Obtain a production license to unlock full functionality.
@@ -123,12 +121,14 @@ string documentFolder = "YOUR_DOCUMENT_DIRECTORY/";
 Utils.CleanDirectory(documentFolder);
 ```  
 
-### Copy Necessary Files
+### Copy necessary files
 `FilePreparer` copies source PDFs, DOCXs, and images into the working folder, preserving the original folder hierarchy.  
 ```csharp
 // Copy essential documents to the target directory from a source path
 Utils.CopyFiles(Utils.DocumentsPath, documentFolder);
 ```  
+
+TODO: Add sample project structure for the working directory.
 
 ## How to Create the Index?
 `Index` represents a searchable collection of documents and manages the underlying storage structures.
@@ -181,7 +181,7 @@ Index indexToUpdate = new Index(indexFolder);
 indexToUpdate.Update();
 ```  
 
-## Common Use Cases
+## Common use cases
 1. **Legal Document Management** – Index contracts, briefs, and case files for instant retrieval.  
 2. **Digital Library Systems** – Provide real‑time search across thousands of e‑books and research papers.  
 3. **Enterprise Content Management** – Maintain audit‑ready directories that automatically reflect naming conventions.  
@@ -192,7 +192,7 @@ indexToUpdate.Update();
 - **Memory Management** – Dispose of the `Index` object after each operation; the library releases native buffers automatically.  
 - **Parallel Scanning** – Enable `IndexOptions.EnableParallelProcessing` to leverage multi‑core CPUs, achieving up to **3×** speed‑up on an 8‑core machine.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: What is the primary use of GroupDocs.Redaction?**  
 A: It redacts sensitive content from PDFs, DOCXs, and images while also offering robust directory and indexing utilities.
@@ -231,6 +231,6 @@ var redactor = new Redactor("YOUR_DOCUMENT_PATH");
 
 ## Related Tutorials
 
-- [Implement GroupDocs.Search & Redaction: Update and Manage Document Indexes in .NET](/search/net/document-management/implement-groupdocs-search-redaction-update-index-features/)
-- [Master Index Creation and Merging with GroupDocs.Redaction .NET for Efficient Document Management](/search/net/search-network/master-index-creation-merging-groupdocs-redaction-net/)
-- [Mastering GroupDocs.Redaction .NET: Efficient Index Creation and Alias Management for Advanced Document Search](/search/net/indexing/groupdocs-redaction-net-index-alias-management/)
+- [Implement GroupDocs.Search & Redaction: Update and Manage Document Indexes in .NET]({{< relref "search/net/document-management/implement-groupdocs-search-redaction-update-index-features/_index.md" >}})
+- [Master Index Creation and Merging with GroupDocs.Redaction .NET for Efficient Document Management]({{< relref "search/net/search-network/master-index-creation-merging-groupdocs-redaction-net/_index.md" >}})
+- [Mastering GroupDocs.Redaction .NET: Efficient Index Creation and Alias Management for Advanced Document Search]({{< relref "search/net/indexing/groupdocs-redaction-net-index-alias-management/_index.md" >}})

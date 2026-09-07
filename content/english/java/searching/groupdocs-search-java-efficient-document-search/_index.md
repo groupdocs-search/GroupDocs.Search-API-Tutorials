@@ -1,5 +1,5 @@
 ---
-title: "Master Search Index Management with GroupDocs.Search for Java"
+title: "Learn to Manage Search Index with GroupDocs.Search for Java"
 description: "Learn how to perform search index management, add documents to index, and optimize search options using GroupDocs.Search for Java."
 date: "2026-06-22"
 weight: 1
@@ -13,13 +13,13 @@ keywords:
 type: docs
 schemas:
 - type: TechArticle
-  headline: Master Search Index Management with GroupDocs.Search for Java
+  headline: Learn to Manage Search Index with GroupDocs.Search for Java
   description: Learn how to perform search index management, add documents to index,
     and optimize search options using GroupDocs.Search for Java.
   dateModified: '2026-06-22'
   author: GroupDocs
 - type: HowTo
-  name: Master Search Index Management with GroupDocs.Search for Java
+  name: Learn to Manage Search Index with GroupDocs.Search for Java
   description: Learn how to perform search index management, add documents to index,
     and optimize search options using GroupDocs.Search for Java.
   steps:
@@ -78,11 +78,10 @@ GroupDocs.Search supports **50+ file formats** (including DOCX, PDF, XLSX, PPTX,
 - **Maven** for dependency management.  
 - **GroupDocs.Search for Java** version **25.4** or newer (the latest release is recommended).  
 
-### Required Libraries, Versions, and Dependencies
+### Required libraries, versions, and dependencies
 1. **GroupDocs.Search for Java** – version 25.4+.  
 2. **Maven Configuration** – add the GroupDocs repository and the dependency to your `pom.xml`:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -100,11 +99,10 @@ GroupDocs.Search supports **50+ file formats** (including DOCX, PDF, XLSX, PPTX,
     </dependency>
 </dependencies>
 ```
-```
 
 You can also download the latest version directly from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Environment Setup Requirements
+### Environment setup requirements
 - JDK 8+ installed and `JAVA_HOME` configured.  
 - Maven 3.6+ available on the command line.  
 
@@ -117,7 +115,6 @@ Load the GroupDocs.Search library, point it to a folder for the index, and optio
 
 The `Index` class represents a searchable index stored on disk and provides methods to add documents and query them.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -131,12 +128,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## How to create and manage a search index?
 Create a new index folder, then populate it with documents from a source directory. The `SearchIndex` class is the core component that represents the index in memory and on disk, allowing you to add, delete, or update documents without rebuilding the entire structure each time.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -144,17 +139,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Purpose**: Initializes a new search index in the specified directory.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Explanation**: Adds all documents from `documentsFolder` into your newly created index. This step is crucial for populating the index with searchable content.
@@ -162,13 +154,11 @@ index.add(documentsFolder);
 ## How to configure a custom word forms provider?
 A custom word forms provider tells the engine how to treat different grammatical variations of a term (e.g., “run”, “running”, “ran”). By registering these variations, the search engine can match queries to all relevant forms, dramatically improving relevance for users who type any morphological version of a word.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Purpose**: Enhances the search by understanding and managing different grammatical variations of words, improving search relevance.
@@ -178,7 +168,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 The `SearchOptions` class configures how queries are processed, such as enabling word‑form expansion or fuzzy matching.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -186,7 +175,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Explanation**: This configuration allows the search to recognize different word forms, making it more intuitive and comprehensive.
@@ -196,7 +184,6 @@ Define a query string and execute the search using the previously configured `Se
 
 The `SearchResult` object contains the hits returned by a query, including matched fragments and relevance scores.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -208,11 +195,10 @@ String query = "mrs";
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
 ```
-```
 
 - **Purpose**: Executes a search that accounts for different grammatical variations of the word “mrs”, enhancing search accuracy.
 
-## Common Use Cases
+## Common use cases
 1. **Enterprise Document Management** – Index thousands of policy documents, contracts, and reports, then let employees locate information instantly.  
 2. **Legal Research** – Handle complex terminology and synonyms across case law databases, ensuring attorneys find all relevant precedents.  
 3. **Digital Libraries** – Provide readers with natural‑language search across books, articles, and multimedia metadata.
@@ -227,7 +213,7 @@ SearchResult result = index.search(query, options);
 - **Out‑Of‑Memory Errors** – Increase the JVM heap size (`-Xmx2g`) or switch to `MemoryMapped` indexing.  
 - **Incorrect Word Forms** – Ensure your custom `WordFormsProvider` registers all needed variations; you can log the provider’s dictionary during startup for verification.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q:** How does GroupDocs.Search handle large datasets?  
 **A:** It uses incremental indexing and memory‑mapped files, allowing you to index millions of documents while keeping RAM usage under 1 GB.
@@ -258,6 +244,6 @@ SearchResult result = index.search(query, options);
 
 ## Related Tutorials
 
-- [How to Add Documents to Index and Manage Aliases in GroupDocs.Search for Java](/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/)
-- [How to add documents to index with Metadata Indexing in Java using GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-- [Optimize Search Index Java with GroupDocs.Search Guide](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- {{< relref "/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/" >}}  
+- {{< relref "/search/java/indexing/groupdocs-search-java-metadata-indexing/" >}}  
+- {{< relref "/search/java/performance-optimization/groupdocs-search-java-index-optimization/" >}}

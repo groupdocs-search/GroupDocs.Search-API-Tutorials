@@ -53,21 +53,30 @@ A **search index** is a data structure that maps searchable terms to the documen
 ## How can I create an efficient search index with GroupDocs.Search Java?
 `IndexOptions` is a configuration class that controls how the search index is built and stored. Load your documents, configure the `IndexOptions` to enable compression and disable unnecessary features, then call `index.addDocument(...)`. This approach creates a compact index that supports rapid look‑ups and consumes roughly half the storage of the default configuration. For example, setting `IndexOptions.setCompress(true)` and `IndexOptions.setStoreTermVectors(false)` yields the smallest footprint while preserving query accuracy.
 
+```java
+IndexOptions options = new IndexOptions();
+options.setCompress(true);
+options.setStoreTermVectors(false);
+
+Index index = new Index("path/to/index", options);
+index.addDocument(document);
+```
+
 ## Why follow search optimization best practices?
 Applying **search optimization best practices** can cut index size by up to 70 % and improve query throughput by 30 %‑50 % on typical workloads. GroupDocs.Search supports over 50 input formats, processes multi‑hundred‑page documents without loading the whole file into memory, and provides built‑in compression that reduces disk I/O dramatically.
 
 ## Available Tutorials
 
-### [Implement and Optimize Search Networks with GroupDocs.Search for Java&#58; A Comprehensive Guide](./implement-optimize-groupdocs-search-java/)
+### [Implement and Optimize Search Networks with GroupDocs.Search for Java: A Comprehensive Guide]({{< relref "./implement-optimize-groupdocs-search-java" >}})
 Learn how to set up and optimize search networks using GroupDocs.Search for Java. This guide covers configuration, deployment, indexing, searching, and document management.
 
-### [Master GroupDocs.Search Java&#58; Optimize Index & Query Performance](./master-groupdocs-search-java-index-query-optimization/)
+### [Master GroupDocs.Search Java: Optimize Index & Query Performance]({{< relref "./master-groupdocs-search-java-index-query-optimization" >}})
 Learn how to efficiently create, configure, and optimize document indexes with GroupDocs.Search Java for enhanced search performance.
 
-### [Mastering Efficient Document Search with GroupDocs.Search for Java](./groupdocs-search-java-efficient-indexing-document-text-output/)
+### [Mastering Efficient Document Search with GroupDocs.Search for Java]({{< relref "./groupdocs-search-java-efficient-indexing-document-text-output" >}})
 Learn how to create indices and extract text efficiently using GroupDocs.Search for Java. Optimize document search capabilities and improve performance.
 
-### [Optimize Search Index in Java with GroupDocs.Search&#58; A Comprehensive Guide](./groupdocs-search-java-index-optimization/)
+### [Optimize Search Index in Java with GroupDocs.Search: A Comprehensive Guide]({{< relref "./groupdocs-search-java-index-optimization" >}})
 Learn how to create and optimize a search index in Java using GroupDocs.Search for efficient document management.
 
 ## Additional Resources
@@ -79,7 +88,7 @@ Learn how to create and optimize a search index in Java using GroupDocs.Search f
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: How do I reduce the size of an existing index?**  
 A: Re‑run the indexing process with `IndexOptions.setCompress(true)`; the API will rewrite the index using the compact format, often cutting size by more than half.
@@ -104,6 +113,6 @@ A: It does; built‑in analyzers handle Unicode characters for over 30 languages
 
 ## Related Tutorials
 
-- [Create Search Index GroupDocs with GroupDocs.Search for Java - A Complete Guide](/search/java/indexing/groupdocs-search-java-implementation-document-indexing/)
-- [How to Create Index and Aliases in GroupDocs.Search Java](/search/java/indexing/groupdocs-search-java-index-alias-management/)
-- [How to Add Synonyms in Java Using GroupDocs.Search – A Comprehensive Guide](/search/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/)
+- [Create Search Index GroupDocs with GroupDocs.Search for Java – A Complete Guide]({{< relref "/search/java/indexing/groupdocs-search-java-implementation-document-indexing" >}})
+- [How to Create Index and Aliases in GroupDocs.Search Java]({{< relref "/search/java/indexing/groupdocs-search-java-index-alias-management" >}})
+- [How to Add Synonyms in Java Using GroupDocs.Search – A Comprehensive Guide]({{< relref "/search/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java" >}})

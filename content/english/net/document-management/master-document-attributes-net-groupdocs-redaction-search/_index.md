@@ -1,5 +1,5 @@
 ---
-title: "How to Redact Documents in .NET Using GroupDocs Redaction"
+title: "Implement Redaction of Documents in .NET Using GroupDocs.Redaction"
 description: "Learn how to redact documents in .NET while optimizing search performance with GroupDocs.Redaction and GroupDocs.Search. Step‑by‑step attribute management, indexing, and secure redaction for .NET developers."
 date: "2026-06-22"
 weight: 1
@@ -82,7 +82,7 @@ In this comprehensive tutorial you’ll discover **how to redact documents** in 
 
 It describes the automated process of locating sensitive information within a file and replacing it with obscured content—such as black bars or white space—while keeping the original layout intact. This ensures that confidential data is hidden from viewers but the document remains readable and functional for downstream tasks.
 
-## Why Use GroupDocs.Redaction and GroupDocs.Search Together?
+## Why use GroupDocs.Redaction and GroupDocs.Search together?
 GroupDocs.Redaction supports **50+ file formats** (PDF, DOCX, XLSX, PPTX, images, etc.) and can process documents up to **2 GB** without loading the entire file into memory. GroupDocs.Search indexes over **70 million terms** per hour on a standard server, allowing you to **optimize search performance** dramatically when combined with attribute‑based filtering.
 
 ## Prerequisites
@@ -98,51 +98,44 @@ GroupDocs.Redaction supports **50+ file formats** (PDF, DOCX, XLSX, PPTX, images
 You can add **GroupDocs.Redaction** to your project using any of the following methods:
 
 **.NET CLI**  
-```csharp
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
-```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
 - Search for “GroupDocs.Redaction” and install the latest version.
 
-### License Acquisition Steps
+### License acquisition steps
 
 To get started, you can acquire a temporary license or purchase one. A free trial is available to test features before making a commitment:
 1. Visit [GroupDocs Licensing Page](https://purchase.groupdocs.com/temporary-license/) to request a temporary license.  
 2. Follow the instructions provided for applying your license in your application.
 
-### Basic Initialization and Setup
+### Basic initialization and setup
 
 `Redactor` is the main class used to load a document and apply redaction operations.
 
-```csharp
 ```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
 ```
-```
 
-## Feature 1: Change Document Attributes
+## Feature 1: change document attributes
 
 ### Overview
 Modifying document attributes lets you fine‑tune how documents appear in search results, enabling precise filtering and categorization.
 
-#### Step 1: Initialize Index
+#### Step 1: initialize index
 
 `Index` represents a searchable collection of documents and their associated metadata.
 
-```csharp
 ```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
@@ -151,15 +144,13 @@ using GroupDocs.Search.Results;
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
-#### Step 2: Modify Attributes
+#### Step 2: modify attributes
 
 `AttributeChangeBatch` is the class that batches attribute updates for efficiency.  
 
 **Definition anchor:** *`AttributeChangeBatch` batches add, update, and delete operations on document attributes in a single transaction.*  
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -174,15 +165,13 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
-#### Step 3: Search with Attribute Filters
+#### Step 3: search with attribute filters
 
 You can filter search results by attribute values using `SearchOptions`.  
 
 **Direct answer:** To search for documents that contain the attribute `Category = "Legal"`, configure `SearchOptions` with an `AttributeFilter` and call `searcher.Search("contract", options)`. This returns only the legally tagged contracts, reducing result noise and **optimizing search performance**.
 
-```csharp
 ```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
@@ -191,18 +180,16 @@ options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 string query = "length";
 SearchResult result = index.Search(query, options);
 ```
-```
 
-## Feature 2: Add Attributes During Indexing
+## Feature 2: add attributes during indexing
 
 ### Overview
 Adding attributes at the moment of indexing ensures that every document is enriched with the right metadata from the start, eliminating the need for later bulk updates.
 
-#### Step 1: Set Up Event Handler for Indexing
+#### Step 1: set up event handler for indexing
 
 **Definition anchor:** *The `DocumentIndexed` event fires each time a document is successfully added to the index, allowing custom logic to run.*  
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -216,15 +203,13 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
-#### Step 2: Configure and Perform Search
+#### Step 2: configure and perform search
 
 After attributes are attached, you can search using those new fields.
 
 **Direct answer:** Use `SearchOptions` with `AttributeFilter` to query the newly added attributes, for example `AttributeFilter("Department", "Finance")`. This returns only finance‑related files, demonstrating **how to index attributes** for faster, more relevant results.
 
-```csharp
 ```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
@@ -232,7 +217,6 @@ options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Practical Applications
@@ -251,7 +235,7 @@ When dealing with large datasets, keep these best practices in mind:
 - **Selective Indexing:** Index only documents that need new attributes; skip unchanged files to conserve CPU and I/O.  
 - **Memory Management:** Dispose of `SearchResult`, `Redactor`, and `Indexer` instances as soon as you finish with them to free unmanaged resources.
 
-## Common Issues and Solutions
+## Common issues and solutions
 
 | Issue | Cause | Solution |
 |-------|-------|----------|
@@ -259,7 +243,7 @@ When dealing with large datasets, keep these best practices in mind:
 | Attribute changes not reflected in search | Index not refreshed | Call `searcher.Refresh()` after `AttributeChangeBatch` execution. |
 | Out‑of‑memory errors on large files | Loading entire file into memory | Enable streaming mode by setting `RedactorOptions.Stream = true`. |
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: What is the best way to batch‑redact multiple PDFs?**  
 A: Load each file with `Redactor`, add a `RedactionRegion` for every sensitive area, then call `Redactor.Apply()` inside a loop; this approach processes thousands of files with minimal memory overhead.
