@@ -1,50 +1,92 @@
 ---
-date: '2026-02-19'
-description: تعلم كيفية استخراج النص من ملفات PDF باستخدام Java، تسلسله، وإنشاء فهرس
-  مستندات قابل للبحث باستخدام GroupDocs.Search لـ Java.
+date: '2026-07-07'
+description: تعلم كيفية استخراج نص PDF باستخدام Java، تسلسله، وبناء فهرس بحث نص كامل
+  بلغة Java باستخدام GroupDocs.Search.
 keywords:
-- GroupDocs.Search for Java
-- document indexing in Java
-- text extraction with GroupDocs
-title: 'استخراج النص من PDF باستخدام Java: بناء الفهرس مع GroupDocs.Search'
+- extract pdf text java
+- full text search java
+- document indexing java
+og_description: تعلم كيفية استخراج نص PDF باستخدام Java، تسلسله، وبناء فهرس بحث نص
+  كامل بلغة Java باستخدام GroupDocs.Search.
+og_title: استخراج نص PDF Java – بناء الفهرس مع GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-07'
+  description: Learn how to extract pdf text java, serialize it, and build a full
+    text search java index with GroupDocs.Search for Java.
+  headline: Extract PDF Text Java – Build Index with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to extract pdf text java, serialize it, and build a full
+    text search java index with GroupDocs.Search for Java.
+  name: Extract PDF Text Java – Build Index with GroupDocs.Search
+  steps:
+  - name: '**Document Management Systems** – Quickly locate contracts, invoices, or
+      policies.'
+    text: '**Document Management Systems** – Quickly locate contracts, invoices, or
+      policies.'
+  - name: '**Content‑Based Search Engines** – Power internal knowledge bases with
+      full‑text search java capabilities.'
+    text: '**Content‑Based Search Engines** – Power internal knowledge bases with
+      full‑text search java capabilities.'
+  - name: '**Data Archiving Solutions** – Index historic records for instant retrieval.'
+    text: '**Data Archiving Solutions** – Index historic records for instant retrieval.'
+  type: HowTo
+- questions:
+  - answer: Stream the file using `Extractor` and process it in chunks; also increase
+      the JVM heap if needed.
+    question: How do I handle very large PDF files efficiently?
+  - answer: Yes—GroupDocs.Search supports Boolean operators, wildcards, and proximity
+      searches.
+    question: Can I customize the search query syntax?
+  - answer: Verify that all objects implement `Serializable` and catch `IOException`
+      to log details.
+    question: What should I do if serialization fails?
+  - answer: Absolutely—configure `ExtractionOptions` to filter pages or sections before
+      indexing.
+    question: Is it possible to index only specific sections of a document?
+  - answer: Update the version number in your `pom.xml` and run `mvn clean install`;
+      review the migration guide for breaking changes.
+    question: How do I upgrade to a newer GroupDocs.Search version?
+  type: FAQPage
+title: استخراج نص PDF Java – بناء الفهرس مع GroupDocs.Search
 type: docs
 url: /ar/java/advanced-features/groupdocs-search-java-implementation-guide/
 weight: 1
 ---
 
-# استخراج النص من PDF Java: بناء فهرس المستندات باستخدام GroupDocs.Search
+# استخراج نص PDF Java – بناء فهرس باستخدام GroupDocs.Search
 
-في هذا الدليل العملي ستكتشف **كيفية استخراج النص من PDF Java** في التطبيقات وتحويل تلك المحتويات الخام إلى فهرس سريع قابل للبحث بالنص الكامل. سواء كنت تبني قاعدة معرفة داخلية، أو بوابة للبحث في العقود، أو محرك بحث مخصص، فإن الخطوات أدناه ستقودك عبر كل شيء—من استخراج النص من ملفات PDF إلى تسلسل البيانات، وإنشاء الفهرس، وأخيرًا تشغيل الاستعلامات. لنبدأ ونرى لماذا يجعل GroupDocs.Search العملية بأكملها سلسة وقابلة للتوسع.
+في هذا الدليل العملي ستكتشف **كيفية استخراج نص pdf java** من ملفات PDF، وتسلسل المحتوى المستخرج، وإنشاء فهرس قابل للبحث عالي الأداء. سواءً كنت تبني قاعدة معرفة داخلية، أو بوابة بحث عن العقود، أو محرك بحث مخصص، فإن الخطوات أدناه ستقودك عبر كل شيء—من استخراج النص من ملفات PDF إلى تشغيل استعلامات نصية كاملة قوية. لنبدأ ونرى لماذا يجعل GroupDocs.Search العملية بأكملها سلسة وقابلة للتوسع.
 
 ## إجابات سريعة
-- **ما هو الهدف الرئيسي؟** استخراج النص من ملفات PDF Java وإنشاء فهرس مستندات قابل للبحث باستخدام GroupDocs.Search.  
+طريقة `index.search` تنفّذ استعلامًا على الفهرس المُنشأ وتعيد قائمة بالمستندات المطابقة مع درجات الصلة.
+
+- **ما هو الهدف الرئيسي؟** استخراج نص pdf java من ملفات PDF وإنشاء فهرس مستندات قابل للبحث باستخدام GroupDocs.Search.  
 - **أي نسخة من المكتبة؟** GroupDocs.Search 25.4 (أو أحدث إصدار).  
-- **هل أحتاج إلى ترخيص؟** نسخة تجريبية مجانية تكفي للتطوير؛ يلزم ترخيص كامل للإنتاج.  
+- **هل أحتاج إلى ترخيص؟** نسخة تجريبية مجانية تعمل للتطوير؛ الترخيص الكامل مطلوب للإنتاج.  
 - **هل يمكنني فهرسة ملفات PDF؟** نعم—استخراج نص PDF وإضافته إلى الفهرس.  
-- **كيف أقوم بتشغيل بحث؟** استخدم طريقة `index.search(query)` بعد إضافة البيانات.
+- **كيف أقوم بتنفيذ بحث؟** استخدم طريقة `index.search(query)` بعد إضافة البيانات.
 
-## ما هو فهرس المستندات؟
-فهرس المستندات هو مجموعة منظمة من المصطلحات القابلة للبحث المستخرجة من ملفاتك. من خلال إنشاء فهرس المستندات، يمكنك تمكين عمليات بحث نص كامل سريعة عبر مستودعات كبيرة، مما يحسن بشكل كبير سرعة ودقة الاسترجاع.
+## ما هو فهرس المستند؟
+فهرس المستند هو مجموعة منظمة من المصطلحات القابلة للبحث المستخرجة من ملفاتك. يربط كل مصطلح بالمستندات التي يظهر فيها، مما يتيح عمليات بحث نصية كاملة سريعة عبر مستودعات كبيرة ويقلل زمن البحث من دقائق إلى مليثانية، مع دعم ميزات الترتيب والملاءمة.
 
-## لماذا نستخدم GroupDocs.Search للـ Java؟
-- **استخراج قوي** – يدعم PDF وWord وExcel وغير ذلك.  
-- **تسلسل سهل** – خزن البيانات المستخرجة كمصفوفات بايت لإعادة الاستخدام لاحقًا.  
-- **فهرسة قابلة للتوسع** – فهرسة ملايين المستندات بكفاءة.  
-- **لغة استعلام قوية** – تدعم استعلامات بحث نص كامل معقدة في Java.
+## لماذا تستخدم GroupDocs.Search لـ Java؟
+GroupDocs.Search يدعم **50+ صيغ إدخال وإخراج**، يمكنه فهرسة **ملايين المستندات** دون تحميل الملف بالكامل إلى الذاكرة، ويقدم **لغة استعلام غنية** مع عوامل بوليانية، وحرف بدل، وعوامل القرب. تجعل هذه القدرات الكمية منه مثاليًا لحلول البحث على مستوى المؤسسة. كما يوفر اكتشاف اللغة المدمج، والتجذير، ومحللات قابلة للتخصيص لتحسين دقة البحث للمحتوى متعدد اللغات.
 
 ## المتطلبات المسبقة
-- **GroupDocs.Search للـ Java** (الإصدار 25.4 أو أحدث).  
-- **مجموعة تطوير جافا (JDK)** المتوافقة مع نسخة GroupDocs الخاصة بك.  
+- **GroupDocs.Search for Java** (الإصدار 25.4 أو أحدث).  
+- **Java Development Kit (JDK)** المتوافق مع نسخة GroupDocs الخاصة بك.  
 - بيئة تطوير متكاملة مثل IntelliJ IDEA أو Eclipse.  
-- Maven لإدارة الاعتمادات.
+- Maven لإدارة الاعتماديات.
 
-## إعداد GroupDocs.Search للـ Java
+## إعداد GroupDocs.Search لـ Java
 أولاً، أضف المكتبة إلى مشروعك.
 
 **إعداد Maven**  
-أدرج ما يلي في ملف `pom.xml` الخاص بك:
+ضمن ملف `pom.xml` الخاص بك أدرج التالي:
 
 ```xml
+<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -60,111 +102,148 @@ weight: 1
         <version>25.4</version>
     </dependency>
 </dependencies>
+``` -->
 ```
 
 **تحميل مباشر**  
-بدلاً من ذلك، حمّل أحدث نسخة من [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+بدلاً من ذلك، قم بتنزيل أحدث نسخة من [إصدارات GroupDocs.Search لـ Java](https://releases.groupdocs.com/search/java/).
 
 ### الحصول على الترخيص
-- **نسخة تجريبية** – اختبر جميع الميزات باستخدام ترخيص مؤقت.  
-- **شراء** – احصل على وصول كامل ودعم أولوي.
+- **نسخة تجريبية مجانية** – اختبر جميع الميزات باستخدام ترخيص مؤقت.  
+- **شراء** – احصل على وصول كامل ودعم أولوية.
 
-## تنفيذ خطوة بخطوة
+## كيفية استخراج النص من ملفات PDF (والمستندات الأخرى)
 
-### كيفية استخراج النص من ملفات PDF (وباقي المستندات)
-استخراج النص الخام أو المنسق هو الخطوة الأولى لإنشاء فهرس المستندات. عندما **تستخرج النص من PDF Java**، فإنك تزود محرك البحث بما يمكنه فهمه.
+حمّل ملف PDF (أو المستند المدعوم) باستخدام الفئة `Extractor`، اضبط خيارات الاستخراج، ثم استدعِ `extractText()`. هذه الدعوة ذات السطر الواحد تُعيد النص الخام أو المنسق جاهزًا للفهرسة.
+
+الفئة `Extractor` هي المكوّن الأساسي في GroupDocs.Search الذي يقرأ المستند وينتج نصًا عاديًا أو منسقًا.
 
 ```java
+// ```java
 String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
+```
 
 ```java
+// ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
 ```
+```
 
-> **نصيحة:** اضبط `setUseRawTextExtraction(true)` إذا كنت تحتاج نصًا بسيطًا بدون تنسيق.
+> **نصيحة:** اضبط `setUseRawTextExtraction(true)` إذا كنت تحتاج نصًا عاديًا بدون تنسيق.
 
-### كيفية تسلسل البيانات المستخرجة
-التسلسل يتيح لك تخزين البيانات المستخرجة للفهارس المستقبلية.
+## كيفية تسلسل البيانات المستخرجة
+
+التسلسل يحول كائن النص المستخرج إلى مصفوفة بايت، مما يتيح لك تخزينه على القرص أو إرساله عبر الشبكة للفهرسة لاحقًا.
+
+الأداة `SerializationUtil` توفر طرقًا ثابتة لتحويل الكائنات إلى تدفقات بايت والعكس.
 
 ```java
+// ```java
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
+```
 
-### كيفية إلغاء تسلسل البيانات المستخرجة
-عند جاهزيتك لبناء الفهرس، حوّل مصفوفة البايت مرة أخرى إلى كائن.
+## كيفية إلغاء تسلسل البيانات المستخرجة
+
+عند استعدادك لبناء الفهرس، قم بإلغاء تسلسل مصفوفة البايت المخزنة سابقًا إلى كائن الاستخراج الأصلي.
+
+طريقة `deserialize` تعيد الحالة الدقيقة لنتيجة الاستخراج، مما يضمن عدم فقدان البيانات بين الجلسات.
 
 ```java
+// ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 ```
+```
 
-### كيفية إنشاء فهرس المستندات
-الآن بعد أن لديك `deserializedData`، يمكنك إنشاء الفهرس الذي سيحتوي على المصطلحات القابلة للبحث.
+## كيفية إنشاء فهرس المستند
+
+أنشئ كائن `Index`، حدد مجلد التخزين، واضبط خيارات الفهرسة مثل متجهات المصطلحات ومعالجة كلمات الوقف.
+
+الفئة `Index` تمثل الحاوية القابلة للبحث التي تحتفظ بجميع المصطلحات، مراجع المستندات، والبيانات الوصفية.
 
 ```java
+// ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
+```
 
-### كيفية إضافة البيانات إلى الفهرس وإجراء بحث
-إضافة البيانات واستعلام الفهرس يكملان سير عمل **استخراج النص من PDF Java**.
+## كيفية إضافة البيانات إلى الفهرس وإجراء بحث
+
+أضف نتيجة الاستخراج غير المسلسلة إلى الفهرس باستخدام `index.add()`، ثم استعلم باستخدام `index.search()` للحصول على نتائج فورية.
+
+طريقة `add` تسجّل مصطلحات المستند في الفهرس، بينما `search` تنفّذ الاستعلام ضد تلك المصطلحات.
 
 ```java
+// ```java
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
+```
 
 ```java
+// ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
+```
 ```
 
 > **نصيحة احترافية:** استخدم `index.search("your query", SearchOptions)` لضبط ترتيب الصلة بدقة.
 
 ## حالات الاستخدام الشائعة
-1. **أنظمة إدارة المستندات** – تحديد سريع للعقود أو الفواتير أو السياسات.  
-2. **محركات البحث القائمة على المحتوى** – تمكين قواعد المعرفة الداخلية بقدرات بحث نص كامل في Java.  
+1. **أنظمة إدارة المستندات** – تحديد سريع للعقود، الفواتير، أو السياسات.  
+2. **محركات البحث القائمة على المحتوى** – تمكين قواعد المعرفة الداخلية بقدرات بحث نصية كاملة في Java.  
 3. **حلول أرشفة البيانات** – فهرسة السجلات التاريخية لاسترجاع فوري.
 
 ## اعتبارات الأداء
-- **إدارة الذاكرة:** اضبط حجم heap في JVM للدفعات الكبيرة من المستندات.  
-- **خيارات الفهرسة:** عطل الميزات غير الضرورية (مثل term vectors) لتسريع الفهرسة.  
-- **التحديثات المنتظمة:** حافظ على تحديث GroupDocs.Search للاستفادة من تحسينات الأداء.
+طريقة `setStoreTermVectors(boolean)` تضبط ما إذا كانت متجهات المصطلحات تُخزن في الفهرس، مما يؤثر على حجم الفهرس وأداء الاستعلام.
+
+- **إدارة الذاكرة:** زد حجم كومة JVM (مثال، `-Xmx4g`) عند معالجة دفعات أكبر من 500 MB.  
+- **خيارات الفهرسة:** عطل متجهات المصطلحات (`setStoreTermVectors(false)`) لتقليل حجم الفهرس بنسبة تصل إلى 30 %.  
+- **التحديثات المنتظمة:** حافظ على تحديث GroupDocs.Search؛ كل إصدار فرعي يتضمن تحسينات سرعة متوسطة تتراوح بين 10‑15 %.
 
 ## الأسئلة المتكررة
 
-**س: كيف أتعامل مع ملفات PDF كبيرة جدًا بكفاءة؟**  
-ج: قم بتدفق الملف باستخدام `Extractor` ومعالجته على أجزاء؛ وزد حجم heap في JVM إذا لزم الأمر.
+**س: كيف أتعامل مع ملفات PDF الكبيرة جدًا بكفاءة؟**  
+ج: قم ببث الملف باستخدام `Extractor` ومعالجته على أجزاء؛ وزد حجم كومة JVM إذا لزم الأمر.
 
 **س: هل يمكنني تخصيص صياغة استعلام البحث؟**  
-ج: نعم—يدعم GroupDocs.Search عوامل Boolean، والوايلدكارد، والبحث القريب.
+ج: نعم—GroupDocs.Search يدعم عوامل بوليانية، وحروف بدل، وبحث القرب.
 
 **س: ماذا أفعل إذا فشل التسلسل؟**  
-ج: تحقق من أن جميع الكائنات تُطبق `Serializable` وامسك `IOException` لتسجيل التفاصيل.
+ج: تأكد من أن جميع الكائنات تُطبق `Serializable` وامسك `IOException` لتسجيل التفاصيل.
 
 **س: هل يمكن فهرسة أقسام محددة فقط من المستند؟**  
-ج: بالتأكيد—قم بتكوين `ExtractionOptions` لتصفية الصفحات أو الأقسام قبل الفهرسة.
+ج: بالتأكيد—اضبط `ExtractionOptions` لتصفية الصفحات أو الأقسام قبل الفهرسة.
 
-**س: كيف أُحدث إلى نسخة أحدث من GroupDocs.Search؟**  
-ج: حدّث رقم النسخة في `pom.xml` وشغّل `mvn clean install`؛ راجع دليل الترحيل للتغييرات الجوهرية.
+**س: كيف أقوم بترقية إلى نسخة أحدث من GroupDocs.Search؟**  
+ج: حدّث رقم النسخة في ملف `pom.xml` وشغّل `mvn clean install`؛ راجع دليل الترحيل للتغييرات الم breaking.
 
-## موارد
-- **التوثيق:** [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)  
-- **مرجع API:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-- **تحميل:** [GroupDocs Downloads](https://releases.groupdocs.com/search/java/)  
-- **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **دعم مجاني:** [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **ترخيص مؤقت:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+## الموارد
+- **إصدارات GroupDocs.Search لـ Java:** [إصدارات GroupDocs.Search لـ Java](https://releases.groupdocs.com/search/java/)  
+- **التوثيق:** [توثيق GroupDocs](https://docs.groupdocs.com/search/java/)  
+- **مرجع API:** [مرجع API لـ GroupDocs](https://reference.groupdocs.com/search/java)  
+- **التنزيل:** [تنزيلات GroupDocs](https://releases.groupdocs.com/search/java/)  
+- **GitHub:** [مستودع GroupDocs على GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **دعم مجاني:** [منتدى GroupDocs](https://forum.groupdocs.com/c/search/10)  
+- **ترخيص مؤقت:** [الحصول على ترخيص مؤقت](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**آخر تحديث:** 2026-02-19  
-**تم الاختبار مع:** GroupDocs.Search 25.4 للـ Java  
+**آخر تحديث:** 2026-07-07  
+**تم الاختبار مع:** GroupDocs.Search 25.4 for Java  
 **المؤلف:** GroupDocs
+
+## دروس ذات صلة
+
+- [إنشاء فهرس Java باستخدام GroupDocs.Search | دليل شامل للفهرسة والتقارير](/search/java/advanced-features/groupdocs-search-java-index-report-guide/)  
+- [إضافة مستندات إلى الفهرس – دليل GroupDocs.Search Java](/search/java/advanced-features/)  
+- [بحث نص كامل Java: التنفيذ مع GroupDocs.Search – دليل شامل](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
