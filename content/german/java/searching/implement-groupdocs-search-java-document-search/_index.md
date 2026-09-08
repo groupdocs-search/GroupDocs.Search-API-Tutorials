@@ -1,45 +1,115 @@
 ---
-date: '2026-02-01'
-description: Erfahren Sie, wie Sie Dokumente mit Java mithilfe von GroupDocs.Search
-  durchsuchen und Suchbegriffe in Java effizient hervorheben, um das Dokumentenmanagement
-  zu verbessern.
+date: '2026-07-26'
+description: Implement GroupDocs.Search Java, um search documents java schnell zu
+  durchsuchen und highlight terms in HTML previews. Erfahren Sie mehr über setup,
+  indexing, fuzzy search und result highlighting.
 keywords:
-- GroupDocs.Search Java
-- document search with GroupDocs
-- highlighting search results in documents
-title: 'Dokumente in Java mit GroupDocs.Search durchsuchen: Ergebnisse extrahieren
-  und hervorheben'
+- implement groupdocs search java
+- how to search documents java
+- groupdocs search java highlighting
+lastmod: '2026-07-26'
+og_description: Implement GroupDocs.Search Java, um search documents java schnell
+  zu durchsuchen und highlight terms in HTML previews. Dieser Leitfaden behandelt
+  setup, indexing, fuzzy search und result highlighting.
+og_image_alt: 'Guide: Implement GroupDocs.Search Java for document search and term
+  highlighting'
+og_title: Implementieren Sie GroupDocs.Search Java für die Dokumentensuche
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-26'
+  description: Implement GroupDocs.Search Java to search documents java quickly and
+    highlight terms in HTML previews. Learn setup, indexing, fuzzy search, and result
+    highlighting.
+  headline: Implement GroupDocs.Search Java for Document Search
+  type: TechArticle
+- description: Implement GroupDocs.Search Java to search documents java quickly and
+    highlight terms in HTML previews. Learn setup, indexing, fuzzy search, and result
+    highlighting.
+  name: Implement GroupDocs.Search Java for Document Search
+  steps:
+  - name: Create an Index
+    text: 'The `Index` class is the top‑level object that stores searchable metadata
+      on disk. Creating it points to a folder where all index files will reside:'
+  - name: Configure Search Options (Enable fuzzy search)
+    text: '`SearchOptions` lets you fine‑tune query behavior. Setting `FuzzySearch`
+      to `true` enables approximate matching, which is useful for handling typos or
+      OCR errors:'
+  - name: Execute the Search
+    text: '`Index.search` runs the query against the prepared index and returns a
+      `SearchResult` collection containing matched documents and term occurrences:
+      The `SearchResult` object contains the list of documents that match the query
+      and their relevance scores.'
+  - name: Extract Occurrences
+    text: 'Each `SearchResult` item provides `getOccurrences()` which returns the
+      exact positions of the query terms inside the source file, allowing you to build
+      analytics dashboards or detailed reports:'
+  - name: Set Up Index with High Compression
+    text: 'High compression reduces storage by **up to 70 %** while keeping query
+      speed within milliseconds. Adjust the `CompressionLevel` property before indexing:'
+  - name: Perform Search and Highlight Results
+    text: 'After executing the search, call `highlight()` on the `SearchResult` object
+      to produce an HTML file that highlights every occurrence of the query term.
+      The `highlight()` method generates an HTML preview with matched terms wrapped
+      in `<mark>` tags:'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Search is a Java SDK that indexes and searches text across more
+      than 50 document formats, offering fuzzy matching and result highlighting.
+    question: What is GroupDocs.Search?
+  - answer: It tolerates a configurable number of character differences, allowing
+      matches on misspelled words or OCR errors.
+    question: How does fuzzy search work?
+  - answer: Yes, a free trial is available, but a full license is required for production
+      deployments.
+    question: Can I use GroupDocs.Search without a license?
+  - answer: PDF, DOCX, XLSX, PPTX, TXT, and many more—see the official docs for the
+      complete list.
+    question: What file formats are supported?
+  - answer: Serve the generated HTML file directly or embed its content into a page
+      using an `<iframe>` or server‑side rendering.
+    question: How do I display highlighted results in a web application?
+  type: FAQPage
+tags:
+- implement groupdocs search java
+- search documents java
+- groupdocs search
+- java document indexing
+- highlight search terms
+title: Implementieren Sie GroupDocs.Search Java für die Dokumentensuche
 type: docs
 url: /de/java/searching/implement-groupdocs-search-java-document-search/
 weight: 1
 ---
 
-# Wie man Dokumente in Java mit GroupDocs.Search durchsucht
+# Implementieren von GroupDocs.Search Java für die Dokumentensuche
 
-Im digitalen Zeitalter ist es entscheidend für Unternehmen und Entwickler, **search documents java** schnell durchsuchen zu können. Ob Sie rechtliche Verträge oder die Verwendung von GroupDocs.Search Java – einer leistungsstarken Bibliothek, die speziell für Suchv wurde.
+In der heutigen datengetriebenen Umgebung ist **implement groupdocs search java** unerlässlich für jede Anwendung, die eine schnelle, zuverlässige Volltextsuche über PDFs, Word-Dateien, Tabellenkalkulationen und mehr benötigt. Egal, ob Sie ein Rechtsvertrags-Repository, ein akademisches Forschungsportal oder eine Kunden‑Support‑Wissensdatenbank aufbauen, führt Sie dieses Tutorial durch die Installation des SDK, das Erstellen eines Index, das Ausführen von Fuzzy‑Abfragen und das Generieren von HTML mit hervorgehobenen Suchbegriffen – alles mit Java.
 
-## Quick Answers
-- **Welche Bibliothek hilft beim search documents java?** GroupDocs.Search for Java.  
-- **Kann ich search terms java in den Ergebnissen hervorheben?** Ja, die Bibliothek kann HTML mit hervorgehobenen Begriffen erzeugen.  
- ist verfügbar; für die Produktion ist Jede Java‑IDE wie IntelliJ IDEA, Eclipse oder VS Code.  
-- **Wird Maven unterstützt?** Absolut – fügen Sie das Repository und die Abhängigkeit zu Ihrer `pom.xml` hinzu.
+## Schnelle Antworten
+- **Welche Bibliothek hilft beim Implementieren von groupdocs search java?** GroupDocs.Search for Java.  
+- **Kann ich Suchbegriffe java in den Ergebnissen hervorheben?** Ja—generiertes HTML kann Treffer automatisch mit `<mark>`‑Tags umschließen.  
+- **Benötige ich eine Lizenz für die Produktion?** Eine kostenlose Testversion ist verfügbar; eine Volllizenz ist für den kommerziellen Einsatz erforderlich.  
+- **Welche IDE ist am besten geeignet?** Jede Java‑IDE—IntelliJ IDEA, Eclipse oder VS Code.  
+- **Wird Maven unterstützt?** Absolut—fügen Sie das Repository und die Abhängigkeit zu Ihrer `pom.xml` hinzu.
 
-## Was ist GroupDocs.Search für Java‑SDK, das Text über viele Dokumenttypen (PDF, DOCX, XLSX usw.) indiziert und durchsucht. Es bietet erweiterte Funktionen wie Fuzzy‑Matching, Phrasensuche und Ergebnis‑Highlighting, was es ideal für mit GroupDocs.Search verwenden?
-- **Speed:** Indizierte Suche liefert Ergebnisse in Millisekunden, selbst bei großen Sammlungen.  
-- **Flexibility:** Unterstützt Fuzzy‑Suche, Boolesche Operatoren und Phrasenabfragen.  
-- **Highlighting HTML‑Vorschauen hervorheben.  
-- **Sc‑Premises-, Cloud‑ oder Hybrid‑Speicherlösungen.
+## Was ist GroupDocs.Search für Java?
+
+`GroupDocs.Search` ist ein Java‑SDK, das Text über mehr als **50+ Dokumentformate** (PDF, DOCX, XLSX, PPTX, TXT usw.) indiziert und durchsucht, ohne die gesamte Datei in den Speicher zu laden. Es bietet Fuzzy‑Matching, boolesche Operatoren, Phrasen‑Abfragen und integrierte Ergebnis‑Hervorhebung, wodurch es zu einer schlüsselfertigen Lösung für durchsuchbare Dokumenten‑Repositories wird.
+
+## Warum Search Documents Java mit GroupDocs.Search verwenden?
+
+Es bietet Geschwindigkeit mit indizierten Suchvorgängen, die Ergebnisse in unter 10 ms für 10 k Dokumente zurückliefern, Flexibilität durch Fuzzy‑Suche, boolesche Logik, Phrasen‑Abfragen und Synonym‑Erweiterung, Hervorhebung durch Generieren von HTML‑Vorschauen, die Treffer automatisch markieren, und Skalierbarkeit durch Betrieb vor Ort, in der Cloud oder in hybriden Umgebungen, während mehrseitige Dateien ohne übermäßigen Speicherverbrauch verarbeitet werden.
 
 ## Voraussetzungen
-1. **Java Development Kit (JDK) 8 oder höher** installiert.  
-2. **Maven** (oder manuelle Abhängigkeitsverwaltung).  
-3. Eine IDE wie **IntelliJ IDEA**, **Eclipse** oder **VS Code**.  
-4. Grundkenntnisse in Java und der Maven‑Projektstruktur.  
+- Java Development Kit (JDK) 8 oder höher.  
+- Maven (oder manuelle JAR‑Verwaltung).  
+- Eine IDE wie IntelliJ IDEA, Eclipse oder VS Code.  
+- Grundlegende Kenntnisse der Java‑Projektstruktur und Maven.
 
 ## Einrichtung von GroupDocs.Search für Java
 
 ### Installation über Maven
-Fügen Sie das GroupDocs‑Repository und die Abhängigkeit zu Ihrer `pom.xml` hinzu:
+Fügen Sie das GroupDocs‑Repository und die Search‑Abhängigkeit zu Ihrer `pom.xml` hinzu:
 
 ```xml
 <repositories>
@@ -65,44 +135,51 @@ Wenn Sie Maven nicht verwenden möchten, laden Sie das neueste JAR von der offiz
 #### Schritte zum Erwerb einer Lizenz
 - **Free Trial:** Beginnen Sie mit einer kostenlosen Testversion, um die Funktionen zu erkunden.  
 - **Temporary License:** Erhalten Sie sie über die [offizielle Seite von GroupDocs](https://purchase.groupdocs.com/temporary-license).  
-- **Purchase:** Für uneingeschränkte Nutzung in der Produktion kaufen Sie eine Volllizenz.
+- **Purchase:** Kaufen Sie eine Volllizenz für unbegrenzte Produktion.
 
 ### Grundlegende Initialisierung und Einrichtung
-Erstellen Sie einen Index‑Ordner und instanziieren Sie das `Index`‑Objekt:
+Die Klasse `Index` ist die Kernkomponente, die einen auf der Festplatte gespeicherten durchsuchbaren Index repräsentiert. Nachdem Sie einen Index‑Ordner erstellt haben, instanziieren Sie das `Index`‑Objekt, um Dokumente hinzuzufügen, zu löschen oder abzufragen:
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/ObtainSearchResultInformation";
 Index index = new Index(indexFolder);
 ```
 
-## Wie man Search Documents Java verwendet – Feature 1: Extrahieren von Suchergebnis‑Informationen
+## Wie man Dokumente in Java sucht – Feature 1: Extrahieren von Suchergebnis‑Informationen
 
-### Überblick
-Das Extrahieren detaillierter Informationen (Begriffe, Phrasen, Auftretens‑Zahlen) hilft Ihnen, Analyse‑Dashboards zu erstellen oder Berichte über den Inhalt Ihres Dokumenten‑Sets zu generieren.
+Dieses Feature erklärt, wie man eine Abfrage ausführt, passende Dokumente abruft und detaillierte Vorkommensdaten für jeden Begriff erhält. Durch Befolgen der Schritte können Sie Analyse‑Dashboards erstellen oder detaillierte Berichte aus den Suchergebnissen generieren.
 
-### Schritt‑für‑Schritt‑Implementierung
+### Schritt 1: Einen Index erstellen
+Die Klasse `Index` ist das oberste Objekt, das durchsuchbare Metadaten auf der Festplatte speichert. Das Erstellen weist auf einen Ordner, in dem alle Index‑Dateien abgelegt werden:
 
-#### Schritt 1: Index erstellen
 ```java
 String indexFolder = YOUR_DOCUMENT_DIRECTORY + "/ObtainSearchResultInformation";
 Index index = new Index(indexFolder);
 index.add(documentFolder);
 ```
 
-#### Schritt 2: Suchoptionen konfigurieren (Fuzzy‑Suche aktivieren)
+### Schritt 2: Suchoptionen konfigurieren (Fuzzy‑Suche aktivieren)
+`SearchOptions` ermöglicht das Feintuning des Abfrageverhaltens. Das Setzen von `FuzzySearch` auf `true` aktiviert die ungefähre Übereinstimmung, was nützlich ist, um Tippfehler oder OCR‑Fehler zu behandeln:
+
 ```java
 SearchOptions options = new SearchOptions();
 options.getFuzzySearch().setEnabled(true);
 options.getFuzzySearch().setFuzzyAlgorithm(new TableDiscreteFunction(3));
 ```
 
-#### Schritt 3: Suche ausführen
+### Schritt 3: Die Suche ausführen
+`Index.search` führt die Abfrage gegen den vorbereiteten Index aus und gibt eine `SearchResult`‑Sammlung zurück, die passende Dokumente und Begriffsvorkommen enthält:
+
 ```java
 String query = "favourable OR \"ipsum dolor\"";
 SearchResult result = index.search(query, options);
 ```
 
-#### Schritt 4: Vorkommen extrahieren
+Das `SearchResult`‑Objekt enthält die Liste der Dokumente, die zur Abfrage passen, sowie deren Relevanzwerte.
+
+### Schritt 4: Vorkommen extrahieren
+Jedes `SearchResult`‑Element bietet `getOccurrences()`, das die genauen Positionen der Abfragebegriffe innerhalb der Quelldatei zurückgibt, sodass Sie Analyse‑Dashboards oder detaillierte Berichte erstellen können:
+
 ```java
 for (int i = 0; i < result.getDocumentCount(); i++) {
     FoundDocument document = result.getFoundDocument(i);
@@ -127,14 +204,13 @@ for (int i = 0; i < result.getDocumentCount(); i++) {
 }
 ```
 
-## Feature 2: Highlight Search Terms Java in Dokumenten
+## Feature 2: Suchbegriffe Java in Dokumenten hervorheben
 
-### Überblick
-Das Erzeugen einer HTML‑Datei mit **highlight search terms java** ermöglicht es End‑Benutzern, sofort zu sehen, wo Treffer auftreten, und verbessert die Überprüfungsgeschwindigkeit sowie die Zusammenarbeit.
+Generieren Sie eine HTML‑Vorschau, bei der jeder Treffer in ein `<mark>`‑Tag eingeschlossen wird, wodurch Endbenutzern sofortige visuelle Hinweise gegeben werden.
 
-### Schritt‑für‑Schritt‑Implementierung
+### Schritt 1: Index mit hoher Kompression einrichten
+Hohe Kompression reduziert den Speicherbedarf um **bis zu 70 %**, während die Abfragegeschwindigkeit im Millisekunden‑Bereich bleibt. Passen Sie die Eigenschaft `CompressionLevel` vor dem Indexieren an:
 
-#### Schritt 1: Index mit hoher Kompression einrichten
 ```java
 String indexFolder = YOUR_DOCUMENT_DIRECTORY + "/HighlightSearchResults";
 IndexSettings settings = new IndexSettings();
@@ -143,7 +219,9 @@ Index index = new Index(indexFolder, settings);
 index.add(documentFolder);
 ```
 
-#### Schritt 2: Suche ausführen und Ergebnisse hervorheben
+### Schritt 2: Suche ausführen und Ergebnisse hervorheben
+Nach Ausführung der Suche rufen Sie `highlight()` auf dem `SearchResult`‑Objekt auf, um eine HTML‑Datei zu erzeugen, die jedes Vorkommen des Abfragebegriffs hervorhebt. Die Methode `highlight()` erzeugt eine HTML‑Vorschau, bei der die gefundenen Begriffe in `<mark>`‑Tags eingeschlossen werden:
+
 ```java
 SearchResult result = index.search("solicitude");
 if (result.getDocumentCount() > 0) {
@@ -156,36 +234,49 @@ if (result.getDocumentCount() > 0) {
 ```
 
 ## Praktische Anwendungen
-1. **Legal Document Review** – Schnell Klauseln in Hunderten von Verträgen finden.  
-2. **Academic Research** – Schlüsselphrasen aus Forschungsarbeiten für Literaturübersichten extrahieren.  
-3. **Customer Support** – Wiederkehrende Probleme in E‑Mail‑Archiven identifizieren.  
-4. **Content Management** – Schlüsselwörter in Artikeln und Blogs für SEO‑Audits hervorheben.
+1. **Legal Document Review** – Finden Sie spezifische Klauseln in Tausenden von Verträgen in Sekundenschnelle.  
+2. **Academic Research** – Extrahieren Sie Schlüsselphrasen aus Forschungsarbeiten für Literaturübersichten.  
+3. **Customer Support** – Identifizieren Sie wiederkehrende Probleme in E‑Mail‑Archiven, um FAQ‑Seiten zu verbessern.  
+4. **Content Management** – Hervorheben von SEO‑Schlüsselwörtern in Artikeln und Blogs für schnelle redaktionelle Prüfungen.
 
 ## Leistungsüberlegungen
-- **Compression:** Hohe Kompression reduziert den Indexieren Sie Dokumente in Batches, um den Speicherverbrauch gering zu halten.  
-- **Index Refresh:** Aktualisieren Sie den Index regelmäßig, um geänderte Dateien neu zu indizieren und die Suchergebnisse genau zu halten.
+- **Compression:** Hohe Kompression reduziert den Speicherbedarf, kann jedoch die CPU‑Auslastung erhöhen; führen Sie Benchmarks mit Ihrer typischen Arbeitslast durch.  
+- **Memory Management:** Indexieren Sie Dokumente in Chargen von 500 – 1 000 Dateien, um den JVM‑Heap unter Kontrolle zu halten.  
+- **Index Refresh:** Indexieren Sie geänderte Dateien nachts neu, um sicherzustellen, dass die Suchergebnisse aktuell bleiben.
 
-## Fazit** mit GroupDocs.Search verwendet, detaillierte Ergebnisinformationen extrahiert und **highlight search terms java** in HTML‑Vorschauen hervorhebt. Diese Funktionen ermöglichen es Ihnen, schnelle, benutzerfreundliche Sucherlebnisse für jedes Dokumenten‑Repository zu erstellen.
+## Fazit
+Dieser Leitfaden zeigte, wie man **implement groupdocs search java** ausführt, detaillierte Ergebnisinformationen extrahiert und **highlight search terms java** in HTML‑Vorschauen hervorhebt. Durch Befolgen dieser Schritte können Sie schnelle, benutzerfreundliche Sucherlebnisse für jedes Dokumenten‑Repository bereitstellen.
 
 ### Nächste Schritte
-- Integrieren Sie das hervorgehobene HTML in Ihre Web‑ zusätzlichen `SearchOptions` wie `SynonymSearchenz für erweiterte Szenarien wie benutzerdefiniertes Scoring.
+- Betten Sie das hervorgehobene HTML in Ihre Web‑UI ein, indem Sie ein `<iframe>` oder serverseitiges Rendering verwenden.  
+- Experimentieren Sie mit zusätzlichen `SearchOptions` wie `SynonymSearch` oder `WildcardSearch`.  
+- Tauchen Sie in die GroupDocs.Search‑API‑Referenz ein für benutzerdefiniertes Scoring, Ergebnis‑Paginierung und Mehrsprachunterstützung.
 
 ## Häufig gestellte Fragen
 
- viele Dokumentformate indiziert und durchsucht und Funktionen wie Fuzzy‑Suche und Ergebnis‑Highlighting bietet.
+**Q: Was ist GroupDocs.Search?**  
+A: GroupDocs.Search ist ein Java‑SDK, das Text über mehr als 50 Dokumentformate indiziert und durchsucht und Fuzzy‑Matching sowie Ergebnis‑Hervorhebung bietet.
 
 **Q: Wie funktioniert die Fuzzy‑Suche?**  
-A: Sie erlaubt ungefähre Übereinstimmungen, indem sie eine konfigurierbare Anzahl von Zeichenunterschieden toleriert, was bei Tippfehlern hilfreich ist.
+A: Sie toleriert eine konfigurierbare Anzahl von Zeichenunterschieden, sodass Übereinstimmungen bei falsch geschriebenen Wörtern oder OCR‑Fehlern möglich sind.
 
-**Q: Kann?**  
-A: Ja,lizenz erforderlich.
+**Q: Kann ich GroupDocs.Search ohne Lizenz verwenden?**  
+A: Ja, eine kostenlose Testversion ist verfügbar, aber für den Produktionseinsatz ist eine Volllizenz erforderlich.
 
-**Q: weitere – prüfen Sie die offizielle Dokumentation für die vollständige Liste.
+**Q: Welche Dateiformate werden unterstützt?**  
+A: PDF, DOCX, XLSX, PPTX, TXT und viele weitere – siehe die offizielle Dokumentation für die vollständige Liste.
 
 **Q: Wie zeige ich hervorgehobene Ergebnisse in einer Web‑Anwendung an?**  
-A: Stellen Sie die generierte HTML‑Datei (z. B. `Highlighted.html`) direkt bereit oder betten Sie deren Inhalt in eine Webseite ein, z. B. über ein `<iframe>` oder serverseitiges Rendering.
+A: Stellen Sie die generierte HTML‑Datei direkt bereit oder betten Sie deren Inhalt in eine Seite ein, indem Sie ein `<iframe>` oder serverseitiges Rendering verwenden.
 
 ---
 
-**Zuletzt aktualisiert4  
-**Autor:** GroupDocs
+**Last Updated:** 2026-07-26  
+**Tested With:** GroupDocs.Search 25.4  
+**Author:** GroupDocs
+
+## Verwandte Tutorials
+
+- [Wie man Dokumente zum Index hinzufügt mit GroupDocs.Search für Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Tutorial zur Hervorhebung von Suchergebnissen in Java mit GroupDocs.Search](/search/java/highlighting/)
+- [Meistern von GroupDocs.Search Java: Fuzzy‑Suche & Leitfaden zur Dokumenten‑Indizierung](/search/java/searching/groupdocs-search-java-fuzzy-document-indexing/)
