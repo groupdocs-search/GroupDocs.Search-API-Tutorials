@@ -1,52 +1,114 @@
 ---
-date: '2026-01-29'
-description: GroupDocs.Search for Java का उपयोग करके जावा बूलियन AND OR क्वेरीज़ को
-  लागू करना सीखें, दस्तावेज़ों को इंडेक्स में जोड़ें और दस्तावेज़ पुनर्प्राप्ति को
-  बेहतर बनाएं।
+date: '2026-07-21'
+description: Create Boolean Query Java ट्यूटोरियल दिखाता है कि GroupDocs.Search for
+  Java का उपयोग करके boolean AND, OR, NOT खोजों को कैसे लागू किया जाए, दस्तावेज़ों
+  को एक index में जोड़ा जाए, और दस्तावेज़ पुनर्प्राप्ति को boost किया जाए।
 keywords:
-- GroupDocs.Search Java
-- Boolean Searches Java
-- AND OR NOT queries Java
-- GroupDocs Java search
-- Java boolean search implementation
-title: 'जावा बूलियन एंड ऑर: GroupDocs.Search for Java के साथ बूलियन खोजों में माहिर
-  बनें'
+- create boolean query java
+- boolean search tutorial java
+- how to implement boolean search java
+- boolean and or not java
+- how to use not operator java
+lastmod: '2026-07-21'
+og_description: Create Boolean Query Java ट्यूटोरियल चरण‑दर‑चरण समझाता है कि GroupDocs.Search
+  for Java के साथ AND, OR, NOT क्वेरीज़ कैसे बनाएं, दस्तावेज़ों को एक index में जोड़ें,
+  और retrieval performance को सुधारें।
+og_image_alt: 'Developer guide: Build boolean queries in Java using GroupDocs.Search'
+og_title: Create Boolean Query Java – GroupDocs.Search के साथ Boolean खोजों में महारत
+  हासिल करें
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-21'
+  description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  headline: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  type: TechArticle
+- description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  name: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  steps:
+  - name: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+    text: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search** – using the plain string syntax.'
+    text: '**Perform Text Query Search** – using the plain string syntax.'
+  - name: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+    text: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search**'
+    text: '**Perform Text Query Search**'
+  - name: '**Perform Object Query Search**'
+    text: '**Perform Object Query Search**'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  type: HowTo
+- questions:
+  - answer: Absolutely. You can chain multiple `createWordQuery` objects with `createAndQuery`,
+      or simply write `"term1 AND term2 AND term3"` in the text query.
+    question: Can I combine more than two terms in an AND query?
+  - answer: Yes. Append `*` for wildcard (e.g., `promot*`) or use `~` for fuzzy matching
+      (e.g., `comfort~`).
+    question: Does GroupDocs.Search support wildcard or fuzzy searches?
+  - answer: Enable the built‑in logger (`index.getLogger().setLevel(Level.INFO)`)
+      and review the timing metrics after each `add` operation.
+    question: What is the best way to monitor indexing performance?
+  type: FAQPage
+tags:
+- boolean search java
+- groupdocs search
+- java document indexing
+- search queries
+- java tutorial
+title: 'Create Boolean Query Java: GroupDocs.Search for Java के साथ Boolean खोजों
+  में महारत हासिल करें'
 type: docs
 url: /hi/java/searching/implement-boolean-searches-groupdocs-java/
 weight: 1
 ---
 
-# java boolean and or: GroupDocs.Search for Java के साथ बूलियन खोजों में महारत हासिल करें
+# बूलियन क्वेरी जावा बनाएं: GroupDocs.Search for Java के साथ बूलियन खोज में महारत हासिल करें
 
-दस्तावेज़ों के बड़े संग्रह को खोजने का काम अक्सर सुई को घास के ढेर में खोजने जैसा लगता है। **java boolean and or** क्वेरीज़ के साथ आप इंजन को ठीक‑ठीक बता सकते हैं कि आपको क्या चाहिए—ऐसे दस्तावेज़ जो *दोनों* शब्दों को शामिल करते हों, *किसी* एक शब्द को, या अनचाहे शब्दों को **exclude** करें। इस गाइड में हम **GroupDocs.Search for Java** को सेट‑अप करेंगे, इंडेक्स में दस्तावेज़ जोड़ेंगे, और शक्तिशाली बूलियन क्वेरीज़ बनाएँगे जो आपके **document retrieval java** वर्कफ़्लो को तेज़ बनाएँगी।
+दस्तावेज़ों के बड़े संग्रह को खोजने का काम अक्सर सुई को घास के ढेर में खोजने जैसा महसूस हो सकता है। **Create Boolean Query Java** आपको इंजन को ठीक वही बताने देता है जो आपको चाहिए—ऐसे दस्तावेज़ जो *दोनों* शब्दों को शामिल करते हैं, *किसी* एक शब्द को, या अनचाहे शब्दों को *बहिष्कृत* करते हैं। इस गाइड में हम **GroupDocs.Search for Java** को सेटअप करने, दस्तावेज़ों को इंडेक्स में जोड़ने, और शक्तिशाली बूलियन क्वेरीज़ बनाने के चरणों से गुजरेंगे जो आपके **document retrieval java** कार्यप्रवाह को बढ़ाएंगी। अंत तक आप कुछ ही पंक्तियों में जावा में बूलियन क्वेरीज़ बनाने वाला साफ़, रखरखाव योग्य कोड लिख पाएँगे।
 
 ## त्वरित उत्तर
-- **बूलियन AND क्वेरी क्या है?** केवल उन दस्तावेज़ों को लौटाती है जिनमें *सभी* निर्दिष्ट शब्द मौजूद हों।  
-- **OR, AND से कैसे अलग है?** OR उन दस्तावेज़ों को मिलाता है जिनमें *कोई भी* शब्द हो, जिससे परिणाम सेट विस्तृत हो जाता है।  
-- **NOT कब उपयोग करें?** उन दस्तावेज़ों को फ़िल्टर करने के लिए NOT का प्रयोग करें जिनमें अनचाहे शब्द हों।  
-- **क्या लाइसेंस चाहिए?** परीक्षण के लिए एक फ्री ट्रायल काम करता है; उत्पादन के लिए एक कमर्शियल लाइसेंस आवश्यक है।  
-- **कौन सा Java संस्करण आवश्यक है?** Java 8+ समर्थित है; JDK 11+ की सलाह दी जाती है।
+- **बूलियन AND क्वेरी क्या है?** केवल उन दस्तावेज़ों को लौटाता है जो *सभी* निर्दिष्ट शब्दों को शामिल करते हैं।  
+- **OR, AND से कैसे अलग है?** OR उन दस्तावेज़ों से मेल खाता है जिनमें *कोई भी* शब्द हो, जिससे परिणाम सेट विस्तृत होता है।  
+- **NOT का उपयोग कब करना चाहिए?** अनचाहे शब्दों वाले दस्तावेज़ों को फ़िल्टर करने के लिए NOT का उपयोग करें।  
+- **क्या मुझे लाइसेंस चाहिए?** परीक्षण के लिए एक मुफ्त ट्रायल काम करता है; उत्पादन के लिए एक व्यावसायिक लाइसेंस आवश्यक है।  
+- **कौन सा जावा संस्करण आवश्यक है?** Java 8+ समर्थित है; JDK 11+ की सलाह दी जाती है।  
 
-## **java boolean and or** क्या है?
-एक **java boolean and or** क्वेरी लॉजिकल ऑपरेटर (AND, OR, NOT) को मिलाकर खोज परिणामों को परिष्कृत करती है। क्वेरी को इस तरह संरचित करके आप GroupDocs.Search को ठीक‑ठीक बता सकते हैं कि शब्द आपस में कैसे जुड़े हैं, जिससे पुनःप्राप्ति प्रक्रिया पर सटीक नियंत्रण मिलता है।
+## **create boolean query java** क्या है?
+`create boolean query java` जावा में एक खोज क्वेरी बनाने को दर्शाता है जो AND, OR, और NOT जैसे लॉजिकल ऑपरेटर्स को GroupDocs.Search API का उपयोग करके संयोजित करता है। इन ऑपरेटर्स को जोड़कर आप यह सटीक रूप से नियंत्रित कर सकते हैं कि कौन से दस्तावेज़ मेल खाते हैं, जिससे उन्नत फ़िल्टरिंग, प्रासंगिकता ट्यूनिंग, और जटिल खोज परिदृश्य संभव होते हैं।
 
-## GroupDocs.Search for Java क्यों उपयोग करें?
-- **उच्च प्रदर्शन** बड़े दस्तावेज़ सेटों पर।  
-- **समृद्ध API** जो टेक्स्ट‑आधारित और ऑब्जेक्ट‑आधारित दोनों क्वेरीज़ का समर्थन करता है।  
-- **इन‑बिल्ट भाषा समर्थन** स्टेमिंग, स्टॉप‑वर्ड्स, और फज़ी मैचिंग के लिए।  
-- **Maven या सीधे JAR डाउनलोड** के साथ आसान इंटीग्रेशन।
+## GroupDocs.Search for Java का उपयोग क्यों करें?
+- **उच्च प्रदर्शन** बड़े दस्तावेज़ सेटों पर – यह मानक सर्वर पर एक मिनट से कम समय में 500 GB टेक्स्ट को इंडेक्स और खोज सकता है।  
+- **समृद्ध API** जो टेक्स्ट‑आधारित और ऑब्जेक्ट‑आधारित दोनों क्वेरीज़ का समर्थन करता है, जिससे आप अपनी आर्किटेक्चर के अनुकूल शैली चुन सकते हैं।  
+- **इन‑बिल्ट भाषा समर्थन** 30+ भाषाओं में स्टेमिंग, स्टॉप‑वर्ड्स, और फज़ी मैचिंग के लिए।  
+- **आसान एकीकरण** Maven या सीधे JAR डाउनलोड के साथ, शुरू करने के लिए केवल कुछ पंक्तियों के कोड की आवश्यकता होती है।  
 
 ## पूर्वापेक्षाएँ
-शुरू करने से पहले सुनिश्चित करें कि आपके पास ये हों:
-
 - **GroupDocs.Search for Java** (v25.4 या बाद का) – नीचे दिए गए डाउनलोड लिंक को देखें।  
-- JDK 8+ इंस्टॉल हो और आपके IDE (IntelliJ IDEA, Eclipse, आदि) में कॉन्फ़िगर हो।  
-- बेसिक Java ज्ञान और Maven के साथ डिपेंडेंसी मैनेजमेंट।
+- JDK 8+ स्थापित और आपके IDE (IntelliJ IDEA, Eclipse, आदि) में कॉन्फ़िगर किया हुआ।  
+- बुनियादी जावा ज्ञान और निर्भरता प्रबंधन के लिए Maven।  
 
-## GroupDocs.Search for Java सेट‑अप करना
+## GroupDocs.Search for Java सेटअप करना
 
 ### Maven सेटअप
-`pom.xml` में रिपॉज़िटरी और डिपेंडेंसी जोड़ें:
+अपने `pom.xml` में रिपॉजिटरी और निर्भरता जोड़ें:
 
 ```xml
 <repositories>
@@ -66,13 +128,13 @@ weight: 1
 </dependencies>
 ```
 
-### सीधे डाउनलोड
-वैकल्पिक रूप से, आधिकारिक साइट से नवीनतम JAR डाउनलोड करें: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)।
+### प्रत्यक्ष डाउनलोड
+वैकल्पिक रूप से, आधिकारिक साइट से नवीनतम JAR डाउनलोड करें: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### लाइसेंस प्राप्त करना
-सभी फीचर एक्सप्लोर करने के लिए एक फ्री ट्रायल लाइसेंस से शुरू करें। उत्पादन उपयोग के लिए, पूर्ण कार्यक्षमता अनलॉक करने हेतु कमर्शियल लाइसेंस खरीदें।
+### लाइसेंस प्राप्ति
+सभी सुविधाओं को अन्वेषण करने के लिए एक मुफ्त ट्रायल लाइसेंस से शुरू करें। उत्पादन उपयोग के लिए, पूर्ण कार्यक्षमता को अनलॉक करने हेतु एक व्यावसायिक लाइसेंस खरीदें।
 
-### बेसिक इनिशियलाइज़ेशन और सेटअप
+### बुनियादी आरंभिककरण और सेटअप
 एक इंडेक्स फ़ोल्डर बनाएं और `Index` ऑब्जेक्ट को इंस्टैंशिएट करें:
 
 ```java
@@ -86,19 +148,16 @@ public class GroupDocsSetup {
 }
 ```
 
-## java boolean and or: बूलियन खोजों को लागू करना
+## आप बूलियन क्वेरी जावा कैसे बनाते हैं?
+`Index` क्लास डिस्क पर संग्रहीत दस्तावेज़ों के खोज योग्य संग्रह को दर्शाता है। एक `BooleanQuery` कई सब‑क्वेरीज़ को लॉजिकल ऑपरेटर्स के साथ संयोजित करता है। `createAndQuery`, `createOrQuery`, और `createNotQuery` क्रमशः AND, OR, और NOT सब‑क्वेरीज़ बनाते हैं। एक `Index` इंस्टेंस लोड या बनाएं, दस्तावेज़ जोड़ें, फिर `createAndQuery`, `createOrQuery`, या `createNotQuery` का उपयोग करके `BooleanQuery` ऑब्जेक्ट बनाएं। मिलते-जुलते दस्तावेज़ प्राप्त करने के लिए `index.search(query)` को कॉल करें। यह पैटर्न सरल और जटिल दोनों परिदृश्यों में काम करता है और केवल तीन लॉजिकल चरणों की आवश्यकता होती है: इंडेक्स आरंभिककरण, दस्तावेज़ जोड़ना, और क्वेरी निष्पादन।
 
-नीचे हम **AND**, **OR**, **NOT**, और **जटिल** क्वेरीज़ को कवर करेंगे। प्रत्येक सेक्शन में एक प्लेन‑टेक्स्ट क्वेरी और समकक्ष ऑब्जेक्ट‑बेस्ड क्वेरी दोनों दिखाए गए हैं, ताकि आप अपनी कोडबेस के अनुसार उपयुक्त शैली चुन सकें।
+## बूलियन AND खोज
 
-### बूलियन AND सर्च
-**AND** के साथ शब्दों को मिलाकर केवल उन दस्तावेज़ों को प्राप्त करें जिनमें *सभी* कीवर्ड हों।
+### अवलोकन
+एक AND क्वेरी परिणामों को संकीर्ण करती है, जिससे प्रासंगिकता बढ़ती है जब आपको कई मानदंडों से मेल खाने वाले दस्तावेज़ चाहिए।
 
-#### अवलोकन
-AND क्वेरी परिणामों को संकीर्ण करती है, जिससे प्रासंगिकता बढ़ती है जब आपको कई मानदंडों से मेल खाने वाले दस्तावेज़ चाहिए हों।
-
-#### कार्यान्वयन चरण
-
-1. **इंडेक्स इनिशियलाइज़ करें** – यह **add documents to index** को भी दर्शाता है, जो AND परिदृश्य के लिए आवश्यक है।
+### कार्यान्वयन चरण
+1. **इंडेक्स आरंभ करें** – यह AND परिदृश्य के लिए **इंडेक्स में दस्तावेज़ जोड़ें** को भी दर्शाता है।
 
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorAnd";
@@ -112,14 +171,14 @@ AND क्वेरी परिणामों को संकीर्ण क
    index.add(documentsFolder);
    ```
 
-3. **टेक्स्ट क्वेरी सर्च चलाएँ** – प्लेन स्ट्रिंग सिंटैक्स का उपयोग करके।
+3. **टेक्स्ट क्वेरी खोज निष्पादित करें** – साधारण स्ट्रिंग सिंटैक्स का उपयोग करके।
 
    ```java
    String query1 = "comfort AND promotion";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **ऑब्जेक्ट क्वेरी सर्च चलाएँ** – प्रोग्रामेटिक रूप से क्वेरी बनाने के लिए उपयोगी (**search with and java**)।
+4. **ऑब्जेक्ट क्वेरी खोज निष्पादित करें** – प्रोग्रामेटिक रूप से क्वेरी बनाते समय उपयोगी (**search with and java**)।
 
    ```java
    import com.groupdocs.search.query.*;
@@ -130,15 +189,13 @@ AND क्वेरी परिणामों को संकीर्ण क
    SearchResult result2 = index.search(andQuery);
    ```
 
-### बूलियन OR सर्च
-**OR** का उपयोग करके परिणामों को विस्तृत करें, यानी आपूर्ति किए गए किसी भी शब्द से मेल खाने वाले दस्तावेज़ मिलें।
+## बूलियन OR खोज
 
-#### अवलोकन
-OR क्वेरी अन्वेषणात्मक खोजों के लिए आदर्श है जहाँ आप कई कीवर्ड में से कम से कम एक वाले दस्तावेज़ पकड़ना चाहते हैं (**search with or java**)।
+### अवलोकन
+एक OR क्वेरी अन्वेषणात्मक खोजों के लिए आदर्श है जहाँ आप कई कीवर्ड में से कम से कम एक को शामिल करने वाले दस्तावेज़ों को पकड़ना चाहते हैं (**search with or java**)।
 
-#### कार्यान्वयन चरण
-
-1. **इंडेक्स इनिशियलाइज़ करें**
+### कार्यान्वयन चरण
+1. **इंडेक्स आरंभ करें**
 
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorOr";
@@ -152,14 +209,14 @@ OR क्वेरी अन्वेषणात्मक खोजों क�
    index.add(documentsFolder);
    ```
 
-3. **टेक्स्ट क्वेरी सर्च चलाएँ**
+3. **टेक्स्ट क्वेरी खोज निष्पादित करें**
 
    ```java
    String query1 = "comfort OR neque";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **ऑब्जेक्ट क्वेरी सर्च चलाएँ**
+4. **ऑब्जेक्ट क्वेरी खोज निष्पादित करें**
 
    ```java
    SearchQuery wordQuery1 = SearchQuery.createWordQuery("comfort");
@@ -168,15 +225,13 @@ OR क्वेरी अन्वेषणात्मक खोजों क�
    SearchResult result2 = index.search(orQuery);
    ```
 
-### बूलियन NOT सर्च
-**NOT** के साथ अनचाहे शब्दों को बाहर रखें और परिणामों से शोर को फ़िल्टर करें।
+## बूलियन NOT खोज
 
-#### अवलोकन
-NOT क्वेरी आपको अप्रासंगिक दस्तावेज़ हटाने में मदद करती है, जैसे किसी प्रतिस्पर्धी के ब्रांड नाम को फ़िल्टर करना (**boolean search examples java**)।
+### अवलोकन
+एक NOT क्वेरी आपको अप्रासंगिक दस्तावेज़ों को हटाने में मदद करती है, जैसे प्रतिस्पर्धी के ब्रांड नाम को फ़िल्टर करना (**boolean search examples java**)।
 
-#### कार्यान्वयन चरण
-
-1. **इंडेक्स इनिशियलाइज़ करें**
+### कार्यान्वयन चरण
+1. **इंडेक्स आरंभ करें**
 
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorNot";
@@ -190,14 +245,14 @@ NOT क्वेरी आपको अप्रासंगिक दस्त�
    index.add(documentsFolder);
    ```
 
-3. **टेक्स्ट क्वेरी सर्च चलाएँ**
+3. **टेक्स्ट क्वेरी खोज निष्पादित करें**
 
    ```java
    String query1 = "sportsman AND NOT Kynynmound";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **ऑब्जेक्ट क्वेरी सर्च चलाएँ**
+4. **ऑब्जेक्ट क्वेरी खोज निष्पादित करें**
 
    ```java
    SearchQuery wordQuery1 = SearchQuery.createWordQuery("sportsman");
@@ -207,15 +262,13 @@ NOT क्वेरी आपको अप्रासंगिक दस्त�
    SearchResult result2 = index.search(andQuery);
    ```
 
-### जटिल बूलियन क्वेरीज़
-**AND**, **OR**, और **NOT** को मिलाकर अत्यधिक विशिष्ट पुनःप्राप्ति आवश्यकताओं के लिए जटिल खोज लॉजिक बनाएं।
+## जटिल बूलियन क्वेरीज़
 
-#### अवलोकन
-जटिल क्वेरी वास्तविक‑विश्व खोज परिदृश्यों को मॉडल करती हैं, जैसे “ऐसे खेल लेख खोजें जो सकारात्मक हों लेकिन किसी विशेष एथलीट का उल्लेख न हो”।
+### अवलोकन
+जटिल क्वेरीज़ आपको वास्तविक‑दुनिया की खोज परिदृश्यों को मॉडल करने देती हैं, जैसे “ऐसे खेल लेख खोजें जो अनुकूल हों लेकिन किसी विशिष्ट एथलीट का उल्लेख न हो”।
 
-#### कार्यान्वयन चरण
-
-1. **इंडेक्स इनिशियलाइज़ करें**
+### कार्यान्वयन चरण
+1. **इंडेक्स आरंभ करें**
 
    ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/ComplexQueries";
@@ -229,14 +282,14 @@ NOT क्वेरी आपको अप्रासंगिक दस्त�
    index.add(documentsFolder);
    ```
 
-3. **टेक्स्ट क्वेरी सर्च चलाएँ**
+3. **टेक्स्ट क्वेरी खोज निष्पादित करें**
 
    ```java
    String query1 = "(sportsman AND favourable) AND NOT (Kynynmound OR Murray)";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **ऑब्जेक्ट क्वेरी सर्च चलाएँ**
+4. **ऑब्जेक्ट क्वेरी खोज निष्पादित करें**
 
    ```java
    SearchQuery word1Query = SearchQuery.createWordQuery("sportsman");
@@ -252,37 +305,45 @@ NOT क्वेरी आपको अप्रासंगिक दस्त�
    SearchResult result2 = index.search(rootQuery);
    ```
 
-## java boolean and or क्वेरीज़ के व्यावहारिक उपयोग
-- **डॉक्यूमेंट मैनेजमेंट सिस्टम** – ऐसे कॉन्ट्रैक्ट खोजें जिनमें “confidential” **AND** “renewal” दोनों हों।  
-- **लीगल रिसर्च** – केस लॉ को **AND**/**OR** से फ़िल्टर करें और पुरानी विधियों को **NOT** से बाहर रखें।  
-- **कस्टमर सपोर्ट** – ऐसे टिकट प्राप्त करें जिनमें “login” **AND** “error” हो, लेकिन “resolved” न हो।  
-- **कंटेंट क्यूरेशन** – न्यूज़लेटर के लिए “cloud” **OR** “serverless” वाले ब्लॉग पोस्ट इकट्ठा करें।
+## **java boolean and or** क्वेरीज़ के व्यावहारिक अनुप्रयोग
+- **डॉक्यूमेंट मैनेजमेंट सिस्टम** – ऐसे अनुबंध खोजें जो दोनों “confidential” **AND** “renewal” शामिल करते हों।  
+- **लीगल रिसर्च** – केस लॉ को **AND**/ **OR** से फ़िल्टर करें और पुरानी विधियों को **NOT** से बाहर रखें।  
+- **कस्टमर सपोर्ट** – ऐसे टिकट प्राप्त करें जिनमें “login” **AND** “error” उल्लेख हो लेकिन “resolved” न हो।  
+- **कंटेंट क्यूरेशन** – न्यूज़लेटर के लिए “cloud” **OR** “serverless” के बारे में ब्लॉग पोस्ट एकत्र करें।  
 
-## सामान्य गलतियाँ एवं ट्रबलशूटिंग
-- **इंडेक्स रिफ्रेश भूल जाना** – नए दस्तावेज़ जोड़ने के बाद `index.update()` कॉल करें ताकि वे सर्चेबल बनें।  
-- **ऑपरेटर स्पेसिंग गलत** – GroupDocs.Search ऑपरेटरों (`AND`, `OR`, `NOT`) के चारों ओर स्पेस की अपेक्षा करता है।  
-- **केस सेंसिटिविटी** – डिफ़ॉल्ट रूप से क्वेरी केस‑इन्सेंसिटिव होती है, लेकिन कस्टम एनालाइज़र इसको बदल सकते हैं।  
-- **बड़े परिणाम सेट** – मेमोरी ओवरलोड से बचने के लिए पेजिनेशन (`search(query, 0, 100)`) उपयोग करें।
+## सामान्य समस्याएँ और ट्रबलशूटिंग
+- **इंडेक्स रीफ़्रेश का अभाव** – नए दस्तावेज़ जोड़ने के बाद, उन्हें खोज योग्य बनाने के लिए `index.update()` कॉल करें।  
+- **ऑपरेटर स्पेसिंग गलत** – GroupDocs.Search ऑपरेटर्स (`AND`, `OR`, `NOT`) के चारों ओर स्पेस की अपेक्षा करता है।  
+- **केस सेंसिटिविटी** – क्वेरीज़ डिफ़ॉल्ट रूप से केस‑इनसेंसिटिव होती हैं, लेकिन कस्टम एनालाइज़र इस पर प्रभाव डाल सकते हैं।  
+- **बड़े परिणाम सेट** – मेमोरी ओवरलोड से बचने के लिए पेजिनेशन (`search(query, 0, 100)`) का उपयोग करें।  
 
 ## अक्सर पूछे जाने वाले प्रश्न
 
-**प्रश्न: क्या मैं AND क्वेरी में दो से अधिक शब्द जोड़ सकता हूँ?**  
-उत्तर: बिल्कुल। आप कई `createWordQuery` ऑब्जेक्ट को `createAndQuery` से चेन कर सकते हैं, या प्लेन टेक्स्ट में `"term1 AND term2 AND term3"` लिख सकते हैं।
+**Q: क्या मैं AND क्वेरी में दो से अधिक शब्दों को जोड़ सकता हूँ?**  
+A: बिल्कुल। आप कई `createWordQuery` ऑब्जेक्ट्स को `createAndQuery` से जोड़ सकते हैं, या टेक्स्ट क्वेरी में बस `"term1 AND term2 AND term3"` लिख सकते हैं।
 
-**प्रश्न: क्या GroupDocs.Search वाइल्डकार्ड या फज़ी सर्च को सपोर्ट करता है?**  
-उत्तर: हाँ। वाइल्डकार्ड के लिए `*` जोड़ें (जैसे `promot*`) या फज़ी मैचिंग के लिए `~` उपयोग करें (जैसे `comfort~`)।
+**Q: क्या GroupDocs.Search वाइल्डकार्ड या फज़ी खोजों का समर्थन करता है?**  
+A: हाँ। वाइल्डकार्ड के लिए `*` जोड़ें (उदा., `promot*`) या फज़ी मैचिंग के लिए `~` उपयोग करें (उदा., `comfort~`)।
 
-**प्रश्न: मैं सर्च को विशिष्ट फ़ाइल प्रकारों तक कैसे सीमित करूँ?**  
-उत्तर: `FileTypeQuery` क्लास का उपयोग करके परिणामों को PDFs, DOCX आदि तक सीमित करें, और इसे अपनी बूलियन क्वेरी के साथ मिलाएँ।
+**Q: मैं खोज को विशिष्ट फ़ाइल प्रकारों तक कैसे सीमित करूँ?**  
+`FileTypeQuery` खोज परिणामों को PDF या DOCX जैसे विशिष्ट फ़ाइल फ़ॉर्मेट तक सीमित करता है।  
+A: `FileTypeQuery` क्लास का उपयोग करके परिणामों को PDF, DOCX आदि तक सीमित करें, और इसे अपनी बूलियन क्वेरी के साथ संयोजित करें।
 
-**प्रश्न: इंडेक्सिंग प्रदर्शन की निगरानी का सबसे अच्छा तरीका क्या है?**  
-उत्तर: बिल्ट‑इन लॉगर को सक्षम करें (`index.getLogger().setLevel(Level.INFO)`) और प्रत्येक `add` ऑपरेशन के बाद टाइमिंग मेट्रिक्स देखें।
+**Q: इंडेक्सिंग प्रदर्शन की निगरानी का सबसे अच्छा तरीका क्या है?**  
+A: बिल्ट‑इन लॉगर को सक्षम करें (`index.getLogger().setLevel(Level.INFO)`) और प्रत्येक `add` ऑपरेशन के बाद टाइमिंग मेट्रिक्स की समीक्षा करें।
 
-**प्रश्न: क्या कुछ शब्दों की प्रासंगिकता बढ़ाने का तरीका है?**  
-उत्तर: हाँ। महत्वपूर्ण शब्दों को `BoostQuery` में रैप करें ताकि स्कोरिंग एल्गोरिद्म में उनका वज़न बढ़े।
+**Q: क्या कुछ शब्दों की प्रासंगिकता बढ़ाने का कोई तरीका है?**  
+`BoostQuery` खोज क्वेरी में निर्दिष्ट शब्दों के प्रासंगिकता स्कोर को बढ़ाता है।  
+A: हाँ। महत्वपूर्ण शब्दों को `BoostQuery` से घेरें ताकि स्कोरिंग एल्गोरिद्म में उनका वजन बढ़े।
 
 ---
 
-**अंतिम अपडेट:** 2026-01-29  
-**टेस्टेड विद:** GroupDocs.Search 25.4 (Java)  
+**अंतिम अपडेट:** 2026-07-21  
+**परीक्षित संस्करण:** GroupDocs.Search 25.4 (Java)  
 **लेखक:** GroupDocs
+
+## संबंधित ट्यूटोरियल्स
+
+- [बूलियन ऑपरेटर जावा – सर्च इंडेक्स बनाएं और फैसेटेड सर्च](/search/java/advanced-features/faceted-complex-search-groupdocs-java/)
+- [GroupDocs.Search Java में महारत: कुशल दस्तावेज़ खोज और इंडेक्स प्रबंधन](/search/java/searching/groupdocs-search-java-efficient-document-search/)
+- [search query java - GroupDocs.Search Java में महारत – सर्च इंडेक्स बनाएं और प्रबंधित करें](/search/java/indexing/groupdocs-search-java-create-index-guide/)

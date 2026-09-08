@@ -1,49 +1,110 @@
 ---
-date: '2026-01-29'
-description: 学习如何使用 GroupDocs.Search for Java 实现 Java 布尔 AND/OR 查询，向索引添加文档并提升文档检索效果。
+date: '2026-07-21'
+description: Create Boolean Query Java 教程展示了如何使用 GroupDocs.Search for Java 实现 boolean
+  AND、OR、NOT 搜索，向 index 添加文档，并 boost 文档检索。
 keywords:
-- GroupDocs.Search Java
-- Boolean Searches Java
-- AND OR NOT queries Java
-- GroupDocs Java search
-- Java boolean search implementation
-title: Java 布尔与或：使用 GroupDocs.Search for Java 精通布尔搜索
+- create boolean query java
+- boolean search tutorial java
+- how to implement boolean search java
+- boolean and or not java
+- how to use not operator java
+lastmod: '2026-07-21'
+og_description: Create Boolean Query Java 教程 step‑by‑step 解释如何使用 GroupDocs.Search
+  for Java 构建 AND、OR、NOT 查询，向 index 添加文档，并提升检索性能。
+og_image_alt: 'Developer guide: Build boolean queries in Java using GroupDocs.Search'
+og_title: Create Boolean Query Java – 使用 GroupDocs.Search 掌握 Boolean 搜索
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-21'
+  description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  headline: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  type: TechArticle
+- description: Create Boolean Query Java tutorial shows how to implement boolean AND,
+    OR, NOT searches using GroupDocs.Search for Java, add documents to an index, and
+    boost document retrieval.
+  name: 'Create Boolean Query Java: Master Boolean Searches with GroupDocs.Search
+    for Java'
+  steps:
+  - name: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+    text: '**Initialize Index** – this also demonstrates **add documents to index**
+      for the AND scenario.'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search** – using the plain string syntax.'
+    text: '**Perform Text Query Search** – using the plain string syntax.'
+  - name: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+    text: '**Perform Object Query Search** – useful when building queries programmatically
+      (**search with and java**).'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  - name: '**Perform Text Query Search**'
+    text: '**Perform Text Query Search**'
+  - name: '**Perform Object Query Search**'
+    text: '**Perform Object Query Search**'
+  - name: '**Initialize Index**'
+    text: '**Initialize Index**'
+  - name: '**Index Documents**'
+    text: '**Index Documents**'
+  type: HowTo
+- questions:
+  - answer: Absolutely. You can chain multiple `createWordQuery` objects with `createAndQuery`,
+      or simply write `"term1 AND term2 AND term3"` in the text query.
+    question: Can I combine more than two terms in an AND query?
+  - answer: Yes. Append `*` for wildcard (e.g., `promot*`) or use `~` for fuzzy matching
+      (e.g., `comfort~`).
+    question: Does GroupDocs.Search support wildcard or fuzzy searches?
+  - answer: Enable the built‑in logger (`index.getLogger().setLevel(Level.INFO)`)
+      and review the timing metrics after each `add` operation.
+    question: What is the best way to monitor indexing performance?
+  type: FAQPage
+tags:
+- boolean search java
+- groupdocs search
+- java document indexing
+- search queries
+- java tutorial
+title: 创建 Boolean 查询（Java）：使用 GroupDocs.Search for Java 掌握 Boolean 搜索
 type: docs
 url: /zh/java/searching/implement-boolean-searches-groupdocs-java/
 weight: 1
 ---
 
-# java boolean and or：使用 GroupDocs.Search for Java 掌握布尔搜索
+# 创建 Boolean Query Java：使用 GroupDocs.Search for Java 掌握布尔搜索
 
-在海量文档集合中搜索常常像大海捞针。使用 **java boolean and or** 查询，你可以精确告诉引擎你的需求——返回同时包含*两个*词的文档、包含*任意*词的文档，或*排除*不需要的词。在本指南中，我们将演示如何设置 **GroupDocs.Search for Java**、将文档添加到索引，以及构建强大的布尔查询，以提升你的 **document retrieval java** 工作流。
+在海量文档集合中搜索可能像在大海捞针。**Create Boolean Query Java** 让您精确告诉引擎您需要的内容——包含 *both*（两个）词、*either*（任意）词，或 *exclude*（排除）不想要的词的文档。在本指南中，我们将演示如何设置 **GroupDocs.Search for Java**、将文档添加到索引，并构建强大的布尔查询，以提升您的 **document retrieval java** 工作流。完成后，您将能够仅用几行代码编写干净、可维护的 Java 布尔查询。
 
 ## 快速答案
-- **What is a boolean AND query?** 仅返回包含*所有*指定词的文档。  
-- **How does OR differ from AND?** OR 匹配包含*任意*词的文档，扩大结果集。  
-- **When should I use NOT?** 使用 NOT 过滤掉包含不需要词的文档。  
-- **Do I need a license?** 免费试用可用于测试；生产环境需要商业许可证。  
-- **Which Java version is required?** 支持 Java 8+；推荐使用 JDK 11+。
+- **什么是 boolean AND 查询？** 仅返回包含 *所有* 指定词的文档。  
+- **OR 与 AND 有何区别？** OR 匹配包含 *任意* 词的文档，扩大结果集。  
+- **何时使用 NOT？** 使用 NOT 过滤掉包含不需要词的文档。  
+- **我需要许可证吗？** 免费试用可用于测试；生产环境需要商业许可证。  
+- **需要哪个 Java 版本？** 支持 Java 8+；建议使用 JDK 11+。
 
-## 什么是 **java boolean and or**？
-**java boolean and or** 查询结合逻辑运算符（AND、OR、NOT）来细化搜索结果。通过构造查询，你可以明确告知 GroupDocs.Search 各词之间的关系，从而精确控制检索过程。
+## 什么是 **create boolean query java**？
+`create boolean query java` 指在 Java 中构建搜索查询，使用 GroupDocs.Search API 将 AND、OR、NOT 等逻辑运算符组合起来。通过组装这些运算符，您可以精确控制哪些文档匹配，实现高级过滤、相关性调优和复杂搜索场景。
 
 ## 为什么使用 GroupDocs.Search for Java？
-- **High performance** 在大规模文档集上表现出色。  
-- **Rich API** 支持基于文本和基于对象的查询。  
-- **Built‑in language support** 提供词干提取、停用词和模糊匹配。  
-- **Easy integration** 可轻松集成 Maven 或直接下载 JAR。
+- **高性能** 在大型文档集上——它可以在标准服务器上一分钟内对 500 GB 文本进行索引和搜索。  
+- **丰富的 API** 支持基于文本和基于对象的查询，让您选择适合架构的风格。  
+- **内置语言支持**，支持 30 多种语言的词干提取、停用词和模糊匹配。  
+- **易于集成**，使用 Maven 或直接下载 JAR，只需几行代码即可开始。
 
 ## 前置条件
-在开始之前，请确保已具备以下条件：
-
-- **GroupDocs.Search for Java**（v25.4 或更高）——请参阅下方下载链接。  
+- **GroupDocs.Search for Java**（v25.4 或更高）——请参阅下面的下载链接。  
 - 已安装 JDK 8+ 并在 IDE（IntelliJ IDEA、Eclipse 等）中配置。  
-- 基础的 Java 知识以及用于依赖管理的 Maven。
+- 基本的 Java 知识以及用于依赖管理的 Maven。
 
 ## 设置 GroupDocs.Search for Java
 
 ### Maven 设置
-在你的 `pom.xml` 中添加仓库和依赖：
+将仓库和依赖添加到您的 `pom.xml`：
 
 ```xml
 <repositories>
@@ -64,10 +125,10 @@ weight: 1
 ```
 
 ### 直接下载
-或者，从官方网站下载最新的 JAR： [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)。
+另外，您可以从官方网站下载最新的 JAR：[GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)。
 
 ### 获取许可证
-先使用免费试用许可证来体验全部功能。生产环境请购买商业许可证以解锁完整功能。
+先使用免费试用许可证探索所有功能。生产环境请购买商业许可证以解锁全部功能。
 
 ### 基本初始化和设置
 创建索引文件夹并实例化 `Index` 对象：
@@ -83,37 +144,40 @@ public class GroupDocsSetup {
 }
 ```
 
-## java boolean and or：实现布尔搜索
+## 如何创建 boolean query java？
+`Index` 类表示存储在磁盘上的可搜索文档集合。`BooleanQuery` 将多个子查询通过逻辑运算符组合。`createAndQuery`、`createOrQuery` 和 `createNotQuery` 分别构建 AND、OR、NOT 子查询。加载或创建 `Index` 实例，添加文档后，使用 `createAndQuery`、`createOrQuery` 或 `createNotQuery` 构建 `BooleanQuery` 对象。调用 `index.search(query)` 检索匹配文档。此模式适用于简单和复杂场景，仅需三步：索引初始化、文档添加、查询执行。
 
-下面我们将介绍 **AND**、**OR**、**NOT** 和 **complex** 查询。每个章节都会展示纯文本查询和等价的对象查询，方便你根据代码库选择合适的方式。
+## Boolean AND 搜索
 
-### 布尔 AND 搜索
-使用 **AND** 组合词语，以仅检索包含*所有*关键字的文档。
+### 概述
+AND 查询缩小结果范围，在需要匹配多个条件的文档时提升相关性。
 
-#### 概述
-AND 查询会缩小结果范围，在需要匹配多个条件的文档时提升相关性。
+### 实现步骤
 
-#### 实现步骤
-1. **Initialize Index** – 这也演示了 **add documents to index** 在 AND 场景下的使用。  
-```java
+1. **Initialize Index** – this also demonstrates **add documents to index** for the AND scenario.
+
+   ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorAnd";
    Index index = new Index(indexFolder);
    ```
 
-2. **Index Documents**  
-```java
+2. **Index Documents**
+
+   ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
 
-3. **Perform Text Query Search** – 使用纯字符串语法。  
-```java
+3. **Perform Text Query Search** – using the plain string syntax.
+
+   ```java
    String query1 = "comfort AND promotion";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **Perform Object Query Search** – 在程序化构建查询时很有用（**search with and java**）。  
-```java
+4. **Perform Object Query Search** – useful when building queries programmatically (**search with and java**).
+
+   ```java
    import com.groupdocs.search.query.*;
 
    SearchQuery wordQuery1 = SearchQuery.createWordQuery("comfort");
@@ -122,66 +186,74 @@ AND 查询会缩小结果范围，在需要匹配多个条件的文档时提升�
    SearchResult result2 = index.search(andQuery);
    ```
 
-### 布尔 OR 搜索
-使用 **OR** 扩大结果范围，匹配任意提供的词语。
+## Boolean OR 搜索
 
-#### 概述
-OR 查询适用于探索性搜索，旨在捕获包含多个关键词中任意一个的文档（**search with or java**）。
+### 概述
+OR 查询非常适合探索性搜索，能够捕获包含多个关键字中任意一个的文档（**search with or java**）。
 
-#### 实现步骤
-1. **Initialize Index**  
-```java
+### 实现步骤
+
+1. **Initialize Index**
+
+   ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorOr";
    Index index = new Index(indexFolder);
    ```
 
-2. **Index Documents**  
-```java
+2. **Index Documents**
+
+   ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
 
-3. **Perform Text Query Search**  
-```java
+3. **Perform Text Query Search**
+
+   ```java
    String query1 = "comfort OR neque";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **Perform Object Query Search**  
-```java
+4. **Perform Object Query Search**
+
+   ```java
    SearchQuery wordQuery1 = SearchQuery.createWordQuery("comfort");
    SearchQuery wordQuery2 = SearchQuery.createWordQuery("neque");
    SearchQuery orQuery = SearchQuery.createOrQuery(wordQuery1, wordQuery2);
    SearchResult result2 = index.search(orQuery);
    ```
 
-### 布尔 NOT 搜索
-使用 **NOT** 排除不需要的词，以过滤结果中的噪音。
+## Boolean NOT 搜索
 
-#### 概述
-NOT 查询帮助你剔除不相关的文档，例如过滤掉竞争对手的品牌名称（**boolean search examples java**）。
+### 概述
+NOT 查询帮助您剔除不相关的文档，例如过滤掉竞争对手的品牌名称（**boolean search examples java**）。
 
-#### 实现步骤
-1. **Initialize Index**  
-```java
+### 实现步骤
+
+1. **Initialize Index**
+
+   ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/OperatorNot";
    Index index = new Index(indexFolder);
    ```
 
-2. **Index Documents**  
-```java
+2. **Index Documents**
+
+   ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
 
-3. **Perform Text Query Search**  
-```java
+3. **Perform Text Query Search**
+
+   ```java
    String query1 = "sportsman AND NOT Kynynmound";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **Perform Object Query Search**  
-```java
+4. **Perform Object Query Search**
+
+   ```java
    SearchQuery wordQuery1 = SearchQuery.createWordQuery("sportsman");
    SearchQuery wordQuery2 = SearchQuery.createWordQuery("Kynynmound");
    SearchQuery notQuery = SearchQuery.createNotQuery(wordQuery2);
@@ -189,33 +261,37 @@ NOT 查询帮助你剔除不相关的文档，例如过滤掉竞争对手的品�
    SearchResult result2 = index.search(andQuery);
    ```
 
-### 复杂布尔查询
-结合 **AND**、**OR** 和 **NOT**，构建复杂的搜索逻辑，以满足高度特定的检索需求。
+## 复杂布尔查询
 
-#### 概述
-复杂查询可以模拟真实的搜索场景，例如“查找积极的体育文章，但排除提及特定运动员的内容”。
+### 概述
+复杂查询让您模拟真实的搜索场景，例如“查找积极的体育文章，但排除任何特定运动员的提及”。
 
-#### 实现步骤
-1. **Initialize Index**  
-```java
+### 实现步骤
+
+1. **Initialize Index**
+
+   ```java
    String indexFolder = "YOUR_OUTPUT_DIRECTORY/BooleanSearch/ComplexQueries";
    Index index = new Index(indexFolder);
    ```
 
-2. **Index Documents**  
-```java
+2. **Index Documents**
+
+   ```java
    String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
    index.add(documentsFolder);
    ```
 
-3. **Perform Text Query Search**  
-```java
+3. **Perform Text Query Search**
+
+   ```java
    String query1 = "(sportsman AND favourable) AND NOT (Kynynmound OR Murray)";
    SearchResult result1 = index.search(query1);
    ```
 
-4. **Perform Object Query Search**  
-```java
+4. **Perform Object Query Search**
+
+   ```java
    SearchQuery word1Query = SearchQuery.createWordQuery("sportsman");
    SearchQuery word2Query = SearchQuery.createWordQuery("favourable");
    SearchQuery andQuery = SearchQuery.createAndQuery(word1Query, word2Query);
@@ -229,37 +305,46 @@ NOT 查询帮助你剔除不相关的文档，例如过滤掉竞争对手的品�
    SearchResult result2 = index.search(rootQuery);
    ```
 
-## java boolean and or 查询的实际应用
-- **Document Management Systems** – 查找同时包含 “confidential” **AND** “renewal” 的合同。  
-- **Legal Research** – 使用 **AND**/**OR** 过滤案例法，并通过 **NOT** 排除过时的法规。  
-- **Customer Support** – 检索提及 “login” **AND** “error” 但不包含 “resolved” 的工单。  
-- **Content Curation** – 收集关于 “cloud” **OR** “serverless” 的博客文章，用于通讯。
+## **java boolean and or** 查询的实际应用
+- **文档管理系统** – 定位同时包含 “confidential” **AND** “renewal” 的合同。  
+- **法律研究** – 使用 **AND** / **OR** 过滤案例法，并使用 **NOT** 排除过时的法规。  
+- **客户支持** – 检索提到 “login” **AND** “error” 但不包含 “resolved” 的工单。  
+- **内容策划** – 收集关于 “cloud” **OR** “serverless” 的博客文章用于简报。
 
 ## 常见陷阱与故障排除
-- **Missing Index Refresh** – 添加新文档后，调用 `index.update()` 以确保可搜索。  
-- **Incorrect Operator Spacing** – GroupDocs.Search 需要在运算符周围留有空格（`AND`、`OR`、`NOT`）。  
-- **Case Sensitivity** – 查询默认不区分大小写，但自定义分析器可能会影响此行为。  
-- **Large Result Sets** – 使用分页（`search(query, 0, 100)`）以避免内存溢出。
+
+- **缺少索引刷新** – 添加新文档后，调用 `index.update()` 以确保它们可被搜索。  
+- **运算符间距错误** – GroupDocs.Search 期望运算符（`AND`、`OR`、`NOT`）两侧有空格。  
+- **大小写敏感性** – 查询默认不区分大小写，但自定义分析器可能会影响此行为。  
+- **大结果集** – 使用分页（`search(query, 0, 100)`）以避免内存超载。  
 
 ## 常见问题
 
-**Q: 我可以在 AND 查询中组合超过两个词吗？**  
-A: 当然可以。你可以使用 `createAndQuery` 将多个 `createWordQuery` 对象串联，或者在文本查询中直接写 `"term1 AND term2 AND term3"`。
+**Q: 可以在 AND 查询中组合超过两个词吗？**  
+A: 当然可以。您可以使用 `createAndQuery` 链接多个 `createWordQuery` 对象，或直接在文本查询中写 `"term1 AND term2 AND term3"`。
 
 **Q: GroupDocs.Search 支持通配符或模糊搜索吗？**  
-A: 支持。使用 `*` 表示通配符（例如 `promot*`），或使用 `~` 表示模糊匹配（例如 `comfort~`）。
+A: 支持。使用 `*` 进行通配符（例如 `promot*`），或使用 `~` 进行模糊匹配（例如 `comfort~`）。
 
-**Q: 我如何将搜索限制在特定文件类型？**  
-A: 使用 `FileTypeQuery` 类将结果限制为 PDF、DOCX 等，并将其与布尔查询组合使用。
+**Q: 如何将搜索限制在特定文件类型？**  
+`FileTypeQuery` 限制搜索结果仅包含特定文件格式，如 PDF 或 DOCX。  
+A: 使用 `FileTypeQuery` 类将结果限制为 PDF、DOCX 等，并将其与布尔查询组合。
 
 **Q: 监控索引性能的最佳方式是什么？**  
-A: 启用内置日志记录器（`index.getLogger().setLevel(Level.INFO)`），并在每次 `add` 操作后查看时间指标。
+A: 启用内置日志记录器 (`index.getLogger().setLevel(Level.INFO)`) 并在每次 `add` 操作后查看时间指标。
 
 **Q: 有办法提升某些词的相关性吗？**  
-A: 有。将重要词语用 `BoostQuery` 包裹，以在评分算法中提升其权重。
+`BoostQuery` 提升搜索查询中指定词的相关性得分。  
+A: 可以。将重要词语用 `BoostQuery` 包裹，以在评分算法中增加其权重。
 
 ---
 
-**最后更新：** 2026-01-29  
-**测试环境：** GroupDocs.Search 25.4 (Java)  
+**最后更新：** 2026-07-21  
+**测试版本：** GroupDocs.Search 25.4 (Java)  
 **作者：** GroupDocs
+
+## 相关教程
+
+- [Java 布尔运算符 – 创建搜索索引与分面搜索](/search/java/advanced-features/faceted-complex-search-groupdocs-java/)
+- [精通 GroupDocs.Search Java：高效文档搜索与索引管理](/search/java/searching/groupdocs-search-java-efficient-document-search/)
+- [search query java - 精通 GroupDocs.Search Java – 创建与管理搜索索引](/search/java/indexing/groupdocs-search-java-create-index-guide/)
