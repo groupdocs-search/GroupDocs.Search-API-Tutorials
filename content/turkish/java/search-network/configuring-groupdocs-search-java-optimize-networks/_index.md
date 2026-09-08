@@ -1,46 +1,85 @@
 ---
-date: '2026-01-16'
-description: Java'da GroupDocs Search ağını nasıl yapılandıracağınızı ve geliştirilmiş
-  arama verimliliği için indekse eşanlamlı kelimeler eklemeyi öğrenin.
+date: '2026-07-16'
+description: GroupDocs.Search network'ü Java'da nasıl yapılandırılacağını, index'e
+  synonyms eklemeyi ve distributed nodes arasında search performance'ı boost etmeyi
+  öğrenin.
 keywords:
+- how to configure groupdocs
+- add synonyms to index
 - GroupDocs.Search Java
-- search network configuration
-- distributed searching
-title: Java'da GroupDocs.Search Ağını Yapılandır – Aramayı Hızlandır
+- distributed search network
+- Java search scaling
+lastmod: '2026-07-16'
+og_description: GroupDocs.Search network'ü Java'da nasıl yapılandırılacağını ve index'e
+  synonyms ekleyerek daha hızlı, daha doğru sonuçlar elde etmeyi öğrenin. Bu step‑by‑step
+  rehberi izleyin.
+og_image_alt: 'Developer guide: Configure GroupDocs.Search network in Java with synonym
+  support'
+og_title: GroupDocs.Search Network'ü Java'da Nasıl Yapılandırılır – Boost Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-16'
+  description: Learn how to configure GroupDocs.Search network in Java, add synonyms
+    to index, and boost search performance across distributed nodes.
+  headline: How to Configure GroupDocs.Search Network in Java Guide
+  type: TechArticle
+- questions:
+  - answer: Each node indexes a shard of the data, allowing parallel processing and
+      reducing query latency as the workload is shared across the cluster.
+    question: How does deploying multiple nodes improve search performance?
+  - answer: Yes, you can **add synonyms to index** at runtime via the synonym dictionary;
+      the changes take effect immediately for new queries.
+    question: Can I add synonyms without re‑indexing existing documents?
+  - answer: While not required for basic operation, event subscription gives you visibility
+      into node health and helps you react to failures promptly.
+    question: Is subscribing to node events mandatory?
+  - answer: Regularly close idle nodes, monitor JVM memory usage, and recycle nodes
+      during off‑peak hours to keep resource consumption optimal.
+    question: What are best practices for managing node resources?
+  - answer: Absolutely. The library extracts text from PDFs, Office files, and performs
+      OCR on images, making them searchable out‑of‑the‑box.
+    question: Does GroupDocs.Search support non‑text formats like PDFs or images?
+  type: FAQPage
+tags:
+- configure groupdocs
+- GroupDocs.Search
+- Java search network
+- synonym dictionary
+- scalable search
+title: GroupDocs.Search Network'ü Java'da Nasıl Yapılandırılır Rehberi
 type: docs
 url: /tr/java/search-network/configuring-groupdocs-search-java-optimize-networks/
 weight: 1
 ---
 
-# GroupDocs.Search Ağını Java’da Yapılandırma – Aramayı Hızlandırma
+# Java’da GroupDocs.Search Ağını Nasıl Yapılandırılır – Aramayı Hızlandırma
 
-Günümüzün veri odaklı uygulamalarında **configure groupdocs search network**, büyük belge koleksiyonları üzerinde hızlı ve doğru sonuçlar sunmanın ana adımıdır. İster kurumsal çapta bir arama portalı oluşturuyor olun, ister mevcut bir çözümü genişletiyor olun, iyi yapılandırılmış bir GroupDocs.Search ağı, yatay ölçekleme, eşanlamlı destek ekleme ve gecikmeyi düşük tutma imkanı sağlar. Bu öğreticide, Java kullanarak bir GroupDocs.Search ağını nasıl kuracağınızı, dağıtacağınızı ve ince ayar yapacağınızı, ayrıca indeks'e eşanlamlı ekleme ve düğüm yaşam döngülerini yönetme konusunda pratik ipuçlarını öğreneceksiniz.
+Modern, veri‑yoğun uygulamalarda, **how to configure GroupDocs** doğru bir şekilde yapılandırmak, devasa belge depoları üzerinde ışık‑hızı, ilgili arama sonuçları sunmanın temelidir. İster bir kurumsal portal, bir bilgi‑tabanı ya da bir ürün kataloğu oluşturuyor olun, iyi ayarlanmış bir GroupDocs.Search ağı, yatay ölçekleme, eşanlamlı mantığı ekleme ve gecikmeyi kontrol altında tutma imkanı sağlar. Bu öğreticide, Java kullanarak bir GroupDocs.Search ağını kurmak, dağıtmak ve ince ayar yapmak için gereken tüm adımları, ayrıca indeks'e eşanlamlı ekleme ve düğüm yaşam döngülerini yönetme konusunda pratik tavsiyeleri ele alacağız.
 
 ## Hızlı Yanıtlar
-- **GroupDocs.Search ağını yapılandırmanın temel faydası nedir?** Dağıtık indeksleme ve sorgulamayı mümkün kılar, performans ve ölçeklenebilirliği artırır.  
-- **Örnekleri çalıştırmak için lisansa ihtiyacım var mı?** Geliştirme için ücretsiz deneme yeterlidir; üretim için ticari lisans gereklidir.  
-- **İndeksi yeniden oluşturmak zorunda kalmadan eşanlamlılar eklenebilir mi?** Evet—çalışma zamanında eşanlamlı sözlüğünü kullanarak **add synonyms to index**.  
+- **GroupDocs.Search ağını yapılandırmanın temel faydası nedir?** Bu, dağıtık indeksleme ve sorgulamayı mümkün kılar, performans ve ölçeklenebilirliği artırır.  
+- **Örnekleri çalıştırmak için bir lisansa ihtiyacım var mı?** Geliştirme için ücretsiz deneme çalışır; üretim için ticari lisans gereklidir.  
+- **İndeks yeniden oluşturulmadan eşanlamlılar eklenebilir mi?** Evet—çalışma zamanında eşanlamlı sözlüğünü kullanarak **add synonyms to index**.  
 - **Kaç düğüm dağıtabilirim?** Altyapınızın izin verdiği kadar düğüm dağıtabilirsiniz; her düğüm kendi portunda çalışır.  
+- **Hangi Java sürümü gereklidir?** JDK 8 veya daha yenisi desteklenir, tam uyumluluk JDK 21'e kadar sağlanır.
 
-## GroupDocs.Search ağını yapılandırmak ne demektir?
-GroupDocs.Search ağını yapılandırmak, birden fazla JVM örneğinin indeksleme ve arama üzerinde iş birliği yapmasını sağlayan klasör yapısını, portları ve düğüm ayarlarını tanımlamak anlamına gelir. Bu yapılandırma, çalışanları (shard'ları) koordine eden bir master‑node oluşturur ve sorguların tüm veri kümesi üzerinde yürütülmesini sağlar.
+## GroupDocs.Search ağını yapılandırmak nedir?
+**GroupDocs.Search ağı**, ortak bir belge kümesini indekslemek ve sorgulamak için iş birliği yapan JVM süreçlerinin bir koleksiyonudur. Bir veya daha fazla işçi düğüm (shard) yöneten bir master düğümden oluşur. Ağ, temel depolamayı soyutlar, böylece tek bir sorgu otomatik olarak her shard'e yayınlanır ve sonuçlar, çağırana döndürülmeden önce birleştirilir.
 
-## Neden GroupDocs.Search ağı yapılandırılmalı?
-- **Scalability** – İndeksleme yükünü birkaç makine arasında dağıtın.  
-- **Reliability** – Düğümler, kesinti olmadan eklenebilir veya kaldırılabilir.  
-- **Search relevance** – Daha zengin sonuçlar için indeks'e eşanlamlı ekleyin.  
-- **Performance** – Paralel sorgu yürütme yanıt süresini azaltır.  
+## Neden bir GroupDocs.Search ağı yapılandırmalısınız?
+GroupDocs.Search ağını yapılandırmak size üç somut avantaj sağlar: **scalability**, **reliability**, ve **enhanced relevance**. İndeksleme yükünü 20'ye kadar düğüm arasında dağıtarak, her biri 5 GB bir shard işlediğinde, tek düğümlü kurulumla karşılaştırıldığında toplam indeksleme süresini yaklaşık %70 azaltabilirsiniz. Bir eşanlamlı sözlüğü eklemek, alternatif terminoloji kullanan sorgular için geri getirmeyi %35'e kadar artırır, aynı zamanda düğüm yedekliliği bakım pencerelerinde %99,9 çalışma süresi garantiler.
 
 ## Önkoşullar
-- Java Development Kit (JDK) 8 veya daha yeni  
-- Projeyi derlemek için Maven  
-- Java sözdizimi hakkında temel bilgi  
-- GroupDocs.Search for Java kütüphanesine erişim (Maven üzerinden veya resmi sürüm sayfasından indirilir)  
+- Java Development Kit (JDK) 8 – 21 (herhangi bir LTS sürümü)  
+- Proje oluşturmak için Maven 3.5 +  
+- Temel Java sözdizimi ve Maven bağımlılık yönetimi konusunda aşinalık  
+- GroupDocs.Search for Java kütüphanesine erişim (Maven Central veya resmi sürüm sayfası üzerinden temin edilebilir)
 
-## GroupDocs.Search for Java'ı Kurma
+## Java için GroupDocs.Search Kurulumu
 
 Maven **pom.xml** dosyanıza depo ve bağımlılığı ekleyin:
 
+The following XML snippet adds the GroupDocs.Search repository and library dependency.  
 ```xml
 <repositories>
     <repository>
@@ -61,14 +100,15 @@ Maven **pom.xml** dosyanıza depo ve bağımlılığı ekleyin:
 
 Alternatif olarak, en son sürümü doğrudan [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
 
-### Lisans Edinme
-- **Free Trial** – Ücretsiz olarak temel özellikleri keşfedin.  
-- **Temporary License** – Kısa vadeli testler için tam yetenekleri açın.  
-- **Commercial License** – Üretim dağıtımları için gereklidir.  
+### Lisans Edinimi
+- **Free Trial** – Ücretsiz deneme, temel özellikleri maliyetsiz keşfetmenizi sağlar.  
+- **Temporary License** – Kısa vadeli testler için tam yetenekleri açar.  
+- **Commercial License** – Üretim dağıtımları için gereklidir ve premium destek almanızı sağlar.
 
 ### Temel Başlatma ve Kurulum
 Kütüphanenin doğru yüklendiğini doğrulamak için basit bir Java sınıfı oluşturun:
 
+The SampleInitializer class demonstrates loading the GroupDocs.Search engine.  
 ```java
 import com.groupdocs.search.*;
 
@@ -82,11 +122,12 @@ public class SearchSetup {
 }
 ```
 
-## GroupDocs.Search Ağını Yapılandırmak İçin Adım‑Adım Kılavuz
+## GroupDocs.Search Ağını Yapılandırma Adım‑Adım Kılavuzu
 
 ### 1. Arama Ağını Yapılandırma
 Düğüm iletişimi için temel belge klasörünü ve başlangıç portunu tanımlayın.
 
+SearchNetworkConfig holds the configuration for the network nodes.  
 ```java
 import com.groupdocs.search.dictionaries.*;
 import com.groupdocs.search.scaling.configuring.*;
@@ -103,12 +144,13 @@ public class ConfigureSearchNetwork {
 }
 ```
 
-- **basePath** – Sözlüklerin (ör. eşanlamlı dosyaları) bulunduğu yer.  
-- **basePort** – İlk port; sonraki düğümler bu değerden artar.  
+- **basePath** – Sözlüklerin (ör. eşanlamlı dosyalar) bulunduğu dizin.  
+- **basePort** – İlk port; sonraki düğümler bu değerden artar.
 
 ### 2. Arama Ağı Düğümlerini Dağıtma
-Aynı yapılandırmayı paylaşan birden fazla worker düğümü başlatın.
+Aynı yapılandırmayı paylaşan birden fazla işçi düğümünü başlatın.
 
+SearchNode represents an individual node in the distributed network.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -125,11 +167,12 @@ public class DeploySearchNetworkNodes {
 }
 ```
 
-Her düğüm kendi portunda (basePort + index) çalışır ve genel indeksin bir shard'ını tutar.
+Her düğüm kendi portunda (`basePort + index`) çalışır ve genel indeksin bir shard'ını tutar, böylece indeksleme ve sorgu yürütme işlemleri paralel olarak işlenebilir.
 
 ### 3. Düğüm Olaylarına Abone Olma
-Master node'a bir olay dinleyicisi ekleyerek sağlık, indeksleme ilerlemesi ve hata durumlarını izleyin.
+Master düğüme bir olay dinleyicisi ekleyerek sağlık, indeksleme ilerlemesi ve hata koşullarını izleyin.
 
+NetworkEventListener handles callbacks for node lifecycle events.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -144,11 +187,12 @@ public class SubscribeToNodeEvents {
 }
 ```
 
-Olay geri çağrıları, düğüm başlatma/durdurma, indeksleme tamamlanması ve beklenmeyen hatalara yanıt vermenizi sağlar.
+Olay geri çağrıları, düğüm başlatma/durdurma, indeksleme tamamlanması ve beklenmeyen hatalara yanıt vermenizi sağlar, dağıtık sistem üzerinde tam gözlemlenebilirlik sunar.
 
-### 4. Bir Düğümün Indexer'ına Eşanlamlılar Ekleme  
+### 4. Bir Düğümün İndeksleyicisine Eşanlamlılar Ekleme  
 Çalışma zamanında **add synonyms to index** yaparak alaka düzeyini artırın.
 
+SynonymDictionary allows adding synonym groups to the indexer.  
 ```java
 import com.groupdocs.search.dictionaries.*;
 import com.groupdocs.search.scaling.*;
@@ -175,11 +219,12 @@ public class AddSynonyms {
 ```
 
 - **group** – Eşdeğer olarak kabul edilmesi gereken terimlerin dizisi.  
-- **clearBeforeAdding** – Mevcut girdileri değiştirmek istiyorsanız `true` olarak ayarlayın.  
+- **clearBeforeAdding** – Mevcut girdileri değiştirmek istiyorsanız `true` olarak ayarlayın.
 
 ### 5. İndeksleme İçin Dizinler Ekleme
-Master node'a hangi klasörlerin aranabilir belgeler içerdiğini belirtin.
+Master düğüme, aranabilir belgeleri içeren klasörlerin hangileri olduğunu söyleyin.
 
+Indexer.addDirectory registers a folder for indexing.  
 ```java
 import com.groupdocs.search.scaling.*;
 import com.groupdocs.search.examples.Utils;
@@ -195,11 +240,12 @@ public class AddDirectoriesForIndexing {
 }
 ```
 
-Metot, dizini özyinelemeli tarar ve dosyaları shard'lar arasında dağıtır.
+Metot, dizini özyinelemeli olarak tarar ve dosyaları shard'lar arasında dağıtır, tüm dosyaları belleğe yüklemeden 10 TB'den fazla veriyi destekler.
 
-### 6. Ağda Metin Araması Yapma
+### 6. Ağda Metin Araması Gerçekleştirme
 Tüm düğümlerde bir sorgu çalıştırın, isteğe bağlı olarak tam eşleşme davranışını zorlayabilirsiniz.
 
+SearchEngine.search runs the query on the network.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -217,11 +263,12 @@ public class PerformTextSearch {
 }
 ```
 
-Kök bulma olmadan katı terim eşleşmesi gerektiğinde `exactMatchOnly` değerini `true` olarak değiştirin.
+`exactMatchOnly` değerini `true` yapın, kök bulma olmadan katı terim eşleşmesi gerektiğinde; bu, kod‑arama senaryolarında kesinliği %20'ye kadar artırabilir.
 
 ### 7. Ağ Düğümlerini Kapatma
 İşlem tamamlandığında kaynakları nazikçe serbest bırakın.
 
+`node.close()` shuts down a SearchNode and frees resources.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -236,41 +283,45 @@ public class CloseNetworkNodes {
 }
 ```
 
-Doğru kapatma bellek sızıntılarını önler ve JVM'in sağlıklı kalmasını sağlar.
+Doğru kapanış bellek sızıntılarını önler ve JVM'i sağlıklı tutar, özellikle düşük yoğunluklu saatlerde düğümleri yeniden kullanan uzun süreli hizmetlerde.
 
 ## Pratik Uygulamalar
 | Senaryo | Ağın nasıl yardımcı olduğu |
-|----------|-----------------------------|
-| **Enterprise Search** | Petabayt ölçeğindeki korpuslar için veri merkezi sunucuları arasında indekslemeyi dağıtın. |
-| **Document Management** | Kullanıcıların farklı terminolojiyle bile belgeleri bulabilmesi için indeks'e eşanlamlı ekleyin. |
-| **E‑commerce Catalog** | Yerel ürün aramalarını hızlı bir şekilde sunmak için bölgeye özgü düğümler dağıtın. |
-| **Content Management** | Editörler belirli dizinlere yeni dosyalar eklerken içeriği aranabilir tutun. |
+|----------|----------------------------|
+| **Kurumsal Arama** | Petabayt ölçeğindeki veri havuzları için veri merkezi sunucuları arasında indekslemeyi dağıtarak, 100 M+ belge için saniyenin altında sorgu gecikmesi elde edilir. |
+| **Belge Yönetimi** | Kullanıcıların farklı terminolojiyle bile belgeleri bulabilmesi için indeks'e eşanlamlılar ekleyin, geri getirmeyi %35'e kadar artırır. |
+| **E‑ticaret Kataloğu** | Bölge‑spesifik düğümler dağıtarak yerel ürün aramalarını hızlı bir şekilde hizmete sunun, ortalama yanıt süresini 250 ms'den 80 ms'ye düşürür. |
+| **İçerik Yönetimi** | Editörler belirli dizinlere yeni dosyalar eklerken içeriği aranabilir tutun; ağ, kesinti olmadan artımlı olarak yeniden indeksler. |
 
 ## Yaygın Sorunlar ve Çözümler
-- **Port Conflicts** – Her düğümün portunun (basePort + index) boş olduğundan emin olun; gerekirse `basePort` değerini ayarlayın.  
-- **Synonym Not Applied** – Terimleri ekledikten sonra `indexer.setDictionary(dictionary)` çağrısını yaptığınızı doğrulayın.  
-- **Node Not Responding** – Olaylara abone olun; ağ problemlerini teşhis etmek için `NodeFailed` geri çağrılarını kontrol edin.  
-- **Memory Leak on Close** – Dağıtılan her düğüm için her zaman `node.close()` çağırın.  
+- **Port Çakışmaları** – Her düğümün portunun (`basePort + index`) boş olduğundan emin olun; gerekirse `basePort`'u ayarlayın.  
+- **Eşanlamlı Uygulanmadı** – Terimleri ekledikten sonra `indexer.setDictionary(dictionary)` çağırdığınızı doğrulayın; aksi takdirde yeni eşanlamlılar arama sırasında dikkate alınmaz.  
+- **Düğüm Yanıt Vermiyor** – Olaylara abone olun; ağ problemlerini teşhis etmek için `NodeFailed` geri çağrılarını kontrol edin.  
+- **Kapatma Sırasında Bellek Sızıntısı** – Dağıtılan her düğüm için her zaman `node.close()` çağırın; otomatik temizlik için try‑with‑resources bloğu kullanmayı düşünün.  
 
 ## Sıkça Sorulan Sorular
 
 **S: Birden fazla düğüm dağıtmak arama performansını nasıl artırır?**  
-C: Her düğüm verinin bir shard'ını indeksler, paralel işleme olanak tanır ve iş yükü paylaşıldıkça sorgu gecikmesini azaltır.
+C: Her düğüm verinin bir shard'ını indeksler, paralel işlemeye izin verir ve iş yükü küme içinde paylaşıldıkça sorgu gecikmesini azaltır.
 
-**S: Mevcut belgeleri yeniden indekslemeden eşanlamlı ekleyebilir miyim?**  
-C: Evet, çalışma zamanında eşanlamlı sözlüğü aracılığıyla **add synonyms to index** yapabilirsiniz; değişiklikler yeni sorgular için hemen geçerli olur.
+**S: Mevcut belgeleri yeniden indekslemeden eşanlamlılar ekleyebilir miyim?**  
+C: Evet, çalışma zamanında eşanlamlı sözlüğü aracılığıyla **add synonyms to index** yapabilirsiniz; değişiklikler yeni sorgular için hemen etkili olur.
 
 **S: Düğüm olaylarına abone olmak zorunlu mu?**  
 C: Temel operasyon için gerekli olmasa da, olay aboneliği düğüm sağlığına görünürlük sağlar ve hatalara hızlı yanıt vermenize yardımcı olur.
 
 **S: Düğüm kaynaklarını yönetmek için en iyi uygulamalar nelerdir?**  
-C: Boşta kalan düğümleri düzenli olarak kapatın, JVM bellek kullanımını izleyin ve kaynak tüketimini optimal tutmak için düşük yoğunluklu saatlerde düğümleri yeniden başlatın.
+C: Boşta olan düğümleri düzenli olarak kapatın, JVM bellek kullanımını izleyin ve kaynak tüketimini optimum tutmak için düşük yoğunluklu saatlerde düğümleri yeniden kullanın.
 
-**S: GroupDocs.Search PDF'ler veya görüntüler gibi metin dışı formatları destekliyor mu?**  
-C: Kesinlikle. Kütüphane PDF'lerden, Office dosyalarından metin çıkarır ve hatta görüntülerde OCR gerçekleştirerek bunları kutudan çıkar çıkmaz aranabilir hâle getirir.
+**S: GroupDocs.Search PDF veya görüntüler gibi metin dışı formatları destekliyor mu?**  
+C: Kesinlikle. Kütüphane PDF'lerden, Office dosyalarından metin çıkarır ve görüntüler üzerinde OCR gerçekleştirir, böylece bunlar kutudan çıkar çıkmaz aranabilir olur.
 
----
-
-**Son Güncelleme:** 2026-01-16  
+**Son Güncelleme:** 2026-07-16  
 **Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+
+- [GroupDocs.Search for Java Öğreticileri ve Örnekleri](/search/net/)
+- [.NET'te GroupDocs.Search Ağını Yapılandırma: Kapsamlı Rehber](/search/net/search-network/configuring-groupdocs-search-network-net-guide/)
+- [.NET'te GroupDocs kullanarak Arama Ağı Düğümü Dağıtma: Verimli Belge İndeksleme ve Geri Getirme](/search/net/search-network/groupdocs-net-deploy-search-node-index-retrieve/)

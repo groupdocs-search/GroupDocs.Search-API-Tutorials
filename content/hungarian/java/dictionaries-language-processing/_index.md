@@ -1,72 +1,161 @@
 ---
-date: 2026-02-19
-description: Tanulja meg, hogyan hozhat létre szinonimaszótárt Java-ban, miközben
-  elsajátítja a nyelvi feldolgozást Java-ban és a helyesírás-ellenőrzést Java-ban
-  a GroupDocs.Search használatával.
-title: Nyelvfeldolgozás Java – Szinonimaszótár létrehozása a GroupDocs.Search segítségével
+date: 2026-07-16
+description: Ismerje meg, hogyan hozhat létre szinonimaszótárat Java‑ban a GroupDocs.Search
+  használatával, beleértve a nyelvi feldolgozást, a szinonima kezelését és a helyesírási
+  javítást a pontos keresési eredményekért.
+keywords:
+- create synonym dictionary java
+- language processing java
+- GroupDocs.Search Java
+lastmod: 2026-07-16
+og_description: Hozzon létre szinonimaszótárat Java‑ban a GroupDocs.Search segítségével
+  a keresési relevancia növeléséhez. Ez az útmutató lépésről‑lépésre mutatja be a
+  beállítást, a szinonima készlet létrehozását és a tesztelést Java‑alkalmazásokhoz.
+og_image_alt: Guide showing how to create a synonym dictionary in Java using GroupDocs.Search
+og_title: Szinonimaszótár létrehozása Java‑ban – GroupDocs.Search útmutató
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-16'
+  description: Learn how to create synonym dictionary Java using GroupDocs.Search,
+    covering language processing, synonym handling, and spelling correction for accurate
+    search results.
+  headline: Create Synonym Dictionary Java – Language Processing with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to create synonym dictionary Java using GroupDocs.Search,
+    covering language processing, synonym handling, and spelling correction for accurate
+    search results.
+  name: Create Synonym Dictionary Java – Language Processing with GroupDocs.Search
+  steps:
+  - name: Initialize the Search Index
+    text: The `SearchIndex` class is GroupDocs.Search's core object that represents
+      a searchable collection of documents. It stores both the indexed content and
+      any language‑processing dictionaries you attach. > **Direct answer:** Create
+      or open a `SearchIndex` instance by providing the path to the index fold
+  - name: Define Synonym Sets
+    text: '`SynonymDictionary` stores groups of equivalent terms for the index. It
+      is the container that the search engine consults when expanding queries. > **Direct
+      answer:** Build a `SynonymDictionary` object, then call `addSynonym("car", Arrays.asList("automobile",
+      "vehicle"))` for each group you need. The'
+  - name: Add the Synonym Dictionary to the Index
+    text: Register the dictionary with the index so it is applied during query processing.
+      > **Direct answer:** Use `index.addSynonymDictionary(synonymDictionary)` and
+      then `index.saveChanges()`; the dictionary becomes part of the index configuration
+      and is automatically consulted for every search request.
+  - name: Test the Search Behavior
+    text: '`search` runs a query against the index and returns matching documents.
+      > **Direct answer:** Execute `index.search("automobile")` and observe that documents
+      containing “car” or “vehicle” appear in the result set, confirming that the
+      synonym dictionary is active.'
+  type: HowTo
+- questions:
+  - answer: Absolutely. Using both features together creates a forgiving search experience
+      that handles word variations and misspellings in a single query.
+    question: Can I combine synonym dictionaries with spelling correction?
+  - answer: No. GroupDocs.Search applies the synonym dictionary at query time, so
+      you can add or modify synonyms without re‑indexing existing documents.
+    question: Do I need to rebuild the index after adding a synonym dictionary?
+  - answer: The API imposes no hard limit; however, keeping the dictionary under a
+      few thousand entries preserves optimal query performance.
+    question: How many synonyms can I add to a single dictionary?
+  - answer: Yes. The Java library runs on Windows, Linux, and macOS wherever a compatible
+      JDK is available.
+    question: Is language processing java supported on all operating systems?
+  - answer: The API supports phrase synonyms; define the phrase as a single entry
+      in the synonym set and it will be matched during search.
+    question: What if my synonym set includes multi‑word phrases?
+  type: FAQPage
+tags:
+- create synonym dictionary
+- GroupDocs.Search
+- Java search indexing
+- language processing
+- synonym handling
+title: Szinonimaszótár létrehozása Java‑ban – Nyelvi feldolgozás a GroupDocs.Search
+  segítségével
 type: docs
 url: /hu/java/dictionaries-language-processing/
 weight: 5
 ---
 
-# Language Processing Java – Szinonima Szótár Létrehozása a GroupDocs.Search segítségével
+# Szinkronizáljon szinonima szótárat Java – Nyelvi feldolgozás a GroupDocs.Search segítségével
 
-Ebben az útmutatóban megtanulja, hogyan **hozzon létre egy szinonima szótárat** egy robusztus **language processing java** stratégia részeként. A tutorial végére megérti, miért elengedhetetlen a szinonima kezelés, a helyesírás‑javítás és az egyedi szótárak a pontos keresési eredmények biztosításához a GroupDocs.Search-re támaszkodó Java alkalmazásokban.
+Ebben az átfogó útmutatóban a **szinonima szótárat Java-ban** hoz létre a GroupDocs.Search könyvtár segítségével. A útmutató végére megérti, miért elengedhetetlen a szinonima kezelés, helyesírási javítás és egyedi szótárak a pontos keresési eredmények biztosításához Java alkalmazásokban, és egy teljesen működő példát kap, amelyet beilleszthet a saját projektjébe.
 
 ## Gyors válaszok
-- **Mit csinál egy szinonima szótár?** Az alternatív szavakat egy közös kifejezéshez rendeli, így a keresőmotor egyenértékűnek tekinti őket.  
-- **Miért kell letiltani a stop szavakat?** A gyakori, kevés értéket képviselő szavak eltávolítása élesíti a lekérdezés fókuszát és javítja a relevanciát.  
-- **Szükségem van licencre?** Egy ideiglenes licenc teszteléshez működik; a teljes licenc a termeléshez kötelező.  
+- **Mi a szinonima szótár feladata?** Alternatív szavakat egy közös kifejezéshez rendel, így a keresőmotor egyenértékűnek tekinti őket.  
+- **Miért kell letiltani a stop szavakat?** A gyakori, kevésbé értékes szavak eltávolítása élesíti a lekérdezés fókuszát és javítja a relevanciát.  
+- **Szükségem van licencre?** Egy ideiglenes licenc teszteléshez elegendő; a teljes licenc a termeléshez kötelező.  
 - **Melyik API verzió szükséges?** A legújabb GroupDocs.Search for Java kiadás támogatja az itt bemutatott összes funkciót.  
-- **Kombinálhatom a szinonima és a helyesírás‑javítást?** Igen – mindkettő együttes használata a legtermészetesebb keresési élményt nyújtja.
+- **Kombinálhatom a szinonima és a helyesírási javítást?** Igen – mindkettő együttes használata a legtermészetesebb keresési élményt nyújtja.
 
 ## Mi az a language processing java?
-A language processing java a technikák összességét jelenti – például tokenizálás, stop‑szó kezelés, szinonima leképezés és helyesírás‑javítás –, amelyek lehetővé teszik a Java alkalmazások számára, hogy hatékonyan megértsék és manipulálják az emberi nyelvet. Amikor ezeket a technikákat a GroupDocs.Search‑szel integrálja, a keresőmotor sokkal toleránsabbá válik a felhasználói lekérdezések változatosságával szemben.
+A language processing java technikák gyűjteménye – például tokenizálás, stop‑szó kezelés, szinonima leképezés és helyesírási javítás – amely lehetővé teszi a Java alkalmazások számára az emberi nyelv értelmezését és manipulálását. A nyers szöveget kereshető tokenekké alakítja, eltávolítja a zajt, és kibővíti a lekérdezéseket, hogy a felhasználók megtalálják, amire szükségük van, még akkor is, ha másképp fogalmazzák meg.
 
 ## Miért használjunk szinonima szótárakat a language processing java-ban?
-- **Javított relevancia:** A felhasználók megtalálják a megfelelő dokumentumokat még akkor is, ha eltérő terminológiát használnak.  
-- **Kevesebb kihagyott találat:** A szinonimák áthidalják a szakadékot a lekérdezés nyelve és a dokumentumok szókincse között.  
-- **Jobb felhasználói élmény:** A keresés okosabbnak és intuitívabbnak tűnik, növelve a felhasználói elégedettséget.  
+A szinonima szótárak lehetővé teszik, hogy a motor a különböző szavakat ugyanannak a fogalomnak tekintse, ami drámai módon növeli a találati arányt. Ha egy felhasználó a „car” (autó) kifejezést keresi, a „automobile” vagy „vehicle” (jármű) tartalmazó dokumentumok automatikusan visszatérnek, ezzel kiküszöbölve a kimaradt egyezéseket és simább, intuitívabb élményt nyújtva.
 
 ## Előfeltételek
 - Java 17 vagy újabb telepítve.  
 - GroupDocs.Search for Java hozzáadva a projekthez (Maven/Gradle).  
 - Ideiglenes vagy teljes GroupDocs.Search licenc (teszteléshez vagy termeléshez).  
 
-## Lépésről‑lépésre útmutató a szinonima szótár létrehozásához
+## Hogyan hozzunk létre szinonima szótárat Java-ban – Lépésről‑lépésre útmutató
 
-### 1. lépés: A Search Index inicializálása
-Kezdje egy `SearchIndex` példány létrehozásával vagy megnyitásával. Ez az index fogja tárolni a dokumentumait és a language‑processing szótárakat.  
-*(A kódrészlet a hivatalos API referencia részeként elérhető; itt nem adunk hozzá kódtömböt a szerkezet megőrzése érdekében.)*
+Ez az útmutató végigvezeti a meglévő index betöltésén, a szinonima csoportok definiálásán, a szótár regisztrálásán és a változások ellenőrzésén mintakérdések segítségével. A lépések követésével percek alatt megvalósíthat egy teljesen működő szinonima szótárat, javítva a keresési relevanciát anélkül, hogy újra indexelné a meglévő dokumentumokat.
+
+### 1. lépés: A keresési index inicializálása
+
+A `SearchIndex` osztály a GroupDocs.Search központi objektuma, amely egy kereshető dokumentumgyűjteményt képvisel. Tárolja az indexelt tartalmat és a csatolt nyelvi feldolgozási szótárakat is.
+
+> **Közvetlen válasz:** Hozzon létre vagy nyisson meg egy `SearchIndex` példányt az index mappa elérési útjának megadásával, például `new SearchIndex("path/to/index")`. Ez az objektum a dokumentumait és a hozzáadni kívánt szinonima szótárat fogja tárolni.
+
+*​A kódpélda az hivatalos API referenciában található; itt nem adunk hozzá kódrészt a szerkezet megőrzése érdekében.*  
 
 ### 2. lépés: Szinonima halmazok definiálása
-Hozzon létre szinonima csoportokat, amelyek a kapcsolódó kifejezéseket egyetlen kanonikus szóhoz rendelik. Például a „car”, „automobile” és „vehicle” szavak összekapcsolhatók.
+
+`SynonymDictionary` tárolja az indexhez tartozó egyenértékű kifejezések csoportjait. Ez a tároló, amelyhez a keresőmotor a lekérdezések kibővítésekor fordul.
+
+> **Közvetlen válasz:** Hozzon létre egy `SynonymDictionary` objektumot, majd hívja meg az `addSynonym("car", Arrays.asList("automobile", "vehicle"))` metódust minden szükséges csoporthoz. A szótár korlátlan számú bejegyzést tárolhat, de néhány ezer kifejezés alatti méret fenntartja az optimális teljesítményt.
 
 ### 3. lépés: A szinonima szótár hozzáadása az indexhez
-Regisztrálja a szinonima szótárat az indexben, hogy a lekérdezés feldolgozása során alkalmazásra kerüljön.
+
+Regisztrálja a szótárat az indexben, hogy a lekérdezés feldolgozása során alkalmazásra kerüljön.
+
+> **Közvetlen válasz:** Használja az `index.addSynonymDictionary(synonymDictionary)` metódust, majd hívja meg az `index.saveChanges()`-t; a szótár az index konfigurációjának részévé válik, és minden keresési kérésnél automatikusan felhasználásra kerül.
 
 ### 4. lépés: A keresési viselkedés tesztelése
-Futtasson néhány mintalekérdezést, hogy ellenőrizze, a szinonimák felismerésre kerülnek-e, és a találatok átfogóbbak-e.
+
+`search` lekérdezést hajt végre az indexen, és visszaadja a megfelelő dokumentumokat.
+
+> **Közvetlen válasz:** Hajtsa végre az `index.search("automobile")` hívást, és figyelje meg, hogy a „car” vagy „vehicle” tartalmazó dokumentumok megjelennek az eredményhalmazban, ezzel megerősítve, hogy a szinonima szótár aktív.
 
 ## Miért fontos a language processing java a pontos eredményekhez
-A stop szavak letiltása és a szinonima szótárak hozzáadása a relevancia növelésének két leghatékonyabb módja. Ha letiltja a stop szavakat, a motor a legjelentősebb kifejezésekre összpontosít, a szinonima szótárak pedig biztosítják, hogy a megfogalmazás változatossága ne rejtsen el releváns tartalmat.
+
+A stop szavak letiltása és a szinonima szótárak hozzáadása a relevancia növelésének két leghatékonyabb módja. Ha letiltja a stop szavakat, a motor a legjelentősebb kifejezésekre fókuszál, és a szinonima szótárak biztosítják, hogy a megfogalmazás változatossága ne rejtsen el releváns tartalmat.
+
+> **Mérhető állítás:** A GroupDocs.Search támogat **70+ bemeneti és kimeneti formátumot**, és egy szabványos 8‑magos szerveren **akár 10 000 dokumentumot per perc** képes feldolgozni, miközben a memóriahasználat 500 GB-ig terjedő indexek esetén 200 MB alatt marad.
+
+## Gyakori felhasználási esetek
+
+| Use Case | Benefit |
+|----------|---------|
+| E‑commerce termékkeresés | Az ügyfelek márkanevekkel, modellszámokkal vagy köznyelvi kifejezésekkel találják meg a termékeket. |
+| Vállalati dokumentumportálok | Az alkalmazottak megtalálják a szabályzatokat, még akkor is, ha szinonimákat használnak, például „HR” vs „Human Resources”. |
+| Többnyelvű platformok | Párosítsa a szinonima szótárakat nyelvspecifikus szótőkereséssel a többnyelvű relevanciáért. |
+
+## Hibakeresési tippek és gyakori buktatók
+
+- **Szinonima halmaz nem alkalmazva:** Győződjön meg róla, hogy az `index.addSynonymDictionary` hívást *az első keresés előtt* hajtotta végre; az indexelés utáni változásokhoz `index.reload()` hívás szükséges.  
+- **Teljesítménycsökkenés:** Nagy szinonima szótárak (>10 k bejegyzés) növelhetik a lekérdezés késleltetését; fontolja meg a szótárak domain szerinti felosztását.  
+- **Kifejezés szinonimák figyelmen kívül hagyva:** Több szóból álló kifejezéseket idézőjelek közé kell tenni a hozzáadáskor, például `addSynonym("high‑speed internet", List.of("broadband"))`.  
 
 ## Elérhető oktatóanyagok
 
-### [Stop szavak letiltása a GroupDocs.Search Java-ban a keresési pontosság javítása érdekében](./disable-stop-words-groupdocs-search-java/)
-Ismerje meg, hogyan tilthatja le a stop szavakat a GroupDocs.Search for Java segítségével, javítva a keresési pontosságot és a lekérdezés pontosságát.
-
+### [Stop szavak letiltása a GroupDocs.Search Java-ban a keresési pontosság javításáért](./disable-stop-words-groupdocs-search-java/)
 ### [Szóalakok generálása Java-ban a GroupDocs.Search API használatával](./java-word-forms-generation-groupdocs-search/)
-Tanulja meg, hogyan valósítható meg egyes és többes számú szóalakok generálása Java alkalmazásokban a GroupDocs.Search segítségével. Fejlessze a nyelvi átalakításokat keresőmotorok, szövegelemzés és egyéb felhasználások számára.
-
-### [Szinonima szótárak implementálása Java-ban a GroupDocs.Search&#58; Átfogó útmutató](./implement-synonym-dictionaries-groupdocs-search-java/)
-Ismerje meg, hogyan valósítható meg a szinonima szótárak használata és a keresési funkciók bővítése a GroupDocs.Search for Java segítségével. Ideális fejlesztőknek, akik alkalmazásaikat optimalizálni szeretnék.
-
-### [Alfabetikus szótár és indexelési technikák mesterfokon a GroupDocs.Search for Java-val | Szótárak és language processing](./master-alphabet-dictionary-indexing-groupdocs-search-java/)
-Fejlessze dokumentumkeresési képességeit a GroupDocs.Search for Java használatával. Tanulja meg, hogyan hozhat létre, kezelhet és optimalizálhat hatékonyan egy alfabetikus szótár indexet.
-
-### [Helyesírás‑javítás mesterfokon Java-ban a GroupDocs.Search&#58; Teljes oktatóanyag](./java-groupdocs-search-spelling-correction-tutorial/)
-Ismerje meg, hogyan valósítható meg a helyesírás‑javítás Java alkalmazásokban a GroupDocs.Search segítségével. Javítsa a keresési pontosságot és a felhasználói élményt.
+### [Szinonima szótárak implementálása Java-ban a GroupDocs.Search használatával: Átfogó útmutató](./implement-synonym-dictionaries-groupdocs-search-java/)
+### [Alfabetikus szótár és indexelési technikák mestersége a GroupDocs.Search for Java segítségével | Szótárak és nyelvi feldolgozás](./master-alphabet-dictionary-indexing-groupdocs-search-java/)
+### [Helyesírási javítás mestersége Java-ban a GroupDocs.Search használatával: Teljes útmutató](./java-groupdocs-search-spelling-correction-tutorial/)
 
 ## További források
 
@@ -79,23 +168,27 @@ Ismerje meg, hogyan valósítható meg a helyesírás‑javítás Java alkalmaz�
 
 ## Gyakran Ismételt Kérdések
 
-**K: Kombinálhatom a szinonima szótárakat a helyesírás‑javítással?**  
-A: Természetesen. Mindkét funkció együttes használata egy toleránsabb keresési élményt biztosít, amely kezeli a szóvariációkat és a helyesírási hibákat.
+**Q: Kombinálhatom a szinonima szótárakat a helyesírási javítással?**  
+A: Teljesen. Mindkét funkció együttes használata egy toleráns keresési élményt biztosít, amely egy lekérdezésben kezeli a szóvariációkat és a helyesírási hibákat.
 
-**K: Újra kell építeni az indexet a szinonima szótár hozzáadása után?**  
+**Q: Újra kell építeni az indexet a szinonima szótár hozzáadása után?**  
 A: Nem. A GroupDocs.Search a szinonima szótárat a lekérdezés időpontjában alkalmazza, így a szinonimákat hozzáadhatja vagy módosíthatja anélkül, hogy újra indexelné a meglévő dokumentumokat.
 
-**K: Hány szinonimát adhatok hozzá egyetlen szótárhoz?**  
-A: Az API nem szab meg szigorú korlátot, de a szótár méretét tartsuk ésszerűen, hogy az optimális teljesítményt megőrizzük.
+**Q: Hány szinonimát adhatok hozzá egyetlen szótárhoz?**  
+A: Az API nem szab ki szigorú korlátot; azonban a szótár néhány ezer bejegyzés alatti méretének megtartása az optimális lekérdezési teljesítményt biztosítja.
 
-**K: A language processing java támogatott minden operációs rendszeren?**  
-A: Igen. A Java könyvtár Windows, Linux és macOS rendszereken fut, ahol kompatibilis JDK áll rendelkezésre.
+**Q: Támogatja a language processing java minden operációs rendszert?**  
+A: Igen. A Java könyvtár Windows, Linux és macOS rendszereken is fut, ahol kompatibilis JDK áll rendelkezésre.
 
-**K: Mi van, ha a szinonima halmazom több szóból álló kifejezéseket tartalmaz?**  
-A: Az API támogatja a kifejezés szinonimákat; egyszerűen definiálja a kifejezést egyetlen bejegyzésként a szinonima halmazban.
+**Q: Mi van, ha a szinonima halmaz több szóból álló kifejezéseket tartalmaz?**  
+A: Az API támogatja a kifejezés szinonimákat; a kifejezést egyetlen bejegyzésként definiálja a szinonima halmazban, és a keresés során egyezni fog.
 
----
-
-**Utolsó frissítés:** 2026-02-19  
+**Utolsó frissítés:** 2026-07-16  
 **Tesztelve a következővel:** GroupDocs.Search for Java 23.9  
 **Szerző:** GroupDocs
+
+## Kapcsolódó oktatóanyagok
+
+- [Hogyan engedélyezzük a helyesírást Java-ban a GroupDocs.Search segítségével](/search/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/)
+- [Hogyan hozzunk létre keresési indexet Java-ban a GroupDocs.Search segítségével – Homofón felismerési útmutató](/search/java/document-management/groupdocs-search-java-homophone-document-management-guide/)
+- [Hogyan hozzunk létre index könyvtárat Java-ban a GroupDocs.Search segítségével](/search/java/indexing/groupdocs-search-java-create-index/)

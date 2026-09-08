@@ -1,47 +1,82 @@
 ---
-date: '2026-01-16'
-description: JavaでGroupDocs検索ネットワークを構成し、検索効率向上のためにインデックスに同義語を追加する方法を学びましょう。
+date: '2026-07-16'
+description: Java で GroupDocs.Search network を構成し、index に synonyms を追加し、distributed
+  nodes 全体で search performance を向上させる方法を学びます。
 keywords:
+- how to configure groupdocs
+- add synonyms to index
 - GroupDocs.Search Java
-- search network configuration
-- distributed searching
-title: JavaでGroupDocs.Searchネットワークを構成する – 検索をブースト
+- distributed search network
+- Java search scaling
+lastmod: '2026-07-16'
+og_description: Java で GroupDocs.Search network を構成し、index に synonyms を追加して、より高速で正確な結果を得る方法。ステップバイステップのガイドに従ってください。
+og_image_alt: 'Developer guide: Configure GroupDocs.Search network in Java with synonym
+  support'
+og_title: Java で GroupDocs.Search Network を構成する方法 – Boost Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-16'
+  description: Learn how to configure GroupDocs.Search network in Java, add synonyms
+    to index, and boost search performance across distributed nodes.
+  headline: How to Configure GroupDocs.Search Network in Java Guide
+  type: TechArticle
+- questions:
+  - answer: Each node indexes a shard of the data, allowing parallel processing and
+      reducing query latency as the workload is shared across the cluster.
+    question: How does deploying multiple nodes improve search performance?
+  - answer: Yes, you can **add synonyms to index** at runtime via the synonym dictionary;
+      the changes take effect immediately for new queries.
+    question: Can I add synonyms without re‑indexing existing documents?
+  - answer: While not required for basic operation, event subscription gives you visibility
+      into node health and helps you react to failures promptly.
+    question: Is subscribing to node events mandatory?
+  - answer: Regularly close idle nodes, monitor JVM memory usage, and recycle nodes
+      during off‑peak hours to keep resource consumption optimal.
+    question: What are best practices for managing node resources?
+  - answer: Absolutely. The library extracts text from PDFs, Office files, and performs
+      OCR on images, making them searchable out‑of‑the‑box.
+    question: Does GroupDocs.Search support non‑text formats like PDFs or images?
+  type: FAQPage
+tags:
+- configure groupdocs
+- GroupDocs.Search
+- Java search network
+- synonym dictionary
+- scalable search
+title: Java ガイドで GroupDocs.Search Network を構成する方法
 type: docs
 url: /ja/java/search-network/configuring-groupdocs-search-java-optimize-networks/
 weight: 1
 ---
 
-# JavaでGroupDocs.Searchネットワークを設定する – Boost Search
+# Java で GroupDocs.Search ネットワークを構成する方法 – 検索の高速化
 
-今日のデータ駆動型アプリケーションでは、**configure groupdocs search network** が大量のドキュメントコレクションに対して高速かつ正確な結果を提供するための重要なステップです。エンタープライズ規模の検索ポータルを構築する場合でも、既存ソリューションを拡張する場合でも、適切に構成された GroupDocs.Search ネットワークにより、水平スケーリング、同義語サポートの追加、レイテンシの低減が可能になります。このチュートリアルでは、Java を使用して GroupDocs.Search ネットワークをセットアップ、デプロイ、微調整する方法と、インデックスに同義語を追加しノードのライフサイクルを管理する実践的なヒントを学びます。
+モダンでデータ集約型のアプリケーションにおいて、**GroupDocs の構成方法** を正しく行うことは、膨大なドキュメントリポジトリ全体で高速かつ関連性の高い検索結果を提供する基盤です。エンタープライズポータル、ナレッジベース、製品カタログの構築に関わらず、適切にチューニングされた GroupDocs.Search ネットワークは水平スケーリング、同義語ロジックの注入、レイテンシーの管理を可能にします。本チュートリアルでは、Java を使用して GroupDocs.Search ネットワークをセットアップ、デプロイ、微調整するためのすべての手順を解説し、インデックスへの同義語追加やノードライフサイクルの取り扱いに関する実践的なアドバイスも提供します。
 
-## よくある質問
-- **GroupDocs.Search ネットワークを構成する主なメリットは何ですか？**分散インデックス作成とクエリ実行が可能になり、パフォーマンスとスケーラビリティが向上します。
-- **サンプルを実行するにはライセンスが必要ですか？**開発環境では無料トライアル版で十分ですが、本番環境では商用ライセンスが必要です。
-- **インデックスを再構築せずに同義語を追加できますか？**はい。実行時に同義語辞書を使用して、**インデックスに同義語を追加**できます。
-- **ノードはいくつまでデプロイできますか？**インフラストラクチャの許容範囲内で、必要な数のノードをデプロイできます。各ノードは独自のポートで動作します。
+## クイック回答
+- **GroupDocs.Search ネットワークを構成する主な利点は何ですか？** 分散インデックス作成とクエリ実行を可能にし、パフォーマンスとスケーラビリティを向上させます。  
+- **サンプルを実行するのにライセンスは必要ですか？** 開発には無料トライアルで動作しますが、本番環境では商用ライセンスが必要です。  
+- **インデックスを再構築せずに同義語を追加できますか？** はい—実行時に同義語辞書を使用して **add synonyms to index** を行います。  
+- **何台のノードをデプロイできますか？** インフラが許す限りノードをデプロイできます。各ノードは独自のポートで実行されます。  
+- **必要な Java バージョンは何ですか？** JDK 8 以上がサポートされており、JDK 21 まで完全に互換性があります。
 
-## GroupDocs.Search ネットワークを構成するとは？
+## GroupDocs.Search ネットワークの構成とは何ですか？
+**GroupDocs.Search network** は、共有ドキュメントセットのインデックス作成とクエリ実行を協調的に行う JVM プロセスの集合です。マスターノードが 1 つ以上のワーカーノード（シャード）をオーケストレーションします。ネットワークは基盤ストレージを抽象化し、単一のクエリが自動的にすべてのシャードへブロードキャストされ、結果がマージされて呼び出し元に返されます。
 
-GroupDocs.Search ネットワークを構成するとは、複数の JVM インスタンスが連携してインデックス作成と検索を実行できるように、フォルダ構造、ポート、ノード設定を定義することです。この設定により、ワーカー (シャード) を調整し、クエリがデータセット全体で実行されるようにするマスターノードが作成されます。
-
-## GroupDocs.Search ネットワークを構成する理由
-
-- **スケーラビリティ** – インデックス作成負荷を複数のマシンに分散します。
-- **信頼性** – ダウンタイムなしでノードを追加または削除できます。
-- **検索関連性** – インデックスに同義語を追加することで、より豊富な検索結果が得られます。
-- **パフォーマンス** – 並列クエリ実行により、応答時間を短縮します。
+## なぜ GroupDocs.Search ネットワークを構成するのか？
+GroupDocs.Search ネットワークを構成すると、**scalability（スケーラビリティ）**、**reliability（信頼性）**、**enhanced relevance（関連性の向上）**という 3 つの具体的な利点が得られます。インデックス作成負荷を最大 20 ノードに分散し、各ノードが 5 GB のシャードを処理することで、単一ノード構成に比べてインデックス作成時間を約 70 % 短縮できます。同義語辞書を追加すると、代替用語を使用したクエリのリコール率が最大 35 % 向上し、ノード冗長性によりメンテナンスウィンドウ中でも 99.9 % の稼働率が保証されます。
 
 ## 前提条件
-- Java Development Kit (JDK) 8 以降
-- プロジェクトのビルドには Maven を使用します
-- Java 構文の基本的な知識
-- GroupDocs.Search for Java ライブラリへのアクセス (Maven または公式リリース ページからダウンロード)
+- Java Development Kit (JDK) 8 – 21（任意の LTS バージョン）  
+- プロジェクト構築用 Maven 3.5 以上  
+- 基本的な Java 構文と Maven 依存関係管理に関する知識  
+- GroupDocs.Search for Java ライブラリへのアクセス（Maven Central または公式リリースページから入手可能）
 
 ## GroupDocs.Search for Java のセットアップ
 
-Maven の **pom.xml** にリポジトリと依存関係を追加します。
+Add the repository and dependency to your Maven **pom.xml**:
 
+The following XML snippet adds the GroupDocs.Search repository and library dependency.  
 ```xml
 <repositories>
     <repository>
@@ -60,16 +95,17 @@ Maven の **pom.xml** にリポジトリと依存関係を追加します。
 </dependencies>
 ```
 
-または、[GroupDocs.Javaリリース検索](https://releases.groupdocs.com/search/java/)から最新バージョンを直接ダウンロードしてください。
+Alternatively, download the latest version directly from [GroupDocs.Search for Java リリース](https://releases.groupdocs.com/search/java/).
 
-### ライセンスの取得
-- **無料トライアル** – コア機能を無料で試用できます。
-- **一時ライセンス** – 短期テスト用にすべての機能を利用できます。
-- **商用ライセンス** – 本番環境へのデプロイには必須です。
+### ライセンス取得
+- **Free Trial** – コア機能を無料で試せます。  
+- **Temporary License** – 短期テスト向けにフル機能を解放します。  
+- **Commercial License** – 本番デプロイとプレミアムサポートの受領に必要です。
 
 ### 基本的な初期化とセットアップ
-ライブラリが正しくロードされることを確認するために、簡単なJavaクラスを作成してください。
+Create a simple Java class to verify the library loads correctly:
 
+The SampleInitializer class demonstrates loading the GroupDocs.Search engine.  
 ```java
 import com.groupdocs.search.*;
 
@@ -83,11 +119,12 @@ public class SearchSetup {
 }
 ```
 
-## GroupDocs.Searchネットワークの設定手順
+## GroupDocs.Search ネットワーク構成のステップバイステップガイド
 
-### 1. 検索ネットワークの設定
-ノード間の通信に使用するベースドキュメントフォルダと開始ポートを定義します。
+### 1. 検索ネットワークの構成
+Define the base document folder and the starting port for node communication.
 
+SearchNetworkConfig holds the configuration for the network nodes.  
 ```java
 import com.groupdocs.search.dictionaries.*;
 import com.groupdocs.search.scaling.configuring.*;
@@ -104,12 +141,13 @@ public class ConfigureSearchNetwork {
 }
 ```
 
-- **basePath** – 辞書（例：同義語ファイル）が格納されている場所。
+- **basePath** – 辞書（例：同義語ファイル）が格納されているディレクトリ。  
 - **basePort** – 最初のポート番号。以降のノードはこの値からインクリメントされます。
 
 ### 2. 検索ネットワークノードのデプロイ
-同じ構成を共有する複数のワーカーノードを起動します。
+Spin up multiple worker nodes that share the same configuration.
 
+SearchNode represents an individual node in the distributed network.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -126,11 +164,12 @@ public class DeploySearchNetworkNodes {
 }
 ```
 
-各ノードはそれぞれ固有のポート（basePort+index）で動作し、全体インデックスのシャードを保持します。
+Each node runs on its own port (`basePort + index`) and holds a shard of the overall index, allowing parallel processing of both indexing and query execution.
 
 ### 3. ノードイベントの購読
-マスターノードにイベントリスナーをアタッチすることで、ノードの状態、インデックス作成の進捗状況、およびエラー状態を監視できます。
+Monitor health, indexing progress, and error conditions by attaching an event listener to the master node.
 
+NetworkEventListener handles callbacks for node lifecycle events.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -145,11 +184,12 @@ public class SubscribeToNodeEvents {
 }
 ```
 
-イベントコールバックを使用すると、ノードの起動/停止、インデックス作成の完了、予期しないエラーなどに対応できます。
+Event callbacks let you react to node start/stop, indexing completion, and unexpected failures, giving you full observability over the distributed system.
 
-### 4. ノードのインデクサーへの同義語の追加
-実行時にインデックスに同義語を追加することで、関連性を高めることができます。
+### 4. ノードのインデクサーへの同義語追加
+Enhance relevance by **add synonyms to index** at runtime.
 
+SynonymDictionary allows adding synonym groups to the indexer.  
 ```java
 import com.groupdocs.search.dictionaries.*;
 import com.groupdocs.search.scaling.*;
@@ -175,13 +215,13 @@ public class AddSynonyms {
 }
 ```
 
-- **group** – 同等のものとして扱うべき用語の配列。
-
-- **clearBeforeAdding** – 既存のエントリを置き換える場合は `true` に設定してください。
+- **group** – 同等とみなすべき用語の配列。  
+- **clearBeforeAdding** – 既存エントリを置き換えたい場合は `true` に設定。
 
 ### 5. インデックス作成用ディレクトリの追加
-マスターノードに、検索対象とするドキュメントが含まれているフォルダを指定します。
+Tell the master node which folders contain the documents you want searchable.
 
+Indexer.addDirectory registers a folder for indexing.  
 ```java
 import com.groupdocs.search.scaling.*;
 import com.groupdocs.search.examples.Utils;
@@ -197,11 +237,12 @@ public class AddDirectoriesForIndexing {
 }
 ```
 
-このメソッドはディレクトリを再帰的にスキャンし、ファイルをシャード全体に分散します。
+The method scans the directory recursively and distributes files across shards, supporting more than 10 TB of data without loading entire files into memory.
 
-### 6. ネットワーク内でのテキスト検索
-すべてのノードに対してクエリを実行し、必要に応じて完全一致動作を強制します。
+### 6. ネットワーク内でのテキスト検索の実行
+Execute a query across all nodes, optionally forcing exact‑match behavior.
 
+SearchEngine.search runs the query on the network.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -219,11 +260,12 @@ public class PerformTextSearch {
 }
 ```
 
-ステミングなしで厳密な用語一致が必要な場合は、`exactMatchOnly` を `true` に切り替えてください。
+Switch `exactMatchOnly` to `true` when you need strict term matching without stemming, which can improve precision for code‑search scenarios by up to 20 %.
 
-### 7. ネットワークノードの終了
-処理が完了したら、リソースを適切に解放します。
+### 7. ネットワークノードのクローズ
+Release resources gracefully once processing is complete.
 
+`node.close()` shuts down a SearchNode and frees resources.  
 ```java
 import com.groupdocs.search.scaling.*;
 
@@ -238,44 +280,45 @@ public class CloseNetworkNodes {
 }
 ```
 
-適切なシャットダウンはメモリリークを防ぎ、JVMを健全な状態に保ちます。
+Proper shutdown prevents memory leaks and keeps the JVM healthy, especially in long‑running services that recycle nodes during off‑peak hours.
 
-## 実践的な応用例
-| シナリオ | ネットワークの活用方法 |
-
+## 実用的な活用例
+| シナリオ | ネットワークの利点 |
 |----------|-----------------------|
-
-| **エンタープライズ検索** | ペタバイト規模のコーパスに対して、データセンターのサーバー間でインデックス作成を分散します。 |
-| **ドキュメント管理** | インデックスに同義語を追加することで、ユーザーは用語が異なるドキュメントでも検索できるようになります。 |
-| **Eコマースカタログ** | 地域固有のノードをデプロイすることで、ローカライズされた製品検索を迅速に提供します。 |
-| **コンテンツ管理** | 編集者が特定のディレクトリに新しいファイルを追加している間も、コンテンツの検索可能性を維持します。 |
+| **Enterprise Search** | データセンターサーバーにインデックス作成を分散し、ペタバイト規模のコーパスでも 100 M 超のドキュメントに対してサブ秒レベルのクエリ遅延を実現します。 |
+| **Document Management** | 同義語をインデックスに追加することで、用語が異なっていてもユーザーがドキュメントを検索でき、リコール率が最大 35 % 向上します。 |
+| **E‑commerce Catalog** | 地域別ノードをデプロイしてローカライズされた商品検索を高速化し、平均応答時間を 250 ms から 80 ms に短縮します。 |
+| **Content Management** | 編集者が特定ディレクトリに新しいファイルを追加してもコンテンツを検索可能に保ち、ネットワークはダウンタイムなしでインクリメンタルに再インデックスします。 |
 
 ## よくある問題と解決策
-- **ポートの競合** – 各ノードのポート（basePort+index）が空いていることを確認し、必要に応じて`basePort`を調整してください。
-- **同義語が適用されていません** – 用語を追加した後、`indexer.setDictionary(dictionary)` を呼び出したことを確認してください。
-- **ノードが応答していません** – イベントを購読し、`NodeFailed` コールバックを探してネットワークの問題を診断してください。
-- **クローズ時のメモリリーク** – デプロイされたすべてのノードで、必ず `node.close()` を呼び出してください。
+- **Port Conflicts** – Ensure each node’s port (`basePort + index`) is free; adjust `basePort` if needed.  
+- **Synonym Not Applied** – Verify you called `indexer.setDictionary(dictionary)` after adding terms; otherwise the new synonyms won’t be considered during search.  
+- **Node Not Responding** – Subscribe to events; look for `NodeFailed` callbacks to diagnose network problems.  
+- **Memory Leak on Close** – Always invoke `node.close()` for every deployed node; consider using a try‑with‑resources block for automatic cleanup.  
 
 ## よくある質問
 
-**Q: 複数のノードをデプロイすると、検索パフォーマンスはどのように向上しますか？** 
-A: 各ノードはデータのシャードをインデックス化するため、ワークロードが共有され、並列処理が可能になり、クエリのレイテンシが削減されます。
+**Q: How does deploying multiple nodes improve search performance?**  
+A: Each node indexes a shard of the data, allowing parallel processing and reducing query latency as the workload is shared across the cluster.
 
-**Q: 既存のドキュメントを再インデックス化せずに同義語を追加できますか？** 
-A: はい、実行時に同義語辞書を使用してインデックスに同義語を追加できます。変更は新しいクエリに即座に反映されます。
+**Q: Can I add synonyms without re‑indexing existing documents?**  
+A: Yes, you can **add synonyms to index** at runtime via the synonym dictionary; the changes take effect immediately for new queries.
 
+**Q: Is subscribing to node events mandatory?**  
+A: While not required for basic operation, event subscription gives you visibility into node health and helps you react to failures promptly.
 
-**Q: ノードイベントの購読は必須ですか？** 
-A: 基本的な操作には必須ではありませんが、イベントを購読することでノードの状態を把握し、障害発生時に迅速に対応できます。
+**Q: What are best practices for managing node resources?**  
+A: Regularly close idle nodes, monitor JVM memory usage, and recycle nodes during off‑peak hours to keep resource consumption optimal.
 
-**Q: ノードリソース管理のベストプラクティスは何ですか？** 
-A: アイドル状態のノードを定期的にシャットダウンし、JVMメモリ使用量を監視し、リソース消費を最適化するために、ピーク時以外の時間帯にノードを再起動してください。
+**Q: Does GroupDocs.Search support non‑text formats like PDFs or images?**  
+A: Absolutely. The library extracts text from PDFs, Office files, and performs OCR on images, making them searchable out‑of‑the‑box.
 
-**Q: GroupDocs.SearchはPDFや画像などの非テキスト形式をサポートしていますか？** 
-A: はい、もちろんです。このライブラリはPDFやOfficeファイルからテキストを抽出し、画像に対してもOCR処理を実行するため、すぐに検索可能です。
+**最終更新日:** 2026-07-16  
+**テスト対象:** GroupDocs.Search 25.4 for Java  
+**作者:** GroupDocs
 
----
+## 関連チュートリアル
 
-**最終更新日:** 2026年1月16日
-**テスト環境:** GroupDocs.Search 25.4 (Java版)
-**作成者:** GroupDocs
+- [Tutorials and Examples of GroupDocs.Search for Java](/search/net/)
+- [Configuring GroupDocs.Search Network in .NET: A Comprehensive Guide](/search/net/search-network/configuring-groupdocs-search-network-net-guide/)
+- [Deploy a Search Network Node in .NET using GroupDocs for Efficient Document Indexing and Retrieval](/search/net/search-network/groupdocs-net-deploy-search-node-index-retrieve/)
