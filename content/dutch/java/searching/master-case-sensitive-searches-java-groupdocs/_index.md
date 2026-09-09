@@ -1,47 +1,103 @@
 ---
-date: '2026-02-06'
-description: Leer hoe u documenten aan de index kunt toevoegen en hoofdlettergevoelige
-  zoekopdrachten in Java met GroupDocs.Search kunt inschakelen, waardoor de nauwkeurigheid
-  van uw applicatie wordt verhoogd.
+date: '2026-08-10'
+description: Leer hoe u een searchable index java maakt en case-sensitive search inschakelt
+  met GroupDocs.Search, waardoor de nauwkeurigheid voor Java-toepassingen wordt verhoogd.
 keywords:
-- case-sensitive searches in Java
-- GroupDocs.Search Java tutorial
-- Java text query search
-- object query search in Java
-title: 'Documenten toevoegen aan index: hoofdlettergevoelige Java-zoekopdracht met
-  GroupDocs'
+- create searchable index java
+- case sensitive search java
+- groupdocs search java tutorial
+- java text query search
+lastmod: '2026-08-10'
+og_description: Leer hoe u een searchable index java maakt en case-sensitive search
+  inschakelt met GroupDocs.Search. Stapsgewijze handleiding voor Java-ontwikkelaars.
+og_image_alt: Guide to creating a searchable index in Java using GroupDocs with case‑sensitive
+  search
+og_title: 'Maak searchable index java: voeg documenten case-sensitive search toe'
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-10'
+  description: Learn how to create searchable index java and enable case‑sensitive
+    search with GroupDocs.Search, boosting accuracy for Java applications.
+  headline: 'Create searchable index java: add docs case‑sensitive search'
+  type: TechArticle
+- description: Learn how to create searchable index java and enable case‑sensitive
+    search with GroupDocs.Search, boosting accuracy for Java applications.
+  name: 'Create searchable index java: add docs case‑sensitive search'
+  steps:
+  - name: create an index and add your documents
+    text: The `Index` class represents a searchable storage area on disk where documents
+      are indexed. > **Pro tip:** You can call `index.add()` multiple times to **search
+      across multiple directories** in a single index.
+  - name: enable case‑sensitive search
+    text: '`SearchOptions` configures how queries are processed, including case sensitivity
+      and other search behaviors.'
+  - name: execute a case‑sensitive text query
+    text: '`SearchQuery` builds the query object that the engine evaluates against
+      the index. The loop prints the full path of each document that contains the
+      exact case‑matched term.'
+  - name: initialize a second index (optional)
+    text: A second `Index` instance can be created to isolate object‑based searches
+      from plain‑text searches.
+  - name: re‑use the case‑sensitive option
+    text: '`SearchOptions` can be reused across different query types to maintain
+      consistent case handling.'
+  - name: build and run an object query
+    text: '`WordQuery` represents a word‑level search that can be combined with other
+      query types for complex searches. Using `createWordQuery` lets you later combine
+      it with phrase, wildcard, or Boolean queries for more complex scenarios.'
+  type: HowTo
+- questions:
+  - answer: Add documents to an index with `index.add(...)`.
+    question: What is the primary step to start searching?
+  - answer: Set `options.setUseCaseSensitiveSearch(true)`.
+    question: How do you enable case‑sensitive search?
+  - answer: Yes – call `index.add()` for each folder you want to include.
+    question: Can you search across multiple directories?
+  - answer: Use `SearchQuery.createWordQuery(...)`.
+    question: Which method lets you search with objects?
+  - answer: A temporary license is available for trial purposes.
+    question: Do you need a license for testing?
+  type: FAQPage
+tags:
+- create searchable index
+- case-sensitive search
+- groupdocs search
+- java document processing
+title: 'Maak searchable index java: voeg documenten case-sensitive search toe'
 type: docs
 url: /nl/java/searching/master-case-sensitive-searches-java-groupdocs/
 weight: 1
 ---
 
-# Documenten toevoegen aan index: Case‑gevoelige zoekopdrachten in Java beheersen met GroupDocs
+# Maak doorzoekbare index java: documenten toevoegen case‑gevoelige zoekopdracht
 
-Het ophalen van het juiste stukje informatie uit een enorme verzameling documenten is een kernvereiste voor moderne applicaties. In deze gids leer je **hoe je documenten toevoegt aan een index** en **case‑gevoelige zoekopdrachten** uitvoert met GroupDocs.Search voor Java. Of je nu een juridisch documentarchief, een e‑commerce catalogus of een content‑managementsysteem bouwt, nauwkeurige zoekresultaten houden gebruikers tevreden en je data betrouwbaar.
+In moderne Java‑toepassingen is **het maken van een doorzoekbare index java** de basis voor snelle, nauwkeurige terugwinning van informatie uit grote documentverzamelingen. Deze tutorial laat zien hoe je documenten aan een index toevoegt, case‑gevoelige zoekopdrachten inschakelt en het proces verfijnt met GroupDocs.Search. Of je nu een juridisch archief, een e‑commerce‑catalogus of een content‑management‑systeem bouwt, deze stappen helpen je precieze resultaten te leveren die gebruikers tevreden houden.
 
 ## Snelle antwoorden
-- **Wat is de eerste stap om te beginnen met zoeken?** Voeg documenten toe aan een index met `index.add(...)`.
-- **Hoe schakel je case‑gevoelige zoekopdrachten in?** Stel `options.setUseCaseSensitiveSearch(true)` in.
-- **Kan ik zoeken over meerdere mappen?** Ja – roep `index.add()` aan voor elke map die je wilt opnemen.
-- **Welke methode laat me zoeken met objecten?** Gebruik `SearchQuery.createWordQuery(...)`.
-- **Heb ik een licentie nodig voor testen?** Een tijdelijke licentie is beschikbaar voor proefdoeleinden.
+- **Wat is de eerste stap om te beginnen met zoeken?** Voeg documenten toe aan een index met `index.add(...)`.  
+- **Hoe schakel je case‑gevoelige zoekopdrachten in?** Stel `options.setUseCaseSensitiveSearch(true)` in.  
+- **Kun je zoeken over meerdere mappen heen?** Ja – roep `index.add()` aan voor elke map die je wilt opnemen.  
+- **Welke methode laat je zoeken met objecten?** Gebruik `SearchQuery.createWordQuery(...)`.  
+- **Heb je een licentie nodig voor testen?** Een tijdelijke licentie is beschikbaar voor proefdoeleinden.
 
 ## Wat betekent “documenten toevoegen aan index”?
-Documenten toevoegen aan een index betekent dat je je bronbestanden (PDF's, Word‑documenten, platte tekst, enz.) in GroupDocs.Search laadt zodat het een doorzoekbare datastructuur kan opbouwen. Eenmaal geïndexeerd kan de engine snelle queries uitvoeren, inclusief case‑gevoelige.
+Documenten toevoegen aan een index betekent dat je bronbestanden (PDF‑s, Word‑documenten, platte tekst, enz.) aan GroupDocs.Search levert zodat het een doorzoekbare datastructuur kan opbouwen. De index slaat getokeniseerde termen, posities en metadata op, waardoor de engine snelle queries kan uitvoeren, inclusief case‑gevoelige, en resultaten efficiënt kan rangschikken.
 
 ## Waarom case‑gevoelige zoekopdrachten inschakelen in Java?
-- **Exacte termovereenkomst** – onderscheid “Apple” (het bedrijf) van “apple” (de vrucht).  
-- **Regelgeving naleving** – sommige sectoren vereisen exacte frase‑overeenstemming.  
-- **Verbeterde relevantie** – gebruikers verwachten vaak case‑specifieke resultaten in technische of juridische contexten.
+Case‑gevoelige zoekopdrachten zorgen ervoor dat de engine onderscheid maakt tussen termen die alleen in hoofdlettergebruik verschillen, wat cruciaal is voor domeinen waar kapitalisatie betekenis heeft. Het maakt exacte term‑matching mogelijk, ondersteunt regelgevingseisen en verbetert de relevantie door resultaten te retourneren die precies overeenkomen met de hoofdlettercase van de gebruikersquery.
 
-## Vereisten
-- JDK (Java 17 of later aanbevolen)  
-- Maven voor afhankelijkheidsbeheer  
+- **Exacte term‑matching** – bijv. “Apple” (bedrijf) vs. “apple” (fruit).  
+- **Regelgevingseisen** – veel sectoren vereisen precieze frase‑matching.  
+- **Verbeterde relevantie** – technische en juridische gebruikers verwachten vaak case‑specifieke resultaten.
+
+## Voorvereisten
+- JDK 17 of hoger (aanbevolen)  
+- Maven voor dependency‑beheer  
 - Een IDE zoals IntelliJ IDEA of Eclipse  
 - Basiskennis van Java‑programmeren  
 
-## GroupDocs.Search voor Java instellen
-Voeg eerst de GroupDocs‑repository en afhankelijkheid toe aan je `pom.xml`:
+## GroupDocs.Search voor Java configureren
+Het volgende Maven‑fragment voegt de GroupDocs.Search‑repository en de benodigde dependency toe aan je project.
 
 ```xml
 <repositories>
@@ -61,15 +117,15 @@ Voeg eerst de GroupDocs‑repository en afhankelijkheid toe aan je `pom.xml`:
 </dependencies>
 ```
 
-Alternatief kun je de nieuwste versie direct downloaden van [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Je kunt ook de nieuwste versie rechtstreeks downloaden van [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Licenties
-Om te beginnen met een proefversie, ga naar GroupDocs om een tijdelijke licentie aan te schaffen. Hiermee kun je alle functies testen zonder beperkingen.
+Om te beginnen met een proefversie, bezoek GroupDocs om een tijdelijke licentie aan te schaffen. Hiermee kun je alle functies testen zonder beperkingen.
 
-## Hoe documenten toevoegen aan index – Tekst‑query zoeken
+## Hoe maak je een doorzoekbare index java – tekstquery‑zoekopdracht
 
-### Stap 1: Maak een index aan en voeg je documenten toe
-Maak een map aan waar de indexbestanden worden opgeslagen, en voeg vervolgens de bronmap toe die de documenten bevat die je wilt doorzoeken.
+### Stap 1: maak een index en voeg je documenten toe
+De `Index`‑klasse vertegenwoordigt een doorzoekbare opslaglocatie op schijf waar documenten worden geïndexeerd.
 
 ```java
 String indexFolder = YOUR_OUTPUT_DIRECTORY + "/CaseSensitiveSearch/QueryInTextForm";
@@ -77,18 +133,18 @@ Index index = new Index(indexFolder);
 index.add(YOUR_DOCUMENT_DIRECTORY); // Add documents to the index
 ```
 
-> **Pro tip:** Je kunt `index.add()` meerdere keren aanroepen om **over meerdere mappen te zoeken** in één enkele index.
+> **Pro tip:** Je kunt `index.add()` meerdere keren aanroepen om **over meerdere mappen heen te zoeken** in één enkele index.
 
-### Stap 2: Schakel case‑gevoelige zoekopdrachten in
-Configureer de zoekopties zodat ze hoofdlettergebruik respecteren.
+### Stap 2: case‑gevoelige zoekopdracht inschakelen
+`SearchOptions` configureert hoe queries worden verwerkt, inclusief hoofdlettergevoeligheid en andere zoekgedragingen.
 
 ```java
 SearchOptions options = new SearchOptions();
 options.setUseCaseSensitiveSearch(true);
 ```
 
-### Stap 3: Voer een case‑gevoelige tekst‑query uit
-Voer een query uit die “Advantages” onderscheidt van “advantages”.
+### Stap 3: een case‑gevoelige tekstquery uitvoeren
+`SearchQuery` bouwt het query‑object dat de engine evalueert tegen de index.
 
 ```java
 String query = "Advantages";
@@ -102,12 +158,10 @@ for (FoundDocument doc : result.getDocuments()) {
 
 De lus print het volledige pad van elk document dat de exact case‑overeenkomende term bevat.
 
-## Hoe documenten toevoegen aan index – Object‑query zoeken
+## Hoe maak je een doorzoekbare index java – objectquery‑zoekopdracht
 
-Object‑queries geven je meer flexibiliteit, vooral wanneer je meerdere criteria moet combineren.
-
-### Stap 1: Initialiseert een tweede index (optioneel)
-Als je object‑gebaseerde zoekopdrachten gescheiden wilt houden, maak dan een andere indexmap aan.
+### Stap 1: initialiseert een tweede index (optioneel)
+Een tweede `Index`‑instantie kan worden aangemaakt om object‑gebaseerde zoekopdrachten te scheiden van platte‑tekst‑zoekopdrachten.
 
 ```java
 String indexFolder = YOUR_OUTPUT_DIRECTORY + "/CaseSensitiveSearch/QueryInObjectForm";
@@ -115,16 +169,16 @@ Index index = new Index(indexFolder);
 index.add(YOUR_DOCUMENT_DIRECTORY); // Add documents to the index
 ```
 
-### Stap 2: Hergebruik de case‑gevoelige optie
-Dezelfde `SearchOptions`‑instantie werkt voor object‑queries.
+### Stap 2: hergebruik de case‑gevoelige optie
+`SearchOptions` kan worden hergebruikt voor verschillende query‑typen om consistente case‑afhandeling te behouden.
 
 ```java
 SearchOptions options = new SearchOptions();
 options.setUseCaseSensitiveSearch(true);
 ```
 
-### Stap 3: Bouw en voer een object‑query uit
-Maak een woord‑query‑object aan en geef het door aan de zoekengine.
+### Stap 3: bouw en voer een objectquery uit
+`WordQuery` vertegenwoordigt een woord‑niveau zoekopdracht die kan worden gecombineerd met andere query‑typen voor complexe zoekopdrachten.
 
 ```java
 SearchQuery query = SearchQuery.createWordQuery("Advantages");
@@ -136,44 +190,43 @@ for (FoundDocument doc : result.getDocuments()) {
 }
 ```
 
-Het gebruik van `createWordQuery` stelt je later in staat het te combineren met phrase-, wildcard- of Boolean‑queries voor complexere scenario's.
+Met `createWordQuery` kun je later combineren met frase‑, wildcard‑ of Boolean‑queries voor meer geavanceerde scenario's.
 
 ## Praktische toepassingen
-- **Juridisch documentbeheer:** Haal case‑specifieke wetgevingen op waar hoofdlettergebruik van belang is.  
-- **E‑commerce platforms:** Onderscheid product‑SKU's zoals “PRO‑X” versus “pro‑x”.  
-- **Content Management Systems (CMS):** Zorg ervoor dat auteurs exacte koppen of tags vinden.
+- **Juridisch documentbeheer:** Haal case‑specifieke wetgeving op waar kapitalisatie van belang is.  
+- **E‑commerce platforms:** Onderscheid product‑SKU’s zoals “PRO‑X” vs. “pro‑x”.  
+- **Content‑management‑systemen (CMS):** Zorg dat auteurs exacte koppen of tags vinden.
 
 ## Prestatie‑overwegingen
-- **Houd de index up‑to‑date** – re‑indexeer wanneer nieuwe bestanden worden toegevoegd of bestaande wijzigen.  
-- **Monitor geheugenverbruik** – grote corpora profiteren van incrementeel indexeren en juiste JVM‑heap‑grootte.  
-- **Maak gebruik van Java’s garbage collector** – geef `Index`‑objecten vrij wanneer ze niet meer nodig zijn.
+- **Houd de index actueel** – re‑indexeer wanneer nieuwe bestanden worden toegevoegd of bestaande wijzigen.  
+- **Monitor geheugenverbruik** – grote corpora profiteren van incrementele indexering en juiste JVM‑heap‑grootte.  
+- **Maak gebruik van Java’s garbage collector** – maak `Index`‑objecten vrij wanneer ze niet meer nodig zijn.
 
 ## Veelvoorkomende problemen en oplossingen
-
 | Probleem | Oplossing |
-|----------|-----------|
-| `useCaseSensitiveSearch` lijkt genegeerd te worden | Controleer of je de nieuwste GroupDocs.Search‑versie gebruikt en of de index opnieuw is opgebouwd na het wijzigen van de optie. |
-| Geen resultaten teruggekregen voor een bekende term | Zorg ervoor dat de hoofdlettergebruik van de term exact overeenkomt en dat het document succesvol aan de index is toegevoegd. |
+|-------|----------|
+| `useCaseSensitiveSearch` lijkt genegeerd | Controleer of je de nieuwste GroupDocs.Search‑versie gebruikt en of de index opnieuw is opgebouwd na het wijzigen van de optie. |
+| Geen resultaten voor een bekende term | Zorg dat de hoofdlettercase van de term exact overeenkomt en dat het document succesvol aan de index is toegevoegd. |
 | Zoeken in veel mappen vertraagt | Voeg elke map afzonderlijk toe met `index.add()` en overweeg de index op te splitsen in shards voor zeer grote datasets. |
 
 ## Veelgestelde vragen
 
-**Q:** Hoe ga ik om met grote datasets met GroupDocs.Search?  
-**A:** Maak gebruik van index‑partitionering, stel JVM‑geheugeninstellingen af en compactteer periodiek de index om de prestaties optimaal te houden.
+**V:** Hoe ga ik om met grote datasets in GroupDocs.Search?  
+**A:** Gebruik index‑partitionering, stem JVM‑geheugeninstellingen af en compactteer periodiek de index om optimale prestaties te behouden.
 
-**Q:** Kan ik gelijktijdig zoeken over meerdere mappen?  
-**A:** Ja – roep `index.add()` aan voor elke map die je wilt opnemen, en voer vervolgens één enkele query uit tegen de gecombineerde index.
+**V:** Kan ik tegelijk over meerdere mappen zoeken?  
+**A:** Ja – roep `index.add()` aan voor elke map die je wilt opnemen, en voer vervolgens één query uit tegen de gecombineerde index.
 
-**Q:** Wat zijn veelvoorkomende valkuilen bij het instellen van case‑gevoelige zoekopdrachten?  
-**A:** Het vergeten opnieuw opbouwen van de index na het inschakelen van `useCaseSensitiveSearch`, of het gebruiken van de verkeerde hoofdlettercase in de query‑string.
+**V:** Wat zijn veelvoorkomende valkuilen bij het instellen van case‑gevoelige zoekopdrachten?  
+**A:** Het vergeten opnieuw te bouwen van de index na het inschakelen van `useCaseSensitiveSearch`, of het gebruiken van de verkeerde hoofdlettercase in de query‑string.
 
-**Q:** Hoe kan ik zoekfouten oplossen?  
-**A:** Controleer de logbestanden die door GroupDocs.Search worden gegenereerd op stacktraces, en bevestig dat alle Maven‑afhankelijkheden correct zijn opgelost.
+**V:** Hoe kan ik zoekfouten oplossen?  
+**A:** Controleer de logbestanden die door GroupDocs.Search worden gegenereerd op stack‑traces, en bevestig dat alle Maven‑dependencies correct zijn opgelost.
 
-**Q:** Is GroupDocs.Search geschikt voor realtime‑applicaties?  
+**V:** Is GroupDocs.Search geschikt voor realtime‑toepassingen?  
 **A:** Met de juiste indexeringsstrategieën (incrementele updates en in‑memory caching) kan het bijna realtime zoekresultaten leveren.
 
-## Bronnen
+## Resources
 - **Documentatie:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)
 - **API‑referentie:** [Java API Reference](https://reference.groupdocs.com/search/java)
 - **Download:** [Latest Releases](https://releases.groupdocs.com/search/java/)
@@ -183,6 +236,14 @@ Het gebruik van `createWordQuery` stelt je later in staat het te combineren met 
 
 ---
 
-**Laatst bijgewerkt:** 2026-02-06  
+**Laatst bijgewerkt:** 2026-08-10  
 **Getest met:** GroupDocs.Search 25.4  
-**Auteur:** GroupDocs
+**Auteur:** GroupDocs  
+
+---
+
+## Gerelateerde tutorials
+
+- [Create Search Index Java – GroupDocs.Search Tutorials](/search/java/indexing/)
+- [How to Add Documents to Index with GroupDocs.Search for Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [How to add documents to index with Metadata Indexing in Java using GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)

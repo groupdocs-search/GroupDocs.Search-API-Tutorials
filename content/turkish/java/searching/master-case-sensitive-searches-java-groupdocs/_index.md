@@ -1,45 +1,103 @@
 ---
-date: '2026-02-06'
-description: GroupDocs.Search kullanarak Java'da belgeleri indekse eklemeyi ve büyük/küçük
-  harfe duyarlı aramayı etkinleştirmeyi öğrenin, uygulamanızın doğruluğunu artırın.
+date: '2026-08-10'
+description: searchable index Java oluşturmayı ve GroupDocs.Search ile case‑sensitive
+  aramayı etkinleştirmeyi öğrenin, Java uygulamaları için doğruluğu artırarak.
 keywords:
-- case-sensitive searches in Java
-- GroupDocs.Search Java tutorial
-- Java text query search
-- object query search in Java
-title: 'Belgeleri indekse ekle: GroupDocs ile büyük/küçük harf duyarlı Java araması'
+- create searchable index java
+- case sensitive search java
+- groupdocs search java tutorial
+- java text query search
+lastmod: '2026-08-10'
+og_description: searchable index Java oluşturmayı ve GroupDocs.Search ile case‑sensitive
+  aramayı etkinleştirmeyi öğrenin. Java geliştiricileri için adım adım kılavuz.
+og_image_alt: Guide to creating a searchable index in Java using GroupDocs with case‑sensitive
+  search
+og_title: 'searchable index Java oluşturun: belgeler için case‑sensitive arama ekleyin'
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-10'
+  description: Learn how to create searchable index java and enable case‑sensitive
+    search with GroupDocs.Search, boosting accuracy for Java applications.
+  headline: 'Create searchable index java: add docs case‑sensitive search'
+  type: TechArticle
+- description: Learn how to create searchable index java and enable case‑sensitive
+    search with GroupDocs.Search, boosting accuracy for Java applications.
+  name: 'Create searchable index java: add docs case‑sensitive search'
+  steps:
+  - name: create an index and add your documents
+    text: The `Index` class represents a searchable storage area on disk where documents
+      are indexed. > **Pro tip:** You can call `index.add()` multiple times to **search
+      across multiple directories** in a single index.
+  - name: enable case‑sensitive search
+    text: '`SearchOptions` configures how queries are processed, including case sensitivity
+      and other search behaviors.'
+  - name: execute a case‑sensitive text query
+    text: '`SearchQuery` builds the query object that the engine evaluates against
+      the index. The loop prints the full path of each document that contains the
+      exact case‑matched term.'
+  - name: initialize a second index (optional)
+    text: A second `Index` instance can be created to isolate object‑based searches
+      from plain‑text searches.
+  - name: re‑use the case‑sensitive option
+    text: '`SearchOptions` can be reused across different query types to maintain
+      consistent case handling.'
+  - name: build and run an object query
+    text: '`WordQuery` represents a word‑level search that can be combined with other
+      query types for complex searches. Using `createWordQuery` lets you later combine
+      it with phrase, wildcard, or Boolean queries for more complex scenarios.'
+  type: HowTo
+- questions:
+  - answer: Add documents to an index with `index.add(...)`.
+    question: What is the primary step to start searching?
+  - answer: Set `options.setUseCaseSensitiveSearch(true)`.
+    question: How do you enable case‑sensitive search?
+  - answer: Yes – call `index.add()` for each folder you want to include.
+    question: Can you search across multiple directories?
+  - answer: Use `SearchQuery.createWordQuery(...)`.
+    question: Which method lets you search with objects?
+  - answer: A temporary license is available for trial purposes.
+    question: Do you need a license for testing?
+  type: FAQPage
+tags:
+- create searchable index
+- case-sensitive search
+- groupdocs search
+- java document processing
+title: 'searchable index Java oluşturun: belgeler için case‑sensitive arama ekleyin'
 type: docs
 url: /tr/java/searching/master-case-sensitive-searches-java-groupdocs/
 weight: 1
 ---
 
-# Dizin'e belge ekleme: Java'da GroupDocs ile Büyük/Küçük Harfe Duyarlı Aramaları Ustalıkla Kullanma
+# Aranabilir indeks oluşturma java: belgeleri ekle büyük/küçük harf duyarlı arama
 
-Büyük bir belge koleksiyonundan doğru bilgiyi elde etmek, modern uygulamaların temel gereksinimlerinden biridir. Bu rehberde **belge ekleme** ve **büyük/küçük harfe duyarlı aramaları** GroupDocs.Search for Java kullanarak nasıl yapacağınızı öğreneceksiniz. İster bir hukuk belgesi deposu, bir e‑ticaret kataloğu ya da bir içerik yönetim sistemi oluşturuyor olun, kesin arama sonuçları kullanıcıları mutlu eder ve verinizin güvenilirliğini artırır.
+Modern Java uygulamalarında, **searchable index java oluşturma** büyük belge koleksiyonlarından hızlı ve doğru bilgi almanın temelidir. Bu öğreticide bir indekse belge ekleme, büyük/küçük harf duyarlı aramayı etkinleştirme ve süreci GroupDocs.Search ile ince ayar yapma adımlarını gösteriyoruz. Hukuki bir depo, bir e‑ticaret kataloğu veya bir içerik‑yönetim sistemi oluşturuyor olsanız da, bu adımlar kullanıcıları memnun edecek kesin sonuçlar sunmanıza yardımcı olur.
 
-## Hızlı Yanıtlar
-- **Aramaya başlamak için temel adım nedir?** `index.add(...)` ile bir dizine belge ekleyin.  
-- **Büyük/küçük harfe duyarlı arama nasıl etkinleştirilir?** `options.setUseCaseSensitiveSearch(true)` ayarlayın.  
-- **Birden fazla klasörde arama yapabilir miyim?** Evet – dahil etmek istediğiniz her klasör için `index.add()` çağırın.  
-- **Nesnelerle arama yapmamı sağlayan yöntem hangisidir?** `SearchQuery.createWordQuery(...)` kullanın.  
-- **Test için lisansa ihtiyacım var mı?** Deneme amaçlı geçici bir lisans mevcuttur.
+## Hızlı cevaplar
+- **Aramaya başlamak için birincil adım nedir?** `index.add(...)` ile bir indekse belge ekleyin.  
+- **Büyük/küçük harf duyarlı aramayı nasıl etkinleştirirsiniz?** `options.setUseCaseSensitiveSearch(true)` ayarlayın.  
+- **Birden fazla dizin arasında arama yapabilir misiniz?** Evet – dahil etmek istediğiniz her klasör için `index.add()` çağırın.  
+- **Hangi yöntem nesnelerle arama yapmanıza olanak tanır?** `SearchQuery.createWordQuery(...)` kullanın.  
+- **Test için lisansa ihtiyacınız var mı?** Deneme amaçlı geçici bir lisans mevcuttur.
 
-## “Dizin'e belge ekleme” ne anlama geliyor?
-Belge ekleme, kaynak dosyalarınızı (PDF, Word belgeleri, düz metin vb.) GroupDocs.Search’e besleyerek arama yapılabilir bir veri yapısı oluşturması demektir. Dizin oluşturulduktan sonra motor, büyük/küçük harfe duyarlı sorgular da dahil olmak üzere hızlı sorgular çalıştırabilir.
+## “add documents to index” ne anlama geliyor?
+Bir indekse belge eklemek, kaynak dosyalarınızı (PDF'ler, Word belgeleri, düz metin vb.) GroupDocs.Search'e beslemek anlamına gelir, böylece aranabilir bir veri yapısı oluşturabilir. İndeks, token'lanmış terimleri, konumları ve meta verileri saklar ve motorun büyük/küçük harf duyarlı sorgular da dahil olmak üzere hızlı sorgular çalıştırmasına ve sonuçları verimli bir şekilde sıralamasına olanak tanır.
 
-## Java’da büyük/küçük harfe duyarlı arama neden etkinleştirilmeli?
-- **Tam terim eşleşmesi** – “Apple” (şirket) ile “apple” (meyve) arasını ayırır.  
-- **Düzenleyici uyumluluk** – bazı sektörler tam ifade eşleşmesi gerektirir.  
-- **Gelişmiş alaka düzeyi** – kullanıcılar teknik veya hukuki bağlamlarda büyük/küçük harfe duyarlı sonuçlar bekler.
+## Java'da büyük/küçük harf duyarlı aramayı neden etkinleştirmelisiniz?
+Büyük/küçük harf duyarlı aramayı etkinleştirmek, motorun yalnızca harf büyüklüğüyle farklılaşan terimleri ayırt etmesini sağlar; bu, büyük harf kullanımının anlam taşıdığı alanlar için kritiktir. Tam terim eşleşmesine izin verir, düzenleyici uyumluluk gereksinimlerini destekler ve kullanıcının sorgusundaki harf durumuyla tam olarak eşleşen sonuçları döndürerek alaka düzeyini artırır.
+
+- **Tam terim eşleşmesi** – örn., “Apple” (şirket) vs. “apple” (meyve).  
+- **Düzenleyici uyumluluk** – birçok sektör kesin ifade eşleşmesi gerektirir.  
+- **Geliştirilmiş alaka** – teknik ve hukuki kullanıcılar genellikle harf durumuna özgü sonuçlar bekler.
 
 ## Önkoşullar
-- JDK (Java 17 veya daha yeni sürüm önerilir)  
+- JDK 17 veya üzeri (önerilir)  
 - Bağımlılık yönetimi için Maven  
 - IntelliJ IDEA veya Eclipse gibi bir IDE  
 - Java programlamaya temel aşinalık  
 
 ## GroupDocs.Search for Java Kurulumu
-İlk olarak, GroupDocs deposunu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
+Aşağıdaki Maven snippet'i, projenize GroupDocs.Search deposunu ve gerekli bağımlılığı ekler.
 
 ```xml
 <repositories>
@@ -59,15 +117,15 @@ Belge ekleme, kaynak dosyalarınızı (PDF, Word belgeleri, düz metin vb.) Grou
 </dependencies>
 ```
 
-Alternatif olarak, en yeni sürümü doğrudan [GroupDocs.Search for Java sürümleri](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
+Alternatif olarak, en son sürümü doğrudan [GroupDocs.Search for Java sürümleri](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
 
 ### Lisanslama
-Deneme sürümüyle başlamak için GroupDocs sitesinden geçici bir lisans edinin. Bu, tüm özellikleri sınırlama olmadan test etmenizi sağlar.
+Deneme sürümüne başlamak için GroupDocs sitesini ziyaret ederek geçici bir lisans edinin. Bu, tüm özellikleri sınırlama olmadan test etmenizi sağlar.
 
-## Dizin'e belge ekleme – Metin Sorgusu Arama
+## Aranabilir indeks oluşturma java – metin sorgu araması
 
-### Adım 1: Bir Dizin Oluşturun ve Belgelerinizi Ekleyin
-Dizin dosyalarının saklanacağı bir klasör oluşturun, ardından aramak istediğiniz belgeleri içeren kaynak klasörü ekleyin.
+### Adım 1: bir indeks oluşturun ve belgelerinizi ekleyin
+`Index` sınıfı, belgelerin indekslendiği, diskteki aranabilir bir depolama alanını temsil eder.
 
 ```java
 String indexFolder = YOUR_OUTPUT_DIRECTORY + "/CaseSensitiveSearch/QueryInTextForm";
@@ -75,18 +133,18 @@ Index index = new Index(indexFolder);
 index.add(YOUR_DOCUMENT_DIRECTORY); // Add documents to the index
 ```
 
-> **İpucu:** Tek bir dizinde **birden fazla klasörde arama** yapmak için `index.add()` metodunu birden çok kez çağırabilirsiniz.
+> **Pro ipucu:** Tek bir indekste **birden fazla dizin arasında arama** yapmak için `index.add()` metodunu birden çok kez çağırabilirsiniz.
 
-### Adım 2: Büyük/küçük harfe duyarlı aramayı etkinleştirin
-Arama seçeneklerini harf duyarlılığını koruyacak şekilde yapılandırın.
+### Adım 2: büyük/küçük harf duyarlı aramayı etkinleştirin
+`SearchOptions`, sorguların nasıl işlendiğini, büyük/küçük harf duyarlılığı ve diğer arama davranışlarını yapılandırır.
 
 ```java
 SearchOptions options = new SearchOptions();
 options.setUseCaseSensitiveSearch(true);
 ```
 
-### Adım 3: Büyük/küçük harfe duyarlı bir metin sorgusu çalıştırın
-“Advantages” ile “advantages” arasını ayıran bir sorgu yürütün.
+### Adım 3: büyük/küçük harf duyarlı bir metin sorgusu çalıştırın
+`SearchQuery`, motorun indeks üzerinde değerlendirdiği sorgu nesnesini oluşturur.
 
 ```java
 String query = "Advantages";
@@ -98,14 +156,12 @@ for (FoundDocument doc : result.getDocuments()) {
 }
 ```
 
-Döngü, tam olarak büyük/küçük harfe uyan terimi içeren her belgenin tam yolunu yazdırır.
+Döngü, tam olarak büyük/küçük harfe uygun terimi içeren her belgenin tam yolunu yazdırır.
 
-## Dizin'e belge ekleme – Nesne Sorgusu Arama
+## Aranabilir indeks oluşturma java – nesne sorgu araması
 
-Nesne sorguları, özellikle birden fazla kriteri birleştirmeniz gerektiğinde daha fazla esneklik sağlar.
-
-### Adım 1: İkinci bir dizin başlatın (isteğe bağlı)
-Nesne‑tabanlı aramaları ayrı tutmak isterseniz, başka bir dizin klasörü oluşturun.
+### Adım 1: ikinci bir indeks başlatın (isteğe bağlı)
+Nesne tabanlı aramaları düz metin aramalarından izole etmek için ikinci bir `Index` örneği oluşturulabilir.
 
 ```java
 String indexFolder = YOUR_OUTPUT_DIRECTORY + "/CaseSensitiveSearch/QueryInObjectForm";
@@ -113,16 +169,16 @@ Index index = new Index(indexFolder);
 index.add(YOUR_DOCUMENT_DIRECTORY); // Add documents to the index
 ```
 
-### Adım 2: Büyük/küçük harfe duyarlı seçeneği yeniden kullanın
-Aynı `SearchOptions` örneği nesne sorguları için de çalışır.
+### Adım 2: büyük/küçük harf duyarlı seçeneği yeniden kullanın
+`SearchOptions`, tutarlı harf durumu işleme için farklı sorgu tiplerinde yeniden kullanılabilir.
 
 ```java
 SearchOptions options = new SearchOptions();
 options.setUseCaseSensitiveSearch(true);
 ```
 
-### Adım 3: Bir nesne sorgusu oluşturun ve çalıştırın
-Bir kelime sorgusu nesnesi oluşturun ve arama motoruna gönderin.
+### Adım 3: bir nesne sorgusu oluşturun ve çalıştırın
+`WordQuery`, karmaşık aramalar için diğer sorgu tipleriyle birleştirilebilen kelime‑düzeyinde bir aramayı temsil eder.
 
 ```java
 SearchQuery query = SearchQuery.createWordQuery("Advantages");
@@ -134,54 +190,60 @@ for (FoundDocument doc : result.getDocuments()) {
 }
 ```
 
-`createWordQuery` kullanmak, daha sonra ifadeler, joker karakterler veya Boolean sorgularla birleştirerek daha karmaşık senaryolar oluşturmanıza olanak tanır.
+`createWordQuery` kullanmak, daha karmaşık senaryolar için bunu ifade, joker karakter veya Boolean sorgularıyla birleştirmenize olanak tanır.
 
-## Pratik Uygulamalar
-- **Hukuki Belge Yönetimi:** Büyük/küçük harf duyarlılığının önemli olduğu durum‑özel kanun maddelerini geri getirin.  
-- **E‑ticaret Platformları:** “PRO‑X” ile “pro‑x” gibi ürün SKU’larını ayırın.  
-- **İçerik Yönetim Sistemleri (CMS):** Yazarların tam başlıkları veya etiketleri bulmasını sağlayın.
+## Pratik uygulamalar
+- **Hukuki belge yönetimi:** Büyük harf kullanımının önemli olduğu durum‑spesifik yasaları alın.  
+- **E‑ticaret platformları:** “PRO‑X” ile “pro‑x” gibi ürün SKU'larını ayırın.  
+- **İçerik yönetim sistemleri (CMS):** Yazarların tam başlıkları veya etiketleri bulmasını sağlayın.
 
-## Performans Düşünceleri
-- **Dizini güncel tutun** – yeni dosyalar eklendiğinde veya mevcut dosyalar değiştiğinde yeniden indeksleyin.  
-- **Bellek kullanımını izleyin** – büyük veri kümeleri, artımlı indeksleme ve uygun JVM yığın boyutu ile fayda sağlar.  
+## Performans değerlendirmeleri
+- **İndeksi güncel tutun** – yeni dosyalar eklendiğinde veya mevcut dosyalar değiştiğinde yeniden indeksleyin.  
+- **Bellek kullanımını izleyin** – büyük veri kümeleri artımlı indeksleme ve uygun JVM yığın boyutlandırmasından fayda sağlar.  
 - **Java’nın çöp toplayıcısını kullanın** – `Index` nesnelerini artık ihtiyaç duyulmadığında serbest bırakın.
 
-## Yaygın Sorunlar ve Çözümler
+## Yaygın sorunlar ve çözümler
 | Sorun | Çözüm |
 |-------|----------|
-| `useCaseSensitiveSearch` göz ardı ediliyor gibi görünüyor | En yeni GroupDocs.Search sürümünü kullandığınızdan ve seçeneği değiştirdikten sonra dizinin yeniden oluşturulduğundan emin olun. |
-| Bilinen bir terim için sonuç gelmiyor | Terimin büyük/küçük harfinin tam olarak eşleştiğini ve belgenin dizine başarıyla eklendiğini kontrol edin. |
-| Çok sayıda klasör aramak yavaşlıyor | Her klasörü ayrı ayrı `index.add()` ile ekleyin ve çok büyük veri setleri için dizini parçalar (shard) halinde bölmeyi düşünün. |
+| `useCaseSensitiveSearch` göz ardı ediliyor gibi görünüyor | En son GroupDocs.Search sürümünü kullandığınızı ve seçeneği değiştirdikten sonra indeksin yeniden oluşturulduğunu doğrulayın. |
+| Bilinen bir terim için sonuç döndürülmedi | Terimin harf durumunun tam olarak eşleştiğinden ve belgenin indekse başarıyla eklendiğinden emin olun. |
+| Birçok klasörde arama yavaşlıyor | `index.add()` ile her klasörü ayrı ayrı ekleyin ve çok büyük veri setleri için indeksi parçalar (shards) halinde bölmeyi düşünün. |
 
-## Sıkça Sorulan Sorular
+## Sıkça sorulan sorular
 
-**S:** GroupDocs.Search ile büyük veri setlerini nasıl yönetebilirim?  
-**C:** Dizin bölümlendirmesini kullanın, JVM bellek ayarlarını optimize edin ve performansı korumak için periyodik olarak dizini sıkıştırın.
+**Q:** GroupDocs.Search ile büyük veri setlerini nasıl yönetirim?  
+**A:** Performansı optimal tutmak için indeks bölümlendirmesini kullanın, JVM bellek ayarlarını ayarlayın ve indeksi periyodik olarak sıkıştırın.
 
-**S:** Aynı anda birden fazla klasörde arama yapabilir miyim?  
-**C:** Evet – dahil etmek istediğiniz her klasör için `index.add()` çağırın, ardından birleşik dizin üzerinde tek bir sorgu çalıştırın.
+**Q:** Aynı anda birden fazla dizin arasında arama yapabilir miyim?  
+**A:** Evet – dahil etmek istediğiniz her dizin için `index.add()` çağırın, ardından birleşik indeks üzerinde tek bir sorgu çalıştırın.
 
-**S:** Büyük/küçük harfe duyarlı aramaları ayarlarken sık karşılaşılan tuzaklar nelerdir?  
-**C:** `useCaseSensitiveSearch` etkinleştirildikten sonra dizinin yeniden oluşturulmasını unutmak veya sorgu dizesinde yanlış harf kullanmak.
+**Q:** Büyük/küçük harf duyarlı aramaları ayarlarken yaygın hatalar nelerdir?  
+**A:** `useCaseSensitiveSearch` etkinleştirildikten sonra indeksi yeniden oluşturmayı unutmak veya sorgu dizesinde yanlış harf durumunu kullanmak.
 
-**S:** Arama hatalarını nasıl gideririm?  
-**C:** GroupDocs.Search tarafından oluşturulan log dosyalarını inceleyin, yığın izlerini (stack trace) kontrol edin ve tüm Maven bağımlılıklarının doğru çözüldüğünden emin olun.
+**Q:** Arama hatalarını nasıl gideririm?  
+**A:** GroupDocs.Search tarafından oluşturulan günlük dosyalarında yığın izlerini kontrol edin ve tüm Maven bağımlılıklarının doğru çözüldüğünden emin olun.
 
-**S:** GroupDocs.Search gerçek‑zaman uygulamaları için uygun mu?  
-**C:** Doğru indeksleme stratejileri (artımlı güncellemeler ve bellek içi önbellekleme) ile neredeyse gerçek‑zaman arama sonuçları sağlayabilir.
+**Q:** GroupDocs.Search gerçek‑zamanlı uygulamalar için uygun mu?  
+**A:** Uygun indeksleme stratejileri (artımlı güncellemeler ve bellek içi önbellekleme) ile neredeyse gerçek‑zamanlı arama sonuçları sağlayabilir.
 
 ## Kaynaklar
-- **Dokümantasyon:** [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
-- **API Referansı:** [Java API Reference](https://reference.groupdocs.com/search/java)  
-- **İndirme:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- **GitHub Deposu:** [GroupDocs.Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Destek Forumu:** [GroupDocs Free Support](https://forum.groupdocs.com/c/search/10)  
-- **Geçici Lisans:** [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **Documentation:** [GroupDocs.Search Java Belgeleri](https://docs.groupdocs.com/search/java/)  
+- **API reference:** [Java API Referansı](https://reference.groupdocs.com/search/java)  
+- **Download:** [En Son Sürümler](https://releases.groupdocs.com/search/java/)  
+- **GitHub repository:** [GroupDocs.Search for Java](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **Support forum:** [GroupDocs Ücretsiz Destek](https://forum.groupdocs.com/c/search/10)  
+- **Temporary license:** [Geçici Lisans Edinin](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Son Güncelleme:** 2026-02-06  
-**Test Edilen Versiyon:** GroupDocs.Search 25.4  
-**Yazar:** GroupDocs  
+**Last Updated:** 2026-08-10  
+**Tested With:** GroupDocs.Search 25.4  
+**Author:** GroupDocs  
 
 ---
+
+## İlgili Öğreticiler
+
+- [Arama İndeksi Oluşturma Java – GroupDocs.Search Öğreticileri](/search/java/indexing/)  
+- [GroupDocs.Search for Java ile İndexe Belge Ekleme](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)  
+- [GroupDocs.Search kullanarak Java’da Metaveri İndeksleme ile İndexe Belge Ekleme](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
