@@ -1,50 +1,93 @@
 ---
-date: '2026-02-11'
-description: Tanulja meg, hogyan valósítható meg a teljes szöveges keresés Java-ban
-  a GroupDocs.Search használatával. Ez a teljes szöveges keresési útmutató bemutatja
-  a dokumentumok indexhez adását, a Boolean lekérdezést Java-ban, és a keresési teljesítmény
-  optimalizálását.
+date: '2026-08-15'
+description: Ismerjen meg egy full text search példát Java-ban a GroupDocs.Search
+  segítségével, amely bemutatja a dokumentumok indexhez adását, a boolean query java
+  használatát és a teljesítmény optimalizálását.
 keywords:
-- full-text search in Java
-- GroupDocs.Search for Java
-- implement full-text search
-title: 'Teljes szöveges keresés Java: megvalósítás a GroupDocs.Search segítségével
-  – Átfogó útmutató'
+- full text search example
+- add documents to index
+- boolean query java
+lastmod: '2026-08-15'
+og_description: Fedezze fel a full text search példát Java-ban a GroupDocs.Search
+  segítségével. Ismerje meg, hogyan adhat dokumentumokat az indexhez, hogyan készíthet
+  boolean query java utasításokat, és hogyan növelheti a keresés teljesítményét.
+og_image_alt: Guide showing how to implement a full text search example in Java with
+  GroupDocs.Search
+og_title: Full text search példa Java-ban a GroupDocs.Search használatával
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-15'
+  description: Learn a full text search example in Java with GroupDocs.Search, covering
+    adding documents to index, boolean query java, and performance optimization.
+  headline: Full text search example in Java using GroupDocs.Search
+  type: TechArticle
+- description: Learn a full text search example in Java with GroupDocs.Search, covering
+    adding documents to index, boolean query java, and performance optimization.
+  name: Full text search example in Java using GroupDocs.Search
+  steps:
+  - name: create an index
+    text: The `Index` class is the searchable container that stores indexed documents
+      on disk.
+  - name: add documents (add documents to index)
+    text: You can index everything in a folder or limit to certain extensions using
+      a `DocumentFilter`. > **Explanation:** > - `Index` represents the searchable
+      database. > - `add()` ingests files; the wildcard `*.*` grabs all files, while
+      `DocumentFilter` lets you fine‑tune the **add documents to index** ste
+  - name: execute the search
+    text: '> **Explanation:** > - `search()` runs the query against the index. > -
+      `getDocumentCount()` tells you how many documents matched—useful for quick sanity
+      checks.'
+  type: HowTo
+- questions:
+  - answer: It indexes the raw text of every document so you can query any word or
+      phrase instantly.
+    question: What is full text search example?
+  - answer: GroupDocs.Search for Java handles PDF, DOCX, XLSX, PPTX, HTML, TXT, and
+      over 50 other file types.
+    question: Which library supports multiple formats?
+  - answer: Call the `index.add()` method with a folder path or a custom `DocumentFilter`.
+    question: How do I add documents to index?
+  - answer: Yes—combine terms with AND, OR, NOT for precise results.
+    question: Can I run Boolean queries?
+  - answer: Use incremental indexing, enable result caching, and disable phonetic
+      search unless needed.
+    question: How do I improve performance?
+  type: FAQPage
+tags:
+- full text search
+- GroupDocs.Search
+- Java document indexing
+- search performance
+title: Full text search példa Java-ban a GroupDocs.Search használatával
 type: docs
 url: /hu/java/searching/implement-full-text-search-java-groupdocs-search/
 weight: 1
 ---
 
-.# Teljes szöveges keresés Java-val a GroupDocs.Search segítségével
+# Teljes szöveges keresés példa Java-ban a GroupDocs.Search használatával
 
-## Bevezetés
-Ha a **full text search java**-nal küzdesz számtalan fájl között, nem vagy egyedül. A PDF-ek, Word dokumentumok vagy táblázatok manuális átvizsgálása gyorsan szűk keresztmetszetté válik. Szerencsére a GroupDocs.Search for Java lehetővé teszi ennek a folyamatnak az automatizálását, gyors, pontos eredményeket biztosítva bármilyen dokumentumtípusra. Ebben az útmutatóban végigvezetünk minden lépésen – a könyvtár beállításától a dokumentumok indexhez adásáig, a boolean query java kifejezések megalkotásáig, és a **optimizing search performance**-ig. A végére egy stabil, production‑ready megvalósítást kapsz a full text search java-ra az alkalmazásodban.
+Ha **teljes szöveges keresés példát** keres, amely PDF-ek, Word fájlok, táblázatok és egyéb formátumok között működik, jó helyen jár. A több ezer dokumentum manuális átvizsgálása óriási szűk keresztmetszet, de a GroupDocs.Search for Java automatizálja az indexelést és a lekérdezést villámgyorsan. Ebben az útmutatóban mindent végigvezetünk, amire szüksége van a működéshez – a dokumentumok indexhez adásától, a boolean lekérdezés Java utasítások megírásáig, egészen a keresési teljesítmény optimalizálásáig a termelési környezetben.
 
 ## Gyors válaszok
-- **Mi a full text search java?** Egy technika, amely a dokumentumok nyers szövegét indexeli, így bármely szót vagy kifejezést azonnal lekérdezheted.  
-- **Melyik könyvtár támogat több formátumot?** A GroupDocs.Search for Java kezeli a PDF, DOCX, XLSX és még sok más formátumot.  
-- **Hogyan adhatok dokumentumokat az indexhez?** Használd az `index.add()` metódust egy útvonallal vagy egy egyedi `DocumentFilter`-rel.  
-- **Futtathatok Boolean lekérdezéseket?** Igen – kombináld a kifejezéseket AND, OR, NOT operátorokkal a pontos eredményekért.  
-- **Hogyan javíthatom a teljesítményt?** Rendszeresen frissítsd az indexet, engedélyezd a gyorsítótárat, és csak szükség esetén kapcsold be a fonetikus keresést.
+- **Mi a teljes szöveges keresés példa?** Az összes dokumentum nyers szövegét indexeli, így bármely szót vagy kifejezést azonnal lekérdezhet.  
+- **Melyik könyvtár támogat több formátumot?** A GroupDocs.Search for Java kezeli a PDF, DOCX, XLSX, PPTX, HTML, TXT és több mint 50 egyéb fájltípust.  
+- **Hogyan adhatok dokumentumokat az indexhez?** Hívja meg az `index.add()` metódust egy mappával vagy egy egyéni `DocumentFilter`-rel.  
+- **Futtathatok Boolean lekérdezéseket?** Igen—összekapcsolhatja a kifejezéseket AND, OR, NOT operátorokkal a pontos eredményekért.  
+- **Hogyan javíthatom a teljesítményt?** Használjon inkrementális indexelést, engedélyezze az eredménygyorsítót, és tiltsa le a fonetikus keresést, ha nincs rá szükség.
 
-## Mi a Full Text Search Java?
-A full text search java a dokumentumok teljes szövegtartalmának átvizsgálása, hatékony indexben való tárolása, majd gyors kulcsszó- vagy kifejezéslekérdezések lehetővé tétele. Az egyszerű fájlnév-keresésekkel ellentétben a fájlok belsejét vizsgálja, így ideális dokumentumkezelő rendszerekhez, támogatási portálokhoz és bármilyen olyan helyzethez, ahol a felhasználóknak gyorsan kell információt megtalálniuk.
+## Mi a teljes szöveges keresés példa?
+A teljes szöveges keresés példa lehetővé teszi a dokumentumok teljes szöveges tartalmának átvizsgálását, hatékony indexben való tárolását, és a megfelelő rekordok azonnali visszaadását. A fájlnév‑alapú keresésekkel ellentétben a PDF‑ek, Word dokumentumok, táblázatok és egyéb támogatott formátumok belsejét is átnézi, így ideális dokumentumkezelő rendszerekhez, ügyfélszolgálati portálokhoz és bármely alkalmazáshoz, ahol a felhasználóknak gyorsan kell információt találniuk.
 
 ## Miért használjuk a GroupDocs.Search for Java-t?
-- **Multi‑format támogatás** – Word, PDF, Excel, PowerPoint és még sok más.  
-- **Skálázható indexelés** – Millió fájlt kezel alacsony memóriaigénnyel.  
-- **Fejlett lekérdezési nyelv** – Boolean, fuzzy és fonetikus keresések beépítve.  
-- **Könnyű integráció** – Egyszerű Maven függőség és egyértelmű API.
+A GroupDocs.Search for Java több mint 50 fájltípushoz nyújt többformátumos támogatást, köztük PDF, DOCX, XLSX, PPTX, HTML és egyszerű szöveg. Millió fájlra skálázható, miközben alacsony memóriahasználatot biztosít az index lemezen történő tárolásával. A könyvtár fejlett lekérdezési nyelvet tartalmaz beépített Boolean, fuzzy és fonetikus keresésekkel, és egyetlen Maven függőséggel integrálható, így percek alatt elkezdhet indexelni.
 
-## Előkövetelmények
-Mielőtt belemerülnénk, győződj meg róla, hogy rendelkezel:
-
-- **Java 8+** (Java 11 vagy újabb ajánlott).  
+## Előfeltételek
+- **Java 11+** (Java 8 is működik, de a jobb teljesítmény érdekében a Java 11 vagy újabb ajánlott).  
 - **Maven** a függőségkezeléshez.  
-- Egy **GroupDocs.Search** licenc (ingyenes próba a fejlesztéshez is működik).
+- A **GroupDocs.Search** licenc (egy ingyenes próbaverzió kulcs elegendő a fejlesztéshez).  
 
 ### Szükséges könyvtárak és függőségek
-Add hozzá a tárolót és a függőséget a `pom.xml`-hez:
+Addja a tárolót és a függőséget a `pom.xml`‑hez:
 
 ```xml
 <repositories>
@@ -64,27 +107,29 @@ Add hozzá a tárolót és a függőséget a `pom.xml`-hez:
 </dependencies>
 ```
 
-### Környezet beállítása
-- Telepítsd a JDK-t (8 vagy újabb).  
-- Használj IDE-t, például IntelliJ IDEA vagy Eclipse.  
+A részletes használathoz tekintse meg a [dokumentációt](https://docs.groupdocs.com/search/java/).
 
-### Tudás előkövetelmények
-- Alap Java programozás.  
-- Ismeret a Maven `pom.xml`-jével.  
+### Környezet beállítása
+- Telepítse a JDK‑t (8 vagy újabb) és konfigurálja a `JAVA_HOME` változót.  
+- Használjon IDE‑t, például IntelliJ IDEA‑t vagy Eclipse‑et a könnyebb hibakereséshez.  
+
+### Tudás előfeltételek
+- Alapvető Java programozási koncepciók.  
+- Ismerje a Maven `pom.xml` struktúráját.  
 
 ## A GroupDocs.Search for Java beállítása
-A könyvtárat behozhatod Maven-en keresztül (lásd fent) vagy közvetlenül letöltve a JAR-t.
+A könyvtárat behozhatja Maven‑en keresztül (lásd fent) vagy manuálisan letöltheti a JAR‑t.
 
-### Közvetlen letöltés (ha a manuális beállítást részesíted előnyben)
-Szerezd be a legújabb csomagot a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
+### Közvetlen letöltés (ha a manuális beállítást részesíti előnyben)
+Szerezze be a legújabb csomagot a [GroupDocs.Search for Java kiadások](https://releases.groupdocs.com/search/java/) oldaláról.
 
 ### Licenc beszerzési lépések
-1. **Free Trial** – Regisztrálj és kapj egy ideiglenes kulcsot.  
-2. **Temporary License** – Kérj egy hosszabb távú kulcsot a kiterjesztett teszteléshez.  
-3. **Purchase** – Frissíts teljes kereskedelmi licencre, amikor készen állsz.
+1. **Ingyenes próba** – Regisztráljon és kapjon egy ideiglenes kulcsot.  
+2. **Ideiglenes licenc** – Kérjen hosszabb távú kulcsot a kiterjesztett teszteléshez.  
+3. **Megvásárlás** – Frissítsen teljes kereskedelmi licencre, amikor készen áll a termelésre.
 
-### Alap inicializálás és beállítás
-Hozz létre egy index mappát a lemezen, és ellenőrizd, hogy a könyvtár helyesen betöltődik:
+### Alapvető inicializálás és beállítás
+Hozzon létre egy index mappát a lemezen, és ellenőrizze, hogy a könyvtár helyesen betöltődik:
 
 ```java
 import com.groupdocs.search.Index;
@@ -99,20 +144,20 @@ public class SearchSetup {
 }
 ```
 
-> **Pro tip:** Tartsd az index könyvtárat gyors SSD tárolón a legjobb lekérdezési késleltetés érdekében.
+> **Pro tipp:** Tartsa az index könyvtárát egy gyors SSD‑n a lekérdezési késleltetés minimalizálása érdekében.
 
-## Implementációs útmutató
+## Dokumentumok hozzáadása az indexhez
+**Miért fontos ez:** Keresési eredmények nem lehetségesek indexelt tartalom nélkül. Az alábbiakban bemutatjuk, hogyan adhat hozzá teljes mappákat vagy szűrheti a konkrét fájltípusokat.
 
-### Dokumentumok hozzáadása az indexhez
-**Miért fontos:** Indexelt tartalom nélkül nincsenek keresési eredmények. Az alábbiakban bemutatjuk, hogyan adhatunk hozzá teljes mappákat vagy szűrhetünk bizonyos fájltípusokat.
+### 1. lépés: index létrehozása
+Az `Index` osztály a kereshető tároló, amely a lemezen tárolja az indexelt dokumentumokat.
 
-#### 1. lépés: Index létrehozása
 ```java
 Index index = new Index("C:\\MyIndex");
 ```
 
-#### 2. lépés: Dokumentumok hozzáadása (add documents to index)
-Indexelheted a mappa minden tartalmát, vagy korlátozhatod bizonyos kiterjesztésekre:
+### 2. lépés: dokumentumok hozzáadása (dokumentumok indexelése)
+Az egész mappát indexelheti, vagy egy `DocumentFilter` segítségével korlátozhatja a kiterjesztéseket.
 
 ```java
 index.add("C:\\Documents\\*.*"); // Adds all documents from the specified directory
@@ -125,105 +170,113 @@ index.add("C:\\Reports", new DocumentFilter() {
 });
 ```
 
-> **Explanation:**  
+> **Magyarázat:**  
 > - `Index` a kereshető adatbázist jelenti.  
-> - `add()` fájlokat vesz fel; a `*.*` helyettesítő minden fájlt, míg a `DocumentFilter` finomhangolást tesz lehetővé a **add documents to index** lépésben.
+> - `add()` fájlokat olvas be; a `*.*` helyettesítő minden fájlt, míg a `DocumentFilter` finomhangolja a **dokumentumok indexelése** lépést.
 
-### Keresés végrehajtása (search documents java)
-Most, hogy az index adatokat tartalmaz, lekérdezheted.
+## Keresés végrehajtása (dokumentumok keresése Java)
+Miután az index tartalmaz adatot, lekérdezheti azt.
 
-#### 1. lépés: Lekérdezés létrehozása
+### 1. lépés: lekérdezés létrehozása
 ```java
 String query = "GroupDocs";
 ```
 
-#### 2. lépés: Keresés végrehajtása
+### 2. lépés: keresés végrehajtása
 ```java
 SearchResult result = index.search(query);
 System.out.println("Documents found: " + result.getDocumentCount());
 ```
 
-> **Explanation:**  
+> **Magyarázat:**  
 > - `search()` futtatja a lekérdezést az indexen.  
-> - `getDocumentCount()` megmondja, hány dokumentum egyezett – hasznos gyors ellenőrzéshez.
+> - `getDocumentCount()` megmutatja, hány dokumentum egyezett – hasznos gyors ellenőrzéshez.
 
-### Haladó lekérdezési technikák (boolean query java)
-Pontos irányításhoz kombináld a kifejezéseket Boolean logikával.
+## Haladó lekérdezési technikák (boolean lekérdezés Java)
+### Boolean lekérdezések
+A `BooleanQuery` osztály lehetővé teszi összetett kifejezések építését AND, OR, NOT operátorokkal.
 
-#### Boolean lekérdezések
 ```java
 String booleanQuery = "GroupDocs AND Java";
 SearchResult booleanResult = index.search(booleanQuery);
 ```
 
-#### Fonetikus keresések (opcionális fuzzy egyezéshez)
+### Fonetikus keresések (opcionális a fuzzy egyezéshez)
+A `PhoneticSearch` funkció lehetővé teszi a fonetikus egyezést helytelenül írt kifejezésekre, de extra terhet jelent.
+
 ```java
 index.getSettings().setPhoneticSearch(true);
 ```
 
-> **When to use:** Engedélyezd a fonetikus keresést csak akkor, ha a felhasználók gyakran elgépelik a kifejezéseket; egyébként tartsd letiltva a **optimize search performance** érdekében.
+> **When to use:** Engedélyezze a fonetikus keresést csak akkor, ha a felhasználók gyakran elütik a szavakat; egyébként tartsa letiltva a **keresési teljesítmény optimalizálása** érdekében.
 
 ## Gyakori problémák és megoldások
 | Probléma | Miért fordul elő | Megoldás |
 |----------|------------------|----------|
-| **Missing Documents** | Helytelen fájlútvonal vagy elégtelen jogosultság | Ellenőrizd az útvonalat és biztosíts olvasási hozzáférést |
-| **Slow Queries** | Nagy index gyorsítótár nélkül vagy felesleges fonetikus keresés | Engedélyezd a gyorsítótárat, tiltsd le a fonetikus keresést, és fontold meg az index felosztását |
-| **Out‑of‑Memory Errors** | Az index mérete meghaladja a JVM heap-et | Növeld a `-Xmx` értéket vagy használj inkrementális indexelést |
+| **Hiányzó dokumentumok** | Helytelen fájlútvonal vagy nem elegendő jogosultság | Ellenőrizze az útvonalat és adjon olvasási jogosultságot |
+| **Lassú lekérdezések** | Nagy index gyorsítótár nélkül vagy felesleges fonetikus keresés | Engedélyezze a gyorsítótárat, tiltsa le a fonetikus keresést, és fontolja meg az index felosztását |
+| **Memóriahiány hibák** | Az index mérete meghaladja a JVM heap-et | Növelje a `-Xmx` értékét vagy használjon inkrementális indexelést |
 
 ## Gyakorlati alkalmazások
 A GroupDocs.Search kiemelkedik a valós helyzetekben:
 
-1. **Content Management Systems** – Azonnali teljes szöveges keresést biztosít cikkek, PDF-ek és média között.  
-2. **Customer Support Portals** – Az ügynökök másodpercek alatt megtalálják a megfelelő kézikönyveket vagy irányelveket.  
-3. **Enterprise Document Repositories** – Keresés szerződések, jelentések és megfelelőségi dokumentumok között anélkül, hogy az adatokat külön adatbázisba mozgatnád.
+1. **Tartalomkezelő rendszerek** – Azonnali teljes szöveges keresést biztosítanak cikkek, PDF‑ek és médiaeszközök között.  
+2. **Ügyfélszolgálati portálok** – Az ügynökök másodpercek alatt megtalálják a megfelelő kézikönyveket vagy irányelveket.  
+3. **Vállalati dokumentumtárak** – Keresés szerződések, jelentések és megfelelőségi dokumentumok között anélkül, hogy az adatokat külön adatbázisba kellene áthelyezni.
 
 ## Teljesítmény szempontok
 ### A keresés teljesítményének optimalizálása
-- **Incremental Indexing:** Csak a megváltozott fájlokat add hozzá vagy frissítsd, a teljes index újraépítése helyett.  
-- **Caching:** Tartsd a gyakran használt lekérdezési eredményeket memóriában.  
-- **Resource Monitoring:** Állítsd be a JVM heap-et (`-Xmx2g` stb.) az index mérete alapján.
+- **Inkrementális indexelés:** Csak a módosított fájlokat adja hozzá vagy frissítse, a teljes index újraépítése helyett.  
+- **Gyorsítótárazás:** Tartsa a gyakran használt lekérdezési eredményeket memóriában.  
+- **Erőforrás monitorozás:** Állítsa be a JVM heap‑et (`-Xmx2g` vagy nagyobb) az index mérete alapján.
 
-### Erőforrás használati irányelvek
-- Tartsd az index mappát gyors lemezen.  
-- Figyeld a CPU-t és a memóriát a tömeges indexelés során; a kötegelt műveletek lassíthatók a csúcsok elkerülése érdekében.
+### Erőforrás‑használati irányelvek
+- Tárolja az index mappát egy gyors SSD vagy NVMe meghajtón.  
+- Figyelje a CPU‑t és a memóriát a tömeges indexelés során; korlátozza a kötegelt műveleteket a csúcsok elkerülése érdekében.
 
 ### Legjobb gyakorlatok a Java memória kezeléséhez
-- Használd a `try-with-resources`-t az adatfolyamokkal dolgozva.  
-- Nulláld a nagy objektumokat használat után a szemétgyűjtés segítésére.
+- Használja a `try‑with‑resources`‑t az adatfolyamokkal való munka során.  
+- Nullázza a nagy objektumokat használat után a szemétgyűjtés segítése érdekében.
 
-## Következtetés
-Most már egy teljes, production‑ready **full text search java** megvalósítással rendelkezel a GroupDocs.Search segítségével. A könyvtár beállításától, **adding documents to index**, a **boolean query java** kifejezések megalkotásáig, a **optimizing search performance** minden lépés lefedett. 
+## Összegzés
+Most már rendelkezik egy komplett, termelés‑kész **teljes szöveges keresés példával** Java‑ban a GroupDocs.Search segítségével. A könyvtár beállításától, **dokumentumok indexeléséig**, a **boolean lekérdezés Java** utasítások megírásáig, egészen a **keresési teljesítmény optimalizálásáig**, minden lépés lefedésre került.  
 
 ### Következő lépések
-Fedezd fel a mélyebb funkciókat, mint az egyedi elemzők, szinonima szótárak és felhő tároló integráció, az hivatalos [documentation](https://docs.groupdocs.com/search/java/) megtekintésével.
+Fedezze fel a mélyebb funkciókat, például egyedi elemzőket, szinonima szótárakat és felhő‑tároló integrációt, a hivatalos [GroupDocs.Search dokumentáció](https://docs.groupdocs.com/search/java/) megtekintésével.
 
 ---
 
-## Gyakran Ismételt Kérdések
+## Gyakran ismételt kérdések
 
 **Q:** Milyen fájlformátumokat támogat a GroupDocs.Search?  
-A: Kezeli a Word, PDF, Excel, PowerPoint, HTML, TXT és még sok más formátumot.
+**A:** Több mint 50 formátum, köztük PDF, DOCX, XLSX, PPTX, HTML, TXT és számos képformátum.
 
-**Q:** Hogyan kezeljem a nagy adatállományokat?  
-A: Oszd fel őket több indexre, frissítsd inkrementálisan, és engedélyezd az eredmény gyorsítótárazását.
+**Q:** Hogyan kezeljem a nagy adathalmazokat?  
+**A:** Ossza fel őket több indexre, frissítse inkrementálisan, és engedélyezze az eredménygyorsítót a késleltetés alacsonyan tartásához.
 
 **Q:** Futtatható a GroupDocs.Search felhő környezetben?  
-A: Igen, az index mappát mutathatod egy csatolt felhő tárolóra (például Azure Blob, AWS S3 fájlrendszer meghajtóval).
+**A:** Igen—az index mappát mutathatja egy csatolt felhő‑tárolóra (például Azure Blob, AWS S3 fájlrendszer‑illesztővel).
 
-**Q:** Mik az előnyei a GroupDocs.Search-nek más könyvtárakkal szemben?  
-A: Multi‑format támogatás, beépített Boolean/phonetic lekérdezések, és egy könnyű Java API teszi sokoldalú választássá.
+**Q:** Mik az előnyei a GroupDocs.Search‑nek más könyvtárakkal szemben?  
+**A:** Többformátumos támogatás, beépített Boolean/fonetikus lekérdezések, valamint egy könnyű Java API, amely millió dokumentumot dolgoz fel alacsony memóriaigénnyel.
 
 **Q:** Hogyan hárítsam el a teljesítményproblémákat?  
-A: Vizsgáld felül az index beállításait, tiltsd le a felesleges funkciókat, mint a fonetikus keresés, és figyeld a JVM memória/CPU használatát.
+**A:** Vizsgálja felül az index beállításait, tiltsa le a fonetikus keresést, ha nincs rá szükség, és figyelje a JVM memória/CPU használatát az indexelés és lekérdezés során.
 
-**Last Updated:** 2026-02-11  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs  
+**Legutóbb frissítve:** 2026-08-15  
+**Tesztelve ezzel:** GroupDocs.Search 25.4  
+**Szerző:** GroupDocs  
 
-**Resources**  
-- **Documentation:** [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)  
-- **API Reference:** [API Reference Guide](https://reference.groupdocs.com/search/java)  
-- **Download:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- **GitHub:** [Source Code on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Support:** [Forum and Community Support](https://forum.groupdocs.com/c/search/10)  
-- **License:** [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+**Erőforrások**  
+- **Dokumentáció:** [GroupDocs.Search dokumentáció](https://docs.groupdocs.com/search/java/)  
+- **API referencia:** [API referencia útmutató](https://reference.groupdocs.com/search/java)  
+- **Letöltés:** [Legújabb kiadások](https://releases.groupdocs.com/search/java/)  
+- **GitHub:** [Forráskód a GitHub-on](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **Támogatás:** [Fórum és közösségi támogatás](https://forum.groupdocs.com/c/search/10)  
+- **Licenc:** [Ideiglenes licenc kérése](https://purchase.groupdocs.com/temporary-license/)  
+
+## Kapcsolódó oktatóanyagok
+
+- [Hogyan valósítsuk meg a Java teljes szöveges keresést: index könyvtár létrehozása a GroupDocs.Search segítségével](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Hogyan adjunk dokumentumokat az indexhez a GroupDocs.Search for Java használatával](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Kérdezési teljesítmény javítása a GroupDocs.Search Java-val: Index és keresés optimalizálása](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
