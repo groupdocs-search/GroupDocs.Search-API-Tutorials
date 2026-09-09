@@ -122,7 +122,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## Jak vygenerovat souborovou cestu HTML stránky?
 `Feature_GenerateHtmlPageFilePath` generuje deterministické názvy souborů pro každou HTML stránku na základě čísel stránek.
@@ -168,7 +167,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## Jak vytvořit souborové cesty a URL zdrojů HTML stránky?
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` vytváří jak fyzickou cestu k souboru, tak odpovídající webové URL pro zdroje stránky.
@@ -202,7 +200,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## Praktické aplikace

@@ -122,7 +122,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## Hur genererar man en filväg för HTML‑sida?
 `Feature_GenerateHtmlPageFilePath` genererar deterministiska filnamn för varje HTML‑sida baserat på sidnummer.
@@ -168,7 +167,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## Hur skapar man filvägar och URL:er för HTML‑sidans resurser?
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` bygger både den fysiska filvägen och motsvarande web‑URL för sidresurser.
@@ -202,7 +200,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## Praktiska tillämpningar

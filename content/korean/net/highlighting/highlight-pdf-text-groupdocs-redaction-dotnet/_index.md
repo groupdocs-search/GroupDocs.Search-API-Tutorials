@@ -118,7 +118,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## HTML 페이지 파일 경로를 생성하는 방법
 `Feature_GenerateHtmlPageFilePath`는 페이지 번호를 기반으로 각 HTML 페이지에 대한 결정적인 파일 이름을 생성합니다.
@@ -164,7 +163,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## HTML 페이지 리소스 파일 경로 및 URL 생성 방법
 `Feature_GenerateHtmlPageResourceFilePathAndUrl`는 페이지 리소스에 대한 물리적 파일 경로와 해당 웹 URL을 모두 생성합니다.
@@ -198,7 +196,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## 실용적인 적용 사례

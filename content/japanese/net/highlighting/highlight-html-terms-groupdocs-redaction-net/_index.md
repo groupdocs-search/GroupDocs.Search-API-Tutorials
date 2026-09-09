@@ -62,10 +62,6 @@ url: /ja/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs.Redaction for .NETでHTML用語をハイライトする方法
 
 HTML要素を**ハイライトする方法**が必要な場合—機密データを赤線で隠すためでも、単にキーワードを強調するためでも—GroupDocs.Redaction for .NET を使用すれば作業は簡単です。このガイドでは、ライブラリの設定方法、区切り文字の特定方法、そして大きなHTMLファイルでも効率的にハイライトを適用する方法を紹介します。最後まで読むと、任意の .NET プロジェクトに適用できる再利用可能なパターンが手に入ります。
@@ -257,8 +253,3 @@ using (var document = new HTMLDocument(pageData, string.Empty))
 - [GroupDocs.Redaction .NET のマスター: セットアップとイベントハンドリングによる安全なドキュメント管理](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [HTML 変換のために GroupDocs.Redaction .NET を使用して PDF テキストをハイライトする方法](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

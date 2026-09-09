@@ -62,10 +62,6 @@ url: /ar/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # كيفية تمييز مصطلحات html باستخدام GroupDocs.Redaction لـ .NET
 
 إذا كنت بحاجة إلى **how to highlight html** العناصر—سواءً لتصنيف البيانات الحساسة أو ببساطة لتأكيد الكلمات المفتاحية—GroupDocs.Redaction لـ .NET يجعل المهمة سهلة. في هذا الدليل ستتعرف على كيفية إعداد المكتبات، وتحديد أحرف الفواصل، وتطبيق التمييز بكفاءة، حتى على ملفات HTML الكبيرة. في النهاية ستحصل على نمط قابل لإعادة الاستخدام يمكن تكييفه مع أي مشروع .NET.
@@ -256,8 +252,3 @@ using (var document = new HTMLDocument(pageData, string.Empty))
 - [إتقان إدارة المستندات في .NET باستخدام GroupDocs.Redaction: إعداد الترخيص وتمييز بحث HTML](/search/net/document-management/mastering-document-management-groupdocs-redaction-net/)
 - [إتقان GroupDocs.Redaction .NET: الإعداد ومعالجة الأحداث لإدارة المستندات الآمنة](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [كيفية تمييز النص في ملفات PDF باستخدام GroupDocs.Redaction .NET لتحويل HTML](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -119,7 +119,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## كيفية توليد مسار ملف صفحة HTML؟
 `Feature_GenerateHtmlPageFilePath` يولد أسماء ملفات حتمية لكل صفحة HTML بناءً على أرقام الصفحات.
@@ -165,7 +164,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## كيفية إنشاء مسارات ملفات موارد صفحة HTML وعناوين URL؟
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` يبني كلًا من مسار الملف الفعلي وعنوان URL الويب المقابل لموارد الصفحة.
@@ -199,7 +197,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## تطبيقات عملية

@@ -64,10 +64,6 @@ url: /nl/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hoe html-termen markeren met GroupDocs.Redaction voor .NET
 
 Als je **how to highlight html** elementen moet markeren—of je nu gevoelige gegevens wilt redigeren of simpelweg trefwoorden wilt benadrukken—maakt GroupDocs.Redaction voor .NET het werk eenvoudig. In deze gids zie je hoe je de libraries installeert, scheidingstekens identificeert en markeringen efficiënt toepast, zelfs op grote HTML‑bestanden. Aan het einde heb je een herbruikbaar patroon dat in elk .NET‑project kan worden toegepast.
@@ -259,8 +255,3 @@ Je weet nu **how to highlight html** termen met GroupDocs.Redaction voor .NET, v
 - [Beheers GroupDocs.Redaction .NET: Installatie & Event‑handling voor veilige documentbeheer](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [Hoe tekst in PDF’s te markeren met GroupDocs.Redaction .NET voor HTML‑conversie](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

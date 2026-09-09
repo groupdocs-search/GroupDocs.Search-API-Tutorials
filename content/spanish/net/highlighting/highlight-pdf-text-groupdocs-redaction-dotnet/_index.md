@@ -122,7 +122,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## ¿Cómo generar la ruta del archivo de página HTML?
 `Feature_GenerateHtmlPageFilePath` genera nombres de archivo determinísticos para cada página HTML basándose en los números de página.
@@ -168,7 +167,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## Cómo crear rutas de archivo de recursos de página HTML y URLs?
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` construye tanto la ruta física del archivo como la URL web correspondiente para los recursos de la página.
@@ -202,7 +200,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## Aplicaciones prácticas

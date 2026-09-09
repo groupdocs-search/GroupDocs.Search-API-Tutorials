@@ -64,10 +64,6 @@ url: /hi/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs.Redaction for .NET के साथ HTML शब्दों को हाइलाइट कैसे करें
 
 यदि आपको **how to highlight html** तत्वों को हाइलाइट करने की आवश्यकता है—चाहे संवेदनशील डेटा को रीडैक्ट करना हो या केवल कीवर्ड्स को उजागर करना हो—GroupDocs.Redaction for .NET इस कार्य को सरल बनाता है। इस गाइड में आप देखेंगे कि लाइब्रेरीज़ कैसे सेटअप करें, सेपरेटर कैरेक्टर्स की पहचान करें, और बड़े HTML फ़ाइलों पर भी प्रभावी ढंग से हाइलाइट लागू करें। अंत तक आपके पास एक पुन: उपयोग योग्य पैटर्न होगा जिसे किसी भी .NET प्रोजेक्ट में अनुकूलित किया जा सकता है।
@@ -259,8 +255,3 @@ using (var document = new HTMLDocument(pageData, string.Empty))
 - [GroupDocs.Redaction .NET में महारत: सुरक्षित दस्तावेज़ प्रबंधन के लिए सेटअप और इवेंट हैंडलिंग](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [HTML कन्वर्ज़न के लिए GroupDocs.Redaction .NET का उपयोग करके PDFs में टेक्स्ट को हाइलाइट कैसे करें](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

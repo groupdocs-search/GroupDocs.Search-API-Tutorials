@@ -122,7 +122,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## HTML पेज फ़ाइल पाथ कैसे जनरेट करें?
 `Feature_GenerateHtmlPageFilePath` प्रत्येक HTML पेज के लिए पेज नंबर के आधार पर निर्धारक फ़ाइल नाम जनरेट करता है।
@@ -168,7 +167,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## HTML पेज रिसोर्स फ़ाइल पाथ और URL कैसे बनाएं?
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` पेज रिसोर्सेज के लिए फिजिकल फ़ाइल पाथ और संबंधित वेब URL दोनों बनाता है।
@@ -202,7 +200,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## व्यावहारिक अनुप्रयोग

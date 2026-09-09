@@ -122,7 +122,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## Hoe een HTML‑pagina‑bestandspad te genereren?
 `Feature_GenerateHtmlPageFilePath` genereert deterministische bestandsnamen voor elke HTML‑pagina op basis van paginanummers.
@@ -168,7 +167,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## Hoe HTML‑pagina‑resource‑bestandspaden en URL's te maken?
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` bouwt zowel het fysieke bestandspad als de bijbehorende web‑URL voor paginabronnen.
@@ -202,7 +200,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## Praktische toepassingen

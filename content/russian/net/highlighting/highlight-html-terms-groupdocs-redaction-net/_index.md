@@ -64,10 +64,6 @@ url: /ru/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Как выделить HTML‑термины с помощью GroupDocs.Redaction для .NET
 
 Если вам нужно **как выделить html** элементы — будь то редактирование конфиденциальных данных или просто выделение ключевых слов — GroupDocs.Redaction для .NET делает задачу простой. В этом руководстве вы увидите, как настроить библиотеки, определить разделительные символы и эффективно применять выделения, даже для больших HTML‑файлов. В конце у вас будет переиспользуемый шаблон, который можно адаптировать к любому проекту .NET.
@@ -260,8 +256,3 @@ using (var document = new HTMLDocument(pageData, string.Empty))
 - [Освоение GroupDocs.Redaction .NET: настройка и обработка событий для безопасного управления документами](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [Как выделять текст в PDF с помощью GroupDocs.Redaction .NET для конвертации HTML](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

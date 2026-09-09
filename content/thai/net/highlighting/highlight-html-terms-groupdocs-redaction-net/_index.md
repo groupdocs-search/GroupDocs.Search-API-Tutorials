@@ -62,10 +62,6 @@ url: /th/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # วิธีเน้นคำ html ด้วย GroupDocs.Redaction สำหรับ .NET
 
 หากคุณต้องการ **วิธีเน้น html** องค์ประกอบ—ไม่ว่าจะเป็นการลบข้อมูลที่ละเอียดอ่อนหรือเพียงแค่เน้นคีย์เวิร์ด—GroupDocs.Redaction สำหรับ .NET ทำให้การทำงานเป็นเรื่องง่าย ในคู่มือนี้คุณจะได้เห็นวิธีตั้งค่าห้องสมุด, ระบุอักขระตัวคั่น, และใช้การเน้นอย่างมีประสิทธิภาพ แม้กับไฟล์ HTML ขนาดใหญ่ เมื่อเสร็จคุณจะมีรูปแบบที่นำกลับมาใช้ใหม่ได้และปรับใช้กับโครงการ .NET ใดก็ได้
@@ -256,8 +252,3 @@ using (var document = new HTMLDocument(pageData, string.Empty))
 - [Mastering Document Management in .NET with GroupDocs.Redaction: License Setup and HTML Search Highlighting](/search/net/document-management/mastering-document-management-groupdocs-redaction-net/)
 - [Master GroupDocs.Redaction .NET: Setup & Event Handling for Secure Document Management](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [How to Highlight Text in PDFs Using GroupDocs.Redaction .NET for HTML Conversion](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
