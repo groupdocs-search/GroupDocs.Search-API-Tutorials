@@ -107,13 +107,11 @@ A **GroupDocs.Redaction**-t a projektedhez bármelyik alábbi módszerrel hozzá
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -131,12 +129,10 @@ A kezdéshez ideiglenes licencet szerezhetsz vagy megvásárolhatod. Egy ingyene
 `Redactor` a fő osztály, amely dokumentum betöltésére és takarási műveletek alkalmazására szolgál.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## 1. funkció: Dokumentum attribútumok módosítása
@@ -149,14 +145,12 @@ A dokumentum attribútumok módosítása lehetővé teszi, hogy finomhangold, ho
 `Index` egy kereshető dokumentumgyűjteményt és a hozzájuk tartozó metaadatokat képviseli.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
-```
 ```
 
 #### 2. lépés: Attribútumok módosítása
@@ -165,7 +159,6 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 
 **Definition anchor:** *`AttributeChangeBatch` egyetlen tranzakcióban kötegeli a dokumentum attribútumok hozzáadását, frissítését és törlését.*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -180,7 +173,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### 3. lépés: Keresés attribútum szűrőkkel
 
@@ -189,14 +181,12 @@ A `SearchOptions` használatával szűrheted a keresési eredményeket attribút
 **Direct answer:** A `Category = "Legal"` attribútummal rendelkező dokumentumok kereséséhez állítsd be a `SearchOptions`-t egy `AttributeFilter`-rel, és hívd meg a `searcher.Search("contract", options)`-t. Ez csak a jogi címkével ellátott szerződéseket adja vissza, csökkentve a találati zajt és **optimalizálva a keresési teljesítményt**.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## 2. funkció: Attribútumok hozzáadása indexelés közben
@@ -208,7 +198,6 @@ Az attribútumok indexeléskor történő hozzáadása biztosítja, hogy minden 
 
 **Definition anchor:** *A `DocumentIndexed` esemény minden alkalommal lefut, amikor egy dokumentum sikeresen hozzáadódik az indexhez, lehetővé téve egyedi logika futtatását.*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -222,7 +211,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### 2. lépés: Keresés konfigurálása és végrehajtása
 
@@ -231,14 +219,12 @@ Az attribútumok csatolása után kereshetsz az új mezők használatával.
 **Direct answer:** Használd a `SearchOptions`-t `AttributeFilter`-rel az újonnan hozzáadott attribútumok lekérdezéséhez, például `AttributeFilter("Department", "Finance")`. Ez csak a pénzügyi területhez kapcsolódó fájlokat adja vissza, bemutatva, **hogyan indexelj attribútumokat** a gyorsabb és relevánsabb eredményekért.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Gyakorlati alkalmazások

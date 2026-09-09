@@ -89,23 +89,19 @@ Dzięki praktycznym przykładom i instrukcjom krok po kroku będziesz gotowy usp
 
 Klasa `License` rejestruje plik licencyjny w SDK GroupDocs. Załaduj swój plik licencyjny przy użyciu klasy `License` i wywołaj `SetLicense` przed jakimkolwiek innym wywołaniem SDK. Odblokowuje to pełny zestaw funkcji, usuwa znaki wodne wersji ewaluacyjnej i aktywuje optymalizacje wydajności. Ładowanie licencji na wczesnym etapie pozwala SDK zastosować kontrole uprawnień dla każdej kolejnej operacji, zapewniając, że wszystkie funkcje redakcji, wyszukiwania i renderowania działają bez ograniczeń.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Jak ustawić licencję dla Aspose.HTML?
 
 Klasa `License` w Aspose.HTML rejestruje licencję produktu i wyłącza ograniczenia wersji próbnej. Utwórz obiekt `License` Aspose i wskaż na plik `.lic`. Zapewnia to, że wszystkie funkcje renderowania Aspose.HTML działają bez ostrzeżeń wersji próbnej oraz że dostępne są zaawansowane opcje renderowania, takie jak obsługa CSS i zaawansowane silniki układu.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Wyjaśnienie**: `License.SetLicense` ładuje plik licencyjny, odblokowując wszystkie funkcje.
@@ -114,12 +110,10 @@ new License().SetLicense(licensePath);
 
 Klasa `License` dla GroupDocs.Viewer rejestruje licencję przeglądarki, umożliwiając wysokiej jakości renderowanie PDF‑ów, DOCX i innych formatów do HTML bez znaków wodnych. Utwórz instancję `License` dla GroupDocs.Viewer i wywołaj `SetLicense`. Ten krok jest wymagany, jeśli zamierzasz renderować dokumenty do HTML z pełną wiernością.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## Dlaczego używać wyszukiwania i podświetlania HTML z GroupDocs?
@@ -133,21 +127,17 @@ GroupDocs.Search indeksuje dokumenty w lekkiej, tylko‑do‑odczytu strukturze,
 Aby rozpocząć używanie GroupDocs.Redaction w swoim projekcie, możesz zainstalować go za pomocą różnych menedżerów pakietów:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -165,14 +155,12 @@ Szczegółowe warunki licencjonowania znajdziesz w [GroupDocs Documentation](htt
 
 ### Podstawowa inicjalizacja i konfiguracja
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Przewodnik wdrożeniowy
@@ -187,24 +175,20 @@ Ustawienie licencji zapewnia możliwość korzystania ze wszystkich funkcji Aspo
 
 **1. Ustaw licencję dla Aspose.HTML**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. Ustaw licencję dla GroupDocs.Viewer**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### Konfiguracja ścieżek i zapytania
@@ -217,7 +201,6 @@ Zdefiniuj ścieżki do swoich dokumentów i przygotuj zapytanie wyszukiwania, ab
 
 **1. Zdefiniuj podstawowe ścieżki**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -226,7 +209,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **Wyjaśnienie**: Organizacja ścieżek zapewnia płynną integrację funkcji wyszukiwania i podświetlania.
@@ -346,8 +328,3 @@ Nauczyłeś się, jak ustawiać licencje, konfigurować ścieżki wyszukiwania, 
 - [Opanowanie GroupDocs.Redaction .NET: Efektywne tworzenie indeksów i zarządzanie aliasami dla zaawansowanego wyszukiwania dokumentów](/search/net/indexing/groupdocs-redaction-net-index-alias-management/)
 - [Implementacja GroupDocs.Redaction .NET dla zarządzania wyszukiwaniem dokumentów i podświetlania](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Opanowanie GroupDocs.Redaction .NET: Konfiguracja i obsługa zdarzeń dla bezpiecznego zarządzania dokumentami](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -299,11 +299,6 @@ A: 무료 트라이얼 라이선스로 개발 및 평가가 가능하지만, 프
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## 관련 튜토리얼
 
 - [인덱스에 문서 추가 – GroupDocs.Search Java 가이드](/search/java/advanced-features/)

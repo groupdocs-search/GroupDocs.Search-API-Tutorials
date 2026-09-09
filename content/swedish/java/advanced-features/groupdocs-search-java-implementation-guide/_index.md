@@ -124,14 +124,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **Tips:** Sätt `setUseRawTextExtraction(true)` om du behöver vanlig text utan formatering.
@@ -148,7 +146,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## Hur man deserialiserar extraherad data
 
@@ -160,7 +157,6 @@ När du är redo att bygga indexet, deserialisera den tidigare lagrade byte‑ar
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## Hur man skapar dokumentindex
@@ -174,7 +170,6 @@ Instansiera ett `Index`‑objekt, ange lagringsmappen och konfigurera indexering
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## Hur man lägger till data i indexet och utför en sökning
 
@@ -187,13 +182,11 @@ Lägg till det deserialiserade extraktionsresultatet i indexet med `index.add()`
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **Pro‑tips:** Använd `index.search("your query", SearchOptions)` för att finjustera relevansrankning.

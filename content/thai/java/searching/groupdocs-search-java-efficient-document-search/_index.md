@@ -84,7 +84,6 @@ GroupDocs.Search รองรับ **ไฟล์รูปแบบกว่า
 1. **GroupDocs.Search for Java** – เวอร์ชัน 25.4+.  
 2. **Maven Configuration** – เพิ่มรีโพซิทอรีของ GroupDocs และการพึ่งพาในไฟล์ `pom.xml` ของคุณ:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ GroupDocs.Search รองรับ **ไฟล์รูปแบบกว่า
     </dependency>
 </dependencies>
 ```
-```
 
 คุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -119,7 +117,6 @@ GroupDocs.Search รองรับ **ไฟล์รูปแบบกว่า
 
 คลาส `Index` แทนดัชนีที่สามารถค้นหาได้ซึ่งเก็บบนดิสก์และให้เมธอดสำหรับเพิ่มเอกสารและคิวรี.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -133,12 +130,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## วิธีสร้างและจัดการดัชนีการค้นหา?
 สร้างโฟลเดอร์ดัชนีใหม่, จากนั้นเติมข้อมูลด้วยเอกสารจากไดเรกทอรีต้นทาง คลาส `SearchIndex` เป็นคอมโพเนนต์หลักที่แทนดัชนีในหน่วยความจำและบนดิสก์, ให้คุณเพิ่ม, ลบ, หรืออัปเดตเอกสารโดยไม่ต้องสร้างโครงสร้างใหม่ทั้งหมดทุกครั้ง.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -146,17 +141,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Purpose**: เริ่มต้นดัชนีการค้นหาใหม่ในไดเรกทอรีที่ระบุ.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Explanation**: เพิ่มเอกสารทั้งหมดจาก `documentsFolder` ลงในดัชนีที่สร้างใหม่ของคุณ. ขั้นตอนนี้สำคัญสำหรับการเติมดัชนีด้วยเนื้อหาที่สามารถค้นหาได้.
@@ -164,13 +156,11 @@ index.add(documentsFolder);
 ## วิธีกำหนดค่าผู้ให้บริการรูปแบบคำแบบกำหนดเอง?
 ผู้ให้บริการรูปแบบคำแบบกำหนดเองบอกเอนจินว่าจะจัดการกับรูปแบบไวยากรณ์ที่แตกต่างของคำอย่างไร (เช่น “run”, “running”, “ran”). การลงทะเบียนรูปแบบเหล่านี้ทำให้เครื่องมือค้นหาสามารถจับคู่วลีกับรูปแบบที่เกี่ยวข้องทั้งหมด, ปรับปรุงความเกี่ยวข้องอย่างมากสำหรับผู้ใช้ที่พิมพ์รูปแบบใดรูปแบบหนึ่งของคำ.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Purpose**: ปรับปรุงการค้นหาโดยทำความเข้าใจและจัดการรูปแบบไวยากรณ์ที่แตกต่างของคำ, เพิ่มความเกี่ยวข้องของผลลัพธ์.
@@ -180,7 +170,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 คลาส `SearchOptions` กำหนดวิธีการประมวลผลคิวรี, เช่นการเปิดใช้การขยายรูปแบบคำหรือการจับคู่แบบ fuzzy.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -188,7 +177,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Explanation**: การกำหนดค่านี้ทำให้การค้นหาสามารถรับรู้รูปแบบคำที่แตกต่าง, ทำให้การค้นหาดูเป็นธรรมชาติและครอบคลุมมากขึ้น.
@@ -198,7 +186,6 @@ options.setUseWordFormsSearch(true);
 
 อ็อบเจ็กต์ `SearchResult` มีผลลัพธ์ที่คิวรีคืนมา, รวมถึงส่วนที่ตรงกันและคะแนนความเกี่ยวข้อง.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -209,7 +196,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Purpose**: ดำเนินการค้นหาที่คำนึงถึงรูปแบบไวยากรณ์ต่าง ๆ ของคำ “mrs”, เพิ่มความแม่นยำของการค้นหา.

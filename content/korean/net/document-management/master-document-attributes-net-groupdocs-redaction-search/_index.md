@@ -102,13 +102,11 @@ GroupDocs.Redaction은 **50개 이상의 파일 형식**(PDF, DOCX, XLSX, PPTX, 
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -125,12 +123,10 @@ Install-Package GroupDocs.Redaction
 `Redactor`는 문서를 로드하고 가리기 작업을 적용하는 데 사용되는 주요 클래스입니다.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## 기능 1: 문서 속성 변경
@@ -142,7 +138,6 @@ Redactor redactor = new Redactor("path/to/document.pdf");
 `Index`는 문서와 해당 메타데이터의 검색 가능한 컬렉션을 나타냅니다.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
@@ -150,14 +145,12 @@ using GroupDocs.Search.Results;
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### 단계 2: 속성 수정
 `AttributeChangeBatch`는 효율성을 위해 속성 업데이트를 배치하는 클래스입니다.
 
 **Definition anchor:** *`AttributeChangeBatch`는 단일 트랜잭션에서 문서 속성에 대한 추가, 업데이트 및 삭제 작업을 배치합니다.*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -172,7 +165,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### 단계 3: 속성 필터로 검색
 `SearchOptions`를 사용하여 속성 값으로 검색 결과를 필터링할 수 있습니다.
@@ -180,14 +172,12 @@ index.ChangeAttributes(batch);
 **Direct answer:** `Category = "Legal"` 속성을 포함하는 문서를 검색하려면 `SearchOptions`를 `AttributeFilter`와 함께 구성하고 `searcher.Search("contract", options)`를 호출합니다. 이렇게 하면 법적 태그가 지정된 계약서만 반환되어 결과 잡음을 줄이고 **검색 성능을 최적화**합니다.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## 기능 2: 인덱싱 중 속성 추가
@@ -198,7 +188,6 @@ SearchResult result = index.Search(query, options);
 #### 단계 1: 인덱싱을 위한 이벤트 핸들러 설정
 *`DocumentIndexed` 이벤트는 문서가 인덱스에 성공적으로 추가될 때마다 발생하여 사용자 정의 로직을 실행할 수 있게 합니다.*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -212,7 +201,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### 단계 2: 검색 구성 및 수행
 속성이 부착된 후에는 새로운 필드를 사용하여 검색할 수 있습니다.
@@ -220,14 +208,12 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 **Direct answer:** `SearchOptions`와 `AttributeFilter`를 사용하여 새로 추가된 속성을 쿼리합니다. 예를 들어 `AttributeFilter("Department", "Finance")`와 같이 사용합니다. 이렇게 하면 재무 관련 파일만 반환되어 **속성을 인덱싱하는 방법**을 보여주며 더 빠르고 관련성 높은 결과를 얻을 수 있습니다.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## 실용적인 적용 사례

@@ -103,13 +103,11 @@ GroupDocs.Redaction **50+ फ़ाइल फ़ॉर्मैट** (PDF, DOCX,
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -127,12 +125,10 @@ Install-Package GroupDocs.Redaction
 `Redactor` वह मुख्य क्लास है जिसका उपयोग दस्तावेज़ लोड करने और रेडैक्शन ऑपरेशन्स लागू करने के लिए किया जाता है।
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## फीचर 1: दस्तावेज़ एट्रिब्यूट बदलें
@@ -144,7 +140,6 @@ Redactor redactor = new Redactor("path/to/document.pdf");
 `Index` दस्तावेज़ों और उनके संबंधित मेटाडेटा का एक सर्चेबल संग्रह दर्शाता है।
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
@@ -152,14 +147,12 @@ using GroupDocs.Search.Results;
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### चरण 2: एट्रिब्यूट संशोधित करें
 `AttributeChangeBatch` वह क्लास है जो एट्रिब्यूट अपडेट को बैच में समूहित करके दक्षता बढ़ाता है।
 
 **परिभाषा एंकर:** *`AttributeChangeBatch` दस्तावेज़ एट्रिब्यूट पर जोड़, अपडेट और डिलीट ऑपरेशन्स को एक ही ट्रांजैक्शन में बैच करता है।*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -174,7 +167,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### चरण 3: एट्रिब्यूट फ़िल्टर के साथ खोजें
 आप `SearchOptions` का उपयोग करके एट्रिब्यूट मानों के आधार पर खोज परिणामों को फ़िल्टर कर सकते हैं।
@@ -182,14 +174,12 @@ index.ChangeAttributes(batch);
 **सीधा उत्तर:** उन दस्तावेज़ों को खोजने के लिए जिनमें एट्रिब्यूट `Category = "Legal"` है, `SearchOptions` को `AttributeFilter` के साथ कॉन्फ़िगर करें और `searcher.Search("contract", options)` कॉल करें। यह केवल कानूनी रूप से टैग किए गए कॉन्ट्रैक्ट लौटाता है, परिणाम शोर को कम करता है और **खोज प्रदर्शन को अनुकूलित** करता है।
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## फीचर 2: इंडेक्सिंग के दौरान एट्रिब्यूट जोड़ें
@@ -200,7 +190,6 @@ SearchResult result = index.Search(query, options);
 #### चरण 1: इंडेक्सिंग के लिए इवेंट हैंडलर सेट अप करें
 **परिभाषा एंकर:** *`DocumentIndexed` इवेंट प्रत्येक बार जब कोई दस्तावेज़ सफलतापूर्वक इंडेक्स में जोड़ा जाता है, तब ट्रिगर होता है, जिससे कस्टम लॉजिक चलाया जा सकता है।*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -214,7 +203,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### चरण 2: खोज को कॉन्फ़िगर करें और निष्पादित करें
 एट्रिब्यूट जुड़ने के बाद, आप उन नए फ़ील्ड्स का उपयोग करके खोज कर सकते हैं।
@@ -222,14 +210,12 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 **सीधा उत्तर:** `SearchOptions` को `AttributeFilter` के साथ उपयोग करके नए जोड़े गए एट्रिब्यूट्स को क्वेरी करें, उदाहरण के लिए `AttributeFilter("Department", "Finance")`। यह केवल वित्त‑संबंधी फ़ाइलें लौटाता है, जिससे **एट्रिब्यूट्स को कैसे इंडेक्स करें** यह दर्शाता है, जो तेज़ और अधिक प्रासंगिक परिणाम देता है।
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## व्यावहारिक अनुप्रयोग

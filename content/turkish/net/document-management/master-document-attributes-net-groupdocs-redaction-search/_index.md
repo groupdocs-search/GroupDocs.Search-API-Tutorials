@@ -103,13 +103,11 @@ Aşağıdaki yöntemlerden herhangi birini kullanarak projenize **GroupDocs.Reda
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Paket Yöneticisi UI**  
@@ -126,12 +124,10 @@ Başlamak için geçici bir lisans alabilir veya satın alabilirsiniz. Özellikl
 `Redactor`, bir belgeyi yüklemek ve kırpma işlemlerini uygulamak için kullanılan ana sınıftır.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## Özellik 1: Belge Özniteliklerini Değiştir
@@ -144,14 +140,12 @@ Belge özniteliklerini değiştirmek, belgelerin arama sonuçlarında nasıl gö
 `Index`, belgelerin ve ilişkili meta verilerin aranabilir bir koleksiyonunu temsil eder.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
-```
 ```
 
 #### Adım 2: Öznitelikleri Değiştir
@@ -160,7 +154,6 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 
 **Tanım referansı:** *`AttributeChangeBatch`, belge özniteliklerine ekleme, güncelleme ve silme işlemlerini tek bir işlemde toplar.*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -175,7 +168,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### Adım 3: Öznitelik Filtreleriyle Arama
 
@@ -184,14 +176,12 @@ index.ChangeAttributes(batch);
 **Doğrudan cevap:** `Category = "Legal"` özniteliğine sahip belgeleri aramak için `SearchOptions`'ı bir `AttributeFilter` ile yapılandırın ve `searcher.Search("contract", options)`'ı çağırın. Bu, yalnızca yasal olarak etiketlenmiş sözleşmeleri döndürür, sonuç gürültüsünü azaltır ve **arama performansını** **optimize** eder.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## Özellik 2: İndeksleme Sırasında Öznitelik Ekleme
@@ -203,7 +193,6 @@ SearchResult result = index.Search(query, options);
 
 **Tanım referansı:** *`DocumentIndexed` olayı, bir belge başarıyla indekse eklendiğinde her seferinde tetiklenir ve özel mantığın çalışmasına izin verir.*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -217,7 +206,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Adım 2: Aramayı Yapılandır ve Gerçekleştir
 
@@ -226,14 +214,12 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 **Doğrudan cevap:** Yeni eklenen öznitelikleri sorgulamak için `SearchOptions` ile `AttributeFilter` kullanın, örneğin `AttributeFilter("Department", "Finance")`. Bu, yalnızca finans‑ile ilgili dosyaları döndürür ve daha hızlı, daha ilgili sonuçlar için **özniteliklerin nasıl indeksleneceğini** gösterir.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Pratik Uygulamalar

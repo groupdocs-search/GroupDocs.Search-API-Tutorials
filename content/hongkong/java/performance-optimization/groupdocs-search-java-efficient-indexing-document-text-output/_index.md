@@ -299,11 +299,6 @@ A: 免費試用授權足以支援開發與評估；生產環境部署則需購�
 **測試版本：** GroupDocs.Search 25.4 for Java  
 **作者：** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## 相關教學
 
 - [將文件加入索引 – GroupDocs.Search Java 指南](/search/java/advanced-features/)

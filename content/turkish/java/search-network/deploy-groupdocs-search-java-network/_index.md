@@ -257,11 +257,6 @@ C: Kesinlikle. GroupDocs.Search, yeni eklenen belgelerin tüm düğümlerde kesi
 **Test Edilen:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## İlgili Öğreticiler
 
 - [GroupDocs.Search for Java Öğreticileri ve Örnekleri](/search/net/)

@@ -300,11 +300,6 @@ A: विकास और मूल्यांकन के लिए एक �
 **परीक्षित संस्करण:** GroupDocs.Search 25.4 for Java  
 **लेखक:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## संबंधित ट्यूटोरियल
 
 - [इंडेक्स में दस्तावेज़ जोड़ें – GroupDocs.Search Java गाइड](/search/java/advanced-features/)

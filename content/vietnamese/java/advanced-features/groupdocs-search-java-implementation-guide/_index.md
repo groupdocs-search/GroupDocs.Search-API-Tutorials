@@ -124,14 +124,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **Mẹo:** Đặt `setUseRawTextExtraction(true)` nếu bạn cần văn bản thuần không có định dạng.
@@ -148,7 +146,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## Cách giải tuần tự hoá dữ liệu đã trích xuất
 
@@ -160,7 +157,6 @@ Phương thức `deserialize` khôi phục trạng thái chính xác của kết
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## Cách tạo chỉ mục tài liệu
@@ -174,7 +170,6 @@ Lớp `Index` đại diện cho container có thể tìm kiếm, chứa tất c�
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## Cách thêm dữ liệu vào chỉ mục và thực hiện tìm kiếm
 
@@ -187,13 +182,11 @@ Phương thức `add` đăng ký các thuật ngữ của tài liệu vào chỉ
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **Mẹo chuyên nghiệp:** Sử dụng `index.search("your query", SearchOptions)` để tinh chỉnh xếp hạng độ liên quan.

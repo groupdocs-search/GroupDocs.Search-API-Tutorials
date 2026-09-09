@@ -86,23 +86,19 @@ weight: 1
 
 `License` 類別會向 GroupDocs SDK 註冊授權檔案。使用 `License` 類別載入授權檔，並在任何其他 SDK 呼叫之前呼叫 `SetLicense`。這會解鎖全部功能、移除評估水印，並啟用效能最佳化。提前載入授權可讓 SDK 在每一次操作前執行權限檢查，確保所有遮蔽、搜尋與渲染功能皆無限制地運作。
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## 如何為 Aspose.HTML 設定授權？
 
 Aspose.HTML 的 `License` 類別會註冊產品授權並停用試用限制。建立 Aspose 的 `License` 物件，指向 `.lic` 檔案，即可確保所有 Aspose.HTML 渲染功能在無試用警告的情況下執行，且可使用 CSS 支援與進階版面引擎等高級功能。
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **說明**：`License.SetLicense` 會載入授權檔，解鎖全部功能。
@@ -111,12 +107,10 @@ new License().SetLicense(licensePath);
 
 GroupDocs.Viewer 的 `License` 類別會註冊檢視器授權，讓 PDF、DOCX 等格式以高保真度渲染為 HTML，且不會出現水印。為 GroupDocs.Viewer 建立 `License` 實例並呼叫 `SetLicense`。若您需要將文件渲染為 HTML，這一步是必要的。
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## 為何使用 GroupDocs 進行搜尋與 HTML 標示？
@@ -130,21 +124,17 @@ GroupDocs.Search 以輕量、唯讀的結構索引文件，能在毫秒級查詢
 要在專案中使用 GroupDocs.Redaction，可透過以下套件管理工具安裝：
 
 **.NET CLI：**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console：**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet 套件管理員 UI：**  
@@ -162,14 +152,12 @@ new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
 
 ### 基本初始化與設定
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## 實作指南
@@ -184,24 +172,20 @@ string query = "\"dapibus diam\" OR lorem";
 
 **1. 為 Aspose.HTML 設定授權**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. 為 GroupDocs.Viewer 設定授權**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### 設定路徑與查詢
@@ -214,7 +198,6 @@ FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first docu
 
 **1. 定義基礎路徑**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -223,7 +206,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **說明**：組織路徑可確保搜尋與標示功能順利整合。
@@ -344,8 +326,3 @@ A: 支援多種語言字典。
 - [Implement GroupDocs.Redaction .NET for Document Finder Management and Highlighting](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Master GroupDocs.Redaction .NET: Setup & Event Handling for Secure Document Management](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

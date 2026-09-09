@@ -84,7 +84,6 @@ GroupDocs.Search поддерживает **более 50 форматов фа�
 1. **GroupDocs.Search for Java** – версия 25.4+.  
 2. **Конфигурация Maven** – добавьте репозиторий GroupDocs и зависимость в ваш `pom.xml`:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ GroupDocs.Search поддерживает **более 50 форматов фа�
     </dependency>
 </dependencies>
 ```
-```
 
 Вы также можете загрузить последнюю версию напрямую с [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -119,7 +117,6 @@ GroupDocs.Search поддерживает **более 50 форматов фа�
 
 Класс `Index` представляет поисковый индекс, хранящийся на диске, и предоставляет методы для добавления документов и выполнения запросов.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -133,12 +130,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Как создать и управлять поисковым индексом?
 Создайте новую папку индекса, затем заполните её документами из исходного каталога. Класс `SearchIndex` — основной компонент, представляющий индекс в памяти и на диске, позволяющий добавлять, удалять или обновлять документы без полной перестройки структуры каждый раз.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -146,17 +141,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Назначение**: Инициализирует новый поисковый индекс в указанном каталоге.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Объяснение**: Добавляет все документы из `documentsFolder` в ваш только что созданный индекс. Этот шаг важен для заполнения индекса поисковым содержимым.
@@ -164,13 +156,11 @@ index.add(documentsFolder);
 ## Как настроить пользовательский провайдер форм слов?
 Пользовательский провайдер форм слов сообщает движку, как обрабатывать различные грамматические варианты термина (например, “run”, “running”, “ran”). Регистрация этих вариантов позволяет поисковому движку сопоставлять запросы со всеми релевантными формами, значительно повышая релевантность для пользователей, вводящих любую морфологическую форму слова.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Назначение**: Улучшает поиск, понимая и управляя различными грамматическими вариантами слов, повышая релевантность.
@@ -180,7 +170,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 Класс `SearchOptions` настраивает обработку запросов, например, включение расширения форм слов или нечеткого совпадения.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -188,7 +177,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Объяснение**: Эта настройка позволяет поиску распознавать различные формы слов, делая его более интуитивным и всесторонним.
@@ -198,7 +186,6 @@ options.setUseWordFormsSearch(true);
 
 Объект `SearchResult` содержит найденные результаты запроса, включая совпавшие фрагменты и оценки релевантности.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -209,7 +196,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Назначение**: Выполняет поиск, учитывающий различные грамматические варианты слова “mrs”, повышая точность поиска.

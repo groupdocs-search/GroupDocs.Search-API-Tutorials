@@ -85,7 +85,6 @@ GroupDocs.Search obsługuje **ponad 50 formatów plików** (w tym DOCX, PDF, XLS
 1. **GroupDocs.Search for Java** – wersja 25.4+.  
 2. **Konfiguracja Maven** – dodaj repozytorium GroupDocs oraz zależność do swojego `pom.xml`:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -103,7 +102,6 @@ GroupDocs.Search obsługuje **ponad 50 formatów plików** (w tym DOCX, PDF, XLS
     </dependency>
 </dependencies>
 ```
-```
 
 Możesz również pobrać najnowszą wersję bezpośrednio z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -120,7 +118,6 @@ Załaduj bibliotekę GroupDocs.Search, wskaż folder dla indeksu i opcjonalnie z
 
 Klasa `Index` reprezentuje przeszukiwalny indeks przechowywany na dysku i udostępnia metody do dodawania dokumentów oraz ich przeszukiwania.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -134,12 +131,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Jak utworzyć i zarządzać indeksem wyszukiwania?
 Utwórz nowy folder indeksu, a następnie wypełnij go dokumentami ze źródłowego katalogu. Klasa `SearchIndex` jest podstawowym komponentem reprezentującym indeks w pamięci i na dysku, umożliwiając dodawanie, usuwanie lub aktualizację dokumentów bez konieczności przebudowy całej struktury przy każdym użyciu.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -147,17 +142,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Cel**: Inicjalizuje nowy indeks wyszukiwania w określonym katalogu.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Wyjaśnienie**: Dodaje wszystkie dokumenty z `documentsFolder` do nowo utworzonego indeksu. Ten krok jest kluczowy dla wypełnienia indeksu treścią przeszukiwaną.
@@ -165,13 +157,11 @@ index.add(documentsFolder);
 ## Jak skonfigurować własnego dostawcę form słów?
 Własny dostawca form słów informuje silnik, jak traktować różne warianty gramatyczne terminu (np. „run”, „running”, „ran”). Rejestrując te warianty, silnik wyszukiwania może dopasować zapytania do wszystkich odpowiednich form, znacząco poprawiając trafność dla użytkowników wpisujących dowolną morfologiczną wersję słowa.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Cel**: Ulepsza wyszukiwanie poprzez rozumienie i zarządzanie różnymi wariantami gramatycznymi słów, zwiększając trafność wyników.
@@ -181,7 +171,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 Klasa `SearchOptions` konfiguruje sposób przetwarzania zapytań, np. włączając rozszerzanie form słów lub dopasowanie rozmyte.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -189,7 +178,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Wyjaśnienie**: Ta konfiguracja pozwala wyszukiwaniu rozpoznawać różne formy słów, czyniąc je bardziej intuicyjnym i kompleksowym.
@@ -199,7 +187,6 @@ Zdefiniuj ciąg zapytania i wykonaj wyszukiwanie przy użyciu wcześniej skonfig
 
 Obiekt `SearchResult` zawiera trafienia zwrócone przez zapytanie, w tym dopasowane fragmenty i oceny trafności.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -210,7 +197,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Cel**: Wykonuje wyszukiwanie uwzględniające różne warianty gramatyczne słowa „mrs”, zwiększając dokładność wyszukiwania.

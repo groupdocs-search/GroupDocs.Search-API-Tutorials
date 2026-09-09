@@ -84,7 +84,6 @@ GroupDocs.Search soporta **más de 50 formatos de archivo** (incluyendo DOCX, PD
 1. **GroupDocs.Search for Java** – versión 25.4+.  
 2. **Configuración de Maven** – agrega el repositorio de GroupDocs y la dependencia a tu `pom.xml`:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ GroupDocs.Search soporta **más de 50 formatos de archivo** (incluyendo DOCX, PD
     </dependency>
 </dependencies>
 ```
-```
 
 También puedes descargar la última versión directamente desde [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -119,7 +117,6 @@ Carga la biblioteca GroupDocs.Search, indícale una carpeta para el índice y, o
 
 La clase `Index` representa un índice buscable almacenado en disco y proporciona métodos para añadir documentos y consultarlos.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -133,12 +130,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## ¿Cómo crear y gestionar un índice de búsqueda?
 Crea una nueva carpeta de índice y luego pópúlala con documentos de un directorio fuente. La clase `SearchIndex` es el componente central que representa el índice en memoria y en disco, permitiéndote añadir, eliminar o actualizar documentos sin reconstruir toda la estructura cada vez.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -146,17 +141,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Propósito**: Inicializa un nuevo índice de búsqueda en el directorio especificado.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Explicación**: Añade todos los documentos de `documentsFolder` a tu índice recién creado. Este paso es crucial para poblar el índice con contenido buscable.
@@ -164,13 +156,11 @@ index.add(documentsFolder);
 ## ¿Cómo configurar un proveedor personalizado de formas de palabras?
 Un proveedor personalizado de formas de palabras indica al motor cómo tratar diferentes variaciones gramaticales de un término (p. ej., “run”, “running”, “ran”). Al registrar estas variaciones, el motor de búsqueda puede coincidir consultas con todas las formas relevantes, mejorando drásticamente la relevancia para los usuarios que escriben cualquier versión morfológica de una palabra.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Propósito**: Mejora la búsqueda al comprender y gestionar diferentes variaciones gramaticales de palabras, aumentando la relevancia de la búsqueda.
@@ -180,7 +170,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 La clase `SearchOptions` configura cómo se procesan las consultas, como habilitar la expansión de formas de palabras o la coincidencia difusa.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -188,7 +177,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Explicación**: Esta configuración permite que la búsqueda reconozca diferentes formas de palabras, haciéndola más intuitiva y completa.
@@ -198,7 +186,6 @@ Define una cadena de consulta y ejecuta la búsqueda usando las `SearchOptions` 
 
 El objeto `SearchResult` contiene los resultados devueltos por una consulta, incluyendo fragmentos coincidentes y puntuaciones de relevancia.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -209,7 +196,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Propósito**: Ejecuta una búsqueda que tiene en cuenta diferentes variaciones gramaticales de la palabra “mrs”, mejorando la precisión de la búsqueda.

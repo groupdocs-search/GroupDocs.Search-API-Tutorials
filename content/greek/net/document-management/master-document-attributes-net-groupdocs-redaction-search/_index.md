@@ -104,13 +104,11 @@ weight: 1
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -128,12 +126,10 @@ Install-Package GroupDocs.Redaction
 `Redactor` είναι η κύρια κλάση που χρησιμοποιείται για τη φόρτωση ενός εγγράφου και την εφαρμογή λειτουργιών απόκρυψης.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## Χαρακτηριστικό 1: Αλλαγή Χαρακτηριστικών Εγγράφου
@@ -145,7 +141,6 @@ Redactor redactor = new Redactor("path/to/document.pdf");
 `Index` αντιπροσωπεύει μια συλλογή εγγράφων που μπορούν να αναζητηθούν και τα συναφή μεταδεδομένα τους.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
@@ -153,14 +148,12 @@ using GroupDocs.Search.Results;
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Βήμα 2: Τροποποίηση Χαρακτηριστικών
 `AttributeChangeBatch` είναι η κλάση που ομαδοποιεί τις ενημερώσεις χαρακτηριστικών για αποδοτικότητα.
 
 **Αγκύρωση ορισμού:** *`AttributeChangeBatch` ομαδοποιεί προσθήκες, ενημερώσεις και διαγραφές χαρακτηριστικών εγγράφων σε μια ενιαία συναλλαγή.*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -175,7 +168,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### Βήμα 3: Αναζήτηση με Φίλτρα Χαρακτηριστικών
 Μπορείτε να φιλτράρετε τα αποτελέσματα αναζήτησης με βάση τις τιμές χαρακτηριστικών χρησιμοποιώντας το `SearchOptions`.
@@ -183,14 +175,12 @@ index.ChangeAttributes(batch);
 **Άμεση απάντηση:** Για να αναζητήσετε έγγραφα που περιέχουν το χαρακτηριστικό `Category = "Legal"`, διαμορφώστε το `SearchOptions` με ένα `AttributeFilter` και καλέστε `searcher.Search("contract", options)`. Αυτό επιστρέφει μόνο τα νομικά επισημασμένα συμβόλαια, μειώνοντας τον θόρυβο των αποτελεσμάτων και **βελτιώνοντας την απόδοση αναζήτησης**.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## Χαρακτηριστικό 2: Προσθήκη Χαρακτηριστικών Κατά την Ευρετηρίαση
@@ -201,7 +191,6 @@ SearchResult result = index.Search(query, options);
 #### Βήμα 1: Ρύθμιση Διαχειριστή Συμβάντων για την Ευρετηρίαση
 **Αγκύρωση ορισμού:** *Το συμβάν `DocumentIndexed` ενεργοποιείται κάθε φορά που ένα έγγραφο προστίθεται επιτυχώς στο ευρετήριο, επιτρέποντας την εκτέλεση προσαρμοσμένης λογικής.*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -215,7 +204,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Βήμα 2: Διαμόρφωση και Εκτέλεση Αναζήτησης
 Αφού προσαρτηθούν τα χαρακτηριστικά, μπορείτε να αναζητήσετε χρησιμοποιώντας αυτά τα νέα πεδία.
@@ -223,14 +211,12 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 **Άμεση απάντηση:** Χρησιμοποιήστε `SearchOptions` με `AttributeFilter` για να ερωτήσετε τα νεοπροστέθηκαν χαρακτηριστικά, π.χ. `AttributeFilter("Department", "Finance")`. Αυτό επιστρέφει μόνο αρχεία σχετιζόμενα με τα οικονομικά, δείχνοντας **πώς να ευρετηριάσετε χαρακτηριστικά** για ταχύτερα, πιο σχετικούς αποτελέσματα.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Πρακτικές Εφαρμογές

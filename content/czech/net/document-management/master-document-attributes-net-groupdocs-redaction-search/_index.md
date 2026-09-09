@@ -105,13 +105,11 @@ Můžete přidat **GroupDocs.Redaction** do svého projektu pomocí některé z 
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Správce balíčků**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **Uživatelské rozhraní správce balíčků NuGet**  
@@ -128,12 +126,10 @@ Pro zahájení můžete získat dočasnou licenci nebo ji zakoupit. Bezplatná z
 `Redactor` je hlavní třída používaná k načtení dokumentu a aplikaci redakčních operací.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## Funkce 1: Změna atributů dokumentu
@@ -146,14 +142,12 @@ Redactor redactor = new Redactor("path/to/document.pdf");
 `Index` představuje vyhledávatelnou kolekci dokumentů a jejich souvisejících metadat.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
-```
 ```
 
 #### Krok 2: Úprava atributů
@@ -162,7 +156,6 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 
 **Definiční kotva:** *`AttributeChangeBatch` hromadí operace přidání, aktualizace a mazání atributů dokumentu v jedné transakci.*  
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -177,7 +170,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### Krok 3: Vyhledávání s filtry atributů
 
@@ -186,14 +178,12 @@ Můžete filtrovat výsledky vyhledávání podle hodnot atributů pomocí `Sear
 **Přímá odpověď:** Pro vyhledání dokumentů, které obsahují atribut `Category = "Legal"`, nakonfigurujte `SearchOptions` s `AttributeFilter` a zavolejte `searcher.Search("contract", options)`. Vrátí pouze právně označené smlouvy, čímž snižuje šum ve výsledcích a **optimalizuje výkon vyhledávání**.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## Funkce 2: Přidání atributů během indexování
@@ -205,7 +195,6 @@ Přidání atributů v okamžiku indexování zajišťuje, že každý dokument 
 
 **Definiční kotva:** *Událost `DocumentIndexed` se spustí pokaždé, když je dokument úspěšně přidán do indexu, což umožňuje spustit vlastní logiku.*  
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -219,7 +208,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Krok 2: Konfigurace a provedení vyhledávání
 
@@ -228,14 +216,12 @@ Po připojení atributů můžete vyhledávat pomocí těchto nových polí.
 **Přímá odpověď:** Použijte `SearchOptions` s `AttributeFilter` k dotazu na nově přidané atributy, například `AttributeFilter("Department", "Finance")`. Vrátí pouze soubory související s financemi, což demonstruje **jak indexovat atributy** pro rychlejší a relevantnější výsledky.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Praktické aplikace

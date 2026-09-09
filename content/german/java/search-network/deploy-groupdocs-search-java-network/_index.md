@@ -258,11 +258,6 @@ A: Absolut. GroupDocs.Search bietet Echtzeit‑Indexierungs‑APIs, die neu hinz
 **Getestet mit:** GroupDocs.Search 25.4 für Java  
 **Autor:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Verwandte Tutorials
 
 - [Tutorials und Beispiele von GroupDocs.Search für Java](/search/net/)

@@ -88,23 +88,19 @@ Med praktiska exempel och steg‑för‑steg‑instruktioner blir du rustad att 
 
 `License`‑klassen registrerar en licensfil med GroupDocs‑SDK:n. Läs in din licensfil med `License`‑klassen och anropa `SetLicense` innan någon annan SDK‑anrop. Detta låser upp hela funktionsuppsättningen, tar bort utvärderingsvattenstämplar och aktiverar prestandaoptimeringar. Genom att ladda licensen tidigt kan SDK:n tillämpa behörighetskontroller för varje efterföljande operation, vilket säkerställer att alla redigerings-, sök‑ och renderingsfunktioner fungerar utan begränsningar.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Hur man sätter licens för Aspose.HTML?
 
 `License`‑klassen i Aspose.HTML registrerar produktlicensen och inaktiverar provbegränsningar. Skapa en Aspose‑`License`‑instans och peka på `.lic`‑filen. Detta säkerställer att alla Aspose.HTML‑renderingsfunktioner körs utan provvarningar och att premiumalternativ som CSS‑stöd och avancerade layoutmotorer är tillgängliga.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Förklaring**: `License.SetLicense` läser in licensfilen och låser upp alla funktioner.
@@ -113,12 +109,10 @@ new License().SetLicense(licensePath);
 
 `License`‑klassen för GroupDocs.Viewer registrerar visningslicensen, vilket möjliggör högkvalitativ rendering av PDF‑, DOCX‑ och andra format till HTML utan vattenstämplar. Skapa en `License`‑instans för GroupDocs.Viewer och anropa `SetLicense`. Detta steg krävs om du avser att rendera dokument till HTML med fullständig kvalitet.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## Varför använda sök och markering av HTML med GroupDocs?
@@ -132,21 +126,17 @@ GroupDocs.Search indexerar dokument i en lättviktig, skrivskyddad struktur som 
 För att börja använda GroupDocs.Redaction i ditt projekt kan du installera det via olika paketshanterare:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -164,14 +154,12 @@ För detaljerade licensvillkor, se [GroupDocs Documentation](https://docs.groupd
 
 ### Grundläggande initiering och konfiguration
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Implementeringsguide
@@ -186,24 +174,20 @@ Att sätta licenser säkerställer att du kan utnyttja alla funktioner i Aspose.
 
 **1. Sätt licens för Aspose.HTML**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. Sätt licens för GroupDocs.Viewer**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### Konfigurera sökvägar och fråga
@@ -216,7 +200,6 @@ Definiera sökvägar för dina dokument och förbered en sökfråga för att lok
 
 **1. Definiera basvägar**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -225,7 +208,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **Förklaring**: Att organisera vägar säkerställer smidig integration av sök‑ och markeringsfunktioner.
@@ -346,8 +328,3 @@ Du har lärt dig hur du sätter licenser, konfigurerar sökvägar, skapar index,
 - [Implement GroupDocs.Redaction .NET for Document Finder Management and Highlighting](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Master GroupDocs.Redaction .NET: Setup & Event Handling for Secure Document Management](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

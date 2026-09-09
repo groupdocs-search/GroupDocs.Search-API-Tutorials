@@ -257,11 +257,6 @@ public static SearchNetworkNode[] deploy(String basePath, int basePort, Configur
 **تم الاختبار مع:** GroupDocs.Search 25.4 for Java  
 **المؤلف:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## دروس ذات صلة
 
 - [دروس وأمثلة GroupDocs.Search for Java](/search/net/)

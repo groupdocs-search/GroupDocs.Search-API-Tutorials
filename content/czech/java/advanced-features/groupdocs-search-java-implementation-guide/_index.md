@@ -124,14 +124,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **Tip:** Nastavte `setUseRawTextExtraction(true)`, pokud potřebujete prostý text bez formátování.
@@ -148,7 +146,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## Jak deserializovat extrahovaná data
 
@@ -160,7 +157,6 @@ Metoda `deserialize` obnoví přesný stav výsledku extrakce, čímž zajistí,
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## Jak vytvořit dokumentový index
@@ -174,7 +170,6 @@ Třída `Index` představuje prohledávatelný kontejner, který obsahuje všech
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## Jak přidat data do indexu a provést vyhledávání
 
@@ -187,13 +182,11 @@ Metoda `add` zaregistruje termíny dokumentu v indexu, zatímco `search` provád
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **Tip:** Použijte `index.search("your query", SearchOptions)` k jemnému ladění relevance.

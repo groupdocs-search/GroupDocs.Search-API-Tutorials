@@ -124,14 +124,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **Suggerimento:** Imposta `setUseRawTextExtraction(true)` se ti serve testo semplice senza formattazione.
@@ -148,7 +146,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## Come deserializzare i dati estratti
 
@@ -160,7 +157,6 @@ Il metodo `deserialize` ripristina lo stato esatto del risultato di estrazione, 
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## Come creare un indice di documenti
@@ -174,7 +170,6 @@ La classe `Index` rappresenta il contenitore ricercabile che contiene tutti i te
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## Come aggiungere dati all'indice ed eseguire una ricerca
 
@@ -187,13 +182,11 @@ Il metodo `add` registra i termini del documento nell'indice, mentre `search` es
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **Suggerimento professionale:** Usa `index.search("your query", SearchOptions)` per affinare il ranking di rilevanza.

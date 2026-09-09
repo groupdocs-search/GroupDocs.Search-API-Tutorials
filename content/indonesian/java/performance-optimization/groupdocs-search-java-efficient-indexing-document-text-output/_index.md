@@ -300,11 +300,6 @@ Anda kini memiliki alur kerja lengkap yang siap produksi untuk **how to create i
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Tutorial Terkait
 
 - [Menambahkan Dokumen ke Indeks – Panduan GroupDocs.Search Java](/search/java/advanced-features/)

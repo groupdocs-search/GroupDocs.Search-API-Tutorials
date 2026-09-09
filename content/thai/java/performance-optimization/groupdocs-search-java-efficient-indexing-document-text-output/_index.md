@@ -299,11 +299,6 @@ public class FeatureOutputToStructure {
 **ทดสอบด้วย:** GroupDocs.Search 25.4 for Java  
 **ผู้เขียน:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## บทแนะนำที่เกี่ยวข้อง
 
 - [เพิ่มเอกสารไปยังดัชนี – คู่มือ GroupDocs.Search Java](/search/java/advanced-features/)

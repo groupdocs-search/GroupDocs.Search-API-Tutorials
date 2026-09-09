@@ -300,11 +300,6 @@ Most már rendelkezik egy teljes, termelés‑kész munkafolyamattal a **hogyan 
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Kapcsolódó oktatóanyagok
 
 - [Dokumentumok hozzáadása az indexhez – GroupDocs.Search Java útmutató](/search/java/advanced-features/)

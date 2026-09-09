@@ -300,11 +300,6 @@ Você agora tem um fluxo de trabalho completo e pronto para produção para **ho
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Tutoriais Relacionados
 
 - [Adicionar Documentos ao Índice – Guia GroupDocs.Search Java](/search/java/advanced-features/)

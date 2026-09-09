@@ -84,7 +84,6 @@ GroupDocs.Search는 **50개 이상의 파일 형식**(DOCX, PDF, XLSX, PPTX, HTM
 1. **GroupDocs.Search for Java** – 버전 25.4+.  
 2. **Maven 구성** – GroupDocs 저장소와 의존성을 `pom.xml`에 추가합니다:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ GroupDocs.Search는 **50개 이상의 파일 형식**(DOCX, PDF, XLSX, PPTX, HTM
     </dependency>
 </dependencies>
 ```
-```
 
 또한 최신 버전은 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)에서 직접 다운로드할 수 있습니다.
 
@@ -119,7 +117,6 @@ GroupDocs.Search 라이브러리를 로드하고 인덱스 폴더를 지정한 �
 
 `Index` 클래스는 디스크에 저장되는 검색 가능한 인덱스를 나타내며, 문서를 추가하고 쿼리하는 메서드를 제공합니다.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -133,12 +130,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## 검색 인덱스 생성 및 관리 방법
 새 인덱스 폴더를 만든 뒤, 소스 디렉터리의 문서들로 채웁니다. `SearchIndex` 클래스는 메모리와 디스크에 인덱스를 나타내는 핵심 컴포넌트로, 전체 구조를 재구축하지 않고도 문서를 추가, 삭제 또는 업데이트할 수 있습니다.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -146,17 +141,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Purpose**: 지정된 디렉터리에 새 검색 인덱스를 초기화합니다.
 
-```text
 ```java
 // 인덱싱할 문서가 들어있는 디렉터리 지정
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Explanation**: `documentsFolder`에 있는 모든 문서를 새 인덱스에 추가합니다. 검색 가능한 콘텐츠로 인덱스를 채우는 중요한 단계입니다.
@@ -164,13 +156,11 @@ index.add(documentsFolder);
 ## 사용자 정의 단어 형태 제공자 구성 방법
 사용자 정의 단어 형태 제공자는 엔진에게 용어의 다양한 문법 변형(예: “run”, “running”, “ran”)을 어떻게 처리할지 알려줍니다. 이러한 변형을 등록하면 검색 엔진이 모든 형태를 매치할 수 있어 사용자가 어떤 형태를 입력하든 관련성을 크게 향상시킵니다.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // 사용자 정의 단어 형태 제공자 인스턴스 설정
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Purpose**: 다양한 문법 변형을 이해하고 관리함으로써 검색 관련성을 향상시킵니다.
@@ -180,7 +170,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 `SearchOptions` 클래스는 쿼리 처리 방식을 구성합니다(예: 단어 형태 확장 또는 퍼지 매칭 활성화).
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -188,7 +177,6 @@ import com.groupdocs.search.options.*;
 // SearchOptions 인스턴스 생성
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Explanation**: 이 설정은 검색이 다양한 단어 형태를 인식하도록 하여 보다 직관적이고 포괄적인 검색을 가능하게 합니다.
@@ -198,7 +186,6 @@ options.setUseWordFormsSearch(true);
 
 `SearchResult` 객체는 쿼리 결과를 포함하며, 매치된 조각과 관련 점수를 제공합니다.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -209,7 +196,6 @@ String query = "mrs";
 
 // 지정된 쿼리와 옵션을 사용해 검색 수행
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Purpose**: “mrs”라는 단어의 다양한 문법 변형을 고려한 검색을 실행해 검색 정확성을 높입니다.

@@ -84,7 +84,6 @@ GroupDocs.Search unterstützt **50+ file formats** (einschließlich DOCX, PDF, X
 1. **GroupDocs.Search for Java** – version 25.4+.  
 2. **Maven Configuration** – fügen Sie das GroupDocs‑Repository und die Abhängigkeit zu Ihrer `pom.xml` hinzu:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ GroupDocs.Search unterstützt **50+ file formats** (einschließlich DOCX, PDF, X
     </dependency>
 </dependencies>
 ```
-```
 
 Sie können die neueste Version auch direkt von [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) herunterladen.
 
@@ -119,7 +117,6 @@ Laden Sie die GroupDocs.Search‑Bibliothek, verweisen Sie auf einen Ordner für
 
 Die Klasse `Index` repräsentiert einen auf der Festplatte gespeicherten durchsuchbaren Index und bietet Methoden zum Hinzufügen und Abfragen von Dokumenten.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -133,12 +130,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Wie erstellt und verwaltet man einen Suchindex?
 Erstellen Sie einen neuen Indexordner und füllen Sie ihn anschließend mit Dokumenten aus einem Quellverzeichnis. Die Klasse `SearchIndex` ist die Kernkomponente, die den Index im Speicher und auf der Festplatte darstellt und es Ihnen ermöglicht, Dokumente hinzuzufügen, zu löschen oder zu aktualisieren, ohne jedes Mal die gesamte Struktur neu aufzubauen.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -146,17 +141,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Zweck**: Initialisiert einen neuen Suchindex im angegebenen Verzeichnis.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Erklärung**: Fügt alle Dokumente aus `documentsFolder` in Ihren neu erstellten Index ein. Dieser Schritt ist entscheidend, um den Index mit durchsuchbarem Inhalt zu füllen.
@@ -164,13 +156,11 @@ index.add(documentsFolder);
 ## Wie konfiguriert man einen benutzerdefinierten Word Forms Provider?
 Ein benutzerdefinierter Word Forms Provider teilt der Engine mit, wie unterschiedliche grammatikalische Varianten eines Begriffs zu behandeln sind (z. B. „run“, „running“, „ran“). Durch das Registrieren dieser Varianten kann die Suchmaschine Abfragen mit allen relevanten Formen abgleichen und die Relevanz für Benutzer, die jede morphologische Version eines Wortes eingeben, erheblich verbessern.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Zweck**: Verbessert die Suche, indem unterschiedliche grammatikalische Varianten von Wörtern verstanden und verwaltet werden, was die Suchrelevanz erhöht.
@@ -180,7 +170,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 Die Klasse `SearchOptions` konfiguriert, wie Abfragen verarbeitet werden, z. B. durch Aktivieren der Wortformen‑Erweiterung oder des Fuzzy‑Matchings.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -188,7 +177,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Erklärung**: Diese Konfiguration ermöglicht es der Suche, verschiedene Wortformen zu erkennen, wodurch sie intuitiver und umfassender wird.
@@ -198,7 +186,6 @@ Definieren Sie einen Abfrage‑String und führen Sie die Suche mit den zuvor ko
 
 Das Objekt `SearchResult` enthält die von einer Abfrage zurückgegebenen Treffer, einschließlich passender Fragmente und Relevanzwerte.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -209,7 +196,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Zweck**: Führt eine Suche aus, die unterschiedliche grammatikalische Varianten des Wortes „mrs“ berücksichtigt und die Suchgenauigkeit verbessert.

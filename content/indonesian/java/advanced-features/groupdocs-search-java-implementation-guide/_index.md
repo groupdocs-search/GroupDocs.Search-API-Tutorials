@@ -124,14 +124,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Ekstrak dengan format
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **Tip:** Atur `setUseRawTextExtraction(true)` jika Anda memerlukan teks polos tanpa format.
@@ -148,7 +146,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## Cara men-deserialize data yang diekstrak
 
@@ -160,7 +157,6 @@ Metode `deserialize` mengembalikan keadaan tepat hasil ekstraksi, memastikan tid
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## Cara membuat indeks dokumen
@@ -174,7 +170,6 @@ Kelas `Index` mewakili kontainer yang dapat dicari yang menyimpan semua istilah,
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## Cara menambahkan data ke indeks dan melakukan pencarian
 
@@ -187,13 +182,11 @@ Metode `add` mendaftarkan istilah dokumen ke dalam indeks, sementara `search` me
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **Pro tip:** Gunakan `index.search("your query", SearchOptions)` untuk menyempurnakan peringkat relevansi.

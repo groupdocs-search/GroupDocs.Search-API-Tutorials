@@ -106,13 +106,11 @@ Anda dapat menambahkan **GroupDocs.Redaction** ke proyek Anda menggunakan salah 
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -129,12 +127,10 @@ Untuk memulai, Anda dapat memperoleh lisensi sementara atau membeli satu. Versi 
 `Redactor` adalah kelas utama yang digunakan untuk memuat dokumen dan menerapkan operasi penyensoran.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## Fitur 1: Mengubah Atribut Dokumen
@@ -147,14 +143,12 @@ Memodifikasi atribut dokumen memungkinkan Anda menyesuaikan tampilan dokumen dal
 `Index` mewakili kumpulan dokumen yang dapat dicari beserta metadata terkait.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
-```
 ```
 
 #### Langkah 2: Memodifikasi Atribut
@@ -163,7 +157,6 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 
 **Definition anchor:** *`AttributeChangeBatch` mengelompokkan operasi penambahan, pembaruan, dan penghapusan pada atribut dokumen dalam satu transaksi.*  
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -178,7 +171,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### Langkah 3: Pencarian dengan Filter Atribut
 
@@ -187,14 +179,12 @@ Anda dapat memfilter hasil pencarian berdasarkan nilai atribut menggunakan `Sear
 **Direct answer:** Untuk mencari dokumen yang memiliki atribut `Category = "Legal"`, konfigurasikan `SearchOptions` dengan `AttributeFilter` dan panggil `searcher.Search("contract", options)`. Ini hanya mengembalikan kontrak yang ditandai secara legal, mengurangi kebisingan hasil dan **mengoptimalkan kinerja pencarian**.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## Fitur 2: Menambahkan Atribut Selama Pengindeksan
@@ -206,7 +196,6 @@ Menambahkan atribut pada saat pengindeksan memastikan setiap dokumen diperkaya d
 
 **Definition anchor:** *Acara `DocumentIndexed` dipicu setiap kali dokumen berhasil ditambahkan ke indeks, memungkinkan logika khusus dijalankan.*  
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -220,7 +209,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Langkah 2: Mengonfigurasi dan Melakukan Pencarian
 
@@ -229,14 +217,12 @@ Setelah atribut terlampir, Anda dapat mencari menggunakan bidang baru tersebut.
 **Direct answer:** Gunakan `SearchOptions` dengan `AttributeFilter` untuk menanyakan atribut yang baru ditambahkan, misalnya `AttributeFilter("Department", "Finance")`. Ini hanya mengembalikan file terkait keuangan, menunjukkan **cara mengindeks atribut** untuk hasil yang lebih cepat dan relevan.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Aplikasi Praktis

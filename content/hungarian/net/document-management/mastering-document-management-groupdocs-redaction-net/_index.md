@@ -91,23 +91,19 @@ Gyakorlati példákkal és lépésről-lépésre útmutatóval fel lesz felszere
 
 A `License` osztály regisztrálja a licencfájlt a GroupDocs SDK-ban. Töltsd be a licencfájlt a `License` osztállyal, és hívd meg a `SetLicense` metódust minden más SDK hívás előtt. Ez feloldja a teljes funkciókészletet, eltávolítja a kiértékelési vízjeleket, és aktiválja a teljesítményoptimalizációkat. A licenc korai betöltésével az SDK minden későbbi műveletnél jogosultság-ellenőrzést végez, biztosítva, hogy minden redakció, keresés és renderelés korlátozás nélkül működjön.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Hogyan állítsuk be az Aspose.HTML licencét?
 
 Az Aspose.HTML `License` osztálya regisztrálja a terméklicencet és letiltja a próba korlátokat. Hozd létre az Aspose `License` objektumát, és mutasd rá a `.lic` fájlra. Ez biztosítja, hogy minden Aspose.HTML renderelési funkció próbafigyelmeztetés nélkül fusson, és a prémium renderelési lehetőségek, mint a CSS támogatás és a fejlett elrendezési motorok, elérhetők legyenek.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Magyarázat**: `License.SetLicense` betölti a licencfájlt, feloldva az összes funkciót.
@@ -116,12 +112,10 @@ new License().SetLicense(licensePath);
 
 A GroupDocs.Viewer `License` osztálya regisztrálja a viewer licencet, lehetővé téve a PDF, DOCX és egyéb formátumok magas hűségű HTML-re történő renderelését vízjel nélkül. Hozz létre egy `License` példányt a GroupDocs.Viewer számára, és hívd meg a `SetLicense` metódust. Ez a lépés szükséges, ha a dokumentumokat teljes hűséggel HTML-re szeretnéd renderelni.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## Miért használjunk keresést és HTML kiemelést a GroupDocs-szal?
@@ -135,21 +129,17 @@ A GroupDocs.Search könnyű, csak olvasható struktúrában indexeli a dokumentu
 A GroupDocs.Redaction projektedben való használatának megkezdéséhez különböző csomagkezelőkön keresztül telepítheted:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -167,14 +157,12 @@ A részletes licencfeltételekért lásd a [GroupDocs Documentation](https://doc
 
 ### Alapvető inicializálás és beállítás
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Implementációs útmutató
@@ -189,24 +177,20 @@ A licencek beállítása biztosítja, hogy korlátozások nélkül használhasd 
 
 **1. Licenc beállítása az Aspose.HTML-hez**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. Licenc beállítása a GroupDocs.Viewer-hez**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### Útvonalak és lekérdezés beállítása
@@ -219,7 +203,6 @@ Határozd meg a dokumentumok útvonalait, és készíts egy keresési lekérdez�
 
 **1. Alapú útvonalak meghatározása**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -228,7 +211,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **Magyarázat**: Az útvonalak szervezése biztosítja a keresés és a kiemelés funkciók zökkenőmentes integrációját.
@@ -348,8 +330,3 @@ Megtanultad, hogyan állíts be licenceket, konfiguráld a keresési útvonalaka
 - [A GroupDocs.Redaction .NET elsajátítása: Hatékony index létrehozás és alias kezelés a fejlett dokumentumkereséshez](/search/net/indexing/groupdocs-redaction-net-index-alias-management/)
 - [GroupDocs.Redaction .NET megvalósítása dokumentumkereső kezeléshez és kiemeléshez](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [A GroupDocs.Redaction .NET elsajátítása: Beállítás és eseménykezelés a biztonságos dokumentumkezeléshez](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

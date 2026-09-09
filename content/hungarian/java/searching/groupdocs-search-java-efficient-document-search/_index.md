@@ -85,7 +85,6 @@ A GroupDocs.Search **50+ fájlformátumot** támogat (beleértve a DOCX, PDF, XL
 1. **GroupDocs.Search for Java** – 25.4+.  
 2. **Maven konfiguráció** – add hozzá a GroupDocs tárolót és a függőséget a `pom.xml`‑hez:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -103,7 +102,6 @@ A GroupDocs.Search **50+ fájlformátumot** támogat (beleértve a DOCX, PDF, XL
     </dependency>
 </dependencies>
 ```
-```
 
 A legújabb verziót letöltheted közvetlenül a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
@@ -120,7 +118,6 @@ Töltsd be a GroupDocs.Search könyvtárat, mutasd meg az index mappáját, és 
 
 Az `Index` osztály egy kereshető indexet képvisel a lemezen, és metódusokat biztosít a dokumentumok hozzáadásához és lekérdezéséhez.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -134,12 +131,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Hogyan hozzunk létre és kezeljünk keresési indexet?
 Hozz létre egy új indexmappát, majd töltsd fel dokumentumokkal egy forráskönyvtárból. A `SearchIndex` osztály a központi komponens, amely az indexet a memóriában és a lemezen is képviseli, lehetővé téve dokumentumok hozzáadását, törlését vagy frissítését anélkül, hogy minden alkalommal újraépítenéd a teljes struktúrát.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -147,17 +142,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Cél**: Új keresési index inicializálása a megadott könyvtárban.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Magyarázat**: Az összes dokumentum hozzáadása a `documentsFolder`‑ból az újonnan létrehozott indexhez. Ez a lépés kulcsfontosságú a kereshető tartalom feltöltéséhez.
@@ -165,13 +157,11 @@ index.add(documentsFolder);
 ## Hogyan konfiguráljunk egyedi szóalak‑szolgáltatót?
 Az egyedi szóalak‑szolgáltató megmondja a motornak, hogyan kezelje a kifejezés különböző nyelvtani változatait (pl. „run”, „running”, „ran”). Ezeknek a variációknak a regisztrálásával a keresőmotor a lekérdezéseket minden releváns formához tudja párosítani, jelentősen javítva a felhasználók relevanciáját, akik bármely morfológiai változatot beírnak.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Cél**: A keresés fokozása a szavak különböző nyelvtani változatainak megértésével és kezelésével, javítva a keresési relevanciát.
@@ -181,7 +171,6 @@ A `SearchOptions` lehetővé teszi olyan funkciók be‑ vagy kikapcsolását, m
 
 A `SearchOptions` osztály konfigurálja a lekérdezések feldolgozását, például a szóalak‑kiterjesztés vagy a fuzzy matching engedélyezését.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -189,7 +178,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Magyarázat**: Ez a beállítás lehetővé teszi, hogy a keresés felismerje a különböző szóalakokat, így intuitívabbá és átfogóbbá téve a keresést.
@@ -199,7 +187,6 @@ Határozz meg egy lekérdezési sztringet, és hajtsd végre a keresést a korá
 
 A `SearchResult` objektum tartalmazza a lekérdezés által visszaadott találatokat, beleértve a megtalált szövegrészleteket és a relevancia‑pontszámokat.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -210,7 +197,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Cél**: Olyan keresés végrehajtása, amely figyelembe veszi a „mrs” szó különböző nyelvtani változatait, ezáltal növelve a keresés pontosságát.

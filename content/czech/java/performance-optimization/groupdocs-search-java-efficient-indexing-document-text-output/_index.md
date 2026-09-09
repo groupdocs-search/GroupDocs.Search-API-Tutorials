@@ -300,11 +300,6 @@ Nyní máte kompletní, produkčně připravený workflow pro **how to create in
 **Testováno s:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Související tutoriály
 
 - [Přidat dokumenty do indexu – GroupDocs.Search Java průvodce](/search/java/advanced-features/)

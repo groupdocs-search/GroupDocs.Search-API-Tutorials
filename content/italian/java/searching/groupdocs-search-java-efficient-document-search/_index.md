@@ -85,7 +85,6 @@ GroupDocs.Search supporta **oltre 50 formati di file** (inclusi DOCX, PDF, XLSX,
 1. **GroupDocs.Search per Java** – versione 25.4+.  
 2. **Configurazione Maven** – aggiungi il repository GroupDocs e la dipendenza al tuo `pom.xml`:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -103,7 +102,6 @@ GroupDocs.Search supporta **oltre 50 formati di file** (inclusi DOCX, PDF, XLSX,
     </dependency>
 </dependencies>
 ```
-```
 
 Puoi anche scaricare l'ultima versione direttamente da [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -120,7 +118,6 @@ Carica la libreria GroupDocs.Search, puntala a una cartella per l'indice e, faco
 
 La classe `Index` rappresenta un indice ricercabile memorizzato su disco e fornisce metodi per aggiungere documenti e interrogarli.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -134,12 +131,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Come creare e gestire un indice di ricerca?
 Crea una nuova cartella per l'indice, quindi popolala con documenti da una directory di origine. La classe `SearchIndex` è il componente principale che rappresenta l'indice in memoria e su disco, consentendoti di aggiungere, eliminare o aggiornare documenti senza ricostruire l'intera struttura ogni volta.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -147,17 +142,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Scopo**: Inizializza un nuovo indice di ricerca nella directory specificata.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Spiegazione**: Aggiunge tutti i documenti da `documentsFolder` al tuo indice appena creato. Questo passaggio è fondamentale per popolare l'indice con contenuti ricercabili.
@@ -165,13 +157,11 @@ index.add(documentsFolder);
 ## Come configurare un provider personalizzato di forme di parole?
 Un provider personalizzato di forme di parole indica al motore come trattare le diverse variazioni grammaticali di un termine (ad es., “run”, “running”, “ran”). Registrando queste variazioni, il motore di ricerca può abbinare le query a tutte le forme rilevanti, migliorando notevolmente la pertinenza per gli utenti che digitano qualsiasi versione morfologica di una parola.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Scopo**: Migliora la ricerca comprendendo e gestendo diverse variazioni grammaticali delle parole, migliorando la pertinenza della ricerca.
@@ -181,7 +171,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 La classe `SearchOptions` configura come le query vengono elaborate, ad esempio abilitando l'espansione delle forme di parole o il fuzzy matching.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -189,7 +178,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Spiegazione**: Questa configurazione consente alla ricerca di riconoscere diverse forme di parole, rendendola più intuitiva e completa.
@@ -199,7 +187,6 @@ Definisci una stringa di query ed esegui la ricerca utilizzando le `SearchOption
 
 L'oggetto `SearchResult` contiene i risultati restituiti da una query, inclusi i frammenti corrispondenti e i punteggi di rilevanza.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -210,7 +197,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Scopo**: Esegue una ricerca che tiene conto delle diverse variazioni grammaticali della parola “mrs”, migliorando l'accuratezza della ricerca.

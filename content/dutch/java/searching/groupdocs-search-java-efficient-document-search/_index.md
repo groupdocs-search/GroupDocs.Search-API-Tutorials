@@ -84,7 +84,6 @@ GroupDocs.Search ondersteunt **meer dan 50 bestandsformaten** (inclusief DOCX, P
 1. **GroupDocs.Search voor Java** – versie 25.4+.  
 2. **Maven‑configuratie** – voeg de GroupDocs‑repository en de dependency toe aan je `pom.xml`:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ GroupDocs.Search ondersteunt **meer dan 50 bestandsformaten** (inclusief DOCX, P
     </dependency>
 </dependencies>
 ```
-```
 
 Je kunt de nieuwste versie ook direct downloaden van [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -119,7 +117,6 @@ Laad de GroupDocs.Search‑bibliotheek, wijs deze naar een map voor de index en 
 
 De `Index`‑klasse vertegenwoordigt een doorzoekbare index die op schijf is opgeslagen en biedt methoden om documenten toe te voegen en te doorzoeken.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -133,12 +130,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Hoe een zoekindex te maken en te beheren?
 Maak een nieuwe indexmap aan en vul deze vervolgens met documenten uit een bronmap. De `SearchIndex`‑klasse is de kerncomponent die de index in het geheugen en op schijf vertegenwoordigt, waardoor je documenten kunt toevoegen, verwijderen of bijwerken zonder elke keer de volledige structuur opnieuw op te bouwen.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -146,17 +141,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Doel**: Initialiseert een nieuwe zoekindex in de opgegeven map.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Uitleg**: Voegt alle documenten uit `documentsFolder` toe aan je nieuw aangemaakte index. Deze stap is cruciaal om de index te vullen met doorzoekbare inhoud.
@@ -164,13 +156,11 @@ index.add(documentsFolder);
 ## Hoe een aangepaste woordvormprovider te configureren?
 Een aangepaste woordvormprovider vertelt de engine hoe verschillende grammaticale variaties van een term (bijv. “run”, “running”, “ran”) behandeld moeten worden. Door deze variaties te registreren kan de zoekengine queries matchen met alle relevante vormen, waardoor de relevantie voor gebruikers die een willekeurige morfologische versie van een woord typen sterk verbetert.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Doel**: Verbetert de zoekfunctionaliteit door verschillende grammaticale variaties van woorden te begrijpen en te beheren, waardoor de zoekrelevantie verbetert.
@@ -180,7 +170,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 De `SearchOptions`‑klasse configureert hoe queries worden verwerkt, bijvoorbeeld door woordvormuitbreiding of fuzzy matching in te schakelen.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -188,7 +177,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Uitleg**: Deze configuratie stelt de zoekfunctie in staat verschillende woordvormen te herkennen, waardoor deze intuïtiever en vollediger wordt.
@@ -198,7 +186,6 @@ Definieer een query‑string en voer de zoekopdracht uit met de eerder geconfigu
 
 Het `SearchResult`‑object bevat de hits die door een query worden geretourneerd, inclusief overeenkomende fragmenten en relevantiescores.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -209,7 +196,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Doel**: Voert een zoekopdracht uit die rekening houdt met verschillende grammaticale variaties van het woord “mrs”, waardoor de zoeknauwkeurigheid wordt verbeterd.

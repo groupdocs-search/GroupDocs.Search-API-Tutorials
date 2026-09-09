@@ -88,23 +88,19 @@ weight: 1
 
 `License` क्लास GroupDocs SDK के साथ लाइसेंस फ़ाइल को रजिस्टर करती है। `License` क्लास के साथ अपना लाइसेंस फ़ाइल लोड करें और किसी भी अन्य SDK कॉल से पहले `SetLicense` को कॉल करें। यह पूर्ण फीचर सेट को अनलॉक करता है, मूल्यांकन वॉटरमार्क हटाता है, और प्रदर्शन अनुकूलन सक्रिय करता है। लाइसेंस को जल्दी लोड करके, SDK प्रत्येक बाद की ऑपरेशन के लिए एंटाइटलमेंट चेक लागू कर सकता है, जिससे सभी रेडैक्शन, खोज और रेंडरिंग सुविधाएँ बिना प्रतिबंध के काम करती हैं।
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Aspose.HTML के लिए लाइसेंस कैसे सेट करें?
 
 Aspose.HTML में `License` क्लास उत्पाद लाइसेंस को रजिस्टर करती है और ट्रायल सीमाओं को निष्क्रिय करती है। Aspose की `License` ऑब्जेक्ट को इंस्टैंशिएट करें और उसे `.lic` फ़ाइल की ओर इंगित करें। यह सुनिश्चित करता है कि सभी Aspose.HTML रेंडरिंग फ़ंक्शन ट्रायल चेतावनियों के बिना चलें और CSS समर्थन तथा उन्नत लेआउट इंजन जैसी प्रीमियम रेंडरिंग विकल्प उपलब्ध हों।
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **व्याख्या**: `License.SetLicense` लाइसेंस फ़ाइल लोड करता है, सभी सुविधाओं को अनलॉक करता है।
@@ -113,12 +109,10 @@ new License().SetLicense(licensePath);
 
 GroupDocs.Viewer के लिए `License` क्लास व्यूअर लाइसेंस को रजिस्टर करती है, जिससे PDFs, DOCX और अन्य फ़ॉर्मेट को HTML में बिना वॉटरमार्क के हाई‑फ़िडेलिटी रेंडर किया जा सकता है। GroupDocs.Viewer के लिए एक `License` इंस्टेंस बनाएं और `SetLicense` को कॉल करें। यदि आप दस्तावेज़ों को पूर्ण फ़िडेलिटी के साथ HTML में रेंडर करना चाहते हैं तो यह चरण आवश्यक है।
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## GroupDocs के साथ HTML खोज और हाइलाइट क्यों उपयोग करें?
@@ -132,21 +126,17 @@ GroupDocs.Search दस्तावेज़ों को एक हल्के
 अपने प्रोजेक्ट में GroupDocs.Redaction का उपयोग शुरू करने के लिए, आप इसे विभिन्न पैकेज मैनेजर्स के माध्यम से इंस्टॉल कर सकते हैं:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -164,14 +154,12 @@ GroupDocs.Redaction की पूरी क्षमताओं का उप�
 
 ### बेसिक इनिशियलाइज़ेशन और सेटअप
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## इम्प्लीमेंटेशन गाइड
@@ -186,24 +174,20 @@ string query = "\"dapibus diam\" OR lorem";
 
 **1. Aspose.HTML के लिए लाइसेंस सेट करें**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. GroupDocs.Viewer के लिए लाइसेंस सेट करें**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### पाथ और क्वेरी सेट करना
@@ -216,7 +200,6 @@ FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first docu
 
 **1. बेस पाथ परिभाषित करें**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -225,7 +208,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **व्याख्या**: पाथ को व्यवस्थित करने से खोज और हाइलाइट सुविधाओं का सहज एकीकरण सुनिश्चित होता है।
@@ -346,8 +328,3 @@ CODE_BLOCK_PLACEHOLDER_11_END
 - [Document Finder Management और हाइलाइटिंग के लिए GroupDocs.Redaction .NET लागू करें](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [सुरक्षित दस्तावेज़ प्रबंधन के लिए GroupDocs.Redaction .NET: सेटअप और इवेंट हैंडलिंग](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

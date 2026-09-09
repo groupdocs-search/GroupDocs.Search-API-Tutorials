@@ -98,7 +98,6 @@ weight: 1
     </dependency>
 </dependencies>
 ```
-```
 
 वैकल्पिक रूप से, आप [GroupDocs.Search for Java रिलीज़ से नवीनतम संस्करण डाउनलोड कर सकते हैं](https://releases.groupdocs.com/search/java/)।
 
@@ -124,7 +123,6 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## GroupDocs.Search Java के साथ इंडेक्स जावा कैसे बनाएं?
 
@@ -134,7 +132,6 @@ public class SearchSetup {
 ``` 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\HomophoneSearch";
-```
 ```  
 `YOUR_DOCUMENT_DIRECTORY` को अपने मशीन पर पूर्ण पाथ से बदलें।
 
@@ -142,7 +139,6 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\
 ``` 
 ```java
 Index index = new Index(indexFolder);
-```
 ```  
 यह लाइन **इंडेक्स बनाती** है जो बाद में सभी खोज योग्य कंटेंट को रखेगा।
 
@@ -154,7 +150,6 @@ Index index = new Index(indexFolder);
 ``` 
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
-```
 ```  
 इस फ़ोल्डर में वे फ़ाइलें (PDF, DOCX, TXT, आदि) होनी चाहिए जिन्हें आप इंडेक्स करना चाहते हैं।
 
@@ -162,7 +157,6 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 ``` 
 ```java
 index.add(documentsFolder);
-```
 ```  
 `add` मेथड प्रत्येक फ़ाइल को प्रोसेस करता है, टेक्स्ट निकालता है, और टर्म‑फ़्रीक्वेंसी डेटा स्टोर करता है, प्रभावी रूप से **दस्तावेज़ों को इंडेक्स में जोड़ता** है।
 
@@ -176,7 +170,6 @@ index.add(documentsFolder);
 import com.groupdocs.search.SearchOptions;
 
 SearchOptions options = new SearchOptions();
-```
 ```  
 `SearchOptions` निर्धारित करता है कि इंजन क्वेरीज़ को कैसे इंटरप्रेट करे।
 
@@ -184,7 +177,6 @@ SearchOptions options = new SearchOptions();
 ``` 
 ```java
 options.setUseHomophoneSearch(true);
-```
 ```  
 `setUseHomophoneSearch(true)` सेट करने से इंजन क्वेरी प्रोसेसिंग के दौरान फ़ोनेटिक समकक्षों को विचार में लेता है।
 

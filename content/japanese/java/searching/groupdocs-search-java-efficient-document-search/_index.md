@@ -83,7 +83,6 @@ GroupDocs.Search は **50 以上のファイル形式**（DOCX、PDF、XLSX、PP
 1. **GroupDocs.Search for Java** – バージョン 25.4+。  
 2. **Maven Configuration** – GroupDocs リポジトリと依存関係を `pom.xml` に追加します：
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -101,7 +100,6 @@ GroupDocs.Search は **50 以上のファイル形式**（DOCX、PDF、XLSX、PP
     </dependency>
 </dependencies>
 ```
-```
 
 最新バージョンは [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) から直接ダウンロードすることもできます。
 
@@ -118,7 +116,6 @@ GroupDocs.Search ライブラリをロードし、インデックス用のフォ
 
 `Index` クラスはディスク上に保存された検索可能なインデックスを表し、文書の追加やクエリを行うメソッドを提供します。
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -132,12 +129,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## 検索インデックスの作成と管理方法は？
 新しいインデックス フォルダーを作成し、ソース ディレクトリから文書を投入します。`SearchIndex` クラスはメモリとディスク上のインデックスを表すコアコンポーネントで、毎回全体を再構築せずに文書の追加、削除、更新が可能です。
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -145,17 +140,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Purpose**: 指定ディレクトリに新しい検索インデックスを初期化します。
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Explanation**: `documentsFolder` からすべての文書を新しく作成したインデックスに追加します。このステップは検索可能なコンテンツでインデックスを埋めるために重要です。
@@ -163,13 +155,11 @@ index.add(documentsFolder);
 ## カスタム単語形プロバイダーの設定方法は？
 カスタム単語形プロバイダーは、エンジンに用語の異なる文法的変形（例: “run”、 “running”、 “ran”）をどのように扱うかを指示します。これらの変形を登録することで、検索エンジンはクエリをすべての関連形にマッチさせ、任意の形態的バージョンの単語を入力したユーザーの関連性を大幅に向上させます。
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Purpose**: 単語のさまざまな文法的変形を理解・管理することで検索を強化し、検索関連性を向上させます。
@@ -179,7 +169,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 `SearchOptions` クラスは、単語形展開やファジーマッチングの有効化など、クエリの処理方法を設定します。
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -187,7 +176,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Explanation**: この設定により検索は異なる単語形を認識でき、より直感的で包括的になります。
@@ -197,7 +185,6 @@ options.setUseWordFormsSearch(true);
 
 `SearchResult` オブジェクトはクエリで返されたヒットを保持し、マッチしたフラグメントや関連度スコアを含みます。
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -208,7 +195,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Purpose**: “mrs” のさまざまな文法的変形を考慮した検索を実行し、検索精度を向上させます。

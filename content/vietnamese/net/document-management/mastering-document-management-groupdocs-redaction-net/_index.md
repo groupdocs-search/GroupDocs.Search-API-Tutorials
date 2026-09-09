@@ -89,23 +89,19 @@ Với các ví dụ thực tế và hướng dẫn từng bước, bạn sẽ đ
 
 Lớp `License` đăng ký tệp giấy phép với SDK của GroupDocs. Tải tệp giấy phép của bạn bằng lớp `License` và gọi `SetLicense` trước bất kỳ cuộc gọi SDK nào khác. Điều này mở khóa toàn bộ tính năng, loại bỏ watermark đánh giá và kích hoạt các tối ưu hoá hiệu suất. Khi tải giấy phép sớm, SDK có thể áp dụng các kiểm tra quyền cho mọi thao tác tiếp theo, đảm bảo rằng tất cả các tính năng redaction, search và rendering hoạt động không bị hạn chế.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Cách thiết lập giấy phép cho Aspose.HTML?
 
 Lớp `License` trong Aspose.HTML đăng ký giấy phép sản phẩm và tắt các giới hạn dùng thử. Tạo một đối tượng `License` của Aspose và chỉ tới tệp `.lic`. Điều này đảm bảo rằng tất cả các chức năng render của Aspose.HTML chạy mà không có cảnh báo dùng thử và các tùy chọn render cao cấp như hỗ trợ CSS và các engine layout nâng cao có sẵn.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Giải thích**: `License.SetLicense` tải tệp giấy phép, mở khóa tất cả các tính năng.
@@ -114,12 +110,10 @@ new License().SetLicense(licensePath);
 
 Lớp `License` cho GroupDocs.Viewer đăng ký giấy phép viewer, cho phép render độ chính xác cao các PDF, DOCX và các định dạng khác sang HTML mà không có watermark. Tạo một thể hiện `License` cho GroupDocs.Viewer và gọi `SetLicense`. Bước này cần thiết nếu bạn muốn render tài liệu sang HTML với độ chính xác đầy đủ.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## Tại sao sử dụng tìm kiếm và làm nổi bật html với GroupDocs?
@@ -133,21 +127,17 @@ GroupDocs.Search lập chỉ mục tài liệu trong một cấu trúc nhẹ, ch
 Để bắt đầu sử dụng GroupDocs.Redaction trong dự án của bạn, bạn có thể cài đặt nó qua các trình quản lý gói khác nhau:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -165,14 +155,12 @@ Trước khi sử dụng đầy đủ khả năng của GroupDocs.Redaction, hã
 
 ### Khởi tạo và cấu hình cơ bản
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Hướng dẫn triển khai
@@ -187,24 +175,20 @@ Thiết lập giấy phép đảm bảo bạn có thể tận dụng tất cả 
 
 **1. Thiết lập giấy phép cho Aspose.HTML**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. Thiết lập giấy phép cho GroupDocs.Viewer**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### Cài đặt đường dẫn và truy vấn
@@ -217,7 +201,6 @@ Xác định các đường dẫn cho tài liệu của bạn và chuẩn bị t
 
 **1. Xác định các đường dẫn cơ bản**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -226,7 +209,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **Giải thích**: Sắp xếp các đường dẫn đảm bảo tích hợp mượt mà các tính năng tìm kiếm và làm nổi bật.
@@ -346,8 +328,3 @@ Bạn đã học cách thiết lập giấy phép, cấu hình đường dẫn t
 - [Làm chủ GroupDocs.Redaction .NET: Tạo chỉ mục hiệu quả và quản lý alias cho tìm kiếm tài liệu nâng cao](/search/net/indexing/groupdocs-redaction-net-index-alias-management/)
 - [Triển khai GroupDocs.Redaction .NET cho quản lý tìm kiếm tài liệu và làm nổi bật](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Làm chủ GroupDocs.Redaction .NET: Cài đặt & Xử lý sự kiện cho quản lý tài liệu an toàn](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

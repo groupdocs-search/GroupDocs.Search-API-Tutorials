@@ -88,23 +88,19 @@ S praktickými příklady a krok za krokem instrukcemi budete připraveni zefekt
 
 Třída `License` registruje licenční soubor v SDK GroupDocs. Načtěte svůj licenční soubor pomocí třídy `License` a zavolejte `SetLicense` před jakýmkoli jiným voláním SDK. Tím odemknete kompletní sadu funkcí, odstraníte vodotisky z evaluace a aktivujete optimalizace výkonu. Načtením licence brzy SDK může aplikovat kontrolu oprávnění pro každou následnou operaci, což zajišťuje, že všechny funkce redakce, vyhledávání a renderování fungují bez omezení.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Jak nastavit licenci pro Aspose.HTML?
 
 Třída `License` v Aspose.HTML registruje licenci produktu a deaktivuje omezení zkušební verze. Vytvořte objekt `License` od Aspose a nasměrujte jej na soubor `.lic`. Tím zajistíte, že všechny funkce renderování Aspose.HTML běží bez varování o zkušební verzi a že prémiové možnosti renderování, jako podpora CSS a pokročilé layoutové enginy, jsou k dispozici.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Vysvětlení**: `License.SetLicense` načte licenční soubor a odemkne všechny funkce.
@@ -113,12 +109,10 @@ new License().SetLicense(licensePath);
 
 Třída `License` pro GroupDocs.Viewer registruje licenci pro prohlížeč, umožňující vysoce věrné renderování PDF, DOCX a dalších formátů do HTML bez vodotisků. Vytvořte instanci `License` pro GroupDocs.Viewer a zavolejte `SetLicense`. Tento krok je vyžadován, pokud chcete renderovat dokumenty do HTML s plnou věrností.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## Proč používat vyhledávání a zvýraznění HTML s GroupDocs?
@@ -132,21 +126,17 @@ GroupDocs.Search indexuje dokumenty v lehké, pouze pro čtení struktuře, kter
 Pro zahájení používání GroupDocs.Redaction ve vašem projektu jej můžete nainstalovat pomocí různých správců balíčků:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Konzole správce balíčků:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -164,14 +154,12 @@ Pro podrobné podmínky licencování viz [GroupDocs Documentation](https://docs
 
 ### Základní inicializace a nastavení
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Průvodce implementací
@@ -186,24 +174,20 @@ Nastavení licencí zajišťuje, že můžete využívat všechny funkce Aspose.
 
 **1. Nastavte licenci pro Aspose.HTML**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. Nastavte licenci pro GroupDocs.Viewer**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### Nastavení cest a dotazu
@@ -216,7 +200,6 @@ Definujte cesty k vašim dokumentům a připravte vyhledávací dotaz pro naleze
 
 **1. Definujte základní cesty**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -225,7 +208,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **Vysvětlení**: Organizace cest zajišťuje plynulou integraci funkcí vyhledávání a zvýraznění.
@@ -346,8 +328,3 @@ Naučili jste se, jak nastavit licence, konfigurovat vyhledávací cesty, vytvá
 - [Implement GroupDocs.Redaction .NET for Document Finder Management and Highlighting](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Master GroupDocs.Redaction .NET: Setup & Event Handling for Secure Document Management](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

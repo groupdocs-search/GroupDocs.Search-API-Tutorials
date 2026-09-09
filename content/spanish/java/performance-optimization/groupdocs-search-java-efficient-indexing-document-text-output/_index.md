@@ -298,11 +298,6 @@ Ahora tienes un flujo de trabajo completo y listo para producción para **cómo 
 **Probado con:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Tutoriales relacionados
 
 - [Agregar documentos al índice – Guía GroupDocs.Search Java](/search/java/advanced-features/)
