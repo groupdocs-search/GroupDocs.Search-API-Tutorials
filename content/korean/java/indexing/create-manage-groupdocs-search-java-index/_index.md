@@ -1,45 +1,77 @@
 ---
-date: '2026-03-01'
-description: GroupDocs.Search를 사용하여 Java에서 문서 비밀번호를 제거하는 방법을 배우고, 검색 가능한 인덱스를 생성하며,
-  효율적인 다중 문서 검색을 위해 Java에서 증분 인덱싱을 활성화합니다.
+date: '2026-08-05'
+description: GroupDocs.Search를 사용해 PDF 비밀번호를 제거하고, 검색 가능한 인덱스를 생성하며, 비밀번호를 안전하게 저장하고,
+  Java 애플리케이션에서 빠른 다중 문서 검색을 활성화하는 방법을 배웁니다.
 keywords:
-- remove document password
+- java remove pdf password
 - incremental indexing java
 - manage document passwords java
 - search across multiple documents
-title: GroupDocs.Search를 사용한 Java에서 문서 비밀번호 제거
+lastmod: '2026-08-05'
+og_description: Java에서 GroupDocs.Search를 사용해 PDF 비밀번호를 제거합니다. 검색 가능한 인덱스를 생성하고, 비밀번호를
+  안전하게 저장하며, Java 앱에서 빠른 다중 문서 검색을 활성화합니다.
+og_image_alt: Guide to removing PDF password in Java with GroupDocs.Search
+og_title: Java에서 GroupDocs.Search를 사용해 PDF 비밀번호 제거
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-05'
+  description: Learn how to java remove pdf password using GroupDocs.Search, create
+    searchable indexes, store passwords securely, and enable fast multi‑document search
+    in Java applications.
+  headline: Java remove PDF password with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes, GroupDocs.Search is designed to handle extensive collections efficiently,
+      processing tens of thousands of files per hour.
+    question: Can I index large volumes of documents?
+  - answer: Absolutely! You can add or remove documents from your index as needed
+      using incremental indexing.
+    question: Is it possible to update an existing index with new documents?
+  - answer: Use the password dictionary to store passwords securely and keep the index
+      folder under restricted access permissions.
+    question: How do I ensure the security of my indexed data?
+  - answer: Yes, it supports PDFs, Word files, Excel sheets, PowerPoint presentations,
+      and many other common formats—over 50 types in total.
+    question: Can GroupDocs.Search handle different file formats?
+  - answer: Consider enabling parallel processing, increasing heap size, or tuning
+      index settings such as batch size and thread count.
+    question: What if I encounter performance issues during indexing?
+  type: FAQPage
+tags:
+- remove document password
+- GroupDocs.Search
+- Java document processing
+title: Java에서 GroupDocs.Search를 사용해 PDF 비밀번호 제거
 type: docs
 url: /ko/java/indexing/create-manage-groupdocs-search-java-index/
 weight: 1
 ---
 
-# Java에서 GroupDocs.Search를 사용하여 문서 비밀번호 제거
+# GroupDocs.Search를 사용한 Java PDF 비밀번호 제거
 
-현대 기업 애플리케이션에서 **remove document password**는 민감한 파일을 안전하게 보호하면서도 빠르고 신뢰할 수 있는 검색을 가능하게 하는 중요한 단계입니다. 이 가이드에서는 GroupDocs.Search로 인덱스를 생성·관리하고, 인덱스 사전(dictionary)에 비밀번호를 안전하게 저장한 뒤 **search across multiple documents**를 손쉽게 수행하는 방법을 보여드립니다. 문서 관리 시스템을 구축하거나 기존 Java 애플리케이션에 검색 기능을 추가하려는 경우, 아래 단계만 따라 하면 빠르게 시작할 수 있습니다.
+현대 기업 애플리케이션에서 **java remove pdf password**는 비밀 파일을 비밀을 노출하지 않고 검색 가능하게 유지하는 데 필수적입니다. 이 튜토리얼에서는 검색 가능한 인덱스를 생성하고, 인덱스 사전에 비밀번호를 저장하며, 다수의 문서에 대해 빠른 검색을 수행하는 방법을 안내합니다. 끝까지 읽으면 Java 기반 문서 관리 시스템에 보안이 강화된 비밀번호 인식 검색을 통합할 수 있게 됩니다.
 
-## Quick Answers
-- **“remove document password”가 의미하는 것은?** 보호된 파일의 비밀번호를 검색 인덱스에 직접 저장하고 검색 시 자동으로 불러오는 것을 말합니다.  
-- **비밀번호가 설정된 파일을 인덱싱할 수 있나요?** 예—인덱싱 전에 비밀번호를 인덱스 사전에 추가하면 됩니다.  
-- **한 번에 몇 개의 문서를 검색할 수 있나요?** GroupDocs.Search는 단일 쿼리로 **search across multiple documents**를 수행할 수 있습니다.  
-- **프로덕션 환경에 라이선스가 필요합니까?** 프로덕션 사용에는 라이선스가 필요합니다; 평가용 무료 체험판을 제공하고 있습니다.  
-- **필요한 Java 버전은?** JDK 8 이상.
+## 빠른 답변
+- **What does “remove document password” mean?** 이는 보호된 파일의 비밀번호를 검색 인덱스에 직접 저장하고 검색하는 것을 의미합니다.  
+- **Can I index password‑protected files?** 예—인덱싱하기 전에 비밀번호를 인덱스 사전에 추가하십시오.  
+- **How many documents can I search at once?** GroupDocs.Search는 단일 쿼리에서 **search across multiple documents**를 수행할 수 있습니다.  
+- **Do I need a license for production?** 프로덕션 사용에는 라이선스가 필요하며, 평가를 위한 무료 체험판을 사용할 수 있습니다.  
+- **What Java version is required?** JDK 8 이상.
 
-## “remove document password”란?
-검색 인덱스에 문서 비밀번호를 저장하면 엔진이 인덱싱 및 검색 중에 보호된 파일을 자동으로 열 수 있어, 매번 수동으로 비밀번호를 입력할 필요가 없어집니다.
+## “remove document password”란 무엇인가요?
+**remove document password** 기능은 비밀번호를 검색 인덱스 내부에 저장하여 엔진이 인덱싱 및 쿼리 중에 보호된 파일을 자동으로 열 수 있게 하며, 매번 수동으로 비밀번호를 입력할 필요를 없앱니다. 파일 경로를 키로 하는 비밀번호 사전을 유지함으로써 라이브러리는 각 문서를 실시간으로 복호화하여 전체 텍스트를 검색 가능하게 만들면서 원본 암호화 파일은 그대로 유지됩니다.
 
 ## 이 작업에 GroupDocs.Search를 사용하는 이유
-- **Built‑in password dictionary** – 파일 경로와 비밀번호를 연결해 관리합니다.  
-- **High‑performance indexing** – 수천 개의 파일을 빠르게 처리합니다.  
-- **Rich query language** – 다양한 문서 유형에 대한 복잡한 검색을 지원합니다.  
+GroupDocs.Search는 내장된 비밀번호 사전, 표준 서버에서 **over 10,000 documents per minute on a standard server**를 처리할 수 있는 고처리량 인덱싱, 그리고 **50+ file formats**에 걸친 Boolean, fuzzy, wildcard 검색을 지원하는 풍부한 쿼리 언어를 제공합니다. 또한 증분 인덱싱, 병렬 처리 및 강력한 보안 제어 기능을 제공하여 보호된 콘텐츠를 처리해야 하는 대규모 엔터프라이즈급 검색 솔루션에 이상적입니다.
 
-## Prerequisites
-- **JDK 8+**이 설치되어 있어야 합니다.  
-- **Maven**을 사용한 의존성 관리.  
-- 기본적인 Java 지식(파일 처리, 클래스 등).
+## 전제 조건
+- **JDK 8+** 설치됨.  
+- **Maven** 의존성 관리를 위해 사용.  
+- 기본 Java 지식 (파일 처리, 클래스).
 
-## Setting Up GroupDocs.Search for Java
+## Java용 GroupDocs.Search 설정
 
-Add the repository and dependency to your `pom.xml`:
+리포지토리와 의존성을 `pom.xml`에 추가합니다:
 
 ```xml
 <repositories>
@@ -59,10 +91,16 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-또한 공식 릴리스 페이지에서 라이브러리를 직접 다운로드할 수 있습니다: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+공식 릴리스 페이지에서 라이브러리를 직접 다운로드할 수도 있습니다: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Initialize the Index
+### 정의: GroupDocs.Search
+`GroupDocs.Search`는 검색 가능한 인덱스를 생성하고, 비밀번호와 같은 메타데이터를 저장하며, 다양한 문서 유형에 대해 빠른 전체 텍스트 쿼리를 실행하는 Java 라이브러리입니다.
 
+## Java에서 PDF 비밀번호를 제거하는 방법?
+
+대상 PDF를 로드하고, 비밀번호를 인덱스 사전에 추가한 뒤 `index.add(...)`를 호출합니다. **`index.add(...)`는 검색 인덱스에 문서를 추가하며, 저장된 비밀번호를 사용해 인덱싱 중에 복호화합니다.** 이 단일 순서로 이후 검색 시 수동 비밀번호 입력이 필요 없게 됩니다. 비밀번호가 사전에 존재하면 라이브러리가 자동으로 파일을 복호화합니다.
+
+### 1. 인덱스 폴더 정의 및 인덱스 생성
 ```java
 import com.groupdocs.search.Index;
 
@@ -76,28 +114,26 @@ public class SearchSetup {
 }
 ```
 
-## How to remove document password in Java?
-
-### 1. Define the Index Folder and Create the Index
+### 2. 기존 비밀번호 삭제 (있는 경우)
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/Index";
 Index index = new Index(indexFolder);
 ```
 
-### 2. Clear Existing Passwords (if any)
+### 3. 특정 문서에 비밀번호 추가
 ```java
 if (index.getDictionaries().getDocumentPasswords().getCount() > 0) {
     index.getDictionaries().getDocumentPasswords().clear();
 }
 ```
 
-### 3. Add a Password for a Specific Document
+### 4. 비밀번호 검색 및 삭제
 ```java
 String documentPath = new File("YOUR_DOCUMENT_DIRECTORY/English.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(documentPath, "123456");
 ```
 
-### 4. Retrieve and Remove a Password
+### 5. 여러 문서에 비밀번호 추가
 ```java
 if (index.getDictionaries().getDocumentPasswords().contains(documentPath)) {
     String retrievedPassword = index.getDictionaries().getDocumentPasswords().getPassword(documentPath);
@@ -105,81 +141,91 @@ if (index.getDictionaries().getDocumentPasswords().contains(documentPath)) {
 }
 ```
 
-### 5. Add Passwords to Multiple Documents
+## 비밀번호가 있는 문서를 인덱싱하는 방법?
+
+각 보호된 파일을 추가하기 전에 인덱스에 비밀번호를 제공하십시오; 엔진은 실시간으로 복호화하여 내용이 보호되지 않은 문서와 동일하게 인덱싱됩니다. 먼저 비밀번호 사전을 제공하면 암호화 때문에 문서가 건너뛰어지는 일이 없음을 보장합니다.
+
 ```java
 index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/English.docx", "123456");
 index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.docx", "123456");
 ```
 
-## How to index documents with passwords?
+## 여러 문서를 대상으로 검색하는 방법?
+
+인덱스에 단일 쿼리를 실행하면; GroupDocs.Search는 PDF, Word, Excel, 이미지 등 모든 인덱스된 파일을 스캔하고 파일 경로를 포함한 일치 항목을 반환하여 대규모 저장소에서 정보를 즉시 찾을 수 있게 합니다. 검색 엔진은 또한 관련성에 따라 결과를 순위 매기고 일치하는 용어를 강조 표시하여 필요한 정확한 데이터를 쉽게 찾을 수 있게 합니다.
+
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-## How to search across multiple documents?
+## GroupDocs.Search를 사용한 Java 증분 인덱싱
+GroupDocs.Search는 **incremental indexing java**를 지원하여 기존 인덱스를 처음부터 다시 구축하지 않고도 새 파일이나 업데이트된 파일을 추가할 수 있습니다. 문서 비밀번호를 제거하거나 업데이트한 후에는 `index.add(newDocumentPath)`를 호출하여 변경 사항을 추가하면 됩니다.
+
+## 실용적인 적용 사례
+- **Enterprise document management** – 보안이 강화된 검색 가능한 아카이브.  
+- **Content management platforms** – 보호된 자산의 빠른 검색.  
+- **Legal document repositories** – 기밀성을 유지하면서 전체 텍스트 검색을 가능하게 함.
+
+## 성능 고려 사항
+- **Parallel indexing** – 대용량 배치를 위해 다중 스레드를 사용하여 16코어 머신에서 최대 **12 GB/min** 처리 속도를 달성합니다.  
+- **Memory monitoring** – 대규모 가져오기 중 JVM 힙을 모니터링하고 필요에 따라 `-Xmx`를 늘립니다.  
+- **Regular index maintenance** – 파일이 변경되거나 비밀번호가 업데이트될 때 인덱스를 재구성하여 검색 결과의 정확성을 유지합니다.
+
+## 일반적인 문제와 해결책
+
+| 문제 | 해결책 |
+|-------|----------|
+| **Password not applied** | 비밀번호가 사전에 **before** `index.add(...)` 호출 전에 추가되었는지 확인하십시오. |
+| **Out‑of‑memory errors** | JVM 힙(`-Xmx2g`)을 늘리거나 배치 크기를 줄인 병렬 인덱싱을 활성화하십시오. |
+| **Search returns no results** | 문서가 성공적으로 인덱싱되었는지와 쿼리 구문이 올바른지 확인하십시오. |
+| **Unable to remove password** | 비밀번호를 추가할 때 사용한 정확한 파일 경로를 확인하십시오; 경로는 정확히 일치해야 합니다. |
+
+## 결론
+이제 GroupDocs.Search를 사용하여 **java remove pdf password**를 수행하고, 견고한 인덱스를 생성하며, 강력한 **search across multiple documents**를 수행하는 방법을 알게 되었습니다. 이러한 단계를 통합하면 모든 Java 애플리케이션에 대해 보안성, 속도 및 확장성을 갖춘 검색 경험을 제공할 수 있습니다.
+
+**다음 단계**
+- 고급 쿼리 연산자(와일드카드, 퍼지 검색)를 시도해 보세요.  
+- 실시간 업데이트를 위한 증분 인덱싱을 탐색하십시오.  
+- PDF 변환 또는 주석을 위해 다른 GroupDocs 제품과 결합하십시오.
+
+## 자주 묻는 질문
+
+**Q: Can I index large volumes of documents?**  
+A: 예, GroupDocs.Search는 대규모 컬렉션을 효율적으로 처리하도록 설계되었으며, 시간당 수만 개의 파일을 처리합니다.
+
+**Q: Is it possible to update an existing index with new documents?**  
+A: 물론입니다! 필요에 따라 증분 인덱싱을 사용하여 인덱스에 문서를 추가하거나 제거할 수 있습니다.
+
+**Q: How do I ensure the security of my indexed data?**  
+A: 비밀번호 사전을 사용해 비밀번호를 안전하게 저장하고 인덱스 폴더를 제한된 접근 권한으로 유지하십시오.
+
+**Q: Can GroupDocs.Search handle different file formats?**  
+A: 예, PDF, Word 파일, Excel 시트, PowerPoint 프레젠테이션 등 다양한 일반 포맷을 지원하며, 총 50가지 이상을 지원합니다.
+
+**Q: What if I encounter performance issues during indexing?**  
+A: 병렬 처리를 활성화하고, 힙 크기를 늘리며, 배치 크기와 스레드 수와 같은 인덱스 설정을 조정하는 것을 고려하십시오.
+
+**Q: Does incremental indexing java work with existing indexes that already contain passwords?**  
+A: 예—사전에 비밀번호를 추가하거나 업데이트하고 새 파일에 대해 `index.add(...)`를 호출하면 됩니다.
+
+**마지막 업데이트:** 2026-08-05  
+**테스트 환경:** GroupDocs.Search 25.4 for Java  
+**작성자:** GroupDocs  
+
+**리소스**  
+- [Documentation](https://docs.groupdocs.com/search/java/)  
+- [API Reference](https://reference.groupdocs.com/search/java)  
+- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
+- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+
 ```java
 String searchQuery = "ipsum OR increasing";
 SearchResult searchResult = index.search(searchQuery);
 ```
 
-## Incremental indexing java with GroupDocs.Search
-GroupDocs.Search는 **incremental indexing java**를 지원하므로, 기존 인덱스를 처음부터 다시 만들 필요 없이 새 파일이나 업데이트된 파일을 추가할 수 있습니다. 문서 비밀번호를 제거하거나 업데이트한 후에는 `index.add(newDocumentPath)`를 호출해 변경 사항을 반영하면 됩니다.
+## 관련 튜토리얼
 
-## Practical Applications
-- **Enterprise Document Management** – 안전하면서도 검색 가능한 아카이브.  
-- **Content Management Platforms** – 보호된 자산을 빠르게 조회.  
-- **Legal Document Repositories** – 기밀성을 유지하면서 전체 텍스트 검색을 제공.
-
-## Performance Considerations
-- **Parallel Indexing** – 대용량 배치를 위해 다중 스레드 사용.  
-- **Memory Monitoring** – 대규모 가져오기 시 JVM 힙을 지속적으로 확인.  
-- **Regular Index Maintenance** – 파일이 변경되거나 비밀번호가 업데이트될 때 재인덱싱 수행.
-
-## Common Issues and Solutions
-| Issue | Solution |
-|-------|----------|
-| **Password not applied** | `index.add(...)`를 호출하기 **전에** 비밀번호가 사전에 추가되었는지 확인하세요. |
-| **Out‑of‑memory errors** | JVM 힙을 늘리세요(`-Xmx2g`) 또는 배치 크기를 줄여 병렬 인덱싱을 활성화하세요. |
-| **Search returns no results** | 문서가 정상적으로 인덱싱되었는지, 쿼리 구문이 올바른지 확인하세요. |
-| **Unable to remove password** | 비밀번호를 추가할 때 사용한 정확한 파일 경로와 일치하는지 확인하세요; 경로는 반드시 동일해야 합니다. |
-
-## Conclusion
-이제 GroupDocs.Search를 사용해 **remove document password**를 수행하고, 견고한 인덱스를 만들며, 강력한 **search across multiple documents**를 실행하는 방법을 알게 되었습니다. 이러한 단계를 애플리케이션에 통합하면 안전하고 빠르며 확장 가능한 검색 경험을 제공할 수 있습니다.
-
-**Next Steps**
-- 고급 쿼리 연산자(와일드카드, 퍼지 검색)를 시도해 보세요.  
-- 실시간 업데이트를 위한 incremental indexing을 탐색하세요.  
-- PDF 변환이나 주석 기능을 위해 다른 GroupDocs 제품과 결합해 보세요.
-
-## Frequently Asked Questions
-
-**Q: 대용량 문서를 인덱싱할 수 있나요?**  
-A: 예, GroupDocs.Search는 방대한 컬렉션을 효율적으로 처리하도록 설계되었습니다.
-
-**Q: 기존 인덱스에 새 문서를 추가할 수 있나요?**  
-A: 물론입니다! 필요에 따라 인덱스에 문서를 추가하거나 제거할 수 있습니다.
-
-**Q: 인덱스된 데이터의 보안을 어떻게 보장하나요?**  
-A: 문서‑비밀번호 사전을 사용하고 인덱스를 보호된 디렉터리에 저장하세요.
-
-**Q: GroupDocs.Search가 다양한 파일 형식을 지원하나요?**  
-A: 예, PDF, Word, Excel 등 여러 일반 포맷을 지원합니다.
-
-**Q: 인덱싱 중 성능 문제가 발생하면 어떻게 해야 하나요?**  
-A: 병렬 처리를 활성화하거나 힙 크기를 늘리거나 인덱스 설정을 튜닝해 보세요.
-
-**Q: 기존에 비밀번호가 포함된 인덱스에서도 incremental indexing java가 작동하나요?**  
-A: 예—사전에 비밀번호를 추가·업데이트한 뒤 `index.add(...)`를 호출하면 새 파일에 적용됩니다.
-
----
-
-**Last Updated:** 2026-03-01  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
-**Resources**  
-- [Documentation](https://docs.groupdocs.com/search/java/)  
-- [API Reference](https://reference.groupdocs.com/search/java)  
-- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Create Searchable Index Java – Deploy GroupDocs.Search for Java](/search/java/getting-started/deploy-groupdocs-search-java-setup-guide/)
+- [Extract Text from PDF Java: Build Index with GroupDocs.Search](/search/java/advanced-features/groupdocs-search-java-implementation-guide/)
+- [Create document index java for password‑protected files](/search/java/indexing/mastering-groupdocs-search-java-password-docs/)

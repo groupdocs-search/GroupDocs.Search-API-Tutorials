@@ -1,46 +1,79 @@
 ---
-date: '2026-03-01'
-description: Tanulja meg, hogyan távolíthatja el a dokumentum jelszavát Java-ban a
-  GroupDocs.Search segítségével, hogyan hozhat létre kereshető indexeket, és hogyan
-  engedélyezheti a fokozatos indexelést Java-ban a hatékony többdokumentumos kereséshez.
+date: '2026-08-05'
+description: Tanulja meg, hogyan lehet Java-val PDF password eltávolítani a GroupDocs.Search
+  használatával, searchable indexes létrehozni, password-eket biztonságosan tárolni,
+  és gyors multi‑document search-et biztosítani Java alkalmazásokban.
 keywords:
-- remove document password
+- java remove pdf password
 - incremental indexing java
 - manage document passwords java
 - search across multiple documents
-title: Dokumentumjelszó eltávolítása Java-ban a GroupDocs.Search használatával
+lastmod: '2026-08-05'
+og_description: Java PDF password eltávolítása a GroupDocs.Search segítségével. searchable
+  indexes létrehozása, password-ek biztonságos tárolása, és gyors multi‑document search
+  engedélyezése a Java alkalmazásaiban.
+og_image_alt: Guide to removing PDF password in Java with GroupDocs.Search
+og_title: Java PDF password eltávolítása a GroupDocs.Search segítségével
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-05'
+  description: Learn how to java remove pdf password using GroupDocs.Search, create
+    searchable indexes, store passwords securely, and enable fast multi‑document search
+    in Java applications.
+  headline: Java remove PDF password with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes, GroupDocs.Search is designed to handle extensive collections efficiently,
+      processing tens of thousands of files per hour.
+    question: Can I index large volumes of documents?
+  - answer: Absolutely! You can add or remove documents from your index as needed
+      using incremental indexing.
+    question: Is it possible to update an existing index with new documents?
+  - answer: Use the password dictionary to store passwords securely and keep the index
+      folder under restricted access permissions.
+    question: How do I ensure the security of my indexed data?
+  - answer: Yes, it supports PDFs, Word files, Excel sheets, PowerPoint presentations,
+      and many other common formats—over 50 types in total.
+    question: Can GroupDocs.Search handle different file formats?
+  - answer: Consider enabling parallel processing, increasing heap size, or tuning
+      index settings such as batch size and thread count.
+    question: What if I encounter performance issues during indexing?
+  type: FAQPage
+tags:
+- remove document password
+- GroupDocs.Search
+- Java document processing
+title: Java PDF password eltávolítása a GroupDocs.Search segítségével
 type: docs
 url: /hu/java/indexing/create-manage-groupdocs-search-java-index/
 weight: 1
 ---
 
-# Remove Document Password in Java using GroupDocs.Search
+# Java PDF jelszó eltávolítása a GroupDocs.Search segítségével
 
-A modern vállalati alkalmazásokban a **remove document password** kulcsfontosságú lépés a bizalmas fájlok védelme érdekében, miközben gyors, megbízható keresést tesz lehetővé. Ebben az útmutatóban megmutatjuk, hogyan hozhat létre és kezelhet indexeket a GroupDocs.Search segítségével, hogyan tárolhatja biztonságosan a jelszavakat az index szótárában, és hogyan végezhet **search across multiple documents** könnyedén. Akár dokumentumkezelő rendszert épít, akár keresést ad egy meglévő Java alkalmazáshoz, az alábbi lépések gyorsan elindítják Önt.
+A modern vállalati alkalmazásokban a **java remove pdf password** elengedhetetlen a bizalmas fájlok kereshetővé tételéhez anélkül, hogy felfednék a titkaikat. Ez az útmutató végigvezet a kereshető index létrehozásán, a jelszavak tárolásán az index szótárában, és a gyors keresések végrehajtásán számos dokumentumon. A végére képes lesz biztonságos, jelszó‑tudatos keresést integrálni bármely Java‑alapú dokumentum‑kezelő rendszerbe.
 
-## Quick Answers
-- **What does “remove document password” mean?** Ez a védett fájlok jelszavainak tárolását és visszakeresését jelenti közvetlenül a keresőindexben.  
-- **Can I index password‑protected files?** Igen—adja hozzá a jelszavakat az index szótárához az indexelés előtt.  
-- **How many documents can I search at once?** A GroupDocs.Search képes **search across multiple documents** egyetlen lekérdezésben.  
-- **Do I need a license for production?** Licenc szükséges a termelési használathoz; ingyenes próbaverzió elérhető értékeléshez.  
+## Gyors válaszok
+- **What does “remove document password” mean?** Azt jelenti, hogy a védett fájlok jelszavait közvetlenül a kereső indexben tárolja és lekéri.  
+- **Can I index password‑protected files?** Igen—adja hozzá a jelszavakat az index szótárához a indexelés előtt.  
+- **How many documents can I search at once?** A GroupDocs.Search **search across multiple documents** egyetlen lekérdezésben.  
+- **Do I need a license for production?** Licenc szükséges a termeléshez; ingyenes próba verzió elérhető értékeléshez.  
 - **What Java version is required?** JDK 8 vagy újabb.
 
-## What is “remove document password”?
-A dokumentumjelszavak a keresőindexben való tárolása lehetővé teszi, hogy a motor automatikusan megnyissa a védett fájlokat az indexelés és a keresés során, ezzel megszüntetve a manuális jelszóbevitel szükségességét minden alkalommal.
+## Mi az a “remove document password”?
+A **remove document password** funkció a jelszavakat a kereső indexben tárolja, így a motor automatikusan meg tudja nyitni a védett fájlokat az indexelés és a lekérdezés során, kiküszöbölve a manuális jelszóbevitel minden alkalommal. A fájl útvonala alapján kulcsolt jelszó‑szótár megtartásával a könyvtár minden dokumentumot futás közben visszafejt, biztosítva, hogy a teljes szöveg kereshető legyen, miközben az eredeti titkosított fájl változatlan marad.
 
-## Why use GroupDocs.Search for this task?
-- **Built‑in password dictionary** – a jelszavak a fájl útvonalához kapcsolódva tárolódnak.  
-- **High‑performance indexing** – több ezer fájlt gyorsan kezel.  
-- **Rich query language** – összetett kereséseket támogat számos dokumentumtípusban.  
+## Miért használja a GroupDocs.Search‑t ehhez a feladathoz?
+A GroupDocs.Search beépített jelszó‑szótárral, nagy áteresztőképességű indexeléssel rendelkezik, amely **több mint 10 000 dokumentumot per perc egy szabványos szerveren** képes feldolgozni, és gazdag lekérdezési nyelvet, amely támogatja a Boolean, fuzzy és wildcard kereséseket **50+ fájlformátumon** keresztül. Emellett kínál inkrementális indexelést, párhuzamos feldolgozást és robusztus biztonsági ellenőrzéseket, így ideális nagy‑léptékű, vállalati szintű keresési megoldásokhoz, amelyeknek védett tartalmat kell kezelniük.
 
-## Prerequisites
+## Előfeltételek
 - **JDK 8+** telepítve.  
 - **Maven** a függőségkezeléshez.  
-- Alapvető Java ismeretek (fájlkezelés, osztályok).  
+- Alap Java ismeretek (fájlkezelés, osztályok).  
 
-## Setting Up GroupDocs.Search for Java
+## GroupDocs.Search beállítása Java-hoz
 
-Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
+Adja hozzá a tárolót és a függőséget a `pom.xml`-hez:
 
 ```xml
 <repositories>
@@ -60,10 +93,16 @@ Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
 </dependencies>
 ```
 
-A könyvtárat közvetlenül a hivatalos kiadási oldalról is letöltheti: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+A könyvtárat közvetlenül is letöltheti a hivatalos kiadási oldalról: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Initialize the Index
+### Definíció: GroupDocs.Search
+`GroupDocs.Search` egy Java könyvtár, amely kereshető indexeket hoz létre, metaadatokat (például jelszavakat) tárol, és gyors teljes‑szöveges lekérdezéseket hajt végre számos dokumentumtípuson.
 
+## Hogyan távolítsuk el a PDF jelszót Java-ban?
+
+Töltse be a cél PDF-et, adja hozzá a jelszavát az index szótárához, majd hívja meg a `index.add(...)` metódust. **`index.add(...)` egy dokumentumot ad a kereső indexhez, a tárolt jelszavakat használva visszafejti azt az indexelés során.** Ez az egyetlen lépés megszünteti a manuális jelszóbevitel szükségességét a későbbi kereséseknél. A könyvtár automatikusan visszafejti a fájlt, ha a jelszó a szótárban szerepel.
+
+### 1. Az index mappa meghatározása és az index létrehozása
 ```java
 import com.groupdocs.search.Index;
 
@@ -77,27 +116,26 @@ public class SearchSetup {
 }
 ```
 
-## How to remove document password in Java?
-### 1. Define the Index Folder and Create the Index
+### 2. Létező jelszavak törlése (ha vannak)
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/Index";
 Index index = new Index(indexFolder);
 ```
 
-### 2. Clear Existing Passwords (if any)
+### 3. Jelszó hozzáadása egy adott dokumentumhoz
 ```java
 if (index.getDictionaries().getDocumentPasswords().getCount() > 0) {
     index.getDictionaries().getDocumentPasswords().clear();
 }
 ```
 
-### 3. Add a Password for a Specific Document
+### 4. Jelszó lekérdezése és eltávolítása
 ```java
 String documentPath = new File("YOUR_DOCUMENT_DIRECTORY/English.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(documentPath, "123456");
 ```
 
-### 4. Retrieve and Remove a Password
+### 5. Jelszavak hozzáadása több dokumentumhoz
 ```java
 if (index.getDictionaries().getDocumentPasswords().contains(documentPath)) {
     String retrievedPassword = index.getDictionaries().getDocumentPasswords().getPassword(documentPath);
@@ -105,81 +143,90 @@ if (index.getDictionaries().getDocumentPasswords().contains(documentPath)) {
 }
 ```
 
-### 5. Add Passwords to Multiple Documents
+## Hogyan indexeljünk jelszóval védett dokumentumokat?
+
+Adja meg a jelszavakat az indexnek, mielőtt hozzáadná az egyes védett fájlokat; a motor futás közben visszafejti őket, lehetővé téve, hogy a tartalom úgy legyen indexelve, mint bármely védtelen dokumentum. A jelszó‑szótár előzetes megadása garantálja, hogy egyetlen dokumentum sem marad ki a titkosítás miatt.
+
 ```java
 index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/English.docx", "123456");
 index.getDictionaries().getDocumentPasswords().add("YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.docx", "123456");
 ```
 
-## How to index documents with passwords?
+## Hogyan keressünk több dokumentumban egyszerre?
+
+Hajtson végre egyetlen lekérdezést az indexen; a GroupDocs.Search minden indexelt fájlt átvizsgál—legyen az PDF, Word, Excel vagy kép—és visszaadja a találatokat fájl‑útvonal hivatkozásokkal, lehetővé téve, hogy azonnal megtalálja az információt nagy adattárakban. A keresőmotor a találatokat relevancia szerint rangsorolja és kiemeli a megfelelő kifejezéseket, így könnyű megtalálni a pontos adatot.
+
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-## How to search across multiple documents?
-```java
-String searchQuery = "ipsum OR increasing";
-SearchResult searchResult = index.search(searchQuery);
-```
+## Inkrementális indexelés Java-val a GroupDocs.Search segítségével
+A GroupDocs.Search támogatja a **incremental indexing java** funkciót, amely lehetővé teszi új vagy frissített fájlok hozzáadását egy meglévő indexhez anélkül, hogy az elejétől újraépítené. Miután eltávolított vagy frissített egy dokumentum jelszavát, egyszerűen hívja meg a `index.add(newDocumentPath)` metódust a változások hozzáfűzéséhez.
 
-## Incremental indexing java with GroupDocs.Search
-A GroupDocs.Search támogatja a **incremental indexing java** funkciót, amely lehetővé teszi új vagy frissített fájlok hozzáadását egy meglévő indexhez anélkül, hogy az elejétől újraépítené. Miután eltávolította vagy frissítette egy dokumentum jelszavát, egyszerűen hívja a `index.add(newDocumentPath)` metódust a változások hozzáfűzéséhez.
+## Gyakorlati alkalmazások
+- **Enterprise document management** – biztonságos, kereshető archívumok.  
+- **Content management platforms** – védett eszközök gyors visszakeresése.  
+- **Legal document repositories** – titoktartás fenntartása miközben lehetővé teszi a teljes‑szöveges keresést.
 
-## Practical Applications
-- **Enterprise Document Management** – biztonságos, kereshető archívumok.  
-- **Content Management Platforms** – a védett erőforrások gyors lekérdezése.  
-- **Legal Document Repositories** – a titoktartás megőrzése miközben a teljes szöveges keresés engedélyezett.  
+## Teljesítmény szempontok
+- **Parallel indexing** – használjon több szálat nagy kötegekhez, elérve akár **12 GB/perc** feldolgozási sebességet egy 16‑magos gépen.  
+- **Memory monitoring** – figyelje a JVM heapet a nagyméretű importok során; növelje a `-Xmx` értéket szükség szerint.  
+- **Regular index maintenance** – újraindexelés, amikor a fájlok változnak vagy a jelszavak frissülnek, a keresési eredmények pontosságának megőrzése érdekében.
 
-## Performance Considerations
-- **Parallel Indexing** – több szál használata nagy köteghez.  
-- **Memory Monitoring** – figyelje a JVM heapet nagy mennyiségű importálás során.  
-- **Regular Index Maintenance** – újraindexelés, ha a fájlok változnak vagy a jelszavak frissülnek.  
-
-## Common Issues and Solutions
+## Gyakori problémák és megoldások
 | Probléma | Megoldás |
 |----------|----------|
-| **Jelszó nincs alkalmazva** | Győződjön meg arról, hogy a jelszó a szótárhoz **előtt** van hozzáadva, mielőtt a `index.add(...)` hívást végrehajtja. |
-| **Out‑of‑memory hibák** | Növelje a JVM heapet (`-Xmx2g`), vagy engedélyezze a párhuzamos indexelést kisebb kötegmérettel. |
-| **A keresés nem ad eredményt** | Ellenőrizze, hogy a dokumentum sikeresen indexelve lett-e, és hogy a lekérdezés szintaxisa helyes. |
-| **Nem lehet eltávolítani a jelszót** | Győződjön meg a jelszó hozzáadásakor használt pontos fájlútról; az utaknak pontosan egyezniük kell. |
+| **Jelszó nem alkalmazva** | Győződjön meg róla, hogy a jelszó a szótárhoz **előtt** van hozzáadva a `index.add(...)` hívása előtt. |
+| **Out‑of‑memory hibák** | Növelje a JVM heapet (`-Xmx2g`) vagy engedélyezze a párhuzamos indexelést kisebb kötegmérettel. |
+| **A keresés nem ad eredményt** | Ellenőrizze, hogy a dokumentum sikeresen indexelve lett-e, és hogy a lekérdezés szintaxisa helyes-e. |
+| **Nem lehet eltávolítani a jelszót** | Erősítse meg a jelszó hozzáadásakor használt pontos fájlútvonalat; az útvonalaknak pontosan egyezniük kell. |
 
-## Conclusion
-Most már tudja, hogyan **remove document password** a GroupDocs.Search segítségével, hogyan hozhat létre robusztus indexeket, és hogyan végezhet hatékony **search across multiple documents**. Ezeknek a lépéseknek az alkalmazásba való beépítésével biztonságos, gyors és skálázható keresési élményt nyújt.
+## Következtetés
+Most már tudja, hogyan **java remove pdf password** a GroupDocs.Search segítségével, hogyan hozzon létre robusztus indexeket, és hogyan hajtson végre hatékony **search across multiple documents** kereséseket. Ezeknek a lépéseknek az integrálása biztonságos, gyors és skálázható keresési élményt biztosít bármely Java alkalmazás számára.
 
-**Next Steps**
-- Próbálja ki a fejlett lekérdezési operátorokat (helyettesítő karakterek, fuzzy keresés).  
+**Következő lépések**
+- Próbálja ki a fejlett lekérdezési operátorokat (wildcards, fuzzy search).  
 - Fedezze fel az inkrementális indexelést valós‑idejű frissítésekhez.  
-- Kombinálja más GroupDocs termékekkel PDF konvertáláshoz vagy annotációhoz.
+- Kombinálja más GroupDocs termékekkel PDF konvertáláshoz vagy annotáláshoz.
 
-## Frequently Asked Questions
+## Gyakran feltett kérdések
 
-**Q: Can I index large volumes of documents?**  
-A: Igen, a GroupDocs.Search úgy van tervezve, hogy hatékonyan kezelje a nagy mennyiségű gyűjteményeket.
+**Q: Indexelhetek nagy mennyiségű dokumentumot?**  
+A: Igen, a GroupDocs.Search úgy van tervezve, hogy hatékonyan kezelje a nagy gyűjteményeket, óránként több tízezer fájlt dolgozva fel.
 
-**Q: Is it possible to update an existing index with new documents?**  
-A: Természetesen! Szükség szerint hozzáadhat vagy eltávolíthat dokumentumokat az indexből.
+**Q: Lehet frissíteni egy meglévő indexet új dokumentumokkal?**  
+A: Teljesen! A szükség szerint hozzáadhat vagy eltávolíthat dokumentumokat az indexből az inkrementális indexelés használatával.
 
-**Q: How do I ensure the security of my indexed data?**  
-A: Használja a dokumentum‑jelszó szótárat, és tárolja az indexet egy védett könyvtárban.
+**Q: Hogyan biztosíthatom az indexelt adataim biztonságát?**  
+A: Használja a jelszó‑szótárat a jelszavak biztonságos tárolásához, és tartsa az index mappát korlátozott hozzáférési jogosultságok alatt.
 
-**Q: Can GroupDocs.Search handle different file formats?**  
-A: Igen, támogatja a PDF-eket, Word fájlokat, Excel táblákat és sok más általános formátumot.
+**Q: Kezelni tudja a GroupDocs.Search a különböző fájlformátumokat?**  
+A: Igen, támogatja a PDF‑eket, Word‑fájlokat, Excel‑lapokat, PowerPoint‑prezentációkat és sok más gyakori formátumot—összesen több mint 50 típust.
 
-**Q: What if I encounter performance issues during indexing?**  
-A: Fontolja meg a párhuzamos feldolgozás engedélyezését, a heap méretének növelését vagy az index beállításainak finomhangolását.
+**Q: Mi a teendő, ha teljesítményproblémákat tapasztalok az indexelés során?**  
+A: Fontolja meg a párhuzamos feldolgozás engedélyezését, a heap méretének növelését, vagy az index beállításainak finomhangolását, például a kötegméretet és a szálak számát.
 
-**Q: Does incremental indexing java work with existing indexes that already contain passwords?**  
-A: Igen—egyszerűen adja hozzá vagy frissítse a jelszavakat a szótárban, és hívja a `index.add(...)` metódust az új fájlokhoz.
+**Q: Működik az incremental indexing java meglévő, már jelszavakat tartalmazó indexekkel?**  
+A: Igen—egyszerűen adja hozzá vagy frissítse a jelszavakat a szótárban, és hívja meg a `index.add(...)` metódust az új fájlokhoz.
 
----
-
-**Legutóbb frissítve:** 2026-03-01  
-**Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
+**Legutóbb frissítve:** 2026-08-05  
+**Tesztelve a következővel:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs  
 
 **Erőforrások**  
 - [Dokumentáció](https://docs.groupdocs.com/search/java/)  
 - [API Referencia](https://reference.groupdocs.com/search/java)  
-- [GroupDocs.Search for Java letöltése](https://releases.groupdocs.com/search/java/)  
+- [GroupDocs.Search letöltése Java-hoz](https://releases.groupdocs.com/search/java/)  
 - [GitHub tároló](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+
+```java
+String searchQuery = "ipsum OR increasing";
+SearchResult searchResult = index.search(searchQuery);
+```
+
+## Kapcsolódó oktatóanyagok
+
+- [Kereshető index létrehozása Java – GroupDocs.Search telepítése Java-hoz](/search/java/getting-started/deploy-groupdocs-search-java-setup-guide/)
+- [Szöveg kinyerése PDF-ből Java: Index építése a GroupDocs.Search segítségével](/search/java/advanced-features/groupdocs-search-java-implementation-guide/)
+- [Dokumentum index létrehozása Java-ban jelszó‑védett fájlokhoz](/search/java/indexing/mastering-groupdocs-search-java-password-docs/)

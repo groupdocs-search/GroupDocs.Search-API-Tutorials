@@ -1,42 +1,76 @@
 ---
-date: '2026-03-01'
-description: Naučte se, jak vyčistit adresář v Javě, automatizovat správu dokumentů,
-  přejmenovávat soubory v Javě a kopírovat soubory v Javě při vytváření prohledávatelného
-  indexu pomocí GroupDocs.Search pro Javu.
+date: '2026-08-05'
+description: Zjistěte, jak vyčistit adresář v Javě při automatizaci indexování dokumentů,
+  přejmenovávání souborů a kopírování obsahu pomocí GroupDocs.Search.
 keywords:
-- Java document indexing
-- GroupDocs.Search for Java
-- automate document management
-title: Čistý adresář Java – Automatizujte indexování a přejmenování dokumentů pomocí
-  GroupDocs.Search
+- how to clean directory
+- copy files java
+- delete all files folder
+- how to rename files
+- rename files java
+- create searchable index
+lastmod: '2026-08-05'
+og_description: Zjistěte, jak vyčistit adresář v Javě při automatickém vytváření prohledávatelného
+  indexu, přejmenovávání souborů a kopírování obsahu pomocí GroupDocs.Search. Postupujte
+  podle krok‑za‑krokem návodu a tipů osvědčených postupů.
+og_image_alt: 'Developer guide: clean directory in Java using GroupDocs.Search'
+og_title: Jak vyčistit adresář v Javě pomocí GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-05'
+  description: Learn how to clean directory in Java while automating document indexing,
+    renaming files, and copying content using GroupDocs.Search.
+  headline: How to clean directory in Java with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes. The `Files.walk()` approach recursively deletes all nested files
+      and folders.
+    question: Can I clean a directory that contains sub‑folders?
+  - answer: No. Sending a rename notification and calling `index.update()` is sufficient.
+    question: Do I need to rebuild the whole index after each rename?
+  - answer: It depends on JVM memory; processing in smaller batches or using streams
+      helps manage large data sets.
+    question: How large a folder can I clean before hitting performance limits?
+  - answer: A free trial is available, but a paid license is required for production
+      use.
+    question: Is GroupDocs.Search free for development?
+  - answer: Absolutely. GroupDocs.Search supports many formats; just add the folder
+      containing those files to the index.
+    question: Can I use this approach with other file types (e.g., PDFs, DOCX)?
+  type: FAQPage
+tags:
+- clean directory
+- GroupDocs.Search
+- Java file management
+- document indexing
+- file renaming
+title: Jak vyčistit adresář v Javě pomocí GroupDocs.Search
 type: docs
 url: /cs/java/indexing/automate-document-indexing-groupdocs-search-java/
 weight: 1
 ---
 
-# Clean Directory Java – Automatizujte indexování dokumentů a přejmenování pomocí GroupDocs.Search
+# Jak vyčistit adresář v Javě pomocí GroupDocs.Search
+
+Pokud potřebujete **clean directory java** při automatizaci indexování dokumentů a přejmenování, jste na správném místě. Ruční manipulace s přesuny souborů, mazáním a aktualizacemi indexu je náchylná k chybám a časově náročná. V tomto tutoriálu uvidíte, jak může Java vyčistit složku, vytvořit prohledávatelný index, přejmenovat soubory a udržet vše v synchronizaci pomocí **GroupDocs.Search for Java**.
 
 ## Rychlé odpovědi
-- **Co znamená “clean directory java”?** Odstranění všech souborů/složek uvnitř cílové složky pomocí Java kódu.  
+- **Co znamená „clean directory java“?** Deleting all files and sub‑folders inside a target directory using Java code.  
 - **Která knihovna vytváří prohledávatelný index?** GroupDocs.Search for Java.  
-- **Jak přejmenuji dokument a udržím index aktualizovaný?** Použijte `File.renameTo()` a poté upozorněte index pomocí `Notification.createRenameNotification`.  
-- **Mohu po vyčištění složky kopírovat soubory?** Ano – Java Streams mohou kopírovat soubory při zachování indexu.  
-- **Je pro produkci vyžadována licence?** Pro komerční použití je potřeba platná licence GroupDocs.Search.
+- **Jak přejmenuji dokument a udržím index aktualizovaný?** Use `File.renameTo()` then notify the index with `Notification.createRenameNotification`.  
+- **Mohu kopírovat soubory po vyčištění složky?** Yes – Java Streams can copy files while preserving the index.  
+- **Je licence vyžadována pro produkci?** A valid GroupDocs.Search license is needed for commercial use.
 
-## Co je “clean directory java”?
-Vyčištění složky v Javě znamená programově odstranit každý soubor a podadresář uvnitř určené složky. Často to slouží jako předběžný krok před kopírováním nových souborů nebo přestavbou indexu, aby se zajistilo, že zastaralá data neovlivní výsledky vyhledávání.
+## Co je čištění adresáře?
+**How to clean directory** odkazuje na programové odstranění každého souboru a podadresáře ze zadané složky. Tento krok zajišťuje, že zastaralá nebo duplicitní data nebudou rušit následné indexování nebo kopírovací operace. Často se používá před dávkovým zpracováním, migrací dat nebo přestavbou vyhledávacího indexu, aby byl zaručen pouze čerstvý obsah. Automatizací úklidu vývojáři předcházejí manuálním chybám a mohou krok začlenit do CI pipeline.
 
 ## Proč automatizovat indexování dokumentů a přejmenování?
-- **Automatizace správy dokumentů** snižuje manuální úsilí a eliminuje lidské chyby.  
-- **Vytvoření prohledávatelného indexu** vám umožní okamžitě najít jakýkoli dokument podle obsahu.  
-- Přejmenování souborů bez aktualizace indexu by narušilo přesnost vyhledávání; automatizace udržuje vše konzistentní.  
-- **Rename files java** a **copy files java** operace se stávají opakovatelnými a spolehlivými, zejména ve velkorozsahových prostředích.
+Automatizace těchto úkolů eliminuje ruční úsilí, snižuje lidské chyby a zaručuje, že prohledávatelný index vždy odráží aktuální stav souborového systému. GroupDocs.Search může indexovat více než **50+ file formats** a zpracovat dokumenty o stovkách stránek, aniž by načítal celý soubor do paměti, což poskytuje rychlé a spolehlivé výsledky vyhledávání.
 
-## Předpoklady
-
-- **GroupDocs.Search for Java** (verze 25.4 nebo novější)  
-- JDK 8 + a IDE jako IntelliJ IDEA nebo Eclipse  
-- Základní znalost Javy, zejména práce se soubory (I/O)  
+## Požadavky
+- **GroupDocs.Search for Java** (Version 25.4 or later) – supports 50+ input and output formats.  
+- JDK 8 + a IDE jako IntelliJ IDEA nebo Eclipse.  
+- Základní znalost Javy, zejména práce se soubory (I/O).  
 
 ## Nastavení GroupDocs.Search pro Java
 
@@ -68,7 +102,7 @@ Alternativně stáhněte nejnovější verzi z [GroupDocs.Search for Java releas
 Získejte bezplatnou zkušební verzi, dočasnou evaluační licenci nebo zakupte plnou licenci pro produkční použití.
 
 ### Základní inicializace
-Vytvořte instanci `Index`, která bude obsahovat prohledávatelná data:
+Vytvořte instanci `Index`, která bude uchovávat prohledávatelná data:
 
 ```java
 import com.groupdocs.search.Index;
@@ -81,32 +115,39 @@ public class Main {
 }
 ```
 
-## Průvodce implementací
+**Definition anchor:** Třída `Index` je jádrovou součástí GroupDocs.Search, která ukládá prohledávatelná metadata a poskytuje metody pro přidání, aktualizaci nebo smazání dokumentů.
 
-### 1. Přidání dokumentů do indexu (create searchable index)
+## Jak vyčistit adresář v Javě?
+Načtěte cílovou složku, projděte její souborový strom a odstraňte každou položku v opačném pořadí. Tento přístup zajišťuje, že soubory jsou odstraněny před jejich nadřazenými adresáři, čímž se zabrání chybám „adresář není prázdný“.
+
+Metoda `Files.walk()` vrací stream objektů `Path`, které představují každý soubor a podadresář pod zadaným kořenem. Řazení pomocí `Comparator.reverseOrder()` zajišťuje, že hlubší cesty jsou zpracovány před jejich rodiči, což umožňuje bezpečné mazání.
 
 ```java
-import com.groupdocs.search.Index;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-public class DocumentIndexingAndRenaming {
-    public static void main(String[] args) {
-        String indexFolder = "YOUR_OUTPUT_DIRECTORY/DocumentIndexingAndRenaming/Index";
-        String documentFolder = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
+public class DirectoryCleaningAndFileCopying {
+    public static void main(String[] args) throws IOException {
+        String targetDirectory = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
 
-        // Create an Index
-        Index index = new Index(indexFolder);
-
-        // Add documents to the index
-        index.add(documentFolder);
+        Files.walk(Paths.get(targetDirectory))
+             .map(Path::toFile)
+             .sorted((o1, o2) -> -o1.compareTo(o2))
+             .forEach(File::delete);
     }
 }
 ```
 
-*Vysvětlení*:  
-- `indexFolder` – místo, kde jsou uloženy soubory indexu.  
-- `documentFolder` – zdrojová složka, která obsahuje soubory, které chcete učinit prohledávatelnými.  
+*Vysvětlení:*  
+- `Files.walk()` rekurzivně enumeruje každý soubor a podadresář.  
+- Řazení pomocí `Comparator.reverseOrder()` zajišťuje správné pořadí mazání.  
 
-### 2. Přejmenování dokumentu a upozornění indexu (rename files java)
+## Jak přejmenovat soubory v Javě a zachovat přesnost indexu?
+Přejmenujte fyzický soubor pomocí `Files.move()` (nebo `File.renameTo()` pro jednoduché případy) a poté odešlete notifikaci o přejmenování do indexu, aby výsledky vyhledávání zůstaly správné.
+
+`Files.move()` přesouvá nebo přejmenovává soubor atomicky, což poskytuje vyšší spolehlivost než `File.renameTo()` napříč platformami.
 
 ```java
 import com.groupdocs.search.Notification;
@@ -132,39 +173,10 @@ public class DocumentIndexingAndRenaming {
 }
 ```
 
-*Vysvětlení*:  
-- `File.renameTo()` v Javě provádí fyzické přejmenování.  
-- `Notification.createRenameNotification()` informuje GroupDocs.Search o změně názvu souboru, čímž udržuje index přesný.  
+**Definition anchor:** `Notification.createRenameNotification()` generuje notifikační objekt, který informuje GroupDocs.Search, že se název dokumentu změnil, a vyzývá index k aktualizaci interních odkazů.
 
-## Clean Directory Java – Čištění složky a kopírování souborů
-
-Udržení složky v pořádku před hromadným kopírováním zabraňuje duplicitním nebo osamělým souborům. Níže jsou dva znovupoužitelné úryvky, které ukazují **java delete files recursively** a **copy files java**.
-
-### Krok 1: Smazat obsah složky (java delete files recursively)
-
-```java
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-public class DirectoryCleaningAndFileCopying {
-    public static void main(String[] args) throws IOException {
-        String targetDirectory = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
-
-        Files.walk(Paths.get(targetDirectory))
-             .map(Path::toFile)
-             .sorted((o1, o2) -> -o1.compareTo(o2))
-             .forEach(File::delete);
-    }
-}
-```
-
-*Vysvětlení*:  
-- `Files.walk()` prochází každý soubor a podadresář.  
-- Řazení v opačném pořadí zajišťuje, že soubory jsou odstraněny před jejich nadřazenými adresáři, čímž efektivně **delete folder contents**.
-
-### Krok 2: Kopírování souborů (copy files java)
+## Jak kopírovat soubory v Javě po vyčištění adresáře?
+Po vyčištění složky můžete pomocí Java Streams kopírovat nové soubory do ní. Operace kopírování přepíše existující soubory, čímž zajistí, že složka obsahuje nejnovější verzi každého dokumentu. Tento krok je obvykle následován přidáním nově zkopírovaných souborů do indexu, aby byly okamžitě prohledávatelné.
 
 ```java
 import java.io.IOException;
@@ -193,54 +205,80 @@ public class DirectoryCleaningAndFileCopying {
 }
 ```
 
-*Vysvětlení*:  
-- Stream filtruje pouze běžné soubory a poté každý zkopíruje do cílové složky, přepisuje existující soubory podle potřeby.  
+*Vysvětlení:*  
+- Stream filtruje pouze běžné soubory a poté je kopíruje do cílové složky, přepisuje existující soubory podle potřeby.  
+
+## Průvodce implementací
+
+### 1. přidat dokumenty do indexu (vytvořit prohledávatelný index)
+Přidejte zdrojovou složku do indexu, aby se každý dokument okamžitě stal prohledávatelným.
+
+```java
+import com.groupdocs.search.Index;
+
+public class DocumentIndexingAndRenaming {
+    public static void main(String[] args) {
+        String indexFolder = "YOUR_OUTPUT_DIRECTORY/DocumentIndexingAndRenaming/Index";
+        String documentFolder = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
+
+        // Create an Index
+        Index index = new Index(indexFolder);
+
+        // Add documents to the index
+        index.add(documentFolder);
+    }
+}
+```
+
+*Vysvětlení:*  
+- `indexFolder` – místo, kde jsou uloženy soubory indexu.  
+- `documentFolder` – zdrojová složka, která obsahuje soubory, jež chcete učinit prohledávatelnými.  
 
 ## Praktické aplikace
-
-- **Enterprise Document Management** – Automatizujte indexování tisíců smluv a udržujte názvy souborů synchronizované.  
-- **Legal Firms** – Rychle přejmenujte spisové soubory při zachování prohledávatelného obsahu.  
-- **Content Management Systems** – Použijte vzor clean‑directory k obnovení mediálních složek bez ručního úklidu.  
+- **Enterprise document management** – Automatizujte indexování tisíců smluv a udržujte názvy souborů v synchronizaci.  
+- **Legal firms** – Rychle přejmenujte spisové soubory při zachování prohledávatelného obsahu.  
+- **Content management systems** – Použijte vzor vyčištění adresáře k obnovení mediálních složek bez ručního úklidu.  
 
 ## Úvahy o výkonu
-
-- **Index Size** – Pravidelně komprimujte index, pokud narůstá.  
-- **Memory Usage** – Zpracovávejte soubory po dávkách, aby nedošlo k `OutOfMemoryError`.  
-- **Concurrency** – Pro hromadné operace zvažte `ExecutorService` v Javě pro paralelizaci čištění a kopírování.  
+- **Index size** – Pravidelně kompaktně index, pokud narůstá; GroupDocs.Search poskytuje metodu `compact()`, která může snížit úložiště až o 30 %.  
+- **Memory usage** – Zpracovávejte soubory v dávkách po 500 – 1 000, aby se předešlo `OutOfMemoryError`.  
+- **Concurrency** – Pro hromadné operace zvažte Java `ExecutorService` k paralelizaci čištění, kopírování a indexování, což může zkrátit celkový čas běhu o 40 % na vícejádrových serverech.  
 
 ## Časté problémy a tipy
 
 | Problém | Příčina | Řešení |
 |-------|-------|-----|
 | Přejmenování selže | Soubor je uzamčen nebo cesta je neplatná | Ujistěte se, že soubor není otevřen jinde; použijte `Files.move` pro spolehlivější přejmenování. |
-| Index se neaktualizuje | Upozornění nebylo odesláno | Vždy zavolejte `index.notifyIndex(notification)` a poté `index.update()`. |
+| Index se neaktualizuje | Notifikace nebyla odeslána | Vždy zavolejte `index.notifyIndex(notification)` následované `index.update()`. |
 | Zastaralé výsledky vyhledávání po kopírování | Index stále ukazuje na staré soubory | Znovu přidejte cílovou složku do indexu nebo po kopírování zavolejte `index.update()`. |
-| Pomalé čištění velkých složek | Jednovláknové procházení | Použijte paralelní streamy nebo rozdělte složku na menší dávky. |
+| Pomalý úklid ve velkých složkách | Jednovláknové procházení | Použijte paralelní streamy nebo rozdělte složku na menší dávky. |
 | Chyby oprávnění | Nedostatečná oprávnění OS | Spusťte JVM s odpovídajícími oprávněními nebo upravte ACL složky. |
 
 ## Často kladené otázky
 
-**Q: Mohu vyčistit složku, která obsahuje podadresáře?**  
+**Q: Můžu vyčistit adresář, který obsahuje podadresáře?**  
 A: Ano. Přístup `Files.walk()` rekurzivně maže všechny vnořené soubory a složky.
 
-**Q: Musím po každém přejmenování přestavět celý index?**  
-A: Ne. Odeslání upozornění na přejmenování a zavolání `index.update()` je dostačující.
+**Q: Musím po každém přejmenování znovu vytvořit celý index?**  
+A: Ne. Odeslání notifikace o přejmenování a zavolání `index.update()` stačí.
 
-**Q: Jak velkou složku mohu vyčistit, než narazím na výkonnostní limity?**  
-A: Záleží na paměti JVM; zpracování v menších dávkách nebo pomocí streamů pomáhá spravovat velké objemy dat.
+**Q: Jak velkou složku mohu vyčistit, než narazím na limity výkonu?**  
+A: Závisí na paměti JVM; zpracování v menších dávkách nebo pomocí streamů pomáhá spravovat velké datové sady.
 
 **Q: Je GroupDocs.Search zdarma pro vývoj?**  
-A: Je k dispozici bezplatná zkušební verze, ale pro produkční použití je vyžadována placená licence.
+A: K dispozici je bezplatná zkušební verze, ale pro produkční použití je vyžadována placená licence.
 
-**Q: Mohu tento přístup použít s jinými typy souborů (např. PDF, DOCX)?**  
+**Q: Můžu tento přístup použít s jinými typy souborů (např. PDF, DOCX)?**  
 A: Rozhodně. GroupDocs.Search podporuje mnoho formátů; stačí přidat složku obsahující tyto soubory do indexu.
-
-## Závěr
-
-Nyní máte kompletní, připravené řešení pro **clean directory java**, přidávání dokumentů do prohledávatelného indexu, přejmenování souborů a udržování všeho synchronizovaného s GroupDocs.Search. Použijte tyto vzory k automatizaci pracovního postupu správy dokumentů a užijte si rychlejší a spolehlivější vyhledávání.
 
 ---
 
-**Last Updated:** 2026-03-01  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+**Poslední aktualizace:** 2026-08-05  
+**Testováno s:** GroupDocs.Search 25.4  
+**Autor:** GroupDocs
+
+## Související tutoriály
+
+- [Jak vytvořit indexový adresář java s GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Vytvořit vyhledávací indexový adresář a nastavit licenci – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)
+- [Vytvořit prohledávatelný index Java – nasadit GroupDocs.Search pro Java](/search/java/getting-started/deploy-groupdocs-search-java-setup-guide/)

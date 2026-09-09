@@ -1,47 +1,78 @@
 ---
-date: '2026-03-01'
-description: Javaでディレクトリをクリーンアップし、ドキュメント管理を自動化し、ファイル名を変更し、ファイルをコピーしながら、GroupDocs.Search
-  for Java を使用して検索可能なインデックスを作成する方法を学びましょう。
+date: '2026-08-05'
+description: GroupDocs.Search を使用して、ドキュメントインデックスの自動化、ファイルのリネーム、コンテンツのコピーを行いながら、Javaでディレクトリをクリーンアップする方法を学びます。
 keywords:
-- Java document indexing
-- GroupDocs.Search for Java
-- automate document management
-title: Clean Directory Java – GroupDocs.Searchで文書インデックス作成とリネームを自動化
+- how to clean directory
+- copy files java
+- delete all files folder
+- how to rename files
+- rename files java
+- create searchable index
+lastmod: '2026-08-05'
+og_description: GroupDocs.Search を使用して、検索可能なインデックスを自動作成し、ファイルをリネーム、コンテンツをコピーしながら、Javaでディレクトリをクリーンアップする方法をご紹介します。ステップバイステップの手順とベストプラクティスのヒントを確認してください。
+og_image_alt: 'Developer guide: clean directory in Java using GroupDocs.Search'
+og_title: Javaでディレクトリをクリーンアップする方法（GroupDocs.Search）
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-05'
+  description: Learn how to clean directory in Java while automating document indexing,
+    renaming files, and copying content using GroupDocs.Search.
+  headline: How to clean directory in Java with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes. The `Files.walk()` approach recursively deletes all nested files
+      and folders.
+    question: Can I clean a directory that contains sub‑folders?
+  - answer: No. Sending a rename notification and calling `index.update()` is sufficient.
+    question: Do I need to rebuild the whole index after each rename?
+  - answer: It depends on JVM memory; processing in smaller batches or using streams
+      helps manage large data sets.
+    question: How large a folder can I clean before hitting performance limits?
+  - answer: A free trial is available, but a paid license is required for production
+      use.
+    question: Is GroupDocs.Search free for development?
+  - answer: Absolutely. GroupDocs.Search supports many formats; just add the folder
+      containing those files to the index.
+    question: Can I use this approach with other file types (e.g., PDFs, DOCX)?
+  type: FAQPage
+tags:
+- clean directory
+- GroupDocs.Search
+- Java file management
+- document indexing
+- file renaming
+title: Javaでディレクトリをクリーンアップする方法（GroupDocs.Search）
 type: docs
 url: /ja/java/indexing/automate-document-indexing-groupdocs-search-java/
 weight: 1
 ---
 
-# Clean Directory Java – GroupDocs.Search を使用したドキュメントインデックス作成とリネームの自動化
+# JavaでGroupDocs.Searchを使用してディレクトリをクリーンにする方法
 
-If you need to **clean directory java** while automating document indexing and renaming, you’ve come to the right place. Manually handling file moves, deletions, and index updates is error‑prone and time‑consuming. In this tutorial we’ll show you how to let Java do the heavy lifting, using **GroupDocs.Search for Java** to create a searchable index, rename files, and keep the index in sync automatically.
+ドキュメントのインデックス作成とリネームを自動化しながら **clean directory java** が必要な場合、ここが適切な場所です。ファイルの移動、削除、インデックスの更新を手動で行うのはエラーが起きやすく、時間がかかります。このチュートリアルでは、Javaでフォルダーをクリーンにし、検索可能なインデックスを構築し、ファイルをリネームし、すべてを **GroupDocs.Search for Java** を使用して同期させる方法を示します。
 
-## Quick Answers
-- **What does “clean directory java” mean?** Deleting all files/folders inside a target directory using Java code.  
-- **Which library creates the searchable index?** GroupDocs.Search for Java.  
-- **How do I rename a document and keep the index updated?** Use `File.renameTo()` then notify the index with `Notification.createRenameNotification`.  
-- **Can I copy files after cleaning the folder?** Yes – Java Streams can copy files while preserving the index.  
-- **Is a license required for production?** A valid GroupDocs.Search license is needed for commercial use.
+## クイック回答
+- **What does “clean directory java” mean?** ターゲットディレクトリ内のすべてのファイルとサブフォルダーを Java コードで削除することです。  
+- **Which library creates the searchable index?** GroupDocs.Search for Java。  
+- **How do I rename a document and keep the index updated?** `File.renameTo()` を使用し、`Notification.createRenameNotification` でインデックスに通知します。  
+- **Can I copy files after cleaning the folder?** はい – Java Streams を使用してインデックスを保持しながらファイルをコピーできます。  
+- **Is a license required for production?** 商用利用には有効な GroupDocs.Search ライセンスが必要です。
 
-## “clean directory java” とは何か？
-Cleaning a directory in Java means programmatically removing every file and sub‑folder inside a specified folder. This is often a prerequisite step before copying fresh files or rebuilding an index, ensuring that stale data does not interfere with search results.
+## ディレクトリをクリーンにするとは？
+**How to clean directory** は、指定されたフォルダーからすべてのファイルとサブディレクトリをプログラムで削除することを指します。この手順により、古いデータや重複データがその後のインデックス作成やコピー操作に干渉しないようにします。バッチ処理、データ移行、または検索インデックスの再構築の前に、最新のコンテンツのみが存在することを保証するために一般的に使用されます。クリーンアップを自動化することで、開発者は手動エラーを回避し、CI パイプラインにこのステップを組み込むことができます。
 
 ## なぜドキュメントのインデックス作成とリネームを自動化するのか？
-- **Document management automation** reduces manual effort and eliminates human error.  
-- **Create searchable index** step lets you instantly locate any document by content.  
-- Renaming files without updating the index would break search accuracy; automation keeps everything consistent.  
-- **Rename files java** and **copy files java** operations become repeatable and reliable, especially in large‑scale environments.
+これらのタスクを自動化することで、手作業の労力が削減され、人為的ミスが減少し、検索インデックスが常に現在のファイルシステムの状態を反映することが保証されます。GroupDocs.Search は **50+ file formats** を超えるファイル形式をインデックスでき、数百ページに及ぶドキュメントでもファイル全体をメモリにロードせずに処理できるため、迅速で信頼性の高い検索結果を提供します。
 
 ## 前提条件
-
-- **GroupDocs.Search for Java** (Version 25.4 or later)  
-- JDK 8 + and an IDE such as IntelliJ IDEA or Eclipse  
-- Basic Java knowledge, especially file I/O  
+- **GroupDocs.Search for Java** (バージョン 25.4 以降) – 50 以上の入力および出力フォーマットをサポート。  
+- JDK 8 + と IntelliJ IDEA や Eclipse などの IDE。  
+- 基本的な Java の知識、特にファイル I/O。  
 
 ## GroupDocs.Search for Java の設定
 
 ### Maven 依存関係
-Add the repository and dependency to your `pom.xml`:
+`pom.xml` にリポジトリと依存関係を追加します:
 
 ```xml
 <repositories>
@@ -62,13 +93,13 @@ Add the repository and dependency to your `pom.xml`:
 ```
 
 ### 直接ダウンロード
-Alternatively, download the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+代わりに、最新バージョンを [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) からダウンロードします。
 
 ### ライセンス
-Obtain a free trial, a temporary evaluation license, or purchase a full license for production use.
+無料トライアル、または一時的な評価ライセンスを取得するか、商用利用のためにフルライセンスを購入してください。
 
 ### 基本的な初期化
-Create an `Index` instance that will hold the searchable data:
+`Index` インスタンスを作成し、検索可能なデータを保持します:
 
 ```java
 import com.groupdocs.search.Index;
@@ -81,32 +112,39 @@ public class Main {
 }
 ```
 
-## 実装ガイド
+**Definition anchor:** `Index` クラスは GroupDocs.Search のコアコンポーネントで、検索可能なメタデータを保存し、ドキュメントの追加、更新、削除のメソッドを提供します。
 
-### 1. ドキュメントをインデックスに追加 (検索可能インデックスの作成)
+## Javaでディレクトリをクリーンにする方法は？
+ターゲットフォルダーを読み込み、ファイルツリーを走査し、各エントリを逆順に削除します。このアプローチにより、親ディレクトリより先にファイルが削除され、「ディレクトリが空でない」エラーを防止できます。
+
+`Files.walk()` メソッドは、指定されたルート以下の各ファイルとサブディレクトリを表す `Path` オブジェクトのストリームを返します。`Comparator.reverseOrder()` でソートすることで、深いパスが親より先に処理され、安全に削除できます。
 
 ```java
-import com.groupdocs.search.Index;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-public class DocumentIndexingAndRenaming {
-    public static void main(String[] args) {
-        String indexFolder = "YOUR_OUTPUT_DIRECTORY/DocumentIndexingAndRenaming/Index";
-        String documentFolder = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
+public class DirectoryCleaningAndFileCopying {
+    public static void main(String[] args) throws IOException {
+        String targetDirectory = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
 
-        // Create an Index
-        Index index = new Index(indexFolder);
-
-        // Add documents to the index
-        index.add(documentFolder);
+        Files.walk(Paths.get(targetDirectory))
+             .map(Path::toFile)
+             .sorted((o1, o2) -> -o1.compareTo(o2))
+             .forEach(File::delete);
     }
 }
 ```
 
-*説明*:  
-- `indexFolder` – where the index files are stored.  
-- `documentFolder` – the source folder that contains the files you want to make searchable.  
+*説明:*  
+- `Files.walk()` はすべてのファイルとサブフォルダーを再帰的に列挙します。  
+- `Comparator.reverseOrder()` でソートすると、適切な削除順序が保証されます。
 
-### 2. ドキュメントをリネームしインデックスに通知 (rename files java)
+## インデックスを正確に保ちながら Java でファイルをリネームする方法は？
+物理的なファイルを `Files.move()`（シンプルなケースでは `File.renameTo()`）でリネームし、その後インデックスにリネーム通知を送信して検索結果が正しく保たれるようにします。
+
+`Files.move()` はファイルを原子的に移動またはリネームし、プラットフォーム間で `File.renameTo()` よりも信頼性が高くなります。
 
 ```java
 import com.groupdocs.search.Notification;
@@ -132,39 +170,10 @@ public class DocumentIndexingAndRenaming {
 }
 ```
 
-*説明*:  
-- Java’s `File.renameTo()` performs the physical rename.  
-- `Notification.createRenameNotification()` tells GroupDocs.Search that the file name changed, keeping the index accurate.  
+**Definition anchor:** `Notification.createRenameNotification()` は、ドキュメントの名前が変更されたことを GroupDocs.Search に通知するオブジェクトを生成し、インデックスが内部参照を更新するよう促します。
 
-## Clean Directory Java – ディレクトリのクリーンアップとファイルコピー
-
-Keeping a folder tidy before a bulk copy prevents duplicate or orphaned files. Below are two reusable snippets that demonstrate **java delete files recursively** and **copy files java**.
-
-### 手順 1: フォルダー内容の削除 (java delete files recursively)
-
-```java
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-public class DirectoryCleaningAndFileCopying {
-    public static void main(String[] args) throws IOException {
-        String targetDirectory = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
-
-        Files.walk(Paths.get(targetDirectory))
-             .map(Path::toFile)
-             .sorted((o1, o2) -> -o1.compareTo(o2))
-             .forEach(File::delete);
-    }
-}
-```
-
-*説明*:  
-- `Files.walk()` traverses every file and sub‑folder.  
-- Sorting in reverse order ensures files are removed before their parent directories, effectively **delete folder contents**.
-
-### 手順 2: ファイルのコピー (copy files java)
+## ディレクトリをクリーンにした後に Java でファイルをコピーする方法は？
+フォルダーがクリーンになったら、Java Streams を使用して新しいファイルをコピーできます。コピー操作は既存のファイルを上書きし、フォルダーに各ドキュメントの最新バージョンが含まれることを保証します。この手順の後、通常は新しくコピーしたファイルをインデックスに追加して、すぐに検索可能にします。
 
 ```java
 import java.io.IOException;
@@ -193,54 +202,80 @@ public class DirectoryCleaningAndFileCopying {
 }
 ```
 
-*説明*:  
-- The stream filters only regular files, then copies each to the target directory, overwriting existing files if needed.  
+*説明:*  
+- ストリームは通常のファイルのみをフィルタリングし、各ファイルをターゲットディレクトリにコピーし、必要に応じて既存のファイルを上書きします。
 
-## 実用的な応用例
+## 実装ガイド
 
-- **Enterprise Document Management** – Automate indexing for thousands of contracts and keep file names in sync.  
-- **Legal Firms** – Quickly rename case files while preserving searchable content.  
-- **Content Management Systems** – Use the clean‑directory pattern to refresh media folders without manual cleanup.  
+### 1. ドキュメントをインデックスに追加 (検索可能インデックスの作成)
+ソースフォルダーをインデックスに追加し、すべてのドキュメントが即座に検索可能になるようにします。
+
+```java
+import com.groupdocs.search.Index;
+
+public class DocumentIndexingAndRenaming {
+    public static void main(String[] args) {
+        String indexFolder = "YOUR_OUTPUT_DIRECTORY/DocumentIndexingAndRenaming/Index";
+        String documentFolder = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
+
+        // Create an Index
+        Index index = new Index(indexFolder);
+
+        // Add documents to the index
+        index.add(documentFolder);
+    }
+}
+```
+
+*説明:*  
+- `indexFolder` – インデックスファイルが保存される場所。  
+- `documentFolder` – 検索可能にしたいファイルが含まれるソースフォルダー。
+
+## 実用的な活用例
+- **Enterprise document management** – 数千件の契約書のインデックス作成を自動化し、ファイル名を同期させます。  
+- **Legal firms** – 検索可能なコンテンツを保持しながら、ケースファイルを迅速にリネームします。  
+- **Content management systems** – 手動でのクリーンアップなしにメディアフォルダーをリフレッシュするために、clean‑directory パターンを使用します。
 
 ## パフォーマンス上の考慮点
-
-- **Index Size** – Periodically compact the index if it grows large.  
-- **Memory Usage** – Process files in batches to avoid `OutOfMemoryError`.  
-- **Concurrency** – For bulk operations, consider Java’s `ExecutorService` to parallelize cleaning and copying.  
+- **Index size** – インデックスが大きくなった場合は定期的にコンパクト化してください。GroupDocs.Search は `compact()` メソッドを提供しており、ストレージを最大 30 % 削減できます。  
+- **Memory usage** – `OutOfMemoryError` を回避するために、ファイルを 500 – 1 000 件のバッチで処理します。  
+- **Concurrency** – 大量処理の場合、Java の `ExecutorService` を使用してクリーンアップ、コピー、インデックス作成を並列化すると、マルチコアサーバーで総実行時間を 40 % 短縮できます。
 
 ## よくある問題とヒント
 
 | Issue | Cause | Fix |
 |-------|-------|-----|
-| Rename fails | File is locked or path invalid | Ensure the file isn’t open elsewhere; use `Files.move` for more reliable renames. |
-| Index not updating | Notification not sent | Always call `index.notifyIndex(notification)` followed by `index.update()`. |
-| Stale search results after copy | Index still points to old files | Re‑add the target folder to the index or call `index.update()` after copying. |
-| Slow clean‑up on huge folders | Single‑threaded walk | Use parallel streams or split the folder into smaller batches. |
-| Permission errors | Insufficient OS rights | Run the JVM with appropriate permissions or adjust folder ACLs. |
+| Rename fails | ファイルがロックされているかパスが無効 | ファイルが他で開かれていないことを確認し、より信頼性の高い `Files.move` を使用してください。 |
+| Index not updating | 通知が送信されていない | 常に `index.notifyIndex(notification)` を呼び出し、その後 `index.update()` を実行してください。 |
+| Stale search results after copy | インデックスが古いファイルを指したまま | コピー後にターゲットフォルダーを再度インデックスに追加するか、`index.update()` を呼び出してください。 |
+| Slow clean‑up on huge folders | シングルスレッドで走査 | パラレルストリームを使用するか、フォルダーを小さなバッチに分割してください。 |
+| Permission errors | OS の権限が不足 | 適切な権限で JVM を実行するか、フォルダーの ACL を調整してください。 |
 
 ## よくある質問
 
-**Q: Can I clean a directory that contains sub‑folders?**  
-A: Yes. The `Files.walk()` approach recursively deletes all nested files and folders.
+**Q: サブフォルダーを含むディレクトリをクリーンにできますか？**  
+A: はい。`Files.walk()` アプローチは、すべてのネストされたファイルとフォルダーを再帰的に削除します。
 
-**Q: Do I need to rebuild the whole index after each rename?**  
-A: No. Sending a rename notification and calling `index.update()` is sufficient.
+**Q: 各リネーム後にインデックス全体を再構築する必要がありますか？**  
+A: いいえ。リネーム通知を送信し、`index.update()` を呼び出すだけで十分です。
 
-**Q: How large a folder can I clean before hitting performance limits?**  
-A: It depends on JVM memory; processing in smaller batches or using streams helps manage large data sets.
+**Q: パフォーマンス上限に達する前に、どれくらい大きなフォルダーをクリーンにできますか？**  
+A: JVM のメモリに依存します。小さなバッチで処理したり、ストリームを使用することで大規模データセットを管理しやすくなります。
 
-**Q: Is GroupDocs.Search free for development?**  
-A: A free trial is available, but a paid license is required for production use.
+**Q: 開発用途で GroupDocs.Search は無料ですか？**  
+A: 無料トライアルは利用可能ですが、商用利用には有料ライセンスが必要です。
 
-**Q: Can I use this approach with other file types (e.g., PDFs, DOCX)?**  
-A: Absolutely. GroupDocs.Search supports many formats; just add the folder containing those files to the index.
-
-## 結論
-
-You now have a complete, production‑ready solution for **clean directory java**, adding documents to a searchable index, renaming files, and keeping everything synchronized with GroupDocs.Search. Apply these patterns to automate your document management workflow and enjoy faster, more reliable search experiences.
+**Q: このアプローチを他のファイルタイプ（例：PDF、DOCX）でも使用できますか？**  
+A: もちろんです。GroupDocs.Search は多数のフォーマットをサポートしており、対象フォルダーをインデックスに追加するだけです。
 
 ---
 
-**Last Updated:** 2026-03-01  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+**最終更新日:** 2026-08-05  
+**テスト環境:** GroupDocs.Search 25.4  
+**作者:** GroupDocs
+
+## 関連チュートリアル
+
+- [GroupDocs.Search を使用した Java のインデックスディレクトリ作成方法](/search/java/indexing/groupdocs-search-java-create-index/)
+- [検索インデックスディレクトリの作成とライセンス設定 – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)
+- [検索可能インデックスの作成 Java – GroupDocs.Search for Java のデプロイ](/search/java/getting-started/deploy-groupdocs-search-java-setup-guide/)

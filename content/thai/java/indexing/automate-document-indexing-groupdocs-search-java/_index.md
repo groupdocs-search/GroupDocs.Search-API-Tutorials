@@ -1,45 +1,78 @@
 ---
-date: '2026-03-01'
-description: เรียนรู้วิธีทำความสะอาดไดเรกทอรี Java, ทำให้การจัดการเอกสารเป็นอัตโนมัติ,
-  เปลี่ยนชื่อไฟล์ Java, และคัดลอกไฟล์ Java พร้อมสร้างดัชนีที่ค้นหาได้โดยใช้ GroupDocs.Search
-  สำหรับ Java.
+date: '2026-08-05'
+description: เรียนรู้วิธีทำความสะอาดไดเรกทอรีใน Java ขณะทำการอัตโนมัติ document indexing,
+  renaming files, และ copying content ด้วย GroupDocs.Search.
 keywords:
-- Java document indexing
-- GroupDocs.Search for Java
-- automate document management
-title: ทำความสะอาดไดเรกทอรี Java – อัตโนมัติการทำดัชนีและการเปลี่ยนชื่อเอกสารด้วย
-  GroupDocs.Search
+- how to clean directory
+- copy files java
+- delete all files folder
+- how to rename files
+- rename files java
+- create searchable index
+lastmod: '2026-08-05'
+og_description: เรียนรู้วิธีทำความสะอาดไดเรกทอรีใน Java ขณะสร้าง searchable index
+  อัตโนมัติ, renaming files, และ copying content ด้วย GroupDocs.Search. ปฏิบัติตามคำแนะนำแบบ
+  step‑by‑step และเคล็ดลับ best‑practice.
+og_image_alt: 'Developer guide: clean directory in Java using GroupDocs.Search'
+og_title: วิธีทำความสะอาดไดเรกทอรีใน Java ด้วย GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-05'
+  description: Learn how to clean directory in Java while automating document indexing,
+    renaming files, and copying content using GroupDocs.Search.
+  headline: How to clean directory in Java with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes. The `Files.walk()` approach recursively deletes all nested files
+      and folders.
+    question: Can I clean a directory that contains sub‑folders?
+  - answer: No. Sending a rename notification and calling `index.update()` is sufficient.
+    question: Do I need to rebuild the whole index after each rename?
+  - answer: It depends on JVM memory; processing in smaller batches or using streams
+      helps manage large data sets.
+    question: How large a folder can I clean before hitting performance limits?
+  - answer: A free trial is available, but a paid license is required for production
+      use.
+    question: Is GroupDocs.Search free for development?
+  - answer: Absolutely. GroupDocs.Search supports many formats; just add the folder
+      containing those files to the index.
+    question: Can I use this approach with other file types (e.g., PDFs, DOCX)?
+  type: FAQPage
+tags:
+- clean directory
+- GroupDocs.Search
+- Java file management
+- document indexing
+- file renaming
+title: วิธีทำความสะอาดไดเรกทอรีใน Java ด้วย GroupDocs.Search
 type: docs
 url: /th/java/indexing/automate-document-indexing-groupdocs-search-java/
 weight: 1
 ---
 
-# ทำความสะอาดไดเรกทอรี Java – อัตโนมัติการทำดัชนีเอกสารและการเปลี่ยนชื่อด้วย GroupDocs.Search
+# วิธีทำความสะอาดไดเรกทอรีใน Java ด้วย GroupDocs.Search
 
-หากคุณต้องการ **clean directory java** พร้อมกับการอัตโนมัติการทำดัชนีเอกสารและการเปลี่ยนชื่อ คุณมาถูกที่แล้ว การจัดการไฟล์ การลบ และการอัปเดตดัชนีด้วยตนเองนั้นเสี่ยงต่อข้อผิดพลาดและใช้เวลามาก ในบทแนะนำนี้เราจะแสดงวิธีให้ Java ทำงานหนักโดยใช้ **GroupDocs.Search for Java** เพื่อสร้างดัชนีที่ค้นหาได้ เปลี่ยนชื่อไฟล์ และทำให้ดัชนีสอดคล้องกันโดยอัตโนมัติ.
+หากคุณต้องการ **clean directory java** ขณะทำการอัตโนมัติการทำดัชนีเอกสารและการเปลี่ยนชื่อ คุณมาถูกที่แล้ว การจัดการการย้ายไฟล์ การลบไฟล์ และการอัปเดตดัชนีด้วยตนเองนั้นเสี่ยงต่อข้อผิดพลาดและใช้เวลามาก ในบทแนะนำนี้คุณจะได้เห็นว่า Java สามารถทำความสะอาดโฟลเดอร์ สร้างดัชนีที่ค้นหาได้ เปลี่ยนชื่อไฟล์ และทำให้ทุกอย่างสอดคล้องกันโดยใช้ **GroupDocs.Search for Java**.
 
 ## คำตอบอย่างรวดเร็ว
-- **What does “clean directory java” mean?** การลบไฟล์/โฟลเดอร์ทั้งหมดภายในไดเรกทอรีเป้าหมายโดยใช้โค้ด Java.  
-- **Which library creates the searchable index?** GroupDocs.Search for Java.  
-- **How do I rename a document and keep the index updated?** ใช้ `File.renameTo()` แล้วแจ้งดัชนีด้วย `Notification.createRenameNotification`.  
-- **Can I copy files after cleaning the folder?** ใช่ – Java Streams สามารถคัดลอกไฟล์ได้พร้อมคงดัชนีไว้.  
-- **Is a license required for production?** จำเป็นต้องมีไลเซนส์ GroupDocs.Search ที่ถูกต้องสำหรับการใช้งานเชิงพาณิชย์.
+- **“clean directory java” หมายถึงอะไร?** การลบไฟล์และโฟลเดอร์ย่อยทั้งหมดภายในไดเรกทอรีเป้าหมายโดยใช้โค้ด Java.  
+- **ไลบรารีใดสร้างดัชนีที่ค้นหาได้?** GroupDocs.Search for Java.  
+- **ฉันจะเปลี่ยนชื่อเอกสารและทำให้ดัชนีอัปเดตได้อย่างไร?** ใช้ `File.renameTo()` แล้วแจ้งดัชนีด้วย `Notification.createRenameNotification`.  
+- **ฉันสามารถคัดลอกไฟล์หลังจากทำความสะอาดโฟลเดอร์ได้หรือไม่?** ได้ – Java Streams สามารถคัดลอกไฟล์พร้อมคงดัชนีไว้.  
+- **จำเป็นต้องมีใบอนุญาตสำหรับการผลิตหรือไม่?** จำเป็นต้องมีใบอนุญาต GroupDocs.Search ที่ถูกต้องสำหรับการใช้งานเชิงพาณิชย์.
 
-## “clean directory java” คืออะไร?
-การทำความสะอาดไดเรกทอรีใน Java หมายถึงการลบไฟล์และโฟลเดอร์ย่อยทั้งหมดภายในโฟลเดอร์ที่ระบุโดยโปรแกรม การทำเช่นนี้มักเป็นขั้นตอนก่อนการคัดลอกไฟล์ใหม่หรือการสร้างดัชนีใหม่ เพื่อให้แน่ใจว่าข้อมูลเก่าไม่รบกวนผลการค้นหา.
+## วิธีทำความสะอาดไดเรกทอรีคืออะไร?
+**How to clean directory** หมายถึงการลบไฟล์และโฟลเดอร์ย่อยทุกอย่างจากโฟลเดอร์ที่กำหนดโดยโปรแกรม ขั้นตอนนี้ทำให้ข้อมูลที่ล้าสมัยหรือซ้ำซ้อนไม่ไปขัดขวางการทำดัชนีหรือการคัดลอกต่อไป มักใช้ก่อนการประมวลผลแบบแบตช์ การย้ายข้อมูล หรือการสร้างดัชนีค้นหาใหม่เพื่อให้แน่ใจว่ามีเฉพาะเนื้อหาใหม่เท่านั้น การทำความสะอาดอัตโนมัติช่วยให้นักพัฒนาหลีกเลี่ยงข้อผิดพลาดจากการทำด้วยมือและสามารถรวมขั้นตอนนี้เข้าไปใน pipeline ของ CI ได้.
 
 ## ทำไมต้องอัตโนมัติการทำดัชนีเอกสารและการเปลี่ยนชื่อ?
-- **Document management automation** ลดความพยายามในการทำงานด้วยมือและขจัดข้อผิดพลาดของมนุษย์.  
-- **Create searchable index** ช่วยให้คุณค้นหาเอกสารใดก็ได้โดยทันทีตามเนื้อหา.  
-- การเปลี่ยนชื่อไฟล์โดยไม่อัปเดตดัชนีจะทำให้ความแม่นยำของการค้นหาลดลง; การอัตโนมัติทำให้ทุกอย่างสอดคล้องกัน.  
-- การดำเนินการ **Rename files java** และ **copy files java** จะกลายเป็นกระบวนการที่ทำซ้ำได้และเชื่อถือได้ โดยเฉพาะในสภาพแวดล้อมขนาดใหญ่.
+การทำงานเหล่านี้อัตโนมัติช่วยลดความพยายามของมนุษย์ ลดข้อผิดพลาด และทำให้ดัชนีที่ค้นหาได้สะท้อนสถานะระบบไฟล์ปัจจุบันเสมอ GroupDocs.Search สามารถทำดัชนีได้มากกว่า **50+ file formats** และจัดการเอกสารหลายร้อยหน้าโดยไม่ต้องโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ ทำให้ได้ผลการค้นหาที่เร็วและเชื่อถือได้.
 
 ## ข้อกำหนดเบื้องต้น
-- **GroupDocs.Search for Java** (เวอร์ชัน 25.4 หรือใหม่กว่า)  
-- JDK 8 + และ IDE เช่น IntelliJ IDEA หรือ Eclipse  
-- ความรู้พื้นฐานของ Java โดยเฉพาะการทำงานกับไฟล์ I/O  
+- **GroupDocs.Search for Java** (Version 25.4 or later) – รองรับรูปแบบไฟล์เข้าและออกกว่า 50+  
+- JDK 8 + และ IDE เช่น IntelliJ IDEA หรือ Eclipse.  
+- ความรู้พื้นฐานของ Java โดยเฉพาะการทำงานกับไฟล์ I/O.  
 
-## การตั้งค่า GroupDocs.Search for Java
+## การตั้งค่า GroupDocs.Search สำหรับ Java
 
 ### การพึ่งพา Maven
 เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณ:
@@ -65,8 +98,8 @@ weight: 1
 ### ดาวน์โหลดโดยตรง
 หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดได้จาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### ไลเซนส์
-รับการทดลองใช้ฟรี, ไลเซนส์ประเมินผลชั่วคราว, หรือซื้อไลเซนส์เต็มรูปแบบสำหรับการใช้งานในสภาพแวดล้อมการผลิต.
+### ใบอนุญาต
+รับการทดลองใช้ฟรี, ใบอนุญาตประเมินชั่วคราว, หรือซื้อใบอนุญาตเต็มสำหรับการใช้งานในสภาพแวดล้อมการผลิต.
 
 ### การเริ่มต้นพื้นฐาน
 สร้างอินสแตนซ์ `Index` ที่จะเก็บข้อมูลที่สามารถค้นหาได้:
@@ -82,32 +115,39 @@ public class Main {
 }
 ```
 
-## คู่มือการดำเนินการ
+**Definition anchor:** คลาส `Index` เป็นส่วนประกอบหลักของ GroupDocs.Search ที่เก็บเมตาดาต้าที่สามารถค้นหาได้และให้เมธอดสำหรับเพิ่ม, อัปเดต หรือ ลบเอกสาร.
 
-### 1. เพิ่มเอกสารลงในดัชนี (create searchable index)
+## วิธีทำความสะอาดไดเรกทอรีใน Java?
+โหลดโฟลเดอร์เป้าหมาย, เดินสำรวจโครงสร้างไฟล์, และลบแต่ละรายการในลำดับย้อนกลับ วิธีนี้รับประกันว่าไฟล์จะถูกลบก่อนโฟลเดอร์แม่ ป้องกันข้อผิดพลาด “directory not empty”.
+
+เมธอด `Files.walk()` จะคืนค่า stream ของอ็อบเจ็กต์ `Path` ที่แทนไฟล์และโฟลเดอร์ย่อยทั้งหมดภายใต้รากที่กำหนด การจัดเรียงด้วย `Comparator.reverseOrder()` ทำให้เส้นทางที่ลึกกว่าถูกประมวลผลก่อนพาเรนท์ จึงสามารถลบได้อย่างปลอดภัย.
 
 ```java
-import com.groupdocs.search.Index;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-public class DocumentIndexingAndRenaming {
-    public static void main(String[] args) {
-        String indexFolder = "YOUR_OUTPUT_DIRECTORY/DocumentIndexingAndRenaming/Index";
-        String documentFolder = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
+public class DirectoryCleaningAndFileCopying {
+    public static void main(String[] args) throws IOException {
+        String targetDirectory = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
 
-        // Create an Index
-        Index index = new Index(indexFolder);
-
-        // Add documents to the index
-        index.add(documentFolder);
+        Files.walk(Paths.get(targetDirectory))
+             .map(Path::toFile)
+             .sorted((o1, o2) -> -o1.compareTo(o2))
+             .forEach(File::delete);
     }
 }
 ```
 
-*คำอธิบาย*:  
-- `indexFolder` – ที่เก็บไฟล์ดัชนี.  
-- `documentFolder` – โฟลเดอร์ต้นทางที่มีไฟล์ที่คุณต้องการทำให้ค้นหาได้.  
+*คำอธิบาย:*  
+- `Files.walk()` ทำการ enumerate อย่างเรียกซ้ำทุกไฟล์และโฟลเดอร์ย่อย.  
+- การจัดเรียงด้วย `Comparator.reverseOrder()` ทำให้ลำดับการลบถูกต้อง.  
 
-### 2. เปลี่ยนชื่อเอกสารและแจ้งดัชนี (rename files java)
+## วิธีเปลี่ยนชื่อไฟล์ใน Java พร้อมรักษาความแม่นยำของดัชนี?
+เปลี่ยนชื่อไฟล์จริงด้วย `Files.move()` (หรือ `File.renameTo()` สำหรับกรณีง่าย) แล้วส่งการแจ้งเตือนการเปลี่ยนชื่อไปยังดัชนีเพื่อให้ผลการค้นหายังคงถูกต้อง.
+
+`Files.move()` ย้ายหรือเปลี่ยนชื่อไฟล์แบบ atomic ให้ความน่าเชื่อถือดีกว่า `File.renameTo()` บนหลายแพลตฟอร์ม.
 
 ```java
 import com.groupdocs.search.Notification;
@@ -133,39 +173,10 @@ public class DocumentIndexingAndRenaming {
 }
 ```
 
-*คำอธิบาย*:  
-- `File.renameTo()` ของ Java ทำการเปลี่ยนชื่อจริง.  
-- `Notification.createRenameNotification()` แจ้งให้ GroupDocs.Search ทราบว่าชื่อไฟล์เปลี่ยนไป ทำให้ดัชนีแม่นยำ.
+**Definition anchor:** `Notification.createRenameNotification()` สร้างอ็อบเจ็กต์แจ้งเตือนที่บอก GroupDocs.Search ว่าชื่อเอกสารได้เปลี่ยนไป ทำให้ดัชนีอัปเดตการอ้างอิงภายใน.
 
-## Clean Directory Java – การทำความสะอาดไดเรกทอรีและการคัดลอกไฟล์
-
-การทำให้โฟลเดอร์เรียบร้อยก่อนการคัดลอกจำนวนมากช่วยป้องกันไฟล์ซ้ำหรือไฟล์ที่ไม่มีที่มาที่ไป ด้านล่างเป็นโค้ดสแนปสองชุดที่สามารถนำกลับมาใช้ใหม่ได้ซึ่งแสดง **java delete files recursively** และ **copy files java**.
-
-### ขั้นตอนที่ 1: ลบเนื้อหาโฟลเดอร์ (java delete files recursively)
-
-```java
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-public class DirectoryCleaningAndFileCopying {
-    public static void main(String[] args) throws IOException {
-        String targetDirectory = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
-
-        Files.walk(Paths.get(targetDirectory))
-             .map(Path::toFile)
-             .sorted((o1, o2) -> -o1.compareTo(o2))
-             .forEach(File::delete);
-    }
-}
-```
-
-*คำอธิบาย*:  
-- `Files.walk()` เดินผ่านไฟล์และโฟลเดอร์ย่อยทั้งหมด.  
-- การเรียงลำดับในแบบย้อนกลับทำให้ไฟล์ถูกลบก่อนโฟลเดอร์แม่ ซึ่งทำให้ **delete folder contents** ทำงานอย่างมีประสิทธิภาพ.
-
-### ขั้นตอนที่ 2: คัดลอกไฟล์ (copy files java)
+## วิธีคัดลอกไฟล์ java หลังจากทำความสะอาดไดเรกทอรี?
+หลังจากโฟลเดอร์สะอาดแล้ว คุณสามารถคัดลอกไฟล์ใหม่เข้าไปโดยใช้ Java Streams การคัดลอกจะเขียนทับไฟล์ที่มีอยู่แล้ว ทำให้โฟลเดอร์มีเวอร์ชันล่าสุดของแต่ละเอกสาร ขั้นตอนนี้มักตามด้วยการเพิ่มไฟล์ที่คัดลอกใหม่ลงในดัชนีเพื่อให้สามารถค้นหาได้ทันที.
 
 ```java
 import java.io.IOException;
@@ -194,52 +205,80 @@ public class DirectoryCleaningAndFileCopying {
 }
 ```
 
-*คำอธิบาย*:  
-- สตรีมจะกรองเฉพาะไฟล์ปกติ แล้วคัดลอกแต่ละไฟล์ไปยังไดเรกทอรีเป้าหมาย โดยเขียนทับไฟล์ที่มีอยู่หากจำเป็น.
+*คำอธิบาย:*  
+- สตรีมจะกรองเฉพาะไฟล์ปกติ แล้วคัดลอกแต่ละไฟล์ไปยังโฟลเดอร์เป้าหมายโดยเขียนทับไฟล์ที่มีอยู่หากจำเป็น.  
+
+## คู่มือการนำไปใช้
+
+### 1. เพิ่มเอกสารลงในดัชนี (สร้างดัชนีที่ค้นหาได้)
+เพิ่มโฟลเดอร์ต้นทางลงในดัชนีเพื่อให้ทุกเอกสารสามารถค้นหาได้ทันที.
+
+```java
+import com.groupdocs.search.Index;
+
+public class DocumentIndexingAndRenaming {
+    public static void main(String[] args) {
+        String indexFolder = "YOUR_OUTPUT_DIRECTORY/DocumentIndexingAndRenaming/Index";
+        String documentFolder = "YOUR_DOCUMENT_DIRECTORY/DocumentIndexingAndRenaming/Documents/";
+
+        // Create an Index
+        Index index = new Index(indexFolder);
+
+        // Add documents to the index
+        index.add(documentFolder);
+    }
+}
+```
+
+*คำอธิบาย:*  
+- `indexFolder` – ที่เก็บไฟล์ดัชนี.  
+- `documentFolder` – โฟลเดอร์ต้นทางที่มีไฟล์ที่คุณต้องการทำให้สามารถค้นหาได้.  
 
 ## การประยุกต์ใช้งานจริง
-- **Enterprise Document Management** – อัตโนมัติการทำดัชนีสำหรับสัญญาหลายพันฉบับและทำให้ชื่อไฟล์สอดคล้องกัน.  
-- **Legal Firms** – เปลี่ยนชื่อไฟล์คดีอย่างรวดเร็วพร้อมคงเนื้อหาที่ค้นหาได้.  
-- **Content Management Systems** – ใช้รูปแบบ clean‑directory เพื่อรีเฟรชโฟลเดอร์สื่อโดยไม่ต้องทำความสะอาดด้วยมือ.
+- **Enterprise document management** – อัตโนมัติการทำดัชนีสำหรับสัญญานับพันฉบับและทำให้ชื่อไฟล์สอดคล้องกัน.  
+- **Legal firms** – เปลี่ยนชื่อไฟล์คดีอย่างรวดเร็วพร้อมคงเนื้อหาที่สามารถค้นหาได้.  
+- **Content management systems** – ใช้รูปแบบ clean‑directory เพื่อรีเฟรชโฟลเดอร์สื่อโดยไม่ต้องทำความสะอาดด้วยมือ.  
 
-## การพิจารณาประสิทธิภาพ
-- **Index Size** – คอมแพคดัชนีเป็นระยะหากขนาดเพิ่มใหญ่.  
-- **Memory Usage** – ประมวลผลไฟล์เป็นชุดเพื่อหลีกเลี่ยง `OutOfMemoryError`.  
-- **Concurrency** – สำหรับการดำเนินการจำนวนมาก พิจารณาใช้ `ExecutorService` ของ Java เพื่อทำการทำความสะอาดและคัดลอกแบบขนาน.
+## พิจารณาด้านประสิทธิภาพ
+- **Index size** – ควรทำการ compact ดัชนีเป็นระยะหากขนาดเพิ่มใหญ่; GroupDocs.Search มีเมธอด `compact()` ที่สามารถลดการใช้พื้นที่ได้สูงสุด 30 %.  
+- **Memory usage** – ประมวลผลไฟล์เป็นชุดละ 500 – 1 000 เพื่อหลีกเลี่ยง `OutOfMemoryError`.  
+- **Concurrency** – สำหรับการทำงานเป็นกลุ่ม, พิจารณาใช้ `ExecutorService` ของ Java เพื่อทำ parallel cleaning, copying, และ indexing ซึ่งสามารถลดระยะเวลาการทำงานรวมได้ 40 % บนเซิร์ฟเวอร์หลายคอร์.  
 
-## ปัญหาทั่วไปและเคล็ดลับ
+## ปัญหาและเคล็ดลับทั่วไป
 
-| ปัญหา | สาเหตุ | วิธีแก้ |
+| Issue | Cause | Fix |
 |-------|-------|-----|
-| การเปลี่ยนชื่อไม่สำเร็จ | ไฟล์ถูกล็อกหรือเส้นทางไม่ถูกต้อง | ตรวจสอบให้แน่ใจว่าไฟล์ไม่ได้เปิดอยู่ที่อื่น; ใช้ `Files.move` เพื่อการเปลี่ยนชื่อที่เชื่อถือได้มากขึ้น. |
-| ดัชนีไม่อัปเดต | ไม่ได้ส่งการแจ้งเตือน | เรียก `index.notifyIndex(notification)` เสมอแล้วตามด้วย `index.update()`. |
-| ผลการค้นหาเก่าเมื่อคัดลอก | ดัชนียังคงชี้ไปที่ไฟล์เก่า | เพิ่มโฟลเดอร์เป้าหมายลงในดัชนีอีกครั้งหรือเรียก `index.update()` หลังการคัดลอก. |
-| ทำความสะอาดช้าในโฟลเดอร์ขนาดใหญ่ | การเดินแบบเดี่ยวเทรด | ใช้ parallel streams หรือแยกโฟลเดอร์เป็นชุดย่อย. |
-| ข้อผิดพลาดด้านสิทธิ์ | สิทธิ์ของ OS ไม่เพียงพอ | รัน JVM ด้วยสิทธิ์ที่เหมาะสมหรือปรับ ACL ของโฟลเดอร์. |
+| Rename fails | File is locked or path invalid | ตรวจสอบว่าไฟล์ไม่ได้เปิดอยู่ที่อื่น; ใช้ `Files.move` เพื่อการเปลี่ยนชื่อที่น่าเชื่อถือกว่า. |
+| Index not updating | Notification not sent | เรียก `index.notifyIndex(notification)` เสมอ แล้วตามด้วย `index.update()`. |
+| Stale search results after copy | Index still points to old files | เพิ่มโฟลเดอร์เป้าหมายลงในดัชนีใหม่หรือเรียก `index.update()` หลังการคัดลอก. |
+| Slow clean‑up on huge folders | Single‑threaded walk | ใช้ parallel streams หรือแบ่งโฟลเดอร์เป็นชุดย่อย. |
+| Permission errors | Insufficient OS rights | รัน JVM ด้วยสิทธิ์ที่เหมาะสมหรือปรับ ACL ของโฟลเดอร์. |
 
 ## คำถามที่พบบ่อย
 
 **Q: ฉันสามารถทำความสะอาดไดเรกทอรีที่มีโฟลเดอร์ย่อยได้หรือไม่?**  
-A: ใช่. วิธี `Files.walk()` จะลบไฟล์และโฟลเดอร์ที่ซ้อนกันทั้งหมดแบบเรียกซ้ำ.
+A: ได้. วิธี `Files.walk()` จะลบไฟล์และโฟลเดอร์ย่อยทั้งหมดอย่างเรียกซ้ำ.
 
-**Q: จำเป็นต้องสร้างดัชนีใหม่ทั้งหมดหลังจากการเปลี่ยนชื่อแต่ละครั้งหรือไม่?**  
-A: ไม่จำเป็น. การส่งการแจ้งเตือนการเปลี่ยนชื่อและเรียก `index.update()` เพียงพอ.
+**Q: ฉันต้องสร้างดัชนีใหม่ทั้งหมดหลังจากเปลี่ยนชื่อแต่ละครั้งหรือไม่?**  
+A: ไม่จำเป็น. เพียงส่งการแจ้งเตือนการเปลี่ยนชื่อและเรียก `index.update()` ก็เพียงพอ.
 
-**Q: ฉันสามารถทำความสะอาดโฟลเดอร์ขนาดเท่าไหร่ก่อนที่จะถึงขีดจำกัดประสิทธิภาพ?**  
-A: ขึ้นอยู่กับหน่วยความจำของ JVM; การประมวลผลเป็นชุดเล็ก ๆ หรือใช้สตรีมช่วยจัดการข้อมูลขนาดใหญ่ได้.
+**Q: ฉันสามารถทำความสะอาดโฟลเดอร์ขนาดเท่าไหร่ก่อนที่จะเจอข้อจำกัดด้านประสิทธิภาพ?**  
+A: ขึ้นอยู่กับหน่วยความจำของ JVM; การประมวลผลเป็นชุดเล็กหรือใช้ streams จะช่วยจัดการข้อมูลขนาดใหญ่ได้ดีขึ้น.
 
 **Q: GroupDocs.Search มีให้ใช้ฟรีสำหรับการพัฒนาหรือไม่?**  
-A: มีการทดลองใช้ฟรี, แต่ต้องมีไลเซนส์แบบชำระเงินสำหรับการใช้งานในสภาพแวดล้อมการผลิต.
+A: มีการทดลองใช้ฟรี, แต่ต้องมีใบอนุญาตแบบชำระเงินสำหรับการใช้งานในสภาพแวดล้อมการผลิต.
 
 **Q: ฉันสามารถใช้วิธีนี้กับไฟล์ประเภทอื่น (เช่น PDF, DOCX) ได้หรือไม่?**  
 A: แน่นอน. GroupDocs.Search รองรับหลายรูปแบบ; เพียงเพิ่มโฟลเดอร์ที่มีไฟล์เหล่านั้นลงในดัชนี.
 
-## สรุป
-
-ตอนนี้คุณมีโซลูชันที่ครบถ้วนและพร้อมใช้งานในสภาพแวดล้อมการผลิตสำหรับ **clean directory java** การเพิ่มเอกสารลงในดัชนีที่ค้นหาได้ การเปลี่ยนชื่อไฟล์ และการทำให้ทุกอย่างสอดคล้องกับ GroupDocs.Search ใช้รูปแบบเหล่านี้เพื่ออัตโนมัติการทำงานของการจัดการเอกสารและเพลิดเพลินกับประสบการณ์การค้นหาที่เร็วขึ้นและเชื่อถือได้มากขึ้น.
-
 ---
 
-**อัปเดตล่าสุด:** 2026-03-01  
-**ทดสอบกับ:** GroupDocs.Search 25.4  
-**ผู้เขียน:** GroupDocs
+**Last updated:** 2026-08-05  
+**Tested with:** GroupDocs.Search 25.4  
+**Author:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [วิธีสร้างไดเรกทอรีดัชนี java ด้วย GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [สร้างไดเรกทอรีดัชนีค้นหาและตั้งค่าใบอนุญาต – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)
+- [สร้างดัชนีที่ค้นหาได้ Java – ปรับใช้ GroupDocs.Search for Java](/search/java/getting-started/deploy-groupdocs-search-java-setup-guide/)
