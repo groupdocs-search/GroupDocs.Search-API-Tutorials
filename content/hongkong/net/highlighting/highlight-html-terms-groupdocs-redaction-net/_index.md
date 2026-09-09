@@ -60,10 +60,6 @@ url: /zh-hant/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 使用 GroupDocs.Redaction for .NET 突顯 HTML 詞彙
 
 如果您需要 **how to highlight html** 元素——無論是要隱私遮蔽敏感資料或僅僅強調關鍵字——GroupDocs.Redaction for .NET 能讓工作變得簡單。在本指南中，您將了解如何設定函式庫、識別分隔字元，並有效地套用突顯，即使是大型 HTML 檔案。完成後，您將擁有一套可重複使用的模式，能套用於任何 .NET 專案。
@@ -255,8 +251,3 @@ using (var document = new HTMLDocument(pageData, string.Empty))
 - [精通 GroupDocs.Redaction .NET：設定與事件處理以確保文件管理安全](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [使用 GroupDocs.Redaction .NET 在 PDF 中突顯文字以進行 HTML 轉換](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -122,7 +122,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## Hogyan generáljunk HTML oldal fájlútvonalat?
 `Feature_GenerateHtmlPageFilePath` determinisztikus fájlneveket generál minden HTML oldalhoz az oldalszámok alapján.
@@ -168,7 +167,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## Hogyan hozzunk létre HTML oldal erőforrás fájlútvonalakat és URL-eket?
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` mind a fizikai fájlútvonalat, mind a megfelelő web‑URL‑t építi fel az oldal erőforrásaihoz.
@@ -202,7 +200,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## Gyakorlati alkalmazások

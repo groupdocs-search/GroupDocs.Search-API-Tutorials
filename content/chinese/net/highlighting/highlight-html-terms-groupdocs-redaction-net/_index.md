@@ -60,10 +60,6 @@ url: /zh/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 如何使用 GroupDocs.Redaction for .NET 高亮 HTML 术语
 
 如果您需要 **how to highlight html** 元素——无论是为了编辑敏感数据还是仅仅强调关键字——GroupDocs.Redaction for .NET 都能让工作变得简单。在本指南中，您将了解如何设置库、识别分隔符字符，并高效地应用高亮，即使在大型 HTML 文件上也是如此。完成后，您将拥有一个可在任何 .NET 项目中复用的模式。
@@ -255,8 +251,3 @@ using (var document = new HTMLDocument(pageData, string.Empty))
 - [精通 GroupDocs.Redaction .NET：安全文档管理的设置与事件处理](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [使用 GroupDocs.Redaction .NET 在 PDF 中高亮文本以进行 HTML 转换](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

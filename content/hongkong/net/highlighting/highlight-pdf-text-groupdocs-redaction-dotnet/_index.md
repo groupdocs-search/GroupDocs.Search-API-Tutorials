@@ -120,7 +120,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## 如何產生 HTML 頁面檔案路徑？
 `Feature_GenerateHtmlPageFilePath` 會根據頁碼為每個 HTML 頁面產生可預測的檔名。
@@ -166,7 +165,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## 如何建立 HTML 頁面資源檔案路徑與 URL？
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` 同時建立頁面資源的實體檔案路徑與對應的 Web URL。
@@ -200,7 +198,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## 實務應用

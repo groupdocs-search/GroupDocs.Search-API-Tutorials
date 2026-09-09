@@ -122,7 +122,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## Wie erzeugt man einen HTML‑Seiten‑Dateipfad?
 `Feature_GenerateHtmlPageFilePath` erzeugt deterministische Dateinamen für jede HTML‑Seite basierend auf Seitenzahlen.
@@ -168,7 +167,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## Wie erstellt man HTML‑Seiten‑Ressourcen‑Dateipfade und URLs?
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` erstellt sowohl den physischen Dateipfad als auch die entsprechende Web‑URL für Seiten‑Ressourcen.
@@ -202,7 +200,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## Praktische Anwendungen

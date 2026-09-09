@@ -64,10 +64,6 @@ url: /hu/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hogyan emeljük ki a html kifejezéseket a GroupDocs.Redaction .NET segítségével
 
 Ha **how to highlight html** elemeket kell kiemelni — akár érzékeny adatokat szeretne elhomályosítani, akár egyszerűen kulcsszavakat hangsúlyozni — a GroupDocs.Redaction .NET megkönnyíti a feladatot. Ebben az útmutatóban megmutatjuk, hogyan állíthatja be a könyvtárakat, azonosíthatja a szeparátor karaktereket, és alkalmazhatja a kiemeléseket hatékonyan, még nagy HTML fájlok esetén is. A végére egy újrahasználható mintát kap, amely bármely .NET projekthez adaptálható.
@@ -260,8 +256,3 @@ Most már tudja, hogyan **how to highlight html** kifejezéseket használjon a G
 - [A GroupDocs.Redaction .NET mesterfokon: Beállítás és eseménykezelés a biztonságos dokumentumkezeléshez](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [Szöveg kiemelése PDF-ekben a GroupDocs.Redaction .NET használatával HTML konverzióhoz](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

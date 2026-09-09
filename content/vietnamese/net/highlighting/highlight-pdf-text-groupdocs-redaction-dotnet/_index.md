@@ -120,7 +120,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## Cách tạo đường dẫn tệp trang HTML?
 `Feature_GenerateHtmlPageFilePath` tạo ra các tên tệp xác định cho mỗi trang HTML dựa trên số trang.
@@ -166,7 +165,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## Cách tạo đường dẫn tệp tài nguyên trang HTML và URL?
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` xây dựng cả đường dẫn tệp vật lý và URL web tương ứng cho các tài nguyên trang.
@@ -200,7 +198,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## Ứng dụng thực tế

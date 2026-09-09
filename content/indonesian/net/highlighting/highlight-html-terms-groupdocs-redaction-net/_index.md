@@ -64,10 +64,6 @@ url: /id/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cara menyorot istilah html dengan GroupDocs.Redaction untuk .NET
 
 Jika Anda perlu **menyorot html** elemen—baik untuk menyensor data sensitif atau sekadar menekankan kata kunci—GroupDocs.Redaction untuk .NET membuat pekerjaan menjadi mudah. Dalam panduan ini Anda akan melihat cara menyiapkan pustaka, mengidentifikasi karakter pemisah, dan menerapkan sorotan secara efisien, bahkan pada file HTML berukuran besar. Pada akhir panduan Anda akan memiliki pola yang dapat digunakan kembali dan dapat diadaptasi ke proyek .NET apa pun.
@@ -259,8 +255,3 @@ Anda kini mengetahui **cara menyorot html** istilah dengan GroupDocs.Redaction u
 - [Master GroupDocs.Redaction .NET: Penyiapan & Penanganan Event untuk Manajemen Dokumen Aman](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [Cara Menyorot Teks di PDF Menggunakan GroupDocs.Redaction .NET untuk Konversi HTML](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

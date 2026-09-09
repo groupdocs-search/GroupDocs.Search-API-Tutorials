@@ -64,10 +64,6 @@ url: /de/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Wie man HTML-Begriffe mit GroupDocs.Redaction für .NET hervorhebt
 
 Wenn Sie **HTML hervorheben** Elemente benötigen – sei es, um sensible Daten zu redigieren oder einfach Schlüsselwörter zu betonen – macht GroupDocs.Redaction für .NET die Aufgabe unkompliziert. In diesem Leitfaden sehen Sie, wie Sie die Bibliotheken einrichten, Trennzeichen‑Zeichen identifizieren und Hervorhebungen effizient anwenden, selbst bei großen HTML‑Dateien. Am Ende haben Sie ein wiederverwendbares Muster, das in jedem .NET‑Projekt angepasst werden kann.
@@ -259,8 +255,3 @@ Sie wissen jetzt, **wie man HTML‑Begriffe** mit GroupDocs.Redaction für .NET 
 - [Master GroupDocs.Redaction .NET: Einrichtung & Ereignis‑Handling für sichere Dokumentenverwaltung](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [Wie man Text in PDFs mit GroupDocs.Redaction .NET für HTML‑Konvertierung hervorhebt](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

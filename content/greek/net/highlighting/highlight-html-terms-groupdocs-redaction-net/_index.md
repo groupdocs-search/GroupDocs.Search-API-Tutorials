@@ -64,10 +64,6 @@ url: /el/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Πώς να επισημάνετε όρους html με το GroupDocs.Redaction για .NET
 
 Αν χρειάζεστε **how to highlight html** στοιχεία—είτε για να διαγράψετε ευαίσθητα δεδομένα είτε απλώς να τονίσετε λέξεις‑κλειδιά—το GroupDocs.Redaction για .NET κάνει τη δουλειά απλή. Σε αυτόν τον οδηγό θα δείτε πώς να ρυθμίσετε τις βιβλιοθήκες, να εντοπίσετε χαρακτήρες διαχωρισμού και να εφαρμόσετε επισημάνσεις αποδοτικά, ακόμη και σε μεγάλα αρχεία HTML. Στο τέλος θα έχετε ένα επαναχρησιμοποιήσιμο πρότυπο που μπορεί να προσαρμοστεί σε οποιοδήποτε έργο .NET.
@@ -258,8 +254,3 @@ using (var document = new HTMLDocument(pageData, string.Empty))
 - [Απόκτηση Δεξιοτήτων Διαχείρισης Εγγράφων σε .NET με το GroupDocs.Redaction: Ρύθμιση Άδειας και Επισήμανση Αναζήτησης HTML](/search/net/document-management/mastering-document-management-groupdocs-redaction-net/)
 - [Αποκτήστε τον έλεγχο του GroupDocs.Redaction .NET: Ρύθμιση & Διαχείριση Συμβάντων για Ασφαλή Διαχείριση Εγγράφων](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [Πώς να Επισημάνετε Κείμενο σε PDF χρησιμοποιώντας το GroupDocs.Redaction .NET για Μετατροπή σε HTML](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

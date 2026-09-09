@@ -64,10 +64,6 @@ url: /tr/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # HTML terimlerini GroupDocs.Redaction for .NET ile nasıl vurgularız
 
 HTML öğelerini **how to highlight html** vurgulamanız gerekiyorsa—hassas verileri gizlemek ya da sadece anahtar kelimeleri vurgulamak ister misiniz—GroupDocs.Redaction for .NET işi basit hale getirir. Bu rehberde kütüphanelerin nasıl kurulacağını, ayırıcı karakterlerin nasıl tanımlanacağını ve vurgulamaların büyük HTML dosyalarında bile verimli bir şekilde nasıl uygulanacağını göreceksiniz. Sonunda, herhangi bir .NET projesine uyarlanabilecek yeniden kullanılabilir bir desen elde edeceksiniz.
@@ -259,8 +255,3 @@ Artık GroupDocs.Redaction for .NET ile **how to highlight html** terimlerini na
 - [GroupDocs.Redaction .NET'i Ustalaştırma: Güvenli Belge Yönetimi için Kurulum ve Olay İşleme](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [HTML Dönüşümü için GroupDocs.Redaction .NET Kullanarak PDF'lerde Metin Vurgulama](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -122,7 +122,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## Cara menghasilkan jalur file halaman HTML?
 `Feature_GenerateHtmlPageFilePath` menghasilkan nama file deterministik untuk setiap halaman HTML berdasarkan nomor halaman.
@@ -168,7 +167,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## Cara membuat jalur file sumber daya halaman HTML dan URL?
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` membangun baik jalur file fisik maupun URL web yang sesuai untuk sumber daya halaman.
@@ -202,7 +200,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## Aplikasi praktis

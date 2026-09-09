@@ -122,7 +122,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## Πώς να δημιουργήσετε διαδρομή αρχείου HTML σελίδας;
 `Feature_GenerateHtmlPageFilePath` δημιουργεί ντετερμινιστικά ονόματα αρχείων για κάθε σελίδα HTML βάσει αριθμού σελίδας.
@@ -168,7 +167,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## Πώς να δημιουργήσετε διαδρομές αρχείων πόρων σελίδας HTML και URLs;
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` δημιουργεί τόσο τη φυσική διαδρομή αρχείου όσο και το αντίστοιχο web URL για τους πόρους της σελίδας.
@@ -202,7 +200,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## Πρακτικές εφαρμογές

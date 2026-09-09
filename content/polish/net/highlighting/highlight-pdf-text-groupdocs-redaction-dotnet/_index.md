@@ -122,7 +122,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## Jak wygenerować ścieżkę pliku strony HTML?
 `Feature_GenerateHtmlPageFilePath` generuje deterministyczne nazwy plików dla każdej strony HTML na podstawie numerów stron.
@@ -168,7 +167,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## Jak utworzyć ścieżki plików zasobów strony HTML oraz URL‑e?
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` tworzy zarówno fizyczną ścieżkę pliku, jak i odpowiadający jej adres URL dla zasobów strony.
@@ -202,7 +200,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## Praktyczne zastosowania

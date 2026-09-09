@@ -64,10 +64,6 @@ url: /cs/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Jak zvýraznit HTML termíny pomocí GroupDocs.Redaction pro .NET
 
 Pokud potřebujete **jak zvýraznit HTML** prvky — ať už chcete zakrýt citlivá data nebo jen zvýraznit klíčová slova — GroupDocs.Redaction pro .NET usnadňuje práci. V tomto průvodci uvidíte, jak nastavit knihovny, identifikovat oddělovací znaky a efektivně aplikovat zvýraznění, i u velkých HTML souborů. Na konci budete mít znovupoužitelný vzor, který lze přizpůsobit libovolnému .NET projektu.
@@ -258,8 +254,3 @@ Nyní víte, **jak zvýraznit HTML** termíny pomocí GroupDocs.Redaction pro .N
 - [Ovládání správy dokumentů v .NET s GroupDocs.Redaction: nastavení licence a zvýraznění vyhledávání v HTML](/search/net/document-management/mastering-document-management-groupdocs-redaction-net/)
 - [Mistrovství GroupDocs.Redaction .NET: nastavení a zpracování událostí pro zabezpečenou správu dokumentů](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [Jak zvýraznit text v PDF pomocí GroupDocs.Redaction .NET pro konverzi HTML](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

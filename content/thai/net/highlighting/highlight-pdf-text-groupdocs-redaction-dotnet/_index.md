@@ -120,7 +120,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## วิธีสร้างเส้นทางไฟล์หน้า HTML
 `Feature_GenerateHtmlPageFilePath` สร้างชื่อไฟล์ที่กำหนดได้สำหรับแต่ละหน้า HTML ตามหมายเลขหน้า
@@ -166,7 +165,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## วิธีสร้างเส้นทางไฟล์ทรัพยากรหน้า HTML และ URL
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` สร้างทั้งเส้นทางไฟล์จริงและ URL เว็บที่สอดคล้องกันสำหรับทรัพยากรของหน้า
@@ -200,7 +198,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## การประยุกต์ใช้งานจริง

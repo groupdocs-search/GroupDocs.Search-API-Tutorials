@@ -120,7 +120,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## 如何生成 HTML 页面文件路径？
 `Feature_GenerateHtmlPageFilePath` 根据页码为每个 HTML 页面生成确定性的文件名。
@@ -166,7 +165,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## 如何创建 HTML 页面资源文件路径和 URL？
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` 同时构建资源的物理文件路径和对应的 Web URL。
@@ -200,7 +198,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## 实际应用场景

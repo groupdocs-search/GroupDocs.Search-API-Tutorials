@@ -64,10 +64,6 @@ url: /vi/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cách làm nổi bật các thuật ngữ html với GroupDocs.Redaction cho .NET
 
 Nếu bạn cần **làm nổi bật html** các phần tử—cho dù để xóa dữ liệu nhạy cảm hoặc chỉ để nhấn mạnh từ khóa—GroupDocs.Redaction cho .NET giúp công việc trở nên đơn giản. Trong hướng dẫn này, bạn sẽ thấy cách thiết lập các thư viện, xác định ký tự phân tách, và áp dụng việc làm nổi bật một cách hiệu quả, ngay cả trên các tệp HTML lớn. Khi kết thúc, bạn sẽ có một mẫu có thể tái sử dụng và thích nghi với bất kỳ dự án .NET nào.
@@ -259,8 +255,3 @@ Bạn đã nắm được **cách làm nổi bật html** các thuật ngữ v�
 - [Master GroupDocs.Redaction .NET: Cài đặt & Xử lý Sự kiện cho Quản lý Tài liệu Bảo mật](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [Cách làm nổi bật Văn bản trong PDF bằng GroupDocs.Redaction .NET cho Chuyển đổi HTML](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

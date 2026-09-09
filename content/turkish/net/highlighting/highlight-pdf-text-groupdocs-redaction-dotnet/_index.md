@@ -122,7 +122,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## HTML sayfa dosya yolu nasıl oluşturulur?
 `Feature_GenerateHtmlPageFilePath`, sayfa numaralarına göre her HTML sayfası için belirleyici dosya adları oluşturur.
@@ -168,7 +167,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## HTML sayfa kaynak dosya yolları ve URL'leri nasıl oluşturulur?
 `Feature_GenerateHtmlPageResourceFilePathAndUrl`, sayfa kaynakları için hem fiziksel dosya yolunu hem de karşılık gelen web URL'sini oluşturur.
@@ -202,7 +200,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## Pratik uygulamalar

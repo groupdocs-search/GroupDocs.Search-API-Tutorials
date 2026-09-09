@@ -120,7 +120,6 @@ using GroupDocs.Redaction;
 // Initialize the Redactor
 Redactor redactor = new Redactor("your-file-path.pdf");
 ```
-```
 
 ## HTMLページのファイルパスを生成する方法は？
 `Feature_GenerateHtmlPageFilePath` は、ページ番号に基づいて各HTMLページの決定的なファイル名を生成します。
@@ -166,7 +165,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
     }
 }
 ```
-```
 
 ## HTMLページリソースのファイルパスとURLを作成する方法は？
 `Feature_GenerateHtmlPageResourceFilePathAndUrl` は、ページリソースの物理ファイルパスと対応するWeb URLの両方を構築します。
@@ -200,7 +198,6 @@ namespace GroupDocs.Search.Examples.CSharp.HighlightInHtml
         }
     }
 }
-```
 ```
 
 ## 実用的な応用例

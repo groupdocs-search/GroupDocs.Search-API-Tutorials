@@ -63,10 +63,6 @@ url: /sv/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hur man markerar html-termer med GroupDocs.Redaction för .NET
 
 Om du behöver **how to highlight html**-element—oavsett om du vill redigera känslig data eller helt enkelt betona nyckelord—så gör GroupDocs.Redaction för .NET jobbet enkelt. I den här guiden kommer du att se hur du installerar biblioteken, identifierar separator‑tecken och applicerar markeringar effektivt, även på stora HTML‑filer. I slutet har du ett återanvändbart mönster som kan anpassas till vilket .NET‑projekt som helst.
@@ -258,8 +254,3 @@ Du vet nu **how to highlight html**‑termer med GroupDocs.Redaction för .NET, 
 - [Behärska GroupDocs.Redaction .NET: Installation & händelsehantering för säker dokumenthantering](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [Hur man markerar text i PDF‑filer med GroupDocs.Redaction .NET för HTML‑konvertering](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

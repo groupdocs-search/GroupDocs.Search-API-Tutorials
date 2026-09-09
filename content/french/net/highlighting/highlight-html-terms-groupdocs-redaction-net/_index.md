@@ -65,10 +65,6 @@ url: /fr/net/highlighting/highlight-html-terms-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Comment mettre en évidence les termes HTML avec GroupDocs.Redaction pour .NET
 
 Si vous devez **mettre en évidence le HTML** — que ce soit pour masquer des données sensibles ou simplement souligner des mots‑clés — GroupDocs.Redaction pour .NET rend la tâche simple. Dans ce guide, vous verrez comment configurer les bibliothèques, identifier les caractères séparateurs et appliquer les mises en évidence de manière efficace, même sur de gros fichiers HTML. À la fin, vous disposerez d’un modèle réutilisable adaptable à tout projet .NET.
@@ -260,8 +256,3 @@ Vous savez maintenant **comment mettre en évidence les termes HTML** avec Group
 - [Maîtriser GroupDocs.Redaction .NET : configuration & gestion d’événements pour une gestion sécurisée des documents](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 - [Comment mettre en évidence du texte dans les PDF avec GroupDocs.Redaction .NET pour la conversion HTML](/search/net/highlighting/highlight-pdf-text-groupdocs-redaction-dotnet/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
