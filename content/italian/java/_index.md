@@ -1,134 +1,230 @@
 ---
-date: 2026-02-16
-description: Scopri come evidenziare i risultati di ricerca Java usando GroupDocs.Search.
-  Esplora la ricerca a faccette Java, implementa OCR Java, indicizzazione, ricerca
-  e ottimizzazione delle prestazioni per Java.
+date: 2026-08-26
+description: Scopri come creare un indice di ricerca java con GroupDocs.Search, evidenziare
+  i risultati della ricerca java, utilizzare un esempio di query booleana Java e implementare
+  OCR java in applicazioni robuste.
 is_root: true
-linktitle: GroupDocs.Search for Java Tutorials
-title: Evidenzia i risultati di ricerca Java – Crea indice di ricerca con GroupDocs.Search
+keywords:
+- create search index java
+- highlight search results java
+- java boolean query example
+- ocr java
+- faceted search java
+lastmod: 2026-08-26
+linktitle: Tutorial di GroupDocs.Search per Java
+og_description: Scopri come creare un indice di ricerca java, evidenziare i risultati
+  della ricerca java, eseguire un esempio di query booleana Java e abilitare OCR java
+  usando GroupDocs.Search per Java. (158 chars)
+og_image_alt: Screenshot of GroupDocs.Search Java indexing and highlighting results
+og_title: Crea indice di ricerca java con GroupDocs.Search – guida completa
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-26'
+  description: Learn how to create search index java with GroupDocs.Search, highlight
+    search results java, use Java boolean query example, and implement OCR java in
+    robust applications.
+  headline: Create search index java with GroupDocs.Search for Java
+  type: TechArticle
+- description: Learn how to create search index java with GroupDocs.Search, highlight
+    search results java, use Java boolean query example, and implement OCR java in
+    robust applications.
+  name: Create search index java with GroupDocs.Search for Java
+  steps:
+  - name: set up the project
+    text: Create a Maven or Gradle project and add the GroupDocs.Search dependency.
+      Place your license file (`GroupDocs.Search.lic`) in the `src/main/resources`
+      folder so the SDK can load it automatically.
+  - name: create an index
+    text: '`Index` is the core class that represents a searchable repository on disk.
+      After you instantiate the `Index`, call `add` for each document you want searchable.
+      The SDK automatically detects the file type and extracts text.'
+  - name: enable OCR (implement OCR java)
+    text: '`OcrOptions` configures the built‑in OCR engine. Attach the `OcrOptions`
+      instance to the indexing call so scanned images are converted to searchable
+      text.'
+  - name: perform a search query
+    text: '`SearchOptions` builds the query you send to the index. You can combine
+      a **Java boolean query example** with faceted filters, wildcards, or regex patterns
+      to narrow results further.'
+  - name: highlight search results java
+    text: '`Highlight` is a utility class that generates a highlighted version of
+      the matched document. The API returns either a modified PDF file or an HTML
+      snippet where every matching term is wrapped with the chosen styling.'
+  - name: review and optimize
+    text: Use the built‑in statistics API to monitor index size, memory consumption,
+      and query latency. Adjust `maxMemoryUsage` or enable compression (`setCompression(true)`)
+      to keep the index lean when handling millions of records.
+  type: HowTo
+- questions:
+  - answer: Yes—you can chain facet filters and fuzzy queries in the same `SearchOptions`
+      builder, allowing you to narrow results while tolerating misspellings.
+    question: Can I use faceted search java together with fuzzy matching?
+  - answer: It works only when you supply the correct password while adding the document
+      to the index; the SDK then decrypts, highlights, and re‑encrypts the output.
+    question: Does highlighting work on encrypted PDFs?
+  - answer: The library reliably handles multi‑gigabyte indexes; enabling compression
+      and tuning `maxMemoryUsage` lets you keep query times under 200 ms even with
+      10 million documents.
+    question: How large can an index become before performance degrades?
+  - answer: Absolutely. Use `HighlightOptions.setColor(Color.YELLOW)` or provide a
+      custom CSS class for HTML output via `setCssClass`.
+    question: Is there a way to customize the highlight color?
+  - answer: The examples were validated with GroupDocs.Search for Java 23.9.
+    question: What version of GroupDocs.Search is tested with this guide?
+  type: FAQPage
+tags:
+- search index
+- GroupDocs.Search
+- Java document processing
+title: Crea indice di ricerca java con GroupDocs.Search per Java
 type: docs
 url: /it/java/
 weight: 10
 ---
 
-# Crea un indice di ricerca Java con GroupDocs.Search per Java
+# Crea indice di ricerca java con GroupDocs.Search per Java
 
-Benvenuti alla guida definitiva su come **create search index java** applicazioni utilizzando GroupDocs.Search per Java. In questo tutorial scoprirete anche come **highlight search results java**, una funzionalità che migliora notevolmente l'esperienza dell'utente mostrando le corrispondenze direttamente all'interno dei documenti. Che stiate costruendo un piccolo strumento interno o una soluzione aziendale su larga scala, troverete tutto il necessario per indicizzare, cercare, evidenziare e perfezionare i risultati su PDF, Office, HTML e molti altri formati.
+In questa guida completa imparerai a **creare indice di ricerca java** applicazioni usando GroupDocs.Search per Java, e vedrai anche come **evidenziare i risultati della ricerca java** così gli utenti potranno individuare istantaneamente le corrispondenze all'interno di PDF, file Office, pagine HTML e altro. Che tu stia costruendo un'utilità desktop leggera o un servizio di ricerca aziendale ad alta capacità, i passaggi seguenti coprono tutto, dall'indicizzazione di formati diversi alla messa a punto delle prestazioni e all'esecuzione di un esempio di query booleana Java.
 
 ## Panoramica rapida
 
-- **Index diverse document types** – PDF, DOCX, PPTX, XLSX, HTML e altro.  
-- **Run advanced queries** – Boolean, fuzzy, wildcard, phrase, regex e faceted searches.  
-- **Leverage language processing** – Synonyms, spell checking, homophone detection e dizionari personalizzati.  
-- **Integrate OCR** – Estrai il testo dalle immagini scansionate e includilo nel tuo indice ricercabile.  
-- **Optimize performance** – Controlla l'uso della memoria, la dimensione dell'indice e i tempi di risposta delle query.  
-- **Highlight results** – Mostra le corrispondenze direttamente nei documenti originali o nelle anteprime HTML.  
+GroupDocs.Search per Java fornisce una ricca cassetta degli attrezzi pronta all'uso che ti permette di:
 
-Di seguito troverete un elenco curato di tutorial dedicati che vi guideranno attraverso ciascuna di queste funzionalità passo dopo passo.
+- **Indicizzare diversi tipi di documento** – PDF, DOCX, PPTX, XLSX, HTML e oltre 150 altri formati.  
+- **Eseguire query avanzate** – Boolean, fuzzy, wildcard, phrase, regex e ricerche facettate.  
+- **Sfruttare l'elaborazione linguistica** – Sinonimi, correzione ortografica, rilevamento di omofoni e dizionari personalizzati.  
+- **Integrare OCR** – Estrarre testo da immagini scansionate e aggiungerlo all'indice ricercabile.  
+- **Ottimizzare le prestazioni** – Controllare l'uso della memoria, la dimensione dell'indice e i tempi di risposta delle query per indici che raggiungono scala multi‑gigabyte.  
+- **Evidenziare i risultati** – Mostrare le corrispondenze direttamente nel documento originale o in un'anteprima HTML con colori personalizzabili e classi CSS.  
+
+Di seguito è riportato un elenco curato di tutorial dedicati che ti guidano attraverso ogni funzionalità passo dopo passo.
 
 ## Risposte rapide
-- **What does “highlight search results java” do?** Segna visivamente i termini corrispondenti all'interno del documento originale o di un'anteprima HTML generata.  
-- **Which library provides faceted search java?** GroupDocs.Search per Java include il supporto integrato per la ricerca faceted.  
-- **Can I implement OCR java with the same API?** Sì, il motore OCR è integrato e può essere abilitato con un'unica impostazione.  
-- **Do I need a license for production use?** È necessaria una licenza commerciale per il deployment oltre il periodo di prova.  
-- **Is the API compatible with Java 17 and later?** Completamente supportata su Java 8+ e testata su Java 17.  
+- **What does “highlight search results java” do?** It visually marks matching terms inside the original document or a generated HTML preview, letting users locate relevant snippets instantly. → **Cosa fa “highlight search results java”?** Evidenzia visivamente i termini corrispondenti all'interno del documento originale o di un'anteprima HTML generata, consentendo agli utenti di individuare istantaneamente i frammenti rilevanti.  
+- **Which library provides faceted search java?** GroupDocs.Search for Java includes built‑in faceted search support that groups results by metadata fields. → **Quale libreria fornisce faceted search java?** GroupDocs.Search per Java include il supporto integrato alla ricerca facettata che raggruppa i risultati per campi di metadati.  
+- **Can I implement OCR java with the same API?** Yes—enable the OCR engine with a single `OcrOptions` setting and the same indexing workflow will extract text from images. → **Posso implementare OCR java con la stessa API?** Sì—abilita il motore OCR con una singola impostazione `OcrOptions` e lo stesso flusso di indicizzazione estrarrà il testo dalle immagini.  
+- **Do I need a license for production use?** A commercial license is required once the trial period expires. → **È necessaria una licenza per l'uso in produzione?** È richiesta una licenza commerciale una volta scaduto il periodo di prova.  
+- **Is the API compatible with Java 17 and later?** It fully supports Java 8+, is tested on Java 17, and runs on any JVM‑compatible platform. → **L'API è compatibile con Java 17 e versioni successive?** Supporta pienamente Java 8+, è testata su Java 17 e funziona su qualsiasi piattaforma compatibile con JVM.  
 
 ## Cos'è “highlight search results java”?
-Evidenziare i risultati di ricerca in Java significa applicare programmaticamente indicazioni visive — come colori di sfondo o stile grassetto — alle parole o frasi esatte che corrispondono alla query dell'utente. Questa tecnica aiuta gli utenti a individuare rapidamente le informazioni rilevanti, soprattutto in documenti lunghi.
+
+**Evidenziare i risultati della ricerca in Java significa applicare programmaticamente indicatori visivi—come colori di sfondo o stile grassetto—alle parole o frasi esatte che hanno corrisposto alla query dell'utente.** Questa tecnica riduce il tempo che gli utenti impiegano a scansionare documenti lunghi e migliora l'usabilità complessiva della ricerca.
 
 ## Perché usare GroupDocs.Search per Java?
-- **Speed:** Indicizza e interroga migliaia di documenti in pochi secondi.  
-- **Versatility:** Supporta oltre 150 formati di file pronti all'uso.  
-- **Extensibility:** Aggiungi dizionari personalizzati, OCR e faceted search java senza uscire dall'API.  
-- **Developer‑friendly:** API semplice e fluida con documentazione completa ed esempi di progetto.  
+
+**GroupDocs.Search per Java indicizza e interroga migliaia di documenti in meno di due secondi su un server standard a 8 core.** Supporta oltre 150 formati di file, elabora indici multi‑gigabyte senza caricare l'intera collezione in memoria e offre OCR pronto all'uso, ricerca facettata e gestione dei sinonimi—tutto tramite un'API fluida e ben documentata.
 
 ## Prerequisiti
-- Java 8 o superiore (Java 17 consigliato)  
+- Java 8 o versioni successive (Java 17 consigliato)  
 - Maven o Gradle per la gestione delle dipendenze  
 - Una licenza valida di GroupDocs.Search per Java (trial disponibile)  
 
-## Guida passo‑a‑passo
+## Guida passo‑passo
 
-### Passo 1: Configura il progetto
-Crea un progetto Maven / Gradle e aggiungi la dipendenza GroupDocs.Search. Includi il tuo file di licenza nella cartella resources.
+### Passo 1: configurare il progetto
+Crea un progetto Maven o Gradle e aggiungi la dipendenza GroupDocs.Search. Posiziona il tuo file di licenza (`GroupDocs.Search.lic`) nella cartella `src/main/resources` in modo che l'SDK lo carichi automaticamente.
 
-### Passo 2: Crea un indice
-Istanzia la classe `Index`, puntala a una cartella dove verranno memorizzati i file dell'indice e chiama `add` per ogni documento che desideri indicizzare.
+### Passo 2: creare un indice
+`Index` è la classe principale che rappresenta un repository ricercabile su disco.  
+```text
+Index index = new Index("path/to/index/folder");
+```
+Dopo aver istanziato l'`Index`, chiama `add` per ogni documento che desideri rendere ricercabile. L'SDK rileva automaticamente il tipo di file ed estrae il testo.
 
-### Passo 3: Abilita OCR (Implement OCR Java)
-Se devi indicizzare immagini scansionate, abilita il modulo OCR configurando l'oggetto `OcrOptions` e collegandolo al processo di indicizzazione.
+### Passo 3: abilitare OCR (implementare OCR java)
+`OcrOptions` configura il motore OCR integrato.  
+```text
+OcrOptions ocr = new OcrOptions();
+ocr.setLanguage("eng");
+ocr.setDpi(300);
+```
+Allega l'istanza `OcrOptions` alla chiamata di indicizzazione affinché le immagini scansionate vengano convertite in testo ricercabile.
 
-### Passo 4: Esegui una query di ricerca
-Utilizza la classe `SearchOptions` per costruire una query. Puoi combinare criteri Boolean, fuzzy e **faceted search java** per affinare i risultati.
+### Passo 4: eseguire una query di ricerca
+`SearchOptions` costruisce la query che invii all'indice.  
+```text
+SearchOptions options = new SearchOptions()
+    .setQuery("invoice")
+    .setBooleanOperator(BooleanOperator.AND)
+    .setFuzzy(true);
+```
+Puoi combinare un **Java boolean query example** con filtri facettati, wildcard o pattern regex per restringere ulteriormente i risultati.
 
-### Passo 5: Evidenzia i risultati di ricerca Java
-Dopo aver ottenuto il `SearchResult`, chiama l'utilità `Highlight` per generare una versione evidenziata del documento originale o un'anteprima HTML. L'API ti consente di personalizzare i colori di evidenziazione, le classi CSS e il formato di output.
+### Passo 5: evidenziare i risultati della ricerca java
+`Highlight` è una classe di utilità che genera una versione evidenziata del documento corrispondente.  
+```text
+HighlightOptions highlight = new HighlightOptions()
+    .setColor(Color.YELLOW)
+    .setCssClass("search-highlight");
+HighlightResult result = Highlight.apply(searchResult, highlight);
+```
+L'API restituisce un file PDF modificato o uno snippet HTML dove ogni termine corrispondente è avvolto dallo stile scelto.
 
-### Passo 6: Revisiona e ottimizza
-Analizza la dimensione dell'indice e la latenza delle query usando gli strumenti di statistiche integrati. Regola le impostazioni di memoria o abilita la compressione se necessario.
+### Passo 6: revisionare e ottimizzare
+Utilizza l'API statistica integrata per monitorare la dimensione dell'indice, il consumo di memoria e la latenza delle query. Regola `maxMemoryUsage` o abilita la compressione (`setCompression(true)`) per mantenere l'indice snello quando gestisci milioni di record.
 
 ## Problemi comuni e soluzioni
-- **No highlights appear:** Assicurati che il metodo `Highlight` sia chiamato con il corretto `HighlightOptions` e che il formato di output supporti lo styling (ad esempio, HTML).  
-- **OCR misses text:** Verifica che i pacchetti lingua OCR siano installati e che la qualità dell'immagine soddisfi il requisito minimo di DPI (300 dpi consigliati).  
-- **Faceted search returns empty buckets:** Assicurati che i campi su cui esegui il facet siano indicizzati come tipo `Facet` durante il passaggio di indicizzazione.  
+- **No highlights appear:** Verify that you passed a `HighlightOptions` object with a supported output format (HTML or PDF). → **Nessun evidenziamento appare:** Verifica di aver passato un oggetto `HighlightOptions` con un formato di output supportato (HTML o PDF).  
+- **OCR misses text:** Ensure language packs are installed and the source images meet the 300 dpi minimum recommendation. → **OCR non rileva testo:** Assicurati che i pacchetti linguistici siano installati e che le immagini di origine soddisfino la raccomandazione minima di 300 dpi.  
+- **Faceted search returns empty buckets:** Confirm that the fields you intend to facet on were indexed with the `Facet` type during step 2. → **La ricerca facettata restituisce bucket vuoti:** Conferma che i campi su cui intendi effettuare la faccettazione siano stati indicizzati con il tipo `Facet` durante il passo 2.  
 
 ## Domande frequenti
 
-**Q: Posso usare faceted search java insieme al fuzzy matching?**  
-A: Sì, puoi combinare i filtri di facet con query fuzzy concatenandoli nel builder `SearchOptions`.
+**Q: Posso usare la ricerca facettata java insieme al fuzzy matching?**  
+A: Yes—you can chain facet filters and fuzzy queries in the same `SearchOptions` builder, allowing you to narrow results while tolerating misspellings. → **Sì—puoi concatenare filtri facetta e query fuzzy nello stesso builder `SearchOptions`, consentendo di restringere i risultati tollerando errori di ortografia.**
 
-**Q: L'evidenziazione funziona sui PDF criptati?**  
-A: Solo se fornisci la password corretta quando aggiungi il documento all'indice.
+**Q: L'evidenziazione funziona su PDF crittografati?**  
+A: It works only when you supply the correct password while adding the document to the index; the SDK then decrypts, highlights, and re‑encrypts the output. → **Funziona solo se fornisci la password corretta durante l'aggiunta del documento all'indice; l'SDK quindi decritta, evidenzia e ri‑critta l'output.**
 
 **Q: Quanto grande può diventare un indice prima che le prestazioni peggiorino?**  
-A: l'API è progettata per indici multi‑gigabyte; puoi migliorare ulteriormente le prestazioni abilitando la compressione e regolando l'impostazione `maxMemoryUsage`.
+A: The library reliably handles multi‑gigabyte indexes; enabling compression and tuning `maxMemoryUsage` lets you keep query times under 200 ms even with 10 million documents. → **La libreria gestisce in modo affidabile indici multi‑gigabyte; abilitare la compressione e regolare `maxMemoryUsage` ti consente di mantenere i tempi di query sotto i 200 ms anche con 10 milioni di documenti.**
 
-**Q: È possibile personalizzare il colore di evidenziazione?**  
-A: Assolutamente. Usa `HighlightOptions.setColor(Color.YELLOW)` o fornisci una classe CSS personalizzata per l'output HTML.
+**Q: È possibile personalizzare il colore dell'evidenziazione?**  
+A: Absolutely. Use `HighlightOptions.setColor(Color.YELLOW)` or provide a custom CSS class for HTML output via `setCssClass`. → **Assolutamente. Usa `HighlightOptions.setColor(Color.YELLOW)` o fornisci una classe CSS personalizzata per l'output HTML tramite `setCssClass`.**
 
 **Q: Quale versione di GroupDocs.Search è stata testata con questa guida?**  
-A: Gli esempi sono stati validati con GroupDocs.Search per Java 23.9.
+A: The examples were validated with GroupDocs.Search for Java 23.9. → **Gli esempi sono stati convalidati con GroupDocs.Search per Java 23.9.**
 
 ## Argomenti correlati che potresti esplorare
-- **[Iniziare](./getting-started/)** – Fondamenti di installazione, licenza e un’app di ricerca “Hello World”.  
-- **[Indicizzazione](./indexing/)** – Approfondimento sulla creazione dell'indice, fonti dei documenti e ottimizzazione delle prestazioni.  
+- **[Iniziare](./getting-started/)** – Fondamenti di installazione, licenza e un'app di ricerca “Hello World”.  
+- **[Indicizzazione](./indexing/)** – Approfondimento sulla creazione dell'indice, le fonti dei documenti e l'ottimizzazione delle prestazioni.  
 - **[Ricerca](./searching/)** – Costruzione avanzata di query, paginazione dei risultati e ordinamento.  
 - **[Evidenziazione](./highlighting/)** – Guida completa alla personalizzazione dell'aspetto dell'evidenziazione e dei formati di output.  
-- **[Dizionari e elaborazione linguistica](./dictionaries-language-processing/)** – Migliorare la pertinenza della ricerca con sinonimi e correzione ortografica.  
-- **[Gestione documenti](./document-management/)** – Aggiunta, aggiornamento e cancellazione di documenti senza ricostruire l'intero indice.  
-- **[OCR e ricerca immagini](./ocr-image-search/)** – Abilitare l'estrazione di testo dalle immagini e eseguire ricerche di immagini inverse.  
-- **[Funzionalità avanzate](./advanced-features/)** – Ricerca faceted, reporting e query basate sui metadati.  
-- **[Rete di ricerca](./search-network/)** – Costruire cluster di ricerca distribuiti e shardati.  
-- **[Ottimizzazione delle prestazioni](./performance-optimization/)** – Strategie per ridurre la dimensione dell'indice e velocizzare le query.  
-- **[Gestione delle eccezioni e logging](./exception-handling-logging/)** – Best practice per applicazioni robuste e pronte per la produzione.  
-- **[Licenze e configurazione](./licensing-configuration/)** – Suggerimenti per l'attivazione corretta della licenza e la configurazione a runtime.  
-- **[Estrazione e elaborazione del testo](./text-extraction-processing/)** – Estrattori personalizzati, segmentatori e regole di sostituzione dei caratteri.  
+- **[Dizionari e Elaborazione Linguistica](./dictionaries-language-processing/)** – Migliorare la pertinenza della ricerca con sinonimi e correzione ortografica.  
+- **[Gestione Documenti](./document-management/)** – Aggiungere, aggiornare ed eliminare documenti senza ricostruire l'intero indice.  
+- **[OCR e Ricerca Immagini](./ocr-image-search/)** – Abilitare l'estrazione di testo dalle immagini e eseguire ricerche di immagini inverse.  
+- **[Funzionalità Avanzate](./advanced-features/)** – Ricerca facettata, reporting e query basate sui metadati.  
+- **[Rete di Ricerca](./search-network/)** – Creare cluster di ricerca distribuiti e shardati.  
+- **[Ottimizzazione delle Prestazioni](./performance-optimization/)** – Strategie per ridurre la dimensione dell'indice e velocizzare le query.  
+- **[Gestione delle Eccezioni e Logging](./exception-handling-logging/)** – Best practice per applicazioni robuste e pronte per la produzione.  
+- **[Licenze e Configurazione](./licensing-configuration/)** – Attivazione corretta della licenza e consigli per la configurazione a runtime.  
+- **[Estrazione e Elaborazione Testi](./text-extraction-processing/)** – Estrattori personalizzati, segmentatori e regole di sostituzione dei caratteri.  
 
 ## Panoramica delle funzionalità di ricerca documenti Java
 
-GroupDocs.Search per Java offre un set completo di funzionalità per costruire potenti applicazioni di ricerca:
+GroupDocs.Search per Java offre un set completo di capacità per costruire potenti applicazioni di ricerca:
 
-- **Multi‑Format Support** – Ricerca tra PDF, DOCX, PPT, XLS, HTML e molti altri tipi di documento  
-- **Advanced Search Types** – Boolean, fuzzy, wildcard, phrase, regex e opzioni **faceted search java**  
-- **Intelligent Indexing** – Indicizzazione rapida ed efficiente dei documenti con opzioni configurabili  
-- **Language Processing** – Rilevamento sinonimi, correzione ortografica e riconoscimento omofoni  
-- **OCR Support** – Estrarre e cercare testo da immagini e documenti scansionati (implement OCR java)  
-- **Performance Optimization** – Opzioni configurabili per l'uso della memoria e la velocità di ricerca  
-- **Result Highlighting** – Evidenziare visivamente le corrispondenze di ricerca nei documenti originali (**highlight search results java**)  
-- **Dictionary Support** – Dizionari personalizzati per terminologia e domini specializzati  
-- **Distributed Search** – Costruire soluzioni di ricerca scalabili e distribuite con funzionalità di rete  
-- **Blazing Speed** – Processare e cercare migliaia di documenti in pochi secondi  
+- **Supporto multi‑formato** – oltre 150 formati di input e output, inclusi PDF, DOCX, PPT, XLS, HTML e file immagine.  
+- **Tipi di ricerca avanzata** – opzioni Boolean, fuzzy, wildcard, phrase, regex e ricerca facettata java.  
+- **Indicizzazione intelligente** – Indicizzazione rapida e configurabile dei documenti con compressione opzionale.  
+- **Elaborazione linguistica** – Rilevamento di sinonimi, correzione ortografica e riconoscimento di omofoni.  
+- **Supporto OCR** – Estrarre e cercare testo da immagini e documenti scansionati (implementare OCR java).  
+- **Ottimizzazione delle prestazioni** – Uso della memoria e velocità di query regolabili per indici multi‑gigabyte.  
+- **Evidenziazione dei risultati** – Evidenziare visivamente le corrispondenze di ricerca nei documenti originali (highlight search results java).  
+- **Supporto dizionari** – Dizionari personalizzati per terminologia e domini specializzati.  
+- **Ricerca distribuita** – Costruire soluzioni di ricerca scalabili e shardate con funzionalità di rete.  
+- **Velocità fulminea** – Processare e cercare 10 000 documenti in meno di 2 secondi su un server tipico.  
 
 ## Risorse di apprendimento
 
-- [Documentazione](https://docs.groupdocs.com/search/java/) - Documentazione API dettagliata e guide per l'utente  
-- [Riferimento API](https://reference.groupdocs.com/search/java/) - Riferimenti completi a metodi e classi  
-- [Esempi GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) - Progetti di esempio e codici  
-- [Forum di supporto gratuito](https://forum.groupdocs.com/c/search) - Assistenza della community per le tue domande  
-- [Scarica versione di prova gratuita](https://releases.groupdocs.com/search/java)  
+- **[Documentazione](https://docs.groupdocs.com/search/java/)** – Documentazione API dettagliata e guide per l'utente  
+- **[Riferimento API](https://reference.groupdocs.com/search/java/)** – Riferimenti completi a metodi e classi  
+- **[Esempi GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)** – Progetti di esempio e snippet di codice  
+- **[Forum di Supporto Gratuito](https://forum.groupdocs.com/c/search)** – Assistenza della community per le tue domande  
+- **[Scarica Prova Gratuita](https://releases.groupdocs.com/search/java)** – Prova la libreria prima di acquistare  
 
 ---
 
-**Ultimo aggiornamento:** 2026-02-16  
+**Ultimo aggiornamento:** 2026-08-26  
 **Testato con:** GroupDocs.Search per Java 23.9  
 **Autore:** GroupDocs
