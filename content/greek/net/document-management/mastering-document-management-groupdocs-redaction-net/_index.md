@@ -89,23 +89,19 @@ weight: 1
 
 Η κλάση `License` καταχωρεί ένα αρχείο άδειας στο SDK του GroupDocs. Φορτώστε το αρχείο άδειας με την κλάση `License` και καλέστε `SetLicense` πριν από οποιαδήποτε άλλη κλήση SDK. Αυτό ξεκλειδώνει το πλήρες σύνολο λειτουργιών, αφαιρεί τα υδατογράμματα αξιολόγησης και ενεργοποιεί βελτιστοποιήσεις απόδοσης. Φορτώνοντας την άδεια νωρίς, το SDK μπορεί να εφαρμόσει ελέγχους δικαιωμάτων για κάθε επόμενη λειτουργία, εξασφαλίζοντας ότι όλες οι λειτουργίες σβησίματος, αναζήτησης και απόδοσης λειτουργούν χωρίς περιορισμούς.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Πώς να ορίσετε άδεια για το Aspose.HTML;
 
 Η κλάση `License` στο Aspose.HTML καταχωρεί την άδεια προϊόντος και απενεργοποιεί τους περιορισμούς δοκιμής. Δημιουργήστε ένα αντικείμενο `License` της Aspose και δείξτε το προς το αρχείο `.lic`. Αυτό εξασφαλίζει ότι όλες οι λειτουργίες απόδοσης του Aspose.HTML εκτελούνται χωρίς προειδοποιήσεις δοκιμής και ότι οι premium επιλογές απόδοσης όπως η υποστήριξη CSS και οι προχωρημένες μηχανές διάταξης είναι διαθέσιμες.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Επεξήγηση**: `License.SetLicense` φορτώνει το αρχείο άδειας, ξεκλειδώνοντας όλες τις λειτουργίες.
@@ -114,12 +110,10 @@ new License().SetLicense(licensePath);
 
 Η κλάση `License` για το GroupDocs.Viewer καταχωρεί την άδεια του προβολέα, επιτρέποντας υψηλής πιστότητας απόδοση PDF, DOCX και άλλων μορφών σε HTML χωρίς υδατογράμματα. Δημιουργήστε μια παρουσία `License` για το GroupDocs.Viewer και καλέστε `SetLicense`. Αυτό το βήμα απαιτείται εάν σκοπεύετε να αποδώσετε έγγραφα σε HTML με πλήρη πιστότητα.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## Γιατί να χρησιμοποιήσετε αναζήτηση και επισήμανση html με το GroupDocs;
@@ -133,21 +127,17 @@ new License().SetLicense(licensePath);
 Για να αρχίσετε να χρησιμοποιείτε το GroupDocs.Redaction στο έργο σας, μπορείτε να το εγκαταστήσετε μέσω διαφορετικών διαχειριστών πακέτων:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **Διεπαφή χρήστη του NuGet Package Manager:**  
@@ -165,14 +155,12 @@ new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
 
 ### Βασική αρχικοποίηση και ρύθμιση
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Οδηγός υλοποίησης
@@ -187,26 +175,22 @@ string query = "\"dapibus diam\" OR lorem";
 
 **1. Ορίστε άδεια για το Aspose.HTML**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 - **Επεξήγηση**: `License.SetLicense` φορτώνει το αρχείο άδειας, ενεργοποιώντας όλες τις λειτουργίες.
 
 **2. Ορίστε άδεια για το GroupDocs.Viewer**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### Ρύθμιση διαδρομών και ερωτήματος
@@ -219,7 +203,6 @@ FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first docu
 
 **1. Ορίστε τις βασικές διαδρομές**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -228,7 +211,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **Επεξήγηση**: Η οργάνωση των διαδρομών εξασφαλίζει ομαλή ενσωμάτωση των λειτουργιών αναζήτησης και επισήμανσης.
@@ -349,8 +331,3 @@ CODE_BLOCK_PLACEHOLDER_11_END
 - [Implement GroupDocs.Redaction .NET for Document Finder Management and Highlighting](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Master GroupDocs.Redaction .NET: Setup & Event Handling for Secure Document Management](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

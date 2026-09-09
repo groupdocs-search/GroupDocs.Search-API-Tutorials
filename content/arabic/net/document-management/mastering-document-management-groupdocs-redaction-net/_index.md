@@ -88,23 +88,19 @@ weight: 1
 
 تقوم فئة `License` بتسجيل ملف الترخيص مع مجموعة أدوات GroupDocs SDK. حمّل ملف الترخيص باستخدام فئة `License` واستدعِ `SetLicense` قبل أي استدعاء آخر لـ SDK. هذا يفتح مجموعة الميزات الكاملة، يزيل العلامات المائية التجريبية، ويفعل تحسينات الأداء. بتحميل الترخيص مبكرًا، يمكن لـ SDK تطبيق فحوصات الاستحقاق لكل عملية لاحقة، مما يضمن أن جميع ميزات الحجب والبحث والعرض تعمل دون قيود.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## كيفية تعيين ترخيص لـ Aspose.HTML؟
 
 تقوم فئة `License` في Aspose.HTML بتسجيل ترخيص المنتج وتعطيل قيود النسخة التجريبية. أنشئ كائن `License` الخاص بـ Aspose وأشر إلى ملف `.lic`. يضمن ذلك تشغيل جميع وظائف العرض في Aspose.HTML دون تحذيرات تجريبية وتوفير خيارات عرض متميزة مثل دعم CSS ومحركات التخطيط المتقدمة.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **شرح**: `License.SetLicense` يحمل ملف الترخيص، مما يفتح جميع الميزات.
@@ -113,12 +109,10 @@ new License().SetLicense(licensePath);
 
 تقوم فئة `License` الخاصة بـ GroupDocs.Viewer بتسجيل ترخيص العارض، مما يتيح عرضًا عالي الدقة لملفات PDF وDOCX وغيرها إلى HTML دون علامات مائية. أنشئ مثيل `License` لـ GroupDocs.Viewer واستدعِ `SetLicense`. هذه الخطوة ضرورية إذا كنت تنوي عرض المستندات إلى HTML بجودة كاملة.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## لماذا نستخدم البحث وتظليل HTML مع GroupDocs؟
@@ -132,21 +126,17 @@ new License().SetLicense(licensePath);
 لبدء استخدام GroupDocs.Redaction في مشروعك، يمكنك تثبيته عبر مديري حزم مختلفين:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **واجهة مستخدم مدير الحزم NuGet:**  
@@ -164,14 +154,12 @@ new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
 
 ### التهيئة الأساسية والإعداد
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## دليل التنفيذ
@@ -186,24 +174,20 @@ string query = "\"dapibus diam\" OR lorem";
 
 **1. تعيين ترخيص لـ Aspose.HTML**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. تعيين ترخيص لـ GroupDocs.Viewer**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### إعداد المسارات والاستعلام
@@ -216,7 +200,6 @@ FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first docu
 
 **1. تعريف المسارات الأساسية**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -225,7 +208,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **شرح**: تنظيم المسارات يضمن تكامل سلس بين ميزات البحث والتظليل.
@@ -346,8 +328,3 @@ CODE_BLOCK_PLACEHOLDER_11_END
 - [Implement GroupDocs.Redaction .NET for Document Finder Management and Highlighting](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Master GroupDocs.Redaction .NET: Setup & Event Handling for Secure Document Management](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

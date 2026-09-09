@@ -258,11 +258,6 @@ A: Tentu saja. GroupDocs.Search menawarkan API pengindeksan real‑time yang lan
 **Diuji Dengan:** GroupDocs.Search 25.4 for Java  
 **Penulis:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Tutorial Terkait
 
 - [Tutorial dan Contoh GroupDocs.Search untuk Java](/search/net/)

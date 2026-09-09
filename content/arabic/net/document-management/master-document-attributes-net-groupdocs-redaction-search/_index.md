@@ -105,13 +105,11 @@ weight: 1
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -129,12 +127,10 @@ Install-Package GroupDocs.Redaction
 `Redactor` هو الفئة الرئيسية المستخدمة لتحميل مستند وتطبيق عمليات الإخفاء.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## الميزة 1: تغيير سمات المستند
@@ -146,7 +142,6 @@ Redactor redactor = new Redactor("path/to/document.pdf");
 `Index` يمثل مجموعة قابلة للبحث من المستندات والبيانات الوصفية المرتبطة بها.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
@@ -154,14 +149,12 @@ using GroupDocs.Search.Results;
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### الخطوة 2: تعديل السمات
 `AttributeChangeBatch` هي الفئة التي تجمع تحديثات السمات لزيادة الكفاءة.
 
 **تعريف:** *`AttributeChangeBatch` تجمع عمليات الإضافة، التحديث، والحذف على سمات المستند في معاملة واحدة.*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -176,7 +169,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### الخطوة 3: البحث باستخدام مرشحات السمات
 يمكنك ترشيح نتائج البحث بناءً على قيم السمات باستخدام `SearchOptions`.
@@ -184,14 +176,12 @@ index.ChangeAttributes(batch);
 **الإجابة المباشرة:** للبحث عن المستندات التي تحتوي على السمة `Category = "Legal"`، قم بتكوين `SearchOptions` مع `AttributeFilter` واستدعِ `searcher.Search("contract", options)`. سيعيد ذلك فقط العقود الموسومة قانونيًا، مما يقلل الضوضاء في النتائج و**يحسن أداء البحث**.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## الميزة 2: إضافة سمات أثناء الفهرسة
@@ -202,7 +192,6 @@ SearchResult result = index.Search(query, options);
 #### الخطوة 1: إعداد معالج الحدث للفهرسة
 **تعريف:** *حدث `DocumentIndexed` يُطلق في كل مرة يتم فيها إضافة مستند بنجاح إلى الفهرس، مما يسمح بتنفيذ منطق مخصص.*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -216,7 +205,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### الخطوة 2: تكوين وإجراء البحث
 بعد إرفاق السمات، يمكنك البحث باستخدام تلك الحقول الجديدة.
@@ -224,14 +212,12 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 **الإجابة المباشرة:** استخدم `SearchOptions` مع `AttributeFilter` لاستعلام السمات المضافة حديثًا، على سبيل المثال `AttributeFilter("Department", "Finance")`. سيعيد ذلك فقط الملفات المتعلقة بالمالية، موضحًا **كيفية فهرسة السمات** للحصول على نتائج أسرع وأكثر صلة.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## تطبيقات عملية

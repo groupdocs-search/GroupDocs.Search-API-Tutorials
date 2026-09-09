@@ -104,13 +104,11 @@ Możesz dodać **GroupDocs.Redaction** do swojego projektu przy użyciu jednej z
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -127,12 +125,10 @@ Aby rozpocząć, możesz uzyskać tymczasową licencję lub ją zakupić. Dostę
 `Redactor` jest główną klasą używaną do ładowania dokumentu i stosowania operacji redagowania.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## Funkcja 1: Zmiana atrybutów dokumentu
@@ -144,7 +140,6 @@ Modyfikowanie atrybutów dokumentu pozwala precyzyjnie dostosować sposób wyśw
 `Index` reprezentuje przeszukiwalną kolekcję dokumentów i ich powiązanych metadanych.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
@@ -152,14 +147,12 @@ using GroupDocs.Search.Results;
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Krok 2: Modyfikacja atrybutów
 `AttributeChangeBatch` jest klasą, która grupuje aktualizacje atrybutów w celu zwiększenia wydajności.  
 
 **Definicja:** *`AttributeChangeBatch` grupuje operacje dodawania, aktualizacji i usuwania atrybutów dokumentu w jednej transakcji.*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -174,7 +167,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### Krok 3: Wyszukiwanie z filtrami atrybutów
 Możesz filtrować wyniki wyszukiwania według wartości atrybutów przy użyciu `SearchOptions`.  
@@ -182,14 +174,12 @@ Możesz filtrować wyniki wyszukiwania według wartości atrybutów przy użyciu
 **Bezpośrednia odpowiedź:** Aby wyszukać dokumenty zawierające atrybut `Category = "Legal"`, skonfiguruj `SearchOptions` z `AttributeFilter` i wywołaj `searcher.Search("contract", options)`. Zwróci to tylko umowy oznaczone jako prawne, redukując szum wyników i **optymalizując wydajność wyszukiwania**.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## Funkcja 2: Dodawanie atrybutów podczas indeksowania
@@ -200,7 +190,6 @@ Dodawanie atrybutów w momencie indeksowania zapewnia, że każdy dokument jest 
 #### Krok 1: Konfiguracja obsługi zdarzeń dla indeksowania
 **Definicja:** *Zdarzenie `DocumentIndexed` jest wywoływane za każdym razem, gdy dokument zostanie pomyślnie dodany do indeksu, umożliwiając uruchomienie własnej logiki.*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -214,7 +203,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Krok 2: Konfiguracja i wykonanie wyszukiwania
 Po dołączeniu atrybutów możesz wyszukiwać przy użyciu tych nowych pól.
@@ -222,14 +210,12 @@ Po dołączeniu atrybutów możesz wyszukiwać przy użyciu tych nowych pól.
 **Bezpośrednia odpowiedź:** Użyj `SearchOptions` z `AttributeFilter`, aby zapytać o nowo dodane atrybuty, np. `AttributeFilter("Department", "Finance")`. Zwróci to tylko pliki związane z finansami, demonstrując **jak indeksować atrybuty** dla szybszych, bardziej istotnych wyników.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Praktyczne zastosowania

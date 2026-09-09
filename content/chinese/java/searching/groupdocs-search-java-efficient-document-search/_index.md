@@ -83,7 +83,6 @@ GroupDocs.Search 支持 **50 多种文件格式**（包括 DOCX、PDF、XLSX、P
 1. **GroupDocs.Search for Java** – 版本 25.4+。  
 2. **Maven 配置** – 将 GroupDocs 仓库和依赖添加到您的 `pom.xml`：
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -101,7 +100,6 @@ GroupDocs.Search 支持 **50 多种文件格式**（包括 DOCX、PDF、XLSX、P
     </dependency>
 </dependencies>
 ```
-```
 
 您也可以直接从 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) 下载最新版本。
 
@@ -118,7 +116,6 @@ GroupDocs.Search 支持 **50 多种文件格式**（包括 DOCX、PDF、XLSX、P
 
 `Index` 类表示存储在磁盘上的可搜索索引，并提供添加文档和查询文档的方法。
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -132,12 +129,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## 如何创建和管理搜索索引？
 创建一个新的索引文件夹，然后从源目录填充文档。`SearchIndex` 类是核心组件，表示内存和磁盘上的索引，使您能够在不每次重建整个结构的情况下添加、删除或更新文档。
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -145,17 +140,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Purpose**: 在指定目录中初始化新的搜索索引。
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Explanation**: 将 `documentsFolder` 中的所有文档添加到新创建的索引中。此步骤对于用可搜索内容填充索引至关重要。
@@ -163,13 +155,11 @@ index.add(documentsFolder);
 ## 如何配置自定义词形提供程序？
 自定义词形提供程序告诉引擎如何处理术语的不同语法变体（例如，“run”、“running”、“ran”）。通过注册这些变体，搜索引擎能够将查询匹配到所有相关形式，显著提升用户输入任何形态版本词汇时的相关性。
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Purpose**: 通过理解和管理词语的不同语法变体来增强搜索，提高搜索相关性。
@@ -179,7 +169,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 `SearchOptions` 类配置查询的处理方式，例如启用词形扩展或模糊匹配。
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -187,7 +176,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Explanation**: 此配置使搜索能够识别不同的词形，使其更直观且更全面。
@@ -197,7 +185,6 @@ options.setUseWordFormsSearch(true);
 
 `SearchResult` 对象包含查询返回的命中结果，包括匹配的片段和相关性分数。
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -208,7 +195,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Purpose**: 执行考虑单词 “mrs” 不同语法变体的搜索，提升搜索准确性。

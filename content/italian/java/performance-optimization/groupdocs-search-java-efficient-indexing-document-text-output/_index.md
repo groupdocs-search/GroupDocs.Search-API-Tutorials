@@ -300,11 +300,6 @@ Ora hai un flusso di lavoro completo, pronto per la produzione, per **how to cre
 **Testato con:** GroupDocs.Search 25.4 for Java  
 **Autore:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Tutorial correlati
 
 - [Aggiungere documenti all'indice – Guida GroupDocs.Search Java](/search/java/advanced-features/)

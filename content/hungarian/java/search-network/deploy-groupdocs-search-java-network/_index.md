@@ -259,11 +259,6 @@ A: Teljes mértékben. A GroupDocs.Search valós‑idő indexelési API‑kat k�
 **Tesztelve a következővel:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Kapcsolódó oktatóanyagok
 
 - [GroupDocs.Search for Java oktatóanyagok és példák](/search/net/)

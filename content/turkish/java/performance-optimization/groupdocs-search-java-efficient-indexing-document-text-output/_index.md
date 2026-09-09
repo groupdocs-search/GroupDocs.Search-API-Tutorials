@@ -298,11 +298,6 @@ Artık **how to create index**, belgeleri ekleme ve ihtiyaç duyabileceğiniz he
 **Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## İlgili Öğreticiler
 
 - [İndekse Belge Ekle – GroupDocs.Search Java Kılavuzu](/search/java/advanced-features/)

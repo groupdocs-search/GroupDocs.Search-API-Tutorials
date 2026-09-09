@@ -88,23 +88,19 @@ weight: 1
 
 คลาส `License` ลงทะเบียนไฟล์ลิขสิทธิ์กับ GroupDocs SDK โหลดไฟล์ลิขสิทธิ์ของคุณด้วยคลาส `License` และเรียก `SetLicense` ก่อนการเรียกใช้ SDK ใด ๆ นี้จะเปิดใช้งานชุดคุณสมบัติทั้งหมด, ลบลายน้ำการประเมิน, และเปิดใช้งานการปรับประสิทธิภาพการทำงาน โดยการโหลดลิขสิทธิ์ตั้งแต่ต้น SDK จะสามารถตรวจสอบสิทธิ์สำหรับทุกการดำเนินการต่อไป, ทำให้คุณลักษณะการลบข้อมูล, การค้นหา, และการเรนเดอร์ทำงานโดยไม่มีข้อจำกัด
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## วิธีตั้งค่าลิขสิทธิ์สำหรับ Aspose.HTML?
 
 คลาส `License` ใน Aspose.HTML ลงทะเบียนลิขสิทธิ์ผลิตภัณฑ์และปิดการจำกัดการทดลอง สร้างอ็อบเจ็กต์ `License` ของ Aspose และชี้ไปที่ไฟล์ `.lic` นี้ทำให้ฟังก์ชันการเรนเดอร์ Aspose.HTML ทั้งหมดทำงานโดยไม่มีคำเตือนการทดลองและทำให้ตัวเลือกการเรนเดอร์ระดับพรีเมียม เช่น การสนับสนุน CSS และเครื่องยนต์การจัดวางขั้นสูงพร้อมใช้งาน
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **คำอธิบาย**: `License.SetLicense` โหลดไฟล์ลิขสิทธิ์, เปิดใช้งานคุณสมบัติทั้งหมด.
@@ -113,12 +109,10 @@ new License().SetLicense(licensePath);
 
 คลาส `License` สำหรับ GroupDocs.Viewer ลงทะเบียนลิขสิทธิ์ของ viewer, ทำให้การเรนเดอร์ PDF, DOCX, และรูปแบบอื่นเป็น HTML ด้วยความแม่นยำสูงโดยไม่มีลายน้ำ สร้างอินสแตนซ์ `License` สำหรับ GroupDocs.Viewer และเรียก `SetLicense` ขั้นตอนนี้จำเป็นหากคุณต้องการเรนเดอร์เอกสารเป็น HTML ด้วยความแม่นยำเต็มรูปแบบ
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## ทำไมต้องใช้การค้นหาและไฮไลท์ HTML กับ GroupDocs?
@@ -132,21 +126,17 @@ GroupDocs.Search ทำดัชนีเอกสารในโครงสร
 เพื่อเริ่มใช้ GroupDocs.Redaction ในโครงการของคุณ คุณสามารถติดตั้งผ่านผู้จัดการแพ็กเกจต่าง ๆ ได้:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -164,14 +154,12 @@ new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
 
 ### การเริ่มต้นและตั้งค่าพื้นฐาน
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## คู่มือการนำไปใช้
@@ -186,24 +174,20 @@ string query = "\"dapibus diam\" OR lorem";
 
 **1. ตั้งค่าลิขสิทธิ์สำหรับ Aspose.HTML**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. ตั้งค่าลิขสิทธิ์สำหรับ GroupDocs.Viewer**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### การตั้งค่าเส้นทางและคำค้นหา
@@ -216,7 +200,6 @@ FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first docu
 
 **1. กำหนดเส้นทางฐาน**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -225,7 +208,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **คำอธิบาย**: การจัดระเบียบเส้นทางช่วยให้การบูรณาการคุณลักษณะการค้นหาและการไฮไลท์ทำได้อย่างราบรื่น
@@ -344,8 +326,3 @@ A: มี, พจนานุกรมหลายภาษาได้รับ
 - [เชี่ยวชาญ GroupDocs.Redaction .NET: การสร้างดัชนีอย่างมีประสิทธิภาพและการจัดการ Alias สำหรับการค้นหาเอกสารขั้นสูง](/search/net/indexing/groupdocs-redaction-net-index-alias-management/)
 - [นำ GroupDocs.Redaction .NET ไปใช้สำหรับการจัดการ Document Finder และการไฮไลท์](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [เชี่ยวชาญ GroupDocs.Redaction .NET: การตั้งค่าและการจัดการเหตุการณ์สำหรับการจัดการเอกสารอย่างปลอดภัย](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

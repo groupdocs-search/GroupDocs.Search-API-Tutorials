@@ -106,13 +106,11 @@ Você pode adicionar **GroupDocs.Redaction** ao seu projeto usando qualquer um d
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -129,12 +127,10 @@ Para começar, você pode adquirir uma licença temporária ou comprar uma. Um t
 `Redactor` é a classe principal usada para carregar um documento e aplicar operações de redigição.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## Recurso 1: Alterar Atributos de Documento
@@ -147,14 +143,12 @@ Modificar atributos de documento permite ajustar como os documentos aparecem nos
 `Index` representa uma coleção pesquisável de documentos e seus metadados associados.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
-```
 ```
 
 #### Etapa 2: Modificar Atributos
@@ -163,7 +157,6 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 
 **Âncora de definição:** *`AttributeChangeBatch` agrupa operações de adição, atualização e exclusão de atributos de documento em uma única transação.*  
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -178,7 +171,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### Etapa 3: Pesquisar com Filtros de Atributo
 
@@ -187,14 +179,12 @@ Você pode filtrar resultados de busca por valores de atributo usando `SearchOpt
 **Resposta direta:** Para buscar documentos que contenham o atributo `Category = "Legal"`, configure `SearchOptions` com um `AttributeFilter` e chame `searcher.Search("contract", options)`. Isso retorna apenas os contratos marcados como legais, reduzindo o ruído dos resultados e **otimizando o desempenho da busca**.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## Recurso 2: Adicionar Atributos Durante a Indexação
@@ -206,7 +196,6 @@ Adicionar atributos no momento da indexação garante que cada documento seja en
 
 **Âncora de definição:** *O evento `DocumentIndexed` dispara toda vez que um documento é adicionado ao índice com sucesso, permitindo a execução de lógica personalizada.*  
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -220,7 +209,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Etapa 2: Configurar e Executar Busca
 
@@ -229,14 +217,12 @@ Após os atributos serem anexados, você pode buscar usando esses novos campos.
 **Resposta direta:** Use `SearchOptions` com `AttributeFilter` para consultar os atributos recém‑adicionados, por exemplo `AttributeFilter("Department", "Finance")`. Isso retorna apenas arquivos relacionados a finanças, demonstrando **como indexar atributos** para resultados mais rápidos e relevantes.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Aplicações Práticas

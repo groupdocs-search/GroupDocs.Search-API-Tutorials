@@ -106,13 +106,11 @@ GroupDocs.Redaction поддерживает **более 50 форматов ф
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -129,12 +127,10 @@ Install-Package GroupDocs.Redaction
 `Redactor` — основной класс, используемый для загрузки документа и применения операций редактирования.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## Функция 1: Изменение атрибутов документа
@@ -147,14 +143,12 @@ Redactor redactor = new Redactor("path/to/document.pdf");
 `Index` представляет собой коллекцию документов, доступных для поиска, и их сопутствующие метаданные.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
-```
 ```
 
 #### Шаг 2: Изменение атрибутов
@@ -163,7 +157,6 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 
 **Определение:** *`AttributeChangeBatch` группирует операции добавления, обновления и удаления атрибутов документа в одной транзакции.*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -178,7 +171,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### Шаг 3: Поиск с фильтрами по атрибутам
 
@@ -187,14 +179,12 @@ index.ChangeAttributes(batch);
 **Прямой ответ:** Чтобы найти документы, содержащие атрибут `Category = "Legal"`, настройте `SearchOptions` с `AttributeFilter` и вызовите `searcher.Search("contract", options)`. Это вернёт только юридически помеченные контракты, уменьшив шум в результатах и **оптимизируя производительность поиска**.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## Функция 2: Добавление атрибутов во время индексации
@@ -206,7 +196,6 @@ SearchResult result = index.Search(query, options);
 
 **Определение:** *Событие `DocumentIndexed` срабатывает каждый раз, когда документ успешно добавлен в индекс, позволяя выполнить пользовательскую логику.*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -220,7 +209,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Шаг 2: Настройка и выполнение поиска
 
@@ -229,14 +217,12 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 **Прямой ответ:** Используйте `SearchOptions` с `AttributeFilter` для запроса недавно добавленных атрибутов, например `AttributeFilter("Department", "Finance")`. Это вернёт только файлы, связанные с финансами, демонстрируя **как индексировать атрибуты** для более быстрых и релевантных результатов.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Практические применения

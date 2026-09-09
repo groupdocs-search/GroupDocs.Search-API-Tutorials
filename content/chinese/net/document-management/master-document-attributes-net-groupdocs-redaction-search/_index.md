@@ -105,13 +105,11 @@ GroupDocs.Redaction 支持**50 多种文件格式**（PDF、DOCX、XLSX、PPTX�
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet 包管理器 UI**  
@@ -129,12 +127,10 @@ Install-Package GroupDocs.Redaction
 `Redactor` 是用于加载文档并执行编辑操作的主要类。
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## 功能 1：更改文档属性
@@ -147,14 +143,12 @@ Redactor redactor = new Redactor("path/to/document.pdf");
 `Index` 代表一个可搜索的文档集合及其关联的元数据。
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
-```
 ```
 
 #### 步骤 2：修改属性
@@ -163,7 +157,6 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 
 **定义锚点：** *`AttributeChangeBatch` 在单个事务中批量添加、更新和删除文档属性。*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -178,7 +171,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### 步骤 3：使用属性过滤进行搜索
 
@@ -187,14 +179,12 @@ index.ChangeAttributes(batch);
 **直接答案：** 要搜索包含属性 `Category = "Legal"` 的文档，请使用 `AttributeFilter` 配置 `SearchOptions` 并调用 `searcher.Search("contract", options)`。这仅返回已标记为法律的合同，减少结果噪声并**优化搜索性能**。
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## 功能 2：在索引期间添加属性
@@ -206,7 +196,6 @@ SearchResult result = index.Search(query, options);
 
 **定义锚点：** *`DocumentIndexed` 事件在每次文档成功添加到索引时触发，允许自定义逻辑运行。*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -220,7 +209,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### 步骤 2：配置并执行搜索
 
@@ -229,14 +217,12 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 **直接答案：** 使用带有 `AttributeFilter` 的 `SearchOptions` 查询新添加的属性，例如 `AttributeFilter("Department", "Finance")`。这仅返回与财务相关的文件，演示了**如何索引属性**以获得更快、更相关的结果。
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## 实际应用

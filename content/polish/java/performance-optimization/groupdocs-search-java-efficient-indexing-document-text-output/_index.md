@@ -300,11 +300,6 @@ You now have a complete, production‑ready workflow for **jak utworzyć indeks*
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Powiązane samouczki
 
 - [Dodaj dokumenty do indeksu – Przewodnik GroupDocs.Search Java](/search/java/advanced-features/)

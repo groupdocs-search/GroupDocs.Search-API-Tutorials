@@ -90,23 +90,19 @@ With practical examples and step-by-step instructions, you'll be equipped to str
 
 The `License` class registers a license file with the GroupDocs SDK. Load your license file with the `License` class and call `SetLicense` before any other SDK call. This unlocks the full feature set, removes evaluation watermarks, and activates performance optimizations. By loading the license early, the SDK can apply entitlement checks for every subsequent operation, ensuring that all redaction, search, and rendering features work without restrictions.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## How to set license for Aspose.HTML?
 
 The `License` class in Aspose.HTML registers the product license and disables trial limitations. Instantiate Aspose’s `License` object and point it at the `.lic` file. This ensures that all Aspose.HTML rendering functions run without trial warnings and that premium rendering options such as CSS support and advanced layout engines are available.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Explanation**: `License.SetLicense` loads the license file, unlocking all features.
@@ -115,12 +111,10 @@ new License().SetLicense(licensePath);
 
 The `License` class for GroupDocs.Viewer registers the viewer license, enabling high‑fidelity rendering of PDFs, DOCX, and other formats to HTML without watermarks. Create a `License` instance for GroupDocs.Viewer and call `SetLicense`. This step is required if you intend to render documents to HTML with full fidelity.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## Why use search and highlight html with GroupDocs?
@@ -134,21 +128,17 @@ GroupDocs.Search indexes documents in a lightweight, read‑only structure that 
 To start using GroupDocs.Redaction in your project, you can install it via different package managers:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -166,14 +156,12 @@ For detailed licensing terms, see the [GroupDocs Documentation](https://docs.gro
 
 ### Basic initialization and setup
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Implementation guide
@@ -188,24 +176,20 @@ Setting licenses ensures you can leverage all features of Aspose.HTML and GroupD
 
 **1. Set license for Aspose.HTML**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. Set license for GroupDocs.Viewer**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### Setting up paths and query
@@ -218,7 +202,6 @@ Define paths for your documents and prepare a search query to locate specific co
 
 **1. Define base paths**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -227,7 +210,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **Explanation**: Organizing paths ensures smooth integration of search and highlighting features.
@@ -348,8 +330,3 @@ You've learned how to set licenses, configure search paths, create indexes, perf
 - [Implement GroupDocs.Redaction .NET for Document Finder Management and Highlighting](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Master GroupDocs.Redaction .NET: Setup & Event Handling for Secure Document Management](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

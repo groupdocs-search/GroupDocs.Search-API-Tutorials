@@ -83,7 +83,6 @@ GroupDocs.Search 支援 **超過 50 種檔案格式**（包括 DOCX、PDF、XLSX
 1. **GroupDocs.Search for Java** – 版本 25.4+。  
 2. **Maven 設定** – 在您的 `pom.xml` 中加入 GroupDocs 儲存庫與相依性：
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -101,7 +100,6 @@ GroupDocs.Search 支援 **超過 50 種檔案格式**（包括 DOCX、PDF、XLSX
     </dependency>
 </dependencies>
 ```
-```
 
 您也可以直接從 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) 下載最新版本。
 
@@ -116,7 +114,6 @@ GroupDocs.Search 支援 **超過 50 種檔案格式**（包括 DOCX、PDF、XLSX
 ## 如何設定 GroupDocs.Search for Java？
 載入 GroupDocs.Search 函式庫，指向索引的資料夾，並可選擇套用授權。此準備僅需幾行程式碼，即可確保引擎能有效索引與查詢文件，並以最小記憶體開銷處理大量檔案。`Index` 類別代表儲存在磁碟上的可搜尋索引，並提供加入文件與查詢的相關方法。
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -130,12 +127,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## 如何建立與管理搜尋索引？
 建立新的索引資料夾，然後從來源目錄填入文件。`SearchIndex` 類別是核心元件，代表記憶體與磁碟上的索引，讓您能在不重新建構整個結構的情況下加入、刪除或更新文件。
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -143,17 +138,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **目的**：在指定目錄中初始化新的搜尋索引。
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **說明**：將 `documentsFolder` 中的所有文件加入新建立的索引。此步驟對於填充可搜尋內容的索引至關重要。
@@ -161,13 +153,11 @@ index.add(documentsFolder);
 ## 如何設定自訂詞形提供者？
 自訂詞形提供者告訴引擎如何處理詞彙的不同語法變形（例如 “run”、 “running”、 “ran”）。註冊這些變形後，搜尋引擎即可將查詢匹配至所有相關形式，顯著提升使用者輸入任何形態變化詞彙時的相關性。
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **目的**：透過了解與管理詞彙的不同語法變形來增強搜尋，提升搜尋相關性。
@@ -175,7 +165,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 ## 如何啟用詞形搜尋選項？
 `SearchOptions` 讓您切換模糊匹配、大小寫敏感度與詞形處理等功能。啟用詞形旗標可確保引擎將查詢展開至所有已註冊的形式，提供更自然的搜尋行為與更高的召回率，同時不犧牲精確度。`SearchOptions` 類別設定查詢的處理方式，例如啟用詞形展開或模糊匹配。
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -184,14 +173,12 @@ import com.groupdocs.search.options.*;
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
 ```
-```
 
 - **說明**：此設定允許搜尋辨識不同的詞形，使搜尋更直觀且完整。
 
 ## 如何使用詞形設定執行搜尋？
 定義查詢字串，並使用先前設定的 `SearchOptions` 執行搜尋。引擎會自動將查詢展開至所有匹配的詞形，返回涵蓋搜尋詞彙每個形態變化的結果，提升使用者滿意度。`SearchResult` 物件包含查詢返回的命中結果，包括匹配的片段與相關性分數。
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -202,7 +189,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **目的**：執行考慮詞彙 “mrs” 各種語法變形的搜尋，提升搜尋精確度。

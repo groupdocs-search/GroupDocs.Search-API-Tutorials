@@ -84,7 +84,6 @@ GroupDocs.Search stöder **50+ filformat** (inklusive DOCX, PDF, XLSX, PPTX, HTM
 1. **GroupDocs.Search för Java** – version 25.4+.  
 2. **Maven Configuration** – lägg till GroupDocs‑förrådet och beroendet i din `pom.xml`:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ GroupDocs.Search stöder **50+ filformat** (inklusive DOCX, PDF, XLSX, PPTX, HTM
     </dependency>
 </dependencies>
 ```
-```
 
 Du kan också ladda ner den senaste versionen direkt från [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -119,7 +117,6 @@ Läs in GroupDocs.Search‑biblioteket, peka det på en mapp för indexet och ap
 
 `Index`‑klassen representerar ett sökbart index lagrat på disk och tillhandahåller metoder för att lägga till dokument och söka i dem.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -133,12 +130,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Hur man skapar och hanterar ett sökindex?
 Skapa en ny indexmapp och fyll den sedan med dokument från en källkatalog. `SearchIndex`‑klassen är kärnkomponenten som representerar indexet i minnet och på disk, vilket låter dig lägga till, ta bort eller uppdatera dokument utan att bygga om hela strukturen varje gång.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -146,17 +141,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Syfte**: Initierar ett nytt sökindex i den angivna katalogen.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Förklaring**: Lägger till alla dokument från `documentsFolder` i ditt nyss skapade index. Detta steg är avgörande för att fylla indexet med sökbart innehåll.
@@ -164,13 +156,11 @@ index.add(documentsFolder);
 ## Hur man konfigurerar en anpassad ordformsleverantör?
 En anpassad ordformsleverantör talar om för motorn hur man hanterar olika grammatiska varianter av ett begrepp (t.ex. “run”, “running”, “ran”). Genom att registrera dessa varianter kan sökmotorn matcha frågor mot alla relevanta former, vilket dramatiskt förbättrar relevansen för användare som skriver någon morfologisk version av ett ord.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Syfte**: Förbättrar sökningen genom att förstå och hantera olika grammatiska varianter av ord, vilket ökar sökrelevansen.
@@ -180,7 +170,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 `SearchOptions`‑klassen konfigurerar hur frågor bearbetas, t.ex. genom att aktivera expansion av ordformer eller fuzzy‑matchning.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -188,7 +177,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Förklaring**: Denna konfiguration gör att sökningen kan känna igen olika ordformer, vilket gör den mer intuitiv och omfattande.
@@ -198,7 +186,6 @@ Definiera en frågesträng och utför sökningen med de tidigare konfigurerade `
 
 `SearchResult`‑objektet innehåller träffarna som returneras av en fråga, inklusive matchade fragment och relevanspoäng.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -209,7 +196,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Syfte**: Utför en sökning som tar hänsyn till olika grammatiska varianter av ordet “mrs”, vilket förbättrar sökprecisionen.

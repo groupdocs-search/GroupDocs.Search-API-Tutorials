@@ -84,7 +84,6 @@ GroupDocs.Search prend en charge **plus de 50 formats de fichiers** (y compris D
 1. **GroupDocs.Search for Java** – version 25.4+.  
 2. **Configuration Maven** – ajoutez le dépôt GroupDocs et la dépendance à votre `pom.xml` :
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ GroupDocs.Search prend en charge **plus de 50 formats de fichiers** (y compris D
     </dependency>
 </dependencies>
 ```
-```
 
 Vous pouvez également télécharger la dernière version directement depuis [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -119,7 +117,6 @@ Chargez la bibliothèque GroupDocs.Search, pointez‑la vers un dossier pour l'i
 
 La classe `Index` représente un index interrogeable stocké sur disque et fournit des méthodes pour ajouter des documents et les interroger.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -133,12 +130,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Comment créer et gérer un index de recherche ?
 Créez un nouveau dossier d'index, puis remplissez‑le avec des documents provenant d'un répertoire source. La classe `SearchIndex` est le composant central qui représente l'index en mémoire et sur disque, vous permettant d'ajouter, de supprimer ou de mettre à jour des documents sans reconstruire toute la structure à chaque fois.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -146,17 +141,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Objectif** : Initialise un nouvel index de recherche dans le répertoire spécifié.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Explication** : Ajoute tous les documents de `documentsFolder` à votre index nouvellement créé. Cette étape est cruciale pour peupler l'index avec du contenu interrogeable.
@@ -164,13 +156,11 @@ index.add(documentsFolder);
 ## Comment configurer un fournisseur de formes de mots personnalisé ?
 Un fournisseur de formes de mots personnalisé indique au moteur comment traiter les différentes variations grammaticales d'un terme (par ex., « run », « running », « ran »). En enregistrant ces variations, le moteur de recherche peut faire correspondre les requêtes à toutes les formes pertinentes, améliorant ainsi de façon spectaculaire la pertinence pour les utilisateurs qui saisissent n'importe quelle version morphologique d'un mot.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Objectif** : Améliore la recherche en comprenant et en gérant les différentes variations grammaticales des mots, augmentant la pertinence des recherches.
@@ -180,7 +170,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 La classe `SearchOptions` configure la façon dont les requêtes sont traitées, comme l'activation de l'expansion des formes de mots ou de la correspondance floue.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -188,7 +177,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Explication** : Cette configuration permet à la recherche de reconnaître différentes formes de mots, la rendant plus intuitive et complète.
@@ -198,7 +186,6 @@ Définissez une chaîne de requête et exécutez la recherche en utilisant les `
 
 L'objet `SearchResult` contient les correspondances renvoyées par une requête, y compris les fragments correspondants et les scores de pertinence.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -209,7 +196,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Objectif** : Exécutee une recherche qui prend en compte les différentes variations grammaticales du mot « mrs », améliorant la précision de la recherche.

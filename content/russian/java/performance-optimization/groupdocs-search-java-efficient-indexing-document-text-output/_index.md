@@ -297,11 +297,6 @@ public class FeatureOutputToStructure {
 **Тестировано с:** GroupDocs.Search 25.4 for Java  
 **Автор:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Связанные руководства
 
 - [Добавить документы в индекс — Руководство GroupDocs.Search Java](/search/java/advanced-features/)

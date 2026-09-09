@@ -297,11 +297,6 @@ You now have a complete, production‑ready workflow for **how to create index**
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Related Tutorials
 
 - [Add Documents to Index – GroupDocs.Search Java Guide](/search/java/advanced-features/)

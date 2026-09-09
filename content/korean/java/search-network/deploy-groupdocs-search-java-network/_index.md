@@ -258,11 +258,6 @@ A: 물론입니다. GroupDocs.Search는 실시간 인덱싱 API를 제공하여 
 **테스트 환경:** GroupDocs.Search 25.4 for Java  
 **작성자:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## 관련 튜토리얼
 
 - [GroupDocs.Search for Java 튜토리얼 및 예제](/search/net/)

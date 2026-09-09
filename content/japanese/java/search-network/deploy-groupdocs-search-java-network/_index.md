@@ -257,11 +257,6 @@ A: もちろんです。GroupDocs.Search はリアルタイムインデックス
 **テスト環境:** GroupDocs.Search 25.4 for Java  
 **作者:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## 関連チュートリアル
 
 - [GroupDocs.Search for Java のチュートリアルと例](/search/net/)

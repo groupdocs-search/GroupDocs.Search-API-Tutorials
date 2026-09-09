@@ -124,14 +124,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **팁:** 포맷 없이 일반 텍스트가 필요하면 `setUseRawTextExtraction(true)`를 설정합니다.
@@ -148,7 +146,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## 추출된 데이터 역직렬화 방법
 
@@ -160,7 +157,6 @@ byte[] serializedArray = outputStream.toByteArray();
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## 문서 인덱스 생성 방법
@@ -174,7 +170,6 @@ ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## 인덱스에 데이터 추가 및 검색 수행 방법
 
@@ -187,13 +182,11 @@ com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **전문가 팁:** `index.search("your query", SearchOptions)`를 사용해 관련성 순위를 미세 조정합니다.

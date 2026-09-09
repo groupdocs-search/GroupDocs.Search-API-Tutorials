@@ -124,14 +124,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **نصيحة:** اضبط `setUseRawTextExtraction(true)` إذا كنت تحتاج نصًا عاديًا بدون تنسيق.
@@ -148,7 +146,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## كيفية إلغاء تسلسل البيانات المستخرجة
 
@@ -160,7 +157,6 @@ byte[] serializedArray = outputStream.toByteArray();
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## كيفية إنشاء فهرس المستند
@@ -174,7 +170,6 @@ ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## كيفية إضافة البيانات إلى الفهرس وإجراء بحث
 
@@ -187,13 +182,11 @@ com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **نصيحة احترافية:** استخدم `index.search("your query", SearchOptions)` لضبط ترتيب الصلة بدقة.

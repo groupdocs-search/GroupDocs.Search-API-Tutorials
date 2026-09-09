@@ -300,11 +300,6 @@ Bạn giờ đã có một quy trình hoàn chỉnh, sẵn sàng cho môi trư�
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Hướng dẫn liên quan
 
 - [Thêm tài liệu vào chỉ mục – Hướng dẫn GroupDocs.Search Java](/search/java/advanced-features/)

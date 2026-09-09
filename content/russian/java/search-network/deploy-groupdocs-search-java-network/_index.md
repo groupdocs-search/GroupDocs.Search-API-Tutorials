@@ -257,11 +257,6 @@ A: Absolutely. GroupDocs.Search offers real‑time indexing APIs that immediatel
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Связанные руководства
 
 - [Tutorials and Examples of GroupDocs.Search for Java](/search/net/)

@@ -86,23 +86,19 @@ weight: 1
 
 `License` クラスは GroupDocs SDK にライセンスファイルを登録します。`License` クラスでライセンスファイルをロードし、他の SDK 呼び出しの前に `SetLicense` を呼び出します。これによりフル機能が有効化され、評価用の透かしが除去され、パフォーマンス最適化が有効になります。ライセンスを早期にロードすることで、SDK は以降のすべての操作に対して権利チェックを適用でき、リダクション、検索、レンダリング機能が制限なく動作します。
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Aspose.HTML のライセンス設定方法
 
 Aspose.HTML の `License` クラスは製品ライセンスを登録し、トライアル制限を無効化します。Aspose の `License` オブジェクトをインスタンス化し、`.lic` ファイルを指すように設定します。これにより、すべての Aspose.HTML レンダリング機能がトライアル警告なしで実行でき、CSS サポートや高度なレイアウトエンジンといったプレミアムオプションが利用可能になります。
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **説明**: `License.SetLicense` がライセンスファイルをロードし、すべての機能を解放します。
@@ -111,12 +107,10 @@ new License().SetLicense(licensePath);
 
 GroupDocs.Viewer 用の `License` クラスはビューアのライセンスを登録し、PDF、DOCX などのフォーマットを HTML に変換する際に透かしなしで高忠実度のレンダリングを可能にします。GroupDocs.Viewer 用に `License` インスタンスを作成し、`SetLicense` を呼び出します。この手順は、ドキュメントをフル忠実度で HTML に変換したい場合に必須です。
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## なぜ GroupDocs で検索と HTML のハイライトを使用するのか
@@ -130,21 +124,17 @@ GroupDocs.Search は軽量な読み取り専用構造でドキュメントをイ
 プロジェクトで GroupDocs.Redaction を使用し始めるには、以下のパッケージマネージャーからインストールできます。
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -162,14 +152,12 @@ GroupDocs.Redaction のフル機能を利用する前にライセンスを取得
 
 ### 基本的な初期化と設定
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## 実装ガイド
@@ -184,24 +172,20 @@ Aspose.HTML と GroupDocs.Viewer のライセンスを設定することで、�
 
 **1. Aspose.HTML のライセンスを設定**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. GroupDocs.Viewer のライセンスを設定**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### パスとクエリの設定
@@ -214,7 +198,6 @@ FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first docu
 
 **1. 基本パスを定義**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -223,7 +206,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **説明**: パスを整理することで、検索とハイライト機能の統合がスムーズになります。
@@ -343,8 +325,3 @@ GroupDocs.Redaction を .NET で使用するためのライセンス設定、検
 - [Mastering GroupDocs.Redaction .NET: Efficient Index Creation and Alias Management for Advanced Document Search](/search/net/indexing/groupdocs-redaction-net-index-alias-management/)  
 - [Implement GroupDocs.Redaction .NET for Document Finder Management and Highlighting](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)  
 - [Master GroupDocs.Redaction .NET: Setup & Event Handling for Secure Document Management](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

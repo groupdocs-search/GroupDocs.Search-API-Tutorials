@@ -89,23 +89,19 @@ Met praktische voorbeelden en stapsgewijze instructies ben je in staat om je doc
 
 De `License`‑klasse registreert een licentiebestand bij de GroupDocs SDK. Laad je licentiebestand met de `License`‑klasse en roep `SetLicense` aan vóór een andere SDK‑aanroep. Dit ontgrendelt de volledige functionaliteit, verwijdert evaluatiewatermerken en activeert prestatie‑optimalisaties. Door de licentie vroeg te laden, kan de SDK entitlements‑controles toepassen voor elke volgende bewerking, zodat alle redacties, zoek‑ en renderfuncties zonder beperkingen werken.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Hoe een licentie instellen voor Aspose.HTML?
 
 De `License`‑klasse in Aspose.HTML registreert de productlicentie en schakelt proefbeperkingen uit. Instantieer Aspose’s `License`‑object en wijs het naar het `.lic`‑bestand. Dit zorgt ervoor dat alle Aspose.HTML‑renderfuncties zonder proefwaarschuwingen draaien en dat premium renderopties zoals CSS‑ondersteuning en geavanceerde layout‑engines beschikbaar zijn.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Uitleg**: `License.SetLicense` laadt het licentiebestand en ontgrendelt alle functies.
@@ -114,12 +110,10 @@ new License().SetLicense(licensePath);
 
 De `License`‑klasse voor GroupDocs.Viewer registreert de viewer‑licentie, waardoor high‑fidelity rendering van PDF’s, DOCX en andere formaten naar HTML zonder watermerken mogelijk is. Maak een `License`‑instance voor GroupDocs.Viewer en roep `SetLicense` aan. Deze stap is vereist als je documenten met volledige fideliteit naar HTML wilt renderen.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## Waarom zoeken en HTML markeren met GroupDocs gebruiken?
@@ -133,21 +127,17 @@ GroupDocs.Search indexeert documenten in een lichtgewicht, alleen‑lezen struct
 Om GroupDocs.Redaction in je project te gebruiken, kun je het installeren via verschillende pakketbeheerders:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -165,14 +155,12 @@ Voor gedetailleerde licentievoorwaarden, zie de [GroupDocs Documentatie](https:/
 
 ### Basisinitialisatie en -configuratie
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Implementatiegids
@@ -187,24 +175,20 @@ Het instellen van licenties zorgt ervoor dat je alle functies van Aspose.HTML en
 
 **1. Set license for Aspose.HTML**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. Set license for GroupDocs.Viewer**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### Paden en query instellen
@@ -217,7 +201,6 @@ Definieer paden voor je documenten en bereid een zoekquery voor om specifieke in
 
 **1. Define base paths**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -226,7 +209,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **Uitleg**: Het organiseren van paden zorgt voor een soepele integratie van zoek- en markeerfuncties.
@@ -347,8 +329,3 @@ Je hebt geleerd hoe je licenties instelt, zoekpaden configureert, indexen maakt,
 - [GroupDocs.Redaction .NET implementeren voor Document Finder-beheer en markering](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [GroupDocs.Redaction .NET onder de knie krijgen: Installatie & gebeurtenisafhandeling voor veilig documentbeheer](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

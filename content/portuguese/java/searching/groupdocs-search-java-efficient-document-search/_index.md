@@ -85,7 +85,6 @@ GroupDocs.Search suporta **mais de 50 formatos de arquivo** (incluindo DOCX, PDF
 1. **GroupDocs.Search for Java** – versão 25.4+.  
 2. **Maven Configuration** – adicione o repositório GroupDocs e a dependência ao seu `pom.xml`:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -103,7 +102,6 @@ GroupDocs.Search suporta **mais de 50 formatos de arquivo** (incluindo DOCX, PDF
     </dependency>
 </dependencies>
 ```
-```
 
 Você também pode baixar a versão mais recente diretamente de [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -120,7 +118,6 @@ Carregue a biblioteca GroupDocs.Search, aponte‑a para uma pasta do índice e, 
 
 A classe `Index` representa um índice pesquisável armazenado em disco e fornece métodos para adicionar documentos e consultá‑los.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -134,12 +131,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Como criar e gerenciar um índice de busca?
 Crie uma nova pasta de índice e, em seguida, preencha‑a com documentos de um diretório de origem. A classe `SearchIndex` é o componente central que representa o índice na memória e no disco, permitindo adicionar, excluir ou atualizar documentos sem reconstruir toda a estrutura a cada vez.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -147,17 +142,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Propósito**: Inicializa um novo índice de busca no diretório especificado.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Explicação**: Adiciona todos os documentos de `documentsFolder` ao seu índice recém‑criado. Esta etapa é crucial para popular o índice com conteúdo pesquisável.
@@ -165,13 +157,11 @@ index.add(documentsFolder);
 ## Como configurar um provedor personalizado de formas de palavras?
 Um provedor personalizado de formas de palavras informa ao mecanismo como tratar diferentes variações gramaticais de um termo (por exemplo, “run”, “running”, “ran”). Ao registrar essas variações, o mecanismo de busca pode corresponder consultas a todas as formas relevantes, melhorando drasticamente a relevância para usuários que digitam qualquer versão morfológica de uma palavra.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Propósito**: Melhora a busca ao compreender e gerenciar diferentes variações gramaticais de palavras, aprimorando a relevância da pesquisa.
@@ -181,7 +171,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 A classe `SearchOptions` configura como as consultas são processadas, como habilitar a expansão de formas de palavras ou a correspondência difusa.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -189,7 +178,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Explicação**: Esta configuração permite que a busca reconheça diferentes formas de palavras, tornando‑a mais intuitiva e abrangente.
@@ -199,7 +187,6 @@ Defina uma string de consulta e execute a busca usando o `SearchOptions` configu
 
 O objeto `SearchResult` contém os resultados retornados por uma consulta, incluindo fragmentos correspondentes e pontuações de relevância.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -210,7 +197,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Propósito**: Executa uma busca que considera diferentes variações gramaticais da palavra “mrs”, aprimorando a precisão da busca.

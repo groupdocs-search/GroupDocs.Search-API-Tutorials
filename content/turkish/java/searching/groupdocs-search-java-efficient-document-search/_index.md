@@ -84,7 +84,6 @@ GroupDocs.Search **50+ dosya formatını** (DOCX, PDF, XLSX, PPTX, HTML ve yayg�
 1. **GroupDocs.Search for Java** – sürüm 25.4+.  
 2. **Maven Configuration** – GroupDocs deposunu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ GroupDocs.Search **50+ dosya formatını** (DOCX, PDF, XLSX, PPTX, HTML ve yayg�
     </dependency>
 </dependencies>
 ```
-```
 
 En son sürümü doğrudan [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden de indirebilirsiniz.
 
@@ -119,7 +117,6 @@ GroupDocs.Search kütüphanesini yükleyin, dizin için bir klasöre yönlendiri
 
 `Index` sınıfı, diskte depolanan aranabilir bir dizini temsil eder ve belgelere ekleme ve sorgulama yöntemleri sağlar.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -133,12 +130,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Arama dizini nasıl oluşturulur ve yönetilir?
 Yeni bir dizin klasörü oluşturun, ardından kaynak bir klasörden belgelerle doldurun. `SearchIndex` sınıfı, bellekte ve diskte dizini temsil eden temel bileşendir; her seferinde tüm yapıyı yeniden oluşturmak zorunda kalmadan belgelere ekleme, silme veya güncelleme yapmanızı sağlar.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -146,17 +141,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Purpose**: Belirtilen dizinde yeni bir arama dizini başlatır.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Explanation**: `documentsFolder` içindeki tüm belgeleri yeni oluşturduğunuz dizine ekler. Bu adım, dizini aranabilir içerikle doldurmak için kritiktir.
@@ -164,13 +156,11 @@ index.add(documentsFolder);
 ## Özel bir kelime biçimi sağlayıcı nasıl yapılandırılır?
 Özel bir kelime biçimi sağlayıcı, motorun bir terimin farklı dilbilgisel varyasyonlarını (ör. “run”, “running”, “ran”) nasıl ele alacağını belirler. Bu varyasyonları kaydederek, arama motoru sorguları tüm ilgili biçimlerle eşleştirebilir ve bir kelimenin herhangi bir morfolojik versiyonunu yazan kullanıcılar için alaka düzeyini büyük ölçüde artırır.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Purpose**: Kelimelerin farklı dilbilgisel varyasyonlarını anlayarak ve yöneterek aramayı geliştirir, arama alakasını artırır.
@@ -180,7 +170,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 `SearchOptions` sınıfı, sorguların nasıl işlendiğini yapılandırır; örneğin kelime‑biçimi genişletme veya bulanık eşleşmeyi etkinleştirir.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -188,7 +177,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Explanation**: Bu yapılandırma, aramanın farklı kelime biçimlerini tanımasını sağlar, böylece daha sezgisel ve kapsamlı olur.
@@ -198,7 +186,6 @@ Bir sorgu dizesi tanımlayın ve daha önce yapılandırılmış `SearchOptions`
 
 `SearchResult` nesnesi, sorgu tarafından döndürülen sonuçları, eşleşen parçaları ve alaka puanlarını içerir.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -209,7 +196,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Purpose**: “mrs” kelimesinin farklı dilbilgisel varyasyonlarını dikkate alan bir arama gerçekleştirir, arama doğruluğunu artırır.

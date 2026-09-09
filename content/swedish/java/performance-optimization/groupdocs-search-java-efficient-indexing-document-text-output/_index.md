@@ -300,11 +300,6 @@ Du har nu ett komplett, produktionsklart arbetsflöde för **how to create index
 **Testat med:** GroupDocs.Search 25.4 for Java  
 **Författare:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Relaterade handledningar
 
 - [Lägg till dokument i index – GroupDocs.Search Java‑guide](/search/java/advanced-features/)

@@ -124,14 +124,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **เคล็ดลับ:** ตั้งค่า `setUseRawTextExtraction(true)` หากคุณต้องการข้อความ plain โดยไม่มีการจัดรูปแบบ.
@@ -148,7 +146,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## วิธีทำ deserialization ข้อมูลที่สกัด
 
@@ -160,7 +157,6 @@ byte[] serializedArray = outputStream.toByteArray();
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## วิธีสร้างดัชนีเอกสาร
@@ -174,7 +170,6 @@ ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## วิธีเพิ่มข้อมูลลงดัชนีและทำการค้นหา
 
@@ -187,13 +182,11 @@ com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **เคล็ดลับระดับมืออาชีพ:** ใช้ `index.search("your query", SearchOptions)` เพื่อปรับแต่งการจัดอันดับความเกี่ยวข้อง.

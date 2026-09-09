@@ -123,14 +123,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **İpucu:** Biçimlendirme olmadan düz metin gerekiyorsa `setUseRawTextExtraction(true)` ayarlayın.
@@ -146,7 +144,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## Çıkarılan veriyi nasıl seriden çıkarırsınız
 Dizini oluşturmaya hazır olduğunuzda, önceden depolanmış bayt dizisini orijinal çıkarma nesnesine geri seriden çıkarın.
@@ -157,7 +154,6 @@ Dizini oluşturmaya hazır olduğunuzda, önceden depolanmış bayt dizisini ori
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## Belge dizini nasıl oluşturulur
@@ -170,7 +166,6 @@ Bir `Index` nesnesi oluşturun, depolama klasörünü belirtin ve terim vektörl
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## Veriyi dizine ekleme ve arama yapma
 Seriden çıkarılan çıkarma sonucunu `index.add()` ile dizine ekleyin, ardından anında sonuçlar için `index.search()` kullanarak sorgu yapın.
@@ -182,13 +177,11 @@ Seriden çıkarılan çıkarma sonucunu `index.add()` ile dizine ekleyin, ardın
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **Pro ipucu:** Alaka sıralamasını ince ayarlamak için `index.search("your query", SearchOptions)` kullanın.

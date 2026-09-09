@@ -105,13 +105,11 @@ GroupDocs.Redaction は **50 以上のファイル形式**（PDF、DOCX、XLSX�
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **パッケージ マネージャー**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 - **NuGet パッケージ マネージャー UI**  
@@ -129,12 +127,10 @@ Install-Package GroupDocs.Redaction
 `Redactor` はドキュメントを読み込み、赤字（マスク）操作を適用するための主要クラスです。
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## 機能 1: ドキュメント属性の変更
@@ -147,14 +143,12 @@ Redactor redactor = new Redactor("path/to/document.pdf");
 `Index` は検索可能なドキュメントとそれに関連するメタデータのコレクションを表します。
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
-```
 ```
 
 #### 手順 2: 属性の変更
@@ -163,7 +157,6 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 
 **定義アンカー:** *`AttributeChangeBatch` はドキュメント属性の追加、更新、削除操作を単一のトランザクションでバッチ処理します。*  
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -178,7 +171,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### 手順 3: 属性フィルタで検索
 
@@ -187,14 +179,12 @@ index.ChangeAttributes(batch);
 **直接の回答:** 属性 `Category = "Legal"` を含むドキュメントを検索するには、`SearchOptions` に `AttributeFilter` を設定し、`searcher.Search("contract", options)` を呼び出します。これにより、法的にタグ付けされた契約書のみが返され、結果のノイズが減少し、**検索パフォーマンスが最適化**されます。
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## 機能 2: インデックス作成時に属性を追加
@@ -206,7 +196,6 @@ SearchResult result = index.Search(query, options);
 
 **定義アンカー:** *`DocumentIndexed` イベントはドキュメントがインデックスに正常に追加されるたびに発生し、カスタムロジックを実行できるようにします。*  
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -220,7 +209,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### 手順 2: 検索の構成と実行
 
@@ -229,14 +217,12 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 **直接の回答:** `SearchOptions` と `AttributeFilter` を使用して新しく追加された属性をクエリします。例: `AttributeFilter("Department", "Finance")`。これにより、財務関連のファイルのみが返され、**属性をインデックス化する方法**が示され、より高速で関連性の高い結果が得られます。
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## 実用的な応用例

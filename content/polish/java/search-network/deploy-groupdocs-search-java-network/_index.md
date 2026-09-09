@@ -259,11 +259,6 @@ A: Absolutnie. GroupDocs.Search oferuje API indeksowania w czasie rzeczywistym, 
 **Testowano z:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Powiązane samouczki
 
 - [Samouczki i przykłady GroupDocs.Search for Java](/search/net/)

@@ -85,7 +85,6 @@ weight: 1
 1. **GroupDocs.Search for Java** – έκδοση 25.4+.  
 2. **Διαμόρφωση Maven** – προσθέστε το αποθετήριο GroupDocs και την εξάρτηση στο `pom.xml` σας:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -103,7 +102,6 @@ weight: 1
     </dependency>
 </dependencies>
 ```
-```
 
 Μπορείτε επίσης να κατεβάσετε την τελευταία έκδοση απευθείας από [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -120,7 +118,6 @@ weight: 1
 
 Η κλάση `Index` αντιπροσωπεύει ένα ευρετήριο αναζήτησης αποθηκευμένο στο δίσκο και παρέχει μεθόδους για προσθήκη εγγράφων και ερώτηση.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -134,12 +131,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Πώς να δημιουργήσετε και να διαχειριστείτε ένα ευρετήριο αναζήτησης;
 Δημιουργήστε έναν νέο φάκελο ευρετηρίου, στη συνέχεια γεμίστε τον με έγγραφα από έναν φάκελο προέλευσης. Η κλάση `SearchIndex` είναι το βασικό συστατικό που αντιπροσωπεύει το ευρετήριο στη μνήμη και στο δίσκο, επιτρέποντάς σας να προσθέτετε, διαγράφετε ή ενημερώνετε έγγραφα χωρίς να ξαναχτίζετε ολόκληρη τη δομή κάθε φορά.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -147,17 +142,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Σκοπός**: Αρχικοποιεί ένα νέο ευρετήριο αναζήτησης στον καθορισμένο κατάλογο.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Εξήγηση**: Προσθέτει όλα τα έγγραφα από το `documentsFolder` στο νεοδημιουργημένο ευρετήριό σας. Αυτό το βήμα είναι κρίσιμο για τη γεμίσματος του ευρετηρίου με περιεχόμενο αναζήτησης.
@@ -165,13 +157,11 @@ index.add(documentsFolder);
 ## Πώς να διαμορφώσετε έναν προσαρμοσμένο πάροχο μορφών λέξεων;
 Ένας προσαρμοσμένος πάροχος μορφών λέξεων λέει στη μηχανή πώς να αντιμετωπίζει διαφορετικές γραμματικές παραλλαγές ενός όρου (π.χ., “run”, “running”, “ran”). Καταχωρίζοντας αυτές τις παραλλαγές, η μηχανή αναζήτησης μπορεί να ταιριάξει ερωτήματα με όλες τις σχετικές μορφές, βελτιώνοντας δραματικά τη σχετικότητα για χρήστες που πληκτρολογούν οποιαδήποτε μορφολογική έκδοση μιας λέξης.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Σκοπός**: Βελτιώνει την αναζήτηση κατανοώντας και διαχειριζόμενος διαφορετικές γραμματικές παραλλαγές λέξεων, βελτιώνοντας τη σχετικότητα της αναζήτησης.
@@ -181,7 +171,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 Η κλάση `SearchOptions` διαμορφώνει πώς επεξεργάζονται τα ερωτήματα, όπως η ενεργοποίηση της επέκτασης μορφών λέξεων ή της ασαφούς αντιστοίχισης.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -189,7 +178,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Εξήγηση**: Αυτή η διαμόρφωση επιτρέπει στην αναζήτηση να αναγνωρίζει διαφορετικές μορφές λέξεων, κάνοντάς την πιο διαισθητική και ολοκληρωμένη.
@@ -199,7 +187,6 @@ options.setUseWordFormsSearch(true);
 
 Το αντικείμενο `SearchResult` περιέχει τα αποτελέσματα που επιστρέφει ένα ερώτημα, συμπεριλαμβανομένων των ταιριασμένων αποσπασμάτων και των βαθμολογιών σχετικότητας.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -210,7 +197,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Σκοπός**: Εκτελεί μια αναζήτηση που λαμβάνει υπόψη διαφορετικές γραμματικές παραλλαγές της λέξης “mrs”, βελτιώνοντας την ακρίβεια της αναζήτησης.

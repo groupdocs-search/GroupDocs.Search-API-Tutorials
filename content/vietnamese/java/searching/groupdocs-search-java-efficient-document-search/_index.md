@@ -84,7 +84,6 @@ GroupDocs.Search hỗ trợ **hơn 50 định dạng tệp** (bao gồm DOCX, PD
 1. **GroupDocs.Search for Java** – phiên bản 25.4+.  
 2. **Cấu hình Maven** – thêm repository GroupDocs và phụ thuộc vào file `pom.xml` của bạn:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ GroupDocs.Search hỗ trợ **hơn 50 định dạng tệp** (bao gồm DOCX, PD
     </dependency>
 </dependencies>
 ```
-```
 
 Bạn cũng có thể tải phiên bản mới nhất trực tiếp từ [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -119,7 +117,6 @@ Tải thư viện GroupDocs.Search, chỉ định thư mục cho chỉ mục và
 
 Lớp `Index` đại diện cho một chỉ mục có thể tìm kiếm được lưu trên đĩa và cung cấp các phương thức để thêm tài liệu và truy vấn chúng.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -133,12 +130,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Cách tạo và quản lý một chỉ mục tìm kiếm?
 Tạo một thư mục chỉ mục mới, sau đó điền nó bằng các tài liệu từ thư mục nguồn. Lớp `SearchIndex` là thành phần cốt lõi đại diện cho chỉ mục trong bộ nhớ và trên đĩa, cho phép bạn thêm, xóa hoặc cập nhật tài liệu mà không cần xây dựng lại toàn bộ cấu trúc mỗi lần.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -146,17 +141,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Mục đích**: Khởi tạo một chỉ mục tìm kiếm mới trong thư mục được chỉ định.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Giải thích**: Thêm tất cả các tài liệu từ `documentsFolder` vào chỉ mục mới tạo của bạn. Bước này rất quan trọng để điền chỉ mục với nội dung có thể tìm kiếm.
@@ -164,13 +156,11 @@ index.add(documentsFolder);
 ## Cách cấu hình nhà cung cấp dạng từ tùy chỉnh?
 Một nhà cung cấp dạng từ tùy chỉnh cho engine biết cách xử lý các biến thể ngữ pháp khác nhau của một thuật ngữ (ví dụ: “run”, “running”, “ran”). Bằng cách đăng ký các biến thể này, công cụ tìm kiếm có thể khớp truy vấn với tất cả các dạng liên quan, cải thiện đáng kể độ liên quan cho người dùng nhập bất kỳ dạng hình thái nào của một từ.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Mục đích**: Nâng cao khả năng tìm kiếm bằng cách hiểu và quản lý các biến thể ngữ pháp khác nhau của từ, cải thiện độ liên quan của kết quả tìm kiếm.
@@ -180,7 +170,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 Lớp `SearchOptions` cấu hình cách xử lý các truy vấn, chẳng hạn bật mở rộng dạng từ hoặc khớp mờ.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -188,7 +177,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Giải thích**: Cấu hình này cho phép công cụ tìm kiếm nhận dạng các dạng từ khác nhau, làm cho nó trở nên trực quan và toàn diện hơn.
@@ -198,7 +186,6 @@ Xác định một chuỗi truy vấn và thực hiện tìm kiếm bằng cách
 
 Đối tượng `SearchResult` chứa các kết quả trả về từ một truy vấn, bao gồm các đoạn khớp và điểm độ liên quan.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -209,7 +196,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Mục đích**: Thực hiện một tìm kiếm tính đến các biến thể ngữ pháp khác nhau của từ “mrs”, nâng cao độ chính xác của tìm kiếm.

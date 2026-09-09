@@ -84,7 +84,6 @@ GroupDocs.Search podporuje **více než 50 formátů souborů** (včetně DOCX, 
 1. **GroupDocs.Search pro Java** – verze 25.4+.  
 2. **Maven Configuration** – přidejte repozitář GroupDocs a závislost do svého `pom.xml`:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ GroupDocs.Search podporuje **více než 50 formátů souborů** (včetně DOCX, 
     </dependency>
 </dependencies>
 ```
-```
 
 Můžete také stáhnout nejnovější verzi přímo z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -119,7 +117,6 @@ Načtěte knihovnu GroupDocs.Search, nasměrujte ji na složku pro index a pří
 
 Třída `Index` představuje prohledávatelný index uložený na disku a poskytuje metody pro přidávání dokumentů a jejich dotazování.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -133,12 +130,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Jak vytvořit a spravovat vyhledávací index?
 Vytvořte novou složku pro index a poté ji naplňte dokumenty ze zdrojové složky. Třída `SearchIndex` je jádrovou komponentou, která představuje index v paměti i na disku a umožňuje přidávat, mazat nebo aktualizovat dokumenty bez nutnosti přestavovat celou strukturu při každé změně.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -146,17 +141,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Účel**: Inicializuje nový vyhledávací index ve specifikovaném adresáři.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Vysvětlení**: Přidá všechny dokumenty ze `documentsFolder` do nově vytvořeného indexu. Tento krok je klíčový pro naplnění indexu prohledávatelným obsahem.
@@ -164,13 +156,11 @@ index.add(documentsFolder);
 ## Jak nakonfigurovat vlastní poskytovatel tvarů slov?
 Vlastní poskytovatel tvarů slov říká engine, jak zacházet s různými gramatickými variantami termínu (např. „run“, „running“, „ran“). Registrací těchto variant může vyhledávač přiřadit dotazy ke všem relevantním tvarům, což dramaticky zvyšuje relevanci pro uživatele, kteří zadávají jakoukoli morfologickou verzi slova.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Účel**: Zlepšuje vyhledávání tím, že rozumí a spravuje různé gramatické varianty slov, čímž zvyšuje relevanci výsledků.
@@ -180,7 +170,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 Třída `SearchOptions` konfiguruje, jak jsou dotazy zpracovávány, například povolením rozšíření tvarů slov nebo fuzzy matchingu.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -188,7 +177,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Vysvětlení**: Tato konfigurace umožňuje vyhledávání rozpoznávat různé tvary slov, což činí vyhledávání intuitivnějším a komplexnějším.
@@ -198,7 +186,6 @@ Definujte řetězec dotazu a spusťte vyhledávání pomocí dříve nastavenýc
 
 Objekt `SearchResult` obsahuje zásahy vrácené dotazem, včetně odpovídajících fragmentů a skóre relevance.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -209,7 +196,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Účel**: Provede vyhledávání, které zohledňuje různé gramatické varianty slova „mrs“, čímž zvyšuje přesnost vyhledávání.

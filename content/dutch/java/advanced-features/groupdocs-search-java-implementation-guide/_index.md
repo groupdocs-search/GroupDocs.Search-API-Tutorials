@@ -123,14 +123,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **Tip:** Stel `setUseRawTextExtraction(true)` in als je platte tekst zonder opmaak nodig hebt.
@@ -146,7 +144,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## Hoe geëxtraheerde gegevens deserialiseren
 Wanneer u klaar bent om de index te bouwen, deserialiseert u de eerder opgeslagen byte‑array terug naar het oorspronkelijke extractie‑object.
@@ -157,7 +154,6 @@ De `deserialize`‑methode herstelt de exacte staat van het extractieresultaat, 
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## Hoe een documentindex maken
@@ -170,7 +166,6 @@ De `Index`‑klasse vertegenwoordigt de doorzoekbare container die alle termen, 
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## Hoe gegevens aan de index toevoegen en een zoekopdracht uitvoeren
 Voeg het gedeserialiseerde extractieresultaat toe aan de index met `index.add()`, en voer vervolgens een query uit met `index.search()` voor directe resultaten.
@@ -182,13 +177,11 @@ De `add`‑methode registreert de termen van het document in de index, terwijl `
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **Pro‑tip:** Gebruik `index.search("your query", SearchOptions)` om de relevantierangschikking fijn af te stemmen.

@@ -88,23 +88,19 @@ Con ejemplos prácticos e instrucciones paso a paso, estará equipado para optim
 
 La clase `License` registra un archivo de licencia con el SDK de GroupDocs. Cargue su archivo de licencia con la clase `License` y llame a `SetLicense` antes de cualquier otra llamada al SDK. Esto desbloquea el conjunto completo de funciones, elimina las marcas de agua de evaluación y activa optimizaciones de rendimiento. Al cargar la licencia temprano, el SDK puede aplicar verificaciones de derechos para cada operación posterior, asegurando que todas las funciones de redacción, búsqueda y renderizado funcionen sin restricciones.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Cómo establecer la licencia para Aspose.HTML?
 
 La clase `License` en Aspose.HTML registra la licencia del producto y desactiva las limitaciones de prueba. Instancie el objeto `License` de Aspose y apúntelo al archivo `.lic`. Esto garantiza que todas las funciones de renderizado de Aspose.HTML se ejecuten sin advertencias de prueba y que opciones de renderizado premium como el soporte CSS y motores de diseño avanzados estén disponibles.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Explicación**: `License.SetLicense` carga el archivo de licencia, desbloqueando todas las funciones.
@@ -113,12 +109,10 @@ new License().SetLicense(licensePath);
 
 La clase `License` para GroupDocs.Viewer registra la licencia del visor, permitiendo renderizado de alta fidelidad de PDFs, DOCX y otros formatos a HTML sin marcas de agua. Cree una instancia `License` para GroupDocs.Viewer y llame a `SetLicense`. Este paso es necesario si pretende renderizar documentos a HTML con fidelidad completa.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## ¿Por qué usar búsqueda y resaltado HTML con GroupDocs?
@@ -132,21 +126,17 @@ GroupDocs.Search indexa documentos en una estructura ligera y de solo lectura qu
 Para comenzar a usar GroupDocs.Redaction en su proyecto, puede instalarlo a través de diferentes gestores de paquetes:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Consola del Administrador de Paquetes:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **Interfaz de NuGet Package Manager:**  
@@ -164,14 +154,12 @@ Para obtener términos de licencia detallados, consulte la [GroupDocs Documentat
 
 ### Inicialización y configuración básica
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Guía de implementación
@@ -185,23 +173,19 @@ Configurar licencias garantiza que pueda aprovechar todas las funciones de Aspos
 #### Pasos
 
 **1. Configurar licencia para Aspose.HTML**
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. Configurar licencia para GroupDocs.Viewer**
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### Configuración de rutas y consulta
@@ -213,7 +197,6 @@ Defina rutas para sus documentos y prepare una consulta de búsqueda para locali
 #### Pasos
 
 **1. Definir rutas base**
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -222,7 +205,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **Explicación**: Organizar rutas garantiza una integración fluida de las funciones de búsqueda y resaltado.
@@ -337,8 +319,3 @@ Ha aprendido cómo establecer licencias, configurar rutas de búsqueda, crear í
 - [Dominar GroupDocs.Redaction .NET: Creación eficiente de índices y gestión de alias para búsqueda avanzada de documentos](/search/net/indexing/groupdocs-redaction-net-index-alias-management/)
 - [Implementar GroupDocs.Redaction .NET para la gestión de búsqueda de documentos y resaltado](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Dominar GroupDocs.Redaction .NET: Configuración y manejo de eventos para gestión segura de documentos](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

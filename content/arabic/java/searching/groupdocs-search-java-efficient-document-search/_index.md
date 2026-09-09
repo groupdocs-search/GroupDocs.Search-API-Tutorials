@@ -84,7 +84,6 @@ weight: 1
 1. **GroupDocs.Search للـ Java** – الإصدار 25.4+.  
 2. **تهيئة Maven** – أضف مستودع GroupDocs والتبعية إلى ملف `pom.xml` الخاص بك:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -102,7 +101,6 @@ weight: 1
     </dependency>
 </dependencies>
 ```
-```
 
 يمكنك أيضًا تنزيل أحدث نسخة مباشرةً من [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -117,7 +115,6 @@ weight: 1
 ## كيفية إعداد GroupDocs.Search للـ Java؟
 حمّل مكتبة GroupDocs.Search، ووجهها إلى مجلد للفهرس، واختياريًا طبّق ترخيصًا. تستغرق هذه الإعدادات بضع أسطر من الشيفرة فقط وتضمن أن المحرك جاهز لفهرسة واستعلام المستندات بكفاءة، مع معالجة مجموعات ملفات كبيرة بأقل استهلاك للذاكرة. تمثل الفئة `Index` فهرسًا قابلًا للبحث مخزنًا على القرص وتوفر طرقًا لإضافة المستندات واستعلامها.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -131,12 +128,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## كيفية إنشاء وإدارة فهرس البحث؟
 أنشئ مجلد فهرس جديد، ثم املأه بالمستندات من دليل المصدر. الفئة `SearchIndex` هي المكوّن الأساسي الذي يمثل الفهرس في الذاكرة وعلى القرص، مما يتيح لك إضافة أو حذف أو تحديث المستندات دون الحاجة إلى إعادة بناء الهيكل بالكامل في كل مرة.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -144,17 +139,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **الغرض**: يهيئ فهرس بحث جديد في الدليل المحدد.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **التفسير**: يضيف جميع المستندات من `documentsFolder` إلى الفهرس الذي أنشأته حديثًا. هذه الخطوة حاسمة لملء الفهرس بالمحتوى القابل للبحث.
@@ -162,13 +154,11 @@ index.add(documentsFolder);
 ## كيفية تكوين موفر صيغ الكلمات المخصص؟
 يخبر موفر صيغ الكلمات المخصص المحرك كيفية التعامل مع التنوعات النحوية المختلفة لمصطلح ما (مثلًا، “run”، “running”، “ran”). من خلال تسجيل هذه التنوعات، يمكن لمحرك البحث مطابقة الاستعلامات مع جميع الصيغ ذات الصلة، مما يحسن الصلة بشكل كبير للمستخدمين الذين يكتبون أي نسخة صرفية للكلمة.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **الغرض**: يعزز البحث من خلال فهم وإدارة التنوعات النحوية المختلفة للكلمات، مما يحسن صلة البحث.
@@ -176,7 +166,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 ## كيفية تمكين خيارات البحث لصيغ الكلمات؟
 تتيح لك `SearchOptions` تشغيل ميزات مثل المطابقة الضبابية، حساسية الحالة، ومعالجة صيغ الكلمات. يضمن تمكين علم صيغ الكلمات أن يقوم المحرك بتوسيع الاستعلامات لتشمل جميع الصيغ المسجلة، مما يوفر سلوك بحث أكثر طبيعية واستدعاء أعلى دون التضحية بالدقة. تُكوّن فئة `SearchOptions` طريقة معالجة الاستعلامات، مثل تمكين توسيع صيغ الكلمات أو المطابقة الضبابية.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -185,14 +174,12 @@ import com.groupdocs.search.options.*;
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
 ```
-```
 
 - **التفسير**: يتيح هذا الإعداد للبحث التعرف على صيغ الكلمات المختلفة، مما يجعله أكثر بديهية وشمولية.
 
 ## كيفية إجراء بحث باستخدام إعداد صيغ الكلمات؟
 حدد سلسلة استعلام ونفّذ البحث باستخدام `SearchOptions` التي تم تكوينها مسبقًا. سيقوم المحرك تلقائيًا بتوسيع الاستعلام لتضمين جميع صيغ الكلمات المطابقة، مع إرجاع نتائج تغطي كل نسخة صرفية للمصطلح الذي تم البحث عنه، مما يحسن رضا المستخدم. يحتوي كائن `SearchResult` على النتائج التي أعادها الاستعلام، بما في ذلك القطع المتطابقة ودرجات الصلة.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -203,7 +190,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **الغرض**: ينفّذ بحثًا يأخذ في الاعتبار التنوعات النحوية المختلفة لكلمة “mrs”، مما يعزز دقة البحث.

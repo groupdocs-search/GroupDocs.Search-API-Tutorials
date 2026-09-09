@@ -126,14 +126,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **Tip:** Állítsa be a `setUseRawTextExtraction(true)` értéket, ha formázás nélküli egyszerű szöveget igényel.
@@ -150,7 +148,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## Hogyan deszerializáljuk a kinyert adatokat
 
@@ -162,7 +159,6 @@ A `deserialize` metódus visszaállítja a kinyerési eredmény pontos állapot�
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## Hogyan hozzunk létre dokumentum indexet
@@ -176,7 +172,6 @@ Az `Index` osztály a kereshető tárolót képviseli, amely minden kifejezést,
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## Hogyan adjunk adatot az indexhez és hajtsunk végre keresést
 
@@ -189,13 +184,11 @@ Az `add` metódus regisztrálja a dokumentum kifejezéseit az indexben, míg a `
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **Pro tip:** Használja a `index.search("your query", SearchOptions)` metódust a relevancia‑rangsor finomhangolásához.

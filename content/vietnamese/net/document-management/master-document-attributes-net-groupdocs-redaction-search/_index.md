@@ -103,13 +103,11 @@ Bạn có thể thêm **GroupDocs.Redaction** vào dự án của mình bằng b
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Trình quản lý gói**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **Giao diện người dùng Trình quản lý Gói NuGet**  
@@ -126,12 +124,10 @@ Install-Package GroupDocs.Redaction
 `Redactor` là lớp chính được sử dụng để tải tài liệu và thực hiện các thao tác xóa thông tin nhạy cảm.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## Tính năng 1: Thay đổi Thuộc tính Tài liệu
@@ -143,7 +139,6 @@ Việc chỉnh sửa thuộc tính tài liệu cho phép bạn tinh chỉnh các
 `Index` đại diện cho một tập hợp tài liệu có thể tìm kiếm và siêu dữ liệu liên quan của chúng.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
@@ -151,14 +146,12 @@ using GroupDocs.Search.Results;
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Bước 2: Sửa đổi Thuộc tính
 `AttributeChangeBatch` là lớp dùng để nhóm các cập nhật thuộc tính nhằm tăng hiệu quả.
 
 **Định nghĩa:** *`AttributeChangeBatch` nhóm các thao tác thêm, cập nhật và xóa thuộc tính tài liệu trong một giao dịch duy nhất.*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -173,7 +166,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### Bước 3: Tìm kiếm với Bộ lọc Thuộc tính
 Bạn có thể lọc kết quả tìm kiếm theo giá trị thuộc tính bằng cách sử dụng `SearchOptions`.
@@ -181,14 +173,12 @@ Bạn có thể lọc kết quả tìm kiếm theo giá trị thuộc tính bằ
 **Câu trả lời trực tiếp:** Để tìm các tài liệu có thuộc tính `Category = "Legal"`, cấu hình `SearchOptions` với một `AttributeFilter` và gọi `searcher.Search("contract", options)`. Điều này chỉ trả về các hợp đồng được gắn thẻ pháp lý, giảm nhiễu kết quả và **tối ưu hóa hiệu suất tìm kiếm**.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## Tính năng 2: Thêm Thuộc tính Khi Lập chỉ mục
@@ -199,7 +189,6 @@ Thêm thuộc tính ngay khi lập chỉ mục đảm bảo mỗi tài liệu đ
 #### Bước 1: Thiết lập Trình xử lý Sự kiện cho Lập chỉ mục
 **Định nghĩa:** *Sự kiện `DocumentIndexed` được kích hoạt mỗi khi một tài liệu được thêm thành công vào chỉ mục, cho phép chạy logic tùy chỉnh.*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -213,7 +202,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Bước 2: Cấu hình và Thực hiện Tìm kiếm
 Sau khi các thuộc tính được gắn, bạn có thể tìm kiếm bằng các trường mới này.
@@ -221,14 +209,12 @@ Sau khi các thuộc tính được gắn, bạn có thể tìm kiếm bằng c�
 **Câu trả lời trực tiếp:** Sử dụng `SearchOptions` với `AttributeFilter` để truy vấn các thuộc tính mới được thêm, ví dụ `AttributeFilter("Department", "Finance")`. Điều này chỉ trả về các tệp liên quan tới tài chính, minh họa **cách lập chỉ mục thuộc tính** để có kết quả nhanh hơn và phù hợp hơn.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Ứng dụng Thực tiễn

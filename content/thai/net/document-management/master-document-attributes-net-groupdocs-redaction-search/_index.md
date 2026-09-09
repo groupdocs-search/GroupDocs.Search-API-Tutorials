@@ -106,13 +106,11 @@ GroupDocs.Redaction รองรับ **ไฟล์กว่า 50 รูป�
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -129,12 +127,10 @@ Install-Package GroupDocs.Redaction
 `Redactor` เป็นคลาสหลักที่ใช้โหลดเอกสารและทำการลบข้อมูล
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## ฟีเจอร์ 1: การเปลี่ยนแปลงแอตทริบิวต์ของเอกสาร
@@ -147,14 +143,12 @@ Redactor redactor = new Redactor("path/to/document.pdf");
 `Index` แสดงถึงคอลเลกชันที่สามารถค้นหาได้ของเอกสารและเมตาดาต้าที่เกี่ยวข้อง
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
 
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
-```
 ```
 
 #### ขั้นตอนที่ 2: แก้ไขแอตทริบิวต์
@@ -163,7 +157,6 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 
 **Definition anchor:** *`AttributeChangeBatch` batches add, update, and delete operations on document attributes in a single transaction.*  
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -178,7 +171,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### ขั้นตอนที่ 3: ค้นหาด้วยตัวกรองแอตทริบิวต์
 
@@ -187,14 +179,12 @@ index.ChangeAttributes(batch);
 **Direct answer:** เพื่อค้นหาเอกสารที่มีแอตทริบิวต์ `Category = "Legal"` ให้กำหนด `SearchOptions` พร้อม `AttributeFilter` แล้วเรียก `searcher.Search("contract", options)` ผลลัพธ์จะเป็นสัญญาที่มีแท็กกฎหมายเท่านั้น ลดสัญญาณรบกวนและ **เพิ่มประสิทธิภาพการค้นหา**  
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## ฟีเจอร์ 2: เพิ่มแอตทริบิวต์ระหว่างการทำดัชนี
@@ -206,7 +196,6 @@ SearchResult result = index.Search(query, options);
 
 **Definition anchor:** *The `DocumentIndexed` event fires each time a document is successfully added to the index, allowing custom logic to run.*  
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -220,7 +209,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### ขั้นตอนที่ 2: ตั้งค่าและทำการค้นหา
 
@@ -229,14 +217,12 @@ index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 **Direct answer:** ใช้ `SearchOptions` พร้อม `AttributeFilter` เพื่อสอบถามแอตทริบิวต์ที่เพิ่มใหม่ เช่น `AttributeFilter("Department", "Finance")` จะคืนไฟล์ที่เกี่ยวกับการเงินเท่านั้น แสดง **วิธีทำดัชนีแอตทริบิวต์** เพื่อผลลัพธ์ที่เร็วและเกี่ยวข้องมากขึ้น  
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## การประยุกต์ใช้งานจริง

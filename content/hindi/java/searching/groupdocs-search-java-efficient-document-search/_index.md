@@ -83,7 +83,6 @@ GroupDocs.Search **50+ फ़ाइल फ़ॉर्मैट** (DOCX, PDF, XL
 ### आवश्यक लाइब्रेरी, संस्करण, और डिपेंडेंसीज़
 1. **GroupDocs.Search for Java** – संस्करण 25.4+. 2. **Maven Configuration** – अपने `pom.xml` में GroupDocs रिपॉजिटरी और डिपेंडेंसी जोड़ें:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -101,7 +100,6 @@ GroupDocs.Search **50+ फ़ाइल फ़ॉर्मैट** (DOCX, PDF, XL
     </dependency>
 </dependencies>
 ```
-```
 
 आप नवीनतम संस्करण सीधे [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) से भी डाउनलोड कर सकते हैं।
 
@@ -118,7 +116,6 @@ GroupDocs.Search लाइब्रेरी लोड करें, इसे �
 
 `Index` क्लास डिस्क पर संग्रहीत एक सर्चेबल इंडेक्स को दर्शाती है और दस्तावेज़ जोड़ने और क्वेरी करने के मेथड्स प्रदान करती है।
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -132,12 +129,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## सर्च इंडेक्स कैसे बनाएं और प्रबंधित करें?
 एक नया इंडेक्स फ़ोल्डर बनाएं, फिर इसे स्रोत डायरेक्टरी से दस्तावेज़ों से भरें। `SearchIndex` क्लास मुख्य घटक है जो मेमोरी और डिस्क दोनों में इंडेक्स को दर्शाता है, जिससे आप हर बार पूरी संरचना को रीबिल्ड किए बिना दस्तावेज़ जोड़, हटाए या अपडेट कर सकते हैं।
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -145,17 +140,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Purpose**: निर्दिष्ट डायरेक्टरी में नया सर्च इंडेक्स इनिशियलाइज़ करता है।
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Explanation**: `documentsFolder` से सभी दस्तावेज़ आपके नए बनाए गए इंडेक्स में जोड़ता है। यह चरण इंडेक्स को सर्चेबल कंटेंट से भरने के लिए महत्वपूर्ण है।
@@ -163,13 +155,11 @@ index.add(documentsFolder);
 ## कस्टम वर्ड फॉर्म्स प्रोवाइडर कैसे कॉन्फ़िगर करें?
 एक कस्टम वर्ड फॉर्म्स प्रोवाइडर इंजन को बताता है कि किसी शब्द के विभिन्न व्याकरणिक रूपों (जैसे, “run”, “running”, “ran”) को कैसे संभालना है। इन विविधताओं को रजिस्टर करके, सर्च इंजन सभी संबंधित रूपों से क्वेरी मिलान कर सकता है, जिससे उन उपयोगकर्ताओं के लिए प्रासंगिकता में उल्लेखनीय सुधार होता है जो शब्द के किसी भी रूप को टाइप करते हैं।
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Purpose**: शब्दों के विभिन्न व्याकरणिक विविधताओं को समझकर और प्रबंधित करके सर्च को बेहतर बनाता है, जिससे सर्च प्रासंगिकता में सुधार होता है।
@@ -179,7 +169,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 `SearchOptions` क्लास यह कॉन्फ़िगर करती है कि क्वेरीज़ कैसे प्रोसेस की जाएँ, जैसे वर्ड‑फॉर्म एक्सपैंशन या फज़ी मैचिंग को सक्षम करना।
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -187,7 +176,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Explanation**: यह कॉन्फ़िगरेशन सर्च को विभिन्न वर्ड फॉर्म्स को पहचानने देता है, जिससे यह अधिक सहज और व्यापक बनता है।
@@ -197,7 +185,6 @@ options.setUseWordFormsSearch(true);
 
 `SearchResult` ऑब्जेक्ट में क्वेरी द्वारा लौटाए गए हिट्स होते हैं, जिसमें मैच्ड फ्रैगमेंट्स और प्रासंगिकता स्कोर शामिल होते हैं।
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -208,7 +195,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Purpose**: “mrs” शब्द के विभिन्न व्याकरणिक विविधताओं को ध्यान में रखते हुए सर्च निष्पादित करता है, जिससे सर्च की सटीकता बढ़ती है।

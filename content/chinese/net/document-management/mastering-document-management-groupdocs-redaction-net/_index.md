@@ -88,23 +88,19 @@ weight: 1
 
 `License` 类向 GroupDocs SDK 注册许可证文件。使用 `License` 类加载您的许可证文件，并在任何其他 SDK 调用之前调用 `SetLicense`。这将解锁全部功能，移除评估水印，并激活性能优化。提前加载许可证后，SDK 能在每一次后续操作中进行授权检查，确保所有编辑、搜索和渲染功能在无限制的情况下工作。
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## 如何为 Aspose.HTML 设置许可证？
 
 Aspose.HTML 中的 `License` 类注册产品许可证并禁用试用限制。实例化 Aspose 的 `License` 对象并指向 `.lic` 文件。这样可确保所有 Aspose.HTML 渲染功能在无试用警告的情况下运行，并且可以使用 CSS 支持和高级布局引擎等高级渲染选项。
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **说明**：`License.SetLicense` 加载许可证文件，解锁全部功能。
@@ -113,12 +109,10 @@ new License().SetLicense(licensePath);
 
 GroupDocs.Viewer 的 `License` 类注册查看器许可证，使 PDF、DOCX 等格式能够高保真渲染为 HTML 且不出现水印。为 GroupDocs.Viewer 创建 `License` 实例并调用 `SetLicense`。如果您打算将文档渲染为 HTML 并保持完整保真度，此步骤是必需的。
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## 为什么使用 GroupDocs 进行搜索和 HTML 高亮？
@@ -132,21 +126,17 @@ GroupDocs.Search 将文档索引为轻量级、只读结构，能够在毫秒级
 要在项目中开始使用 GroupDocs.Redaction，您可以通过不同的包管理器进行安装：
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -164,14 +154,12 @@ new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
 
 ### 基本初始化和设置
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## 实现指南
@@ -186,24 +174,20 @@ string query = "\"dapibus diam\" OR lorem";
 
 **1. 为 Aspose.HTML 设置许可证**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. 为 GroupDocs.Viewer 设置许可证**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### 设置路径和查询
@@ -216,7 +200,6 @@ FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first docu
 
 **1. 定义基础路径**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -225,7 +208,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **说明**：组织路径可确保搜索和高亮功能顺利集成。
@@ -345,8 +327,3 @@ A: 支持，多语言词典均可使用。
 - [掌握 GroupDocs.Redaction .NET：高效索引创建与别名管理以实现高级文档搜索](/search/net/indexing/groupdocs-redaction-net-index-alias-management/)
 - [实现 GroupDocs.Redaction .NET 用于文档查找管理与高亮](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [掌握 GroupDocs.Redaction .NET：设置与事件处理以实现安全文档管理](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

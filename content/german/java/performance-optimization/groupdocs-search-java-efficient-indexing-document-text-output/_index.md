@@ -301,11 +301,6 @@ Sie haben nun einen vollständigen, produktionsbereiten Workflow für **wie man 
 **Getestet mit:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Verwandte Tutorials
 
 - [Dokumente zum Index hinzufügen – GroupDocs.Search Java‑Leitfaden](/search/java/advanced-features/)

@@ -259,11 +259,6 @@ A: Απόλυτα. Το GroupDocs.Search προσφέρει API ευρετηρί
 **Δοκιμή Με:** GroupDocs.Search 25.4 for Java  
 **Συγγραφέας:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Σχετικά Σεμινάρια
 
 - [Σεμινάρια και Παραδείγματα του GroupDocs.Search για Java](/search/net/)

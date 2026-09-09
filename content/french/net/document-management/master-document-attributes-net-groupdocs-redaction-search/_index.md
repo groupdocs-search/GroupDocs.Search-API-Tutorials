@@ -106,13 +106,11 @@ Vous pouvez ajouter **GroupDocs.Redaction** à votre projet en utilisant l'une d
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Gestionnaire de packages**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **Interface du gestionnaire de packages NuGet**  
@@ -129,12 +127,10 @@ Pour commencer, vous pouvez obtenir une licence temporaire ou en acheter une. Un
 `Redactor` est la classe principale utilisée pour charger un document et appliquer des opérations de masquage.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## Fonctionnalité 1 : Modifier les attributs du document
@@ -146,7 +142,6 @@ Modifier les attributs d'un document vous permet d'ajuster finement la façon do
 `Index` représente une collection consultable de documents et leurs métadonnées associées.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
@@ -154,14 +149,12 @@ using GroupDocs.Search.Results;
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Étape 2 : Modifier les attributs
 `AttributeChangeBatch` est la classe qui regroupe les mises à jour d'attributs pour plus d'efficacité.
 
 **Ancre de définition :** *`AttributeChangeBatch` regroupe les opérations d'ajout, de mise à jour et de suppression d'attributs de documents en une seule transaction.*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -176,7 +169,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### Étape 3 : Rechercher avec des filtres d'attributs
 Vous pouvez filtrer les résultats de recherche par valeurs d'attributs en utilisant `SearchOptions`.
@@ -184,14 +176,12 @@ Vous pouvez filtrer les résultats de recherche par valeurs d'attributs en utili
 **Réponse directe :** Pour rechercher les documents contenant l'attribut `Category = "Legal"`, configurez `SearchOptions` avec un `AttributeFilter` et appelez `searcher.Search("contract", options)`. Cela ne renvoie que les contrats étiquetés légalement, réduisant le bruit des résultats et **optimisant les performances de recherche**.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## Fonctionnalité 2 : Ajouter des attributs lors de l'indexation
@@ -202,7 +192,6 @@ Ajouter des attributs au moment de l'indexation garantit que chaque document est
 #### Étape 1 : Configurer le gestionnaire d'événements pour l'indexation
 **Ancre de définition :** *L'événement `DocumentIndexed` se déclenche chaque fois qu'un document est ajouté avec succès à l'index, permettant l'exécution d'une logique personnalisée.*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -216,7 +205,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Étape 2 : Configurer et exécuter la recherche
 Après l'ajout des attributs, vous pouvez rechercher en utilisant ces nouveaux champs.
@@ -224,14 +212,12 @@ Après l'ajout des attributs, vous pouvez rechercher en utilisant ces nouveaux c
 **Réponse directe :** Utilisez `SearchOptions` avec `AttributeFilter` pour interroger les attributs nouvellement ajoutés, par exemple `AttributeFilter("Department", "Finance")`. Cela ne renvoie que les fichiers liés aux finances, démontrant **comment indexer les attributs** pour des résultats plus rapides et plus pertinents.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Applications pratiques

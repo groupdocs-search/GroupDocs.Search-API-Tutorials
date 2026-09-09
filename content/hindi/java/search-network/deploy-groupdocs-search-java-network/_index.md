@@ -259,11 +259,6 @@ A: बिल्कुल। GroupDocs.Search रियल‑टाइम इं�
 **परीक्षित संस्करण:** GroupDocs.Search 25.4 for Java  
 **लेखक:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## संबंधित ट्यूटोरियल
 
 - [GroupDocs.Search for Java के ट्यूटोरियल और उदाहरण](/search/net/)

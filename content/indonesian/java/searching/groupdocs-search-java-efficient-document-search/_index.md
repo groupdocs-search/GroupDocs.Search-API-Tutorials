@@ -85,7 +85,6 @@ GroupDocs.Search mendukung **lebih dari 50 format file** (termasuk DOCX, PDF, XL
 1. **GroupDocs.Search for Java** – versi 25.4+.  
 2. **Konfigurasi Maven** – tambahkan repositori GroupDocs dan dependensi ke `pom.xml` Anda:
 
-```text
 ```xml
 <repositories>
     <repository>
@@ -103,7 +102,6 @@ GroupDocs.Search mendukung **lebih dari 50 format file** (termasuk DOCX, PDF, XL
     </dependency>
 </dependencies>
 ```
-```
 
 Anda juga dapat mengunduh versi terbaru langsung dari [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
@@ -120,7 +118,6 @@ Muat perpustakaan GroupDocs.Search, arahkan ke folder untuk indeks, dan opsional
 
 Kelas `Index` mewakili indeks yang dapat dicari yang disimpan di disk dan menyediakan metode untuk menambahkan dokumen serta mengkueri mereka.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -134,12 +131,10 @@ public class SearchSetup {
     }
 }
 ```
-```
 
 ## Cara membuat dan mengelola indeks pencarian?
 Buat folder indeks baru, lalu isi dengan dokumen dari direktori sumber. Kelas `SearchIndex` adalah komponen inti yang mewakili indeks di memori dan di disk, memungkinkan Anda menambahkan, menghapus, atau memperbarui dokumen tanpa membangun ulang seluruh struktur setiap kali.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
@@ -147,17 +142,14 @@ import com.groupdocs.search.*;
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Index";
 Index index = new Index(indexFolder);
 ```
-```
 
 - **Tujuan**: Menginisialisasi indeks pencarian baru di direktori yang ditentukan.
 
-```text
 ```java
 // Specify the directory containing documents to index
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 
 index.add(documentsFolder);
-```
 ```
 
 - **Penjelasan**: Menambahkan semua dokumen dari `documentsFolder` ke dalam indeks yang baru dibuat. Langkah ini penting untuk mengisi indeks dengan konten yang dapat dicari.
@@ -165,13 +157,11 @@ index.add(documentsFolder);
 ## Cara mengkonfigurasi penyedia bentuk kata khusus?
 Penyedia bentuk kata khusus memberi tahu mesin cara memperlakukan variasi gramatikal berbeda dari sebuah istilah (mis., “run”, “running”, “ran”). Dengan mendaftarkan variasi ini, mesin pencari dapat mencocokkan kueri ke semua bentuk yang relevan, secara dramatis meningkatkan relevansi bagi pengguna yang mengetik versi morfologis apa pun dari sebuah kata.
 
-```text
 ```java
 import com.groupdocs.search.*;
 
 // Set the custom word forms provider instance
 index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
-```
 ```
 
 - **Tujuan**: Meningkatkan pencarian dengan memahami dan mengelola variasi gramatikal kata yang berbeda, meningkatkan relevansi pencarian.
@@ -181,7 +171,6 @@ index.getDictionaries().setWordFormsProvider(new SimpleWordFormsProvider());
 
 Kelas `SearchOptions` mengonfigurasi cara kueri diproses, seperti mengaktifkan ekspansi bentuk kata atau pencocokan fuzzy.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -189,7 +178,6 @@ import com.groupdocs.search.options.*;
 // Create a SearchOptions instance
 SearchOptions options = new SearchOptions();
 options.setUseWordFormsSearch(true);
-```
 ```
 
 - **Penjelasan**: Konfigurasi ini memungkinkan pencarian mengenali bentuk kata yang berbeda, menjadikannya lebih intuitif dan komprehensif.
@@ -199,7 +187,6 @@ Tentukan string kueri dan jalankan pencarian menggunakan `SearchOptions` yang te
 
 Objek `SearchResult` berisi hasil yang dikembalikan oleh kueri, termasuk fragmen yang cocok dan skor relevansi.
 
-```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -210,7 +197,6 @@ String query = "mrs";
 
 // Perform a search using the specified query and options
 SearchResult result = index.search(query, options);
-```
 ```
 
 - **Tujuan**: Menjalankan pencarian yang mempertimbangkan variasi gramatikal berbeda dari kata “mrs”, meningkatkan akurasi pencarian.

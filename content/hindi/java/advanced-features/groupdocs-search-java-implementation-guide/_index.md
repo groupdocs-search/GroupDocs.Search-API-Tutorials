@@ -123,14 +123,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **टिप:** यदि आपको फ़ॉर्मेटिंग के बिना साधारण टेक्स्ट चाहिए तो `setUseRawTextExtraction(true)` सेट करें।
@@ -146,7 +144,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## निकाले गए डेटा को डीसिरियलाइज़ कैसे करें
 जब आप इंडेक्स बनाना चाहते हैं, तो पहले स्टोर किए गए बाइट एरे को मूल एक्सट्रैक्शन ऑब्जेक्ट में डीसिरियलाइज़ करें।
@@ -157,7 +154,6 @@ byte[] serializedArray = outputStream.toByteArray();
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## दस्तावेज़ इंडेक्स कैसे बनाएं
@@ -170,7 +166,6 @@ ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## डेटा को इंडेक्स में जोड़ें और सर्च करें
 डीसिरियलाइज़्ड एक्सट्रैक्शन परिणाम को `index.add()` से इंडेक्स में जोड़ें, फिर तुरंत परिणामों के लिए `index.search()` का उपयोग करके क्वेरी करें।
@@ -182,13 +177,11 @@ com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **प्रो टिप:** प्रासंगिकता रैंकिंग को फाइन‑ट्यून करने के लिए `index.search("your query", SearchOptions)` का उपयोग करें।

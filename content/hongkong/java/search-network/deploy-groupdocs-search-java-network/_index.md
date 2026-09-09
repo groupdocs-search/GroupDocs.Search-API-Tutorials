@@ -257,11 +257,6 @@ A: 當然。GroupDocs.Search 提供即時索引 API，能立即讓新加入的�
 **測試環境：** GroupDocs.Search 25.4 for Java  
 **作者：** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## 相關教學
 
 - [GroupDocs.Search for Java 教學與範例](/search/net/)

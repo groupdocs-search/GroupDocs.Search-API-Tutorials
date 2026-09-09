@@ -89,23 +89,19 @@ Pratik örnekler ve adım adım talimatlarla, belge yönetimi süreçlerinizi ko
 
 `License` sınıfı, bir lisans dosyasını GroupDocs SDK’sına kaydeder. Lisans dosyanızı `License` sınıfı ile yükleyin ve diğer SDK çağrılarından önce `SetLicense` metodunu çağırın. Bu, tam özellik setini açar, değerlendirme filigranlarını kaldırır ve performans iyileştirmelerini etkinleştirir. Lisansı erken yükleyerek SDK, sonraki her işlem için yetkilendirme kontrolleri uygulayabilir ve tüm redaksiyon, arama ve renderleme özelliklerinin kısıtlama olmadan çalışmasını sağlar.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Aspose.HTML için lisansı nasıl ayarlarsınız?
 
 Aspose.HTML’teki `License` sınıfı, ürün lisansını kaydeder ve deneme sınırlamalarını devre dışı bırakır. Aspose’un `License` nesnesini örnekleyin ve `.lic` dosyasına işaret edin. Bu, tüm Aspose.HTML renderleme işlevlerinin deneme uyarısı olmadan çalışmasını ve CSS desteği ile gelişmiş yerleşim motorları gibi premium seçeneklerin kullanılabilir olmasını sağlar.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Açıklama**: `License.SetLicense` lisans dosyasını yükler ve tüm özelliklerin kilidini açar.
@@ -114,12 +110,10 @@ new License().SetLicense(licensePath);
 
 GroupDocs.Viewer için `License` sınıfı, görüntüleyici lisansını kaydeder ve PDF, DOCX ve diğer formatların HTML’ye yüksek doğrulukta, filigransız render edilmesini sağlar. GroupDocs.Viewer için bir `License` örneği oluşturun ve `SetLicense` metodunu çağırın. Bu adım, belgeleri tam doğrulukla HTML’ye dönüştürmek istediğinizde gereklidir.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## GroupDocs ile HTML’de arama ve vurgulama neden kullanılır?
@@ -133,21 +127,17 @@ GroupDocs.Search, belgeleri hafif, yalnızca‑okunur bir yapıda indeksler ve m
 GroupDocs.Redaction’ı projenizde kullanmaya başlamak için farklı paket yöneticileri aracılığıyla kurabilirsiniz:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Lisans yolunuzu ayarlayın
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Lisans ile Redaction API’sını başlatın
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -165,14 +155,12 @@ Detaylı lisans koşulları için [GroupDocs Documentation](https://docs.groupdo
 
 ### Temel başlatma ve kurulum
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Uygulama rehberi
@@ -187,24 +175,20 @@ Lisansları ayarlamak, Aspose.HTML ve GroupDocs.Viewer’ın tüm özelliklerini
 
 **1. Aspose.HTML için lisansı ayarlayın**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Belirtilen yolda indeks oluştur
 index.Add(documentsFolder); // Dizin içindeki belgeleri indekse ekle
 ```
-```
 
 **2. GroupDocs.Viewer için lisansı ayarlayın**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Aramayı yürüt
 FoundDocument foundDocument = result.GetFoundDocument(0); // İlk belgeyi al
-```
 ```
 
 ### Yolları ve sorguyu ayarlama
@@ -217,7 +201,6 @@ Belgeleriniz için yolları tanımlayın ve belirli içeriği bulmak üzere bir 
 
 **1. Temel yolları tanımlayın**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -226,7 +209,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Vurgulama için hazırla
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Vurgulamayı gerçekleştir
-```
 ```
 
 - **Açıklama**: Yolların düzenlenmesi, arama ve vurgulama özelliklerinin sorunsuz entegrasyonunu sağlar.
@@ -347,8 +329,3 @@ GroupDocs.Redaction ile .NET’te lisansları nasıl ayarlayacağınızı, arama
 - [Implement GroupDocs.Redaction .NET for Document Finder Management and Highlighting](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Master GroupDocs.Redaction .NET: Setup & Event Handling for Secure Document Management](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

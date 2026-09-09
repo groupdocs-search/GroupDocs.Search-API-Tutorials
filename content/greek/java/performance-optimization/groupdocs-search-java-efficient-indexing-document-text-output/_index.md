@@ -300,11 +300,6 @@ A: Μια δωρεάν δοκιμαστική άδεια αρκεί για αν�
 **Δοκιμάστηκε Με:** GroupDocs.Search 25.4 for Java  
 **Συγγραφέας:** GroupDocs
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Σχετικά Μαθήματα
 
 - [Προσθήκη Εγγράφων στο Ευρετήριο – Οδηγός GroupDocs.Search Java](/search/java/advanced-features/)

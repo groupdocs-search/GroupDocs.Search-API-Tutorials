@@ -88,23 +88,19 @@ Dengan contoh praktis dan instruksi langkah demi langkah, Anda akan siap untuk m
 
 Kelas `License` mendaftarkan file lisensi dengan SDK GroupDocs. Muat file lisensi Anda dengan kelas `License` dan panggil `SetLicense` sebelum panggilan SDK lainnya. Ini membuka semua fitur, menghapus watermark evaluasi, dan mengaktifkan optimasi kinerja. Dengan memuat lisensi lebih awal, SDK dapat menerapkan pemeriksaan hak untuk setiap operasi berikutnya, memastikan semua fitur redaksi, pencarian, dan rendering berfungsi tanpa batasan.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Cara mengatur lisensi untuk Aspose.HTML?
 
 Kelas `License` dalam Aspose.HTML mendaftarkan lisensi produk dan menonaktifkan batasan percobaan. Buat instance objek `License` Aspose dan arahkan ke file `.lic`. Ini memastikan semua fungsi rendering Aspose.HTML berjalan tanpa peringatan percobaan dan opsi rendering premium seperti dukungan CSS serta mesin tata letak lanjutan tersedia.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Penjelasan**: `License.SetLicense` memuat file lisensi, membuka semua fitur.
@@ -113,12 +109,10 @@ new License().SetLicense(licensePath);
 
 Kelas `License` untuk GroupDocs.Viewer mendaftarkan lisensi viewer, memungkinkan rendering berkualitas tinggi dari PDF, DOCX, dan format lain ke HTML tanpa watermark. Buat instance `License` untuk GroupDocs.Viewer dan panggil `SetLicense`. Langkah ini diperlukan jika Anda ingin merender dokumen ke HTML dengan fidelitas penuh.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## Mengapa menggunakan pencarian dan menyorot html dengan GroupDocs?
@@ -132,21 +126,17 @@ GroupDocs.Search mengindeks dokumen dalam struktur ringan, hanya-baca yang dapat
 Untuk mulai menggunakan GroupDocs.Redaction dalam proyek Anda, Anda dapat menginstalnya melalui berbagai pengelola paket:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -164,14 +154,12 @@ Untuk syarat lisensi detail, lihat [Dokumentasi GroupDocs](https://docs.groupdoc
 
 ### Inisialisasi dan Penyiapan Dasar
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Panduan Implementasi
@@ -186,24 +174,20 @@ Menetapkan lisensi memastikan Anda dapat memanfaatkan semua fitur Aspose.HTML da
 
 **1. Atur lisensi untuk Aspose.HTML**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. Atur lisensi untuk GroupDocs.Viewer**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### Menyiapkan jalur dan kueri
@@ -216,7 +200,6 @@ Tentukan jalur untuk dokumen Anda dan siapkan kueri pencarian untuk menemukan ko
 
 **1. Tentukan jalur dasar**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -225,7 +208,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **Penjelasan**: Mengatur jalur memastikan integrasi pencarian dan sorotan berjalan lancar.
@@ -345,8 +327,3 @@ Anda telah mempelajari cara mengatur lisensi, mengonfigurasi jalur pencarian, me
 - [Menguasai GroupDocs.Redaction .NET: Pembuatan Indeks Efisien dan Manajemen Alias untuk Pencarian Dokumen Lanjutan](/search/net/indexing/groupdocs-redaction-net-index-alias-management/)
 - [Implementasi GroupDocs.Redaction .NET untuk Manajemen Penemu Dokumen dan Penyorotan](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Menguasai GroupDocs.Redaction .NET: Penyiapan & Penanganan Event untuk Manajemen Dokumen Aman](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

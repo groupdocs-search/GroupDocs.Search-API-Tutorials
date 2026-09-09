@@ -106,13 +106,11 @@ Sie können **GroupDocs.Redaction** zu Ihrem Projekt hinzufügen, indem Sie eine
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager**  
 ```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -130,12 +128,10 @@ Um zu beginnen, können Sie eine temporäre Lizenz erwerben oder eine kaufen. Ei
 `Redactor` ist die Hauptklasse, die zum Laden eines Dokuments und zum Anwenden von Redaktionsvorgängen verwendet wird.
 
 ```csharp
-```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with a document path or stream
 Redactor redactor = new Redactor("path/to/document.pdf");
-```
 ```
 
 ## Funktion 1: Dokumentattribute ändern
@@ -147,7 +143,6 @@ Das Ändern von Dokumentattributen ermöglicht es Ihnen, das Erscheinungsbild vo
 `Index` stellt eine durchsuchbare Sammlung von Dokumenten und deren zugehörigen Metadaten dar.
 
 ```csharp
-```csharp
 using GroupDocs.Search.Common;
 using GroupDocs.Search.Options;
 using GroupDocs.Search.Results;
@@ -155,14 +150,12 @@ using GroupDocs.Search.Results;
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/ChangeAttributes");
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Schritt 2: Attribute ändern
 `AttributeChangeBatch` ist die Klasse, die Attribut‑Updates für Effizienz stapelt.
 
 **Definition‑Anker:** *`AttributeChangeBatch` stapelt Hinzufügen-, Aktualisierungs‑ und Löschvorgänge von Dokumentattributen in einer einzigen Transaktion.*
 
-```csharp
 ```csharp
 DocumentInfo[] documents = index.GetIndexedDocuments();
 AttributeChangeBatch batch = new AttributeChangeBatch();
@@ -177,7 +170,6 @@ batch.Remove(documents[0].FilePath, "public");
 batch.Add(documents[0].FilePath, "main", "key");
 index.ChangeAttributes(batch);
 ```
-```
 
 #### Schritt 3: Suche mit Attributfiltern
 Sie können Suchergebnisse anhand von Attributwerten mit `SearchOptions` filtern.
@@ -185,14 +177,12 @@ Sie können Suchergebnisse anhand von Attributwerten mit `SearchOptions` filtern
 **Direkte Antwort:** Um nach Dokumenten zu suchen, die das Attribut `Category = "Legal"` enthalten, konfigurieren Sie `SearchOptions` mit einem `AttributeFilter` und rufen `searcher.Search("contract", options)` auf. Dies gibt nur die rechtlich gekennzeichneten Verträge zurück, reduziert Rauschen in den Ergebnissen und **optimiert die Suchleistung**.
 
 ```csharp
-```csharp
 SearchOptions options = new SearchOptions();
 options.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Perform search
 string query = "length";
 SearchResult result = index.Search(query, options);
-```
 ```
 
 ## Funktion 2: Attribute beim Indexieren hinzufügen
@@ -203,7 +193,6 @@ Das Hinzufügen von Attributen zum Zeitpunkt des Indexierens stellt sicher, dass
 #### Schritt 1: Ereignis‑Handler für das Indexieren einrichten
 **Definition‑Anker:** *Das `DocumentIndexed`‑Ereignis wird jedes Mal ausgelöst, wenn ein Dokument erfolgreich zum Index hinzugefügt wird, sodass benutzerdefinierte Logik ausgeführt werden kann.*
 
-```csharp
 ```csharp
 Index index = new Index("@YOUR_DOCUMENT_DIRECTORY/AddAttributesDuringIndexing");
 
@@ -217,7 +206,6 @@ index.Events.FileIndexing += (sender, args) => {
 // Add documents to index
 index.Add("@YOUR_DOCUMENT_DIRECTORY/DocumentsPath");
 ```
-```
 
 #### Schritt 2: Konfigurieren und Suche ausführen
 Nachdem Attribute angehängt wurden, können Sie mit diesen neuen Feldern suchen.
@@ -225,14 +213,12 @@ Nachdem Attribute angehängt wurden, können Sie mit diesen neuen Feldern suchen
 **Direkte Antwort:** Verwenden Sie `SearchOptions` mit `AttributeFilter`, um die neu hinzugefügten Attribute abzufragen, zum Beispiel `AttributeFilter("Department", "Finance")`. Dies gibt nur finanzbezogene Dateien zurück und demonstriert **wie man Attribute indexiert** für schnellere, relevantere Ergebnisse.
 
 ```csharp
-```csharp
 SearchOptions options2 = new SearchOptions();
 options2.SearchDocumentFilter = SearchDocumentFilter.CreateAttribute("main");
 
 // Execute a targeted search
 string query2 = "ipsum";
 SearchResult result2 = index.Search(query2, options2);
-```
 ```
 
 ## Praktische Anwendungen

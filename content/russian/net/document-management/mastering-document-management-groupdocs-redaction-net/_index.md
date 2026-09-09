@@ -89,23 +89,19 @@ weight: 1
 
 Класс `License` регистрирует файл лицензии в SDK GroupDocs. Загрузите ваш файл лицензии с помощью класса `License` и вызовите `SetLicense` до любого другого вызова SDK. Это разблокирует полный набор функций, удалит водяные знаки оценки и активирует оптимизации производительности. При ранней загрузке лицензии SDK может выполнять проверки прав доступа для каждой последующей операции, гарантируя, что все функции редактирования, поиска и рендеринга работают без ограничений.
 
-```text
 ```bash
 dotnet add package GroupDocs.Redaction
-```
 ```
 
 ## Как установить лицензию для Aspose.HTML?
 
 Класс `License` в Aspose.HTML регистрирует лицензию продукта и отключает ограничения пробной версии. Создайте объект `License` Aspose и укажите путь к файлу `.lic`. Это гарантирует, что все функции рендеринга Aspose.HTML работают без предупреждений о пробной версии и что премиум‑опции рендеринга, такие как поддержка CSS и продвинутые движки разметки, доступны.
 
-```text
 ```csharp
 using Aspose.Html;
 
 string licensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 new License().SetLicense(licensePath);
-```
 ```
 
 - **Объяснение**: `License.SetLicense` загружает файл лицензии, разблокируя все функции.
@@ -114,12 +110,10 @@ new License().SetLicense(licensePath);
 
 Класс `License` для GroupDocs.Viewer регистрирует лицензию просмотрщика, позволяя выполнять высококачественный рендеринг PDF, DOCX и других форматов в HTML без водяных знаков. Создайте экземпляр `License` для GroupDocs.Viewer и вызовите `SetLicense`. Этот шаг необходим, если вы планируете рендерить документы в HTML с полной точностью.
 
-```text
 ```csharp
 using GroupDocs.Viewer;
 
 new License().SetLicense(licensePath);
-```
 ```
 
 ## Почему использовать поиск и выделение HTML с помощью GroupDocs?
@@ -133,21 +127,17 @@ GroupDocs.Search индексирует документы в лёгкой, то
 Чтобы начать использовать GroupDocs.Redaction в вашем проекте, вы можете установить его через различные менеджеры пакетов:
 
 **.NET CLI:**
-```text
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console:**
-```text
 ```csharp
 // Set your license path
 string redactionLicensePath = @"YOUR_DOCUMENT_DIRECTORY/Conholdate.Total.Product.Family.lic";
 
 // Initialize the Redaction API with the license
 new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
-```
 ```
 
 **NuGet Package Manager UI:**  
@@ -165,14 +155,12 @@ new GroupDocs.Redaction.License().SetLicense(redactionLicensePath);
 
 ### Базовая инициализация и настройка
 
-```text
 ```csharp
 string basePath = @"./HighlightInHtml/HighlightExample";
 string viewerCacheFolderPath = basePath + @"/ViewerCache";
 string indexFolder = basePath + @"/Index";
 string documentsFolder = @"YOUR_DOCUMENT_DIRECTORY/DocumentsPath";
 string query = "\"dapibus diam\" OR lorem";
-```
 ```
 
 ## Руководство по реализации
@@ -187,24 +175,20 @@ string query = "\"dapibus diam\" OR lorem";
 
 **1. Установить лицензию для Aspose.HTML**
 
-```text
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder); // Initialize index at specified path
 index.Add(documentsFolder); // Add documents from directory to index
 ```
-```
 
 **2. Установить лицензию для GroupDocs.Viewer**
 
-```text
 ```csharp
 using GroupDocs.Search.Results;
 
 SearchResult result = index.Search(query); // Execute the search
 FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first document
-```
 ```
 
 ### Настройка путей и запроса
@@ -217,7 +201,6 @@ FoundDocument foundDocument = result.GetFoundDocument(0); // Retrieve first docu
 
 **1. Определить базовые пути**
 
-```text
 ```csharp
 using GroupDocs.Search.Highlighters;
 using GroupDocs.Viewer.Options;
@@ -226,7 +209,6 @@ IndexedFileInfo fileInfo = new IndexedFileInfo(viewerCacheFolderPath, foundDocum
 HighlightService highlightService = new HighlightService(fileInfo, null); // Prepare for highlighting
 
 highlightService.Highlight(foundDocument, index.Dictionaries.Alphabet); // Perform highlighting
-```
 ```
 
 - **Объяснение**: Организация путей обеспечивает плавную интеграцию функций поиска и выделения.
@@ -347,8 +329,3 @@ A: Да, поддерживаются словари нескольких язы
 - [Implement GroupDocs.Redaction .NET for Document Finder Management and Highlighting](/search/net/document-management/groupdocs-redaction-net-finder-management-guide/)
 - [Master GroupDocs.Redaction .NET: Setup & Event Handling for Secure Document Management](/search/net/integration-interoperability/master-groupdocs-redaction-net-setup-events/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

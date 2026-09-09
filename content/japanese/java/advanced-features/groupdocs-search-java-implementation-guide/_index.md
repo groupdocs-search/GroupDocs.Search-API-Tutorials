@@ -128,14 +128,12 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/Lorem ipsum.pdf";
 Extractor extractor = new Extractor();
 Document document = Document.createFromFile(documentPath);
 ```
-```
 
 ```java
 // ```java
 ExtractionOptions extractionOptions = new ExtractionOptions();
 extractionOptions.setUseRawTextExtraction(false); // Extract with formatting
 ExtractedData extractedData = extractor.extract(document, extractionOptions);
-```
 ```
 
 > **ヒント:** フォーマットなしのプレーンテキストが必要な場合は `setUseRawTextExtraction(true)` を設定してください。
@@ -152,7 +150,6 @@ ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 extractedData.serialize(outputStream);
 byte[] serializedArray = outputStream.toByteArray();
 ```
-```
 
 ## 抽出データをデシリアライズする方法
 
@@ -164,7 +161,6 @@ byte[] serializedArray = outputStream.toByteArray();
 // ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(serializedArray);
 ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
-```
 ```
 
 ## ドキュメントインデックスの作成方法
@@ -178,7 +174,6 @@ ExtractedData deserializedData = ExtractedData.deserialize(inputStream);
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/SeparateDataExtraction";
 com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ```
-```
 
 ## データをインデックスに追加し、検索を実行する方法
 
@@ -191,13 +186,11 @@ com.groupdocs.search.Index index = new com.groupdocs.search.Index(indexFolder);
 ExtractedData[] dataToIndex = new ExtractedData[] { deserializedData };
 index.add(dataToIndex, new IndexingOptions());
 ```
-```
 
 ```java
 // ```java
 String query = "ipsum";
 SearchResult result = index.search(query);
-```
 ```
 
 > **プロのコツ:** 関連度ランキングを微調整するには `index.search("your query", SearchOptions)` を使用してください。
