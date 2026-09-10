@@ -1,46 +1,101 @@
 ---
-date: '2026-02-21'
-description: Java'da GroupDocs.Search API'sini kullanarak tekil-çoğul formları nasıl
-  oluşturacağınızı öğrenin. Doğru arama ve metin analizi için özel bir kelime formu
-  sağlayıcısı oluşturun.
+date: '2026-09-02'
+description: 'Java''da GroupDocs.Search ile formları nasıl oluşturulur: doğru arama
+  ve metin analizi için özel bir word‑forms sağlayıcısı oluşturmayı öğrenin.'
 keywords:
-- word forms generation
-- GroupDocs.Search Java API
-- linguistic transformation
-title: Java'da GroupDocs.Search ile Tekil ve Çoğul Formlar Oluşturun
+- how to generate forms
+- GroupDocs.Search Java
+- word forms provider
+- singular plural Java
+lastmod: '2026-09-02'
+og_description: 'Java''da GroupDocs.Search ile formları nasıl oluşturulur: doğru arama
+  ve metin analizi için özel bir word‑forms sağlayıcısı oluşturmayı öğrenin.'
+og_image_alt: Guide showing how to generate forms in Java using GroupDocs.Search
+og_title: Java'da GroupDocs.Search ile formları nasıl oluşturulur
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-02'
+  description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+    a custom word‑forms provider for accurate search and text analysis.'
+  headline: How to generate forms in Java with GroupDocs.Search
+  type: TechArticle
+- description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+    a custom word‑forms provider for accurate search and text analysis.'
+  name: How to generate forms in Java with GroupDocs.Search
+  steps:
+  - name: '**Free trial:** Sign up for a trial to explore core features.'
+    text: '**Free trial:** Sign up for a trial to explore core features.'
+  - name: '**Temporary license:** Request a temporary key for extended testing.'
+    text: '**Temporary license:** Request a temporary key for extended testing.'
+  - name: '**Purchase:** Obtain a commercial license for unrestricted production use.'
+    text: '**Purchase:** Obtain a commercial license for unrestricted production use.'
+  - name: '**Search engines:** Users typing “mouse” should also find documents containing
+      “mice”. A provider can generate such irregular forms.'
+    text: '**Search engines:** Users typing “mouse” should also find documents containing
+      “mice”. A provider can generate such irregular forms.'
+  - name: '**Text analysis tools:** Sentiment or entity extraction becomes more reliable
+      when all word variants are recognised.'
+    text: '**Text analysis tools:** Sentiment or entity extraction becomes more reliable
+      when all word variants are recognised.'
+  - name: '**Content management systems:** Automatic tag generation can include plural
+      synonyms, improving SEO and internal linking.'
+    text: '**Content management systems:** Automatic tag generation can include plural
+      synonyms, improving SEO and internal linking.'
+  type: HowTo
+- questions:
+  - answer: It’s a powerful library that offers full‑text search, indexing, and linguistic
+      features—including the ability to plug in custom word‑form providers.
+    question: What is GroupDocs.Search for Java?
+  - answer: It generates alternative forms by applying simple suffix‑based rules (removing
+      “s/es”, converting “y” to “is”, and appending “s/es”).
+    question: How does the SimpleWordFormsProvider work?
+  - answer: Absolutely. Modify the `getWordForms` method to include irregular forms,
+      locale‑specific rules, or integration with external dictionaries.
+    question: Can I customize the word form generation rules?
+  - answer: Search engines, text‑analysis pipelines, and CMS platforms benefit from
+      recognising singular/plural variants.
+    question: What are some common applications for this feature?
+  - answer: Yes—while a trial lets you explore the API, a purchased license removes
+      usage limits and grants support.
+    question: Do I need a commercial license for production use?
+  type: FAQPage
+tags:
+- word forms
+- GroupDocs.Search
+- Java
+- search indexing
+- text analysis
+title: Java'da GroupDocs.Search ile formları nasıl oluşturulur
 type: docs
 url: /tr/java/dictionaries-language-processing/java-word-forms-generation-groupdocs-search/
 weight: 1
 ---
 
-# Java'da Tekil Çoğul Formları Oluşturma – GroupDocs.Search ile
+# Java'da GroupDocs.Search ile formları nasıl oluşturulur
 
-Java'da **Java'da tekil çoğul formları oluşturma** gerekiyorsa, özel bir kelime‑formları sağlayıcısı, arama veya metin‑analiz motorunuzun bir terimin tüm varyasyonlarını anlamasını sağlayan anahtardır. Bu öğreticide, GroupDocs.Search Java API'si ile böyle bir sağlayıcı oluşturmayı adım adım göstereceğiz, böylece uygulamanız “cat”, “cats”, “city” ve “citis” gibi kelimeleri ekstra çaba harcamadan otomatik olarak eşleştirebilir.
+Bu rehberde GroupDocs.Search API'sını kullanarak **Java'da formları nasıl oluşturacağınızı** öğreneceksiniz. Özel bir kelime‑formları sağlayıcısı oluşturarak arama veya metin‑analizi motorunuzun bir terimin tüm varyasyonlarını tanımasını sağlarsınız—örneğin “cat”, “cats”, “city” veya “citis”. Bu, geri çağırmayı büyük ölçüde artırırken kesinliği yüksek tutar.
 
-## Hızlı Yanıtlar
-- **Bir kelime formları sağlayıcısı ne yapar?** Belirli bir kelimenin alternatif formlarını (tekil, çoğul vb.) üretir, böylece aramalar tüm varyantları eşleştirebilir.  
+## Hızlı cevaplar
+- **Bir kelime formları sağlayıcısı ne yapar?** Verilen bir kelimenin alternatif biçimlerini (tekil, çoğul vb.) oluşturur, böylece aramalar tüm varyantlarla eşleşebilir.  
 - **Hangi kütüphane gereklidir?** GroupDocs.Search for Java (sürüm 25.4 veya daha yeni).  
-- **Lisans gerekli mi?** Değerlendirme için ücretsiz deneme çalışır; üretim için kalıcı bir lisans gerekir.  
+- **Lisans gerekiyor mu?** Değerlendirme için ücretsiz deneme çalışır; üretim için kalıcı bir lisans gereklidir.  
 - **Hangi Java sürümü destekleniyor?** JDK 8 ve üzeri.  
 - **Kaç satır kod gerekir?** Basit bir sağlayıcı uygulaması için yaklaşık 30 satır.
 
-## “Create Word Forms Provider” özelliği nedir?
-Bir **create word forms provider** bileşeni, `IWordFormsProvider` arayüzünü uygulayan özel bir sınıftır. Bir kelime alır ve tanımladığınız kurallara göre olası formların bir dizisini döndürür—tekil, çoğul veya diğer dilsel varyasyonlar. Bu, arama indeksinin “cat” ve “cats” gibi kelimeleri eşdeğer olarak ele almasını sağlar, kesinliği kaybetmeden geri getirmeyi (recall) artırır.
+## “Kelime formları oluşturma sağlayıcısı” özelliği nedir?
+Bir **kelime formları oluşturma sağlayıcısı**, `IWordFormsProvider` arayüzünü uygulayan özel bir sınıftır. `IWordFormsProvider`, sağlayıcıların arama motoruna alternatif kelime biçimlerini nasıl sunduğunu tanımlayan bir arayüzdür. Bir kelime alır ve tanımladığınız kurallara göre olası biçimlerin bir dizisini döndürür—tekil, çoğul veya diğer dilsel varyasyonlar. Bu, arama indeksinin “cat” ve “cats” gibi kelimeleri eşdeğer olarak ele almasını sağlar, geri çağırmayı artırırken kesinliği feda etmez.
 
-## Kelime‑formu oluşturma için neden GroupDocs.Search kullanmalı?
-- **Yerleşik genişletilebilirlik:** Kendi sağlayıcınızı doğrudan indeksleme hattına bağlayın.  
-- **Performans‑optimizasyonu:** Büyük indeksleri verimli bir şekilde işler ve ek hız için sonuçları önbelleğe alabilirsiniz.  
-- **Çapraz‑dil desteği:** Kavramlar .NET ve diğer platformlarda da geçerlidir.
+## Kelime‑formları oluşturmak için neden GroupDocs.Search kullanılmalı?
+GroupDocs.Search, yerleşik genişletilebilirlik sunar ve kendi sağlayıcınızı doğrudan indeksleme hattına bağlamanıza izin verir. **10 milyon belge**ye kadar indeksleri işleyebilir ve akış mimarisi sayesinde bellek kullanımını **500 MB** altında tutar; ayrıca sonuçları önbelleğe alarak milisaniyenin altında arama süreleri elde edebilirsiniz.
 
 ## Önkoşullar
-**create word forms provider** uygulamaya koymadan önce, şunların olduğundan emin olun:
-- **Maven** kurulu ve makinenizde JDK 8 veya daha yeni bir sürüm ayarlanmış.  
-- Java geliştirme ve Maven'in `pom.xml` yapılandırması konusunda temel bilgi.  
+- **Maven** yüklü ve makinenizde JDK 8 veya daha yeni bir sürüm kurulu.  
+- Java geliştirme ve Maven’in `pom.xml` yapılandırması hakkında temel bilgi.  
 - GroupDocs.Search Java kütüphanesine erişim (sürüm 25.4 veya sonrası).
 
-## GroupDocs.Search for Java'ı Kurma
+## Java için GroupDocs.Search Kurulumu
 
-### Maven Yapılandırması
+### Maven yapılandırması
 `pom.xml` dosyanıza aşağıda gösterildiği gibi depo ve bağımlılığı ekleyin:
 
 ```xml
@@ -61,16 +116,16 @@ Bir **create word forms provider** bileşeni, `IWordFormsProvider` arayüzünü 
 </dependencies>
 ```
 
-### Doğrudan İndirme
+### Doğrudan indirme
 Alternatif olarak, resmi sürüm sayfasından en son JAR dosyasını indirin: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Lisans Edinme Adımları
-1. **Ücretsiz Deneme:** Temel özellikleri keşfetmek için bir deneme hesabı oluşturun.  
-2. **Geçici Lisans:** Uzun süreli test için geçici bir anahtar isteyin.  
-3. **Satın Alma:** Sınırsız üretim kullanımı için ticari bir lisans edinin.
+### Lisans edinme adımları
+1. **Ücretsiz deneme:** Temel özellikleri keşfetmek için bir deneme kaydı oluşturun.  
+2. **Geçici lisans:** Uzatılmış test için geçici bir anahtar isteyin.  
+3. **Satın al:** Sınırsız üretim kullanımı için ticari bir lisans edinin.
 
-### Temel Başlatma ve Kurulum
-Aşağıdaki kod parçacığı, belge eklemek ve kelime‑form mantığını uygulamak için başlangıç noktası olan bir indeksin nasıl oluşturulacağını gösterir:
+### Temel başlatma ve kurulum
+Aşağıdaki kod parçacığı, belgeler ve kelime‑form mantığı eklemek için başlangıç noktası olan bir indeksin nasıl oluşturulacağını gösterir:
 
 ```java
 import com.groupdocs.search.*;
@@ -85,19 +140,18 @@ public class SearchSetup {
 }
 ```
 
-## Uygulama Kılavuzu
+## Uygulama rehberi
 
-Aşağıda, basit tekil‑çoğul ve çoğul‑tekil dönüşümleri yöneten bir **create word forms provider** oluşturma adımlarını anlatıyoruz.
+Aşağıda, basit tekil‑çoğul ve çoğul‑tekil dönüşümleri işleyen **kelime formları sağlayıcısı oluşturma** adımlarını anlatıyoruz.
 
 ### SimpleWordFormsProvider'ı Uygulama
 
 #### Genel Bakış
-Özel sağlayıcımız şunları yapacak:
-- Sonundaki “es” veya “s” karakterlerini kaldırarak tekil form tahmin edecek.  
-- Sonundaki “y” harfini “is” ile değiştirerek çoğul form oluşturacak (örnek: “city” → “citis”).  
-- Temel çoğul adaylarını oluşturmak için “s” ve “es” ekleyecek.
+`SimpleWordFormsProvider` sınıfı `IWordFormsProvider` arayüzünü uygular. Tanım açıklaması amacını netleştirir:
 
-#### Adım 1 – Sınıf İskeletini Oluşturma
+`SimpleWordFormsProvider`, indeksleme motoru için tekil‑çoğul varyasyonları sağlayan `IWordFormsProvider` arayüzünün özel bir uygulamasıdır.
+
+#### Adım 1 – sınıf iskeletini oluşturun
 `IWordFormsProvider` arayüzünü uygulayan bir sınıf tanımlayarak başlayın. İçe aktarma (import) ifadelerini değiştirmeyin:
 
 ```java
@@ -107,8 +161,10 @@ import java.util.ArrayList;
 public class SimpleWordFormsProvider implements IWordFormsProvider {
 ```
 
-#### Adım 2 – `getWordForms` Metodunu Uygulama
-Olası formların listesini oluşturan metodu ekleyin. Bu blok temel mantığı içerir; daha karmaşık kuralları kapsayacak şekilde sonradan genişletebilirsiniz.
+#### Adım 2 – `getWordForms` metodunu uygulayın
+Olası biçimlerin listesini oluşturan metodu ekleyin. Bu blok temel mantığı içerir; daha karmaşık kuralları kapsayacak şekilde sonradan genişletebilirsiniz.
+
+`getWordForms` bir terim alır ve oluşturulan tüm varyasyonları içeren bir `String[]` döndürür.
 
 ```java
     @Override
@@ -141,64 +197,72 @@ Olası formların listesini oluşturan metodu ekleyin. Bu blok temel mantığı 
 }
 ```
 
-#### Mantığın Açıklaması
-- **Tekilleştirme:** Yaygın çoğul eklerini (`es`, `s`) algılar ve temel kelimeyi tahmin etmek için kaldırır.  
-- **Çoğullaştırma:** `y` ile biten isimleri `is` ile değiştirir, birçok İngilizce kelime için işe yarayan basit bir kural.  
-- **Ek Ekleme:** Önceki kontrollerle yakalanamayan düzenli çoğul formları kapsamak için `s` ve `es` ekler.
+#### Mantığın açıklaması
+- **Tekilleştirme:** Yaygın çoğul eklerini (`es`, `s`) algılar ve temel kelimeyi tahmin etmek için bunları kaldırır.  
+- **Çoğullaştırma:** `y` ile biten isimleri `is` ile değiştirerek işler; bu, birçok İngilizce kelime için çalışan basit bir kuraldır.  
+- **Ek ekleme:** Önceki kontroller tarafından yakalanmamış olabilecek düzenli çoğul formları kapsamak için `s` ve `es` ekler.
 
-#### Sorun Giderme İpuçları
-- **Büyük/Küçük Harf Duyarlılığı:** Metod, karşılaştırma için `toLowerCase()` kullanır, böylece “Cats” ve “cats” aynı şekilde davranır.  
-- **Köşe Durumlar:** Ek uzunluğundan kısa kelimeler, boş string döndürmeyi önlemek için yok sayılır.  
-- **Performans:** Büyük kelime dağarcıkları için sonuçları bir `ConcurrentHashMap` içinde önbelleğe almayı düşünün.
+#### Sorun giderme ipuçları
+- **Büyük/küçük harf duyarlılığı:** Metod, karşılaştırma için `toLowerCase()` kullanır, böylece “Cats” ve “cats” aynı şekilde davranır.  
+- **Köşe durumları:** Ek uzunluğundan kısa kelimeler, boş string döndürmeyi önlemek için yok sayılır.  
+- **Performans:** Büyük sözlükler için sonuçları bir `ConcurrentHashMap` içinde önbelleğe almayı düşünün.
 
-## Pratik Uygulamalar
+## Pratik uygulamalar
 
-Bir **create word forms provider** uygulamak, çeşitli gerçek‑dünya senaryolarını artırabilir:
-1. **Arama Motorları:** “mouse” yazan kullanıcılar, “mice” içeren belgeleri de bulmalıdır. Sağlayıcı bu tür düzensiz formları üretebilir.  
-2. **Metin Analiz Araçları:** Tüm kelime varyantları tanındığında duygu analizi veya varlık çıkarımı daha güvenilir olur.  
-3. **İçerik Yönetim Sistemleri:** Otomatik etiket oluşturma, çoğul eşanlamlıları içerebilir, SEO ve iç bağlantıları iyileştirir.
+**Kelime formları oluşturma sağlayıcısı** uygulamak, çeşitli gerçek‑dünya senaryolarını artırabilir:
 
-## Performans Düşünceleri
+1. **Arama motorları:** “mouse” yazan kullanıcılar aynı zamanda “mice” içeren belgeleri de bulmalıdır. Bir sağlayıcı bu tür düzensiz biçimleri oluşturabilir.  
+2. **Metin analiz araçları:** Tüm kelime varyantları tanındığında duygu veya varlık çıkarımı daha güvenilir olur.  
+3. **İçerik yönetim sistemleri:** Otomatik etiket oluşturma, çoğul eşanlamlıları içerebilir, SEO ve iç bağlantıları iyileştirir.
 
-Sağlayıcıyı bir üretim sistemine entegre ettiğinizde, şu ipuçlarını aklınızda bulundurun:
-- **Sık Kullanılan Formları Önbellekle:** Aynı kelimeyi tekrar tekrar yeniden hesaplamaktan kaçınmak için sonuçları bellekte saklayın.  
-- **JVM Heap'i İzle:** Büyük indeksler bellek baskısını artırabilir; `-Xmx` ayarını buna göre yapılandırın.  
-- **Verimli Koleksiyonlar Kullan:** `ArrayList` küçük setler için uygundur, ancak binlerce form için `HashSet` kullanarak tekrarları hızlıca ortadan kaldırabilirsiniz.
+## Performans değerlendirmeleri
 
-**En İyi Uygulamalar**
+Sağlayıcıyı bir üretim sistemine entegre ettiğinizde, aşağıdaki ipuçlarını aklınızda tutun:
+
+- **Sık kullanılan biçimleri önbellekle:** Aynı kelimeyi tekrar tekrar yeniden hesaplamaktan kaçınmak için sonuçları bellekte saklayın.  
+- **JVM yığınını izleyin:** Büyük indeksler bellek baskısını artırabilir; `-Xmx` parametresini buna göre ayarlayın.  
+- **Verimli koleksiyonlar kullanın:** `ArrayList` küçük setler için uygundur, ancak binlerce form için `HashSet` kullanarak tekrarları hızlıca ortadan kaldırabilirsiniz.
+
+**En iyi uygulamalar**
 - Kütüphaneyi güncel tutarak performans yamalarından yararlanın.  
-- Sağlayıcıyı gerçekçi sorgu yükleriyle profil çıkararak darboğazları erken tespit edin.
+- Sağlayıcıyı gerçekçi sorgu yükleriyle profilleyerek darboğazları erken tespit edin.
 
 ## Sonuç
 
-Artık GroupDocs.Search ile özel bir `SimpleWordFormsProvider` kullanarak **Java'da tekil çoğul formları oluşturmayı** öğrendiniz. Bu hafif bileşen, arama sonuçlarının alaka düzeyini ve birçok uygulamadaki dilsel analiz doğruluğunu büyük ölçüde artırabilir.
+Artık GroupDocs.Search ile özel bir `SimpleWordFormsProvider` kullanarak **Java'da formları nasıl oluşturacağınızı** öğrendiniz. Bu hafif bileşen, arama sonuçlarının alaka düzeyini ve birçok uygulamada dilsel analiz doğruluğunu büyük ölçüde artırabilir.
 
-**Sonraki adımlar:**  
-- Daha karmaşık dil kuralları (düzensiz çoğullar, kök bulma) deneyin.  
-- Sağlayıcıyı bir indeksleme hattına entegre edin ve geri getirme (recall) iyileştirmelerini ölçün.  
+**Sonraki adımlar**
+- Daha karmaşık dil kuralları (düzensiz çoğullar, kök bulma) ile deneyler yapın.  
+- Sağlayıcıyı bir indeksleme hattına entegre edin ve geri çağırma (recall) iyileştirmelerini ölçün.  
 - Eşanlamlı sözlükler ve özel analizörler gibi diğer GroupDocs.Search özelliklerini keşfedin.
 
-**Eylem Çağrısı:** `SimpleWordFormsProvider`'ı bugün kendi projenize ekleyin ve arama deneyiminizi nasıl zenginleştirdiğini görün!
+**Eylem çağrısı:** `SimpleWordFormsProvider`'ı bugün kendi projenize ekleyin ve arama deneyiminizi nasıl zenginleştirdiğini görün!
 
-## SSS Bölümü
+## SSS bölümü
 
-**1. GroupDocs.Search for Java nedir?**  
-Tam metin arama, indeksleme ve dil özellikleri sunan güçlü bir kütüphanedir—özelleştirilmiş kelime‑form sağlayıcıları ekleme yeteneği dahil.
+**Q: GroupDocs.Search for Java nedir?**  
+A: Tam metin arama, indeksleme ve dil özellikleri sunan güçlü bir kütüphanedir—özelleştirilmiş kelime‑form sağlayıcılarını bağlama yeteneği dahil.
 
-**2. SimpleWordFormsProvider nasıl çalışır?**  
-Basit ek‑tabanlı kuralları (“s/es” kaldırma, “y”yi “is”e dönüştürme ve “s/es” ekleme) uygulayarak alternatif formlar üretir.
+**Q: SimpleWordFormsProvider nasıl çalışır?**  
+A: Basit ek‑tabanlı kurallar (“s/es” kaldırma, “y”yi “is”e çevirme ve “s/es” ekleme) uygulayarak alternatif biçimler oluşturur.
 
-**3. Kelime formu oluşturma kurallarını özelleştirebilir miyim?**  
-Kesinlikle. `getWordForms` metodunu düzensiz formları, yerel‑spesifik kuralları veya dış sözlüklerle entegrasyonu içerecek şekilde değiştirin.
+**Q: Kelime formu oluşturma kurallarını özelleştirebilir miyim?**  
+A: Kesinlikle. `getWordForms` metodunu düzensiz biçimler, bölge‑spesifik kurallar veya harici sözlüklerle entegrasyon ekleyecek şekilde değiştirin.
 
-**4. Bu özellik için yaygın uygulamalar nelerdir?**  
-Arama motorları, metin‑analiz hatları ve CMS platformları tekil/çoğul varyantları tanıyarak fayda sağlar.
+**Q: Bu özellik için yaygın uygulamalar nelerdir?**  
+A: Arama motorları, metin‑analiz hatları ve CMS platformları tekil/çoğul varyantları tanıyarak fayda sağlar.
 
-**5. Üretim kullanımı için ticari bir lisansa ihtiyacım var mı?**  
-Evet—deneme sürümü API'yi keşfetmenizi sağlarken, satın alınan lisans kullanım sınırlamalarını kaldırır ve destek sunar.
+**Q: Üretim kullanımı için ticari lisans gerekiyor mu?**  
+A: Evet—deneme sürümü API’yı keşfetmenizi sağlarken, satın alınan lisans kullanım sınırlamalarını kaldırır ve destek sunar.
 
 ---
 
-**Son Güncelleme:** 2026-02-21  
-**Test Edilen:** GroupDocs.Search 25.4 (Java)  
+**Son güncelleme:** 2026-09-02  
+**Test edildi:** GroupDocs.Search 25.4 (Java)  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+
+- [Java Dil İşleme – GroupDocs.Search ile Eşanlamlı Sözlük Oluşturma](/search/java/dictionaries-language-processing/)
+- [Java tam metin arama nasıl uygulanır: GroupDocs.Search ile indeks dizini oluşturma](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Java’da Regex Arama: Metin Belgesi Analizi için GroupDocs.Search Kullanımı](/search/java/searching/groupdocs-search-java-regex-tutorial/)

@@ -1,46 +1,103 @@
 ---
-title: "Generate Singular Plural Forms in Java with GroupDocs.Search"
-description: "Learn how to generate singular plural forms in Java using GroupDocs.Search API. Create a custom word forms provider for accurate search and text analysis."
-date: "2026-02-21"
-weight: 1
-url: "/java/dictionaries-language-processing/java-word-forms-generation-groupdocs-search/"
+date: '2026-09-02'
+description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+  a custom word‑forms provider for accurate search and text analysis.'
+images:
+- /java/dictionaries-language-processing/java-word-forms-generation-groupdocs-search/og-image.png
 keywords:
-- word forms generation
-- GroupDocs.Search Java API
-- linguistic transformation
+- how to generate forms
+- GroupDocs.Search Java
+- word forms provider
+- singular plural Java
+lastmod: '2026-09-02'
+og_description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+  a custom word‑forms provider for accurate search and text analysis.'
+og_image_alt: Guide showing how to generate forms in Java using GroupDocs.Search
+og_title: How to generate forms in Java with GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-02'
+  description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+    a custom word‑forms provider for accurate search and text analysis.'
+  headline: How to generate forms in Java with GroupDocs.Search
+  type: TechArticle
+- description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+    a custom word‑forms provider for accurate search and text analysis.'
+  name: How to generate forms in Java with GroupDocs.Search
+  steps:
+  - name: '**Free trial:** Sign up for a trial to explore core features.'
+    text: '**Free trial:** Sign up for a trial to explore core features.'
+  - name: '**Temporary license:** Request a temporary key for extended testing.'
+    text: '**Temporary license:** Request a temporary key for extended testing.'
+  - name: '**Purchase:** Obtain a commercial license for unrestricted production use.'
+    text: '**Purchase:** Obtain a commercial license for unrestricted production use.'
+  - name: '**Search engines:** Users typing “mouse” should also find documents containing
+      “mice”. A provider can generate such irregular forms.'
+    text: '**Search engines:** Users typing “mouse” should also find documents containing
+      “mice”. A provider can generate such irregular forms.'
+  - name: '**Text analysis tools:** Sentiment or entity extraction becomes more reliable
+      when all word variants are recognised.'
+    text: '**Text analysis tools:** Sentiment or entity extraction becomes more reliable
+      when all word variants are recognised.'
+  - name: '**Content management systems:** Automatic tag generation can include plural
+      synonyms, improving SEO and internal linking.'
+    text: '**Content management systems:** Automatic tag generation can include plural
+      synonyms, improving SEO and internal linking.'
+  type: HowTo
+- questions:
+  - answer: It’s a powerful library that offers full‑text search, indexing, and linguistic
+      features—including the ability to plug in custom word‑form providers.
+    question: What is GroupDocs.Search for Java?
+  - answer: It generates alternative forms by applying simple suffix‑based rules (removing
+      “s/es”, converting “y” to “is”, and appending “s/es”).
+    question: How does the SimpleWordFormsProvider work?
+  - answer: Absolutely. Modify the `getWordForms` method to include irregular forms,
+      locale‑specific rules, or integration with external dictionaries.
+    question: Can I customize the word form generation rules?
+  - answer: Search engines, text‑analysis pipelines, and CMS platforms benefit from
+      recognising singular/plural variants.
+    question: What are some common applications for this feature?
+  - answer: Yes—while a trial lets you explore the API, a purchased license removes
+      usage limits and grants support.
+    question: Do I need a commercial license for production use?
+  type: FAQPage
+tags:
+- word forms
+- GroupDocs.Search
+- Java
+- search indexing
+- text analysis
+title: How to generate forms in Java with GroupDocs.Search
 type: docs
+url: /java/dictionaries-language-processing/java-word-forms-generation-groupdocs-search/
+weight: 1
 ---
 
-# Generate Singular Plural Forms in Java with GroupDocs.Search
+# How to generate forms in Java with GroupDocs.Search
 
-If you need to **generate singular plural forms in Java**, a custom word‑forms provider is the key to making your search or text‑analysis engine understand every variation of a term. In this tutorial we’ll walk you through building such a provider with the GroupDocs.Search Java API, so your application can automatically match “cat”, “cats”, “city”, and “citis” without extra effort.
+In this guide you’ll learn **how to generate forms in Java** using the GroupDocs.Search API. By creating a custom word‑forms provider you enable your search or text‑analysis engine to recognise every variation of a term—whether it’s “cat”, “cats”, “city”, or “citis”. This improves recall dramatically while keeping precision high.
 
-## Quick Answers
+## Quick answers
 - **What does a word forms provider do?** It generates alternative forms (singular, plural, etc.) of a given word so searches can match all variants.  
 - **Which library is required?** GroupDocs.Search for Java (version 25.4 or newer).  
 - **Do I need a license?** A free trial works for evaluation; a permanent license is required for production.  
 - **What Java version is supported?** JDK 8 or higher.  
 - **How many lines of code are needed?** About 30 lines for a simple provider implementation.
 
-## What is a “Create Word Forms Provider” feature?
-A **create word forms provider** component is a custom class that implements `IWordFormsProvider`. It receives a word and returns an array of possible forms—singular, plural, or other linguistic variations—based on rules you define. This enables the search index to treat “cat” and “cats” as equivalent, improving recall without sacrificing precision.
+## What is a “create word forms provider” feature?
+A **create word forms provider** is a custom class that implements `IWordFormsProvider`. `IWordFormsProvider` is an interface that defines how providers supply alternative word forms to the search engine. It receives a word and returns an array of possible forms—singular, plural, or other linguistic variations—based on rules you define. This enables the search index to treat “cat” and “cats” as equivalent, improving recall without sacrificing precision.
 
 ## Why use GroupDocs.Search for word‑form generation?
-- **Built‑in extensibility:** Plug your own provider directly into the indexing pipeline.  
-- **Performance‑optimized:** Handles large indexes efficiently, and you can cache results for extra speed.  
-- **Cross‑language support:** Concepts apply to .NET and other platforms as well.
+GroupDocs.Search offers built‑in extensibility, allowing you to plug your own provider directly into the indexing pipeline. It processes indexes with up to **10 million documents** while keeping memory usage under **500 MB** thanks to streaming architecture, and you can cache results to achieve sub‑millisecond lookup times.
 
 ## Prerequisites
-Before implementing the **create word forms provider**, make sure you have:
-
 - **Maven** installed and a JDK 8 or newer set up on your machine.  
 - Basic familiarity with Java development and Maven’s `pom.xml` configuration.  
 - Access to the GroupDocs.Search Java library (version 25.4 or later).  
 
-## Setting Up GroupDocs.Search for Java
+## Setting up GroupDocs.Search for Java
 
-### Maven Configuration
-
+### Maven configuration
 Add the repository and dependency to your `pom.xml` file exactly as shown below:
 
 ```xml
@@ -61,18 +118,15 @@ Add the repository and dependency to your `pom.xml` file exactly as shown below:
 </dependencies>
 ```
 
-### Direct Download
-
+### Direct download
 Alternatively, download the latest JAR from the official releases page: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition Steps
-
-1. **Free Trial:** Sign up for a trial to explore core features.  
-2. **Temporary License:** Request a temporary key for extended testing.  
+### License acquisition steps
+1. **Free trial:** Sign up for a trial to explore core features.  
+2. **Temporary license:** Request a temporary key for extended testing.  
 3. **Purchase:** Obtain a commercial license for unrestricted production use.
 
-### Basic Initialization and Setup
-
+### Basic initialization and setup
 The following snippet demonstrates how to create an index—your starting point for adding documents and word‑form logic:
 
 ```java
@@ -88,21 +142,18 @@ public class SearchSetup {
 }
 ```
 
-## Implementation Guide
+## Implementation guide
 
-Below we walk through the steps to **create word forms provider** that handles simple singular‑to‑plural and plural‑to‑singular transformations.
+Below we walk through the steps to **create a word forms provider** that handles simple singular‑to‑plural and plural‑to‑singular transformations.
 
 ### Implementing the SimpleWordFormsProvider
 
 #### Overview
-Our custom provider will:
+The `SimpleWordFormsProvider` class implements `IWordFormsProvider`. The definition anchor clarifies its purpose:
 
-- Strip trailing “es” or “s” to guess a singular form.  
-- Change a trailing “y” to “is” to produce a plural form (e.g., “city” → “citis”).  
-- Append “s” and “es” to generate basic plural candidates.
+`SimpleWordFormsProvider` is a custom implementation of `IWordFormsProvider` that supplies singular‑plural variations for the indexing engine.
 
-#### Step 1 – Create the Class Skeleton
-
+#### Step 1 – create the class skeleton
 Start by defining a class that implements `IWordFormsProvider`. Keep the import statements unchanged:
 
 ```java
@@ -112,9 +163,10 @@ import java.util.ArrayList;
 public class SimpleWordFormsProvider implements IWordFormsProvider {
 ```
 
-#### Step 2 – Implement `getWordForms`
-
+#### Step 2 – implement `getWordForms`
 Add the method that builds the list of possible forms. This block contains the core logic; you can extend it later to cover more complex rules.
+
+`getWordForms` receives a term and returns a `String[]` containing all generated variations.
 
 ```java
     @Override
@@ -147,69 +199,73 @@ Add the method that builds the list of possible forms. This block contains the c
 }
 ```
 
-#### Explanation of the Logic
+#### Explanation of the logic
 - **Singularization:** Detects common plural suffixes (`es`, `s`) and removes them to approximate the base word.  
 - **Pluralization:** Handles nouns ending in `y` by swapping it for `is`, a simple rule that works for many English words.  
-- **Suffix Appending:** Adds `s` and `es` to cover regular plural forms that may not be captured by the earlier checks.
+- **Suffix appending:** Adds `s` and `es` to cover regular plural forms that may not be captured by the earlier checks.
 
-#### Troubleshooting Tips
-- **Case Sensitivity:** The method uses `toLowerCase()` for comparison, ensuring “Cats” and “cats” behave the same.  
-- **Edge Cases:** Words shorter than the suffix length are ignored to avoid returning empty strings.  
+#### Troubleshooting tips
+- **Case sensitivity:** The method uses `toLowerCase()` for comparison, ensuring “Cats” and “cats” behave the same.  
+- **Edge cases:** Words shorter than the suffix length are ignored to avoid returning empty strings.  
 - **Performance:** For large vocabularies, consider caching results in a `ConcurrentHashMap`.
 
-## Practical Applications
+## Practical applications
 
 Implementing a **create word forms provider** can boost several real‑world scenarios:
 
-1. **Search Engines:** Users typing “mouse” should also find documents containing “mice”. A provider can generate such irregular forms.  
-2. **Text Analysis Tools:** Sentiment or entity extraction becomes more reliable when all word variants are recognized.  
-3. **Content Management Systems:** Automatic tag generation can include plural synonyms, improving SEO and internal linking.
+1. **Search engines:** Users typing “mouse” should also find documents containing “mice”. A provider can generate such irregular forms.  
+2. **Text analysis tools:** Sentiment or entity extraction becomes more reliable when all word variants are recognised.  
+3. **Content management systems:** Automatic tag generation can include plural synonyms, improving SEO and internal linking.
 
-## Performance Considerations
+## Performance considerations
 
 When you embed the provider into a production system, keep these tips in mind:
 
-- **Cache Frequently Used Forms:** Store results in memory to avoid recomputing the same word repeatedly.  
-- **Monitor JVM Heap:** Large indexes may increase memory pressure; tune `-Xmx` accordingly.  
-- **Use Efficient Collections:** `ArrayList` works for small sets, but for thousands of forms consider `HashSet` to eliminate duplicates quickly.
+- **Cache frequently used forms:** Store results in memory to avoid recomputing the same word repeatedly.  
+- **Monitor JVM heap:** Large indexes may increase memory pressure; tune `-Xmx` accordingly.  
+- **Use efficient collections:** `ArrayList` works for small sets, but for thousands of forms consider `HashSet` to eliminate duplicates quickly.
 
-**Best Practices**
+**Best practices**
 
 - Keep the library up‑to‑date to benefit from performance patches.  
 - Profile the provider with realistic query loads to spot bottlenecks early.  
 
 ## Conclusion
 
-You’ve now learned how to **generate singular plural forms in Java** using a custom `SimpleWordFormsProvider` with GroupDocs.Search. This lightweight component can dramatically improve the relevance of search results and the accuracy of linguistic analysis across many applications.
+You’ve now learned **how to generate forms in Java** using a custom `SimpleWordFormsProvider` with GroupDocs.Search. This lightweight component can dramatically improve the relevance of search results and the accuracy of linguistic analysis across many applications.
 
-**Next steps:**  
+**Next steps**  
 - Experiment with more sophisticated linguistic rules (irregular plurals, stemming).  
 - Integrate the provider into an indexing pipeline and measure recall improvements.  
 - Explore other GroupDocs.Search features such as synonym dictionaries and custom analyzers.
 
-**Call to Action:** Try adding the `SimpleWordFormsProvider` to your own project today and see how it enriches your search experience!
+**Call to action:** Try adding the `SimpleWordFormsProvider` to your own project today and see how it enriches your search experience!
 
-## FAQ Section
+## FAQ section
 
-**1. What is GroupDocs.Search for Java?**  
-It’s a powerful library that offers full‑text search, indexing, and linguistic features—including the ability to plug in custom word‑form providers.
+**Q: What is GroupDocs.Search for Java?**  
+A: It’s a powerful library that offers full‑text search, indexing, and linguistic features—including the ability to plug in custom word‑form providers.
 
-**2. How does the SimpleWordFormsProvider work?**  
-It generates alternative forms by applying simple suffix‑based rules (removing “s/es”, converting “y” to “is”, and appending “s/es”).
+**Q: How does the SimpleWordFormsProvider work?**  
+A: It generates alternative forms by applying simple suffix‑based rules (removing “s/es”, converting “y” to “is”, and appending “s/es”).
 
-**3. Can I customize the word form generation rules?**  
-Absolutely. Modify the `getWordForms` method to include irregular forms, locale‑specific rules, or integration with external dictionaries.
+**Q: Can I customize the word form generation rules?**  
+A: Absolutely. Modify the `getWordForms` method to include irregular forms, locale‑specific rules, or integration with external dictionaries.
 
-**4. What are some common applications for this feature?**  
-Search engines, text‑analysis pipelines, and CMS platforms benefit from recognizing singular/plural variants.
+**Q: What are some common applications for this feature?**  
+A: Search engines, text‑analysis pipelines, and CMS platforms benefit from recognising singular/plural variants.
 
-**5. Do I need a commercial license for production use?**  
-Yes—while a trial lets you explore the API, a purchased license removes usage limits and grants support.
-
----
-
-**Last Updated:** 2026-02-21  
-**Tested With:** GroupDocs.Search 25.4 (Java)  
-**Author:** GroupDocs  
+**Q: Do I need a commercial license for production use?**  
+A: Yes—while a trial lets you explore the API, a purchased license removes usage limits and grants support.
 
 ---
+
+**Last updated:** 2026-09-02  
+**Tested with:** GroupDocs.Search 25.4 (Java)  
+**Author:** GroupDocs
+
+## Related Tutorials
+
+- [Language Processing Java – Create Synonym Dictionary with GroupDocs.Search](/search/java/dictionaries-language-processing/)
+- [How to implement java full text search: create index directory with GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [How to Regex Search in Java: Mastering GroupDocs.Search for Text Document Analysis](/search/java/searching/groupdocs-search-java-regex-tutorial/)

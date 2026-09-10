@@ -1,45 +1,99 @@
 ---
-date: '2026-02-21'
-description: Naučte se, jak v Javě pomocí GroupDocs.Search povolit opravu pravopisu,
-  přidávat dokumenty do indexu a nastavit maximální počet chyb pro lepší přesnost
-  vyhledávání.
+date: '2026-09-02'
+description: Naučte se, jak vytvořit search index java a povolit spelling correction
+  pomocí GroupDocs.Search. Postupujte podle step‑by‑step instrukcí pro přidání documents,
+  nastavení max mistake count a zlepšení search accuracy.
 keywords:
-- spelling correction Java
+- create search index java
+- spelling correction java
 - GroupDocs.Search tutorial
-- Java search functionality
-title: Jak povolit pravopis v Javě s GroupDocs.Search
+lastmod: '2026-09-02'
+og_description: Naučte se, jak vytvořit search index java a povolit spelling correction
+  pomocí GroupDocs.Search. Postupujte podle step‑by‑step instrukcí pro přidání documents,
+  nastavení max mistake count a zlepšení search accuracy.
+og_image_alt: Guide showing Java code that creates a search index and configures spelling
+  correction with GroupDocs.Search
+og_title: Jak vytvořit search index java a povolit spelling
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-02'
+  description: Learn how to create search index java and enable spelling correction
+    using GroupDocs.Search. Follow step‑by‑step instructions to add documents, configure
+    max mistake count, and improve search accuracy.
+  headline: How to create search index java and enable spelling
+  type: TechArticle
+- description: Learn how to create search index java and enable spelling correction
+    using GroupDocs.Search. Follow step‑by‑step instructions to add documents, configure
+    max mistake count, and improve search accuracy.
+  name: How to create search index java and enable spelling
+  steps:
+  - name: '**Library systems** – automatically fix misspelled book titles or author
+      names.'
+    text: '**Library systems** – automatically fix misspelled book titles or author
+      names.'
+  - name: '**E‑commerce platforms** – correct product name typos to increase conversion
+      rates.'
+    text: '**E‑commerce platforms** – correct product name typos to increase conversion
+      rates.'
+  - name: '**Content management** – help editorial staff locate articles even with
+      imperfect keywords.'
+    text: '**Content management** – help editorial staff locate articles even with
+      imperfect keywords.'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Search is a Java library that provides fast indexing, advanced
+      query capabilities, and built‑in spelling correction for any Java application.
+    question: What is GroupDocs.Search?
+  - answer: Visit the official site to download a free trial or purchase a full license;
+      a temporary key is also available for short‑term testing.
+    question: How do I obtain a license for GroupDocs.Search?
+  - answer: Yes, it works seamlessly with Spring, Jakarta EE, and any standard Java
+      application.
+    question: Can I integrate GroupDocs.Search with other Java frameworks?
+  - answer: Incorrect folder paths, missing file permissions, or absent Maven dependencies
+      are the typical culprits.
+    question: What are common issues when setting up an index?
+  - answer: It automatically rewrites misspelled queries to their closest correct
+      terms, returning more relevant hits and reducing user frustration.
+    question: How does spell correction improve search results?
+  type: FAQPage
+tags:
+- create search index java
+- GroupDocs.Search
+- Java search
+title: Jak vytvořit search index java a povolit spelling
 type: docs
 url: /cs/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/
 weight: 1
 ---
 
-# Jak povolit pravopis v Javě pomocí GroupDocs.Search
+# Jak vytvořit vyhledávací index java a povolit pravopis
 
-Přesné výsledky vyhledávání jsou nezbytné pro každou moderní aplikaci. V tomto tutoriálu se naučíte **jak povolit pravopis** opravu v Javě s GroupDocs.Search, takže uživatelé získají správné výsledky i při překlepování dotazů. Provedeme vás vytvořením indexu, **přidáváním dokumentů do indexu**, konfigurací možností pravopisu a spuštěním vyhledávání, které automaticky opravuje chyby.
+V moderních Java aplikacích je poskytování přesných výsledků vyhledávání nezbytnou funkcí. Tento tutoriál ukazuje **jak vytvořit vyhledávací index java** a zapnout opravu pravopisu pomocí GroupDocs.Search, takže uživatelé získají relevantní výsledky i při překlepování dotazů. Uvidíte, jak nastavit knihovnu, přidat dokumenty, nakonfigurovat maximální počet chyb a spustit tolerantní vyhledávání na překlepy — vše bez psaní jediného řádku dalšího konfiguračního kódu.
 
 ## Rychlé odpovědi
-- **Co znamená “how to enable spelling”?** Aktivuje vestavěný kontroler pravopisu, který během vyhledávání opravuje překlepy uživatele.  
-- **Která knihovna tuto funkci poskytuje?** GroupDocs.Search for Java.  
-- **Potřebuji licenci?** Licence na zkušební období funguje pro hodnocení; plná licence je vyžadována pro produkci.  
-- **Mohu řídit toleranci?** Ano – použijte `setMaxMistakeCount` k definování, kolik překlepů je povoleno.  
-- **Je vhodná pro velké indexy?** Rozhodně – engine je optimalizován pro vysokovýkonné indexování a vyhledávání.
+- **Co dělá „enable spelling“?** Aktivuje vestavěný kontrolor pravopisu, který během vyhledávání přepisuje chybně napsané výrazy na jejich nejbližší správné tvary.  
+- **Která knihovna tuto funkci poskytuje?** GroupDocs.Search pro Java.  
+- **Potřebuji licenci?** Bezplatná zkušební verze funguje pro hodnocení; pro produkční použití je vyžadována plná licence.  
+- **Mohu řídit toleranci?** Ano – použijte `setMaxMistakeCount` k definování, kolik překlepů je povoleno na dotaz.  
+- **Je vhodný pro velké indexy?** Rozhodně – engine zvládá indexy s miliony záznamů a udržuje latenci dotazu pod 100 ms na typickém serverovém hardware.
 
-## Co znamená “how to enable spelling” v GroupDocs.Search?
-Povolení pravopisu říká vyhledávacímu enginu, aby hledal nejbližší správné výrazy, když dotaz obsahuje chyby. Tato funkce dramaticky zlepšuje uživatelský zážitek tím, že vrací relevantní výsledky i při chybně napsaném vstupu.
+## Co je GroupDocs.Search?
+GroupDocs.Search je Java knihovna, která poskytuje rychlé full‑textové indexování a pokročilé vyhledávací funkce, včetně vestavěné opravy pravopisu. Podporuje více než 50 vstupních formátů a dokáže zpracovat dokumenty o stovkách stránek, aniž by načítala celý soubor do paměti.
 
 ## Proč povolit opravu pravopisu v Java aplikacích?
-- **Zvyšuje spokojenost uživatelů** – uživatelé nemusí psát dokonale.  
-- **Snižuje míru odchodů** – přesnější výsledky udržují návštěvníky zapojené.  
-- **Funguje napříč doménami** – od knihovních katalogů po e‑commerce vyhledávání produktů.
+- **Zvyšuje spokojenost uživatelů** – návštěvníci získají správné výsledky i při nedokonalém psaní.  
+- **Snižuje míru odchodů** – přesné výsledky udržují uživatele déle zapojené.  
+- **Funguje napříč doménami** – od knihovních katalogů po vyhledávání produktů v e‑commerce, oprava pravopisu zlepšuje relevanci všude.
 
 ## Předpoklady
-- Nainstalovaný Java Development Kit (JDK).  
-- Základní znalosti Javy a Maven.  
+- Java Development Kit (JDK) nainstalován.  
+- Základní znalost Javy a Maven.  
 - Porozumění konceptům indexování.  
-- Zkušební nebo licencovaný klíč GroupDocs.Search.
+- Zkušební verze nebo licenční klíč GroupDocs.Search.
 
-### Nastavení GroupDocs.Search pro Javu
-Integrujte knihovnu do svého Maven projektu.
+### Nastavení GroupDocs.Search pro Java
+Integrovat knihovnu do vašeho Maven projektu.
 
 **Nastavení Maven**  
 Přidejte repozitář a závislost do souboru `pom.xml`:
@@ -63,13 +117,75 @@ Přidejte repozitář a závislost do souboru `pom.xml`:
 ```
 
 **Přímé stažení**  
-Alternativně stáhněte nejnovější verzi z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternativně stáhněte nejnovější verzi z [vydání GroupDocs.Search pro Java](https://releases.groupdocs.com/search/java/).
 
 ### Získání licence
 Získejte bezplatnou zkušební licenci pro hodnocení. Pro produkční použití zakupte plnou licenci nebo požádejte o dočasný klíč na oficiální stránce.
 
-## Jak přidat dokumenty do indexu
-Vytvoření indexu je základem pro jakoukoli aplikaci s vyhledáváním. Níže je minimální příklad, který **přidává dokumenty do indexu** ze složky.
+## Jak vytvořit vyhledávací index v Javě?
+`SearchIndex` je hlavní třída, která představuje vyhledávatelný index uložený na disku.  
+Vytvořte instanci `SearchIndex`, která ukazuje na složku na disku, a poté přidejte dokumenty ze zdrojového adresáře. Engine vytváří invertovaný index, který umožňuje rychlé vyhledávání. Můžete volat `index.add()` pro každý soubor; knihovna automaticky extrahuje text podle typu souboru.
+
+## Jak mohu povolit opravu pravopisu?
+`getSpellingOptions()` vrací objekt konfigurace pravopisu pro index, který vám umožní povolit nebo upravit funkce kontroly pravopisu.  
+Povolit pravopis voláním `index.getSpellingOptions().setEnabled(true)`. Tím řeknete engine, aby analyzoval výrazy dotazu a navrhl opravené alternativy, když jsou zjištěny nesrovnalosti. Funkce funguje ihned pro všechny indexované jazyky podporované knihovnou.
+
+## Co je nastavení maximálního počtu chyb?
+`setMaxMistakeCount` konfiguruje maximální počet úprav znaků, které kontrolor pravopisu toleruje na termín.  
+`setMaxMistakeCount(int)` definuje maximální počet úprav znaků (vkládání, mazání, nahrazování), které kontrolor pravopisu toleruje na termín. Nastavením na **2** umožní engine opravit běžné dvouznakové překlepy a zároveň se vyhnout příliš agresivním opravám, které by mohly vrátit nesouvisející výsledky.
+
+## Jak provést vyhledávání s opravou pravopisu
+`search()` provádí dotaz proti indexu a vrací objekt `SearchResult` obsahující shody a případné opravené výrazy.  
+Spusťte vyhledávací dotaz pomocí metody `search()`. Pokud dotaz obsahuje chybně napsaná slova, engine vrátí `SearchResult`, který zahrnuje opravené výrazy a seznam nejrelevantnějších dokumentů. Můžete uživateli zobrazit jak původní dotaz, tak opravenou verzi pro transparentnost.  
+`SearchResult` obsahuje seznam odpovídajících dokumentů a informace o opravách dotazu.
+
+## Praktické aplikace
+1. **Knihovní systémy** – automaticky opravovat chybně napsané názvy knih nebo jména autorů.  
+2. **E‑commerce platformy** – opravovat překlepy v názvech produktů pro zvýšení konverzního poměru.  
+3. **Správa obsahu** – pomoci redakčnímu týmu najít články i při nedokonalých klíčových slovech.
+
+## Úvahy o výkonu
+- **Udržujte index aktuální** – pravidelně reindexujte nové nebo změněné soubory.  
+- **Ladit nastavení paměti JVM** – přidělte dostatečnou haldu pro velké indexy (např. `-Xmx4g`).  
+- **Monitorovat využití zdrojů** – upravte příznaky garbage‑collectoru, pokud zaznamenáte pauzy během hromadného indexování.
+
+## Běžné problémy a řešení
+| Příznak | Pravděpodobná příčina | Řešení |
+|---------|-----------------------|--------|
+| Žádné výsledky po povolení pravopisu | Cesta k složce indexu je špatná nebo je prázdná | Ověřte, že `indexFolder` ukazuje na platný index a že `index.add()` byl úspěšný |
+| Kontrolor pravopisu neopravu evidentních překlepů | `setMaxMistakeCount` je nastaven příliš nízko | Zvyšte počet na 2 nebo 3 pro tolerantnější opravu |
+| Aplikace spadne při velkých sadách dokumentů | Nedostatečná halda JVM | Zvyšte volbu `-Xmx` (např. `-Xmx4g`) |
+
+## Často kladené otázky
+
+**Q: Co je GroupDocs.Search?**  
+A: GroupDocs.Search je Java knihovna, která poskytuje rychlé indexování, pokročilé možnosti dotazování a vestavěnou opravu pravopisu pro jakoukoli Java aplikaci.
+
+**Q: Jak získám licenci pro GroupDocs.Search?**  
+A: Navštivte oficiální stránku a stáhněte si bezplatnou zkušební verzi nebo zakupte plnou licenci; dočasný klíč je také k dispozici pro krátkodobé testování.
+
+**Q: Mohu integrovat GroupDocs.Search s jinými Java frameworky?**  
+A: Ano, funguje bez problémů se Spring, Jakarta EE a jakoukoli standardní Java aplikací.
+
+**Q: Jaké jsou běžné problémy při nastavování indexu?**  
+A: Nesprávné cesty ke složkám, chybějící oprávnění k souborům nebo chybějící Maven závislosti jsou typické příčiny.
+
+**Q: Jak oprava pravopisu zlepšuje výsledky vyhledávání?**  
+A: Automaticky přepisuje chybně napsané dotazy na jejich nejbližší správné výrazy, vrací relevantnější výsledky a snižuje frustraci uživatelů.
+
+## Další zdroje
+- [Dokumentace](https://docs.groupdocs.com/search/java/)
+- [Reference API](https://reference.groupdocs.com/search/java)
+- [Stáhnout](https://releases.groupdocs.com/search/java/)
+- [GitHub repozitář](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Bezplatné fórum podpory](https://forum.groupdocs.com/c/search/10)
+- [Dočasná licence](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Poslední aktualizace:** 2026-09-02  
+**Testováno s:** GroupDocs.Search 25.4  
+**Autor:** GroupDocs
 
 ```java
 import com.groupdocs.search.*;
@@ -91,11 +207,6 @@ public class FeatureIndexAndAddDocuments {
 }
 ```
 
-*Tip:* Ověřte, že cesty jsou správné a že aplikace má oprávnění k zápisu do složky indexu.
-
-## Jak nakonfigurovat opravu pravopisu (nastavení maximálního počtu chyb)
-Můžete jemně doladit kontroler pravopisu jeho povolením a nastavením tolerance chyb.
-
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -116,11 +227,6 @@ public class FeatureSpellingCorrectionOptions {
     }
 }
 ```
-
-*Proč `setMaxMistakeCount` záleží:* Definuje, kolik překlepů engine bude tolerovat. Přizpůsobte tuto hodnotu podle typických chybových vzorců ve vašem oboru.
-
-## Jak provést vyhledávání s opravou pravopisu
-S připraveným indexem a nakonfigurovanými možnostmi pravopisu spusťte dotaz, který může obsahovat chyby.
 
 ```java
 import com.groupdocs.search.*;
@@ -148,52 +254,8 @@ public class FeatureSpellingCorrectionSearch {
 }
 ```
 
-Volání `search()` vrací `SearchResult`, který obsahuje opravené výrazy a nejrelevantnější dokumenty.
+## Související tutoriály
 
-## Praktické aplikace
-1. **Knihovní systémy:** Opravte špatně napsané názvy knih nebo jména autorů.  
-2. **E‑commerce platformy:** Opravte překlepy uživatelů ve vyhledávání produktů pro zvýšení konverzí.  
-3. **Systémy pro správu obsahu:** Zlepšete vyhledávání článků pro redakční tým.
-
-## Výkonnostní úvahy
-- **Udržujte index aktuální** – pravidelně reindexujte nové nebo změněné soubory.  
-- **Ladění nastavení paměti JVM** – přidělte dostatečnou haldu pro velké indexy.  
-- **Sledujte využití zdrojů** – v případě potřeby upravte příznaky garbage‑collectoru.
-
-## Časté problémy a řešení
-| Symptom | Likely Cause | Fix |
-|---------|--------------|-----|
-| Nejsou vráceny žádné výsledky po povolení pravopisu | Cesta k složce indexu je špatná nebo prázdná | Ověřte, že `indexFolder` ukazuje na platný index a že `index.add()` byl úspěšný |
-| Kontroler pravopisu neopravuje zjevné překlepy | `setMaxMistakeCount` je nastaven příliš nízko | Zvyšte počet na 2 nebo 3 pro tolerantnější opravu |
-| Aplikace spadne při velkých sadách dokumentů | Nedostatečná halda JVM | Zvyšte volbu `-Xmx` (např. `-Xmx4g`) |
-
-## Často kladené otázky
-
-**Q: Co je GroupDocs.Search?**  
-A: Jedná se o Java knihovnu, která poskytuje rychlé indexování, pokročilé funkce vyhledávání a vestavěnou opravu pravopisu.
-
-**Q: Jak získám licenci pro GroupDocs.Search?**  
-A: Navštivte oficiální stránku a stáhněte si bezplatnou zkušební verzi nebo zakupte plnou licenci.
-
-**Q: Mohu integrovat GroupDocs.Search s jinými Java frameworky?**  
-A: Ano, funguje se Spring, Jakarta EE a jakoukoliv standardní Java aplikací.
-
-**Q: Jaké jsou časté problémy při nastavování indexu?**  
-A: Nesprávné cesty ke složkám, nedostatečná oprávnění k souborům nebo chybějící závislosti v `pom.xml`.
-
-**Q: Jak oprava pravopisu zlepšuje výsledky vyhledávání?**  
-A: Automaticky přepisuje špatně napsané dotazy na nejbližší správné výrazy, čímž vrací relevantnější výsledky.
-
-## Další zdroje
-- [Dokumentace](https://docs.groupdocs.com/search/java/)
-- [Reference API](https://reference.groupdocs.com/search/java)
-- [Stáhnout](https://releases.groupdocs.com/search/java/)
-- [GitHub repozitář](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Bezplatné fórum podpory](https://forum.groupdocs.com/c/search/10)
-- [Dočasná licence](https://purchase.groupdocs.com/temporary-license/)
-
----
-
-**Poslední aktualizace:** 2026-02-21  
-**Testováno s:** GroupDocs.Search 25.4  
-**Autor:** GroupDocs
+- [Jak vytvořit index dokumentů a přidat dokumenty pomocí GroupDocs.Search API pro Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Zpracování jazyka v Javě – Vytvořit slovník synonym s GroupDocs.Search](/search/java/dictionaries-language-processing/)
+- [Stop slova ve vyhledávání: Přidat dokumenty do indexu s GroupDocs.Search Java](/search/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/)

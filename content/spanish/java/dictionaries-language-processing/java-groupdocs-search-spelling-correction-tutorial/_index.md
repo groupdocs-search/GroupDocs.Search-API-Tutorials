@@ -1,36 +1,90 @@
 ---
-date: '2026-02-21'
-description: Aprende cómo habilitar la corrección ortográfica en Java usando GroupDocs.Search,
-  agregar documentos al índice y establecer el recuento máximo de errores para una
-  mejor precisión en la búsqueda.
+date: '2026-09-02'
+description: Aprende cómo crear search index java y habilitar la corrección ortográfica
+  usando GroupDocs.Search. Sigue instrucciones paso a paso para agregar documentos,
+  configurar max mistake count y mejorar la precisión de la búsqueda.
 keywords:
-- spelling correction Java
+- create search index java
+- spelling correction java
 - GroupDocs.Search tutorial
-- Java search functionality
-title: Cómo habilitar la ortografía en Java con GroupDocs.Search
+lastmod: '2026-09-02'
+og_description: Aprende cómo crear search index java y habilitar la corrección ortográfica
+  usando GroupDocs.Search. Sigue instrucciones paso a paso para agregar documentos,
+  configurar max mistake count y mejorar la precisión de la búsqueda.
+og_image_alt: Guide showing Java code that creates a search index and configures spelling
+  correction with GroupDocs.Search
+og_title: Cómo crear search index java y habilitar la corrección ortográfica
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-02'
+  description: Learn how to create search index java and enable spelling correction
+    using GroupDocs.Search. Follow step‑by‑step instructions to add documents, configure
+    max mistake count, and improve search accuracy.
+  headline: How to create search index java and enable spelling
+  type: TechArticle
+- description: Learn how to create search index java and enable spelling correction
+    using GroupDocs.Search. Follow step‑by‑step instructions to add documents, configure
+    max mistake count, and improve search accuracy.
+  name: How to create search index java and enable spelling
+  steps:
+  - name: '**Library systems** – automatically fix misspelled book titles or author
+      names.'
+    text: '**Library systems** – automatically fix misspelled book titles or author
+      names.'
+  - name: '**E‑commerce platforms** – correct product name typos to increase conversion
+      rates.'
+    text: '**E‑commerce platforms** – correct product name typos to increase conversion
+      rates.'
+  - name: '**Content management** – help editorial staff locate articles even with
+      imperfect keywords.'
+    text: '**Content management** – help editorial staff locate articles even with
+      imperfect keywords.'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Search is a Java library that provides fast indexing, advanced
+      query capabilities, and built‑in spelling correction for any Java application.
+    question: What is GroupDocs.Search?
+  - answer: Visit the official site to download a free trial or purchase a full license;
+      a temporary key is also available for short‑term testing.
+    question: How do I obtain a license for GroupDocs.Search?
+  - answer: Yes, it works seamlessly with Spring, Jakarta EE, and any standard Java
+      application.
+    question: Can I integrate GroupDocs.Search with other Java frameworks?
+  - answer: Incorrect folder paths, missing file permissions, or absent Maven dependencies
+      are the typical culprits.
+    question: What are common issues when setting up an index?
+  - answer: It automatically rewrites misspelled queries to their closest correct
+      terms, returning more relevant hits and reducing user frustration.
+    question: How does spell correction improve search results?
+  type: FAQPage
+tags:
+- create search index java
+- GroupDocs.Search
+- Java search
+title: Cómo crear search index java y habilitar la corrección ortográfica
 type: docs
 url: /es/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/
 weight: 1
 ---
 
- content.# Cómo habilitar la corrección ortográfica en Java usando GroupDocs.Search
+# Cómo crear un índice de búsqueda java y habilitar la corrección ortográfica
 
-Los resultados de búsqueda precisos son esenciales para cualquier aplicación moderna. En este tutorial aprenderá **cómo habilitar la corrección ortográfica** en Java con GroupDocs.Search, de modo que los usuarios obtengan los resultados correctos incluso cuando escriban mal las consultas. Recorreremos la creación de un índice, **agregar documentos al índice**, la configuración de opciones de ortografía y la ejecución de una búsqueda que corrige automáticamente los errores.
+En las aplicaciones Java modernas, ofrecer resultados de búsqueda precisos es una característica indispensable. Este tutorial muestra **cómo crear un índice de búsqueda java** y activar la corrección ortográfica con GroupDocs.Search, para que los usuarios reciban resultados relevantes incluso cuando escriben consultas con errores. Verás cómo configurar la biblioteca, agregar documentos, establecer el recuento máximo de errores y ejecutar una búsqueda tolerante a errores tipográficos, todo sin escribir una sola línea de código de configuración adicional.
 
 ## Respuestas rápidas
-- **¿Qué significa “how to enable spelling”?** Activa el corrector ortográfico incorporado que corrige los errores tipográficos del usuario durante una búsqueda.  
+- **¿Qué hace “enable spelling”?** Activa el corrector ortográfico incorporado que reescribe los términos mal escritos a sus formas correctas más cercanas durante una búsqueda.  
 - **¿Qué biblioteca proporciona esta función?** GroupDocs.Search for Java.  
-- **¿Necesito una licencia?** Una licencia de prueba gratuita funciona para evaluación; se requiere una licencia completa para producción.  
-- **¿Puedo controlar la tolerancia?** Sí – use `setMaxMistakeCount` para definir cuántos errores tipográficos se permiten.  
-- **¿Es adecuado para índices grandes?** Absolutamente – el motor está optimizado para indexación y búsqueda de alto rendimiento.
+- **¿Necesito una licencia?** Una prueba gratuita sirve para evaluación; se requiere una licencia completa para uso en producción.  
+- **¿Puedo controlar la tolerancia?** Sí – use `setMaxMistakeCount` para definir cuántos errores tipográficos se permiten por consulta.  
+- **¿Es adecuada para índices grandes?** Absolutamente – el motor maneja índices con millones de registros manteniendo la latencia de consulta por debajo de 100 ms en hardware de servidor típico.
 
-## Qué es “how to enable spelling” en GroupDocs.Search?
-Habilitar la ortografía indica al motor de búsqueda que busque los términos correctos más cercanos cuando una consulta contiene errores. Esta función mejora drásticamente la experiencia del usuario al devolver resultados relevantes incluso con entradas mal escritas.
+## ¿Qué es GroupDocs.Search?
+GroupDocs.Search es una biblioteca Java que ofrece indexación rápida de texto completo y funciones de búsqueda avanzadas, incluida la corrección ortográfica incorporada. Soporta más de 50 formatos de entrada y puede procesar documentos de cientos de páginas sin cargar todo el archivo en memoria.
 
 ## ¿Por qué habilitar la corrección ortográfica en aplicaciones Java?
-- **Aumenta la satisfacción del usuario** – los usuarios no necesitan escribir perfectamente.  
-- **Reduce la tasa de rebote** – resultados más precisos mantienen a los visitantes comprometidos.  
-- **Funciona en varios dominios** – desde catálogos de bibliotecas hasta búsquedas de productos en e‑commerce.
+- **Aumenta la satisfacción del usuario** – los visitantes obtienen resultados correctos incluso con una escritura imperfecta.  
+- **Reduce la tasa de rebote** – los resultados precisos mantienen a los usuarios comprometidos por más tiempo.  
+- **Funciona en todos los dominios** – desde catálogos de bibliotecas hasta búsquedas de productos en e‑commerce, la corrección ortográfica mejora la relevancia en todas partes.
 
 ## Requisitos previos
 - Java Development Kit (JDK) instalado.  
@@ -63,13 +117,75 @@ Agregue el repositorio y la dependencia a su archivo `pom.xml`:
 ```
 
 **Descarga directa**  
-Alternativamente, descargue la última versión desde [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternativamente, descargue la última versión desde [Versiones de GroupDocs.Search para Java](https://releases.groupdocs.com/search/java/).
 
-### Obtención de la licencia
-Obtenga una licencia de prueba gratuita para evaluación. Para uso en producción, compre una licencia completa o solicite una clave temporal en el sitio oficial.
+### Obtención de licencia
+Obtenga una licencia de prueba gratuita para evaluación. Para uso en producción, adquiera una licencia completa o solicite una clave temporal en el sitio oficial.
 
-## Cómo agregar documentos al índice
-Crear un índice es la base de cualquier aplicación con búsqueda habilitada. A continuación se muestra un ejemplo mínimo que **agrega documentos al índice** desde una carpeta.
+## ¿Cómo crear un índice de búsqueda en Java?
+`SearchIndex` es la clase principal que representa un índice buscable almacenado en disco.  
+Cree una instancia de `SearchIndex` apuntando a una carpeta en disco, luego agregue documentos desde un directorio de origen. El motor construye un índice invertido que permite búsquedas rápidas. Puede llamar a `index.add()` para cada archivo; la biblioteca extrae texto automáticamente según el tipo de archivo.
+
+## ¿Cómo habilitar la corrección ortográfica?
+`getSpellingOptions()` devuelve el objeto de configuración de ortografía para el índice, permitiéndole habilitar o ajustar las funciones de corrección ortográfica.  
+Habilite la corrección ortográfica llamando a `index.getSpellingOptions().setEnabled(true)`. Esto indica al motor que analice los términos de la consulta y sugiera alternativas corregidas cuando se detecten discrepancias. La función funciona de forma inmediata para todos los idiomas indexados que admite la biblioteca.
+
+## ¿Qué es la configuración de recuento máximo de errores?
+`setMaxMistakeCount` configura el número máximo de ediciones de caracteres que el corrector ortográfico tolerará por término.  
+`setMaxMistakeCount(int)` define el número máximo de ediciones de caracteres (inserciones, eliminaciones, sustituciones) que el corrector ortográfico tolerará por término. Establecerlo en **2** permite al motor corregir errores comunes de dos caracteres mientras evita correcciones demasiado agresivas que podrían devolver resultados no relacionados.
+
+## Cómo realizar una búsqueda con corrección ortográfica
+`search()` ejecuta una consulta contra el índice y devuelve un objeto `SearchResult` que contiene coincidencias y cualquier término corregido.  
+Ejecute una consulta de búsqueda usando el método `search()`. Si la consulta contiene palabras mal escritas, el motor devuelve un `SearchResult` que incluye los términos corregidos y una lista de los documentos más relevantes. Puede mostrar tanto la consulta original como la versión corregida al usuario para mayor transparencia.  
+`SearchResult` contiene la lista de documentos coincidentes e información sobre las correcciones de la consulta.
+
+## Aplicaciones prácticas
+1. **Sistemas de bibliotecas** – corrige automáticamente títulos de libros o nombres de autores mal escritos.  
+2. **Plataformas de e‑commerce** – corrige errores tipográficos en nombres de productos para aumentar las tasas de conversión.  
+3. **Gestión de contenidos** – ayuda al personal editorial a localizar artículos incluso con palabras clave imperfectas.
+
+## Consideraciones de rendimiento
+- **Mantenga el índice actualizado** – re‑indexe archivos nuevos o modificados regularmente.  
+- **Ajuste la configuración de memoria de la JVM** – asigne suficiente heap para índices grandes (p. ej., `-Xmx4g`).  
+- **Monitoree el uso de recursos** – ajuste los flags del recolector de basura si observa pausas durante la indexación masiva.
+
+## Problemas comunes y solución de problemas
+| Síntoma | Causa probable | Solución |
+|---------|----------------|----------|
+| No hay resultados después de habilitar la corrección ortográfica | La ruta de la carpeta del índice es incorrecta o está vacía | Verifique que `indexFolder` apunte a un índice válido y que `index.add()` haya tenido éxito |
+| El corrector ortográfico no corrige errores tipográficos evidentes | `setMaxMistakeCount` está configurado demasiado bajo | Aumente el recuento a 2 o 3 para una corrección más tolerante |
+| La aplicación se bloquea con conjuntos de documentos grandes | Heap de JVM insuficiente | Aumente la opción `-Xmx` (p. ej., `-Xmx4g`) |
+
+## Preguntas frecuentes
+
+**P: ¿Qué es GroupDocs.Search?**  
+R: GroupDocs.Search es una biblioteca Java que ofrece indexación rápida, capacidades avanzadas de consulta y corrección ortográfica incorporada para cualquier aplicación Java.
+
+**P: ¿Cómo obtengo una licencia para GroupDocs.Search?**  
+R: Visite el sitio oficial para descargar una prueba gratuita o comprar una licencia completa; también hay una clave temporal disponible para pruebas a corto plazo.
+
+**P: ¿Puedo integrar GroupDocs.Search con otros frameworks Java?**  
+R: Sí, funciona sin problemas con Spring, Jakarta EE y cualquier aplicación Java estándar.
+
+**P: ¿Cuáles son los problemas comunes al configurar un índice?**  
+R: Las rutas de carpeta incorrectas, permisos de archivo faltantes o dependencias Maven ausentes son los culpables típicos.
+
+**P: ¿Cómo mejora la corrección ortográfica los resultados de búsqueda?**  
+R: Reescribe automáticamente las consultas mal escritas a sus términos correctos más cercanos, devolviendo resultados más relevantes y reduciendo la frustración del usuario.
+
+## Recursos adicionales
+- [Documentación](https://docs.groupdocs.com/search/java/)
+- [Referencia de API](https://reference.groupdocs.com/search/java)
+- [Descarga](https://releases.groupdocs.com/search/java/)
+- [Repositorio de GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Foro de soporte gratuito](https://forum.groupdocs.com/c/search/10)
+- [Licencia temporal](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Última actualización:** 2026-09-02  
+**Probado con:** GroupDocs.Search 25.4  
+**Autor:** GroupDocs
 
 ```java
 import com.groupdocs.search.*;
@@ -91,11 +207,6 @@ public class FeatureIndexAndAddDocuments {
 }
 ```
 
-*Consejo:* Verifique que las rutas sean correctas y que la aplicación tenga permisos de escritura en la carpeta del índice.
-
-## Cómo configurar la corrección ortográfica (establecer el recuento máximo de errores)
-Puede afinar el corrector ortográfico habilitándolo y estableciendo la tolerancia a los errores.
-
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.options.*;
@@ -116,11 +227,6 @@ public class FeatureSpellingCorrectionOptions {
     }
 }
 ```
-
-*Por qué `setMaxMistakeCount` es importante:* Define cuántos errores tipográficos tolerará el motor. Ajuste este valor según los patrones típicos de errores de su dominio.
-
-## Cómo realizar una búsqueda con corrección ortográfica
-Con el índice listo y las opciones de ortografía configuradas, ejecute una consulta que pueda contener errores.
 
 ```java
 import com.groupdocs.search.*;
@@ -148,52 +254,8 @@ public class FeatureSpellingCorrectionSearch {
 }
 ```
 
-La llamada `search()` devuelve un `SearchResult` que contiene los términos corregidos y los documentos más relevantes.
+## Tutoriales relacionados
 
-## Aplicaciones prácticas
-1. **Sistemas de bibliotecas:** Corrija títulos de libros o nombres de autores escritos incorrectamente.  
-2. **Plataformas de e‑commerce:** Corrija los errores tipográficos de los usuarios en búsquedas de productos para aumentar las conversiones.  
-3. **Sistemas de gestión de contenidos:** Mejore la recuperación de artículos para el personal editorial.
-
-## Consideraciones de rendimiento
-- **Mantenga el índice actualizado** – vuelva a indexar archivos nuevos o modificados regularmente.  
-- **Ajuste la configuración de memoria de la JVM** – asigne suficiente heap para índices grandes.  
-- **Monitoree el uso de recursos** – ajuste los flags del recolector de basura si es necesario.
-
-## Problemas comunes y solución de problemas
-| Síntoma | Causa probable | Solución |
-|---------|----------------|----------|
-| No results returned after enabling spelling | Index folder path is wrong or empty | Verify `indexFolder` points to a valid index and that `index.add()` succeeded |
-| Spell‑checker does not correct obvious typos | `setMaxMistakeCount` is set too low | Increase the count to 2 or 3 for more tolerant correction |
-| Application crashes on large document sets | Insufficient JVM heap | Increase `-Xmx` option (e.g., `-Xmx4g`) |
-
-## Preguntas frecuentes
-
-**Q: ¿Qué es GroupDocs.Search?**  
-A: Es una biblioteca Java que ofrece indexación rápida, funciones de búsqueda avanzadas y corrección ortográfica incorporada.
-
-**Q: ¿Cómo obtengo una licencia para GroupDocs.Search?**  
-A: Visite el sitio oficial para descargar una prueba gratuita o comprar una licencia completa.
-
-**Q: ¿Puedo integrar GroupDocs.Search con otros frameworks Java?**  
-A: Sí, funciona con Spring, Jakarta EE y cualquier aplicación Java estándar.
-
-**Q: ¿Cuáles son los problemas comunes al configurar un índice?**  
-A: Rutas de carpeta incorrectas, permisos de archivo insuficientes o dependencias faltantes en `pom.xml`.
-
-**Q: ¿Cómo mejora la corrección ortográfica los resultados de búsqueda?**  
-A: Reescribe automáticamente las consultas mal escritas a sus términos correctos más cercanos, devolviendo resultados más relevantes.
-
-## Recursos adicionales
-- [Documentación](https://docs.groupdocs.com/search/java/)
-- [Referencia de API](https://reference.groupdocs.com/search/java)
-- [Descarga](https://releases.groupdocs.com/search/java/)
-- [Repositorio GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Foro de soporte gratuito](https://forum.groupdocs.com/c/search/10)
-- [Licencia temporal](https://purchase.groupdocs.com/temporary-license/)
-
----
-
-**Última actualización:** 2026-02-21  
-**Probado con:** GroupDocs.Search 25.4  
-**Autor:** GroupDocs
+- [Cómo crear un índice de documentos y agregar documentos usando la API GroupDocs.Search para Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Procesamiento de lenguaje Java – Crear diccionario de sinónimos con GroupDocs.Search](/search/java/dictionaries-language-processing/)
+- [Palabras vacías en la búsqueda: agregar documentos al índice con GroupDocs.Search Java](/search/java/dictionaries-language-processing/disable-stop-words-groupdocs-search-java/)

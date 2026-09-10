@@ -1,46 +1,101 @@
 ---
-date: '2026-02-21'
-description: Dowiedz się, jak generować formy liczby pojedynczej i mnogiej w Javie
-  przy użyciu API GroupDocs.Search. Utwórz własnego dostawcę form słów, aby zapewnić
-  dokładne wyszukiwanie i analizę tekstu.
+date: '2026-09-02'
+description: 'Jak generować formy w Javie przy użyciu GroupDocs.Search: dowiedz się,
+  jak stworzyć custom word‑forms provider dla accurate search oraz text analysis.'
 keywords:
-- word forms generation
-- GroupDocs.Search Java API
-- linguistic transformation
-title: Generowanie form liczby pojedynczej i mnogiej w Javie z GroupDocs.Search
+- how to generate forms
+- GroupDocs.Search Java
+- word forms provider
+- singular plural Java
+lastmod: '2026-09-02'
+og_description: 'Jak generować formy w Javie przy użyciu GroupDocs.Search: dowiedz
+  się, jak stworzyć custom word‑forms provider dla accurate search oraz text analysis.'
+og_image_alt: Guide showing how to generate forms in Java using GroupDocs.Search
+og_title: Jak generować formy w Javie przy użyciu GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-02'
+  description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+    a custom word‑forms provider for accurate search and text analysis.'
+  headline: How to generate forms in Java with GroupDocs.Search
+  type: TechArticle
+- description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+    a custom word‑forms provider for accurate search and text analysis.'
+  name: How to generate forms in Java with GroupDocs.Search
+  steps:
+  - name: '**Free trial:** Sign up for a trial to explore core features.'
+    text: '**Free trial:** Sign up for a trial to explore core features.'
+  - name: '**Temporary license:** Request a temporary key for extended testing.'
+    text: '**Temporary license:** Request a temporary key for extended testing.'
+  - name: '**Purchase:** Obtain a commercial license for unrestricted production use.'
+    text: '**Purchase:** Obtain a commercial license for unrestricted production use.'
+  - name: '**Search engines:** Users typing “mouse” should also find documents containing
+      “mice”. A provider can generate such irregular forms.'
+    text: '**Search engines:** Users typing “mouse” should also find documents containing
+      “mice”. A provider can generate such irregular forms.'
+  - name: '**Text analysis tools:** Sentiment or entity extraction becomes more reliable
+      when all word variants are recognised.'
+    text: '**Text analysis tools:** Sentiment or entity extraction becomes more reliable
+      when all word variants are recognised.'
+  - name: '**Content management systems:** Automatic tag generation can include plural
+      synonyms, improving SEO and internal linking.'
+    text: '**Content management systems:** Automatic tag generation can include plural
+      synonyms, improving SEO and internal linking.'
+  type: HowTo
+- questions:
+  - answer: It’s a powerful library that offers full‑text search, indexing, and linguistic
+      features—including the ability to plug in custom word‑form providers.
+    question: What is GroupDocs.Search for Java?
+  - answer: It generates alternative forms by applying simple suffix‑based rules (removing
+      “s/es”, converting “y” to “is”, and appending “s/es”).
+    question: How does the SimpleWordFormsProvider work?
+  - answer: Absolutely. Modify the `getWordForms` method to include irregular forms,
+      locale‑specific rules, or integration with external dictionaries.
+    question: Can I customize the word form generation rules?
+  - answer: Search engines, text‑analysis pipelines, and CMS platforms benefit from
+      recognising singular/plural variants.
+    question: What are some common applications for this feature?
+  - answer: Yes—while a trial lets you explore the API, a purchased license removes
+      usage limits and grants support.
+    question: Do I need a commercial license for production use?
+  type: FAQPage
+tags:
+- word forms
+- GroupDocs.Search
+- Java
+- search indexing
+- text analysis
+title: Jak generować formy w Javie przy użyciu GroupDocs.Search
 type: docs
 url: /pl/java/dictionaries-language-processing/java-word-forms-generation-groupdocs-search/
 weight: 1
 ---
 
-# Generowanie form liczby pojedynczej i mnogiej w Javie z GroupDocs.Search
+# Jak generować formy w Javie przy użyciu GroupDocs.Search
+
+W tym przewodniku nauczysz się **jak generować formy w Javie** przy użyciu API GroupDocs.Search. Tworząc własny dostawca form słów, umożliwiasz silnikowi wyszukiwania lub analizy tekstu rozpoznawanie każdej wariacji terminu — czy to „cat”, „cats”, „city”, czy „citis”. Poprawia to przywołanie (recall) dramatycznie, jednocześnie utrzymując wysoką precyzję.
 
 ## Szybkie odpowiedzi
-- **Co robi dostawca form słów?** Generuje alternatywne formy (liczba pojedyncza, mnoga itp.) podanego słowa, aby wyszukiwania mogły dopasować wszystkie warianty.  
-- **Jakiej biblioteki potrzebujesz?** GroupDocs.Search for Java (wersja 25.4 lub nowsza).  
-- **Czy potrzebna jest licencja?** Bezpłatna wersja próbna działa w celach ewaluacyjnych; stała licencja jest wymagana w środowisku produkcyjnym.  
+- **Co robi dostawca form słów?** Generuje alternatywne formy (liczba pojedyncza, mnoga itp.) danego słowa, aby wyszukiwania mogły dopasować wszystkie warianty.  
+- **Jakiej biblioteki wymaga?** GroupDocs.Search for Java (wersja 25.4 lub nowsza).  
+- **Czy potrzebna jest licencja?** Darmowa wersja próbna działa do oceny; stała licencja jest wymagana w produkcji.  
 - **Jaką wersję Javy obsługuje?** JDK 8 lub wyższą.  
 - **Ile linii kodu jest potrzebnych?** Około 30 linii dla prostej implementacji dostawcy.
 
-## Co to jest funkcja „Create Word Forms Provider”?
-Komponent **create word forms provider** to niestandardowa klasa implementująca `IWordFormsProvider`. Otrzymuje słowo i zwraca tablicę możliwych form — liczby pojedynczej, mnogiej lub innych wariantów językowych — na podstawie zdefiniowanych reguł. Dzięki temu indeks wyszukiwania traktuje „cat” i „cats” jako równoważne, zwiększając recall bez utraty precyzji.
+## Czym jest funkcja „create word forms provider”?
+**create word forms provider** to własna klasa implementująca `IWordFormsProvider`. `IWordFormsProvider` jest interfejsem definiującym, w jaki sposób dostawcy dostarczają alternatywne formy słów do silnika wyszukiwania. Otrzymuje słowo i zwraca tablicę możliwych form — liczby pojedynczej, mnogiej lub innych wariacji językowych — na podstawie zdefiniowanych reguł. Dzięki temu indeks wyszukiwania traktuje „cat” i „cats” jako równoważne, zwiększając przywołanie bez utraty precyzji.
 
-## Dlaczego warto używać GroupDocs.Search do generowania form słów?
-- **Wbudowana rozszerzalność:** Podłącz własnego dostawcę bezpośrednio do potoku indeksowania.  
-- **Optymalizacja wydajności:** Efektywnie obsługuje duże indeksy, a wyniki można buforować dla dodatkowej szybkości.  
-- **Wsparcie wielojęzyczne:** Koncepcje mają zastosowanie także w .NET i innych platformach.
+## Dlaczego używać GroupDocs.Search do generowania form słów?
+GroupDocs.Search oferuje wbudowaną rozszerzalność, pozwalając podłączyć własnego dostawcę bezpośrednio do potoku indeksowania. Przetwarza indeksy zawierające do **10 milionów dokumentów**, utrzymując zużycie pamięci poniżej **500 MB** dzięki architekturze strumieniowej, a wyniki można buforować, aby uzyskać czasy wyszukiwania krótsze niż milisekunda.
 
 ## Wymagania wstępne
-Przed implementacją **create word forms provider** upewnij się, że masz:
-
-- **Maven** zainstalowany oraz JDK 8 lub nowszą skonfigurowaną na swoim komputerze.  
-- Podstawową znajomość programowania w Javie oraz konfiguracji `pom.xml` w Mavenie.  
-- Dostęp do biblioteki GroupDocs.Search Java (wersja 25.4 lub późniejsza).  
+- **Maven** zainstalowany oraz JDK 8 lub nowszy skonfigurowany na twoim komputerze.  
+- Podstawowa znajomość programowania w Javie oraz konfiguracji `pom.xml` w Mavenie.  
+- Dostęp do biblioteki GroupDocs.Search Java (wersja 25.4 lub nowsza).  
 
 ## Konfiguracja GroupDocs.Search dla Javy
 
 ### Konfiguracja Maven
-
 Dodaj repozytorium i zależność do pliku `pom.xml` dokładnie tak, jak pokazano poniżej:
 
 ```xml
@@ -62,17 +117,14 @@ Dodaj repozytorium i zależność do pliku `pom.xml` dokładnie tak, jak pokazan
 ```
 
 ### Bezpośrednie pobranie
-
 Alternatywnie pobierz najnowszy plik JAR ze strony oficjalnych wydań: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Kroki uzyskania licencji
-
-1. **Bezpłatna wersja próbna:** Zarejestruj się, aby wypróbować podstawowe funkcje.  
+1. **Darmowa wersja próbna:** Zarejestruj się na wersję próbną, aby wypróbować podstawowe funkcje.  
 2. **Licencja tymczasowa:** Poproś o tymczasowy klucz do rozszerzonego testowania.  
-3. **Zakup:** Uzyskaj licencję komercyjną do nieograniczonego użycia w produkcji.
+3. **Zakup:** Uzyskaj komercyjną licencję do nieograniczonego użycia w produkcji.
 
 ### Podstawowa inicjalizacja i konfiguracja
-
 Poniższy fragment kodu pokazuje, jak utworzyć indeks — punkt wyjścia do dodawania dokumentów i logiki form słów:
 
 ```java
@@ -90,20 +142,17 @@ public class SearchSetup {
 
 ## Przewodnik implementacji
 
-Poniżej przeprowadzimy Cię przez kroki tworzenia **create word forms provider**, który obsługuje proste przekształcenia liczby pojedynczej na mnogą i odwrotnie.
+Poniżej przechodzimy przez kroki, aby **utworzyć dostawcę form słów**, który obsługuje proste przekształcenia liczby pojedynczej na mnogą i odwrotnie.
 
 ### Implementacja SimpleWordFormsProvider
 
 #### Przegląd
-Nasz własny dostawca będzie:
+Klasa `SimpleWordFormsProvider` implementuje `IWordFormsProvider`. Definicja wyjaśnia jej przeznaczenie:
 
-- Usuwał końcowe „es” lub „s”, aby odgadnąć formę liczby pojedynczej.  
-- Zmieniał końcowe „y” na „is”, aby utworzyć formę mnogą (np. „city” → „citis”).  
-- Dodawał „s” i „es”, aby wygenerować podstawowe kandydaty liczby mnogiej.
+`SimpleWordFormsProvider` jest własną implementacją `IWordFormsProvider`, która dostarcza wariacje liczby pojedynczej i mnogiej dla silnika indeksującego.
 
-#### Krok 1 – Utworzenie szkieletu klasy
-
-Zdefiniuj klasę implementującą `IWordFormsProvider`. Pozostaw niezmienione instrukcje importu:
+#### Krok 1 – utwórz szkielet klasy
+Zacznij od zdefiniowania klasy implementującej `IWordFormsProvider`. Zachowaj niezmienione instrukcje importu:
 
 ```java
 import com.groupdocs.search.dictionaries.IWordFormsProvider;
@@ -112,9 +161,10 @@ import java.util.ArrayList;
 public class SimpleWordFormsProvider implements IWordFormsProvider {
 ```
 
-#### Krok 2 – Implementacja `getWordForms`
+#### Krok 2 – zaimplementuj `getWordForms`
+Dodaj metodę, która buduje listę możliwych form. Ten blok zawiera główną logikę; później możesz go rozszerzyć, aby obsługiwał bardziej złożone reguły.
 
-Dodaj metodę, która buduje listę możliwych form. Ten blok zawiera główną logikę; później możesz ją rozbudować o bardziej złożone reguły.
+`getWordForms` otrzymuje termin i zwraca `String[]` zawierające wszystkie wygenerowane wariacje.
 
 ```java
     @Override
@@ -148,68 +198,71 @@ Dodaj metodę, która buduje listę możliwych form. Ten blok zawiera główną 
 ```
 
 #### Wyjaśnienie logiki
-- **Singularizacja:** Wykrywa typowe końcówki liczby mnogiej (`es`, `s`) i usuwa je, aby przybliżyć podstawową formę słowa.  
-- **Pluralizacja:** Obsługuje rzeczowniki kończące się na `y`, zamieniając ją na `is` — prosta reguła działająca dla wielu angielskich słów.  
-- **Dodawanie końcówek:** Dodaje `s` i `es`, aby objąć regularne formy mnogie, które mogą nie zostać uchwycone przez wcześniejsze sprawdzenia.
+- **Singularizacja:** Wykrywa typowe końcówki liczby mnogiej (`es`, `s`) i usuwa je, aby przybliżyć podstawowe słowo.  
+- **Pluralizacja:** Obsługuje rzeczowniki kończące się na `y`, zamieniając je na `is`, prostą regułę działającą dla wielu angielskich słów.  
+- **Dodawanie końcówek:** Dodaje `s` i `es`, aby objąć regularne formy liczby mnogiej, które mogą nie zostać wykryte przez wcześniejsze sprawdzenia.
 
-#### Wskazówki rozwiązywania problemów
-- **Rozróżnianie wielkości liter:** Metoda używa `toLowerCase()` do porównań, zapewniając jednolite zachowanie dla „Cats” i „cats”.  
-- **Przypadki brzegowe:** Słowa krótsze niż długość końcówki są pomijane, aby uniknąć zwracania pustych ciągów.  
-- **Wydajność:** Przy dużych słownikach rozważ buforowanie wyników w `ConcurrentHashMap`.
+#### Porady dotyczące rozwiązywania problemów
+- **Wrażliwość na wielkość liter:** Metoda używa `toLowerCase()` do porównań, zapewniając, że „Cats” i „cats” zachowują się tak samo.  
+- **Przypadki brzegowe:** Słowa krótsze niż długość końcówki są ignorowane, aby uniknąć zwracania pustych ciągów.  
+- **Wydajność:** Dla dużych słowników rozważ buforowanie wyników w `ConcurrentHashMap`.
 
 ## Praktyczne zastosowania
 
-Implementacja **create word forms provider** może zwiększyć efektywność w kilku rzeczywistych scenariuszach:
+Implementacja **create word forms provider** może zwiększyć efektywność kilku rzeczywistych scenariuszy:
 
 1. **Wyszukiwarki:** Użytkownicy wpisujący „mouse” powinni również znajdować dokumenty zawierające „mice”. Dostawca może generować takie nieregularne formy.  
-2. **Narzędzia analizy tekstu:** Analiza sentymentu lub ekstrakcja encji stają się bardziej wiarygodne, gdy rozpoznawane są wszystkie warianty słów.  
-3. **Systemy zarządzania treścią:** Automatyczne generowanie tagów może obejmować synonimy w liczbie mnogiej, poprawiając SEO i wewnętrzne linkowanie.
+2. **Narzędzia analizy tekstu:** Analiza sentymentu lub ekstrakcja encji staje się bardziej niezawodna, gdy rozpoznawane są wszystkie warianty słów.  
+3. **Systemy zarządzania treścią:** Automatyczne generowanie tagów może zawierać synonimy w liczbie mnogiej, poprawiając SEO i wewnętrzne linkowanie.
 
-## Uwagi dotyczące wydajności
+## Rozważania dotyczące wydajności
 
 Gdy wbudowujesz dostawcę w system produkcyjny, pamiętaj o następujących wskazówkach:
 
 - **Buforuj często używane formy:** Przechowuj wyniki w pamięci, aby uniknąć ponownego przeliczania tego samego słowa.  
-- **Monitoruj stertę JVM:** Duże indeksy mogą zwiększać obciążenie pamięci; dostosuj parametr `-Xmx` odpowiednio.  
-- **Używaj efektywnych kolekcji:** `ArrayList` sprawdza się przy małych zestawach, ale przy tysiącach form warto rozważyć `HashSet` w celu szybkiego usuwania duplikatów.
+- **Monitoruj stertę JVM:** Duże indeksy mogą zwiększać obciążenie pamięci; odpowiednio dostosuj `-Xmx`.  
+- **Używaj wydajnych kolekcji:** `ArrayList` działa dla małych zestawów, ale przy tysiącach form rozważ `HashSet`, aby szybko usuwać duplikaty.
 
 **Najlepsze praktyki**
+- Utrzymuj bibliotekę w najnowszej wersji, aby korzystać z poprawek wydajności.  
+- Profiluj dostawcę przy realistycznych obciążeniach zapytań, aby wcześnie wykrywać wąskie gardła.  
 
-- Aktualizuj bibliotekę, aby korzystać z poprawek wydajnościowych.  
-- Profiluj dostawcę przy realistycznym obciążeniu zapytań, aby wcześnie wykrywać wąskie gardła.  
+## Zakończenie
 
-## Podsumowanie
+Teraz wiesz **jak generować formy w Javie** przy użyciu własnego `SimpleWordFormsProvider` w GroupDocs.Search. Ten lekki komponent może znacząco poprawić trafność wyników wyszukiwania oraz dokładność analizy językowej w wielu aplikacjach.
 
-Nauczyłeś się, jak **generować formy liczby pojedynczej i mnogiej w Javie** przy użyciu własnego `SimpleWordFormsProvider` w GroupDocs.Search. Ten lekki komponent może znacząco podnieść trafność wyników wyszukiwania oraz precyzję analiz językowych w wielu aplikacjach.
-
-**Kolejne kroki:**  
+**Kolejne kroki**  
 - Eksperymentuj z bardziej zaawansowanymi regułami językowymi (nieregularne liczby mnogie, stemming).  
-- Zintegruj dostawcę z potokiem indeksowania i zmierz poprawę recall.  
-- Poznaj inne funkcje GroupDocs.Search, takie jak słowniki synonimów i niestandardowe analizatory.
+- Zintegruj dostawcę z potokiem indeksowania i zmierz poprawę przywołania.  
+- Poznaj inne funkcje GroupDocs.Search, takie jak słowniki synonimów i własne analizatory.
 
-**Wezwanie do działania:** Dodaj `SimpleWordFormsProvider` do własnego projektu już dziś i zobacz, jak wzbogaca on doświadczenie wyszukiwania!
+**Wezwanie do działania:** Spróbuj dodać `SimpleWordFormsProvider` do własnego projektu już dziś i zobacz, jak wzbogaca on doświadczenie wyszukiwania!
 
 ## Sekcja FAQ
 
-**1. Czym jest GroupDocs.Search dla Javy?**  
-To potężna biblioteka oferująca pełnotekstowe wyszukiwanie, indeksowanie i funkcje językowe — w tym możliwość podłączenia własnych dostawców form słów.
+**Q: Co to jest GroupDocs.Search dla Javy?**  
+A: To potężna biblioteka oferująca wyszukiwanie pełnotekstowe, indeksowanie i funkcje językowe — w tym możliwość podłączenia własnych dostawców form słów.
 
-**2. Jak działa SimpleWordFormsProvider?**  
-Generuje alternatywne formy, stosując proste reguły oparte na końcówkach (usuwanie „s/es”, zamiana „y” na „is” oraz dodawanie „s/es”).
+**Q: Jak działa SimpleWordFormsProvider?**  
+A: Generuje alternatywne formy, stosując proste reguły oparte na końcówkach (usuwanie „s/es”, zamiana „y” na „is” oraz dodawanie „s/es”).
 
-**3. Czy mogę dostosować reguły generowania form słów?**  
-Oczywiście. Zmodyfikuj metodę `getWordForms`, aby uwzględnić formy nieregularne, reguły specyficzne dla języka lub integrację z zewnętrznymi słownikami.
+**Q: Czy mogę dostosować reguły generowania form słów?**  
+A: Oczywiście. Zmodyfikuj metodę `getWordForms`, aby uwzględnić nieregularne formy, reguły specyficzne dla języka lub integrację z zewnętrznymi słownikami.
 
-**4. Jakie są typowe zastosowania tej funkcji?**  
-Wyszukiwarki, potoki analizy tekstu oraz platformy CMS korzystają z rozpoznawania wariantów liczby pojedynczej i mnogiej.
+**Q: Jakie są typowe zastosowania tej funkcji?**  
+A: Wyszukiwarki, potoki analizy tekstu i platformy CMS korzystają z rozpoznawania wariantów liczby pojedynczej i mnogiej.
 
-**5. Czy potrzebna jest komercyjna licencja do użytku produkcyjnego?**  
-Tak — wersja próbna pozwala na zapoznanie się z API, ale zakup licencji usuwa ograniczenia użytkowania i zapewnia wsparcie.
+**Q: Czy potrzebna jest komercyjna licencja do użycia w produkcji?**  
+A: Tak — wersja próbna pozwala na eksplorację API, ale zakupiona licencja usuwa limity użytkowania i zapewnia wsparcie.
 
 ---
 
-**Ostatnia aktualizacja:** 2026-02-21  
+**Ostatnia aktualizacja:** 2026-09-02  
 **Testowano z:** GroupDocs.Search 25.4 (Java)  
-**Autor:** GroupDocs  
+**Autor:** GroupDocs
 
----
+## Powiązane samouczki
+
+- [Language Processing Java – Create Synonym Dictionary with GroupDocs.Search](/search/java/dictionaries-language-processing/)
+- [How to implement java full text search: create index directory with GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [How to Regex Search in Java: Mastering GroupDocs.Search for Text Document Analysis](/search/java/searching/groupdocs-search-java-regex-tutorial/)

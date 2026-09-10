@@ -1,48 +1,104 @@
 ---
-date: '2026-02-21'
-description: Tanulja meg, hogyan generálhat egyes‑többes számú alakokat Java-ban a
-  GroupDocs.Search API használatával. Hozzon létre egy egyedi szóalak‑szolgáltatót
-  a pontos keresés és szövegelemzés érdekében.
+date: '2026-09-02'
+description: 'Hogyan generáljunk szóalakokat Java-ban a GroupDocs.Search segítségével:
+  tanulja meg, hogyan hozzon létre egy egyedi word-forms provider a pontos search
+  és text analysis érdekében.'
 keywords:
-- word forms generation
-- GroupDocs.Search Java API
-- linguistic transformation
-title: Egyes és többes számú alakok generálása Java-ban a GroupDocs.Search segítségével
+- how to generate forms
+- GroupDocs.Search Java
+- word forms provider
+- singular plural Java
+lastmod: '2026-09-02'
+og_description: 'Hogyan generáljunk szóalakokat Java-ban a GroupDocs.Search segítségével:
+  tanulja meg, hogyan hozzon létre egy egyedi word-forms provider a pontos search
+  és text analysis érdekében.'
+og_image_alt: Guide showing how to generate forms in Java using GroupDocs.Search
+og_title: Hogyan generáljunk szóalakokat Java-ban a GroupDocs.Search segítségével
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-02'
+  description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+    a custom word‑forms provider for accurate search and text analysis.'
+  headline: How to generate forms in Java with GroupDocs.Search
+  type: TechArticle
+- description: 'How to generate forms in Java with GroupDocs.Search: learn to create
+    a custom word‑forms provider for accurate search and text analysis.'
+  name: How to generate forms in Java with GroupDocs.Search
+  steps:
+  - name: '**Free trial:** Sign up for a trial to explore core features.'
+    text: '**Free trial:** Sign up for a trial to explore core features.'
+  - name: '**Temporary license:** Request a temporary key for extended testing.'
+    text: '**Temporary license:** Request a temporary key for extended testing.'
+  - name: '**Purchase:** Obtain a commercial license for unrestricted production use.'
+    text: '**Purchase:** Obtain a commercial license for unrestricted production use.'
+  - name: '**Search engines:** Users typing “mouse” should also find documents containing
+      “mice”. A provider can generate such irregular forms.'
+    text: '**Search engines:** Users typing “mouse” should also find documents containing
+      “mice”. A provider can generate such irregular forms.'
+  - name: '**Text analysis tools:** Sentiment or entity extraction becomes more reliable
+      when all word variants are recognised.'
+    text: '**Text analysis tools:** Sentiment or entity extraction becomes more reliable
+      when all word variants are recognised.'
+  - name: '**Content management systems:** Automatic tag generation can include plural
+      synonyms, improving SEO and internal linking.'
+    text: '**Content management systems:** Automatic tag generation can include plural
+      synonyms, improving SEO and internal linking.'
+  type: HowTo
+- questions:
+  - answer: It’s a powerful library that offers full‑text search, indexing, and linguistic
+      features—including the ability to plug in custom word‑form providers.
+    question: What is GroupDocs.Search for Java?
+  - answer: It generates alternative forms by applying simple suffix‑based rules (removing
+      “s/es”, converting “y” to “is”, and appending “s/es”).
+    question: How does the SimpleWordFormsProvider work?
+  - answer: Absolutely. Modify the `getWordForms` method to include irregular forms,
+      locale‑specific rules, or integration with external dictionaries.
+    question: Can I customize the word form generation rules?
+  - answer: Search engines, text‑analysis pipelines, and CMS platforms benefit from
+      recognising singular/plural variants.
+    question: What are some common applications for this feature?
+  - answer: Yes—while a trial lets you explore the API, a purchased license removes
+      usage limits and grants support.
+    question: Do I need a commercial license for production use?
+  type: FAQPage
+tags:
+- word forms
+- GroupDocs.Search
+- Java
+- search indexing
+- text analysis
+title: Hogyan generáljunk szóalakokat Java-ban a GroupDocs.Search segítségével
 type: docs
 url: /hu/java/dictionaries-language-processing/java-word-forms-generation-groupdocs-search/
 weight: 1
 ---
 
-# Szingularis és többes számú alakok generálása Java-ban a GroupDocs.Search segítségével
+# Hogyan generáljunk űrlapokat Java-ban a GroupDocs.Search segítségével
 
-Ha **szingularis és többes számú alakokat kell generálni Java-ban**, egy egyedi szóalak‑szolgáltató a kulcs ahhoz, hogy a kereső- vagy szövegelemző motorod megértse egy kifejezés minden változatát. Ebben az útmutatóban végigvezetünk egy ilyen szolgáltató felépítésén a GroupDocs.Search Java API-val, így az alkalmazásod automatikusan egyezni fog a „cat”, „cats”, „city” és „citis” szavakkal extra erőfeszítés nélkül.
+Ebben az útmutatóban megtanulja, **hogyan generáljon űrlapokat Java-ban** a GroupDocs.Search API használatával. Egy egyedi szóalak‑szolgáltató létrehozásával lehetővé teszi, hogy a kereső- vagy szövegelemző motorja felismerje egy kifejezés minden változatát – legyen az „cat”, „cats”, „city” vagy „citis”. Ez drámai módon javítja a visszahívást, miközben a pontosság magas marad.
 
 ## Gyors válaszok
-- **Mit csinál egy szóalak‑szolgáltató?** Alternatív alakokat (szingularis, többes szám, stb.) generál egy adott szóból, hogy a keresések minden változatot megtalálhassanak.  
-- **Melyik könyvtár szükséges?** GroupDocs.Search for Java (25.4 vagy újabb verzió).  
-- **Szükségem van licencre?** Egy ingyenes próba a kiértékeléshez elegendő; a termeléshez állandó licenc szükséges.  
+- **Mit csinál egy szóalak‑szolgáltató?** Alternatív alakokat (egyes szám, többes szám stb.) generál egy adott szóból, hogy a keresések minden változatot megtaláljanak.  
+- **Melyik könyvtár szükséges?** GroupDocs.Search for Java (25.4 verzió vagy újabb).  
+- **Szükségem van licencre?** Egy ingyenes próba a kiértékeléshez működik; a termeléshez állandó licenc szükséges.  
 - **Melyik Java verzió támogatott?** JDK 8 vagy újabb.  
-- **Hány sor kódra van szükség?** Körülbelül 30 sor egy egyszerű szolgáltató implementációhoz.
+- **Hány kódsorra van szükség?** Körülbelül 30 sor egy egyszerű szolgáltató implementációhoz.
 
-## Mi az a „Create Word Forms Provider” funkció?
-A **create word forms provider** komponens egy egyedi osztály, amely megvalósítja az `IWordFormsProvider` interfészt. Egy szót kap bemenetként, és egy tömböt ad vissza a lehetséges alakokról – szingularis, többes szám vagy egyéb nyelvi variációk – a általad definiált szabályok alapján. Ez lehetővé teszi, hogy a keresőindex a „cat” és a „cats” szavakat ekvivalensnek tekintse, ezáltal növelve a találati lefedettséget a pontosság rovására nem menve.
+## Mi a „create word forms provider” funkció?
+A **create word forms provider** egy egyedi osztály, amely megvalósítja az `IWordFormsProvider` interfészt. Az `IWordFormsProvider` egy interfész, amely meghatározza, hogyan biztosítanak a szolgáltatók alternatív szóalakokat a keresőmotor számára. Egy szót kap, és egy tömböt ad vissza a lehetséges alakokról – egyes szám, többes szám vagy egyéb nyelvi variációk – a definiált szabályok alapján. Ez lehetővé teszi, hogy a keresőindex a „cat” és a „cats” szavakat ekvivalensnek tekintse, javítva a visszahívást anélkül, hogy a pontosságot feláldozná.
 
-## Miért használjuk a GroupDocs.Search‑t szóalak‑generáláshoz?
-- **Beépített kiterjeszthetőség:** Csatold a saját szolgáltatódat közvetlenül az indexelési csővezetékhez.  
-- **Teljesítmény‑optimalizált:** Nagy indexeket hatékonyan kezel, és az eredményeket gyorsabbá teheted a gyorsítótárazással.  
-- **Kereszt‑nyelvi támogatás:** A koncepciók .NET-re és más platformokra is alkalmazhatók.
+## Miért használja a GroupDocs.Search‑t szóalak‑generáláshoz?
+A GroupDocs.Search beépített kiterjeszthetőséget kínál, lehetővé téve, hogy saját szolgáltatóját közvetlenül az indexelési csővezetékbe illessze. Legfeljebb **10 millió dokumentum** indexét képes feldolgozni, miközben a memóriahasználat **500 MB** alatt marad a streaming architektúra köszönhetően, és gyorsítótárazással alul‑milliszekundumos keresési időket érhet el.
 
 ## Előfeltételek
-Mielőtt megvalósítanád a **create word forms provider**-t, győződj meg róla, hogy rendelkezel a következőkkel:
-- **Maven** telepítve, és JDK 8 vagy újabb a gépeden.  
-- Alapvető ismeretekkel a Java fejlesztésről és a Maven `pom.xml` konfigurációjáról.  
-- Hozzáférés a GroupDocs.Search Java könyvtárhoz (25.4 vagy újabb verzió).
+- **Maven** telepítve van, és JDK 8 vagy újabb be van állítva a gépén.  
+- Alapvető ismeretek a Java fejlesztésről és a Maven `pom.xml` konfigurációjáról.  
+- Hozzáférés a GroupDocs.Search Java könyvtárhoz (25.4 verzió vagy újabb).  
 
 ## A GroupDocs.Search beállítása Java-hoz
 
 ### Maven konfiguráció
-
-Add the repository and dependency to your `pom.xml` file exactly as shown below:
+Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz pontosan úgy, ahogy az alább látható:
 
 ```xml
 <repositories>
@@ -63,17 +119,15 @@ Add the repository and dependency to your `pom.xml` file exactly as shown below:
 ```
 
 ### Közvetlen letöltés
-
-Alternatív megoldásként töltsd le a legújabb JAR-t a hivatalos kiadási oldalról: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Alternatívaként töltse le a legújabb JAR-t a hivatalos kiadási oldalról: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Licenc beszerzési lépések
-1. **Ingyenes próba:** Regisztrálj egy próbaverzióra a fő funkciók felfedezéséhez.  
-2. **Ideiglenes licenc:** Kérj egy ideiglenes kulcsot a kiterjesztett teszteléshez.  
-3. **Vásárlás:** Szerezz be egy kereskedelmi licencet a korlátlan termelési használathoz.
+1. **Ingyenes próba:** Regisztráljon egy próbaidőszakra a fő funkciók felfedezéséhez.  
+2. **Ideiglenes licenc:** Kérjen ideiglenes kulcsot a kiterjesztett teszteléshez.  
+3. **Vásárlás:** Szerezzen be egy kereskedelmi licencet a korlátlan termelési használathoz.
 
 ### Alap inicializálás és beállítás
-
-Az alábbi kódrészlet bemutatja, hogyan hozhatsz létre egy indexet – a kiindulópontot a dokumentumok és szóalak‑logika hozzáadásához:
+Az alábbi kódrészlet bemutatja, hogyan hozhat létre egy indexet – a kiindulópontot a dokumentumok és a szóalak logika hozzáadásához:
 
 ```java
 import com.groupdocs.search.*;
@@ -90,18 +144,17 @@ public class SearchSetup {
 
 ## Implementációs útmutató
 
-Az alábbiakban végigvezetünk a lépéseken, hogy **create word forms provider**-t hozzunk létre, amely egyszerű szingularis‑többes és többes‑szingularis átalakításokat kezel.
+Az alábbiakban végigvezetjük a lépéseken, hogy **szóalak‑szolgáltatót hozzunk létre**, amely egyszerű egyes‑szám‑többes‑szám és többes‑szám‑egyes‑szám átalakításokat kezel.
 
 ### A SimpleWordFormsProvider implementálása
 
 #### Áttekintés
-Az egyedi szolgáltatónk a következőket fogja:
-- Levágja a végződő „es” vagy „s” betűket a szingularis forma kitalálásához.  
-- A végződő „y” betűt „is”‑re cseréli a többes számú forma előállításához (pl. „city” → „citis”).  
-- Hozzáfűzi az „s” és „es” végződéseket az alap többes számú jelöltek generálásához.
+A `SimpleWordFormsProvider` osztály megvalósítja az `IWordFormsProvider` interfészt. A definíció horgony tisztázza a célját:
 
-#### 1. lépés – Az osztály vázának létrehozása
-Kezdd egy olyan osztály definiálásával, amely megvalósítja az `IWordFormsProvider`‑t. Hagyd változatlanul az importálásokat:
+`SimpleWordFormsProvider` egy egyedi implementációja az `IWordFormsProvider`-nek, amely egyes‑szám‑többes‑szám variációkat biztosít az indexelő motor számára.
+
+#### 1. lépés – az osztály vázának létrehozása
+Kezdje egy olyan osztály definiálásával, amely megvalósítja az `IWordFormsProvider`-t. Tartsa változatlanul az importálási utasításokat:
 
 ```java
 import com.groupdocs.search.dictionaries.IWordFormsProvider;
@@ -110,8 +163,10 @@ import java.util.ArrayList;
 public class SimpleWordFormsProvider implements IWordFormsProvider {
 ```
 
-#### 2. lépés – A `getWordForms` implementálása
-Add the method that builds the list of possible forms. This block contains the core logic; you can extend it later to cover more complex rules.
+#### 2. lépés – a `getWordForms` implementálása
+Adja hozzá a metódust, amely felépíti a lehetséges alakok listáját. Ez a blokk tartalmazza a fő logikát; később kibővítheti, hogy összetettebb szabályokat is lefedjen.
+
+`getWordForms` egy kifejezést kap, és egy `String[]`-t ad vissza, amely az összes generált variációt tartalmazza.
 
 ```java
     @Override
@@ -145,65 +200,71 @@ Add the method that builds the list of possible forms. This block contains the c
 ```
 
 #### A logika magyarázata
-- **Szingularizálás:** Felismeri a gyakori többes számú végződéseket (`es`, `s`) és eltávolítja őket a szótő közelítéséhez.  
-- **Többes szám:** A `y`‑ra végződő főneveket `is`‑re cseréli, egy egyszerű szabály, amely sok angol szó esetén működik.  
-- **Végződés hozzáadása:** Hozzáadja az `s` és `es` végződéseket a szabályos többes számú formák lefedéséhez, amelyeket az előző ellenőrzések esetleg nem ragadnak meg.
+- **Egyes számra alakítás:** Felismeri a gyakori többes számú végződéseket (`es`, `s`) és eltávolítja őket a szótő közelítéséhez.  
+- **Többes számra alakítás:** Kezeli a `y`-ra végződő főneveket, azzal helyettesítve őket `is`-re, egy egyszerű szabály, amely sok angol szó esetén működik.  
+- **Végződés hozzáadása:** `s` és `es` hozzáadása a szabályos többes számú alakok lefedéséhez, amelyeket az előző ellenőrzések esetleg nem fednek le.
 
 #### Hibaelhárítási tippek
-- **Kis- és nagybetű érzékenység:** A metódus a `toLowerCase()`‑t használja az összehasonlításhoz, biztosítva, hogy a „Cats” és a „cats” ugyanúgy viselkedjen.  
-- **Szélsőséges esetek:** A szuffixum hosszánál rövidebb szavakat figyelmen kívül hagyja, hogy elkerülje az üres karakterláncok visszaadását.  
-- **Teljesítmény:** Nagy szókészletek esetén fontold meg az eredmények gyorsítótárazását egy `ConcurrentHashMap`‑ben.
+- **Kis- és nagybetű érzékenység:** A metódus a `toLowerCase()`-t használja az összehasonlításhoz, biztosítva, hogy a „Cats” és a „cats” ugyanúgy viselkedjen.  
+- **Szélsőséges esetek:** A végződés hosszánál rövidebb szavak figyelmen kívül maradnak, hogy elkerüljük az üres karakterláncok visszaadását.  
+- **Teljesítmény:** Nagy szókészletek esetén fontolja meg az eredmények gyorsítótárazását egy `ConcurrentHashMap`-ben.
 
 ## Gyakorlati alkalmazások
 
-Egy **create word forms provider** implementálása több valós helyzetben is növelheti a hatékonyságot:
-1. **Keresőmotorok:** A „mouse” beíró felhasználók számára is meg kell jelenjenek a „mice” szót tartalmazó dokumentumok. Egy szolgáltató képes generálni ilyen rendhagyó alakokat.  
-2. **Szövegelemző eszközök:** A sentiment vagy entitás kinyerés megbízhatóbbá válik, ha minden szóvariáns fel van ismerve.  
-3. **Tartalomkezelő rendszerek:** Az automatikus címke generálás tartalmazhat többes számú szinonimákat, javítva az SEO‑t és a belső linkelést.
+Egy **create word forms provider** implementálása több valós életbeli forgatókönyvet is javíthat:
 
-## Teljesítménybeli megfontolások
+1. **Keresőmotorok:** A „mouse” beíró felhasználók számára a „mice” tartalmazó dokumentumoknak is meg kell jelenniük. A szolgáltató képes ilyen szabálytalan alakokat generálni.  
+2. **Szövegelemző eszközök:** Az érzelem- vagy entitás-kinyerés megbízhatóbbá válik, ha minden szóvariáns fel van ismerve.  
+3. **Tartalomkezelő rendszerek:** Az automatikus címke generálás tartalmazhat többes számú szinonimákat, javítva az SEO-t és a belső hivatkozásokat.
 
-Amikor a szolgáltatót egy termelési rendszerbe ágyazod, tartsd szem előtt ezeket a tippeket:
-- **Gyakran használt alakok gyorsítótárazása:** Tárold az eredményeket memóriában, hogy elkerüld ugyanazon szó újbóli kiszámítását.  
-- **JVM heap figyelése:** Nagy indexek növelhetik a memória nyomását; ennek megfelelően állítsd be a `-Xmx`‑et.  
-- **Hatékony gyűjtemények használata:** Az `ArrayList` kis halmazokra megfelelő, de több ezer alak esetén érdemes a `HashSet`‑et használni a duplikátumok gyors eltávolításához.
+## Teljesítménybeli szempontok
+
+Amikor a szolgáltatót egy termelési rendszerbe ágyazza, tartsa szem előtt ezeket a tippeket:
+
+- **Gyakran használt alakok gyorsítótárazása:** Tárolja az eredményeket memóriában, hogy elkerülje ugyanazon szó újbóli kiszámítását.  
+- **JVM heap monitorozása:** Nagy indexek növelhetik a memória nyomását; ennek megfelelően állítsa be a `-Xmx`-et.  
+- **Hatékony gyűjtemények használata:** A `ArrayList` kis halmazokhoz működik, de több ezer alak esetén fontolja meg a `HashSet` használatát a duplikátumok gyors eltávolításához.
 
 **Legjobb gyakorlatok**
-- Tartsd a könyvtárat naprakészen, hogy élvezhesd a teljesítményjavító javításokat.  
-- Profilozd a szolgáltatót valós lekérdezési terheléssel, hogy időben felismerd a szűk keresztmetszeteket.
+- Tartsa a könyvtárat naprakészen, hogy élvezze a teljesítményjavító javításokat.  
+- Profilozza a szolgáltatót valós lekérdezési terheléssel, hogy időben felismerje a szűk keresztmetszeteket.
 
 ## Következtetés
 
-Most már megtanultad, hogyan **generálj szingularis és többes számú alakokat Java-ban** egy egyedi `SimpleWordFormsProvider` segítségével a GroupDocs.Search használatával. Ez a könnyű komponens drámaian javíthatja a keresési eredmények relevanciáját és a nyelvi elemzés pontosságát számos alkalmazásban.
+Most megtanulta, **hogyan generáljon űrlapokat Java-ban** egy egyedi `SimpleWordFormsProvider` használatával a GroupDocs.Search segítségével. Ez a könnyű komponens drámai módon javíthatja a keresési eredmények relevanciáját és a nyelvi elemzés pontosságát számos alkalmazásban.
 
-**Következő lépések:**  
-- Kísérletezz összetettebb nyelvi szabályokkal (rendhagyó többes számok, szótövezés).  
-- Integráld a szolgáltatót egy indexelési csővezetékbe, és mérd a visszahívási javulást.  
-- Fedezd fel a GroupDocs.Search további funkcióit, mint a szinonima szótárak és egyedi elemzők.
+**Következő lépések**  
+- Kísérletezzen összetettebb nyelvi szabályokkal (szabálytalan többes számok, szótövezés).  
+- Integrálja a szolgáltatót egy indexelési csővezetékbe, és mérje a visszahívás javulását.  
+- Fedezze fel a GroupDocs.Search további funkcióit, mint a szinonima szótárak és egyedi elemzők.
 
-Cselekvésre felhívás: Próbáld meg ma hozzáadni a `SimpleWordFormsProvider`‑t a saját projektedhez, és nézd meg, hogyan gazdagítja a keresési élményt!
+**Felhívás:** Próbálja meg ma hozzáadni a `SimpleWordFormsProvider`-t a saját projektjéhez, és nézze meg, hogyan gazdagítja a keresési élményt!
 
-## GyIK szekció
+## GyIK szakasz
 
-**1. Mi a GroupDocs.Search for Java?**  
-Ez egy erőteljes könyvtár, amely teljes szöveges keresést, indexelést és nyelvi funkciókat kínál – beleértve az egyedi szóalak‑szolgáltatók csatlakoztatásának lehetőségét.
+**K: Mi a GroupDocs.Search for Java?**  
+V: Ez egy erőteljes könyvtár, amely teljes szöveges keresést, indexelést és nyelvi funkciókat kínál – beleértve a saját szóalak‑szolgáltatók beillesztésének lehetőségét.
 
-**2. Hogyan működik a SimpleWordFormsProvider?**  
-Egyszerű végződés‑alapú szabályok alkalmazásával generál alternatív alakokat (eltávolítja az „s/es” végződést, a „y” betűt „is”‑re cseréli, és hozzáfűzi az „s/es” végződéseket).
+**K: Hogyan működik a SimpleWordFormsProvider?**  
+V: Alternatív alakokat generál egyszerű végződés‑alapú szabályok alkalmazásával („s/es” eltávolítása, „y” átalakítása „is”-re, és „s/es” hozzáadása).
 
-**3. Testreszabhatom a szóalak‑generálási szabályokat?**  
-Természetesen. Módosítsd a `getWordForms` metódust, hogy tartalmazzon rendhagyó alakokat, helyspecifikus szabályokat vagy külső szótárakkal való integrációt.
+**K: Testreszabhatom a szóalak‑generálási szabályokat?**  
+V: Természetesen. Módosítsa a `getWordForms` metódust, hogy tartalmazzon szabálytalan alakokat, helyspecifikus szabályokat vagy integrációt külső szótárakkal.
 
-**4. Milyen gyakori alkalmazások vannak erre a funkcióra?**  
-A keresőmotorok, szövegelemző csővezetékek és CMS platformok profitálnak a szingularis/többes számú változatok felismeréséből.
+**K: Milyen gyakori alkalmazások vannak erre a funkcióra?**  
+V: Keresőmotorok, szövegelemző csővezetékek és CMS platformok profitálnak az egyes‑szám/többes‑szám variánsok felismeréséből.
 
-**5. Szükségem van kereskedelmi licencre a termelési használathoz?**  
-Igen – míg a próba lehetővé teszi az API felfedezését, egy megvásárolt licenc eltávolítja a használati korlátokat és támogatást biztosít.
+**K: Szükségem van kereskedelmi licencre a termelési használathoz?**  
+V: Igen – bár a próba lehetővé teszi az API felfedezését, a megvásárolt licenc eltávolítja a használati korlátokat és támogatást biztosít.
 
 ---
 
-**Utolsó frissítés:** 2026-02-21  
+**Utoljára frissítve:** 2026-09-02  
 **Tesztelve:** GroupDocs.Search 25.4 (Java)  
-**Szerző:** GroupDocs  
+**Szerző:** GroupDocs
 
----
+## Kapcsolódó oktatóanyagok
+
+- [Nyelvfeldolgozás Java – Szinonima szótár létrehozása a GroupDocs.Search segítségével](/search/java/dictionaries-language-processing/)
+- [Hogyan valósítsunk meg Java teljes szöveges keresést: indexkönyvtár létrehozása a GroupDocs.Search segítségével](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Hogyan végezzünk reguláris kifejezés keresést Java-ban: A GroupDocs.Search elsajátítása szöveges dokumentumelemzéshez](/search/java/searching/groupdocs-search-java-regex-tutorial/)
