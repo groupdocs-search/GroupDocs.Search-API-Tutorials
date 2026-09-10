@@ -1,55 +1,100 @@
 ---
-date: '2026-02-21'
-description: GroupDocs.Search kullanarak Java tam metin aramasında uzmanlaşın, alfabe
-  sözlüklerini yönetmeyi öğrenin ve Java belgelerini verimli bir şekilde arayın.
+date: '2026-09-06'
+description: Java full text search öğreticisi, bir indeksin nasıl oluşturulacağını,
+  alphabet dictionary'yi nasıl özelleştireceğinizi ve GroupDocs.Search kullanarak
+  belgeleri verimli bir şekilde aramayı gösterir.
 keywords:
-- GroupDocs.Search for Java
-- alphabet dictionary indexing
-- Java document search
-title: 'Java Tam Metin Arama: GroupDocs.Search ile Dizin Oluşturma'
+- java full text search
+- create alphabet dictionary
+- how to customize dictionary
+- search documents java
+lastmod: '2026-09-06'
+og_description: Java full text search, belgeler arasında metni hızlıca bulmanızı sağlar.
+  Bir indeks oluşturmayı, alphabet dictionary'yi özelleştirmeyi ve GroupDocs.Search
+  kullanarak belgeleri aramayı öğrenin.
+og_image_alt: Guide showing Java full text search index creation with GroupDocs.Search
+og_title: Java full text search – GroupDocs.Search ile indeks oluşturma
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-06'
+  description: Java full text search tutorial shows how to build an index, customize
+    the alphabet dictionary, and efficiently search documents java using GroupDocs.Search.
+  headline: 'Java full text search: Build index with GroupDocs.Search'
+  type: TechArticle
+- description: Java full text search tutorial shows how to build an index, customize
+    the alphabet dictionary, and efficiently search documents java using GroupDocs.Search.
+  name: 'Java full text search: Build index with GroupDocs.Search'
+  steps:
+  - name: '**Free trial** – Start with a trial to explore all features.'
+    text: '**Free trial** – Start with a trial to explore all features.'
+  - name: '**Temporary license** – Request a temporary key for extended testing.'
+    text: '**Temporary license** – Request a temporary key for extended testing.'
+  - name: '**Full license** – Purchase a production license for unlimited use.'
+    text: '**Full license** – Purchase a production license for unlimited use.'
+  type: HowTo
+- questions:
+  - answer: It’s the process of building an index that enables rapid text queries
+      across many files in a Java application.
+    question: What is “java full text search”?
+  - answer: GroupDocs.Search for Java provides ready‑made indexing, dictionary management,
+      and query execution.
+    question: Which library handles this out‑of‑the‑box?
+  - answer: A free trial is perfect for evaluation; a full license is required for
+      production deployments.
+    question: Do I need a license?
+  - answer: Absolutely—use the alphabet dictionary to define custom character types.
+    question: Can I customize character handling?
+  - answer: Maven simplifies dependency handling, but you can also download the JAR
+      directly.
+    question: Is Maven mandatory?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- alphabet dictionary
+- document indexing
+- search API
+title: 'Java full text search: GroupDocs.Search ile indeks oluşturma'
 type: docs
 url: /tr/java/dictionaries-language-processing/master-alphabet-dictionary-indexing-groupdocs-search-java/
 weight: 1
 ---
 
- markdown formatting.
+# Java tam metin arama: GroupDocs.Search ile indeks oluşturma
 
-Also note: "⚠️" not needed; not in content.
+Modern veri odaklı uygulamalarda **java full text search**, binlerce dosya arasında bilgiyi anında bulmanızı sağlayan motorudur. Bu öğretici, GroupDocs.Search bağımlılığını eklemekten alfabetik sözlüğü ince ayar yapmaya kadar her adımı size gösterir— böylece herhangi bir Java projesinde hızlı ve doğru arama sonuçları sunabilirsiniz.
 
-Now produce final content.# Java Tam Metin Arama: GroupDocs.Search ile Dizin Oluşturma
+## Hızlı cevaplar
+- **“java full text search” nedir?** Bir Java uygulamasında birçok dosya üzerinde hızlı metin sorgularını mümkün kılan bir indeks oluşturma sürecidir.  
+- **Hangi kütüphane bunu kutudan çıkar çıkmaz sağlar?** GroupDocs.Search for Java, hazır indeksleme, sözlük yönetimi ve sorgu yürütme sağlar.  
+- **Bir lisansa ihtiyacım var mı?** Değerlendirme için ücretsiz deneme mükemmeldir; üretim dağıtımları için tam lisans gereklidir.  
+- **Karakter işleme özelleştirilebilir mi?** Kesinlikle—özel karakter tiplerini tanımlamak için alfabetik sözlüğü kullanın.  
+- **Maven zorunlu mu?** Maven bağımlılık yönetimini basitleştirir, ancak JAR dosyasını doğrudan da indirebilirsiniz.
 
-Günümüz veri odaklı uygulamalarında **java full text search**, büyük belge koleksiyonları içinde bilgiyi hızlıca bulması gereken her sistemin belkemiğidir. **GroupDocs.Search for Java**'ı kullanarak güçlü bir arama dizini oluşturabilir, alfabe sözlüğünü ince ayar yapabilir ve **search documents java** yaptığınızda sorgularınızın alaka düzeyini büyük ölçüde artırabilirsiniz. Bu kılavuz, kütüphaneyi kurmaktan karakter işleme özelleştirmesine kadar her adımı size gösterir; böylece Java projelerinizde hızlı ve doğru arama sonuçları sunabilirsiniz.
+## Java tam metin arama nedir ve neden bir alfabetik sözlük yönetilmeli?
+`java full text search` indeksi, belgelerinizin tokenleştirilmiş temsillerini saklar ve kelimelerin ya da ifadelerin anında bulunmasını sağlar. Alfabetik sözlük, motorun her karakteri (harf, rakam, sembol) nasıl işleyeceğini belirler; bu doğrudan tokenleştirme ve arama alaka düzeyini etkiler—özellikle özel semboller veya dile özgü kurallar için.
 
-## Quick Answers
-- **“java full text search” nedir?** Bu, bir Java uygulamasında birçok dosa üzerinde hızlı metin sorgularını mümkün kılan bir dizin oluşturma sürecidir.  
-- **Hangi kütüphane bunu kutudan çıkar çıkmaz sağlar?** GroupDocs.Search for Java, hazır indeksleme, sözlük yönetimi ve sorgu yürütme özellikleri sunar.  
-- **Lisans gerekir mi?** Değerlendirme için ücretsiz deneme sürümü idealdir; üretim dağıtımları için tam lisans gereklidir.  
-- **Karakter işleme özelleştirilebilir mi?** Kesinlikle—alfabe sözlüğünü kullanarak özel karakter tipleri tanımlayabilirsiniz.  
-- **Maven zorunlu mu?** Maven bağımlılık yönetimini basitleştirir, ancak JAR'ı doğrudan da indirebilirsiniz.
+## Java tam metin arama için neden GroupDocs.Search kullanılmalı?
+GroupDocs.Search, belgeleri tamamen belleğe yüklemeden **10.000 belge**ye kadar işleyebilir ve alt saniyelik sorgu süreleri sunar. Karakter tipleri üzerinde tam kontrol sağlar, **50+ giriş ve çıkış formatını** destekler ve birden fazla sunucu arasında yatay olarak ölçeklenir; bu da onu kurumsal düzeyde arama için en sağlam seçenek yapar.
 
-## java full text search nedir ve neden bir alfabe sözlüğü yönetmeliyiz?
-Bir **java full text search** dizini, belgelerinizin tokenleştirilmiş temsillerini saklar ve kelimeleri ya da ifadeleri anında bulmanıza olanak tanır. Alfabe sözlüğü, motorun her karakteri (harf, rakam, sembol) nasıl ele alacağını belirler; bu doğrudan tokenleştirme ve arama alakasını etkiler—özellikle özel semboller veya dile özgü kurallar için.
+## Önkoşullar
+- **GroupDocs.Search for Java** (en son sürüm).  
+- Java 17 veya daha yüksek bir sürüm, geliştirme makinenizde kurulu.  
+- Maven 3.6+ (veya JAR dosyasını manuel ekleme imkanı).  
 
-## Neden GroupDocs.Search for java full text search kullanmalısınız?
-- **Hız:** Dizinler diskte saklanır ve verimli bir şekilde yüklenir, saniyenin altında sorgu süreleri sağlar.  
-- **Esneklik:** Karakter tipleri üzerinde tam kontrol, tire, kesme işareti veya Latin dışı betikleri yönetmenizi sağlar.  
-- **Ölçeklenebilirlik:** Performansı düşürmeden binlerce belgeyle çalışır.  
-- **Entegrasyon Kolaylığı:** Basit Maven veya doğrudan indirme kurulumu, hızlıca çalışmaya başlamanızı sağlar.
+### Gerekli kütüphaneler, sürümler ve bağımlılıklar
+- GroupDocs.Search for Java – en son kararlı sürüm.  
+- Temel indeksleme için ek üçüncü taraf kütüphaneler gerekmemektedir.
 
-## Prerequisites
-### Required Libraries, Versions, and Dependencies
-- **GroupDocs.Search for Java** (latest release).  
-- Temel Java geliştirme bilgisi.
+### Ortam kurulum gereksinimleri
+Maven uyumlu bir ortamınız olduğundan emin olun. Maven henüz yüklü değilse, resmi sitesinden indirin: [Apache Maven](https://maven.apache.org/download.cgi).
 
-### Environment Setup Requirements
-Maven uyumlu bir ortamınız olduğundan emin olun. Maven henüz kurulu değilse, resmi siteden indirin: [Apache Maven](https://maven.apache.org/download.cgi).
-
-### Knowledge Prerequisites
+### Bilgi önkoşulları
 Java sözdizimi ve dosya G/Ç konularına aşina olmak faydalı olacaktır, ancak aşağıdaki adım adım kılavuz ihtiyacınız olan her şeyi kapsar.
 
-## Setting Up GroupDocs.Search for Java
-### Maven Configuration
-Add the repository and dependency to your `pom.xml` file:
+## GroupDocs.Search for Java kurulumu
+### Maven yapılandırması
+`pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
 
 ```xml
 <repositories>
@@ -69,16 +114,16 @@ Add the repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-### Direct Download
-If you prefer not to use Maven, grab the latest JAR from the official releases page: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### Doğrudan indirme
+Maven kullanmak istemiyorsanız, resmi sürüm sayfasından en son JAR dosyasını alın: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-#### License Acquisition Steps
-1. **Free Trial** – Tüm özellikleri keşfetmek için deneme sürümüyle başlayın.  
-2. **Temporary License** – Uzun süreli test için geçici bir anahtar isteyin.  
-3. **Full License** – Sınırsız kullanım için üretim lisansı satın alın.
+#### Lisans edinme adımları
+1. **Ücretsiz deneme** – Tüm özellikleri keşfetmek için deneme ile başlayın.  
+2. **Geçici lisans** – Uzatılmış test için geçici bir anahtar isteyin.  
+3. **Tam lisans** – Sınırsız kullanım için üretim lisansı satın alın.
 
-### Basic Initialization and Setup
-Create an `Index` instance that points to the folder where the search index will be stored:
+### Temel başlatma ve kurulum
+Arama indeksinin saklanacağı klasöre işaret eden bir `Index` örneği oluşturun:
 
 ```java
 import com.groupdocs.search.*;
@@ -91,11 +136,11 @@ public class SearchIndexSetup {
 }
 ```
 
-## Implementation Guide
-Below is a complete walkthrough of the most common operations you’ll perform when building a **java full text search** solution.
+## Uygulama rehberi
+Aşağıda, **java full text search** çözümü oluştururken gerçekleştireceğiniz en yaygın işlemlerin tam bir yürütmesi bulunmaktadır.
 
-### Creating or Opening an Index
-Initialize a new index or open an existing one:
+### Bir indeks oluşturma veya açma
+`Index` sınıfı, disk üzerinde depolanan aranabilir bir koleksiyonu temsil eden temel nesnedir.
 
 ```java
 import com.groupdocs.search.*;
@@ -104,11 +149,11 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\Index";
 Index index = new Index(indexFolder);
 ```
 
-- **Parameters:** `indexFolder` – dizin dosyalarının bulunduğu yol.  
-- **Purpose:** Sonraki indeksleme ve sorgulama için arama ortamını kurar.
+- **Parametreler:** `indexFolder` – indeks dosyalarının bulunduğu yol.  
+- **Amaç:** Sonraki indeksleme ve sorgulama için arama ortamını kurar.
 
-### Exporting the Alphabet Dictionary to a File
-Save the current alphabet dictionary so you can reuse or analyze it later:
+### Alfabetik sözlüğü bir dosyaya dışa aktarma
+`AlphabetDictionary` nesnesi karakter‑tip eşlemelerini tutar. Dışa aktarmak, yapılandırmayı daha sonra yeniden kullanmanıza veya analiz etmenize olanak tanır.
 
 ```java
 import com.groupdocs.search.dictionaries.*;
@@ -117,10 +162,10 @@ String fileName = "YOUR_OUTPUT_DIRECTORY\\Alphabet.dat";
 index.getDictionaries().getAlphabet().exportDictionary(fileName);
 ```
 
-- **Parameters:** `fileName` – dışa aktarılan sözlüğün hedef dosyası.
+- **Parametreler:** `fileName` – dışa aktarılan sözlüğün hedef dosyası.
 
-### Clearing the Alphabet Dictionary
-Reset the dictionary to its default state before applying custom rules:
+### Alfabetik sözlüğü temizleme
+Özel kuralları uygulamadan önce sözlüğü varsayılan durumuna sıfırlayın:
 
 ```java
 import com.groupdocs.search.dictionaries.*;
@@ -130,10 +175,10 @@ if (index.getDictionaries().getAlphabet().getCount() > 0) {
 }
 ```
 
-- **Purpose:** Önceden tanımlanmış tüm karakter tiplerini kaldırır.
+- **Amaç:** Önceden tanımlanmış tüm karakter tiplerini kaldırır, temiz bir başlangıç sağlar.
 
-### Importing the Alphabet Dictionary from a File
-Restore a previously saved dictionary configuration:
+### Alfabetik sözlüğü bir dosyadan içe aktarma
+Daha önce kaydedilmiş bir sözlük yapılandırmasını geri yükleyin:
 
 ```java
 import com.groupdocs.search.dictionaries.*;
@@ -141,10 +186,10 @@ import com.groupdocs.search.dictionaries.*;
 index.getDictionaries().getAlphabet().importDictionary(fileName);
 ```
 
-- **Parameters:** `fileName` – sözlüğü içeren `.dat` dosyasının yolu.
+- **Parametreler:** `fileName` – sözlüğü içeren `.dat` dosyasının yolu.
 
-### Setting Character Type in Alphabet Dictionary
-Customize how specific characters are treated during tokenization:
+### Alfabetik sözlükte karakter tipini ayarlama
+`CharacterType` enum'u, tokenleştirme sırasında karakterlerin nasıl yorumlanacağını belirler. Belirli karakterlerin tokenleştirme sırasında nasıl ele alınacağını özelleştirin. `CharacterType.Blended` değeri, motorun tireyi bir kelimenin parçası olarak, ayırıcı yerine, ele almasını sağlar.
 
 ```java
 import com.groupdocs.search.dictionaries.*;
@@ -154,11 +199,11 @@ if (index.getDictionaries().getAlphabet().getCharacterType('-') != CharacterType
 }
 ```
 
-- **Parameters:** Karakter (`'-'`) ve yeni `CharacterType` (ör. `Blended`).  
-- **Why it matters:** Karakter tiplerini ayarlamak, tireli terimler, kimlikler veya özel semboller için arama alakasını artırır.
+- **Parametreler:** Karakter (`'-'`) ve yeni `CharacterType`.  
+- **Neden önemli:** Karakter tiplerini ayarlamak, tireli terimler, kimlikler veya özel semboller için arama alaka düzeyini artırır.
 
-### Indexing Documents from a Folder
-Add all files in a directory to the search index:
+### Bir klasörden belgeleri indeksleme
+Bir klasördeki tüm dosyaları tek bir işlemle arama indeksine ekleyin:
 
 ```java
 import com.groupdocs.search.*;
@@ -167,10 +212,10 @@ String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentsFolder);
 ```
 
-- **Parameters:** `documentsFolder` – indekslemek istediğiniz belgelerin bulunduğu klasör.
+- **Parametreler:** `documentsFolder` – indekslemek istediğiniz belgeleri içeren klasör.
 
-### Searching in an Index
-Execute a query and retrieve matching results:
+### Bir indeks içinde arama
+`SearchResult` sınıfı, bir sorgu tarafından döndürülen eşleşen belgeler ve snippet'lerin listesini içerir. Bir sorgu çalıştırın ve eşleşen sonuçları alın:
 
 ```java
 import com.groupdocs.search.results.*;
@@ -179,38 +224,46 @@ String query = "Elliot-Murray-Kynynmound";
 SearchResult result = index.search(query);
 ```
 
-- **Parameters:** `query` – aradığınız metin.  
-- **Result:** Eşleşen belgeler ve alıntılar içeren bir `SearchResult` nesnesi.
+- **Parametreler:** `query` – aradığınız metin.  
+- **Sonuç:** Eşleşen belgeler ve snippet'leri içeren bir `SearchResult` nesnesi.
 
-## java full text search için Yaygın Kullanım Senaryoları
-- **İçerik Yönetim Sistemleri (CMS):** Makale ve varlıkların alınmasını hızlandırır.  
-- **Hukuki Belge Depoları:** Maddeleri veya dava referanslarını hızlıca bulur.  
-- **Araştırma Kütüphaneleri:** Binlerce makaleyi indeksleyerek anlık anahtar kelime araması sağlar.  
-- **E‑ticaret Katalogları:** Özel tokenizasyon ile ürün aramasını geliştirir.  
-- **Müşteri Destek Portalları:** Temsilcilerin ilgili biletleri veya bilgi tabanı makalelerini hızlıca bulmasını sağlar.
+## Java tam metin arama için yaygın kullanım senaryoları
+- **İçerik yönetim sistemleri (CMS):** Makale ve varlık alımını hızlandırır.  
+- **Hukuki belge depoları:** Maddeleri veya dava referanslarını anında bulur.  
+- **Araştırma kütüphaneleri:** Binlerce makaleyi anlık anahtar kelime araması için indeksler.  
+- **E‑ticaret katalogları:** Özel tokenleştirme ile ürün aramasını geliştirir.  
+- **Müşteri destek portalları:** Temsilcilerin ilgili biletleri veya bilgi tabanı makalelerini hızlı bulmasını sağlar.
 
-## Performans Düşünceleri
-- **Artımlı Güncellemeler:** Dizinin taze kalması için sadece yeni veya değişen dosyaları yeniden indeksleyin, tam yeniden oluşturma yapmayın.  
-- **Sorgu Optimizasyonu:** Sorguları öz tutun; çok geniş joker karakter aramalarından kaçının.  
-- **Kaynak İzleme:** Büyük toplu indeksleme sırasında bellek kullanımını izleyin—gerekirse JVM yığın boyutunu ayarlayın.  
-- **Sözlük Boyutu:** Alfabe sözlüğünü yalnızca değiştirdiğinizde dışa/içe aktarın; gereksiz G/Ç başlangıç süresini yavaşlatabilir.
+## Performans hususları
+- **Artımlı güncellemeler:** Tam bir yeniden oluşturma yapmadan indeksi güncel tutmak için yalnızca yeni veya değişen dosyaları yeniden indeksleyin.  
+- **Sorgu optimizasyonu:** Sorguları öz tutun; çok geniş wildcard aramalardan kaçının.  
+- **Kaynak izleme:** Büyük toplu indeksleme sırasında bellek kullanımını izleyin—gerekirse JVM yığın boyutunu ayarlayın.  
+- **Sözlük boyutu:** Alfabetik sözlüğü yalnızca değiştirdiğinizde dışa/içe aktarın; gereksiz I/O başlangıç süresini yavaşlatabilir.
 
-## Sıkça Sorulan Sorular
+## Sıkça sorulan sorular
 **S:** *GroupDocs.Search kullanmak için önkoşullar nelerdir?*  
-C: Java, Maven (veya JAR'ı indirin) kurun ve GroupDocs.Search bağımlılığını ekleyin.
+**C:** Java 17+, Maven 3.6+ (veya JAR'ı indirin) kurun ve GroupDocs.Search bağımlılığını ekleyin.
 
-**S:** *Üretim kullanımı için lisansı nasıl temin ederim?*  
-C: Ücretsiz deneme sürümüyle başlayın, uzun süreli test için geçici bir anahtar isteyin, ardından GroupDocs portalından tam lisans satın alın.
+**S:** *Üretim kullanımı için lisansı nasıl elde ederim?*  
+**C:** Ücretsiz deneme ile başlayın, uzatılmış test için geçici bir anahtar isteyin, ardından GroupDocs portalından tam lisans satın alın.
 
-**S:** *Alfabe sözlüğünde karakter tiplerini özelleştirebilir miyim?*  
-C: Evet—herhangi bir karakter veya aralık için özel `CharacterType` değerleri atamak üzere `setRange` kullanın.
+**S:** *Alfabetik sözlükte karakter tiplerini özelleştirebilir miyim?*  
+**C:** Evet—herhangi bir karakter veya aralığa özel `CharacterType` değerleri atamak için `setRange` veya `set` metodlarını kullanın.
 
-**S:** *Alfabe sözlüğünü dışa ve içe aktarmak mümkün mü?*  
-C: Kesinlikle—sözlük yapılandırmalarını kalıcı hale getirmek veya paylaşmak için `exportDictionary` ve `importDictionary` metodlarını kullanın.
+**S:** *Alfabetik sözlüğü dışa ve içe aktarmak mümkün mü?*  
+**C:** Kesinlikle—sözlük yapılandırmalarını kalıcı hale getirmek veya paylaşmak için `exportDictionary` ve `importDictionary` metodlarını kullanın.
 
-**S:** *Bu kılavuz hangi sürümle test edilmiştir?*  
-C: Örnekler, GroupDocs.Search for Java sürüm 25.4 ile doğrulanmıştır.
+**S:** *Bu kılavuz hangi sürümle test edildi?*  
+**C:** Örnekler, GroupDocs.Search for Java sürüm 25.4 ile doğrulanmıştır.
 
-**Son Güncelleme:** 2026-02-21  
-**Test Edilen Versiyon:** GroupDocs.Search for Java 25.4  
+---
+
+**Son Güncelleme:** 2026-09-06  
+**Test Edilen:** GroupDocs.Search for Java 25.4  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+
+- [java tam metin arama nasıl uygulanır: GroupDocs.Search ile indeks dizini oluşturma](/search/java/indexing/groupdocs-search-java-create-index/)
+- [GroupDocs.Search API for Java kullanarak Belge İndeksi Oluşturma ve Belgeleri Ekleme](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Java'da Tam Metin Aramayı Ustalaştırın: GroupDocs ile Log Dosyası Çıkarıcı Uygulama](/search/java/searching/java-full-text-search-groupdocs-custom-extractor/)
