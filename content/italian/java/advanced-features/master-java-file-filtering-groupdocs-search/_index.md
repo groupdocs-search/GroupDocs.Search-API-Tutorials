@@ -364,9 +364,3 @@ R: Ogni filtro aggiunge un modesto overhead durante l'indicizzazione, ma la ridu
 - [java boolean and or: Ricerca booleana avanzata con GroupDocs.Search per Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Ottimizza le prestazioni di ricerca con tecniche di indicizzazione avanzate in GroupDocs.Search per Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

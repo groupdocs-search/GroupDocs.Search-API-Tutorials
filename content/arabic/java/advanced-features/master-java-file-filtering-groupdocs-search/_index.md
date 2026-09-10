@@ -362,10 +362,3 @@ Index index = new Index(indexFolder);
 - [java boolean and or: Master Boolean Searches with GroupDocs.Search for Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Optimize Search Performance with Advanced Indexing Techniques in GroupDocs.Search for Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

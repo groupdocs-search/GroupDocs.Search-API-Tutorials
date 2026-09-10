@@ -86,7 +86,6 @@ Pertama, tambahkan perpustakaan ke proyek Anda.
 Sertakan berikut ini dalam file `pom.xml` Anda:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ Sertakan berikut ini dalam file `pom.xml` Anda:
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Unduhan Langsung**  

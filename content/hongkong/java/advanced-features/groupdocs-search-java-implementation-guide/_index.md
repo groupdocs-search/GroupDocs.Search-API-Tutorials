@@ -84,7 +84,6 @@ GroupDocs.Search 支援 **超過 50 種輸入與輸出格式**，能在不將整
 在您的 `pom.xml` 檔案中加入以下內容：
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -100,7 +99,6 @@ GroupDocs.Search 支援 **超過 50 種輸入與輸出格式**，能在不將整
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **直接下載**  

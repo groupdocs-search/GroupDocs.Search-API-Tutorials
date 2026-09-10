@@ -86,7 +86,6 @@ Voeg eerst de bibliotheek toe aan uw project.
 Voeg het volgende toe aan uw `pom.xml`‑bestand:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ Voeg het volgende toe aan uw `pom.xml`‑bestand:
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Directe download**  

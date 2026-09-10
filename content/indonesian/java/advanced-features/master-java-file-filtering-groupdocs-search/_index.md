@@ -364,10 +364,3 @@ A: Setiap filter menambahkan overhead yang wajar selama pengindeksan, tetapi pen
 - [java boolean and or: Menguasai Pencarian Boolean dengan GroupDocs.Search untuk Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Optimalkan Kinerja Pencarian dengan Teknik Pengindeksan Lanjutan di GroupDocs.Search untuk Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -364,9 +364,3 @@ A: Κάθε φίλτρο προσθέτει μια ήπια επιβάρυνση
 - [java boolean and or: Κύριες Boolean Αναζητήσεις με GroupDocs.Search for Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Βελτιστοποίηση Απόδοσης Αναζήτησης με Προηγμένες Τεχνικές Ευρετηρίασης στο GroupDocs.Search for Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

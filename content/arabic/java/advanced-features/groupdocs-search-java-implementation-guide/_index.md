@@ -86,7 +86,6 @@ GroupDocs.Search يدعم **50+ صيغ إدخال وإخراج**، يمكنه ف
 ضمن ملف `pom.xml` الخاص بك أدرج التالي:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ GroupDocs.Search يدعم **50+ صيغ إدخال وإخراج**، يمكنه ف
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **تحميل مباشر**  

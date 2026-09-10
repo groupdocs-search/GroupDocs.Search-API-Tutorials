@@ -364,9 +364,3 @@ A: 각 필터는 인덱싱 시 약간의 오버헤드를 추가하지만, 인덱
 - [java boolean and or: GroupDocs.Search for Java로 부울 검색 마스터](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [GroupDocs.Search for Java의 고급 인덱싱 기술로 검색 성능 최적화](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

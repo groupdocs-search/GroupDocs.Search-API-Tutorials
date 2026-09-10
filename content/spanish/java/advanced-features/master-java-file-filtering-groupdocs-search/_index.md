@@ -364,9 +364,3 @@ R: Cada filtro añade una sobrecarga moderada durante la indexación, pero la re
 - [java boolean and or: Búsqueda booleana maestra con GroupDocs.Search para Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Optimizar el rendimiento de búsqueda con técnicas avanzadas de indexación en GroupDocs.Search para Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

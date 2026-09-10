@@ -362,10 +362,3 @@ A: Varje filter tillför en måttlig overhead under indexering, men minskningen 
 - [java boolean and or: Mästra booleska sökningar med GroupDocs.Search för Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Optimera sökprestanda med avancerade indexeringstekniker i GroupDocs.Search för Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

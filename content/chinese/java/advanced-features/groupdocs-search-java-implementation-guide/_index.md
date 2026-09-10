@@ -84,7 +84,6 @@ GroupDocs.Search 支持 **50+ 输入和输出格式**，能够在不将整个文
 在您的 `pom.xml` 文件中包含以下内容：
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -100,7 +99,6 @@ GroupDocs.Search 支持 **50+ 输入和输出格式**，能够在不将整个文
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **直接下载**  

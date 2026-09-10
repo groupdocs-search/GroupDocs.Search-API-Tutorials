@@ -365,9 +365,3 @@ A: प्रत्येक फ़िल्टर इंडेक्सिंग
 - [java boolean and or: ग्रुपडॉक्स.Search for Java के साथ बूलियन सर्च में महारत](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [ग्रुपडॉक्स.Search for Java में उन्नत इंडेक्सिंग तकनीकों के साथ सर्च प्रदर्शन को अनुकूलित करें](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

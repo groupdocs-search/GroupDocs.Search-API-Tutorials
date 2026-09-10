@@ -362,9 +362,3 @@ A: 每个过滤器在索引期间会增加适度的开销，但通常通过减�
 - [java 布尔与或：使用 GroupDocs.Search for Java 的布尔搜索精通](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [使用 GroupDocs.Search for Java 的高级索引技术优化搜索性能](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

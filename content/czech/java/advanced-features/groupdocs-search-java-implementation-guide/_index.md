@@ -86,7 +86,6 @@ Nejprve přidejte knihovnu do svého projektu.
 Do souboru `pom.xml` zahrňte následující:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ Do souboru `pom.xml` zahrňte následující:
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Přímé stažení**  

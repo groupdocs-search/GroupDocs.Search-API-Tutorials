@@ -86,7 +86,6 @@ GroupDocs.Search поддерживает **более 50 форматов вв�
 Include the following in your `pom.xml` file:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ Include the following in your `pom.xml` file:
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Прямое скачивание**  

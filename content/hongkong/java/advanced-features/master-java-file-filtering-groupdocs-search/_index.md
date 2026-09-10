@@ -360,9 +360,3 @@ A: 每個過濾器在索引時會帶來適度的開銷，但減少索引資料�
 - [java boolean and or：精通 GroupDocs.Search for Java 的布林搜尋](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [使用進階索引技術優化 GroupDocs.Search for Java 的搜尋效能](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

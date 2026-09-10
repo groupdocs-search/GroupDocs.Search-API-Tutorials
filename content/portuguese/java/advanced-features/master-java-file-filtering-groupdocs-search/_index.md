@@ -363,10 +363,3 @@ A: Cada filtro adiciona uma sobrecarga modesta durante a indexação, mas a redu
 - [java boolean and or: Domine Buscas Booleanas com GroupDocs.Search para Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Otimize o Desempenho de Busca com Técnicas Avançadas de Indexação no GroupDocs.Search para Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

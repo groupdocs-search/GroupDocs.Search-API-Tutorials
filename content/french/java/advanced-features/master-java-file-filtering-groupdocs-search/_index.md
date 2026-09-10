@@ -364,9 +364,3 @@ Restreignez l'indexation aux fichiers situés dans des dossiers particuliers ou 
 - [java boolean and or : Maîtriser les recherches booléennes avec GroupDocs.Search pour Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Optimiser les performances de recherche avec les techniques d'indexation avancées dans GroupDocs.Search pour Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

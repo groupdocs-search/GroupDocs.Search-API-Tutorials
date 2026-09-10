@@ -364,10 +364,3 @@ A: Каждый фильтр добавляет небольшие наклад�
 - [java boolean and or: Мастер булевых поисков с GroupDocs.Search для Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Оптимизация производительности поиска с помощью продвинутых техник индексации в GroupDocs.Search для Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

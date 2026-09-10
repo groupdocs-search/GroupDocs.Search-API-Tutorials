@@ -86,7 +86,6 @@ GroupDocs.Search **50+ input and output formats**'ı destekler, **millions of do
 `pom.xml` dosyanıza aşağıdakileri ekleyin:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ GroupDocs.Search **50+ input and output formats**'ı destekler, **millions of do
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Doğrudan İndirme**  

@@ -359,9 +359,3 @@ A: Mỗi bộ lọc thêm một phần tải nhẹ trong quá trình lập chỉ
 - [java boolean and or: Nắm vững tìm kiếm Boolean với GroupDocs.Search cho Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Tối ưu hiệu suất tìm kiếm với kỹ thuật lập chỉ mục nâng cao trong GroupDocs.Search cho Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -88,7 +88,6 @@ First, add the library to your project.
 Include the following in your `pom.xml` file:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -104,7 +103,6 @@ Include the following in your `pom.xml` file:
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Direct Download**  
