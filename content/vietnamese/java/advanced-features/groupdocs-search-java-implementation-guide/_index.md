@@ -86,7 +86,6 @@ GroupDocs.Search hỗ trợ **50+ input and output formats**, có thể lập ch
 Bao gồm các đoạn sau trong tệp `pom.xml` của bạn:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ Bao gồm các đoạn sau trong tệp `pom.xml` của bạn:
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Tải xuống trực tiếp**  

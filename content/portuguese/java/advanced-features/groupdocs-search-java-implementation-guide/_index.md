@@ -86,7 +86,6 @@ Primeiro, adicione a biblioteca ao seu projeto.
 Inclua o seguinte no seu arquivo `pom.xml`:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ Inclua o seguinte no seu arquivo `pom.xml`:
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Download Direto**  

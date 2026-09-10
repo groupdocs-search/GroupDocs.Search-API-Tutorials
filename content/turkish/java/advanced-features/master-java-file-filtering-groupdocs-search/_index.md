@@ -364,9 +364,3 @@ C: Her filtre indeksleme sırasında modest bir ek yük getirir, ancak indekslen
 - [java boolean and or: GroupDocs.Search for Java ile Boolean Aramaları](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [GroupDocs.Search for Java'da Gelişmiş İndeksleme Teknikleriyle Arama Performansını Optimize Et](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

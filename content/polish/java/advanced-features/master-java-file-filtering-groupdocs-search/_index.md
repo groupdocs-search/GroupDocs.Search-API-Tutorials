@@ -364,9 +364,3 @@ A: Każdy filtr wprowadza niewielki narzut podczas indeksowania, ale redukcja da
 - [java boolean i or: Mistrzowskie wyszukiwania logiczne z GroupDocs.Search dla Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Optymalizacja wydajności wyszukiwania dzięki zaawansowanym technikom indeksowania w GroupDocs.Search dla Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

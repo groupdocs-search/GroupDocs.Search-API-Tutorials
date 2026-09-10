@@ -363,9 +363,3 @@ A: Elke filter voegt een bescheiden overhead toe tijdens het indexeren, maar de 
 - [java boolean and or: Beheers Boolean-zoekopdrachten met GroupDocs.Search voor Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Optimaliseer zoekprestaties met geavanceerde indexeringstechnieken in GroupDocs.Search voor Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -86,7 +86,6 @@ Först, lägg till biblioteket i ditt projekt.
 Inkludera följande i din `pom.xml`‑fil:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ Inkludera följande i din `pom.xml`‑fil:
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Direkt nedladdning**  

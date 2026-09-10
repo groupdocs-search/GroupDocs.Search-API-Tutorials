@@ -89,7 +89,6 @@ GroupDocs.Search は **50 以上の入力および出力フォーマット** を
 `pom.xml` ファイルに以下を含めます：
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -105,7 +104,6 @@ GroupDocs.Search は **50 以上の入力および出力フォーマット** を
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **直接ダウンロード**  

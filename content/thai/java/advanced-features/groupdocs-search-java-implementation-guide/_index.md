@@ -86,7 +86,6 @@ GroupDocs.Search รองรับ **50+ input and output formats**, สาม�
 ใส่ส่วนต่อไปนี้ในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ GroupDocs.Search รองรับ **50+ input and output formats**, สาม�
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Direct Download**  

@@ -360,9 +360,3 @@ A: แต่ละตัวกรองเพิ่มภาระเล็ก�
 - [java boolean and or: การค้นหา Boolean ขั้นสูงด้วย GroupDocs.Search for Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [เพิ่มประสิทธิภาพการค้นหาด้วยเทคนิคการจัดทำดัชนีขั้นสูงใน GroupDocs.Search for Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

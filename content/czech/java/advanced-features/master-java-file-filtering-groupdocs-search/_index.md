@@ -364,10 +364,3 @@ A: Každý filtr přidává během indexace mírnou režii, ale snížení objem
 - [java boolean and or: Mistrovské booleanové vyhledávání s GroupDocs.Search pro Java](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [Optimalizace výkonu vyhledávání pomocí pokročilých technik indexování v GroupDocs.Search pro Java](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

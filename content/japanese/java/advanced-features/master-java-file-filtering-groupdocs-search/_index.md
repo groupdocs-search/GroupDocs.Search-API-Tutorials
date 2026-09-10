@@ -361,9 +361,3 @@ A: 各フィルタはインデックス作成時にわずかなオーバーヘ�
 - [java boolean and or: GroupDocs.Search for Java でのブール検索マスター](/search/java/searching/implement-boolean-searches-groupdocs-java/)
 - [GroupDocs.Search for Java の高度なインデックス技術で検索パフォーマンスを最適化](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

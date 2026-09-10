@@ -86,7 +86,6 @@ GroupDocs.Search **50+ इनपुट और आउटपुट फ़ॉर्
 `pom.xml` फ़ाइल में निम्नलिखित शामिल करें:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ GroupDocs.Search **50+ इनपुट और आउटपुट फ़ॉर्
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **डायरेक्ट डाउनलोड**  

@@ -86,7 +86,6 @@ weight: 1
 Συμπεριλάβετε τα παρακάτω στο αρχείο `pom.xml` σας:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ weight: 1
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Άμεση Λήψη**  

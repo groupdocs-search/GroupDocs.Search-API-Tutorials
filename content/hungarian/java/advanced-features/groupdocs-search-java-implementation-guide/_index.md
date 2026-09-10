@@ -88,7 +88,6 @@ Először adja hozzá a könyvtárat a projektjéhez.
 Adja hozzá a következőket a `pom.xml` fájlhoz:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -104,7 +103,6 @@ Adja hozzá a következőket a `pom.xml` fájlhoz:
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **Közvetlen letöltés**  

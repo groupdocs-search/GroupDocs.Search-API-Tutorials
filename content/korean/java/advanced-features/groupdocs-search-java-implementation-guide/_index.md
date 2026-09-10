@@ -86,7 +86,6 @@ GroupDocs.Search는 **50개 이상의 입력 및 출력 형식**을 지원하고
 `pom.xml` 파일에 다음을 포함합니다:
 
 ```xml
-<!-- ```xml
 <repositories>
     <repository>
         <id>repository.groupdocs.com</id>
@@ -102,7 +101,6 @@ GroupDocs.Search는 **50개 이상의 입력 및 출력 형식**을 지원하고
         <version>25.4</version>
     </dependency>
 </dependencies>
-``` -->
 ```
 
 **직접 다운로드**  
