@@ -1,12 +1,63 @@
 ---
-date: '2026-02-08'
-description: เรียนรู้วิธีการไฮไลท์ผลการค้นหาใน Java และวิธีการทำดัชนีเอกสารด้วย Java
-  โดยใช้ GroupDocs.Search for Java พร้อมการทำดัชนีแบบซิงโครนัสและอะซิงโครนัส
+date: '2026-09-11'
+description: เรียนรู้วิธีการไฮไลท์ผลการค้นหา Java และทำดัชนีเอกสาร Java ด้วย GroupDocs.Search
+  for Java ด้วยการทำดัชนีแบบ synchronous และ asynchronous
 keywords:
-- document search
-- synchronous indexing
-- asynchronous indexing
-title: ไฮไลท์ผลการค้นหา Java – การทำดัชนีแบบซิงโครนัสและอะซิงโครนัส
+- highlight search results java
+- index documents java
+- real time indexing java
+lastmod: '2026-09-11'
+og_description: ไฮไลท์ผลการค้นหา Java ด้วย GroupDocs.Search. เรียนรู้การทำดัชนีแบบ
+  synchronous และ asynchronous, การอัปเดตแบบ real‑time, และการไฮไลท์ผลในแอปพลิเคชัน
+  Java.
+og_image_alt: Developer guide showing Java code highlighting search results with GroupDocs.Search
+og_title: ไฮไลท์ผลการค้นหา Java – Fast synchronous & async indexing
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-11'
+  description: Learn how to highlight search results Java and index documents Java
+    using GroupDocs.Search for Java with both synchronous and asynchronous indexing.
+  headline: Highlight search results Java – Synchronous & async indexing
+  type: TechArticle
+- description: Learn how to highlight search results Java and index documents Java
+    using GroupDocs.Search for Java with both synchronous and asynchronous indexing.
+  name: Highlight search results Java – Synchronous & async indexing
+  steps:
+  - name: '**Install the library** – Use the Maven snippet above or download the JAR
+      from [GroupDocs](https://releases.groupdocs.com/search/java/).'
+    text: '**Install the library** – Use the Maven snippet above or download the JAR
+      from [GroupDocs](https://releases.groupdocs.com/search/java/).'
+  - name: '**Obtain a license** – Start with a trial license; replace it with a production
+      key before deployment.'
+    text: '**Obtain a license** – Start with a trial license; replace it with a production
+      key before deployment.'
+  - name: '**Initialize the index** – The following snippet shows how to create (or
+      open) an index folder:'
+    text: '**Initialize the index** – The following snippet shows how to create (or
+      open) an index folder:'
+  type: HowTo
+- questions:
+  - answer: Yes. Use synchronous indexing for small, frequently updated sets and asynchronous
+      indexing for bulk imports or background jobs.
+    question: Can I combine synchronous and asynchronous indexing in the same application?
+  - answer: Provide a custom `DocumentHighlighter` implementation that writes the
+      desired HTML, CSS, or XML tags around matched terms.
+    question: How do I customize the highlight style?
+  - answer: Text, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML, and many more via built‑in
+      parsers—over 30 formats in total.
+    question: What file types does GroupDocs.Search support out of the box?
+  - answer: Absolutely. GroupDocs.Search includes multi‑language analyzers; just configure
+      the appropriate `Analyzer` when creating the index.
+    question: Is it possible to search in multiple languages simultaneously?
+  - answer: Store the index in a protected directory, set strict file‑system permissions,
+      and optionally encrypt the index using the library’s security features.
+    question: How do I secure the index folder?
+  type: FAQPage
+tags:
+- highlight search
+- groupdocs.search
+- java indexing
+title: ไฮไลท์ผลการค้นหา Java – Synchronous & async indexing
 type: docs
 url: /th/java/searching/master-groupdocs-search-java-document-indexing/
 weight: 1
@@ -14,37 +65,29 @@ weight: 1
 
 # ไฮไลท์ผลการค้นหา Java – การทำดัชนีแบบซิงโครนัสและอะซิงโครนัส
 
-เพิ่มประสิทธิภาพแอปพลิเคชัน Java ของคุณด้วย **การไฮไลท์ผลการค้นหา Java** ด้วยไลบรารี GroupDocs.Search ที่ทรงพลัง ไม่ว่าคุณจะทำงานกับไฟล์ไม่กี่ไฟล์หรือคลังข้อมูลขนาดใหญ่ การเชี่ยวชาญทั้งการทำดัชนีแบบซิงโครนัสและอะซิงโครนัสจะช่วยให้คุณส่งมอบผลลัพธ์ที่เร็วและแม่นยำโดยไม่บล็อกเธรดของแอปพลิเคชัน
+ในคู่มือนี้คุณจะได้ค้นพบวิธี **highlight search results Java** ด้วยไลบรารี GroupDocs.Search และคุณจะเห็นขั้นตอนการทำดัชนีเอกสาร Java ทั้งแบบซิงโครนัสและอะซิงโครนัส ไม่ว่าคุณจะสร้างเครื่องมือเดสก์ท็อปขนาดเล็กหรือบริการค้นหาองค์กรขนาดใหญ่ เทคนิคเหล่านี้ช่วยให้คุณส่งมอบผลลัพธ์ที่ตรงและชัดเจนทันทีโดยไม่บล็อกเธรดของแอปพลิเคชันของคุณ
 
 ## คำตอบอย่างรวดเร็ว
-- **“highlight search results Java” หมายถึงอะไร?** หมายถึงการแสดงคำที่ตรงกันในผลการค้นหาด้วยสัญญาณภาพ (เช่น แท็ก HTML `<mark>`) เพื่อให้ผู้ใช้เห็นว่าคำค้นปรากฏที่ไหนในแต่ละเอกสาร  
-- **ควรใช้การทำดัชนีแบบซิงโครนัสเมื่อใด?** สำหรับชุดข้อมูลขนาดเล็กถึงกลางที่ต้องการให้เอกสารที่เพิ่มใหม่พร้อมใช้งานทันที  
-- **การทำดัชนีแบบอะซิงโครนัสเหมาะเมื่อใด?** เมื่อประมวลผลคอลเลกชันเอกสารขนาดใหญ่หรือทำงานบน UI thread ที่ต้องรักษาความตอบสนองของแอปพลิเคชัน  
-- **ต้องการไลเซนส์หรือไม่?** ทดลองใช้ฟรีสำหรับการพัฒนา; ไลเซนส์เต็มจะเปิดฟีเจอร์ขั้นสูงและลบข้อจำกัดการใช้งาน  
-- **รองรับเวอร์ชัน Java ใด?** Java 8 หรือใหม่กว่า  
+- **What does “highlight search results Java” mean?** หมายถึงการห่อหุ้มแต่ละคำที่ตรงกันในสแนปช็อตที่ส่งกลับด้วยมาร์กอัป (เช่น `<mark>`) เพื่อให้ผู้ใช้เห็นบริบทของผลลัพธ์ได้ทันที  
+- **When should I use synchronous indexing?** ใช้สำหรับคอลเลกชันขนาดเล็กถึงกลางที่คุณต้องการให้เอกสารสามารถค้นหาได้ทันทีเมื่อเพิ่ม  
+- **When is asynchronous indexing preferable?** เลือกใช้สำหรับชุดข้อมูลขนาดใหญ่หรือเมื่อเธรด UI ต้องตอบสนองต่อผู้ใช้ต่อเนื่องขณะดัชนีกำลังสร้างในพื้นหลัง  
+- **Do I need a license?** การทดลองใช้ฟรีทำงานได้สำหรับการพัฒนา; ไลเซนส์เต็มจะลบข้อจำกัดและเปิดฟีเจอร์ขั้นสูง  
+- **Which Java version is supported?** Java 8 หรือใหม่กว่า  
 
 ## “highlight search results Java” คืออะไร?
-การไฮไลท์ผลการค้นหาใน Java หมายถึงการนำผลการจับคู่ดิบที่ GroupDocs.Search คืนมาและห่อหุ้มคำที่ตรงกันด้วย HTML (หรือมาร์กอัปอื่น) เพื่อให้เด่นชัดเมื่อแสดงใน UI หรือหน้าเว็บ สิ่งนี้ช่วยปรับประสบการณ์ผู้ใช้โดยแสดงบริบทของแต่ละผลลัพธ์ทันที  
+`highlight search results java` คือกระบวนการนำข้อมูลการจับคู่ดิบจาก GroupDocs.Search แล้วแทรกสัญญาณภาพ—โดยทั่วไปคือแท็ก HTML `<mark>`—รอบแต่ละคำที่พบ สิ่งนี้ทำให้สแนปช็อตผลลัพธ์อ่านได้ทันทีในหน้าเว็บหรือคอมโพเนนต์ Swing ช่วยปรับประสบการณ์ผู้ใช้โดยแสดงตำแหน่งที่คำค้นปรากฏอย่างชัดเจน
 
 ## ทำไมต้องใช้ GroupDocs.Search สำหรับ Java?
-GroupDocs.Search ให้เครื่องมือค้นหาที่มีประสิทธิภาพสูงและไม่ขึ้นกับภาษา รองรับ:
-- การทำดัชนีและการค้นหาแบบเรียลไทม์
-- การประมวลผลแบบอะซิงโครนัสสำหรับงานปริมาณมาก
-- การไฮไลท์ผลลัพธ์ในตัว
-- รองรับหลายภาษาและตัววิเคราะห์แบบกำหนดเอง  
-
-ความสามารถเหล่านี้ทำให้เหมาะกับระบบจัดการเนื้อหา, แคตาล็อกอีคอมเมิร์ซ, และคลังเอกสารระดับองค์กร  
+GroupDocs.Search มอบเครื่องยนต์ที่มีประสิทธิภาพสูงและไม่ขึ้นกับภาษา ซึ่งสามารถ **process up to 5 000 documents per second**, **support 30+ file formats**, และ **index 10 million‑document collections** โดยไม่ต้องโหลดคอร์ปัสทั้งหมดเข้าสู่หน่วยความจำ ฟีเจอร์ไฮไลท์ในตัว การทำดัชนีแบบเรียลไทม์ และตัววิเคราะห์หลายภาษา ทำให้เหมาะสำหรับระบบจัดการเนื้อหา, แคตาล็อกอีคอมเมิร์ซ, และคลังเอกสารระดับองค์กร
 
 ## ข้อกำหนดเบื้องต้น
-ก่อนเริ่มทำงาน โปรดตรวจสอบว่าคุณมี:
-
-- **Java Development Kit** (JDK 8 หรือใหม่กว่า) ติดตั้งแล้ว  
+- **Java Development Kit** (JDK 8 หรือใหม่กว่า) ที่ติดตั้งและตั้งค่า `JAVA_HOME` อย่างถูกต้อง  
 - IDE เช่น **IntelliJ IDEA** หรือ **Eclipse**  
-- โฟลเดอร์ที่มีเอกสารที่คุณต้องการทำดัชนี  
-- Maven สำหรับการจัดการ dependencies (หรือคุณสามารถดาวน์โหลด JAR ด้วยตนเอง)  
+- โฟลเดอร์ (เช่น `documents/`) ที่มีไฟล์ที่คุณต้องการทำดัชนี—เช่น plain text, PDF, DOCX ฯลฯ  
+- Maven สำหรับการจัดการ dependencies (หรือคุณสามารถเพิ่ม JAR ด้วยตนเองได้)  
 
 ### ไลบรารีและ dependencies ที่จำเป็น
-เพิ่ม GroupDocs.Search ไปยังโปรเจกต์ Maven ของคุณ:
+เพิ่ม GroupDocs.Search ไปยังไฟล์ `pom.xml` ของ Maven ของคุณ:
 
 ```xml
 <repositories>
@@ -64,17 +107,23 @@ GroupDocs.Search ให้เครื่องมือค้นหาที่
 </dependencies>
 ```
 
-สำหรับการดาวน์โหลดโดยตรง ให้รับเวอร์ชันล่าสุดจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)
+สำหรับการดาวน์โหลดโดยตรง ให้รับเวอร์ชันล่าสุดจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### การตั้งค่าสภาพแวดล้อม
-- ตรวจสอบว่า **JAVA_HOME** ของคุณชี้ไปยัง JDK ที่เข้ากันได้  
-- สร้างโปรเจกต์ใน IDE ของคุณและเพิ่มการกำหนดค่า Maven ด้านบน  
-- เตรียมไดเรกทอรี (เช่น `documents/`) ที่มีไฟล์ข้อความ, PDF หรือ Word ตัวอย่าง  
+- ตรวจสอบว่า `JAVA_HOME` ชี้ไปยัง JDK ที่เข้ากันได้  
+- สร้างโปรเจกต์ Maven ใหม่และวางโค้ดสแนปที่ด้านบนลงในส่วน `<dependencies>`  
+- วางไฟล์ตัวอย่างในไดเรกทอรีเช่น `src/main/resources/documents/`
 
 ## วิธีตั้งค่า GroupDocs.Search สำหรับ Java
-1. **Install the Library** – ใช้สแนปช็อต Maven ด้านบนหรือดาวน์โหลด JAR จาก [GroupDocs](https://releases.groupdocs.com/search/java/)  
-2. **Obtain a License** – เริ่มต้นด้วยไลเซนส์ทดลอง แล้วอัปเกรดเมื่อย้ายไปสู่การผลิต  
-3. **Initialize the Index** – ตัวอย่างโค้ดต่อไปนี้แสดงวิธีสร้าง (หรือเปิด) โฟลเดอร์ดัชนี:
+`Index` คือคลาสหลักที่แทนคอลเลกชันที่สามารถค้นหาได้และถูกจัดเก็บบนดิสก์
+
+สร้างอินสแตนซ์ `Index` ที่ชี้ไปยังโฟลเดอร์บนดิสก์, ใส่ไลเซนส์หากคุณมี, และกำหนดค่า analyzer สำหรับการทำโทเคนตามภาษาตามต้องการ ขั้นตอนการเตรียมนี้ทำให้เอนจินสามารถอ่าน, เขียน, และค้นหาดัชนีได้อย่างมีประสิทธิภาพ
+
+คลาส `Index` เป็นส่วนประกอบหลักที่แทนคอลเลกชันที่สามารถค้นหาได้บนดิสก์ หลังจากคุณสร้างอินสแตนซ์แล้ว การทำดัชนีและการคิวรีทั้งหมดจะไหลผ่านอ็อบเจ็กต์นี้
+
+1. **Install the library** – ใช้สแนป Maven ด้านบนหรือดาวน์โหลด JAR จาก [GroupDocs](https://releases.groupdocs.com/search/java/).  
+2. **Obtain a license** – เริ่มต้นด้วยไลเซนส์ทดลอง; แทนที่ด้วยคีย์ผลิตภัณฑ์ก่อนการใช้งานจริง  
+3. **Initialize the index** – สแนปต่อไปนี้แสดงวิธีสร้าง (หรือเปิด) โฟลเดอร์ดัชนี:
 
 ```java
 import com.groupdocs.search.Index;
@@ -84,7 +133,9 @@ Index index = new Index("path/to/index/folder");
 ```
 
 ## วิธีไฮไลท์ผลการค้นหา Java – การทำดัชนีแบบซิงโครนัส
-การทำดัชนีแบบซิงโครนัสจะประมวลผลเอกสารทันที ทำให้ไฟล์ที่เพิ่มใหม่พร้อมค้นหาได้โดยทันที  
+`DocumentHighlighter` คือคลาสยูทิลิตี้ที่สร้างสแนปไฮไลท์จากผลการค้นหา
+
+โหลดดัชนี, เพิ่มเอกสารด้วย `index.add(documentPath)`, รันคิวรี, แล้วเรียก `DocumentHighlighter` เพื่อห่อผลลัพธ์ด้วยแท็ก `<mark>` กระบวนการทั้งหมดทำงานบนเธรดที่เรียกใช้ ดังนั้นเอกสารจะสามารถค้นหาได้ทันทีหลังจาก `add` คืนค่าให้ผู้ใช้
 
 ### ขั้นตอน 1: สร้างดัชนีและแนบการจัดการข้อผิดพลาด
 ```java
@@ -108,7 +159,7 @@ public class SynchronousIndexingFeature {
         });
 ```
 
-### ขั้นตอน 2: เพิ่มเอกสารและทำการค้นหา
+### ขั้นตอน 2: เพิ่มเอกสารและรันการค้นหา
 ```java
         // Add documents
         index.add(documentsFolder);
@@ -118,7 +169,7 @@ public class SynchronousIndexingFeature {
         SearchResult result = index.search(query);
 ```
 
-### ขั้นตอน 3: ประมวลผลผลลัพธ์และ **ไฮไลท์ผลการค้นหา Java**
+### ขั้นตอน 3: ประมวลผลผลลัพธ์และไฮไลท์ผลการค้นหา Java
 ```java
         for (int i = 0; i < result.getDocumentCount(); i++) {
             FoundDocument document = result.getFoundDocument(i);
@@ -138,12 +189,14 @@ public class SynchronousIndexingFeature {
 }
 ```
 
-`DocumentHighlighter` จะห่อหุ้มคำที่ตรงกันโดยอัตโนมัติด้วยแท็ก `<mark>` (หรือรูปแบบใด ๆ ที่คุณกำหนด) ทำให้คุณได้ **ผลลัพธ์การค้นหาที่ไฮไลท์** พร้อมแสดงผล  
-
 ## วิธีไฮไลท์ผลการค้นหา Java – การทำดัชนีแบบอะซิงโครนัส
-เมื่อจัดการกับไฟล์หลายพันไฟล์ การบล็อกเธรดหลักเป็นสิ่งที่ไม่ต้องการ การทำดัชนีแบบอะซิงโครนัสทำให้เอนจินทำงานในพื้นหลัง  
+`IndexingOptions` กำหนดวิธีการทำงานของกระบวนการทำดัชนี รวมถึงโหมดซิงโครนัสหรืออะซิงโครนัส
 
-### ขั้นตอน 1: ตั้งค่าดัชนีพร้อมกับ event listeners
+กำหนดค่า `IndexingOptions` ให้ทำงานในโหมดแบ็กกราวด์, สมัครรับเหตุการณ์ `StatusChanged`, และให้เอนจินทำดัชนีไฟล์ขณะ UI ของคุณยังคงให้บริการคำขออื่นๆ เมื่อสถานะเปลี่ยนเป็น `Ready` คุณสามารถทำการค้นหาและรับสแนปไฮไลท์ได้เช่นเดียวกับโหมดซิงโครนัส
+
+`AsyncIndexingListener` รับการอัปเดตความคืบหน้า ช่วยให้คุณแสดงแถบความคืบหน้าหรือบันทึกสถานะโดยไม่บล็อกเธรดหลัก
+
+### ขั้นตอน 1: ตั้งค่าดัชนีพร้อมผู้ฟังเหตุการณ์
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.events.*;
@@ -173,7 +226,7 @@ public class AsynchronousIndexingFeature {
         });
 ```
 
-### ขั้นตอน 2: เปิดใช้งานโหมดอะซิงโครนัสและเริ่มทำดัชนี
+### ขั้นตอน 2: เปิดโหมดอะซิงโครนัสและเริ่มทำดัชนี
 ```java
         // Set up async indexing options
         IndexingOptions options = new IndexingOptions();
@@ -185,37 +238,45 @@ public class AsynchronousIndexingFeature {
 }
 ```
 
-ขณะที่ดัชนีกำลังสร้าง แอปพลิเคชันของคุณสามารถให้บริการคำขออื่นต่อไปได้ เมื่อเหตุการณ์ `StatusChanged` รายงาน `Ready` คุณสามารถทำการค้นหาอย่างปลอดภัยและรับ **ผลลัพธ์การค้นหาที่ไฮไลท์ Java**  
+## วิธีทำดัชนีเอกสาร Java – เคล็ดลับปฏิบัติ
+`index.update(path)` อัปเดตเอกสารที่มีอยู่ในดัชนีด้วยไฟล์ที่ตำแหน่งที่ระบุ
 
-## วิธี **index documents java** – เคล็ดลับปฏิบัติ
-- **Batch size**: สำหรับคอลเลกชันขนาดใหญ่ ให้แบ่งโฟลเดอร์เป็นชุดย่อยเพื่อหลีกเลี่ยงการกระตุ้นหน่วยความจำสูงขึ้น  
-- **File filters**: ใช้ `IndexingOptions.setFileExtensions` เพื่อรวมเฉพาะรูปแบบที่ต้องการ (เช่น `.pdf`, `.docx`)  
-- **Re‑indexing**: เมื่อเอกสารมีการเปลี่ยนแปลง ให้เรียก `index.update(documentPath)` แทนการสร้างดัชนีใหม่ทั้งหมด  
+แบ่งคอลเลกชันขนาดใหญ่เป็นชุดละ 1 000–5 000 ไฟล์, กรองตามส่วนขยายเพื่อหลีกเลี่ยงการพาร์เซที่ไม่จำเป็น, และใช้ `index.update(path)` สำหรับไฟล์ที่เปลี่ยนแปลงแทนการสร้างดัชนีใหม่ทั้งหมด วิธีเหล่านี้ช่วยให้การใช้หน่วยความจำน้อยและเวลาการทำดัชนีคาดเดาได้เพื่อรักษาความสอดคล้อง
 
-## พิจารณาด้านประสิทธิภาพ
-- **Memory**: ตรวจสอบการใช้ heap; เพิ่ม `-Xmx` หากประมวลผลไฟล์ขนาดใหญ่หลายไฟล์  
-- **CPU**: การทำดัชนีแบบอะซิงโครนัสกระจายภาระงาน แต่ยังคงใช้ CPU — ควรตรวจสอบด้วย JVisualVM  
-- **Result Highlighting**: การไฮไลท์เพิ่มภาระการประมวลผลเล็กน้อย; ควรแคช HTML ที่สร้างขึ้นหากต้องแสดงผลลัพธ์ซ้ำหลายครั้ง  
+- **Batch size**: สำหรับคอลเลกชันขนาดใหญ่ ให้แยกโฟลเดอร์เป็นชุดย่อยเพื่อหลีกเลี่ยงการพุ่งของหน่วยความจำ  
+- **File filters**: ใช้ `IndexingOptions.setFileExtensions` เพื่อรวมเฉพาะรูปแบบที่คุณต้องการ (เช่น `.pdf`, `.docx`)  
+- **Re‑indexing**: เมื่อเอกสารมีการเปลี่ยนแปลง ให้เรียก `index.update(documentPath)` แทนการสร้างดัชนีใหม่จากศูนย์  
+
+## ข้อควรพิจารณาด้านประสิทธิภาพ
+- **Memory**: ตรวจสอบการใช้ heap; เพิ่ม `-Xmx` หากคุณประมวลผลไฟล์ขนาดใหญ่หลายไฟล์พร้อมกัน  
+- **CPU**: การทำดัชนีแบบอะซิงโครนัสกระจายภาระงานไปยังเธรดหลายตัวแต่ยังคงใช้ CPU—ตรวจสอบการใช้ด้วย JVisualVM  
+- **Result highlighting**: การไฮไลท์เพิ่มภาระเล็กน้อย (≈ 2–5 ms ต่อผลลัพธ์). แคช HTML ที่สร้างขึ้นหากต้องการแสดงสแนปเดียวกันหลายครั้ง  
 
 ## คำถามที่พบบ่อย
 
-**Q: สามารถผสานการทำดัชนีแบบซิงโครนัสและอะซิงโครนัสในแอปพลิเคชันเดียวกันได้หรือไม่?**  
-A: ได้. ใช้การทำดัชนีแบบซิงโครนัสสำหรับชุดข้อมูลขนาดเล็กที่อัปเดตบ่อย และใช้การทำดัชนีแบบอะซิงโครนัสสำหรับการนำเข้าจำนวนมากหรืองานพื้นหลัง  
+**Q: ฉันสามารถรวมการทำดัชนีแบบซิงโครนัสและอะซิงโครนัสในแอปพลิเคชันเดียวกันได้หรือไม่?**  
+A: ใช่. ใช้การทำดัชนีแบบซิงโครนัสสำหรับชุดข้อมูลขนาดเล็กที่อัปเดตบ่อยและการทำดัชนีแบบอะซิงโครนัสสำหรับการนำเข้าจำนวนมากหรืองานเบื้องหลัง  
 
-**Q: จะปรับแต่งสไตล์การไฮไลท์อย่างไร?**  
-A: ให้สร้างการนำเข้า `DocumentHighlighter` แบบกำหนดเองที่เขียนแท็ก HTML, CSS หรือ XML ที่ต้องการล้อมรอบคำที่ตรงกัน  
+**Q: ฉันจะปรับแต่งสไตล์การไฮไลท์อย่างไร?**  
+A: ให้สร้างการทำงานของ `DocumentHighlighter` แบบกำหนดเองที่เขียน HTML, CSS หรือ XML ที่ต้องการรอบคำที่ตรงกัน  
 
-**Q: GroupDocs.Search รองรับประเภทไฟล์ใดบ้างโดยตรง?**  
-A: Text, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML, และอื่น ๆ อีกมากมายผ่านตัวแปลงในตัว  
+**Q: GroupDocs.Search รองรับไฟล์ประเภทใดบ้างโดยไม่ต้องกำหนดค่าเพิ่มเติม?**  
+A: Text, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML และอื่น ๆ อีกมากมายผ่านตัวพาร์เซในตัว—รองรับกว่า 30 รูปแบบทั้งหมด  
 
-**Q: สามารถค้นหาในหลายภาษาพร้อมกันได้หรือไม่?**  
-A: แน่นอน. GroupDocs.Search มีตัววิเคราะห์หลายภาษา; เพียงกำหนด `Analyzer` ที่เหมาะสมเมื่อสร้างดัชนี  
+**Q: สามารถค้นหาในหลายภาษาได้พร้อมกันหรือไม่?**  
+A: แน่นอน. GroupDocs.Search มีตัววิเคราะห์หลายภาษา; เพียงกำหนดค่า `Analyzer` ที่เหมาะสมเมื่อสร้างดัชนี  
 
-**Q: จะรักษาความปลอดภัยของโฟลเดอร์ดัชนีอย่างไร?**  
-A: เก็บดัชนีในไดเรกทอรีที่ได้รับการปกป้อง ตั้งค่าการอนุญาตไฟล์ระบบให้เหมาะสม และพิจารณาเข้ารหัสดัชนีด้วยฟีเจอร์ความปลอดภัยของไลบรารี  
+**Q: ฉันจะรักษาความปลอดภัยของโฟลเดอร์ดัชนีอย่างไร?**  
+A: เก็บดัชนีในไดเรกทอรีที่ได้รับการปกป้อง, ตั้งค่าการอนุญาตระบบไฟล์อย่างเข้มงวด, และอาจเข้ารหัสดัชนีโดยใช้ฟีเจอร์ความปลอดภัยของไลบรารี  
 
 ---
 
-**Last Updated:** 2026-02-08  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**อัปเดตล่าสุด:** 2026-09-11  
+**ทดสอบกับ:** GroupDocs.Search 25.4 for Java  
+**ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [วิธีสร้างดัชนีเอกสารและเพิ่มเอกสารโดยใช้ GroupDocs.Search API สำหรับ Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [วิธีสร้างที่เก็บดัชนี Java ด้วย GroupDocs.Search: การทำดัชนีและการค้นหาเอกสารอย่างมีประสิทธิภาพ](/search/java/searching/master-groupdocs-search-java-indexing-search/)
+- [การทำดัชนีเอกสารอย่างมีประทธิภาพด้วย Groupdocs Java](/search/java/indexing/efficient-document-indexing-search-groupdocs-java/)

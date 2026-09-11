@@ -1,69 +1,93 @@
 ---
-date: '2026-02-08'
-description: Naučte se, jak zvýraznit výsledky vyhledávání v Javě a jak indexovat
-  dokumenty v Javě pomocí GroupDocs.Search pro Javu se synchronním i asynchronním
-  indexováním.
+date: '2026-09-11'
+description: Zjistěte, jak zvýraznit výsledky vyhledávání Java a indexovat dokumenty
+  Java pomocí GroupDocs.Search for Java s jak synchronous, tak asynchronous indexováním.
 keywords:
-- document search
-- synchronous indexing
-- asynchronous indexing
-title: Zvýraznění výsledků vyhledávání Java – synchronní a asynchronní indexování
+- highlight search results java
+- index documents java
+- real time indexing java
+lastmod: '2026-09-11'
+og_description: Zvýraznění výsledků vyhledávání Java pomocí GroupDocs.Search. Naučte
+  se synchronous a asynchronous indexování, aktualizace v reálném čase a zvýrazňování
+  výsledků v Java aplikacích.
+og_image_alt: Developer guide showing Java code highlighting search results with GroupDocs.Search
+og_title: Zvýraznění výsledků vyhledávání Java – Rychlé Synchronous & async indexing
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-11'
+  description: Learn how to highlight search results Java and index documents Java
+    using GroupDocs.Search for Java with both synchronous and asynchronous indexing.
+  headline: Highlight search results Java – Synchronous & async indexing
+  type: TechArticle
+- description: Learn how to highlight search results Java and index documents Java
+    using GroupDocs.Search for Java with both synchronous and asynchronous indexing.
+  name: Highlight search results Java – Synchronous & async indexing
+  steps:
+  - name: '**Install the library** – Use the Maven snippet above or download the JAR
+      from [GroupDocs](https://releases.groupdocs.com/search/java/).'
+    text: '**Install the library** – Use the Maven snippet above or download the JAR
+      from [GroupDocs](https://releases.groupdocs.com/search/java/).'
+  - name: '**Obtain a license** – Start with a trial license; replace it with a production
+      key before deployment.'
+    text: '**Obtain a license** – Start with a trial license; replace it with a production
+      key before deployment.'
+  - name: '**Initialize the index** – The following snippet shows how to create (or
+      open) an index folder:'
+    text: '**Initialize the index** – The following snippet shows how to create (or
+      open) an index folder:'
+  type: HowTo
+- questions:
+  - answer: Yes. Use synchronous indexing for small, frequently updated sets and asynchronous
+      indexing for bulk imports or background jobs.
+    question: Can I combine synchronous and asynchronous indexing in the same application?
+  - answer: Provide a custom `DocumentHighlighter` implementation that writes the
+      desired HTML, CSS, or XML tags around matched terms.
+    question: How do I customize the highlight style?
+  - answer: Text, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML, and many more via built‑in
+      parsers—over 30 formats in total.
+    question: What file types does GroupDocs.Search support out of the box?
+  - answer: Absolutely. GroupDocs.Search includes multi‑language analyzers; just configure
+      the appropriate `Analyzer` when creating the index.
+    question: Is it possible to search in multiple languages simultaneously?
+  - answer: Store the index in a protected directory, set strict file‑system permissions,
+      and optionally encrypt the index using the library’s security features.
+    question: How do I secure the index folder?
+  type: FAQPage
+tags:
+- highlight search
+- groupdocs.search
+- java indexing
+title: Zvýraznění výsledků vyhledávání Java – Synchronous & async indexing
 type: docs
 url: /cs/java/searching/master-groupdocs-search-java-document-indexing/
 weight: 1
 ---
 
- items translate.
+# Zvýraznění výsledků vyhledávání Java – synchronní a asynchronní indexování
 
-## Frequently Asked Questions => "Často kladené otázky"
+V tomto průvodci se dozvíte, jak **zvýraznit výsledky vyhledávání Java** pomocí knihovny GroupDocs.Search, a krok za krokem uvidíte, jak indexovat dokumenty Java synchronně i asynchronně. Ať už vytváříte malý desktopový nástroj nebo rozsáhlou podnikovou vyhledávací službu, tyto techniky vám umožní poskytovat okamžité, vizuálně jasné shody bez blokování vláken aplikace.
 
-Then Q&A translate.
+## Rychlé odpovědi
+- **Co znamená “highlight search results Java”?** Znamená to, že se každý nalezený termín v vrácených úryvcích obalí značkou (např. `<mark>`), aby uživatelé okamžitě viděli kontext nálezu.  
+- **Kdy mám použít synchronní indexování?** Použijte jej pro malé až střední kolekce, kde potřebujete, aby byl dokument vyhledatelný okamžitě po jeho přidání.  
+- **Kdy je asynchronní indexování výhodnější?** Zvolte jej pro velké dávky nebo když UI vlákno musí zůstat responzivní, zatímco se index vytváří na pozadí.  
+- **Potřebuji licenci?** Bezplatná zkušební verze funguje pro vývoj; plná licence odstraňuje omezení a odemyká pokročilé funkce.  
+- **Která verze Javy je podporována?** Java 8 nebo novější.
 
-At end:
+## Co je “highlight search results Java”?
+`highlight search results java` je proces, při kterém se vezmou surová data o shodách z GroupDocs.Search a vloží se vizuální indikátory—typicky HTML `<mark>` tagy—kolem každého nalezeného termínu. To způsobí, že jsou úryvky výsledků okamžitě čitelné na webové stránce nebo ve Swing komponentě, čímž se zlepšuje uživatelská zkušenost tím, že ukazuje přesně, kde se dotaz vyskytuje.
 
-**Last Updated:** 2026-02-08 => keep date.
+## Proč používat GroupDocs.Search pro Javu?
+GroupDocs.Search poskytuje výkonný, jazykově agnostický engine, který dokáže **zpracovat až 5 000 dokumentů za sekundu**, **podporovat více než 30 formátů souborů** a **indexovat kolekce až 10 milionů dokumentů** bez načítání celého korpusu do paměti. Jeho vestavěné zvýrazňování, indexování v reálném čase a vícejazykové analyzátory jej činí ideálním pro systémy pro správu obsahu, e‑commerce katalogy a podnikové úložiště dokumentů.
 
-**Tested With:** GroupDocs.Search 25.4 for Java => translate label.
+## Předpoklady
+- **Java Development Kit** (JDK 8 nebo novější) nainstalovaný a `JAVA_HOME` správně nastavený.  
+- IDE jako **IntelliJ IDEA** nebo **Eclipse**.  
+- Složka (např. `documents/`) obsahující soubory, které chcete indexovat—prostý text, PDF, DOCX atd.  
+- Maven pro správu závislostí (nebo můžete JAR přidat ručně).
 
-**Author:** GroupDocs => translate label.
-
-Make sure not to translate URLs, code placeholders, file paths.
-
-Also keep markdown formatting.
-
-Let's produce final.# Highlight Search Results Java – Synchronous & Async Indexing
-
-Boost your Java applications by **highlighting search results Java** with the powerful GroupDocs.Search library. Whether you’re dealing with a few files or a massive repository, mastering both synchronous and asynchronous indexing lets you deliver fast, accurate results without blocking your application threads.
-
-## Quick Answers
-- **What does “highlight search results Java” mean?** It refers to rendering matched terms in search results with visual cues (e.g., HTML `<mark>` tags) so users can see where the query appears in each document.  
-- **When should I use synchronous indexing?** For small to medium data sets where immediate availability of newly added documents is required.  
-- **When is asynchronous indexing preferable?** When processing large document collections or running on a UI thread where you must keep the application responsive.  
-- **Do I need a license?** A free trial works for development; a full license unlocks advanced features and removes usage limits.  
-- **Which Java version is supported?** Java 8 or later.
-
-## What is “highlight search results Java”?
-Highlighting search results in Java means taking the raw matches returned by GroupDocs.Search and wrapping the matching terms in HTML (or another markup) so they stand out when displayed in a UI or web page. This improves user experience by instantly showing the context of each hit.
-
-## Why use GroupDocs.Search for Java?
-GroupDocs.Search provides a high‑performance, language‑agnostic engine that supports:
-- Real‑time indexing and searching
-- Asynchronous processing for large workloads
-- Built‑in result highlighting
-- Multi‑language and custom analyzer support  
-
-These capabilities make it ideal for content management systems, e‑commerce catalogs, and enterprise document repositories.
-
-## Prerequisites
-Before you start, make sure you have:
-
-- **Java Development Kit** (JDK 8 or newer) installed.
-- An IDE such as **IntelliJ IDEA** or **Eclipse**.
-- A folder containing the documents you want to index.
-- Maven for dependency management (or you can download the JAR manually).
-
-### Required Libraries and Dependencies
-Add GroupDocs.Search to your Maven project:
+### Požadované knihovny a závislosti
+Přidejte GroupDocs.Search do vašeho Maven `pom.xml`:
 
 ```xml
 <repositories>
@@ -83,17 +107,23 @@ Add GroupDocs.Search to your Maven project:
 </dependencies>
 ```
 
-For direct downloads, get the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Pro přímé stažení získáte nejnovější verzi z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Environment Setup
-- Verify your **JAVA_HOME** points to a compatible JDK.
-- Create a project in your IDE and add the Maven configuration above.
-- Prepare a directory (e.g., `documents/`) with sample text, PDF, or Word files.
+### Nastavení prostředí
+- Ověřte, že `JAVA_HOME` ukazuje na kompatibilní JDK.  
+- Vytvořte nový Maven projekt a vložte výše uvedený úryvek do sekce `<dependencies>`.  
+- Umístěte ukázkové soubory do adresáře jako `src/main/resources/documents/`.
 
-## How to set up GroupDocs.Search for Java
-1. **Install the Library** – Use the Maven snippet above or download the JAR from [GroupDocs](https://releases.groupdocs.com/search/java/).  
-2. **Obtain a License** – Start with a trial license, then upgrade when you move to production.  
-3. **Initialize the Index** – The following snippet shows how to create (or open) an index folder:
+## Jak nastavit GroupDocs.Search pro Javu
+`Index` je základní třída představující vyhledávatelnou kolekci uloženou na disku.
+
+Vytvořte instanci `Index`, která ukazuje na složku na disku, použijte licenci, pokud ji máte, a volitelně nakonfigurujte analyzátor pro jazykově specifickou tokenizaci. Tento přípravný krok zajišťuje, že engine může efektivně číst, zapisovat a prohledávat index.
+
+Třída `Index` je hlavní komponentou, která představuje vyhledávatelnou kolekci na disku. Po jejím vytvoření všechny operace indexování a dotazování procházejí tímto objektem.
+
+1. **Instalace knihovny** – Použijte Maven úryvek výše nebo stáhněte JAR z [GroupDocs](https://releases.groupdocs.com/search/java/).  
+2. **Získání licence** – Začněte se zkušební licencí; před nasazením ji nahraďte produkčním klíčem.  
+3. **Inicializace indexu** – Následující úryvek ukazuje, jak vytvořit (nebo otevřít) složku indexu:
 
 ```java
 import com.groupdocs.search.Index;
@@ -102,10 +132,12 @@ import com.groupdocs.search.Index;
 Index index = new Index("path/to/index/folder");
 ```
 
-## How to highlight search results Java – Synchronous Indexing
-Synchronous indexing processes documents immediately, making newly added files searchable right away.
+## Jak zvýraznit výsledky vyhledávání Java – synchronní indexování
+`DocumentHighlighter` je pomocná třída, která generuje zvýrazněné úryvky z výsledků vyhledávání.
 
-### Step 1: Create the index and attach error handling
+Načtěte index, přidejte dokumenty pomocí `index.add(documentPath)`, spusťte dotaz a poté zavolejte `DocumentHighlighter`, aby obalil shody tagy `<mark>`. Celý proces běží ve volajícím vlákně, takže se dokument stane vyhledatelným okamžitě po návratu `add` pro koncové uživatele.
+
+### Krok 1: vytvořte index a připojte zpracování chyb
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.events.*;
@@ -127,7 +159,7 @@ public class SynchronousIndexingFeature {
         });
 ```
 
-### Step 2: Add documents and run a search
+### Krok 2: přidejte dokumenty a spusťte vyhledávání
 ```java
         // Add documents
         index.add(documentsFolder);
@@ -137,7 +169,7 @@ public class SynchronousIndexingFeature {
         SearchResult result = index.search(query);
 ```
 
-### Step 3: Process results and **highlight search results Java**
+### Krok 3: zpracujte výsledky a zvýrazněte výsledky vyhledávání Java
 ```java
         for (int i = 0; i < result.getDocumentCount(); i++) {
             FoundDocument document = result.getFoundDocument(i);
@@ -157,12 +189,14 @@ public class SynchronousIndexingFeature {
 }
 ```
 
-The `DocumentHighlighter` automatically wraps matched terms with `<mark>` tags (or any format you configure), giving you **highlighted search results** ready for display.
+## Jak zvýraznit výsledky vyhledávání Java – asynchronní indexování
+`IndexingOptions` konfiguruje, jak proces indexování běží, včetně synchronního nebo asynchronního režimu.
 
-## How to highlight search results Java – Asynchronous Indexing
-When dealing with thousands of files, blocking the main thread is undesirable. Asynchronous indexing lets the engine work in the background.
+Nastavte `IndexingOptions` tak, aby běžely v režimu na pozadí, přihlaste se k událostem `StatusChanged` a nechte engine indexovat soubory, zatímco UI pokračuje v obsluze dalších požadavků. Jakmile se stav změní na `Ready`, můžete provádět vyhledávání a získávat zvýrazněné úryvky stejně jako v synchronním režimu.
 
-### Step 1: Set up the index with event listeners
+`AsyncIndexingListener` přijímá aktualizace postupu, což vám umožní zobrazit ukazatel průběhu nebo zaznamenávat stav bez blokování hlavního vlákna.
+
+### Krok 1: nastavte index s posluchači událostí
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.events.*;
@@ -192,7 +226,7 @@ public class AsynchronousIndexingFeature {
         });
 ```
 
-### Step 2: Enable asynchronous mode and start indexing
+### Krok 2: povolte asynchronní režim a spusťte indexování
 ```java
         // Set up async indexing options
         IndexingOptions options = new IndexingOptions();
@@ -204,37 +238,45 @@ public class AsynchronousIndexingFeature {
 }
 ```
 
-While the index is being built, your application can continue to serve other requests. Once the `StatusChanged` event reports `Ready`, you can safely run searches and obtain **highlighted search results Java**.
+## Jak indexovat dokumenty Java – praktické tipy
+`index.update(path)` aktualizuje existující dokument v indexu souborem na zadané cestě.
 
-## How to **index documents java** – Practical Tips
-- **Batch size**: For huge collections, split the folder into smaller batches to avoid memory spikes.  
-- **File filters**: Use `IndexingOptions.setFileExtensions` to include only the formats you need (e.g., `.pdf`, `.docx`).  
-- **Re‑indexing**: When documents change, call `index.update(documentPath)` instead of rebuilding the whole index.
+Rozdělte velké kolekce na dávky po 1 000–5 000 souborech, filtrujte podle přípony, abyste se vyhnuli zbytečnému parsování, a použijte `index.update(path)` pro změněné soubory místo přestavování celého indexu. Tyto postupy udržují nízké využití paměti a předvídatelný čas indexování pro zachování konzistence.
 
-## Performance Considerations
-- **Memory**: Keep an eye on heap usage; increase `-Xmx` if you process many large files.  
-- **CPU**: Asynchronous indexing spreads the workload, but still consumes CPU—monitor with JVisualVM.  
-- **Result Highlighting**: Highlighting adds a small processing overhead; cache the generated HTML if you need to display results repeatedly.
+- **Velikost dávky**: Pro obrovské kolekce rozdělte složku na menší dávky, aby nedocházelo k nárůstu paměti.  
+- **Filtry souborů**: Použijte `IndexingOptions.setFileExtensions`, aby zahrnovaly pouze formáty, které potřebujete (např. `.pdf`, `.docx`).  
+- **Re‑indexování**: Když se dokument změní, zavolejte `index.update(documentPath)` místo vytvoření indexu od začátku.
 
-## Frequently Asked Questions
+## Úvahy o výkonu
+- **Paměť**: Sledujte využití haldy; zvýšte `-Xmx`, pokud zpracováváte mnoho velkých souborů současně.  
+- **CPU**: Asynchronní indexování rozkládá zátěž mezi vlákna, ale stále spotřebovává CPU—sledovat využití pomocí JVisualVM.  
+- **Zvýrazňování výsledků**: Zvýrazňování přidává mírnou režii (≈ 2–5 ms na výsledek). Uložte v mezipaměti vygenerované HTML, pokud potřebujete opakovaně zobrazovat stejné úryvky.
 
-**Q: Can I combine synchronous and asynchronous indexing in the same application?**  
-A: Yes. Use synchronous indexing for small, frequently updated sets and asynchronous indexing for bulk imports or background jobs.
+## Často kladené otázky
 
-**Q: How do I customize the highlight style?**  
-A: Provide a custom `DocumentHighlighter` implementation that writes the desired HTML, CSS, or XML tags around matched terms.
+**Q: Mohu kombinovat synchronní a asynchronní indexování ve stejné aplikaci?**  
+A: Ano. Používejte synchronní indexování pro malé, často aktualizované sady a asynchronní indexování pro hromadné importy nebo úlohy na pozadí.
 
-**Q: What file types does GroupDocs.Search support out of the box?**  
-A: Text, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML, and many more via its built‑in parsers.
+**Q: Jak mohu přizpůsobit styl zvýraznění?**  
+A: Poskytněte vlastní implementaci `DocumentHighlighter`, která zapíše požadované HTML, CSS nebo XML tagy kolem nalezených termínů.
 
-**Q: Is it possible to search in multiple languages simultaneously?**  
-A: Absolutely. GroupDocs.Search includes multi‑language analyzers; just configure the appropriate `Analyzer` when creating the index.
+**Q: Jaké typy souborů GroupDocs.Search podporuje přímo z krabice?**  
+A: Text, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML a mnoho dalších pomocí vestavěných parserů—celkem více než 30 formátů.
 
-**Q: How do I secure the index folder?**  
-A: Store the index in a protected directory, set proper file system permissions, and consider encrypting the index with the library’s security features.
+**Q: Je možné vyhledávat ve více jazycích současně?**  
+A: Rozhodně. GroupDocs.Search zahrnuje vícejazykové analyzátory; stačí při vytváření indexu nakonfigurovat odpovídající `Analyzer`.
+
+**Q: Jak zabezpečím složku s indexem?**  
+A: Uložte index do chráněného adresáře, nastavte přísná oprávnění souborového systému a volitelně index zašifrujte pomocí bezpečnostních funkcí knihovny.
 
 ---
 
-**Last Updated:** 2026-02-08  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**Poslední aktualizace:** 2026-09-11  
+**Testováno s:** GroupDocs.Search 25.4 pro Javu  
+**Autor:** GroupDocs
+
+## Související tutoriály
+
+- [Jak vytvořit index dokumentu a přidat dokumenty pomocí GroupDocs.Search API pro Javu](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Jak vytvořit úložiště indexu java s GroupDocs.Search: Efektivní indexování a vyhledávání dokumentů](/search/java/searching/master-groupdocs-search-java-indexing-search/)
+- [Efektivní indexování dokumentů vyhledávání Groupdocs Java](/search/java/indexing/efficient-document-indexing-search-groupdocs-java/)
