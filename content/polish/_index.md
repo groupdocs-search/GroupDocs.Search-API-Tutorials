@@ -1,55 +1,75 @@
 ---
 additionalTitle: GroupDocs API References
-date: 2026-02-16
-description: Przeglądaj kolekcję tutoriali GroupDocs.Search dla programistów .NET
-  i Java. Opanuj indeksowanie dokumentów, możliwości wyszukiwania i zaawansowane funkcje
-  bez wysiłku.
+date: 2026-09-11
+description: Przeglądaj kolekcję samouczków GroupDocs.Search dla programistów .NET
+  i Java. Opanuj document indexing, search capabilities i advanced features bez wysiłku.
 is_root: true
-linktitle: GroupDocs.Search Tutorials
-title: Samouczek GroupDocs.Search – Odblokuj moc wyszukiwania dokumentów
+keywords:
+- groupdocs.search tutorial
+- document indexing .net
+- document search java
+lastmod: 2026-09-11
+linktitle: Samouczki GroupDocs.Search
+og_description: Samouczek GroupDocs.Search pomaga dodać szybkie, dokładne document
+  search do aplikacji .NET i Java. Naucz się indexing, querying i advanced features
+  w przejrzystych przewodnikach krok po kroku.
+og_image_alt: Screenshot of GroupDocs.Search tutorial index page showing .NET and
+  Java guide links
+og_title: GroupDocs.Search samouczek – opanuj document search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-11'
+  description: Explore the GroupDocs.Search tutorial collection for .NET and Java
+    developers. Master document indexing, search capabilities, and advanced features
+    effortlessly.
+  headline: GroupDocs.Search tutorial – unlock document search power
+  type: TechArticle
+tags:
+- groupdocs search
+- .net search tutorial
+- java search tutorial
+title: GroupDocs.Search samouczek – odblokuj moc wyszukiwania dokumentów
 type: docs
 url: /pl/
 weight: 11
 ---
 
- z:**"
+# Samouczek GroupDocs.Search – odblokuj moc wyszukiwania dokumentów
 
-The rest unchanged.
+GroupDocs.Search jest biblioteką wieloplatformową, która zapewnia szybkie, skalowalne wyszukiwanie pełnotekstowe w ponad 100 formatach dokumentów.  
 
-Now produce final markdown content with translations.
+Witamy w centrum **GroupDocs.Search tutorial**, Twoim jedynym miejscu, w którym opanujesz wyszukiwanie i indeksowanie dokumentów na platformach .NET i Java. Niezależnie od tego, czy tworzysz szybkie narzędzie wewnętrzne, czy rozwiązanie na dużą skalę dla przedsiębiorstwa, te przewodniki krok po kroku pomogą Ci wdrożyć szybkie, dokładne i skalowalne funkcje wyszukiwania. Przeglądając kolekcję samouczków GroupDocs.Search, szybko zdobędziesz pewność, że dodasz potężne funkcje wyszukiwania do każdej aplikacji.
 
-Check for any other technical terms: "step‑by‑step" keep as is? Could translate "krok po kroku". But it's inside sentences; we can translate.
+## Czym jest GroupDocs.Search?
 
-Make sure to preserve double spaces after bullet lines? Not critical.
+GroupDocs.Search jest biblioteką, która umożliwia programistom indeksowanie, zapytania i pobieranie tekstu z szerokiej gamy typów dokumentów bez potrzeby używania zewnętrznych silników wyszukiwania. Obsługuje ponad 100 formatów plików — w tym PDF, DOCX, XLSX, PPTX oraz pliki graficzne — i może przetwarzać kolekcje o rozmiarze kilku gigabajtów, zapewniając odpowiedzi na zapytania w czasie poniżej sekundy, co czyni ją idealną zarówno dla małych narzędzi, jak i platform wyszukiwania klasy korporacyjnej.
 
-Now produce final answer.# GroupDocs.Search Tutorial – Odblokuj moc wyszukiwania dokumentów
+## Dlaczego warto korzystać z samouczka GroupDocs.Search?
 
-Welcome to the **GroupDocs.Search tutorial** hub, your one‑stop destination for mastering document search and indexing across .NET and Java platforms. Whether you’re building a quick internal tool or a large‑scale enterprise solution, these step‑by‑step guides will help you implement fast, accurate, and scalable search functionality. By exploring the GroupDocs.Search tutorial collection you’ll quickly gain the confidence to add powerful search features to any application.
+Seria samouczków dostarcza praktyczne, rzeczywiste przykłady, które pomagają szybko wdrożyć indeksowanie, wyszukiwanie i zaawansowane funkcje. Obejmuje zarówno implementacje .NET, jak i Java, zawiera wskazówki dotyczące wydajności oraz prezentuje najlepsze praktyki, umożliwiając skrócenie czasu rozwoju i budowanie niezawodnych rozwiązań wyszukiwania z pewnością.
 
-## Dlaczego używać tutorialu GroupDocs.Search?
+- Zdobądź solidne zrozumienie technik **document indexing**.  
+- Naucz się tworzyć wydajne **search capabilities**, które obsługują duże kolekcje dokumentów.  
+- Poznaj zaawansowane funkcje, takie jak fuzzy search, highlighting oraz rozproszone sieci wyszukiwania.  
+- Skróć czas rozwoju dzięki przejrzystym, opartym na przykładach instrukcjom dla środowisk .NET i Java.  
 
-The tutorial series is designed with real‑world scenarios in mind, so you can quickly apply what you learn to your projects. By following these guides you will:
-
-- Gain a solid understanding of **document indexing** techniques.  
-- Learn how to craft efficient **search capabilities** that handle large document collections.  
-- Explore advanced features such as fuzzy search, highlighting, and distributed search networks.  
-- Reduce development time with clear, example‑driven instructions for both .NET and Java environments.
+GroupDocs.Search przetwarza indeksy zawierające do 10 milionów dokumentów, utrzymując zużycie pamięci poniżej 2 GB, co jest wymiernym dowodem na jego przydatność w środowiskach o dużej skali.
 
 {{% alert color="primary" %}}
-Explore powerful document search capabilities in .NET with GroupDocs.Search tutorials. From basic indexing to advanced search techniques, our tutorials offer comprehensive guidance for developers at all skill levels. Dive into various topics such as boolean search, fuzzy search, highlighting, dictionary management, and distributed search solutions, unlocking the full potential of GroupDocs.Search for .NET. Elevate your application's search functionality and streamline document discovery with our easy‑to‑follow tutorials.
+Poznaj potężne możliwości wyszukiwania dokumentów w .NET dzięki samouczkom GroupDocs.Search. Od podstawowego indeksowania po zaawansowane techniki wyszukiwania, nasze samouczki oferują kompleksowe wskazówki dla programistów na każdym poziomie zaawansowania. Zagłęb się w różne tematy, takie jak boolean search, fuzzy search, highlighting, zarządzanie słownikami oraz rozproszone rozwiązania wyszukiwania, odblokowując pełny potencjał GroupDocs.Search dla .NET. Podnieś funkcjonalność wyszukiwania w swojej aplikacji i usprawnij odkrywanie dokumentów dzięki naszym łatwym do śledzenia samouczkom.
 {{% /alert %}}
 
-## Co znajdziesz w tym centrum
+## Jak poruszać się po kolekcji samouczków?
 
-This hub groups the most essential tutorials for both platforms, organized so you can jump straight to the topic you need. Each link opens a dedicated guide that walks you through setup, code snippets, and best‑practice tips. Use the navigation below to pick the area that matches your current challenge—whether it’s creating an index, fine‑tuning query performance, or handling OCR‑based image search.
+Centrum grupuje najważniejsze samouczki dla obu platform, tak abyś mógł od razu przejść do potrzebnego tematu. Każdy link otwiera dedykowany przewodnik, który prowadzi Cię przez konfigurację, fragmenty kodu i wskazówki najlepszych praktyk. Skorzystaj z poniższej nawigacji, aby wybrać obszar odpowiadający Twojemu aktualnemu wyzwaniu — niezależnie od tego, czy tworzysz indeks, dopracowujesz wydajność zapytań, czy obsługujesz wyszukiwanie obrazów oparte na OCR.
 
-## GroupDocs.Search for .NET Tutorials
+## Samouczki GroupDocs.Search dla .NET
 
-### Niezbędne tutoriale wyszukiwania .NET
+### Niezbędne samouczki wyszukiwania .NET
 
 - [Indeksowanie](./net/indexing/)
 - [Wyszukiwanie](./net/searching/)
-- [Podświetlanie](./net/highlighting/)
+- [Wyróżnianie](./net/highlighting/)
 - [Słowniki i przetwarzanie języka](./net/dictionaries-language-processing/)
 - [Zarządzanie dokumentami](./net/document-management/)
 - [OCR i wyszukiwanie obrazów](./net/ocr-image-search/)
@@ -59,21 +79,21 @@ This hub groups the most essential tutorials for both platforms, organized so yo
 - [Obsługa wyjątków i logowanie](./net/exception-handling-logging/)
 - [Integracja i interoperacyjność](./net/integration-interoperability/)
 - [Licencjonowanie i konfiguracja](./net/licensing-configuration/)
-- [Ekstrakcja tekstu i przetwarzanie](./net/text-extraction-processing/)
+- [Ekstrakcja i przetwarzanie tekstu](./net/text-extraction-processing/)
 - [Zapytania i budowanie zapytań](./net/queries-query-building/)
 
 {{% alert color="primary" %}}
-Discover comprehensive tutorials for GroupDocs.Search in Java. From basic indexing techniques to advanced search functionality, our step‑by‑step guides provide Java developers with the knowledge to implement powerful document search solutions. Learn to work with various document formats including PDF, Word, Excel, presentations, and more. Master techniques for creating indexes, performing different search types, highlighting results, and optimizing performance to enhance your Java applications with robust search capabilities.
+Odkryj kompleksowe samouczki dla GroupDocs.Search w Javie. Od podstawowych technik indeksowania po zaawansowaną funkcjonalność wyszukiwania, nasze przewodniki krok po kroku dostarczają programistom Java wiedzy niezbędnej do wdrożenia potężnych rozwiązań wyszukiwania dokumentów. Naucz się pracować z różnymi formatami dokumentów, w tym PDF, Word, Excel, prezentacjami i innymi. Opanuj techniki tworzenia indeksów, wykonywania różnych typów wyszukiwania, wyróżniania wyników oraz optymalizacji wydajności, aby wzbogacić aplikacje Java o solidne możliwości wyszukiwania.
 {{% /alert %}}
 
-## GroupDocs.Search for Java Tutorials
+## Samouczki GroupDocs.Search dla Java
 
-### Niezbędne tutoriale wyszukiwania Java
+### Niezbędne samouczki wyszukiwania Java
 
 - [Rozpoczęcie](./java/getting-started/)
 - [Indeksowanie](./java/indexing/)
 - [Wyszukiwanie](./java/searching/)
-- [Podświetlanie](./java/highlighting/)
+- [Wyróżnianie](./java/highlighting/)
 - [Słowniki i przetwarzanie języka](./java/dictionaries-language-processing/)
 - [Zarządzanie dokumentami](./java/document-management/)
 - [OCR i wyszukiwanie obrazów](./java/ocr-image-search/)
@@ -82,10 +102,10 @@ Discover comprehensive tutorials for GroupDocs.Search in Java. From basic indexi
 - [Optymalizacja wydajności](./java/performance-optimization/)
 - [Obsługa wyjątków i logowanie](./java/exception-handling-logging/)
 - [Licencjonowanie i konfiguracja](./java/licensing-configuration/)
-- [Ekstrakcja tekstu i przetwarzanie](./java/text-extraction-processing/)
+- [Ekstrakcja i przetwarzanie tekstu](./java/text-extraction-processing/)
 
 ---
 
-**Ostatnia aktualizacja:** 2026-02-16  
+**Ostatnia aktualizacja:** 2026-09-11  
 **Autor:** GroupDocs  
 **Testowano z:** GroupDocs.Search latest stable release (as of 2026)

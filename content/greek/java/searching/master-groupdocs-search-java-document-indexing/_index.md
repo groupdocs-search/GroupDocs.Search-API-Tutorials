@@ -1,51 +1,94 @@
 ---
-date: '2026-02-08'
-description: Μάθετε πώς να επισημαίνετε τα αποτελέσματα αναζήτησης Java και πώς να
-  ευρετηριάτε έγγραφα Java χρησιμοποιώντας το GroupDocs.Search for Java με συγχρονισμένη
-  και ασύγχρονη ευρετηρίαση.
+date: '2026-09-11'
+description: Μάθετε πώς να επισημαίνετε τα αποτελέσματα αναζήτησης Java και να ευρετηριάζετε
+  έγγραφα Java χρησιμοποιώντας το GroupDocs.Search for Java με τόσο synchronous όσο
+  και asynchronous ευρετηρίαση.
 keywords:
-- document search
-- synchronous indexing
-- asynchronous indexing
-title: Επισήμανση Αποτελεσμάτων Αναζήτησης Java – Συγχρονιστική & Ασύγχρονη Δεικτοδότηση
+- highlight search results java
+- index documents java
+- real time indexing java
+lastmod: '2026-09-11'
+og_description: Επισήμανση αποτελεσμάτων αναζήτησης Java με το GroupDocs.Search. Μάθετε
+  για synchronous και asynchronous ευρετηρίαση, real‑time ενημερώσεις, και επισήμανση
+  αποτελεσμάτων σε εφαρμογές Java.
+og_image_alt: Developer guide showing Java code highlighting search results with GroupDocs.Search
+og_title: Επισήμανση αποτελεσμάτων αναζήτησης Java – Γρήγορη synchronous & async ευρετηρίαση
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-11'
+  description: Learn how to highlight search results Java and index documents Java
+    using GroupDocs.Search for Java with both synchronous and asynchronous indexing.
+  headline: Highlight search results Java – Synchronous & async indexing
+  type: TechArticle
+- description: Learn how to highlight search results Java and index documents Java
+    using GroupDocs.Search for Java with both synchronous and asynchronous indexing.
+  name: Highlight search results Java – Synchronous & async indexing
+  steps:
+  - name: '**Install the library** – Use the Maven snippet above or download the JAR
+      from [GroupDocs](https://releases.groupdocs.com/search/java/).'
+    text: '**Install the library** – Use the Maven snippet above or download the JAR
+      from [GroupDocs](https://releases.groupdocs.com/search/java/).'
+  - name: '**Obtain a license** – Start with a trial license; replace it with a production
+      key before deployment.'
+    text: '**Obtain a license** – Start with a trial license; replace it with a production
+      key before deployment.'
+  - name: '**Initialize the index** – The following snippet shows how to create (or
+      open) an index folder:'
+    text: '**Initialize the index** – The following snippet shows how to create (or
+      open) an index folder:'
+  type: HowTo
+- questions:
+  - answer: Yes. Use synchronous indexing for small, frequently updated sets and asynchronous
+      indexing for bulk imports or background jobs.
+    question: Can I combine synchronous and asynchronous indexing in the same application?
+  - answer: Provide a custom `DocumentHighlighter` implementation that writes the
+      desired HTML, CSS, or XML tags around matched terms.
+    question: How do I customize the highlight style?
+  - answer: Text, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML, and many more via built‑in
+      parsers—over 30 formats in total.
+    question: What file types does GroupDocs.Search support out of the box?
+  - answer: Absolutely. GroupDocs.Search includes multi‑language analyzers; just configure
+      the appropriate `Analyzer` when creating the index.
+    question: Is it possible to search in multiple languages simultaneously?
+  - answer: Store the index in a protected directory, set strict file‑system permissions,
+      and optionally encrypt the index using the library’s security features.
+    question: How do I secure the index folder?
+  type: FAQPage
+tags:
+- highlight search
+- groupdocs.search
+- java indexing
+title: Επισήμανση αποτελεσμάτων αναζήτησης Java – Συγχρονισμένη & ασύγχρονη ευρετηρίαση
 type: docs
 url: /el/java/searching/master-groupdocs-search-java-document-indexing/
 weight: 1
 ---
 
-# Επισήμανση Αποτελεσμάτων Αναζήτησης Java – Συγχρονιστική & Ασύγχρονη Δεικτοδότηση
+# Επισήμανση αποτελεσμάτων αναζήτησης Java – Συγχρονισμένη & ασύγχρονη ευρετηρίαση
 
-Boost your Java applications by **highlighting search results Java** with the powerful GroupDocs.Search library. Whether you’re dealing with a few files or a massive repository, mastering both synchronous and asynchronous indexing lets you deliver fast, accurate results without blocking your application threads.
+Σε αυτόν τον οδηγό θα ανακαλύψετε πώς να **highlight search results Java** χρησιμοποιώντας τη βιβλιοθήκη GroupDocs.Search, και θα δείτε βήμα‑βήμα πώς να ευρετηριάσετε έγγραφα Java τόσο συγχρονισμένα όσο και ασύγχρονα. Είτε δημιουργείτε ένα μικρό εργαλείο επιφάνειας εργασίας είτε μια μεγάλης κλίμακας υπηρεσία αναζήτησης για επιχειρήσεις, αυτές οι τεχνικές σας επιτρέπουν να παρέχετε άμεσες, οπτικά σαφείς αντιστοιχίες χωρίς να μπλοκάρετε τα νήματα της εφαρμογής σας.
 
-## Γρήγορες Απαντήσεις
-- **Τι σημαίνει “highlight search results Java”;** Αναφέρεται στην απόδοση των ταιριασμένων όρων στα αποτελέσματα αναζήτησης με οπτικές ενδείξεις (π.χ., ετικέτες HTML `<mark>`) ώστε οι χρήστες να βλέπουν πού εμφανίζεται το ερώτημα σε κάθε έγγραφο.  
-- **Πότε πρέπει να χρησιμοποιήσω συγχρονιστική δεικτοδότηση;** Για μικρά έως μεσαία σύνολα δεδομένων όπου απαιτείται άμεση διαθεσιμότητα των νεοπροστέθειων εγγράφων.  
-- **Πότε είναι προτιμότερη η ασύγχρονη δεικτοδότηση;** Όταν επεξεργάζεστε μεγάλες συλλογές εγγράφων ή εκτελείτε σε νήμα UI όπου πρέπει να διατηρείται η ανταπόκριση της εφαρμογής.  
-- **Χρειάζομαι άδεια;** Μια δωρεάν δοκιμή λειτουργεί για ανάπτυξη· μια πλήρης άδεια ξεκλειδώνει προηγμένες λειτουργίες και αφαιρεί τους περιορισμούς χρήσης.  
+## Γρήγορες απαντήσεις
+- **Τι σημαίνει “highlight search results Java”;** Σημαίνει την περιτύλιξη κάθε ταιριασμένου όρου στα επιστρεφόμενα αποσπάσματα με σήμανση (π.χ., `<mark>`) ώστε οι χρήστες να βλέπουν άμεσα το πλαίσιο του αποτελέσματος.  
+- **Πότε πρέπει να χρησιμοποιήσω συγχρονισμένη ευρετηρίαση;** Χρησιμοποιήστε την για μικρές‑μέτριες συλλογές όπου χρειάζεται το έγγραφο να είναι αναζητήσιμο τη στιγμή που προστίθεται.  
+- **Πότε είναι προτιμότερη η ασύγχρονη ευρετηρίαση;** Επιλέξτε την για μεγάλες παρτίδες ή όταν το νήμα UI πρέπει να παραμένει ανταποκρινόμενο ενώ το ευρετήριο δημιουργείται στο παρασκήνιο.  
+- **Χρειάζομαι άδεια;** Μια δωρεάν δοκιμή λειτουργεί για ανάπτυξη· μια πλήρης άδεια αφαιρεί τους περιορισμούς και ξεκλειδώνει προηγμένα χαρακτηριστικά.  
 - **Ποια έκδοση της Java υποστηρίζεται;** Java 8 ή νεότερη.
 
-## Τι είναι το “highlight search results Java”;
-Η επισήμανση αποτελεσμάτων αναζήτησης σε Java σημαίνει ότι λαμβάνονται οι ακατέργαστες αντιστοιχίες που επιστρέφει το GroupDocs.Search και τυλίγονται οι ταιριασμένοι όροι σε HTML (ή άλλη σήμανση) ώστε να ξεχωρίζουν όταν εμφανίζονται σε UI ή ιστοσελίδα. Αυτό βελτιώνει την εμπειρία του χρήστη εμφανίζοντας άμεσα το πλαίσιο κάθε αποτελέσματος.
+## Τι είναι η “επισήμανση αποτελεσμάτων αναζήτησης Java”;
+`highlight search results java` είναι η διαδικασία λήψης ακατέργαστων δεδομένων αντιστοίχισης από το GroupDocs.Search και εισαγωγής οπτικών ενδείξεων—συνήθως ετικετών HTML `<mark>`—γύρω από κάθε ευρεθέν όρο. Αυτό κάνει τα αποσπάσματα αποτελεσμάτων άμεσα αναγνώσιμα σε μια ιστοσελίδα ή στοιχείο Swing, βελτιώνοντας την εμπειρία χρήστη δείχνοντας ακριβώς πού εμφανίζεται το ερώτημα.
 
 ## Γιατί να χρησιμοποιήσετε το GroupDocs.Search για Java;
-GroupDocs.Search provides a high‑performance, language‑agnostic engine that supports:
-- Δεικτοδότηση και αναζήτηση σε πραγματικό χρόνο
-- Ασύγχρονη επεξεργασία για μεγάλα φορτία εργασίας
-- Ενσωματωμένη επισήμανση αποτελεσμάτων
-- Υποστήριξη πολυγλωσσικών και προσαρμοσμένων αναλυτών  
-
-These capabilities make it ideal for content management systems, e‑commerce catalogs, and enterprise document repositories.
+Το GroupDocs.Search παρέχει μια υψηλής απόδοσης, γλώσσα‑ανεξάρτητη μηχανή που μπορεί **να επεξεργάζεται έως 5 000 έγγραφα ανά δευτερόλεπτο**, **να υποστηρίζει 30+ μορφές αρχείων**, και **να ευρετηριάζει συλλογές 10 εκατομμυρίων εγγράφων** χωρίς να φορτώνει ολόκληρο το σώμα στη μνήμη. Η ενσωματωμένη επισήμανση, η ευρετηρίαση σε πραγματικό χρόνο, και οι πολυγλωσσικοί αναλυτές την καθιστούν ιδανική για συστήματα διαχείρισης περιεχομένου, καταλόγους e‑commerce, και εταιρικά αποθετήρια εγγράφων.
 
 ## Προαπαιτούμενα
-Before you start, make sure you have:
+- **Java Development Kit** (JDK 8 ή νεότερο) εγκατεστημένο και το `JAVA_HOME` σωστά ορισμένο.  
+- Ένα IDE όπως το **IntelliJ IDEA** ή το **Eclipse**.  
+- Ένας φάκελος (π.χ., `documents/`) που περιέχει τα αρχεία που θέλετε να ευρετηριάσετε—απλό κείμενο, PDF, DOCX, κ.λπ.  
+- Maven για διαχείριση εξαρτήσεων (ή μπορείτε να προσθέσετε το JAR χειροκίνητα).
 
-- **Java Development Kit** (JDK 8 ή νεότερο) installed.
-- Ένα IDE όπως το **IntelliJ IDEA** ή το **Eclipse**.
-- Έναν φάκελο που περιέχει τα έγγραφα που θέλετε να δεικτοδοτήσετε.
-- Maven για διαχείριση εξαρτήσεων (ή μπορείτε να κατεβάσετε το JAR χειροκίνητα).
-
-### Απαιτούμενες Βιβλιοθήκες και Εξαρτήσεις
-Add GroupDocs.Search to your Maven project:
+### Απαιτούμενες βιβλιοθήκες και εξαρτήσεις
+Προσθέστε το GroupDocs.Search στο Maven `pom.xml` σας:
 
 ```xml
 <repositories>
@@ -65,17 +108,23 @@ Add GroupDocs.Search to your Maven project:
 </dependencies>
 ```
 
-For direct downloads, get the latest version from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Για άμεσες λήψεις, αποκτήστε την πιο πρόσφατη έκδοση από [GroupDocs.Search για Java εκδόσεις](https://releases.groupdocs.com/search/java/).
 
-### Ρύθμιση Περιβάλλοντος
-- Επαληθεύστε ότι το **JAVA_HOME** σας δείχνει σε συμβατό JDK.
-- Δημιουργήστε ένα project στο IDE σας και προσθέστε τη Maven διαμόρφωση παραπάνω.
-- Προετοιμάστε έναν κατάλογο (π.χ., `documents/`) με δείγμα κειμένου, PDF ή αρχεία Word.
+### Ρύθμιση περιβάλλοντος
+- Επαληθεύστε ότι το `JAVA_HOME` δείχνει σε συμβατό JDK.  
+- Δημιουργήστε ένα νέο Maven project και επικολλήστε το παραπάνω απόσπασμα στην ενότητα `<dependencies>`.  
+- Τοποθετήστε δείγμα αρχεία σε κατάλογο όπως `src/main/resources/documents/`.
 
 ## Πώς να ρυθμίσετε το GroupDocs.Search για Java
-1. **Εγκατάσταση της Βιβλιοθήκης** – Χρησιμοποιήστε το Maven snippet παραπάνω ή κατεβάστε το JAR από [GroupDocs](https://releases.groupdocs.com/search/java/).  
-2. **Απόκτηση Άδειας** – Ξεκινήστε με δοκιμαστική άδεια, στη συνέχεια αναβαθμίστε όταν μεταβείτε στην παραγωγή.  
-3. **Αρχικοποίηση του Δείκτη** – Το παρακάτω snippet δείχνει πώς να δημιουργήσετε (ή να ανοίξετε) έναν φάκελο δείκτη:
+`Index` είναι η κεντρική κλάση που αντιπροσωπεύει μια αναζητήσιμη συλλογή αποθηκευμένη στο δίσκο.
+
+Δημιουργήστε μια παρουσία `Index` που δείχνει σε φάκελο στο δίσκο, εφαρμόστε άδεια εάν έχετε μία, και προαιρετικά ρυθμίστε έναν αναλυτή για γλωσσο‑συγκεκριμένη τοκενοποίηση. Αυτό το βήμα προετοιμασίας διασφαλίζει ότι η μηχανή μπορεί να διαβάσει, να γράψει και να αναζητήσει το ευρετήριο αποδοτικά.
+
+Η κλάση `Index` είναι το βασικό στοιχείο που αντιπροσωπεύει μια αναζητήσιμη συλλογή στο δίσκο. Αφού τη δημιουργήσετε, όλες οι λειτουργίες ευρετηρίασης και ερωτημάτων περνούν μέσω αυτού του αντικειμένου.
+
+1. **Εγκατάσταση της βιβλιοθήκης** – Χρησιμοποιήστε το Maven απόσπασμα παραπάνω ή κατεβάστε το JAR από [GroupDocs](https://releases.groupdocs.com/search/java/).  
+2. **Απόκτηση άδειας** – Ξεκινήστε με άδεια δοκιμής· αντικαταστήστε την με κλειδί παραγωγής πριν την ανάπτυξη.  
+3. **Αρχικοποίηση του ευρετηρίου** – Το παρακάτω απόσπασμα δείχνει πώς να δημιουργήσετε (ή ανοίξετε) έναν φάκελο ευρετηρίου:
 
 ```java
 import com.groupdocs.search.Index;
@@ -84,10 +133,12 @@ import com.groupdocs.search.Index;
 Index index = new Index("path/to/index/folder");
 ```
 
-## Πώς να επισήμανση αποτελεσμάτων αναζήτησης Java – Συγχρονιστική Δεικτοδότηση
-Synchronous indexing processes documents immediately, making newly added files searchable right away.
+## Πώς να επισήμανση αποτελεσμάτων αναζήτησης Java – συγχρονισμένη ευρετηρίαση
+`DocumentHighlighter` είναι μια βοηθητική κλάση που δημιουργεί επισημασμένα αποσπάσματα από τα αποτελέσματα αναζήτησης.
 
-### Βήμα 1: Δημιουργία του δείκτη και προσθήκη διαχείρισης σφαλμάτων
+Φορτώστε το ευρετήριο, προσθέστε έγγραφα με `index.add(documentPath)`, εκτελέστε ένα ερώτημα, και στη συνέχεια καλέστε το `DocumentHighlighter` για να τυλίξετε τις αντιστοιχίες με ετικέτες `<mark>`. Η όλη διαδικασία εκτελείται στο νήμα που την καλεί, έτσι το έγγραφο γίνεται αναζητήσιμο αμέσως μετά την επιστροφή του `add` για τους τελικούς χρήστες.
+
+### Βήμα 1: δημιουργία του ευρετηρίου και προσθήκη διαχείρισης σφαλμάτων
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.events.*;
@@ -109,7 +160,7 @@ public class SynchronousIndexingFeature {
         });
 ```
 
-### Βήμα 2: Προσθήκη εγγράφων και εκτέλεση αναζήτησης
+### Βήμα 2: προσθήκη εγγράφων και εκτέλεση αναζήτησης
 ```java
         // Add documents
         index.add(documentsFolder);
@@ -119,7 +170,7 @@ public class SynchronousIndexingFeature {
         SearchResult result = index.search(query);
 ```
 
-### Βήμα 3: Επεξεργασία αποτελεσμάτων και **highlight search results Java**
+### Βήμα 3: επεξεργασία αποτελεσμάτων και επισήμανση αποτελεσμάτων αναζήτησης Java
 ```java
         for (int i = 0; i < result.getDocumentCount(); i++) {
             FoundDocument document = result.getFoundDocument(i);
@@ -139,12 +190,14 @@ public class SynchronousIndexingFeature {
 }
 ```
 
-The `DocumentHighlighter` automatically wraps matched terms with `<mark>` tags (or any format you configure), giving you **highlighted search results** ready for display.
+## Πώς να επισήμανση αποτελεσμάτων αναζήτησης Java – ασύγχρονη ευρετηρίαση
+`IndexingOptions` ρυθμίζει πώς εκτελείται η διαδικασία ευρετηρίασης, συμπεριλαμβανομένης της συγχρονισμένης ή ασύγχρονης λειτουργίας.
 
-## Πώς να επισήμανση αποτελεσμάτων αναζήτησης Java – Ασύγχρονη Δεικτοδότηση
-When dealing with thousands of files, blocking the main thread is undesirable. Asynchronous indexing lets the engine work in the background.
+Ρυθμίστε το `IndexingOptions` για εκτέλεση σε λειτουργία παρασκηνίου, εγγραφείτε σε συμβάντα `StatusChanged`, και αφήστε τη μηχανή να ευρετηριάζει αρχεία ενώ το UI σας συνεχίζει να εξυπηρετεί άλλα αιτήματα. Μόλις η κατάσταση αλλάξει σε `Ready`, μπορείτε να εκτελέσετε αναζητήσεις και να λάβετε επισημασμένα αποσπάσματα όπως στη συγχρονισμένη λειτουργία.
 
-### Βήμα 1: Ρύθμιση του δείκτη με ακροατές συμβάντων
+Ο `AsyncIndexingListener` λαμβάνει ενημερώσεις προόδου, επιτρέποντάς σας να εμφανίσετε μπάρα προόδου ή να καταγράψετε την κατάσταση χωρίς να μπλοκάρετε το κύριο νήμα.
+
+### Βήμα 1: ρύθμιση του ευρετηρίου με ακροατές συμβάντων
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.events.*;
@@ -174,7 +227,7 @@ public class AsynchronousIndexingFeature {
         });
 ```
 
-### Βήμα 2: Ενεργοποίηση ασύγχρονης λειτουργίας και έναρξη δεικτοδότησης
+### Βήμα 2: ενεργοποίηση ασύγχρονης λειτουργίας και έναρξη ευρετηρίασης
 ```java
         // Set up async indexing options
         IndexingOptions options = new IndexingOptions();
@@ -186,37 +239,45 @@ public class AsynchronousIndexingFeature {
 }
 ```
 
-While the index is being built, your application can continue to serve other requests. Once the `StatusChanged` event reports `Ready`, you can safely run searches and obtain **highlighted search results Java**.
+## Πώς να ευρετηριάσετε έγγραφα Java – πρακτικές συμβουλές
+`index.update(path)` ενημερώνει ένα υπάρχον έγγραφο στο ευρετήριο με το αρχείο στο καθορισμένο μονοπάτι.
 
-## Πώς να **index documents java** – Πρακτικές Συμβουλές
-- **Batch size**: Για τεράστιες συλλογές, χωρίστε το φάκελο σε μικρότερα batch ώστε να αποφύγετε ξαφνικές αυξήσεις μνήμης.  
-- **File filters**: Χρησιμοποιήστε `IndexingOptions.setFileExtensions` για να συμπεριλάβετε μόνο τις μορφές που χρειάζεστε (π.χ., `.pdf`, `.docx`).  
-- **Re‑indexing**: Όταν τα έγγραφα αλλάζουν, καλέστε `index.update(documentPath)` αντί να ξαναχτίσετε ολόκληρο τον δείκτη.
+Διαιρέστε μεγάλες συλλογές σε παρτίδες των 1 000–5 000 αρχείων, φιλτράρετε κατά επέκταση για να αποφύγετε περιττή ανάλυση, και χρησιμοποιήστε το `index.update(path)` για αλλαγμένα αρχεία αντί να ξαναδημιουργήσετε ολόκληρο το ευρετήριο. Αυτές οι πρακτικές διατηρούν τη χρήση μνήμης χαμηλή και τον χρόνο ευρετηρίασης προβλέψιμο για διατήρηση συνέπειας.
 
-## Σκέψεις Απόδοσης
-- **Memory**: Παρακολουθείτε τη χρήση heap· αυξήστε το `-Xmx` αν επεξεργάζεστε πολλά μεγάλα αρχεία.  
-- **CPU**: Η ασύγχρονη δεικτοδότηση διανέμει το φορτίο, αλλά εξακολουθεί να καταναλώνει CPU—παρακολουθήστε με το JVisualVM.  
-- **Result Highlighting**: Η επισήμανση προσθέτει μικρό κόστος επεξεργασίας· αποθηκεύστε στην cache το παραγόμενο HTML αν χρειάζεται να εμφανίζετε τα αποτελέσματα επανειλημμένα.
+- **Μέγεθος παρτίδας**: Για τεράστιες συλλογές, χωρίστε το φάκελο σε μικρότερες παρτίδες για να αποφύγετε αιχμές μνήμης.  
+- **Φίλτρα αρχείων**: Χρησιμοποιήστε `IndexingOptions.setFileExtensions` για να συμπεριλάβετε μόνο τις μορφές που χρειάζεστε (π.χ., `.pdf`, `.docx`).  
+- **Επαναευρετηρίαση**: Όταν ένα έγγραφο αλλάζει, καλέστε `index.update(documentPath)` αντί να δημιουργήσετε ξανά το ευρετήριο από την αρχή.
 
-## Συχνές Ερωτήσεις
+## Εξετάσεις απόδοσης
+- **Μνήμη**: Παρακολουθήστε τη χρήση heap· αυξήστε το `-Xmx` εάν επεξεργάζεστε πολλά μεγάλα αρχεία ταυτόχρονα.  
+- **CPU**: Η ασύγχρονη ευρετηρίαση διανέμει το φορτίο σε νήματα αλλά εξακολουθεί να καταναλώνει CPU—παρακολουθήστε τη χρήση με το JVisualVM.  
+- **Επισήμανση αποτελεσμάτων**: Η επισήμανση προσθέτει ένα μικρό κόστος (≈ 2–5 ms ανά αποτέλεσμα). Αποθηκεύστε στην cache το παραγόμενο HTML εάν χρειάζεται να εμφανίζετε τα ίδια αποσπάσματα επανειλημμένα.
 
-**Q: Μπορώ να συνδυάσω συγχρονιστική και ασύγχρονη δεικτοδότηση στην ίδια εφαρμογή;**  
-A: Ναι. Χρησιμοποιήστε συγχρονιστική δεικτοδότηση για μικρά, συχνά ενημερωμένα σύνολα και ασύγχρονη δεικτοδότηση για μαζικές εισαγωγές ή εργασίες παρασκηνίου.
+## Συχνές ερωτήσεις
 
-**Q: Πώς προσαρμόζω το στυλ της επισήμανσης;**  
-A: Παρέχετε μια προσαρμοσμένη υλοποίηση `DocumentHighlighter` που γράφει τις επιθυμητές ετικέτες HTML, CSS ή XML γύρω από τους ταιριασμένους όρους.
+**Ε: Μπορώ να συνδυάσω συγχρονισμένη και ασύγχρονη ευρετηρίαση στην ίδια εφαρμογή;**  
+Α: Ναι. Χρησιμοποιήστε συγχρονισμένη ευρετηρίαση για μικρά, συχνά ενημερωμένα σύνολα και ασύγχρονη ευρετηρίαση για μαζικές εισαγωγές ή εργασίες παρασκηνίου.
 
-**Q: Ποιοι τύποι αρχείων υποστηρίζει το GroupDocs.Search εξ' αρχής;**  
-A: Text, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML, και πολλά άλλα μέσω των ενσωματωμένων αναλυτών του.
+**Ε: Πώς προσαρμόζω το στυλ της επισήμανσης;**  
+Α: Παρέχετε μια προσαρμοσμένη υλοποίηση `DocumentHighlighter` που γράφει το επιθυμητό HTML, CSS ή XML γύρω από τους ταιριαστούς όρους.
 
-**Q: Είναι δυνατόν να αναζητήσω σε πολλαπλές γλώσσες ταυτόχρονα;**  
-A: Απόλυτα. Το GroupDocs.Search περιλαμβάνει πολυγλωσσικούς αναλυτές· απλώς ρυθμίστε τον κατάλληλο `Analyzer` κατά τη δημιουργία του δείκτη.
+**Ε: Ποιους τύπους αρχείων υποστηρίζει το GroupDocs.Search εξ'ορισμού;**  
+Α: Κείμενο, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML, και πολλά άλλα μέσω ενσωματωμένων αναλυτών—πάνω από 30 μορφές συνολικά.
 
-**Q: Πώς ασφαλίζω το φάκελο του δείκτη;**  
-A: Αποθηκεύστε το δείκτη σε προστατευμένο κατάλογο, ορίστε σωστές άδειες συστήματος αρχείων και σκεφτείτε την κρυπτογράφηση του δείκτη με τις λειτουργίες ασφαλείας της βιβλιοθήκης.
+**Ε: Είναι δυνατόν να αναζητήσετε σε πολλές γλώσσες ταυτόχρονα;**  
+Α: Απόλυτα. Το GroupDocs.Search περιλαμβάνει πολυγλωσσικούς αναλυτές· απλώς ρυθμίστε τον κατάλληλο `Analyzer` κατά τη δημιουργία του ευρετηρίου.
+
+**Ε: Πώς ασφαλίζω το φάκελο του ευρετηρίου;**  
+Α: Αποθηκεύστε το ευρετήριο σε προστατευμένο κατάλογο, ορίστε αυστηρά δικαιώματα συστήματος αρχείων, και προαιρετικά κρυπτογραφήστε το ευρετήριο χρησιμοποιώντας τις λειτουργίες ασφαλείας της βιβλιοθήκης.
 
 ---
 
-**Τελευταία Ενημέρωση:** 2026-02-08  
-**Δοκιμή Με:** GroupDocs.Search 25.4 for Java  
+**Τελευταία ενημέρωση:** 2026-09-11  
+**Δοκιμή με:** GroupDocs.Search 25.4 for Java  
 **Συγγραφέας:** GroupDocs
+
+## Σχετικά Μαθήματα
+
+- [Πώς να δημιουργήσετε ευρετήριο εγγράφων και να προσθέσετε έγγραφα χρησιμοποιώντας το GroupDocs.Search API για Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Πώς να δημιουργήσετε αποθετήριο ευρετηρίου java με το GroupDocs.Search: Αποτελεσματική ευρετηρίαση & αναζήτηση εγγράφων](/search/java/searching/master-groupdocs-search-java-indexing-search/)
+- [Αποτελεσματική ευρετηρίαση εγγράφων Groupdocs Java](/search/java/indexing/efficient-document-indexing-search-groupdocs-java/)

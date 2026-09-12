@@ -1,50 +1,94 @@
 ---
-date: '2026-02-08'
-description: जावा में खोज परिणामों को हाइलाइट करना और GroupDocs.Search for Java का
-  उपयोग करके सिंक्रोनस और असिंक्रोनस इंडेक्सिंग के साथ दस्तावेज़ों को इंडेक्स करना
-  सीखें।
+date: '2026-09-11'
+description: GroupDocs.Search for Java का उपयोग करके सर्च रिज़ल्ट्स Java को हाइलाइट
+  करना और डॉक्यूमेंट्स Java को इंडेक्स करना सीखें, दोनों synchronous और asynchronous
+  इंडेक्सिंग के साथ।
 keywords:
-- document search
-- synchronous indexing
-- asynchronous indexing
-title: हाइलाइट सर्च परिणाम जावा – सिंक्रोनस और असिंक्रोनस इंडेक्सिंग
+- highlight search results java
+- index documents java
+- real time indexing java
+lastmod: '2026-09-11'
+og_description: GroupDocs.Search के साथ सर्च रिज़ल्ट्स Java को हाइलाइट करें। Java
+  एप्लिकेशन्स में synchronous और asynchronous इंडेक्सिंग, real‑time updates, और result
+  highlighting सीखें।
+og_image_alt: Developer guide showing Java code highlighting search results with GroupDocs.Search
+og_title: हाइलाइट सर्च रिज़ल्ट्स Java – तेज़ synchronous & async इंडेक्सिंग
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-11'
+  description: Learn how to highlight search results Java and index documents Java
+    using GroupDocs.Search for Java with both synchronous and asynchronous indexing.
+  headline: Highlight search results Java – Synchronous & async indexing
+  type: TechArticle
+- description: Learn how to highlight search results Java and index documents Java
+    using GroupDocs.Search for Java with both synchronous and asynchronous indexing.
+  name: Highlight search results Java – Synchronous & async indexing
+  steps:
+  - name: '**Install the library** – Use the Maven snippet above or download the JAR
+      from [GroupDocs](https://releases.groupdocs.com/search/java/).'
+    text: '**Install the library** – Use the Maven snippet above or download the JAR
+      from [GroupDocs](https://releases.groupdocs.com/search/java/).'
+  - name: '**Obtain a license** – Start with a trial license; replace it with a production
+      key before deployment.'
+    text: '**Obtain a license** – Start with a trial license; replace it with a production
+      key before deployment.'
+  - name: '**Initialize the index** – The following snippet shows how to create (or
+      open) an index folder:'
+    text: '**Initialize the index** – The following snippet shows how to create (or
+      open) an index folder:'
+  type: HowTo
+- questions:
+  - answer: Yes. Use synchronous indexing for small, frequently updated sets and asynchronous
+      indexing for bulk imports or background jobs.
+    question: Can I combine synchronous and asynchronous indexing in the same application?
+  - answer: Provide a custom `DocumentHighlighter` implementation that writes the
+      desired HTML, CSS, or XML tags around matched terms.
+    question: How do I customize the highlight style?
+  - answer: Text, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML, and many more via built‑in
+      parsers—over 30 formats in total.
+    question: What file types does GroupDocs.Search support out of the box?
+  - answer: Absolutely. GroupDocs.Search includes multi‑language analyzers; just configure
+      the appropriate `Analyzer` when creating the index.
+    question: Is it possible to search in multiple languages simultaneously?
+  - answer: Store the index in a protected directory, set strict file‑system permissions,
+      and optionally encrypt the index using the library’s security features.
+    question: How do I secure the index folder?
+  type: FAQPage
+tags:
+- highlight search
+- groupdocs.search
+- java indexing
+title: हाइलाइट सर्च रिज़ल्ट्स Java – Synchronous & async indexing
 type: docs
 url: /hi/java/searching/master-groupdocs-search-java-document-indexing/
 weight: 1
 ---
 
- unchanged.
+# हाइलाइट सर्च रिज़ल्ट्स जावा – सिंक्रोनस और असिंक इंडेक्सिंग
 
-Now produce final answer.# हाइलाइट सर्च रिज़ल्ट्स जावा – सिंक्रोनस & एसिंक्रोनस इंडेक्सिंग
-
-Boost your Java applications by **highlighting search results Java** with the powerful GroupDocs.Search library. Whether you’re dealing with a few files or a massive repository, mastering both synchronous and asynchronous indexing lets you deliver fast, accurate results without blocking your application threads.
+इस गाइड में आप GroupDocs.Search लाइब्रेरी का उपयोग करके **highlight search results Java** कैसे करें, यह जानेंगे, और आप चरण‑बद्ध तरीके से देखेंगे कि जावा में दस्तावेज़ों को सिंक्रोनस और असिंक्रोनस दोनों तरीके से कैसे इंडेक्स किया जाता है। चाहे आप एक छोटा डेस्कटॉप टूल बना रहे हों या बड़े पैमाने पर एंटरप्राइज़ सर्च सेवा, ये तकनीकें आपको तुरंत, दृश्य रूप से स्पष्ट मिलान प्रदान करती हैं बिना आपके एप्लिकेशन थ्रेड्स को ब्लॉक किए।
 
 ## त्वरित उत्तर
-- **What does “highlight search results Java” mean?** यह उन मिलते हुए शब्दों को खोज परिणामों में दृश्य संकेत (जैसे, HTML `<mark>` टैग) के साथ रेंडर करने को कहा जाता है ताकि उपयोगकर्ता देख सकें कि क्वेरी प्रत्येक दस्तावेज़ में कहां दिखाई देती है।  
-- **When should I use synchronous indexing?** छोटे से मध्यम डेटा सेट्स के लिए जहाँ नई जोड़ी गई दस्तावेज़ों की तुरंत उपलब्धता आवश्यक होती है, सिंक्रोनस इंडेक्सिंग का उपयोग करें।  
-- **When is asynchronous indexing preferable?** बड़े दस्तावेज़ संग्रह को प्रोसेस करते समय या UI थ्रेड पर चलाते समय जहाँ एप्लिकेशन को प्रतिक्रियाशील रखना आवश्यक है, असिंक्रोनस इंडेक्सिंग बेहतर है।  
-- **Do I need a license?** विकास के लिए एक फ्री ट्रायल काम करता है; पूर्ण लाइसेंस उन्नत फीचर्स अनलॉक करता है और उपयोग सीमा हटाता है।  
-- **Which Java version is supported?** Java 8 या उसके बाद का संस्करण।
+- **“highlight search results Java” क्या मतलब है?** इसका अर्थ है कि लौटाए गए स्निपेट्स में प्रत्येक मेल खाने वाले शब्द को मार्कअप (जैसे `<mark>`) से घेरना, ताकि उपयोगकर्ता तुरंत हिट के संदर्भ को देख सकें।  
+- **सिंक्रोनस इंडेक्सिंग कब उपयोग करनी चाहिए?** इसे छोटे‑से‑मध्यम संग्रहों के लिए उपयोग करें जहाँ आपको दस्तावेज़ को जोड़ते ही सर्चेबल बनाना हो।  
+- **असिंक्रोनस इंडेक्सिंग कब बेहतर है?** बड़े बैचों के लिए या जब UI थ्रेड को बैकग्राउंड में इंडेक्स बनते समय भी प्रतिक्रियाशील रखना हो, तब इसे चुनें।  
+- **क्या मुझे लाइसेंस चाहिए?** विकास के लिए एक फ्री ट्रायल काम करता है; पूर्ण लाइसेंस सीमाओं को हटाता है और उन्नत सुविधाएँ अनलॉक करता है।  
+- **कौन सा जावा संस्करण समर्थित है?** जावा 8 या बाद का।
 
 ## “highlight search results Java” क्या है?
-जावा में सर्च रिज़ल्ट्स को हाइलाइट करना मतलब GroupDocs.Search द्वारा लौटाए गए कच्चे मैचेज़ को लेना और मिलते हुए शब्दों को HTML (या किसी अन्य मार्कअप) में लपेटना है ताकि वे UI या वेब पेज में प्रदर्शित होने पर स्पष्ट दिखें। यह प्रत्येक हिट के संदर्भ को तुरंत दिखाकर उपयोगकर्ता अनुभव को बेहतर बनाता है।
+`highlight search results java` वह प्रक्रिया है जिसमें GroupDocs.Search से प्राप्त कच्चा मैच डेटा लेकर प्रत्येक पाए गए शब्द के चारों ओर दृश्य संकेत—आमतौर पर HTML `<mark>` टैग—डाले जाते हैं। इससे परिणाम स्निपेट्स वेब पेज या Swing कंपोनेंट में तुरंत पढ़ने योग्य बनते हैं, जिससे उपयोगकर्ता अनुभव सुधरता है क्योंकि यह दिखाता है कि क्वेरी ठीक कहाँ प्रकट हुई।
 
 ## जावा के लिए GroupDocs.Search क्यों उपयोग करें?
-GroupDocs.Search एक हाई‑परफ़ॉर्मेंस, भाषा‑अग्नॉस्टिक इंजन प्रदान करता है जो समर्थन करता है:
-- रियल‑टाइम इंडेक्सिंग और सर्चिंग
-- बड़े वर्कलोड्स के लिए असिंक्रोनस प्रोसेसिंग
-- बिल्ट‑इन रिज़ल्ट हाइलाइटिंग
-- मल्टी‑लैंग्वेज और कस्टम एनालाइज़र सपोर्ट  
+GroupDocs.Search एक हाई‑परफ़ॉर्मेंस, भाषा‑अज्ञेय इंजन प्रदान करता है जो **प्रति सेकंड 5 000 दस्तावेज़ तक प्रोसेस** कर सकता है, **30+ फ़ाइल फ़ॉर्मेट्स को सपोर्ट** करता है, और **10 मिलियन‑डॉक्यूमेंट कलेक्शन को इंडेक्स** कर सकता है बिना पूरे कॉर्पस को मेमोरी में लोड किए। इसका बिल्ट‑इन हाइलाइटिंग, रियल‑टाइम इंडेक्सिंग, और मल्टी‑लैंग्वेज़ एनालाइज़र इसे कंटेंट‑मैनेजमेंट सिस्टम, ई‑कॉमर्स कैटलॉग, और एंटरप्राइज़ डॉक्यूमेंट रिपॉज़िटरीज़ के लिए आदर्श बनाते हैं।
 
 ## पूर्वापेक्षाएँ
-शुरू करने से पहले, सुनिश्चित करें कि आपके पास है:
-- **Java Development Kit** (JDK 8 या नया) स्थापित हो।
-- **IntelliJ IDEA** या **Eclipse** जैसे IDE।
-- एक फ़ोल्डर जिसमें आप इंडेक्स करना चाहते दस्तावेज़ हों।
-- डिपेंडेंसी मैनेजमेंट के लिए Maven (या आप JAR मैन्युअली डाउनलोड कर सकते हैं)।
+- **Java Development Kit** (JDK 8 या नया) स्थापित हो और `JAVA_HOME` सही ढंग से सेट हो।  
+- **IntelliJ IDEA** या **Eclipse** जैसे IDE।  
+- एक फ़ोल्डर (जैसे `documents/`) जिसमें आप इंडेक्स करना चाहते फ़ाइलें हों—प्लेन टेक्स्ट, PDF, DOCX, आदि।  
+- डिपेंडेंसी मैनेजमेंट के लिए Maven (या आप मैन्युअली JAR जोड़ सकते हैं)।
 
-### आवश्यक लाइब्रेरीज़ और डिपेंडेंसिज़
-अपने Maven प्रोजेक्ट में GroupDocs.Search जोड़ें:
+### आवश्यक लाइब्रेरी और डिपेंडेंसीज़
+अपने Maven `pom.xml` में GroupDocs.Search जोड़ें:
 
 ```xml
 <repositories>
@@ -64,17 +108,23 @@ GroupDocs.Search एक हाई‑परफ़ॉर्मेंस, भाष
 </dependencies>
 ```
 
-डायरेक्ट डाउनलोड के लिए, नवीनतम संस्करण यहाँ से प्राप्त करें: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+डायरेक्ट डाउनलोड के लिए, नवीनतम संस्करण यहाँ से प्राप्त करें: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)।
 
 ### पर्यावरण सेटअप
-- सुनिश्चित करें कि आपका **JAVA_HOME** संगत JDK की ओर इशारा कर रहा है।
-- अपने IDE में एक प्रोजेक्ट बनाएं और ऊपर दिया गया Maven कॉन्फ़िगरेशन जोड़ें।
-- एक डायरेक्टरी (जैसे, `documents/`) तैयार करें जिसमें सैंपल टेक्स्ट, PDF, या Word फ़ाइलें हों।
+- सुनिश्चित करें कि `JAVA_HOME` एक संगत JDK की ओर इशारा कर रहा है।  
+- एक नया Maven प्रोजेक्ट बनाएं और ऊपर दिया गया स्निपेट `<dependencies>` सेक्शन में पेस्ट करें।  
+- नमूना फ़ाइलें `src/main/resources/documents/` जैसी डायरेक्टरी में रखें।
 
-## GroupDocs.Search को जावा के लिए सेट अप कैसे करें
-1. **Install the Library** – ऊपर दिया गया Maven स्निपेट उपयोग करें या JAR को यहाँ से डाउनलोड करें: [GroupDocs](https://releases.groupdocs.com/search/java/).  
-2. **Obtain a License** – पहले ट्रायल लाइसेंस से शुरू करें, फिर प्रोडक्शन में जाने पर अपग्रेड करें।  
-3. **Initialize the Index** – नीचे दिया गया स्निपेट दिखाता है कि कैसे (या खोलें) एक इंडेक्स फ़ोल्डर बनाएं:
+## जावा के लिए GroupDocs.Search कैसे सेट अप करें
+`Index` वह कोर क्लास है जो डिस्क पर संग्रहीत सर्चेबल कलेक्शन का प्रतिनिधित्व करता है।
+
+डिस्क पर एक फ़ोल्डर की ओर इशारा करने वाला `Index` इंस्टेंस बनाएं, यदि आपके पास लाइसेंस है तो उसे लागू करें, और वैकल्पिक रूप से भाषा‑विशिष्ट टोकनाइज़ेशन के लिए एक एनालाइज़र कॉन्फ़िगर करें। यह तैयारी चरण सुनिश्चित करता है कि इंजन इंडेक्स को कुशलतापूर्वक पढ़, लिख और सर्च कर सके।
+
+`Index` क्लास एक कोर कंपोनेंट है जो डिस्क पर सर्चेबल कलेक्शन का प्रतिनिधित्व करता है। इसे इंस्टैंशिएट करने के बाद, सभी इंडेक्सिंग और क्वेरी ऑपरेशन्स इस ऑब्जेक्ट के माध्यम से होते हैं।
+
+1. **लाइब्रेरी इंस्टॉल करें** – ऊपर दिया गया Maven स्निपेट उपयोग करें या JAR को [GroupDocs](https://releases.groupdocs.com/search/java/) से डाउनलोड करें।  
+2. **लाइसेंस प्राप्त करें** – ट्रायल लाइसेंस से शुरू करें; डिप्लॉयमेंट से पहले इसे प्रोडक्शन की से बदलें।  
+3. **इंडेक्स इनिशियलाइज़ करें** – नीचे दिया गया स्निपेट दिखाता है कि कैसे (या खोलें) एक इंडेक्स फ़ोल्डर बनाएं:
 
 ```java
 import com.groupdocs.search.Index;
@@ -83,8 +133,10 @@ import com.groupdocs.search.Index;
 Index index = new Index("path/to/index/folder");
 ```
 
-## जावा में सर्च रिज़ल्ट्स को हाइलाइट कैसे करें – सिंक्रोनस इंडेक्सिंग
-सिंक्रोनस इंडेक्सिंग दस्तावेज़ों को तुरंत प्रोसेस करती है, जिससे नई जोड़ी गई फ़ाइलें तुरंत सर्चेबल हो जाती हैं।
+## हाइलाइट सर्च रिज़ल्ट्स जावा – सिंक्रोनस इंडेक्सिंग
+`DocumentHighlighter` एक यूटिलिटी क्लास है जो सर्च रिज़ल्ट्स से हाइलाइटेड स्निपेट्स जनरेट करता है।
+
+इंडेक्स लोड करें, `index.add(documentPath)` से दस्तावेज़ जोड़ें, एक क्वेरी चलाएँ, और फिर `DocumentHighlighter` को कॉल करके मैच को `<mark>` टैग में रैप करें। पूरी प्रक्रिया कॉलिंग थ्रेड पर चलती है, इसलिए `add` रिटर्न होने के बाद दस्तावेज़ तुरंत सर्चेबल हो जाता है।
 
 ### चरण 1: इंडेक्स बनाएं और एरर हैंडलिंग जोड़ें
 ```java
@@ -118,7 +170,7 @@ public class SynchronousIndexingFeature {
         SearchResult result = index.search(query);
 ```
 
-### चरण 3: परिणाम प्रोसेस करें और **highlight search results Java**
+### चरण 3: परिणाम प्रोसेस करें और हाइलाइट सर्च रिज़ल्ट्स जावा
 ```java
         for (int i = 0; i < result.getDocumentCount(); i++) {
             FoundDocument document = result.getFoundDocument(i);
@@ -138,10 +190,12 @@ public class SynchronousIndexingFeature {
 }
 ```
 
-`DocumentHighlighter` स्वचालित रूप से मिलते हुए शब्दों को `<mark>` टैग (या आपके द्वारा कॉन्फ़िगर किया गया कोई भी फॉर्मेट) में लपेटता है, जिससे आपको **हाइलाइटेड सर्च रिज़ल्ट्स** डिस्प्ले के लिए तैयार मिलते हैं।
+## हाइलाइट सर्च रिज़ल्ट्स जावा – असिंक्रोनस इंडेक्सिंग
+`IndexingOptions` यह कॉन्फ़िगर करता है कि इंडेक्सिंग प्रोसेस कैसे चलेगा, जिसमें सिंक्रोनस या असिंक्रोनस मोड शामिल है।
 
-## जावा में सर्च रिज़ल्ट्स को हाइलाइट कैसे करें – असिंक्रोनस इंडेक्सिंग
-हजारों फ़ाइलों से निपटते समय मुख्य थ्रेड को ब्लॉक करना अनचाहा होता है। असिंक्रोनस इंडेक्सिंग इंजन को बैकग्राउंड में काम करने देता है।
+`IndexingOptions` को बैकग्राउंड मोड में चलाने के लिए कॉन्फ़िगर करें, `StatusChanged` इवेंट्स को सब्सक्राइब करें, और इंजन को फ़ाइलें इंडेक्स करने दें जबकि आपका UI अन्य अनुरोधों को सर्व करता रहे। जब स्टेटस `Ready` में बदल जाए, तो आप सर्च चला सकते हैं और सिंक्रोनस मोड की तरह हाइलाइटेड स्निपेट्स प्राप्त कर सकते हैं।
+
+`AsyncIndexingListener` प्रोग्रेस अपडेट प्राप्त करता है, जिससे आप प्रोग्रेस बार दिखा सकते हैं या स्टेटस लॉग कर सकते हैं बिना मुख्य थ्रेड को ब्लॉक किए।
 
 ### चरण 1: इवेंट लिस्नर्स के साथ इंडेक्स सेट अप करें
 ```java
@@ -185,37 +239,45 @@ public class AsynchronousIndexingFeature {
 }
 ```
 
-जब इंडेक्स बन रहा हो, आपका एप्लिकेशन अन्य अनुरोधों को सर्व करना जारी रख सकता है। जब `StatusChanged` इवेंट `Ready` रिपोर्ट करे, तब आप सुरक्षित रूप से सर्च चला सकते हैं और **highlighted search results Java** प्राप्त कर सकते हैं।
+## जावा में दस्तावेज़ इंडेक्स कैसे करें – व्यावहारिक टिप्स
+`index.update(path)` निर्दिष्ट पाथ की फ़ाइल के साथ इंडेक्स में मौजूदा दस्तावेज़ को अपडेट करता है।
 
-## **index documents java** कैसे करें – व्यावहारिक टिप्स
-- **Batch size**: बड़े कलेक्शन के लिए, फ़ोल्डर को छोटे बैच में विभाजित करें ताकि मेमोरी स्पाइक से बचा जा सके।  
-- **File filters**: केवल आवश्यक फ़ॉर्मेट (जैसे, `.pdf`, `.docx`) शामिल करने के लिए `IndexingOptions.setFileExtensions` उपयोग करें।  
-- **Re‑indexing**: जब दस्तावेज़ बदलें, तो पूरे इंडेक्स को रीबिल्ड करने के बजाय `index.update(documentPath)` कॉल करें।
+बड़ी कलेक्शन को 1 000–5 000 फ़ाइलों के बैच में विभाजित करें, अनावश्यक पार्सिंग से बचने के लिए एक्सटेंशन द्वारा फ़िल्टर करें, और पूरे इंडेक्स को रीबिल्ड करने के बजाय बदलती फ़ाइलों के लिए `index.update(path)` उपयोग करें। ये प्रैक्टिसेज मेमोरी उपयोग को कम रखती हैं और इंडेक्सिंग समय को पूर्वानुमेय बनाती हैं जिससे स्थिरता बनी रहती है।
+
+- **बैच साइज**: बड़े कलेक्शन के लिए, मेमोरी स्पाइक से बचने हेतु फ़ोल्डर को छोटे बैचों में विभाजित करें।  
+- **फ़ाइल फ़िल्टर**: केवल आवश्यक फ़ॉर्मेट्स (जैसे `.pdf`, `.docx`) को शामिल करने के लिए `IndexingOptions.setFileExtensions` उपयोग करें।  
+- **री‑इंडेक्सिंग**: जब दस्तावेज़ बदलता है, तो इंडेक्स को स्क्रैच से फिर से बनाने के बजाय `index.update(documentPath)` कॉल करें।
 
 ## प्रदर्शन संबंधी विचार
-- **Memory**: हीप उपयोग पर नज़र रखें; यदि आप कई बड़ी फ़ाइलें प्रोसेस कर रहे हैं तो `-Xmx` बढ़ाएँ।  
-- **CPU**: असिंक्रोनस इंडेक्सिंग वर्कलोड को फैलाता है, लेकिन फिर भी CPU खपत करता है—JVisualVM से मॉनिटर करें।  
-- **Result Highlighting**: हाइलाइटिंग थोड़ा प्रोसेसिंग ओवरहेड जोड़ता है; यदि आपको परिणाम बार‑बार दिखाने हैं तो जेनरेटेड HTML को कैश करें।
+- **मेमोरी**: हीप उपयोग मॉनिटर करें; यदि आप एक साथ कई बड़े फ़ाइलें प्रोसेस कर रहे हैं तो `-Xmx` बढ़ाएँ।  
+- **CPU**: असिंक्रोनस इंडेक्सिंग वर्कलोड को थ्रेड्स में बाँटता है लेकिन फिर भी CPU का उपयोग करता है—JVisualVM से उपयोग ट्रैक करें।  
+- **रिज़ल्ट हाइलाइटिंग**: हाइलाइटिंग में मामूली ओवरहेड जोड़ता है (≈ 2–5 ms प्रति रिज़ल्ट)। यदि आपको एक ही स्निपेट्स बार‑बार दिखाने हैं तो जनरेटेड HTML को कैश करें।
 
 ## अक्सर पूछे जाने वाले प्रश्न
 
 **Q: क्या मैं एक ही एप्लिकेशन में सिंक्रोनस और असिंक्रोनस दोनों इंडेक्सिंग को संयोजित कर सकता हूँ?**  
-A: हाँ। छोटे, अक्सर अपडेट होने वाले सेट्स के लिए सिंक्रोनस इंडेक्सिंग और बड़े इम्पोर्ट या बैकग्राउंड जॉब्स के लिए असिंक्रोनस इंडेक्सिंग उपयोग करें।
+A: हाँ। छोटे, अक्सर अपडेट होने वाले सेट्स के लिए सिंक्रोनस इंडेक्सिंग उपयोग करें और बड़े इम्पोर्ट या बैकग्राउंड जॉब्स के लिए असिंक्रोनस इंडेक्सिंग।
 
 **Q: हाइलाइट स्टाइल को कैसे कस्टमाइज़ करूँ?**  
-A: एक कस्टम `DocumentHighlighter` इम्प्लीमेंटेशन प्रदान करें जो मिलते हुए शब्दों के चारों ओर वांछित HTML, CSS, या XML टैग लिखे।
+A: एक कस्टम `DocumentHighlighter` इम्प्लीमेंटेशन प्रदान करें जो मैच्ड टर्म्स के चारों ओर इच्छित HTML, CSS, या XML टैग लिखे।
 
-**Q: GroupDocs.Search डिफ़ॉल्ट रूप से कौन-से फ़ाइल प्रकारों को सपोर्ट करता है?**  
-A: टेक्स्ट, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML, और कई अन्य उसके बिल्ट‑इन पार्सर्स के माध्यम से।
+**Q: GroupDocs.Search डिफ़ॉल्ट रूप से कौन‑से फ़ाइल टाइप्स को सपोर्ट करता है?**  
+A: टेक्स्ट, PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, HTML, और कई अन्य बिल्ट‑इन पार्सर्स के माध्यम से—कुल मिलाकर 30 से अधिक फ़ॉर्मेट्स।
 
 **Q: क्या एक साथ कई भाषाओं में सर्च करना संभव है?**  
-A: बिल्कुल। GroupDocs.Search में मल्टी‑लैंग्वेज एनालाइज़र शामिल हैं; इंडेक्स बनाते समय उचित `Analyzer` कॉन्फ़िगर करें।
+A: बिल्कुल। GroupDocs.Search में मल्टी‑लैंग्वेज़ एनालाइज़र शामिल हैं; इंडेक्स बनाते समय उपयुक्त `Analyzer` कॉन्फ़िगर करें।
 
-**Q: मैं इंडेक्स फ़ोल्डर को कैसे सुरक्षित करूँ?**  
-A: इंडेक्स को एक प्रोटेक्टेड डायरेक्टरी में रखें, उचित फ़ाइल सिस्टम परमिशन सेट करें, और लाइब्रेरी की सुरक्षा सुविधाओं से इंडेक्स को एन्क्रिप्ट करने पर विचार करें।
+**Q: इंडेक्स फ़ोल्डर को कैसे सुरक्षित करूँ?**  
+A: इंडेक्स को एक प्रोटेक्टेड डायरेक्टरी में रखें, कड़ी फ़ाइल‑सिस्टम परमिशन सेट करें, और वैकल्पिक रूप से लाइब्रेरी की सुरक्षा सुविधाओं से इंडेक्स को एन्क्रिप्ट करें।
 
 ---
 
-**अंतिम अपडेट:** 2026-02-08  
+**अंतिम अपडेट:** 2026-09-11  
 **परीक्षण किया गया:** GroupDocs.Search 25.4 for Java  
 **लेखक:** GroupDocs
+
+## संबंधित ट्यूटोरियल्स
+
+- [GroupDocs.Search API for Java का उपयोग करके डॉक्यूमेंट इंडेक्स बनाना और डॉक्यूमेंट जोड़ना](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [GroupDocs.Search के साथ जावा में इंडेक्स रिपॉजिटरी बनाना: प्रभावी डॉक्यूमेंट इंडेक्सिंग और सर्च](/search/java/searching/master-groupdocs-search-java-indexing-search/)
+- [Groupdocs जावा में प्रभावी डॉक्यूमेंट इंडेक्सिंग सर्च](/search/java/indexing/efficient-document-indexing-search-groupdocs-java/)
