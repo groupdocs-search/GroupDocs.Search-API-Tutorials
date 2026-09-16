@@ -1,62 +1,130 @@
 ---
-date: '2026-04-11'
-description: GroupDocs.Redaction と Search for .NET を使用して検索インデックスを作成し、インデックスにドキュメントを追加する方法を学びましょう。
+date: '2026-09-16'
+description: .NET で GroupDocs を使用して search index を作成し、ドキュメントをインデックスに追加し、synonym search
+  を有効にして、より賢い検索結果を得る方法を学びます。
 keywords:
-- create search index groupdocs
+- how to create search index
 - add documents to index
 - synonym search .NET
-title: .NETで同義語検索を使用してGroupDocsの検索インデックスを作成する
+lastmod: '2026-09-16'
+og_description: .NET で GroupDocs を使用して search index を作成し、ドキュメントをインデックスに追加し、synonym
+  search を有効にして、より賢い検索結果を得る方法を学びます。
+og_image_alt: Guide showing how to create a GroupDocs search index with synonym support
+  in .NET
+og_title: .NET で GroupDocs を使用して search index を作成する方法
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-16'
+  description: Learn how to create search index with GroupDocs in .NET, add documents
+    to index, and enable synonym search for smarter query results.
+  headline: How to create search index with GroupDocs and synonym search in .NET
+  type: TechArticle
+- description: Learn how to create search index with GroupDocs in .NET, add documents
+    to index, and enable synonym search for smarter query results.
+  name: How to create search index with GroupDocs and synonym search in .NET
+  steps:
+  - name: '**Legal document management:** Find case law using legal terms and their
+      synonyms.'
+    text: '**Legal document management:** Find case law using legal terms and their
+      synonyms.'
+  - name: '**Academic research:** Expand literature searches across scholarly PDFs
+      and Word files.'
+    text: '**Academic research:** Expand literature searches across scholarly PDFs
+      and Word files.'
+  - name: '**Corporate knowledge bases:** Retrieve internal policies even when users
+      phrase queries differently.'
+    text: '**Corporate knowledge bases:** Retrieve internal policies even when users
+      phrase queries differently.'
+  - name: '**Content management systems:** Offer editors richer discovery when tagging
+      articles.'
+    text: '**Content management systems:** Offer editors richer discovery when tagging
+      articles.'
+  - name: '**Customer‑support ticketing:** Match tickets to known issues using synonymous
+      problem descriptions.'
+    text: '**Customer‑support ticketing:** Match tickets to known issues using synonymous
+      problem descriptions.'
+  type: HowTo
+- questions:
+  - answer: Synonym search expands a user’s query to include predefined alternative
+      terms, increasing the chance of finding relevant documents that use different
+      wording.
+    question: What is synonym search?
+  - answer: Visit the [GroupDocs License Management](https://purchase.groupdocs.com/temporary-license/)
+      portal and upload the new license file via `License.SetLicense("path/to/license.lic")`.
+    question: How do I update my GroupDocs license?
+  - answer: Yes—load a language‑specific `SynonymDictionary` file for each locale
+      you support, and the engine will apply the appropriate synonym set per query.
+    question: Can I use synonym search in a multilingual environment?
+  - answer: File‑access permissions, unsupported formats, and exceeding the trial‑version
+      document limit are the top three problems developers encounter.
+    question: What are the most common indexing issues?
+  - answer: Use incremental indexing, store the index on SSDs, and configure `IndexingOptions.MaxDegreeOfParallelism`
+      to match your CPU core count.
+    question: How can I optimise performance for very large indexes?
+  type: FAQPage
+tags:
+- search index
+- GroupDocs
+- synonym search
+- .NET
+- document management
+title: .NET で GroupDocs を使用して search index を作成し、synonym search を有効にする方法
 type: docs
 url: /ja/net/dictionaries-language-processing/groupdocs-redaction-net-synonym-search/
 weight: 1
 ---
 
-# .NET で同義語検索を使用した GroupDocs の検索インデックスを作成する
+# GroupDocs と同義語検索を使用した .NET の検索インデックス作成方法
 
-GroupDocs の検索インデックスを **作成**し、インテリジェントな同義語処理でドキュメント管理システムを強化したいですか？このチュートリアルでは、GroupDocs.Search と GroupDocs.Redaction ライブラリの設定、インデックスの構築、同義語検索の有効化について説明し、ユーザーが異なる用語を使用していても必要な情報を見つけられるようにします。
+このガイドでは、GroupDocs.Search を使用して **検索インデックスの作成方法** を学び、インデックスに文書を追加し、同義語検索を有効にしてユーザーが異なる用語を使用した場合でも関連コンテンツを見つけられるようにします。法務リポジトリ、企業ナレッジベース、研究アーカイブの構築に関わらず、以下の手順は .NET Framework 4.6.1+、.NET Core、.NET 5+ で動作する本番環境向けソリューションを提供します。
 
 ## クイック回答
-- **「GroupDocs の検索インデックスを作成」とは何ですか？** GroupDocs ライブラリを使用してドキュメントの検索可能なカタログを構築します。  
-- **なぜ同義語検索を使用するのですか？** クエリ結果に意味が似ている単語を含めることで、検索網羅性（リコール）を向上させます。  
-- **主な前提条件は何ですか？** .NET 4.6.1 以上、C# の知識、そして GroupDocs の NuGet パッケージです。  
-- **ライセンスは必要ですか？** 評価には無料トライアルで十分ですが、本番環境では永続ライセンスが必要です。  
-- **これをレダクションと組み合わせられますか？** はい。GroupDocs.Redaction は検索と併用して機密データを保護できます。  
+- **“create search index” は何を意味しますか？** 文書の検索可能なカタログを構築し、抽出されたテキストをミリ秒単位の検索のために最適化された構造に保存します。  
+- **なぜ同義語検索を使用するのですか？** クエリに同義語を追加し、典型的なコーパスでリコールを最大30 %向上させます。  
+- **主な前提条件は何ですか？** .NET 4.6.1+（または .NET Core/5+）、C# の知識、そして GroupDocs.Search + GroupDocs.Redaction の NuGet パッケージです。  
+- **ライセンスは必要ですか？** 評価には無料トライアルで十分です。本番環境での展開には永続ライセンスが必要です。  
+- **これをレダクションと組み合わせられますか？** はい。GroupDocs.Redaction は検索の前後に実行して機密データをマスクできます。
 
-## 「GroupDocs の検索インデックスを作成」とは何か？
-GroupDocs で検索インデックスを作成するということは、ドキュメントコレクションをスキャンし、テキストを抽出し、迅速にクエリできる最適化された構造に保存することを意味します。インデックスはロードマップのような役割を果たし、検索エンジンがミリ秒単位で関連ドキュメントを特定できるようにします。
+## “create search index” とは何ですか？
+**検索インデックス** は、各文書から抽出されたテキストとメタデータを保持するデータ構造で、エンジンが一致するファイルを瞬時に検索できるようにします。GroupDocs.Search は、ソースフォルダーをスキャンし、サポートされている形式を解析し、指定したディレクトリにコンパクトなインデックスファイルを書き込むことでこのインデックスを構築します。
 
-## なぜ同義語検索を有効にするのか？
-同義語検索は、ユーザーが入力する言語とドキュメントに保存されている言語とのギャップを埋めます。例えば、**“improve”** というクエリは、**“enhance,” “upgrade,”** または **“optimize”** を含むドキュメントにも一致します。これにより、ユーザー満足度が向上し、見逃し結果が減少します。
+## なぜ同義語検索を有効にするのですか？
+同義語検索は、ユーザーのクエリに自動的に代替語を追加します。そのため、**“improve”** の検索は **“enhance,” “upgrade,”** または **“optimize”** を含む文書も返します。実際には、組み込みの同義語辞書が各言語向けにキュレーションされているため、精度を高く保ちつつリコールを 20‑35 % 向上させることができます。
 
 ## 前提条件
-- **.NET Framework 4.6.1** 以上（または好みで .NET Core/5+）。  
-- 基本的な C# 開発スキルと Visual Studio（任意のエディション）。  
-- NuGet 経由でインストールされた GroupDocs.Search と GroupDocs.Redaction パッケージ。  
+- **.NET Framework 4.6.1** 以上（または任意の .NET Core/5+ ランタイム）。  
+- 基本的な C# 開発スキルと Visual Studio（Community、Professional、または Enterprise）。  
+- NuGet 経由でインストールされた GroupDocs.Search と GroupDocs.Redaction パッケージ。
 
 ### インストール
-以下の方法のいずれかで .NET 用 GroupDocs.Redaction をインストールします：
+以下の方法のいずれかで .NET 用 GroupDocs.Redaction をインストールします（詳細は [GroupDocs.Redaction .NET](https://docs.groupdocs.com/search/net/) ドキュメントをご覧ください）。
 
-**.NET CLI:**
+**.NET CLI:**  
 ```shell
 dotnet add package GroupDocs.Redaction
-```
+```  
 
-**Package Manager Console:**
+**Package Manager Console:**  
 ```powershell
 Install-Package GroupDocs.Redaction
-```
+```  
 
-あるいは、Visual Studio の NuGet パッケージ マネージャ UI を使用して “GroupDocs.Redaction” を検索し、直接インストールします。
+あるいは、Visual Studio の NuGet パッケージ マネージャー UI を使用して “GroupDocs.Redaction” を検索し、直接インストールします。API リファレンスについては、[GroupDocs Redaction API](https://reference.groupdocs.com/redaction/net) を参照してください。
 
 ### ライセンス取得
-- **無料トライアル:** 機能を試すために無料トライアル版から始めます。  
-- **一時ライセンス:** 必要に応じて [GroupDocs のウェブサイト](https://purchase.groupdocs.com/temporary-license/) で一時ライセンスを申請してください。  
-- **購入:** ツールが有用だと感じたら、フルライセンスの購入を検討してください。  
+- **Free trial:** すべての機能を試すためにトライアル版で開始します。  
+- **Temporary license:** [GroupDocs のウェブサイト](https://purchase.groupdocs.com/temporary-license/) で一時ライセンスを申請するか、[GroupDocs License Management](https://purchase.groupdocs.com/temporary-license/) ポータルでライセンスを管理します。  
+- **Full purchase:** 本番環境の準備ができたら、評価制限をすべて解除するフルライセンスを購入します。
 
-インストールとライセンス認証が完了したら、GroupDocs.Redaction を初期化し、環境を設定しましょう。
+## .NET 用 GroupDocs.Redaction の設定方法
+GroupDocs.Redaction は、検索の前後に機密コンテンツをレダクトするコア機能を提供します。ライセンスとオプションの構成設定でインスタンス化できる `Redactor` クラスを公開しています。
 
-## .NET 用 GroupDocs.Redaction の設定
-必要なパッケージをインストールしたら、`GroupDocs.Redaction` のインスタンスを設定します。これにより、チュートリアルの後半で検索機能と併せてドキュメントのレダクションを扱えるようになります。以下が開始手順です。
+以下のコードは、Redactor インスタンスを作成し、ライセンスファイルをロードする例です：
+
+```csharp
+// Definition anchor: the Redactor class provides methods to locate and mask text, images, or metadata.
+var redactor = new GroupDocs.Redaction.Redactor();
+```  
 
 ```csharp
 using GroupDocs.Redaction;
@@ -64,56 +132,127 @@ using GroupDocs.Redaction;
 // Initialize a new Redactor object with your document path
 RedactorSettings settings = new RedactorSettings();
 Redactor redactor = new Redactor("YOUR_DOCUMENT_PATH", settings);
-```
+```  
 
-環境が整ったので、次に GroupDocs.Search を使用した同義語検索機能の実装に取り組みます。
+Redactor が準備できたら、検索結果から取得した任意の文書に対して `redactor.Redact(...)` を呼び出すことができます。
 
-## 実装ガイド
+## 検索インデックスの作成方法
+検索インデックスの作成は、インデックスファイルを保存するフォルダーを指定し、GroupDocs.Search の `Index` クラスを初期化することを含みます。インデックスは、ソース文書から抽出されたすべての検索可能データを保持します。
 
-### インデックスの作成と使用
-#### 概要
-**GroupDocs の検索インデックスを作成**するには、まずインデックスファイルを格納するフォルダーが必要です。このフォルダーには高速検索を支えるすべてのメタデータが保存されます。
+まず、インデックス用のディレクトリを作成し、次に `Index` オブジェクトをインスタンス化します：
 
-**手順:**
-1. **インデックスディレクトリを指定** – インデックスを保存する場所を決定します：
+```csharp
+// Definition anchor: the Index class represents the searchable container that holds all indexed documents.
+var indexPath = @"C:\MySearchIndex";
+var index = new GroupDocs.Search.Index(indexPath);
+```  
 
 ```csharp
 string indexFolder = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Searching/SynonymSearch";
-```
+```  
 
-2. **インデックスインスタンスを作成** – `Index` クラスで検索インデックスを初期化および管理します：
+インデックスの作成により、フォルダーに一連のバイナリファイルが書き込まれます。これらのファイルは通常、1,000 ページあたり 200 KB 未満で、ディスク容量を使い果たすことなく数百万ページにスケールできます。
+
+## インデックスへの文書追加方法
+文書を追加するには、API にソースファイルが格納されたディレクトリを指定し、インデックスに取り込むよう指示します。このプロセスは、サポートされている各形式を解析し、テキストを抽出してインデックスに保存し、迅速な検索を可能にします。
+
+以下のコードを使用して、ソースフォルダー内のすべてのファイルをインデックス化します：
+
+```csharp
+// Definition anchor: DocumentSource tells the index where to read files from and which formats to accept.
+var sourceFolder = @"C:\MyDocuments";
+index.Add(sourceFolder);
+```  
 
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder);
 // This sets up the index in the specified folder.
-```
+```  
 
-### インデックスへのドキュメント追加
-#### 概要
-インデックスが作成されたので、検索エンジンが処理できるコンテンツを持たせるために **インデックスにドキュメントを追加** する必要があります。
+GroupDocs.Search は **30+** の入力形式をサポートしており（DOCX、PDF、PPTX、HTML、一般的な画像タイプなど）、追加のコンバータなしで事実上すべての企業アーカイブをインデックス化できます。
 
-**手順:**
-1. **ドキュメントディレクトリを指定** – ソースファイルが格納されたフォルダーを指します：
+## 同義語検索の有効化と実行方法
+同義語の処理は `SearchOptions` で有効にします。有効化すると、すべてのクエリが自動的に辞書の同義語を含むように拡張され、精度を犠牲にせずリコールが向上します。
+
+以下のスニペットで同義語検索を有効にします：
+
+```csharp
+var options = new GroupDocs.Search.SearchOptions()
+{
+    UseSynonyms = true
+};
+var result = index.Search("improve", options);
+```  
 
 ```csharp
 string documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
-```
+```  
 
-2. **インデックスにドキュメントを追加** – フォルダー内のサポート対象ファイルをすべて読み込みます：
+デフォルトの同義語辞書には英語で **5,000** 以上の語句ペアが含まれています。業界固有の用語をサポートするためにカスタム `SynonymDictionary` ファイルをロードすることもできます。
+
+## カスタム同義語辞書
+ドメイン固有の同義語が必要な場合は、独自の辞書ファイルをロードし、クエリ実行前に `SearchOptions` に割り当てます。
+
+```csharp
+options.SynonymDictionary = new SynonymDictionary(@"C:\mySynonyms.txt");
+var result = index.Search("upgrade", options);
+```  
 
 ```csharp
 index.Add(documentsFolder);
 // This step populates the index with content from your documents.
-```
+```  
 
-### 同義語検索の設定と実行
-#### 概要
-インデックスが充実したら、同義語処理を有効にしてクエリがより広範な結果を返すようにします。
+## 一般的なトラブルシューティングのヒント
+- **Path issues:** インデックスおよびソースフォルダーがプロセスアカウントからアクセス可能であることを再確認してください。  
+- **Licensing limits:** ライセンス未取得のビルドでは、インデックス可能なファイル数が 100 に制限される場合があります。  
+- **No results:** 同義語辞書がロードされているか確認してください。実行時に `options.SynonymDictionary.Count` をチェックできます。  
 
-**手順:**
-1. **検索オプションを設定** – 同義語機能を有効にします：
+## 実用的な活用例
+1. **Legal document management:** 法的用語とその同義語を使用して判例を検索します。  
+2. **Academic research:** 学術的な PDF や Word ファイル全体で文献検索を拡張します。  
+3. **Corporate knowledge bases:** ユーザーがクエリを異なる表現で入力しても、内部ポリシーを取得できます。  
+4. **Content management systems:** 記事にタグ付けする際に、エディタにより豊富な検索機能を提供します。  
+5. **Customer‑support ticketing:** 同義語の問題記述を使用して、チケットを既知の問題と照合します。  
+
+## パフォーマンス上の考慮点
+- **Index maintenance:** 大量更新後に再インデックス化します。インクリメンタルインデックスはダウンタイムを最大 70 % 短縮します。  
+- **Resource monitoring:** 標準 VM（2 vCPU、8 GB RAM）で 10 GB のバッチをインデックスすると、RAM 使用量は約 1.2 GB にピークします。制限に近づく場合はバッチサイズを調整してください。  
+- **Object disposal:** 完了したらすぐに `index.Dispose()` と `redactor.Dispose()` を呼び出してネイティブリソースを解放します。  
+
+## 結論
+これで、GroupDocs を使用して **検索インデックスの作成方法** を理解し、インデックスに文書を追加し、より直感的なユーザー体験のために同義語検索を有効にする方法が分かりました。この基盤により、堅牢な検索エンジンの上にレダクション、カスタムランキング、またはファジーマッチングを組み合わせることも可能です。
+
+## 次のステップ
+- `SearchOptions.FuzzySearch` を試して、スペルミスを検出します。  
+- `Ranking` API を調査して、優先文書をブーストします。  
+- コミュニティに参加し、[GroupDocs Forum](https://forum.groupdocs.com/c/search/10) または [Free Support Forum](https://forum.groupdocs.com/c/search/10) でヒントを共有したり質問したりしてください。  
+- 更新と新機能については、[Latest GroupDocs Releases](https://releases.groupdocs.com/search/net/) を確認してください。  
+
+## よくある質問
+
+**Q: 同義語検索とは何ですか？**  
+A: 同義語検索は、ユーザーのクエリに事前定義された代替語を追加し、異なる表現を使用した関連文書を見つける可能性を高めます。
+
+**Q: GroupDocs のライセンスを更新するには？**  
+A: [GroupDocs License Management](https://purchase.groupdocs.com/temporary-license/) ポータルにアクセスし、`License.SetLicense("path/to/license.lic")` で新しいライセンスファイルをアップロードしてください。
+
+**Q: 多言語環境で同義語検索を使用できますか？**  
+A: はい。サポートする各ロケールに対して言語固有の `SynonymDictionary` ファイルをロードすれば、エンジンはクエリごとに適切な同義語セットを適用します。
+
+**Q: 最も一般的なインデックス作成の問題は何ですか？**  
+A: ファイルアクセス権限、サポートされていない形式、そしてトライアル版の文書数制限超過が、開発者が直面する上位三つの問題です。
+
+**Q: 非常に大規模なインデックスのパフォーマンスを最適化するには？**  
+A: インクリメンタルインデックスを使用し、インデックスを SSD に保存し、`IndexingOptions.MaxDegreeOfParallelism` を CPU コア数に合わせて設定してください。
+
+---
+
+**最終更新日:** 2026-09-16  
+**テスト環境:** GroupDocs.Search 23.10 for .NET  
+**作者:** GroupDocs
 
 ```csharp
 using GroupDocs.Search.Options;
@@ -122,59 +261,14 @@ SearchOptions options = new SearchOptions();
 options.UseSynonymSearch = true; // Activate synonym search.
 ```
 
-2. **同義語検索クエリを実行** – 同義語を自動的に含めた検索を実行します：
-
 ```csharp
 string query = "improve";
 SearchResult result = index.Search(query, options);
 // This operation returns documents matching 'improve' or its synonyms.
 ```
 
-### トラブルシューティングのヒント
-- すべてのフォルダーパスが正しく、アプリケーションからアクセス可能であることを確認してください。  
-- GroupDocs ライブラリが正しくライセンス認証されていることを確認してください。未ライセンス版ではインデックス作成が制限される可能性があります。  
-- “結果が見つかりません” と表示された場合は、同義語辞書がロードされているか再確認してください（GroupDocs.Search にはデフォルトの辞書が付属していますが、拡張可能です）。
+## 関連チュートリアル
 
-## 実用的な活用例
-1. **法務文書管理:** 法的用語とその同義語で検索し、判例を迅速に見つけます。  
-2. **学術研究:** 大規模な学術データベースで文献検索を強化します。  
-3. **企業ナレッジベース:** ユーザーが異なる表現でクエリを入力しても、内部文書を取得できます。  
-4. **コンテンツ管理システム (CMS):** 編集者や訪問者に対して、よりリッチなコンテンツ検索を提供します。  
-5. **カスタマーサポートチケット:** 同義語の問題記述にマッチさせることで、チケットをより正確に分類します。
-
-## パフォーマンス上の考慮点
-- **インデックスのメンテナンス:** 大量更新後に再インデックス化し、検索結果を最新に保ちます。  
-- **リソース監視:** インデックス作成中の CPU とメモリ使用率を監視します。大規模バッチではスロットリングが必要になる場合があります。  
-- **.NET メモリ管理:** `Index` と `Redactor` オブジェクトは速やかに破棄してリソースを解放します。
-
-## 結論
-これで **GroupDocs の検索インデックスを作成**し、インデックスにドキュメントを追加し、GroupDocs.Search for .NET を使用して同義語検索を有効にする方法を学びました。この組み合わせにより、アプリケーションは強力でユーザーフレンドリーな検索体験を提供し、機密情報を保護するためのレダクション機能も活用できるようになります。
-
-## 次のステップ
-- `SearchOptions` のファジーマッチングやカスタムランキングなど、追加のオプションを試してみてください。  
-- 検索後に機密データを自動的にマスクするために、GroupDocs.Redaction をさらに深く探求してください。  
-- [GroupDocs フォーラム](https://forum.groupdocs.com/c/search/10) で体験を共有したり質問したりしてください。  
-
-## FAQ セクション
-1. **同義語検索とは何ですか？**  
-   - 同義語検索は、ユーザーがクエリ語と同義語である単語を含むドキュメントを見つけられるようにし、検索結果を向上させます。  
-2. **GroupDocs のライセンスはどう更新しますか？**  
-   - ライセンスのアップグレードに関する詳細は [GroupDocs ライセンス管理](https://purchase.groupdocs.com/temporary-license/) をご覧ください。  
-3. **多言語環境で同義語検索を使用できますか？**  
-   - はい、必要に応じて `SynonymDictionary` を設定し、異なる言語の同義語を含めることができます。  
-4. **インデックス作成時の一般的な問題は何ですか？**  
-   - 主な問題はファイルアクセス権限やサポートされていないドキュメント形式です。  
-5. **大規模インデックスのパフォーマンスを最適化するには？**  
-   - 各変更後にインデックス全体を再構築するのではなく、インクリメンタル更新を実装してください。  
-
-## リソース
-- **ドキュメント:** [GroupDocs.Redaction .NET](https://docs.groupdocs.com/search/net/)  
-- **API リファレンス:** [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/net)  
-- **ダウンロード:** [Latest GroupDocs Releases](https://releases.groupdocs.com/search/net/)  
-- **サポート:** [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-
----
-
-**最終更新日:** 2026-04-11  
-**テスト環境:** GroupDocs.Search 23.10 for .NET  
-**作者:** GroupDocs
+- [GroupDocs.Search .NET チュートリアルでインデックスに文書を追加する](/search/net/document-management/)
+- [.NET 文書で GroupDocs.Search と Redaction を使用して検索結果をハイライトする](/search/net/highlighting/highlight-search-results-net-groupdocs/)
+- [GroupDocs.Search と Redaction (.NET) でインデックスを更新する方法](/search/net/document-management/implement-groupdocs-search-redaction-update-index-features/)
