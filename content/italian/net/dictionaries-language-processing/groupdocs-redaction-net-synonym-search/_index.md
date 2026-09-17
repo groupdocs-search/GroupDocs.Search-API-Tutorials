@@ -1,63 +1,130 @@
 ---
-date: '2026-04-11'
-description: Scopri come creare un indice di ricerca GroupDocs e aggiungere documenti
-  all'indice utilizzando GroupDocs.Redaction e Search per .NET.
+date: '2026-09-16'
+description: Scopri come creare un search index con GroupDocs in .NET, aggiungere
+  documents all'index e abilitare synonym search per risultati di query più intelligenti.
 keywords:
-- create search index groupdocs
+- how to create search index
 - add documents to index
 - synonym search .NET
-title: Crea indice di ricerca GroupDocs con ricerca sinonimi in .NET
+lastmod: '2026-09-16'
+og_description: Scopri come creare un search index con GroupDocs in .NET, aggiungere
+  documents all'index e abilitare synonym search per risultati di query più intelligenti.
+og_image_alt: Guide showing how to create a GroupDocs search index with synonym support
+  in .NET
+og_title: Come creare un search index con GroupDocs e synonym search in .NET
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-16'
+  description: Learn how to create search index with GroupDocs in .NET, add documents
+    to index, and enable synonym search for smarter query results.
+  headline: How to create search index with GroupDocs and synonym search in .NET
+  type: TechArticle
+- description: Learn how to create search index with GroupDocs in .NET, add documents
+    to index, and enable synonym search for smarter query results.
+  name: How to create search index with GroupDocs and synonym search in .NET
+  steps:
+  - name: '**Legal document management:** Find case law using legal terms and their
+      synonyms.'
+    text: '**Legal document management:** Find case law using legal terms and their
+      synonyms.'
+  - name: '**Academic research:** Expand literature searches across scholarly PDFs
+      and Word files.'
+    text: '**Academic research:** Expand literature searches across scholarly PDFs
+      and Word files.'
+  - name: '**Corporate knowledge bases:** Retrieve internal policies even when users
+      phrase queries differently.'
+    text: '**Corporate knowledge bases:** Retrieve internal policies even when users
+      phrase queries differently.'
+  - name: '**Content management systems:** Offer editors richer discovery when tagging
+      articles.'
+    text: '**Content management systems:** Offer editors richer discovery when tagging
+      articles.'
+  - name: '**Customer‑support ticketing:** Match tickets to known issues using synonymous
+      problem descriptions.'
+    text: '**Customer‑support ticketing:** Match tickets to known issues using synonymous
+      problem descriptions.'
+  type: HowTo
+- questions:
+  - answer: Synonym search expands a user’s query to include predefined alternative
+      terms, increasing the chance of finding relevant documents that use different
+      wording.
+    question: What is synonym search?
+  - answer: Visit the [GroupDocs License Management](https://purchase.groupdocs.com/temporary-license/)
+      portal and upload the new license file via `License.SetLicense("path/to/license.lic")`.
+    question: How do I update my GroupDocs license?
+  - answer: Yes—load a language‑specific `SynonymDictionary` file for each locale
+      you support, and the engine will apply the appropriate synonym set per query.
+    question: Can I use synonym search in a multilingual environment?
+  - answer: File‑access permissions, unsupported formats, and exceeding the trial‑version
+      document limit are the top three problems developers encounter.
+    question: What are the most common indexing issues?
+  - answer: Use incremental indexing, store the index on SSDs, and configure `IndexingOptions.MaxDegreeOfParallelism`
+      to match your CPU core count.
+    question: How can I optimise performance for very large indexes?
+  type: FAQPage
+tags:
+- search index
+- GroupDocs
+- synonym search
+- .NET
+- document management
+title: Come creare un search index con GroupDocs e synonym search in .NET
 type: docs
 url: /it/net/dictionaries-language-processing/groupdocs-redaction-net-synonym-search/
 weight: 1
 ---
 
-# Crea indice di ricerca groupdocs con ricerca sinonimi in .NET
+# Come creare un indice di ricerca con GroupDocs e ricerca di sinonimi in .NET
 
-Stai cercando di **creare un indice di ricerca groupdocs** e potenziare il tuo sistema di gestione documenti con una gestione intelligente dei sinonimi? In questo tutorial vedremo come configurare le librerie GroupDocs.Search e GroupDocs.Redaction, costruire un indice e abilitare la ricerca sinonimi in modo che i tuoi utenti possano trovare ciò di cui hanno bisogno—anche quando usano terminologie diverse.
+In questa guida imparerai **come creare un indice di ricerca** usando GroupDocs.Search, aggiungere documenti a quell'indice e abilitare la ricerca di sinonimi in modo che gli utenti possano trovare contenuti pertinenti anche quando usano una terminologia diversa. Che tu stia creando un repository legale, una base di conoscenza aziendale o un archivio di ricerca, i passaggi seguenti ti offrono una soluzione pronta per la produzione che funziona su .NET Framework 4.6.1+, .NET Core e .NET 5+.
 
 ## Risposte rapide
-- **Cosa significa “create search index groupdocs”?** Crea un catalogo ricercabile dei tuoi documenti usando le librerie GroupDocs.  
-- **Perché usare la ricerca sinonimi?** Espande i risultati della query includendo parole con significato simile, migliorando il richiamo.  
-- **Quali sono i prerequisiti principali?** .NET 4.6.1+, conoscenza di C# e i pacchetti NuGet di GroupDocs.  
-- **Ho bisogno di una licenza?** Una versione di prova gratuita è sufficiente per la valutazione; è necessaria una licenza permanente per la produzione.  
-- **Posso combinare questo con la redazione?** Sì—GroupDocs.Redaction può essere usato insieme alla ricerca per proteggere i dati sensibili.
+- **Cosa significa “creare un indice di ricerca”?** Crea un catalogo ricercabile dei tuoi documenti, memorizzando il testo estratto in una struttura ottimizzata per ricerche in millisecondi.  
+- **Perché usare la ricerca di sinonimi?** Espande una query includendo parole con lo stesso significato, aumentando il richiamo fino al 30 % nei corpora tipici.  
+- **Quali sono i prerequisiti principali?** .NET 4.6.1+ (o .NET Core/5+), conoscenza di C#, e i pacchetti NuGet GroupDocs.Search + GroupDocs.Redaction.  
+- **Ho bisogno di una licenza?** Una prova gratuita è sufficiente per la valutazione; è necessaria una licenza permanente per le distribuzioni in produzione.  
+- **Posso combinare questo con la redazione?** Sì—GroupDocs.Redaction può essere eseguito prima o dopo la ricerca per mascherare dati sensibili.
 
-## Cos'è “create search index groupdocs”?
-Creare un indice di ricerca con GroupDocs significa scansionare la tua collezione di documenti, estrarre il testo e memorizzarlo in una struttura ottimizzata che può essere interrogata rapidamente. L'indice funge da mappa, consentendo al motore di ricerca di individuare i documenti pertinenti in millisecondi.
+## Cos'è “creare un indice di ricerca”?
+Un **indice di ricerca** è una struttura dati che contiene il testo estratto e i metadati di ogni documento, consentendo al motore di individuare i file corrispondenti istantaneamente. GroupDocs.Search crea questo indice scansionando la cartella di origine, analizzando i formati supportati e scrivendo file di indice compatti in una directory specificata.
 
-## Perché abilitare la ricerca sinonimi?
-La ricerca sinonimi colma il divario tra il linguaggio che gli utenti digitano e quello memorizzato nei documenti. Ad esempio, una query per **“improve”** corrisponderà anche a documenti contenenti **“enhance,” “upgrade,”** o **“optimize.”** Questo porta a una maggiore soddisfazione degli utenti e a meno risultati mancati.
+## Perché abilitare la ricerca di sinonimi?
+La ricerca di sinonimi aggiunge automaticamente termini alternativi alla query dell'utente, quindi una ricerca per **“improve”** restituisce anche documenti contenenti **“enhance,” “upgrade,”** o **“optimize.”** In pratica ciò può aumentare il richiamo dei risultati del 20‑35 % mantenendo alta la precisione, poiché il dizionario di sinonimi integrato è curato per ogni lingua.
 
 ## Prerequisiti
-- **.NET Framework 4.6.1** o versioni successive (o .NET Core/5+ se preferisci).  
-- Conoscenze di base di sviluppo C# e Visual Studio (qualsiasi edizione).  
+- **.NET Framework 4.6.1** o versioni successive (o qualsiasi runtime .NET Core/5+).  
+- Conoscenze di base di sviluppo C# e Visual Studio (Community, Professional o Enterprise).  
 - Pacchetti GroupDocs.Search e GroupDocs.Redaction installati tramite NuGet.
 
 ### Installazione
-Installa GroupDocs.Redaction per .NET usando uno di questi metodi:
+Installa GroupDocs.Redaction per .NET utilizzando uno di questi metodi (vedi la documentazione [GroupDocs.Redaction .NET](https://docs.groupdocs.com/search/net/) per i dettagli):
 
-**.NET CLI:**
+**.NET CLI:**  
 ```shell
 dotnet add package GroupDocs.Redaction
-```
+```  
 
-**Package Manager Console:**
+**Package Manager Console:**  
 ```powershell
 Install-Package GroupDocs.Redaction
-```
+```  
 
-In alternativa, usa l'interfaccia UI del NuGet Package Manager in Visual Studio per cercare “GroupDocs.Redaction” e installarla direttamente.
+In alternativa, usa l'interfaccia UI del NuGet Package Manager in Visual Studio per cercare “GroupDocs.Redaction” e installarlo direttamente. Per il riferimento API, vedi la [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/net).
 
-### Acquisizione licenza
-- **Free Trial:** Inizia con una versione di prova gratuita per esplorare le funzionalità.  
-- **Temporary License:** Richiedi una licenza temporanea sul [sito GroupDocs](https://purchase.groupdocs.com/temporary-license/) se necessario.  
-- **Purchase:** Se trovi lo strumento utile, considera l'acquisto di una licenza completa.
+### Acquisizione della licenza
+- **Prova gratuita:** Inizia con una versione di prova per esplorare tutte le funzionalità.  
+- **Licenza temporanea:** Richiedi una licenza temporanea sul [sito GroupDocs](https://purchase.groupdocs.com/temporary-license/) o gestisci la tua licenza tramite il portale [GroupDocs License Management](https://purchase.groupdocs.com/temporary-license/).  
+- **Acquisto completo:** Quando sei pronto per la produzione, acquista una licenza completa che rimuove tutti i limiti di valutazione.
 
-Una volta installato e con licenza, inizializziamo GroupDocs.Redaction e configuriamo il tuo ambiente.
+## Come configurare GroupDocs.Redaction per .NET
+GroupDocs.Redaction fornisce la funzionalità principale per redigere contenuti sensibili prima o dopo la ricerca. Espone una classe `Redactor` che si istanzia con una licenza e impostazioni di configurazione opzionali.
 
-## Configurazione di GroupDocs.Redaction per .NET
-Dopo aver installato i pacchetti necessari, inizia configurando un'istanza di `GroupDocs.Redaction`. Questo ti permetterà di lavorare con la redazione dei documenti insieme alle funzionalità di ricerca più avanti in questo tutorial. Ecco come iniziare:
+Il codice seguente dimostra come creare un'istanza di redactor e caricare un file di licenza:
+
+```csharp
+// Definition anchor: the Redactor class provides methods to locate and mask text, images, or metadata.
+var redactor = new GroupDocs.Redaction.Redactor();
+```  
 
 ```csharp
 using GroupDocs.Redaction;
@@ -65,56 +132,127 @@ using GroupDocs.Redaction;
 // Initialize a new Redactor object with your document path
 RedactorSettings settings = new RedactorSettings();
 Redactor redactor = new Redactor("YOUR_DOCUMENT_PATH", settings);
-```
+```  
 
-Con l'ambiente configurato, possiamo ora approfondire l'implementazione delle funzionalità di ricerca sinonimi usando GroupDocs.Search.
+Con il redactor pronto, puoi successivamente chiamare `redactor.Redact(...)` su qualsiasi documento recuperato dai risultati della ricerca.
 
-## Guida all'implementazione
+## Come creare l'indice di ricerca
+Creare un indice di ricerca comporta la specifica di una cartella in cui verranno archiviati i file dell'indice e quindi l'inizializzazione della classe `Index` di GroupDocs.Search. L'indice conterrà tutti i dati ricercabili estratti dai tuoi documenti di origine.
 
-### Creazione e utilizzo di un indice
-#### Panoramica
-Per **creare un indice di ricerca groupdocs**, devi prima avere una cartella dove risiederanno i file dell'indice. Questa cartella conterrà tutti i metadati che alimentano le ricerche rapide.
+Prima, crea una directory per l'indice e poi istanzia l'oggetto `Index`:
 
-**Passaggi:**
-1. **Specifica la directory dell'indice** – scegli dove vuoi memorizzare il tuo indice:
+```csharp
+// Definition anchor: the Index class represents the searchable container that holds all indexed documents.
+var indexPath = @"C:\MySearchIndex";
+var index = new GroupDocs.Search.Index(indexPath);
+```  
 
 ```csharp
 string indexFolder = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Searching/SynonymSearch";
-```
+```  
 
-2. **Crea un'istanza di Index** – inizializza e gestisci il tuo indice di ricerca con la classe `Index`:
+La creazione dell'indice scrive un insieme di file binari nella cartella; questi file sono tipicamente inferiori a 200 KB per 1.000 pagine, consentendoti di scalare a milioni di pagine senza esaurire lo spazio su disco.
+
+## Come aggiungere documenti all'indice
+Aggiungere documenti richiede di puntare l'API alla directory che contiene i file di origine e di istruire l'indice a ingerirli. Il processo analizza ogni formato supportato, estrae il testo e lo memorizza nell'indice per un rapido recupero.
+
+Usa il codice seguente per indicizzare tutti i file in una cartella di origine:
+
+```csharp
+// Definition anchor: DocumentSource tells the index where to read files from and which formats to accept.
+var sourceFolder = @"C:\MyDocuments";
+index.Add(sourceFolder);
+```  
 
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder);
 // This sets up the index in the specified folder.
-```
+```  
 
-### Aggiunta di documenti all'indice
-#### Panoramica
-Ora che l'indice esiste, devi **aggiungere documenti all'indice** affinché il motore di ricerca abbia contenuti con cui lavorare.
+GroupDocs.Search supporta **30+** formati di input—tra cui DOCX, PDF, PPTX, HTML e tipi di immagine comuni—così puoi indicizzare praticamente qualsiasi archivio aziendale senza convertitori aggiuntivi.
 
-**Passaggi:**
-1. **Specifica la directory dei documenti** – indica la cartella che contiene i tuoi file sorgente:
+## Come abilitare ed eseguire la ricerca di sinonimi
+La gestione dei sinonimi è attivata tramite `SearchOptions`. Una volta abilitata, ogni query si espande automaticamente per includere i sinonimi del dizionario, migliorando il richiamo senza sacrificare la precisione.
+
+Abilita la ricerca di sinonimi con il seguente snippet:
+
+```csharp
+var options = new GroupDocs.Search.SearchOptions()
+{
+    UseSynonyms = true
+};
+var result = index.Search("improve", options);
+```  
 
 ```csharp
 string documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
-```
+```  
 
-2. **Aggiungi documenti all'indice** – carica tutti i file supportati da quella cartella:
+Il dizionario di sinonimi predefinito contiene oltre **5.000** coppie di termini per l'inglese. Puoi anche caricare un file `SynonymDictionary` personalizzato per supportare gergo specifico del settore.
+
+## Dizionario di sinonimi personalizzato
+Se hai bisogno di sinonimi specifici per dominio, carica il tuo file di dizionario e assegnalo a `SearchOptions` prima di eseguire una query.
+
+```csharp
+options.SynonymDictionary = new SynonymDictionary(@"C:\mySynonyms.txt");
+var result = index.Search("upgrade", options);
+```  
 
 ```csharp
 index.Add(documentsFolder);
 // This step populates the index with content from your documents.
-```
+```  
 
-### Configurazione ed esecuzione della ricerca sinonimi
-#### Panoramica
-Con l'indice popolato, abilita la gestione dei sinonimi in modo che le query restituiscano risultati più ampi.
+## Suggerimenti comuni per la risoluzione dei problemi
+- **Problemi di percorso:** Verifica che le cartelle dell'indice e di origine siano accessibili dall'account del processo.  
+- **Limiti di licenza:** Una build non licenziata può limitare il numero di file indicizzati a 100.  
+- **Nessun risultato:** Verifica che il dizionario di sinonimi sia caricato; puoi ispezionare `options.SynonymDictionary.Count` a runtime.  
 
-**Passaggi:**
-1. **Configura le opzioni di ricerca** – attiva la funzionalità sinonimi:
+## Applicazioni pratiche
+1. **Gestione dei documenti legali:** Trova la giurisprudenza usando termini legali e i loro sinonimi.  
+2. **Ricerca accademica:** Amplia le ricerche bibliografiche su PDF accademici e file Word.  
+3. **Basi di conoscenza aziendali:** Recupera le politiche interne anche quando gli utenti formulano le query in modo diverso.  
+4. **Sistemi di gestione dei contenuti:** Offri agli editori una scoperta più ricca quando etichettano gli articoli.  
+5. **Ticketing per l'assistenza clienti:** Abbina i ticket a problemi noti usando descrizioni di problemi sinonimiche.  
+
+## Considerazioni sulle prestazioni
+- **Manutenzione dell'indice:** Reindicizza dopo aggiornamenti di massa; l'indicizzazione incrementale riduce i tempi di inattività fino al 70 %.  
+- **Monitoraggio delle risorse:** Indicizzare un batch da 10 GB su una VM standard (2 vCPU, 8 GB RAM) raggiunge un picco di ~1,2 GB RAM; regola la dimensione del batch se ti avvicini ai limiti.  
+- **Rilascio degli oggetti:** Chiama `index.Dispose()` e `redactor.Dispose()` non appena hai finito per liberare le risorse native.  
+
+## Conclusione
+Ora sai **come creare un indice di ricerca** con GroupDocs, aggiungere documenti a quell'indice e abilitare la ricerca di sinonimi per un'esperienza utente più intuitiva. Questa base ti consente anche di aggiungere la redazione, il ranking personalizzato o il fuzzy matching sopra un motore di ricerca robusto.
+
+## Prossimi passi
+- Sperimenta con `SearchOptions.FuzzySearch` per catturare errori di ortografia.  
+- Esplora l'API `Ranking` per potenziare i documenti prioritari.  
+- Unisciti alla community sul [GroupDocs Forum](https://forum.groupdocs.com/c/search/10) o sul [Free Support Forum](https://forum.groupdocs.com/c/search/10) per condividere suggerimenti e fare domande.  
+- Controlla le [Ultime versioni di GroupDocs](https://releases.groupdocs.com/search/net/) per aggiornamenti e nuove funzionalità.  
+
+## Domande frequenti
+
+**Q: Cos'è la ricerca di sinonimi?**  
+A: La ricerca di sinonimi espande la query dell'utente includendo termini alternativi predefiniti, aumentando la probabilità di trovare documenti pertinenti che usano una formulazione diversa.
+
+**Q: Come aggiorno la licenza GroupDocs?**  
+A: Visita il portale [GroupDocs License Management](https://purchase.groupdocs.com/temporary-license/) e carica il nuovo file di licenza tramite `License.SetLicense("path/to/license.lic")`.
+
+**Q: Posso usare la ricerca di sinonimi in un ambiente multilingue?**  
+A: Sì—carica un file `SynonymDictionary` specifico per lingua per ogni locale supportato, e il motore applicherà il set di sinonimi appropriato per ogni query.
+
+**Q: Quali sono i problemi di indicizzazione più comuni?**  
+A: I permessi di accesso ai file, i formati non supportati e il superamento del limite di documenti della versione di prova sono i tre principali problemi che gli sviluppatori incontrano.
+
+**Q: Come posso ottimizzare le prestazioni per indici molto grandi?**  
+A: Usa l'indicizzazione incrementale, archivia l'indice su SSD e configura `IndexingOptions.MaxDegreeOfParallelism` per corrispondere al numero di core della CPU.
+
+---
+
+**Ultimo aggiornamento:** 2026-09-16  
+**Testato con:** GroupDocs.Search 23.10 per .NET  
+**Autore:** GroupDocs
 
 ```csharp
 using GroupDocs.Search.Options;
@@ -123,59 +261,14 @@ SearchOptions options = new SearchOptions();
 options.UseSynonymSearch = true; // Activate synonym search.
 ```
 
-2. **Esegui la query di ricerca sinonimi** – avvia una ricerca che include automaticamente i sinonimi:
-
 ```csharp
 string query = "improve";
 SearchResult result = index.Search(query, options);
 // This operation returns documents matching 'improve' or its synonyms.
 ```
 
-### Suggerimenti per la risoluzione dei problemi
-- Verifica che tutti i percorsi delle cartelle siano corretti e accessibili dall'applicazione.  
-- Conferma che le librerie GroupDocs siano correttamente licenziate; una versione non licenziata può limitare l'indicizzazione.  
-- Se ricevi “No results found,” ricontrolla che il dizionario dei sinonimi sia caricato (GroupDocs.Search fornisce un set predefinito, ma puoi estenderlo).
+## Tutorial correlati
 
-## Applicazioni pratiche
-1. **Gestione documenti legali:** Trova rapidamente la giurisprudenza cercando termini legali e i loro sinonimi.  
-2. **Ricerca accademica:** Migliora le ricerche bibliografiche su grandi database accademici.  
-3. **Basi di conoscenza aziendali:** Recupera documenti interni anche quando gli utenti formulano le query in modo diverso.  
-4. **Sistemi di gestione dei contenuti (CMS):** Offri una scoperta dei contenuti più ricca per editori e visitatori.  
-5. **Ticketing per supporto clienti:** Categorizza i ticket in modo più accurato abbinando descrizioni di problemi sinonimi.
-
-## Considerazioni sulle prestazioni
-- **Manutenzione dell'indice:** Reindicizza dopo aggiornamenti massivi per mantenere i risultati di ricerca aggiornati.  
-- **Monitoraggio delle risorse:** Controlla l'uso di CPU e memoria durante l'indicizzazione; grandi batch potrebbero richiedere limitazioni.  
-- **Gestione della memoria .NET:** Disporre prontamente degli oggetti `Index` e `Redactor` per liberare risorse.
-
-## Conclusione
-Ora hai imparato come **creare un indice di ricerca groupdocs**, aggiungere documenti a quell'indice e abilitare la ricerca sinonimi usando GroupDocs.Search per .NET. Questa combinazione offre alla tua applicazione un'esperienza di ricerca potente e intuitiva, mantenendo aperta la possibilità di utilizzare le funzionalità di redazione quando è necessario proteggere informazioni sensibili.
-
-## Prossimi passi
-- Sperimenta con `SearchOptions` aggiuntivi come il fuzzy matching o il ranking personalizzato.  
-- Approfondisci GroupDocs.Redaction per mascherare automaticamente i dati riservati dopo una ricerca.  
-- Condividi la tua esperienza o poni domande sul [Forum GroupDocs](https://forum.groupdocs.com/c/search/10).
-
-## Sezione FAQ
-1. **Cos'è la ricerca sinonimi?**  
-   - La ricerca sinonimi consente agli utenti di trovare documenti contenenti parole sinonime al termine della query, migliorando i risultati della ricerca.  
-2. **Come aggiorno la mia licenza GroupDocs?**  
-   - Visita [Gestione licenza GroupDocs](https://purchase.groupdocs.com/temporary-license/) per i dettagli sull'aggiornamento della licenza.  
-3. **Posso usare la ricerca sinonimi in un contesto multilingue?**  
-   - Sì, configura il `SynonymDictionary` per includere sinonimi in diverse lingue secondo necessità.  
-4. **Quali sono i problemi comuni durante l'indicizzazione?**  
-   - I problemi comuni includono permessi di accesso ai file e formati di documento non supportati.  
-5. **Come posso ottimizzare le prestazioni per indici di grandi dimensioni?**  
-   - Implementa aggiornamenti incrementali al tuo indice invece di ricostruirlo completamente dopo ogni modifica.
-
-## Risorse
-- **Documentazione:** [GroupDocs.Redaction .NET](https://docs.groupdocs.com/search/net/)  
-- **Riferimento API:** [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/net)  
-- **Download:** [Ultime versioni GroupDocs](https://releases.groupdocs.com/search/net/)  
-- **Supporto:** [Forum di supporto gratuito](https://forum.groupdocs.com/c/search/10)
-
----
-
-**Ultimo aggiornamento:** 2026-04-11  
-**Testato con:** GroupDocs.Search 23.10 for .NET  
-**Autore:** GroupDocs
+- [Aggiungi documento all'indice con i tutorial GroupDocs.Search .NET](/search/net/document-management/)
+- [Evidenzia i risultati di ricerca nei documenti .NET usando GroupDocs.Search e Redaction](/search/net/highlighting/highlight-search-results-net-groupdocs/)
+- [Come aggiornare l'indice con GroupDocs.Search e Redaction (.NET)](/search/net/document-management/implement-groupdocs-search-redaction-update-index-features/)

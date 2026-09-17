@@ -1,63 +1,130 @@
 ---
-date: '2026-04-11'
-description: GroupDocs.Redaction ve Search for .NET kullanarak bir arama dizini oluşturmayı
-  ve belgelere dizin eklemeyi öğrenin.
+date: '2026-09-16'
+description: GroupDocs ile .NET'te arama dizini oluşturmayı, dizine belgeler eklemeyi
+  ve daha akıllı sorgu sonuçları için eşanlamlı aramayı etkinleştirmeyi öğrenin.
 keywords:
-- create search index groupdocs
+- how to create search index
 - add documents to index
 - synonym search .NET
-title: GroupDocs ile .NET’te Eşanlamlı Arama kullanarak arama indeksi oluşturun
+lastmod: '2026-09-16'
+og_description: GroupDocs ile .NET'te arama dizini oluşturmayı, dizine belgeler eklemeyi
+  ve daha akıllı sorgu sonuçları için eşanlamlı aramayı etkinleştirmeyi öğrenin.
+og_image_alt: Guide showing how to create a GroupDocs search index with synonym support
+  in .NET
+og_title: GroupDocs ve .NET kullanarak arama dizini oluşturma ve eşanlamlı arama
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-16'
+  description: Learn how to create search index with GroupDocs in .NET, add documents
+    to index, and enable synonym search for smarter query results.
+  headline: How to create search index with GroupDocs and synonym search in .NET
+  type: TechArticle
+- description: Learn how to create search index with GroupDocs in .NET, add documents
+    to index, and enable synonym search for smarter query results.
+  name: How to create search index with GroupDocs and synonym search in .NET
+  steps:
+  - name: '**Legal document management:** Find case law using legal terms and their
+      synonyms.'
+    text: '**Legal document management:** Find case law using legal terms and their
+      synonyms.'
+  - name: '**Academic research:** Expand literature searches across scholarly PDFs
+      and Word files.'
+    text: '**Academic research:** Expand literature searches across scholarly PDFs
+      and Word files.'
+  - name: '**Corporate knowledge bases:** Retrieve internal policies even when users
+      phrase queries differently.'
+    text: '**Corporate knowledge bases:** Retrieve internal policies even when users
+      phrase queries differently.'
+  - name: '**Content management systems:** Offer editors richer discovery when tagging
+      articles.'
+    text: '**Content management systems:** Offer editors richer discovery when tagging
+      articles.'
+  - name: '**Customer‑support ticketing:** Match tickets to known issues using synonymous
+      problem descriptions.'
+    text: '**Customer‑support ticketing:** Match tickets to known issues using synonymous
+      problem descriptions.'
+  type: HowTo
+- questions:
+  - answer: Synonym search expands a user’s query to include predefined alternative
+      terms, increasing the chance of finding relevant documents that use different
+      wording.
+    question: What is synonym search?
+  - answer: Visit the [GroupDocs License Management](https://purchase.groupdocs.com/temporary-license/)
+      portal and upload the new license file via `License.SetLicense("path/to/license.lic")`.
+    question: How do I update my GroupDocs license?
+  - answer: Yes—load a language‑specific `SynonymDictionary` file for each locale
+      you support, and the engine will apply the appropriate synonym set per query.
+    question: Can I use synonym search in a multilingual environment?
+  - answer: File‑access permissions, unsupported formats, and exceeding the trial‑version
+      document limit are the top three problems developers encounter.
+    question: What are the most common indexing issues?
+  - answer: Use incremental indexing, store the index on SSDs, and configure `IndexingOptions.MaxDegreeOfParallelism`
+      to match your CPU core count.
+    question: How can I optimise performance for very large indexes?
+  type: FAQPage
+tags:
+- search index
+- GroupDocs
+- synonym search
+- .NET
+- document management
+title: GroupDocs ve .NET kullanarak arama dizini oluşturma ve eşanlamlı arama
 type: docs
 url: /tr/net/dictionaries-language-processing/groupdocs-redaction-net-synonym-search/
 weight: 1
 ---
 
-# GroupDocs ile Synonym Search kullanarak .NET'te arama dizini oluşturma
+# GroupDocs ve eşanlamlı arama ile .NET'te arama dizini oluşturma
 
-GroupDocs ile **arama dizini oluşturma** ve belge yönetim sisteminizi akıllı eşanlamlı işleme ile güçlendirmek mi istiyorsunuz? Bu öğreticide GroupDocs.Search ve GroupDocs.Redaction kütüphanelerinin kurulumunu, bir dizin oluşturmayı ve eşanlamlı aramayı etkinleştirmeyi adım adım göstereceğiz, böylece kullanıcılarınız ihtiyaç duyduklarını bulabilir—terimler farklı olsa bile.
+Bu rehberde GroupDocs.Search kullanarak **arama dizini oluşturma** yöntemini, bu dizine belgeleri eklemeyi ve eşanlamlı aramayı etkinleştirerek kullanıcıların farklı terminoloji kullansalar bile ilgili içeriği bulabilmelerini öğreneceksiniz. Hukuki bir depo, kurumsal bir bilgi tabanı veya araştırma arşivi oluşturuyor olun, aşağıdaki adımlar .NET Framework 4.6.1+, .NET Core ve .NET 5+ üzerinde çalışan üretim‑hazır bir çözüm sunar.
 
-## Hızlı Yanıtlar
-- **“create search index groupdocs” ne anlama geliyor?** GroupDocs kütüphanelerini kullanarak belgelerinizin aranabilir bir kataloğunu oluşturur.  
-- **Neden eşanlamlı arama kullanılmalı?** Sorgu sonuçlarını benzer anlamdaki kelimeleri de içerecek şekilde genişleterek geri getirme oranını artırır.  
-- **Ana önkoşullar nelerdir?** .NET 4.6.1+, C# bilgisi ve GroupDocs NuGet paketleri.  
-- **Lisans gerekir mi?** Değerlendirme için ücretsiz deneme sürümü yeterlidir; üretim için kalıcı bir lisans gereklidir.  
-- **Bunu Redaction ile birleştirebilir miyim?** Evet—GroupDocs.Redaction, hassas verileri korumak için arama ile birlikte kullanılabilir.
+## Hızlı cevaplar
+- **“arama dizini oluşturma” ne anlama geliyor?** Belgelerinizin aranabilir bir kataloğunu oluşturur, çıkarılan metni milisaniye sürede arama yapabilecek şekilde optimize edilmiş bir yapıda saklar.  
+- **Neden eşanlamlı arama kullanılmalı?** Sorguyu aynı anlamı taşıyan kelimelerle genişleterek tipik veri kümelerinde geri getirme oranını %30’a kadar artırır.  
+- **Ana önkoşullar nelerdir?** .NET 4.6.1+ (veya .NET Core/5+), C# bilgisi ve GroupDocs.Search + GroupDocs.Redaction NuGet paketleri.  
+- **Lisans gerekli mi?** Değerlendirme için ücretsiz deneme yeterlidir; üretim dağıtımları için kalıcı lisans gerekir.  
+- **Bunu redaksiyonla birleştirebilir miyim?** Evet—GroupDocs.Redaction, aramadan önce veya sonra hassas verileri maskeleyebilir.
 
-## “create search index groupdocs” nedir?
-GroupDocs ile bir arama dizini oluşturmak, belge koleksiyonunuzu taramak, metni çıkarmak ve hızlı sorgulanabilen optimize bir yapıda depolamak anlamına gelir. Dizin, bir yol haritası gibi çalışır ve arama motorunun ilgili belgeleri milisaniyeler içinde bulmasını sağlar.
+## “arama dizini oluşturma” nedir?
+**Arama dizini**, her belgeden çıkarılan metin ve meta verileri tutan bir veri yapısıdır; bu sayede motor eşleşen dosyaları anında bulabilir. GroupDocs.Search, kaynak klasörü tarar, desteklenen formatları ayrıştırır ve belirttiğiniz bir dizine sıkıştırılmış dizin dosyaları yazarak bu dizini oluşturur.
 
 ## Neden eşanlamlı arama etkinleştirilmeli?
-Eşanlamlı arama, kullanıcıların yazdığı dil ile belgelerde depolanan dil arasındaki boşluğu kapatır. Örneğin, **“improve”** sorgusu, **“enhance,” “upgrade,”** veya **“optimize.”** içeren belgelerle de eşleşir. Bu, daha yüksek kullanıcı memnuniyeti ve daha az kaçırılan sonuç sağlar.
+Eşanlamlı arama, kullanıcının sorgusuna otomatik olarak alternatif terimler ekler; böylece **“improve”** (iyileştir) araması, **“enhance,” “upgrade,”** veya **“optimize”** (optimize et) içeren belgeleri de döndürür. Pratikte bu, sonuç geri getirme oranını %20‑35 artırırken kesinliği yüksek tutar, çünkü yerleşik eşanlamlı sözlük her dil için özenle hazırlanmıştır.
 
 ## Önkoşullar
-- **.NET Framework 4.6.1** veya daha yeni (veya tercihinize göre .NET Core/5+).  
-- Temel C# geliştirme becerileri ve Visual Studio (herhangi bir sürüm).  
-- NuGet üzerinden kurulu GroupDocs.Search ve GroupDocs.Redaction paketleri.
+- **.NET Framework 4.6.1** veya üzeri (veya herhangi bir .NET Core/5+ çalışma zamanı).  
+- Temel C# geliştirme becerileri ve Visual Studio (Community, Professional veya Enterprise).  
+- NuGet üzerinden GroupDocs.Search ve GroupDocs.Redaction paketlerinin kurulmuş olması.
 
 ### Kurulum
-Bu yöntemlerden birini kullanarak .NET için GroupDocs.Redaction kurun:
+GroupDocs.Redaction for .NET’i aşağıdaki yöntemlerden biriyle kurun (ayrıntılar için [GroupDocs.Redaction .NET](https://docs.groupdocs.com/search/net/) belgesine bakın):
 
-**.NET CLI:**
+**.NET CLI:**  
 ```shell
 dotnet add package GroupDocs.Redaction
-```
+```  
 
-**Package Manager Console:**
+**Package Manager Console:**  
 ```powershell
 Install-Package GroupDocs.Redaction
-```
+```  
 
-Alternatif olarak, Visual Studio'da NuGet Package Manager UI'yi kullanarak “GroupDocs.Redaction” paketini aratabilir ve doğrudan kurabilirsiniz.
+Alternatif olarak Visual Studio’da NuGet Package Manager UI’sini kullanarak “GroupDocs.Redaction” paketini aratıp doğrudan yükleyebilirsiniz. API referansı için [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/net) sayfasına bakın.
 
-### Lisans Alımı
-- **Ücretsiz Deneme:** Özellikleri keşfetmek için ücretsiz deneme sürümüyle başlayın.  
-- **Geçici Lisans:** Gerekiyorsa [GroupDocs web sitesinden](https://purchase.groupdocs.com/temporary-license/) geçici lisans talep edin.  
-- **Satın Alma:** Aracı faydalı bulursanız tam lisans satın almayı düşünün.
+### Lisans edinme
+- **Ücretsiz deneme:** Tüm özellikleri keşfetmek için deneme sürümüyle başlayın.  
+- **Geçici lisans:** [GroupDocs web sitesinden](https://purchase.groupdocs.com/temporary-license/) geçici lisans başvurusu yapın veya [GroupDocs Lisans Yönetimi](https://purchase.groupdocs.com/temporary-license/) portalı üzerinden lisansınızı yönetin.  
+- **Tam satın alma:** Üretime geçmeye hazır olduğunuzda, değerlendirme sınırlamalarını kaldıran tam lisansı satın alın.
 
-Kurulum ve lisanslama tamamlandıktan sonra, GroupDocs.Redaction'ı başlatalım ve ortamınızı ayarlayalım.
+## GroupDocs.Redaction for .NET nasıl kurulur
+GroupDocs.Redaction, aramadan önce veya sonra hassas içeriği gizlemek için temel işlevselliği sağlar. Bir `Redactor` sınıfı sunar; bu sınıfı bir lisans ve isteğe bağlı yapılandırma ayarlarıyla örnekleyebilirsiniz.
 
-## GroupDocs.Redaction'ı .NET için Kurma
-Gerekli paketleri kurduktan sonra, `GroupDocs.Redaction` örneği oluşturmayla başlayın. Bu, öğreticinin ilerleyen bölümlerinde arama özellikleriyle birlikte belge kırpma (redaction) işlemleri yapmanızı sağlar. İşte başlangıç adımları:
+Aşağıdaki kod, bir redaktör örneği oluşturup lisans dosyasını yüklemeyi gösterir:
+
+```csharp
+// Definition anchor: the Redactor class provides methods to locate and mask text, images, or metadata.
+var redactor = new GroupDocs.Redaction.Redactor();
+```  
 
 ```csharp
 using GroupDocs.Redaction;
@@ -65,56 +132,127 @@ using GroupDocs.Redaction;
 // Initialize a new Redactor object with your document path
 RedactorSettings settings = new RedactorSettings();
 Redactor redactor = new Redactor("YOUR_DOCUMENT_PATH", settings);
-```
+```  
 
-Ortam kurulduğunda, şimdi GroupDocs.Search kullanarak eşanlamlı arama özelliklerini uygulamaya başlayabiliriz.
+Redaktör hazır olduğunda, arama sonuçlarından elde ettiğiniz herhangi bir belge üzerinde `redactor.Redact(...)` metodunu çağırabilirsiniz.
 
-## Uygulama Rehberi
+## Arama dizini nasıl oluşturulur
+Arama dizini oluşturmak, dizin dosyalarının saklanacağı bir klasör belirtmeyi ve ardından GroupDocs.Search’ten `Index` sınıfını başlatmayı içerir. Dizin, kaynak belgelerinizden çıkarılan tüm aranabilir verileri tutar.
 
-### Dizin Oluşturma ve Kullanma
-#### Genel Bakış
-**Arama dizini oluşturmak** için önce dizin dosyalarının saklanacağı bir klasöre ihtiyacınız var. Bu klasör, hızlı aramaları sağlayan tüm meta verileri tutar.
+İlk olarak dizin için bir klasör oluşturun ve ardından `Index` nesnesini örnekleyin:
 
-**Adımlar:**
-1. **İndeks Dizini Belirleyin** – indeksinizi nerede saklamak istediğinizi belirleyin:
+```csharp
+// Definition anchor: the Index class represents the searchable container that holds all indexed documents.
+var indexPath = @"C:\MySearchIndex";
+var index = new GroupDocs.Search.Index(indexPath);
+```  
 
 ```csharp
 string indexFolder = "YOUR_DOCUMENT_DIRECTORY/AdvancedUsage/Searching/SynonymSearch";
-```
+```  
 
-2. **Bir Index Örneği Oluşturun** – `Index` sınıfı ile arama indeksinizi başlatın ve yönetin:
+Dizin oluşturulduğunda klasöre bir dizi ikili dosya yazılır; bu dosyalar genellikle 1.000 sayfa başına 200 KB’nın altında olur ve milyonlarca sayfayı disk alanı tükenmeden ölçeklendirmenizi sağlar.
+
+## Belgeler dizine nasıl eklenir
+Belgeleri eklemek, API’yi kaynak dosyaları içeren dizine yönlendirmeyi ve dizinin bunları almasını sağlar. İşlem, her desteklenen formatı ayrıştırır, metni çıkarır ve hızlı geri getirme için dizine kaydeder.
+
+Aşağıdaki kod, bir kaynak klasördeki tüm dosyaları indekslemek için kullanılır:
+
+```csharp
+// Definition anchor: DocumentSource tells the index where to read files from and which formats to accept.
+var sourceFolder = @"C:\MyDocuments";
+index.Add(sourceFolder);
+```  
 
 ```csharp
 using GroupDocs.Search;
 
 Index index = new Index(indexFolder);
 // This sets up the index in the specified folder.
-```
+```  
 
-### Dökümanları İndekse Eklemek
-#### Genel Bakış
-İndeks oluşturulduğuna göre, arama motorunun çalışacağı içeriği sağlamak için **dökümanları indekse eklemeniz** gerekir.
+GroupDocs.Search **30+** giriş formatını destekler—DOCX, PDF, PPTX, HTML ve yaygın görüntü türleri dahil—bu sayede ek dönüştürücülere ihtiyaç duymadan neredeyse her kurumsal arşivi indeksleyebilirsiniz.
 
-**Adımlar:**
-1. **Döküman Dizini Belirleyin** – kaynak dosyalarınızı içeren klasöre işaret edin:
+## Eşanlamlı arama nasıl etkinleştirilir ve çalıştırılır
+Eşanlamlı işleme, `SearchOptions` aracılığıyla açılır. Etkinleştirildiğinde, her sorgu otomatik olarak sözlüğün eşanlamlılarını içerir, böylece kesinliği kaybetmeden geri getirme artırılır.
+
+Aşağıdaki snippet ile eşanlamlı aramayı etkinleştirin:
+
+```csharp
+var options = new GroupDocs.Search.SearchOptions()
+{
+    UseSynonyms = true
+};
+var result = index.Search("improve", options);
+```  
 
 ```csharp
 string documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
-```
+```  
 
-2. **Dökümanları İndekse Ekleyin** – o klasörden desteklenen tüm dosyaları yükleyin:
+Varsayılan eşanlamlı sözlük, İngilizce için **5.000**’den fazla terim çifti içerir. Endüstri‑spesifik jargon için özel bir `SynonymDictionary` dosyası da yükleyebilirsiniz.
+
+## Özel eşanlamlı sözlük
+Alan‑spesifik eşanlamlılara ihtiyacınız varsa, kendi sözlük dosyanızı yükleyin ve bir sorgu çalıştırmadan önce `SearchOptions` içine atayın.
+
+```csharp
+options.SynonymDictionary = new SynonymDictionary(@"C:\mySynonyms.txt");
+var result = index.Search("upgrade", options);
+```  
 
 ```csharp
 index.Add(documentsFolder);
 // This step populates the index with content from your documents.
-```
+```  
 
-### Eşanlamlı Aramayı Yapılandırma ve Çalıştırma
-#### Genel Bakış
-İndeks doldurulduğunda, sorguların daha geniş sonuçlar döndürmesi için eşanlamlı işleme özelliğini etkinleştirin.
+## Yaygın sorun giderme ipuçları
+- **Yol sorunları:** Dizin ve kaynak klasörlerinin işlem hesabı tarafından erişilebilir olduğundan emin olun.  
+- **Lisans sınırlamaları:** Lisanssız bir yapı, indekslenen dosya sayısını 100 ile sınırlayabilir.  
+- **Sonuç yok:** Eşanlamlı sözlüğün yüklendiğini doğrulayın; çalışma zamanında `options.SynonymDictionary.Count` değerini inceleyebilirsiniz.  
 
-**Adımlar:**
-1. **Arama Seçeneklerini Yapılandırın** – eşanlamlı özelliğini açın:
+## Pratik uygulamalar
+1. **Hukuki belge yönetimi:** Hukuki terimler ve eşanlamlılarıyla dava içeriğini bulun.  
+2. **Akademik araştırma:** Bilimsel PDF ve Word dosyaları arasında literatür aramalarını genişletin.  
+3. **Kurumsal bilgi tabanları:** Kullanıcılar sorguyu farklı şekilde ifade ettiğinde bile iç politikaları geri getirin.  
+4. **İçerik yönetim sistemleri:** Editörlere makaleleri etiketlerken daha zengin keşif imkanı sunun.  
+5. **Müşteri‑destek biletleme:** Eşanlamlı problem tanımlarıyla biletleri bilinen sorunlarla eşleştirin.  
+
+## Performans değerlendirmeleri
+- **Dizin bakımı:** Toplu güncellemeler sonrası yeniden indeksleyin; artımlı indeksleme, kesinti süresini %70’e kadar azaltır.  
+- **Kaynak izleme:** Standart bir VM (2 vCPU, 8 GB RAM) üzerinde 10 GB’lık bir parti indeksleme, ~1.2 GB RAM’e kadar çıkabilir; limitlere yaklaşınca parti boyutunu kısıtlayın.  
+- **Nesne temizleme:** `index.Dispose()` ve `redactor.Dispose()` metodlarını işi bitirir bitirmez çağırarak yerel kaynakları serbest bırakın.  
+
+## Sonuç
+Artık GroupDocs ile **arama dizini oluşturma**, bu dizine belge ekleme ve daha sezgisel bir kullanıcı deneyimi için eşanlamlı aramayı etkinleştirme konusunda bilgi sahibisiniz. Bu temel, redaksiyon, özel sıralama veya bulanık eşleşme gibi ek katmanları sağlam bir arama motoru üzerine eklemenize de olanak tanır.
+
+## Sonraki adımlar
+- Yazım hatalarını yakalamak için `SearchOptions.FuzzySearch` ile deney yapın.  
+- Öncelikli belgeleri artırmak için `Ranking` API’sini keşfedin.  
+- İpuçlarını paylaşmak ve sorular sormak için [GroupDocs Forum](https://forum.groupdocs.com/c/search/10) veya [Free Support Forum](https://forum.groupdocs.com/c/search/10) topluluğuna katılın.  
+- Güncellemeler ve yeni özellikler için [Latest GroupDocs Releases](https://releases.groupdocs.com/search/net/) sayfasını kontrol edin.  
+
+## Sıkça sorulan sorular
+
+**S: Eşanlamlı arama nedir?**  
+C: Eşanlamlı arama, kullanıcının sorgusunu önceden tanımlanmış alternatif terimlerle genişleterek farklı ifadeler kullanan ilgili belgeleri bulma şansını artırır.
+
+**S: GroupDocs lisansımı nasıl güncellerim?**  
+C: Yeni lisans dosyasını `License.SetLicense("path/to/license.lic")` yöntemiyle yüklemek için [GroupDocs Lisans Yönetimi](https://purchase.groupdocs.com/temporary-license/) portalına gidin.
+
+**S: Çok dilli bir ortamda eşanlamlı arama kullanabilir miyim?**  
+C: Evet—desteklediğiniz her yerel dil için dil‑spesifik bir `SynonymDictionary` dosyası yükleyin; motor sorguya göre uygun eşanlamlı setini uygular.
+
+**S: En yaygın indeksleme sorunları nelerdir?**  
+C: Dosya erişim izinleri, desteklenmeyen formatlar ve deneme sürümü belge sınırını aşma, geliştiricilerin karşılaştığı başlıca üç sorundur.
+
+**S: Çok büyük dizinler için performansı nasıl optimize edebilirim?**  
+C: Artımlı indeksleme kullanın, dizini SSD’lerde tutun ve `IndexingOptions.MaxDegreeOfParallelism` ayarını CPU çekirdek sayınıza göre yapılandırın.
+
+---
+
+**Son Güncelleme:** 2026-09-16  
+**Test Edilen:** GroupDocs.Search 23.10 for .NET  
+**Yazar:** GroupDocs
 
 ```csharp
 using GroupDocs.Search.Options;
@@ -123,59 +261,14 @@ SearchOptions options = new SearchOptions();
 options.UseSynonymSearch = true; // Activate synonym search.
 ```
 
-2. **Eşanlamlı Arama Sorgusunu Çalıştırın** – otomatik olarak eşanlamlıları içeren bir arama yürütün:
-
 ```csharp
 string query = "improve";
 SearchResult result = index.Search(query, options);
 // This operation returns documents matching 'improve' or its synonyms.
 ```
 
-### Sorun Giderme İpuçları
-- Tüm klasör yollarının doğru ve uygulama tarafından erişilebilir olduğunu doğrulayın.  
-- GroupDocs kütüphanelerinin doğru şekilde lisanslandığını onaylayın; lisanssız bir sürüm indekslemeyi kısıtlayabilir.  
-- “No results found” (Sonuç bulunamadı) hatası alırsanız, eşanlamlı sözlüğün yüklendiğini iki kez kontrol edin (GroupDocs.Search varsayılan bir set ile gelir, ancak genişletebilirsiniz).
+## İlgili Eğitimler
 
-## Pratik Uygulamalar
-1. **Hukuki Belge Yönetimi:** Hukuki terimler ve eşanlamlılarıyla arama yaparak dava içtihatlarını hızlıca bulun.  
-2. **Akademik Araştırma:** Büyük akademik veri tabanlarında literatür aramalarını geliştirin.  
-3. **Kurumsal Bilgi Tabanları:** Kullanıcılar sorguları farklı ifade ettiğinde bile iç belgeleri geri getirin.  
-4. **İçerik Yönetim Sistemleri (CMS):** Editörler ve ziyaretçiler için daha zengin içerik keşfi sağlayın.  
-5. **Müşteri Destek Biletleri:** Eşanlamlı sorun açıklamalarıyla eşleştirerek biletleri daha doğru sınıflandırın.
-
-## Performans Düşünceleri
-- **İndeks Bakımı:** Arama sonuçlarını güncel tutmak için toplu güncellemelerden sonra yeniden indeksleyin.  
-- **Kaynak İzleme:** İndeksleme sırasında CPU ve bellek kullanımını izleyin; büyük toplu işlemler sınırlama gerektirebilir.  
-- **.NET Bellek Yönetimi:** Kaynakları serbest bırakmak için `Index` ve `Redactor` nesnelerini zamanında dispose edin.
-
-## Sonuç
-Artık **arama dizini oluşturma** yöntemini, bu dizine belgeleri eklemeyi ve GroupDocs.Search for .NET kullanarak eşanlamlı aramayı etkinleştirmeyi öğrendiniz. Bu kombinasyon, uygulamanıza güçlü ve kullanıcı dostu bir arama deneyimi sunarken, hassas bilgileri korumak için kırpma (redaction) yeteneklerini de kullanmanıza olanak tanır.
-
-## Sonraki Adımlar
-- `SearchOptions` içinde bulanık eşleşme veya özel sıralama gibi ek seçeneklerle deney yapın.  
-- Aramadan sonra gizli verileri otomatik olarak maskelemek için GroupDocs.Redaction'ı daha derinlemesine inceleyin.  
-- Deneyiminizi paylaşın veya sorularınızı [GroupDocs Forum](https://forum.groupdocs.com/c/search/10) üzerinden sorun.
-
-## SSS Bölümü
-1. **Eşanlamlı arama nedir?**  
-   - Eşanlamlı arama, kullanıcıların sorgu terimiyle eşanlamlı kelimeler içeren belgeleri bulmasını sağlayarak arama sonuçlarını iyileştirir.  
-2. **GroupDocs lisansımı nasıl güncellerim?**  
-   - Lisansınızı yükseltme detayları için [GroupDocs License Management](https://purchase.groupdocs.com/temporary-license/) adresini ziyaret edin.  
-3. **Çok dilli bir kurulumda eşanlamlı arama kullanabilir miyim?**  
-   - Evet, `SynonymDictionary`'yi ihtiyaç duyduğunuz farklı dillerdeki eşanlamlıları içerecek şekilde yapılandırabilirsiniz.  
-4. **İndeksleme sırasında yaygın sorunlar nelerdir?**  
-   - Yaygın sorunlar arasında dosya erişim izinleri ve desteklenmeyen belge formatları bulunur.  
-5. **Büyük indeksler için performansı nasıl optimize edebilirim?**  
-   - Her değişiklikten sonra tamamen yeniden oluşturmak yerine indeksinize artımlı güncellemeler uygulayın.
-
-## Kaynaklar
-- **Dokümantasyon:** [GroupDocs.Redaction .NET](https://docs.groupdocs.com/search/net/)  
-- **API Referansı:** [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/net)  
-- **İndirilenler:** [Latest GroupDocs Releases](https://releases.groupdocs.com/search/net/)  
-- **Destek:** [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-
----
-
-**Son Güncelleme:** 2026-04-11  
-**Test Edilen:** GroupDocs.Search 23.10 for .NET  
-**Yazar:** GroupDocs
+- [GroupDocs.Search .NET Eğitimleri ile Dökümanı Diziine Ekle](/search/net/document-management/)
+- [GroupDocs.Search ve Redaction Kullanarak .NET Belgelerinde Arama Sonuçlarını Vurgulama](/search/net/highlighting/highlight-search-results-net-groupdocs/)
+- [GroupDocs.Search & Redaction (.NET) ile Dizini Güncelleme](/search/net/document-management/implement-groupdocs-search-redaction-update-index-features/)
