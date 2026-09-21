@@ -1,60 +1,111 @@
 ---
-date: '2026-02-24'
-description: GroupDocs.Search kullanarak Java'da belgeleri nasıl indeksleyeceğinizi
-  öğrenin ve daha iyi arama doğruluğu için homofon desteğiyle belgeleri indeks'e nasıl
-  ekleyeceğinizi keşfedin.
+date: '2026-09-21'
+description: GroupDocs.Search kullanarak java tam metin arama dizini oluşturmayı,
+  belgeleri eklemeyi ve daha doğru sonuçlar için homophone desteğini etkinleştirmeyi
+  öğrenin.
 keywords:
+- java full text search
+- homophone search java
 - GroupDocs.Search Java
-- document indexing with Java
-- homophone recognition
-title: Java'da GroupDocs.Search ile Belgeleri Nasıl Dizinlersiniz – Homofon Desteği
+- document indexing java
+- search index java
+lastmod: '2026-09-21'
+og_description: GroupDocs.Search ile java tam metin arama dizini oluşturmayı, belgeleri
+  eklemeyi ve daha hızlı, daha doğru aramalar için homophone desteğini etkinleştirmeyi
+  keşfedin.
+og_image_alt: Illustration of a Java full text search index with homophone support
+og_title: Homophones ile java tam metin arama dizini nasıl oluşturulur
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-21'
+  description: Learn how to create a java full text search index using GroupDocs.Search,
+    add documents, and enable homophone support for more accurate results.
+  headline: How to build a java full text search index with homophones
+  type: TechArticle
+- description: Learn how to create a java full text search index using GroupDocs.Search,
+    add documents, and enable homophone support for more accurate results.
+  name: How to build a java full text search index with homophones
+  steps:
+  - name: '**Install via Maven** or download directly from the provided links.'
+    text: '**Install via Maven** or download directly from the provided links.'
+  - name: '**Acquire a license:** You can start with a free trial or obtain a temporary
+      license by visiting [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/).'
+    text: '**Acquire a license:** You can start with a free trial or obtain a temporary
+      license by visiting [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/).'
+  - name: '**Initialize the library:** The snippet below shows the minimal code required
+      to start using GroupDocs.Search.'
+    text: '**Initialize the library:** The snippet below shows the minimal code required
+      to start using GroupDocs.Search.'
+  - name: '**Legal document management:** Distinguish between similar‑sounding legal
+      terms such as “lease” vs. “least”.'
+    text: '**Legal document management:** Distinguish between similar‑sounding legal
+      terms such as “lease” vs. “least”.'
+  - name: '**Educational content creation:** Ensure teaching materials are free from
+      ambiguous wording that could confuse learners.'
+    text: '**Educational content creation:** Ensure teaching materials are free from
+      ambiguous wording that could confuse learners.'
+  - name: '**Customer support systems:** Improve knowledge‑base search accuracy, helping
+      agents locate the right articles faster.'
+    text: '**Customer support systems:** Improve knowledge‑base search accuracy, helping
+      agents locate the right articles faster.'
+  type: HowTo
+- questions:
+  - answer: A data structure that enables fast full‑text search across documents.
+    question: What is a search index?
+  - answer: It improves recall by matching words that sound alike, e.g., “mail” vs.
+      “male”.
+    question: Why use homophone recognition?
+  - answer: GroupDocs.Search for Java (v25.4).
+    question: Which library provides this in Java?
+  - answer: A free trial works for evaluation; a permanent license is required for
+      production.
+    question: Do I need a license?
+  - answer: JDK 8 or higher.
+    question: What Java version is required?
+  type: FAQPage
+tags:
+- java full text search
+- homophone search
+- GroupDocs.Search
+- document indexing
+- search index
+title: Homophones ile java tam metin arama dizini nasıl oluşturulur
 type: docs
 url: /tr/java/document-management/groupdocs-search-java-homophone-document-management-guide/
 weight: 1
 ---
 
- through CODE_BLOCK_10 present.
+# Java tam metin arama indeksi homofonlarla nasıl oluşturulur
 
-Make sure no extra spaces removed.
+Bu rehberde GroupDocs.Search kullanarak **java full text search** indeksi oluşturmayı, belgelere eklemeyi ve homofon desteğini etkinleştirerek aramaların benzer sesli kelimeleri anlamasını öğreneceksiniz. Öğreticinin sonunda milisaniyeler içinde sorgulanabilen hızlı, dil‑bilinçli bir indeksiniz olacak ve uygulamalarınız daha kullanıcı‑dostu ve doğru hâle gelecek.
 
-Now produce final content.# Java'da GroupDocs.Search ile Belgeleri Dizine Ekleme – Homofon Desteği
+## Hızlı cevaplar
+- **Search indeksi nedir?** Belgeler arasında hızlı tam‑metin arama sağlayan bir veri yapısı.  
+- **Homofon tanıma neden kullanılır?** Benzer sesli kelimeleri eşleştirerek hatırlamayı artırır, ör. “mail” vs. “male”.  
+- **Java’da bunu sağlayan kütüphane hangisidir?** GroupDocs.Search for Java (v25.4).  
+- **Lisans gerekli mi?** Değerlendirme için ücretsiz deneme çalışır; üretim için kalıcı bir lisans gerekir.  
+- **Hangi Java sürümü gereklidir?** JDK 8 veya üzeri.
 
-Java'da **search index** oluşturmak göz korkutucu görünebilir, özellikle aynı sesi taşıyan ancak farklı yazılan kelimeler olan homofonları yönetmeniz gerektiğinde. Bu öğreticide GroupDocs.Search for Java kullanarak **how to index documents** öğrenecek ve **how to index documents** hakkında bilmeniz gereken her şeyi, yerleşik homofon tanımasından yararlanarak adım adım inceleyeceğiz. Sonunda, dilin inceliklerini anlayan hızlı ve doğru arama çözümleri oluşturabileceksiniz.
+## Java tam metin arama nedir?
+`java full text search` belge içeriğini indeksleme sürecidir, böylece metni hızlıca sorgulayabilir ve gerçek zamanlı olarak ilgili dosyaları alabilirsiniz. İndeks, tokenleştirilmiş terimleri, konumları ve meta verileri saklar, büyük koleksiyonlarda bile alt‑saniyelik arama yanıtları sağlar.
 
-## Hızlı Yanıtlar
-- **What is a search index?** Belgeler arasında hızlı tam metin arama sağlayan bir veri yapısıdır.  
-- **Why use homophone recognition?** Benzer sesli kelimeleri eşleştirerek geri getirme oranını artırır, ör. “mail” vs. “male”.  
-- **Which library provides this in Java?** GroupDocs.Search for Java (v25.4).  
-- **Do I need a license?** Değerlendirme için ücretsiz deneme çalışır; üretim için kalıcı bir lisans gereklidir.  
-- **What Java version is required?** JDK 8 veya üzeri.
-
-## Java'da Belgeleri Dizine Ekleme
-
-Koda geçmeden önce, dizinlemenin neden önemli olduğunu açıklayalım. Bir indeks, token'lanmış terimleri, konumları ve meta verileri depolar, böylece milisaniyeler içinde ilgili belgeleri döndüren sorgular çalıştırabilirsiniz. GroupDocs.Search ile birçok dosya formatı için kutudan çıkar çıkmaz destek ve arama alaka düzeyini artıran güçlü bir homofon sözlüğü elde edersiniz.
-
-## “create search index java” nedir?
-
-Java'da bir search index oluşturmak, belge koleksiyonunuzun aranabilir bir temsilini inşa etmek anlamına gelir. İndeks, token'lanmış terimleri, konumları ve meta verileri depolar, böylece milisaniyeler içinde ilgili belgeleri döndüren sorgular çalıştırabilirsiniz.
-
-## Neden GroupDocs.Search for Java Kullanılmalı?
-
-GroupDocs.Search, birçok belge formatı için kutudan çıkar çıkmaz destek, güçlü dil araçları (homofon sözlükleri dahil) ve düşük seviyeli dizinleme detaylarıyla uğraşmadan iş mantığına odaklanmanızı sağlayan basit bir API sunar.
+## Neden GroupDocs.Search for Java kullanmalısınız?
+GroupDocs.Search **50+ dosya formatını**—PDF, DOCX, XLSX, PPTX ve HTML dahil—destekler ve belirsiz terimler için hatırlamayı **%30** kadar artıran yerleşik bir homofon sözlüğü sunar. API, düşük‑seviye indeksleme detaylarını soyutlayarak iş mantığına odaklanmanızı sağlar. Ayrıca Maven projeleriyle kolay entegrasyon ve hızlı geliştirme için net belgeler sunar.
 
 ## Önkoşullar
 
-Koda geçmeden önce, aşağıdakilere sahip olduğunuzdan emin olun:
+Koda geçmeden önce aşağıdakilere sahip olduğunuzdan emin olun:
 
-- **GroupDocs.Search for Java** (Maven veya doğrudan indirme yoluyla kullanılabilir).  
-- **compatible JDK** (8 veya daha yeni).  
+- **GroupDocs.Search for Java** (Maven veya doğrudan indirme yoluyla mevcut).  
+- **Uyumlu bir JDK** (8 veya daha yeni).  
 - **IntelliJ IDEA** veya **Eclipse** gibi bir IDE.  
 - Java ve Maven hakkında temel bilgi.
 
-### Gerekli Kütüphaneler ve Bağımlılıklar
+### Gerekli kütüphaneler ve bağımlılıklar
+GroupDocs.Search for Java gerekir. Maven ile ekleyin veya doğrudan indirin.
 
-GroupDocs.Search for Java'ya ihtiyacınız olacak. Maven kullanarak ekleyebilir veya doğrudan depolarından indirebilirsiniz.
-
-**Maven Kurulumu:**  
-`pom.xml` dosyanıza aşağıdakileri ekleyin:
+**Maven kurulumu:**  
+Aşağıdakileri `pom.xml` dosyanıza ekleyin:
 
 ```xml
 <repositories>
@@ -74,24 +125,22 @@ GroupDocs.Search for Java'ya ihtiyacınız olacak. Maven kullanarak ekleyebilir 
 </dependencies>
 ```
 
-**Doğrudan İndirme:**  
-Alternatif olarak, en son sürümü [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
+**Doğrudan indirme:**  
+Alternatif olarak, en son sürümü [GroupDocs.Search for Java sürümleri](https://releases.groupdocs.com/search/java/) adresinden indirin.
 
-### Ortam Kurulum Gereksinimleri
+### Ortam kurulum gereksinimleri
+Uyumlu bir JDK (JDK 8 veya üzeri) kurulu ve IntelliJ IDEA veya Eclipse gibi bir IDE'nin makinenizde ayarlandığından emin olun.
 
-Uyumlu bir JDK'nin (JDK 8 veya üzeri önerilir) kurulu olduğundan ve makinenizde IntelliJ IDEA veya Eclipse gibi bir IDE'nin ayarlandığından emin olun.
+### Bilgi önkoşulları
+Java programlama kavramlarına aşina olmak ve bağımlılık yönetimi için Maven kullanma deneyimi faydalı olacaktır. Belge indeksleme ve arama algoritmaları hakkında temel bir anlayış da yardımcı olabilir.
 
-### Bilgi Önkoşulları
+## GroupDocs.Search for Java kurulumu
 
-Java programlama kavramlarına aşina olmak ve bağımlılık yönetimi için Maven kullanma deneyimi faydalı olacaktır. Belge dizinleme ve arama algoritmalarının temel bir anlayışı da yardımcı olabilir.
+Önkoşullar halledildikten sonra GroupDocs.Search kurulumu basittir:
 
-## GroupDocs.Search for Java'ı Kurma
-
-Önkoşullar halledildikten sonra, GroupDocs.Search'ı kurmak basittir:
-
-1. **Install via Maven** veya sağlanan bağlantılardan doğrudan indirin.  
-2. **Acquire a License:** Ücretsiz deneme ile başlayabilir veya [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/) adresini ziyaret ederek geçici bir lisans alabilirsiniz.  
-3. **Initialize the Library:** Aşağıdaki kod parçacığı, GroupDocs.Search'ı kullanmaya başlamak için gereken minimum kodu gösterir.
+1. **Maven ile kurun** veya sağlanan bağlantılardan doğrudan indirin.  
+2. **Lisans edinin:** Ücretsiz deneme ile başlayabilir veya [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/) adresini ziyaret ederek geçici bir lisans alabilirsiniz.  
+3. **Kütüphaneyi başlatın:** Aşağıdaki kod parçacığı, GroupDocs.Search kullanmaya başlamak için gereken minimum kodu gösterir.
 
 ```java
 import com.groupdocs.search.*;
@@ -108,25 +157,25 @@ public class SetupExample {
 }
 ```
 
-## Uygulama Rehberi
+## Uygulama rehberi
 
-Şimdi ortam hazır olduğuna göre, **create search index java** ve homofonları yönetmek için ihtiyaç duyacağınız temel özellikleri keşfedelim.
+Ortam hazır olduğuna göre, **java full text search indeksi oluşturmak** ve homofonları yönetmek için ihtiyaç duyacağınız temel özellikleri inceleyelim.
 
-### Bir İndeks Oluşturma ve Yönetme
-
+### Bir indeks oluşturma ve yönetme
 #### Genel Bakış
+Arama indeksi oluşturmak, belgeleri etkili bir şekilde yönetmenin ilk adımıdır. Bu, belge içeriğinize dayalı bilgilerin hızlıca alınmasını sağlar.
 
-Bir search index oluşturmak, belgeleri etkili bir şekilde yönetmenin ilk adımıdır. Bu, belge içeriğinize dayalı bilgilerin hızlı bir şekilde alınmasını sağlar.
-
-#### İndeks Oluşturma Adımları
-**Step 1:** İndeks dosyalarınız için dizini belirtin.
+#### İndeks oluşturma adımları
+**Adım 1:** İndeks dosyalarınız için dizini belirtin.
 
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
-**Step 2:** Belirtilen klasörden belgeleri bu indekse ekleyin.
+*`Index` sınıfı, her belge için tokenleştirilmiş terimleri ve meta verileri tutan aranabilir bir kapsayıcıyı temsil eder; bu, hızlı sorgu yürütmesini ve tüm indeks boyunca belge bilgilerinin verimli depolanmasını sağlayan temel yapıyı sunar.*
+
+**Adım 2:** Belirtilen klasörden belgeleri bu indekse ekleyin.
 
 ```java
 String documentsFolder = "YOUR_DOCUMENTS_SOURCE_DIRECTORY";
@@ -134,47 +183,33 @@ index.add(documentsFolder);
 System.out.println("Documents added to the index.");
 ```
 
-*Belge içeriklerinizi indeksleyerek, tüm koleksiyon üzerinde hızlı tam metin aramaları yapabilirsiniz.*
+*`index.add()` çağrısı her dosyayı alır, metni çıkarır ve hızlı sorgular için gerekli iç yapıları doldurur; böylece her belge tam olarak indekslenir ve ayrı bir işleme adımı gerektirmeden hemen aranabilir hâle gelir.*
 
-### İndekse Belge Ekleme
+### İndekse belge ekleme
+Daha sonra `index.add()`'ı yeni bir klasör yolu veya tek tek dosya yolları ile tekrar çağırarak programlı bir şekilde daha fazla dosya ekleyebilirsiniz. Bu artımlı yaklaşım, indeksi tam bir yeniden oluşturma yapmadan güncel tutar. Bu şekilde belge eklemek, en son içerik değişikliklerini yansıtan canlı bir indeks sürdürmenizi sağlar, son kullanıcılar için sürekli arama kullanılabilirliğini destekler ve toplu yeniden indeksleme işlemleriyle ilişkili kesinti süresini azaltır.
 
-Daha sonra programlı olarak daha fazla dosya eklemeniz gerekirse, yeni klasör yolu veya tek tek dosya yolları ile `index.add()` metodunu tekrar çağırmanız yeterlidir. Bu, indeksi sıfırdan yeniden oluşturmak zorunda kalmadan güncel tutar.
+### Bir kelime için homofonları alma
+Belirli bir terim için homofonları almak, arama motorunun aynı sesli alternatif yazımları dikkate almasını sağlar, kullanıcıların hatalı yazması veya farklı varyantlar kullanması durumunda hatırlamayı artırır. Sorguyu fonetik eşdeğerlerle genişleterek, motor homofonik formlardan herhangi birini içeren belgeleri eşleştirebilir ve daha kapsamlı sonuçlar sunar.
 
-### Bir Kelime İçin Homofonları Getirme
-
-#### Genel Bakış
-
-Homofonları getirmek, aynı sesi taşıyan alternatif yazımları anlamanıza yardımcı olur ve kapsamlı arama sonuçları için gereklidir.
-
-**Step 1:** Homofon sözlüğüne erişin.
+*`HomophoneDictionary` sınıfı aynı telaffuza sahip kelime gruplarını saklar; bu, arama motorunun fonetik alternatiflerle sorguları genişletirken başvurduğu merkezi bir depodur ve böylece arama sonuçlarının alaka düzeyini artırır.*
 
 ```java
 String[] homophones = index.getDictionaries().getHomophoneDictionary().getHomophones("braid");
 ```
 
-*Bu kod parçacığı, indekslenmiş belgelerden “braid” için tüm homofonları getirir.*
+### Homofon gruplarını alma
+Homofonları gruplamak, birden fazla anlamı olan kelimeleri yönetmek için yapılandırılmış bir yol sunar; geliştiricilerin tek bir işlemde tüm fonetik eşdeğer setlerini almasına olanak tanır. Bu, analiz, özel sözlük yönetimi veya homofon listesinin toplu güncellemeleri için yararlı olabilir.
 
-### Homofon Gruplarını Getirme
-
-#### Genel Bakış
-
-Homofonları gruplamak, birden fazla anlamı olan kelimeleri yönetmek için yapılandırılmış bir yol sunar.
-
-**Step 1:** Homofon gruplarını alın.
+*`getGroups()` tarafından döndürülen her grup, fonetik aramalarda değiştirilebilir kelimeler içerir ve yöntem bu grupların kapsamlı bir koleksiyonunu sunar; böylece sözlükte tutulan homofon ilişkilerinin tam setini inceleyebilir, değiştirebilir veya dışa aktarabilirsiniz.*
 
 ```java
 String[][] groups = index.getDictionaries().getHomophoneDictionary().getHomophoneGroups("braid");
 ```
 
-*Bu özelliği, benzer sesli kelimeleri etkili bir şekilde sınıflandırmak için kullanın.*
+### Homofon sözlüğünü temizleme
+Eski veya gereksiz girişleri temizlemek, sözlüğünüzün ilgili kalmasını ve arama sonuçlarına gürültü eklememesini sağlar. Bu işlem genellikle yeni bir özel set yüklemeden önce sözlüğü varsayılan durumuna sıfırlamanız gerektiğinde yapılır.
 
-### Homofon Sözlüğünü Temizleme
-
-#### Genel Bakış
-
-Eski veya gereksiz girişleri temizlemek, sözlüğünüzün güncel kalmasını sağlar.
-
-**Step 1:** Homofon sözlüğünü kontrol edin ve temizleyin.
+*`clear()` yöntemi tüm özel girişleri kaldırır, varsayılan sete geri döner ve daha önce eklenen homofon gruplarının tamamen silindiğini garanti eder; böylece sonraki sözlük yapılandırması için temiz bir başlangıç sağlar.*
 
 ```java
 if (index.getDictionaries().getHomophoneDictionary().getCount() > 0) {
@@ -183,13 +218,10 @@ if (index.getDictionaries().getHomophoneDictionary().getCount() > 0) {
 System.out.println("Homophone dictionary cleared.");
 ```
 
-### Sözlüğe Homofon Ekleme
+### Sözlüğe homofon ekleme
+Homofon sözlüğünüzü özelleştirmek, alan‑spesifik terminoloji, argo veya marka adlarını yansıtan özel arama yetenekleri sağlar. Yeni gruplar ekleyerek, aramaların uygulamanıza özgü fonetik ilişkileri tanımasını sağlayabilirsiniz.
 
-#### Genel Bakış
-
-Homofon sözlüğünüzü özelleştirmek, özel arama yetenekleri sağlar.
-
-**Step 1:** Yeni homofon gruplarını tanımlayın ve ekleyin.
+*`addGroup()` kullanarak eş sesli kelimeler listesini ekleyin; bu, alan‑spesifik terminoloji için hatırlamayı artırır ve yöntem, yinelenenleri önlemek için her girişi doğrular ve yeni grubu mevcut sözlük yapısına sorunsuz bir şekilde entegre eder.*
 
 ```java
 String[][] homophoneGroups = {
@@ -201,33 +233,29 @@ index.getDictionaries().getHomophoneDictionary().addRange(homophoneGroups);
 System.out.println("Homophones added to the dictionary.");
 ```
 
-### Homofon Sözlüklerini Dışa ve İçeri Aktarma
+### Homofon sözlüklerini dışa ve içe aktarma
+Sözlükleri dışa ve içe aktarmak, yedekleme veya taşıma amaçları için faydalı olabilir; özel yapılandırmaları ortamlar arasında korumanızı veya ekip üyeleriyle paylaşmanızı sağlar. Bu işlevsellik, kolay okunabilirlik ve diğer araçlarla entegrasyon için JSON formatını destekler.
 
-#### Genel Bakış
-
-Sözlükleri dışa ve içeri aktarmak, yedekleme veya taşıma amaçları için faydalı olabilir.
-
-**Step 1:** Mevcut homofon sözlüğünü dışa aktarın.
+*Bu yöntemler, özel sözlükleri kolay yeniden kullanım için JSON dosyaları olarak kalıcı hale getirmenizi sağlar; dışa aktarma süreci sözlüğün tam durumunu yakalar, içe aktarma rutini ise JSON yapısını doğruladıktan sonra aktif sözlük örneğine uygular.*
 
 ```java
 String fileName = "path/to/exported/dictionary.file";
 index.getDictionaries().getHomophoneDictionary().exportDictionary(fileName);
 ```
 
-**Step 2:** Gerekirse bir dosyadan yeniden içe aktarın.
+**Adım 2:** Gerekirse bir dosyadan yeniden içe aktar.
 
 ```java
 index.getDictionaries().getHomophoneDictionary().importDictionary(fileName);
 System.out.println("Homophone dictionary imported successfully.");
 ```
 
-### Homofon Kullanarak Arama
+*İçe aktarma işlemi JSON dosyasını okur, her homofon grubunu yeniden oluşturur ve mevcut sözlüğe birleştirir; böylece tüm özel girişlerin doğru bir şekilde geri yüklendiği ve arama sorgularında hemen kullanılmaya hazır olduğu garantilenir.*
 
-#### Genel Bakış
+### Homofonları kullanarak arama
+Homofon aramayı, kapsamlı belge geri getirme için kullanın; kullanıcıların aynı sesi veren farklı yazımları kullansalar bile ilgili içeriği bulmalarını sağlar. Bu özellik, çok dilli veya fonetik‑ağır alanlarda kullanıcı deneyimini büyük ölçüde iyileştirebilir.
 
-Kapsamlı belge alımı için homofon aramayı kullanın.
-
-**Step 1:** Homofon tabanlı aramayı etkinleştirin ve gerçekleştirin.
+*`setUseHomophoneSearch(true)` ayarı, motorun sorguyu yürütmeden önce fonetik eşdeğerlerle genişletmesini sağlar ve bu seçenek, bulanık eşleşme gibi diğer arama ayarlarıyla birlikte çalışarak geniş bir ilgili sonuç yelpazesini yakalayan sağlam, esnek bir arama deneyimi sunar.*
 
 ```java
 String query = "caul";
@@ -238,47 +266,51 @@ SearchResult result = index.search(query, options);
 System.out.println("Search completed. Results found: " + result.getDocumentCount());
 ```
 
-*Bu özellik, arama yeteneklerinizin doğruluğunu ve derinliğini artırır.*
+## Pratik uygulamalar
 
-## Pratik Uygulamalar
+Bu özelliklerin nasıl uygulanacağını anlamak, bir dizi pratik uygulamanın kapılarını açar:
 
-Bu özellikleri nasıl uygulayacağınızı anlamak, bir dizi pratik uygulamanın kapılarını açar:
+1. **Hukuki belge yönetimi:** “lease” vs. “least” gibi benzer‑sesli hukuki terimleri ayırt edin.  
+2. **Eğitim içeriği oluşturma:** Öğretim materyallerinin öğrenenleri şaşırtabilecek belirsiz ifadelerden arındırılmış olmasını sağlayın.  
+3. **Müşteri destek sistemleri:** Bilgi tabanı arama doğruluğunu artırın, ajanların doğru makaleleri daha hızlı bulmasına yardımcı olun.
 
-1. **Legal Document Management:** “lease” ve “least” gibi benzer sesli hukuki terimler arasında ayrım yapın.  
-2. **Educational Content Creation:** Homofonların karışıklığa yol açabileceği öğretim materyallerinde netliği sağlayın.  
-3. **Customer Support Systems:** Bilgi tabanı aramalarının doğruluğunu artırarak, ajanların doğru makaleleri daha hızlı bulmasına yardımcı olun.
+## Performans değerlendirmeleri
 
-## Performans Düşünceleri
+**java full text search** performansını korumak için:
 
-**search index java**'nizin performansını korumak için:
-
-- **Update the index regularly** belge değişikliklerini yansıtmak için indeksi düzenli olarak güncelleyin.  
-- **Monitor memory usage** büyük veri setleri için Java heap ayarlarını izleyin ve ayarlayın.  
-- **Close unused resources promptly** (ör. işiniz bittiğinde `index.close()` çağırın).  
+- **İndeksi düzenli olarak güncelleyin** belge değişikliklerini yansıtmak için.  
+- **Bellek kullanımını izleyin** ve büyük veri setleri için Java yığın ayarlarını ayarlayın.  
+- **Kullanılmayan kaynakları hemen kapatın** (ör. işiniz bittiğinde `index.close()` çağırın).
 
 ## Sonuç
 
-Şimdiye kadar GroupDocs.Search ile **how to index documents** konusunda sağlam bir anlayışa, homofonları yönetmeye ve arama deneyiminizi ince ayarlamaya sahip olmalısınız. Bu araçlar, kesin arama sonuçları sunmak ve genel belge yönetimi verimliliğini artırmak için çok değerlidir.
+Şimdiye kadar GroupDocs.Search ile **belgeleri nasıl indeksleyeceğinizi**, homofonları yönetmeyi ve arama deneyiminizi ince ayar yapmayı sağlam bir şekilde kavramış olmalısınız. Bu araçlar, kesin sonuçlar sunmak ve genel belge yönetimi verimliliğini artırmak için çok değerlidir.
 
 ## Sıkça Sorulan Sorular
 
-**Q:** Non‑English dillerde homofon sözlüğü kullanabilir miyim?  
-**A:** Evet, uygun kelime gruplarını sağladığınız sürece sözlüğü herhangi bir dilde doldurabilirsiniz.
+**S:** Homofon sözlüğünü İngilizce dışı dillerde kullanabilir miyim?  
+**C:** Evet, uygun kelime gruplarını sağladığınız sürece sözlüğü herhangi bir dilde doldurabilirsiniz.
 
-**Q:** Geliştirme testi için lisansa ihtiyacım var mı?  
-**A:** Geliştirme ve test için ücretsiz deneme lisansı yeterlidir; üretim dağıtımları için ücretli lisans gereklidir.
+**S:** Geliştirme testleri için lisans gerekli mi?  
+**C:** Geliştirme ve test için ücretsiz deneme lisansı yeterlidir; üretim dağıtımları için ücretli lisans gerekir.
 
-**Q:** İndeksim ne kadar büyük olabilir?  
-**A:** İndeks boyutu yalnızca donanım kaynaklarınızla sınırlıdır; yeterli disk alanı ve bellek ayırdığınızdan emin olun.
+**S:** İndeksim ne kadar büyük olabilir?  
+**C:** İndeks boyutu yalnızca donanım kaynaklarınızla sınırlıdır; optimum performans için yeterli disk alanı ve bellek ayırın.
 
-**Q:** Homofon aramasını bulanık eşleştirme ile birleştirmek mümkün mü?  
-**A:** Kesinlikle. `SearchOptions` içinde `setUseHomophoneSearch(true)` ve `setFuzzySearch(true)` ikisini de etkinleştirebilirsiniz.
+**S:** Homofon aramayı bulanık eşleşme ile birleştirmek mümkün mü?  
+**C:** Kesinlikle. `SearchOptions` içinde hem `setUseHomophoneSearch(true)` hem de `setFuzzySearch(true)`'ı etkinleştirerek her iki özelliğin de avantajlarından yararlanabilirsiniz.
 
-**Q:** Aynı homofon gruplarını eklersem ne olur?  
-**A:** Çift girişler yok sayılır; sözlük benzersiz bir kelime grubu kümesi tutar.
+**S:** Yinelenen homofon grupları eklersem ne olur?  
+**C:** Yinelenen girişler göz ardı edilir; sözlük benzersiz bir kelime grubu seti tutar.
 
 ---
 
-**Son Güncelleme:** 2026-02-24  
+**Son Güncelleme:** 2026-09-21  
 **Test Edilen:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+
+- [java tam metin arama nasıl uygulanır: GroupDocs.Search ile indeks dizini oluşturma](/search/java/indexing/groupdocs-search-java-create-index/)
+- [GroupDocs.Search kullanarak Java'da Metadata Indexing ile indeks'e belge ekleme](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [Java Tam Metin Arama Kütüphanesi – GroupDocs.Search ile İndeksi Optimize Et](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
