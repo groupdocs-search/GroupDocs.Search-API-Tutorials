@@ -1,49 +1,111 @@
 ---
-date: '2026-02-24'
-description: Erfahren Sie, wie Sie einen benutzerdefinierten Logger erstellen, die
-  maximale Protokollgröße festlegen und einen Konsolen‑ oder Dateilogger in GroupDocs.Search
-  für Java konfigurieren.
+date: '2026-09-21'
+description: Erfahren Sie, wie Sie einen Logger erstellen, die max log size festlegen
+  und den console logger in GroupDocs.Search für Java verwenden.
 keywords:
-- GroupDocs.Search for Java
-- file logger implementation
-- custom loggers
-title: Wie man einen benutzerdefinierten Logger erstellt und die Logdateigröße mit
-  GroupDocs.Search Java begrenzt
+- how to create logger
+- set max log size
+- create custom logger java
+- use console logger
+- java logger max size
+lastmod: '2026-09-21'
+og_description: Erfahren Sie, wie Sie einen Logger erstellen, die max log size festlegen
+  und den console logger in GroupDocs.Search für Java verwenden. Befolgen Sie Schritt‑für‑Schritt‑Anleitungen
+  und Tipps zu bewährten Methoden.
+og_image_alt: Guide showing how to create logger and manage log file size in GroupDocs.Search
+  for Java
+og_title: Wie man einen Logger erstellt und die max log size in GroupDocs.Search begrenzt
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-21'
+  description: Learn how to create logger, set max log size, and use console logger
+    in GroupDocs.Search for Java.
+  headline: How to create logger and limit log size in GroupDocs.Search for Java
+  type: TechArticle
+- description: Learn how to create logger, set max log size, and use console logger
+    in GroupDocs.Search for Java.
+  name: How to create logger and limit log size in GroupDocs.Search for Java
+  steps:
+  - name: Create a class that implements `ILogger`.
+    text: Create a class that implements `ILogger`.
+  - name: Override the `log` method to write messages to your chosen destination (file,
+      database, HTTP endpoint).
+    text: Override the `log` method to write messages to your chosen destination (file,
+      database, HTTP endpoint).
+  - name: In the index configuration, call `settings.setLogger(new YourCustomLogger())`.
+    text: In the index configuration, call `settings.setLogger(new YourCustomLogger())`.
+  - name: '**Document management systems:** Keep audit trails of every document indexed,
+      satisfying compliance requirements.'
+    text: '**Document management systems:** Keep audit trails of every document indexed,
+      satisfying compliance requirements.'
+  - name: '**Enterprise search engines:** Monitor query performance and error rates
+      in real time, enabling rapid SLA compliance checks.'
+    text: '**Enterprise search engines:** Monitor query performance and error rates
+      in real time, enabling rapid SLA compliance checks.'
+  - name: '**Legal & compliance software:** Record search terms and timestamps for
+      regulatory reporting, with logs retained for the mandated retention period.'
+    text: '**Legal & compliance software:** Record search terms and timestamps for
+      regulatory reporting, with logs retained for the mandated retention period.'
+  type: HowTo
+- questions:
+  - answer: It sets the maximum size of the log file in megabytes, allowing you to
+      **set max log size** and prevent uncontrolled growth.
+    question: What does the second parameter of `FileLogger` control?
+  - answer: Yes. Create a custom logger that forwards each `log` call to both a `FileLogger`
+      and a `ConsoleLogger`, then register that composite logger with `IndexSettings`.
+    question: Can I combine file and console loggers?
+  - answer: Call `index.add(pathToNewDocs)` at any time; the configured logger will
+      automatically record the addition.
+    question: How do I add documents to the index after the initial creation?
+  - answer: It writes directly to `System.out`, which the JVM synchronizes internally,
+      making it safe for typical multi‑threaded use cases.
+    question: Is `ConsoleLogger` thread‑safe?
+  - answer: Once the size limit is hit, new entries are either discarded or the logger
+      rolls over to a new file, depending on the implementation you choose.
+    question: Will limiting the log file size affect the amount of information stored?
+  type: FAQPage
+tags:
+- GroupDocs.Search
+- Java logging
+- custom logger
+- file logger
+- console logger
+title: Wie man einen Logger erstellt und die max log size in GroupDocs.Search für
+  Java begrenzt
 type: docs
 url: /de/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/
 weight: 1
 ---
 
-# Begrenzen der Logdateigröße mit GroupDocs.Search Java Loggern
+# Wie man Logger erstellt und die Logdateigröße in GroupDocs.Search für Java begrenzt
 
-In diesem Leitfaden **erstellen Sie benutzerdefinierte Logger**‑Implementierungen und lernen, wie Sie **die Logdateigröße begrenzen** können, während Sie GroupDocs.Search für Java verwenden. Die Kontrolle des Log‑Wachstums ist für groß angelegte Dokumenten‑Indexierung entscheidend, und die integrierten Logger ermöglichen es Ihnen, **die maximale Loggröße festzulegen**, **Logdateien zu rotieren** oder zu einem **Console‑Logger zu wechseln** für sofortiges Feedback. Lassen Sie uns die komplette Einrichtung durchgehen – von der Maven‑Konfiguration bis zum Ausführen einer Suchabfrage – und sehen, wie Sie **Dokumente zum Index hinzufügen** können, während der Logger aktiv ist.
+In diesem Tutorial erfahren Sie **wie man Logger erstellt** Implementierungen für GroupDocs.Search, konfigurieren eine maximale Logdateigröße und wechseln zwischen dateibasiertem und Konsolen‑Logging. Eine ordnungsgemäße Protokollverwaltung verhindert, dass Festplatten bei großen Indexierungsaufgaben voll werden, verbessert die Fehlersuche und gibt Ihnen sofortiges Feedback während der Entwicklung. Wir beginnen mit der Maven‑Einrichtung, gehen die Logger‑Konfiguration durch und schließen mit einer einfachen Suchabfrage ab, die den Logger in Aktion zeigt.
 
-## Schnellantworten
+## Schnelle Antworten
 - **Was bedeutet „Logdateigröße begrenzen“?** Sie begrenzt die maximale Größe einer Logdatei und verhindert unkontrolliertes Wachstum auf der Festplatte.  
-- **Welcher Logger lässt sich zur Begrenzung der Logdateigröße verwenden?** Der integrierte `FileLogger` akzeptiert einen Max‑Size‑Parameter.  
-- **Wie verwende ich den Console‑Logger in Java?** Instanziieren Sie `ConsoleLogger` und setzen Sie ihn in `IndexSettings`.  
-- **Benötige ich eine Lizenz für GroupDocs.Search?** Eine Testversion reicht für die Evaluierung; für den Produktionseinsatz ist eine kommerzielle Lizenz erforderlich.  
+- **Welcher Logger ermöglicht das Begrenzen der Logdateigröße?** Der integrierte `FileLogger` akzeptiert einen Max‑Größen‑Parameter.  
+- **Wie verwende ich den Console‑Logger in Java?** Instanziieren Sie `ConsoleLogger` und setzen ihn in `IndexSettings`.  
+- **Benötige ich eine Lizenz für GroupDocs.Search?** Eine Testversion funktioniert für die Evaluierung; für die Produktion ist eine kommerzielle Lizenz erforderlich.  
 - **Was ist der erste Schritt?** Fügen Sie die GroupDocs.Search‑Abhängigkeit zu Ihrem Maven‑Projekt hinzu.  
 
 ## Was bedeutet Logdateigröße begrenzen?
-Die Begrenzung der Logdateigröße bedeutet, den Logger so zu konfigurieren, dass er, sobald die Datei einen vordefinierten Schwellenwert (z. B. 4 MB) erreicht, nicht weiter wächst oder rotiert. Das hält den Speicherbedarf Ihrer Anwendung vorhersehbar und verhindert Leistungseinbußen.
+Die Einstellung **Logdateigröße begrenzen** weist den Logger an, keine neuen Einträge mehr zu schreiben, sobald die Datei einen definierten Schwellenwert erreicht (z. B. 4 MB). Wird das Limit erreicht, verwirft der Logger entweder weitere Meldungen oder wechselt zu einer neuen Datei, sodass die Festplattennutzung vorhersehbar bleibt.
 
 ## Warum Datei‑ und benutzerdefinierte Logger mit GroupDocs.Search verwenden?
-- **Auditierbarkeit:** Permanent Aufzeichnungen von Indexierungs‑ und Suchvorgängen führen.  
-- **Debugging:** Probleme schnell lokalisieren, indem Sie kompakte Logs prüfen.  
-- **Flexibilität:** Zwischen persistenten Datei‑Logs und sofortiger Konsolenausgabe (`use console logger`) wählen.  
+Datei‑ und benutzerdefinierte Logger bieten Auditierbarkeit, Debug‑Einblicke und Flexibilität. In Produktionsumgebungen liefern Dateilog‑Einträge ein permanentes Protokoll jeder Index‑ und Suchoperation, während Konsolen‑Logs sofortiges Feedback während der Entwicklung geben. Diese Logs helfen Teams, die Leistung zu überwachen, Fehler nachzuvollziehen und Compliance‑Anforderungen durch ein detailliertes Aktivitätsprotokoll zu erfüllen.
 
 ## Voraussetzungen
-- **GroupDocs.Search für Java** ≥ 25.4.  
-- JDK 8 oder neuer, IDE (IntelliJ IDEA, Eclipse usw.).  
-- Grundkenntnisse in Java und Maven.  
+- GroupDocs.Search für Java ≥ 25.4.  
+- JDK 8 oder neuer, mit einer IDE wie IntelliJ IDEA oder Eclipse.  
+- Grundlegende Kenntnisse in Maven und Java‑Programmierung.  
 
-## GroupDocs.Search für Java einrichten
+## Einrichtung von GroupDocs.Search für Java
 
 Fügen Sie die Bibliothek Ihrem Projekt mit einer der untenstehenden Methoden hinzu.
 
-**Maven‑Setup:**
+**Maven‑Einrichtung:**  
 
+```text
 ```xml
 <repositories>
     <repository>
@@ -61,26 +123,42 @@ Fügen Sie die Bibliothek Ihrem Projekt mit einer der untenstehenden Methoden hi
     </dependency>
 </dependencies>
 ```
+```
 
 **Direkter Download:**  
-Laden Sie das neueste JAR von der offiziellen Seite herunter: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Laden Sie das neueste JAR von der offiziellen Seite herunter: [GroupDocs.Search für Java Releases](https://releases.groupdocs.com/search/java/).
 
 ### Lizenzbeschaffung
-Erhalten Sie eine Testlizenz oder kaufen Sie eine Lizenz über die [Lizenzierungsseite](https://purchase.groupdocs.com/temporary-license/).
+Erhalten Sie eine Testversion oder kaufen Sie eine Lizenz über die [Lizenzierungsseite](https://purchase.groupdocs.com/temporary-license/).
 
 ## Wie man einen benutzerdefinierten Logger für GroupDocs.Search erstellt
-GroupDocs.Search ermöglicht das Einbinden beliebiger Implementierungen des `ILogger`‑Interfaces. Durch das Erweitern von `FileLogger` oder `ConsoleLogger` können Sie zusätzliches Verhalten hinzufügen – etwa das Rotieren der Logdatei oder das Weiterleiten von Nachrichten an einen Remote‑Monitoring‑Dienst. Diese Flexibilität ist der Grund, warum viele Teams **benutzerdefinierte Logger** erstellen, die ihren betrieblichen Anforderungen entsprechen.
+Das Erstellen eines benutzerdefinierten Loggers ist unkompliziert, weil GroupDocs.Search auf dem `ILogger`‑Interface basiert. Durch Implementierung dieses Interfaces – oder durch Erweiterung des bereitgestellten `FileLogger` bzw. `ConsoleLogger` – können Sie zusätzliches Verhalten wie Remote‑Weiterleitung oder Log‑Rotation einbinden. Sie können zudem Initialisierungslogik hinzufügen, z. B. das Öffnen von Netzwerkverbindungen, und sicherstellen, dass Ressourcen im `shutdown`‑Methodenaufruf des Loggers geschlossen werden. Dieser Ansatz ermöglicht die Integration mit Monitoring‑Plattformen wie ELK oder Splunk.
+
+### Definition Anker
+`ILogger` ist der Kern‑Logging‑Vertrag in GroupDocs.Search; jede Klasse, die deren `log(Level, String)`‑Methode implementiert, kann ein Logger sein.
+
+### Beispielansatz (kein Code‑Block)
+1. Erstellen Sie eine Klasse, die `ILogger` implementiert.  
+2. Überschreiben Sie die `log`‑Methode, um Nachrichten an Ihr gewünschtes Ziel (Datei, Datenbank, HTTP‑Endpunkt) zu schreiben.  
+3. Rufen Sie in der Index‑Konfiguration `settings.setLogger(new YourCustomLogger())` auf.  
 
 ## Wie man die Logdateigröße mit dem File Logger begrenzt
-Im Folgenden finden Sie eine Schritt‑für‑Schritt‑Anleitung, wie Sie den **File Logger** so konfigurieren, dass die Logdatei niemals die von Ihnen angegebene Größe überschreitet.
+Der `FileLogger` schreibt Log‑Einträge in eine Datei auf dem Datenträger und akzeptiert ein Max‑Größen‑Argument. Durch Angabe des Größenlimits stoppt der Logger automatisch das Hinzufügen neuer Einträge oder erstellt eine neue Datei, sobald der Schwellenwert erreicht ist, und verhindert so unkontrolliertes Wachstum der Festplatte. Dieses Verhalten stellt sicher, dass das Logging die Indexierungs‑Performance nicht beeinträchtigt und gleichzeitig ein kompakter Ereignis‑Verlauf erhalten bleibt.
 
-### 1️⃣ Notwendige Pakete importieren
+### Definition Anker
+`FileLogger` ist ein integrierter Logger, der Nachrichten in einer Textdatei speichert und eine konfigurierbare maximale Dateigröße unterstützt.
+
+### Schritt‑für‑Schritt‑Anleitung
+1️⃣ **Notwendige Pakete importieren**  
+```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
+```
 
-### 2️⃣ Index‑Einstellungen mit File Logger festlegen
+2️⃣ **Indexeinstellungen mit File Logger einrichten**  
+```text
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/IndexFolder";
 String documentsFolder = Utils.DocumentsPath; // Directory containing documents
@@ -90,34 +168,48 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
+```
 
-### 3️⃣ Index erstellen oder laden
+3️⃣ **Index erstellen oder laden**  
+```text
 ```java
 Index index = new Index(indexFolder, settings);
 ```
+```
 
-### 4️⃣ Dokumente zum Index hinzufügen
+4️⃣ **Dokumente zum Index hinzufügen**  
+```text
 ```java
 index.add(documentsFolder);
 ```
+```
 
-### 5️⃣ Suchabfrage ausführen
+5️⃣ **Suchabfrage ausführen**  
+```text
 ```java
 SearchResult result = index.search(query);
+```
 ```
 
 **Wichtiger Hinweis:** Das zweite Argument des `FileLogger`‑Konstruktors (`4.0`) definiert die **maximale Loggröße** in Megabyte und erfüllt damit die Anforderung **Logdateigröße begrenzen**.
 
 ## Wie man den Console Logger in Java verwendet
-Wenn Sie sofortiges Feedback im Terminal bevorzugen, ersetzen Sie den File Logger durch einen Console Logger.
+Wenn Sie sofortige Sichtbarkeit von Log‑Ereignissen benötigen, schreibt der `ConsoleLogger` jede Nachricht nach `System.out`. Dieser Logger ist leichtgewichtig und thread‑sicher, wodurch er sich für Entwicklungs‑ und Debug‑Sitzungen eignet. Er liefert sofortiges Feedback zum Indexierungs‑Fortschritt, zu Suchabfragen und zu Fehlermeldungen, ohne Dateizugriffe, was iterative Tests beschleunigen kann.
 
-### 1️⃣ Console Logger importieren
+### Definition Anker
+`ConsoleLogger` ist ein leichtgewichtiger Logger, der Log‑Einträge in den Standard‑Konsolen‑Stream ausgibt und sich ideal für Debug‑Sitzungen eignet.
+
+### Konfigurationsschritte
+1️⃣ **Console Logger importieren**  
+```text
 ```java
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
+```
 
-### 2️⃣ Index‑Einstellungen mit Console Logger festlegen
+2️⃣ **Indexeinstellungen mit Console Logger einrichten**  
+```text
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY/CustomLoggerIndexFolder";
 String documentsFolder = Utils.DocumentsPath; // Directory containing documents
@@ -126,60 +218,67 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
+```
 
-### 3️⃣ Index erstellen oder laden
+3️⃣ **Index erstellen oder laden**  
+```text
 ```java
 Index index = new Index(indexFolder, settings);
 ```
+```
 
-### 4️⃣ Dokumente hinzufügen und Suche ausführen
+4️⃣ **Dokumente hinzufügen und Suche ausführen**  
+```text
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
 ```
+```
 
-**Tipp:** Der Console Logger ist während der Entwicklung ideal, weil er jeden Log‑Eintrag sofort ausgibt und Ihnen hilft zu überprüfen, ob Indexierung und Suche wie erwartet funktionieren.
+**Tipp:** Der Console Logger ist während der Entwicklung ideal, da er jeden Logeintrag sofort ausgibt und Ihnen hilft zu überprüfen, dass Indexierung und Suche wie erwartet funktionieren.
 
-## Praktische Anwendungsfälle
-1. **Dokumenten‑Management‑Systeme:** Audit‑Trails für jedes indizierte Dokument führen.  
-2. **Enterprise‑Suchmaschinen:** Abfrage‑Performance und Fehlerraten in Echtzeit überwachen.  
-3. **Legal‑ & Compliance‑Software:** Suchbegriffe für regulatorische Berichte protokollieren.
+## Praktische Anwendungen
+1. **Dokumenten‑Management‑Systeme:** Audit‑Trails für jedes indexierte Dokument führen und Compliance‑Anforderungen erfüllen.  
+2. **Enterprise‑Suchmaschinen:** Echtzeit‑Überwachung von Abfrage‑Performance und Fehlerraten für schnelle SLA‑Kontrollen.  
+3. **Rechts‑ und Compliance‑Software:** Suchbegriffe und Zeitstempel für regulatorische Berichte aufzeichnen und für den vorgeschriebenen Aufbewahrungszeitraum speichern.
 
 ## Leistungsüberlegungen
-- **Loggröße:** Durch **maximale Loggröße setzen** vermeiden Sie übermäßigen Festplattenverbrauch, der Ihre Anwendung verlangsamen könnte.  
-- **Asynchrones Logging:** Für höhere Durchsatzraten können Sie den Logger in eine asynchrone Warteschlange einbinden (nicht Teil dieses Leitfadens).  
-- **Speichermanagement:** Große `Index`‑Objekte freigeben, sobald sie nicht mehr benötigt werden, um den JVM‑Footprint gering zu halten.
+- **Loggröße:** Durch **maximale Loggröße setzen** vermeiden Sie übermäßige Festplattennutzung, die sonst den Garbage‑Collector der JVM verlangsamen könnte.  
+- **Asynchrones Logging:** Für Szenarien mit hohem Durchsatz können Sie Ihren Logger in eine asynchrone Warteschlange einbinden, um I/O vom Index‑Thread zu entkoppeln (Implementierung liegt außerhalb dieses Leitfadens).  
+- **Speicherverwaltung:** Große `Index`‑Objekte mit `index.close()` freigeben, sobald sie nicht mehr benötigt werden, um den JVM‑Speicherverbrauch gering zu halten.
 
 ## Häufige Probleme & Lösungen
-- **Log‑Pfad nicht zugänglich:** Stellen Sie sicher, dass das Verzeichnis existiert und die Anwendung Schreibrechte hat.  
-- **Logger wird nicht ausgelöst:** Rufen Sie `settings.setLogger(...)` *vor* der Erstellung des `Index`‑Objekts auf.  
-- **Keine Konsolenausgabe:** Vergewissern Sie sich, dass Sie die Anwendung in einem Terminal ausführen, das `System.out` anzeigt.
+- **Log‑Pfad nicht zugänglich:** Stellen Sie sicher, dass das Verzeichnis existiert und die Anwendung Schreibrechte für das Benutzerkonto hat, das die JVM ausführt.  
+- **Logger wird nicht ausgelöst:** Vergewissern Sie sich, dass Sie `settings.setLogger(...)` *vor* dem Erstellen des `Index`‑Objekts aufrufen; sonst wird der Standard‑Logger verwendet.  
+- **Konsolenausgabe fehlt:** Prüfen Sie, ob die Anwendung in einem Terminal läuft, das `System.out` anzeigt, und ob kein Logging‑Framework (z. B. SLF4J) die Ausgabe abfängt.
 
 ## Häufig gestellte Fragen
 
-**F: Was steuert der zweite Parameter von `FileLogger`?**  
-A: Er legt die maximale Größe der Logdatei in Megabyte fest und ermöglicht das **setzen der maximalen Loggröße**.
+**Q: Was steuert der zweite Parameter von `FileLogger`?**  
+A: Er legt die maximale Größe der Logdatei in Megabyte fest, sodass Sie die **maximale Loggröße** setzen und unkontrolliertes Wachstum verhindern können.
 
-**F: Kann ich Datei‑ und Console‑Logger kombinieren?**  
-A: Ja, indem Sie einen benutzerdefinierten Logger erstellen, der Nachrichten an beide Ziele weiterleitet.
+**Q: Kann ich Datei‑ und Console‑Logger kombinieren?**  
+A: Ja. Erstellen Sie einen benutzerdefinierten Logger, der jeden `log`‑Aufruf sowohl an einen `FileLogger` als auch an einen `ConsoleLogger` weiterleitet, und registrieren Sie diesen zusammengesetzten Logger bei `IndexSettings`.
 
-**F: Wie füge ich nach der Erst­erstellung Dokumente zum Index hinzu?**  
-A: Rufen Sie jederzeit `index.add(pathToNewDocs)` auf; der Logger protokolliert den Vorgang.
+**Q: Wie füge ich nach der Erst­erstellung Dokumente zum Index hinzu?**  
+A: Rufen Sie jederzeit `index.add(pathToNewDocs)` auf; der konfigurierte Logger zeichnet die Hinzufügung automatisch auf.
 
-**F: Ist `ConsoleLogger` thread‑sicher?**  
-A: Er schreibt direkt nach `System.out`, das von der JVM synchronisiert wird, sodass er für die meisten Anwendungsfälle sicher ist.
+**Q: Ist `ConsoleLogger` thread‑sicher?**  
+A: Er schreibt direkt nach `System.out`, das von der JVM intern synchronisiert wird, sodass er für typische multithreaded‑Szenarien sicher ist.
 
-**F: Beeinflusst das Begrenzen der Logdateigröße die Menge der gespeicherten Informationen?**  
-A: Sobald das Größenlimit erreicht ist, können neue Einträge verworfen oder die Datei **rotiert** werden, abhängig von der Logger‑Implementierung.
+**Q: Beeinflusst das Begrenzen der Logdateigröße die Menge gespeicherter Informationen?**  
+A: Sobald das Größenlimit erreicht ist, werden neue Einträge entweder verworfen oder der Logger wechselt zu einer neuen Datei, abhängig von der gewählten Implementierung.
 
 ## Ressourcen
-- [Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java/)
+- [Dokumentation](https://docs.groupdocs.com/search/java/)
+- [API‑Referenz](https://reference.groupdocs.com/search/java/)
 
----
-
-**Zuletzt aktualisiert:** 2026-02-24  
+**Zuletzt aktualisiert:** 2026-09-21  
 **Getestet mit:** GroupDocs.Search für Java 25.4  
 **Autor:** GroupDocs  
 
----
+## Verwandte Tutorials
+
+- [Wie man Logging implementiert – Ausnahmebehandlung und Logging‑Tutorials für GroupDocs.Search Java](/search/java/exception-handling-logging/)
+- [Asynchrones Logging in Java mit GroupDocs.Search implementieren – Leitfaden für benutzerdefinierten Logger](/search/java/exception-handling-logging/master-custom-logging-groupdocs-search-java/)
+- [Suchindex in Java erstellen – GroupDocs.Search Tutorials](/search/java/indexing/)
