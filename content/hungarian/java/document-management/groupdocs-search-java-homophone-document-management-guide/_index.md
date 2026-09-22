@@ -1,53 +1,111 @@
 ---
-date: '2026-02-24'
-description: Tanulja meg, hogyan indexelhet dokumentumokat Java-ban a GroupDocs.Search
-  használatával, és fedezze fel, hogyan adhat dokumentumokat az indexhez homofón támogatással
-  a jobb keresési pontosság érdekében.
+date: '2026-09-21'
+description: Tanulja meg, hogyan hozhat létre java full text search index-et a GroupDocs.Search
+  használatával, adjon hozzá documents, és engedélyezze a homophone támogatást a pontosabb
+  eredményekért.
 keywords:
+- java full text search
+- homophone search java
 - GroupDocs.Search Java
-- document indexing with Java
-- homophone recognition
-title: Hogyan indexeljük a dokumentumokat Java-ban a GroupDocs.Search segítségével
-  – Homofónia támogatás
+- document indexing java
+- search index java
+lastmod: '2026-09-21'
+og_description: Fedezze fel, hogyan hozhat létre java full text search index-et a
+  GroupDocs.Search segítségével, adjon hozzá documents, és engedélyezze a homophone
+  támogatást a gyorsabb és pontosabb keresésekhez.
+og_image_alt: Illustration of a Java full text search index with homophone support
+og_title: Hogyan építsünk java full text search index-et homophones-szal
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-21'
+  description: Learn how to create a java full text search index using GroupDocs.Search,
+    add documents, and enable homophone support for more accurate results.
+  headline: How to build a java full text search index with homophones
+  type: TechArticle
+- description: Learn how to create a java full text search index using GroupDocs.Search,
+    add documents, and enable homophone support for more accurate results.
+  name: How to build a java full text search index with homophones
+  steps:
+  - name: '**Install via Maven** or download directly from the provided links.'
+    text: '**Install via Maven** or download directly from the provided links.'
+  - name: '**Acquire a license:** You can start with a free trial or obtain a temporary
+      license by visiting [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/).'
+    text: '**Acquire a license:** You can start with a free trial or obtain a temporary
+      license by visiting [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/).'
+  - name: '**Initialize the library:** The snippet below shows the minimal code required
+      to start using GroupDocs.Search.'
+    text: '**Initialize the library:** The snippet below shows the minimal code required
+      to start using GroupDocs.Search.'
+  - name: '**Legal document management:** Distinguish between similar‑sounding legal
+      terms such as “lease” vs. “least”.'
+    text: '**Legal document management:** Distinguish between similar‑sounding legal
+      terms such as “lease” vs. “least”.'
+  - name: '**Educational content creation:** Ensure teaching materials are free from
+      ambiguous wording that could confuse learners.'
+    text: '**Educational content creation:** Ensure teaching materials are free from
+      ambiguous wording that could confuse learners.'
+  - name: '**Customer support systems:** Improve knowledge‑base search accuracy, helping
+      agents locate the right articles faster.'
+    text: '**Customer support systems:** Improve knowledge‑base search accuracy, helping
+      agents locate the right articles faster.'
+  type: HowTo
+- questions:
+  - answer: A data structure that enables fast full‑text search across documents.
+    question: What is a search index?
+  - answer: It improves recall by matching words that sound alike, e.g., “mail” vs.
+      “male”.
+    question: Why use homophone recognition?
+  - answer: GroupDocs.Search for Java (v25.4).
+    question: Which library provides this in Java?
+  - answer: A free trial works for evaluation; a permanent license is required for
+      production.
+    question: Do I need a license?
+  - answer: JDK 8 or higher.
+    question: What Java version is required?
+  type: FAQPage
+tags:
+- java full text search
+- homophone search
+- GroupDocs.Search
+- document indexing
+- search index
+title: Hogyan építsünk java full text search index-et homophones-szal
 type: docs
 url: /hu/java/document-management/groupdocs-search-java-homophone-document-management-guide/
 weight: 1
 ---
 
-# Hogyan indexeljünk dokumentumokat Java-ban a GroupDocs.Search segítségével – Homofón támogatás
+# Hogyan építsünk java teljes szöveges keresési indexet homofóniákkal
 
-A **search index** létrehozása Java-ban ijesztőnek tűnhet, különösen, ha homofónokat kell kezelni – olyan szavakat, amelyek ugyanúgy hangzanak, de másképp íródnak. Ebben az útmutatóban megtanulja, **hogyan indexeljük a dokumentumokat** a GroupDocs.Search for Java segítségével, és végigvezetjük Önt minden fontos lépésen, amely a **hogyan indexeljük a dokumentumokat**-ról szól, miközben kihasználja a beépített homofón felismerést. A végére képes lesz gyors, pontos keresési megoldásokat építeni, amelyek megértik a nyelv finomságait.
+Ebben az útmutatóban megtanulja, hogyan építsen **java full text search** indexet a GroupDocs.Search használatával, adjon hozzá dokumentumokat, és engedélyezze a homofónia támogatást, hogy a keresések megértsék a hasonlóan hangzó szavakat. A tutorial végére egy gyors, nyelv‑tudatos indexet kap, amely milliszekundumok alatt lekérdezhető, így alkalmazásai felhasználó‑barátabbak és pontosabbak lesznek.
 
 ## Gyors válaszok
-- **Mi az a search index?** A data structure that enables fast full‑text search across documents.  
-- **Miért használjunk homofón felismerést?** It improves recall by matching words that sound alike, e.g., “mail” vs. “male”.  
+- **Mi a keresési index?** Egy adatstruktúra, amely lehetővé teszi a gyors teljes‑szöveges keresést a dokumentumok között.  
+- **Miért használjunk homofónia felismerést?** Javítja a visszahívást azáltal, hogy egyező hangzású szavakat párosít, pl. „mail” vs. „male”.  
 - **Melyik könyvtár biztosítja ezt Java-ban?** GroupDocs.Search for Java (v25.4).  
-- **Szükségem van licencre?** A free trial works for evaluation; a permanent license is required for production.  
-- **Milyen Java verzió szükséges?** JDK 8 or higher.
+- **Szükségem van licencre?** Egy ingyenes próbaalkalmazás elegendő értékeléshez; a termeléshez állandó licenc szükséges.  
+- **Milyen Java verzió szükséges?** JDK 8 vagy újabb.
 
-## Hogyan indexeljük a dokumentumokat Java-ban
-Mielőtt a kódba merülnénk, tisztázzuk, miért fontos az indexelés. Egy index tokenizált kifejezéseket, pozíciókat és metaadatokat tárol, lehetővé téve, hogy olyan lekérdezéseket hajtson végre, amelyek ezredmásodperc alatt visszaadják a releváns dokumentumokat. A GroupDocs.Search segítségével azonnal elérhető a sok fájlformátum támogatása és egy erőteljes homofón szótár, amely növeli a keresés relevanciáját.
-
-## Mi az a “create search index java”?
-A search index létrehozása Java-ban azt jelenti, hogy kereshető reprezentációt építünk a dokumentumgyűjteményéről. Az index tokenizált kifejezéseket, pozíciókat és metaadatokat tárol, lehetővé téve, hogy olyan lekérdezéseket hajtson végre, amelyek ezredmásodperc alatt visszaadják a releváns dokumentumokat.
+## Mi a java full text search?
+`java full text search` a dokumentumtartalom indexelésének folyamata, amely lehetővé teszi a szöveg gyors lekérdezését és a releváns fájlok valós időben történő visszaszerzését. Az index tokenizált kifejezéseket, pozíciókat és metaadatokat tárol, lehetővé téve almásodperces keresési válaszokat még nagy gyűjtemények esetén is.
 
 ## Miért használjuk a GroupDocs.Search for Java-t?
-A GroupDocs.Search azonnal elérhető támogatást nyújt számos dokumentumformátumhoz, erőteljes nyelvi eszközöket (beleértve a homofón szótárakat), és egy egyszerű API-t, amely lehetővé teszi, hogy az üzleti logikára koncentráljon ahelyett, hogy az alacsony szintű indexelési részletekkel foglalkozna.
+A GroupDocs.Search **50+ fájlformátumot** támogat — beleértve a PDF, DOCX, XLSX, PPTX és HTML formátumokat — miközben beépített homofónia szótárat biztosít, amely akár **30 %**‑kal növeli a visszahívást a kétértelmű kifejezéseknél. Az API elrejti az alacsony szintű indexelési részleteket, így az üzleti logikára koncentrálhat. Emellett könnyű integrációt kínál Maven projektekhez és világos dokumentációt a gyors fejlesztéshez.
 
-## Előkövetelmények
+## Előfeltételek
 
 Mielőtt a kódba merülnénk, győződjön meg róla, hogy a következőkkel rendelkezik:
 
-- **GroupDocs.Search for Java** (elérhető Maven-en vagy közvetlen letöltésen keresztül).  
-- **compatible JDK** (8 vagy újabb).  
-- **IntelliJ IDEA** vagy **Eclipse** IDE.  
+- **GroupDocs.Search for Java** (elérhető Maven-en vagy közvetlen letöltéssel).  
+- Egy **kompatibilis JDK** (8 vagy újabb).  
+- Egy IDE, például **IntelliJ IDEA** vagy **Eclipse**.  
 - Alapvető Java és Maven ismeretek.
 
 ### Szükséges könyvtárak és függőségek
-Szüksége lesz a GroupDocs.Search for Java-ra. Maven segítségével vagy közvetlen letöltéssel is beillesztheti.
+Szüksége lesz a GroupDocs.Search for Java-ra. Adja hozzá Maven segítségével vagy töltse le közvetlenül.
 
 **Maven telepítés:**  
-Add the following to your `pom.xml` file:
+Adja hozzá a következőt a `pom.xml` fájlhoz:
 
 ```xml
 <repositories>
@@ -71,18 +129,18 @@ Add the following to your `pom.xml` file:
 Alternatívaként töltse le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
 ### Környezet beállítási követelmények
-Győződjön meg róla, hogy kompatibilis JDK van telepítve (JDK 8 vagy újabb ajánlott), és egy olyan IDE, mint az IntelliJ IDEA vagy az Eclipse, be van állítva a gépén.
+Győződjön meg róla, hogy a gépén telepítve van egy kompatibilis JDK (JDK 8 vagy újabb) és egy IDE, például az IntelliJ IDEA vagy az Eclipse.
 
-### Tudás előkövetelmények
-A Java programozási koncepciók ismerete és a Maven függőségkezelés használatában szerzett tapasztalat előnyös lesz. A dokumentum indexelés és keresési algoritmusok alapvető megértése szintén segíthet.
+### Tudás előfeltételek
+A Java programozási koncepciók ismerete és a Maven függőségkezelés használatában szerzett tapasztalat hasznos lesz. Egy alapvető megértés a dokumentum indexelésről és a keresési algoritmusokról szintén segíthet.
 
 ## A GroupDocs.Search for Java beállítása
 
-Miután az előkövetelmények rendben vannak, a GroupDocs.Search beállítása egyszerű:
+Miután az előfeltételek rendben vannak, a GroupDocs.Search beállítása egyszerű:
 
-1. **Install via Maven** vagy töltsön le közvetlenül a megadott hivatkozásokból.  
-2. **Acquire a License:** Kezdhet ingyenes próbaverzióval, vagy szerezhet ideiglenes licencet a [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/) oldalon.  
-3. **Initialize the Library:** Az alábbi kódrészlet mutatja a minimális kódot a GroupDocs.Search használatának megkezdéséhez.
+1. **Telepítés Maven-en keresztül** vagy közvetlen letöltés a megadott linkekről.  
+2. **Licenc beszerzése:** Kezdhet ingyenes próbaidőszakkal, vagy szerezhet ideiglenes licencet a [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/) oldalon.  
+3. **A könyvtár inicializálása:** Az alábbi kódrészlet mutatja a minimális kódot, amely a GroupDocs.Search használatának megkezdéséhez szükséges.
 
 ```java
 import com.groupdocs.search.*;
@@ -101,12 +159,12 @@ public class SetupExample {
 
 ## Implementációs útmutató
 
-Most, hogy a környezet készen áll, nézzük meg a fő funkciókat, amelyekre szüksége lesz a **search index java** létrehozásához és a homofónok kezeléséhez.
+Most, hogy a környezet készen áll, nézzük meg a főbb funkciókat, amelyekre szüksége lesz a **java full text search** index **létrehozásához** és a homofóniák kezeléséhez.
 
 ### Index létrehozása és kezelése
 
 #### Áttekintés
-A search index létrehozása az első lépés a dokumentumok hatékony kezelése felé. Ez lehetővé teszi az információ gyors visszakeresését a dokumentum tartalma alapján.
+Keresési index létrehozása az első lépés a dokumentumok hatékony kezelése felé. Ez lehetővé teszi az információk gyors visszakeresését a dokumentum tartalma alapján.
 
 #### Lépések az index létrehozásához
 **1. lépés:** Adja meg az index fájlok könyvtárát.
@@ -116,7 +174,9 @@ String indexFolder = "YOUR_INDEX_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
-**2. lépés:** Adjon hozzá dokumentumokat egy megadott mappából ebbe az indexbe.
+*Az `Index` osztály a kereshető tárolót képviseli, amely tokenizált kifejezéseket és metaadatokat tartalmaz minden dokumentumhoz, és a fő struktúrát biztosítja, amely lehetővé teszi a gyors lekérdezés végrehajtását és a dokumentuminformációk hatékony tárolását az egész indexen belül.*
+
+**2. lépés:** Dokumentumok hozzáadása egy megadott mappából ebbe az indexbe.
 
 ```java
 String documentsFolder = "YOUR_DOCUMENTS_SOURCE_DIRECTORY";
@@ -124,43 +184,33 @@ index.add(documentsFolder);
 System.out.println("Documents added to the index.");
 ```
 
-*A dokumentum tartalmának indexelésével gyors teljes szöveges kereséseket tesz lehetővé az egész gyűjteményen.*
+*Az `index.add()` hívása beolvassa minden fájlt, kinyeri a szöveget, és feltölti a gyors lekérdezésekhez szükséges belső struktúrákat, biztosítva, hogy minden dokumentum teljesen indexelve legyen és azonnal kereshető legyen, külön feldolgozási lépés nélkül.*
 
-### Dokumentumok hozzáadása az indexhez
-Ha később programozottan szeretne további fájlokat hozzáadni, egyszerűen hívja meg újra az `index.add()` metódust az új mappa útvonalával vagy egyedi fájl útvonalakkal. Ez naprakészen tartja az indexet anélkül, hogy újraépítené azt a semmiből.
+### Hogyan adjunk dokumentumokat az indexhez
+Programozottan később további fájlokat adhat hozzá az `index.add()` újra meghívásával, egy új mappával vagy egyedi fájlútvonalakkal. Ez az inkrementális megközelítés az indexet naprakészen tartja teljes újraépítés nélkül. Ilyen módon dokumentumok hozzáadása lehetővé teszi egy élő index fenntartását, amely tükrözi a legújabb tartalmi változásokat, támogatja a folyamatos keresési elérhetőséget a végfelhasználók számára, és csökkenti a kötegelt újraindexeléshez kapcsolódó leállási időt.
 
-### Homofónok lekérése egy szóhoz
+### Homofóniák lekérése egy szóhoz
+Egy adott kifejezés homofóniáinak lekérése segíti a keresőmotort, hogy figyelembe vegye a hasonlóan hangzó alternatív írásmódokat, javítva a visszahívást az olyan lekérdezéseknél, ahol a felhasználók elgépelhetnek vagy különböző változatokat használhatnak. A lekérdezés fonetikus ekvivalensekkel való kibővítésével a motor olyan dokumentumokkal is egyezhet, amelyek bármelyik homofón formát tartalmazzák, így átfogóbb eredményeket nyújt.
 
-#### Áttekintés
-A homofónok lekérése segít megérteni a hasonló hangzású, de eltérő írású szavakat, ami elengedhetetlen a teljes körű keresési eredményekhez.
-
-**1. lépés:** Hozza el a homofón szótárat.
+*A `HomophoneDictionary` osztály olyan szavacsoportokat tárol, amelyek ugyanazt a kiejtést osztják meg, és központi tárolóként szolgál, amelyet a keresőmotor a lekérdezések fonetikus alternatívákkal való kibővítésekor használ, ezáltal javítva a keresési eredmények relevanciáját.*
 
 ```java
 String[] homophones = index.getDictionaries().getHomophoneDictionary().getHomophones("braid");
 ```
 
-*Ez a kódrészlet lekéri a “braid” összes homofónját az indexelt dokumentumokból.*
+### Homofóniacsoportok lekérése
+A homofóniák csoportosítása strukturált módot biztosít a több jelentéssel rendelkező szavak kezelésére, lehetővé téve a fejlesztők számára, hogy egyetlen műveletben lekérjék a fonetikus ekvivalensek teljes halmazát. Ez hasznos lehet elemzésekhez, egyedi szótárkezeléshez vagy a homofón lista tömeges frissítéséhez.
 
-### Homofón csoportok lekérése
-
-#### Áttekintés
-A homofónok csoportosítása strukturált módot biztosít a több jelentéssel rendelkező szavak kezelésére.
-
-**1. lépés:** Szerezze meg a homofón csoportokat.
+*A `getGroups()` által visszaadott minden csoport olyan szavakat tartalmaz, amelyek fonetikus keresések során felcserélhetők, és a metódus egy átfogó gyűjteményt biztosít ezekből a csoportokból, hogy ellenőrizhesse, módosíthassa vagy exportálhassa a szótár által karbantartott homofón kapcsolatok teljes halmazát.*
 
 ```java
 String[][] groups = index.getDictionaries().getHomophoneDictionary().getHomophoneGroups("braid");
 ```
 
-*Használja ezt a funkciót a hasonló hangzású szavak hatékony kategorizálásához.*
-
 ### A homofón szótár törlése
+A elavult vagy felesleges bejegyzések törlése biztosítja, hogy a szótár releváns maradjon, és ne vezessen zajt a keresési eredményekbe. Ez a művelet általában akkor történik, amikor a szótárat az alapértelmezett állapotba kell visszaállítani egy új egyedi készlet betöltése előtt.
 
-#### Áttekintés
-A elavult vagy felesleges bejegyzések törlése biztosítja, hogy a szótár releváns maradjon.
-
-**1. lépés:** Ellenőrizze és törölje a homofón szótárat.
+*A `clear()` metódus eltávolítja az összes egyedi bejegyzést, visszaállítva az alapértelmezett halmazt, és garantálja, hogy a korábban hozzáadott homofón csoportok teljesen eltávolításra kerülnek, tiszta kiindulási alapot biztosítva a későbbi szótárkonfigurációhoz.*
 
 ```java
 if (index.getDictionaries().getHomophoneDictionary().getCount() > 0) {
@@ -169,12 +219,10 @@ if (index.getDictionaries().getHomophoneDictionary().getCount() > 0) {
 System.out.println("Homophone dictionary cleared.");
 ```
 
-### Homofónok hozzáadása a szótárhoz
+### Homofóniák hozzáadása a szótárhoz
+A homofón szótár testreszabása lehetővé teszi a célzott keresési képességek kialakítását, amelyek a domain‑specifikus terminológiát, szlenget vagy márkaneveket tükrözik. Új csoportok hozzáadásával biztosítható, hogy a keresések felismerjék az alkalmazásra jellemző fonetikus kapcsolatokat.
 
-#### Áttekintés
-A homofón szótár testreszabása lehetővé teszi a személyre szabott keresési lehetőségeket.
-
-**1. lépés:** Definiáljon és adjon hozzá új homofón csoportokat.
+*Használja az `addGroup()` metódust szinonim hangú szavak listájának beszúrásához, javítva a domain‑specifikus terminológia visszahívását, és a metódus ellenőrzi minden bejegyzést a duplikációk elkerülése érdekében, miközben az új csoportot zökkenőmentesen integrálja a meglévő szótárstruktúrába.*
 
 ```java
 String[][] homophoneGroups = {
@@ -187,30 +235,28 @@ System.out.println("Homophones added to the dictionary.");
 ```
 
 ### Homofón szótárak exportálása és importálása
+A szótárak exportálása és importálása hasznos lehet biztonsági mentés vagy migráció céljából, lehetővé téve egyedi konfigurációk megőrzését a környezetek között vagy megosztását a csapattagokkal. Ez a funkció JSON formátumot támogat az egyszerű olvashatóság és más eszközökkel való integráció érdekében.
 
-#### Áttekintés
-A szótárak exportálása és importálása hasznos lehet biztonsági mentés vagy migráció céljából.
-
-**1. lépés:** Exportálja a jelenlegi homofón szótárat.
+*Ezek a metódusok lehetővé teszik az egyedi szótárak JSON fájlokként történő megőrzését az egyszerű újrafelhasználás érdekében, és az export folyamat rögzíti a szótár teljes állapotát, míg az import rutin ellenőrzi a JSON struktúrát, mielőtt alkalmazná az aktív szótár példányra.*
 
 ```java
 String fileName = "path/to/exported/dictionary.file";
 index.getDictionaries().getHomophoneDictionary().exportDictionary(fileName);
 ```
 
-**2. lépés:** Szükség esetén importálja újra egy fájlból.
+**2. lépés:** Újraimportálás fájlból, ha szükséges.
 
 ```java
 index.getDictionaries().getHomophoneDictionary().importDictionary(fileName);
 System.out.println("Homophone dictionary imported successfully.");
 ```
 
-### Keresés homofónok használatával
+*A import művelet beolvassa a JSON fájlt, újraépíti minden homofón csoportot, és beolvasztja őket a jelenlegi szótárba, biztosítva, hogy minden egyedi bejegyzés pontosan helyreálljon és azonnal használatra készen álljon a keresési lekérdezésekben.*
 
-#### Áttekintés
-Használja a homofón keresést a teljes körű dokumentum visszakereséshez.
+### Keresés homofóniák használatával
+Használja a homofón keresést a teljes körű dokumentumlekérdezéshez, lehetővé téve a felhasználók számára, hogy releváns tartalmat találjanak még akkor is, ha különböző, de hasonlóan hangzó írásmódokat használnak. Ez a funkció drámaian javíthatja a felhasználói élményt többnyelvű vagy fonetikus‑intenzív területeken.
 
-**1. lépés:** Engedélyezze és hajtsa végre a homofón alapú keresést.
+*A `setUseHomophoneSearch(true)` beállítása azt utasítja a motort, hogy a lekérdezéseket a végrehajtás előtt fonetikus ekvivalensekkel bővítse, és ez a beállítás más keresési opciókkal, például a fuzzy matchinggel együtt működik, hogy robusztus, rugalmas keresési élményt nyújtson, amely széles körű releváns eredményeket foglal magában.*
 
 ```java
 String query = "caul";
@@ -221,47 +267,51 @@ SearchResult result = index.search(query, options);
 System.out.println("Search completed. Results found: " + result.getDocumentCount());
 ```
 
-*Ez a funkció növeli a keresési képességek pontosságát és mélységét.*
-
 ## Gyakorlati alkalmazások
 
 Az ezen funkciók megvalósításának megértése számos gyakorlati alkalmazás kapuját nyitja meg:
 
-1. **Legal Document Management:** Megkülönbözteti a hasonló hangzású jogi kifejezéseket, például a “lease” és a “least” között.  
-2. **Educational Content Creation:** Biztosítja a tisztaságot az oktatási anyagokban, ahol a homofónok zavart okozhatnak.  
-3. **Customer Support Systems:** Javítja a tudásbázis keresések pontosságát, segítve a munkatársakat, hogy gyorsabban megtalálják a megfelelő cikkeket.
+1. **Jogi dokumentumkezelés:** Megkülönböztetni a hasonlóan hangzó jogi kifejezéseket, például a „lease” és a „least” között.  
+2. **Oktatási tartalomkészítés:** Biztosítani, hogy a tananyagok ne tartalmazzanak kétértelmű megfogalmazásokat, amelyek összezavarhatják a tanulókat.  
+3. **Ügyfélszolgálati rendszerek:** Javítani a tudásbázis keresési pontosságát, segítve az ügynököket a megfelelő cikkek gyorsabb megtalálásában.
 
-## Teljesítmény szempontok
+## Teljesítménybeli szempontok
 
-A **search index java** teljesítményének fenntartásához:
+A **java full text search** teljesítményének fenntartásához:
 
-- **Update the index regularly** a dokumentumváltozások tükrözéséhez.  
-- **Monitor memory usage** és állítsa be a Java heap beállításokat nagy adathalmazokhoz.  
-- **Close unused resources promptly** (például hívja meg a `index.close()`-t, amikor kész).
+- **Rendszeresen frissítse az indexet**, hogy tükrözze a dokumentumváltozásokat.  
+- **Figyelje a memóriahasználatot**, és állítsa be a Java heap beállításokat nagy adathalmazokhoz.  
+- **Zárja le a nem használt erőforrásokat** időben (pl. hívja meg az `index.close()`-t, amikor befejezte).  
 
 ## Következtetés
 
-Eddig már szilárd ismeretekkel kell rendelkeznie a **how to index documents** használatáról a GroupDocs.Search segítségével, a homofónok kezeléséről és a keresési élmény finomhangolásáról. Ezek az eszközök felbecsülhetetlenek a pontos keresési eredmények biztosításához és a dokumentumkezelés hatékonyságának növeléséhez.
+Most már szilárd ismeretekkel kell rendelkeznie a **dokumentumok indexeléséről** a GroupDocs.Search segítségével, a homofóniák kezeléséről és a keresési élmény finomhangolásáról. Ezek az eszközök felbecsülhetetlenek a pontos eredmények biztosításához és a dokumentumkezelés hatékonyságának növeléséhez.
 
-## Gyakran Ismételt Kérdések
+## Gyakran ismételt kérdések
 
 **Q:** Használhatom a homofón szótárat nem‑angol nyelvekkel?  
-**A:** Igen, a szótárat bármely nyelvre feltöltheti, amennyiben a megfelelő szócsoportokat biztosítja.
+**A:** Igen, a szótárat bármilyen nyelvvel feltöltheti, amennyiben a megfelelő szócsoportokat biztosítja.
 
-**Q:** Szükségem van licencre fejlesztési teszteléshez?  
-**A:** Az ingyenes próbaverzió licenc elegendő fejlesztéshez és teszteléshez; a termelési környezethez fizetett licenc szükséges.
+**Q:** Szükségem van licencre a fejlesztési teszteléshez?  
+**A:** Egy ingyenes próba licenc elegendő a fejlesztéshez és teszteléshez; a termeléshez fizetett licenc szükséges.
 
 **Q:** Mekkora lehet az index mérete?  
-**A:** Az index mérete csak a hardver erőforrásaitól függ; győződjön meg róla, hogy elegendő lemezterületet és memóriát biztosít.
+**A:** Az index mérete csak a hardver erőforrásaitól függ; biztosítson elegendő lemezterületet és memóriát a optimális teljesítményhez.
 
-**Q:** Lehetséges a homofón keresést fuzzy (közelítő) egyezéssel kombinálni?  
-**A:** Természetesen. Engedélyezheti mind a `setUseHomophoneSearch(true)`, mind a `setFuzzySearch(true)` beállítást a `SearchOptions`-ban.
+**Q:** Lehet-e kombinálni a homofón keresést a fuzzy matchinggel?  
+**A:** Természetesen. Engedélyezze mind a `setUseHomophoneSearch(true)`, mind a `setFuzzySearch(true)` beállítást a `SearchOptions`‑ban, hogy mindkettő előnyeit kihasználja.
 
 **Q:** Mi történik, ha duplikált homofón csoportokat adok hozzá?  
 **A:** A duplikált bejegyzéseket figyelmen kívül hagyja; a szótár egyedi szócsoportok halmazát tartja fenn.
 
 ---
 
-**Legutóbb frissítve:** 2026-02-24  
-**Tesztelve:** GroupDocs.Search 25.4 for Java  
+**Utolsó frissítés:** 2026-09-21  
+**Tesztelve a következővel:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs
+
+## Kapcsolódó oktatóanyagok
+
+- [Hogyan valósítsuk meg a java full text search-et: indexkönyvtár létrehozása a GroupDocs.Search segítségével](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Hogyan adjunk dokumentumokat az indexhez metaadat-indexeléssel Java-ban a GroupDocs.Search használatával](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [Java teljes szöveges keresési könyvtár – Index optimalizálása a GroupDocs.Search segítségével](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)

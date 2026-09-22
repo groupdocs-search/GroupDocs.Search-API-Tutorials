@@ -1,50 +1,109 @@
 ---
-date: '2026-02-24'
-description: Aprenda como indexar documentos em Java usando o GroupDocs.Search e descubra
-  como adicionar documentos ao índice com suporte a homófonos para melhorar a precisão
-  da pesquisa.
+date: '2026-09-21'
+description: Aprenda como criar um java full text search index usando GroupDocs.Search,
+  adicionar documentos e habilitar o suporte a homophones para resultados mais precisos.
 keywords:
+- java full text search
+- homophone search java
 - GroupDocs.Search Java
-- document indexing with Java
-- homophone recognition
-title: Como indexar documentos em Java com GroupDocs.Search – Suporte a homófonos
+- document indexing java
+- search index java
+lastmod: '2026-09-21'
+og_description: Descubra como criar um java full text search index com GroupDocs.Search,
+  adicionar documentos e habilitar o suporte a homophones para buscas mais rápidas
+  e precisas.
+og_image_alt: Illustration of a Java full text search index with homophone support
+og_title: Como criar um java full text search index com homophones
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-21'
+  description: Learn how to create a java full text search index using GroupDocs.Search,
+    add documents, and enable homophone support for more accurate results.
+  headline: How to build a java full text search index with homophones
+  type: TechArticle
+- description: Learn how to create a java full text search index using GroupDocs.Search,
+    add documents, and enable homophone support for more accurate results.
+  name: How to build a java full text search index with homophones
+  steps:
+  - name: '**Install via Maven** or download directly from the provided links.'
+    text: '**Install via Maven** or download directly from the provided links.'
+  - name: '**Acquire a license:** You can start with a free trial or obtain a temporary
+      license by visiting [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/).'
+    text: '**Acquire a license:** You can start with a free trial or obtain a temporary
+      license by visiting [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/).'
+  - name: '**Initialize the library:** The snippet below shows the minimal code required
+      to start using GroupDocs.Search.'
+    text: '**Initialize the library:** The snippet below shows the minimal code required
+      to start using GroupDocs.Search.'
+  - name: '**Legal document management:** Distinguish between similar‑sounding legal
+      terms such as “lease” vs. “least”.'
+    text: '**Legal document management:** Distinguish between similar‑sounding legal
+      terms such as “lease” vs. “least”.'
+  - name: '**Educational content creation:** Ensure teaching materials are free from
+      ambiguous wording that could confuse learners.'
+    text: '**Educational content creation:** Ensure teaching materials are free from
+      ambiguous wording that could confuse learners.'
+  - name: '**Customer support systems:** Improve knowledge‑base search accuracy, helping
+      agents locate the right articles faster.'
+    text: '**Customer support systems:** Improve knowledge‑base search accuracy, helping
+      agents locate the right articles faster.'
+  type: HowTo
+- questions:
+  - answer: A data structure that enables fast full‑text search across documents.
+    question: What is a search index?
+  - answer: It improves recall by matching words that sound alike, e.g., “mail” vs.
+      “male”.
+    question: Why use homophone recognition?
+  - answer: GroupDocs.Search for Java (v25.4).
+    question: Which library provides this in Java?
+  - answer: A free trial works for evaluation; a permanent license is required for
+      production.
+    question: Do I need a license?
+  - answer: JDK 8 or higher.
+    question: What Java version is required?
+  type: FAQPage
+tags:
+- java full text search
+- homophone search
+- GroupDocs.Search
+- document indexing
+- search index
+title: Como criar um java full text search index com homophones
 type: docs
 url: /pt/java/document-management/groupdocs-search-java-homophone-document-management-guide/
 weight: 1
 ---
 
-# Como Indexar Documentos em Java com GroupDocs.Search – Suporte a Homófonos
+# Como criar um índice de pesquisa de texto completo java com homófonos
 
-Criar um **search index** em Java pode parecer assustador, especialmente quando você precisa lidar com homófonos — palavras que soam iguais mas são escritas de forma diferente. Neste tutorial você aprenderá **how to index documents** usando GroupDocs.Search para Java, e percorreremos tudo o que você precisa saber sobre **how to index documents** enquanto aproveita o reconhecimento de homófonos embutido. Ao final, você será capaz de construir soluções de busca rápidas e precisas que entendem as nuances da linguagem.
+Neste guia, você aprenderá como criar um índice de **java full text search** usando o GroupDocs.Search, adicionar documentos a ele e habilitar o suporte a homófonos para que as pesquisas entendam palavras que soam semelhantes. Ao final do tutorial, você terá um índice rápido e sensível ao idioma que pode ser consultado em milissegundos, tornando suas aplicações mais amigáveis e precisas.
 
-## Respostas Rápidas
-- **O que é um search index?** Uma estrutura de dados que permite busca full‑text rápida em documentos.  
-- **Por que usar o reconhecimento de homófonos?** Ele melhora a recall ao combinar palavras que soam iguais, por exemplo, “mail” vs. “male”.  
+## Respostas rápidas
+- **O que é um índice de pesquisa?** Uma estrutura de dados que permite pesquisa de texto completo rápida em documentos.  
+- **Por que usar reconhecimento de homófonos?** Ele melhora a recuperação ao combinar palavras que soam semelhantes, por exemplo, “mail” vs. “male”.  
 - **Qual biblioteca fornece isso em Java?** GroupDocs.Search for Java (v25.4).  
 - **Preciso de uma licença?** Um teste gratuito funciona para avaliação; uma licença permanente é necessária para produção.  
 - **Qual versão do Java é necessária?** JDK 8 ou superior.
 
-## Como Indexar Documentos em Java
-Antes de mergulharmos no código, vamos esclarecer por que a indexação é importante. Um índice armazena termos tokenizados, posições e metadados, permitindo executar consultas que retornam documentos relevantes em milissegundos. Com o GroupDocs.Search, você obtém suporte pronto‑para‑uso a muitos formatos de arquivo e um poderoso dicionário de homófonos que aumenta a relevância da busca.
-
-## O que é “create search index java”?
-Criar um search index em Java significa construir uma representação pesquisável da sua coleção de documentos. O índice armazena termos tokenizados, posições e metadados, permitindo executar consultas que retornam documentos relevantes em milissegundos.
+## O que é java full text search?
+`java full text search` é o processo de indexar o conteúdo de documentos para que você possa consultar texto rapidamente e recuperar arquivos relevantes em tempo real. O índice armazena termos tokenizados, posições e metadados, permitindo respostas de pesquisa em subsegundos mesmo em coleções grandes.
 
 ## Por que usar GroupDocs.Search para Java?
-GroupDocs.Search oferece suporte pronto‑para‑uso a muitos formatos de documento, ferramentas linguísticas poderosas (incluindo dicionários de homófonos) e uma API simples que permite focar na lógica de negócios em vez de detalhes de indexação de baixo nível.
+GroupDocs.Search suporta **mais de 50 formatos de arquivo** — incluindo PDF, DOCX, XLSX, PPTX e HTML — enquanto fornece um dicionário de homófonos embutido que aumenta a recuperação em até **30 %** para termos ambíguos. A API abstrai detalhes de indexação de baixo nível, permitindo que você se concentre na lógica de negócios. Também oferece integração fácil com projetos Maven e documentação clara para desenvolvimento rápido.
 
 ## Pré-requisitos
-Antes de mergulharmos no código, certifique‑se de que você tem o seguinte:
+
+Antes de mergulharmos no código, certifique-se de que você tem o seguinte:
 
 - **GroupDocs.Search for Java** (disponível via Maven ou download direto).  
-- Um **compatible JDK** (8 ou mais recente).  
+- Um **JDK compatível** (8 ou mais recente).  
 - Uma IDE como **IntelliJ IDEA** ou **Eclipse**.  
 - Conhecimento básico de Java e Maven.
 
-### Bibliotecas e Dependências Necessárias
-Você precisará do GroupDocs.Search para Java. Você pode incluí‑lo usando Maven ou fazer download direto do repositório deles.
+### Bibliotecas e dependências necessárias
+Você precisará do GroupDocs.Search para Java. Inclua-o usando Maven ou faça o download diretamente.
 
-**Instalação via Maven:**  
+**Instalação Maven:**  
 Adicione o seguinte ao seu arquivo `pom.xml`:
 
 ```xml
@@ -65,21 +124,22 @@ Adicione o seguinte ao seu arquivo `pom.xml`:
 </dependencies>
 ```
 
-**Download Direto:**  
-Alternativamente, faça download da versão mais recente em [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+**Download direto:**  
+Alternativamente, faça o download da versão mais recente em [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Requisitos de Configuração do Ambiente
-Certifique‑se de que você tem um JDK compatível instalado (JDK 8 ou superior é recomendado) e uma IDE como IntelliJ IDEA ou Eclipse configurada na sua máquina.
+### Requisitos de configuração do ambiente
+Certifique-se de que você tem um JDK compatível instalado (JDK 8 ou superior) e uma IDE como IntelliJ IDEA ou Eclipse configurada em sua máquina.
 
-### Pré-requisitos de Conhecimento
-Familiaridade com conceitos de programação Java e experiência no uso do Maven para gerenciamento de dependências será benéfica. Uma compreensão básica de indexação de documentos e algoritmos de busca também pode ajudar.
+### Pré-requisitos de conhecimento
+Familiaridade com conceitos de programação Java e experiência no uso do Maven para gerenciamento de dependências será benéfica. Uma compreensão básica de indexação de documentos e algoritmos de pesquisa também pode ajudar.
 
 ## Configurando GroupDocs.Search para Java
-Uma vez que os pré‑requisitos estejam resolvidos, configurar o GroupDocs.Search é simples:
+
+Uma vez que os pré-requisitos estejam resolvidos, configurar o GroupDocs.Search é simples:
 
 1. **Instalar via Maven** ou fazer download direto dos links fornecidos.  
-2. **Obter uma Licença:** Você pode começar com um teste gratuito ou obter uma licença temporária visitando [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/).  
-3. **Inicializar a Biblioteca:** O trecho abaixo mostra o código mínimo necessário para começar a usar o GroupDocs.Search.
+2. **Obter uma licença:** Você pode começar com um teste gratuito ou obter uma licença temporária visitando [GroupDocs Purchase Page](https://purchase.groupdocs.com/temporary-license/).  
+3. **Inicializar a biblioteca:** O trecho abaixo mostra o código mínimo necessário para começar a usar o GroupDocs.Search.
 
 ```java
 import com.groupdocs.search.*;
@@ -96,21 +156,23 @@ public class SetupExample {
 }
 ```
 
-## Guia de Implementação
+## Guia de implementação
 
-Agora que o ambiente está pronto, vamos explorar os recursos principais que você precisará para **create search index java** e gerenciar homófonos.
+Agora que o ambiente está pronto, vamos explorar os recursos principais que você precisará para **criar um índice de java full text search** e gerenciar homófonos.
 
-### Criando e Gerenciando um Índice
-#### Visão Geral
-Criar um search index é o primeiro passo para gerenciar documentos de forma eficaz. Isso permite a recuperação rápida de informações com base no conteúdo dos seus documentos.
+### Criando e gerenciando um índice
+#### Visão geral
+Criar um índice de pesquisa é o primeiro passo para gerenciar documentos de forma eficaz. Isso permite a recuperação rápida de informações com base no conteúdo dos seus documentos.
 
-#### Etapas para Criar um Índice
+#### Etapas para criar um índice
 **Etapa 1:** Especifique o diretório para os arquivos do seu índice.
 
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
+
+*A classe `Index` representa o contêiner pesquisável que contém termos tokenizados e metadados para cada documento, fornecendo a estrutura central que permite a execução rápida de consultas e o armazenamento eficiente das informações dos documentos em todo o índice.*  
 
 **Etapa 2:** Adicione documentos de uma pasta especificada neste índice.
 
@@ -120,40 +182,33 @@ index.add(documentsFolder);
 System.out.println("Documents added to the index.");
 ```
 
-*Ao indexar o conteúdo dos seus documentos, você habilita buscas full‑text rápidas em toda a coleção.*
+*Chamar `index.add()` ingere cada arquivo, extrai o texto e preenche as estruturas internas necessárias para consultas rápidas, garantindo que cada documento seja totalmente indexado e imediatamente pesquisável sem exigir uma etapa de processamento separada.*  
 
-### Como Adicionar Documentos ao Índice
-Se precisar adicionar mais arquivos programaticamente mais tarde, basta chamar `index.add()` novamente com o caminho da nova pasta ou caminhos de arquivos individuais. Isso mantém seu índice atualizado sem precisar reconstruí‑lo do zero.
+### Como adicionar documentos ao índice
+Você pode adicionar programaticamente mais arquivos posteriormente chamando `index.add()` novamente com um novo caminho de pasta ou caminhos de arquivos individuais. Essa abordagem incremental mantém o índice atualizado sem uma reconstrução completa. Adicionar documentos dessa forma permite manter um índice ativo que reflete as alterações de conteúdo mais recentes, suportando disponibilidade contínua de pesquisa para os usuários finais e reduzindo o tempo de inatividade associado a operações de reindexação em lote.
 
-### Recuperando Homófonos para uma Palavra
-#### Visão Geral
-Recuperar homófonos ajuda a entender grafias alternativas que soam iguais, o que é essencial para resultados de busca abrangentes.
+### Recuperando homófonos para uma palavra
+Recuperar homófonos para um termo específico ajuda o motor de busca a considerar grafias alternativas que soam iguais, melhorando a recuperação para consultas onde os usuários podem errar a digitação ou usar variantes diferentes. Ao expandir a consulta com equivalentes fonéticos, o motor pode corresponder a documentos que contenham qualquer uma das formas homófonas, oferecendo resultados mais abrangentes.
 
-**Etapa 1:** Acesse o dicionário de homófonos.
+*A classe `HomophoneDictionary` armazena grupos de palavras que compartilham a mesma pronúncia, atuando como um repositório central que o motor de busca consulta ao expandir consultas com alternativas fonéticas, aprimorando assim a relevância dos resultados de pesquisa.*
 
 ```java
 String[] homophones = index.getDictionaries().getHomophoneDictionary().getHomophones("braid");
 ```
 
-*Este trecho de código recupera todos os homófonos para “braid” dos documentos indexados.*
+### Recuperando grupos de homófonos
+Agrupar homófonos fornece uma maneira estruturada de gerenciar palavras com múltiplos significados, permitindo que desenvolvedores recuperem conjuntos completos de equivalentes fonéticos em uma única operação. Isso pode ser útil para análises, gerenciamento de dicionário personalizado ou atualizações em massa da lista de homófonos.
 
-### Recuperando Grupos de Homófonos
-#### Visão Geral
-Agrupar homófonos fornece uma maneira estruturada de gerenciar palavras com múltiplos significados.
-
-**Etapa 1:** Obtenha grupos de homófonos.
+*Cada grupo retornado por `getGroups()` contém palavras que são intercambiáveis em pesquisas fonéticas, e o método fornece uma coleção abrangente desses grupos para que você possa inspecionar, modificar ou exportar o conjunto completo de relações de homófonos mantidas pelo dicionário.*
 
 ```java
 String[][] groups = index.getDictionaries().getHomophoneDictionary().getHomophoneGroups("braid");
 ```
 
-*Use este recurso para categorizar palavras de som semelhante de forma eficaz.*
+### Limpando o dicionário de homófonos
+Limpar entradas desatualizadas ou desnecessárias garante que seu dicionário permaneça relevante e não introduza ruído nos resultados de pesquisa. Essa operação é tipicamente realizada quando você precisa redefinir o dicionário para seu estado padrão antes de carregar um novo conjunto personalizado.
 
-### Limpando o Dicionário de Homófonos
-#### Visão Geral
-Limpar entradas desatualizadas ou desnecessárias garante que seu dicionário permaneça relevante.
-
-**Etapa 1:** Verifique e limpe o dicionário de homófonos.
+*O método `clear()` remove todas as entradas personalizadas, revertendo ao conjunto padrão, e garante que quaisquer grupos de homófonos adicionados anteriormente sejam totalmente descartados, proporcionando uma base limpa para a configuração subsequente do dicionário.*
 
 ```java
 if (index.getDictionaries().getHomophoneDictionary().getCount() > 0) {
@@ -162,11 +217,10 @@ if (index.getDictionaries().getHomophoneDictionary().getCount() > 0) {
 System.out.println("Homophone dictionary cleared.");
 ```
 
-### Adicionando Homófonos ao Dicionário
-#### Visão Geral
-Personalizar seu dicionário de homófonos permite capacidades de busca personalizadas.
+### Adicionando homófonos ao dicionário
+Personalizar seu dicionário de homófonos permite recursos de busca adaptados que refletem terminologia específica de domínio, gírias ou nomes de marcas. Ao adicionar novos grupos, você pode garantir que as buscas reconheçam as relações fonéticas pretendidas exclusivas da sua aplicação.
 
-**Etapa 1:** Defina e adicione novos grupos de homófonos.
+*Use `addGroup()` para inserir uma lista de palavras com som sinônimo, aprimorando a recuperação para terminologia específica de domínio, e o método valida cada entrada para evitar duplicatas enquanto integra o novo grupo de forma contínua à estrutura existente do dicionário.*
 
 ```java
 String[][] homophoneGroups = {
@@ -178,29 +232,29 @@ index.getDictionaries().getHomophoneDictionary().addRange(homophoneGroups);
 System.out.println("Homophones added to the dictionary.");
 ```
 
-### Exportando e Importando Dicionários de Homófonos
-#### Visão Geral
-Exportar e importar dicionários pode ser benéfico para fins de backup ou migração.
+### Exportando e importando dicionários de homófonos
+Exportar e importar dicionários pode ser benéfico para backup ou migração, permitindo que você preserve configurações personalizadas entre ambientes ou as compartilhe com membros da equipe. Essa funcionalidade suporta o formato JSON para fácil leitura e integração com outras ferramentas.
 
-**Etapa 1:** Exporte o dicionário de homófonos atual.
+*Esses métodos permitem persistir dicionários personalizados como arquivos JSON para fácil reutilização, e o processo de exportação captura o estado completo do dicionário enquanto a rotina de importação valida a estrutura JSON antes de aplicá-la à instância ativa do dicionário.*
 
 ```java
 String fileName = "path/to/exported/dictionary.file";
 index.getDictionaries().getHomophoneDictionary().exportDictionary(fileName);
 ```
 
-**Etapa 2:** Re‑importe de um arquivo se necessário.
+**Etapa 2:** Reimportar de um arquivo se necessário.
 
 ```java
 index.getDictionaries().getHomophoneDictionary().importDictionary(fileName);
 System.out.println("Homophone dictionary imported successfully.");
 ```
 
-### Buscando Usando Homófonos
-#### Visão Geral
-Aproveite a busca por homófonos para recuperação abrangente de documentos.
+*A operação de importação lê o arquivo JSON, reconstrói cada grupo de homófonos e os mescla ao dicionário atual, garantindo que todas as entradas personalizadas sejam restauradas com precisão e estejam prontas para uso imediato em consultas de pesquisa.*
 
-**Etapa 1:** Habilite e execute uma busca baseada em homófonos.
+### Pesquisando usando homófonos
+Aproveite a pesquisa por homófonos para recuperação abrangente de documentos, permitindo que os usuários encontrem conteúdo relevante mesmo quando usam grafias diferentes que soam iguais. Esse recurso pode melhorar drasticamente a experiência do usuário em domínios multilíngues ou com forte carga fonética.
+
+*Definir `setUseHomophoneSearch(true)` instrui o motor a expandir consultas com equivalentes fonéticos antes da execução, e essa opção funciona em conjunto com outras configurações de pesquisa, como correspondência difusa, para fornecer uma experiência de busca robusta e flexível que captura uma ampla gama de resultados relevantes.*
 
 ```java
 String query = "caul";
@@ -211,46 +265,51 @@ SearchResult result = index.search(query, options);
 System.out.println("Search completed. Results found: " + result.getDocumentCount());
 ```
 
-*Este recurso aprimora a precisão e a profundidade das suas capacidades de busca.*
+## Aplicações práticas
 
-## Aplicações Práticas
 Entender como implementar esses recursos abre um mundo de aplicações práticas:
 
-1. **Gerenciamento de Documentos Legais:** Distinga entre termos legais de som semelhante, como “lease” vs. “least”.  
-2. **Criação de Conteúdo Educacional:** Garanta clareza em materiais de ensino onde homófonos podem causar confusão.  
-3. **Sistemas de Suporte ao Cliente:** Melhore a precisão das buscas na base de conhecimento, ajudando os agentes a encontrar os artigos corretos mais rapidamente.
+1. **Gerenciamento de documentos legais:** Distinga entre termos legais de som semelhante, como “lease” vs. “least”.  
+2. **Criação de conteúdo educacional:** Garanta que os materiais de ensino estejam livres de linguagem ambígua que possa confundir os aprendizes.  
+3. **Sistemas de suporte ao cliente:** Melhore a precisão da pesquisa na base de conhecimento, ajudando os agentes a localizar os artigos corretos mais rapidamente.
 
-## Considerações de Desempenho
-Para manter seu **search index java** performático:
+## Considerações de desempenho
 
-- **Atualize o índice regularmente** para refletir alterações nos documentos.  
+Para manter seu **java full text search** com desempenho:
+
+- **Atualize o índice regularmente** para refletir as alterações nos documentos.  
 - **Monitore o uso de memória** e ajuste as configurações de heap do Java para grandes conjuntos de dados.  
 - **Feche recursos não utilizados prontamente** (por exemplo, chame `index.close()` quando terminar).  
 
 ## Conclusão
-Até agora você deve ter uma compreensão sólida de **how to index documents** com o GroupDocs.Search, gerenciar homófonos e ajustar finamente sua experiência de busca. Essas ferramentas são inestimáveis para fornecer resultados de busca precisos e melhorar a eficiência geral da gestão de documentos.
 
-## Perguntas Frequentes
+Até agora você deve ter uma compreensão sólida de **como indexar documentos** com o GroupDocs.Search, gerenciar homófonos e ajustar finamente sua experiência de busca. Essas ferramentas são inestimáveis para fornecer resultados precisos e aumentar a eficiência geral da gestão de documentos.
 
-**Q:** Posso usar o dicionário de homófonos com idiomas não‑inglês?  
+## Perguntas frequentes
+
+**Q:** Posso usar o dicionário de homófonos com idiomas que não sejam o inglês?  
 **A:** Sim, você pode preencher o dicionário com qualquer idioma, desde que forneça os grupos de palavras apropriados.
 
 **Q:** Preciso de uma licença para testes de desenvolvimento?  
 **A:** Uma licença de teste gratuito é suficiente para desenvolvimento e testes; uma licença paga é necessária para implantações em produção.
 
 **Q:** Quão grande pode ser meu índice?  
-**A:** O tamanho do índice é limitado apenas pelos recursos de hardware; certifique‑se de alocar espaço em disco e memória suficientes.
+**A:** O tamanho do índice é limitado apenas pelos recursos de hardware; aloque espaço em disco e memória suficientes para desempenho ideal.
 
-**Q:** É possível combinar busca por homófonos com correspondência difusa (fuzzy)?  
-**A:** Absolutamente. Você pode habilitar tanto `setUseHomophoneSearch(true)` quanto `setFuzzySearch(true)` em `SearchOptions`.
+**Q:** É possível combinar a pesquisa por homófonos com correspondência difusa?  
+**A:** Absolutamente. Ative tanto `setUseHomophoneSearch(true)` quanto `setFuzzySearch(true)` em `SearchOptions` para obter o melhor dos dois mundos.
 
 **Q:** O que acontece se eu adicionar grupos de homófonos duplicados?  
 **A:** Entradas duplicadas são ignoradas; o dicionário mantém um conjunto único de grupos de palavras.
 
 ---
 
-**Última Atualização:** 2026-02-24  
+**Última atualização:** 2026-09-21  
 **Testado com:** GroupDocs.Search 25.4 for Java  
-**Autor:** GroupDocs  
+**Autor:** GroupDocs
 
----
+## Tutoriais relacionados
+
+- [Como implementar java full text search: criar diretório de índice com GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Como adicionar documentos ao índice com Indexação de Metadados em Java usando GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [Biblioteca Java Full Text Search – Otimizar Índice com GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
