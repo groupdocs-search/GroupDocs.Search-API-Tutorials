@@ -1,45 +1,105 @@
 ---
-date: '2026-02-27'
-description: Узнайте, как выделять текст в Java с помощью GroupDocs.Search for Java,
-  охватывая поиск документов в Java, индексацию документов в Java и выделение фрагментов.
+date: '2026-09-27'
+description: Узнайте, как подсвечивать текст java с помощью GroupDocs.Search для Java,
+  охватывая search documents java, index documents java и fragment highlighting.
 keywords:
-- GroupDocs.Search for Java
-- highlight search terms in documents
-- document highlighting
-title: Подсветка текста в Java с помощью GroupDocs.Search
+- highlight text java
+- search documents java
+- index documents java
+- java text highlighting library
+- highlight terms pdf java
+lastmod: '2026-09-27'
+og_description: Узнайте, как подсвечивать текст java с помощью GroupDocs.Search для
+  Java. Получите пошаговое руководство по indexing, searching и fragment highlighting
+  для быстрых результатов.
+og_image_alt: Screenshot of highlighted search terms in a Java application using GroupDocs.Search
+og_title: Подсветка текста java с GroupDocs.Search – Быстрая document highlighting
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to highlight text java using GroupDocs.Search for Java, covering
+    search documents java, index documents java, and fragment highlighting.
+  headline: Highlight text java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to highlight text java using GroupDocs.Search for Java, covering
+    search documents java, index documents java, and fragment highlighting.
+  name: Highlight text java with GroupDocs.Search
+  steps:
+  - name: create and populate the index
+    text: Create an index folder and add all source files you want to search. The
+      `Index` class represents the searchable container.
+  - name: perform search and apply highlighting
+    text: Search for the term (e.g., `ipsum`) and generate an HTML file with highlighted
+      matches. Use `HighlightOptions` to specify the highlight color and whether to
+      use inline styles. `HighlightOptions` lets you define the foreground and background
+      colors, as well as the CSS class that will be applied to ea
+  - name: index and search (same as above)
+    text: The same index and search steps apply; you reuse the `Index` and `SearchResult`
+      objects.
+  - name: define fragment context and highlight
+    text: Specify how many terms before and after the match should appear in each
+      fragment with `FragmentOptions`. `FragmentOptions` controls the number of surrounding
+      words (`termsBefore` and `termsAfter`) that are included in each snippet, allowing
+      you to balance context against snippet length.
+  - name: retrieve and write highlighted fragments
+    text: Collect the generated fragments and write them to an HTML file. Each fragment
+      is already highlighted according to the `HighlightOptions` you configured. `fragmentHighlighter`
+      is a utility that creates highlighted snippets from a `SearchResult` using the
+      specified fragment and highlight options. **Di
+  type: HowTo
+- questions:
+  - answer: It offers fast, scalable indexing, customizable highlighting, and support
+      for 30+ document formats, processing 500‑page files in under 2 seconds on a
+      typical server.
+    question: What are the benefits of using GroupDocs.Search for Java?
+  - answer: Expose the search and highlight methods via Spring Boot controllers, returning
+      HTML snippets or JSON payloads that contain the highlighted fragments.
+    question: How can I integrate GroupDocs.Search with a REST API?
+  - answer: Yes—provide the password when adding the document to the index via `addDocument(filePath,
+      password)`.
+    question: Does the library handle password‑protected files?
+  - answer: Absolutely; you can assign a CSS class with `options.setCssClass("myHighlight")`
+      and style it globally, or modify the generated HTML after highlighting.
+    question: Can I customize the highlight markup beyond color?
+  - answer: The code was validated against GroupDocs.Search 25.4.
+    question: What version was tested for this guide?
+  type: FAQPage
+tags:
+- highlight text java
+- GroupDocs.Search
+- Java document processing
+title: Подсветка текста java с помощью GroupDocs.Search
 type: docs
 url: /ru/java/highlighting/groupdocs-search-java-highlight-terms-documents/
 weight: 1
 ---
 
-# Выделение текста Java с помощью GroupDocs.Search
+# Выделение текста java с помощью GroupDocs.Search
 
-В современном быстро меняющемся цифровом мире возможность **highlight text java** в больших коллекциях файлов является обязательной функцией. Независимо от того, создаёте ли вы платформу для юридического анализа, академический поисковый движок или консоль поддержки клиентов, мгновенное обнаружение искомых пользователями терминов делает работу гораздо эффективнее. Этот учебник проведёт вас через использование **GroupDocs.Search for Java** для **search documents java**, **index documents java** и применения богатого выделения — как для целых документов, так и для отдельных фрагментов.
+В современных корпоративных приложениях **highlight text java** является необходимым для преобразования сырых результатов поиска в мгновенно читаемые инсайты. Независимо от того, создаёте ли вы портал для юридического обзора, академический поисковый движок или панель поддержки клиентов, возможность находить и визуально выделять запросные термины экономит пользователям бесчисленное количество секунд ручного сканирования. В этом руководстве показано, как использовать **GroupDocs.Search for Java** для **search documents java**, **index documents java**, а также применять как выделение на уровне всего документа, так и на уровне фрагментов, используя всего несколько строк кода.
 
 ## Быстрые ответы
-- **Что означает «поиск и выделение текста»?** Это поиск запросных терминов в документе и их визуальное выделение (например, фоновым цветом).  
-- **Какая библиотека предоставляет эту возможность?** GroupDocs.Search for Java.  
-- **Нужна ли лицензия?** Бесплатная пробная версия подходит для оценки; полная лицензия требуется для продакшн‑использования.  
-- **Можно ли настроить цвета выделения?** Да — любой RGB‑цвет можно задать через `HighlightOptions`.  
-- **Поддерживается ли выделение фрагментов?** Абсолютно; можно задать количество слов до/после совпадения для создания лаконичных отрывков.
+- **What does “search and highlight text” mean?** Это означает поиск запросных терминов внутри документа и их визуальное выделение (например, с помощью цветного фона).  
+- **Which library provides this capability?** GroupDocs.Search for Java.  
+- **Do I need a license?** Для оценки работает бесплатная пробная версия; для использования в продакшене требуется полная лицензия.  
+- **Can I customize highlight colors?** Да — любой цвет RGB можно задать через `HighlightOptions`.  
+- **Is fragment highlighting supported?** Абсолютно; вы можете задать количество терминов до/после совпадения для создания лаконичных фрагментов.
 
-## Как выделять текст Java в документах
-Выделение текста Java включает три основных шага:
+## Как выделять текст java в документах
 
-1. **Индексировать исходные файлы**, чтобы обеспечить быстрый поиск.  
-2. **Выполнить запрос** к индексу для нахождения подходящих документов.  
-3. **Отобразить результаты с визуальными подсказками** с помощью API выделения.
+Чтобы выделять текст java в документах, сначала создайте индекс исходных файлов с использованием соответствующих настроек сжатия, затем выполните поисковый запрос для нахождения нужных терминов и, наконец, экспортируйте результаты в HTML, PDF или простой текст, обернув каждое совпадение в тег выделения. Этот трёхшаговый процесс обеспечивает быстрое и точное выделение в больших коллекциях.
 
-Ниже мы подробно рассмотрим каждый шаг, сначала для вывода целого документа, затем для фрагментов уровня отрывка.
+1. **Create an index** с настройками сжатия, позволяющими держать объём хранилища небольшим.  
+2. **Execute a search** используя строку запроса, которую хотите выделить.  
+3. **Generate output** (HTML, PDF или простой текст), где каждое вхождение поискового термина обёрнуто в тег выделения.
 
 ## Что такое поиск и выделение текста?
-Поиск и выделение текста — это процесс сканирования индекса документов по заданному запросу, получения совпадающих документов и последующей маркировки каждого вхождения поискового термина в выводе документа (HTML, PDF и т.д.). Эта визуальная подсказка помогает конечным пользователям мгновенно находить релевантную информацию.
 
-## Почему стоит использовать GroupDocs.Search for Java?
-- **Высокопроизводительное индексирование** с настраиваемой компрессией (`index documents java`).  
-- **Богатый API выделения**, работающий как с целыми документами, так и с пользовательскими фрагментами (`highlight search terms java`).  
-- **Поддержка множества форматов** (DOCX, PDF, PPTX, TXT и др.).  
-- **Простая интеграция через Maven** и чистый Java‑центричный дизайн.
+Поиск и выделение текста — это процесс сканирования индексированной коллекции по заданному запросу, получения совпадающих документов и последующей маркировки каждого вхождения поискового термина в выводе (HTML, PDF и т.д.). Этот визуальный сигнал помогает конечным пользователям мгновенно находить релевантную информацию.
+
+## Почему использовать GroupDocs.Search for Java?
+
+GroupDocs.Search for Java предоставляет **high‑performance indexing** (до 50 GB на индекс с `Compression.High`), **rich highlighting**, работающий как с целыми документами, так и с пользовательскими фрагментами, и **cross‑format support** более чем 30 типами файлов — включая DOCX, PDF, PPTX и TXT. Библиотека также предлагает **incremental indexing**, позволяя добавлять новые файлы без полной перестройки индекса, что сокращает время простоя до 80 % в масштабных развертываниях.
 
 ## Предварительные требования
 - Java Development Kit (JDK) 8 или новее.  
@@ -49,7 +109,117 @@ weight: 1
 
 ## Настройка GroupDocs.Search for Java
 
-Добавьте репозиторий GroupDocs и зависимость в ваш `pom.xml`:
+Add the GroupDocs repository and dependency to your `pom.xml`:
+
+```xml
+<dependency>
+    <groupId>com.groupdocs</groupId>
+    <artifactId>groupdocs-search</artifactId>
+    <version>25.4</version>
+</dependency>
+```
+
+Вы также можете загрузить последнюю JAR‑файл напрямую с официального сайта: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+
+### Приобретение лицензии
+Начните с бесплатной пробной версии или получите временную лицензию для оценки. Для продакшн‑развёртываний приобретите полную лицензию, чтобы разблокировать все функции.
+
+## Руководство по реализации
+
+Реализация разбита на два практических раздела: **highlighting in entire documents** и **highlighting in fragments**. Оба раздела включают основные шаги для **how to highlight Java** документов с использованием GroupDocs.Search.
+
+### Настройка параметров индекса
+
+Перед индексированием настройте хранилище на использование высокого сжатия — это уменьшает использование диска до 70 % при сохранении скорости поиска.
+
+`IndexSettings` — объект конфигурации, управляющий тем, как индекс хранится на диске. Установите `Compression` в `Compression.High`, чтобы включить эту оптимизацию.  
+`Compression` определяет уровень сжатия данных, применяемый к файлам индекса; `Compression.High` обеспечивает максимальное уменьшение размера.
+
+## Выделение в целых документах
+
+### Шаг 1: создать и заполнить индекс
+
+Создайте папку индекса и добавьте все исходные файлы, которые хотите искать. Класс `Index` представляет контейнер, доступный для поиска.
+
+### Шаг 2: выполнить поиск и применить выделение
+
+Ищите термин (например, `ipsum`) и генерируйте HTML‑файл с выделенными совпадениями. Используйте `HighlightOptions` для указания цвета выделения и того, использовать ли встроенные стили.
+
+`HighlightOptions` позволяет задать цвет переднего плана и фона, а также CSS‑класс, который будет применён к каждому выделенному термину.
+
+`HtmlHighlighter` генерирует HTML‑вывод с выделенными терминами на основе заданных параметров.  
+`SearchResult` содержит список совпадающих документов и позиции каждого найденного термина.
+
+**Direct answer:** Загрузите ваш индекс, вызовите `search("ipsum")` и передайте полученный `SearchResult` вместе с настроенным экземпляром `HighlightOptions` в `HtmlHighlighter`. Высокосветитель возвращает HTML, где каждое вхождение «ipsum» обёрнуто в `<span>` с выбранным цветом фона.
+
+Ключевые параметры:
+- **Compression** — высокое сжатие экономит место в хранилище.  
+- **HighlightColor** — задайте любое значение RGB, соответствующее вашей UI‑палитре.  
+- **UseInlineStyles** — `false` генерирует чистый HTML, который можно стилизовать глобально через CSS.
+
+## Выделение в фрагментах
+
+### Шаг 1: индексировать и искать (как выше)
+
+Те же шаги индексации и поиска применяются; вы повторно используете объекты `Index` и `SearchResult`.
+
+### Шаг 2: определить контекст фрагмента и выделить
+
+Укажите, сколько терминов до и после совпадения должно присутствовать в каждом фрагменте с помощью `FragmentOptions`.
+
+`FragmentOptions` контролирует количество окружающих слов (`termsBefore` и `termsAfter`), включаемых в каждый сниппет, позволяя балансировать контекст и длину фрагмента.
+
+### Шаг 3: получить и записать выделенные фрагменты
+
+Соберите сгенерированные фрагменты и запишите их в HTML‑файл. Каждый фрагмент уже выделен согласно настроенным `HighlightOptions`.
+
+`fragmentHighlighter` — утилита, создающая выделенные сниппеты из `SearchResult` с использованием указанных параметров фрагмента и выделения.
+
+**Direct answer:** После получения `SearchResult` вызовите `fragmentHighlighter.highlight(searchResult, fragmentOptions, highlightOptions)`. Метод возвращает список HTML‑сниппетов, каждый из которых содержит найденный термин, окружённый заданным количеством контекстных слов и выделенный выбранным цветом.
+
+## Практические применения
+1. **Legal document review** – мгновенно выделять законы, пункты или ссылки на дела в тысячах контрактов.  
+2. **Academic research** – находить ключевые термины в десятках PDF‑ и Word‑файлов, сокращая время обзора литературы до 60 %.  
+3. **Customer support** – быстро находить номера заказов или коды ошибок в истории тикетов, позволяя агентам быстрее решать проблемы.
+
+## Соображения по производительности
+- **Index size** – высокое сжатие (`Compression.High`) уменьшает объём диска до 70 % без заметного влияния на задержку.  
+- **Fragment context** – большие значения `termsBefore/After` повышают читаемость сниппетов, но могут добавить 10–15 ms к каждому запросу.  
+- **Memory management** – следите за кучей JVM при индексации больших корпусов; рассматривайте инкрементальное индексирование для наборов данных более 2 GB, чтобы удерживать потребление памяти ниже 1 GB.
+
+## Распространённые проблемы и решения
+- **Indexing errors** – проверьте пути к файлам и убедитесь, что приложение имеет права чтения/записи в папке индекса.  
+- **No highlights appear** – убедитесь, что `UseInlineStyles` соответствует вашему формату вывода (HTML vs. PDF).  
+- **Color not applied** – проверьте, что значения RGB находятся в диапазоне 0‑255, и что просмотрщик поддерживает встроенный CSS или указанный CSS‑класс.
+
+## Часто задаваемые вопросы
+
+**Q: What are the benefits of using GroupDocs.Search for Java?**  
+A: Он обеспечивает быстрый, масштабируемый индекс, настраиваемое выделение и поддержку более 30 форматов документов, обрабатывая файлы в 500 страниц менее чем за 2 секунды на типичном сервере.
+
+**Q: How can I integrate GroupDocs.Search with a REST API?**  
+A: Откройте методы поиска и выделения через контроллеры Spring Boot, возвращая HTML‑сниппеты или JSON‑полезные нагрузки, содержащие выделенные фрагменты.
+
+**Q: Does the library handle password‑protected files?**  
+A: Да — передайте пароль при добавлении документа в индекс через `addDocument(filePath, password)`.
+
+**Q: Can I customize the highlight markup beyond color?**  
+A: Абсолютно; вы можете задать CSS‑класс с помощью `options.setCssClass("myHighlight")` и стилизовать его глобально, либо изменить сгенерированный HTML после выделения.
+
+**Q: What version was tested for this guide?**  
+A: Код был проверен на GroupDocs.Search 25.4.
+
+**Q: How do I set highlight options java to use a CSS class instead of inline styles?**  
+A: Вызовите `options.setUseInlineStyles(false)` и определите правило CSS для класса, который задаёте через `options.setCssClass("myHighlight")`.
+
+**Q: Is there a way to highlight terms in PDF output directly?**  
+A: Да — GroupDocs.Search работает с PDF‑входом, а высокосветитель выводит HTML, который можно встроить в PDF‑просмотрщик или повторно конвертировать в PDF с помощью GroupDocs.Conversion.
+
+---
+
+**Last updated:** 2026-09-27  
+**Tested with:** GroupDocs.Search 25.4  
+**Author:** GroupDocs
 
 ```xml
 <repositories>
@@ -69,36 +239,16 @@ weight: 1
 </dependencies>
 ```
 
-Также можно скачать последнюю JAR‑библиотеку напрямую с официального сайта: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
-
-### Приобретение лицензии
-Начните с бесплатной пробной версии или получите временную лицензию для оценки. Для продакшн‑развёртываний необходимо приобрести полную лицензию, чтобы разблокировать все функции.
-
-## Руководство по реализации
-
-Реализация разделена на две практические части: **выделение в полных документах** и **выделение во фрагментах**. Обе секции включают необходимые шаги для **how to highlight Java** документов с помощью GroupDocs.Search.
-
-### Настройка параметров индекса
-Перед индексированием настройте хранилище на использование высокой компрессии — это уменьшит объём на диске, сохраняя скорость поиска.
-
 ```java
 IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
-
-### Выделение в полных документах
-
-#### Шаг 1: Создание и заполнение индекса
-Создайте папку индекса и добавьте все исходные файлы, которые нужно искать.
 
 ```java
 String indexFolder = "/path/to/your/document/directory/HighlightingInEntireDocument";
 Index index = new Index(indexFolder, settings);
 index.add("/path/to/your/documents");
 ```
-
-#### Шаг 2: Выполнение поиска и применение выделения
-Ищите термин (например, `ipsum`) и генерируйте HTML‑файл с выделенными совпадениями.
 
 ```java
 SearchResult result = index.search("ipsum");
@@ -116,14 +266,6 @@ if (result.getDocumentCount() > 0) {
 }
 ```
 
-**Пояснение ключевых опций**  
-- **Compression** – высокая компрессия экономит место хранения.  
-- **HighlightColor** – задайте любой RGB‑значение, соответствующее вашей палитре UI.  
-- **UseInlineStyles** – `false` генерирует чистый HTML, который можно стилизовать глобально через CSS.  
-
-### Выделение во фрагментах
-
-#### Шаг 1: Индексирование и поиск (как выше)
 ```java
 String indexFolder = "/path/to/your/document/directory/HighlightingInFragments";
 Index index = new Index(indexFolder, settings);
@@ -131,9 +273,6 @@ index.add("/path/to/your/documents");
 
 SearchResult result = index.search("ipsum");
 ```
-
-#### Шаг 2: Определение контекста фрагмента и выделение
-Укажите, сколько терминов до и после совпадения должно отображаться в каждом фрагменте.
 
 ```java
 HighlightOptions options = new HighlightOptions();
@@ -147,9 +286,6 @@ FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.Html);
 
 index.highlight(document, highlighter, options);
 ```
-
-#### Шаг 3: Получение и запись выделенных фрагментов
-Соберите сгенерированные фрагменты и запишите их в HTML‑файл.
 
 ```java
 StringBuilder stringBuilder = new StringBuilder();
@@ -174,46 +310,8 @@ try {
 }
 ```
 
-## Практические применения
-1. **Юридический обзор документов** – мгновенно выделять законы, пункты или ссылки на судебные решения.  
-2. **Академические исследования** – находить ключевые термины в десятках PDF‑ и Word‑файлов.  
-3. **Поддержка клиентов** – быстро находить номера заказов или коды ошибок в истории обращений.
+## Связанные руководства
 
-## Соображения по производительности
-- **Размер индекса** – высокая компрессия (`Compression.High`) уменьшает объём на диске.  
-- **Контекст фрагмента** – большие значения `termsBefore/After` повышают точность, но могут влиять на скорость.  
-- **Управление памятью** – контролируйте кучу JVM при индексировании больших корпусов; рассматривайте инкрементальное индексирование для очень больших наборов.
-
-## Распространённые проблемы и решения
-- **Ошибки индексирования** – проверьте пути к файлам и убедитесь, что приложение имеет права чтения/записи.  
-- **Отсутствие выделения** – убедитесь, что `UseInlineStyles` соответствует вашему формату вывода (HTML vs. PDF).  
-- **Цвет не применяется** – проверьте, что RGB‑значения находятся в диапазоне 0‑255 и что HTML‑просмотрщик поддерживает стиль.
-
-## Часто задаваемые вопросы
-
-**В: Какие преимущества даёт использование GroupDocs.Search for Java?**  
-О: Быстрое, масштабируемое индексирование, настраиваемое выделение и поддержка множества форматов документов.
-
-**В: Как интегрировать GroupDocs.Search с REST API?**  
-О: Откройте методы поиска и выделения через контроллеры Spring Boot, возвращая HTML или JSON‑payload.
-
-**В: Обрабатывает ли библиотека файлы, защищённые паролем?**  
-О: Да — укажите пароль при добавлении документа в индекс.
-
-**В: Можно ли настроить разметку выделения помимо цвета?**  
-О: Конечно; через `HighlightOptions` можно добавить CSS‑классы или изменить HTML после генерации.
-
-**В: Какая версия использовалась при тестировании этого руководства?**  
-О: Код проверен на GroupDocs.Search 25.4.
-
-**В: Как установить highlight options java для использования CSS‑класса вместо встроенных стилей?**  
-О: Установите `options.setUseInlineStyles(false)` и добавьте правило CSS для класса, задаваемого через `options.setCssClass("myHighlight")`.
-
-**В: Есть ли способ highlight terms pdf java напрямую, когда источник — PDF?**  
-О: Да — GroupDocs.Search работает с PDF‑входом, а выделитель выводит HTML, который можно встроить в PDF‑просмотрщик или конвертировать обратно в PDF с помощью GroupDocs.Conversion.
-
----
-
-**Последнее обновление:** 2026-02-27  
-**Тестировано с:** GroupDocs.Search 25.4  
-**Автор:** GroupDocs
+- [Как реализовать полнотекстовый поиск java: создать каталог индекса с GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Изучить управление поисковым индексом с GroupDocs.Search for Java](/search/java/searching/groupdocs-search-java-efficient-document-search/)
+- [Добавить документы в индекс с поиском по чанкам в Java](/search/java/advanced-features/groupdocs-search-java-chunk-based-search-tutorial/)

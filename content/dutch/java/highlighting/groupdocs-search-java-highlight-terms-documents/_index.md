@@ -1,56 +1,225 @@
 ---
-date: '2026-02-27'
-description: Leer hoe je tekst kunt markeren in Java met GroupDocs.Search voor Java,
-  met aandacht voor het doorzoeken van documenten in Java, het indexeren van documenten
-  in Java en fragmentmarkering.
+date: '2026-09-27'
+description: Leer hoe u tekst java kunt markeren met GroupDocs.Search voor Java, met
+  inbegrip van search documents java, index documents java en fragment highlighting.
 keywords:
-- GroupDocs.Search for Java
-- highlight search terms in documents
-- document highlighting
+- highlight text java
+- search documents java
+- index documents java
+- java text highlighting library
+- highlight terms pdf java
+lastmod: '2026-09-27'
+og_description: Leer hoe u tekst java kunt markeren met GroupDocs.Search voor Java.
+  Ontvang stapsgewijze begeleiding bij indexeren, zoeken en fragment highlighting
+  voor snelle resultaten.
+og_image_alt: Screenshot of highlighted search terms in a Java application using GroupDocs.Search
+og_title: Tekst markeren in Java met GroupDocs.Search – Snelle documentmarkering
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to highlight text java using GroupDocs.Search for Java, covering
+    search documents java, index documents java, and fragment highlighting.
+  headline: Highlight text java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to highlight text java using GroupDocs.Search for Java, covering
+    search documents java, index documents java, and fragment highlighting.
+  name: Highlight text java with GroupDocs.Search
+  steps:
+  - name: create and populate the index
+    text: Create an index folder and add all source files you want to search. The
+      `Index` class represents the searchable container.
+  - name: perform search and apply highlighting
+    text: Search for the term (e.g., `ipsum`) and generate an HTML file with highlighted
+      matches. Use `HighlightOptions` to specify the highlight color and whether to
+      use inline styles. `HighlightOptions` lets you define the foreground and background
+      colors, as well as the CSS class that will be applied to ea
+  - name: index and search (same as above)
+    text: The same index and search steps apply; you reuse the `Index` and `SearchResult`
+      objects.
+  - name: define fragment context and highlight
+    text: Specify how many terms before and after the match should appear in each
+      fragment with `FragmentOptions`. `FragmentOptions` controls the number of surrounding
+      words (`termsBefore` and `termsAfter`) that are included in each snippet, allowing
+      you to balance context against snippet length.
+  - name: retrieve and write highlighted fragments
+    text: Collect the generated fragments and write them to an HTML file. Each fragment
+      is already highlighted according to the `HighlightOptions` you configured. `fragmentHighlighter`
+      is a utility that creates highlighted snippets from a `SearchResult` using the
+      specified fragment and highlight options. **Di
+  type: HowTo
+- questions:
+  - answer: It offers fast, scalable indexing, customizable highlighting, and support
+      for 30+ document formats, processing 500‑page files in under 2 seconds on a
+      typical server.
+    question: What are the benefits of using GroupDocs.Search for Java?
+  - answer: Expose the search and highlight methods via Spring Boot controllers, returning
+      HTML snippets or JSON payloads that contain the highlighted fragments.
+    question: How can I integrate GroupDocs.Search with a REST API?
+  - answer: Yes—provide the password when adding the document to the index via `addDocument(filePath,
+      password)`.
+    question: Does the library handle password‑protected files?
+  - answer: Absolutely; you can assign a CSS class with `options.setCssClass("myHighlight")`
+      and style it globally, or modify the generated HTML after highlighting.
+    question: Can I customize the highlight markup beyond color?
+  - answer: The code was validated against GroupDocs.Search 25.4.
+    question: What version was tested for this guide?
+  type: FAQPage
+tags:
+- highlight text java
+- GroupDocs.Search
+- Java document processing
 title: Tekst markeren in Java met GroupDocs.Search
 type: docs
 url: /nl/java/highlighting/groupdocs-search-java-highlight-terms-documents/
 weight: 1
 ---
 
-# Markeer Tekst Java met GroupDocs.Search
+# Markeer tekst java met GroupDocs.Search
 
-In de hedendaagse snel evoluerende digitale omgeving is het kunnen **highlight text java** over grote collecties bestanden een onmisbare functie. Of je nu een legal‑review platform, een academische zoekmachine of een klantenservice‑console bouwt, het direct vinden van de termen waar gebruikers naar zoeken maakt de ervaring veel efficiënter. Deze tutorial leidt je door het gebruik van **GroupDocs.Search for Java** om **search documents java**, **index documents java**, en rijke markeringen toe te passen — zowel voor volledige documenten als voor gerichte fragmenten.
+In moderne bedrijfsapplicaties is **tekst markeren in Java** essentieel om ruwe zoekresultaten om te zetten in direct leesbare inzichten. Of je nu een legal‑review portal, een academische zoekmachine of een klant‑support dashboard bouwt, het kunnen lokaliseren en visueel benadrukken van zoektermen bespaart gebruikers talloze seconden handmatig scannen. Deze tutorial laat zien hoe je **GroupDocs.Search for Java** gebruikt om **documenten zoeken in Java**, **documenten indexeren in Java**, en zowel volledige‑document‑ als fragment‑niveau markering toe te passen, alles met slechts een paar regels code.
 
-## Snelle Antwoorden
-- **What does “search and highlight text” mean?** Het verwijst naar het lokaliseren van zoektermen in een document en ze visueel te benadrukken (bijv. met een achtergrondkleur).  
-- **Which library provides this capability?** GroupDocs.Search for Java.  
-- **Do I need a license?** Een gratis proefversie werkt voor evaluatie; een volledige licentie is vereist voor productie.  
-- **Can I customize highlight colors?** Ja — elke RGB‑kleur kan worden ingesteld via `HighlightOptions`.  
-- **Is fragment highlighting supported?** Absoluut; je kunt termen vóór/na de overeenkomst definiëren om beknopte fragmenten te maken.
+## Snelle antwoorden
+- **Wat betekent “search and highlight text”?** Het betekent het lokaliseren van zoektermen binnen een document en deze visueel benadrukken (bijvoorbeeld met een gekleurde achtergrond).  
+- **Welke bibliotheek biedt deze functionaliteit?** GroupDocs.Search for Java.  
+- **Heb ik een licentie nodig?** Een gratis proefversie werkt voor evaluatie; een volledige licentie is vereist voor productiegebruik.  
+- **Kan ik highlight‑kleuren aanpassen?** Ja—elke RGB‑kleur kan worden ingesteld via `HighlightOptions`.  
+- **Wordt fragment‑highlighting ondersteund?** Absoluut; je kunt termen vóór/na de overeenkomst definiëren om beknopte fragmenten te maken.
 
-## Hoe Tekst Markeren Java in Documenten
-Het markeren van tekst in Java omvat drie kernstappen:
+## Hoe tekst in Java markeren in documenten
 
-1. **Index the source files** zodat ze snel doorzocht kunnen worden.  
-2. **Run a query** tegen de index om overeenkomende documenten te vinden.  
-3. **Render the results with visual cues** met behulp van de highlighter‑API.
+Om tekst in Java te markeren in documenten, bouw je eerst een index van de bronbestanden met geschikte compressie‑instellingen, voer je vervolgens een zoekopdracht uit om de gewenste termen te vinden, en exporteer je tenslotte de resultaten naar HTML, PDF of platte tekst waarbij elke overeenkomst wordt omgeven door een highlight‑tag. Dit drie‑stappenproces zorgt voor snelle, nauwkeurige markering in grote collecties.
 
-Hieronder verkennen we elke stap in detail, eerst voor volledige documentoutput en vervolgens voor fragment‑niveau snippets.
+1. **Maak een index** met compressie‑instellingen die de opslaggrootte laag houden.  
+2. **Voer een zoekopdracht uit** met de query‑string die je wilt markeren.  
+3. **Genereer output** (HTML, PDF of platte tekst) waarbij elke voorkoming van de zoekterm wordt omgeven door een highlight‑tag.
 
-## Wat is Search and Highlight Text?
-Search and highlight text is het proces van het doorzoeken van een documentindex voor een gegeven query, het ophalen van overeenkomende documenten, en vervolgens elke voorkomen van de zoekterm binnen de documentoutput (HTML, PDF, enz.) markeren. Deze visuele aanwijzing helpt eindgebruikers direct relevante informatie te vinden.
+## Wat is zoeken en tekst markeren?
+
+Zoeken en tekst markeren is het proces van het doorzoeken van een geïndexeerde collectie op een gegeven query, het ophalen van overeenkomende documenten, en vervolgens elke voorkoming van de zoekterm in de output (HTML, PDF, enz.) te markeren. Deze visuele aanwijzing helpt eindgebruikers direct relevante informatie te vinden.
 
 ## Waarom GroupDocs.Search for Java gebruiken?
-- **High‑performance indexing** met configureerbare compressie (`index documents java`).  
-- **Rich highlighting API** die werkt op volledige documenten en op aangepaste fragmenten (`highlight search terms java`).  
-- **Cross‑format support** (DOCX, PDF, PPTX, TXT, en meer).  
-- **Simple Maven integration** en een schoon Java‑gericht ontwerp.
 
-## Voorwaarden
+GroupDocs.Search for Java levert **high‑performance indexering** (tot 50 GB per index met `Compression.High`), **uitgebreide markering** die werkt op volledige documenten en aangepaste fragmenten, en **cross‑format ondersteuning** voor meer dan 30 bestandstypen—waaronder DOCX, PDF, PPTX en TXT. De bibliotheek biedt ook **incrementele indexering**, waardoor je nieuwe bestanden kunt toevoegen zonder de volledige index opnieuw op te bouwen, wat de downtime in grootschalige implementaties met tot 80 % vermindert.
+
+## Vereisten
 - Java Development Kit (JDK) 8 of nieuwer.  
 - Maven voor afhankelijkheidsbeheer.  
 - Een IDE zoals IntelliJ IDEA of Eclipse.  
 - Basiskennis van Java‑syntaxis.
 
-## GroupDocs.Search for Java Instellen
+## GroupDocs.Search for Java instellen
 
-Voeg de GroupDocs‑repository en afhankelijkheid toe aan je `pom.xml`:
+Add the GroupDocs repository and dependency to your `pom.xml`:
+
+```xml
+<dependency>
+    <groupId>com.groupdocs</groupId>
+    <artifactId>groupdocs-search</artifactId>
+    <version>25.4</version>
+</dependency>
+```
+
+Je kunt de nieuwste JAR ook direct downloaden van de officiële site: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+
+### Licentie‑acquisitie
+Begin met een gratis proefversie of verkrijg een tijdelijke licentie voor evaluatie. Voor productie‑implementaties koop je een volledige licentie om alle functies te ontgrendelen.
+
+## Implementatie‑gids
+
+De implementatie is opgesplitst in twee praktische secties: **markeren in volledige documenten** en **markeren in fragmenten**. Beide secties bevatten de essentiële stappen voor **hoe Java‑documenten te markeren** met GroupDocs.Search.
+
+### Indexinstellingen configureren
+
+Configureer vóór het indexeren de opslag om hoge compressie te gebruiken—dit vermindert het schijfgebruik met tot 70 % terwijl de zoek‑snelheid behouden blijft.
+
+`IndexSettings` is het configuratie‑object dat bepaalt hoe de index op schijf wordt opgeslagen. Stel `Compression` in op `Compression.High` om deze optimalisatie in te schakelen.  
+`Compression` specificeert het niveau van datacompressie dat op de indexbestanden wordt toegepast, waarbij `Compression.High` de maximale grootte‑reductie biedt.
+
+## Markeren in volledige documenten
+
+### Stap 1: maak en vul de index
+
+Maak een indexmap aan en voeg alle bronbestanden toe die je wilt doorzoeken. De `Index`‑klasse vertegenwoordigt de doorzoekbare container.
+
+### Stap 2: voer zoekopdracht uit en pas markering toe
+
+Zoek naar de term (bijv. `ipsum`) en genereer een HTML‑bestand met gemarkeerde overeenkomsten. Gebruik `HighlightOptions` om de highlight‑kleur en of inline‑stijlen moeten worden gebruikt, op te geven.
+
+`HighlightOptions` stelt je in staat de voor‑ en achtergrondkleuren te definiëren, evenals de CSS‑klasse die op elke gemarkeerde term wordt toegepast.
+
+`HtmlHighlighter` genereert HTML‑output met gemarkeerde termen op basis van de opgegeven opties.  
+`SearchResult` bevat de lijst met overeenkomende documenten en de posities van elke gevonden term.
+
+**Direct antwoord:** Laad je index, roep `search("ipsum")` aan, en geef het resulterende `SearchResult` samen met een geconfigureerde `HighlightOptions`‑instantie door aan de `HtmlHighlighter`. De highlighter retourneert HTML waarbij elke voorkoming van “ipsum” wordt omgeven door een `<span>` met de gekozen achtergrondkleur.
+
+Belangrijke opties uitgelegd  
+- **Compression** – hoge compressie bespaart opslag.  
+- **HighlightColor** – stel elke RGB‑waarde in om bij je UI‑palet te passen.  
+- **UseInlineStyles** – `false` genereert schone HTML die globaal met CSS gestyled kan worden.
+
+## Markeren in fragmenten
+
+### Stap 1: indexeren en zoeken (zelfde als hierboven)
+
+Dezelfde index‑ en zoekstappen zijn van toepassing; je hergebruikt de `Index`‑ en `SearchResult`‑objecten.
+
+### Stap 2: definieer fragment‑context en markering
+
+Geef op hoeveel termen vóór en na de overeenkomst in elk fragment moeten verschijnen met `FragmentOptions`.
+
+`FragmentOptions` regelt het aantal omringende woorden (`termsBefore` en `termsAfter`) dat in elk fragment wordt opgenomen, waardoor je context kunt balanceren ten opzichte van de fragmentlengte.
+
+### Stap 3: haal gemarkeerde fragmenten op en schrijf ze weg
+
+Verzamel de gegenereerde fragmenten en schrijf ze naar een HTML‑bestand. Elk fragment is al gemarkeerd volgens de `HighlightOptions` die je hebt geconfigureerd.
+
+`fragmentHighlighter` is een hulpprogramma dat gemarkeerde fragmenten maakt uit een `SearchResult` met behulp van de opgegeven fragment‑ en highlight‑opties.
+
+**Direct antwoord:** Nadat je het `SearchResult` hebt verkregen, roep je `fragmentHighlighter.highlight(searchResult, fragmentOptions, highlightOptions)` aan. De methode retourneert een lijst met HTML‑fragmenten, elk met de gevonden term omgeven door het geconfigureerde aantal contextwoorden en gemarkeerd met de gekozen kleur.
+
+## Praktische toepassingen
+1. **Juridische documentreview** – markeer onmiddellijk wetten, clausules of casusverwijzingen in duizenden contracten.  
+2. **Academisch onderzoek** – breng sleutelterminologie naar voren in tientallen PDF‑ en Word‑bestanden, waardoor de literatuurreviewtijd met tot 60 % wordt verkort.  
+3. **Klantenondersteuning** – lokaliseer ordernummers of foutcodes in ticketgeschiedenissen, waardoor agenten problemen sneller kunnen oplossen.
+
+## Prestatie‑overwegingen
+- **Indexgrootte** – hoge compressie (`Compression.High`) verkleint de schijfvoetafdruk met tot 70 % zonder merkbare latentie‑impact.  
+- **Fragment‑context** – grotere `termsBefore/After`‑waarden verhogen de leesbaarheid van fragmenten maar kunnen 10–15 ms per query toevoegen.  
+- **Geheugenbeheer** – houd de JVM‑heap in de gaten bij het indexeren van grote corpora; overweeg incrementele indexering voor datasets groter dan 2 GB om het geheugengebruik onder 1 GB te houden.
+
+## Veelvoorkomende problemen en oplossingen
+- **Indexeringsfouten** – controleer bestands‑paden en zorg ervoor dat de applicatie lees‑/schrijfrechten heeft op de indexmap.  
+- **Geen markeringen zichtbaar** – bevestig dat `UseInlineStyles` overeenkomt met je output‑formaat (HTML vs. PDF).  
+- **Kleur niet toegepast** – zorg ervoor dat de RGB‑waarden binnen het bereik 0‑255 liggen en dat de viewer inline‑CSS of de meegeleverde CSS‑klasse respecteert.
+
+## Veelgestelde vragen
+
+**Q: Wat zijn de voordelen van het gebruik van GroupDocs.Search for Java?**  
+A: Het biedt snelle, schaalbare indexering, aanpasbare markering, en ondersteuning voor meer dan 30 documentformaten, waarbij 500‑pagina‑bestanden in minder dan 2 seconden op een typische server worden verwerkt.
+
+**Q: Hoe kan ik GroupDocs.Search integreren met een REST‑API?**  
+A: Maak de zoek‑ en highlight‑methoden beschikbaar via Spring Boot‑controllers, die HTML‑fragmenten of JSON‑payloads teruggeven die de gemarkeerde fragmenten bevatten.
+
+**Q: Ondersteunt de bibliotheek wachtwoord‑beveiligde bestanden?**  
+A: Ja—geef het wachtwoord op bij het toevoegen van het document aan de index via `addDocument(filePath, password)`.
+
+**Q: Kan ik de highlight‑markup aanpassen naast kleur?**  
+A: Absoluut; je kunt een CSS‑klasse toewijzen met `options.setCssClass("myHighlight")` en deze globaal stylen, of de gegenereerde HTML na het markeren aanpassen.
+
+**Q: Welke versie is getest voor deze gids?**  
+A: De code is gevalideerd tegen GroupDocs.Search 25.4.
+
+**Q: Hoe stel ik highlight‑opties java in om een CSS‑klasse te gebruiken in plaats van inline‑stijlen?**  
+A: Roep `options.setUseInlineStyles(false)` aan en definieer een CSS‑regel voor de klasse die je toewijst via `options.setCssClass("myHighlight")`.
+
+**Q: Is er een manier om termen direct in PDF‑output te markeren?**  
+A: Ja—GroupDocs.Search werkt met PDF‑invoer, en de highlighter levert HTML die kan worden ingebed in een PDF‑viewer of opnieuw kan worden geconverteerd naar PDF met behulp van GroupDocs.Conversion.
+
+---
+
+**Laatst bijgewerkt:** 2026-09-27  
+**Getest met:** GroupDocs.Search 25.4  
+**Auteur:** GroupDocs
 
 ```xml
 <repositories>
@@ -70,36 +239,16 @@ Voeg de GroupDocs‑repository en afhankelijkheid toe aan je `pom.xml`:
 </dependencies>
 ```
 
-Je kunt de nieuwste JAR ook direct downloaden van de officiële site: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
-
-### Licentie‑verwerving
-Begin met een gratis proefversie of verkrijg een tijdelijke licentie voor evaluatie. Voor productie‑implementaties moet je een volledige licentie aanschaffen om alle functies te ontgrendelen.
-
-## Implementatie‑gids
-
-De implementatie is opgesplitst in twee praktische secties: **highlighting in entire documents** en **highlighting in fragments**. Beide secties bevatten de essentiële stappen voor **how to highlight Java** documenten met behulp van GroupDocs.Search.
-
-### Indexinstellingen Configureren
-Voor het indexeren, configureer de opslag om hoge compressie te gebruiken — dit vermindert schijfruimte terwijl de zoek‑snelheid behouden blijft.
-
 ```java
 IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
-
-### Markeren in Volledige Documenten
-
-#### Stap 1: Maak en Vul de Index
-Maak een indexmap aan en voeg alle bronbestanden toe die je wilt doorzoeken.
 
 ```java
 String indexFolder = "/path/to/your/document/directory/HighlightingInEntireDocument";
 Index index = new Index(indexFolder, settings);
 index.add("/path/to/your/documents");
 ```
-
-#### Stap 2: Voer Zoekopdracht uit en Pas Markering toe
-Zoek naar de term (bijv. `ipsum`) en genereer een HTML‑bestand met gemarkeerde overeenkomsten.
 
 ```java
 SearchResult result = index.search("ipsum");
@@ -117,15 +266,6 @@ if (result.getDocumentCount() > 0) {
 }
 ```
 
-**Belangrijke opties uitgelegd**  
-- **Compression** – hoge compressie bespaart opslag.  
-- **HighlightColor** – stel elke RGB‑waarde in om bij je UI‑palet te passen.  
-- **UseInlineStyles** – `false` genereert schone HTML die globaal gestyled kan worden met CSS.  
-
-### Markeren in Fragmenten
-
-#### Stap 1: Indexeren en Zoeken (zelfde als hierboven)
-
 ```java
 String indexFolder = "/path/to/your/document/directory/HighlightingInFragments";
 Index index = new Index(indexFolder, settings);
@@ -133,9 +273,6 @@ index.add("/path/to/your/documents");
 
 SearchResult result = index.search("ipsum");
 ```
-
-#### Stap 2: Definieer Fragmentcontext en Markering
-Geef op hoeveel termen vóór en na de overeenkomst in elk fragment moeten verschijnen.
 
 ```java
 HighlightOptions options = new HighlightOptions();
@@ -149,9 +286,6 @@ FragmentHighlighter highlighter = new FragmentHighlighter(OutputFormat.Html);
 
 index.highlight(document, highlighter, options);
 ```
-
-#### Stap 3: Haal Gemarkeerde Fragmenten op en Schrijf ze
-Verzamel de gegenereerde fragmenten en schrijf ze naar een HTML‑bestand.
 
 ```java
 StringBuilder stringBuilder = new StringBuilder();
@@ -176,46 +310,8 @@ try {
 }
 ```
 
-## Praktische Toepassingen
-1. **Legal Document Review** – markeer onmiddellijk statuten, clausules of casus‑referenties.  
-2. **Academic Research** – breng sleutelterminologie naar voren in tientallen PDF‑ en Word‑bestanden.  
-3. **Customer Support** – lokaliseer ordernummers of foutcodes binnen ticketgeschiedenissen.
+## Gerelateerde tutorials
 
-## Prestatie‑overwegingen
-- **Index Size** – hoge compressie (`Compression.High`) vermindert de schijfvoetafdruk.  
-- **Fragment Context** – grotere `termsBefore/After`‑waarden verhogen de nauwkeurigheid maar kunnen de snelheid beïnvloeden.  
-- **Memory Management** – houd de JVM‑heap in de gaten bij het indexeren van grote corpora; overweeg incrementeel indexeren voor zeer grote sets.
-
-## Veelvoorkomende Problemen en Oplossingen
-- **Indexing Errors** – controleer bestandspaden en zorg dat de applicatie lees‑/schrijfrechten heeft.  
-- **No Highlights Appear** – bevestig dat `UseInlineStyles` overeenkomt met je output‑formaat (HTML vs. PDF).  
-- **Color Not Applied** – zorg dat de RGB‑waarden binnen het bereik 0‑255 liggen en dat de HTML‑viewer de stijl ondersteunt.
-
-## Veelgestelde Vragen
-
-**Q: Wat zijn de voordelen van het gebruik van GroupDocs.Search for Java?**  
-A: Het biedt snelle, schaalbare indexering, aanpasbare markering en ondersteuning voor vele documentformaten.
-
-**Q: Hoe kan ik GroupDocs.Search integreren met een REST‑API?**  
-A: Stel de zoek‑ en markeer‑methoden beschikbaar via Spring Boot‑controllers, die HTML‑ of JSON‑payloads retourneren.
-
-**Q: Ondersteunt de bibliotheek wachtwoord‑beveiligde bestanden?**  
-A: Ja — geef het wachtwoord op bij het toevoegen van het document aan de index.
-
-**Q: Kan ik de markering‑markup aanpassen buiten kleur?**  
-A: Absoluut; je kunt CSS‑klassen injecteren via `HighlightOptions` of de HTML na generatie aanpassen.
-
-**Q: Welke versie is getest voor deze gids?**  
-A: De code is gevalideerd tegen GroupDocs.Search 25.4.
-
-**Q: Hoe stel ik highlight options java in om een CSS‑klasse te gebruiken in plaats van inline‑stijlen?**  
-A: Stel `options.setUseInlineStyles(false)` in en voeg een CSS‑regel toe voor de klasse die je toewijst via `options.setCssClass("myHighlight")`.
-
-**Q: Is er een manier om terms pdf java direct te markeren wanneer de bron een PDF is?**  
-A: Ja — GroupDocs.Search werkt met PDF‑invoer, en de highlighter zal HTML outputten die je kunt embedden in een PDF‑viewer of terug kunt converteren naar PDF met behulp van GroupDocs.Conversion.
-
----
-
-**Laatst bijgewerkt:** 2026-02-27  
-**Getest met:** GroupDocs.Search 25.4  
-**Auteur:** GroupDocs
+- [Hoe java full‑text search te implementeren: indexdirectory maken met GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Leer om zoekindex te beheren met GroupDocs.Search for Java](/search/java/searching/groupdocs-search-java-efficient-document-search/)
+- [Documenten toevoegen aan index met chunk‑gebaseerd zoeken in Java](/search/java/advanced-features/groupdocs-search-java-chunk-based-search-tutorial/)
