@@ -1,78 +1,87 @@
 ---
-date: '2026-02-27'
-description: Узнайте, как создать поисковый индекс Java с помощью GroupDocs.Search
-  for Java, добавить файлы для поиска, добавить каталоги в узел и включить индексацию
-  в реальном времени в Java.
+date: '2026-09-27'
+description: Узнайте, как реализовать java full text search с использованием GroupDocs.Search
+  for Java, добавить файлы для поиска, настроить directories и включить real time
+  indexing.
 keywords:
-- GroupDocs.Search for Java
-- deploy GroupDocs.Search
-- Java search network setup
-title: Создание поискового индекса Java – Развертывание GroupDocs.Search для Java
+- java full text search
+- event driven indexing
+- java search engine
+- add files to search
+- real time indexing java
+lastmod: '2026-09-27'
+og_description: Реализуйте java full text search с помощью GroupDocs.Search. Узнайте,
+  как добавить файлы, настроить nodes и включить real time indexing за несколько минут.
+og_image_alt: Guide to setting up java full text search with GroupDocs.Search
+og_title: Как реализовать java full text search с помощью GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    for Java, add files to search, configure directories, and enable real time indexing.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes. The library works with any Java runtime, and you can point `basePath`
+      to a network‑mounted folder or a cloud storage mount.
+    question: Can I use GroupDocs.Search on a cloud‑based Java application?
+  - answer: Subscribe to node events (see Feature 3) and call `addFiles` or `addDirectories`
+      again for the modified paths.
+    question: How do I update the index when a file changes?
+  - answer: Practically, the limit is defined by your hardware and network bandwidth.
+      The API imposes no hard cap.
+    question: Is there a limit to the number of nodes I can deploy?
+  - answer: No. Adding files triggers indexing automatically; you only need to commit
+      if you defer the operation.
+    question: Do I need to restart nodes after adding new files?
+  - answer: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many image types—over
+      50 formats in total.
+    question: Which document formats are supported out of the box?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- search indexing
+title: Как реализовать java full text search с помощью GroupDocs.Search
 type: docs
 url: /ru/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-.
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Also blockquote with > **Pro tip:** translate.
+# Как реализовать полнотекстовый поиск java с помощью GroupDocs.Search
 
-Also blockquote with > **Pro tip:** keep.
+В эпоху приложений, управляемых данными, **java full text search** является необходимым для преобразования огромных коллекций документов в мгновенно доступные базы знаний. Независимо от того, создаёте ли вы корпоративный портал или лёгкую настольную утилиту, правильно настроенная поисковая сеть может сократить задержку запросов с секунд до миллисекунд и поддерживать релевантность результатов по мере роста данных. В этом руководстве мы покажем, как развернуть **GroupDocs.Search for Java**, добавить файлы для поиска, настроить каталоги на узлах и включить индексацию в реальном времени, чтобы ваш индекс оставался актуальным без ручного вмешательства.
 
-Also blockquote with > **Pro tip:** etc.
+> **Почему это важно:** Индекс java full text search уменьшает задержку запросов, масштабируется с объёмом данных и предоставляет мощные полнотекстовые возможности для любого решения на Java — веб‑порталов, настольных приложений или облачных микросервисов.
 
-Also blockquote with > **Pro tip:**.
+## Быстрые ответы
+- **Какова основная цель GroupDocs.Search?** Он предоставляет масштабируемый java поисковый движок, который индексирует и ищет документы в распределённой сети.  
+- **Какую версию следует использовать?** Рекомендуется использовать последнюю стабильную версию (например, 25.4) для новых проектов.  
+- **Нужна ли лицензия?** Доступна 30‑дневная бесплатная пробная версия; для использования в продакшене требуется постоянная лицензия.  
+- **Можно ли добавить как отдельные файлы, так и целые каталоги?** Да — используйте вспомогательные функции `addFiles` и `addDirectories` для загрузки контента.  
+- **Какая версия Java требуется?** Java 8 или выше, с Maven для управления зависимостями.  
+- **Как работает индексация в реальном времени java?** Подписавшись на события узла, вы можете автоматически переиндексировать файлы при их изменении.
 
-Also blockquote with > **Pro tip:**.
+## Что такое «create searchable index java»?
+Создание поискового индекса в Java означает построение структуры данных, которая сопоставляет термины с документами, их содержащими, обеспечивая быстрые полнотекстовые запросы. **GroupDocs.Search for Java** берёт на себя сложную работу, позволяя вам сосредоточиться на загрузке документов и настройке поведения поиска.
 
-Also blockquote with > **Pro tip:**.
+## Почему стоит использовать GroupDocs.Search for Java?
+GroupDocs.Search предоставляет java поисковый движок, который масштабируется горизонтально, поддерживает более 50 форматов ввода и вывода, и предлагает индексацию, управляемую событиями. Развёртывание нескольких узлов распределяет нагрузку индексации, а встроенные проверки состояния обеспечивают надёжность сети. Он также предоставляет RESTful API и настраиваемые анализаторы для точной настройки релевантности.
 
-Also blockquote with > **Pro tip:**.
+## Требования
+- **JDK 8+** установлен на вашей машине разработки.  
+- IDE, например **IntelliJ IDEA** или **Eclipse**.  
+- Базовые знания **Java** и **Maven**.  
+- Доступ к библиотеке **GroupDocs.Search for Java** (скачать или через Maven).
 
-Also blockquote with > **Pro tip:**.
+## Настройка GroupDocs.Search for Java
 
-Also blockquote with > **Pro tip:**.
-
-Ok.
-
-Now produce final output.
-
-# Create Searchable Index Java – Deploy GroupDocs.Search for Java
-
-В современном мире, управляемом данными, **создание поискового индекса java** приложениям необходимо эффективно обрабатывать огромные коллекции документов. Независимо от того, создаёте ли вы корпоративный поисковый сервис или небольшой проект, правильно настроенная поисковая сеть может значительно ускорить поиск и повысить его релевантность. В этом руководстве мы пройдём весь процесс настройки **GroupDocs.Search for Java**, от добавления файлов в поиск до добавления каталогов в узел, чтобы вы могли сразу начать индексировать свои документы.
-
-> **Почему это важно:** Поисковый индекс уменьшает задержку запросов с секунд до миллисекунд, масштабируется вместе с ростом ваших данных и позволяет добавить мощные возможности полнотекстового поиска в любое Java‑решение — будь то веб‑портал, настольное приложение или облачный микросервис.
-
-## Quick Answers
-- **What is the primary purpose of GroupDocs.Search?** It provides a scalable, Java‑based engine for indexing and searching documents across a distributed network.  
-- **Which version should I use?** The latest stable release (e.g., 25.4) is recommended for new projects.  
-- **Do I need a license?** A 30‑day free trial is available; a permanent license is required for production use.  
-- **Can I add both files and whole directories?** Yes – use the `addFiles` and `addDirectories` helpers to ingest content.  
-- **What Java version is required?** Java 8 or higher, with Maven for dependency management.  
-- **How does real time indexing java work?** By subscribing to node events you can trigger automatic re‑indexing as files change.
-
-## What is “create searchable index java”?
-Creating a searchable index in Java means building a data structure that maps terms to the documents containing them, enabling fast full‑text queries. GroupDocs.Search abstracts the heavy lifting, letting you focus on feeding documents and tuning search behavior.
-
-## Why use GroupDocs.Search for Java?
-- **Scalable network architecture** – Deploy multiple nodes that share indexing workload.  
-- **Rich document format support** – PDFs, Word, Excel, PowerPoint, images, and more.  
-- **Event‑driven updates** – Subscribe to node events to keep the index fresh in real time.  
-- **Simple Maven integration** – Add a few lines to `pom.xml` and start indexing.
-
-## Real time indexing java with GroupDocs.Search
-GroupDocs.Search fires events whenever a file is added, updated, or removed. By handling these events you can call `addFiles` or `addDirectories` automatically, ensuring the index stays synchronized without manual intervention. This approach is ideal for document management systems, content portals, and any application where data changes frequently.
-
-## Prerequisites
-- **JDK 8+** installed on your development machine.  
-- An IDE such as **IntelliJ IDEA** or **Eclipse**.  
-- Basic knowledge of **Java** and **Maven**.  
-- Access to the **GroupDocs.Search for Java** library (download or Maven).
-
-## Setting Up GroupDocs.Search for Java
-
-### Maven Dependency
-Add the repository and dependency to your `pom.xml`:
+### Maven зависимость
+Добавьте репозиторий и зависимость в ваш `pom.xml`:
 
 ```xml
 <repositories>
@@ -92,17 +101,17 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-> **Pro tip:** Keep the version number up‑to‑date by checking the official releases page.
+> **Подсказка:** Следите за актуальностью номера версии, проверяя официальную страницу релизов.
 
-You can also download the JAR directly from the official site: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Вы также можете скачать JAR напрямую с официального сайта: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
-- **Free Trial:** 30‑day evaluation.  
-- **Temporary License:** Request for extended testing.  
-- **Purchase:** Required for production deployments.
+### Приобретение лицензии
+- **Бесплатная пробная версия:** 30‑дневная оценка.  
+- **Временная лицензия:** Запросить для расширенного тестирования.  
+- **Покупка:** Требуется для продакшн‑развёртываний.
 
-### Basic Initialization
-Create a configuration object that points to a folder where index files will be stored and defines the base communication port:
+### Базовая инициализация
+Создайте объект конфигурации, указывающий папку, где будут храниться файлы индекса, и определяющий базовый порт связи:
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -118,12 +127,11 @@ class InitializeSearch {
 }
 ```
 
-## How to create searchable index java with GroupDocs.Search?
+## Как создать searchable index java с помощью GroupDocs.Search?
+Загрузите объект `SearchConfiguration`, запустите `SearchNetworkNode` и вызовите `node.getIndexer().addFiles(...)` для заполнения индекса. Этот однострочный шаблон запускает полностью функционирующую сеть java полнотекстового поиска, готовую принимать запросы сразу. Затем вы можете масштабировать её, добавляя дополнительные узлы, использующие тот же базовый путь и диапазон портов.
 
-Below we break down the core features you’ll need to **add files to search** and **add directories to node**, while also deploying a scalable network.
-
-### Feature 1 – Configuration and Network Setup
-Configuring the search network is the first step toward building a searchable index.
+### Функция 1 – настройка конфигурации и сети
+Класс `SearchConfiguration` содержит все настройки, необходимые для запуска узла.
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -137,11 +145,11 @@ class ConfiguringSearchNetwork {
 }
 ```
 
-- **`basePath`** – Directory where the index data will be persisted.  
-- **`basePort`** – Starting port; each node will increment from this value.
+- **`basePath`** – Каталог, где будут сохраняться данные индекса.  
+- **`basePort`** – Начальный порт; каждый узел будет увеличивать его значение.
 
-### Feature 2 – Deploying Search Network Nodes
-Deploying nodes distributes indexing workload across multiple machines or processes.
+### Функция 2 – развертывание узлов поисковой сети
+`SearchNetworkNode` представляет отдельный сервис индексации, который может работать на любой машине.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -154,10 +162,10 @@ class SearchNetworkDeployment {
 }
 ```
 
-Each `SearchNetworkNode` runs its own indexing service, enabling you to **create a searchable index java** that scales horizontally.
+`SearchNetworkNode` — это основной компонент времени выполнения, который хранит индекс, обрабатывает события добавления/удаления и отвечает на поисковые запросы. Развёртывание нескольких узлов позволяет вам **create java full text search** кластеры, масштабируемые горизонтально.
 
-### Feature 3 – Subscribing to Node Events
-Real‑time updates keep the index synchronized with file system changes.
+### Функция 3 – подписка на события узла
+Обновления в реальном времени поддерживают синхронизацию индекса с изменениями файловой системы.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -169,10 +177,10 @@ class SearchNetworkNodeEvents {
 }
 ```
 
-By listening to events, you can automatically trigger re‑indexing when new files arrive.
+Слушая события, вы можете автоматически запускать переиндексацию при появлении новых файлов, достигая **event driven indexing** без ручных скриптов.
 
-### Feature 4 – Adding Directories to Network Node
-Use this helper to **add directories to node**, recursively collecting all supported documents.
+### Функция 4 – добавление каталогов в узел сети
+Используйте эту вспомогательную функцию для **add directories to node**, рекурсивно собирая все поддерживаемые документы.
 
 ```java
 import java.io.File;
@@ -200,8 +208,8 @@ class DirectoryAdder {
 }
 ```
 
-### Feature 5 – Adding Files to Network Node
-When you need fine‑grained control, **add files to search** individually:
+### Функция 5 – добавление файлов в узел сети
+Когда требуется более тонкий контроль, **add files to search** по отдельности:
 
 ```java
 import com.groupdocs.search.Document;
@@ -245,47 +253,57 @@ class FileAdder {
 }
 ```
 
-This method gives you the flexibility to index files coming from streams, cloud storage, or temporary locations.
+## Общие сценарии использования
+- **Корпоративные порталы документов**, которым нужен мгновенный поиск по тысячам PDF и файлов Office.  
+- **Платформы юридического e‑discovery**, где новые доказательства постоянно добавляются и должны быть доступны для поиска в реальном времени.  
+- **Системы управления контентом**, хранящие изображения, презентации и таблицы и требующие полнотекстового поиска.
 
-## Common Use Cases
-- **Enterprise document portals** that need instant search across thousands of PDFs and Office files.  
-- **Legal e‑discovery platforms** where new evidence is continuously added and must be searchable in real time.  
-- **Content management systems** that store images, presentations, and spreadsheets and require full‑text lookup.
+## Распространённые проблемы и решения
+| Проблема | Причина | Решение |
+|----------|---------|---------|
+| **В результатах поиска не отображаются документы** | Индекс не зафиксирован | Вызовите `node.getIndexer().commit()` после добавления файлов. |
+| **Ошибка конфликта порта** | Другой сервис использует `basePort` | Выберите другой `basePort` или проверьте свободные порты. |
+| **Неподдерживаемый формат файла** | В библиотеке отсутствует парсер | Убедитесь, что расширение файла поддерживается, или добавьте пользовательский извлекатель. |
 
-## Common Issues & Solutions
-| Issue | Reason | Fix |
-|-------|--------|-----|
-| **No documents appear in search results** | Index not committed | Call `node.getIndexer().commit()` after adding files. |
-| **Port conflict error** | Another service uses `basePort` | Choose a different `basePort` or verify free ports. |
-| **Unsupported file format** | Library lacks parser | Ensure the file extension is supported or add a custom extractor. |
+## Советы по устранению неполадок
+- **Проверьте состояние узла:** Используйте встроенный эндпоинт проверки здоровья (`http://localhost:{port}/health`), чтобы убедиться, что каждый узел работает.  
+- **Отслеживайте использование памяти:** Большие партии документов могут вызвать всплеск памяти; индексируйте небольшими порциями и периодически вызывайте `commit()`.  
+- **Проверьте логи:** GroupDocs.Search записывает подробные логи в папку `basePath` — просмотрите их на предмет ошибок парсинга или тайм‑аутов сети.
 
-## Troubleshooting Tips
-- **Verify node health:** Use the built‑in health‑check endpoint (`http://localhost:{port}/health`) to confirm each node is running.  
-- **Monitor memory usage:** Large batches of documents can spike memory; consider indexing in smaller chunks and calling `commit()` periodically.  
-- **Check logs:** GroupDocs.Search writes detailed logs to the `basePath` folder—review them for parsing errors or network timeouts.
+## Часто задаваемые вопросы
 
-## Frequently Asked Questions
+**В: Можно ли использовать GroupDocs.Search в облачном Java‑приложении?**  
+**О:** Да. Библиотека работает с любой Java‑средой, и вы можете указать `basePath` на сетевой смонтированный каталог или монтирование облачного хранилища.
 
-**Q: Can I use GroupDocs.Search on a cloud‑based Java application?**  
-A: Yes. The library works with any Java runtime, and you can point the `basePath` to a network‑mounted folder or cloud storage mounted locally.
+**В: Как обновить индекс, когда файл изменяется?**  
+**О:** Подпишитесь на события узла (см. Функцию 3) и снова вызовите `addFiles` или `addDirectories` для изменённых путей.
 
-**Q: How do I update the index when a file changes?**  
-A: Subscribe to node events (see Feature 3) and call `addFiles` or `addDirectories` again for the modified paths.
+**В: Есть ли ограничение на количество узлов, которые можно развернуть?**  
+**О:** Практически ограничение определяется вашим оборудованием и пропускной способностью сети. API не накладывает жёсткого лимита.
 
-**Q: Is there a limit to the number of nodes I can deploy?**  
-A: Practically, the limit is defined by your hardware and network bandwidth. The API itself imposes no hard cap.
+**В: Нужно ли перезапускать узлы после добавления новых файлов?**  
+**О:** Нет. Добавление файлов автоматически запускает индексацию; необходимо лишь выполнить commit, если вы откладываете операцию.
 
-**Q: Do I need to restart nodes after adding new files?**  
-A: No. Adding files triggers indexing automatically; you only need to commit if you defer the operation.
+**В: Какие форматы документов поддерживаются из коробки?**  
+**О:** PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML и многие типы изображений — более 50 форматов в общей сложности.
 
-**Q: Which document formats are supported out of the box?**  
-A: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many image types. See the official docs for the full list.
-
-**Q: How can I enable real time indexing java for a folder that receives uploads continuously?**  
-A: Implement a file‑system watcher (e.g., `java.nio.file.WatchService`) that calls `DirectoryAdder.addDirectories(node, path)` whenever a new file is detected.
+**В: Как включить индексацию в реальном времени java для папки, которая постоянно получает загрузки?**  
+**О:** Реализуйте наблюдатель за файловой системой (например, `java.nio.file.WatchService`), который вызывает `DirectoryAdder.addDirectories(node, path)` каждый раз, когда обнаруживается новый файл.
 
 ---
 
-**Last Updated:** 2026-02-27  
-**Tested With:** GroupDocs.Search for Java 25.4  
-**Author:** GroupDocs
+**Последнее обновление:** 2026-09-27  
+**Тестировано с:** GroupDocs.Search for Java 25.4  
+**Автор:** GroupDocs
+
+## Связанные руководства
+
+- [Как реализовать java полнотекстовый поиск: создать каталог индекса с GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Реализация полнотекстового поиска Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Как настроить поиск с GroupDocs.Search в Java — руководство по конфигурации и развертыванию](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

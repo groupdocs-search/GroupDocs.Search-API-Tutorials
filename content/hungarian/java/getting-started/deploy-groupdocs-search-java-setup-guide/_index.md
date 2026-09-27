@@ -1,54 +1,88 @@
 ---
-date: '2026-02-27'
-description: Tanulja meg, hogyan hozhat létre kereshető indexet Java-ban a GroupDocs.Search
-  for Java segítségével, hogyan adhat fájlokat a kereséshez, hogyan adhat könyvtárakat
-  a csomóponthoz, és hogyan engedélyezheti a valós idejű indexelést Java-ban.
+date: '2026-09-27'
+description: Ismerje meg, hogyan valósítható meg a Java full text search a GroupDocs.Search
+  for Java használatával, fájlok hozzáadása a kereséshez, directories konfigurálása
+  és real time indexing engedélyezése.
 keywords:
-- GroupDocs.Search for Java
-- deploy GroupDocs.Search
-- Java search network setup
-title: Kereshető index létrehozása Java – A GroupDocs.Search for Java telepítése
+- java full text search
+- event driven indexing
+- java search engine
+- add files to search
+- real time indexing java
+lastmod: '2026-09-27'
+og_description: Valósítsa meg a Java full text search a GroupDocs.Search segítségével.
+  Tanulja meg, hogyan adjon hozzá fájlokat, konfiguráljon nodes-okat, és engedélyezze
+  a real time indexing-et percek alatt.
+og_image_alt: Guide to setting up java full text search with GroupDocs.Search
+og_title: Hogyan valósítsuk meg a Java full text search a GroupDocs.Search segítségével
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    for Java, add files to search, configure directories, and enable real time indexing.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes. The library works with any Java runtime, and you can point `basePath`
+      to a network‑mounted folder or a cloud storage mount.
+    question: Can I use GroupDocs.Search on a cloud‑based Java application?
+  - answer: Subscribe to node events (see Feature 3) and call `addFiles` or `addDirectories`
+      again for the modified paths.
+    question: How do I update the index when a file changes?
+  - answer: Practically, the limit is defined by your hardware and network bandwidth.
+      The API imposes no hard cap.
+    question: Is there a limit to the number of nodes I can deploy?
+  - answer: No. Adding files triggers indexing automatically; you only need to commit
+      if you defer the operation.
+    question: Do I need to restart nodes after adding new files?
+  - answer: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many image types—over
+      50 formats in total.
+    question: Which document formats are supported out of the box?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- search indexing
+title: Hogyan valósítsuk meg a Java full text search a GroupDocs.Search segítségével
 type: docs
 url: /hu/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-# Kereshető Index Létrehozása Java – GroupDocs.Search for Java Telepítése
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-A mai adat‑központú világban a **kereshető index létrehozása Java** alkalmazásoknak hatékonyan kell kezelniük hatalmas dokumentumgyűjteményeket. Akár egy vállalati szintű keresési szolgáltatást, akár egy kisebb projektet építesz, egy jól konfigurált keresési hálózat drámaian javíthatja a lekérdezés sebességét és relevanciáját. Ebben az útmutatóban végigvezetünk a **GroupDocs.Search for Java** beállításának teljes folyamatán, a fájlok kereséshez való hozzáadásától a könyvtárak node‑hoz való hozzáadásáig, így azonnal elkezdheted a dokumentumok indexelését.
+# Hogyan valósítsuk meg a java teljes szöveges keresést a GroupDocs.Search segítségével
 
-> **Miért fontos:** A kereshető index csökkenti a lekérdezési késleltetést másodpercről ezredmásodpercre, skálázható az adatmennyiség növekedésével, és lehetővé teszi erőteljes teljes‑szöveges képességek hozzáadását bármely Java‑alapú megoldáshoz – legyen az egy webportál, asztali alkalmazás vagy felhő mikro‑szolgáltatás.
+Az adat‑központú alkalmazások korszakában a **java full text search** elengedhetetlen a hatalmas dokumentumgyűjtemények azonnal kereshető tudásbázisokká alakításához. Akár vállalati szintű portált, akár könnyű asztali segédprogramot épít, egy jól konfigurált keresési hálózat képes a lekérdezési késleltetést másodpercekből ezrekbe csökkenteni, és a növekvő adatmennyiség mellett is releváns eredményeket biztosítani. Ez a tutorial végigvezet a **GroupDocs.Search for Java** telepítésén, a kereséshez fájlok hozzáadásán, a csomópontok könyvtárainak beállításán és a valós‑idő indexelés engedélyezésén, hogy indexe friss maradjon manuális beavatkozás nélkül.
 
-## Gyors Válaszok
-- **Mi a GroupDocs.Search elsődleges célja?** Egy skálázható, Java‑alapú motor biztosítása a dokumentumok indexeléséhez és kereséséhez egy elosztott hálózaton.  
-- **Melyik verziót kellene használnom?** A legújabb stabil kiadás (pl. 25.4) ajánlott új projektekhez.  
+> **Miért fontos:** A java full text search index csökkenti a lekérdezési késleltetést, skálázható az adat mennyiségével, és erőteljes teljes szöveges képességeket hoz minden Java‑alapú megoldáshoz — webportálok, asztali alkalmazások vagy felhő mikro-szolgáltatások.
+
+## Gyors válaszok
+- **Mi a GroupDocs.Search elsődleges célja?** Skálázható, java keresőmotor biztosítása, amely indexeli és keres dokumentumokat egy elosztott hálózaton.  
+- **Melyik verziót kellene használnom?** Az új projektekhez a legújabb stabil kiadás (pl. 25.4) ajánlott.  
 - **Szükségem van licencre?** 30‑napos ingyenes próba elérhető; a termelési használathoz állandó licenc szükséges.  
-- **Hozzáadhatok fájlokat és teljes könyvtárakat is?** Igen – használja az `addFiles` és `addDirectories` segédfüggvényeket a tartalom betöltéséhez.  
+- **Hozzáadhatok fájlokat és teljes könyvtárakat is?** Igen – használja a `addFiles` és `addDirectories` segédfüggvényeket a tartalom betöltéséhez.  
 - **Milyen Java verzió szükséges?** Java 8 vagy újabb, Maven a függőségkezeléshez.  
-- **Hogyan működik a valós idejű indexelés Java?** A node eseményekre feliratkozva automatikusan újra‑indexelheted a fájlok változásakor.
+- **Hogyan működik a valós idejű indexelés java?** A csomópont eseményekre feliratkozva automatikusan újra‑indexelhet, amikor a fájlok változnak.
 
-## Mi az a „kereshető index létrehozása Java”?
-A kereshető index létrehozása Java‑ban azt jelenti, hogy egy adatstruktúrát építünk, amely a kifejezéseket a tartalmazó dokumentumokhoz rendeli, lehetővé téve a gyors teljes‑szöveges lekérdezéseket. A GroupDocs.Search elvégzi a nehéz munkát, így a dokumentumok betáplálására és a keresési viselkedés finomhangolására koncentrálhatsz.
+## Mi az a „create searchable index java”?
+A kereshető index létrehozása Java-ban azt jelenti, hogy egy adatstruktúrát építünk, amely a kifejezéseket a tartalmazó dokumentumokhoz rendeli, lehetővé téve a gyors teljes‑szöveges lekérdezéseket. **GroupDocs.Search for Java** elvégzi a nehéz munkát, így Ön a dokumentumok betáplálására és a keresési viselkedés finomhangolására koncentrálhat.
 
 ## Miért használjuk a GroupDocs.Search for Java‑t?
-- **Skálázható hálózati architektúra** – Több node telepítése, amelyek megosztják az indexelési terhelést.  
-- **Gazdag dokumentumformátum támogatás** – PDF‑ek, Word, Excel, PowerPoint, képek és még több.  
-- **Esemény‑vezérelt frissítések** – Node eseményekre feliratkozva a indexet valós időben frissen tartod.  
-- **Egyszerű Maven integráció** – Néhány sor hozzáadása a `pom.xml`‑hez, és elkezdheted az indexelést.
-
-## Valós idejű indexelés Java a GroupDocs.Search segítségével
-A GroupDocs.Search eseményeket vált ki, amikor egy fájl hozzáadódik, frissül vagy eltávolításra kerül. Ezeknek az eseményeknek a kezelése során automatikusan meghívhatod az `addFiles` vagy `addDirectories` metódusokat, biztosítva, hogy az index manuális beavatkozás nélkül szinkronban maradjon. Ez a megközelítés ideális dokumentumkezelő rendszerekhez, tartalmi portálokhoz és minden olyan alkalmazáshoz, ahol az adatok gyakran változnak.
+A GroupDocs.Search egy java keresőmotort biztosít, amely vízszintesen skálázható, több mint 50 bemeneti és kimeneti formátumot támogat, és esemény‑vezérelt indexelést kínál. Több csomópont telepítésével az indexelési terhelés eloszlik, míg a beépített állapot‑ellenőrzések a hálózat megbízhatóságát biztosítják. Emellett RESTful API‑kat és testreszabható elemzőket is nyújt a finomhangolt relevanciához.
 
 ## Előfeltételek
-- **JDK 8+** telepítve a fejlesztői gépeden.  
-- Egy IDE, például **IntelliJ IDEA** vagy **Eclipse**.  
-- Alapvető ismeretek a **Java** és **Maven** használatáról.  
+- **JDK 8+** telepítve a fejlesztői gépen.  
+- Olyan IDE, mint a **IntelliJ IDEA** vagy az **Eclipse**.  
+- Alapvető ismeretek a **Java**‑ról és a **Maven**‑ról.  
 - Hozzáférés a **GroupDocs.Search for Java** könyvtárhoz (letöltés vagy Maven).
 
 ## A GroupDocs.Search for Java beállítása
 
 ### Maven függőség
-Add the repository and dependency to your `pom.xml`:
+Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
 
 ```xml
 <repositories>
@@ -68,17 +102,17 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-> **Pro tip:** Keep the version number up‑to‑date by checking the official releases page.
+> **Pro tip:** Tartsd naprakészen a verziószámot az hivatalos kiadások oldalának ellenőrzésével.
 
-You can also download the JAR directly from the official site: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+A JAR fájlt közvetlenül az hivatalos oldalról is letöltheti: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
-- **Free Trial:** 30‑day evaluation.  
-- **Temporary License:** Request for extended testing.  
-- **Purchase:** Required for production deployments.
+### Licenc beszerzése
+- **Free trial:** 30‑napos értékelés.  
+- **Temporary license:** Kérjen hosszabb teszteléshez.  
+- **Purchase:** Szükséges a termelési telepítésekhez.
 
-### Basic Initialization
-Create a configuration object that points to a folder where index files will be stored and defines the base communication port:
+### Alapvető inicializálás
+Hozzon létre egy konfigurációs objektumot, amely egy mappára mutat, ahol az indexfájlok tárolódnak, és meghatározza az alap kommunikációs portot:
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -94,12 +128,11 @@ class InitializeSearch {
 }
 ```
 
-## Hogyan hozható létre kereshető index Java‑val a GroupDocs.Search‑el?
+## Hogyan hozzunk létre kereshető indexet java-val a GroupDocs.Search segítségével?
+Töltsön be egy `SearchConfiguration` objektumot, indítson egy `SearchNetworkNode`‑t, és hívja meg a `node.getIndexer().addFiles(...)`‑t az index feltöltéséhez. Ez az egy‑soros minta egy teljesen működőképes java full text search hálózatot indít, amely azonnal képes lekérdezéseket fogadni. Ezután skálázhat további csomópontok hozzáadásával, amelyek ugyanazt az alapútvonalat és porttartományt használják.
 
-Alább részletezzük a főbb funkciókat, amelyekre szükséged lesz a **fájlok kereséshez való hozzáadása** és a **könyvtárak node‑hoz való hozzáadása** során, miközben egy skálázható hálózatot is telepítesz.
-
-### Feature 1 – Configuration and Network Setup
-Configuring the search network is the first step toward building a searchable index.
+### Funkció 1 – konfiguráció és hálózati beállítás
+`SearchConfiguration` osztály tartalmazza a csomópont indításához szükséges összes beállítást.
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -113,11 +146,11 @@ class ConfiguringSearchNetwork {
 }
 ```
 
-- **`basePath`** – Directory where the index data will be persisted.  
-- **`basePort`** – Starting port; each node will increment from this value.
+- **`basePath`** – Könyvtár, ahol az index adatok tárolódnak.  
+- **`basePort`** – Kezdő port; minden csomópont ettől az értéktől növekszik.
 
-### Feature 2 – Deploying Search Network Nodes
-Deploying nodes distributes indexing workload across multiple machines or processes.
+### Funkció 2 – keresési hálózati csomópontok telepítése
+`SearchNetworkNode` egy egyedi indexelő szolgáltatást képvisel, amely bármely gépen futtatható.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -130,10 +163,10 @@ class SearchNetworkDeployment {
 }
 ```
 
-Each `SearchNetworkNode` runs its own indexing service, enabling you to **create a searchable index java** that scales horizontally.
+`SearchNetworkNode` a fő futási komponens, amely egy indexet tárol, kezeli a hozzáadás/eltávolítás eseményeket, és válaszol a keresési lekérdezésekre. Több csomópont telepítése lehetővé teszi **java full text search** klaszterek létrehozását, amelyek vízszintesen skálázhatók.
 
-### Feature 3 – Subscribing to Node Events
-Real‑time updates keep the index synchronized with file system changes.
+### Funkció 3 – csomópont eseményekre való feliratkozás
+A valós‑idő frissítések szinkronban tartják az indexet a fájlrendszer változásaival.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -145,10 +178,10 @@ class SearchNetworkNodeEvents {
 }
 ```
 
-By listening to events, you can automatically trigger re‑indexing when new files arrive.
+Az események figyelésével automatikusan elindíthatja az új fájlok érkezésekor a újra‑indexelést, ezzel **event driven indexing**‑et érve el manuális szkriptek nélkül.
 
-### Feature 4 – Adding Directories to Network Node
-Use this helper to **add directories to node**, recursively collecting all supported documents.
+### Funkció 4 – könyvtárak hozzáadása a hálózati csomóponthoz
+Használja ezt a segédfüggvényt a **könyvtárak csomóponthoz való hozzáadásához**, amely rekurzívan összegyűjti az összes támogatott dokumentumot.
 
 ```java
 import java.io.File;
@@ -176,8 +209,8 @@ class DirectoryAdder {
 }
 ```
 
-### Feature 5 – Adding Files to Network Node
-When you need fine‑grained control, **add files to search** individually:
+### Funkció 5 – fájlok hozzáadása a hálózati csomóponthoz
+Ha finomhangolt vezérlésre van szükség, **fájlokat adjon hozzá a kereséshez** egyenként:
 
 ```java
 import com.groupdocs.search.Document;
@@ -221,47 +254,57 @@ class FileAdder {
 }
 ```
 
-This method gives you the flexibility to index files coming from streams, cloud storage, or temporary locations.
-
-## Gyakori felhasználási esetek
-- **Vállalati dokumentumportálok**, amelyeknek azonnali keresésre van szükségük több ezer PDF‑en és Office‑fájlon.  
-- **Jogi e‑discovery platformok**, ahol az új bizonyítékok folyamatosan érkeznek és valós időben kereshetők kell legyenek.  
+## Általános felhasználási esetek
+- **Vállalati dokumentumportálok**, amelyeknek azonnali keresésre van szükség több ezer PDF és Office fájl között.  
+- **Jogi e‑discovery platformok**, ahol az új bizonyítékok folyamatosan kerülnek hozzáadásra, és valós időben kereshetők kell legyenek.  
 - **Tartalomkezelő rendszerek**, amelyek képeket, prezentációkat és táblázatokat tárolnak, és teljes‑szöveges keresést igényelnek.
 
 ## Gyakori problémák és megoldások
 | Probléma | Ok | Megoldás |
 |-------|--------|-----|
-| **Nem jelennek meg dokumentumok a keresési eredményekben** | Index nincs commit‑olva | Hívd meg a `node.getIndexer().commit()` metódust a fájlok hozzáadása után. |
-| **Port konfliktus hiba** | Egy másik szolgáltatás használja a `basePort`‑ot | Válassz másik `basePort`‑ot vagy ellenőrizd a szabad portokat. |
-| **Nem támogatott fájlformátum** | A könyvtár nem tartalmaz parser‑t | Győződj meg róla, hogy a fájlkiterjesztés támogatott, vagy adj hozzá egy egyedi extraktort. |
+| **Nem jelennek meg dokumentumok a keresési eredményekben** | Az index nincs elkötelezve | Hívja meg a `node.getIndexer().commit()`-ot a fájlok hozzáadása után. |
+| **Port ütközés hiba** | Egy másik szolgáltatás használja a `basePort`-ot | Válasszon másik `basePort`-ot, vagy ellenőrizze a szabad portokat. |
+| **Nem támogatott fájlformátum** | A könyvtár nem tartalmaz parsert | Győződjön meg róla, hogy a fájlkiterjesztés támogatott, vagy adjon hozzá egy egyedi kinyerőt. |
 
 ## Hibaelhárítási tippek
-- **Node állapot ellenőrzése:** Használd a beépített health‑check végpontot (`http://localhost:{port}/health`) a node‑ok futásának megerősítéséhez.  
-- **Memóriahasználat figyelése:** Nagy dokumentumcsoportok memóriát terhelhetnek; indexelj kisebb adagokban, és időnként hívd meg a `commit()`‑ot.  
-- **Naplók ellenőrzése:** A GroupDocs.Search részletes naplókat ír a `basePath` mappába – nézd át őket a feldolgozási hibák vagy hálózati időtúllépések miatt.
+- **Ellenőrizze a csomópont állapotát:** Használja a beépített állapot‑ellenőrző végpontot (`http://localhost:{port}/health`) a csomópontok futásának megerősítéséhez.  
+- **Figyelje a memóriahasználatot:** Nagy dokumentumcsoportok memóriahasználatot növelhetnek; indexeljen kisebb darabokban, és időnként hívja a `commit()`‑ot.  
+- **Ellenőrizze a naplókat:** A GroupDocs.Search részletes naplókat ír a `basePath` mappába — tekintse át őket a feldolgozási hibák vagy hálózati időtúllépések miatt.
 
-## Gyakran Ismételt Kérdések
+## Gyakran feltett kérdések
 
 **Q: Használhatom a GroupDocs.Search‑t felhő‑alapú Java alkalmazásban?**  
-A: Igen. A könyvtár bármely Java runtime‑sal működik, és a `basePath`‑t beállíthatod egy hálózaton megosztott mappára vagy helyileg csatolt felhő tárolóra.
+A: Igen. A könyvtár bármely Java futtatókörnyezettel működik, és a `basePath`‑t beállíthatja egy hálózati megosztott mappára vagy felhő tároló csatolásra.
 
 **Q: Hogyan frissíthetem az indexet, ha egy fájl megváltozik?**  
-A: Iratkozz fel a node eseményekre (lásd Feature 3) és hívd meg újra az `addFiles` vagy `addDirectories` metódusokat a módosított útvonalakra.
+A: Iratkozzon fel a csomópont eseményekre (lásd 3. funkció), és hívja újra az `addFiles` vagy `addDirectories`‑t a módosított útvonalakra.
 
-**Q: Van korlátozás a telepíthető node‑ok számát illetően?**  
-A: Gyakorlatilag a határ a hardvered és a hálózati sávszélességed által meghatározott. Az API maga nem szab korlátot.
+**Q: Van korlátozás a telepíthető csomópontok számában?**  
+A: Gyakorlatilag a határ a hardver és a hálózati sávszélesség által meghatározott. Az API nem szab ki szigorú korlátot.
 
-**Q: Új fájlok hozzáadása után újra kell indítani a node‑okat?**  
-A: Nem. A fájlok hozzáadása automatikusan elindítja az indexelést; csak akkor kell commit‑olni, ha késlelteted a műveletet.
+**Q: Újra kell indítanom a csomópontokat új fájlok hozzáadása után?**  
+A: Nem. A fájlok hozzáadása automatikusan elindítja az indexelést; csak akkor kell elkötelezni, ha késlelteti a műveletet.
 
 **Q: Mely dokumentumformátumok támogatottak alapból?**  
-A: PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML és számos képformátum. A teljes listáért tekintsd meg a hivatalos dokumentációt.
+A: PDF‑ek, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, valamint számos képformátum — összesen több mint 50 formátum.
 
-**Q: Hogyan aktiválhatom a valós idejű indexelést Java‑val egy folyamatosan feltöltött mappához?**  
-A: Implementálj egy fájlrendszer‑figyelőt (pl. `java.nio.file.WatchService`), amely a `DirectoryAdder.addDirectories(node, path)`‑t hívja meg minden új fájl észlelésekor.
+**Q: Hogyan aktiválhatom a valós időben történő java indexelést egy folyamatosan feltöltéseket kapó mappához?**  
+A: Valósítsa meg egy fájlrendszer‑figyelőt (pl. `java.nio.file.WatchService`), amely minden új fájl észlelésekor meghívja a `DirectoryAdder.addDirectories(node, path)`‑t.
 
 ---
 
-**Utoljára frissítve:** 2026-02-27  
+**Utoljára frissítve:** 2026-09-27  
 **Tesztelve a következővel:** GroupDocs.Search for Java 25.4  
 **Szerző:** GroupDocs
+
+## Kapcsolódó oktatóanyagok
+
+- [Hogyan valósítsuk meg a java teljes szöveges keresést: indexkönyvtár létrehozása a GroupDocs.Search segítségével](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Teljes szöveges keresés Java Groupdocs Search implementálása](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Hogyan konfiguráljuk a keresést a GroupDocs.Search segítségével Java-ban – Konfigurációs és telepítési útmutató](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

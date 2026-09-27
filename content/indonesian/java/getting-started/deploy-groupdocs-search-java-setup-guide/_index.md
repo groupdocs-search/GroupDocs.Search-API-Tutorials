@@ -1,47 +1,81 @@
 ---
-date: '2026-02-27'
-description: Pelajari cara membuat indeks yang dapat dicari dengan Java menggunakan
-  GroupDocs.Search untuk Java, menambahkan file untuk pencarian, menambahkan direktori
-  ke node, dan mengaktifkan pengindeksan waktu nyata dengan Java.
+date: '2026-09-27'
+description: Pelajari cara mengimplementasikan pencarian teks lengkap java menggunakan
+  GroupDocs.Search untuk Java, menambahkan file untuk pencarian, mengonfigurasi direktori,
+  dan mengaktifkan pengindeksan waktu nyata.
 keywords:
-- GroupDocs.Search for Java
-- deploy GroupDocs.Search
-- Java search network setup
-title: Buat Indeks Pencarian Java – Deploy GroupDocs.Search untuk Java
+- java full text search
+- event driven indexing
+- java search engine
+- add files to search
+- real time indexing java
+lastmod: '2026-09-27'
+og_description: Implementasikan pencarian teks lengkap java menggunakan GroupDocs.Search.
+  Pelajari cara menambahkan file, mengonfigurasi node, dan mengaktifkan pengindeksan
+  waktu nyata dalam hitungan menit.
+og_image_alt: Guide to setting up java full text search with GroupDocs.Search
+og_title: Cara mengimplementasikan pencarian teks lengkap java dengan GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    for Java, add files to search, configure directories, and enable real time indexing.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes. The library works with any Java runtime, and you can point `basePath`
+      to a network‑mounted folder or a cloud storage mount.
+    question: Can I use GroupDocs.Search on a cloud‑based Java application?
+  - answer: Subscribe to node events (see Feature 3) and call `addFiles` or `addDirectories`
+      again for the modified paths.
+    question: How do I update the index when a file changes?
+  - answer: Practically, the limit is defined by your hardware and network bandwidth.
+      The API imposes no hard cap.
+    question: Is there a limit to the number of nodes I can deploy?
+  - answer: No. Adding files triggers indexing automatically; you only need to commit
+      if you defer the operation.
+    question: Do I need to restart nodes after adding new files?
+  - answer: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many image types—over
+      50 formats in total.
+    question: Which document formats are supported out of the box?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- search indexing
+title: Cara mengimplementasikan pencarian teks lengkap java dengan GroupDocs.Search
 type: docs
 url: /id/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-# Buat Indeks Pencarian Java – Deploy GroupDocs.Search untuk Java
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Di dunia yang didorong oleh data saat ini, aplikasi **membuat indeks pencarian java** perlu menangani koleksi dokumen yang besar secara efisien. Baik Anda membangun layanan pencarian tingkat perusahaan atau proyek yang lebih kecil, jaringan pencarian yang terkonfigurasi dengan baik dapat secara dramatis meningkatkan kecepatan pengambilan dan relevansi. Dalam panduan ini kami akan membahas seluruh proses menyiapkan **GroupDocs.Search for Java**, mulai dari menambahkan file ke pencarian hingga menambahkan direktori ke node, sehingga Anda dapat mulai mengindeks dokumen Anda segera.
+# Cara mengimplementasikan pencarian teks penuh java dengan GroupDocs.Search
 
-> **Mengapa ini penting:** Indeks pencarian mengurangi latensi kueri dari detik ke milidetik, skalabel dengan pertumbuhan data Anda, dan memungkinkan Anda menambahkan kemampuan teks penuh yang kuat ke solusi berbasis Java apa pun—baik itu portal web, aplikasi desktop, atau layanan mikro cloud.
+Di era aplikasi berbasis data, **java full text search** sangat penting untuk mengubah koleksi dokumen besar menjadi basis pengetahuan yang dapat dicari secara instan. Baik Anda membangun portal tingkat perusahaan maupun utilitas desktop ringan, jaringan pencarian yang terkonfigurasi dengan baik dapat mengurangi latensi kueri dari detik ke milidetik dan menjaga hasil tetap relevan seiring pertumbuhan data. Tutorial ini memandu Anda melalui penyebaran **GroupDocs.Search for Java**, menambahkan file ke pencarian, mengkonfigurasi direktori pada node, dan mengaktifkan pengindeksan waktu nyata sehingga indeks Anda tetap segar tanpa intervensi manual.
+
+> **Mengapa ini penting:** Indeks java full text search mengurangi latensi kueri, skalabel dengan volume data, dan membawa kemampuan full‑text yang kuat ke solusi berbasis Java apa pun—portal web, aplikasi desktop, atau layanan mikro cloud.
 
 ## Jawaban Cepat
-- **Apa tujuan utama GroupDocs.Search?** Ia menyediakan mesin berbasis Java yang skalabel untuk mengindeks dan mencari dokumen di seluruh jaringan terdistribusi.  
-- **Versi mana yang harus saya gunakan?** Rilis stabil terbaru (mis., 25.4) direkomendasikan untuk proyek baru.  
-- **Apakah saya memerlukan lisensi?** Tersedia percobaan gratis 30 hari; lisensi permanen diperlukan untuk penggunaan produksi.  
-- **Bisakah saya menambahkan file dan seluruh direktori?** Ya – gunakan pembantu `addFiles` dan `addDirectories` untuk mengimpor konten.  
-- **Versi Java apa yang diperlukan?** Java 8 atau lebih tinggi, dengan Maven untuk manajemen dependensi.  
-- **Bagaimana cara kerja real time indexing java?** Dengan berlangganan ke acara node Anda dapat memicu re‑indeks otomatis saat file berubah.
+- **Apa tujuan utama GroupDocs.Search?** It provides a scalable, java search engine that indexes and searches documents across a distributed network.  
+- **Versi mana yang harus saya gunakan?** The latest stable release (e.g., 25.4) is recommended for new projects.  
+- **Apakah saya membutuhkan lisensi?** A 30‑day free trial is available; a permanent license is required for production use.  
+- **Bisakah saya menambahkan file dan seluruh direktori?** Yes – use the `addFiles` and `addDirectories` helpers to ingest content.  
+- **Versi Java apa yang diperlukan?** Java 8 or higher, with Maven for dependency management.  
+- **Bagaimana cara kerja real time indexing java?** By subscribing to node events you can trigger automatic re‑indexing as files change.
 
-## Apa itu “membuat indeks pencarian java”?
-Membuat indeks pencarian dalam Java berarti membangun struktur data yang memetakan istilah ke dokumen yang memuatnya, memungkinkan kueri teks penuh yang cepat. GroupDocs.Search mengabstraksi pekerjaan berat, memungkinkan Anda fokus pada memasukkan dokumen dan menyesuaikan perilaku pencarian.
+## Apa itu “create searchable index java”?
+Membuat indeks yang dapat dicari dalam Java berarti membangun struktur data yang memetakan istilah ke dokumen yang mengandungnya, memungkinkan kueri full‑text yang cepat. **GroupDocs.Search for Java** mengabstraksi pekerjaan berat, memungkinkan Anda fokus pada memasukkan dokumen dan menyesuaikan perilaku pencarian.
 
 ## Mengapa menggunakan GroupDocs.Search untuk Java?
-- **Arsitektur jaringan yang skalabel** – Deploy beberapa node yang berbagi beban kerja pengindeksan.  
-- **Dukungan format dokumen yang kaya** – PDF, Word, Excel, PowerPoint, gambar, dan lainnya.  
-- **Pembaruan berbasis acara** – Berlangganan ke acara node untuk menjaga indeks tetap segar secara real time.  
-- **Integrasi Maven yang sederhana** – Tambahkan beberapa baris ke `pom.xml` dan mulai mengindeks.
-
-## Real time indexing java dengan GroupDocs.Search
-GroupDocs.Search memicu acara setiap kali file ditambahkan, diperbarui, atau dihapus. Dengan menangani acara tersebut Anda dapat memanggil `addFiles` atau `addDirectories` secara otomatis, memastikan indeks tetap sinkron tanpa intervensi manual. Pendekatan ini ideal untuk sistem manajemen dokumen, portal konten, dan aplikasi apa pun di mana data sering berubah.
+GroupDocs.Search menyediakan mesin pencari java yang dapat diskalakan secara horizontal, mendukung lebih dari 50 format input dan output, serta menawarkan pengindeksan berbasis peristiwa. Menyebarkan beberapa node mendistribusikan beban kerja pengindeksan, sementara pemeriksaan kesehatan bawaan menjaga jaringan tetap andal. Ini juga menyediakan RESTful APIs dan analyzer yang dapat disesuaikan untuk relevansi yang dioptimalkan.
 
 ## Prasyarat
-- **JDK 8+** terpasang di mesin pengembangan Anda.  
-- Sebuah IDE seperti **IntelliJ IDEA** atau **Eclipse**.  
+- **JDK 8+** terpasang pada mesin pengembangan Anda.  
+- IDE seperti **IntelliJ IDEA** atau **Eclipse**.  
 - Pengetahuan dasar tentang **Java** dan **Maven**.  
 - Akses ke pustaka **GroupDocs.Search for Java** (unduh atau Maven).
 
@@ -68,13 +102,13 @@ Tambahkan repositori dan dependensi ke `pom.xml` Anda:
 </dependencies>
 ```
 
-> **Tips pro:** Jaga nomor versi tetap terbaru dengan memeriksa halaman rilis resmi.
+> **Tip pro:** Pastikan nomor versi selalu terbaru dengan memeriksa halaman rilis resmi.
 
 Anda juga dapat mengunduh JAR langsung dari situs resmi: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Akuisisi Lisensi
-- **Uji Coba Gratis:** evaluasi 30 hari.  
-- **Lisensi Sementara:** Minta untuk pengujian yang diperpanjang.  
+- **Uji coba gratis:** evaluasi 30 hari.  
+- **Lisensi sementara:** Minta untuk pengujian lanjutan.  
 - **Pembelian:** Diperlukan untuk penyebaran produksi.
 
 ### Inisialisasi Dasar
@@ -94,12 +128,11 @@ class InitializeSearch {
 }
 ```
 
-## Cara membuat indeks pencarian java dengan GroupDocs.Search?
+## Cara membuat searchable index java dengan GroupDocs.Search?
+Muat objek `SearchConfiguration`, mulai `SearchNetworkNode`, dan panggil `node.getIndexer().addFiles(...)` untuk mengisi indeks. Pola satu baris ini memulai jaringan java full text search yang berfungsi penuh, siap menerima kueri secara langsung. Anda kemudian dapat menskalakan dengan menambahkan lebih banyak node yang berbagi jalur dasar dan rentang port yang sama.
 
-Di bawah ini kami merinci fitur inti yang Anda perlukan untuk **menambahkan file ke pencarian** dan **menambahkan direktori ke node**, sekaligus menyebarkan jaringan yang skalabel.
-
-### Fitur 1 – Konfigurasi dan Penyiapan Jaringan
-Mengonfigurasi jaringan pencarian adalah langkah pertama menuju pembuatan indeks pencarian.
+### Fitur 1 – konfigurasi dan penyiapan jaringan
+Kelas `SearchConfiguration` menyimpan semua pengaturan yang diperlukan untuk memulai sebuah node.
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -116,8 +149,8 @@ class ConfiguringSearchNetwork {
 - **`basePath`** – Direktori tempat data indeks akan disimpan.  
 - **`basePort`** – Port awal; setiap node akan meningkat dari nilai ini.
 
-### Fitur 2 – Menyebarkan Node Jaringan Pencarian
-Menyebarkan node mendistribusikan beban kerja pengindeksan di beberapa mesin atau proses.
+### Fitur 2 – menyebarkan node jaringan pencarian
+`SearchNetworkNode` mewakili layanan pengindeksan individual yang dapat dijalankan pada mesin apa pun.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -130,10 +163,10 @@ class SearchNetworkDeployment {
 }
 ```
 
-Setiap `SearchNetworkNode` menjalankan layanan pengindeksan sendiri, memungkinkan Anda **membuat indeks pencarian java** yang skalabel secara horizontal.
+`SearchNetworkNode` adalah komponen runtime inti yang menyimpan indeks, memproses peristiwa tambah/hapus, dan merespons kueri pencarian. Menyebarkan beberapa node memungkinkan Anda **create java full text search** klaster yang diskalakan secara horizontal.
 
-### Fitur 3 – Berlangganan ke Acara Node
-Pembaruan real‑time menjaga indeks tetap sinkron dengan perubahan sistem file.
+### Fitur 3 – berlangganan ke peristiwa node
+Pembaruan waktu nyata menjaga indeks tetap sinkron dengan perubahan sistem file.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -145,10 +178,10 @@ class SearchNetworkNodeEvents {
 }
 ```
 
-Dengan mendengarkan acara, Anda dapat secara otomatis memicu re‑indeks ketika file baru tiba.
+Dengan mendengarkan peristiwa, Anda dapat secara otomatis memicu pengindeksan ulang ketika file baru muncul, mencapai **event driven indexing** tanpa skrip manual.
 
-### Fitur 4 – Menambahkan Direktori ke Node Jaringan
-Gunakan pembantu ini untuk **menambahkan direktori ke node**, mengumpulkan secara rekursif semua dokumen yang didukung.
+### Fitur 4 – menambahkan direktori ke node jaringan
+Gunakan pembantu ini untuk **add directories to node**, mengumpulkan secara rekursif semua dokumen yang didukung.
 
 ```java
 import java.io.File;
@@ -176,8 +209,8 @@ class DirectoryAdder {
 }
 ```
 
-### Fitur 5 – Menambahkan File ke Node Jaringan
-Ketika Anda memerlukan kontrol yang lebih detail, **menambahkan file ke pencarian** secara individual:
+### Fitur 5 – menambahkan file ke node jaringan
+Ketika Anda membutuhkan kontrol detail, **add files to search** secara individual:
 
 ```java
 import com.groupdocs.search.Document;
@@ -221,47 +254,57 @@ class FileAdder {
 }
 ```
 
-Metode ini memberi Anda fleksibilitas untuk mengindeks file yang berasal dari aliran, penyimpanan cloud, atau lokasi sementara.
-
-## Kasus Penggunaan Umum
-- **Portal dokumen perusahaan** yang membutuhkan pencarian instan di ribuan PDF dan file Office.  
+## Kasus penggunaan umum
+- **Portal dokumen perusahaan** yang membutuhkan pencarian instan di ribuan file PDF dan Office.  
 - **Platform e‑discovery hukum** di mana bukti baru terus ditambahkan dan harus dapat dicari secara real time.  
-- **Sistem manajemen konten** yang menyimpan gambar, presentasi, dan spreadsheet serta memerlukan pencarian teks penuh.
+- **Sistem manajemen konten** yang menyimpan gambar, presentasi, dan spreadsheet serta memerlukan pencarian full‑text.
 
-## Masalah Umum & Solusi
+## Masalah umum & solusi
 | Masalah | Alasan | Solusi |
 |-------|--------|-----|
-| **Tidak ada dokumen yang muncul dalam hasil pencarian** | Indeks belum dikomit | Panggil `node.getIndexer().commit()` setelah menambahkan file. |
-| **Kesalahan konflik port** | Layanan lain menggunakan `basePort` | Pilih `basePort` yang berbeda atau verifikasi port yang bebas. |
-| **Format file tidak didukung** | Pustaka tidak memiliki parser | Pastikan ekstensi file didukung atau tambahkan ekstraktor khusus. |
+| **No documents appear in search results** | Indeks belum dikomit | Panggil `node.getIndexer().commit()` setelah menambahkan file. |
+| **Port conflict error** | Layanan lain menggunakan `basePort` | Pilih `basePort` yang berbeda atau verifikasi port yang bebas. |
+| **Unsupported file format** | Pustaka tidak memiliki parser | Pastikan ekstensi file didukung atau tambahkan ekstraktor khusus. |
 
-## Tips Pemecahan Masalah
+## Tips pemecahan masalah
 - **Verifikasi kesehatan node:** Gunakan endpoint pemeriksaan kesehatan bawaan (`http://localhost:{port}/health`) untuk memastikan setiap node berjalan.  
-- **Pantau penggunaan memori:** Batch dokumen besar dapat meningkatkan penggunaan memori; pertimbangkan mengindeks dalam potongan lebih kecil dan memanggil `commit()` secara berkala.  
+- **Pantau penggunaan memori:** Batch besar dokumen dapat meningkatkan penggunaan memori; indeks dalam potongan lebih kecil dan panggil `commit()` secara berkala.  
 - **Periksa log:** GroupDocs.Search menulis log terperinci ke folder `basePath`—tinjau untuk kesalahan parsing atau timeout jaringan.
 
-## Pertanyaan yang Sering Diajukan
+## Pertanyaan yang sering diajukan
 
 **Q: Bisakah saya menggunakan GroupDocs.Search pada aplikasi Java berbasis cloud?**  
-A: Ya. Pustaka ini bekerja dengan runtime Java apa pun, dan Anda dapat mengarahkan `basePath` ke folder yang dipasang di jaringan atau penyimpanan cloud yang dipasang secara lokal.
+A: Ya. Pustaka ini bekerja dengan runtime Java apa pun, dan Anda dapat mengarahkan `basePath` ke folder yang dipasang di jaringan atau mount penyimpanan cloud.
 
 **Q: Bagaimana cara memperbarui indeks ketika file berubah?**  
-A: Berlangganan ke acara node (lihat Fitur 3) dan panggil `addFiles` atau `addDirectories` lagi untuk jalur yang dimodifikasi.
+A: Berlangganan ke peristiwa node (lihat Fitur 3) dan panggil `addFiles` atau `addDirectories` lagi untuk jalur yang dimodifikasi.
 
 **Q: Apakah ada batasan jumlah node yang dapat saya deploy?**  
-A: Secara praktis, batasannya ditentukan oleh perangkat keras dan bandwidth jaringan Anda. API itu sendiri tidak menetapkan batas keras.
+A: Secara praktis, batasannya ditentukan oleh perangkat keras dan bandwidth jaringan Anda. API tidak menetapkan batas keras.
 
 **Q: Apakah saya perlu me-restart node setelah menambahkan file baru?**  
 A: Tidak. Menambahkan file memicu pengindeksan secara otomatis; Anda hanya perlu melakukan commit jika menunda operasi.
 
-**Q: Format dokumen apa yang didukung secara bawaan?**  
-A: PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, dan banyak tipe gambar. Lihat dokumen resmi untuk daftar lengkap.
+**Q: Format dokumen apa yang didukung secara default?**  
+A: PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, dan banyak tipe gambar—lebih dari 50 format secara total.
 
 **Q: Bagaimana saya dapat mengaktifkan real time indexing java untuk folder yang terus menerima unggahan?**  
-A: Implementasikan pengawas sistem file (mis., `java.nio.file.WatchService`) yang memanggil `DirectoryAdder.addDirectories(node, path)` setiap kali file baru terdeteksi.
+A: Implementasikan pengamat sistem file (mis., `java.nio.file.WatchService`) yang memanggil `DirectoryAdder.addDirectories(node, path)` setiap kali file baru terdeteksi.
 
 ---
 
-**Terakhir Diperbarui:** 2026-02-27  
-**Diuji Dengan:** GroupDocs.Search for Java 25.4  
+**Terakhir diperbarui:** 2026-09-27  
+**Diuji dengan:** GroupDocs.Search for Java 25.4  
 **Penulis:** GroupDocs
+
+## Tutorial Terkait
+
+- [Cara mengimplementasikan java full text search: buat direktori indeks dengan GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Implementasi Full Text Search Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Cara Mengkonfigurasi Search dengan GroupDocs.Search di Java - Panduan Konfigurasi & Penyebaran](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}
