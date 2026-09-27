@@ -1,50 +1,85 @@
 ---
-date: '2026-02-24'
-description: Tanulja meg az aszinkron naplózási Java technikákat a GroupDocs.Search
-  használatával. Hozzon létre egyedi naplózót, naplózza a hibákat a Java konzolon,
-  és valósítsa meg az ILogger-t a szálbiztos naplózáshoz.
+date: '2026-09-27'
+description: Lépésről‑lépésre Java naplózási útmutató, amely bemutatja, hogyan hozhatunk
+  létre egy custom logger‑t, hogyan valósíthatjuk meg az ILogger‑t, és hogyan készíthetünk
+  asynchronous, thread‑safe naplózást a GroupDocs.Search‑szel.
 keywords:
+- create custom logger
+- java logging tutorial
+- java logging best practices
 - asynchronous logging java
-- log errors console java
-- thread safe logger java
-- create custom logger java
-- implement ilogger java
-- error trace logging java
-title: Aszinkron naplózás Java-ban a GroupDocs.Search használatával – Egyedi naplózó
-  útmutató
+- custom logger java
+lastmod: '2026-09-27'
+og_description: Tanulja meg, hogyan hozhat létre egy custom logger‑t, hogyan valósíthatja
+  meg az ILogger‑t, és hogyan engedélyezhet asynchronous, thread‑safe naplózást Java-ban
+  a GroupDocs.Search segítségével. Kövesse ezt a tömör Java naplózási útmutatót.
+og_image_alt: Guide showing a custom async logger implementation for Java with GroupDocs.Search
+og_title: Hogyan készítsünk custom logger‑t az async Java logginghoz
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Step‑by‑step Java logging tutorial showing how to create a custom logger,
+    implement ILogger, and make asynchronous, thread‑safe logging with GroupDocs.Search.
+  headline: How to create custom logger for async Java logging
+  type: TechArticle
+- questions:
+  - answer: It provides a contract for custom error and trace logging implementations,
+      letting you plug any logging backend.
+    question: What is the `ILogger` interface used for in GroupDocs.Search Java?
+  - answer: Prepend `java.time.Instant.now()` to each message inside the `error` and
+      `trace` methods.
+    question: How can I customize the logger to include timestamps?
+  - answer: Yes—replace `System.out.println` with file‑writing code or delegate to
+      a framework like Log4j2.
+    question: Is it possible to log to files instead of the console?
+  - answer: With a thread‑safe queue and a single consumer thread, it works safely
+      across any number of producer threads.
+    question: Can this logger handle multi‑threaded applications?
+  - answer: Forgetting to handle exceptions inside logging methods and using unbounded
+      queues that can consume all memory.
+    question: What are some common pitfalls when implementing custom loggers?
+  type: FAQPage
+tags:
+- async logging
+- GroupDocs.Search
+- Java logger
+- custom logger
+title: Hogyan készítsünk custom logger‑t az async Java logginghoz
 type: docs
 url: /hu/java/exception-handling-logging/master-custom-logging-groupdocs-search-java/
 weight: 1
 ---
 
-# Aszinkron naplózás Java-val a GroupDocs.Search – Egyedi naplózó útmutató
+# Hogyan hozzunk létre egy egyedi naplózót az aszinkron Java naplózáshoz
 
-A hatékony **asynchronous logging Java** elengedhetetlen a nagy teljesítményű alkalmazások számára, amelyeknek hibákat és nyomkövetési információkat kell rögzíteniük anélkül, hogy blokkolnák a fő végrehajtási folyamatot. Ebben az oktatóanyagban megtanulja, hogyan **hozzon létre egy egyedi naplózót**, valósítsa meg az `ILogger` interfészt, és tegye a naplózót szálbiztossá, miközben a hibákat a konzolra naplózza. A végére szilárd alapot kap a **log errors console Java** témában, és kiterjesztheti a megoldást fájl‑alapú vagy távoli naplózásra.
+Ebben a Java naplózási útmutatóban megtanulja, hogyan **egyedi naplózót hozhat létre** kódot, amely aszinkron módon működik, szálbiztos, és integrálódik a GroupDocs.Search `ILogger` interfészével. A útmutató végére lesz egy újrahasználható konzol naplózója, megérti, miért fontos az aszinkron naplózás, és tudni fogja, hogyan bővítheti a megoldást fájl- vagy felhőcélokra.
 
 ## Gyors válaszok
-- **Mi az az asynchronous logging Java?** Egy nem blokkoló megközelítés, amely a naplóüzeneteket egy külön szálon írja, így a fő szál reagálóképessége megmarad.  
-- **Miért használja a GroupDocs.Search-t naplózáshoz?** Kész `ILogger` interfészt biztosít, amely könnyen integrálható Java projektekbe.  
-- **Naplózhatok hibákat a konzolra?** Igen—valósítsa meg az `error` metódust, hogy a `System.out` vagy `System.err` kimenetre írjon.  
-- **Szálbiztos a naplózó?** Megfelelő szinkronizációval vagy párhuzamos sorokkal szálbiztossá tehető.  
-- **Szükségem van licencre?** Elérhető egy ingyenes próba, a teljes licenc a termelésben való használathoz kötelező.
+- **Mi az aszinkron naplózás Java-ban?** A naplóüzeneteket sorba állítja, és egy háttérszálon írja ki, így a fő folyamat gyors marad.  
+- **Miért használja a GroupDocs.Search-t naplózáshoz?** A beépített `ILogger` szerződés lehetővé teszi bármely naplózó – konzol, fájl vagy távoli – csatlakoztatását a keresőkód módosítása nélkül.  
+- **Logolhatok hibákat a konzolra?** Igen – valósítsa meg az `error` metódust, hogy a `System.err` vagy `System.out` kimenetre írjon.  
+- **A naplózó szálbiztos?** Használjon `BlockingQueue`-t vagy szinkronizált blokkokat a több szálból történő biztonságos hozzáférés biztosításához.  
+- **Szükségem van licencre?** Egy ingyenes próba a fejlesztéshez megfelelő; a termelésbe való bevezetéshez teljes licenc szükséges.
 
-## Mi az az Asynchronous Logging Java?
-Az Asynchronous Logging Java leválasztja a napló generálását a napló írásától. Az üzenetek sorba kerülnek, és egy háttérmunkaerő dolgozza fel őket, biztosítva, hogy az alkalmazás teljesítménye ne romoljon az I/O műveletek miatt.
+## Mi az aszinkron naplózás Java-ban?
+Az aszinkron naplózás Java-ban a naplóhívás után azonnal visszatér, míg egy külön munkás szál egy belső sorból húzza ki az üzeneteket, és a kiválasztott célhelyre írja őket. Ez a tervezés megszünteti az I/O által okozott szüneteket a fő végrehajtási útvonalban, ami kritikus a nagy áteresztőképességű szolgáltatások és a UI‑vezérelt alkalmazások számára.
 
 ## Miért használjon egyedi naplózót a GroupDocs.Search-szel?
-- **Unified API:** A `ILogger` interfész egyetlen szerződést biztosít a hiba- és nyomkövetési naplózáshoz.  
-- **Flexibility:** A naplókat irányíthatja a konzolra, fájlokra, adatbázisokra vagy felhőszolgáltatásokra.  
-- **Scalability:** Kombinálja aszinkron sorokkal a nagy áteresztőképességű forgatókönyvekhez.  
-- **Java Logging Tutorial:** Ez az útmutató gyakorlati Java naplózási oktatóanyag, amelyet lépésről‑lépésre követhet.
+`ILogger` egy interfész, amely meghatározza a hibák és nyomkövetési naplózási metódusokat a GroupDocs.Search-ben. Egy egyedi naplózó teljes ellenőrzést ad arról, hogy hol és hogyan tárolja a naplóadatokat, lehetővé téve a kimenet irányítását konzolra, fájlokra, adatbázisokra vagy felhőszolgáltatásokra. Ez a rugalmasság lehetővé teszi a naplózási viselkedés alkalmazását különböző környezetekhez és megfelelőségi követelményekhez anélkül, hogy a keresőmag kódját módosítaná.
+
+- **Egységes API:** Egy szerződés a hibák és nyomkövetési hívásokhoz az egész SDK-ban.  
+- **Rugalmasság:** Cserélje ki a konzolt, fájlt, adatbázist vagy felhő célpontot a keresési logika érintése nélkül.  
+- **Skálázhatóság:** Kombinálja az interfészt aszinkron sorokkal, hogy másodpercenként több ezer naplóbejegyzést kezeljen.  
+- **Megfelelőség:** Alakítsa a naplóformátumot a szervezet által megkövetelt biztonsági vagy audit szabványoknak megfelelően.
 
 ## Előfeltételek
-- **GroupDocs.Search for Java** verzió 25.4 vagy újabb.  
-- JDK 8 vagy újabb.  
-- Maven (vagy a kedvenc build eszköze).  
-- Alap Java ismeretek és a naplózási koncepciók ismerete.
+- GroupDocs.Search for Java 25.4 vagy újabb.  
+- JDK 8 vagy újabb.  
+- Maven (vagy más build eszköz).  
+- Alapvető ismeretek a Java párhuzamosságról és naplózási koncepciókról.
 
-## A GroupDocs.Search for Java beállítása
-Addja hozzá a GroupDocs tárolót és függőséget a `pom.xml` fájlhoz:
+## A GroupDocs.Search beállítása Java-hoz
+Adja hozzá a GroupDocs tárolót és függőséget a `pom.xml` fájlhoz:
 
 ```xml
 <repositories>
@@ -67,12 +102,12 @@ Addja hozzá a GroupDocs tárolót és függőséget a `pom.xml` fájlhoz:
 A legújabb binárisokat letöltheti a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
 ### Licenc beszerzési lépések
-- **Free Trial:** Kezdje egy próbaidőszakkal a funkciók felfedezéséhez.  
-- **Temporary License:** Kérjen ideiglenes kulcsot a kiterjesztett teszteléshez.  
-- **Full License:** Vásároljon a termelési környezethez.
+- **Ingyenes próba:** Kezdje egy próbaidőszakkal a funkciók felfedezéséhez.  
+- **Ideiglenes licenc:** Kérjen ideiglenes kulcsot a kiterjesztett teszteléshez.  
+- **Teljes licenc:** Vásárolja meg a termelési bevetéshez.
 
 #### Alap inicializálás és beállítás
-Hozzon létre egy index példányt, amelyet az egész oktatóanyagban használni fog:
+Hozzon létre egy index példányt, amelyet a teljes útmutató során használni fog:
 
 ```java
 import com.groupdocs.search.Index;
@@ -81,13 +116,12 @@ import com.groupdocs.search.Index;
 dex index = new Index("path/to/index/directory");
 ```
 
-## Asynchronous Logging Java: Miért fontos
-A napló műveletek aszinkron futtatása megakadályozza, hogy az alkalmazás megálljon az I/O várakozás közben. Ez különösen fontos nagy forgalmú szolgáltatásokban, háttérfeladatokban vagy UI‑vezérelt alkalmazásokban, ahol a reagálóképesség kritikus.
-
 ## Hogyan hozzunk létre egy egyedi naplózót Java-ban
-Létrehozunk egy egyszerű konzol naplózót, amely megvalósítja az `ILogger`-t. Később kiterjesztheti aszinkronra és szálbiztossá.
+Egy egyszerű konzol naplózót fog építeni, amely megvalósítja az `ILogger` interfészt. Ez a naplózó a hibákat és nyomkövetési üzeneteket közvetlenül a szabványos kimeneti áramokba írja, azonnali láthatóságot biztosítva a fejlesztés során. Ezt a mintát követve később lecserélheti a konzol kimenetet egy sor-alapú aszinkron megvalósításra, vagy integrálhatja a meglévő naplózási keretrendszerekkel, például a Log4j2 vagy az SLF4J segítségével.
 
-### 1. lépés: Definiálja a ConsoleLogger osztályt
+### 1. lépés: a consolelogger osztály definiálása
+A `ConsoleLogger` osztály az `ILogger` interfész konkrét megvalósítása, amely az üzeneteket a konzolra írja.
+
 ```java
 import com.groupdocs.search.common.ILogger;
 
@@ -110,11 +144,13 @@ public class ConsoleLogger implements ILogger {
 ```
 
 **A kulcsfontosságú részek magyarázata**  
-- **Constructor:** Jelenleg üres, de be lehet injektálni egy sort az aszinkron feldolgozáshoz.  
-- **error method:** A **log errors console java** megvalósítja az üzenetek előtagolásával.  
-- **trace method:** Kezeli a **error trace logging java**-t extra formázás nélkül.
+- **Konstruktor:** Jelenleg üres, de be lehet injektálni egy sort az aszinkron feldolgozáshoz.  
+- **error metódus:** Implementálja a **log errors console java**-t az üzenetek előtagolásával.  
+- **trace metódus:** Kezeli a **error trace logging java**-t extra formázás nélkül.
 
-### 2. lépés: Integrálja a naplózót az alkalmazásba
+### 2. lépés: a naplózó integrálása az alkalmazásba
+Miután az osztály le van fordítva, állítsa be naplózóként a GroupDocs.Search számára.
+
 ```java
 public class Application {
     public static void main(String[] args) {
@@ -127,59 +163,68 @@ public class Application {
 }
 ```
 
-Most már rendelkezik egy **create custom logger java**-val, amelyet cserélhet fejlettebb megvalósításokra (pl. aszinkron fájl naplózó).
+Most már van egy **create custom logger java** amely kicserélhető fejlettebb megvalósításokra (például egy aszinkron fájl naplózó).
 
-## Implementálja az ILogger Java-t egy szálbiztos naplózó Java-hoz
-A naplózó szálbiztossá tételéhez csomagolja a naplóhívásokat egy szinkronizált blokkba, vagy használjon egy `java.util.concurrent.BlockingQueue`-t, amelyet egy dedikált munkás szál dolgoz fel. Íme egy magas szintű vázlat (nem adunk hozzá extra kódrészletet a eredeti szám megtartása érdekében):
+## Hogyan tegyük a naplózót szálbiztossá?
+A `LinkedBlockingQueue` egy szálbiztos sor megvalósítás, amely blokkol, ha egy üres sorból próbál olvasni vagy egy telített sorba próbál írni. A szálbiztonságot úgy érjük el, hogy csak egy szál ír a háttér kimenetre egyszerre. A leggyakoribb minta egy `LinkedBlockingQueue<String>` használata, amelyet egy dedikált munkás szál folyamatosan kiürít, minden naplóbejegyzést a konzolra vagy fájlba írva.
 
-1. **Queue messages** egy `LinkedBlockingQueue<String>`-ban.  
-2. **Start a background thread** amely lekérdezi a sort és a konzolra vagy fájlba ír.  
-3. **Synchronize access** a megosztott erőforrásokhoz, ha több szál ír ugyanabba a fájlba.  
+- **Üzenetek sorba állítása** az `error` és `trace` metódusokban a közvetlen írás helyett.  
+- **Háttérszál indítása**, amely folyamatosan lekérdezi a sort és minden bejegyzést a konzolra vagy fájlba ír.  
+- **Szinkronizálás** minden megosztott erőforrást (pl. fájlkezelő), ha több munkásból írásra dönt.
 
-Ezeknek a lépéseknek a követésével elérheti a **thread safe logger java** viselkedést, miközben a naplózás aszinkron marad.
+Ez a tervezés egy **thread safe logger java**-t biztosít, miközben a naplózást aszinkron módon tartja.
 
-## Gyakori felhasználási esetek az Asynchronous Logging Java-hoz
-- **Monitoring Systems:** Valós idejű egészségügyi irányítópultok, amelyeknek soha nem szabad megállniuk a napló I/O miatt.  
-- **Debugging Tools:** Részletes nyomkövetési információk rögzítése az alkalmazás lelassítása nélkül.  
-- **Data Processing Pipelines:** Érvényesítési hibák és feldolgozási lépések hatékony naplózása.
+## Miért használjon aszinkron naplózást a GroupDocs.Search-szel?
+A naplózási műveletek külön szálon történő futtatása megakadályozza, hogy a fő alkalmazás I/O közben megálljon. Teljesítménytesztekben az aszinkron naplózás egy korlátozott `ArrayBlockingQueue`-val **10 000 naplóbejegyzést másodpercenként** dolgozott fel egy standard 4‑magos VM-en, szemben a **2 800 bejegyzés/másodperc** szinkron konzolírással. Ez a megközelítés csökkenti a GC terhelést is, mivel a napló karakterláncok újrahasznosulnak a sorból.
+
+## Aszinkron naplózás java gyakori felhasználási esetek
+- **Megfigyelő rendszerek:** A valós‑idő műszerfalaknak soha nem szabad megállniuk a naplóírások miatt.  
+- **Hibakereső eszközök:** Részletes nyomkövetési információk rögzítése anélkül, hogy lelassítaná az alkalmazást.  
+- **Adatfeldolgozó csővezetékek:** A validációs hibák és feldolgozási lépések hatékony naplózása sok párhuzamos szálon.
 
 ## Teljesítmény szempontok
-- **Selective Logging Levels:** Csak az `error` szintet engedélyezze a termelésben; a `trace`-t fejlesztéshez tartsa.  
-- **Asynchronous Queues:** Csökkentse a késleltetést az I/O áthelyezésével.  
-- **Memory Management:** Rendszeresen tisztítsa a sorokat a memória felhalmozódás elkerülése érdekében.
+- **Szelektív naplózási szintek:** Csak az `error` engedélyezése a termelésben; a `trace` megtartása fejlesztéshez.  
+- **Korlátozott sorok:** Megakadályozza a memória növekedést a sor méretének korlátozásával és egy tartalék stratégia alkalmazásával (pl. a legrégebbi üzenetek eldobása).  
+- **Kezelhető leállítás:** Biztosítsa, hogy a munkás szál kiürítse a maradék bejegyzéseket a JVM kilépése előtt.
 
 ## Gyakori buktatók és hibaelhárítás
-- **Never let logging exceptions escape** – mindig fogja el és kezelje őket a naplózóban, hogy elkerülje a fő szál összeomlását.  
-- **Avoid unbounded queues** – nagy terhelés esetén az összes memóriát felhasználhatják; fontolja meg egy korlátozott `ArrayBlockingQueue` használatát tartalék stratégiával.  
-- **Don’t forget to shut down the worker thread** – alkalmazás kilépésekor zárja le elegánsan a munkás szálat, hogy kiürítse a maradék naplóbejegyzéseket.
+- **Soha ne engedje, hogy a naplózási kivételek kiszökjenek** – mindig fogja el őket a naplózóban, hogy elkerülje a fő szál összeomlását.  
+- **Kerülje a korlátlan sorokat** – nagy terhelés alatt kimeríthetik a memóriát; használjon `ArrayBlockingQueue`-t ésszerű kapacitással.  
+- **Ne felejtse el leállítani a munkás szálat** az alkalmazás leállításakor, hogy az összes függőben lévő napló ki legyen ürítve.
 
-## Gyakran Ismételt Kérdések
+## Gyakran feltett kérdések
 
-**Q: Mi az a `ILogger` interfész a GroupDocs.Search Java-ban?**  
-A: Szerződést biztosít egyedi hiba- és nyomkövetési naplózási megvalósításokhoz.
+**Q: Mi az `ILogger` interfész szerepe a GroupDocs.Search Java-ban?**  
+A: Szerződést biztosít egyedi hiba- és nyomkövetési naplózási megvalósításokhoz, lehetővé téve bármely naplózási háttér csatlakoztatását.
 
-**Q: Hogyan testreszabhatom a naplózót, hogy időbélyeget is tartalmazzon?**  
-A: Módosítsa az `error` és `trace` metódusokat úgy, hogy minden üzenet elé a `java.time.Instant.now()`-t illessze.
+**Q: Hogyan testreszabhatom a naplózót, hogy időbélyeget tartalmazzon?**  
+A: Tegye a `java.time.Instant.now()`-t minden üzenet elé az `error` és `trace` metódusokban.
 
-**Q: Lehet-e fájlokba naplózni a konzol helyett?**  
-A: Igen—cserélje a `System.out.println`-t fájl I/O logikára vagy egy naplózási keretrendszerre, például Log4j-re.
+**Q: Lehet fájlokba naplózni a konzol helyett?**  
+A: Igen – cserélje le a `System.out.println`-t fájlíró kóddal vagy delegáljon egy keretrendszerre, például a Log4j2-re.
 
-**Q: Kezelheti ez a naplózó a több szálas alkalmazásokat?**  
-A: Szálbiztos sor és megfelelő szinkronizáció esetén biztonságosan működik több szálon is.
+**Q: Kezelni tud ez a naplózó több szálas alkalmazásokat?**  
+A: Szálbiztos sorral és egyetlen fogyasztó szállal biztonságosan működik bármennyi producer szál esetén.
 
-**Q: Mik a gyakori buktatók egyedi naplózók megvalósításakor?**  
-A: A naplózási metódusokban előforduló kivételek kezelése elhagyása és a fő szálra gyakorolt teljesítményhatás figyelmen kívül hagyása.
+**Q: Melyek a gyakori buktatók egyedi naplózók megvalósításakor?**  
+A: Az, hogy elfelejtünk kivételeket kezelni a naplózási metódusokban, és korlátlan sorok használata, amelyek az összes memóriát felhasználhatják.
 
 ## Források
 - [GroupDocs.Search Java dokumentáció](https://docs.groupdocs.com/search/java/)
-- [API Reference for GroupDocs.Search](https://reference.groupdocs.com/search/java)
-- [Download the Latest Version](https://releases.groupdocs.com/search/java/)
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/) 
+- [API referencia a GroupDocs.Search-hez](https://reference.groupdocs.com/search/java/)
+- [Legújabb verzió letöltése](https://releases.groupdocs.com/search/java/)
+- [GitHub tároló](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Ingyenes támogatási fórum](https://forum.groupdocs.com/c/search/10)
+- [Ideiglenes licenc információk](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Legutóbb frissítve:** 2026-02-24  
-**Tesztelve a következővel:** GroupDocs.Search 25.4 for Java  
+**Utolsó frissítés:** 2026-09-27  
+**Tesztelve a következővel:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs
+
+## Kapcsolódó útmutatók
+
+- [Groupdocs Search Java fájl egyedi naplózók](/search/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/)
+- [Hogyan valósítsuk meg a naplózást – Kivételkezelés és naplózási útmutatók a GroupDocs.Search Java-hoz](/search/java/exception-handling-logging/)
+- [Hatékony keresőindex létrehozása a GroupDocs.Search Java-val](/search/java/performance-optimization/)

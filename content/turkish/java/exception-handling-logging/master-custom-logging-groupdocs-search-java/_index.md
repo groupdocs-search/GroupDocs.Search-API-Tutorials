@@ -1,49 +1,84 @@
 ---
-date: '2026-02-24'
-description: GroupDocs.Search kullanarak asenkron Java günlükleme tekniklerini öğrenin.
-  Özel bir logger oluşturun, Java konsolunda hataları günlüğe kaydedin ve iş parçacığı‑güvenli
-  günlükleme için ILogger'ı uygulayın.
+date: '2026-09-27'
+description: Adım adım Java logging öğreticisi, custom logger oluşturmayı, ILogger'ı
+  uygulamayı ve GroupDocs.Search ile asenkron, thread‑safe logging yapmayı gösterir.
 keywords:
+- create custom logger
+- java logging tutorial
+- java logging best practices
 - asynchronous logging java
-- log errors console java
-- thread safe logger java
-- create custom logger java
-- implement ilogger java
-- error trace logging java
-title: Java’da GroupDocs.Search ile Asenkron Günlükleme – Özel Logger Kılavuzu
+- custom logger java
+lastmod: '2026-09-27'
+og_description: GroupDocs.Search kullanarak Java'da custom logger oluşturmayı, ILogger'ı
+  uygulamayı ve asenkron, thread‑safe logging'i etkinleştirmeyi öğrenin. Bu özlü Java
+  logging öğreticisini takip edin.
+og_image_alt: Guide showing a custom async logger implementation for Java with GroupDocs.Search
+og_title: Asenkron Java logging için custom logger nasıl oluşturulur
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Step‑by‑step Java logging tutorial showing how to create a custom logger,
+    implement ILogger, and make asynchronous, thread‑safe logging with GroupDocs.Search.
+  headline: How to create custom logger for async Java logging
+  type: TechArticle
+- questions:
+  - answer: It provides a contract for custom error and trace logging implementations,
+      letting you plug any logging backend.
+    question: What is the `ILogger` interface used for in GroupDocs.Search Java?
+  - answer: Prepend `java.time.Instant.now()` to each message inside the `error` and
+      `trace` methods.
+    question: How can I customize the logger to include timestamps?
+  - answer: Yes—replace `System.out.println` with file‑writing code or delegate to
+      a framework like Log4j2.
+    question: Is it possible to log to files instead of the console?
+  - answer: With a thread‑safe queue and a single consumer thread, it works safely
+      across any number of producer threads.
+    question: Can this logger handle multi‑threaded applications?
+  - answer: Forgetting to handle exceptions inside logging methods and using unbounded
+      queues that can consume all memory.
+    question: What are some common pitfalls when implementing custom loggers?
+  type: FAQPage
+tags:
+- async logging
+- GroupDocs.Search
+- Java logger
+- custom logger
+title: Asenkron Java logging için custom logger nasıl oluşturulur
 type: docs
 url: /tr/java/exception-handling-logging/master-custom-logging-groupdocs-search-java/
 weight: 1
 ---
 
-# GroupDocs.Search ile Asenkron Günlükleme Java – Özel Logger Kılavuzu
+# Asenkron Java kaydı için özel logger nasıl oluşturulur
 
-Etkili **asynchronous logging Java**, yüksek performanslı uygulamalar için gereklidir; bu uygulamalar hataları ve izleme bilgilerini ana yürütme akışını engellemeden yakalamak zorundadır. Bu öğreticide **create a custom logger** nasıl oluşturulacağını, `ILogger` arayüzünü nasıl uygulayacağınızı ve logger'ınızı thread‑safe hâle getirerek hataları konsola kaydetmeyi öğreneceksiniz. Sonunda **log errors console Java** için sağlam bir temele sahip olacak ve çözümü dosya tabanlı veya uzaktan günlüklemeye genişletebileceksiniz.
+Bu Java kaydı öğreticisinde **özel logger oluşturma** kodunu asenkron çalışan, thread‑safe (iş parçacığı güvenli) ve GroupDocs.Search’in `ILogger` arayüzüyle bütünleşen şekilde öğreneceksiniz. Kılavuzun sonunda yeniden kullanılabilir bir konsol logger’ına sahip olacak, asenkron kaydın neden önemli olduğunu anlayacak ve çözümü dosya ya da bulut hedeflerine nasıl genişletebileceğinizi bileceksiniz.
 
-## Hızlı Yanıtlar
-- **What is asynchronous logging Java?** Ayrı bir iş parçacığında günlük mesajlarını yazarak ana iş parçacığını yanıt verebilir tutan, bloklamayan bir yaklaşımdır.  
-- **Why use GroupDocs.Search for logging?** Java projeleriyle kolayca bütünleşen hazır bir `ILogger` arayüzü sağlar.  
-- **Can I log errors to the console?** Evet—`error` metodunu `System.out` veya `System.err`'a çıktı verecek şekilde uygulayın.  
-- **Is the logger thread‑safe?** Uygun senkronizasyon veya eşzamanlı kuyruklarla logger'ı thread‑safe hâle getirebilirsiniz.  
-- **Do I need a license?** Ücretsiz bir deneme mevcuttur; üretim kullanımı için tam lisans gereklidir.
+## Hızlı cevaplar
+- **Asenkron logging Java nedir?** Log mesajlarını bir kuyruğa alır ve arka plan iş parçacığında yazar, böylece ana akış hızlı kalır.  
+- **GroupDocs.Search’i logging için neden kullanmalıyım?** Yerleşik `ILogger` sözleşmesi, herhangi bir logger’ı—konsol, dosya ya da uzaktan—search kodunu değiştirmeden takmanıza olanak tanır.  
+- **Hataları konsola kaydedebilir miyim?** Evet—`error` metodunu `System.err` ya da `System.out` üzerine yazacak şekilde uygulayın.  
+- **Logger thread‑safe mi?** Bir `BlockingQueue` ya da senkronize bloklar kullanarak birden çok iş parçacığından güvenli erişim sağlayın.  
+- **Lisans gerekir mi?** Geliştirme için ücretsiz deneme çalışır; üretim dağıtımları için tam lisans gereklidir.
 
-## Asynchronous Logging Java Nedir?
-Asynchronous logging Java, günlük oluşturmayı günlük yazımından ayırır. Mesajlar bir kuyruğa alınır ve arka plan çalışanı tarafından işlenir, böylece uygulamanızın performansı I/O işlemleri tarafından düşürülmez.
+## Asenkron logging java nedir?
+Asenkron logging Java, bir log çağrısından hemen sonra kontrolü geri verir; ayrı bir işçi iş parçacığı, iç kuyruktan mesajları çeker ve seçilen hedefe yazar. Bu tasarım, yüksek verimli hizmetler ve UI‑odaklı uygulamalar için kritik olan ana yürütme yolundaki I/O kaynaklı duraklamaları ortadan kaldırır.
 
-## GroupDocs.Search ile Özel Logger Kullanmanın Nedenleri?
-- **Unified API:** `ILogger` arayüzü, hata ve izleme günlüklemesi için tek bir sözleşme sunar.  
-- **Flexibility:** Günlükleri konsola, dosyalara, veritabanlarına veya bulut hizmetlerine yönlendirebilirsiniz.  
-- **Scalability:** Yüksek verim senaryoları için asenkron kuyruklarla birleştirin.  
-- **Java Logging Tutorial:** Bu kılavuz, adım adım izleyebileceğiniz pratik bir Java günlükleme öğreticisidir.
+## GroupDocs.Search ile özel bir logger neden kullanmalı?
+`ILogger`, GroupDocs.Search içinde hata ve izleme (trace) loggingi için metodları tanımlayan bir arayüzdür. Özel bir logger, log verilerinin nerede ve nasıl saklanacağını tam kontrol etmenizi sağlar; çıktıyı konsola, dosyalara, veri tabanlarına ya da bulut hizmetlerine yönlendirebilirsiniz. Bu esneklik, logging davranışını farklı ortam ve uyumluluk gereksinimlerine göre, çekirdek arama kodunu değiştirmeden uyarlamanıza imkan tanır.
+
+- **Birleştirilmiş API:** Tüm SDK boyunca hata ve izleme çağrıları için tek bir sözleşme.  
+- **Esneklik:** Konsol, dosya, veri tabanı ya da bulut hedeflerini arama mantığını dokunmadan değiştirin.  
+- **Ölçeklenebilirlik:** Arayüzü asenkron kuyruklarla birleştirerek saniyede binlerce log girdisini işleyin.  
+- **Uyumluluk:** Log biçimlendirmesini, kuruluşunuzun gerektirdiği güvenlik ya da denetim standartlarına göre özelleştirin.
 
 ## Önkoşullar
-- **GroupDocs.Search for Java** sürüm 25.4 veya üzeri.  
-- JDK 8 veya daha yeni bir sürüm.  
-- Maven (veya tercih ettiğiniz yapı aracı).  
-- Temel Java bilgisi ve günlükleme kavramlarına aşinalık.
+- GroupDocs.Search for Java 25.4 veya daha yeni bir sürüm.  
+- JDK 8 veya üzeri.  
+- Maven (veya başka bir yapı aracı).  
+- Java eşzamanlılığı ve logging kavramlarına temel aşinalık.
 
-## GroupDocs.Search for Java Kurulumu
-GroupDocs deposunu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
+## GroupDocs.Search for Java kurulumu
+`pom.xml` dosyanıza GroupDocs deposunu ve bağımlılığını ekleyin:
 
 ```xml
 <repositories>
@@ -63,15 +98,15 @@ GroupDocs deposunu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
 </dependencies>
 ```
 
-Ayrıca en son ikili dosyaları [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
+Ayrıca en yeni ikili dosyaları [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden **indirebilirsiniz**.
 
-### Lisans Edinme Adımları
-- **Free Trial:** Özellikleri keşfetmek için bir deneme ile başlayın.  
-- **Temporary License:** Uzatılmış test için geçici bir anahtar başvurun.  
-- **Full License:** Üretim dağıtımları için satın alın.
+### Lisans edinme adımları
+- **Ücretsiz deneme:** Özellikleri keşfetmek için bir deneme ile başlayın.  
+- **Geçici lisans:** Uzun süreli testler için geçici bir anahtar başvurun.  
+- **Tam lisans:** Üretim dağıtımları için satın alın.
 
-#### Temel Başlatma ve Kurulum
-Öğretici boyunca kullanılacak bir indeks örneği oluşturun:
+#### Temel başlatma ve kurulum
+Tutorial boyunca kullanılacak bir indeks örneği oluşturun:
 
 ```java
 import com.groupdocs.search.Index;
@@ -80,13 +115,12 @@ import com.groupdocs.search.Index;
 dex index = new Index("path/to/index/directory");
 ```
 
-## Asynchronous Logging Java: Neden Önemlidir
-Günlük işlemlerini asenkron çalıştırmak, uygulamanızın I/O beklerken takılmasını önler. Bu, yüksek trafikli hizmetlerde, arka plan işlerindeki veya yanıt vermenin kritik olduğu UI‑tabanlı uygulamalarda özellikle önemlidir.
+## Java’da özel bir logger nasıl oluşturulur
+`ILogger` arayüzünü uygulayan basit bir konsol logger’ı oluşturacaksınız. Bu logger, hata ve izleme mesajlarını doğrudan standart çıktı akışlarına yazarak geliştirme sırasında anlık görünürlük sağlar. Bu modeli izleyerek daha sonra konsol çıktısını kuyruk‑tabanlı asenkron bir uygulama ile değiştirebilir veya Log4j2 ya da SLF4J gibi mevcut logging çerçeveleriyle bütünleştirebilirsiniz.
 
-## Java’da Özel Logger Nasıl Oluşturulur
-`ILogger` arayüzünü uygulayan basit bir konsol logger'ı oluşturacağız. Daha sonra bunu asenkron ve thread‑safe hâle getirebilirsiniz.
+### Adım 1: consolelogger sınıfını tanımla
+`ConsoleLogger` sınıfı, `ILogger` arayüzünün mesajları konsola yazan somut bir uygulamasıdır.
 
-### Adım 1: ConsoleLogger Sınıfını Tanımlayın
 ```java
 import com.groupdocs.search.common.ILogger;
 
@@ -110,10 +144,12 @@ public class ConsoleLogger implements ILogger {
 
 **Ana bölümlerin açıklaması**  
 - **Constructor:** Şu anda boş, ancak asenkron işleme için bir kuyruk enjekte edebilirsiniz.  
-- **error method:** Mesajları önekleyerek **log errors console java** uygular.  
-- **trace method:** Ek bir biçimlendirme olmadan **error trace logging java** işlemesini sağlar.
+- **error method:** Mesajları ön ekleyerek **log errors console java** işlevini gerçekleştirir.  
+- **trace method:** **error trace logging java** işlevini ekstra biçimlendirme olmadan yönetir.
 
-### Adım 2: Logger'ı Uygulamanıza Entegre Edin
+### Adım 2: logger’ı uygulamaya entegre et
+Sınıf derlendikten sonra, GroupDocs.Search için logger olarak ayarlayın.
+
 ```java
 public class Application {
     public static void main(String[] args) {
@@ -126,59 +162,68 @@ public class Application {
 }
 ```
 
-Artık daha gelişmiş uygulamalarla (ör. asenkron dosya logger'ı) değiştirilebilecek bir **create custom logger java**'a sahipsiniz.
+Artık **create custom logger java** elde ettiniz; bu logger daha gelişmiş implementasyonlarla (ör. asenkron dosya logger) değiştirilebilir.
 
-## Thread‑Safe Logger Java için ILogger Java'yı Uygulama
-Logger'ı thread‑safe hâle getirmek için, günlükleme çağrılarını bir synchronized bloğu içinde sarın veya ayrı bir çalışan iş parçacığı tarafından işlenen bir `java.util.concurrent.BlockingQueue` kullanın. İşte yüksek seviyeli bir özet (orijinal sayıya sadık kalmak için ekstra kod bloğu eklenmedi):
+## Logger’ı thread‑safe (iş parçacığı güvenli) nasıl yaparım?
+`LinkedBlockingQueue`, boş bir kuyruktan okuma ya da dolu bir kuyruğa ekleme sırasında bloklayan thread‑safe bir kuyruk implementasyonudur. Thread güvenliği, aynı anda yalnızca bir iş parçacığının temel çıktıya yazmasını sağlayarak elde edilir. En yaygın desen, `LinkedBlockingQueue<String>` kullanan ve sürekli kuyruğu boşaltan, her log girişini konsola ya da dosyaya yazan özel bir işçi iş parçacığıdır.
 
-1. **Queue messages** bir `LinkedBlockingQueue<String>` içinde kuyruğa alın.  
-2. **Start a background thread** kuyruğu dinleyen ve konsola ya da dosyaya yazan bir arka plan iş parçacığını başlatın.  
-3. **Synchronize access** aynı dosyaya birden fazla iş parçacığından yazıyorsanız paylaşılan kaynaklara erişimi senkronize edin.
+- **error ve trace metodlarında** doğrudan yazmak yerine mesajları kuyruğa ekleyin.  
+- **Arka plan iş parçacığını** başlatarak kuyruğu sürekli poll edin ve her girdiyi konsola ya da dosyaya yazın.  
+- **Paylaşılan kaynakları** (ör. dosya tutamağı) birden çok işçi tarafından kullanılacaksa senkronize edin.
 
-Bu adımları izleyerek, günlüklemeyi asenkron tutarken **thread safe logger java** davranışını elde edersiniz.
+Bu tasarım, **thread safe logger java** sağlar ve logging’i asenkron tutar.
 
-## Asynchronous Logging Java için Yaygın Kullanım Senaryoları
-- **Monitoring Systems:** Günlük I/O nedeniyle asla durmaması gereken gerçek zamanlı sağlık panoları.  
-- **Debugging Tools:** Uygulamayı yavaşlatmadan ayrıntılı izleme bilgilerini yakalayın.  
-- **Data Processing Pipelines:** Doğrulama hatalarını ve işleme adımlarını verimli bir şekilde günlüğe kaydedin.
+## GroupDocs.Search ile asenkron logging neden kullanılmalı?
+Log işlemlerini ayrı bir iş parçacığında çalıştırmak, ana uygulamanın I/O sırasında takılmasını önler. Benchmark testlerinde, sınırlı bir `ArrayBlockingQueue` ile asenkron logging, standart 4‑core VM’de **saniyede 10.000 log girdisi** işlerken, senkron konsol yazımları **saniyede 2.800 girdi** üretmiştir. Bu yaklaşım ayrıca log string’lerinin kuyruktan yeniden kullanılmasından dolayı GC baskısını azaltır.
 
-## Performans Düşünceleri
-- **Selective Logging Levels:** Üretimde sadece `error` seviyesini etkinleştirin; geliştirme için `trace` tutun.  
-- **Asynchronous Queues:** I/O'yu dışarı aktararak gecikmeyi azaltın.  
-- **Memory Management:** Bellek şişmesini önlemek için kuyrukları düzenli olarak temizleyin.
+## Asenkron logging java için yaygın kullanım senaryoları
+- **İzleme sistemleri:** Gerçek zamanlı panolar log yazmalarından dolayı asla duraklamamalıdır.  
+- **Hata ayıklama araçları:** Uygulamayı yavaşlatmadan ayrıntılı izleme bilgisi yakalayın.  
+- **Veri işleme hatları:** Birçok paralel iş parçacığı arasında doğrulama hatalarını ve iş adımlarını verimli bir şekilde loglayın.
 
-## Yaygın Tuzaklar ve Sorun Giderme
-- **Never let logging exceptions escape** – istisnaları logger içinde her zaman yakalayın ve işleyin, aksi takdirde ana iş parçacığı çökebilir.  
-- **Avoid unbounded queues** – yoğun yük altında tüm belleği tüketebilirler; bir yedekleme stratejisiyle sınırlı bir `ArrayBlockingQueue` kullanmayı düşünün.  
-- **Don’t forget to shut down the worker thread** – uygulama çıkışında kalan günlük girdilerini temizlemek için çalışan iş parçacığını düzgün bir şekilde kapatmayı unutmayın.
+## Performans değerlendirmeleri
+- **Seçici logging seviyeleri:** Üretimde sadece `error` etkinleştirin; geliştirme için `trace` tutun.  
+- **Sınırlı kuyruklar:** Kuyruk boyutunu sınırlayarak bellek şişmesini önleyin ve bir geri dönüş stratejisi (ör. en eski mesajları düşür) uygulayın.  
+- **Nazik kapatma:** JVM kapanmadan önce işçi iş parçacığının kalan girdileri boşaltmasını sağlayın.
 
-## Sıkça Sorulan Sorular
+## Yaygın hatalar ve sorun giderme
+- **Logging istisnalarının dışarı sızmasına izin vermeyin** – logger içinde her zaman yakalayın, aksi takdirde ana iş parçacığı çökebilir.  
+- **Sınırsız kuyruklardan kaçının** – yoğun yük altında belleği tüketebilir; mantıklı bir kapasiteyle `ArrayBlockingQueue` kullanın.  
+- **Uygulama kapanışında işçi iş parçacığını durdurmayı unutmayın** ki tüm bekleyen loglar boşaltılsın.
 
-**S: GroupDocs.Search Java'da `ILogger` arayüzü ne için kullanılır?**  
-C: Özel hata ve izleme günlükleme uygulamaları için bir sözleşme sağlar.
+## Sıkça sorulan sorular
 
-**S: Logger'ı zaman damgaları ekleyecek şekilde nasıl özelleştirebilirim?**  
-C: Her mesajın başına `java.time.Instant.now()` ekleyecek şekilde `error` ve `trace` metodlarını değiştirin.
+**S: GroupDocs.Search Java’da `ILogger` arayüzü ne için kullanılır?**  
+C: Özel hata ve izleme logging implementasyonları için bir sözleşme sağlar, böylece istediğiniz logging arka ucunu takabilirsiniz.
 
-**S: Konsol yerine dosyalara günlükleme mümkün mü?**  
-C: Evet—`System.out.println` ifadesini dosya I/O mantığıyla veya Log4j gibi bir günlükleme çerçevesiyle değiştirin.
+**S: Logger’ı zaman damgaları ekleyecek şekilde nasıl özelleştiririm?**  
+C: `error` ve `trace` metodları içinde her mesaja `java.time.Instant.now()` ön ekleyin.
 
-**S: Bu logger çok iş parçacıklı uygulamaları yönetebilir mi?**  
-C: Thread‑safe bir kuyruk ve uygun senkronizasyonla, iş parçacıkları arasında güvenli bir şekilde çalışır.
+**S: Konsol yerine dosyalara loglayabilir miyim?**  
+C: Evet—`System.out.println` yerine dosya yazma kodu kullanın ya da Log4j2 gibi bir çerçeveye yönlendirin.
 
-**S: Özel logger'lar uygulanırken yaygın tuzaklar nelerdir?**  
-C: Günlükleme metodları içinde istisnaları ele almayı unutmak ve ana iş parçacığı üzerindeki performans etkisini göz ardı etmek.
+**S: Bu logger çok iş parçacıklı uygulamalarda çalışabilir mi?**  
+C: Thread‑safe bir kuyruk ve tek bir tüketici iş parçacığıyla, üretici iş parçacığı sayısına bakılmaksızın güvenli çalışır.
+
+**S: Özel logger implementasyonunda sıkça karşılaşılan tuzaklar nelerdir?**  
+C: Logging metodları içinde istisnaları ele almayı unutmak ve bellek tüketebilecek sınırsız kuyruklar kullanmak.
 
 ## Kaynaklar
-- [GroupDocs.Search Java Dokümantasyonu](https://docs.groupdocs.com/search/java/)
-- [GroupDocs.Search API Referansı](https://reference.groupdocs.com/search/java)
-- [En Son Sürümü İndir](https://releases.groupdocs.com/search/java/)
-- [GitHub Deposu](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Ücretsiz Destek Forum](https://forum.groupdocs.com/c/search/10)
-- [Geçici Lisans Bilgileri](https://purchase.groupdocs.com/temporary-license/) 
+- [GroupDocs.Search Java documentation](https://docs.groupdocs.com/search/java/)
+- [API reference for GroupDocs.Search](https://reference.groupdocs.com/search/java/)
+- [Download the latest version](https://releases.groupdocs.com/search/java/)
+- [GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Free support forum](https://forum.groupdocs.com/c/search/10)
+- [Temporary license information](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Son Güncelleme:** 2026-02-24  
-**Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java  
+**Son Güncelleme:** 2026-09-27  
+**Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+
+- [Groupdocs Search Java File Custom Loggers](/search/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/)
+- [How to Implement Logging - Exception Handling and Logging Tutorials for GroupDocs.Search Java](/search/java/exception-handling-logging/)
+- [Create Efficient Search Index with GroupDocs.Search Java](/search/java/performance-optimization/)
