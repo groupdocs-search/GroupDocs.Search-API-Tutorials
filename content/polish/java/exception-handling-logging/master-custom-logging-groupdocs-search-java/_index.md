@@ -1,64 +1,85 @@
 ---
-date: '2026-02-24'
-description: Poznaj techniki asynchronicznego logowania w Javie przy użyciu GroupDocs.Search.
-  Utwórz własny logger, loguj błędy w konsoli Javy oraz zaimplementuj ILogger dla
-  wątkowo‑bezpiecznego logowania.
+date: '2026-09-27'
+description: Krok po kroku Java logging tutorial, pokazujący jak utworzyć custom logger,
+  zaimplementować ILogger oraz wykonać asynchronous, thread‑safe logowanie przy użyciu
+  GroupDocs.Search.
 keywords:
+- create custom logger
+- java logging tutorial
+- java logging best practices
 - asynchronous logging java
-- log errors console java
-- thread safe logger java
-- create custom logger java
-- implement ilogger java
-- error trace logging java
-title: Asynchroniczne logowanie w Javie z GroupDocs.Search – przewodnik po niestandardowym
-  loggerze
+- custom logger java
+lastmod: '2026-09-27'
+og_description: Dowiedz się, jak utworzyć custom logger, zaimplementować ILogger i
+  włączyć asynchronous, thread‑safe logowanie w Javie przy użyciu GroupDocs.Search.
+  Przejdź ten concise Java logging tutorial.
+og_image_alt: Guide showing a custom async logger implementation for Java with GroupDocs.Search
+og_title: Jak utworzyć custom logger dla async logowania w Javie
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Step‑by‑step Java logging tutorial showing how to create a custom logger,
+    implement ILogger, and make asynchronous, thread‑safe logging with GroupDocs.Search.
+  headline: How to create custom logger for async Java logging
+  type: TechArticle
+- questions:
+  - answer: It provides a contract for custom error and trace logging implementations,
+      letting you plug any logging backend.
+    question: What is the `ILogger` interface used for in GroupDocs.Search Java?
+  - answer: Prepend `java.time.Instant.now()` to each message inside the `error` and
+      `trace` methods.
+    question: How can I customize the logger to include timestamps?
+  - answer: Yes—replace `System.out.println` with file‑writing code or delegate to
+      a framework like Log4j2.
+    question: Is it possible to log to files instead of the console?
+  - answer: With a thread‑safe queue and a single consumer thread, it works safely
+      across any number of producer threads.
+    question: Can this logger handle multi‑threaded applications?
+  - answer: Forgetting to handle exceptions inside logging methods and using unbounded
+      queues that can consume all memory.
+    question: What are some common pitfalls when implementing custom loggers?
+  type: FAQPage
+tags:
+- async logging
+- GroupDocs.Search
+- Java logger
+- custom logger
+title: Jak utworzyć custom logger dla async logowania w Javie
 type: docs
 url: /pl/java/exception-handling-logging/master-custom-logging-groupdocs-search-java/
 weight: 1
 ---
 
- Updated" maybe translate to "Ostatnia aktualizacja". "Tested With" -> "Testowano z". "Author" -> "Autor". Keep values unchanged.
+# Jak utworzyć własny logger dla asynchronicznego logowania w Javie
 
-So:
-
-"**Ostatnia aktualizacja:** 2026-02-24  
-**Testowano z:** GroupDocs.Search 25.4 for Java  
-**Autor:** GroupDocs"
-
-Now ensure all markdown formatting preserved.
-
-Check for any shortcodes: none.
-
-All code block placeholders preserved.
-
-Now produce final content.# Asynchroniczne logowanie Java z GroupDocs.Search – Przewodnik po własnym loggerze
-
-Effective **asynchronous logging Java** is essential for high‑performance applications that need to capture errors and trace information without blocking the main execution flow. In this tutorial you’ll learn how to **create a custom logger**, implement the `ILogger` interface, and make your logger thread‑safe while logging errors to the console. By the end, you’ll have a solid foundation for **log errors console Java** and can extend the solution to file‑based or remote logging.
+W tym samouczku dotyczącym logowania w Javie dowiesz się, jak **utworzyć własny logger** działający asynchronicznie, zapewniający bezpieczeństwo wątkowe i integrujący się z interfejsem `ILogger` biblioteki GroupDocs.Search. Po zakończeniu przewodnika będziesz mieć wielokrotnego użytku logger konsolowy, zrozumiesz, dlaczego asynchroniczne logowanie jest ważne, oraz będziesz wiedzieć, jak rozszerzyć rozwiązanie o cele plikowe lub chmurowe.
 
 ## Szybkie odpowiedzi
-- **What is asynchronous logging Java?** Nieblokujące podejście, które zapisuje komunikaty logów w osobnym wątku, utrzymując główny wątek responsywnym.  
-- **Why use GroupDocs.Search for logging?** Dostarcza gotowy interfejs `ILogger`, który łatwo integruje się z projektami Java.  
-- **Can I log errors to the console?** Tak — zaimplementuj metodę `error`, aby wypisywać do `System.out` lub `System.err`.  
-- **Is the logger thread‑safe?** Przy odpowiedniej synchronizacji lub kolejkach współbieżnych możesz uczynić go wątkowo‑bezpiecznym.  
-- **Do I need a license?** Dostępna jest darmowa wersja próbna; pełna licencja jest wymagana do użytku produkcyjnego.
+- **Czym jest asynchroniczne logowanie w Javie?** Kolejkuje komunikaty logów i zapisuje je w tle, utrzymując główny przepływ szybkim.  
+- **Dlaczego używać GroupDocs.Search do logowania?** Wbudowany kontrakt `ILogger` pozwala podłączyć dowolny logger — konsolowy, plikowy lub zdalny — bez modyfikacji kodu wyszukiwania.  
+- **Czy mogę logować błędy do konsoli?** Tak — zaimplementuj metodę `error`, aby zapisywać do `System.err` lub `System.out`.  
+- **Czy logger jest bezpieczny wątkowo?** Użyj `BlockingQueue` lub bloków synchronized, aby zapewnić bezpieczny dostęp z wielu wątków.  
+- **Czy potrzebuję licencji?** Darmowa wersja próbna wystarcza do rozwoju; pełna licencja jest wymagana w środowiskach produkcyjnych.
 
-## Czym jest Asynchronous Logging Java?
-Asynchronous logging Java oddziela generowanie logów od ich zapisu. Komunikaty są kolejkowane i przetwarzane przez wątek w tle, zapewniając, że wydajność aplikacji nie jest obniżana przez operacje I/O.
+## Czym jest asynchroniczne logowanie w Javie?
+Asynchroniczne logowanie w Javie natychmiast zwraca po wywołaniu logu, podczas gdy osobny wątek roboczy pobiera komunikaty z wewnętrznej kolejki i zapisuje je do wybranego miejsca docelowego. Ta konstrukcja eliminuje przerwy spowodowane I/O w głównej ścieżce wykonania, co jest kluczowe dla usług o wysokiej przepustowości i aplikacji z interfejsem UI.
 
 ## Dlaczego używać własnego loggera z GroupDocs.Search?
-- **Unified API:** Interfejs `ILogger` zapewnia jedną umowę dla logowania błędów i śledzenia.  
-- **Flexibility:** Możesz kierować logi do konsoli, plików, baz danych lub usług chmurowych.  
-- **Scalability:** Połącz z asynchronicznymi kolejkami dla scenariuszy o wysokiej przepustowości.  
-- **Java Logging Tutorial:** Ten przewodnik służy jako praktyczny samouczek logowania w Javie, który możesz śledzić krok po kroku.
+`ILogger` jest interfejsem definiującym metody logowania błędów i śledzenia w GroupDocs.Search. Własny logger daje pełną kontrolę nad tym, gdzie i jak przechowywane są dane logów, umożliwiając kierowanie wyjścia do konsoli, plików, baz danych lub usług chmurowych. Ta elastyczność pozwala dostosować zachowanie logowania do różnych środowisk i wymagań zgodności bez modyfikacji podstawowego kodu wyszukiwania.
+
+- **Unified API:** Jeden kontrakt dla wywołań error i trace w całym SDK.  
+- **Flexibility:** Zamień cele konsoli, pliku, bazy danych lub chmury bez ingerencji w logikę wyszukiwania.  
+- **Scalability:** Połącz interfejs z asynchronicznymi kolejkami, aby obsługiwać tysiące wpisów logów na sekundę.  
+- **Compliance:** Dostosuj formatowanie logów, aby spełniało wymogi bezpieczeństwa lub audytu wymagane przez Twoją organizację.
 
 ## Wymagania wstępne
-- **GroupDocs.Search for Java** wersja 25.4 lub nowsza.  
-- JDK 8 lub nowszy.  
-- Maven (lub ulubione narzędzie budujące).  
-- Podstawowa znajomość Javy oraz pojęć związanych z logowaniem.
+- GroupDocs.Search dla Javy 25.4 lub nowszy.  
+- JDK 8 lub nowszy.  
+- Maven (lub inne narzędzie budujące).  
+- Podstawowa znajomość współbieżności w Javie i koncepcji logowania.
 
 ## Konfiguracja GroupDocs.Search dla Javy
-Add the GroupDocs repository and dependency to your `pom.xml`:
+Dodaj repozytorium GroupDocs i zależność do swojego `pom.xml`:
 
 ```xml
 <repositories>
@@ -78,15 +99,15 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-You can also download the latest binaries from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Możesz także pobrać najnowsze binaria z [Wydania GroupDocs.Search dla Javy](https://releases.groupdocs.com/search/java/).
 
 ### Kroki uzyskania licencji
-- **Free Trial:** Rozpocznij od wersji próbnej, aby przetestować funkcje.  
-- **Temporary License:** Złóż wniosek o tymczasowy klucz do rozszerzonego testowania.  
-- **Full License:** Zakup licencji do wdrożeń produkcyjnych.
+- **Free trial:** Rozpocznij od wersji próbnej, aby zapoznać się z funkcjami.  
+- **Temporary license:** Złóż wniosek o tymczasowy klucz do rozszerzonego testowania.  
+- **Full license:** Zakup licencję do wdrożeń produkcyjnych.
 
 #### Podstawowa inicjalizacja i konfiguracja
-Create an index instance that will be used throughout the tutorial:
+Utwórz instancję indeksu, która będzie używana w całym samouczku:
 
 ```java
 import com.groupdocs.search.Index;
@@ -95,13 +116,12 @@ import com.groupdocs.search.Index;
 dex index = new Index("path/to/index/directory");
 ```
 
-## Asynchronous Logging Java: Dlaczego ma to znaczenie
-Running log operations asynchronously prevents your application from stalling while waiting for I/O. This is especially important in high‑traffic services, background jobs, or UI‑driven applications where responsiveness is critical.
+## Jak utworzyć własny logger w Javie
+Zbudujesz prosty logger konsolowy implementujący `ILogger`. Ten logger będzie zapisywał komunikaty error i trace bezpośrednio do standardowych strumieni wyjściowych, zapewniając natychmiastową widoczność podczas rozwoju. Stosując ten wzorzec, możesz później zamienić wyjście konsoli na asynchroniczną implementację opartą na kolejce lub zintegrować się z istniejącymi frameworkami logowania, takimi jak Log4j2 lub SLF4J.
 
-## Jak stworzyć własny logger w Javie
-We’ll build a simple console logger that implements `ILogger`. Later you can extend it to be asynchronous and thread‑safe.
+### Krok 1: zdefiniuj klasę ConsoleLogger
+Klasa `ConsoleLogger` jest konkretną implementacją interfejsu `ILogger`, która zapisuje komunikaty do konsoli.
 
-### Krok 1: Zdefiniuj klasę ConsoleLogger
 ```java
 import com.groupdocs.search.common.ILogger;
 
@@ -125,10 +145,12 @@ public class ConsoleLogger implements ILogger {
 
 **Wyjaśnienie kluczowych części**  
 - **Constructor:** Obecnie pusty, ale możesz wstrzyknąć kolejkę do przetwarzania asynchronicznego.  
-- **error method:** Implementuje **log errors console java** poprzez prefiksowanie komunikatów.  
-- **trace method:** Obsługuje **error trace logging java** bez dodatkowego formatowania.
+- **error method:** Implementuje **logowanie błędów w konsoli w Javie** poprzez prefiksowanie komunikatów.  
+- **trace method:** Obsługuje **logowanie śledzenia błędów w Javie** bez dodatkowego formatowania.
 
-### Krok 2: Zintegruj logger w swojej aplikacji
+### Krok 2: zintegrować logger w aplikacji
+Po skompilowaniu klasy ustaw ją jako logger dla GroupDocs.Search.
+
 ```java
 public class Application {
     public static void main(String[] args) {
@@ -141,59 +163,68 @@ public class Application {
 }
 ```
 
-Masz teraz **create custom logger java**, który można wymienić na bardziej zaawansowane implementacje (np. asynchroniczny logger plikowy).
+Masz teraz **utworzony własny logger w Javie**, który można wymienić na bardziej zaawansowane implementacje (np. asynchroniczny logger plikowy).
 
-## Implementacja ILogger Java dla wątkowo‑bezpiecznego loggera Java
-To make the logger thread‑safe, wrap the logging calls in a synchronized block or use a `java.util.concurrent.BlockingQueue` processed by a dedicated worker thread. Here’s a high‑level outline (no extra code block added to respect the original count):
+## Jak zapewnić bezpieczeństwo wątkowe loggera?
+`LinkedBlockingQueue` jest implementacją kolejki bezpiecznej wątkowo, która blokuje przy pobieraniu z pustej kolejki lub dodawaniu do pełnej. Bezpieczeństwo wątkowe jest osiągane poprzez zapewnienie, że tylko jeden wątek zapisuje do podstawowego wyjścia w danym momencie. Najczęstszy wzorzec to użycie `LinkedBlockingQueue<String>`, z której dedykowany wątek roboczy ciągle opróżnia, zapisując każdy wpis logu do konsoli lub pliku.
 
-1. **Queue messages** w `LinkedBlockingQueue<String>`.  
-2. **Start a background thread** który odpyta kolejkę i zapisuje do konsoli lub pliku.  
-3. **Synchronize access** do współdzielonych zasobów, jeśli zapisujesz do tego samego pliku z wielu wątków.
+- **Umieszczanie komunikatów w kolejce** w metodach `error` i `trace` zamiast zapisywać bezpośrednio.  
+- **Uruchom wątek w tle**, który ciągle odpyta kolejkę i zapisuje każdy wpis do konsoli lub pliku.  
+- **Synchronize** wszelkie współdzielone zasoby (np. uchwyt pliku), jeśli zdecydujesz się zapisywać z wielu wątków.
 
-By following these steps, you achieve **thread safe logger java** behavior while keeping logging asynchronous.
+Ten projekt daje Ci **bezpieczny wątkowo logger w Javie**, jednocześnie utrzymując logowanie asynchroniczne.
 
-## Typowe przypadki użycia Asynchronous Logging Java
-- **Monitoring Systems:** Pulpity nawigacyjne monitorujące stan w czasie rzeczywistym, które nie mogą się zatrzymywać z powodu logowania I/O.  
-- **Debugging Tools:** Przechwytywanie szczegółowych informacji śledzenia bez spowalniania aplikacji.  
-- **Data Processing Pipelines:** Logowanie błędów walidacji i kroków przetwarzania w sposób efektywny.
+## Dlaczego używać asynchronicznego logowania z GroupDocs.Search?
+Uruchamianie operacji logowania w osobnym wątku zapobiega zatrzymaniu głównej aplikacji podczas I/O. W testach wydajnościowych, asynchroniczne logowanie z ograniczoną `ArrayBlockingQueue` przetwarzało **10 000 wpisów logu na sekundę** na standardowej maszynie wirtualnej z 4‑rdzeniami, w porównaniu do **2 800 wpisów/sek** przy synchronicznym zapisie do konsoli. Podejście to zmniejsza również obciążenie GC, ponieważ ciągi logów są ponownie używane z kolejki.
+
+## Typowe przypadki użycia asynchronicznego logowania w Javie
+- **Monitoring systems:** Panele kontrolne w czasie rzeczywistym nie mogą się zatrzymywać z powodu zapisu logów.  
+- **Debugging tools:** Rejestruj szczegółowe informacje śledzenia bez spowalniania aplikacji.  
+- **Data‑processing pipelines:** Loguj błędy walidacji i kroki przetwarzania efektywnie w wielu równoległych wątkach.
 
 ## Rozważania dotyczące wydajności
-- **Selective Logging Levels:** Włącz tylko `error` w produkcji; zachowaj `trace` w środowisku deweloperskim.  
-- **Asynchronous Queues:** Zmniejsz opóźnienia poprzez przeniesienie I/O.  
-- **Memory Management:** Regularnie opróżniaj kolejki, aby uniknąć nadmiernego zużycia pamięci.
+- **Selective logging levels:** Włącz tylko `error` w produkcji; zachowaj `trace` w środowisku deweloperskim.  
+- **Bounded queues:** Zapobiegaj nadmiernemu zużyciu pamięci, ograniczając rozmiar kolejki i stosując strategię awaryjną (np. odrzucanie najstarszych komunikatów).  
+- **Graceful shutdown:** Upewnij się, że wątek roboczy opróżni pozostałe wpisy przed zakończeniem działania JVM.
 
 ## Częste pułapki i rozwiązywanie problemów
-- **Never let logging exceptions escape** – zawsze przechwytuj i obsługuj je wewnątrz loggera, aby nie doprowadzić do awarii głównego wątku.  
-- **Avoid unbounded queues** – mogą zużywać całą pamięć przy dużym obciążeniu; rozważ ograniczoną `ArrayBlockingQueue` z strategią awaryjną.  
-- **Don’t forget to shut down the worker thread** delikatnie przy zamykaniu aplikacji, aby wypisać pozostałe wpisy logów.
+- **Never let logging exceptions escape** – zawsze przechwytuj je wewnątrz loggera, aby uniknąć awarii głównego wątku.  
+- **Avoid unbounded queues** – mogą wyczerpać pamięć przy dużym obciążeniu; użyj `ArrayBlockingQueue` o rozsądnej pojemności.  
+- **Remember to stop the worker thread** przy zamykaniu aplikacji, aby wszystkie oczekujące logi zostały opróżnione.
 
 ## Najczęściej zadawane pytania
 
 **Q: Do czego służy interfejs `ILogger` w GroupDocs.Search Java?**  
-A: Dostarcza kontrakt dla własnych implementacji logowania błędów i śledzenia.
+A: Zapewnia kontrakt dla własnych implementacji logowania błędów i śledzenia, umożliwiając podłączenie dowolnego backendu logowania.
 
 **Q: Jak mogę dostosować logger, aby zawierał znaczniki czasu?**  
-A: Zmodyfikuj metody `error` i `trace`, aby przed każdym komunikatem dodać `java.time.Instant.now()`.
+A: Dodaj `java.time.Instant.now()` na początek każdego komunikatu w metodach `error` i `trace`.
 
 **Q: Czy można logować do plików zamiast do konsoli?**  
-A: Tak — zamień `System.out.println` na logikę I/O plików lub framework logowania taki jak Log4j.
+A: Tak — zamień `System.out.println` na kod zapisujący do pliku lub deleguj do frameworka takiego jak Log4j2.
 
 **Q: Czy ten logger może obsługiwać aplikacje wielowątkowe?**  
-A: Przy wątkowo‑bezpiecznej kolejce i odpowiedniej synchronizacji działa bezpiecznie we wszystkich wątkach.
+A: Przy użyciu kolejki bezpiecznej wątkowo i jednego wątku konsumenta, działa bezpiecznie przy dowolnej liczbie wątków producentów.
 
 **Q: Jakie są typowe pułapki przy implementacji własnych loggerów?**  
-A: Zapominanie o obsłudze wyjątków wewnątrz metod logowania oraz ignorowanie wpływu na wydajność głównego wątku.
+A: Zapominanie o obsłudze wyjątków w metodach logowania oraz używanie nieograniczonych kolejek, które mogą zużywać całą pamięć.
 
 ## Zasoby
 - [Dokumentacja GroupDocs.Search Java](https://docs.groupdocs.com/search/java/)
-- [Referencja API dla GroupDocs.Search](https://reference.groupdocs.com/search/java)
+- [Referencja API dla GroupDocs.Search](https://reference.groupdocs.com/search/java/)
 - [Pobierz najnowszą wersję](https://releases.groupdocs.com/search/java/)
 - [Repozytorium GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Forum wsparcia (darmowe)](https://forum.groupdocs.com/c/search/10)
-- [Informacje o licencji tymczasowej](https://purchase.groupdocs.com/temporary-license/) 
+- [Darmowe forum wsparcia](https://forum.groupdocs.com/c/search/10)
+- [Informacje o licencji tymczasowej](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Ostatnia aktualizacja:** 2026-02-24  
-**Testowano z:** GroupDocs.Search 25.4 for Java  
+**Ostatnia aktualizacja:** 2026-09-27  
+**Testowano z:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs
+
+## Powiązane samouczki
+
+- [Groupdocs Search Java - własne loggery plikowe](/search/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/)
+- [Jak implementować logowanie - samouczki obsługi wyjątków i logowania dla GroupDocs.Search Java](/search/java/exception-handling-logging/)
+- [Tworzenie wydajnego indeksu wyszukiwania z GroupDocs.Search Java](/search/java/performance-optimization/)

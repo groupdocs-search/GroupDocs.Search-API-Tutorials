@@ -1,53 +1,87 @@
 ---
-date: '2026-02-27'
-description: Java için GroupDocs.Search ile aranabilir bir indeks oluşturmayı, aramaya
-  dosyalar eklemeyi, düğüme dizinler eklemeyi ve gerçek zamanlı indekslemeyi etkinleştirmeyi
-  öğrenin.
+date: '2026-09-27'
+description: GroupDocs.Search for Java kullanarak java tam metin aramasını nasıl uygulayacağınızı
+  öğrenin, aramaya dosya ekleyin, dizinleri yapılandırın ve gerçek zamanlı indekslemeyi
+  etkinleştirin.
 keywords:
-- GroupDocs.Search for Java
-- deploy GroupDocs.Search
-- Java search network setup
-title: Aranabilir Dizin Oluşturma Java – GroupDocs.Search for Java'ı Dağıt
+- java full text search
+- event driven indexing
+- java search engine
+- add files to search
+- real time indexing java
+lastmod: '2026-09-27'
+og_description: GroupDocs.Search kullanarak java tam metin aramasını uygulayın. Dosya
+  eklemeyi, düğümleri yapılandırmayı ve gerçek zamanlı indekslemeyi dakikalar içinde
+  öğrenin.
+og_image_alt: Guide to setting up java full text search with GroupDocs.Search
+og_title: GroupDocs.Search ile java tam metin aramasını nasıl uygularsınız
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    for Java, add files to search, configure directories, and enable real time indexing.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes. The library works with any Java runtime, and you can point `basePath`
+      to a network‑mounted folder or a cloud storage mount.
+    question: Can I use GroupDocs.Search on a cloud‑based Java application?
+  - answer: Subscribe to node events (see Feature 3) and call `addFiles` or `addDirectories`
+      again for the modified paths.
+    question: How do I update the index when a file changes?
+  - answer: Practically, the limit is defined by your hardware and network bandwidth.
+      The API imposes no hard cap.
+    question: Is there a limit to the number of nodes I can deploy?
+  - answer: No. Adding files triggers indexing automatically; you only need to commit
+      if you defer the operation.
+    question: Do I need to restart nodes after adding new files?
+  - answer: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many image types—over
+      50 formats in total.
+    question: Which document formats are supported out of the box?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- search indexing
+title: GroupDocs.Search ile java tam metin aramasını nasıl uygularsınız
 type: docs
 url: /tr/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-# Java’da Aranabilir İndeks Oluşturma – GroupDocs.Search for Java’yı Dağıtın
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Günümüzün veri odaklı dünyasında, **creating a searchable index java** uygulamaları büyük belge koleksiyonlarını verimli bir şekilde yönetmek zorundadır. İster kurumsal düzeyde bir arama servisi ister daha küçük bir proje inşa ediyor olun, iyi yapılandırılmış bir arama ağı, geri getirme hızını ve alaka düzeyini büyük ölçüde artırabilir. Bu rehberde **GroupDocs.Search for Java** kurulum sürecinin tamamını, aramaya dosya eklemekten düğüme dizin eklemeye kadar adım adım anlatacağız, böylece belgelerinizi hemen indekslemeye başlayabilirsiniz.
+# Java tam metin aramasını GroupDocs.Search ile nasıl uygularsınız
 
-> **Neden Önemli:** Aranabilir bir indeks, sorgu gecikmesini saniyelerden milisaniyelere düşürür, veri artışınızla ölçeklenir ve herhangi bir Java‑tabanlı çözüme güçlü tam‑metin yetenekleri eklemenizi sağlar—ister bir web portalı, ister bir masaüstü uygulaması, ister bir bulut mikroservisi olsun.
+Veri odaklı uygulamaların çağında, **java full text search** büyük belge koleksiyonlarını anında aranabilir bilgi tabanlarına dönüştürmek için hayati öneme sahiptir. İster kurumsal düzeyde bir portal, ister hafif bir masaüstü yardımcı program geliştirin, iyi yapılandırılmış bir arama ağı sorgu gecikmesini saniyelerden milisaniyelere düşürebilir ve veri büyüdükçe sonuçların alaka düzeyini korur. Bu eğitim, **GroupDocs.Search for Java**'yı dağıtmayı, dosyaları aramaya eklemeyi, düğümlerdeki dizinleri yapılandırmayı ve indeksinizin manuel müdahale olmadan güncel kalmasını sağlayan gerçek‑zamanlı indekslemeyi nasıl etkinleştireceğinizi adım adım gösterir.
 
-## Hızlı Yanıtlar
-- **GroupDocs.Search'ün temel amacı nedir?** Dağıtık bir ağda belgeleri indekslemek ve aramak için ölçeklenebilir, Java‑tabanlı bir motor sağlar.  
-- **Hangi sürümü kullanmalıyım?** En son kararlı sürüm (ör. 25.4), yeni projeler için önerilir.  
+> **Neden bu önemli:** Bir java tam metin arama indeksi sorgu gecikmesini azaltır, veri hacmiyle ölçeklenir ve herhangi bir Java‑tabanlı çözüm—web portalları, masaüstü uygulamaları veya bulut mikro hizmetleri—için güçlü tam‑metin yetenekleri getirir.
+
+## Hızlı yanıtlar
+- **GroupDocs.Search'ün temel amacı nedir?** Dağıtılmış bir ağda belgeleri indeksleyen ve arayan ölçeklenebilir bir java arama motoru sağlar.  
+- **Hangi sürümü kullanmalıyım?** Yeni projeler için en son kararlı sürüm (ör. 25.4) önerilir.  
 - **Lisans gerekir mi?** 30‑günlük ücretsiz deneme mevcuttur; üretim kullanımı için kalıcı bir lisans gereklidir.  
-- **Hem dosyalar hem de tüm dizinler ekleyebilir miyim?** Evet – içeriği almak için `addFiles` ve `addDirectories` yardımcılarını kullanın.  
-- **Hangi Java sürümü gereklidir?** Bağımlılık yönetimi için Maven ile Java 8 ve üzeri.  
-- **Gerçek zamanlı indeksleme java nasıl çalışır?** Düğüm olaylarına abone olarak dosyalar değiştikçe otomatik yeniden indekslemeyi tetikleyebilirsiniz.
+- **Hem dosyaları hem de tüm dizinleri ekleyebilir miyim?** Evet – içerik almak için `addFiles` ve `addDirectories` yardımcılarını kullanın.  
+- **Hangi Java sürümü gereklidir?** Maven ile bağımlılık yönetimi yapılabilen Java 8 ve üzeri.  
+- **Gerçek zamanlı indeksleme java nasıl çalışır?** Düğüm olaylarına abone olarak dosyalar değiştiğinde otomatik yeniden indekslemeyi tetikleyebilirsiniz.
 
 ## “create searchable index java” nedir?
-Java’da aranabilir bir indeks oluşturmak, terimleri içeren belgelere eşleyen bir veri yapısı inşa etmek anlamına gelir ve hızlı tam‑metin sorgularını mümkün kılar. GroupDocs.Search ağır işleri soyutlayarak, belgeleri beslemeye ve arama davranışını ayarlamaya odaklanmanızı sağlar.
+Java’da aranabilir bir indeks oluşturmak, terimleri içeren belgelerle eşleyen bir veri yapısı inşa etmek anlamına gelir; bu sayede hızlı tam‑metin sorguları yapılabilir. **GroupDocs.Search for Java**, ağır işleri soyutlayarak belgeleri beslemeye ve arama davranışını ayarlamaya odaklanmanızı sağlar.
 
-## Neden GroupDocs.Search for Java Kullanmalı?
-- **Ölçeklenebilir ağ mimarisi** – İndeksleme iş yükünü paylaşan birden fazla düğüm dağıtın.  
-- **Zengin belge formatı desteği** – PDF'ler, Word, Excel, PowerPoint, görüntüler ve daha fazlası.  
-- **Olay‑tabanlı güncellemeler** – Düğüm olaylarına abone olarak indeksi gerçek zamanlı taze tutun.  
-- **Basit Maven entegrasyonu** – `pom.xml` dosyasına birkaç satır ekleyin ve indekslemeye başlayın.
-
-## GroupDocs.Search ile gerçek zamanlı indeksleme java
-GroupDocs.Search, bir dosya eklendiğinde, güncellendiğinde veya kaldırıldığında olaylar tetikler. Bu olayları işleyerek `addFiles` veya `addDirectories` metodlarını otomatik olarak çağırabilir, indeksin manuel müdahale olmadan senkronize kalmasını sağlayabilirsiniz. Bu yaklaşım, belge yönetim sistemleri, içerik portalları ve verilerin sık sık değiştiği tüm uygulamalar için idealdir.
+## Neden GroupDocs.Search for Java kullanmalıyım?
+GroupDocs.Search, yatay olarak ölçeklenebilen bir java arama motoru sunar, 50'den fazla giriş ve çıkış formatını destekler ve olay‑tabanlı indekslemeye imkan tanır. Birden çok düğüm dağıtarak indeksleme iş yükünü yayabilir, yerleşik sağlık kontrolleriyle ağın güvenilirliğini sağlayabilirsiniz. Ayrıca RESTful API'ler ve ince ayar yapılabilir analizörler sunar.
 
 ## Önkoşullar
-- **JDK 8+** geliştirme makinenizde kurulu olmalı.  
+- **JDK 8+** geliştirme makinenizde kurulu.  
 - **IntelliJ IDEA** veya **Eclipse** gibi bir IDE.  
 - **Java** ve **Maven** hakkında temel bilgi.  
 - **GroupDocs.Search for Java** kütüphanesine erişim (indirme veya Maven).
 
-## GroupDocs.Search for Java Kurulumu
+## GroupDocs.Search for Java kurulumu
 
-### Maven Bağımlılığı
+### Maven bağımlılığı
 `pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
 
 ```xml
@@ -68,17 +102,17 @@ GroupDocs.Search, bir dosya eklendiğinde, güncellendiğinde veya kaldırıldı
 </dependencies>
 ```
 
-> **Pro ipucu:** Resmi sürüm sayfasını kontrol ederek sürüm numarasını güncel tutun.
+> **İpucu:** Resmi sürüm sayfasını kontrol ederek sürüm numarasını güncel tutun.
 
-JAR dosyasını doğrudan resmi siteden de indirebilirsiniz: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+JAR dosyasını doğrudan resmi siteden de indirebilirsiniz: [GroupDocs.Search for Java sürümleri](https://releases.groupdocs.com/search/java/).
 
-### Lisans Edinme
-- **Ücretsiz Deneme:** 30‑günlük değerlendirme.  
-- **Geçici Lisans:** Uzatılmış test için talep edin.  
-- **Satın Alma:** Üretim dağıtımları için gereklidir.
+### Lisans edinme
+- **Ücretsiz deneme:** 30‑günlük değerlendirme.  
+- **Geçici lisans:** Uzatılmış test için talep edin.  
+- **Satın alma:** Üretim dağıtımları için gereklidir.
 
-### Temel Başlatma
-İndeks dosyalarının saklanacağı bir klasöre işaret eden ve temel iletişim portunu tanımlayan bir yapılandırma nesnesi oluşturun:
+### Temel başlatma
+İndeks dosyalarının saklanacağı klasöre işaret eden ve temel iletişim portunu tanımlayan bir yapılandırma nesnesi oluşturun:
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -94,11 +128,11 @@ class InitializeSearch {
 }
 ```
 
-## GroupDocs.Search ile searchable index java nasıl oluşturulur?
-Aşağıda, **add files to search** ve **add directories to node** işlemleri için ihtiyaç duyacağınız temel özellikleri, aynı zamanda ölçeklenebilir bir ağ dağıtarak açıklıyoruz.
+## GroupDocs.Search ile java tam metin arama indeksi nasıl oluşturulur?
+Bir `SearchConfiguration` nesnesi yükleyin, bir `SearchNetworkNode` başlatın ve `node.getIndexer().addFiles(...)` çağrısıyla indeksi doldurun. Bu tek‑satır kalıp, sorguları anında kabul eden tam işlevsel bir java tam metin arama ağı oluşturur. Aynı temel yol ve port aralığını paylaşan daha fazla düğüm ekleyerek ölçeklendirebilirsiniz.
 
-### Özellik 1 – Yapılandırma ve Ağ Kurulumu
-Arama ağını yapılandırmak, aranabilir bir indeks oluşturmanın ilk adımıdır.
+### Özellik 1 – yapılandırma ve ağ kurulumu
+`SearchConfiguration` sınıfı bir düğümü ayağa kaldırmak için gereken tüm ayarları tutar.
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -113,10 +147,10 @@ class ConfiguringSearchNetwork {
 ```
 
 - **`basePath`** – İndeks verisinin kalıcı olarak saklanacağı dizin.  
-- **`basePort`** – Başlangıç portu; her düğüm bu değerden itibaren artar.
+- **`basePort`** – Başlangıç portu; her düğüm bu değerden artar.
 
-### Özellik 2 – Arama Ağ Düğümlerini Dağıtma
-Düğümlerin dağıtılması, indeksleme iş yükünü birden fazla makine veya süreç arasında dağıtır.
+### Özellik 2 – arama ağı düğümlerinin dağıtımı
+`SearchNetworkNode` herhangi bir makinede çalışabilen bireysel bir indeksleme hizmetini temsil eder.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -129,10 +163,10 @@ class SearchNetworkDeployment {
 }
 ```
 
-Her `SearchNetworkNode` kendi indeksleme hizmetini çalıştırır ve yatay olarak ölçeklenen bir **create searchable index java** oluşturmanızı sağlar.
+`SearchNetworkNode`, bir indeksi barındıran, ekleme/çıkarma olaylarını işleyen ve arama sorgularına yanıt veren çekirdek çalışma zaman bileşenidir. Birden çok düğüm dağıtarak **java full text search** kümeleri oluşturabilir ve yatay olarak ölçeklendirebilirsiniz.
 
-### Özellik 3 – Düğüm Olaylarına Abone Olma
-Gerçek zamanlı güncellemeler, indeksi dosya sistemi değişiklikleriyle senkronize tutar.
+### Özellik 3 – düğüm olaylarına abone olma
+Gerçek‑zamanlı güncellemeler indeksin dosya sistemi değişiklikleriyle senkronize kalmasını sağlar.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -144,10 +178,10 @@ class SearchNetworkNodeEvents {
 }
 ```
 
-Olayları dinleyerek yeni dosyalar geldiğinde otomatik olarak yeniden indekslemeyi tetikleyebilirsiniz.
+Olayları dinleyerek yeni dosyalar geldiğinde otomatik olarak yeniden indekslemeyi tetikleyebilir, **event driven indexing**'i manuel betikler olmadan gerçekleştirebilirsiniz.
 
-### Özellik 4 – Ağ Düğümüne Dizin Ekleme
-Bu yardımcıyı **add directories to node** için kullanın; desteklenen tüm belgeleri yinelemeli olarak toplar.
+### Özellik 4 – düğüme dizin ekleme
+Bu yardımcıyı **dizinleri düğüme eklemek** için kullanın; desteklenen tüm belgeleri özyinelemeli olarak toplar.
 
 ```java
 import java.io.File;
@@ -175,8 +209,10 @@ class DirectoryAdder {
 }
 ```
 
-### Özellik 5 – Ağ Düğümüne Dosya Ekleme
-İnce ayar kontrolüne ihtiyaç duyduğunuzda, **add files to search** işlemini tek tek yapın:
+`DirectoryAdder.addDirectories(node, path)` yöntemi bir klasör ağacını dolaşır ve her desteklenen dosya için `addFiles` çağrısı yapar, toplu alımı basitleştirir.
+
+### Özellik 5 – düğüme dosya ekleme
+Daha ince ayar gerektiğinde, **dosyaları tek tek aramaya ekleyin**:
 
 ```java
 import com.groupdocs.search.Document;
@@ -220,47 +256,59 @@ class FileAdder {
 }
 ```
 
-Bu yöntem, akışlardan, bulut depolamadan veya geçici konumlardan gelen dosyaları indeksleme esnekliği sağlar.
+`addFiles`, dosya yolu listesi veya akışları kabul eden bir yöntemdir; bulut depolama, geçici önbellekler veya bellek içi akışlardan belgeleri indekslemenizi sağlar.
 
-## Yaygın Kullanım Senaryoları
-- **Kurumsal belge portalları** binlerce PDF ve Office dosyası üzerinde anlık arama ihtiyacı duyan.  
-- **Hukuki e‑keşif platformları** yeni kanıtların sürekli eklendiği ve gerçek zamanlı aranabilir olması gereken.  
-- **İçerik yönetim sistemleri** görüntüler, sunumlar ve elektronik tablolar depolayan ve tam‑metin arama gerektiren.
+## Yaygın kullanım senaryoları
+- **Kurumsal belge portalları** binlerce PDF ve Office dosyası üzerinde anlık arama gerektiren.  
+- **Hukuki e‑keşif platformları** yeni deliller sürekli eklendiğinde gerçek zamanlı aranabilir olmalı.  
+- **İçerik yönetim sistemleri** resim, sunum ve elektronik tablo depolayan ve tam‑metin arama ihtiyacı olan.
 
-## Yaygın Sorunlar ve Çözümler
+## Yaygın sorunlar & çözümler
 | Sorun | Neden | Çözüm |
 |-------|--------|-----|
-| **Arama sonuçlarında belge görünmüyor** | İndeks commit edilmemiş | Dosyalar eklendikten sonra `node.getIndexer().commit()` çağırın. |
-| **Port çakışma hatası** | Başka bir hizmet `basePort` kullanıyor | Farklı bir `basePort` seçin veya boş portları kontrol edin. |
-| **Desteklenmeyen dosya formatı** | Kütüphanede ayrıştırıcı yok | Dosya uzantısının desteklendiğinden emin olun veya özel bir çıkarıcı ekleyin. |
+| **Arama sonuçlarında belge görünmüyor** | İndeks henüz commit edilmemiş | Dosyaları ekledikten sonra `node.getIndexer().commit()` çağırın. |
+| **Port çakışması hatası** | Başka bir hizmet `basePort`'u kullanıyor | Farklı bir `basePort` seçin veya boş portları kontrol edin. |
+| **Desteklenmeyen dosya formatı** | Kütüphane ilgili ayrıştırıcıyı içermiyor | Dosya uzantısının desteklendiğinden emin olun veya özel bir çıkarıcı ekleyin. |
 
-## Sorun Giderme İpuçları
-- **Düğüm sağlığını doğrulayın:** Her düğümün çalıştığını onaylamak için yerleşik sağlık kontrolü uç noktasını (`http://localhost:{port}/health`) kullanın.  
-- **Bellek kullanımını izleyin:** Büyük belge topluları bellek kullanımını artırabilir; daha küçük parçalar halinde indekslemeyi ve periyodik olarak `commit()` çağırmayı düşünün.  
-- **Kayıtları kontrol edin:** GroupDocs.Search, `basePath` klasörüne ayrıntılı günlükler yazar—parçalama hataları veya ağ zaman aşımı için inceleyin.
+## Sorun giderme ipuçları
+- **Düğüm sağlığını doğrulayın:** Yerleşik sağlık‑kontrol uç noktasını (`http://localhost:{port}/health`) kullanarak her düğümün çalıştığını onaylayın.  
+- **Bellek kullanımını izleyin:** Büyük belge topluları bellek tüketimini artırabilir; daha küçük parçalar halinde indeksleyin ve periyodik olarak `commit()` çağırın.  
+- **Günlükleri kontrol edin:** GroupDocs.Search, `basePath` klasörüne ayrıntılı günlükler yazar—parsing hataları veya ağ zaman aşımı için bunları inceleyin.
 
-## Sıkça Sorulan Sorular
+## Sıkça sorulan sorular
 
 **S: GroupDocs.Search'ü bulut‑tabanlı bir Java uygulamasında kullanabilir miyim?**  
-C: Evet. Kütüphane herhangi bir Java çalışma zamanı ile çalışır ve `basePath`'i ağ‑bağlı bir klasöre veya yerel olarak bağlanmış bulut depolamaya yönlendirebilirsiniz.
+C: Evet. Kütüphane herhangi bir Java çalışma zamanı ile çalışır ve `basePath`'i ağ‑bağlı bir klasöre veya bulut depolama bağlamına yönlendirebilirsiniz.
 
 **S: Bir dosya değiştiğinde indeksi nasıl güncellerim?**  
-C: Düğüm olaylarına abone olun (bkz. Özellik 3) ve değiştirilen yollar için `addFiles` veya `addDirectories` tekrar çağırın.
+C: Düğüm olaylarına abone olun (bkz. Özellik 3) ve değiştirilen yollar için tekrar `addFiles` veya `addDirectories` çağırın.
 
-**S: Dağıtabileceğim düğüm sayısında bir sınırlama var mı?**  
-C: Pratikte, limit donanımınız ve ağ bant genişliğinizle belirlenir. API'nin kendisi kesin bir üst sınır koymaz.
+**S: Dağıtabileceğim düğüm sayısına bir limit var mı?**  
+C: Pratikte limit donanım ve ağ bant genişliğinizle belirlenir. API sabit bir üst sınır koymaz.
 
 **S: Yeni dosyalar ekledikten sonra düğümleri yeniden başlatmam gerekir mi?**  
-C: Hayır. Dosya eklemek otomatik olarak indekslemeyi tetikler; işlemi ertelediyseniz sadece commit etmeniz gerekir.
+C: Hayır. Dosya ekleme otomatik olarak indekslemeyi tetikler; işlemi ertelediyseniz `commit` yapmanız yeterlidir.
 
-**S: Hangi belge formatları kutudan çıkar çıkmaz desteklenir?**  
-C: PDF'ler, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML ve birçok görüntü türü. Tam liste için resmi belgelere bakın.
+**S: Hangi belge formatları kutudan çıktığı gibi desteklenir?**  
+C: PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML ve birçok görüntü türü—toplamda 50'den fazla format.
 
-**S: Sürekli dosya yükleyen bir klasör için gerçek zamanlı indeksleme java'yı nasıl etkinleştirebilirim?**  
-C: Yeni bir dosya algılandığında `DirectoryAdder.addDirectories(node, path)` çağıran bir dosya sistemi izleyicisi (ör. `java.nio.file.WatchService`) uygulayın.
+**S: Sürekli dosya yüklemesi alan bir klasör için gerçek zamanlı indeksleme java nasıl etkinleştirilir?**  
+C: `java.nio.file.WatchService` gibi bir dosya sistemi izleyici uygulayarak yeni bir dosya tespit edildiğinde `DirectoryAdder.addDirectories(node, path)` çağırın.
 
 ---
 
-**Son Güncelleme:** 2026-02-27  
-**Test Edilen Sürüm:** GroupDocs.Search for Java 25.4  
+**Son güncelleme:** 2026-09-27  
+**Test edilen sürüm:** GroupDocs.Search for Java 25.4  
 **Yazar:** GroupDocs
+
+## İlgili Eğitimler
+
+- [java tam metin arama nasıl uygulanır: GroupDocs.Search ile indeks dizini oluşturma](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Full Text Search Java Groupdocs Search uygulama](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [GroupDocs.Search ile Java’da Aramayı Yapılandırma - Konfigürasyon & Dağıtım Kılavuzu](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

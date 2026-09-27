@@ -1,56 +1,86 @@
 ---
-date: '2026-02-27'
-description: Học cách tạo chỉ mục tìm kiếm bằng Java với GroupDocs.Search cho Java,
-  thêm tệp vào tìm kiếm, thêm thư mục vào node và kích hoạt chỉ mục thời gian thực
-  bằng Java.
+date: '2026-09-27'
+description: Tìm hiểu cách triển khai tìm kiếm toàn văn java bằng GroupDocs.Search
+  cho Java, thêm tệp vào tìm kiếm, cấu hình thư mục và bật lập chỉ mục thời gian thực.
 keywords:
-- GroupDocs.Search for Java
-- deploy GroupDocs.Search
-- Java search network setup
-title: Tạo chỉ mục tìm kiếm Java – Triển khai GroupDocs.Search cho Java
+- java full text search
+- event driven indexing
+- java search engine
+- add files to search
+- real time indexing java
+lastmod: '2026-09-27'
+og_description: Triển khai tìm kiếm toàn văn java bằng GroupDocs.Search. Tìm hiểu
+  cách thêm tệp, cấu hình nút và bật lập chỉ mục thời gian thực trong vài phút.
+og_image_alt: Guide to setting up java full text search with GroupDocs.Search
+og_title: Cách triển khai tìm kiếm toàn văn java với GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    for Java, add files to search, configure directories, and enable real time indexing.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes. The library works with any Java runtime, and you can point `basePath`
+      to a network‑mounted folder or a cloud storage mount.
+    question: Can I use GroupDocs.Search on a cloud‑based Java application?
+  - answer: Subscribe to node events (see Feature 3) and call `addFiles` or `addDirectories`
+      again for the modified paths.
+    question: How do I update the index when a file changes?
+  - answer: Practically, the limit is defined by your hardware and network bandwidth.
+      The API imposes no hard cap.
+    question: Is there a limit to the number of nodes I can deploy?
+  - answer: No. Adding files triggers indexing automatically; you only need to commit
+      if you defer the operation.
+    question: Do I need to restart nodes after adding new files?
+  - answer: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many image types—over
+      50 formats in total.
+    question: Which document formats are supported out of the box?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- search indexing
+title: Cách triển khai tìm kiếm toàn văn java với GroupDocs.Search
 type: docs
 url: /vi/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-Make sure we keep all markdown formatting.
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Now produce final translated content.# Tạo Chỉ mục Tìm kiếm Java – Triển khai GroupDocs.Search cho Java
+# Cách triển khai tìm kiếm toàn văn java với GroupDocs.Search
 
-Trong thế giới hiện nay dựa trên dữ liệu, các ứng dụng **tạo chỉ mục tìm kiếm java** cần xử lý các bộ sưu tập tài liệu khổng lồ một cách hiệu quả. Dù bạn đang xây dựng một dịch vụ tìm kiếm cấp doanh nghiệp hay một dự án nhỏ hơn, một mạng lưới tìm kiếm được cấu hình tốt có thể cải thiện đáng kể tốc độ truy xuất và độ liên quan. Trong hướng dẫn này, chúng tôi sẽ đi qua toàn bộ quá trình thiết lập **GroupDocs.Search for Java**, từ việc thêm tệp để tìm kiếm đến việc thêm thư mục vào node, để bạn có thể bắt đầu lập chỉ mục tài liệu ngay lập tức.
+Trong thời đại các ứng dụng dựa trên dữ liệu, **java full text search** là yếu tố thiết yếu để biến các bộ sưu tập tài liệu khổng lồ thành các cơ sở tri thức có thể tìm kiếm ngay lập tức. Dù bạn đang xây dựng một cổng thông tin doanh nghiệp hay một tiện ích máy tính để bàn nhẹ, một mạng lưới tìm kiếm được cấu hình tốt có thể giảm độ trễ truy vấn từ giây xuống mili giây và giữ cho kết quả luôn phù hợp khi dữ liệu tăng lên. Hướng dẫn này sẽ chỉ cho bạn cách triển khai **GroupDocs.Search for Java**, thêm tệp vào tìm kiếm, cấu hình thư mục trên các nút, và bật lập chỉ mục thời gian thực để chỉ mục của bạn luôn cập nhật mà không cần can thiệp thủ công.
 
-> **Tại sao điều này quan trọng:** Một chỉ mục tìm kiếm giảm độ trễ truy vấn từ giây xuống mili giây, mở rộng cùng sự tăng trưởng dữ liệu của bạn, và cho phép bạn thêm các khả năng tìm kiếm toàn văn mạnh mẽ vào bất kỳ giải pháp dựa trên Java nào—dù là cổng web, ứng dụng desktop, hay microservice đám mây.
+> **Tại sao điều này quan trọng:** Một chỉ mục java full text search giảm độ trễ truy vấn, mở rộng theo khối lượng dữ liệu, và mang lại khả năng toàn văn mạnh mẽ cho bất kỳ giải pháp dựa trên Java nào—cổng thông tin web, ứng dụng máy tính để bàn, hoặc microservice đám mây.
 
 ## Câu trả lời nhanh
-- **Mục đích chính của GroupDocs.Search là gì?** Nó cung cấp một engine có khả năng mở rộng, dựa trên Java, để lập chỉ mục và tìm kiếm tài liệu trên một mạng lưới phân tán.  
-- **Tôi nên sử dụng phiên bản nào?** Bản phát hành ổn định mới nhất (ví dụ, 25.4) được khuyến nghị cho các dự án mới.  
-- **Tôi có cần giấy phép không?** Bản dùng thử miễn phí 30 ngày có sẵn; giấy phép vĩnh viễn là bắt buộc cho môi trường sản xuất.  
-- **Tôi có thể thêm cả tệp và toàn bộ thư mục không?** Có – sử dụng các helper `addFiles` và `addDirectories` để nhập nội dung.  
-- **Yêu cầu phiên bản Java nào?** Java 8 hoặc cao hơn, cùng Maven để quản lý phụ thuộc.  
-- **Cách hoạt động của real time indexing java là gì?** Bằng cách đăng ký các sự kiện node, bạn có thể kích hoạt việc lập chỉ mục lại tự động khi tệp thay đổi.
+- **What is the primary purpose of GroupDocs.Search?** Nó cung cấp một công cụ tìm kiếm java có khả năng mở rộng, cho phép lập chỉ mục và tìm kiếm tài liệu trên một mạng lưới phân tán.  
+- **Which version should I use?** Phiên bản ổn định mới nhất (ví dụ, 25.4) được khuyến nghị cho các dự án mới.  
+- **Do I need a license?** Bản dùng thử miễn phí 30 ngày có sẵn; giấy phép vĩnh viễn là bắt buộc cho môi trường sản xuất.  
+- **Can I add both files and whole directories?** Có – sử dụng các hàm trợ giúp `addFiles` và `addDirectories` để nhập nội dung.  
+- **What Java version is required?** Java 8 hoặc cao hơn, cùng với Maven để quản lý phụ thuộc.  
+- **How does real time indexing java work?** Bằng cách đăng ký các sự kiện của nút, bạn có thể kích hoạt việc lập chỉ mục lại tự động khi tệp thay đổi.
 
-## “tạo chỉ mục tìm kiếm java” là gì?
-Tạo một chỉ mục tìm kiếm trong Java có nghĩa là xây dựng một cấu trúc dữ liệu ánh xạ các thuật ngữ tới các tài liệu chứa chúng, cho phép truy vấn toàn văn nhanh chóng. GroupDocs.Search trừu tượng hoá các công việc nặng, cho phép bạn tập trung vào việc cung cấp tài liệu và điều chỉnh hành vi tìm kiếm.
+## “create searchable index java” là gì?
+Tạo một chỉ mục có thể tìm kiếm trong Java có nghĩa là xây dựng một cấu trúc dữ liệu ánh xạ các thuật ngữ tới các tài liệu chứa chúng, cho phép truy vấn toàn văn nhanh chóng. **GroupDocs.Search for Java** trừu tượng hoá công việc nặng, cho phép bạn tập trung vào việc cung cấp tài liệu và tinh chỉnh hành vi tìm kiếm.
 
 ## Tại sao nên sử dụng GroupDocs.Search cho Java?
-- **Kiến trúc mạng có khả năng mở rộng** – Triển khai nhiều node chia sẻ khối lượng công việc lập chỉ mục.  
-- **Hỗ trợ đa dạng định dạng tài liệu** – PDF, Word, Excel, PowerPoint, hình ảnh, và nhiều hơn nữa.  
-- **Cập nhật dựa trên sự kiện** – Đăng ký các sự kiện node để giữ chỉ mục luôn mới theo thời gian thực.  
-- **Tích hợp Maven đơn giản** – Thêm một vài dòng vào `pom.xml` và bắt đầu lập chỉ mục.
-
-## Lập chỉ mục thời gian thực java với GroupDocs.Search
-GroupDocs.Search phát sinh các sự kiện mỗi khi một tệp được thêm, cập nhật hoặc xóa. Bằng cách xử lý các sự kiện này, bạn có thể gọi `addFiles` hoặc `addDirectories` một cách tự động, đảm bảo chỉ mục luôn đồng bộ mà không cần can thiệp thủ công. Cách tiếp cận này lý tưởng cho hệ thống quản lý tài liệu, cổng nội dung, và bất kỳ ứng dụng nào mà dữ liệu thay đổi thường xuyên.
+GroupDocs.Search cung cấp một công cụ tìm kiếm java có khả năng mở rộng theo chiều ngang, hỗ trợ hơn 50 định dạng đầu vào và đầu ra, và cung cấp lập chỉ mục dựa trên sự kiện. Triển khai nhiều nút sẽ phân tán khối lượng công việc lập chỉ mục, trong khi các kiểm tra sức khỏe tích hợp giữ cho mạng lưới đáng tin cậy. Nó cũng cung cấp các API RESTful và các bộ phân tích có thể tùy chỉnh để đạt độ liên quan tối ưu.
 
 ## Yêu cầu trước
-- **JDK 8+** được cài đặt trên máy phát triển của bạn.  
+- **JDK 8+** đã được cài đặt trên máy phát triển của bạn.  
 - Một IDE như **IntelliJ IDEA** hoặc **Eclipse**.  
 - Kiến thức cơ bản về **Java** và **Maven**.  
-- Truy cập vào thư viện **GroupDocs.Search for Java** (tải xuống hoặc Maven).
+- Truy cập vào thư viện **GroupDocs.Search for Java** (tải xuống hoặc Maven).  
 
 ## Cài đặt GroupDocs.Search cho Java
 
 ### Phụ thuộc Maven
-Thêm kho và phụ thuộc vào `pom.xml` của bạn:
+Thêm kho lưu trữ và phụ thuộc vào file `pom.xml` của bạn:
 
 ```xml
 <repositories>
@@ -70,17 +100,17 @@ Thêm kho và phụ thuộc vào `pom.xml` của bạn:
 </dependencies>
 ```
 
-> **Mẹo:** Giữ số phiên bản luôn cập nhật bằng cách kiểm tra trang phát hành chính thức.
+**Mẹo chuyên nghiệp:** Giữ số phiên bản luôn cập nhật bằng cách kiểm tra trang phát hành chính thức.
 
 Bạn cũng có thể tải JAR trực tiếp từ trang chính thức: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Nhận giấy phép
-- **Dùng thử miễn phí:** Đánh giá 30 ngày.  
-- **Giấy phép tạm thời:** Yêu cầu để thử nghiệm kéo dài.  
-- **Mua:** Cần thiết cho triển khai sản xuất.
+- **Free trial:** Đánh giá trong 30 ngày.  
+- **Temporary license:** Yêu cầu để thử nghiệm kéo dài.  
+- **Purchase:** Yêu cầu cho triển khai sản xuất.  
 
 ### Khởi tạo cơ bản
-Tạo một đối tượng cấu hình trỏ tới thư mục nơi các tệp chỉ mục sẽ được lưu và định nghĩa cổng giao tiếp cơ bản:
+Tạo một đối tượng cấu hình trỏ tới thư mục nơi các tệp chỉ mục sẽ được lưu và xác định cổng giao tiếp cơ bản:
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -96,12 +126,11 @@ class InitializeSearch {
 }
 ```
 
-## Cách tạo chỉ mục tìm kiếm java với GroupDocs.Search?
+## Cách tạo searchable index java với GroupDocs.Search?
+Tải một đối tượng `SearchConfiguration`, khởi động một `SearchNetworkNode`, và gọi `node.getIndexer().addFiles(...)` để điền dữ liệu vào chỉ mục. Mẫu một dòng này sẽ khởi động một mạng lưới java full text search đầy đủ chức năng, sẵn sàng nhận truy vấn ngay lập tức. Sau đó bạn có thể mở rộng bằng cách thêm nhiều nút hơn chia sẻ cùng đường dẫn cơ bản và dải cổng.
 
-Dưới đây chúng tôi sẽ phân tích các tính năng cốt lõi mà bạn sẽ cần để **add files to search** và **add directories to node**, đồng thời triển khai một mạng lưới có khả năng mở rộng.
-
-### Tính năng 1 – Cấu hình và Thiết lập Mạng
-Cấu hình mạng tìm kiếm là bước đầu tiên để xây dựng một chỉ mục tìm kiếm.
+### Tính năng 1 – cấu hình và thiết lập mạng
+Lớp `SearchConfiguration` chứa tất cả các cài đặt cần thiết để khởi tạo một nút.
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -116,10 +145,10 @@ class ConfiguringSearchNetwork {
 ```
 
 - **`basePath`** – Thư mục nơi dữ liệu chỉ mục sẽ được lưu trữ.  
-- **`basePort`** – Cổng khởi đầu; mỗi node sẽ tăng dần từ giá trị này.
+- **`basePort`** – Cổng khởi đầu; mỗi nút sẽ tăng dần từ giá trị này.
 
-### Tính năng 2 – Triển khai các Node Mạng Tìm kiếm
-Triển khai các node phân phối khối lượng công việc lập chỉ mục trên nhiều máy hoặc quy trình.
+### Tính năng 2 – triển khai các nút mạng tìm kiếm
+`SearchNetworkNode` đại diện cho một dịch vụ lập chỉ mục riêng lẻ có thể chạy trên bất kỳ máy nào.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -132,9 +161,9 @@ class SearchNetworkDeployment {
 }
 ```
 
-Mỗi `SearchNetworkNode` chạy dịch vụ lập chỉ mục riêng, cho phép bạn **create a searchable index java** có khả năng mở rộng theo chiều ngang.
+`SearchNetworkNode` là thành phần runtime cốt lõi lưu trữ một chỉ mục, xử lý các sự kiện thêm/xóa, và phản hồi các truy vấn tìm kiếm. Triển khai nhiều nút cho phép bạn **create java full text search** các cụm mở rộng theo chiều ngang.
 
-### Tính năng 3 – Đăng ký các Sự kiện Node
+### Tính năng 3 – đăng ký các sự kiện của nút
 Cập nhật thời gian thực giữ cho chỉ mục đồng bộ với các thay đổi của hệ thống tệp.
 
 ```java
@@ -147,10 +176,10 @@ class SearchNetworkNodeEvents {
 }
 ```
 
-Bằng cách lắng nghe các sự kiện, bạn có thể tự động kích hoạt việc lập chỉ mục lại khi có tệp mới xuất hiện.
+Bằng cách lắng nghe các sự kiện, bạn có thể tự động kích hoạt việc lập chỉ mục lại khi có tệp mới, đạt được **event driven indexing** mà không cần script thủ công.
 
-### Tính năng 4 – Thêm Thư mục vào Node Mạng
-Sử dụng helper này để **add directories to node**, thu thập đệ quy tất cả các tài liệu được hỗ trợ.
+### Tính năng 4 – thêm thư mục vào nút mạng
+Sử dụng trợ giúp này để **add directories to node**, thu thập đệ quy tất cả các tài liệu được hỗ trợ.
 
 ```java
 import java.io.File;
@@ -178,7 +207,7 @@ class DirectoryAdder {
 }
 ```
 
-### Tính năng 5 – Thêm Tệp vào Node Mạng
+### Tính năng 5 – thêm tệp vào nút mạng
 Khi bạn cần kiểm soát chi tiết, **add files to search** từng tệp một:
 
 ```java
@@ -223,46 +252,57 @@ class FileAdder {
 }
 ```
 
-Phương pháp này cung cấp cho bạn tính linh hoạt để lập chỉ mục các tệp đến từ luồng, lưu trữ đám mây, hoặc vị trí tạm thời.
-
 ## Các trường hợp sử dụng phổ biến
-- **Cổng tài liệu doanh nghiệp** cần tìm kiếm tức thời trên hàng ngàn tệp PDF và Office.  
-- **Nền tảng e‑discovery pháp lý** nơi bằng chứng mới được liên tục thêm và phải có khả năng tìm kiếm thời gian thực.  
-- **Hệ thống quản lý nội dung** lưu trữ hình ảnh, bản trình bày và bảng tính và yêu cầu tra cứu toàn văn.
+- **Enterprise document portals** cần tìm kiếm ngay lập tức trên hàng ngàn tệp PDF và Office.  
+- **Legal e‑discovery platforms** nơi bằng chứng mới được thêm liên tục và phải có khả năng tìm kiếm thời gian thực.  
+- **Content management systems** lưu trữ hình ảnh, bản trình bày và bảng tính và yêu cầu tra cứu toàn văn.
 
-## Các vấn đề thường gặp & Giải pháp
-
-| Vấn đề | Nguyên nhân | Giải pháp |
-|-------|------------|----------|
+## Các vấn đề thường gặp & giải pháp
+| Vấn đề | Nguyên nhân | Cách khắc phục |
+|-------|------------|----------------|
 | **Không có tài liệu nào xuất hiện trong kết quả tìm kiếm** | Chỉ mục chưa được commit | Gọi `node.getIndexer().commit()` sau khi thêm tệp. |
 | **Lỗi xung đột cổng** | Dịch vụ khác đang sử dụng `basePort` | Chọn một `basePort` khác hoặc kiểm tra các cổng còn trống. |
 | **Định dạng tệp không được hỗ trợ** | Thư viện thiếu bộ phân tích | Đảm bảo phần mở rộng tệp được hỗ trợ hoặc thêm bộ trích xuất tùy chỉnh. |
 
 ## Mẹo khắc phục sự cố
-- **Xác minh trạng thái node:** Sử dụng endpoint kiểm tra sức khỏe tích hợp (`http://localhost:{port}/health`) để xác nhận mỗi node đang chạy.  
-- **Giám sát việc sử dụng bộ nhớ:** Các lô tài liệu lớn có thể gây tăng đột biến bộ nhớ; hãy xem xét lập chỉ mục theo các khối nhỏ hơn và gọi `commit()` định kỳ.  
-- **Kiểm tra log:** GroupDocs.Search ghi log chi tiết vào thư mục `basePath` — xem xét chúng để tìm lỗi phân tích hoặc thời gian chờ mạng.
+- **Verify node health:** Sử dụng endpoint kiểm tra sức khỏe tích hợp (`http://localhost:{port}/health`) để xác nhận mỗi nút đang chạy.  
+- **Monitor memory usage:** Các lô tài liệu lớn có thể làm tăng mức sử dụng bộ nhớ; lập chỉ mục theo các phần nhỏ hơn và gọi `commit()` định kỳ.  
+- **Check logs:** GroupDocs.Search ghi log chi tiết vào thư mục `basePath`—xem lại chúng để phát hiện lỗi phân tích hoặc thời gian chờ mạng.
 
 ## Câu hỏi thường gặp
 
-**Hỏi: Tôi có thể sử dụng GroupDocs.Search trên ứng dụng Java dựa trên đám mây không?**  
-A: Có. Thư viện hoạt động với bất kỳ môi trường chạy Java nào, và bạn có thể trỏ `basePath` tới một thư mục được gắn mạng hoặc lưu trữ đám mây được gắn cục bộ.
+**Q: Tôi có thể sử dụng GroupDocs.Search trên ứng dụng Java dựa trên đám mây không?**  
+A: Có. Thư viện hoạt động với bất kỳ môi trường Java nào, và bạn có thể trỏ `basePath` tới một thư mục được gắn mạng hoặc một ổ lưu trữ đám mây.
 
-**Hỏi: Làm thế nào để cập nhật chỉ mục khi một tệp thay đổi?**  
-A: Đăng ký các sự kiện node (xem Tính năng 3) và gọi lại `addFiles` hoặc `addDirectories` cho các đường dẫn đã sửa đổi.
+**Q: Làm thế nào để cập nhật chỉ mục khi tệp thay đổi?**  
+A: Đăng ký các sự kiện của nút (xem Tính năng 3) và gọi lại `addFiles` hoặc `addDirectories` cho các đường dẫn đã sửa đổi.
 
-**Hỏi: Có giới hạn số lượng node tôi có thể triển khai không?**  
-A: Thực tế, giới hạn được xác định bởi phần cứng và băng thông mạng của bạn. API không áp đặt bất kỳ giới hạn cứng nào.
+**Q: Có giới hạn về số lượng nút tôi có thể triển khai không?**  
+A: Thực tế, giới hạn được xác định bởi phần cứng và băng thông mạng của bạn. API không đặt giới hạn cứng.
 
-**Hỏi: Tôi có cần khởi động lại các node sau khi thêm tệp mới không?**  
-A: Không. Thêm tệp sẽ tự động kích hoạt việc lập chỉ mục; bạn chỉ cần commit nếu hoãn thao tác.
+**Q: Tôi có cần khởi động lại các nút sau khi thêm tệp mới không?**  
+A: Không. Thêm tệp sẽ tự động kích hoạt lập chỉ mục; bạn chỉ cần commit nếu hoãn thao tác.
 
-**Hỏi: Các định dạng tài liệu nào được hỗ trợ mặc định?**  
-A: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, và nhiều loại hình ảnh. Xem tài liệu chính thức để biết danh sách đầy đủ.
+**Q: Những định dạng tài liệu nào được hỗ trợ ngay từ đầu?**  
+A: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, và nhiều loại hình ảnh—tổng cộng hơn 50 định dạng.
 
-**Hỏi: Làm thế nào tôi có thể bật real time indexing java cho một thư mục nhận tải lên liên tục?**  
-A: Triển khai một trình giám sát hệ thống tệp (ví dụ, `java.nio.file.WatchService`) gọi `DirectoryAdder.addDirectories(node, path)` mỗi khi phát hiện tệp mới.
+**Q: Làm thế nào để bật real time indexing java cho một thư mục nhận tải lên liên tục?**  
+A: Triển khai một trình giám sát hệ thống tệp (ví dụ, `java.nio.file.WatchService`) để gọi `DirectoryAdder.addDirectories(node, path)` mỗi khi phát hiện tệp mới.
 
-**Cập nhật lần cuối:** 2026-02-27  
+---
+
+**Cập nhật lần cuối:** 2026-09-27  
 **Kiểm tra với:** GroupDocs.Search for Java 25.4  
 **Tác giả:** GroupDocs
+
+## Hướng dẫn liên quan
+
+- [Cách triển khai java full text search: tạo thư mục chỉ mục với GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Triển khai Full Text Search Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Cách cấu hình Search với GroupDocs.Search trong Java - Hướng dẫn cấu hình & triển khai](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

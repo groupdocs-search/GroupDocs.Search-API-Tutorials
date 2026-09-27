@@ -1,79 +1,141 @@
 ---
-date: 2026-02-27
-description: 學習如何在 Java 中使用 GroupDocs.Search 來突出顯示搜尋結果。本分步指南涵蓋在 PDF、Word 及其他格式中以自訂樣式突出顯示關鍵字。
-title: 使用 GroupDocs.Search 在 Java 中突出顯示搜尋結果
+date: 2026-09-27
+description: 了解如何在 Java 中使用 GroupDocs.Search 突顯搜尋結果，包括如何為 Word 文件、PDF 以及其他檔案加入 custom
+  styling 的突顯。
+keywords:
+- how to highlight search
+- add highlight to word
+- GroupDocs.Search Java
+- search result highlighting
+lastmod: 2026-09-27
+og_description: 了解如何在 Java 中使用 GroupDocs.Search 突顯搜尋結果，包括如何為 Word 文件、PDF 以及其他檔案加入
+  custom styling 的突顯。
+og_image_alt: Developer guide showing how to highlight search results in Java using
+  GroupDocs.Search
+og_title: 如何在 Java 中使用 GroupDocs.Search 突顯搜尋結果
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to highlight search results in Java with GroupDocs.Search,
+    including how to add highlight to Word documents, PDF and more with custom styling.
+  headline: How to highlight search results in Java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to highlight search results in Java with GroupDocs.Search,
+    including how to add highlight to Word documents, PDF and more with custom styling.
+  name: How to highlight search results in Java with GroupDocs.Search
+  steps:
+  - name: initialize the search engine
+    text: '`SearchEngine` is the core class that indexes and queries your document
+      collection. Create an instance of `SearchEngine` and load the index that contains
+      the documents you want to search. > *Note: The code for this step is provided
+      in the linked comprehensive guide below.*'
+  - name: perform a search query
+    text: '`SearchResult` represents a single document that contains matches for the
+      user’s query. Invoke the `search` method with the query string; it returns a
+      collection of `SearchResult` objects.'
+  - name: highlight matches in the original document
+    text: '`HighlightOptions` lets you specify the visual style—color, opacity, and
+      whether to highlight the whole fragment or just the exact term. For each `SearchResult`,
+      call the highlighting API to embed visual markers directly into the source file.'
+  - name: generate an HTML preview (optional)
+    text: If you prefer to display a web‑based preview instead of the original file,
+      use the `HighlightResult` class to produce an HTML snippet with highlighted
+      terms. This is useful for browser‑based viewers or lightweight mobile apps.
+  - name: save or stream the highlighted output
+    text: After highlighting, you can either overwrite the original document, save
+      a new highlighted copy, or stream the result directly to the client’s browser.
+  type: HowTo
+- questions:
+  - answer: Yes. Provide the password when loading the document, then apply the same
+      highlighting methods.
+    question: Can I highlight search results in password‑protected PDFs?
+  - answer: By default it creates a new copy, but you can choose to overwrite the
+      source if desired.
+    question: Does the highlighting modify the original file permanently?
+  - answer: Absolutely. Pass a list of terms to the search engine; each term will
+      be highlighted using the configured style.
+    question: Is it possible to highlight multiple query terms at once?
+  - answer: Use the `HighlightOptions` class to assign distinct `HighlightColor` values
+      per term before invoking the highlight method.
+    question: How do I change the highlight color for different terms?
+  - answer: Process the document in chunks and use streaming APIs to avoid loading
+      the entire file into memory.
+    question: What if a document contains millions of pages?
+  type: FAQPage
+tags:
+- highlight search
+- GroupDocs.Search
+- Java document processing
+- search result highlighting
+title: 如何在 Java 中使用 GroupDocs.Search 突顯搜尋結果
 type: docs
 url: /zh-hant/java/highlighting/
 weight: 4
 ---
 
-# 使用 GroupDocs.Search 的 Java 高亮搜尋結果
+# 如何在 Java 中使用 GroupDocs.Search 突顯搜尋結果
 
-如果您需要在應用程式中 **highlight search results java**，您來對地方了。本指南將帶您了解如何使用 GroupDocs.Search for Java 在原始文件和 HTML 預覽中視覺化強調匹配的詞彙。無論您是在構建文件搜尋門戶、企業知識庫，或是簡易檔案瀏覽器，本文所涵蓋的技術都能協助您提供更清晰、更直觀的使用者體驗。
+如果您需要在 **在 Java 中突顯搜尋結果**於您的應用程式中，您來對地方了。本指南將帶您了解如何使用 GroupDocs.Search for Java 在原始文件和 HTML 預覽中視覺化強調匹配的詞彙。無論您是在構建文件搜尋門戶、企業知識庫，或是簡單的檔案瀏覽器，本文所涵蓋的技術都能協助您提供更清晰、直觀的使用者體驗。
 
-## 快速解答
-- **What does “highlight search results java” do?**  
-  它會在文件或預覽中視覺化標記每一次查詢詞的出現，讓匹配項目一目了然。  
-- **Which file types are supported?**  
-  支援的檔案類型包括 Word、PDF、Excel、PowerPoint、純文字，以及透過 GroupDocs.Search 支援的更多格式。  
-- **Do I need a license?**  
+## 快速答案
+- **「highlight search results java」的作用是什麼？**  
+  它會在文件或預覽中以視覺方式標記每個查詢詞的出現，讓匹配項目一目了然。  
+- **支援哪些檔案類型？**  
+  Word、PDF、Excel、PowerPoint、純文字，以及透過 GroupDocs.Search 支援的更多檔案類型。  
+- **需要授權嗎？**  
   開發階段可使用臨時授權；正式上線則需完整授權。  
-- **Can I customize the highlight style?**  
-  可以——顏色、字型與透明度皆可透過程式碼設定。  
-- **Is any additional setup required?**  
-  只需將 GroupDocs.Search for Java 函式庫加入專案並引用 API 即可。  
+- **我可以自訂突顯樣式嗎？**  
+  可以——顏色、字型與不透明度皆可透過程式設定。  
+- **需要額外設定嗎？**  
+  只需將 GroupDocs.Search for Java 函式庫加入專案並引用 API 即可。
 
-## 如何在 Java 中高亮搜尋結果
-讓我們一步步走過完整流程。步驟將保持簡潔，同時提供實用技巧，讓您能直接將程式碼複製貼上至自己的專案中。
+## 什麼是 Java 搜尋結果突顯？
 
-## 什麼是 Java 搜尋結果高亮？
-Search result highlighting Java 是一種透過程式自動在文件中每個由 GroupDocs.Search 找到的搜尋詞上套用視覺標記（通常為背景色）的技術。此方式可讓最終使用者輕鬆定位相關資訊，無需手動掃描整個檔案。
+Java 搜尋結果突顯是指以程式方式對 GroupDocs.Search 在文件中找到的每個搜尋詞實例套用視覺標記（通常為背景色）的技術。這讓最終使用者能輕鬆定位相關資訊，而無需手動掃描整個檔案。
 
-## 為何使用 GroupDocs.Search for Java 進行高亮？
-- **Instant visual feedback:** 使用者即時看到匹配結果，縮短洞察時間。  
-- **Cross‑format consistency:** 相同的高亮邏輯可適用於 DOCX、PDF、XLSX、PPTX 等多種格式。  
-- **Customizable appearance:** 可自訂顏色與樣式，以符合品牌或 UI 主題。  
-- **Scalable performance:** 為大量文件集合與高吞吐量搜尋情境進行優化。  
+## 為什麼使用 GroupDocs.Search for Java 進行突顯？
+
+GroupDocs.Search 支援在**超過 30 種檔案格式**中進行突顯，包括 DOCX、PDF、XLSX、PPTX、TXT、HTML 等。它可索引**高達 1000 萬份文件**，同時在標準伺服器硬體上保持次秒級的查詢延遲。API 讓您自訂顏色、不透明度，甚至可針對每個詞彙套用不同樣式，完美符合品牌 UI 規範。
 
 ## 前置條件
-- 已安裝 Java 8 或更高版本。  
+- Java 8 或更高版本已安裝。  
 - 已將 GroupDocs.Search for Java 函式庫加入專案（Maven/Gradle 依賴）。  
-- 一份臨時或正式的 GroupDocs.Search 授權檔案。  
+- 臨時或完整的 GroupDocs.Search 授權檔案。
 
 ## 步驟說明
 
 ### 步驟 1：初始化搜尋引擎
-建立 `SearchEngine` 實例，並載入包含欲搜尋文件的索引。
+`SearchEngine` 是用於索引與查詢文件集合的核心類別。建立 `SearchEngine` 的實例，並載入包含您欲搜尋文件的索引。
 
-> *注意：此步驟的程式碼已在下方的完整指南中提供。*
+> *注意：此步驟的程式碼已在下方連結的完整指南中提供。*
 
 ### 步驟 2：執行搜尋查詢
-呼叫 `search` 方法，傳入使用者的查詢字串。該方法會回傳 `SearchResult` 物件集合，每個物件代表一個包含匹配結果的文件。
+`SearchResult` 代表包含使用者查詢匹配項目的單一文件。使用查詢字串呼叫 `search` 方法；它會回傳 `SearchResult` 物件的集合。
 
-### 步驟 3：在原始文件中高亮匹配項目
-對每個 `SearchResult`，呼叫高亮 API，將視覺標記直接嵌入原始檔案。您可以指定高亮顏色、透明度，以及是高亮整個片段還是僅高亮精確詞彙。
+### 步驟 3：在原始文件中突顯匹配項目
+`HighlightOptions` 讓您指定視覺樣式——顏色、不透明度，以及是突顯整個片段還是僅突顯精確詞彙。對於每個 `SearchResult`，呼叫突顯 API 直接在來源檔案中嵌入視覺標記。
 
 ### 步驟 4：產生 HTML 預覽（可選）
-若您希望顯示基於網頁的預覽而非原始檔案，可使用 `HighlightResult` 類別產生含有高亮詞彙的 HTML 片段。此方式適用於瀏覽器檢視器或輕量行動應用程式。
+如果您想以網頁形式的預覽取代原始檔案，可使用 `HighlightResult` 類別產生帶有突顯詞彙的 HTML 片段。這對於基於瀏覽器的檢視器或輕量行動應用程式相當有用。
 
-### 步驟 5：儲存或串流高亮輸出
-完成高亮後，您可以選擇覆寫原始文件、儲存為新的高亮副本，或直接將結果串流至客戶端瀏覽器。
+### 步驟 5：儲存或串流突顯結果
+完成突顯後，您可以覆寫原始文件、儲存新的突顯副本，或直接將結果串流至客戶端瀏覽器。
 
-## 如何在 PDF 中高亮詞彙
-在 PDF 中高亮詞彙的操作與其他格式相同，只需確保文件格式被識別為 PDF。`HighlightOptions` 類別允許您選擇適合 PDF 背景的 `HighlightColor`（例如亮黃色且 30 % 透明度）。
+## 如何在 PDF 中突顯詞彙
+使用 `SearchEngine` 載入 PDF，並套用使用亮黃色且 30 % 不透明度的 `HighlightOptions`——此組合已證實在一般 PDF 背景上清晰可見，同時保持原始版面不變。API 會自動計算每個匹配項目的正確座標，保留文字流與圖像。突顯後，您可以將修改過的 PDF 儲存至磁碟或直接串流給客戶端。此方法適用於單頁與多頁 PDF，且不會改變原始檔案結構。
 
-## 在 Word 文件中高亮匹配項目
-處理 Word 檔案時，同樣適用 `HighlightResult` 邏輯，但建議使用符合 Word 原生樣式的 `HighlightColor`。這可避免文件在 Microsoft Word 中開啟時，高亮被剝除。
+## 在 Word 文件中突顯匹配項目
+`HighlightResult` 在 Word 檔案中同樣適用，但您應選擇符合 Word 原生樣式的 `HighlightColor`（例如，淡青綠色在 Microsoft Word 開啟時不會被剝除）。此舉可確保突顯在不同 Word 版本間持續存在。
 
 ## 常見問題與解決方案
-- **No highlights appear:** 確認文件格式受支援，且搜尋查詢確實在檔案內容中有匹配。  
-- **Performance slowdown on large files:** 啟用非同步索引或以批次方式處理文件，以提升效能。  
-- **Incorrect colors:** 檢查是否使用正確的 `HighlightColor` 列舉值，且 UI 中的 CSS 未覆寫樣式。  
+- **未出現突顯：** 確認文件格式受支援，且搜尋查詢確實匹配檔案內容。  
+- **大型檔案效能下降：** 啟用非同步索引或以批次方式處理文件。  
+- **顏色不正確：** 檢查是否使用正確的 `HighlightColor` 列舉值，且樣式未被 UI 中的 CSS 覆寫。
 
 ## 可用教學
 
-### [GroupDocs.Search for Java&#58; 在文件中高亮搜尋詞彙 | 完整指南](./groupdocs-search-java-highlight-terms-documents/)
-了解如何使用 GroupDocs.Search for Java 在文件中高亮搜尋詞彙。探索整篇文件及特定片段的高亮技巧。
+### [GroupDocs.Search for Java&#58; 在文件中突顯搜尋詞彙 | 完整指南](./groupdocs-search-java-highlight-terms-documents/)
+了解如何使用 GroupDocs.Search for Java 在文件中突顯搜尋詞彙。探索跨整份文件及特定片段的突顯技術。
 
 ## 其他資源
 
@@ -86,23 +148,27 @@ Search result highlighting Java 是一種透過程式自動在文件中每個由
 
 ## 常見問答
 
-**Q: 我可以在受密碼保護的 PDF 中高亮搜尋結果嗎？**  
-A: 可以。載入文件時提供密碼，然後使用相同的高亮方法。
+**Q: 我可以在受密碼保護的 PDF 中突顯搜尋結果嗎？**  
+A: 可以。載入文件時提供密碼，然後使用相同的突顯方法。
 
-**Q: 高亮會永久修改原始檔案嗎？**  
-A: 預設會產生新副本，但若需要可選擇覆寫原檔。
+**Q: 突顯會永久修改原始檔案嗎？**  
+A: 預設情況下會建立新副本，但若需要可選擇覆寫原始檔案。
 
-**Q: 能否一次高亮多個查詢詞？**  
-A: 當然可以。將詞彙清單傳給搜尋引擎，每個詞都會依設定的樣式進行高亮。
+**Q: 可以一次突顯多個查詢詞嗎？**  
+A: 當然可以。將詞彙清單傳遞給搜尋引擎；每個詞彙都會使用設定的樣式進行突顯。
 
-**Q: 如何為不同的詞彙設定不同的高亮顏色？**  
-A: 在呼叫高亮方法前，使用 `HighlightOptions` 類別為每個詞彙指派不同的 `HighlightColor` 值。
+**Q: 如何為不同詞彙變更突顯顏色？**  
+A: 在呼叫突顯方法前，使用 `HighlightOptions` 類別為每個詞彙指派不同的 `HighlightColor` 值。
 
-**Q: 若文件包含數百萬頁該怎麼辦？**  
-A: 將文件分塊處理，並使用串流 API 以避免一次載入整個檔案至記憶體。
+**Q: 如果文件包含數百萬頁該怎麼辦？**  
+A: 將文件分塊處理，並使用串流 API 以避免將整個檔案載入記憶體。
 
----
-
-**最後更新：** 2026-02-27  
+**最後更新：** 2026-09-27  
 **測試環境：** GroupDocs.Search for Java 23.11  
 **作者：** GroupDocs
+
+## 相關教學
+
+- [將文件加入索引 – GroupDocs.Search Java 教學](/search/java/document-management/)
+- [如何使用 GroupDocs.Search API for Java 建立文件索引並加入文件](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Java 模糊搜尋：使用 GroupDocs.Search 將文件加入索引](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)

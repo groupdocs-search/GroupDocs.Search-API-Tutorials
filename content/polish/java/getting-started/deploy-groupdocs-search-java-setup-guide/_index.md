@@ -1,51 +1,86 @@
 ---
-date: '2026-02-27'
-description: Dowiedz się, jak utworzyć indeks przeszukiwalny w Javie przy użyciu GroupDocs.Search
-  for Java, dodać pliki do wyszukiwania, dodać katalogi do węzła i włączyć indeksowanie
-  w czasie rzeczywistym w Javie.
+date: '2026-09-27'
+description: Dowiedz się, jak zaimplementować pełnotekstowe wyszukiwanie w języku
+  Java przy użyciu GroupDocs.Search for Java, dodać pliki do wyszukiwania, skonfigurować
+  katalogi i włączyć indeksowanie w czasie rzeczywistym.
 keywords:
-- GroupDocs.Search for Java
-- deploy GroupDocs.Search
-- Java search network setup
-title: Utwórz indeks przeszukiwalny w Javie – wdrożenie GroupDocs.Search dla Javy
+- java full text search
+- event driven indexing
+- java search engine
+- add files to search
+- real time indexing java
+lastmod: '2026-09-27'
+og_description: Zaimplementuj pełnotekstowe wyszukiwanie w języku Java przy użyciu
+  GroupDocs.Search. Dowiedz się, jak dodać pliki, skonfigurować węzły i włączyć indeksowanie
+  w czasie rzeczywistym w kilka minut.
+og_image_alt: Guide to setting up java full text search with GroupDocs.Search
+og_title: Jak zaimplementować pełnotekstowe wyszukiwanie w języku Java przy użyciu
+  GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    for Java, add files to search, configure directories, and enable real time indexing.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes. The library works with any Java runtime, and you can point `basePath`
+      to a network‑mounted folder or a cloud storage mount.
+    question: Can I use GroupDocs.Search on a cloud‑based Java application?
+  - answer: Subscribe to node events (see Feature 3) and call `addFiles` or `addDirectories`
+      again for the modified paths.
+    question: How do I update the index when a file changes?
+  - answer: Practically, the limit is defined by your hardware and network bandwidth.
+      The API imposes no hard cap.
+    question: Is there a limit to the number of nodes I can deploy?
+  - answer: No. Adding files triggers indexing automatically; you only need to commit
+      if you defer the operation.
+    question: Do I need to restart nodes after adding new files?
+  - answer: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many image types—over
+      50 formats in total.
+    question: Which document formats are supported out of the box?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- search indexing
+title: Jak zaimplementować pełnotekstowe wyszukiwanie w języku Java przy użyciu GroupDocs.Search
 type: docs
 url: /pl/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-# Utwórz indeks przeszukiwalny w Javie – Wdrożenie GroupDocs.Search dla Javy
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-W dzisiejszym świecie napędzanym danymi, **tworzenie indeksu przeszukiwalnego java** aplikacje muszą efektywnie obsługiwać ogromne kolekcje dokumentów. Niezależnie od tego, czy budujesz wyszukiwarkę klasy enterprise, czy mniejszy projekt, dobrze skonfigurowana sieć wyszukiwania może znacząco poprawić szybkość i trafność wyników. W tym przewodniku przeprowadzimy Cię przez cały proces konfiguracji **GroupDocs.Search for Java**, od dodawania plików do wyszukiwania po dodawanie katalogów do węzła, abyś mógł od razu rozpocząć indeksowanie dokumentów.
+# Jak zaimplementować pełnotekstowe wyszukiwanie java z GroupDocs.Search
 
-> **Dlaczego to ważne:** Indeks przeszukiwalny zmniejsza opóźnienie zapytań z sekund do milisekund, skaluje się wraz ze wzrostem danych i pozwala dodać potężne możliwości pełnotekstowego wyszukiwania do dowolnego rozwiązania opartego na Javie — niezależnie od tego, czy jest to portal internetowy, aplikacja desktopowa, czy mikroserwis w chmurze.
+W erze aplikacji opartych na danych, **java full text search** jest niezbędne do przekształcania ogromnych zbiorów dokumentów w natychmiastowo przeszukiwalne bazy wiedzy. Niezależnie od tego, czy tworzysz portal klasy korporacyjnej, czy lekki program desktopowy, dobrze skonfigurowana sieć wyszukiwania może skrócić opóźnienie zapytań z sekund do milisekund i utrzymać wyniki istotne w miarę wzrostu danych. Ten samouczek przeprowadzi Cię przez wdrożenie **GroupDocs.Search for Java**, dodawanie plików do wyszukiwania, konfigurowanie katalogów na węzłach oraz włączanie indeksowania w czasie rzeczywistym, aby Twój indeks pozostawał aktualny bez ręcznej interwencji.
+
+> **Dlaczego to ważne:** Indeks java full text search zmniejsza opóźnienie zapytań, skaluje się wraz z wolumenem danych i zapewnia potężne możliwości pełnotekstowego wyszukiwania w dowolnym rozwiązaniu opartym na Javie — portalach internetowych, aplikacjach desktopowych lub mikroserwisach w chmurze.
 
 ## Szybkie odpowiedzi
-- **Jaki jest główny cel GroupDocs.Search?** Zapewnia skalowalny, oparty na Javie silnik do indeksowania i wyszukiwania dokumentów w rozproszonej sieci.  
-- **Którą wersję powinienem używać?** Zalecana jest najnowsza stabilna wersja (np. 25.4) dla nowych projektów.  
-- **Czy potrzebna jest licencja?** Dostępna jest 30‑dniowa darmowa wersja próbna; stała licencja jest wymagana do użytku produkcyjnego.  
+- **Jaki jest główny cel GroupDocs.Search?** Zapewnia skalowalny silnik wyszukiwania java, który indeksuje i przeszukuje dokumenty w rozproszonej sieci.  
+- **Którą wersję powinienem używać?** Najnowsze stabilne wydanie (np. 25.4) jest zalecane dla nowych projektów.  
+- **Czy potrzebuję licencji?** Dostępna jest 30‑dniowa darmowa wersja próbna; stała licencja jest wymagana do użytku produkcyjnego.  
 - **Czy mogę dodać zarówno pliki, jak i całe katalogi?** Tak – użyj pomocników `addFiles` i `addDirectories`, aby wczytać zawartość.  
-- **Jaka wersja Javy jest wymagana?** Java 8 lub wyższa, z Mavenem do zarządzania zależnościami.  
-- **Jak działa indeksowanie w czasie rzeczywistym java?** Subskrybując zdarzenia węzła możesz wywoływać automatyczne ponowne indeksowanie w miarę zmian plików.
+- **Jaka wersja Java jest wymagana?** Java 8 lub wyższa, z Mavenem do zarządzania zależnościami.  
+- **Jak działa indeksowanie w czasie rzeczywistym w java?** Subskrybując zdarzenia węzła, możesz wywoływać automatyczne ponowne indeksowanie w miarę zmian plików.
 
 ## Co to jest „create searchable index java”?
-Tworzenie indeksu przeszukiwalnego w Javie oznacza budowanie struktury danych, która mapuje terminy na dokumenty je zawierające, umożliwiając szybkie zapytania pełnotekstowe. GroupDocs.Search abstrahuje ciężką pracę, pozwalając skupić się na dostarczaniu dokumentów i dostrajaniu zachowań wyszukiwania.
+Tworzenie indeksu przeszukiwalnego w Javie oznacza budowanie struktury danych, która mapuje terminy na dokumenty je zawierające, umożliwiając szybkie zapytania pełnotekstowe. **GroupDocs.Search for Java** abstrahuje ciężką pracę, pozwalając skupić się na dostarczaniu dokumentów i dostrajaniu zachowania wyszukiwania.
 
-## Dlaczego warto używać GroupDocs.Search dla Javy?
-- **Scalable network architecture** – Deploy multiple nodes that share indexing workload.  
-- **Rich document format support** – PDFs, Word, Excel, PowerPoint, images, and more.  
-- **Event‑driven updates** – Subscribe to node events to keep the index fresh in real time.  
-- **Simple Maven integration** – Add a few lines to `pom.xml` and start indexing.
-
-## Indeksowanie w czasie rzeczywistym java z GroupDocs.Search
-GroupDocs.Search wyzwala zdarzenia za każdym razem, gdy plik zostaje dodany, zaktualizowany lub usunięty. Obsługując te zdarzenia, możesz automatycznie wywołać `addFiles` lub `addDirectories`, zapewniając synchronizację indeksu bez ręcznej interwencji. Takie podejście jest idealne dla systemów zarządzania dokumentami, portali treści i każdej aplikacji, w której dane zmieniają się często.
+## Dlaczego używać GroupDocs.Search for Java?
+GroupDocs.Search dostarcza silnik wyszukiwania java, który skaluje się poziomo, obsługuje ponad 50 formatów wejścia i wyjścia oraz oferuje indeksowanie sterowane zdarzeniami. Wdrożenie wielu węzłów rozkłada obciążenie indeksowania, a wbudowane kontrole zdrowia utrzymują sieć niezawodną. Zapewnia także interfejsy RESTful API oraz konfigurowalne analizatory dla precyzyjnie dopasowanej trafności.
 
 ## Wymagania wstępne
-- **JDK 8+** zainstalowany na maszynie deweloperskiej.  
+- **JDK 8+** zainstalowane na Twojej maszynie deweloperskiej.  
 - IDE, takie jak **IntelliJ IDEA** lub **Eclipse**.  
 - Podstawowa znajomość **Java** i **Maven**.  
 - Dostęp do biblioteki **GroupDocs.Search for Java** (pobranie lub Maven).
 
-## Konfigurowanie GroupDocs.Search dla Javy
+## Konfiguracja GroupDocs.Search for Java
 
 ### Zależność Maven
 Dodaj repozytorium i zależność do swojego `pom.xml`:
@@ -68,17 +103,17 @@ Dodaj repozytorium i zależność do swojego `pom.xml`:
 </dependencies>
 ```
 
-> **Pro tip:** Keep the version number up‑to‑date by checking the official releases page.
+> **Pro tip:** Utrzymuj numer wersji aktualny, sprawdzając oficjalną stronę wydań.
 
-Możesz także pobrać plik JAR bezpośrednio ze strony oficjalnej: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Możesz również pobrać plik JAR bezpośrednio z oficjalnej strony: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Uzyskanie licencji
-- **Free Trial:** 30‑day evaluation.  
-- **Temporary License:** Request for extended testing.  
-- **Purchase:** Required for production deployments.
+### Uzyskiwanie licencji
+- **Free trial:** 30‑dniowa ocena.  
+- **Temporary license:** Prośba o przedłużone testowanie.  
+- **Purchase:** Wymagane przy wdrożeniach produkcyjnych.
 
 ### Podstawowa inicjalizacja
-Utwórz obiekt konfiguracji, który wskazuje folder, w którym będą przechowywane pliki indeksu, oraz definiuje podstawowy port komunikacji:
+Utwórz obiekt konfiguracji, który wskazuje folder, w którym będą przechowywane pliki indeksu i definiuje podstawowy port komunikacji:
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -94,12 +129,11 @@ class InitializeSearch {
 }
 ```
 
-## Jak utworzyć indeks przeszukiwalny w Javie z GroupDocs.Search?
+## Jak stworzyć indeks przeszukiwalny java z GroupDocs.Search?
+Załaduj obiekt `SearchConfiguration`, uruchom `SearchNetworkNode` i wywołaj `node.getIndexer().addFiles(...)`, aby wypełnić indeks. Ten jednowierszowy wzorzec uruchamia w pełni funkcjonalną sieć java full text search, gotową do przyjmowania zapytań od razu. Następnie możesz skalować, dodając kolejne węzły, które współdzielą tę samą ścieżkę bazową i zakres portów.
 
-Poniżej rozkładamy kluczowe funkcje, których będziesz potrzebować, aby **add files to search** i **add directories to node**, jednocześnie wdrażając skalowalną sieć.
-
-### Funkcja 1 – Konfiguracja i ustawienie sieci
-Konfigurowanie sieci wyszukiwania jest pierwszym krokiem w budowie indeksu przeszukiwalnego.
+### Funkcja 1 – konfiguracja i ustawienie sieci
+Klasa `SearchConfiguration` zawiera wszystkie ustawienia niezbędne do uruchomienia węzła.
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -114,10 +148,10 @@ class ConfiguringSearchNetwork {
 ```
 
 - **`basePath`** – Katalog, w którym będą przechowywane dane indeksu.  
-- **`basePort`** – Port początkowy; każdy węzeł zwiększy go o jeden.
+- **`basePort`** – Port początkowy; każdy węzeł będzie inkrementował od tej wartości.
 
-### Funkcja 2 – Wdrażanie węzłów sieci wyszukiwania
-Wdrażanie węzłów rozkłada obciążenie indeksowania na wiele maszyn lub procesów.
+### Funkcja 2 – wdrażanie węzłów sieci wyszukiwania
+`SearchNetworkNode` reprezentuje indywidualną usługę indeksowania, którą można uruchomić na dowolnym komputerze.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -130,9 +164,9 @@ class SearchNetworkDeployment {
 }
 ```
 
-Każdy `SearchNetworkNode` uruchamia własną usługę indeksowania, umożliwiając **create a searchable index java**, który skaluje się poziomo.
+`SearchNetworkNode` jest podstawowym komponentem uruchomieniowym, który hostuje indeks, przetwarza zdarzenia dodawania/usuwania i odpowiada na zapytania wyszukiwania. Wdrożenie wielu węzłów pozwala Ci **create java full text search** klasterów, które skalują się poziomo.
 
-### Funkcja 3 – Subskrybowanie zdarzeń węzła
+### Funkcja 3 – subskrypcja zdarzeń węzła
 Aktualizacje w czasie rzeczywistym utrzymują indeks zsynchronizowany ze zmianami w systemie plików.
 
 ```java
@@ -145,9 +179,9 @@ class SearchNetworkNodeEvents {
 }
 ```
 
-Nasłuchując zdarzeń, możesz automatycznie wywoływać ponowne indeksowanie, gdy pojawią się nowe pliki.
+Nasłuchując zdarzeń, możesz automatycznie wywoływać ponowne indeksowanie, gdy pojawią się nowe pliki, osiągając **event driven indexing** bez ręcznych skryptów.
 
-### Funkcja 4 – Dodawanie katalogów do węzła sieci
+### Funkcja 4 – dodawanie katalogów do węzła sieciowego
 Użyj tego pomocnika, aby **add directories to node**, rekurencyjnie zbierając wszystkie obsługiwane dokumenty.
 
 ```java
@@ -176,8 +210,8 @@ class DirectoryAdder {
 }
 ```
 
-### Funkcja 5 – Dodawanie plików do węzła sieci
-Gdy potrzebna jest precyzyjna kontrola, **add files to search** indywidualnie:
+### Funkcja 5 – dodawanie plików do węzła sieciowego
+Gdy potrzebujesz precyzyjnej kontroli, **add files to search** indywidualnie:
 
 ```java
 import com.groupdocs.search.Document;
@@ -222,44 +256,54 @@ class FileAdder {
 ```
 
 ## Typowe przypadki użycia
-- **Enterprise document portals** that need instant search across thousands of PDFs and Office files.  
-- **Legal e‑discovery platforms** where new evidence is continuously added and must be searchable in real time.  
-- **Content management systems** that store images, presentations, and spreadsheets and require full‑text lookup.
+- **Enterprise document portals** które potrzebują natychmiastowego wyszukiwania wśród tysięcy plików PDF i Office.  
+- **Legal e‑discovery platforms** gdzie nowe dowody są ciągle dodawane i muszą być przeszukiwalne w czasie rzeczywistym.  
+- **Content management systems** które przechowują obrazy, prezentacje i arkusze kalkulacyjne i wymagają pełnotekstowego wyszukiwania.
 
 ## Typowe problemy i rozwiązania
-| Issue | Reason | Fix |
+| Problem | Powód | Rozwiązanie |
 |-------|--------|-----|
-| **No documents appear in search results** | Index not committed | Call `node.getIndexer().commit()` after adding files. |
-| **Port conflict error** | Another service uses `basePort` | Choose a different `basePort` or verify free ports. |
-| **Unsupported file format** | Library lacks parser | Ensure the file extension is supported or add a custom extractor. |
+| **Brak dokumentów w wynikach wyszukiwania** | Indeks nie został zatwierdzony | Wywołaj `node.getIndexer().commit()` po dodaniu plików. |
+| **Błąd konfliktu portu** | Inna usługa używa `basePort` | Wybierz inny `basePort` lub sprawdź dostępność portów. |
+| **Nieobsługiwany format pliku** | Biblioteka nie posiada parsera | Upewnij się, że rozszerzenie pliku jest obsługiwane lub dodaj własny ekstraktor. |
 
-## Porady dotyczące rozwiązywania problemów
-- **Verify node health:** Use the built‑in health‑check endpoint (`http://localhost:{port}/health`) to confirm each node is running.  
-- **Monitor memory usage:** Large batches of documents can spike memory; consider indexing in smaller chunks and calling `commit()` periodically.  
-- **Check logs:** GroupDocs.Search writes detailed logs to the `basePath` folder—review them for parsing errors or network timeouts.
+## Wskazówki dotyczące rozwiązywania problemów
+- **Sprawdź stan węzła:** Użyj wbudowanego punktu końcowego sprawdzania zdrowia (`http://localhost:{port}/health`), aby potwierdzić, że każdy węzeł działa.  
+- **Monitoruj zużycie pamięci:** Duże partie dokumentów mogą zwiększyć zużycie pamięci; indeksuj w mniejszych partiach i wywołuj `commit()` okresowo.  
+- **Sprawdź logi:** GroupDocs.Search zapisuje szczegółowe logi w folderze `basePath` — przejrzyj je pod kątem błędów parsowania lub przekroczeń czasu sieci.
 
 ## Najczęściej zadawane pytania
 
 **Q: Czy mogę używać GroupDocs.Search w aplikacji Java działającej w chmurze?**  
-A: Tak. Biblioteka działa z dowolnym środowiskiem Java, a `basePath` możesz skierować do folderu udostępnionego sieciowo lub do lokalnie zamontowanego magazynu w chmurze.
+A: Tak. Biblioteka działa z dowolnym środowiskiem uruchomieniowym Java, a `basePath` możesz skierować do folderu zamontowanego sieciowo lub do montowania przechowywania w chmurze.
 
 **Q: Jak zaktualizować indeks, gdy plik się zmieni?**  
 A: Subskrybuj zdarzenia węzła (zobacz Funkcję 3) i ponownie wywołaj `addFiles` lub `addDirectories` dla zmodyfikowanych ścieżek.
 
 **Q: Czy istnieje limit liczby węzłów, które mogę wdrożyć?**  
-A: Praktycznie limit zależy od Twojego sprzętu i przepustowości sieci. API nie narzuca sztywnego limitu.
+A: Praktycznie limit jest określony przez Twój sprzęt i przepustowość sieci. API nie narzuca sztywnego limitu.
 
 **Q: Czy muszę restartować węzły po dodaniu nowych plików?**  
-A: Nie. Dodawanie plików automatycznie wyzwala indeksowanie; jedynie w razie odroczenia operacji trzeba wywołać `commit()`.
+A: Nie. Dodawanie plików wyzwala indeksowanie automatycznie; musisz jedynie wykonać commit, jeśli odraczysz operację.
 
-**Q: Jakie formaty dokumentów są obsługiwane od ręki?**  
-A: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML oraz wiele typów obrazów. Pełną listę znajdziesz w oficjalnej dokumentacji.
+**Q: Jakie formaty dokumentów są obsługiwane od razu?**  
+A: PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML oraz wiele typów obrazów — ponad 50 formatów łącznie.
 
-**Q: Jak włączyć indeksowanie w czasie rzeczywistym java dla folderu, który ciągle otrzymuje nowe pliki?**  
-A: Zaimplementuj obserwatora systemu plików (np. `java.nio.file.WatchService`), który wywołuje `DirectoryAdder.addDirectories(node, path)` przy każdym wykryciu nowego pliku.
+**Q: Jak mogę włączyć indeksowanie w czasie rzeczywistym java dla folderu, który ciągle otrzymuje przesyłane pliki?**  
+A: Zaimplementuj obserwatora systemu plików (np. `java.nio.file.WatchService`), który wywołuje `DirectoryAdder.addDirectories(node, path)` za każdym razem, gdy wykryty zostanie nowy plik.
 
----
-
-**Ostatnia aktualizacja:** 2026-02-27  
-**Testowane z:** GroupDocs.Search for Java 25.4  
+**Ostatnia aktualizacja:** 2026-09-27  
+**Testowano z:** GroupDocs.Search for Java 25.4  
 **Autor:** GroupDocs
+
+## Powiązane samouczki
+
+- [Jak zaimplementować pełnotekstowe wyszukiwanie java: utwórz katalog indeksu z GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Implementacja pełnotekstowego wyszukiwania Java GroupDocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Jak skonfigurować wyszukiwanie z GroupDocs.Search w Javie – przewodnik konfiguracji i wdrożenia](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

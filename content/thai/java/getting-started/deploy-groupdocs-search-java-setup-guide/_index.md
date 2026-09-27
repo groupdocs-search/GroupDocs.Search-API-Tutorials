@@ -1,54 +1,86 @@
 ---
-date: '2026-02-27'
-description: เรียนรู้วิธีสร้างดัชนีที่สามารถค้นหาได้ใน Java ด้วย GroupDocs.Search
-  for Java, เพิ่มไฟล์เพื่อค้นหา, เพิ่มไดเรกทอรีไปยังโหนด, และเปิดใช้งานการทำดัชนีแบบเรียลไทม์ใน
-  Java.
+date: '2026-09-27'
+description: เรียนรู้วิธีการใช้งานการค้นหาแบบเต็มข้อความ java ด้วย GroupDocs.Search
+  for Java, เพิ่มไฟล์เพื่อค้นหา, กำหนดค่าไดเรกทอรี, และเปิดใช้งานการทำดัชนีแบบเรียลไทม์
 keywords:
-- GroupDocs.Search for Java
-- deploy GroupDocs.Search
-- Java search network setup
-title: สร้างดัชนีที่ค้นหาได้ด้วย Java – ปรับใช้ GroupDocs.Search สำหรับ Java
+- java full text search
+- event driven indexing
+- java search engine
+- add files to search
+- real time indexing java
+lastmod: '2026-09-27'
+og_description: ใช้งานการค้นหาแบบเต็มข้อความ java ด้วย GroupDocs.Search. เรียนรู้การเพิ่มไฟล์,
+  กำหนดค่า nodes, และเปิดใช้งานการทำดัชนีแบบเรียลไทม์ภายในไม่กี่นาที.
+og_image_alt: Guide to setting up java full text search with GroupDocs.Search
+og_title: วิธีการใช้งานการค้นหาแบบเต็มข้อความ java ด้วย GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    for Java, add files to search, configure directories, and enable real time indexing.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes. The library works with any Java runtime, and you can point `basePath`
+      to a network‑mounted folder or a cloud storage mount.
+    question: Can I use GroupDocs.Search on a cloud‑based Java application?
+  - answer: Subscribe to node events (see Feature 3) and call `addFiles` or `addDirectories`
+      again for the modified paths.
+    question: How do I update the index when a file changes?
+  - answer: Practically, the limit is defined by your hardware and network bandwidth.
+      The API imposes no hard cap.
+    question: Is there a limit to the number of nodes I can deploy?
+  - answer: No. Adding files triggers indexing automatically; you only need to commit
+      if you defer the operation.
+    question: Do I need to restart nodes after adding new files?
+  - answer: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many image types—over
+      50 formats in total.
+    question: Which document formats are supported out of the box?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- search indexing
+title: วิธีการใช้งานการค้นหาแบบเต็มข้อความ java ด้วย GroupDocs.Search
 type: docs
 url: /th/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-# สร้างดัชนีที่ค้นหาได้ใน Java – ปรับใช้ GroupDocs.Search สำหรับ Java
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-ในโลกที่ขับเคลื่อนด้วยข้อมูลในปัจจุบัน, แอปพลิเคชัน **creating a searchable index java** จำเป็นต้องจัดการกับคอลเลกชันเอกสารขนาดใหญ่อย่างมีประสิทธิภาพ ไม่ว่าคุณจะสร้างบริการค้นหาระดับองค์กรหรือโครงการขนาดเล็ก เครือข่ายการค้นหาที่กำหนดค่าอย่างดีสามารถปรับปรุงความเร็วและความเกี่ยวข้องของการดึงข้อมูลได้อย่างมาก ในคู่มือนี้เราจะพาคุณผ่านกระบวนการทั้งหมดในการตั้งค่า **GroupDocs.Search for Java**, ตั้งแต่การเพิ่มไฟล์เพื่อค้นหาไปจนถึงการเพิ่มไดเรกทอรีไปยังโหนด, เพื่อให้คุณเริ่มทำดัชนีเอกสารของคุณได้ทันที.
+# วิธีการใช้งานการค้นหาข้อความเต็มใน Java ด้วย GroupDocs.Search
 
-> **Why this matters:** ดัชนีที่ค้นหาได้ช่วยลดความหน่วงของการสอบถามจากวินาทีเป็นมิลลิวินาที, สามารถขยายตามการเติบโตของข้อมูลของคุณ, และทำให้คุณเพิ่มความสามารถในการค้นหาแบบเต็มข้อความที่ทรงพลังให้กับโซลูชันที่ใช้ Java—ไม่ว่าจะเป็นพอร์ทัลเว็บ, แอปพลิเคชันเดสก์ท็อป, หรือไมโครเซอร์วิสบนคลาวด์.
+ในยุคของแอปพลิเคชันที่ขับเคลื่อนด้วยข้อมูล **java full text search** มีความสำคัญต่อการเปลี่ยนคอลเลกชันเอกสารขนาดมหาศาลให้กลายเป็นฐานความรู้ที่สามารถค้นหาได้ทันที ไม่ว่าคุณจะสร้างพอร์ทัลระดับองค์กรหรือยูทิลิตี้เดสก์ท็อปแบบเบา ๆ เครือข่ายการค้นหาที่กำหนดค่าอย่างดีสามารถลดระยะเวลาการตอบสนองจากวินาทีเป็นมิลลิวินาทีและทำให้ผลลัพธ์ยังคงเกี่ยวข้องเมื่อข้อมูลเพิ่มขึ้น คำแนะนำนี้จะพาคุณผ่านการปรับใช้ **GroupDocs.Search for Java**, การเพิ่มไฟล์เพื่อค้นหา, การกำหนดค่าไดเรกทอรีบนโหนด, และการเปิดใช้งานการทำดัชนีแบบเรียลไทม์เพื่อให้ดัชนีของคุณสดใหม่โดยไม่ต้องแทรกแซงด้วยมือ
 
-## คำตอบด่วน
-- **What is the primary purpose of GroupDocs.Search?** มันให้เครื่องยนต์ที่สามารถขยายได้, พัฒนาโดย Java สำหรับการทำดัชนีและการค้นหาเอกสารผ่านเครือข่ายแบบกระจาย.  
-- **Which version should I use?** แนะนำให้ใช้เวอร์ชันที่เสถียรล่าสุด (เช่น 25.4) สำหรับโครงการใหม่.  
-- **Do I need a license?** มีการทดลองใช้ฟรี 30 วัน; จำเป็นต้องมีใบอนุญาตถาวรสำหรับการใช้งานในสภาพแวดล้อมการผลิต.  
-- **Can I add both files and whole directories?** ได้ – ใช้ตัวช่วย `addFiles` และ `addDirectories` เพื่อดึงข้อมูล.  
-- **What Java version is required?** Java 8 หรือสูงกว่า, พร้อมกับ Maven สำหรับการจัดการ dependencies.  
-- **How does real time indexing java work?** โดยการสมัครรับเหตุการณ์ของโหนดคุณสามารถเรียกทำการทำดัชนีใหม่อัตโนมัติเมื่อไฟล์มีการเปลี่ยนแปลง.
+> **ทำไมเรื่องนี้ถึงสำคัญ:** ดัชนีการค้นหาข้อความเต็มใน Java ลดระยะเวลาการตอบสนอง, สามารถขยายตามปริมาณข้อมูล, และนำความสามารถเต็มรูปแบบของการค้นหาข้อความมาสู่โซลูชันที่ใช้ Java — พอร์ทัลเว็บ, แอปเดสก์ท็อป, หรือไมโครเซอร์วิสบนคลาวด์
 
-## “create searchable index java” คืออะไร?
-การสร้างดัชนีที่ค้นหาได้ใน Java หมายถึงการสร้างโครงสร้างข้อมูลที่แมพคำค้นไปยังเอกสารที่มีคำนั้น, ทำให้สามารถทำการสอบถามแบบเต็มข้อความได้อย่างรวดเร็ว GroupDocs.Search จัดการส่วนที่ซับซ้อนให้, ทำให้คุณสามารถมุ่งเน้นที่การป้อนเอกสารและปรับแต่งพฤติกรรมการค้นหา.
+## คำตอบอย่างรวดเร็ว
+- **วัตถุประสงค์หลักของ GroupDocs.Search คืออะไร?** มันให้เครื่องมือค้นหา java ที่สามารถขยายได้, ทำการสร้างดัชนีและค้นหาเอกสารทั่วเครือข่ายแบบกระจาย  
+- **ควรใช้เวอร์ชันใด?** แนะนำให้ใช้รุ่นเสถียรล่าสุด (เช่น 25.4) สำหรับโครงการใหม่  
+- **ต้องการไลเซนส์หรือไม่?** มีการทดลองใช้งานฟรี 30 วัน; จำเป็นต้องมีไลเซนส์ถาวรสำหรับการใช้งานในสภาพแวดล้อมการผลิต  
+- **สามารถเพิ่มไฟล์และไดเรกทอรีทั้งหมดได้หรือไม่?** ได้ – ใช้ตัวช่วย `addFiles` และ `addDirectories` เพื่อดึงข้อมูลเข้า  
+- **ต้องการ Java เวอร์ชันใด?** Java 8 หรือสูงกว่า, พร้อม Maven สำหรับการจัดการ dependencies  
+- **การทำดัชนีแบบเรียลไทม์ใน java ทำงานอย่างไร?** โดยการสมัครรับเหตุการณ์ของโหนดคุณสามารถกระตุ้นการทำดัชนีอัตโนมัติเมื่อไฟล์มีการเปลี่ยนแปลง  
 
-## ทำไมต้องใช้ GroupDocs.Search สำหรับ Java?
-- **Scalable network architecture** – ปรับใช้หลายโหนดที่แบ่งภาระการทำดัชนี.  
-- **Rich document format support** – รองรับ PDF, Word, Excel, PowerPoint, รูปภาพ, และอื่น ๆ.  
-- **Event‑driven updates** – สมัครรับเหตุการณ์ของโหนดเพื่อให้ดัชนีอัปเดตแบบเรียลไทม์.  
-- **Simple Maven integration** – เพิ่มไม่กี่บรรทัดใน `pom.xml` แล้วเริ่มทำดัชนี.
+## “สร้างดัชนีที่ค้นหาได้ใน Java” คืออะไร?
+การสร้างดัชนีที่ค้นหาได้ใน Java หมายถึงการสร้างโครงสร้างข้อมูลที่แมพคำค้นหาไปยังเอกสารที่มีคำนั้นอยู่, ทำให้สามารถทำการค้นหาเต็มข้อความได้อย่างรวดเร็ว **GroupDocs.Search for Java** จะดูแลการทำงานหนักเหล่านั้น, ให้คุณมุ่งเน้นที่การป้อนเอกสารและปรับแต่งพฤติกรรมการค้นหา
 
-## การทำดัชนีแบบเรียลไทม์ใน Java ด้วย GroupDocs.Search
-GroupDocs.Search จะส่งเหตุการณ์ทุกครั้งที่ไฟล์ถูกเพิ่ม, อัปเดต, หรือถูกลบ. โดยการจัดการเหตุการณ์เหล่านี้คุณสามารถเรียก `addFiles` หรือ `addDirectories` โดยอัตโนมัติ, ทำให้ดัชนีคงความสอดคล้องโดยไม่ต้องทำด้วยมือ วิธีนี้เหมาะสำหรับระบบจัดการเอกสาร, พอร์ทัลเนื้อหา, และแอปพลิเคชันใด ๆ ที่ข้อมูลเปลี่ยนแปลงบ่อย.
+## ทำไมต้องใช้ GroupDocs.Search for Java?
+GroupDocs.Search มอบเครื่องมือค้นหา java ที่สามารถขยายแนวนอนได้, รองรับรูปแบบไฟล์เข้าและออกกว่า 50 ประเภท, และมีการทำดัชนีแบบอีเวนต์‑ดริเวน การปรับใช้หลายโหนดช่วยกระจายภาระการทำดัชนี, ในขณะที่การตรวจสอบสุขภาพในตัวทำให้เครือข่ายเชื่อถือได้ นอกจากนี้ยังมี RESTful APIs และตัววิเคราะห์ที่ปรับแต่งได้สำหรับการปรับความเกี่ยวข้องอย่างละเอียด
 
 ## ข้อกำหนดเบื้องต้น
-- **JDK 8+** ติดตั้งบนเครื่องพัฒนาของคุณ.  
-- IDE เช่น **IntelliJ IDEA** หรือ **Eclipse**.  
-- ความรู้พื้นฐานของ **Java** และ **Maven**.  
-- การเข้าถึงไลบรารี **GroupDocs.Search for Java** (ดาวน์โหลดหรือใช้ Maven).
+- **JDK 8+** ติดตั้งบนเครื่องพัฒนา  
+- IDE เช่น **IntelliJ IDEA** หรือ **Eclipse**  
+- ความรู้พื้นฐานของ **Java** และ **Maven**  
+- การเข้าถึงไลบรารี **GroupDocs.Search for Java** (ดาวน์โหลดหรือใช้ Maven)
 
-## การตั้งค่า GroupDocs.Search สำหรับ Java
+## การตั้งค่า GroupDocs.Search for Java
 
 ### การพึ่งพา Maven
-เพิ่ม repository และ dependency ลงใน `pom.xml` ของคุณ:
+เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -68,17 +100,17 @@ GroupDocs.Search จะส่งเหตุการณ์ทุกครั้
 </dependencies>
 ```
 
-> **Pro tip:** ควรอัปเดตหมายเลขเวอร์ชันให้เป็นปัจจุบันโดยตรวจสอบหน้าการปล่อยเวอร์ชันอย่างเป็นทางการ.
+> **เคล็ดลับ:** ตรวจสอบหน้า releases อย่างเป็นทางการเพื่อให้เวอร์ชันเป็นปัจจุบันเสมอ
 
-คุณยังสามารถดาวน์โหลดไฟล์ JAR โดยตรงจากเว็บไซต์อย่างเป็นทางการ: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+คุณยังสามารถดาวน์โหลด JAR โดยตรงจากเว็บไซต์อย่างเป็นทางการ: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### การรับใบอนุญาต
-- **Free Trial:** การประเมินผล 30 วัน.  
-- **Temporary License:** ขอเพื่อการทดสอบต่อเนื่อง.  
-- **Purchase:** จำเป็นสำหรับการปรับใช้ในสภาพแวดล้อมการผลิต.
+### การจัดหาไลเซนส์
+- **ทดลองใช้ฟรี:** การประเมินผล 30 วัน  
+- **ไลเซนส์ชั่วคราว:** ขอสำหรับการทดสอบระยะยาว  
+- **การซื้อ:** จำเป็นสำหรับการปรับใช้ในสภาพแวดล้อมการผลิต
 
 ### การเริ่มต้นพื้นฐาน
-สร้างอ็อบเจกต์การกำหนดค่าที่ชี้ไปยังโฟลเดอร์ที่ไฟล์ดัชนีจะถูกจัดเก็บและกำหนดพอร์ตการสื่อสารพื้นฐาน:
+สร้างอ็อบเจ็กต์การกำหนดค่าที่ชี้ไปยังโฟลเดอร์ที่ไฟล์ดัชนีจะถูกจัดเก็บและกำหนดพอร์ตสื่อสารฐาน:
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -95,10 +127,10 @@ class InitializeSearch {
 ```
 
 ## วิธีสร้างดัชนีที่ค้นหาได้ใน Java ด้วย GroupDocs.Search?
-ต่อไปนี้เราจะแยกคุณลักษณะหลักที่คุณต้องการเพื่อ **add files to search** และ **add directories to node**, พร้อมกับการปรับใช้เครือข่ายที่สามารถขยายได้.
+โหลดอ็อบเจ็กต์ `SearchConfiguration`, เริ่ม `SearchNetworkNode`, และเรียก `node.getIndexer().addFiles(...)` เพื่อเติมดัชนี รูปแบบบรรทัดเดียวนี้จะเปิดเครือข่ายการค้นหาข้อความเต็มใน java ที่ทำงานเต็มรูปแบบ, พร้อมรับคำค้นทันที คุณสามารถขยายโดยเพิ่มโหนดเพิ่มเติมที่ใช้เส้นทางฐานและช่วงพอร์ตเดียวกัน
 
-### คุณลักษณะ 1 – การกำหนดค่าและการตั้งค่าเครือข่าย
-การกำหนดค่าเครือข่ายการค้นหาเป็นขั้นตอนแรกในการสร้างดัชนีที่ค้นหาได้.
+### ฟีเจอร์ 1 – การกำหนดค่าและตั้งค่าเครือข่าย
+คลาส `SearchConfiguration` เก็บการตั้งค่าทั้งหมดที่จำเป็นสำหรับการสตาร์ทโหนด
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -112,11 +144,11 @@ class ConfiguringSearchNetwork {
 }
 ```
 
-- **`basePath`** – โฟลเดอร์ที่ข้อมูลดัชนีจะถูกบันทึก.  
-- **`basePort`** – พอร์ตเริ่มต้น; แต่ละโหนดจะเพิ่มค่าจากพอร์ตนี้.
+- **`basePath`** – ไดเรกทอรีที่ข้อมูลดัชนีจะถูกบันทึก  
+- **`basePort`** – พอร์ตเริ่มต้น; โหนดแต่ละตัวจะเพิ่มจากค่านี้
 
-### คุณลักษณะ 2 – การปรับใช้โหนดเครือข่ายการค้นหา
-การปรับใช้โหนดจะกระจายภาระการทำดัชนีไปยังหลายเครื่องหรือหลายกระบวนการ.
+### ฟีเจอร์ 2 – การปรับใช้โหนดเครือข่ายการค้นหา
+`SearchNetworkNode` แทนบริการทำดัชนีแต่ละตัวที่สามารถรันบนเครื่องใดก็ได้
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -129,10 +161,10 @@ class SearchNetworkDeployment {
 }
 ```
 
-แต่ละ `SearchNetworkNode` ทำงานเป็นบริการทำดัชนีของตนเอง, ทำให้คุณสามารถ **create a searchable index java** ที่ขยายแนวนอนได้.
+`SearchNetworkNode` เป็นคอมโพเนนต์รันไทม์หลักที่โฮสต์ดัชนี, ประมวลเหตุการณ์เพิ่ม/ลบ, และตอบสนองต่อคำค้น การปรับใช้หลายโหนดทำให้คุณ **สร้างการค้นหาข้อความเต็มใน java** เป็นคลัสเตอร์ที่ขยายแนวนอนได้
 
-### คุณลักษณะ 3 – การสมัครรับเหตุการณ์ของโหนด
-การอัปเดตแบบเรียลไทม์ทำให้ดัชนีสอดคล้องกับการเปลี่ยนแปลงของระบบไฟล์.
+### ฟีเจอร์ 3 – การสมัครรับเหตุการณ์ของโหนด
+การอัปเดตแบบเรียลไทม์ทำให้ดัชนีสอดคล้องกับการเปลี่ยนแปลงของระบบไฟล์
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -144,10 +176,10 @@ class SearchNetworkNodeEvents {
 }
 ```
 
-โดยการฟังเหตุการณ์, คุณสามารถเรียกทำการทำดัชนีใหม่โดยอัตโนมัติเมื่อไฟล์ใหม่เข้ามา.
+โดยการฟังเหตุการณ์, คุณสามารถกระตุ้นการทำดัชนีใหม่อัตโนมัติเมื่อไฟล์ใหม่เข้ามา, ทำให้ได้ **การทำดัชนีแบบอีเวนต์‑ดริเวน** โดยไม่ต้องใช้สคริปต์มือ
 
-### คุณลักษณะ 4 – การเพิ่มไดเรกทอรีไปยังโหนดเครือข่าย
-ใช้ตัวช่วยนี้เพื่อ **add directories to node**, เก็บรวบรวมเอกสารที่รองรับทั้งหมดอย่างเรียกซ้ำ.
+### ฟีเจอร์ 4 – การเพิ่มไดเรกทอรีไปยังโหนดเครือข่าย
+ใช้ตัวช่วยนี้เพื่อ **เพิ่มไดเรกทอรีไปยังโหนด**, รวบรวมเอกสารที่รองรับทั้งหมดแบบเรียกซ้ำ
 
 ```java
 import java.io.File;
@@ -175,8 +207,10 @@ class DirectoryAdder {
 }
 ```
 
-### คุณลักษณะ 5 – การเพิ่มไฟล์ไปยังโหนดเครือข่าย
-เมื่อคุณต้องการการควบคุมในระดับละเอียด, **add files to search** ทีละไฟล์:
+เมธอด `DirectoryAdder.addDirectories(node, path)` จะเดินทางผ่านโครงสร้างโฟลเดอร์และเรียก `addFiles` สำหรับไฟล์ที่รองรับแต่ละไฟล์, ทำให้การนำเข้าจำนวนมากง่ายขึ้น
+
+### ฟีเจอร์ 5 – การเพิ่มไฟล์ไปยังโหนดเครือข่าย
+เมื่อคุณต้องการควบคุมอย่างละเอียด, **เพิ่มไฟล์ไปยังการค้นหา** ทีละไฟล์:
 
 ```java
 import com.groupdocs.search.Document;
@@ -220,47 +254,59 @@ class FileAdder {
 }
 ```
 
-วิธีนี้ให้ความยืดหยุ่นในการทำดัชนีไฟล์ที่มาจากสตรีม, ที่เก็บข้อมูลบนคลาวด์, หรือที่ตั้งชั่วคราว.
+`addFiles` เป็นเมธอดที่รับรายการเส้นทางไฟล์หรือสตรีม, ทำให้คุณสามารถทำดัชนีเอกสารจากคลาวด์สตอเรจ, แคชชั่วคราว, หรือสตรีมในหน่วยความจำได้
 
 ## กรณีการใช้งานทั่วไป
-- **Enterprise document portals** ที่ต้องการการค้นหาแบบทันทีในหลายพันไฟล์ PDF และไฟล์ Office.  
-- **Legal e‑discovery platforms** ที่หลักฐานใหม่ถูกเพิ่มอย่างต่อเนื่องและต้องสามารถค้นหาได้แบบเรียลไทม์.  
-- **Content management systems** ที่เก็บรูปภาพ, งานนำเสนอ, และสเปรดชีตและต้องการการค้นหาแบบเต็มข้อความ.
+- **พอร์ทัลเอกสารระดับองค์กร** ที่ต้องการการค้นหาแบบทันทีในหลายพันไฟล์ PDF และ Office  
+- **แพลตฟอร์ม e‑discovery ทางกฎหมาย** ที่หลักฐานใหม่ถูกเพิ่มอย่างต่อเนื่องและต้องค้นหาได้แบบเรียลไทม์  
+- **ระบบจัดการเนื้อหา** ที่เก็บรูปภาพ, งานนำเสนอ, และสเปรดชีต พร้อมต้องการการค้นหาเต็มข้อความ
 
-## ปัญหาทั่วไปและวิธีแก้
-| Issue | Reason | Fix |
+## ปัญหาทั่วไป & วิธีแก้
+| ปัญหา | สาเหตุ | วิธีแก้ |
 |-------|--------|-----|
-| **No documents appear in search results** | ดัชนียังไม่ได้ commit | เรียก `node.getIndexer().commit()` หลังจากเพิ่มไฟล์. |
-| **Port conflict error** | บริการอื่นใช้ `basePort` | เลือก `basePort` อื่นหรือยืนยันว่าพอร์ตว่าง. |
-| **Unsupported file format** | ไลบรารีไม่มี parser | ตรวจสอบให้แน่ใจว่าส่วนขยายไฟล์ได้รับการสนับสนุนหรือเพิ่ม extractor แบบกำหนดเอง. |
+| **ไม่มีเอกสารปรากฏในผลการค้นหา** | ดัชนียังไม่ได้คอมมิท | เรียก `node.getIndexer().commit()` หลังจากเพิ่มไฟล์ |
+| **ข้อผิดพลาดพอร์ตซ้ำกัน** | บริการอื่นใช้ `basePort` | เลือก `basePort` อื่นหรือยืนยันพอร์ตว่าง |
+| **รูปแบบไฟล์ไม่รองรับ** | ไลบรารีไม่มี parser | ตรวจสอบให้แน่ใจว่าส่วนขยายไฟล์รองรับหรือเพิ่มตัวแยกข้อมูลแบบกำหนดเอง |
 
 ## เคล็ดลับการแก้ไขปัญหา
-- **Verify node health:** ใช้ endpoint ตรวจสอบสุขภาพในตัว (`http://localhost:{port}/health`) เพื่อยืนยันว่าแต่ละโหนดกำลังทำงาน.  
-- **Monitor memory usage:** ชุดเอกสารขนาดใหญ่สามารถทำให้หน่วยความจำพุ่งสูง; พิจารณาทำดัชนีเป็นชิ้นย่อยและเรียก `commit()` เป็นระยะ.  
-- **Check logs:** GroupDocs.Search จะเขียนบันทึกรายละเอียดไปยังโฟลเดอร์ `basePath`—ตรวจสอบเพื่อหาข้อผิดพลาดการแปลงหรือการหมดเวลาเครือข่าย.
+- **ตรวจสอบสุขภาพโหนด:** ใช้ endpoint ตรวจสอบสุขภาพในตัว (`http://localhost:{port}/health`) เพื่อยืนยันว่าโหนดแต่ละตัวทำงานอยู่  
+- **ตรวจสอบการใช้หน่วยความจำ:** ชุดเอกสารขนาดใหญ่สามารถทำให้หน่วยความจำพุ่งสูง; ทำดัชนีเป็นชิ้นเล็กและเรียก `commit()` อย่างสม่ำเสมอ  
+- **ตรวจสอบบันทึก:** GroupDocs.Search จะเขียนบันทึกรายละเอียดลงในโฟลเดอร์ `basePath` — ตรวจสอบเพื่อหาข้อผิดพลาดการแปลงหรือการหมดเวลาเครือข่าย
 
 ## คำถามที่พบบ่อย
 
-**Q: Can I use GroupDocs.Search on a cloud‑based Java application?**  
-A: ใช่. ไลบรารีทำงานกับ Java runtime ใดก็ได้, และคุณสามารถชี้ `basePath` ไปยังโฟลเดอร์ที่เมานท์บนเครือข่ายหรือที่เก็บข้อมูลบนคลาวด์ที่เมานท์ไว้ในเครื่อง.
+**Q: สามารถใช้ GroupDocs.Search บนแอปพลิเคชัน Java ที่ทำงานบนคลาวด์ได้หรือไม่?**  
+A: ได้. ไลบรารีทำงานกับ runtime ของ Java ใดก็ได้, และคุณสามารถชี้ `basePath` ไปยังโฟลเดอร์ที่เมานท์บนเครือข่ายหรือที่เก็บข้อมูลบนคลาวด์ได้
 
-**Q: How do I update the index when a file changes?**  
-A: สมัครรับเหตุการณ์ของโหนด (ดูคุณลักษณะ 3) และเรียก `addFiles` หรือ `addDirectories` อีกครั้งสำหรับเส้นทางที่แก้ไข.
+**Q: จะอัปเดตดัชนีเมื่อไฟล์มีการเปลี่ยนแปลงอย่างไร?**  
+A: สมัครรับเหตุการณ์ของโหนด (ดูฟีเจอร์ 3) และเรียก `addFiles` หรือ `addDirectories` อีกครั้งสำหรับเส้นทางที่แก้ไข
 
-**Q: Is there a limit to the number of nodes I can deploy?**  
-A: โดยปฏิบัติ ขีดจำกัดขึ้นอยู่กับฮาร์ดแวร์และแบนด์วิธของเครือข่ายของคุณ. API เองไม่มีการจำกัดแบบตายตัว.
+**Q: มีขีดจำกัดจำนวนโหนดที่สามารถปรับใช้ได้หรือไม่?**  
+A: โดยปฏิบัติ ขีดจำกัดขึ้นอยู่กับฮาร์ดแวร์และแบนด์วิดท์ของเครือข่าย. API ไม่ได้กำหนดขีดจำกัดคงที่
 
-**Q: Do I need to restart nodes after adding new files?**  
-A: ไม่. การเพิ่มไฟล์จะทำให้การทำดัชนีทำงานโดยอัตโนมัติ; คุณเพียงต้อง commit หากคุณเลื่อนการดำเนินการ.
+**Q: จำเป็นต้องรีสตาร์ทโหนดหลังจากเพิ่มไฟล์ใหม่หรือไม่?**  
+A: ไม่จำเป็น. การเพิ่มไฟล์จะกระตุ้นการทำดัชนีโดยอัตโนมัติ; เพียงแค่คอมมิทหากคุณเลื่อนการดำเนินการ
 
-**Q: Which document formats are supported out of the box?**  
-A: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, และหลายประเภทของรูปภาพ. ดูเอกสารอย่างเป็นทางการสำหรับรายการเต็ม.
+**Q: รองรับรูปแบบเอกสารใดบ้างโดยอัตโนมัติ?**  
+A: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, และหลายรูปแบบภาพ — มากกว่า 50 รูปแบบทั้งหมด
 
-**Q: How can I enable real time indexing java for a folder that receives uploads continuously?**  
-A: Implement ตัวตรวจจับระบบไฟล์ (เช่น `java.nio.file.WatchService`) ที่เรียก `DirectoryAdder.addDirectories(node, path)` ทุกครั้งที่ตรวจพบไฟล์ใหม่.
+**Q: จะเปิดใช้งานการทำดัชนีแบบเรียลไทม์สำหรับโฟลเดอร์ที่รับอัปโหลดต่อเนื่องอย่างไร?**  
+A: สร้างตัวตรวจจับระบบไฟล์ (เช่น `java.nio.file.WatchService`) ที่เรียก `DirectoryAdder.addDirectories(node, path)` ทุกครั้งที่ตรวจพบไฟล์ใหม่
 
 ---
 
-**อัปเดตล่าสุด:** 2026-02-27  
-**ทดสอบด้วย:** GroupDocs.Search for Java 25.4  
+**อัปเดตล่าสุด:** 2026-09-27  
+**ทดสอบกับ:** GroupDocs.Search for Java 25.4  
 **ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [How to implement java full text search: create index directory with GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Implement Full Text Search Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [How to Configure Search with GroupDocs.Search in Java - Configuration & Deployment Guide](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

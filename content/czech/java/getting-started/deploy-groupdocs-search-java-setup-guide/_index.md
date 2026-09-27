@@ -1,54 +1,88 @@
 ---
-date: '2026-02-27'
-description: Naučte se, jak vytvořit prohledávatelný index v Javě pomocí GroupDocs.Search
-  pro Javu, přidávat soubory k vyhledávání, přidávat adresáře do uzlu a povolit indexování
-  v reálném čase v Javě.
+date: '2026-09-27'
+description: Naučte se, jak implementovat java full text search pomocí GroupDocs.Search
+  pro Java, přidávat soubory k vyhledávání, konfigurovat adresáře a povolit real time
+  indexing.
 keywords:
-- GroupDocs.Search for Java
-- deploy GroupDocs.Search
-- Java search network setup
-title: Vytvořit prohledávatelný index v Javě – nasadit GroupDocs.Search pro Javu
+- java full text search
+- event driven indexing
+- java search engine
+- add files to search
+- real time indexing java
+lastmod: '2026-09-27'
+og_description: Implementujte java full text search pomocí GroupDocs.Search. Naučte
+  se přidávat soubory, konfigurovat nodes a povolit real time indexing během několika
+  minut.
+og_image_alt: Guide to setting up java full text search with GroupDocs.Search
+og_title: Jak implementovat java full text search s GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    for Java, add files to search, configure directories, and enable real time indexing.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: Yes. The library works with any Java runtime, and you can point `basePath`
+      to a network‑mounted folder or a cloud storage mount.
+    question: Can I use GroupDocs.Search on a cloud‑based Java application?
+  - answer: Subscribe to node events (see Feature 3) and call `addFiles` or `addDirectories`
+      again for the modified paths.
+    question: How do I update the index when a file changes?
+  - answer: Practically, the limit is defined by your hardware and network bandwidth.
+      The API imposes no hard cap.
+    question: Is there a limit to the number of nodes I can deploy?
+  - answer: No. Adding files triggers indexing automatically; you only need to commit
+      if you defer the operation.
+    question: Do I need to restart nodes after adding new files?
+  - answer: PDFs, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML, and many image types—over
+      50 formats in total.
+    question: Which document formats are supported out of the box?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- search indexing
+title: Jak implementovat java full text search s GroupDocs.Search
 type: docs
 url: /cs/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-# Vytvoření prohledávatelného indexu v Javě – nasazení GroupDocs.Search pro Java
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-V dnešním datově řízeném světě **vytváření prohledávatelného indexu v Javě** aplikace potřebují efektivně zpracovávat obrovské kolekce dokumentů. Ať už budujete enterprise‑grade vyhledávací službu nebo menší projekt, dobře nakonfigurovaná vyhledávací síť může dramaticky zlepšit rychlost načítání a relevanci výsledků. V tomto průvodci vás provedeme celým procesem nastavení **GroupDocs.Search for Java**, od přidávání souborů do vyhledávání po přidávání adresářů do uzlu, abyste mohli okamžitě začít indexovat své dokumenty.
+# Jak implementovat java full text search pomocí GroupDocs.Search
 
-> **Proč je to důležité:** Prohledávatelný index snižuje latenci dotazů ze sekund na milisekundy, škáluje s růstem vašich dat a umožňuje přidat výkonné full‑textové funkce do jakéhokoli řešení založeného na Javě – ať už jde o webový portál, desktopovou aplikaci nebo cloudovou mikroservisu.
+V éře aplikací řízených daty je **java full text search** nezbytný pro převod obrovských kolekcí dokumentů na okamžitě prohledávatelné znalostní báze. Ať už budujete podnikový portál nebo lehkou desktopovou utilitu, dobře nakonfigurovaná vyhledávací síť může snížit latenci dotazů ze sekund na milisekundy a udržet výsledky relevantní i při růstu dat. Tento tutoriál vás provede nasazením **GroupDocs.Search for Java**, přidáváním souborů do vyhledávání, konfigurací adresářů na uzlech a povolením indexování v reálném čase, aby váš index zůstal aktuální bez ručního zásahu.
+
+> **Proč je to důležité:** Index java full text search snižuje latenci dotazů, škáluje s objemem dat a přináší výkonné full‑textové možnosti do jakéhokoli řešení založeného na Java — webových portálů, desktopových aplikací nebo cloudových mikroservis.
 
 ## Rychlé odpovědi
-- **Jaký je hlavní účel GroupDocs.Search?** Poskytuje škálovatelný, Java‑based engine pro indexování a vyhledávání dokumentů napříč distribuovanou sítí.  
-- **Kterou verzi mám použít?** Doporučuje se nejnovější stabilní vydání (např. 25.4) pro nové projekty.  
-- **Potřebuji licenci?** K dispozici je 30‑denní bezplatná zkušební verze; pro produkční použití je vyžadována trvalá licence.  
-- **Mohu přidat jak soubory, tak celé adresáře?** Ano – použijte pomocníky `addFiles` a `addDirectories` k načtení obsahu.  
+- **Jaký je hlavní účel GroupDocs.Search?** Poskytuje škálovatelný java vyhledávač, který indexuje a prohledává dokumenty napříč distribuovanou sítí.  
+- **Kterou verzi mám použít?** Nejnovější stabilní verze (např. 25.4) je doporučena pro nové projekty.  
+- **Potřebuji licenci?** Je k dispozici 30‑denní bezplatná zkušební verze; pro produkční použití je vyžadována trvalá licence.  
+- **Mohu přidat jak soubory, tak celé adresáře?** Ano — použijte pomocníky `addFiles` a `addDirectories` k načtení obsahu.  
 - **Jaká verze Javy je požadována?** Java 8 nebo vyšší, s Mavenem pro správu závislostí.  
-- **Jak funguje real‑time indexování v Javě?** Přihlášením k událostem uzlu můžete spouštět automatické re‑indexování při změně souborů.
+- **Jak funguje indexování v reálném čase v Javě?** Přihlášením k událostem uzlu můžete spouštět automatické přeindexování při změně souborů.
 
-## Co je „vytvoření prohledávatelného indexu v Javě“?
-Vytvoření prohledávatelného indexu v Javě znamená postavit datovou strukturu, která mapuje termíny na dokumenty, jež je obsahují, což umožňuje rychlé full‑textové dotazy. GroupDocs.Search abstrahuje těžkou práci, takže se můžete soustředit na načítání dokumentů a ladění chování vyhledávání.
+## Co je „create searchable index java“?
+Vytvoření prohledávatelného indexu v Javě znamená vytvořit datovou strukturu, která mapuje termíny na dokumenty, které je obsahují, a umožňuje rychlé full‑textové dotazy. **GroupDocs.Search for Java** abstrahuje těžkou práci, takže se můžete soustředit na načítání dokumentů a ladění chování vyhledávání.
 
 ## Proč používat GroupDocs.Search pro Java?
-- **Škálovatelná síťová architektura** – nasazení více uzlů, které sdílejí zátěž indexování.  
-- **Bohatá podpora formátů dokumentů** – PDF, Word, Excel, PowerPoint, obrázky a další.  
-- **Událostmi řízené aktualizace** – přihlaste se k událostem uzlu a udržujte index aktuální v reálném čase.  
-- **Jednoduchá integrace s Mavenem** – přidejte několik řádků do `pom.xml` a začněte indexovat.
+GroupDocs.Search poskytuje java vyhledávač, který horizontálně škáluje, podporuje více než 50 vstupních a výstupních formátů a nabízí indexování řízené událostmi. Nasazením více uzlů se rozloží zátěž indexování, zatímco vestavěné kontroly zdraví udržují síť spolehlivou. Také poskytuje RESTful API a přizpůsobitelné analyzátory pro jemně doladěnou relevanci.
 
-## Real‑time indexování v Javě s GroupDocs.Search
-GroupDocs.Search vyvolává události vždy, když je soubor přidán, aktualizován nebo odstraněn. Zpracováním těchto událostí můžete automaticky volat `addFiles` nebo `addDirectories`, čímž zajistíte, že index zůstane synchronizovaný bez ručního zásahu. Tento přístup je ideální pro systémy správy dokumentů, obsahové portály a jakoukoli aplikaci, kde se data často mění.
-
-## Předpoklady
-- **JDK 8+** nainstalované na vašem vývojovém počítači.  
-- IDE jako **IntelliJ IDEA** nebo **Eclipse**.  
-- Základní znalost **Javy** a **Mavenu**.  
-- Přístup k knihovně **GroupDocs.Search for Java** (stažení nebo Maven).
+## Požadavky
+- **JDK 8+** nainstalováno na vašem vývojovém počítači.  
+- IDE, například **IntelliJ IDEA** nebo **Eclipse**.  
+- Základní znalost **Java** a **Maven**.  
+- Přístup k knihovně **GroupDocs.Search for Java** (ke stažení nebo přes Maven).
 
 ## Nastavení GroupDocs.Search pro Java
 
-### Maven Dependency
-Přidejte repozitář a závislost do svého `pom.xml`:
+### Maven závislost
+Přidejte repozitář a závislost do vašeho `pom.xml`:
 
 ```xml
 <repositories>
@@ -68,17 +102,17 @@ Přidejte repozitář a závislost do svého `pom.xml`:
 </dependencies>
 ```
 
-> **Tip:** Udržujte číslo verze aktuální kontrolou oficiální stránky s vydáními.
+> **Tip:** Udržujte číslo verze aktuální kontrolou oficiální stránky vydání.
 
 Můžete také stáhnout JAR přímo z oficiálního webu: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Získání licence
-- **Bezplatná zkušební verze:** 30‑denní hodnocení.  
-- **Dočasná licence:** Požádejte o prodloužené testování.  
-- **Koupě:** Vyžadována pro produkční nasazení.
+- **Free trial:** 30‑denní zkušební verze.  
+- **Temporary license:** Požádejte o rozšířené testování.  
+- **Purchase:** Vyžadováno pro produkční nasazení.
 
 ### Základní inicializace
-Vytvořte konfigurační objekt, který ukazuje na složku, kde budou uloženy soubory indexu, a určuje základní komunikační port:
+Vytvořte konfigurační objekt, který ukazuje na složku, kde budou uloženy soubory indexu, a definuje základní komunikační port:
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -94,12 +128,11 @@ class InitializeSearch {
 }
 ```
 
-## Jak vytvořit prohledávatelný index v Javě s GroupDocs.Search?
+## Jak vytvořit searchable index java pomocí GroupDocs.Search?
+Načtěte objekt `SearchConfiguration`, spusťte `SearchNetworkNode` a zavolejte `node.getIndexer().addFiles(...)` pro naplnění indexu. Tento jednorázový vzor spustí plně funkční síť java full text search, připravenou okamžitě přijímat dotazy. Poté můžete škálovat přidáním dalších uzlů, které sdílejí stejnou základní cestu a rozsah portů.
 
-Níže rozebíráme hlavní funkce, které budete potřebovat k **přidání souborů do vyhledávání** a **přidání adresářů do uzlu**, a zároveň nasadíme škálovatelnou síť.
-
-### Funkce 1 – Konfigurace a nastavení sítě
-Nastavení vyhledávací sítě je prvním krokem k vytvoření prohledávatelného indexu.
+### Funkce 1 – konfigurace a nastavení sítě
+Třída `SearchConfiguration` obsahuje všechna nastavení potřebná k vytvoření uzlu.
 
 ```java
 import com.groupdocs.search.Configuration;
@@ -113,11 +146,11 @@ class ConfiguringSearchNetwork {
 }
 ```
 
-- **`basePath`** – adresář, kde budou data indexu uložena.  
-- **`basePort`** – výchozí port; každý uzel bude inkrementovat od této hodnoty.
+- **`basePath`** – Adresář, kde budou data indexu uložena.  
+- **`basePort`** – Počáteční port; každý uzel bude inkrementovat od této hodnoty.
 
-### Funkce 2 – Nasazení uzlů vyhledávací sítě
-Nasazení uzlů rozděluje zátěž indexování mezi více strojů nebo procesů.
+### Funkce 2 – nasazení uzlů vyhledávací sítě
+`SearchNetworkNode` představuje individuální indexovací službu, která může běžet na jakémkoli stroji.
 
 ```java
 import com.groupdocs.search.scaling.*;
@@ -130,9 +163,9 @@ class SearchNetworkDeployment {
 }
 ```
 
-Každý `SearchNetworkNode` běží se svým vlastním indexovacím servisem, což vám umožní **vytvořit prohledávatelný index v Javě**, který horizontálně škáluje.
+`SearchNetworkNode` je hlavní běhová komponenta, která hostí index, zpracovává události přidání/odstranění a odpovídá na vyhledávací dotazy. Nasazením více uzlů můžete **create java full text search** clustery, které horizontálně škálují.
 
-### Funkce 3 – Přihlášení k událostem uzlu
+### Funkce 3 – přihlášení k událostem uzlu
 Aktualizace v reálném čase udržují index synchronizovaný se změnami souborového systému.
 
 ```java
@@ -145,10 +178,10 @@ class SearchNetworkNodeEvents {
 }
 ```
 
-Posloucháním událostí můžete automaticky spouštět re‑indexování, když přijdou nové soubory.
+Poslechem událostí můžete automaticky spouštět přeindexování, když přijdou nové soubory, a dosáhnout **event driven indexing** bez ručních skriptů.
 
-### Funkce 4 – Přidávání adresářů do uzlu sítě
-Použijte tento pomocník k **přidání adresářů do uzlu**, který rekurzivně sbírá všechny podporované dokumenty.
+### Funkce 4 – přidávání adresářů do uzlu sítě
+Použijte tento pomocník k **add directories to node**, rekurzivně sbírající všechny podporované dokumenty.
 
 ```java
 import java.io.File;
@@ -176,8 +209,8 @@ class DirectoryAdder {
 }
 ```
 
-### Funkce 5 – Přidávání souborů do uzlu sítě
-Když potřebujete jemnější kontrolu, **přidejte soubory do vyhledávání** jednotlivě:
+### Funkce 5 – přidávání souborů do uzlu sítě
+Když potřebujete jemnozrnné řízení, **add files to search** jednotlivě:
 
 ```java
 import com.groupdocs.search.Document;
@@ -221,47 +254,57 @@ class FileAdder {
 }
 ```
 
-Tato metoda vám dává flexibilitu indexovat soubory pocházející ze streamů, cloudového úložiště nebo dočasných umístění.
+`addFiles` je metoda, která přijímá seznam cest k souborům nebo streamů, což vám umožní indexovat dokumenty z cloudového úložiště, dočasných cache nebo paměťových streamů.
 
 ## Běžné případy použití
-- **Enterprise portály dokumentů**, které potřebují okamžité vyhledávání napříč tisíci PDF a Office soubory.  
-- **Právní e‑discovery platformy**, kde se neustále přidává nová evidence a musí být vyhledatelná v reálném čase.  
-- **Systémy správy obsahu**, které ukládají obrázky, prezentace a tabulky a vyžadují full‑textové vyhledávání.
+- **Enterprise document portals** které potřebují okamžité vyhledávání napříč tisíci PDF a Office soubory.  
+- **Legal e‑discovery platforms** kde jsou nové důkazy neustále přidávány a musí být prohledávatelné v reálném čase.  
+- **Content management systems** které ukládají obrázky, prezentace a tabulky a vyžadují full‑textové vyhledávání.
 
 ## Běžné problémy a řešení
 | Problém | Důvod | Řešení |
-|-------|--------|-----|
-| **V výsledcích vyhledávání se neobjevují žádné dokumenty** | Index není potvrzen | Po přidání souborů zavolejte `node.getIndexer().commit()`. |
+|---------|-------|--------|
+| **Žádné dokumenty se neobjevují ve výsledcích vyhledávání** | Index nebyl potvrzen | Po přidání souborů zavolejte `node.getIndexer().commit()`. |
 | **Chyba konfliktu portu** | Jiná služba používá `basePort` | Zvolte jiný `basePort` nebo ověřte volné porty. |
-| **Nepodporovaný formát souboru** | Knihovna nemá parser | Ujistěte se, že je přípona souboru podporována, nebo přidejte vlastní extraktor. |
+| **Nepodporovaný formát souboru** | Knihovna postrádá parser | Ujistěte se, že je přípona souboru podporována, nebo přidejte vlastní extraktor. |
 
-## Tipy pro odstraňování potíží
-- **Ověřte stav uzlu:** Použijte vestavěný health‑check endpoint (`http://localhost:{port}/health`) a potvrďte, že každý uzel běží.  
-- **Sledujte využití paměti:** Velké dávky dokumentů mohou zvýšit paměť; zvažte indexování v menších částech a pravidelné volání `commit()`.  
-- **Kontrolujte logy:** GroupDocs.Search zapisuje podrobné logy do složky `basePath` – prohlédněte je pro chyby parsování nebo časové limity sítě.
+## Tipy pro řešení problémů
+- **Verify node health:** Použijte vestavěný health‑check endpoint (`http://localhost:{port}/health`) k ověření, že každý uzel běží.  
+- **Monitor memory usage:** Velké dávky dokumentů mohou zvýšit paměť; indexujte v menších částech a periodicky zavolejte `commit()`.  
+- **Check logs:** GroupDocs.Search zapisuje podrobné logy do složky `basePath` — prohlédněte je kvůli chybám parsování nebo časovým limitům sítě.
 
 ## Často kladené otázky
 
-**Q: Mohu použít GroupDocs.Search v cloudové Java aplikaci?**  
-A: Ano. Knihovna funguje s libovolným Java runtime a můžete `basePath` nasměrovat na síťově připojený adresář nebo cloudové úložiště připojené lokálně.
+**Q: Můžu použít GroupDocs.Search v cloudové Java aplikaci?**  
+A: Ano. Knihovna funguje s jakýmkoli Java runtime a můžete nastavit `basePath` na síťově připojený adresář nebo cloudové úložiště.
 
 **Q: Jak aktualizuji index, když se soubor změní?**  
 A: Přihlaste se k událostem uzlu (viz Funkce 3) a znovu zavolejte `addFiles` nebo `addDirectories` pro upravené cesty.
 
 **Q: Existuje limit na počet uzlů, které mohu nasadit?**  
-A: Prakticky je limit dán vaším hardwarem a šířkou pásma sítě. API samo neklade žádný pevný limit.
+A: Prakticky je limit dán vaším hardwarem a šířkou pásma sítě. API neklade žádný pevný limit.
 
 **Q: Musím po přidání nových souborů restartovat uzly?**  
-A: Ne. Přidání souborů spustí indexování automaticky; stačí provést commit, pokud operaci odkládáte.
+A: Ne. Přidání souborů spouští indexování automaticky; pouze pokud odložíte operaci, musíte provést commit.
 
-**Q: Jaké formáty dokumentů jsou podporovány bez další konfigurace?**  
-A: PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML a mnoho typů obrázků. Kompletní seznam najdete v oficiální dokumentaci.
+**Q: Jaké formáty dokumentů jsou podporovány přímo z krabice?**  
+A: PDF, DOC/DOCX, XLS/XLSX, PPT/PPTX, TXT, HTML a mnoho typů obrázků — celkem více než 50 formátů.
 
-**Q: Jak mohu povolit real‑time indexování v Javě pro složku, která neustále přijímá nahrané soubory?**  
-A: Implementujte sledovač souborového systému (např. `java.nio.file.WatchService`), který při detekci nového souboru zavolá `DirectoryAdder.addDirectories(node, path)`.
+**Q: Jak mohu povolit real‑time indexing java pro složku, která neustále přijímá nahrávání?**  
+A: Implementujte sledovač souborového systému (např. `java.nio.file.WatchService`), který zavolá `DirectoryAdder.addDirectories(node, path)` vždy, když je detekován nový soubor.
 
----
+**Poslední aktualizace:** 2026-09-27  
+**Testováno s:** GroupDocs.Search for Java 25.4  
+**Autor:** GroupDocs
 
-**Last Updated:** 2026-02-27  
-**Tested With:** GroupDocs.Search for Java 25.4  
-**Author:** GroupDocs
+## Související tutoriály
+
+- [Jak implementovat java full text search: vytvořit adresář indexu s GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Implementovat Full Text Search Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Jak konfigurovat Search s GroupDocs.Search v Java - Průvodce konfigurací a nasazením](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

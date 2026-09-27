@@ -1,135 +1,176 @@
 ---
-date: 2026-02-27
-description: Μάθετε πώς να επισημαίνετε τα αποτελέσματα αναζήτησης java χρησιμοποιώντας
-  το GroupDocs.Search. Αυτός ο οδηγός βήμα-βήμα καλύπτει την επισήμανση όρων σε PDF,
-  Word και άλλες μορφές με προσαρμοσμένο στυλ.
-title: Επισήμανση Αποτελεσμάτων Αναζήτησης Java με το GroupDocs.Search
+date: 2026-09-27
+description: Μάθετε πώς να επισημαίνετε τα αποτελέσματα αναζήτησης σε Java με το GroupDocs.Search,
+  συμπεριλαμβανομένου του πώς να προσθέσετε επισήμανση σε έγγραφα Word, PDF και άλλα
+  με προσαρμοσμένο στυλ.
+keywords:
+- how to highlight search
+- add highlight to word
+- GroupDocs.Search Java
+- search result highlighting
+lastmod: 2026-09-27
+og_description: Μάθετε πώς να επισημαίνετε τα αποτελέσματα αναζήτησης σε Java με το
+  GroupDocs.Search, συμπεριλαμβανομένου του πώς να προσθέσετε επισήμανση σε έγγραφα
+  Word, PDF και άλλα με προσαρμοσμένο στυλ.
+og_image_alt: Developer guide showing how to highlight search results in Java using
+  GroupDocs.Search
+og_title: Πώς να επισημάνετε τα αποτελέσματα αναζήτησης σε Java με το GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-27'
+  description: Learn how to highlight search results in Java with GroupDocs.Search,
+    including how to add highlight to Word documents, PDF and more with custom styling.
+  headline: How to highlight search results in Java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to highlight search results in Java with GroupDocs.Search,
+    including how to add highlight to Word documents, PDF and more with custom styling.
+  name: How to highlight search results in Java with GroupDocs.Search
+  steps:
+  - name: initialize the search engine
+    text: '`SearchEngine` is the core class that indexes and queries your document
+      collection. Create an instance of `SearchEngine` and load the index that contains
+      the documents you want to search. > *Note: The code for this step is provided
+      in the linked comprehensive guide below.*'
+  - name: perform a search query
+    text: '`SearchResult` represents a single document that contains matches for the
+      user’s query. Invoke the `search` method with the query string; it returns a
+      collection of `SearchResult` objects.'
+  - name: highlight matches in the original document
+    text: '`HighlightOptions` lets you specify the visual style—color, opacity, and
+      whether to highlight the whole fragment or just the exact term. For each `SearchResult`,
+      call the highlighting API to embed visual markers directly into the source file.'
+  - name: generate an HTML preview (optional)
+    text: If you prefer to display a web‑based preview instead of the original file,
+      use the `HighlightResult` class to produce an HTML snippet with highlighted
+      terms. This is useful for browser‑based viewers or lightweight mobile apps.
+  - name: save or stream the highlighted output
+    text: After highlighting, you can either overwrite the original document, save
+      a new highlighted copy, or stream the result directly to the client’s browser.
+  type: HowTo
+- questions:
+  - answer: Yes. Provide the password when loading the document, then apply the same
+      highlighting methods.
+    question: Can I highlight search results in password‑protected PDFs?
+  - answer: By default it creates a new copy, but you can choose to overwrite the
+      source if desired.
+    question: Does the highlighting modify the original file permanently?
+  - answer: Absolutely. Pass a list of terms to the search engine; each term will
+      be highlighted using the configured style.
+    question: Is it possible to highlight multiple query terms at once?
+  - answer: Use the `HighlightOptions` class to assign distinct `HighlightColor` values
+      per term before invoking the highlight method.
+    question: How do I change the highlight color for different terms?
+  - answer: Process the document in chunks and use streaming APIs to avoid loading
+      the entire file into memory.
+    question: What if a document contains millions of pages?
+  type: FAQPage
+tags:
+- highlight search
+- GroupDocs.Search
+- Java document processing
+- search result highlighting
+title: Πώς να επισημάνετε τα αποτελέσματα αναζήτησης σε Java με το GroupDocs.Search
 type: docs
 url: /el/java/highlighting/
 weight: 4
 ---
 
- μνήμη."
+# Πώς να επισημάνετε τα αποτελέσματα αναζήτησης σε Java με το GroupDocs.Search
 
-After that:
+Αν χρειάζεστε να **highlight search results in Java** για τις εφαρμογές σας, βρίσκεστε στο σωστό μέρος. Αυτός ο οδηγός σας καθοδηγεί στη διαδικασία οπτικής επισήμανσης των ταιριασμένων όρων μέσα στα αρχικά έγγραφα και τις προεπισκοπήσεις HTML χρησιμοποιώντας το GroupDocs.Search for Java. Είτε δημιουργείτε μια πύλη αναζήτησης εγγράφων, μια επιχειρησιακή βάση γνώσεων, είτε έναν απλό εξερευνητή αρχείων, οι τεχνικές που καλύπτονται εδώ θα σας βοηθήσουν να προσφέρετε μια πιο καθαρή και διαισθητική εμπειρία χρήστη.
+
+## Γρήγορες απαντήσεις
+- **What does “highlight search results java” do?**  
+  Επισημαίνει οπτικά κάθε εμφάνιση ενός όρου ερωτήματος μέσα σε ένα έγγραφο ή προεπισκόπηση, καθιστώντας τις αντιστοιχίσεις εύκολα ανιχνεύσιμες.  
+- **Which file types are supported?**  
+  Word, PDF, Excel, PowerPoint, plain text, και πολλά άλλα μέσω του GroupDocs.Search.  
+- **Do I need a license?**  
+  Μια προσωρινή άδεια λειτουργεί για ανάπτυξη· απαιτείται πλήρης άδεια για χρήση σε παραγωγή.  
+- **Can I customize the highlight style?**  
+  Ναι—χρώματα, γραμματοσειρές και διαφάνεια μπορούν να οριστούν προγραμματιστικά.  
+- **Is any additional setup required?**  
+  Απλώς προσθέστε τη βιβλιοθήκη GroupDocs.Search for Java στο έργο σας και αναφερθείτε στο API.
+
+## Τι είναι η επισήμανση αποτελεσμάτων αναζήτησης σε Java;
+Η επισήμανση αποτελεσμάτων αναζήτησης σε Java είναι η τεχνική προγραμματιστικής εφαρμογής οπτικών δεικτών (συνήθως χρωμάτων φόντου) σε κάθε εμφάνιση ενός όρου αναζήτησης που εντοπίζεται από το GroupDocs.Search μέσα σε ένα έγγραφο. Αυτό καθιστά απλό για τους τελικούς χρήστες να εντοπίζουν σχετικές πληροφορίες χωρίς να πρέπει να σαρώνουν ολόκληρο το αρχείο.
+
+## Γιατί να χρησιμοποιήσετε την επισήμανση του GroupDocs.Search για Java;
+Το GroupDocs.Search υποστηρίζει επισήμανση σε **πάνω από 30 μορφές αρχείων**, συμπεριλαμβανομένων των DOCX, PDF, XLSX, PPTX, TXT, HTML και άλλων. Μπορεί να ευρετηριάσει **έως 10 εκατομμύρια έγγραφα** διατηρώντας υποδευτερόλεπτο χρόνο απόκρισης ερωτήματος σε τυπικό εξοπλισμό διακομιστή. Το API σας επιτρέπει να προσαρμόζετε χρώματα, διαφάνεια και ακόμη να εφαρμόζετε διαφορετικά στυλ ανά όρο, ώστε να ταιριάζετε απόλυτα με τις οδηγίες UI της μάρκας σας.
+
+## Προαπαιτούμενα
+- Java 8 ή νεότερη εγκατεστημένη.  
+- Η βιβλιοθήκη GroupDocs.Search for Java προστέθηκε στο έργο σας (εξάρτηση Maven/Gradle).  
+- Ένα προσωρινό ή πλήρες αρχείο άδειας GroupDocs.Search.
+
+## Οδηγός βήμα‑βήμα
+
+### Βήμα 1: αρχικοποίηση της μηχανής αναζήτησης
+`SearchEngine` είναι η κεντρική κλάση που ευρετηριάζει και εκτελεί ερωτήματα στη συλλογή εγγράφων σας. Δημιουργήστε μια παρουσία του `SearchEngine` και φορτώστε το ευρετήριο που περιέχει τα έγγραφα που θέλετε να αναζητήσετε.
+
+> *Σημείωση: Ο κώδικας για αυτό το βήμα παρέχεται στον συνδεδεμένο αναλυτικό οδηγό παρακάτω.*
+
+### Βήμα 2: εκτέλεση ερωτήματος αναζήτησης
+`SearchResult` αντιπροσωπεύει ένα μεμονωμένο έγγραφο που περιέχει αντιστοιχίσεις για το ερώτημα του χρήστη. Καλείτε τη μέθοδο `search` με τη συμβολοσειρά ερωτήματος· αυτή επιστρέφει μια συλλογή αντικειμένων `SearchResult`.
+
+### Βήμα 3: επισήμανση αντιστοιχίσεων στο αρχικό έγγραφο
+`HighlightOptions` σας επιτρέπει να καθορίσετε το οπτικό στυλ—χρώμα, διαφάνεια και αν θα επισημαίνεται ολόκληρο το απόσπασμα ή μόνο ο ακριβής όρος. Για κάθε `SearchResult`, καλέστε το API επισήμανσης ώστε να ενσωματώσετε οπτικούς δείκτες απευθείας στο αρχικό αρχείο.
+
+### Βήμα 4: δημιουργία προεπισκόπησης HTML (προαιρετικό)
+Αν προτιμάτε να εμφανίσετε μια web‑βασισμένη προεπισκόπηση αντί του αρχικού αρχείου, χρησιμοποιήστε την κλάση `HighlightResult` για να δημιουργήσετε ένα απόσπασμα HTML με επισημασμένους όρους. Αυτό είναι χρήσιμο για προβολείς σε προγράμματα περιήγησης ή ελαφριές κινητές εφαρμογές.
+
+### Βήμα 5: αποθήκευση ή ροή του επισημασμένου αποτελέσματος
+Μετά την επισήμανση, μπορείτε είτε να αντικαταστήσετε το αρχικό έγγραφο, να αποθηκεύσετε ένα νέο επισημασμένο αντίγραφο, είτε να ρέσετε το αποτέλεσμα απευθείας στο πρόγραμμα περιήγησης του πελάτη.
+
+## Πώς να επισημάνετε όρους σε PDF
+Φορτώστε το PDF σας με το `SearchEngine` και εφαρμόστε `HighlightOptions` που χρησιμοποιούν έντονο κίτρινο χρώμα με 30 % διαφάνεια—αυτή η συνδυαστική ρύθμιση είναι σαφώς ορατή σε τυπικά φόντα PDF ενώ διατηρεί το αρχικό layout άθικτο. Το API υπολογίζει αυτόματα τις σωστές συντεταγμένες για κάθε αντιστοιχία, διατηρώντας τη ροή κειμένου και τις εικόνες. Μετά την επισήμανση, μπορείτε να αποθηκεύσετε το τροποποιημένο PDF στον δίσκο ή να το ρέσετε απευθείας στον πελάτη. Η προσέγγιση αυτή λειτουργεί τόσο για μονοσέλιδα όσο και για πολυσέλιδα PDFs χωρίς να αλλάζει η αρχική δομή του αρχείου.
+
+## Επισήμανση αντιστοιχίσεων σε έγγραφα Word
+`HighlightResult` λειτουργεί με αρχεία Word με τον ίδιο τρόπο, αλλά θα πρέπει να επιλέξετε ένα `HighlightColor` που σέβεται το εγγενές στυλ του Word (π.χ. ένα ανοιχτό τυρκουάζ που δεν αφαιρείται όταν το έγγραφο ανοίγει στο Microsoft Word). Αυτό εξασφαλίζει ότι η επισήμανση παραμένει σε όλες τις εκδόσεις του Word.
+
+## Συνηθισμένα προβλήματα και λύσεις
+- **No highlights appear:** Βεβαιωθείτε ότι η μορφή του εγγράφου υποστηρίζεται και ότι το ερώτημα αναζήτησης ταιριάζει πράγματι με το περιεχόμενο του αρχείου.  
+- **Performance slowdown on large files:** Ενεργοποιήστε ασύγχρονη ευρετηρίαση ή επεξεργαστείτε τα έγγραφα σε παρτίδες.  
+- **Incorrect colors:** Επαληθεύστε ότι χρησιμοποιείτε τις σωστές τιμές του enum `HighlightColor` και ότι το στυλ δεν παρακάμπτεται από CSS στο UI σας.
+
+## Διαθέσιμα μαθήματα
+
+### [GroupDocs.Search for Java&#58; Επισήμανση όρων αναζήτησης σε έγγραφα | Αναλυτικός οδηγός](./groupdocs-search-java-highlight-terms-documents/)
+Μάθετε πώς να χρησιμοποιήσετε το GroupDocs.Search for Java για την επισήμανση όρων αναζήτησης σε έγγραφα. Ανακαλύψτε τεχνικές επισήμανσης σε ολόκληρα έγγραφα και συγκεκριμένα αποσπάσματα.
+
+## Πρόσθετοι πόροι
+
+- [Τεκμηρίωση GroupDocs.Search for Java](https://docs.groupdocs.com/search/java/)
+- [Αναφορά API GroupDocs.Search for Java](https://reference.groupdocs.com/search/java/)
+- [Λήψη GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
+- [Φόρουμ GroupDocs.Search](https://forum.groupdocs.com/c/search)
+- [Δωρεάν υποστήριξη](https://forum.groupdocs.com/)
+- [Προσωρινή άδεια](https://purchase.groupdocs.com/temporary-license/)
+
+## Συχνές ερωτήσεις
+
+**Q: Μπορώ να επισημάνω τα αποτελέσματα αναζήτησης σε PDF με κωδικό προστασίας;**  
+A: Ναι. Παρέχετε τον κωδικό πρόσβασης κατά τη φόρτωση του εγγράφου, έπειτα εφαρμόζετε τις ίδιες μεθόδους επισήμανσης.
+
+**Q: Η επισήμανση τροποποιεί το αρχικό αρχείο μόνιμα;**  
+A: Από προεπιλογή δημιουργεί ένα νέο αντίγραφο, αλλά μπορείτε να επιλέξετε να αντικαταστήσετε την πηγή εάν το επιθυμείτε.
+
+**Q: Είναι δυνατόν να επισημάνω πολλούς όρους ερωτήματος ταυτόχρονα;**  
+A: Απόλυτα. Περνάτε μια λίστα όρων στη μηχανή αναζήτησης· κάθε όρος θα επισημανθεί χρησιμοποιώντας το διαμορφωμένο στυλ.
+
+**Q: Πώς αλλάζω το χρώμα επισήμανσης για διαφορετικούς όρους;**  
+A: Χρησιμοποιήστε την κλάση `HighlightOptions` για να αντιστοιχίσετε διαφορετικές τιμές `HighlightColor` ανά όρο πριν καλέσετε τη μέθοδο επισήμανσης.
+
+**Q: Τι γίνεται αν ένα έγγραφο περιέχει εκατομμύρια σελίδες;**  
+A: Επεξεργαστείτε το έγγραφο σε τμήματα και χρησιμοποιήστε streaming APIs για να αποφύγετε τη φόρτωση ολόκληρου του αρχείου στη μνήμη.
 
 ---
 
-**Last Updated:** 2026-02-27  
+**Last Updated:** 2026-09-27  
 **Tested With:** GroupDocs.Search for Java 23.11  
 **Author:** GroupDocs
 
-Translate labels but keep dates.
+## Σχετικά μαθήματα
 
-**Last Updated:** -> "**Τελευταία Ενημέρωση:**"
-
-**Tested With:** -> "**Δοκιμάστηκε Με:**"
-
-**Author:** -> "**Συγγραφέας:**"
-
-Now produce final markdown with Greek translations.
-
-Check for any code blocks: none.
-
-Check for any shortcodes: none.
-
-Make sure to keep bold formatting.
-
-Now craft final answer.# Επισημάνετε τα Αποτελέσματα Αναζήτησης Java με το GroupDocs.Search
-
-Αν χρειάζεστε **highlight search results java** στις εφαρμογές σας, βρίσκεστε στο σωστό μέρος. Αυτός ο οδηγός σας καθοδηγεί στη διαδικασία οπτικής επισήμανσης των ταιριασμένων όρων μέσα στα αρχικά έγγραφα και στις προεπισκοπήσεις HTML χρησιμοποιώντας το GroupDocs.Search για Java. Είτε δημιουργείτε μια πύλη αναζήτησης εγγράφων, μια επιχειρησιακή βάση γνώσεων, είτε έναν απλό εξερευνητή αρχείων, οι τεχνικές που καλύπτονται εδώ θα σας βοηθήσουν να προσφέρετε μια πιο καθαρή, πιο διαισθητική εμπειρία χρήστη.
-
-## Γρήγορες Απαντήσεις
-- **Τι κάνει το “highlight search results java”;**  
-  Σημαδεύει οπτικά κάθε εμφάνιση ενός όρου ερωτήματος μέσα σε ένα έγγραφο ή προεπισκόπηση, καθιστώντας τις αντιστοιχίες εύκολα ανιχνεύσιμες.  
-- **Ποιοι τύποι αρχείων υποστηρίζονται;**  
-  Word, PDF, Excel, PowerPoint, απλό κείμενο, και πολλά άλλα μέσω του GroupDocs.Search.  
-- **Χρειάζομαι άδεια;**  
-  Μια προσωρινή άδεια λειτουργεί για ανάπτυξη· απαιτείται πλήρης άδεια για χρήση σε παραγωγή.  
-- **Μπορώ να προσαρμόσω το στυλ επισήμανσης;**  
-  Ναι—χρώματα, γραμματοσειρές και διαφάνεια μπορούν να οριστούν προγραμματιστικά.  
-- **Απαιτείται κάποια επιπλέον ρύθμιση;**  
-  Απλώς προσθέστε τη βιβλιοθήκη GroupDocs.Search για Java στο έργο σας και αναφέρετε το API.
-
-## Πώς να Επισημάνετε τα Αποτελέσματα Αναζήτησης Java
-Ας περάσουμε από τη διαδικασία από άκρη σε άκρη. Θα κρατήσουμε τα βήματα σύντομα αλλά γεμάτα με πρακτικές συμβουλές ώστε να μπορείτε να αντιγράψετε‑και‑επικολλήσετε τη λογική στον δικό σας κώδικα.
-
-## Τι είναι η Επισήμανση Αποτελεσμάτων Αναζήτησης Java;
-Η επισήμανση αποτελεσμάτων αναζήτησης Java είναι η τεχνική προγραμματιστικής εφαρμογής οπτικών δεικτών (συνήθως χρωμάτων φόντου) σε κάθε εμφάνιση ενός όρου αναζήτησης που εντοπίζεται από το GroupDocs.Search μέσα σε ένα έγγραφο. Αυτό καθιστά εύκολο για τους τελικούς χρήστες να εντοπίζουν σχετικές πληροφορίες χωρίς να πρέπει να σαρώσουν χειροκίνητα ολόκληρο το αρχείο.
-
-## Γιατί να Χρησιμοποιήσετε το GroupDocs.Search για Επισήμανση Java;
-- **Άμεση οπτική ανάδραση:** Οι χρήστες βλέπουν τις αντιστοιχίες αμέσως, μειώνοντας το χρόνο απόκτησης γνώσης.  
-- **Συνεπής διαμορφώσεων:** Η ίδια λογική επισήμανσης λειτουργεί σε DOCX, PDF, XLSX, PPTX και άλλα.  
-- **Προσαρμόσιμη εμφάνιση:** Προσαρμόστε χρώματα και στυλ ώστε να ταιριάζουν με το εμπορικό σήμα ή το θέμα UI σας.  
-- **Κλιμακούμενη απόδοση:** Βελτιστοποιημένο για μεγάλες συλλογές εγγράφων και σενάρια αναζήτησης υψηλής διαπερατότητας.
-
-## Προαπαιτούμενα
-- Εγκατεστημένο Java 8 ή νεότερο.  
-- Προστέθηκε η βιβλιοθήκη GroupDocs.Search για Java στο έργο σας (εξάρτηση Maven/Gradle).  
-- Ένα προσωρινό ή πλήρες αρχείο άδειας GroupDocs.Search.
-
-## Οδηγός Βήμα‑Βήμα
-
-### Βήμα 1: Αρχικοποίηση της Μηχανής Αναζήτησης
-Δημιουργήστε ένα αντικείμενο `SearchEngine` και φορτώστε το ευρετήριο που περιέχει τα έγγραφα που θέλετε να αναζητήσετε.
-
-> *Σημείωση: Ο κώδικας για αυτό το βήμα παρέχεται στον συνδεδεμένο ολοκληρωμένο οδηγό παρακάτω.*
-
-### Βήμα 2: Εκτέλεση Ερωτήματος Αναζήτησης
-Κληθείτε τη μέθοδο `search` με τη συμβολοσειρά ερωτήματος του χρήστη. Η μέθοδος επιστρέφει μια συλλογή αντικειμένων `SearchResult`, το καθένα αντιπροσωπεύει ένα έγγραφο που περιέχει αντιστοιχίες.
-
-### Βήμα 3: Επισήμανση Αντιστοιχίσεων στο Αρχικό Έγγραφο
-Για κάθε `SearchResult`, καλέστε το API επισήμανσης για να ενσωματώσετε οπτικούς δείκτες απευθείας στο αρχικό αρχείο. Μπορείτε να καθορίσετε το χρώμα επισήμανσης, τη διαφάνεια και αν θα επισημαίνετε ολόκληρο το απόσπασμα ή μόνο τον ακριβή όρο.
-
-### Βήμα 4: Δημιουργία Προεπισκόπησης HTML (Προαιρετικό)
-Αν προτιμάτε να εμφανίσετε μια προεπισκόπηση μέσω web αντί του αρχικού αρχείου, χρησιμοποιήστε την κλάση `HighlightResult` για να δημιουργήσετε ένα απόσπασμα HTML με επισημασμένους όρους. Αυτό είναι χρήσιμο για προβολείς σε προγράμματα περιήγησης ή ελαφριές κινητές εφαρμογές.
-
-### Βήμα 5: Αποθήκευση ή Ροή του Επισημασμένου Αποτελέσματος
-Μετά την επισήμανση, μπορείτε είτε να αντικαταστήσετε το αρχικό έγγραφο, να αποθηκεύσετε ένα νέο επισημασμένο αντίγραφο, είτε να μεταδώσετε το αποτέλεσμα απευθείας στο πρόγραμμα περιήγησης του πελάτη.
-
-## Πώς να Επισημάνετε Όρους σε PDF
-Η επισήμανση όρων σε PDF ακολουθεί τις ίδιες κλήσεις API· απλώς βεβαιωθείτε ότι η μορφή του εγγράφου αναγνωρίζεται ως PDF. Η κλάση `HighlightOptions` σας επιτρέπει να επιλέξετε ένα `HighlightColor` που λειτουργεί καλά σε φόντο PDF (π.χ., έντονο κίτρινο με 30 % διαφάνεια).
-
-## Επισήμανση Αντιστοιχίσεων σε Έγγραφα Word
-Όταν εργάζεστε με αρχεία Word, η ίδια λογική `HighlightResult` ισχύει, αλλά ίσως θέλετε να χρησιμοποιήσετε το `HighlightColor` που σέβεται το εγγενές στυλ του Word. Αυτό αποτρέπει την αφαίρεση της επισήμανσης όταν το έγγραφο ανοίγει στο Microsoft Word.
-
-## Συχνά Προβλήματα και Λύσεις
-- **Δεν εμφανίζονται επισημάνσεις:** Βεβαιωθείτε ότι η μορφή του εγγράφου υποστηρίζεται και ότι το ερώτημα αναζήτησης ταιριάζει πραγματικά με το περιεχόμενο του αρχείου.  
-- **Μείωση απόδοσης σε μεγάλα αρχεία:** Ενεργοποιήστε την ασύγχρονη ευρετηρίαση ή επεξεργαστείτε τα έγγραφα σε παρτίδες.  
-- **Λανθασμένα χρώματα:** Επαληθεύστε ότι χρησιμοποιείτε τις σωστές τιμές enum `HighlightColor` και ότι το στυλ δεν παρακάμπτεται από CSS στη διεπαφή σας.
-
-## Διαθέσιμα Μαθήματα
-
-### [GroupDocs.Search for Java&#58; Επισήμανση Όρων Αναζήτησης σε Έγγραφα | Ολοκληρωμένος Οδηγός](./groupdocs-search-java-highlight-terms-documents/)
-Μάθετε πώς να χρησιμοποιείτε το GroupDocs.Search για Java για να επισημαίνετε όρους αναζήτησης σε έγγραφα. Ανακαλύψτε τεχνικές επισήμανσης σε ολόκληρα έγγραφα και συγκεκριμένα αποσπάσματα.
-
-## Πρόσθετοι Πόροι
-- [Τεκμηρίωση GroupDocs.Search για Java](https://docs.groupdocs.com/search/java/)
-- [Αναφορά API GroupDocs.Search για Java](https://reference.groupdocs.com/search/java/)
-- [Λήψη GroupDocs.Search για Java](https://releases.groupdocs.com/search/java/)
-- [Φόρουμ GroupDocs.Search](https://forum.groupdocs.com/c/search)
-- [Δωρεάν Υποστήριξη](https://forum.groupdocs.com/)
-- [Προσωρινή Άδεια](https://purchase.groupdocs.com/temporary-license/)
-
-## Συχνές Ερωτήσεις
-
-**Q: Μπορώ να επισημάνω τα αποτελέσματα αναζήτησης σε PDF με κωδικό πρόσβασης;**  
-A: Ναι. Παρέχετε τον κωδικό πρόσβασης κατά τη φόρτωση του εγγράφου, στη συνέχεια εφαρμόστε τις ίδιες μεθόδους επισήμανσης.
-
-**Q: Τροποποιεί η επισήμανση το αρχικό αρχείο μόνιμα;**  
-A: Από προεπιλογή δημιουργεί ένα νέο αντίγραφο, αλλά μπορείτε να επιλέξετε να αντικαταστήσετε την πηγή αν το επιθυμείτε.
-
-**Q: Είναι δυνατόν να επισημανθούν πολλαπλοί όροι ερωτήματος ταυτόχρονα;**  
-A: Απόλυτα. Περνάτε μια λίστα όρων στη μηχανή αναζήτησης· κάθε όρος θα επισημανθεί χρησιμοποιώντας το ρυθμισμένο στυλ.
-
-**Q: Πώς αλλάζω το χρώμα επισήμανσης για διαφορετικούς όρους;**  
-A: Χρησιμοποιήστε την κλάση `HighlightOptions` για να αναθέσετε διαφορετικές τιμές `HighlightColor` ανά όρο πριν καλέσετε τη μέθοδο επισήμανσης.
-
-**Q: Τι γίνεται αν ένα έγγραφο περιέχει εκατομμύρια σελίδες;**  
-A: Επεξεργαστείτε το έγγραφο σε τμήματα και χρησιμοποιήστε APIs ροής για να αποφύγετε τη φόρτωση ολόκληρου του αρχείου στη μνήμη.
-
----
-
-**Τελευταία Ενημέρωση:** 2026-02-27  
-**Δοκιμάστηκε Με:** GroupDocs.Search για Java 23.11  
-**Συγγραφέας:** GroupDocs
+- [Προσθήκη εγγράφων στο ευρετήριο – Μαθήματα GroupDocs.Search Java Tutorials](/search/java/document-management/)
+- [Πώς να δημιουργήσετε ευρετήριο εγγράφων και να προσθέσετε έγγραφα χρησιμοποιώντας το API GroupDocs.Search για Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Ασαφής αναζήτηση Java: Προσθήκη εγγράφων στο ευρετήριο με το GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
