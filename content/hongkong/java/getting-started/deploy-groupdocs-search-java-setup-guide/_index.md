@@ -45,10 +45,6 @@ url: /zh-hant/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 如何使用 GroupDocs.Search 實作 Java 全文搜尋
 
 在資料驅動的應用程式時代，**java full text search** 是將龐大的文件集合轉換為即時可搜尋知識庫的關鍵。無論您是構建企業級入口網站或輕量級桌面工具，良好配置的搜尋網路都能將查詢延遲從秒級降低至毫秒級，並在資料增長時保持結果相關性。本教學將帶您部署 **GroupDocs.Search for Java**、將檔案加入搜尋、在節點上配置目錄，並啟用即時索引，使索引保持最新，無需手動干預。
@@ -299,9 +295,3 @@ A: 實作檔案系統監控器（例如 `java.nio.file.WatchService`），在偵
 - [如何實作 java 全文搜尋：使用 GroupDocs.Search 建立索引目錄](/search/java/indexing/groupdocs-search-java-create-index/)
 - [在 Java 中實作全文搜尋：GroupDocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
 - [如何在 Java 中使用 GroupDocs.Search 配置搜尋 - 配置與部署指南](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -50,10 +50,6 @@ url: /pl/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Jak zaimplementować pełnotekstowe wyszukiwanie java z GroupDocs.Search
 
 W erze aplikacji opartych na danych, **java full text search** jest niezbędne do przekształcania ogromnych zbiorów dokumentów w natychmiastowo przeszukiwalne bazy wiedzy. Niezależnie od tego, czy tworzysz portal klasy korporacyjnej, czy lekki program desktopowy, dobrze skonfigurowana sieć wyszukiwania może skrócić opóźnienie zapytań z sekund do milisekund i utrzymać wyniki istotne w miarę wzrostu danych. Ten samouczek przeprowadzi Cię przez wdrożenie **GroupDocs.Search for Java**, dodawanie plików do wyszukiwania, konfigurowanie katalogów na węzłach oraz włączanie indeksowania w czasie rzeczywistym, aby Twój indeks pozostawał aktualny bez ręcznej interwencji.
@@ -301,9 +297,3 @@ A: Zaimplementuj obserwatora systemu plików (np. `java.nio.file.WatchService`),
 - [Jak zaimplementować pełnotekstowe wyszukiwanie java: utwórz katalog indeksu z GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
 - [Implementacja pełnotekstowego wyszukiwania Java GroupDocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
 - [Jak skonfigurować wyszukiwanie z GroupDocs.Search w Javie – przewodnik konfiguracji i wdrożenia](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

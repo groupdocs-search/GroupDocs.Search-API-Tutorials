@@ -49,10 +49,6 @@ url: /hu/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hogyan valósítsuk meg a java teljes szöveges keresést a GroupDocs.Search segítségével
 
 Az adat‑központú alkalmazások korszakában a **java full text search** elengedhetetlen a hatalmas dokumentumgyűjtemények azonnal kereshető tudásbázisokká alakításához. Akár vállalati szintű portált, akár könnyű asztali segédprogramot épít, egy jól konfigurált keresési hálózat képes a lekérdezési késleltetést másodpercekből ezrekbe csökkenteni, és a növekvő adatmennyiség mellett is releváns eredményeket biztosítani. Ez a tutorial végigvezet a **GroupDocs.Search for Java** telepítésén, a kereséshez fájlok hozzáadásán, a csomópontok könyvtárainak beállításán és a valós‑idő indexelés engedélyezésén, hogy indexe friss maradjon manuális beavatkozás nélkül.
@@ -302,9 +298,3 @@ A: Valósítsa meg egy fájlrendszer‑figyelőt (pl. `java.nio.file.WatchServic
 - [Hogyan valósítsuk meg a java teljes szöveges keresést: indexkönyvtár létrehozása a GroupDocs.Search segítségével](/search/java/indexing/groupdocs-search-java-create-index/)
 - [Teljes szöveges keresés Java Groupdocs Search implementálása](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
 - [Hogyan konfiguráljuk a keresést a GroupDocs.Search segítségével Java-ban – Konfigurációs és telepítési útmutató](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

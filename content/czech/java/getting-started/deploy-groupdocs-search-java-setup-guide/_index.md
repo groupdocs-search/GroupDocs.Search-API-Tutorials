@@ -49,10 +49,6 @@ url: /cs/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Jak implementovat java full text search pomocí GroupDocs.Search
 
 V éře aplikací řízených daty je **java full text search** nezbytný pro převod obrovských kolekcí dokumentů na okamžitě prohledávatelné znalostní báze. Ať už budujete podnikový portál nebo lehkou desktopovou utilitu, dobře nakonfigurovaná vyhledávací síť může snížit latenci dotazů ze sekund na milisekundy a udržet výsledky relevantní i při růstu dat. Tento tutoriál vás provede nasazením **GroupDocs.Search for Java**, přidáváním souborů do vyhledávání, konfigurací adresářů na uzlech a povolením indexování v reálném čase, aby váš index zůstal aktuální bez ručního zásahu.
@@ -302,9 +298,3 @@ A: Implementujte sledovač souborového systému (např. `java.nio.file.WatchSer
 - [Jak implementovat java full text search: vytvořit adresář indexu s GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
 - [Implementovat Full Text Search Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
 - [Jak konfigurovat Search s GroupDocs.Search v Java - Průvodce konfigurací a nasazením](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

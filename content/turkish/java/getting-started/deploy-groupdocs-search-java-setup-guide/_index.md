@@ -49,10 +49,6 @@ url: /tr/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Java tam metin aramasını GroupDocs.Search ile nasıl uygularsınız
 
 Veri odaklı uygulamaların çağında, **java full text search** büyük belge koleksiyonlarını anında aranabilir bilgi tabanlarına dönüştürmek için hayati öneme sahiptir. İster kurumsal düzeyde bir portal, ister hafif bir masaüstü yardımcı program geliştirin, iyi yapılandırılmış bir arama ağı sorgu gecikmesini saniyelerden milisaniyelere düşürebilir ve veri büyüdükçe sonuçların alaka düzeyini korur. Bu eğitim, **GroupDocs.Search for Java**'yı dağıtmayı, dosyaları aramaya eklemeyi, düğümlerdeki dizinleri yapılandırmayı ve indeksinizin manuel müdahale olmadan güncel kalmasını sağlayan gerçek‑zamanlı indekslemeyi nasıl etkinleştireceğinizi adım adım gösterir.
@@ -306,9 +302,3 @@ C: `java.nio.file.WatchService` gibi bir dosya sistemi izleyici uygulayarak yeni
 - [java tam metin arama nasıl uygulanır: GroupDocs.Search ile indeks dizini oluşturma](/search/java/indexing/groupdocs-search-java-create-index/)
 - [Full Text Search Java Groupdocs Search uygulama](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
 - [GroupDocs.Search ile Java’da Aramayı Yapılandırma - Konfigürasyon & Dağıtım Kılavuzu](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
