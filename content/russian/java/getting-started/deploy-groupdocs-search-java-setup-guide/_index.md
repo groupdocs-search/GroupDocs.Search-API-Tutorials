@@ -48,10 +48,6 @@ url: /ru/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Как реализовать полнотекстовый поиск java с помощью GroupDocs.Search
 
 В эпоху приложений, управляемых данными, **java full text search** является необходимым для преобразования огромных коллекций документов в мгновенно доступные базы знаний. Независимо от того, создаёте ли вы корпоративный портал или лёгкую настольную утилиту, правильно настроенная поисковая сеть может сократить задержку запросов с секунд до миллисекунд и поддерживать релевантность результатов по мере роста данных. В этом руководстве мы покажем, как развернуть **GroupDocs.Search for Java**, добавить файлы для поиска, настроить каталоги на узлах и включить индексацию в реальном времени, чтобы ваш индекс оставался актуальным без ручного вмешательства.
@@ -301,9 +297,3 @@ class FileAdder {
 - [Как реализовать java полнотекстовый поиск: создать каталог индекса с GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
 - [Реализация полнотекстового поиска Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
 - [Как настроить поиск с GroupDocs.Search в Java — руководство по конфигурации и развертыванию](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -49,10 +49,6 @@ url: /el/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Πώς να υλοποιήσετε αναζήτηση πλήρους κειμένου java με το GroupDocs.Search
 
 Στην εποχή των εφαρμογών που βασίζονται στα δεδομένα, η **java full text search** είναι απαραίτητη για τη μετατροπή τεράστιων συλλογών εγγράφων σε άμεσα αναζητήσιμες βάσεις γνώσης. Είτε δημιουργείτε μια επιχειρησιακή πύλη είτε μια ελαφριά επιτραπέζια εφαρμογή, ένα καλά διαμορφωμένο δίκτυο αναζήτησης μπορεί να μειώσει την καθυστέρηση των ερωτημάτων από δευτερόλεπτα σε χιλιοστά του δευτερολέπτου και να διατηρεί τα αποτελέσματα σχετικές καθώς τα δεδομένα αυξάνονται. Αυτό το σεμινάριο σας καθοδηγεί στη διανομή του **GroupDocs.Search for Java**, στην προσθήκη αρχείων στην αναζήτηση, στη διαμόρφωση καταλόγων στους κόμβους και στην ενεργοποίηση της ευρετηρίασης σε πραγματικό χρόνο ώστε το ευρετήριο σας να παραμένει ενημερωμένο χωρίς χειροκίνητη παρέμβαση.
@@ -302,9 +298,3 @@ class FileAdder {
 - [Πώς να υλοποιήσετε java full text search: δημιουργία καταλόγου ευρετηρίου με το GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
 - [Υλοποίηση Full Text Search Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
 - [Πώς να διαμορφώσετε την Αναζήτηση με το GroupDocs.Search σε Java - Οδηγός Διαμόρφωσης & Ανάπτυξης](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

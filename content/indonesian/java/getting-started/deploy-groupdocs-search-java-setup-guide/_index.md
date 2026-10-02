@@ -49,10 +49,6 @@ url: /id/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cara mengimplementasikan pencarian teks penuh java dengan GroupDocs.Search
 
 Di era aplikasi berbasis data, **java full text search** sangat penting untuk mengubah koleksi dokumen besar menjadi basis pengetahuan yang dapat dicari secara instan. Baik Anda membangun portal tingkat perusahaan maupun utilitas desktop ringan, jaringan pencarian yang terkonfigurasi dengan baik dapat mengurangi latensi kueri dari detik ke milidetik dan menjaga hasil tetap relevan seiring pertumbuhan data. Tutorial ini memandu Anda melalui penyebaran **GroupDocs.Search for Java**, menambahkan file ke pencarian, mengkonfigurasi direktori pada node, dan mengaktifkan pengindeksan waktu nyata sehingga indeks Anda tetap segar tanpa intervensi manual.
@@ -302,9 +298,3 @@ A: Implementasikan pengamat sistem file (mis., `java.nio.file.WatchService`) yan
 - [Cara mengimplementasikan java full text search: buat direktori indeks dengan GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
 - [Implementasi Full Text Search Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
 - [Cara Mengkonfigurasi Search dengan GroupDocs.Search di Java - Panduan Konfigurasi & Penyebaran](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

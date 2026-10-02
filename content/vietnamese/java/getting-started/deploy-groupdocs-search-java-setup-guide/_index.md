@@ -47,10 +47,6 @@ url: /vi/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cách triển khai tìm kiếm toàn văn java với GroupDocs.Search
 
 Trong thời đại các ứng dụng dựa trên dữ liệu, **java full text search** là yếu tố thiết yếu để biến các bộ sưu tập tài liệu khổng lồ thành các cơ sở tri thức có thể tìm kiếm ngay lập tức. Dù bạn đang xây dựng một cổng thông tin doanh nghiệp hay một tiện ích máy tính để bàn nhẹ, một mạng lưới tìm kiếm được cấu hình tốt có thể giảm độ trễ truy vấn từ giây xuống mili giây và giữ cho kết quả luôn phù hợp khi dữ liệu tăng lên. Hướng dẫn này sẽ chỉ cho bạn cách triển khai **GroupDocs.Search for Java**, thêm tệp vào tìm kiếm, cấu hình thư mục trên các nút, và bật lập chỉ mục thời gian thực để chỉ mục của bạn luôn cập nhật mà không cần can thiệp thủ công.
@@ -300,9 +296,3 @@ A: Triển khai một trình giám sát hệ thống tệp (ví dụ, `java.nio.
 - [Cách triển khai java full text search: tạo thư mục chỉ mục với GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
 - [Triển khai Full Text Search Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
 - [Cách cấu hình Search với GroupDocs.Search trong Java - Hướng dẫn cấu hình & triển khai](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -47,10 +47,6 @@ url: /ar/java/getting-started/deploy-groupdocs-search-java-setup-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # كيفية تنفيذ البحث النصي الكامل في Java باستخدام GroupDocs.Search
 
 في عصر التطبيقات المدفوعة بالبيانات، يُعد **java full text search** أمرًا أساسيًا لتحويل مجموعات المستندات الضخمة إلى قواعد معرفة قابلة للبحث فورًا. سواء كنت تبني بوابة مؤسسية أو أداة سطح مكتب خفيفة، يمكن لشبكة بحث مُكوَّنة بشكل جيد أن تقلل زمن استجابة الاستعلام من ثوانٍ إلى مليثوان وتُحافظ على صلة النتائج مع نمو البيانات. يشرح هذا الدليل كيفية نشر **GroupDocs.Search for Java**، وإضافة الملفات للبحث، وتكوين الأدلة على العقد، وتمكين الفهرسة في الوقت الحقيقي بحيث يبقى الفهرس محدثًا دون تدخل يدوي.
@@ -300,9 +296,3 @@ class FileAdder {
 - [كيفية تنفيذ البحث النصي الكامل في Java: إنشاء دليل الفهرس باستخدام GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
 - [تنفيذ البحث النصي الكامل Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
 - [كيفية تكوين البحث باستخدام GroupDocs.Search في Java - دليل التكوين والنشر](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
