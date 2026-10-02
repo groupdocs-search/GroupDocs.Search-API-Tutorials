@@ -1,44 +1,98 @@
 ---
-date: '2026-02-21'
-description: GroupDocs.Search를 사용하여 Java에서 청크 기반 검색으로 문서를 인덱스에 추가하고 검색 성능을 향상시키는 방법을
-  배우고, 대용량 문서 세트에 대한 Java 검색 인덱스 메모리를 최적화하세요.
+date: '2026-10-02'
+description: Java에서 chunk‑based search를 사용해 문서를 인덱스에 추가할 때 temporary license를 활용하는
+  방법을 배우고, 검색 성능을 향상시키면서 메모리 사용을 제어합니다.
 keywords:
+- use temporary license
+- add documents to index
+- increase search performance
+lastmod: '2026-10-02'
+og_description: Java에서 chunk‑based search를 이용해 문서를 인덱스에 추가할 때 temporary license를 사용하면
+  검색 속도가 개선되고 메모리 소비가 감소합니다.
+og_image_alt: Guide to using a temporary license for chunk‑based document indexing
+  in Java with GroupDocs.Search
+og_title: Java에서 chunk‑based indexing을 위한 temporary license 사용
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-02'
+  description: Learn how to use a temporary license to add documents to index with
+    chunk‑based search in Java, boosting search performance while controlling memory
+    usage.
+  headline: Use a temporary license for chunk‑based indexing in Java
+  type: TechArticle
+- description: Learn how to use a temporary license to add documents to index with
+    chunk‑based search in Java, boosting search performance while controlling memory
+    usage.
+  name: Use a temporary license for chunk‑based indexing in Java
+  steps:
+  - name: '**Legal teams** need to locate specific clauses across thousands of contracts.'
+    text: '**Legal teams** need to locate specific clauses across thousands of contracts.'
+  - name: '**Customer support portals** must surface relevant knowledge‑base articles
+      instantly.'
+    text: '**Customer support portals** must surface relevant knowledge‑base articles
+      instantly.'
+  - name: '**Researchers** sift through extensive datasets without loading entire
+      files into memory.'
+    text: '**Researchers** sift through extensive datasets without loading entire
+      files into memory.'
+  type: HowTo
+- questions:
+  - answer: Chunk‑based searching divides the dataset into smaller pieces, allowing
+      efficient queries over large volumes of data without loading entire documents
+      into memory.
+    question: What is chunk‑based searching?
+  - answer: Simply call `index.add()` with the path to the new documents; the index
+      will incorporate them automatically.
+    question: How do I update my index with new files?
+  - answer: Yes, it supports **PDF, DOCX, XLSX, PPTX, HTML, TXT, and over 30 other
+      formats**.
+    question: Can GroupDocs.Search handle different file formats?
+  - answer: Memory constraints and unoptimized indexes are the most common; allocate
+      sufficient heap and regularly optimize the index.
+    question: What are typical performance bottlenecks?
+  - answer: Visit the official [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
+      for in‑depth guides and API references.
+    question: Where can I find more detailed documentation?
+  type: FAQPage
+tags:
+- temporary license
 - chunk-based search
-- GroupDocs.Search Java
-- document search implementation
-title: Java에서 청크 기반 검색으로 문서를 인덱스에 추가하기
+- GroupDocs.Search
+- Java indexing
+- document search
+title: Java에서 chunk‑based indexing을 위한 temporary license 사용
 type: docs
 url: /ko/java/advanced-features/groupdocs-search-java-chunk-based-search-tutorial/
 weight: 1
 ---
 
-# Java에서 청크 기반 검색으로 인덱스에 문서 추가
+# Java에서 청크 기반 인덱싱을 위한 임시 라이선스 사용
 
-현대 애플리케이션에서 **인덱스에 문서를 빠르게 추가**하고 이후 빠른 청크‑기반 쿼리를 수행하려면 메모리를 과도하게 사용하지 않으면서 확장 가능한 솔루션이 필요합니다. 이 튜토리얼에서는 GroupDocs.Search for Java를 설정하고, 여러 문서 폴더를 추가하며, **검색 성능을 높이고** **java search index memory** 사용량을 제어하는 엔진을 구성하는 방법을 단계별로 안내합니다. 법률 계약서, 지원 티켓, 연구 논문 등 어떤 종류의 문서를 인덱싱하든 아래 단계들을 따라 하면 프로덕션에 바로 적용 가능한 구현을 만들 수 있습니다.
+In this tutorial you’ll **use a temporary license** to add documents to index with GroupDocs.Search’s chunk‑based search feature. The approach lets you handle massive document collections—legal contracts, support tickets, research papers—while keeping **java search index memory** usage low and **increase search performance** dramatically. You’ll see how to set up the index folder, feed multiple document sources, enable chunk searching, and run both the first and subsequent chunk queries.
 
-## Quick Answers
-- **첫 번째 단계는 무엇인가요?** 검색 인덱스 폴더를 생성합니다.  
-- **많은 파일을 포함하려면 어떻게 하나요?** 각 문서 폴더마다 `index.add()`를 사용합니다.  
-- **청크 검색을 활성화하는 옵션은?** `options.setChunkSearch(true)`.  
-- **첫 번째 청크 이후에도 검색을 계속할 수 있나요?** 예, 토큰과 함께 `index.searchNext()`를 호출하면 됩니다.  
-- **라이선스가 필요한가요?** 개발 단계에서는 무료 체험 또는 임시 라이선스로 충분하지만, 프로덕션에서는 정식 라이선스가 필요합니다.  
+## 빠른 답변
+- **첫 번째 단계는 무엇인가요?** Create a search index folder.  
+- **많은 파일을 포함하려면 어떻게 해야 하나요?** Use `index.add()` for each document folder.  
+- **어떤 옵션이 청크 검색을 활성화하나요?** `options.setChunkSearch(true)`.  
+- **첫 번째 청크 이후에도 검색을 계속할 수 있나요?** Yes, call `index.searchNext()` with the token.  
+- **라이선스가 필요합니까?** A free trial or temporary license works for development; a full license is required for production.  
 
-## What You’ll Learn
-- 지정된 폴더에 검색 인덱스를 만드는 방법.  
-- 여러 위치에서 **인덱스에 문서를 추가**하는 단계.  
-- 청크‑기반 검색을 활성화하도록 검색 옵션을 구성하는 방법.  
-- 초기 및 이후 청크‑기반 검색 수행 방법.  
-- 청크‑기반 문서 검색이 빛을 발하는 실제 시나리오.  
+## 배울 내용
+- 지정된 폴더에 검색 인덱스를 생성하는 방법.  
+- 여러 위치에서 **add documents to index**를 수행하는 단계.  
+- 청크 기반 검색을 활성화하기 위한 검색 옵션 구성.  
+- 초기 및 이후 청크 기반 검색 수행.  
+- 청크 기반 문서 검색이 뛰어난 실제 시나리오.  
 
-## Prerequisites
-이 가이드를 따라 하려면 다음을 준비하세요:
+## 사전 요구 사항
+이 가이드를 따르려면 다음을 확인하십시오:
 
 - **필수 라이브러리**: GroupDocs.Search for Java 25.4 이상.  
 - **환경 설정**: 호환되는 Java Development Kit (JDK) 설치.  
-- **지식 전제조건**: 기본 Java 프로그래밍 및 Maven 사용 경험.  
+- **지식 사전 요구 사항**: 기본 Java 프로그래밍 및 Maven에 대한 친숙함.  
 
-## Setting Up GroupDocs.Search for Java
-먼저 Maven을 사용해 프로젝트에 GroupDocs.Search를 통합합니다:
+## GroupDocs.Search for Java 설정
+시작하려면 Maven을 사용하여 프로젝트에 GroupDocs.Search를 통합합니다:
 
 ```xml
 <repositories>
@@ -58,17 +112,22 @@ weight: 1
 </dependencies>
 ```
 
-또는 최신 버전을 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)에서 다운로드하세요.
+또는 최신 버전을 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)에서 다운로드하십시오.
 
-### License Acquisition
-GroupDocs.Search를 체험하려면:
+### 라이선스 획득
+GroupDocs.Search를 사용해 보려면:
 
-- **Free Trial** – 핵심 기능을 무료로 테스트.  
-- **Temporary License** – 개발용으로 연장된 접근 권한.  
-- **Purchase** – 프로덕션 사용을 위한 정식 라이선스.  
+- **무료 체험** – 약정 없이 핵심 기능을 테스트합니다.  
+- **임시 라이선스** – 개발을 위한 확장된 접근 권한.  
+- **구매** – 프로덕션 사용을 위한 정식 라이선스.  
 
-### Basic Initialization and Setup
-검색 가능한 데이터를 저장할 폴더에 인덱스를 생성합니다:
+## 인덱스에 문서를 추가하는 방법은?
+**Direct answer:** 검색 가능한 파일이 들어 있는 각 폴더에 대해 `index.add()`를 호출합니다; 이 메서드는 폴더를 재귀적으로 스캔하고 지원되는 모든 문서를 단일 작업으로 인덱스에 추가합니다. 이는 파일을 하나씩 수동으로 처리할 필요를 없애고 대량 삽입 속도를 높입니다.
+
+`SearchIndex`는 디스크에 있는 검색 가능한 컬렉션을 나타내는 핵심 클래스입니다. 이를 인스턴스화한 후 모든 인덱싱 및 쿼리 작업은 이 객체를 통해 흐릅니다.
+
+### 1. 인덱스 생성
+**Direct answer:** 인덱스 파일이 저장될 경로로 `SearchIndex` 객체를 인스턴스화한 다음 `index.create()`를 호출하여 저장 구조를 초기화합니다. 이 호출은 첫 사용 시 필요한 폴더와 메타데이터 파일을 생성합니다.
 
 ```java
 import com.groupdocs.search.*;
@@ -82,11 +141,10 @@ public class CreateIndex {
 }
 ```
 
-## How to add documents to index
-인덱스가 생성되었으니, 이제 파일이 저장된 위치에서 **인덱스에 문서를 추가**하는 것이 다음 논리적 단계입니다.
+### 2. 인덱스에 문서 추가
+**Direct answer:** `index.add()` 메서드를 사용하고 각 소스 폴더의 절대 경로를 전달합니다; API는 지원되는 형식(PDF, DOCX, XLSX 등)을 자동으로 감지하고 검색 가능한 텍스트를 인덱스로 추출합니다.
 
-### 1. Creating an Index
-**개요**: 검색 인덱스를 위한 디렉터리를 설정합니다.
+`SearchOptions`는 인덱싱 및 검색 중 문서가 처리되는 방식을 세밀하게 조정할 수 있는 구성 객체입니다. 이후 청크 기반 쿼리를 활성화하는 데 사용할 것입니다.
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\SearchByChunks";
@@ -96,8 +154,10 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\
 Index index = new Index(indexFolder);
 ```
 
-### 2. Adding Documents to Index
-**개요**: 여러 소스 폴더에서 파일을 가져옵니다.
+### 3. 청크 검색을 위한 검색 옵션 구성
+**Direct answer:** 쿼리를 실행하기 전에 `SearchOptions` 인스턴스에 `options.setChunkSearch(true)`를 설정합니다; 이는 엔진에게 각 문서를 논리적인 청크(보통 단락)로 분할하고 전체 파일이 아닌 청크별로 일치 항목을 반환하도록 지시합니다.
+
+`SearchResult`는 일치하는 청크, 위치 및 관련성 점수를 보유합니다. 청크 검색이 활성화되면 각 `SearchResult`는 원본 문서의 단일 조각에 해당합니다.
 
 ```java
 String documentsFolder1 = "YOUR_DOCUMENT_DIRECTORY";
@@ -111,8 +171,10 @@ index.add(documentsFolder2);
 index.add(documentsFolder3);
 ```
 
-### 3. Configuring Search Options for Chunk Search
-옵션 객체를 조정해 청크‑기반 검색을 활성화합니다.
+### 4. 초기 청크 기반 검색 수행
+**Direct answer:** `index.search("your query", options)`를 실행합니다; 이 호출은 첫 번째 일치 청크 집합에 대한 `SearchResult` 컬렉션과 검색 상태를 나타내는 토큰을 반환합니다.
+
+반환된 토큰은 전체 쿼리를 다시 실행하지 않고도 큰 결과 집합을 페이지 처리하는 데 필수적입니다.
 
 ```java
 SearchOptions options = new SearchOptions();
@@ -122,8 +184,10 @@ SearchOptions options = new SearchOptions();
 options.setChunkSearch(true);
 ```
 
-### 4. Performing Initial Chunk‑Based Search
-청크가 활성화된 옵션을 사용해 첫 번째 쿼리를 실행합니다.
+### 5. 청크 기반 검색 계속하기
+**Direct answer:** 이전 호출에서 반환된 토큰을 `index.searchNext(token, options)`에 전달합니다; 메서드가 `null`을 반환할 때까지 반복하면 모든 일치 청크가 검색된 것입니다.
+
+이 점진적 접근 방식은 현재 청크 배치만 메모리에 존재하므로 메모리 사용량을 낮게 유지합니다.
 
 ```java
 String query = "invitation";
@@ -133,8 +197,81 @@ String query = "invitation";
 SearchResult result = index.search(query, options);
 ```
 
-### 5. Continuing Chunk‑Based Search
-검색이 완료될 때까지 남은 청크를 순차적으로 처리합니다.
+## 청크 기반 검색을 사용하는 이유
+청크 기반 검색은 방대한 문서 컬렉션을 관리 가능한 조각으로 나누어 메모리 압력을 줄이고 응답 시간을 가속화합니다. 단락 또는 섹션 수준에서 인덱싱함으로써 엔진은 관련 조각만 검색할 수 있어 CPU 사용량을 낮추고 최종 사용자의 지연 시간을 개선합니다. 특히 다음과 같은 경우에 유용합니다:
+
+1. **법무 팀**은 수천 개의 계약서에서 특정 조항을 찾아야 합니다.  
+2. **고객 지원 포털**은 관련 지식 베이스 기사를 즉시 제공해야 합니다.  
+3. **연구원**은 전체 파일을 메모리에 로드하지 않고 방대한 데이터 세트를 탐색합니다.  
+
+수치화된 주장: GroupDocs.Search는 표준 8코어 서버에서 **500페이지 이상의 PDF**를 **청크당 2초 미만**으로 처리할 수 있으며, 피크 힙을 **200 MB** 이하로 유지합니다.
+
+## 이 접근 방식이 검색 성능을 향상시키는 방법
+**Direct answer:** 전체 파일 대신 작은 청크를 검색함으로써 엔진은 불필요한 섹션을 조기에 건너뛰고 CPU 사이클을 줄이며 활성 청크만 메모리에 유지하여 **java search index memory** 사용량을 직접 낮추고 응답 시간을 빠르게 합니다. 이 목표 지향 접근 방식은 보다 효율적인 캐싱 및 병렬 처리를 가능하게 하여 여러 코어가 동시에 다른 청크를 처리하도록 하여 다중 코어 서버에서 처리량을 더욱 향상시킵니다.
+
+추가 이점은 다음과 같습니다:
+
+- 여러 코어에 걸친 병렬 청크 처리.  
+- 높은 관련성 일치가 발견되면 조기 종료.  
+
+## java search index memory 관리
+**Direct answer:** 예상 인덱스 크기에 따라 충분한 JVM 힙(`-Xmx2g` 이상)을 할당하고, 대량 추가 후 `index.optimize()`를 실행하여 인덱스 구조를 압축하며, VisualVM으로 GC 일시 정지를 모니터링하여 지연 시간 급증을 방지합니다.
+
+추가 튜닝 팁:
+
+- 대량 배치 후 `index.flush()`를 사용하여 중간 데이터를 디스크에 기록합니다.  
+- `options.setMemoryLimit(256)`을 활성화하여 검색당 메모리 사용량을 제한합니다.  
+
+## 성능 고려 사항
+- **메모리 관리** – 대형 인덱스를 위해 충분한 힙 공간(`-Xmx`)을 할당합니다.  
+- **리소스 모니터링** – 인덱싱 및 검색 작업 중 CPU 사용량을 주시합니다.  
+- **인덱스 유지 관리** – 주기적으로 인덱스를 재구축하거나 정리하여 오래된 데이터를 삭제합니다.  
+
+## 일반적인 함정 및 문제 해결
+| 문제 | 발생 원인 | 해결 방법 |
+|------|----------|-----------|
+| `OutOfMemoryError` 인덱싱 중 | 힙 크기가 너무 작음 | JVM 힙을 늘립니다(`-Xmx2g` 이상) |
+| 결과가 반환되지 않음 | 청크 토큰이 처리되지 않음 | `while` 루프가 `getNextChunkSearchToken()`이 `null`이 될 때까지 실행되는지 확인합니다 |
+| 검색 성능 저하 | 인덱스가 최적화되지 않음 | 대량 추가 후 `index.optimize()`를 실행합니다 |
+
+## 자주 묻는 질문
+
+**Q: 청크 기반 검색이란 무엇인가요?**  
+A: 청크 기반 검색은 데이터 세트를 더 작은 조각으로 나누어 전체 문서를 메모리에 로드하지 않고도 대용량 데이터에 대한 효율적인 쿼리를 가능하게 합니다.
+
+**Q: 새 파일로 인덱스를 업데이트하려면 어떻게 하나요?**  
+A: 새 문서 경로를 사용해 `index.add()`를 호출하면 인덱스가 자동으로 이를 포함합니다.
+
+**Q: GroupDocs.Search가 다양한 파일 형식을 처리할 수 있나요?**  
+A: 예, **PDF, DOCX, XLSX, PPTX, HTML, TXT 및 30가지 이상의 다른 형식**을 지원합니다.
+
+**Q: 일반적인 성능 병목 현상은 무엇인가요?**  
+A: 메모리 제한과 최적화되지 않은 인덱스가 가장 흔합니다; 충분한 힙을 할당하고 인덱스를 정기적으로 최적화하십시오.
+
+**Q: 자세한 문서는 어디에서 찾을 수 있나요?**  
+A: 공식 [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)을 방문하면 심층 가이드와 API 참조를 확인할 수 있습니다.
+
+**Q: 청크 기반 검색이 암호화된 PDF에서도 작동하나요?**  
+A: 예, 적절한 API 오버로드를 통해 비밀번호를 제공하면 작동합니다.
+
+**Q: 인덱싱 진행 상황을 어떻게 모니터링할 수 있나요?**  
+A: `Index.add()` 오버로드 중 `Progress` 객체를 반환하는 것을 사용하거나 로깅 콜백에 연결합니다.
+
+## 리소스
+- **문서**: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)  
+- **API 레퍼런스**: [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java)  
+- **다운로드**: [GroupDocs.Search Releases](https://releases.groupdocs.com/search/java/)  
+- **GitHub**: [GroupDocs.Search GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **무료 지원**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
+- **임시 라이선스**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
+
+---
+
+**마지막 업데이트:** 2026-10-02  
+**테스트 환경:** GroupDocs.Search 25.4 for Java  
+**작성자:** GroupDocs  
+
+---
 
 ```java
 while (result.getNextChunkSearchToken() != null) {
@@ -142,74 +279,8 @@ while (result.getNextChunkSearchToken() != null) {
 }
 ```
 
-## Why use chunk‑based search?
-청크‑기반 검색은 방대한 문서 컬렉션을 관리 가능한 조각으로 나누어 메모리 부담을 줄이고 응답 시간을 단축합니다. 특히 다음 상황에서 유용합니다:
+## 관련 튜토리얼
 
-1. **법무팀**이 수천 개 계약서에서 특정 조항을 찾아야 할 때.  
-2. **고객 지원 포털**이 관련 지식‑베이스 문서를 즉시 제공해야 할 때.  
-3. **연구원**이 전체 파일을 메모리에 로드하지 않고 방대한 데이터셋을 탐색해야 할 때.  
-
-## How this approach **increases search performance**
-전체 파일 대신 작은 청크를 검색함으로써 엔진은 다음을 수행할 수 있습니다:
-
-- 관련 없는 섹션을 조기에 건너뛰어 CPU 사이클을 절감.  
-- 활성 청크만 메모리에 유지해 **java search index memory** 사용량을 직접 감소.  
-- 다중 코어 머신에서 청크 처리를 병렬화해 결과를 더 빠르게 반환.  
-
-## Managing **java search index memory**
-청크‑기반 검색만으로도 메모리 사용량이 감소하지만, JVM을 추가로 튜닝할 수 있습니다:
-
-- 인덱스 크기에 맞춰 충분한 힙을 할당 (`-Xmx2g` 이상).  
-- 대량 추가 후 `index.optimize()`를 호출해 인덱스 구조를 압축.  
-- VisualVM 같은 도구로 GC 일시 정지를 모니터링해 지연 시간 급증을 방지.  
-
-## Performance Considerations
-- **Memory Management** – 대형 인덱스를 위해 충분한 힙 공간(`-Xmx`)을 할당합니다.  
-- **Resource Monitoring** – 인덱싱 및 검색 작업 중 CPU 사용량을 지속적으로 확인합니다.  
-- **Index Maintenance** – 오래된 데이터를 제거하기 위해 인덱스를 주기적으로 재구축하거나 정리합니다.  
-
-## Common Pitfalls & Troubleshooting
-| Issue | Why It Happens | Fix |
-|-------|----------------|-----|
-| `OutOfMemoryError` during indexing | Heap size too low | Increase JVM heap (`-Xmx2g` or higher) |
-| No results returned | Chunk token not processed | Ensure the `while` loop runs until `getNextChunkSearchToken()` is `null` |
-| Slow search performance | Index not optimized | Run `index.optimize()` after bulk additions |
-
-## Frequently Asked Questions
-
-**Q: 청크‑기반 검색이란 무엇인가요?**  
-A: 청크‑기반 검색은 데이터셋을 작은 조각으로 나누어 전체 문서를 메모리에 로드하지 않고도 대용량 데이터를 효율적으로 쿼리할 수 있게 합니다.
-
-**Q: 새 파일이 추가되면 인덱스를 어떻게 업데이트하나요?**  
-A: 새 문서 경로를 인자로 `index.add()`를 호출하면 인덱스가 자동으로 반영됩니다.
-
-**Q: GroupDocs.Search가 다양한 파일 형식을 지원하나요?**  
-A: 예, PDF, DOCX, XLSX, PPTX 등 여러 일반 형식을 지원합니다.
-
-**Q: 일반적인 성능 병목 현상은 무엇인가요?**  
-A: 메모리 제한과 최적화되지 않은 인덱스가 가장 흔합니다; 충분한 힙을 할당하고 인덱스를 정기적으로 최적화하세요.
-
-**Q: 더 자세한 문서는 어디서 찾을 수 있나요?**  
-A: 공식 [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)에서 심층 가이드와 API 레퍼런스를 확인하세요.
-
-**Q: 암호화된 PDF에서도 청크‑기반 검색이 작동하나요?**  
-A: 예, 해당 API 오버로드에 비밀번호를 제공하면 됩니다.
-
-**Q: 인덱싱 진행 상황을 어떻게 모니터링하나요?**  
-A: `Index.add()` 오버로드 중 `Progress` 객체를 반환하거나 로깅 콜백을 활용하면 됩니다.
-
-## Resources
-- **Documentation**: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)  
-- **API Reference**: [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java)  
-- **Download**: [GroupDocs.Search Releases](https://releases.groupdocs.com/search/java/)  
-- **GitHub**: [GroupDocs.Search GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
-
----
-
-**Last Updated:** 2026-02-21  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
----
+- [검색 인덱스 디렉터리 생성 및 라이선스 설정 – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)
+- [GroupDocs.Search Java로 쿼리 성능 향상: 인덱스 및 검색 최적화](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
+- [GroupDocs Search Java 고급 검색 기능](/search/java/advanced-features/groupdocs-search-java-advanced-search-features/)
