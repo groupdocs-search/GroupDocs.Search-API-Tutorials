@@ -1,22 +1,29 @@
 ---
-date: '2026-06-17'
-description: GroupDocs.Search için dosya varlığını Java ile kontrol etmeyi ve lisans
-  dosyası akışını okumayı, InputStream lisanslamasını ve Maven kurulumunu kullanarak
-  öğrenin.
+date: '2026-10-02'
+description: Java'da lisansı nasıl okuyacağınızı ve GroupDocs.Search kullanarak dosya
+  varlığını nasıl kontrol edeceğinizi öğrenin. InputStream lisanslaması, Maven kurulumu
+  ve dosya doğrulama içerir.
 keywords:
+- how to read license
 - check file existence java
-- java license management
-- files.exists java example
+- how to check file existence
+lastmod: '2026-10-02'
+og_description: Java'da lisansı nasıl okuyacağınızı ve GroupDocs.Search kullanarak
+  dosya varlığını nasıl kontrol edeceğinizi öğrenin. InputStream lisanslaması, Maven
+  kurulumu ve dosya doğrulama içerir.
+og_image_alt: 'Developer guide: read license and verify file existence in Java with
+  GroupDocs.Search'
+og_title: Java'da lisansı okuma ve dosya varlığını kontrol etme
 schemas:
 - author: GroupDocs
-  dateModified: '2026-06-17'
-  description: Learn how to check file existence Java and read license file stream
-    for GroupDocs.Search, using InputStream licensing and Maven setup.
-  headline: Check File Existence Java – License Management with GroupDocs
+  dateModified: '2026-10-02'
+  description: Learn how to read license in Java and check file existence for GroupDocs.Search,
+    using InputStream licensing and Maven setup.
+  headline: How to read license and check file existence in Java
   type: TechArticle
-- description: Learn how to check file existence Java and read license file stream
-    for GroupDocs.Search, using InputStream licensing and Maven setup.
-  name: Check File Existence Java – License Management with GroupDocs
+- description: Learn how to read license in Java and check file existence for GroupDocs.Search,
+    using InputStream licensing and Maven setup.
+  name: How to read license and check file existence in Java
   steps:
   - name: Store the license file outside the deployment folder for better security.
     text: Store the license file outside the deployment folder for better security.
@@ -52,47 +59,52 @@ schemas:
       and wrap the stream in a try‑with‑resources block to handle exceptions cleanly.
     question: How do I troubleshoot issues with file streams?
   type: FAQPage
-title: Java'da Dosya Varlığını Kontrol Et – GroupDocs ile Lisans Yönetimi
+tags:
+- read license
+- check file existence
+- GroupDocs.Search
+- Java licensing
+- Maven setup
+title: Java'da lisansı okuma ve dosya varlığını kontrol etme
 type: docs
 url: /tr/java/licensing-configuration/java-license-management-groupdocs-search-setup/
 weight: 1
 ---
 
-# Java’da Dosya Varlığını Kontrol Et – GroupDocs ile Lisans Yönetimi
+# Java'da lisansı okuma ve dosya varlığını kontrol etme
 
-Java uygulamasına **GroupDocs.Search** entegre ettiğinizde, ilk olarak doğrulamanız gereken şey, lisans dosyasının gerçekten düşündüğünüz yerde olup olmadığıdır. Bu öğreticide **check file existence Java** nasıl yapılır, lisansı bir `InputStream` olarak nasıl okursunuz ve SDK'yı tam lisans modunda çalışacak şekilde nasıl bağlarsınız öğreneceksiniz. Sonunda, herhangi bir Java servisine, mikro‑servise veya masaüstü uygulamasına ekleyebileceğiniz üretim‑hazır bir kod parçacığına sahip olacaksınız.
+Java uygulamasına **GroupDocs.Search** entegre ettiğinizde, ilk adım lisans dosyasının mevcut olduğundan emin olmak ve doğru şekilde yüklemektir. Bu öğreticide **lisansı bir InputStream kullanarak nasıl okuyacağınızı**, güvenilir bir dosya‑sistemi kontrolüyle lisans dosyasının varlığını nasıl doğrulayacağınızı ve SDK'yı tam lisans modunda çalışacak şekilde nasıl yapılandıracağınızı öğreneceksiniz. Sonunda, herhangi bir Java servisi, mikro‑servisi veya masaüstü uygulamasında çalışabilecek üretim‑hazır bir kod parçacığına sahip olacaksınız.
 
-## Hızlı Yanıtlar
-- **“check file existence Java” ne anlama geliyor?** Bir dosyanın dosya sisteminde varlığını, onu kullanmaya çalışmadan önce doğrulama sürecidir.  
-- **Neden lisanslama için bir InputStream kullanmalısınız?** Lisansı dosya sistemi, sınıf yolu veya bulut depolama gibi herhangi bir kaynaktan, yolu sabit kodlamadan yüklemenizi sağlar.  
-- **Maven gerekli mi?** Evet, Maven üzerinden GroupDocs.Search eklemek, en yeni ikili dosyaları ve geçişli bağımlılıkları almanızı sağlar.  
-- **Lisans eksik olduğunda ne olur?** SDK değerlendirme modunda çalışır, filigran gösterir ve kullanımını sınırlar.  
-- **Bu yaklaşım çoklu iş parçacığı (thread‑safe) mı?** Lisansı başlangıçta bir kez yüklemek güvenlidir; aynı `License` örneğini iş parçacıkları arasında yeniden kullanın.
+## Hızlı cevaplar
+- **“check file existence Java” ne anlama geliyor?** Dosyayı kullanmaya çalışmadan önce dosyanın dosya sisteminde mevcut olduğunu doğrulama sürecidir.  
+- **Lisanslama için neden InputStream kullanılır?** Lisansı dosya sistemi, sınıf yolu veya bulut depolama gibi herhangi bir kaynaktan, yolu sabit kodlamadan yüklemenizi sağlar.  
+- **Maven'e ihtiyacım var mı?** Evet, GroupDocs.Search'i Maven üzerinden eklemek en yeni ikili dosyaları ve geçişli bağımlılıkları almanızı sağlar.  
+- **Lisans eksikse ne olur?** SDK değerlendirme modunda çalışır, filigran gösterir ve kullanımını sınırlar.  
+- **Bu yaklaşım çoklu iş parçacığı güvenli mi?** Başlangıçta lisansı bir kez yüklemek güvenlidir; aynı `License` örneğini iş parçacıkları arasında yeniden kullanın.
 
 ## “check file existence Java” nedir?
+`Files.exists(Path)` bir NIO yardımcı yöntemidir ve bir dosyanın var olup olmadığını kontrol eder. Sağlanan yol okunabilir bir dosyaya işaret ettiğinde **true**, aksi takdirde **false** döndürür. Bu tek satırlık kontrol `FileNotFoundException` oluşmasını önler ve uygulama devam etmeden önce net bir hata kaydı oluşturma veya yedek yapılandırmaya geçme fırsatı verir.
 
-Java’da dosya varlığını kontrol etmek, herhangi bir I/O işlemi yapmadan önce belirli bir yolun okunabilir bir dosyaya işaret ettiğini doğrulamaktır. Yaygın yaklaşım, `java.nio.file` paketinden `Files.exists(Path)` metodunu kullanmaktır; bu metod, varlığı gösteren bir boolean döndürür. Bu basit kontrol, `FileNotFoundException` oluşmasını önlemeye yardımcı olur ve uygulamanın net bir hata kaydı tutmasını veya varsayılanlara geri dönmesini sağlar.
+## Java'da lisansı nasıl okursunuz?
+`License`, SDK'ye lisans uygulamaktan sorumlu GroupDocs.Search sınıfıdır. `License.setLicense(InputStream)` herhangi bir `InputStream`'den bir GroupDocs lisansı yükler. SDK'ye sabit kodlanmış bir dosya yolu yerine bir akış sağlayarak lisans dosyasını dağıtım klasörünün dışına tutabilir, bir JAR içine gömebilir veya bulut depolamadan alabilirsiniz—bu da güvenlik ve taşınabilirliği artırır.
 
-Bu kontrolü kullanmak, uygulamanızı başlangıçta çöküşlerden korur ve net bir hata kaydı tutma veya varsayılan yapılandırmaya geri dönme şansı verir.
+## Neden lisans dosyası akışı olarak okunur?
+Lisansı bir akış olarak okumak, lisans konumunu koddan ayırır ve dosya sisteminde, bir JAR içinde gömülü olarak veya bulut depolamadan alınabilir. `License.setLicense(InputStream)` çağrısıyla SDK, yolu sabit kodlamadan herhangi bir kaynaktan lisansı yükleyebilir; bu da taşınabilirliği ve güvenliği artırır.
 
-## Neden lisans dosyasını akış olarak okursunuz?
-
-Lisansı bir `InputStream` olarak okumak, lisans konumunu koddandan ayırır; böylece dosya sisteminde, bir JAR içinde gömülü olarak veya bulut depolamadan alınabilir. `License.setLicense(InputStream)` metodunu çağırarak, SDK yolu sabit kodlamadan herhangi bir kaynaktan lisansı yükleyebilir; bu da taşınabilirliği ve güvenliği artırır.
-
-1. Lisans dosyasını daha iyi güvenlik için dağıtım klasörünün dışına depolayın.  
-2. Lisansı bir JAR içinde gömün ve sınıf yolundan yükleyin; bu, konteyner dağıtımlarını basitleştirir.  
-3. Lisansı bir bulut kovasından (AWS S3, Azure Blob vb.) çekin ve akışı doğrudan SDK'ya besleyin.  
+1. Lisans dosyasını dağıtım klasörünün dışına saklayarak güvenliği artırın.  
+2. Lisansı bir JAR içine gömün ve sınıf yolundan yükleyin; bu, konteyner dağıtımlarını basitleştirir.  
+3. Lisansı bir bulut kovasından (AWS S3, Azure Blob vb.) alın ve akışı doğrudan SDK'ye besleyin.  
 
 ## Önkoşullar
-- **JDK 8+** – kod, try‑with‑resources kullanır; bu da Java 7 veya daha yeni bir sürüm gerektirir.  
+- **JDK 8+** – kod try‑with‑resources kullanır, bu da Java 7 veya daha yenisini gerektirir.  
 - **IDE** – IntelliJ IDEA, Eclipse veya tercih ettiğiniz herhangi bir editör.  
 - **Maven** – bağımlılık yönetimi için (alternatif olarak JAR'ı manuel olarak indirebilirsiniz).  
 
-## Java için GroupDocs.Search Kurulumu
+## Java için GroupDocs.Search kurulumu
 
 ### Maven ile Kurulum
 
-Add the GroupDocs repository and dependency to your `pom.xml`:
+GroupDocs deposunu ve bağımlılığını `pom.xml` dosyanıza ekleyin:
 
 ```xml
 <repositories>
@@ -112,17 +124,17 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-### Doğrudan İndirme
+### Doğrudan indirme
 
 Alternatif olarak, kütüphaneyi resmi sürüm sayfasından edinebilirsiniz: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-#### Lisans Edinme
-1. GroupDocs web sitesini ziyaret ederek lisans seçeneklerini inceleyin: ücretsiz deneme, geçici lisans veya satın alma.  
-2. Lisanslama SSS'inde verilen yönergeleri izleyin: [Licensing FAQs](https://purchase.groupdocs.com/faqs/licensing).
+#### Lisans edinme
+1. Lisans seçeneklerini incelemek için GroupDocs web sitesini ziyaret edin: ücretsiz deneme, geçici lisans veya satın alma.  
+2. Lisanslama SSS'deki yönergeleri izleyin: [Licensing FAQs](https://purchase.groupdocs.com/faqs/licensing).
 
-### Temel Başlatma
+### Temel başlatma
 
-Once the JAR is on your classpath, initialize the SDK with a license file:
+JAR sınıf yolunuzda olduğunda, SDK'yı bir lisans dosyasıyla başlatın:
 
 ```java
 import com.groupdocs.search.License;
@@ -131,13 +143,13 @@ License license = new License();
 license.setLicense("path/to/your/license/file.lic");
 ```
 
-## Uygulama Kılavuzu
+## Uygulama rehberi
 
 İki temel görevi adım adım inceleyeceğiz: **checking file existence Java** ve **reading the license file stream**.
 
-### Java’da Dosya Varlığını Nasıl Kontrol Edilir
+### Java'da dosya varlığını kontrol etme
 
-First, verify that the license file actually exists before trying to load it. Use `Path` and `Files.exists()` to perform the check in a single, exception‑free line. If the file is missing, you can log a warning and decide whether to continue in evaluation mode or abort startup.
+İlk olarak, lisans dosyasının gerçekten var olduğunu, yüklemeye çalışmadan önce doğrulayın. Tek bir, istisna içermeyen satırda kontrolü gerçekleştirmek için `Path` ve `Files.exists()` kullanın. Dosya eksikse, bir uyarı kaydedebilir ve değerlendirme modunda devam edip etmeyeceğinize ya da başlatmayı iptal edeceğinize karar verebilirsiniz.
 
 ```java
 import java.nio.file.Files;
@@ -147,9 +159,9 @@ String filePath = "YOUR_DOCUMENT_DIRECTORY/LicensePath";
 boolean fileExists = Files.exists(Paths.get(filePath));
 ```
 
-### Lisans Dosyası Akışını Nasıl Okursunuz
+### Lisans dosyası akışını okuma
 
-If the file is present, open it as an `InputStream` and pass it to the `License` object. Wrapping the `FileInputStream` in a `BufferedInputStream` improves performance for larger files, although a typical license file is only a few kilobytes. The `try‑with‑resources` block guarantees that the stream is closed automatically, preventing resource leaks.
+Dosya mevcutsa, onu bir `InputStream` olarak açın ve `License` nesnesine aktarın. `FileInputStream`i `BufferedInputStream` içinde sarmak, daha büyük dosyalar için performansı artırır; ancak tipik bir lisans dosyası sadece birkaç kilobayttır. `try‑with‑resources` bloğu, akışın otomatik olarak kapatılmasını garanti eder ve kaynak sızıntılarını önler.
 
 ```java
 import java.io.FileInputStream;
@@ -167,9 +179,9 @@ if (fileExists) {
 }
 ```
 
-### Dosya Varlığını Kontrol Etme (Bağımsız Örnek)
+### Dosya varlığını kontrol etme (bağımsız örnek)
 
-The following snippet demonstrates a minimal, framework‑agnostic way to verify a file’s presence using `Files.exists`. It logs the result, returns a boolean, and can be integrated into any Java application without additional dependencies, making it suitable for quick checks during startup or within utility classes.
+Aşağıdaki kod parçacığı, `Files.exists` kullanarak bir dosyanın varlığını doğrulamanın minimal, çerçeve bağımsız bir yolunu gösterir. Sonucu kaydeder, bir boolean döndürür ve ek bağımlılıklar olmadan herhangi bir Java uygulamasına entegre edilebilir; bu da başlangıçta veya yardımcı sınıflarda hızlı kontroller için uygundur.
 
 ```java
 import java.nio.file.Files;
@@ -185,56 +197,64 @@ if (fileExists) {
 }
 ```
 
-## Pratik Uygulamalar
-- **Document Management Systems** – PDF, Word dosyaları ve görsellerin güvenli işlenmesi için lisans doğrulamasını otomatikleştirin.  
-- **Enterprise Software** – Birden çok sunucuda uyumluluğu sağlamak için lisansı başlangıçta dinamik olarak doğrulayın.  
-- **Custom Search Engines** – Lisansı bir bulut kovasından yükleyin, ardından hızlı ve tam‑metin indeksleme için GroupDocs.Search'ı başlatın.
+## Pratik uygulamalar
+- **Belge yönetim sistemleri** – PDF, Word dosyaları ve görüntülerin güvenli işlenmesi için lisans doğrulamasını otomatikleştirin.  
+- **Kurumsal yazılım** – birden fazla sunucuda uyumluluğu sağlamak için başlangıçta lisanslamayı dinamik olarak doğrulayın.  
+- **Özel arama motorları** – lisansı bir bulut kovasından yükleyin, ardından hızlı tam metin indeksleme için GroupDocs.Search'ı başlatın.
 
-## Performans Düşünceleri
-- **Buffer Streams** – Büyük lisans dosyaları bekliyorsanız (nadiren, ama iyi bir uygulamadır) `FileInputStream`'i `BufferedInputStream` ile sarın.  
-- **Resource Management** – Akışları otomatik olarak kapatmak için her zaman try‑with‑resources kullanın.  
-- **Singleton License** – Lisansı uygulama başlatılırken bir kez yükleyin ve aynı `License` örneğini yeniden kullanın; bu, tekrarlanan I/O'yu önler ve gecikmeyi azaltır.  
-- **Quantified Claim:** GroupDocs.Search **50+ giriş ve çıkış formatını** (DOCX, XLSX, PPTX, HTML, PDF ve yaygın görüntü tipleri) destekler ve **çok sayfalı belgeleri** belleğe tamamen yüklemeden indeksleyebilir; tipik sunucu donanımında saniyenin altında sorgu yanıtları sağlar.
+## Performans değerlendirmeleri
+- **Arabellek akışları** – büyük lisans dosyaları bekliyorsanız (nadir, ancak iyi bir uygulama) `FileInputStream`i `BufferedInputStream` içinde sarmalayın.  
+- **Kaynak yönetimi** – akışları otomatik olarak kapatmak için her zaman try‑with‑resources kullanın.  
+- **Tekil lisans** – uygulama başlatılırken lisansı bir kez yükleyin ve aynı `License` örneğini yeniden kullanın; bu, tekrarlanan I/O'yu önler ve gecikmeyi azaltır.  
+- **Sayısal iddia:** GroupDocs.Search **50+ giriş ve çıkış formatını** (DOCX, XLSX, PPTX, HTML, PDF ve yaygın görüntü türleri) destekler ve **yüzlerce sayfalık belgeleri** tüm dosyayı belleğe yüklemeden indeksleyebilir; tipik sunucu donanımında saniyenin altında sorgu yanıtları sağlar.
 
-## Sonuç
-Artık **check file existence Java**, **read license file stream** nasıl yapılır ve GroupDocs.Search'ı güvenilir, üretim‑düzeyi arama için nasıl yapılandırırsınız biliyorsunuz. Bu desenler uygulamanızı sağlam, taşınabilir ve bulut ya da şirket içi ortamlarda ölçeklenebilir tutar.
+## Yaygın tuzaklar ve sorun giderme ipuçları
+- **Yanlış dosya yolu** – `Paths.get`'e gönderdiğiniz mutlak veya göreli yolu iki kez kontrol edin. Başlangıçtaki eğik çizgi eksikliği sık hata kaynağıdır.  
+- **Yetersiz izinler** – Java sürecinin lisans dosyasını içeren dizine okuma erişimi olmalıdır. Linux'ta `ls -l` ile doğrulayın.  
+- **Birden fazla lisans yükleme** – lisansı birden fazla kez yüklemek ince bir bellek yüküne neden olabilir. Başlatma kodunu statik bir blokta veya özel bir başlangıç bileşeninde tutun.  
+- **Akış kapatılmadı** – her zaman try‑with‑resources bloğu kullanın; aksi takdirde yoğun yük altında OS kaynaklarını tüketebilecek dosya tutamağı sızıntıları riski vardır.
 
-**Sonraki Adımlar**
-- Resmi dokümanlara daha derinlemesine bakın: [GroupDocs documentation](https://docs.groupdocs.com/search/java/).  
-- Arama indeksleyicisini bir REST API'ye veya mikroservis mimarisine entegre ederek deneyin.
+## Sıkça sorulan sorular
 
-## SSS Bölümü
+**S: InputStream nedir?**  
+C: `InputStream`, dosyalar, ağ soketleri veya bellek tamponları gibi kaynaklardan ham baytları okumak için bir Java soyutlamasıdır.
 
-**Q: InputStream nedir?**  
-A: `InputStream`, dosyalar, ağ soketleri veya bellek tamponları gibi kaynaklardan ham baytları okumak için kullanılan bir Java soyutlamasıdır.
+**S: Geçici bir GroupDocs lisansı nasıl alırım?**  
+C: Talimatlar için geçici‑lisans sayfasını ziyaret edin: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license).
 
-**Q: Geçici bir GroupDocs lisansı nasıl alınır?**  
-A: Talimatlar için geçici‑lisans sayfasını ziyaret edin: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license).
+**S: GroupDocs.Search'ı lisans olmadan kullanabilir miyim?**  
+C: Evet, ancak SDK değerlendirme modunda çalışır, filigran gösterir ve kullanım süresini sınırlar.
 
-**Q: GroupDocs.Search'ı lisans olmadan kullanabilir miyim?**  
-A: Evet, ancak SDK değerlendirme modunda çalışır, filigran gösterir ve kullanım süresini sınırlar.
+**S: Lisans dosyası eksik veya hatalıysa ne olur?**  
+C: Uygulama değerlendirme moduna geri döner; bu, özellikleri kısıtlayabilir ve filigran ekleyebilir.
 
-**Q: Lisans dosyası eksik ya da hatalı olduğunda ne olur?**  
-A: Uygulama değerlendirme moduna geçer; bu, özellikleri kısıtlayabilir ve filigran ekleyebilir.
-
-**Q: Dosya akışlarıyla ilgili sorunları nasıl gideririm?**  
-A: Dosya yolunun doğru olduğundan, uygulamanın okuma izinlerine sahip olduğundan emin olun ve istisnaları temiz bir şekilde ele almak için akışı try‑with‑resources bloğunda sarın.
+**S: Dosya akışlarıyla ilgili sorunları nasıl gideririm?**  
+C: Dosya yolunun doğru olduğundan, uygulamanın okuma izinlerine sahip olduğundan emin olun ve istisnaları temiz bir şekilde ele almak için akışı bir try‑with‑resources bloğuna sarın.
 
 ## Kaynaklar
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java)
-- [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
+
+- **Resmi dokümantasyon:** [GroupDocs documentation](https://docs.groupdocs.com/search/java/)  
+- **API referansı:** [API Reference](https://reference.groupdocs.com/search/java)  
+- **İndirme sayfası:** [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)  
+- **GitHub deposu:** [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **Destek forumu:** [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
+- **Lisanslama SSS:** [Licensing FAQs](https://purchase.groupdocs.com/faqs/licensing) (kolaylık sağlamak için birden fazla kez görünüyor)  
+
+## Sonuç
+Artık Java'da **lisansı nasıl okuyacağınızı**, lisans dosyasının varlığını nasıl doğrulayacağınızı ve GroupDocs.Search'ı güvenilir, üretim‑düzeyinde arama için nasıl yapılandıracağınızı biliyorsunuz. Bu desenler uygulamanızı sağlam, taşınabilir ve bulut ya da şirket içi dağıtımlarda ölçeklendirmeye hazır tutar.
+
+**Sonraki adımlar**
+- Resmi dokümanlara daha derinlemesine bakın: [GroupDocs documentation](https://docs.groupdocs.com/search/java/).  
+- Arama indeksleyicisini bir REST API'ye veya mikro hizmet mimarisine entegre ederek deneyin.
 
 ---
 
-**Last Updated:** 2026-06-17  
+**Son Güncelleme:** 2026-10-02  
 **Tested With:** GroupDocs.Search 25.4  
 **Author:** GroupDocs
 
-## İlgili Öğreticiler
+## İlgili öğreticiler
 
-- [Create Search Index Directory & Set License – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)
-- [How to Configure Search with GroupDocs.Search in Java - Configuration & Deployment Guide](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
-- [Master GroupDocs.Search Java: Efficient Document Search and Index Management](/search/java/searching/groupdocs-search-java-efficient-document-search/)
+- [Arama Dizini Oluştur ve Lisans Ayarla – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)
+- [Java'da GroupDocs.Search ile Aramayı Nasıl Yapılandırılır - Yapılandırma ve Dağıtım Kılavuzu](/search/java/licensing-configuration/mastering-groupdocs-search-java-configure-deploy/)
+- [GroupDocs.Search Java'da Uzmanlaşın: Verimli Belge Arama ve İndeks Yönetimi](/search/java/searching/groupdocs-search-java-efficient-document-search/)
