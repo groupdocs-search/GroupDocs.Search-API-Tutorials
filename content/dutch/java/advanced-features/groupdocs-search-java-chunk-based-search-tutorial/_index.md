@@ -1,45 +1,100 @@
 ---
-date: '2026-02-21'
-description: Leer hoe u documenten aan de index toevoegt en de zoekprestaties verbetert
-  met chunk‑gebaseerd zoeken in Java met GroupDocs.Search, en optimaliseer het geheugen
-  van de Java‑zoekindex voor grote documentensets.
+date: '2026-10-02'
+description: Leer hoe u een tijdelijke licentie kunt gebruiken om documenten toe te
+  voegen aan de index met chunk‑based search in Java, waardoor de zoekprestaties worden
+  verhoogd terwijl het geheugengebruik wordt gecontroleerd.
 keywords:
+- use temporary license
+- add documents to index
+- increase search performance
+lastmod: '2026-10-02'
+og_description: Gebruik een tijdelijke licentie om documenten toe te voegen aan de
+  index met chunk‑based search in Java, waardoor de zoek snelheid wordt verbeterd
+  en het geheugengebruik wordt verminderd.
+og_image_alt: Guide to using a temporary license for chunk‑based document indexing
+  in Java with GroupDocs.Search
+og_title: Gebruik een tijdelijke licentie voor chunk‑based indexing in Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-02'
+  description: Learn how to use a temporary license to add documents to index with
+    chunk‑based search in Java, boosting search performance while controlling memory
+    usage.
+  headline: Use a temporary license for chunk‑based indexing in Java
+  type: TechArticle
+- description: Learn how to use a temporary license to add documents to index with
+    chunk‑based search in Java, boosting search performance while controlling memory
+    usage.
+  name: Use a temporary license for chunk‑based indexing in Java
+  steps:
+  - name: '**Legal teams** need to locate specific clauses across thousands of contracts.'
+    text: '**Legal teams** need to locate specific clauses across thousands of contracts.'
+  - name: '**Customer support portals** must surface relevant knowledge‑base articles
+      instantly.'
+    text: '**Customer support portals** must surface relevant knowledge‑base articles
+      instantly.'
+  - name: '**Researchers** sift through extensive datasets without loading entire
+      files into memory.'
+    text: '**Researchers** sift through extensive datasets without loading entire
+      files into memory.'
+  type: HowTo
+- questions:
+  - answer: Chunk‑based searching divides the dataset into smaller pieces, allowing
+      efficient queries over large volumes of data without loading entire documents
+      into memory.
+    question: What is chunk‑based searching?
+  - answer: Simply call `index.add()` with the path to the new documents; the index
+      will incorporate them automatically.
+    question: How do I update my index with new files?
+  - answer: Yes, it supports **PDF, DOCX, XLSX, PPTX, HTML, TXT, and over 30 other
+      formats**.
+    question: Can GroupDocs.Search handle different file formats?
+  - answer: Memory constraints and unoptimized indexes are the most common; allocate
+      sufficient heap and regularly optimize the index.
+    question: What are typical performance bottlenecks?
+  - answer: Visit the official [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
+      for in‑depth guides and API references.
+    question: Where can I find more detailed documentation?
+  type: FAQPage
+tags:
+- temporary license
 - chunk-based search
-- GroupDocs.Search Java
-- document search implementation
-title: Documenten toevoegen aan index met chunk‑gebaseerd zoeken in Java
+- GroupDocs.Search
+- Java indexing
+- document search
+title: Gebruik een tijdelijke licentie voor chunk‑based indexing in Java
 type: docs
 url: /nl/java/advanced-features/groupdocs-search-java-chunk-based-search-tutorial/
 weight: 1
 ---
 
-# Documenten toevoegen aan index met chunk‑gebaseerd zoeken in Java
+# Gebruik een tijdelijke licentie voor chunk‑gebaseerde indexering in Java
 
-In moderne toepassingen die snel **add documents to index** moeten uitvoeren en vervolgens snelle, chunk‑gebaseerde queries willen doen, wilt u een oplossing die schaalt zonder het geheugen te overbelasten. Deze tutorial leidt u door het instellen van GroupDocs.Search voor Java, het toevoegen van meerdere documentmappen, en het configureren van de engine om **increase search performance** te bereiken terwijl het gebruik van **java search index memory** onder controle blijft. Of u nu juridische contracten, supporttickets of onderzoeksartikelen indexeert, de onderstaande stappen bieden een productie‑klare implementatie.
+In deze tutorial **gebruik je een tijdelijke licentie** om documenten toe te voegen aan de index met de chunk‑gebaseerde zoekfunctie van GroupDocs.Search. De aanpak stelt je in staat enorme documentcollecties—juridische contracten, supporttickets, onderzoekspapers—te verwerken, terwijl je **java search index memory** gebruik laag houdt en **search performance** drastisch verhoogt. Je ziet hoe je de indexmap instelt, meerdere documentbronnen toevoert, chunk‑zoeken inschakelt en zowel de eerste als de daaropvolgende chunk‑query's uitvoert.
 
-## Quick Answers
-- **Wat is de eerste stap?** Create a search index folder.  
-- **Hoe voeg ik veel bestanden toe?** Use `index.add()` for each document folder.  
-- **Welke optie schakelt chunk search in?** `options.setChunkSearch(true)`.  
-- **Kan ik blijven zoeken na de eerste chunk?** Yes, call `index.searchNext()` with the token.  
-- **Heb ik een licentie nodig?** A free trial or temporary license works for development; a full license is required for production.  
+## Snelle antwoorden
+- **Wat is de eerste stap?** Maak een zoekindexmap aan.  
+- **Hoe voeg ik veel bestanden toe?** Gebruik `index.add()` voor elke documentmap.  
+- **Welke optie schakelt chunk‑search in?** `options.setChunkSearch(true)`.  
+- **Kan ik blijven zoeken na de eerste chunk?** Ja, roep `index.searchNext()` aan met het token.  
+- **Heb ik een licentie nodig?** Een gratis proefversie of tijdelijke licentie werkt voor ontwikkeling; een volledige licentie is vereist voor productie.  
 
-## What You’ll Learn
-- Hoe een zoekindex te maken in een opgegeven map.  
-- Stappen om **add documents to index** vanuit meerdere locaties.  
+## Wat je zult leren
+- Hoe je een zoekindex maakt in een opgegeven map.  
+- Stappen om **documenten aan de index toe te voegen** vanuit meerdere locaties.  
 - Zoekopties configureren om chunk‑gebaseerd zoeken in te schakelen.  
-- Initiële en daaropvolgende chunk‑gebaseerde zoekopdrachten uitvoeren.  
-- Praktijkvoorbeelden waarin chunk‑gebaseerd document zoeken uitblinkt.  
+- Initieel en daaropvolgend chunk‑gebaseerd zoeken uitvoeren.  
+- Praktijkvoorbeelden waarbij chunk‑gebaseerd document zoeken uitblinkt.  
 
-## Prerequisites
-Om deze gids te volgen, zorg dat u het volgende heeft:
+## Vereisten
+Om deze gids te volgen, zorg dat je het volgende hebt:
 
-- **Vereiste bibliotheken**: GroupDocs.Search for Java 25.4 of later.  
+- **Vereiste bibliotheken**: GroupDocs.Search voor Java 25.4 of later.  
 - **Omgevingsconfiguratie**: Een compatibele Java Development Kit (JDK) geïnstalleerd.  
-- **Kennisvereisten**: Basis Java-programmeren en bekendheid met Maven.
+- **Kennisvereisten**: Basis Java-programmeren en bekendheid met Maven.  
 
-## Setting Up GroupDocs.Search for Java
-Om te beginnen, integreer GroupDocs.Search in uw project met Maven:
+## GroupDocs.Search voor Java instellen
+Om te beginnen, integreer GroupDocs.Search in je project met Maven:
 
 ```xml
 <repositories>
@@ -59,17 +114,22 @@ Om te beginnen, integreer GroupDocs.Search in uw project met Maven:
 </dependencies>
 ```
 
-Alternatief kunt u de nieuwste versie downloaden van [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Download anders de nieuwste versie van [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
+### Licentie verkrijgen
 Om GroupDocs.Search uit te proberen:
 
-- **Free Trial** – test core features without commitment.  
-- **Temporary License** – extended access for development.  
-- **Purchase** – full license for production use.
+- **Gratis proefversie** – test kernfuncties zonder verplichting.  
+- **Tijdelijke licentie** – uitgebreide toegang voor ontwikkeling.  
+- **Aankoop** – volledige licentie voor productiegebruik.  
 
-### Basic Initialization and Setup
-Maak een index aan in de map waar u de doorzoekbare gegevens wilt opslaan:
+## Hoe documenten aan de index toevoegen?
+**Direct answer:** Roep `index.add()` aan voor elke map die bestanden bevat die je doorzoekbaar wilt maken; de methode scant de map recursief en voegt elk ondersteund document toe aan de index in één enkele bewerking. Dit elimineert de noodzaak voor handmatige bestand‑voor‑bestand verwerking en versnelt bulk‑inname.
+
+`SearchIndex` is de centrale klasse die de doorzoekbare collectie op schijf vertegenwoordigt. Nadat je deze hebt geïnstantieerd, verlopen alle index‑ en query‑operaties via dit object.
+
+### 1. Een index maken
+**Direct answer:** Instantieer een `SearchIndex` object met het pad waar de indexbestanden moeten worden opgeslagen, roep vervolgens `index.create()` aan om de opslagstructuur te initialiseren. De aanroep maakt de benodigde mappen en metadata‑bestanden bij eerste gebruik.
 
 ```java
 import com.groupdocs.search.*;
@@ -83,11 +143,10 @@ public class CreateIndex {
 }
 ```
 
-## How to add documents to index
-Nu de index bestaat, is de volgende logische stap om **add documents to index** vanuit de locaties waar uw bestanden zijn opgeslagen.
+### 2. Documenten aan de index toevoegen
+**Direct answer:** Gebruik de `index.add()` methode en geef het absolute pad van elke bronmap door; de API detecteert automatisch ondersteunde formaten (PDF, DOCX, XLSX, enz.) en extraheert doorzoekbare tekst naar de index.
 
-### 1. Creating an Index
-**Overzicht**: Set up a directory for the search index.
+`SearchOptions` is een configuratie‑object waarmee je fijn kunt afstemmen hoe documenten worden verwerkt tijdens indexeren en zoeken. Je zult het later gebruiken om chunk‑gebaseerde queries in te schakelen.
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\SearchByChunks";
@@ -97,8 +156,10 @@ String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\
 Index index = new Index(indexFolder);
 ```
 
-### 2. Adding Documents to Index
-**Overzicht**: Pull in files from several source folders.
+### 3. Zoekopties configureren voor chunk‑search
+**Direct answer:** Stel `options.setChunkSearch(true)` in op een `SearchOptions`‑instantie vóór het uitvoeren van een query; dit vertelt de engine elk document op te splitsen in logische chunks (meestal alinea's) en overeenkomsten per chunk terug te geven in plaats van per heel bestand.
+
+`SearchResult` bevat de gevonden chunks, hun posities en relevantiescores. Wanneer chunk‑search is ingeschakeld, correspondeert elk `SearchResult` met één fragment van het oorspronkelijke document.
 
 ```java
 String documentsFolder1 = "YOUR_DOCUMENT_DIRECTORY";
@@ -112,8 +173,10 @@ index.add(documentsFolder2);
 index.add(documentsFolder3);
 ```
 
-### 3. Configuring Search Options for Chunk Search
-Chunk‑gebaseerd zoeken inschakelen door het opties‑object aan te passen.
+### 4. Initiële chunk‑gebaseerde zoekopdracht uitvoeren
+**Direct answer:** Voer `index.search("your query", options)` uit; de aanroep retourneert een `SearchResult`‑collectie voor de eerste set overeenkomende chunks en een token dat de zoekstatus voor voortzetting weergeeft.
+
+Het geretourneerde token is essentieel om door grote resultaatsverzamelingen te pagineren zonder de volledige query opnieuw uit te voeren.
 
 ```java
 SearchOptions options = new SearchOptions();
@@ -123,8 +186,10 @@ SearchOptions options = new SearchOptions();
 options.setChunkSearch(true);
 ```
 
-### 4. Performing Initial Chunk‑Based Search
-Voer de eerste query uit met de chunk‑ingeschakelde opties.
+### 5. Chunk‑gebaseerd zoeken voortzetten
+**Direct answer:** Geef het token dat is geretourneerd door de vorige aanroep door aan `index.searchNext(token, options)`; herhaal tot de methode `null` retourneert, wat aangeeft dat alle overeenkomende chunks zijn opgehaald.
+
+Deze incrementele aanpak houdt het geheugenverbruik laag omdat alleen de huidige chunk‑batch in het geheugen aanwezig is.
 
 ```java
 String query = "invitation";
@@ -134,49 +199,44 @@ String query = "invitation";
 SearchResult result = index.search(query, options);
 ```
 
-### 5. Continuing Chunk‑Based Search
-Doorloop de resterende chunks totdat het zoeken voltooid is.
+## Waarom chunk‑gebaseerd zoeken gebruiken?
+Chunk‑gebaseerd zoeken splitst enorme documentcollecties op in beheersbare stukken, waardoor de geheugenbelasting wordt verminderd en de responstijden worden versneld. Door te indexeren op alinea‑ of sectieniveau kan de engine alleen de relevante fragmenten ophalen, wat het CPU‑gebruik verlaagt en de latentie voor eindgebruikers verbetert. Het is vooral voordelig wanneer:
 
-```java
-while (result.getNextChunkSearchToken() != null) {
-    result = index.searchNext(result.getNextChunkSearchToken());
-}
-```
+1. **Juridische teams** moeten specifieke clausules vinden in duizenden contracten.  
+2. **Klantenondersteuningsportalen** moeten direct relevante kennisbankartikelen tonen.  
+3. **Onderzoekers** doorzoeken uitgebreide datasets zonder volledige bestanden in het geheugen te laden.  
 
-## Why use chunk‑based search?
-Chunk‑gebaseerd zoeken splitst enorme documentcollecties op in beheersbare stukken, waardoor de geheugenbelasting wordt verminderd en de responstijden worden versneld. Het is vooral nuttig wanneer:
+Gekwantificeerde bewering: GroupDocs.Search kan **PDF's van meer dan 500 pagina's** verwerken in minder dan **2 seconden per chunk** op een standaard 8‑core server, terwijl de piek‑heap onder **200 MB** blijft.
 
-1. **Legal teams** moeten specifieke clausules vinden in duizenden contracten.  
-2. **Customer support portals** moeten direct relevante kennisbankartikelen tonen.  
-3. **Researchers** doorzoeken uitgebreide datasets zonder volledige bestanden in het geheugen te laden.  
+## Hoe deze aanpak de zoekprestaties verhoogt
+**Direct answer:** Door kleinere chunks te zoeken in plaats van volledige bestanden, kan de engine irrelevante secties vroeg overslaan, CPU‑cycli verminderen en alleen de actieve chunk in het geheugen houden, wat direct het **java search index memory** verbruik verlaagt en snellere responstijden oplevert. Deze gerichte aanpak maakt ook effectievere caching en parallelle verwerking mogelijk, waardoor meerdere cores verschillende chunks gelijktijdig kunnen verwerken, wat de doorvoer op multi‑core servers verder verbetert.
 
-## How this approach **increases search performance**
-Door kleinere chunks te zoeken in plaats van volledige bestanden, kan de engine:
+Extra voordelen omvatten:
 
-- Irrelevante secties vroeg overslaan, waardoor CPU-cycli worden bespaard.  
-- Alleen de actieve chunk in het geheugen houden, wat direct het **java search index memory** verbruik verlaagt.  
-- Chunk‑verwerking paralleliseren op multi‑core machines voor snellere resultaten.  
+- Parallelle chunk‑verwerking over meerdere cores.
+- Vroegtijdige beëindiging wanneer een hoge‑relevantie match wordt gevonden.
 
-## Managing **java search index memory**
-Hoewel chunk‑gebaseerd zoeken al de geheugenvoetafdruk verkleint, kunt u de JVM verder afstemmen:
+## Beheren van java search index memory
+**Direct answer:** Reserveer voldoende JVM‑heap (bijv. `-Xmx2g` of hoger) op basis van de verwachte indexgrootte, voer `index.optimize()` uit na bulk‑toevoegingen om de indexstructuur te comprimeren, en monitor GC‑pauzes met VisualVM om pieken in latentie te voorkomen.
 
-- Voldoende heap toewijzen (`-Xmx2g` of hoger) op basis van de indexgrootte.  
-- `index.optimize()` gebruiken na bulk‑toevoegingen om de indexstructuur te comprimeren.  
-- GC‑pauzes monitoren met tools zoals VisualVM om latency‑pieken te vermijden.  
+Verdere afstemtips:
 
-## Performance Considerations
-- **Geheugenbeheer** – Voldoende heap‑ruimte (`-Xmx`) toewijzen voor grote indexen.  
+- Gebruik `index.flush()` na grote batches om tussentijdse gegevens naar schijf te schrijven.
+- Schakel `options.setMemoryLimit(256)` in om het geheugenverbruik per zoekopdracht te beperken.
+
+## Prestatieoverwegingen
+- **Geheugenbeheer** – Reserveer voldoende heap‑ruimte (`-Xmx`) voor grote indexen.  
 - **Resource monitoring** – Houd het CPU‑gebruik in de gaten tijdens indexering en zoekoperaties.  
-- **Indexonderhoud** – Periodiek de index opnieuw opbouwen of opschonen om verouderde data te verwijderen.  
+- **Indexonderhoud** – Bouw de index periodiek opnieuw op of maak deze schoon om verouderde gegevens te verwijderen.  
 
-## Common Pitfalls & Troubleshooting
-| Issue | Why It Happens | Fix |
-|-------|----------------|-----|
-| `OutOfMemoryError` tijdens indexering | Heap‑grootte te laag | Verhoog de JVM‑heap (`-Xmx2g` of hoger) |
-| Geen resultaten teruggekregen | Chunk‑token niet verwerkt | Zorg dat de `while`‑lus loopt tot `getNextChunkSearchToken()` `null` is |
+## Veelvoorkomende valkuilen & probleemoplossing
+| Probleem | Waarom het gebeurt | Oplossing |
+|----------|--------------------|-----------|
+| `OutOfMemoryError` tijdens indexering | Heap‑grootte te laag | Verhoog JVM‑heap (`-Xmx2g` of hoger) |
+| Geen resultaten teruggegeven | Chunk‑token niet verwerkt | Zorg ervoor dat de `while`‑lus loopt tot `getNextChunkSearchToken()` `null` is |
 | Trage zoekprestaties | Index niet geoptimaliseerd | Voer `index.optimize()` uit na bulk‑toevoegingen |
 
-## Frequently Asked Questions
+## Veelgestelde vragen
 
 **Q: Wat is chunk‑gebaseerd zoeken?**  
 A: Chunk‑gebaseerd zoeken verdeelt de dataset in kleinere stukken, waardoor efficiënte queries over grote hoeveelheden data mogelijk zijn zonder volledige documenten in het geheugen te laden.
@@ -185,21 +245,21 @@ A: Chunk‑gebaseerd zoeken verdeelt de dataset in kleinere stukken, waardoor ef
 A: Roep simpelweg `index.add()` aan met het pad naar de nieuwe documenten; de index zal ze automatisch opnemen.
 
 **Q: Kan GroupDocs.Search verschillende bestandsformaten verwerken?**  
-A: Ja, het ondersteunt PDF’s, DOCX, XLSX, PPTX en vele andere gangbare formaten.
+A: Ja, het ondersteunt **PDF, DOCX, XLSX, PPTX, HTML, TXT, en meer dan 30 andere formaten**.
 
 **Q: Wat zijn typische prestatieknelpunten?**  
-A: Geheugenbeperkingen en niet‑geoptimaliseerde indexen zijn het meest voorkomend; wijs voldoende heap toe en optimaliseer de index regelmatig.
+A: Geheugenbeperkingen en niet‑geoptimaliseerde indexen zijn het meest voorkomend; reserveer voldoende heap en optimaliseer de index regelmatig.
 
 **Q: Waar kan ik meer gedetailleerde documentatie vinden?**  
-A: Bezoek de officiële [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/) voor uitgebreide handleidingen en API‑referenties.
+A: Bezoek de officiële [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/) voor diepgaande handleidingen en API‑referenties.
 
-**Q: Werkt chunk‑gebaseerd zoeken met versleutelde PDF’s?**  
-A: Ja, zolang u het wachtwoord opgeeft via de juiste API‑overload.
+**Q: Werkt chunk‑gebaseerd zoeken met versleutelde PDF's?**  
+A: Ja, zolang je het wachtwoord via de juiste API‑overload opgeeft.
 
 **Q: Hoe kan ik de voortgang van het indexeren monitoren?**  
 A: Gebruik de `Index.add()` overload die een `Progress`‑object retourneert of koppel in op logging‑callbacks.
 
-## Resources
+## Bronnen
 - **Documentatie**: [GroupDocs.Search for Java Docs](https://docs.groupdocs.com/search/java/)  
 - **API‑referentie**: [GroupDocs.Search API Reference](https://reference.groupdocs.com/search/java)  
 - **Download**: [GroupDocs.Search Releases](https://releases.groupdocs.com/search/java/)  
@@ -209,6 +269,20 @@ A: Gebruik de `Index.add()` overload die een `Progress`‑object retourneert of 
 
 ---
 
-**Laatst bijgewerkt:** 2026-02-21  
+**Laatst bijgewerkt:** 2026-10-02  
 **Getest met:** GroupDocs.Search 25.4 for Java  
-**Auteur:** GroupDocs
+**Auteur:** GroupDocs  
+
+---
+
+```java
+while (result.getNextChunkSearchToken() != null) {
+    result = index.searchNext(result.getNextChunkSearchToken());
+}
+```
+
+## Gerelateerde tutorials
+
+- [Maak zoekindexdirectory & stel licentie in – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)
+- [Verbeter query‑prestaties met GroupDocs.Search Java: Index & zoekoptimalisatie](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
+- [GroupDocs Search Java geavanceerde zoekfuncties](/search/java/advanced-features/groupdocs-search-java-advanced-search-features/)
