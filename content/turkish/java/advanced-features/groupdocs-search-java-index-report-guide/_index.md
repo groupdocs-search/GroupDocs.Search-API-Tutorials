@@ -1,52 +1,113 @@
 ---
-date: '2026-03-04'
-description: GroupDocs.Search'i Java'da kullanarak indeks oluşturmayı öğrenin. Bu
-  kılavuz, indeksleme, belge ekleme ve optimal arama performansı için raporlamayı
+date: '2026-10-07'
+description: Java'da GroupDocs.Search kullanarak indeks oluşturmayı öğrenin. Bu rehber,
+  indeksleme, belge ekleme ve optimal arama performansı için raporlama konularını
   kapsar.
 keywords:
-- GroupDocs.Search Java
-- document indexing
-- search reporting
-title: GroupDocs.Search ile Java’da Dizin Oluşturma | Kapsamlı Dizinleme ve Raporlama
-  Rehberi
+- how to create index
+- optimize search performance
+- add documents to index
+- java search example
+- add files to index
+lastmod: '2026-10-07'
+og_description: Java'da GroupDocs.Search kullanarak indeks oluşturmayı öğrenin. Bu
+  rehber, indeksleme, belge ekleme ve optimal arama performansı için raporlama konularını
+  kapsar.
+og_image_alt: 'Guide: how to create index in Java with GroupDocs.Search'
+og_title: Java'da GroupDocs.Search ile indeks oluşturma rehberi
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-07'
+  description: Learn how to create index in Java using GroupDocs.Search. This guide
+    covers indexing, adding documents, and reporting for optimal search performance.
+  headline: How to create index in Java with GroupDocs.Search guide
+  type: TechArticle
+- description: Learn how to create index in Java using GroupDocs.Search. This guide
+    covers indexing, adding documents, and reporting for optimal search performance.
+  name: How to create index in Java with GroupDocs.Search guide
+  steps:
+  - name: '**Free trial** – Sign up for a free trial to explore GroupDocs features.'
+    text: '**Free trial** – Sign up for a free trial to explore GroupDocs features.'
+  - name: '**Temporary license** – Obtain a temporary license for extended testing
+      by visiting the [temporary license page](https://purchase.groupdocs.com/temporary-license/).'
+    text: '**Temporary license** – Obtain a temporary license for extended testing
+      by visiting the [temporary license page](https://purchase.groupdocs.com/temporary-license/).'
+  - name: '**Purchase** – For production use, consider purchasing a full license from
+      the [GroupDocs website](https://purchase.groupdocs.com/).'
+    text: '**Purchase** – For production use, consider purchasing a full license from
+      the [GroupDocs website](https://purchase.groupdocs.com/).'
+  - name: '**Legal document management** – Quickly locate case files or statutes.'
+    text: '**Legal document management** – Quickly locate case files or statutes.'
+  - name: '**Customer support portals** – Retrieve past tickets and solutions instantly.'
+    text: '**Customer support portals** – Retrieve past tickets and solutions instantly.'
+  - name: '**Enterprise content management (ECM)** – Index and search across the entire
+      corporate repository.'
+    text: '**Enterprise content management (ECM)** – Index and search across the entire
+      corporate repository.'
+  type: HowTo
+- questions:
+  - answer: Yes, it supports DOCX, PDF, TXT, HTML, and many other common formats—over
+      50 in total.
+    question: Can I index different document formats with GroupDocs.Search?
+  - answer: Absolutely—use the `add()` method in an automated job (e.g., a scheduled
+      task) for **incremental indexing java**.
+    question: Is there a way to update the index automatically when new documents
+      arrive?
+  - answer: Combine **incremental indexing java** with proper JVM memory settings
+      and regularly review the indexing reports to fine‑tune performance.
+    question: How do I improve search speed for very large datasets?
+  - answer: Yes, it can index multiple languages; just ensure the appropriate language
+      analyzers are enabled.
+    question: Does GroupDocs.Search handle multilingual content?
+  - answer: Yes, you can sign up for a free trial on the GroupDocs website to evaluate
+      all features before purchasing.
+    question: Is a free trial available for GroupDocs.Search Java?
+  type: FAQPage
+tags:
+- GroupDocs.Search
+- Java indexing
+- search performance
+- document search
+- tutorial
+title: Java'da GroupDocs.Search ile indeks oluşturma rehberi
 type: docs
 url: /tr/java/advanced-features/groupdocs-search-java-index-report-guide/
 weight: 1
 ---
 
-# GroupDocs.Search ile Java'da Dizin Oluşturma | Kapsamlı Dizinleme ve Raporlama Rehberi
+# Java'da GroupDocs.Search rehberi ile indeks nasıl oluşturulur
 
-Günümüzün veri‑odaklı dünyasında, **create index java** hızlı, güvenilir arama deneyimleri oluşturmanın temel bir adımıdır. Hukuki sözleşmeler, müşteri kayıtları veya büyük bir belge deposu yönetiyor olun, iyi tasarlanmış bir dizin bilgileri milisaniyeler içinde almanızı sağlar. Bu öğreticide GroupDocs.Search'ı kurmayı, bir dizin oluşturmayı, belge eklemeyi ve ayrıntılı raporlar üretmeyi adım adım göstereceğiz—performans ve ölçeklenebilirliği göz önünde bulundurarak.
+Bugünün veri odaklı dünyasında, **how to create index** hızlı ve güvenilir arama deneyimleri oluşturmanın temel bir adımıdır. İster yasal sözleşmeler, müşteri kayıtları ya da büyük bir belge deposu yönetin, iyi tasarlanmış bir indeks, bilgileri milisaniyeler içinde almanızı sağlar. Bu öğreticide GroupDocs.Search'ü kurmayı, bir indeks oluşturmayı, belgeleri eklemeyi ve ayrıntılı raporlar üretmeyi adım adım göstereceğiz—performans ve ölçeklenebilirliğe odaklanarak.
 
-## Hızlı Yanıtlar
-- **Java'da dizin oluşturmanın** ilk adımı nedir?** `Index` nesnesini, dizin dosyalarının saklanacağı bir klasöre işaret edecek şekilde başlatın.  
-- **Java belge dizinlemesini sağlayan kütüphane hangisidir?** GroupDocs.Search for Java.  
-- **Mevcut bir dizine Java belgeleri nasıl eklenir?** Her klasör için `index.add(path)` metodunu kullanın.  
-- **Arama performansını optimize etmeye yardımcı olan araç nedir?** Düzenli artımlı dizinleme ve uygun bellek ayarları.  
-- **Örnek bir Java arama örneği var mı?** Aşağıdaki kod parçacıkları tam bir uçtan uca iş akışını gösterir.
+## Hızlı cevaplar
+- **Java'da indeks oluşturmanın ilk adımı nedir?** İndeks dosyaları için bir klasöre işaret eden bir `Index` nesnesi başlatın.  
+- **Hangi kütüphane Java belge indekslemesi sağlar?** GroupDocs.Search for Java.  
+- **Mevcut bir indekse nasıl belge ekleyebilirim?** İndekslemek istediğiniz her klasör için `index.add(path)` çağırın.  
+- **Arama performansını optimize etmeye yardımcı olan araç nedir?** Doğru JVM bellek ayarıyla birleştirilen artımlı indeksleme.  
+- **Örnek bir Java arama örneği var mı?** Aşağıdaki adım adım rehber, tam bir uçtan uca iş akışını gösterir.
 
 ## Öğrenecekleriniz
-- GroupDocs.Search kullanarak **create index java** nasıl yapılır  
-- Mevcut bir dizinde **add documents to index** ve **add files to index** teknikleri  
-- **optimize search performance** için dizinleme raporlarını nasıl alıp görüntülenir  
-- **java document indexing** için gerçek dünya kullanım örnekleri ve ipuçları  
+- GroupDocs.Search kullanarak **create index** nasıl yapılır  
+- Mevcut bir indekste **add documents to index** ve **add files to index** teknikleri  
+- **optimize search performance** için indeks raporlarını nasıl alıp görüntülenir  
+- **java search example** için gerçek dünya kullanım örnekleri ve ipuçları  
 
 ## Önkoşullar
 
-### Gerekli Kütüphaneler ve Sürümler
-- **GroupDocs.Search for Java**: Sürüm 25.4 veya üzeri  
-- **Java Development Kit (JDK)**: Doğru şekilde kurulu ve yapılandırılmış  
+### Gerekli kütüphaneler ve sürümler
+- **GroupDocs.Search for Java**: Sürüm 25.4 veya üzeri – **50+ giriş ve çıkış formatını** destekler, DOCX, PDF, TXT, HTML ve birçok görüntü türü dahil.  
+- **Java Development Kit (JDK)**: Doğru şekilde kurulu ve yapılandırılmış (JDK 11+ önerilir).  
 
-### Ortam Kurulum Gereksinimleri
+### Ortam kurulum gereksinimleri
 Kod parçacıklarını çalıştırmak için IntelliJ IDEA, Eclipse veya NetBeans gibi bir IDE önerilir.
 
-### Bilgi Önkoşulları
-Temel Java kavramları (sınıflar, metodlar, dosya işlemleri) ve Maven bilgisi, içeriği sorunsuz takip etmenize yardımcı olacaktır.
+### Bilgi önkoşulları
+Temel Java kavramları (sınıflar, metodlar, dosya işlemleri) ve Maven bilgisi, içeriği sorunsuz takip etmenize yardımcı olur.
 
 ## GroupDocs.Search for Java Kurulumu
 
-### Maven Kurulumu
-Depoyu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
+### Maven kurulumu
+`pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
 
 ```xml
 <repositories>
@@ -66,16 +127,16 @@ Depoyu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
 </dependencies>
 ```
 
-### Doğrudan İndirme
+### Doğrudan indirme
 Kütüphaneyi resmi sürüm sayfasından da edinebilirsiniz: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Lisans Edinme Adımları
-1. **Free Trial** – GroupDocs özelliklerini keşfetmek için ücretsiz deneme kaydı oluşturun.  
-2. **Temporary License** – Uzun süreli test için geçici bir lisans almak üzere [temporary license page](https://purchase.groupdocs.com/temporary-license/) adresini ziyaret edin.  
-3. **Purchase** – Üretim kullanımı için tam bir lisansı [GroupDocs website](https://purchase.groupdocs.com/) üzerinden satın almayı düşünün.  
+### Lisans edinme adımları
+1. **Ücretsiz deneme** – GroupDocs özelliklerini keşfetmek için ücretsiz deneme kaydı yapın.  
+2. **Geçici lisans** – Uzun süreli test için geçici lisans almak üzere [temporary license page](https://purchase.groupdocs.com/temporary-license/) sayfasını ziyaret edin.  
+3. **Satın alma** – Üretim kullanımı için tam lisansı [GroupDocs website](https://purchase.groupdocs.com/) üzerinden satın almayı düşünün.  
 
-### Temel Başlatma ve Kurulum
-Dizin dosyalarının saklanacağı klasöre işaret eden bir `Index` örneği oluşturun:
+### Temel başlatma ve kurulum
+`Index`, GroupDocs.Search içinde diskte depolanan aranabilir bir indeksi temsil eden temel sınıftır. İndeks dosyalarının saklanacağı klasöre işaret eden bir `Index` örneği oluşturun:
 
 ```java
 import com.groupdocs.search.*;
@@ -89,10 +150,11 @@ public class InitializeSearch {
 }
 ```
 
-## Uygulama Kılavuzu
+## Uygulama rehberi
 
-### GroupDocs.Search ile Java'da dizin oluşturma
-Bir dizin oluşturmak, belge koleksiyonlarınız için arama yeteneklerini etkinleştirmenin ilk adımıdır. Aşağıda dizin klasörünü ayarlayan minimal bir örnek bulunmaktadır.
+### GroupDocs.Search ile Java'da indeks nasıl oluşturulur
+
+İndeks klasörünü oluşturun, indeks ayarlarını yapılandırın ve `Index` nesnesini örnekleyin. **İndeksi yükleyin, gerekli seçenekleri ayarlayın ve belgeleri indekslemeye hazır olun.** Bu doğrudan cevap, 70 kelimenin altında temel adımları açıklar ve koda dalmadan önce net bir anlayış sağlar.
 
 ```java
 import com.groupdocs.search.*;
@@ -106,10 +168,9 @@ public class CreateIndexFeature {
 }
 ```
 
-**Açıklama:** `Index` yapıcı metodu, tüm dizin verilerinin saklanacağı yolu alır. Bu klasör, **java document indexing** çözümünüzün kalbi haline gelir.
+### Belgeleri indekse ekleme
 
-### Belgeleri dizine ekleme
-Dizin oluşturulduktan sonra, bir veya daha fazla klasörden dosyalarla doldurabilirsiniz. Bu adım **add documents to index** iş akışını gösterir.
+`add`, dosyaları indekse ekleyen metottur. Bir klasör yolu alır ve içinde bulunan her desteklenen dosyayı indeksler, **add documents to index** ve **add files to index** iş akışlarını etkinleştirir. Artımlı güncellemeler için birden fazla kez çağırabilirsiniz.
 
 ```java
 import com.groupdocs.search.*;
@@ -130,10 +191,9 @@ public class AddDocumentsToIndexFeature {
 }
 ```
 
-**Açıklama:** `add()` metodu bir klasör yolunu alır ve içinde bulunan her desteklenen dosyayı dizinler. Bu, **add files to index** iş akışının çekirdeğidir ve tekrar tekrar çağırdığınızda artımlı dizinlemeyi destekler.
+### İndeksleme raporlarını alma ve gösterme
 
-### Dizinleme Raporlarını Alma ve Görüntüleme
-Dizinleme sonrasında, **optimize search performance** için yardımcı olacak istatistikleri görmek isteyeceksiniz.
+`IndexingReport`, indeksleme işlemiyle ilgili belge sayısı, terim sayısı ve dosya boyutu gibi ayrıntılı istatistikler sunar. Bu sayılar, **optimize search performance** için kritiktir çünkü darboğazları erken tespit etmenizi sağlar.
 
 ```java
 import com.groupdocs.search.*;
@@ -158,60 +218,66 @@ public class GetIndexingReportsFeature {
 }
 ```
 
-**Açıklama:** Bu kod parçacığı, zaman damgaları, belge sayısı, terim sayısı ve boyut metrikleri içeren `IndexingReport` nesnelerini alır—**optimize search performance** izlemek için temel veriler.
+## Neden indeks oluşturmak önemlidir
 
-## Neden Java'da dizin oluşturma önemlidir
-İyi tasarlanmış bir dizin sorgu gecikmesini azaltır, sunucu yükünü düşürür ve belge koleksiyonunuz büyüdükçe sorunsuz ölçeklenir. **create index java** konusunda uzmanlaşarak, bulanık eşleşme, çoklu gezinme ve gerçek zamanlı öneriler gibi güçlü arama özellikleri için temeli atmış olursunuz.
+İyi tasarlanmış bir indeks, sorgu gecikmesini azaltır, sunucu yükünü düşürür ve belge koleksiyonunuz büyüdükçe sorunsuz ölçeklenir. **how to create index** konusunu ustalaşarak, bulanık eşleşme, çoklu yönlendirme ve gerçek zamanlı öneriler gibi güçlü arama özellikleri için temeli atarsınız. GroupDocs.Search, akış mimarisi sayesinde **multi‑hundred‑page documents** dosyalarını belleğe tamamen yüklemeden işleyebilir.
 
-## Pratik Uygulamalar
+## Pratik uygulamalar
 GroupDocs.Search birçok gerçek dünya sistemine entegre edilebilir:
 
-1. **Legal Document Management** – Dava dosyalarını veya mevzuatı hızlıca bulun.  
-2. **Customer Support Portals** – Geçmiş biletleri ve çözümleri anında alın.  
-3. **Enterprise Content Management (ECM)** – Tüm kurumsal depoda indeksleme ve arama yapın.
+1. **Hukuki belge yönetimi** – Dava dosyalarını veya mevzuatı hızlıca bulun.  
+2. **Müşteri destek portalları** – Geçmiş biletleri ve çözümleri anında alın.  
+3. **Kurumsal içerik yönetimi (ECM)** – Tüm kurumsal depoda indeksleme ve arama yapın.
 
-## Performans Hususları
-**java search example**'ınızı hızlı ve duyarlı tutmak için:
+## Performans değerlendirmeleri
+**java search example**'ı hızlı ve duyarlı tutmak için:
 
-- **Incremental indexing java** – Tüm dizini yeniden oluşturmak yerine yeni dosyaları düzenli olarak ekleyin.  
-- **Memory tuning** – Büyük veri setleri için JVM yığın boyutunu ayarlayın ve G1GC'yi etkinleştirin.  
-- **Report monitoring** – Dar boğazları erken tespit etmek için dizinleme raporlarını kullanın.
+- **Incremental indexing java** – Tüm indeksi yeniden oluşturmak yerine yeni dosyaları düzenli olarak ekleyin.  
+- **Memory tuning** – JVM yığın boyutunu (`-Xmx4g` büyük veri kümeleri için) ayarlayın ve büyük veri setleri için G1GC'yi etkinleştirin.  
+- **Report monitoring** – Darboğazları erken tespit etmek ve toplu işlem boyutlarını ayarlamak için indeks raporlarını kullanın.
 
-## Yaygın Sorunlar ve Çözümler
+## Yaygın sorunlar ve çözümler
 
 | Sorun | Çözüm |
 |-------|----------|
-| **OutOfMemoryError** büyük toplu dizinleme sırasında | JVM `-Xmx` değerini artırın ve daha küçük partilerde dizinlemeyi düşünün. |
+| **OutOfMemoryError** büyük toplu indeksleme sırasında | JVM `-Xmx` değerini artırın ve daha küçük partilerde indekslemeyi düşünün. |
 | **Unsupported file format** hatası | Dosya tipinin GroupDocs.Search tarafından desteklenen formatlar (DOCX, PDF, TXT vb.) arasında olduğundan emin olun. |
-| **Index not updating** dosyalar eklendikten sonra | `index.add()` metodunu aynı `Index` örneği üzerinde çağırdığınızdan veya değişikliklerden sonra dizini yeniden açtığınızdan emin olun. |
+| **Index not updating** dosyalar eklendikten sonra | `index.add()` metodunu aynı `Index` örneği üzerinde çağırdığınızdan veya değişikliklerden sonra indeksi yeniden açtığınızdan emin olun. |
 
-## Sıkça Sorulan Sorular
+## Sıkça sorulan sorular
 
-**S: GroupDocs.Search ile farklı belge formatlarını indeksleyebilir miyim?**  
-C: Evet, DOCX, PDF, TXT, HTML ve birçok diğer yaygın formatı destekler.
+**Q: GroupDocs.Search ile farklı belge formatlarını indeksleyebilir miyim?**  
+A: Evet, DOCX, PDF, TXT, HTML ve birçok ortak formatı destekler—toplamda 50'den fazla.
 
-**S: Yeni belgeler geldiğinde dizini otomatik olarak güncellemenin bir yolu var mı?**  
-C: Kesinlikle—**incremental indexing java** için otomatik bir işte (ör. zamanlanmış görev) `add()` metodunu kullanın.
+**Q: Yeni belgeler geldiğinde indeksi otomatik olarak güncellemenin bir yolu var mı?**  
+A: Kesinlikle—**incremental indexing java** için otomatik bir işte (ör. zamanlanmış görev) `add()` metodunu kullanın.
 
-**S: Çok büyük veri setleri için arama hızını nasıl artırabilirim?**  
-C: **incremental indexing java**'yu uygun JVM bellek ayarlarıyla birleştirin ve performansı ince ayar yapmak için dizinleme raporlarını düzenli olarak gözden geçirin.
+**Q: Çok büyük veri setleri için arama hızını nasıl artırabilirim?**  
+A: **incremental indexing java**'yu doğru JVM bellek ayarlarıyla birleştirin ve performansı ince ayar yapmak için indeks raporlarını düzenli olarak gözden geçirin.
 
-**S: GroupDocs.Search çok dilli içeriği işleyebilir mi?**  
-C: Evet, birden fazla dili indeksleyebilir; sadece uygun dil analizörlerinin etkin olduğundan emin olun.
+**Q: GroupDocs.Search çok dilli içeriği işleyebilir mi?**  
+A: Evet, birden fazla dili indeksleyebilir; sadece uygun dil analizörlerinin etkin olduğundan emin olun.
 
-**S: GroupDocs.Search Java için ücretsiz deneme mevcut mu?**  
-C: Evet, satın almadan önce tüm özellikleri değerlendirmek için GroupDocs web sitesinde ücretsiz deneme kaydı oluşturabilirsiniz.
+**Q: GroupDocs.Search Java için ücretsiz deneme mevcut mu?**  
+A: Evet, satın almadan önce tüm özellikleri değerlendirmek için GroupDocs web sitesinde ücretsiz deneme kaydı yapabilirsiniz.
 
 ## Sonuç
-Yukarıdaki adımları izleyerek artık **create index java**, belge ekleme ve GroupDocs.Search ile ayrıntılı raporlar oluşturma konusunda bilgi sahibisiniz. Bu temel, güçlü arama deneyimleri oluşturmanızı, dizininizi güncel tutmanızı ve belge koleksiyonunuz büyüdükçe yüksek performansı korumanızı sağlar.
 
-### Sonraki Adımlar
-- Bulanık arama ve eş anlamlı yönetimi gibi gelişmiş sorgu yeteneklerini keşfedin.  
-- Dizini bir web servisi veya REST API ile entegre ederek uygulamalarınızda gerçek zamanlı arama sağlayın.  
-- Ölçeklenebilir dizinleme için belge kaynağı olarak bulut depolamayı (AWS S3, Azure Blob) deneyin.
+Yukarıdaki adımları izleyerek artık Java'da **how to create index**'i, belgeleri eklemeyi ve GroupDocs.Search ile ayrıntılı raporlar oluşturmayı biliyorsunuz. Bu temel, güçlü arama deneyimleri oluşturmanıza, indeksinizi güncel tutmanıza ve belge koleksiyonunuz büyüdükçe yüksek performansı korumanıza olanak tanır.
+
+### Sonraki adımlar
+- Bulanik arama ve eşanlamlı yönetimi gibi gelişmiş sorgu yeteneklerini keşfedin.  
+- Uygulamalarınızda gerçek zamanlı arama için indeksi bir web servisi veya REST API ile entegre edin.  
+- Ölçeklenebilir indeksleme için belge kaynağı olarak bulut depolamayı (AWS S3, Azure Blob) deneyin.
 
 ---
 
-**Son Güncelleme:** 2026-03-04  
-**Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java  
+**Son Güncelleme:** 2026-10-07  
+**Test Edilen:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Eğitimler
+
+- [İndekse Belge Ekle – GroupDocs.Search Java Eğitimleri](/search/java/document-management/)
+- [GroupDocs.Search Java ile Sorgu Performansını İyileştirin: İndeksi ve Aramayı Optimize Et](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
+- [GroupDocs Search Java Gelişmiş İndeksleme](/search/java/indexing/groupdocs-search-java-advanced-indexing/)

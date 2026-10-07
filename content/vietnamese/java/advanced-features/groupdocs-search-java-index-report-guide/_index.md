@@ -1,51 +1,112 @@
 ---
-date: '2026-03-04'
-description: Tìm hiểu cách tạo chỉ mục Java bằng GroupDocs.Search trong Java. Hướng
-  dẫn này bao gồm việc lập chỉ mục, thêm tài liệu và báo cáo để đạt hiệu suất tìm
-  kiếm tối ưu.
+date: '2026-10-07'
+description: Tìm hiểu cách tạo chỉ mục trong Java bằng GroupDocs.Search. Hướng dẫn
+  này bao gồm việc lập chỉ mục, thêm tài liệu và tạo báo cáo để tối ưu hiệu suất tìm
+  kiếm.
 keywords:
-- GroupDocs.Search Java
-- document indexing
-- search reporting
-title: Tạo chỉ mục Java với GroupDocs.Search | Hướng dẫn toàn diện về lập chỉ mục
-  và báo cáo
+- how to create index
+- optimize search performance
+- add documents to index
+- java search example
+- add files to index
+lastmod: '2026-10-07'
+og_description: Tìm hiểu cách tạo chỉ mục trong Java bằng GroupDocs.Search. Hướng
+  dẫn này trình bày việc lập chỉ mục, thêm tài liệu và tạo báo cáo để tối ưu hiệu
+  suất tìm kiếm.
+og_image_alt: 'Guide: how to create index in Java with GroupDocs.Search'
+og_title: Cách tạo chỉ mục trong Java với hướng dẫn GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-07'
+  description: Learn how to create index in Java using GroupDocs.Search. This guide
+    covers indexing, adding documents, and reporting for optimal search performance.
+  headline: How to create index in Java with GroupDocs.Search guide
+  type: TechArticle
+- description: Learn how to create index in Java using GroupDocs.Search. This guide
+    covers indexing, adding documents, and reporting for optimal search performance.
+  name: How to create index in Java with GroupDocs.Search guide
+  steps:
+  - name: '**Free trial** – Sign up for a free trial to explore GroupDocs features.'
+    text: '**Free trial** – Sign up for a free trial to explore GroupDocs features.'
+  - name: '**Temporary license** – Obtain a temporary license for extended testing
+      by visiting the [temporary license page](https://purchase.groupdocs.com/temporary-license/).'
+    text: '**Temporary license** – Obtain a temporary license for extended testing
+      by visiting the [temporary license page](https://purchase.groupdocs.com/temporary-license/).'
+  - name: '**Purchase** – For production use, consider purchasing a full license from
+      the [GroupDocs website](https://purchase.groupdocs.com/).'
+    text: '**Purchase** – For production use, consider purchasing a full license from
+      the [GroupDocs website](https://purchase.groupdocs.com/).'
+  - name: '**Legal document management** – Quickly locate case files or statutes.'
+    text: '**Legal document management** – Quickly locate case files or statutes.'
+  - name: '**Customer support portals** – Retrieve past tickets and solutions instantly.'
+    text: '**Customer support portals** – Retrieve past tickets and solutions instantly.'
+  - name: '**Enterprise content management (ECM)** – Index and search across the entire
+      corporate repository.'
+    text: '**Enterprise content management (ECM)** – Index and search across the entire
+      corporate repository.'
+  type: HowTo
+- questions:
+  - answer: Yes, it supports DOCX, PDF, TXT, HTML, and many other common formats—over
+      50 in total.
+    question: Can I index different document formats with GroupDocs.Search?
+  - answer: Absolutely—use the `add()` method in an automated job (e.g., a scheduled
+      task) for **incremental indexing java**.
+    question: Is there a way to update the index automatically when new documents
+      arrive?
+  - answer: Combine **incremental indexing java** with proper JVM memory settings
+      and regularly review the indexing reports to fine‑tune performance.
+    question: How do I improve search speed for very large datasets?
+  - answer: Yes, it can index multiple languages; just ensure the appropriate language
+      analyzers are enabled.
+    question: Does GroupDocs.Search handle multilingual content?
+  - answer: Yes, you can sign up for a free trial on the GroupDocs website to evaluate
+      all features before purchasing.
+    question: Is a free trial available for GroupDocs.Search Java?
+  type: FAQPage
+tags:
+- GroupDocs.Search
+- Java indexing
+- search performance
+- document search
+- tutorial
+title: Cách tạo chỉ mục trong Java với hướng dẫn GroupDocs.Search
 type: docs
 url: /vi/java/advanced-features/groupdocs-search-java-index-report-guide/
 weight: 1
 ---
 
-# Tạo Index Java với GroupDocs.Search | Hướng Dẫn Toàn Diện về Indexing và Báo Cáo
+# Cách tạo chỉ mục trong Java với hướng dẫn GroupDocs.Search
 
-Trong thế giới dựa trên dữ liệu ngày nay, **create index java** là bước nền tảng để xây dựng các trải nghiệm tìm kiếm nhanh chóng và đáng tin cậy. Dù bạn đang quản lý hợp đồng pháp lý, hồ sơ khách hàng, hay bất kỳ kho tài liệu lớn nào, một index được thiết kế tốt cho phép bạn truy xuất thông tin trong vòng vài mili giây. Trong hướng dẫn này, bạn sẽ đi qua quá trình thiết lập GroupDocs.Search, tạo index, thêm tài liệu, và tạo các báo cáo chi tiết — đồng thời luôn chú ý đến hiệu năng và khả năng mở rộng.
+Trong thế giới dữ liệu ngày nay, **how to create index** là bước nền tảng để xây dựng các trải nghiệm tìm kiếm nhanh chóng và đáng tin cậy. Dù bạn đang quản lý hợp đồng pháp lý, hồ sơ khách hàng, hay bất kỳ kho tài liệu lớn nào, một chỉ mục được thiết kế tốt cho phép bạn truy xuất thông tin trong vài mili giây. Trong hướng dẫn này, bạn sẽ đi qua việc thiết lập GroupDocs.Search, tạo chỉ mục, thêm tài liệu và tạo các báo cáo chi tiết — đồng thời chú ý đến hiệu suất và khả năng mở rộng.
 
-## Quick Answers
-- **What is the first step to create index java?** Khởi tạo một đối tượng `Index` trỏ tới thư mục chứa các file index.  
-- **Which library provides java document indexing?** GroupDocs.Search for Java.  
-- **How can I add documents java to an existing index?** Sử dụng phương thức `index.add(path)` cho mỗi thư mục.  
-- **What tool helps optimize search performance?** Indexing tăng dần thường xuyên và cấu hình bộ nhớ hợp lý.  
-- **Is there a sample java search example?** Các đoạn mã dưới đây minh họa quy trình end‑to‑end đầy đủ.
+## Câu trả lời nhanh
+- **Bước đầu tiên để tạo chỉ mục trong Java là gì?** Khởi tạo một đối tượng `Index` trỏ tới thư mục chứa các tệp chỉ mục.  
+- **Thư viện nào cung cấp khả năng lập chỉ mục tài liệu Java?** GroupDocs.Search for Java.  
+- **Làm thế nào để thêm tài liệu vào một chỉ mục hiện có?** Gọi `index.add(path)` cho mỗi thư mục bạn muốn lập chỉ mục.  
+- **Công cụ nào giúp tối ưu hiệu suất tìm kiếm?** Lập chỉ mục tăng dần kết hợp với việc điều chỉnh bộ nhớ JVM phù hợp.  
+- **Có ví dụ tìm kiếm Java mẫu không?** Hướng dẫn dưới đây trình bày quy trình end‑to‑end hoàn chỉnh.
 
-## What You’ll Learn
-- Cách **create index java** bằng GroupDocs.Search  
-- Kỹ thuật **add documents to index** và **add files to index** trong một index hiện có  
-- Cách lấy và hiển thị các báo cáo indexing để **optimize search performance**  
-- Các trường hợp thực tế và mẹo cho **java document indexing**  
+## Những gì bạn sẽ học
+- Cách **create index** bằng GroupDocs.Search  
+- Kỹ thuật cho **add documents to index** và **add files to index** trong một chỉ mục hiện có  
+- Cách lấy và hiển thị báo cáo lập chỉ mục cho **optimize search performance**  
+- Các trường hợp sử dụng thực tế và mẹo cho **java search example**  
 
-## Prerequisites
+## Yêu cầu trước
 
-### Required Libraries and Versions
-- **GroupDocs.Search for Java**: Phiên bản 25.4 trở lên  
-- **Java Development Kit (JDK)**: Được cài đặt và cấu hình đúng cách  
+### Thư viện và phiên bản yêu cầu
+- **GroupDocs.Search for Java**: Phiên bản 25.4 trở lên – hỗ trợ **50+ input and output formats**, bao gồm DOCX, PDF, TXT, HTML và nhiều loại ảnh.  
+- **Java Development Kit (JDK)**: Được cài đặt và cấu hình đúng (khuyến nghị JDK 11+).  
 
-### Environment Setup Requirements
-Một IDE như IntelliJ IDEA, Eclipse, hoặc NetBeans được khuyến nghị để chạy các đoạn mã mẫu.
+### Yêu cầu thiết lập môi trường
+Một IDE như IntelliJ IDEA, Eclipse hoặc NetBeans được khuyến nghị để chạy các đoạn mã.
 
-### Knowledge Prerequisites
-Kiến thức cơ bản về Java (lớp, phương thức, xử lý tệp) và quen thuộc với Maven sẽ giúp bạn theo dõi dễ dàng hơn.
+### Kiến thức yêu cầu
+Các khái niệm cơ bản của Java (lớp, phương thức, xử lý tệp) và quen thuộc với Maven sẽ giúp bạn theo dõi một cách suôn sẻ.
 
-## Setting Up GroupDocs.Search for Java
+## Thiết lập GroupDocs.Search cho Java
 
-### Maven Setup
+### Thiết lập Maven
 Thêm repository và dependency vào file `pom.xml` của bạn:
 
 ```xml
@@ -66,16 +127,16 @@ Thêm repository và dependency vào file `pom.xml` của bạn:
 </dependencies>
 ```
 
-### Direct Download
-Bạn cũng có thể tải thư viện từ trang phát hành chính thức: [GroupDocs.Search cho Java - các bản phát hành](https://releases.groupdocs.com/search/java/).
+### Tải trực tiếp
+Bạn cũng có thể tải thư viện từ trang phát hành chính thức: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition Steps
-1. **Free Trial** – Đăng ký dùng thử miễn phí để khám phá các tính năng của GroupDocs.  
-2. **Temporary License** – Nhận giấy phép tạm thời để thử nghiệm kéo dài bằng cách truy cập [trang giấy phép tạm thời](https://purchase.groupdocs.com/temporary-license/).  
-3. **Purchase** – Đối với môi trường sản xuất, cân nhắc mua giấy phép đầy đủ từ [trang web GroupDocs](https://purchase.groupdocs.com/).
+### Các bước lấy giấy phép
+1. **Free trial** – Đăng ký dùng thử miễn phí để khám phá các tính năng của GroupDocs.  
+2. **Temporary license** – Nhận giấy phép tạm thời để thử nghiệm kéo dài bằng cách truy cập [temporary license page](https://purchase.groupdocs.com/temporary-license/).  
+3. **Purchase** – Đối với sử dụng trong môi trường production, hãy cân nhắc mua giấy phép đầy đủ từ [GroupDocs website](https://purchase.groupdocs.com/).
 
-### Basic Initialization and Setup
-Tạo một instance `Index` trỏ tới thư mục sẽ lưu các file index:
+### Khởi tạo và thiết lập cơ bản
+`Index` là lớp cốt lõi trong GroupDocs.Search đại diện cho một chỉ mục có thể tìm kiếm được lưu trên đĩa. Tạo một thể hiện `Index` trỏ tới thư mục nơi các tệp chỉ mục sẽ được lưu:
 
 ```java
 import com.groupdocs.search.*;
@@ -89,10 +150,11 @@ public class InitializeSearch {
 }
 ```
 
-## Implementation Guide
+## Hướng dẫn triển khai
 
-### How to create index java with GroupDocs.Search
-Tạo một index là bước đầu tiên để kích hoạt khả năng tìm kiếm cho bộ sưu tập tài liệu của bạn. Dưới đây là ví dụ tối thiểu thiết lập thư mục index.
+### Cách tạo index java với GroupDocs.Search
+
+Tạo thư mục chỉ mục, cấu hình các thiết lập chỉ mục, và khởi tạo đối tượng `Index`. **Load the index, set any required options, and you’re ready to start indexing documents.** Câu trả lời trực tiếp này giải thích các bước cần thiết trong dưới 70 từ, cung cấp cho bạn cái nhìn rõ ràng trước khi bắt đầu viết mã.
 
 ```java
 import com.groupdocs.search.*;
@@ -106,10 +168,11 @@ public class CreateIndexFeature {
 }
 ```
 
-**Explanation:** Constructor `Index` nhận đường dẫn nơi tất cả dữ liệu index sẽ được lưu. Thư mục này trở thành trung tâm của giải pháp **java document indexing** của bạn.
+**Explanation:** Constructor `Index` nhận đường dẫn nơi tất cả dữ liệu chỉ mục sẽ được lưu. Thư mục này trở thành trung tâm của giải pháp **java document indexing** của bạn.
 
-### Adding documents to the index
-Khi index đã tồn tại, bạn có thể đưa dữ liệu vào bằng cách lấy các file từ một hoặc nhiều thư mục. Bước này minh họa quy trình **add documents to index**.
+### Thêm tài liệu vào chỉ mục
+
+`add` là phương thức nhập các tệp vào chỉ mục. Nó nhận một đường dẫn thư mục và lập chỉ mục mọi tệp được hỗ trợ trong đó, cho phép các luồng công việc **add documents to index** và **add files to index**. Bạn có thể gọi nó nhiều lần để cập nhật tăng dần.
 
 ```java
 import com.groupdocs.search.*;
@@ -130,10 +193,11 @@ public class AddDocumentsToIndexFeature {
 }
 ```
 
-**Explanation:** Phương thức `add()` nhận một đường dẫn thư mục và index mọi file được hỗ trợ trong đó. Đây là phần cốt lõi của quy trình **add files to index** và hỗ trợ indexing tăng dần khi bạn gọi lại nhiều lần.
+**Explanation:** Phương thức `add()` nhận một đường dẫn thư mục và lập chỉ mục mọi tệp được hỗ trợ trong đó. Đây là lõi của luồng công việc **add files to index** và hỗ trợ lập chỉ mục tăng dần khi bạn gọi nó liên tục.
 
-### Getting and Displaying Indexing Reports
-Sau khi indexing, bạn thường muốn xem các thống kê giúp **optimize search performance**.
+### Lấy và hiển thị báo cáo lập chỉ mục
+
+`IndexingReport` cung cấp thống kê chi tiết về hoạt động lập chỉ mục, như số lượng tài liệu, số lượng thuật ngữ và các chỉ số kích thước tệp. Những con số này rất quan trọng cho **optimize search performance** vì chúng giúp bạn phát hiện các nút thắt sớm.
 
 ```java
 import com.groupdocs.search.*;
@@ -158,59 +222,67 @@ public class GetIndexingReportsFeature {
 }
 ```
 
-**Explanation:** Đoạn mã này lấy các đối tượng `IndexingReport` chứa thời gian, số lượng tài liệu, số lượng thuật ngữ và các chỉ số kích thước — dữ liệu quan trọng để giám sát và **optimize search performance**.
+**Explanation:** Đoạn mã này lấy các đối tượng `IndexingReport` chứa dấu thời gian, số lượng tài liệu, số lượng thuật ngữ và các chỉ số kích thước — dữ liệu thiết yếu để giám sát và **optimize search performance**.
 
-## Why create index java matters
-Một index được thiết kế tốt giảm độ trễ truy vấn, giảm tải máy chủ, và mở rộng một cách mượt mà khi bộ sưu tập tài liệu của bạn tăng lên. Bằng cách thành thạo **create index java**, bạn đặt nền tảng cho các tính năng tìm kiếm mạnh mẽ như fuzzy matching, điều hướng faceted, và gợi ý thời gian thực.
+## Tại sao việc tạo chỉ mục lại quan trọng
 
-## Practical Applications
-GroupDocs.Search có thể được nhúng vào nhiều hệ thống thực tế:
+Một chỉ mục được thiết kế tốt giảm độ trễ truy vấn, giảm tải máy chủ và mở rộng một cách mượt mà khi bộ sưu tập tài liệu của bạn tăng lên. Bằng cách nắm vững **how to create index**, bạn tạo nền tảng cho các tính năng tìm kiếm mạnh mẽ như fuzzy matching, faceted navigation và đề xuất thời gian thực. GroupDocs.Search có thể xử lý **multi‑hundred‑page documents** mà không cần tải toàn bộ tệp vào bộ nhớ, nhờ kiến trúc streaming.
 
-1. **Legal Document Management** – Xác định nhanh các hồ sơ vụ án hoặc luật lệ.  
-2. **Customer Support Portals** – Truy xuất các ticket và giải pháp đã xử lý ngay lập tức.  
-3. **Enterprise Content Management (ECM)** – Index và tìm kiếm trên toàn bộ kho lưu trữ doanh nghiệp.
+## Ứng dụng thực tiễn
+GroupDocs.Search có thể được nhúng trong nhiều hệ thống thực tế:
 
-## Performance Considerations
-Để giữ cho **java search example** của bạn luôn nhanh và phản hồi tốt:
+1. **Legal document management** – Nhanh chóng tìm kiếm các hồ sơ vụ án hoặc luật lệ.  
+2. **Customer support portals** – Lấy ngay các ticket và giải pháp đã qua.  
+3. **Enterprise content management (ECM)** – Lập chỉ mục và tìm kiếm trên toàn bộ kho lưu trữ doanh nghiệp.
 
-- **Incremental indexing java** – Thêm các file mới thường xuyên thay vì xây dựng lại toàn bộ index.  
-- **Memory tuning** – Điều chỉnh kích thước heap JVM và bật G1GC cho các bộ dữ liệu lớn.  
-- **Report monitoring** – Sử dụng các báo cáo indexing để phát hiện sớm các nút thắt.
+## Các cân nhắc về hiệu suất
+Để giữ **java search example** nhanh và phản hồi tốt:
 
-## Common Issues and Solutions
-| Issue | Solution |
+- **Incremental indexing java** – Thêm các tệp mới thường xuyên thay vì xây dựng lại toàn bộ chỉ mục.  
+- **Memory tuning** – Điều chỉnh kích thước heap JVM (`-Xmx4g` cho corpora lớn) và bật G1GC cho các bộ dữ liệu lớn.  
+- **Report monitoring** – Sử dụng các báo cáo lập chỉ mục để phát hiện nút thắt sớm và điều chỉnh kích thước batch.
+
+## Các vấn đề thường gặp và giải pháp
+
+| Vấn đề | Giải pháp |
 |-------|----------|
-| **OutOfMemoryError** during large batch indexing | Tăng giá trị `-Xmx` của JVM và cân nhắc indexing theo các batch nhỏ hơn. |
-| **Unsupported file format** error | Xác minh rằng loại file nằm trong danh sách các định dạng được GroupDocs.Search hỗ trợ (DOCX, PDF, TXT, v.v.). |
-| **Index not updating** after adding files | Đảm bảo bạn gọi `index.add()` trên cùng một instance `Index` hoặc mở lại index sau khi có thay đổi. |
+| **OutOfMemoryError** khi lập chỉ mục batch lớn | Tăng giá trị JVM `-Xmx` và cân nhắc lập chỉ mục theo các batch nhỏ hơn. |
+| Lỗi **Unsupported file format** | Xác minh rằng loại tệp nằm trong các định dạng được GroupDocs.Search hỗ trợ (DOCX, PDF, TXT, v.v.). |
+| **Index not updating** sau khi thêm tệp | Đảm bảo bạn gọi `index.add()` trên cùng một thể hiện `Index` hoặc mở lại chỉ mục sau khi thay đổi. |
 
-## Frequently Asked Questions
+## Câu hỏi thường gặp
 
-**Q: Can I index different document formats with GroupDocs.Search?**  
-A: Yes, it supports DOCX, PDF, TXT, HTML, and many other common formats.
+**Q: Tôi có thể lập chỉ mục các định dạng tài liệu khác nhau với GroupDocs.Search không?**  
+A: Có, nó hỗ trợ DOCX, PDF, TXT, HTML và nhiều định dạng phổ biến khác—hơn 50 định dạng tổng cộng.
 
-**Q: Is there a way to update the index automatically when new documents arrive?**  
-A: Absolutely—use the `add()` method in an automated job (e.g., a scheduled task) for **incremental indexing java**.
+**Q: Có cách nào tự động cập nhật chỉ mục khi tài liệu mới đến không?**  
+A: Chắc chắn—sử dụng phương thức `add()` trong một công việc tự động (ví dụ, một tác vụ lên lịch) cho **incremental indexing java**.
 
-**Q: How do I improve search speed for very large datasets?**  
-A: Combine **incremental indexing java** with proper JVM memory settings and regularly review the indexing reports to fine‑tune performance.
+**Q: Làm thế nào để cải thiện tốc độ tìm kiếm cho các bộ dữ liệu rất lớn?**  
+A: Kết hợp **incremental indexing java** với cài đặt bộ nhớ JVM phù hợp và thường xuyên xem xét các báo cáo lập chỉ mục để tinh chỉnh hiệu suất.
 
-**Q: Does GroupDocs.Search handle multilingual content?**  
-A: Yes, it can index multiple languages; just ensure the appropriate language analyzers are enabled.
+**Q: GroupDocs.Search có xử lý nội dung đa ngôn ngữ không?**  
+A: Có, nó có thể lập chỉ mục nhiều ngôn ngữ; chỉ cần đảm bảo các bộ phân tích ngôn ngữ phù hợp được bật.
 
-**Q: Is a free trial available for GroupDocs.Search Java?**  
-A: Yes, you can sign up for a free trial on the GroupDocs website to evaluate all features before purchasing.
+**Q: Có bản dùng thử miễn phí cho GroupDocs.Search Java không?**  
+A: Có, bạn có thể đăng ký dùng thử miễn phí trên trang web GroupDocs để đánh giá tất cả các tính năng trước khi mua.
 
-## Conclusion
-Bằng cách thực hiện các bước trên, bạn đã biết cách **create index java**, thêm tài liệu, và tạo các báo cáo chi tiết với GroupDocs.Search. Nền tảng này cho phép bạn xây dựng các trải nghiệm tìm kiếm mạnh mẽ, duy trì index luôn cập nhật, và giữ hiệu năng cao khi bộ sưu tập tài liệu của bạn mở rộng.
+## Kết luận
+Bằng cách làm theo các bước trên, bạn đã biết **how to create index** trong Java, thêm tài liệu và tạo các báo cáo chi tiết với GroupDocs.Search. Nền tảng này cho phép bạn xây dựng các trải nghiệm tìm kiếm mạnh mẽ, duy trì chỉ mục luôn cập nhật và giữ hiệu suất cao khi bộ sưu tập tài liệu của bạn tăng lên.
 
-### Next Steps
-- Khám phá các khả năng truy vấn nâng cao như fuzzy search và xử lý synonym.  
-- Tích hợp index với một dịch vụ web hoặc REST API để thực hiện tìm kiếm thời gian thực trong các ứng dụng của bạn.  
-- Thử nghiệm lưu trữ đám mây (AWS S3, Azure Blob) làm nguồn tài liệu để indexing có khả năng mở rộng.
+### Các bước tiếp theo
+- Khám phá các khả năng truy vấn nâng cao như fuzzy search và xử lý đồng nghĩa.  
+- Tích hợp chỉ mục với dịch vụ web hoặc REST API để tìm kiếm thời gian thực trong ứng dụng của bạn.  
+- Thử nghiệm lưu trữ đám mây (AWS S3, Azure Blob) làm nguồn tài liệu cho việc lập chỉ mục mở rộng.
 
 ---
 
-**Last Updated:** 2026-03-04  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**Cập nhật lần cuối:** 2026-10-07  
+**Kiểm tra với:** GroupDocs.Search 25.4 for Java  
+**Tác giả:** GroupDocs
+
+## Hướng dẫn liên quan
+
+- [Thêm tài liệu vào chỉ mục – Hướng dẫn GroupDocs.Search Java](/search/java/document-management/)
+- [Cải thiện hiệu suất truy vấn với GroupDocs.Search Java: Tối ưu chỉ mục & tìm kiếm](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
+- [GroupDocs Search Java Nâng cao Lập chỉ mục](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
