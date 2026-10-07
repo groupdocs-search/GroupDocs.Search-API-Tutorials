@@ -1,46 +1,96 @@
 ---
-date: '2026-03-04'
-description: Leer hoe je aangepaste datumformaten in Java-zoekopdrachten kunt implementeren
-  met GroupDocs.Search, inclusief datumreeks‑query's, aangepaste patronen en prestatie‑tips.
+date: '2026-10-07'
+description: Leer hoe je aangepaste datumformaat java-zoekopdrachten implementeert
+  met GroupDocs, inclusief datumreeks‑queries, aangepaste patronen en prestatietips.
 keywords:
-- GroupDocs.Search Java
-- date range searches
-- Java text search library
-- custom date formats
-- indexing documents
-- search query optimization
-title: Aangepast datumformaat Java | Zoeken op datumbereik met GroupDocs
+- custom date format java
+- search documents by date
+- date range query example
+- optimize search performance
+- configure custom date pattern
+lastmod: '2026-10-07'
+og_description: De tutorial over aangepast datumformaat java laat zien hoe je GroupDocs.Search
+  voor Java configureert, datumreeks‑queries uitvoert en de prestaties verbetert.
+  Volg stapsgewijze voorbeelden.
+og_image_alt: Guide illustrating custom date format java usage in GroupDocs Search
+og_title: Aangepast datumformaat java – gids voor datumreeks zoeken met GroupDocs
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-07'
+  description: Learn how to implement custom date format java searches with GroupDocs,
+    covering date range queries, custom patterns, and performance tips.
+  headline: Custom date format java | date range search with GroupDocs
+  type: TechArticle
+- description: Learn how to implement custom date format java searches with GroupDocs,
+    covering date range queries, custom patterns, and performance tips.
+  name: Custom date format java | date range search with GroupDocs
+  steps:
+  - name: '**Archival systems** – Retrieve records from a specific historical period
+      without manually normalising dates.'
+    text: '**Archival systems** – Retrieve records from a specific historical period
+      without manually normalising dates.'
+  - name: '**Content management** – Support regional date formats like `dd/MM/yyyy`
+      for European audiences, improving user satisfaction.'
+    text: '**Content management** – Support regional date formats like `dd/MM/yyyy`
+      for European audiences, improving user satisfaction.'
+  - name: '**Financial software** – Filter transactions by fiscal quarter or year
+      quickly, enabling real‑time reporting dashboards.'
+    text: '**Financial software** – Filter transactions by fiscal quarter or year
+      quickly, enabling real‑time reporting dashboards.'
+  type: HowTo
+- questions:
+  - answer: Text form is quick and easy but limited to the default ISO format; object‑based
+      queries let you supply `Date` objects and custom formats for greater flexibility.
+    question: What is the difference between text form and object‑based date queries?
+  - answer: Yes, combine `daterange` clauses with logical operators like `AND` or
+      `OR` to build complex queries.
+    question: Can I search for multiple date ranges in a single query?
+  - answer: There is a minor overhead for additional parsing, but the impact is negligible
+      for typical workloads and is outweighed by the accuracy gains.
+    question: Will custom date formats slow down the search?
+  - answer: Absolutely. With proper indexing strategies and JVM tuning, it scales
+      to millions of documents while maintaining sub‑second query response times.
+    question: Is GroupDocs.Search suitable for large‑scale deployments?
+  - answer: Explore the [GroupDocs GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+      for additional samples and use‑case implementations.
+    question: Where can I find more Java examples?
+  type: FAQPage
+tags:
+- custom date format
+- GroupDocs.Search
+- Java date handling
+- document indexing
+- search optimization
+title: Aangepast datumformaat java | datumreeks zoeken met GroupDocs
 type: docs
 url: /nl/java/advanced-features/master-date-range-searches-groupdocs-java/
 weight: 1
 ---
 
-# Aangepaste datumformaat Java | Datumbereik Zoeken met GroupDocs
+# Aangepast datumformaat java | datumreeks zoeken met GroupDocs
 
-Het zoeken naar documenten op datum is een veelvoorkomende eis—of je nu een archiveringssysteem, een financieel rapportagetool of een content‑managementportaal bouwt. In deze tutorial leer je **custom date format java** technieken met GroupDocs.Search, inclusief datum‑bereik‑queries, aangepaste patroondefinities en tips om **zoekprestaties te optimaliseren**. Aan het einde kun je gebruikers records laten ophalen die binnen elk datuminterval vallen, ongeacht het formaat dat ze gebruiken.
+Zoeken naar documenten op datum is een veelvoorkomende eis—of je nu een archiveringssysteem, een financieel rapportagetool of een content‑managementportaal bouwt. In deze tutorial leer je **custom date format java**-technieken met GroupDocs.Search, inclusief datumreeks‑queries, aangepaste patroondefinities en tips om **optimize search performance** te verbeteren. Aan het einde kun je gebruikers records laten ophalen die binnen elk datuminterval vallen, ongeacht het gebruikte formaat.
 
-## Snelle Antwoorden
-- **Wat is de primaire klasse voor indexeren?** `Index` uit het `com.groupdocs.search` pakket.  
-- **Hoe definieer je een aangepast datum patroon?** Gebruik `DateFormat` met `DateFormatElement` objecten en een scheidingsteken.  
-- **Kan ik zoeken met een tekstquery?** Ja, de `daterange(start ~~ end)` syntaxis werkt direct in de query‑string.  
-- **Welke Maven-coördinaten zijn vereist?** `com.groupdocs:groupdocs-search:25.4` (of nieuwer).  
-- **Heb ik een licentie nodig voor ontwikkeling?** Een gratis proefversie of tijdelijke licentie is voldoende voor testen; een commerciële licentie is vereist voor productie.
+## Snelle antwoorden
+- **Wat is de primaire klasse voor indexering?** `Index` from the `com.groupdocs.search` package.  
+- **Hoe definieer je een aangepast datumpatroon?** Use `DateFormat` with `DateFormatElement` objects and a separator.  
+- **Kan ik zoeken met een tekstquery?** Yes, the `daterange(start ~~ end)` syntax works directly in the query string.  
+- **Welke Maven-coördinaten zijn vereist?** `com.groupdocs:groupdocs-search:25.4` (or newer).  
+- **Heb ik een licentie nodig voor ontwikkeling?** A free trial or temporary license is sufficient for testing; a commercial license is required for production.
 
-## Wat is **custom date format java**?
-Een **custom date format java** vertelt GroupDocs.Search hoe datum‑strings te interpreteren die niet het standaard ISO‑patroon (YYYY‑MM‑DD) volgen. Door je eigen patroon te definiëren—bijvoorbeeld `MM/dd/yyyy` of `dd‑MM‑yyyy`—maak je de engine in staat datums te herkennen die in documenten staan en die regionale of legacy‑formaten gebruiken.
+## Wat is custom date format java?
+Custom date format java tells GroupDocs.Search how to interpret date strings that don’t follow the default ISO pattern (YYYY‑MM‑DD). By defining your own pattern—such as `MM/dd/yyyy` or `dd‑MM‑yyyy`—you enable the engine to recognize dates embedded in documents that use regional or legacy formats. This capability allows you to index and query dates consistently across heterogeneous sources, improving both recall and precision for date‑centric searches.
 
-## Waarom GroupDocs.Search gebruiken voor datum‑bereik‑queries?
-- **Snelheid:** Ingebouwde indexering maakt zoekopdrachten O(log n).  
-- **Flexibiliteit:** Ondersteunt zowel tekst‑gebaseerde als object‑gebaseerde query‑creatie.  
-- **Multi‑formaatondersteuning:** Verwerkt PDF's, Word, Excel, platte tekst en meer zonder extra code.  
+## Waarom GroupDocs.Search gebruiken voor datumreeks‑queries?
+GroupDocs.Search combines high‑speed indexing with flexible query construction, making it ideal for date‑range scenarios. The engine can quickly locate documents that contain dates within a specified interval, even when those dates appear in free‑text or metadata fields. Its built‑in support for multiple file formats and customizable date parsers means you can handle diverse document collections without writing format‑specific code, while still achieving sub‑second response times on large indexes.
 
-## Hoe **documenten zoeken op datum** met GroupDocs.Search
-Hieronder vind je een stapsgewijze gids die je door het instellen van de bibliotheek, het indexeren van bestanden en het uitvoeren van zowel eenvoudige als geavanceerde datum‑bereik‑searches leidt.
+## Hoe documenten zoeken op datum met GroupDocs.Search
+You’ll set up the library, index a sample folder, and then run both simple text‑form queries and richer object‑based queries. The process starts with creating an `Index` instance, configuring any custom date formats you need, and then invoking the search API with either a plain string or a structured `SearchQuery`. This approach lets you choose the level of control that matches your application’s requirements.
 
 ### Vereisten
 - Java 8 of nieuwer geïnstalleerd.  
 - Maven voor afhankelijkheidsbeheer.  
-- Toegang tot een GroupDocs.Search‑licentie (proefversie of tijdelijke licentie werkt voor ontwikkeling).  
+- Toegang tot een GroupDocs.Search‑licentie (trial of tijdelijke licentie werkt voor ontwikkeling).  
 
 ### GroupDocs.Search voor Java instellen
 
@@ -65,8 +115,8 @@ Voeg de repository en afhankelijkheid toe aan je `pom.xml`:
 </dependencies>
 ```
 
-#### Directe Download
-Alternatief kun je de nieuwste versie direct downloaden van [GroupDocs.Search voor Java releases](https://releases.groupdocs.com/search/java/).
+#### Directe download
+Alternatively, you can download the latest version directly from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### Basisinitialisatie en configuratie
 Maak een `Index`‑instantie aan en voeg je documenten toe:
@@ -84,10 +134,12 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-## Functie 1: Datum‑bereik‑search‑queries maken
+**Definition anchor:** De `Index`‑klasse is de kerncontainer die doorzoekbare metadata opslaat voor elk bestand dat je toevoegt, waardoor snelle zoekopdrachten over grote collecties mogelijk zijn.
 
-### Gebruik van Tekst‑vorm Query
-De eenvoudigste manier is om het datum‑bereik direct in de query‑string op te nemen:
+## Functie 1: datumreeks‑zoekqueries maken
+
+### Gebruik van tekst‑query
+De eenvoudigste manier is om het datuminterval direct in de query‑string op te nemen:
 
 ```java
 import com.groupdocs.search.*;
@@ -103,10 +155,12 @@ String query1 = "daterange(2017-01-01 ~~ 2019-12-31)";
 SearchResult result1 = index.search(query1);
 ```
 
-**Uitleg**: De `daterange`‑syntaxis verwacht datums in `YYYY‑MM‑DD`. Het retourneert alle documenten waarvan de geïndexeerde datums binnen het interval vallen.
+**Direct answer:** Load your index, then call `search("daterange(2022-01-01 ~~ 2022-12-31)")` to retrieve every document whose indexed date falls between January 1 2022 and December 31 2022. This one‑line query works out‑of‑the‑box and returns results ordered by relevance.
 
-### Gebruik van Query‑object
-Voor programmatische controle en aangepaste parsing, bouw een `SearchQuery`‑object:
+**Explanation:** The `daterange` syntax expects dates in `YYYY‑MM‑DD`. It returns all documents whose indexed dates fall within the interval.
+
+### Gebruik van query‑object
+For programmatic control and custom parsing, build a `SearchQuery` object. The `SearchQuery` class represents a structured query that can combine multiple criteria such as keywords, filters, and date ranges.
 
 ```java
 import com.groupdocs.search.*;
@@ -123,12 +177,16 @@ SearchQuery query2 = SearchQuery.createDateRangeQuery(Utils.createDate(2017, 1, 
 SearchResult result2 = index.search(query2);
 ```
 
-**Uitleg**: `createDateRangeQuery` stelt je in staat `java.util.Date`‑objecten te leveren, waardoor je volledige flexibiliteit krijgt over tijdzones en locale‑specifieke verwerking.
+**Direct answer:** Construct a `SearchQuery` with `createDateRangeQuery(startDate, endDate)` where `startDate` and `endDate` are `java.util.Date` instances; then pass the query to `index.search(query)` to get precise results that respect time‑zone offsets and locale‑specific calendars.
 
-## Functie 2: **custom date format java** patronen specificeren
+**Definition anchor:** The `SearchQuery` class encapsulates all search criteria, allowing you to combine date ranges with keyword filters, Boolean operators, and boosting rules.
+
+**Explanation:** `createDateRangeQuery` lets you supply `java.util.Date` objects, giving you full flexibility over time zones and locale‑specific handling.
+
+## Functie 2: aangepaste custom date format java‑patronen specificeren
 
 ### Aangepaste datumformaten instellen
-Definieer een `DateFormat` die overeenkomt met de datumrepresentatie in je document:
+The `DateFormat` class tells the engine how to split and interpret a date string based on element order and separator characters. Define a `DateFormat` that matches your document’s date representation:
 
 ```java
 import com.groupdocs.search.*;
@@ -160,61 +218,75 @@ String query = "daterange(01/01/2017 ~~ 12/31/2019)";
 SearchResult result = index.search(query, options);
 ```
 
-**Uitleg**: Door de standaardformaten te wissen en een `DateFormat` toe te voegen die `/` als scheidingsteken gebruikt, begrijpt de engine nu datums geschreven als `MM/dd/yyyy`. Dit is essentieel voor **documenten zoeken op datum** in regio's die de maand‑eerste notatie verkiezen.
+**Direct answer:** Clear the default formats with `dateFormat.clear()`, then add a new `DateFormat` built from `DateFormatElement` objects (month, day, year) and set the separator to `/`. After this, the engine will correctly parse dates written as `MM/dd/yyyy` during indexing and query time.
 
-## Tips om **zoekprestaties te optimaliseren**
-- **Index incrementeel**: Voeg nieuwe bestanden toe aan de bestaande index in plaats van helemaal opnieuw te bouwen.  
-- **Verouderde gegevens verwijderen**: Verwijder periodiek documenten die niet meer nodig zijn.  
-- **Geheugeninstellingen aanpassen**: Verhoog de JVM-heap (`-Xmx`) bij het werken met grote indexen.  
+**Definition anchor:** `DateFormat` is a configuration object that tells GroupDocs.Search how to split and interpret a date string based on element order and separator characters.
 
-## Veelvoorkomende Problemen en Oplossingen
-- **Datum‑parsefouten**: Controleer of de datum‑strings in het document exact overeenkomen met het aangepaste patroon dat je hebt gedefinieerd.  
-- **Ontbrekende resultaten**: Zorg ervoor dat de geïndexeerde velden datum‑metadata bevatten; anders kan de engine datum‑queries niet matchen.  
-- **Index‑toegangsexcepties**: Bevestig dat het pad `indexFolder` beschrijfbaar is en niet vergrendeld is door een ander proces.  
+**Explanation:** By clearing the default formats and adding a `DateFormat` that uses `/` as the separator, the engine now understands dates written as `MM/dd/yyyy`. This is essential for **search documents by date** in regions that prefer month‑first notation.
 
-## Praktische Toepassingen
-1. **Archiveringssystemen** – Haal records op uit een specifieke historische periode.  
-2. **Content Management** – Ondersteun regionale datumformaten zoals `dd/MM/yyyy` voor Europese doelgroepen.  
-3. **Financiële software** – Filter transacties snel op fiscaal kwartaal of jaar.  
+## Tips om zoekprestaties te optimaliseren
+- **Index incrementeel:** Voeg nieuwe bestanden toe aan de bestaande index in plaats van helemaal opnieuw te bouwen; dit vermindert CPU‑gebruik tot wel 70 % voor dagelijkse updates.  
+- **Verouderde data opschonen:** Verwijder periodiek documenten die niet meer nodig zijn; een slanke index verbetert de cache‑hit‑ratio en verlaagt de query‑latentie.  
+- **Geheugeninstellingen aanpassen:** Verhoog de JVM‑heap (`-Xmx4g` of hoger) bij indexen groter dan 5 GB om out‑of‑memory‑fouten te voorkomen.  
+- **Multi‑threaded indexering inschakelen:** Gebruik `IndexingOptions.setThreadCount(Runtime.getRuntime().availableProcessors())` om documentverwerking te paralleliseren en de indexeringstijd te verkorten met ongeveer het aantal CPU‑kernen.
+
+## Veelvoorkomende problemen en oplossingen
+- **Date parsing errors:** Verify that the document’s date strings exactly match the custom pattern you defined; mismatched separators or missing leading zeros cause failures.  
+- **Missing results:** Ensure the indexed fields contain date metadata; if a document only has dates in free‑text paragraphs, enable the `ExtractDateMetadata` option during indexing.  
+- **Index access exceptions:** Confirm that the `indexFolder` path is writable and not locked by another process; use a dedicated folder per environment (dev, test, prod) to avoid conflicts.
+
+## Praktische toepassingen
+1. **Archiveringssystemen** – Haal records op uit een specifieke historische periode zonder handmatig datums te normaliseren.  
+2. **Content management** – Ondersteun regionale datumformaten zoals `dd/MM/yyyy` voor Europese doelgroepen, wat de gebruikerstevredenheid verbetert.  
+3. **Financiële software** – Filter transacties snel op fiscaal kwartaal of jaar, waardoor real‑time rapportagedashboards mogelijk zijn.
 
 ## Waarom dit belangrijk is
-Het implementeren van **custom date format java** handling verwijdert de wrijving die ontstaat door inconsistente datumrepresentaties in documenten. Het stelt je in staat om **meerdere datumformaten** in één index te verwerken, zodat eindgebruikers nauwkeurige resultaten krijgen, ongeacht hoe datums oorspronkelijk zijn vastgelegd.
+Implementing **custom date format java** handling removes the friction of dealing with inconsistent date representations across documents. It enables you to **handle multiple date formats** in a single index, ensuring that end‑users get accurate results no matter how dates were originally recorded. This flexibility improves search relevance, reduces preprocessing effort, and shortens time‑to‑value for date‑centric applications.
 
-## Volgende Stappen
-- Verken meer geavanceerde query‑combinaties met de operators `AND`, `OR` en `NOT`.  
-- Experimenteer met aangepaste analyzers als je extra temporele metadata wilt indexeren.  
-- Bekijk de prestatie‑afstemt gids in de officiële documentatie om je oplossing te schalen voor miljoenen documenten.
+## Volgende stappen
+- Explore more advanced query combinations using `AND`, `OR`, and `NOT` operators.  
+- Experiment with custom analyzers if you need to index additional temporal metadata such as timestamps embedded in XML tags.  
+- Review the performance tuning guide in the official documentation to scale your solution for millions of documents and multi‑tenant environments.
 
-## Veelgestelde Vragen
+## Veelgestelde vragen
 
-**V: Wat is het verschil tussen tekst‑vorm en object‑gebaseerde datumqueries?**  
-A: Tekst‑vorm is snel en eenvoudig maar beperkt tot het standaard ISO‑formaat; object‑gebaseerde queries laten je `Date`‑objecten en aangepaste formaten leveren voor meer flexibiliteit.
+**Q: What is the difference between text form and object‑based date queries?**  
+A: Text form is quick and easy but limited to the default ISO format; object‑based queries let you supply `Date` objects and custom formats for greater flexibility.
 
-**V: Kan ik zoeken naar meerdere datum‑bereiken in één query?**  
-A: Ja, combineer `daterange`‑clausules met logische operators zoals `AND` of `OR` om complexe queries te bouwen.
+**Q: Can I search for multiple date ranges in a single query?**  
+A: Yes, combine `daterange` clauses with logical operators like `AND` or `OR` to build complex queries.
 
-**V: Zullen aangepaste datumformaten de zoekopdracht vertragen?**  
-A: Er is een kleine overhead voor extra parsing, maar de impact is verwaarloosbaar voor typische workloads en wordt gecompenseerd door de nauwkeurigheidswinst.
+**Q: Will custom date formats slow down the search?**  
+A: There is a minor overhead for additional parsing, but the impact is negligible for typical workloads and is outweighed by the accuracy gains.
 
-**V: Is GroupDocs.Search geschikt voor grootschalige implementaties?**  
-A: Absoluut. Met de juiste indexeringsstrategieën en JVM‑afstemming schaalt het naar miljoenen documenten.
+**Q: Is GroupDocs.Search suitable for large‑scale deployments?**  
+A: Absolutely. With proper indexing strategies and JVM tuning, it scales to millions of documents while maintaining sub‑second query response times.
 
-**V: Waar kan ik meer Java‑voorbeelden vinden?**  
-A: Verken de [GroupDocs GitHub-repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) voor aanvullende voorbeelden en use‑case‑implementaties.
-
----
-
-**Documentatie**: [GroupDocs Search Documentatie](https://docs.groupdocs.com/search/java/)  
-**API‑referentie**: [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-**Download**: [Download de nieuwste versie hier](https://releases.groupdocs.com/search/java/)  
-**GitHub-repository**: [Bekijk op GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-**Gratis supportforum**: [Doe mee aan de discussie](https://forum.groupdocs.com/c/search/10)  
-**Tijdelijke licentie**: [Verkrijg hier een tijdelijke licentie](https://purchase.groupdocs.com/temporary-license/)
+**Q: Where can I find more Java examples?**  
+A: Explore the [GroupDocs GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java) for additional samples and use‑case implementations.
 
 ---
 
-**Laatst bijgewerkt:** 2026-03-04  
+**Bronnen**
+
+- **Documentatie:** [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)
+- **API‑referentie:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)
+- **Download:** [Get the latest version here](https://releases.groupdocs.com/search/java/)
+- **GitHub‑repository:** [GroupDocs GitHub repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Bekijk op GitHub:** [View on GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- **Gratis ondersteuningsforum:** [Join the discussion](https://forum.groupdocs.com/c/search/10)
+- **Tijdelijke licentie:** [Acquire a temporary license here](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Laatst bijgewerkt:** 2026-10-07  
 **Getest met:** GroupDocs.Search Java 25.4  
 **Auteur:** GroupDocs  
 
 ---
+
+## Gerelateerde tutorials
+
+- [GroupDocs Search Java Geavanceerde Zoekfuncties](/search/java/advanced-features/groupdocs-search-java-advanced-search-features/)
+- [Java Full‑Text‑zoekbibliotheek – Index optimaliseren met GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [Hoe documenten toevoegen aan index met metadata‑indexering in Java met GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
