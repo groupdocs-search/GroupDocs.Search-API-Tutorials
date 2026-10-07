@@ -1,51 +1,112 @@
 ---
-date: '2026-03-04'
+date: '2026-10-07'
 description: Naučte se, jak vytvořit index v Javě pomocí GroupDocs.Search. Tento průvodce
-  se zabývá indexováním, přidáváním dokumentů a reportováním pro optimální výkon vyhledávání.
+  pokrývá indexování, přidávání dokumentů a vytváření zpráv pro optimální výkon vyhledávání.
 keywords:
-- GroupDocs.Search Java
-- document indexing
-- search reporting
-title: Vytvoření indexu v Javě s GroupDocs.Search | Komplexní průvodce indexováním
-  a reportováním
+- how to create index
+- optimize search performance
+- add documents to index
+- java search example
+- add files to index
+lastmod: '2026-10-07'
+og_description: Naučte se, jak vytvořit index v Javě pomocí GroupDocs.Search. Tento
+  návod ukazuje indexování, přidávání dokumentů a generování zpráv pro optimalizaci
+  výkonu vyhledávání.
+og_image_alt: 'Guide: how to create index in Java with GroupDocs.Search'
+og_title: Jak vytvořit index v Javě s průvodcem GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-07'
+  description: Learn how to create index in Java using GroupDocs.Search. This guide
+    covers indexing, adding documents, and reporting for optimal search performance.
+  headline: How to create index in Java with GroupDocs.Search guide
+  type: TechArticle
+- description: Learn how to create index in Java using GroupDocs.Search. This guide
+    covers indexing, adding documents, and reporting for optimal search performance.
+  name: How to create index in Java with GroupDocs.Search guide
+  steps:
+  - name: '**Free trial** – Sign up for a free trial to explore GroupDocs features.'
+    text: '**Free trial** – Sign up for a free trial to explore GroupDocs features.'
+  - name: '**Temporary license** – Obtain a temporary license for extended testing
+      by visiting the [temporary license page](https://purchase.groupdocs.com/temporary-license/).'
+    text: '**Temporary license** – Obtain a temporary license for extended testing
+      by visiting the [temporary license page](https://purchase.groupdocs.com/temporary-license/).'
+  - name: '**Purchase** – For production use, consider purchasing a full license from
+      the [GroupDocs website](https://purchase.groupdocs.com/).'
+    text: '**Purchase** – For production use, consider purchasing a full license from
+      the [GroupDocs website](https://purchase.groupdocs.com/).'
+  - name: '**Legal document management** – Quickly locate case files or statutes.'
+    text: '**Legal document management** – Quickly locate case files or statutes.'
+  - name: '**Customer support portals** – Retrieve past tickets and solutions instantly.'
+    text: '**Customer support portals** – Retrieve past tickets and solutions instantly.'
+  - name: '**Enterprise content management (ECM)** – Index and search across the entire
+      corporate repository.'
+    text: '**Enterprise content management (ECM)** – Index and search across the entire
+      corporate repository.'
+  type: HowTo
+- questions:
+  - answer: Yes, it supports DOCX, PDF, TXT, HTML, and many other common formats—over
+      50 in total.
+    question: Can I index different document formats with GroupDocs.Search?
+  - answer: Absolutely—use the `add()` method in an automated job (e.g., a scheduled
+      task) for **incremental indexing java**.
+    question: Is there a way to update the index automatically when new documents
+      arrive?
+  - answer: Combine **incremental indexing java** with proper JVM memory settings
+      and regularly review the indexing reports to fine‑tune performance.
+    question: How do I improve search speed for very large datasets?
+  - answer: Yes, it can index multiple languages; just ensure the appropriate language
+      analyzers are enabled.
+    question: Does GroupDocs.Search handle multilingual content?
+  - answer: Yes, you can sign up for a free trial on the GroupDocs website to evaluate
+      all features before purchasing.
+    question: Is a free trial available for GroupDocs.Search Java?
+  type: FAQPage
+tags:
+- GroupDocs.Search
+- Java indexing
+- search performance
+- document search
+- tutorial
+title: Jak vytvořit index v Javě s průvodcem GroupDocs.Search
 type: docs
 url: /cs/java/advanced-features/groupdocs-search-java-index-report-guide/
 weight: 1
 ---
 
-# Vytvoření indexu Java s GroupDocs.Search | Kompletní průvodce indexací a reportováním
+# Jak vytvořit index v Javě s průvodcem GroupDocs.Search
 
-V dnešním datově řízeném světě je **create index java** základním krokem pro vytváření rychlých a spolehlivých vyhledávacích zkušeností. Ať už spravujete právní smlouvy, záznamy zákazníků nebo jakýkoli velký úložiště dokumentů, dobře vytvořený index vám umožní získat informace během milisekund. V tomto tutoriálu si projdete nastavením GroupDocs.Search, vytvořením indexu, přidáváním dokumentů a generováním podrobných reportů – a to vše s ohledem na výkon a škálovatelnost.
+V dnešním datově řízeném světě je **how to create index** základním krokem pro tvorbu rychlých a spolehlivých vyhledávacích zkušeností. Ať už spravujete právní smlouvy, záznamy zákazníků nebo jakýkoli velký dokumentový repozitář, dobře vytvořený index vám umožní získat informace během milisekund. V tomto tutoriálu vás provedeme nastavením GroupDocs.Search, vytvořením indexu, přidáváním dokumentů a generováním podrobných zpráv – a to vše s ohledem na výkon a škálovatelnost.
 
 ## Rychlé odpovědi
-- **Jaký je první krok k vytvoření indexu java?** Inicializujte objekt `Index`, který ukazuje na složku pro soubory indexu.  
-- **Která knihovna poskytuje java dokumentové indexování?** GroupDocs.Search for Java.  
-- **Jak mohu přidat dokumenty java do existujícího indexu?** Použijte metodu `index.add(path)` pro každou složku.  
-- **Jaký nástroj pomáhá optimalizovat výkon vyhledávání?** Pravidelné inkrementální indexování a správná nastavení paměti.  
-- **Existuje ukázkový java vyhledávací příklad?** Níže uvedené ukázky kódu demonstrují kompletní end‑to‑end workflow.
+- **What is the first step to create index in Java?** Inicializujte objekt `Index`, který ukazuje na složku pro soubory indexu.  
+- **Which library provides Java document indexing?** GroupDocs.Search for Java.  
+- **How can I add documents to an existing index?** Zavolejte `index.add(path)` pro každou složku, kterou chcete indexovat.  
+- **What tool helps optimize search performance?** Inkrementální indexování v kombinaci s vhodným laděním paměti JVM.  
+- **Is there a sample Java search example?** Níže uvedený průvodce ukazuje kompletní end‑to‑end workflow.
 
 ## Co se naučíte
-- Jak **create index java** pomocí GroupDocs.Search  
+- Jak **create index** pomocí GroupDocs.Search  
 - Techniky pro **add documents to index** a **add files to index** v existujícím indexu  
-- Jak získat a zobrazit reporty indexování pro **optimize search performance**  
-- Reálné příklady použití a tipy pro **java document indexing**  
+- Jak získat a zobrazit zprávy o indexování pro **optimize search performance**  
+- Reálné případy použití a tipy pro **java search example**  
 
 ## Předpoklady
 
 ### Požadované knihovny a verze
-- **GroupDocs.Search for Java**: Verze 25.4 nebo novější  
-- **Java Development Kit (JDK)**: Správně nainstalován a nakonfigurován  
+- **GroupDocs.Search for Java**: Verze 25.4 nebo novější – podporuje **50+ vstupních a výstupních formátů**, včetně DOCX, PDF, TXT, HTML a mnoha typů obrázků.  
+- **Java Development Kit (JDK)**: Správně nainstalovaný a nakonfigurovaný (doporučeno JDK 11+).  
 
 ### Požadavky na nastavení prostředí
-IDE jako IntelliJ IDEA, Eclipse nebo NetBeans se doporučuje pro spouštění ukázek kódu.
+IDE jako IntelliJ IDEA, Eclipse nebo NetBeans se doporučuje pro spouštění ukázek.
 
 ### Předpoklady znalostí
 Základní koncepty Javy (třídy, metody, práce se soubory) a znalost Maven vám pomohou plynule sledovat tutoriál.
 
-## Nastavení GroupDocs.Search pro Java
+## Nastavení GroupDocs.Search pro Javu
 
-### Maven nastavení
-Přidejte repozitář a závislost do vašeho `pom.xml`:
+### Maven setup
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -69,12 +130,12 @@ Přidejte repozitář a závislost do vašeho `pom.xml`:
 Knihovnu můžete také získat z oficiální stránky vydání: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Kroky získání licence
-1. **Free Trial** – Zaregistrujte se na bezplatnou zkušební verzi a prozkoumejte funkce GroupDocs.  
-2. **Temporary License** – Získejte dočasnou licenci pro rozšířené testování návštěvou [temporary license page](https://purchase.groupdocs.com/temporary-license/).  
+1. **Free trial** – Zaregistrujte se na bezplatnou zkušební verzi a prozkoumejte funkce GroupDocs.  
+2. **Temporary license** – Získejte dočasnou licenci pro rozšířené testování návštěvou [temporary license page](https://purchase.groupdocs.com/temporary-license/).  
 3. **Purchase** – Pro produkční použití zvažte zakoupení plné licence na [GroupDocs website](https://purchase.groupdocs.com/).
 
 ### Základní inicializace a nastavení
-Vytvořte instanci `Index`, která ukazuje na složku, kde budou uloženy soubory indexu:
+`Index` je hlavní třída v GroupDocs.Search, která představuje vyhledávatelný index uložený na disku. Vytvořte instanci `Index`, která ukazuje na složku, kde budou uloženy soubory indexu:
 
 ```java
 import com.groupdocs.search.*;
@@ -90,8 +151,9 @@ public class InitializeSearch {
 
 ## Průvodce implementací
 
-### Jak vytvořit index java s GroupDocs.Search
-Vytvoření indexu je prvním krokem k umožnění vyhledávacích funkcí pro vaše kolekce dokumentů. Níže je minimální příklad, který nastavuje složku indexu.
+### Jak vytvořit index v Javě s GroupDocs.Search
+
+Vytvořte složku indexu, nakonfigurujte nastavení indexu a vytvořte objekt `Index`. **Načtěte index, nastavte potřebné možnosti a můžete začít indexovat dokumenty.** Tato přímá odpověď vysvětluje základní kroky v méně než 70 slovech, poskytuje vám jasný obrázek před ponořením se do kódu.
 
 ```java
 import com.groupdocs.search.*;
@@ -105,10 +167,9 @@ public class CreateIndexFeature {
 }
 ```
 
-**Explanation:** Konstruktor `Index` přijímá cestu, kde budou uložena všechna data indexu. Tato složka se stane srdcem vašeho řešení **java document indexing**.
-
 ### Přidávání dokumentů do indexu
-Jakmile existuje index, můžete jej naplnit soubory z jedné nebo více složek. Tento krok demonstruje workflow **add documents to index**.
+
+`add` je metoda, která načítá soubory do indexu. Přijímá cestu ke složce a indexuje každý podporovaný soubor, který obsahuje, což umožňuje workflow **add documents to index** a **add files to index**. Můžete ji volat vícekrát pro inkrementální aktualizace.
 
 ```java
 import com.groupdocs.search.*;
@@ -129,10 +190,9 @@ public class AddDocumentsToIndexFeature {
 }
 ```
 
-**Explanation:** Metoda `add()` přijímá cestu ke složce a indexuje každý podporovaný soubor, který obsahuje. Toto je jádro workflow **add files to index** a podporuje inkrementální indexování při opakovaném volání.
+### Získávání a zobrazování zpráv o indexování
 
-### Získávání a zobrazování reportů indexování
-Po indexování budete často chtít zobrazit statistiky, které vám pomohou **optimize search performance**.
+`IndexingReport` poskytuje podrobné statistiky o operaci indexování, jako je počet dokumentů, počet termínů a metriky velikosti souborů. Tyto čísla jsou nezbytná pro **optimize search performance**, protože vám umožní včas odhalit úzká místa.
 
 ```java
 import com.groupdocs.search.*;
@@ -157,60 +217,65 @@ public class GetIndexingReportsFeature {
 }
 ```
 
-**Explanation:** Tento úryvek získává objekty `IndexingReport`, které obsahují časové razítka, počty dokumentů, počty termínů a metriky velikosti – nezbytná data pro monitorování a **optimize search performance**.
+## Proč je důležité vytvářet index
 
-## Proč je důležité vytvořit index java
-Dobře navržený index snižuje latenci dotazů, snižuje zátěž serveru a škáluje se elegantně s růstem vaší kolekce dokumentů. Ovládnutím **create index java** položíte základy pro výkonné vyhledávací funkce, jako je fuzzy matching, faceted navigation a real‑time suggestions.
+Dobře navržený index snižuje latenci dotazů, zatížení serveru a škáluje se plynule s růstem vaší kolekce dokumentů. Ovládnutím **how to create index** položíte základy pro výkonné vyhledávací funkce jako fuzzy matching, faceted navigation a návrhy v reálném čase. GroupDocs.Search dokáže zpracovat **multi‑hundred‑page documents** bez načítání celého souboru do paměti díky své streamovací architektuře.
 
 ## Praktické aplikace
 GroupDocs.Search může být integrován do mnoha reálných systémů:
 
-1. **Legal Document Management** – Rychle najděte soudní spisy nebo zákony.  
-2. **Customer Support Portals** – Okamžitě načtěte staré ticketů a řešení.  
-3. **Enterprise Content Management (ECM)** – Indexujte a vyhledávejte v celém firemním úložišti.
+1. **Legal document management** – Rychle najděte soudní spisy nebo zákony.  
+2. **Customer support portals** – Okamžitě načtěte staré tickety a řešení.  
+3. **Enterprise content management (ECM)** – Indexujte a vyhledávejte v celém firemním repozitáři.
 
 ## Úvahy o výkonu
 Aby byl váš **java search example** rychlý a responzivní:
 
 - **Incremental indexing java** – Pravidelně přidávejte nové soubory místo přestavování celého indexu.  
-- **Memory tuning** – Nastavte velikost haldy JVM a povolte G1GC pro velké datové sady.  
-- **Report monitoring** – Používejte reporty indexování k včasnému odhalení úzkých míst.
+- **Memory tuning** – Nastavte velikost haldy JVM (`-Xmx4g` pro velké korpusy) a povolte G1GC pro velké datové sady.  
+- **Report monitoring** – Používejte zprávy o indexování k včasnému odhalení úzkých míst a úpravě velikosti batchů.
 
 ## Časté problémy a řešení
 
 | Problém | Řešení |
 |-------|----------|
 | **OutOfMemoryError** během velkého dávkového indexování | Zvyšte hodnotu JVM `-Xmx` a zvažte indexování v menších dávkách. |
-| **Unsupported file format** chyba | Ověřte, že typ souboru patří mezi formáty podporované GroupDocs.Search (DOCX, PDF, TXT, atd.). |
+| **Unsupported file format** chyba | Ověřte, že typ souboru patří mezi formáty podporované GroupDocs.Search (DOCX, PDF, TXT atd.). |
 | **Index not updating** po přidání souborů | Ujistěte se, že voláte `index.add()` na stejné instanci `Index` nebo po změnách znovu otevřete index. |
 
 ## Často kladené otázky
 
-**Q: Můžu indexovat různé formáty dokumentů pomocí GroupDocs.Search?**  
-A: Ano, podporuje DOCX, PDF, TXT, HTML a mnoho dalších běžných formátů.
+**Q: Mohu indexovat různé formáty dokumentů pomocí GroupDocs.Search?**  
+A: Ano, podporuje DOCX, PDF, TXT, HTML a mnoho dalších běžných formátů – více než 50 celkem.
 
 **Q: Existuje způsob, jak automaticky aktualizovat index při příchodu nových dokumentů?**  
-A: Rozhodně — použijte metodu `add()` v automatizovaném úkolu (např. naplánovaná úloha) pro **incremental indexing java**.
+A: Ano—použijte metodu `add()` v automatizovaném úkolu (např. naplánovaná úloha) pro **incremental indexing java**.
 
 **Q: Jak zlepšit rychlost vyhledávání pro velmi velké datové sady?**  
-A: Kombinujte **incremental indexing java** se správnými nastaveními paměti JVM a pravidelně kontrolujte reporty indexování pro doladění výkonu.
+A: Kombinujte **incremental indexing java** s vhodnými nastaveními paměti JVM a pravidelně kontrolujte zprávy o indexování pro jemné ladění výkonu.
 
 **Q: Zvládá GroupDocs.Search vícejazyčný obsah?**  
-A: Ano, může indexovat více jazyků; stačí zajistit, že jsou povoleny odpovídající jazykové analyzátory.
+A: Ano, může indexovat více jazyků; jen zajistěte, aby byly povoleny příslušné jazykové analyzátory.
 
 **Q: Je k dispozici bezplatná zkušební verze pro GroupDocs.Search Java?**  
 A: Ano, můžete se zaregistrovat na bezplatnou zkušební verzi na webu GroupDocs a vyzkoušet všechny funkce před zakoupením.
 
 ## Závěr
-Podle výše uvedených kroků nyní víte, jak **create index java**, přidávat dokumenty a generovat přehledné reporty pomocí GroupDocs.Search. Tento základ vám umožní vytvářet výkonné vyhledávací zkušenosti, udržovat index aktuální a zachovat vysoký výkon s růstem vaší kolekce dokumentů.
+Podle výše uvedených kroků nyní víte **how to create index** v Javě, jak přidávat dokumenty a generovat podrobné zprávy pomocí GroupDocs.Search. Tento základ vám umožní vytvářet výkonné vyhledávací zkušenosti, udržovat index aktuální a zachovat vysoký výkon s rostoucí kolekcí dokumentů.
 
 ### Další kroky
-- Prozkoumejte pokročilé možnosti dotazů, jako je fuzzy search a správa synonym.  
-- Integrovat index s webovou službou nebo REST API pro real‑time vyhledávání ve vašich aplikacích.  
+- Prozkoumejte pokročilé možnosti dotazů, jako je fuzzy search a zpracování synonym.  
+- Integrujte index s webovou službou nebo REST API pro vyhledávání v reálném čase ve vašich aplikacích.  
 - Experimentujte s cloudovým úložištěm (AWS S3, Azure Blob) jako zdrojem dokumentů pro škálovatelné indexování.
 
 ---
 
-**Poslední aktualizace:** 2026-03-04  
+**Poslední aktualizace:** 2026-10-07  
 **Testováno s:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs
+
+## Související tutoriály
+
+- [Přidání dokumentů do indexu – GroupDocs.Search Java tutoriály](/search/java/document-management/)
+- [Zlepšení výkonu dotazů s GroupDocs.Search Java: Optimalizace indexu a vyhledávání](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
+- [Groupdocs Search Java pokročilé indexování](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
