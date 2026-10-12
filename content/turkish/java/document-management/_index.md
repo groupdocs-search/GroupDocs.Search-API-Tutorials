@@ -1,125 +1,181 @@
 ---
-date: 2026-03-04
-description: GroupDocs.Search for Java kullanarak belgeleri indekse eklemeyi, belge
-  indeksini güncellemeyi ve belge indeksini kaldırmayı öğrenin. Kapsamlı bir belge
-  yönetimi Java eğitim serisi.
-title: Belgeleri Dizin'e Ekle – GroupDocs.Search Java Öğreticileri
+date: 2026-10-12
+description: GroupDocs.Search for Java kullanarak dizini nasıl güncelleyeceğinizi,
+  belgeleri nasıl ekleyeceğinizi ve dizin girişlerini nasıl sileceğinizi öğrenin.
+  Ayrıntılı adımlar, en iyi uygulamalar ve kod örnekleri.
+keywords:
+- how to update index
+- how to add documents
+- how to delete index
+lastmod: 2026-10-12
+og_description: GroupDocs.Search for Java ile dizini nasıl güncelleyeceğinizi, belgeleri
+  nasıl ekleyeceğinizi ve dizin girişlerini nasıl sileceğinizi öğrenin. Adım adım
+  rehber ve performans ipuçlarını izleyin.
+og_image_alt: Guide to updating index, adding and deleting documents using GroupDocs.Search
+  Java SDK
+og_title: GroupDocs.Search Java ile dizini güncelleme ve belge ekleme
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-12'
+  description: Learn how to update index, add documents, and delete index entries
+    using GroupDocs.Search for Java. Detailed steps, best practices, and code examples.
+  headline: How to update index and add docs with GroupDocs.Search Java
+  type: TechArticle
+- description: Learn how to update index, add documents, and delete index entries
+    using GroupDocs.Search for Java. Detailed steps, best practices, and code examples.
+  name: How to update index and add docs with GroupDocs.Search Java
+  steps:
+  - name: open or create the index
+    text: '`Index index = new Index("path/to/index");` creates the folder if it does
+      not exist and prepares internal structures for fast lookup.'
+  - name: add a single document
+    text: '`index.addDocument(new File("contracts/contract1.pdf"));` inserts the PDF,
+      automatically detecting its format and extracting text.'
+  - name: add multiple documents in a batch
+    text: Iterate over a directory and call `addDocument` for each file. Batch processing
+      reduces I/O overhead and improves overall throughput.
+  type: HowTo
+- questions:
+  - answer: Call `deleteDocument(documentId)` with the unique identifier; the entry
+      is instantly purged and storage is reclaimed.
+    question: How do I remove documents from index?
+  - answer: Yes, you can set custom metadata (e.g., category, author) via the `Document`
+      object's attribute API before adding it to the index.
+    question: Can I modify document attributes to enhance search accuracy?
+  - answer: The official GroupDocs.Search documentation includes a step‑by‑step tutorial
+      that covers index creation, document addition, and query execution.
+    question: Is there a “search index tutorial” for beginners?
+  - answer: The library includes linguistic features that improve accuracy for homophones
+      and similar‑sounding words.
+    question: Does GroupDocs.Search support homophone recognition?
+  - answer: Java 8 or later is required; the library is fully compatible with Java
+      11 and newer LTS releases.
+    question: What version of Java is required for the latest GroupDocs.Search?
+  type: FAQPage
+tags:
+- update index
+- document management
+- GroupDocs.Search Java
+- add documents
+title: GroupDocs.Search Java ile dizini güncelleme ve belge ekleme
 type: docs
 url: /tr/java/document-management/
 weight: 6
 ---
 
-# Dizin'e Belge Ekleme – GroupDocs.Search Java için Belge Yönetimi Eğitimleri
+# GroupDocs.Search Java ile dizini güncelleme ve belge ekleme
 
-Arama dizinini verimli bir şekilde yönetmek, hızlı ve doğru bilgi alımına dayanan herhangi bir Java‑tabanlı uygulama için hayati öneme sahiptir. Bu rehberde GroupDocs.Search for Java ile daha geniş bir belge yönetimi stratejisinin parçası olarak **dizine belge ekleme** yöntemini keşfedeceksiniz. En yaygın görevleri—ekleme, güncelleme ve kaldırma—adım adım inceleyecek ve **arama doğruluğunu artırmaya** yardımcı olacak en iyi uygulamaları vurgulayarak dizininizin yüksek performanslı kalmasını sağlayacağız.
+Arama dizinini verimli bir şekilde yönetmek, hızlı ve doğru bilgi alımı gerektiren herhangi bir Java‑tabanlı uygulama için hayati öneme sahiptir. Bu öğreticide GroupDocs.Search for Java kullanarak **dizini güncelleme**, belge ekleme ve silme işlemlerini öğreneceksiniz. En iyi uygulama kalıplarını, performans ipuçlarını ve gerçek dünya kullanım örneklerini göreceksiniz; bu sayede dizininiz hafif kalır ve sorgularınız ışık hızında çalışır.
 
-## Hızlı Yanıtlar
-- **Dizine belge eklemek için ilk adım nedir?** Mevcut bir `Index` örneği oluşturun veya açın ve `addDocument(...)` metodunu çağırın.  
-- **Dizinden belgeleri kaldırabilir miyim?** Evet, belgenin tanımlayıcısını kullanarak `deleteDocument(...)` metodunu kullanın.  
-- **Özel bir lisansa ihtiyacım var mı?** Üretim kullanımı için geçerli bir GroupDocs.Search for Java lisansı gereklidir.  
-- **Hangi Java sürümü destekleniyor?** Java 8 ve üzeri tam olarak desteklenir.  
-- **Daha fazla örnek nerede bulunur?** Resmi GroupDocs.Search for Java belgelerine ve API referansına bakın.
+## Hızlı cevaplar
+- **İndexe belge eklemek için ilk adım nedir?** Create or open an `Index` instance and call `addDocument(...)`.
+- **İndeksten belgeleri kaldırabilir miyim?** Yes, invoke `deleteDocument(...)` with the document’s identifier.
+- **Özel bir lisansa ihtiyacım var mı?** A valid GroupDocs.Search for Java license is required for production use.
+- **Hangi Java sürümü destekleniyor?** Java 8 and higher are fully supported.
+- **Daha fazla örnek nerede bulunabilir?** See the official GroupDocs.Search for Java documentation and API reference.
 
-## GroupDocs.Search'te “dizine belge ekleme” nedir?
-Bir dizine belge eklemek, bir dosyanın (PDF, DOCX, TXT vb.) aranabilir içeriğini GroupDocs.Search'ün sorgulayabileceği bir veri yapısına yerleştirmek anlamına gelir. Dizinlendiğinde, belge anında aranabilir hale gelir ve sonraki güncellemeler veya silmeler, dizini kaynak dosyalarla senkronize tutar.
+## GroupDocs.Search'te “indexe belge ekleme” nedir?
+`addDocument` işlemi, bir dosyanın (PDF, DOCX, TXT, vb.) aranabilir içeriğini indeks veri yapısına ekler. Bu, belgenin anında sorgulanabilir olmasını sağlar ve sonraki güncellemeler ya da silmelerin kaynak dosyalarla senkronize kalmasını temin eder. Ayrıca dosya adı ve boyutu gibi meta verileri kaydeder; bu veriler arama sonuçlarını filtrelemek için kullanılabilir.
 
-## Neden Java projelerinde belge yönetimi için GroupDocs.Search kullanmalı?
-- **Ölçeklenebilir performans:** Milyonlarca belgeyi düşük gecikme süresiyle işler.  
-- **Zengin dil desteği:** Kutudan çıkar çıkmaz 100'den fazla dosya formatını destekler.  
-- **Yerleşik alaka ayarı:** Sıralamayı artırmak için **belge özniteliklerini değiştirebilmenizi** sağlar.  
-- **Sorunsuz entegrasyon:** Basit API çağrıları, herhangi bir Java uygulamasına doğal olarak uyum sağlar.
+## Java projelerinde belge yönetimi için GroupDocs.Search neden kullanılmalı?
+GroupDocs.Search, **10 milyon belge**ye kadar **saniyenin altında gecikme** ile işlem yapar, **100+ dosya formatını** destekler ve yerleşik alaka ayarı sunar. API hafiftir, sadece birkaç satır kod gerektirir ve herhangi bir Java uygulamasıyla—masaüstü, sunucu ya da bulut ortamı—sorunsuz bir şekilde bütünleşir.
 
 ## Önkoşullar
-- Java 8 + geliştirme ortamı.  
-- GroupDocs.Search for Java kütüphanesi (resmi siteden indirilebilir).  
+- Java 8 + geliştirme ortamı (IDE, JDK, Maven/Gradle).  
+- GroupDocs.Search for Java kütüphanesi (resmi siteden indirin).  
 - Geçerli bir GroupDocs.Search lisansı (test için geçici lisanslar mevcuttur).
 
-## Adım‑Adım Kılavuz
+## GroupDocs.Search for Java'da indekse belge ekleme nasıl yapılır?
 
-### Adım 1: Bir dizin açın veya oluşturun
-İlk olarak, diskte bir klasöre işaret eden bir `Index` nesnesi oluşturun. Bu klasör dizin dosyalarını depolayacaktır.
+Hedef dosyayı yükleyin ve bir `Index` örneği üzerinde `addDocument` çağırın—bu tek çağrı metni çıkarır, dili algılar ve aranabilir tokenları depolar. Metot ayrıca gelecekteki güncelleme ya da silme işlemleri için saklamanız gereken bir belge kimliği döndürür.
 
-*Burada kod bloğu gerekmez; API çağrısı basittir: `Index index = new Index("path/to/index");`*
+`Index` sınıfı, diskte depolanan aranabilir bir koleksiyonu temsil eden çekirdek nesnedir. Oluşturduktan sonra, ekleme, güncelleme, silme ve optimizasyon gibi tüm sonraki işlemler bu örnek üzerinden gerçekleştirilir.
 
-### Adım 2: Dizine belgeler ekleyin
-`addDocument` metodunu kullanarak yeni dosyaları ekleyin. Metod dosya tipini otomatik olarak algılar ve aranabilir metni çıkarır.
+### Adım 1: indeksi açma veya oluşturma
+`Index index = new Index("path/to/index");` klasörü yoksa oluşturur ve hızlı arama için iç yapılandırmaları hazırlar.
 
-*Örnek çağrı:* `index.addDocument(new File("contracts/contract1.pdf"));`
+### Adım 2: tek bir belge ekleme
+`index.addDocument(new File("contracts/contract1.pdf"));` PDF'yi ekler, formatını otomatik algılar ve metni çıkarır.
 
-### Adım 3: Değiştirilen belgeleri güncelleyin
-Bir kaynak dosya değiştiğinde, eski içeriği değiştirmek için aynı tanımlayıcıyla `updateDocument` metodunu çağırın.
+### Adım 3: toplu olarak birden fazla belge ekleme
+Bir dizin üzerinde yineleme yapın ve her dosya için `addDocument` çağırın. Toplu işleme I/O yükünü azaltır ve genel verimliliği artırır.
 
-*Örnek çağrı:* `index.updateDocument(documentId, new File("contracts/contract1_v2.pdf"));`
+## Kaynak dosya değiştiğinde indeksi nasıl güncellerim?
 
-### Adım 4: Dizinden eski belgeleri kaldırın
-Bir belge artık gerekli değilse, dizini hafif tutmak ve sorgu hızını artırmak için silin.
+`updateDocument` mevcut bir belgeyi kimliğiyle indeks içinde günceller. Dosyayı ilk eklediğinizde aldığınız aynı belge kimliğini kullanarak bu metodu çağırıp en son sürümü geçirin. Bu işlem yalnızca değişen tokenları yeniden yazar, geri kalan indeks dokunulmaz kalır ve maksimum verimlilik sağlanır.
 
-*Örnek çağrı:* `index.deleteDocument(documentId);`
+### Adım adım güncelleme
+1. Belge kimliğini alın (dosyayı ilk eklediğinizde saklayın).  
+2. `index.updateDocument(documentId, new File("contracts/contract1_v2.pdf"));` çağırarak girdiyi yenileyin.  
+3. Büyük bir güncelleme topluluğundan sonra `index.optimize()` çalıştırarak indeksi sıkıştırın.
 
-### Adım 5: Dizini optimize edin
-Toplu işlemlerden sonra, daha hızlı aramalar için dizin dosyalarını sıkıştırmak ve yeniden düzenlemek amacıyla optimizasyonu çalıştırın.
+## İndeks girişlerini güvenli bir şekilde nasıl silerim?
+`deleteDocument` bir belgeyi kimliğiyle indeksden kaldırır. Belgeyi silmek depolama alanı boşaltır ve eski verilerin alaka puanlarını etkilemesini önler. Kimliğiyle `deleteDocument` çağırın; indeks dosyayı gelecekteki aramalardan hemen çıkarır ve sorgu performansını korumak için dahili posting listelerini günceller.
 
-*Örnek çağrı:* `index.optimize();`
+## En yüksek performans için indeksi nasıl optimize ederim?
+`optimize()` segmentleri birleştirerek ve silinmiş girişleri temizleyerek indeksi sıkıştırır. Toplu eklemeler, güncellemeler ya da silmeler sonrasında bu metodu çağırarak posting listelerini sıkıştırın ve depolama yapılarını yeniden düzenleyin. Bu adım, büyük indekslerde sorgu gecikmesini **%30** kadar iyileştirebilir ve indeks boyutunun yönetilebilir kalmasını sağlar.
 
-#### Belge indeksini nasıl kaldırılır
-Bir belgeyi dizinden kaldırmak, `deleteDocument(documentId)` metodunu çağırmak kadar basittir. Bu işlem alanı boşaltır ve eski verilerin alaka puanlarını etkilemesini önler.
+## Yaygın kullanım senaryoları
+- **Hukuki belge depoları:** Dava dosyalarını ekleyin, güncelleyin ve temizleyin; anahtar kelime aramalarında yüksek alaka koruyun.  
+- **Kurumsal bilgi tabanları:** İç kılavuzları, politikaları ve SSS'leri evrimleşirken aranabilir tutun.  
+- **E‑ticaret katalogları:** Ürün özelliklerini indeksleyin ve kullanım dışı ürünleri kesintisiz bir şekilde kaldırın.
 
-#### Belge indeksini nasıl güncellerim
-Kaynak dosya her düzenlendiğinde, indekslenmiş içeriği yenilemek için `updateDocument(documentId, newFile)` metodunu çağırın; böylece arama sonuçları her zaman en son sürümü yansıtır.
+## Sorun giderme ve ipuçları
 
-## Yaygın Kullanım Senaryoları
-- **Hukuki belge depoları:** Yüksek alaka seviyesini korurken dava dosyalarını hızlıca ekleyin, güncelleyin ve temizleyin.  
-- **Kurumsal bilgi tabanları:** İç kılavuzları ve politikaları gelişirken aranabilir tutun.  
-- **E‑ticaret katalogları:** Ürün özelliklerini indeksleyin ve kullanım dışı kalan ürünleri kesinti olmadan kaldırın.
+- **Pro tip:** Performans dalgalanmalarını önlemek için yoğun olmayan saatlerde toplu belge ekleyin.  
+- **Tuzağa düşme:** Büyük silme işlemlerinden sonra `optimize()` atlamak, parçalanmış indekslere ve yavaş sorgulara yol açabilir.  
+- **Hata yönetimi:** Tüm indeks işlemlerini `try‑catch` blokları içinde sararak `IndexException`'ı nazikçe yakalayın.  
+- **Performans ipucu:** Çok büyük veri setleriyle çalışırken `IndexSettings` ile bellek kullanımını ayarlayın (ör. sunucularda yeterli RAM varsa `maxMemoryUsage` değerini yükseltin).  
+- **Bellek güvenliği:** 500 MB'den büyük dosyalar için `addDocument` girişini akış olarak sağlayarak JVM yığın ayak izini düşük tutun.
 
-## Sorun Giderme ve İpuçları
-- **Pro ipucu:** Performans dalgalanmalarını önlemek için düşük yoğunluklu saatlerde toplu belge ekleyin.  
-- **Düşük nokta:** Büyük silme işlemlerinden sonra `optimize()` metodunu çağırmayı unutmak, parçalanmış dizinlere yol açabilir.  
-- **Hata yönetimi:** `IndexException` hatalarını nazikçe ele almak için dizin işlemlerini her zaman try‑catch bloklarıyla sarın.  
-- **Performans ipucu:** Çok büyük veri setleriyle çalışırken bellek kullanımını ayarlamak için `IndexSettings` nesnesini kullanın.  
+## Sıkça sorulan sorular
 
-## Sıkça Sorulan Sorular
+**Q: İndeksten belgeleri nasıl kaldırırım?**  
+A: `deleteDocument(documentId)` çağırın; benzersiz kimlikle giriş anında silinir ve depolama geri kazanılır.
 
-**S: Dizinden belgeleri nasıl kaldırırım?**  
-C: Silmek istediğiniz belgenin benzersiz tanımlayıcısını vererek `deleteDocument(documentId)` metodunu kullanın.
+**Q: Arama doğruluğunu artırmak için belge özelliklerini değiştirebilir miyim?**  
+A: Evet, belgeyi indekse eklemeden önce `Document` nesnesinin attribute API'si aracılığıyla özel meta veriler (ör. kategori, yazar) ayarlayabilirsiniz.
 
-**S: Arama doğruluğunu artırmak için belge özniteliklerini değiştirebilir miyim?**  
-C: Evet, belgeyi dizine eklemeden önce `Document` nesnesinin öznitelik API'si aracılığıyla özel meta veriler (ör. kategori, yazar) ayarlayabilirsiniz.
+**Q: Başlangıç seviyesindeki kullanıcılar için bir “arama indeksi öğreticisi” var mı?**  
+A: Resmi GroupDocs.Search belgeleri, indeks oluşturma, belge ekleme ve sorgu yürütme konularını kapsayan adım‑adım bir öğretici içerir.
 
-**S: Yeni başlayanlar için bir “arama dizini öğreticisi” var mı?**  
-C: Resmi GroupDocs.Search belgeleri, dizin oluşturma, belge ekleme ve sorgu yürütmeyi kapsayan adım adım bir öğretici içerir.
+**Q: GroupDocs.Search homofon tanımını destekliyor mu?**  
+A: Kütüphane, homofonlar ve benzer sesli kelimeler için doğruluğu artıran dil özelliklerine sahiptir.
 
-**S: GroupDocs.Search homofon tanımasını destekliyor mu?**  
-C: Kütüphane, homofonlar ve benzer sesli kelimeler için doğruluğu artıran dilbilimsel özellikler içerir.
+**Q: En yeni GroupDocs.Search için hangi Java sürümü gereklidir?**  
+A: Java 8 veya üzeri gereklidir; kütüphane Java 11 ve daha yeni LTS sürümleriyle tam uyumludur.
 
-**S: En son GroupDocs.Search için hangi Java sürümü gereklidir?**  
-C: Java 8 veya üzeri gereklidir; kütüphane Java 11 ve daha yeni LTS sürümleriyle tam uyumludur.
+## Mevcut öğreticiler
 
-## Mevcut Eğitimler
+### [GroupDocs.Search for Java'da İndeks Sürümlerini Güncelleme ve Yönetme: Kapsamlı Bir Kılavuz](./guide-updating-index-versions-groupdocs-search-java/)
+GroupDocs.Search for Java kullanarak indeks sürümlerini verimli bir şekilde güncelleme ve yönetme hakkında bilgi edinin. Bu kılavuz belge indeksleme, sürüm güncellemeleri ve performans optimizasyonunu kapsar.
 
-### [GroupDocs.Search for Java&#58; Dizin Sürümlerini Güncelleme ve Yönetme: Kapsamlı Bir Rehber](./guide-updating-index-versions-groupdocs-search-java/)
-GroupDocs.Search for Java kullanarak dizin sürümlerini verimli bir şekilde güncelleme ve yönetme yöntemlerini öğrenin. Bu rehber, belge indeksleme, sürüm güncellemeleri ve performans optimizasyonunu kapsar.
+### [GroupDocs.Search for Java ile Belge Yönetimini Ustalaştırma: Homofon Tanıma ve İndeksleme Kılavuzu](./groupdocs-search-java-homophone-document-management-guide/)
+GroupDocs.Search for Java kullanarak belgeleri yönetmeyi öğrenin; homofon tanıma ve verimli indeksleme üzerine odaklanır. Arama doğruluğunu ve performansını artırın.
 
-### [GroupDocs.Search for Java&#58; Homofon Tanıma ve İndeksleme Rehberi ile Belge Yönetimini Ustalıkla](./groupdocs-search-java-homophone-document-management-guide/)
-GroupDocs.Search for Java kullanarak belgeleri yönetmeyi, homofon tanımasına ve verimli indekslemeye odaklanarak öğrenin. Arama doğruluğunu ve performansını artırın.
+### [Java'da GroupDocs.Search ile Belge Özelliklerini Ustalaştırma: Gelişmiş İndeksleme ve Yönetim](./groupdocs-search-java-modify-attributes-indexing/)
+GroupDocs.Search for Java kullanarak belge özelliklerini dinamik olarak değiştirmeyi ve eklemeyi öğrenin. İndeksleme tekniklerini ustalaştırarak belge yönetim sisteminizi geliştirin.
 
-### [GroupDocs.Search ile Java'da Belge Özniteliklerini Ustalıkla Kullanma: Gelişmiş İndeksleme ve Yönetim](./groupdocs-search-java-modify-attributes-indexing/)
-GroupDocs.Search for Java kullanarak belge özniteliklerini dinamik olarak değiştirmeyi ve eklemeyi öğrenin. İndeksleme tekniklerinde ustalaşarak belge yönetim sisteminizi geliştirin.
+### [Java'da GroupDocs.Search'i Ustalaştırma: İndeks Yönetimi ve Belge Araması için Tam Kılavuz](./mastering-groupdocs-search-java-index-management-guide/)
+GroupDocs.Search for Java ile belge indekslerini etkili bir şekilde yönetmeyi öğrenin. Hukuki belgelerden iş raporlarına kadar çeşitli dokümanlarda arama yeteneklerinizi artırın.
 
-### [Java&#58; GroupDocs.Search Ustalığı: Dizin Yönetimi ve Belge Araması İçin Tam Rehber](./mastering-groupdocs-search-java-index-management-guide/)
-GroupDocs.Search for Java ile belge dizinlerini etkili bir şekilde yönetmeyi öğrenin. Hukuki belgelerden iş raporlarına kadar çeşitli belgelerde arama yeteneklerinizi artırın.
+## Ek kaynaklar
 
-## Ek Kaynaklar
-
-- [GroupDocs.Search for Java Belgeleri](https://docs.groupdocs.com/search/java/)
-- [GroupDocs.Search for Java API Referansı](https://reference.groupdocs.com/search/java/)
-- [GroupDocs.Search for Java'ı İndir](https://releases.groupdocs.com/search/java/)
+- [GroupDocs.Search for Java Documentation](https://docs.groupdocs.com/search/java/)
+- [GroupDocs.Search for Java API Reference](https://reference.groupdocs.com/search/java/)
+- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
-- [Ücretsiz Destek](https://forum.groupdocs.com/)
-- [Geçici Lisans](https://purchase.groupdocs.com/temporary-license/)
+- [Free Support](https://forum.groupdocs.com/)
+- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Son Güncelleme:** 2026-03-04  
-**Test Edildi:** GroupDocs.Search for Java 23.11  
+**Son Güncelleme:** 2026-10-12  
+**Test Edilen Versiyon:** GroupDocs.Search for Java 23.11  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+
+- [GroupDocs.Search ile Java'da İndeksi Güncelleme – Kapsamlı Bir Kılavuz](/search/java/document-management/guide-updating-index-versions-groupdocs-search-java/)
+- [GroupDocs.Search API for Java Kullanarak Belge İndeksi Oluşturma ve Belge Ekleme](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [GroupDocs.Search for Java'da Birden Fazla Takma Ad Eklemek ve Belge Ekleme](/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/)

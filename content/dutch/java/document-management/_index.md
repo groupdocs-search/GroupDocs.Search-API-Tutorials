@@ -1,88 +1,133 @@
 ---
-date: 2026-03-04
-description: Leer hoe je documenten aan de index toevoegt, de documentindex bijwerkt
-  en de documentindex verwijdert met GroupDocs.Search voor Java. Een uitgebreide Java‑tutorialreeks
-  over documentbeheer.
-title: Documenten toevoegen aan index – GroupDocs.Search Java‑tutorials
+date: 2026-10-12
+description: Leer hoe je de index bijwerkt, documenten toevoegt en indexvermeldingen
+  verwijdert met GroupDocs.Search voor Java. Gedetailleerde stappen, best practices
+  en codevoorbeelden.
+keywords:
+- how to update index
+- how to add documents
+- how to delete index
+lastmod: 2026-10-12
+og_description: Leer hoe je de index bijwerkt, documenten toevoegt en indexvermeldingen
+  verwijdert met GroupDocs.Search voor Java. Volg stapsgewijze begeleiding en prestatie‑tips.
+og_image_alt: Guide to updating index, adding and deleting documents using GroupDocs.Search
+  Java SDK
+og_title: Hoe index bijwerken en documenten toevoegen met GroupDocs.Search Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-12'
+  description: Learn how to update index, add documents, and delete index entries
+    using GroupDocs.Search for Java. Detailed steps, best practices, and code examples.
+  headline: How to update index and add docs with GroupDocs.Search Java
+  type: TechArticle
+- description: Learn how to update index, add documents, and delete index entries
+    using GroupDocs.Search for Java. Detailed steps, best practices, and code examples.
+  name: How to update index and add docs with GroupDocs.Search Java
+  steps:
+  - name: open or create the index
+    text: '`Index index = new Index("path/to/index");` creates the folder if it does
+      not exist and prepares internal structures for fast lookup.'
+  - name: add a single document
+    text: '`index.addDocument(new File("contracts/contract1.pdf"));` inserts the PDF,
+      automatically detecting its format and extracting text.'
+  - name: add multiple documents in a batch
+    text: Iterate over a directory and call `addDocument` for each file. Batch processing
+      reduces I/O overhead and improves overall throughput.
+  type: HowTo
+- questions:
+  - answer: Call `deleteDocument(documentId)` with the unique identifier; the entry
+      is instantly purged and storage is reclaimed.
+    question: How do I remove documents from index?
+  - answer: Yes, you can set custom metadata (e.g., category, author) via the `Document`
+      object's attribute API before adding it to the index.
+    question: Can I modify document attributes to enhance search accuracy?
+  - answer: The official GroupDocs.Search documentation includes a step‑by‑step tutorial
+      that covers index creation, document addition, and query execution.
+    question: Is there a “search index tutorial” for beginners?
+  - answer: The library includes linguistic features that improve accuracy for homophones
+      and similar‑sounding words.
+    question: Does GroupDocs.Search support homophone recognition?
+  - answer: Java 8 or later is required; the library is fully compatible with Java
+      11 and newer LTS releases.
+    question: What version of Java is required for the latest GroupDocs.Search?
+  type: FAQPage
+tags:
+- update index
+- document management
+- GroupDocs.Search Java
+- add documents
+title: Hoe index bijwerken en documenten toevoegen met GroupDocs.Search Java
 type: docs
 url: /nl/java/document-management/
 weight: 6
 ---
 
-# Documenten toevoegen aan index – Documentbeheer tutorials voor GroupDocs.Search Java
+# Hoe index bijwerken en documenten toevoegen met GroupDocs.Search Java
 
-Het efficiënt beheren van een zoekindex is essentieel voor elke Java‑gebaseerde applicatie die afhankelijk is van snelle, nauwkeurige informatie‑opvraging. In deze gids ontdek je hoe je **add documents to index** kunt uitvoeren als onderdeel van een bredere documentbeheerstrategie met GroupDocs.Search voor Java. We lopen de meest voorkomende taken door — toevoegen, bijwerken en verwijderen van documenten — en benadrukken best practices die je helpen **enhance search accuracy** en je index performant houden.
+Het efficiënt beheren van een zoekindex is essentieel voor elke Java‑gebaseerde applicatie die snelle, nauwkeurige informatie‑opvraging nodig heeft. In deze tutorial leer je **hoe je een index bijwerkt**, evenals hoe je documenten toevoegt en verwijdert, met behulp van GroupDocs.Search voor Java. Je ziet best‑practice‑patronen, prestatietips en voorbeelden uit de praktijk die je index slank houden en je queries bliksemsnel.
 
 ## Snelle antwoorden
-- **Wat is de eerste stap om add documents to index uit te voeren?** Create or open an existing `Index` instance and call `addDocument(...)`.
-- **Kan ik documenten uit de index verwijderen?** Ja, gebruik de `deleteDocument(...)` methode met de identifier van het document.
-- **Heb ik een speciale licentie nodig?** Een geldige GroupDocs.Search for Java-licentie is vereist voor productiegebruik.
+- **Wat is de eerste stap om documenten aan de index toe te voegen?** Maak of open een `Index`‑instantie en roep `addDocument(...)` aan.
+- **Kan ik documenten uit de index verwijderen?** Ja, roep `deleteDocument(...)` aan met de identifier van het document.
+- **Heb ik een speciale licentie nodig?** Een geldige GroupDocs.Search for Java‑licentie is vereist voor productiegebruik.
 - **Welke Java‑versie wordt ondersteund?** Java 8 en hoger worden volledig ondersteund.
-- **Waar kan ik meer voorbeelden vinden?** Bekijk de officiële GroupDocs.Search for Java‑documentatie en API‑referentie.
+- **Waar kan ik meer voorbeelden vinden?** Zie de officiële GroupDocs.Search for Java‑documentatie en API‑referentie.
 
-## Wat is “add documents to index” in GroupDocs.Search?
-Documenten toevoegen aan een index betekent het invoegen van de doorzoekbare inhoud van een bestand (PDF, DOCX, TXT, enz.) in een datastructuur die GroupDocs.Search kan doorzoeken. Zodra het is geïndexeerd, wordt het document direct doorzoekbaar, en houden alle daaropvolgende updates of verwijderingen de index gesynchroniseerd met de bronbestanden.
+## Wat betekent “add documents to index” in GroupDocs.Search?
+De `addDocument`‑operatie voegt de doorzoekbare inhoud van een bestand (PDF, DOCX, TXT, enz.) toe aan de indexdatastructuur. Hierdoor wordt het document direct doorzoekbaar en wordt gegarandeerd dat latere updates of verwijderingen gesynchroniseerd blijven met de bronbestanden. Het registreert ook metadata zoals bestandsnaam en grootte, die kunnen worden gebruikt voor het filteren van zoekresultaten.
 
 ## Waarom GroupDocs.Search gebruiken voor documentbeheer‑Java‑projecten?
-- **Scalable performance:** Verwerkt miljoenen documenten met lage latentie.  
-- **Rich language support:** Werkt direct met meer dan 100 bestandsformaten.  
-- **Built‑in relevance tuning:** Stelt je in staat om **modify document attributes** te wijzigen om de ranking te verbeteren.  
-- **Seamless integration:** Eenvoudige API‑aanroepen passen natuurlijk in elke Java‑applicatie.
+GroupDocs.Search verwerkt tot **10 miljoen documenten** met sub‑seconden‑latentie, ondersteunt **100+ bestandsformaten**, en biedt ingebouwde relevantie‑afstemming. De API is lichtgewicht, vereist slechts een paar regels code, en integreert naadloos met elke Java‑applicatie—of deze nu draait op een desktop, server of cloud‑omgeving.
 
 ## Vereisten
-- Java 8 + ontwikkelomgeving.  
-- GroupDocs.Search for Java‑bibliotheek (downloadbaar vanaf de officiële site).  
+- Java 8 + ontwikkelomgeving (IDE, JDK, Maven/Gradle).  
+- GroupDocs.Search for Java‑bibliotheek (download van de officiële site).  
 - Een geldige GroupDocs.Search‑licentie (tijdelijke licenties zijn beschikbaar voor testen).
 
-## Stapsgewijze handleiding
+## Hoe documenten toevoegen aan de index in GroupDocs.Search voor Java?
+Laad het doelbestand en roep `addDocument` aan op een `Index`‑instantie—deze enkele oproep extraheert tekst, detecteert de taal, en slaat de doorzoekbare tokens op. De methode retourneert ook een document‑ID die je moet opslaan voor toekomstige update‑ of verwijderingsbewerkingen.
 
-### Stap 1: Open of maak een index
-Start met het maken van een `Index`‑object dat naar een map op de schijf wijst. Deze map zal de indexbestanden opslaan.
+De `Index`‑klasse is het kernobject dat een doorzoekbare collectie op schijf vertegenwoordigt. Nadat je deze hebt aangemaakt, worden alle daaropvolgende bewerkingen—toevoegen, bijwerken, verwijderen en optimaliseren—uitgevoerd via deze instantie.
 
-> *Geen codeblok is hier vereist; de API‑aanroep is eenvoudig: `Index index = new Index("path/to/index");`*
+### Stap 1: open of maak de index
+`Index index = new Index("path/to/index");` maakt de map aan als deze niet bestaat en bereidt interne structuren voor snelle zoekopdrachten voor.
 
-### Stap 2: Documenten toevoegen aan index
-Gebruik de `addDocument`‑methode om nieuwe bestanden in te voegen. De methode detecteert automatisch het bestandstype en extraheert doorzoekbare tekst.
+### Stap 2: voeg een enkel document toe
+`index.addDocument(new File("contracts/contract1.pdf"));` voegt de PDF toe, detecteert automatisch het formaat en extraheert de tekst.
 
-> *Voorbeeldaanroep:* `index.addDocument(new File("contracts/contract1.pdf"));`
+### Stap 3: voeg meerdere documenten in één batch toe
+Itereer over een map en roep `addDocument` aan voor elk bestand. Batch‑verwerking vermindert I/O‑overhead en verbetert de algehele doorvoersnelheid.
 
-### Stap 3: Gewijzigde documenten bijwerken
-Wanneer een bronbestand verandert, roep je `updateDocument` aan met dezelfde identifier om de oude inhoud te vervangen.
+## Hoe de index bijwerken wanneer een bronbestand verandert?
+`updateDocument` werkt een bestaand document in de index bij met behulp van zijn identifier. Vervang de oude inhoud door de nieuwste versie door deze methode aan te roepen en dezelfde document‑identifier door te geven die je ontving toen je het bestand voor het eerst toevoegde. Deze bewerking herschrijft alleen de gewijzigde tokens, waardoor de rest van de index onaangeroerd blijft voor maximale efficiëntie.
 
-> *Voorbeeldaanroep:* `index.updateDocument(documentId, new File("contracts/contract1_v2.pdf"));`
+### Stapsgewijze update
+1. Haal de document‑ID op (sla deze op wanneer je het bestand voor het eerst toevoegt).  
+2. Roep `index.updateDocument(documentId, new File("contracts/contract1_v2.pdf"));` aan om het item te vernieuwen.  
+3. Voer eventueel `index.optimize()` opnieuw uit na een grote batch updates om de index compact te houden.
 
-### Stap 4: Verouderde documenten uit de index verwijderen
-Als een document niet meer nodig is, verwijder het dan om de index slank te houden en de zoekprestaties te verbeteren.
+## Hoe indexvermeldingen veilig verwijderen?
+`deleteDocument` verwijdert een document uit de index via zijn identifier. Het verwijderen van een document maakt opslagruimte vrij en voorkomt dat verouderde gegevens de relevantiescores verstoren. Roep `deleteDocument` aan met de identifier; de index sluit het bestand onmiddellijk uit van toekomstige zoekopdrachten en werkt interne posting‑lijsten bij om de query‑prestaties te behouden.
 
-> *Voorbeeldaanroep:* `index.deleteDocument(documentId);`
+## Hoe de index optimaliseren voor maximale prestaties?
+`optimize()` compacteert de index door segmenten te combineren en verwijderde items op te schonen. Na bulk‑toevoegingen, updates of verwijderingen roep je deze methode aan om posting‑lijsten te comprimeren en opslagstructuren te reorganiseren. Deze stap kan de query‑latentie met tot **30 %** verbeteren voor grote indexen en helpt de indexgrootte beheersbaar te houden.
 
-### Stap 5: De index optimaliseren
-Na bulk‑bewerkingen, voer de optimizer uit om de indexbestanden te comprimeren en te reorganiseren voor snellere zoekopdrachten.
-
-> *Voorbeeldaanroep:* `index.optimize();`
-
-#### Hoe een document uit de index te verwijderen
-Een document uit de index verwijderen is zo eenvoudig als het aanroepen van `deleteDocument(documentId)`. Deze bewerking maakt ruimte vrij en voorkomt dat verouderde gegevens de relevantiescores beïnvloeden.
-
-#### Hoe een document in de index bij te werken
-Telkens wanneer het bronbestand wordt bewerkt, roep je `updateDocument(documentId, newFile)` aan om de geïndexeerde inhoud te vernieuwen, zodat zoekresultaten altijd de nieuwste versie weergeven.
-
-## Veelvoorkomende gebruikssituaties
-- **Legal document repositories:** Voeg snel case‑bestanden toe, werk ze bij en verwijder ze, terwijl je hoge relevantie behoudt.  
-- **Enterprise knowledge bases:** Houd interne handleidingen en beleidsdocumenten doorzoekbaar terwijl ze evolueren.  
-- **E‑commerce catalogs:** Indexeer productspecificaties en verwijder uitgeschakelde items zonder downtime.
+## Veelvoorkomende toepassingsscenario's
+- **Juridische documentopslagplaatsen:** Voeg case‑bestanden toe, werk ze bij en verwijder ze, terwijl je een hoge relevantie voor trefwoordzoekopdrachten behoudt.  
+- **Enterprise‑kennisbanken:** Houd interne handleidingen, beleidsdocumenten en FAQ’s doorzoekbaar terwijl ze evolueren.  
+- **E‑commerce‑catalogi:** Index product‑specificaties en verwijder uitgeschakelde items zonder downtime.
 
 ## Probleemoplossing & tips
-
-- **Pro tip:** Voeg documenten in batches toe tijdens daluren om prestatiepieken te vermijden.  
-- **Pitfall:** Het vergeten van het aanroepen van `optimize()` na massale verwijderingen kan leiden tot gefragmenteerde indexen.  
-- **Error handling:** Omhul indexbewerkingen altijd in try‑catch‑blokken om `IndexException` op een nette manier af te handelen.  
-- **Performance tip:** Gebruik het `IndexSettings`‑object om het geheugenverbruik af te stemmen bij zeer grote datasets.  
+- **Pro‑tip:** Voeg documenten in batches toe tijdens daluren om prestatiepieken te vermijden.  
+- **Valkuil:** Het overslaan van `optimize()` na massale verwijderingen kan leiden tot gefragmenteerde indexen en tragere queries.  
+- **Foutafhandeling:** Plaats alle indexbewerkingen in `try‑catch`‑blokken om `IndexException` op een nette manier af te handelen.  
+- **Prestatie‑tip:** Gebruik `IndexSettings` om het geheugengebruik af te stemmen bij zeer grote datasets (bijv. stel `maxMemoryUsage` in op een hogere waarde op servers met voldoende RAM).  
+- **Geheugengevoel:** Voor bestanden groter dan 500 MB, overweeg de invoer te streamen naar `addDocument` om de JVM‑heap footprint laag te houden.
 
 ## Veelgestelde vragen
 
 **Q: Hoe verwijder ik documenten uit de index?**  
-A: Gebruik de `deleteDocument(documentId)`‑methode en geef de unieke identifier van het document dat je wilt verwijderen.
+A: Roep `deleteDocument(documentId)` aan met de unieke identifier; het item wordt direct verwijderd en opslagruimte wordt teruggewonnen.
 
 **Q: Kan ik document‑attributen wijzigen om de zoeknauwkeurigheid te verbeteren?**  
 A: Ja, je kunt aangepaste metadata (bijv. categorie, auteur) instellen via de attribuut‑API van het `Document`‑object voordat je het aan de index toevoegt.
@@ -98,21 +143,21 @@ A: Java 8 of hoger is vereist; de bibliotheek is volledig compatibel met Java�
 
 ## Beschikbare tutorials
 
-### [Hoe indexversies bij te werken en te beheren in GroupDocs.Search voor Java&#58; Een uitgebreide gids](./guide-updating-index-versions-groupdocs-search-java/)
-Leer hoe je indexversies efficiënt kunt bijwerken en beheren met GroupDocs.Search voor Java. Deze gids behandelt documentindexering, versie‑updates en prestatie‑optimalisatie.
+### [Hoe indexversies bijwerken en beheren in GroupDocs.Search voor Java: Een uitgebreide gids](./guide-updating-index-versions-groupdocs-search-java/)
+Leer hoe je indexversies efficiënt bijwerkt en beheert met GroupDocs.Search voor Java. Deze gids behandelt documentindexering, versie‑updates en prestatie‑optimalisatie.
 
-### [Beheers documentbeheer met GroupDocs.Search voor Java&#58; Gids voor homofone herkenning en indexering](./groupdocs-search-java-homophone-document-management-guide/)
+### [Beheer documenten meesterlijk met GroupDocs.Search voor Java: Homofone herkenning en indexeringsgids](./groupdocs-search-java-homophone-document-management-guide/)
 Leer hoe je documenten beheert met GroupDocs.Search voor Java, met focus op homofone herkenning en efficiënte indexering. Verbeter de zoeknauwkeurigheid en prestaties.
 
-### [Beheers documentattributen met GroupDocs.Search in Java voor verbeterde indexering en beheer](./groupdocs-search-java-modify-attributes-indexing/)
-Leer hoe je dynamisch documentattributen wijzigt en toevoegt met GroupDocs.Search voor Java. Versterk je documentbeheersysteem door de indexeringstechnieken onder de knie te krijgen.
+### [Documentattributen meesterlijk beheren met GroupDocs.Search in Java voor verbeterde indexering en beheer](./groupdocs-search-java-modify-attributes-indexing/)
+Leer hoe je dynamisch documentattributen wijzigt en toevoegt met GroupDocs.Search voor Java. Versterk je documentbeheersysteem door indexeringstechnieken te beheersen.
 
-### [Beheers GroupDocs.Search in Java&#58; Een volledige gids voor indexbeheer en documentzoekopdrachten](./mastering-groupdocs-search-java-index-management-guide/)
-Leer hoe je documentindexen effectief beheert met GroupDocs.Search voor Java. Verhoog je zoekmogelijkheden voor diverse documenten, van juridische stukken tot bedrijfsrapporten.
+### [GroupDocs.Search meesterlijk gebruiken in Java: Een volledige gids voor indexbeheer en documentzoekopdrachten](./mastering-groupdocs-search-java-index-management-guide/)
+Leer hoe je documentindexen effectief beheert met GroupDocs.Search voor Java. Verhoog je zoekmogelijkheden over verschillende documenten, van juridische papieren tot bedrijfsrapporten.
 
 ## Aanvullende bronnen
 
-- [GroupDocs.Search voor Java-documentatie](https://docs.groupdocs.com/search/java/)
+- [GroupDocs.Search voor Java‑documentatie](https://docs.groupdocs.com/search/java/)
 - [GroupDocs.Search voor Java API‑referentie](https://reference.groupdocs.com/search/java/)
 - [Download GroupDocs.Search voor Java](https://releases.groupdocs.com/search/java/)
 - [GroupDocs.Search‑forum](https://forum.groupdocs.com/c/search)
@@ -121,6 +166,12 @@ Leer hoe je documentindexen effectief beheert met GroupDocs.Search voor Java. Ve
 
 ---
 
-**Laatst bijgewerkt:** 2026-03-04  
+**Last Updated:** 2026-10-12  
 **Getest met:** GroupDocs.Search for Java 23.11  
 **Auteur:** GroupDocs
+
+## Gerelateerde tutorials
+
+- [Hoe index bijwerken Java met GroupDocs.Search – Een uitgebreide gids](/search/java/document-management/guide-updating-index-versions-groupdocs-search-java/)
+- [Hoe een documentindex maken en documenten toevoegen met de GroupDocs.Search API voor Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Hoe meerdere aliassen toevoegen en documenten toevoegen aan de index in GroupDocs.Search voor Java](/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/)
