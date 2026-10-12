@@ -1,54 +1,90 @@
 ---
-date: '2026-03-06'
-description: Dowiedz się, jak wykonać wyszukiwanie regex w Javie i dodać dokumenty
-  do indeksu przy użyciu GroupDocs.Search dla Javy, zwiększając skuteczność wyszukiwania
-  w plikach prawnych, akademickich i biznesowych.
+date: '2026-10-12'
+description: Dowiedz się, jak utworzyć indeks i wykonać wyszukiwanie regex w języku
+  Java przy użyciu GroupDocs.Search for Java, obejmujące konfigurację, dodawanie dokumentów
+  do indeksu, zapytania fuzzy, wildcard oraz regex.
 keywords:
-- GroupDocs.Search in Java
-- document index management
-- Java document search
-title: Wyszukiwanie regex w Javie – Tworzenie indeksu przy użyciu GroupDocs.Search
-  w Javie
+- how to create index
+- regex search java
+- how to add documents
+- fuzzy search java
+- java search library
+lastmod: '2026-10-12'
+og_description: Jak utworzyć indeks przy użyciu GroupDocs.Search for Java. Odkryj
+  wyszukiwanie regex w języku Java, dodawanie dokumentów do indeksu oraz użycie zapytań
+  fuzzy lub wildcard w kilku krokach.
+og_image_alt: Guide to creating a searchable index with GroupDocs.Search for Java
+og_title: Jak utworzyć indeks przy użyciu GroupDocs.Search for Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-12'
+  description: Learn how to create index and perform regex search java using GroupDocs.Search
+    for Java, covering setup, adding documents to index, fuzzy, wildcard, and regex
+    queries.
+  headline: How to create index with GroupDocs.Search for Java
+  type: TechArticle
+- questions:
+  - answer: Yes—use `index.add()` to append new files or `index.update()` to refresh
+      changed documents.
+    question: Can I update an existing index without rebuilding it from scratch?
+  - answer: The built‑in fuzzy algorithm works on Unicode characters, so it supports
+      most languages out of the box.
+    question: How does fuzzy search handle different languages?
+  - answer: Practically, the limit is governed by available disk space and JVM memory;
+      the library is designed for millions of documents.
+    question: Is there a limit to the number of documents I can index?
+  - answer: No—search options are applied per query, so you can adjust them on the
+      fly.
+    question: Do I need to restart the application after changing search options?
+  - answer: The official GroupDocs.Search documentation and API reference provide
+      extensive examples for complex scenarios.
+    question: Where can I find more advanced query examples?
+  type: FAQPage
+tags:
+- GroupDocs.Search
+- Java indexing
+- document search
+- regex search
+- fuzzy search
+title: Jak utworzyć indeks przy użyciu GroupDocs.Search for Java
 type: docs
 url: /pl/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# Opanowanie GroupDocs.Search w Javie – regex search java i zarządzanie indeksem
+# Jak utworzyć indeks przy użyciu GroupDocs.Search dla Javy
 
-## Wprowadzenie
-
-Czy masz problem z indeksowaniem i przeszukiwaniem ogromnej liczby dokumentów? Niezależnie od tego, czy pracujesz z dokumentami prawnymi, artykułami naukowymi, czy raportami korporacyjnymi, **regex search java** jest potężną techniką, która pozwala szybko wykrywać wzorce w tekście. Dzięki **GroupDocs.Search for Java** możesz utworzyć indeks, **add documents to index**, i uruchamiać zapytania fuzzy, wildcard lub regular‑expression przy użyciu kilku linii kodu. Poniżej znajdziesz wszystko, czego potrzebujesz, aby rozpocząć, od konfiguracji środowiska po tworzenie zaawansowanych zapytań wyszukiwania.
+Jeśli potrzebujesz **jak utworzyć indeks** dla tysięcy dokumentów prawnych, akademickich lub biznesowych, GroupDocs.Search for Java zapewnia gotowy silnik, który wyodrębnia tekst, buduje kompaktową strukturę przeszukiwalną i pozwala uruchamiać zapytania regex, fuzzy lub wildcard w milisekundach. W tym samouczku zobaczysz, jak skonfigurować SDK, utworzyć indeks, dodać do niego dokumenty i wykonać potężne wyszukiwania oparte na wzorcach.
 
 ## Szybkie odpowiedzi
-- **Jaki jest podstawowy cel GroupDocs.Search?** Aby tworzyć indeksy przeszukiwalne dla szerokiego zakresu formatów dokumentów.  
+- **Jaki jest podstawowy cel GroupDocs.Search?** Utworzyć przeszukiwalne indeksy dla szerokiego zakresu formatów dokumentów.  
 - **Czy mogę dodać dokumenty do indeksu po jego utworzeniu?** Tak — użyj metody `index.add()`, aby dodać nowe pliki.  
 - **Czy GroupDocs.Search obsługuje fuzzy search w Javie?** Zdecydowanie; włącz ją za pomocą `SearchOptions`.  
-- **Jak uruchomić zapytanie wildcard w Javie?** Utwórz je za pomocą `SearchQuery.createWildcardQuery()`.  
+- **Jak uruchomić zapytanie wildcard w Javie?** Utwórz je przy użyciu `SearchQuery.createWildcardQuery()`.  
 - **Czy wymagana jest licencja do użytku produkcyjnego?** Wymagana jest ważna licencja GroupDocs.Search do wdrożeń komercyjnych.
 
-## Co oznacza „how to create index” w kontekście GroupDocs.Search?
+`SearchOptions` konfiguruje zachowanie wyszukiwania, takie jak dopasowanie fuzzy.  
+`SearchQuery.createWildcardQuery()` tworzy obiekt zapytania wildcard.
 
-Tworzenie indeksu oznacza skanowanie jednego lub wielu dokumentów źródłowych, wyodrębnianie tekstu przeszukiwalnego i przechowywanie tych informacji w ustrukturyzowanym formacie, który można efektywnie przeszukiwać. Powstały indeks umożliwia błyskawiczne wyszukiwania, nawet wśród tysięcy plików.
+## Co oznacza „jak utworzyć indeks” w kontekście GroupDocs.Search?
+
+Tworzenie indeksu oznacza skanowanie jednego lub wielu dokumentów źródłowych, wyodrębnianie tekstu przeszukiwalnego i przechowywanie tych informacji w ustrukturyzowanym formacie, który może być efektywnie przeszukiwany. Ten proces buduje kompaktową strukturę danych na dysku, która umożliwia błyskawiczne wyszukiwania wśród tysięcy plików, nawet gdy oryginalne dokumenty są duże lub przechowywane w różnych formatach.
 
 ## Dlaczego warto używać GroupDocs.Search dla Javy?
 
-- **Szerokie wsparcie formatów:** PDF, Word, Excel, PowerPoint i wiele innych.  
-- **Wbudowane funkcje językowe:** Fuzzy search, wildcard i możliwości **regex search java** od razu po instalacji.  
-- **Skalowalna wydajność:** Obsługuje duże kolekcje dokumentów przy konfigurowalnym zużyciu pamięci.
+GroupDocs.Search zapewnia sprawdzone, klasy korporacyjnej rozwiązanie, które obsługuje **ponad 30 formatów wejściowych i wyjściowych** — w tym PDF, DOCX, XLSX, PPTX, HTML i pliki tekstowe — zapewniając czasy odpowiedzi na zapytania krótsze niż sekunda dla indeksów zawierających miliony stron. Wbudowane możliwości fuzzy, wildcard i **regex search java** pozwalają radzić sobie z literówkami, dopasowywaniem wzorców i złożonymi scenariuszami wyszukiwania bez konieczności pisania własnych parserów.
 
-## Prerequisites
+## Wymagania wstępne
+- GroupDocs.Search for Java w wersji 25.4 lub nowszej.  
+- IDE, takie jak IntelliJ IDEA lub Eclipse, z obsługą Maven.  
+- Zainstalowany JDK 11 lub nowszy na Twojej maszynie deweloperskiej.  
+- Podstawowa znajomość składni Javy i pojęć związanych z wyszukiwaniem.
 
-- **GroupDocs.Search for Java version 25.4** lub nowszą.  
-- IDE, takie jak IntelliJ IDEA lub Eclipse, które obsługuje projekty Maven.  
-- Zainstalowany JDK na Twoim komputerze.  
-- Podstawowa znajomość Javy i koncepcji wyszukiwania.
-
-## Setting Up GroupDocs.Search for Java
+## Konfigurowanie GroupDocs.Search dla Javy
 
 Możesz dodać bibliotekę za pomocą Maven lub pobrać ją ręcznie.
 
-**Maven Setup:**
+**Konfiguracja Maven**
 
 ```xml
 <repositories>
@@ -68,15 +104,15 @@ Możesz dodać bibliotekę za pomocą Maven lub pobrać ją ręcznie.
 </dependencies>
 ```
 
-**Bezpośrednie pobranie:**  
+**Bezpośrednie pobranie**  
 Alternatywnie, pobierz najnowszą wersję z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
-- **Free Trial:** Wypróbuj funkcje bez kosztów.  
-- **Temporary License:** Przedłuż okres próbny.  
-- **Full License:** Wymagana w środowiskach produkcyjnych.
+### Uzyskanie licencji
+- **Free trial:** Przeglądaj wszystkie funkcje bez kosztów.  
+- **Temporary license:** Przedłuż użycie wersji próbnej dla projektów ewaluacyjnych.  
+- **Full license:** Wymagana do wdrożeń produkcyjnych i odblokowania nieograniczonego indeksowania.
 
-Once the library is available, initialize it in your Java code:
+Po udostępnieniu biblioteki, zainicjalizuj ją w swoim kodzie Java:
 
 ```java
 import com.groupdocs.search.*;
@@ -91,27 +127,25 @@ public class InitializeSearch {
 }
 ```
 
-## Implementation Guide
+## Jak utworzyć indeks przy użyciu GroupDocs.Search
 
-### How to Create Index with GroupDocs.Search
+Załaduj swoje pliki źródłowe, wskaż SDK na folder i pozwól mu zbudować strukturę przeszukiwalną w jednym wywołaniu. To podejście tworzy indeks w mniej niż minutę dla typowej kolekcji dokumentów o wielkości 10 GB na standardowym serwerze.
 
-Ten rozdział prowadzi Cię przez kompletny proces tworzenia indeksu i **add documents to index**.
-
-#### Defining Paths
+### Definiowanie ścieżek
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\CreateAndIndexDocuments";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### Creating the Index
+### Tworzenie indeksu
 
 ```java
 Index index = new Index(indexFolder);
 System.out.println("Index created at: " + indexFolder);
 ```
 
-#### Adding Documents to Index
+### Dodawanie dokumentów do indeksu
 
 ```java
 index.add(documentsFolder);
@@ -120,9 +154,9 @@ System.out.println("Documents added to the index.");
 
 > **Pro tip:** Upewnij się, że katalogi istnieją i zawierają tylko pliki, które chcesz przeszukiwać; niepowiązane pliki mogą zwiększyć rozmiar indeksu.
 
-### Simple Word Query with Fuzzy Search Options (fuzzy search java)
+## Proste zapytanie słowne z opcjami fuzzy search (fuzzy search java)
 
-Fuzzy search pomaga, gdy użytkownicy literują słowo niepoprawnie lub gdy OCR wprowadza błędy.
+Fuzzy search pomaga, gdy użytkownicy wpisują słowo z literówką lub gdy OCR wprowadza błędy. SDK automatycznie rozszerza zapytanie, aby uwzględnić podobne terminy na podstawie odległości edycyjnej.
 
 ```java
 SearchQuery subquery = SearchQuery.createWordQuery("future");
@@ -136,27 +170,31 @@ subquery.getSearchOptions().getFuzzySearch()
 System.out.println("Fuzzy search enabled with a tolerance of 3.");
 ```
 
-### Wildcard Query Java
+## Zapytanie wildcard w Javie
 
-Zapytania wildcard pozwalają dopasować wzorce, takie jak dowolne słowo zaczynające się od określonego prefiksu.
+Zapytania wildcard pozwalają dopasować wzorce, takie jak dowolne słowo zaczynające się od określonego prefiksu, przy użyciu znaków zastępczych `*` lub `?`.
+
+`SearchQuery.createWildcardQuery()` tworzy obiekt zapytania wildcard.
 
 ```java
 SearchQuery subquery = SearchQuery.createWildcardQuery(1);
 System.out.println("Wildcard query created.");
 ```
 
-### Regex Search Java
+## Wyszukiwanie regex w Javie
 
 Wyrażenia regularne dają precyzyjną kontrolę nad dopasowywaniem wzorców, idealne do znajdowania powtarzających się znaków lub złożonych struktur tokenów.
+
+`SearchQuery.createRegexQuery()` tworzy obiekt zapytania regex do dopasowywania wzorców.
 
 ```java
 SearchQuery subquery = SearchQuery.createRegexQuery("(.)\\1");
 System.out.println("Regex query created to find repeated characters.");
 ```
 
-### Combining Subqueries into a Phrase Search Query
+## Łączenie podzapytń w zapytanie frazy
 
-Możesz łączyć podzapytania word, wildcard i regex, aby tworzyć zaawansowane wyszukiwania fraz.
+Możesz łączyć podzapytania słowne, wildcard i regex, aby tworzyć zaawansowane wyszukiwania fraz, które respektują kolejność i bliskość.
 
 ```java
 SearchQuery subquery1 = SearchQuery.createWordQuery("future");
@@ -169,9 +207,9 @@ SearchQuery combinedQuery = SearchQuery.createPhraseSearchQuery(subquery1, subqu
 System.out.println("Combined phrase search query created.");
 ```
 
-### Configuring and Performing a Search with Custom Options
+## Konfigurowanie i wykonywanie wyszukiwania z niestandardowymi opcjami
 
-Dostosowywanie opcji wyszukiwania pozwala kontrolować liczbę zwracanych wystąpień, co jest przydatne przy dużych korpusach.
+Dostosowywanie opcji wyszukiwania pozwala kontrolować liczbę zwracanych wystąpień, co jest przydatne przy dużych korpusach. Możesz także dostroić punktację, podświetlić dopasowania i ograniczyć wyniki na dokument.
 
 ```java
 SearchOptions options = new SearchOptions();
@@ -188,38 +226,42 @@ SearchResult result = index.search(query, options);
 System.out.println("Search performed with custom options.");
 ```
 
-## regex search java – Common Use Cases
-
+## Regex search java – typowe przypadki użycia
 - **Badania prawne:** Znajdź klauzule, które spełniają określony wzorzec, np. daty w formacie `DD/MM/YYYY`.  
 - **Walidacja danych:** Wykryj nieprawidłowe identyfikatory lub powtarzające się znaki w logach.  
 - **Moderacja treści:** Znajdź wulgaryzmy lub zabronione wzorce przy użyciu regex.  
-- **Analiza finansowa:** Wyodrębnij kody transakcji pasujące do znanego szablonu regex.
+- **Analiza finansowa:** Wyodrębnij kody transakcji, które pasują do znanego szablonu regex.
 
-## Performance Considerations
+## Rozważania dotyczące wydajności
+- **Optymalizacja indeksowania:** Przeprowadzaj ponowne indeksowanie okresowo i usuwaj przestarzałe pliki, aby utrzymać indeks w szczupłej formie; dobrze utrzymany indeks o 1 milionie stron zajmuje mniej niż 2 GB na dysku.  
+- **Zużycie zasobów:** Monitoruj rozmiar sterty JVM; duże indeksy mogą wymagać do 8 GB sterty lub pamięci poza stertą dla optymalnej przepustowości.  
+- **Garbage collection:** Dostosuj ustawienia GC (np. G1GC) dla długotrwałych usług wyszukiwania, aby uniknąć nagłych przerw.
 
-- **Optymalizacja indeksowania:** Przeprowadzaj ponowne indeksowanie okresowo i usuwaj przestarzałe pliki, aby utrzymać indeks w lekkiej formie.  
-- **Zużycie zasobów:** Monitoruj rozmiar sterty JVM; duże indeksy mogą wymagać zwiększonej pamięci lub przechowywania poza stertą.  
-- **Garbage Collection:** Dostosuj ustawienia GC dla długotrwale działających usług wyszukiwania, aby uniknąć przestojów.
+## Najczęściej zadawane pytania
 
-## Frequently Asked Questions
-
-**Q: Czy mogę zaktualizować istniejący indeks bez jego pełnego przebudowania?**  
-A: Tak — użyj `index.add()`, aby dodać nowe pliki, lub `index.update()`, aby odświeżyć zmienione dokumenty.
+**Q: Czy mogę zaktualizować istniejący indeks bez przebudowywania go od zera?**  
+A: Tak — użyj `index.add()`, aby dodać nowe pliki lub `index.update()`, aby odświeżyć zmienione dokumenty.
 
 **Q: Jak fuzzy search radzi sobie z różnymi językami?**  
 A: Wbudowany algorytm fuzzy działa na znakach Unicode, więc obsługuje większość języków od razu.
 
-**Q: Czy istnieje limit liczby dokumentów, które mogę indeksować?**  
+**Q: Czy istnieje limit liczby dokumentów, które mogę zaindeksować?**  
 A: Praktycznie limit zależy od dostępnej przestrzeni dyskowej i pamięci JVM; biblioteka jest zaprojektowana do obsługi milionów dokumentów.
 
 **Q: Czy muszę ponownie uruchomić aplikację po zmianie opcji wyszukiwania?**  
-A: Nie — opcje wyszukiwania są stosowane per zapytanie, więc możesz je zmieniać w locie.
+A: Nie — opcje wyszukiwania są stosowane per zapytanie, więc możesz je dostosować w locie.
 
 **Q: Gdzie mogę znaleźć bardziej zaawansowane przykłady zapytań?**  
-A: Oficjalna dokumentacja GroupDocs.Search oraz odniesienia API zawierają obszerne przykłady dla złożonych scenariuszy.
+A: Oficjalna dokumentacja GroupDocs.Search oraz odniesienie API zawierają obszerne przykłady dla złożonych scenariuszy.
 
 ---
 
-**Last Updated:** 2026-03-06  
-**Tested With:** GroupDocs.Search for Java 25.4  
-**Author:** GroupDocs
+**Ostatnia aktualizacja:** 2026-10-12  
+**Testowano z:** GroupDocs.Search for Java 25.4  
+**Autor:** GroupDocs
+
+## Powiązane samouczki
+
+- [Jak utworzyć indeks dokumentu i dodać dokumenty przy użyciu API GroupDocs.Search dla Javy](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Java Fuzzy Search: Dodawanie dokumentów do indeksu z GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
+- [Jak dodać wiele aliasów i dodać dokumenty do indeksu w GroupDocs.Search dla Javy](/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/)

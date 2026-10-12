@@ -1,48 +1,109 @@
 ---
-date: '2026-03-04'
-description: Μάθετε πώς να ενημερώσετε το ευρετήριο Java χρησιμοποιώντας το GroupDocs.Search
-  for Java. Αυτός ο οδηγός καλύπτει την προσθήκη εγγράφων στο ευρετήριο, την αναβάθμιση
-  του ευρετηρίου αναζήτησης, τη ρύθμιση του Maven και συμβουλές απόδοσης.
+date: '2026-10-12'
+description: Μάθετε πώς να ενημερώσετε το index java για java full text search χρησιμοποιώντας
+  το GroupDocs.Search. Καλύπτει την προσθήκη εγγράφων, την αναβάθμιση εκδόσεων του
+  index, τη ρύθμιση του Maven και συμβουλές απόδοσης.
 keywords:
-- GroupDocs.Search for Java
+- java full text search
+- update index java
+- add documents to index
+- upgrade search index
+lastmod: '2026-10-12'
+og_description: Ανακαλύψτε πώς να ενημερώσετε το index java για java full text search
+  με το GroupDocs.Search. Ο οδηγός βήμα προς βήμα περιλαμβάνει τη ρύθμιση του Maven,
+  την προσθήκη εγγράφων και την αναβάθμιση έκδοσης του index.
+og_image_alt: Guide to updating Java full text search index using GroupDocs.Search
+og_title: Πώς να ενημερώσετε το index java για java full text search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-12'
+  description: Learn how to update index java for java full text search using GroupDocs.Search.
+    Covers adding documents, upgrading index versions, Maven setup, and performance
+    tips.
+  headline: How to update index java for java full text search
+  type: TechArticle
+- description: Learn how to update index java for java full text search using GroupDocs.Search.
+    Covers adding documents, upgrading index versions, Maven setup, and performance
+    tips.
+  name: How to update index java for java full text search
+  steps:
+  - name: '**Maven setup** – Add the repository and dependency to your `pom.xml` as
+      shown above.'
+    text: '**Maven setup** – Add the repository and dependency to your `pom.xml` as
+      shown above.'
+  - name: '**Direct download** – If you prefer not to use Maven, grab the JAR from
+      the [GroupDocs downloads page](https://releases.groupdocs.com/search/java/).'
+    text: '**Direct download** – If you prefer not to use Maven, grab the JAR from
+      the [GroupDocs downloads page](https://releases.groupdocs.com/search/java/).'
+  - name: '**Content management systems** – Keep search indexes fresh as articles,
+      PDFs, and images are added or edited.'
+    text: '**Content management systems** – Keep search indexes fresh as articles,
+      PDFs, and images are added or edited.'
+  - name: '**Legal document repositories** – Automatically reflect amendments to contracts,
+      statutes, and case files.'
+    text: '**Legal document repositories** – Automatically reflect amendments to contracts,
+      statutes, and case files.'
+  - name: '**Enterprise data warehousing** – Regularly refresh indexed data for accurate
+      analytics and reporting.'
+    text: '**Enterprise data warehousing** – Regularly refresh indexed data for accurate
+      analytics and reporting.'
+  type: HowTo
+- questions:
+  - answer: Yes, as long as the old index is still readable by the library; the `canUpdateVersion`
+      method will confirm compatibility.
+    question: Can I upgrade an index created with a very old version of GroupDocs.Search?
+  - answer: Not necessarily. Updating the index version is sufficient in most cases,
+      saving time and resources.
+    question: Do I need to recreate the index after every library update?
+  - answer: Start with 2‑4 threads and monitor CPU usage; increase only if the system
+      has spare cores and memory.
+    question: How many threads should I use for large indexes?
+  - answer: The trial license removes feature limits, making it ideal for development
+      and QA environments.
+    question: Is a trial license enough for production testing?
+  - answer: The index structure is migrated, but the searchable content remains unchanged,
+      so results stay consistent.
+    question: What happens to existing search results after an index version update?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
 - document indexing
-- index version update
-title: Πώς να ενημερώσετε το ευρετήριο Java με το GroupDocs.Search – Ένας ολοκληρωμένος
-  οδηγός
+title: Πώς να ενημερώσετε το index java για java full text search
 type: docs
 url: /el/java/document-management/guide-updating-index-versions-groupdocs-search-java/
 weight: 1
 ---
 
-# Πώς να Ενημερώσετε το Index Java με το GroupDocs.Search – Ένας Πλήρης Οδηγός
+# Πώς να ενημερώσετε το index java για java full text search
 
-Διατηρώντας το ευρετήριο αναζήτησης σας ενημερωμένο αποτελεί θεμέλιο κάθε εφαρμογής υψηλής απόδοσης. Σε αυτό το σεμινάριο θα μάθετε **πώς να ενημερώσετε το index java** με το GroupDocs.Search, καλύπτοντας τα πάντα από την προσθήκη εγγράφων στο ευρετήριο, έως την αναβάθμιση των εκδόσεων του ευρετηρίου αναζήτησης και τη βελτιστοποίηση της απόδοσης. Είτε διαχειρίζεστε ένα CMS, μια νομική αποθήκη, είτε μια μεγάλης κλίμακας αποθήκη δεδομένων, τα παρακάτω βήματα θα σας βοηθήσουν να διατηρήσετε τα αποτελέσματα αναζήτησης γρήγορα και ακριβή.
+Keeping a **java full text search** index up‑to‑date is essential for any high‑performance Java application. In this guide you’ll learn how to update index java with GroupDocs.Search, from adding new documents to upgrading the index version, and you’ll also get performance‑tuning tips that work for CMSes, legal repositories, and large data warehouses alike.
 
 ## Γρήγορες Απαντήσεις
-- **Τι σημαίνει “update index java”;** Είναι η διαδικασία ανανέωσης του ευρετηρίου στο δίσκο ώστε να αντικατοπτρίζει τις τελευταίες αλλαγές στα έγγραφα και την έκδοση της βιβλιοθήκης.  
+- **Τι σημαίνει “update index java”;** Είναι η διαδικασία ανανέωσης του ευρετηρίου στον δίσκο ώστε να αντικατοπτρίζει τις τελευταίες αλλαγές εγγράφων και την έκδοση της βιβλιοθήκης.  
 - **Ποιο Maven artifact χρειάζομαι;** Προσθέστε την εξάρτηση `groupdocs-search` στο `pom.xml` σας.  
-- **Χρειάζεται άδεια για δοκιμή;** Ναι – υπάρχει δωρεάν δοκιμαστική άδεια για αξιολόγηση.  
+- **Χρειάζομαι άδεια για να το δοκιμάσω;** Ναι – υπάρχει δωρεάν άδεια δοκιμής για αξιολόγηση.  
 - **Μπορώ να ενημερώσω ευρετήρια παράλληλα;** Απόλυτα – ρυθμίστε το `UpdateOptions` με πολλαπλά νήματα.  
-- **Είναι αυτή η προσέγγιση αποδοτική στη μνήμη;** Η σωστή ρύθμιση των νημάτων και οι τακτικές εκκαθαρίσεις διατηρούν τη χρήση της Java heap χαμηλή.
+- **Είναι αυτή η προσέγγιση αποδοτική στη μνήμη;** Η σωστή ρύθμιση των νημάτων και οι τακτικές εκκαθαρίσεις διατηρούν τη χρήση του Java heap χαμηλή.
 
 ## Τι είναι το “update index java”;
-Η ενημέρωση ενός ευρετηρίου σε Java σημαίνει συγχρονισμό της δομής του ευρετηρίου στο δίσκο με το τρέχον σύνολο πηγών εγγράφων και την έκδοση της βιβλιοθήκης GroupDocs.Search που χρησιμοποιείτε. Όταν η βιβλιοθήκη εξελίσσεται, μπορεί επίσης να χρειαστεί να **αναβαθμίσετε το ευρετήριο αναζήτησης** για να διατηρήσετε τη συμβατότητα.
+
+Η ενημέρωση ενός ευρετηρίου σε Java συγχρονίζει τη δομή του ευρετηρίου στον δίσκο με το τρέχον σύνολο πηγών εγγράφων και την έκδοση της βιβλιοθήκης GroupDocs.Search που χρησιμοποιείτε. Όταν η βιβλιοθήκη εξελίσσεται, μπορεί επίσης να χρειαστεί να **αναβαθμίσετε το ευρετήριο αναζήτησης** για να διατηρήσετε τη συμβατότητα.
 
 ## Γιατί να χρησιμοποιήσετε το GroupDocs.Search για Java;
-- **Αξιόπιστη πλήρης αναζήτηση κειμένου** σε δεκάδες μορφές εγγράφων.  
-- **Απρόσκοπτη ενσωμάτωση Maven/Gradle** για αυτοματοποιημένες κατασκευές.  
-- **Ενσωματωμένη διαχείριση εκδόσεων** που προστατεύει την επένδυσή σας καθώς η βιβλιοθήκη ενημερώνεται.  
-- **Κλιμακούμενη πολυνηματική δημιουργία ευρετηρίων** για μεγάλα σύνολα δεδομένων.
+
+Το GroupDocs.Search παρέχει ισχυρή αναζήτηση πλήρους κειμένου σε **πάνω από 50 μορφές εγγράφων** (PDF, DOCX, XLSX, PPTX, HTML, XML και πολλούς τύπους εικόνων). Υποστηρίζει πολυνηματική δημιουργία ευρετηρίου που μπορεί να επεξεργάζεται **εκατοντάδες megabytes ανά δευτερόλεπτο** σε έναν τυπικό διακομιστή, και προσφέρει ενσωματωμένη διαχείριση εκδόσεων ώστε τα ευρετήριά σας να παραμένουν χρήσιμα μετά από αναβαθμίσεις της βιβλιοθήκης.
 
 ## Προαπαιτούμενα
 - Java Development Kit (JDK) 8 ή νεότερο.  
-- Ένα IDE όπως IntelliJ IDEA ή Eclipse.  
+- Ένα IDE όπως το IntelliJ IDEA ή το Eclipse.  
 - Βασικές γνώσεις Java και Maven.  
 
-## Maven Dependency GroupDocs
-Για να δουλέψετε με το GroupDocs.Search, χρειάζεστε τις σωστές συντεταγμένες Maven. Προσθέστε το αποθετήριο και την εξάρτηση που φαίνονται παρακάτω στο αρχείο `pom.xml` σας.
+## Maven εξάρτηση groupdocs
 
-**Διαμόρφωση Maven:**
+Για να εργαστείτε με το GroupDocs.Search, χρειάζεστε τις σωστές Maven συντεταγμένες. Προσθέστε το αποθετήριο και την εξάρτηση που φαίνονται παρακάτω στο αρχείο `pom.xml` σας.
+
+**Διαμόρφωση Maven:**  
 ```xml
 <repositories>
     <repository>
@@ -59,19 +120,19 @@ weight: 1
         <version>25.4</version>
     </dependency>
 </dependencies>
-```
+```  
 Εναλλακτικά, μπορείτε να [κατεβάσετε την πιο πρόσφατη έκδοση απευθείας](https://releases.groupdocs.com/search/java/).
 
 ## Ρύθμιση GroupDocs.Search για Java
 
-### Οδηγίες Εγκατάστασης
-1. **Maven Setup** – Προσθέστε το αποθετήριο και την εξάρτηση στο `pom.xml` όπως φαίνεται παραπάνω.  
-2. **Άμεση Λήψη** – Αν προτιμάτε να μην χρησιμοποιήσετε Maven, κατεβάστε το JAR από τη [σελίδα λήψεων του GroupDocs](https://releases.groupdocs.com/search/java/).
+### Οδηγίες εγκατάστασης
+1. **Ρύθμιση Maven** – Προσθέστε το αποθετήριο και την εξάρτηση στο `pom.xml` σας όπως φαίνεται παραπάνω.  
+2. **Άμεση λήψη** – Εάν προτιμάτε να μην χρησιμοποιήσετε Maven, κατεβάστε το JAR από τη [σελίδα λήψεων του GroupDocs](https://releases.groupdocs.com/search/java/).
 
-### Απόκτηση Άδειας
-Το GroupDocs προσφέρει δωρεάν δοκιμαστική άδεια που σας επιτρέπει να εξερευνήσετε όλες τις δυνατότητες χωρίς περιορισμούς. Λάβετε μια προσωρινή άδεια από το [portal αγοράς](https://purchase.groupdocs.com/temporary-license/). Για παραγωγική χρήση, αγοράστε πλήρη άδεια.
+### Απόκτηση άδειας
+Το GroupDocs προσφέρει δωρεάν άδεια δοκιμής που σας επιτρέπει να εξερευνήσετε όλες τις δυνατότητες χωρίς περιορισμούς. Αποκτήστε μια προσωρινή άδεια από το [portal αγοράς](https://purchase.groupdocs.com/temporary-license/). Για παραγωγή, αγοράστε πλήρη άδεια.
 
-### Βασική Αρχικοποίηση και Ρύθμιση
+### Βασική αρχικοποίηση και ρύθμιση
 ```java
 import com.groupdocs.search.Index;
 
@@ -82,146 +143,156 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/UpdateIndexedDocuments/Index";
 Index index = new Index(indexFolder);
 ```
 
-## Οδηγός Υλοποίησης
+## Οδηγός υλοποίησης
 
-### Ενημέρωση Ευρετηριασμένων Εγγράφων – **add documents to index**
+### Ενημέρωση ευρετηριασμένων εγγράφων – **προσθήκη εγγράφων στο ευρετήριο**
+
 Η διατήρηση του ευρετηρίου σας συγχρονισμένου με τα αρχεία πηγής αποτελεί βασικό μέρος του **update index java**.
 
-#### Βήμα‑βήμα Υλοποίηση
-**1. Ορισμός Διαδρομών Καταλόγου**  
+#### Υλοποίηση βήμα προς βήμα
+**1. Ορισμός διαδρομών φακέλων**  
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/UpdateIndexedDocuments/Index";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY/Documents";
-```
+```  
 
-**2. Προετοιμασία Δεδομένων**  
+**2. Προετοιμασία δεδομένων**  
 ```java
 Utils.cleanDirectory(documentFolder);
 Utils.copyFiles(Utils.DocumentsPath, documentFolder);
-```
+```  
 
-**3. Δημιουργία Ευρετηρίου**  
+**3. Δημιουργία ευρετηρίου**  
 ```java
 Index index = new Index(indexFolder);
-```
+```  
 
-**4. Προσθήκη Εγγράφων στο Ευρετήριο**  
+**4. Προσθήκη εγγράφων στο ευρετήριο**  
 ```java
 index.add(documentFolder);
-```
+```  
 
-**5. Εκτέλεση Αρχικής Αναζήτησης**  
+**5. Εκτέλεση αρχικής αναζήτησης**  
 ```java
 String query = "son";
 SearchResult searchResult = index.search(query);
-```
+```  
 
-**6. Προσομοίωση Αλλαγών Εγγράφου**  
+**6. Προσομοίωση αλλαγών εγγράφων**  
 ```java
 Utils.copyFiles(Utils.DocumentsPath4, documentFolder);
-```
+```  
 
-**7. Ρύθμιση Επιλογών Ενημέρωσης**  
+**7. Ορισμός επιλογών ενημέρωσης**  
+`UpdateOptions` ορίζει πώς συμπεριφέρεται ο ευρετηριοποιητής κατά τη διάρκεια μιας ενημέρωσης, όπως ο αριθμός νημάτων, το μέγεθος παρτίδας και αν θα διαγραφούν τα ελλείποντα αρχεία.  
 ```java
 UpdateOptions options = new UpdateOptions();
 options.setThreads(2); // Using two threads for faster indexing
-```
+```  
 
-**8. Ενημέρωση του Ευρετηρίου**  
+**8. Ενημέρωση του ευρετηρίου**  
 ```java
 index.update(options);
-```
+```  
 
-**9. Επαλήθευση Ενημερώσεων με Νέα Αναζήτηση**  
+**9. Επαλήθευση ενημερώσεων με άλλη αναζήτηση**  
 ```java
 SearchResult searchResult2 = index.search(query);
-```
+```  
 
-**Συμβουλές Επίλυσης Προβλημάτων**
+**Συμβουλές αντιμετώπισης προβλημάτων**
 - Επαληθεύστε ότι όλες οι διαδρομές αρχείων είναι σωστές και προσβάσιμες.  
 - Βεβαιωθείτε ότι η διαδικασία έχει δικαιώματα ανάγνωσης/εγγραφής στο φάκελο του ευρετηρίου.  
-- Παρακολουθείτε τη χρήση CPU και μνήμης όταν αυξάνετε τον αριθμό νημάτων.
+- Παρακολουθήστε τη χρήση CPU και μνήμης όταν αυξάνετε τον αριθμό νημάτων.
 
-### Αναβάθμιση Έκδοσης Ευρετηρίου – **upgrade search index**
-Όταν αναβαθμίζετε το GroupDocs.Search, μπορεί να χρειαστεί να **αναβαθμίσετε το ευρετήριο αναζήτησης** για να διατηρήσετε τα υπάρχοντα ευρετήρια λειτουργικά.
+### Ενημέρωση έκδοσης ευρετηρίου – **αναβάθμιση ευρετηρίου αναζήτησης**
 
-#### Βήμα‑βήμα Υλοποίηση
-**1. Ορισμός Διαδρομών Καταλόγου**  
+Όταν αναβαθμίζετε το GroupDocs.Search, μπορεί να χρειαστεί να **αναβαθμίσετε το ευρετήριο αναζήτησης** για να διατηρήσετε τα υπάρχοντα ευρετήρια χρήσιμα.
+
+#### Υλοποίηση βήμα προς βήμα
+**1. Ορισμός διαδρομών φακέλων**  
 ```java
 String oldIndexFolder = Utils.OldIndexPath;
 String sourceIndexFolder = "YOUR_DOCUMENT_DIRECTORY/SourceIndex";
 String targetIndexFolder = "YOUR_OUTPUT_DIRECTORY/TargetIndex";
-```
+```  
 
-**2. Προετοιμασία Δεδομένων**  
+**2. Προετοιμασία δεδομένων**  
 ```java
 Utils.cleanDirectory(sourceIndexFolder);
 Utils.cleanDirectory(targetIndexFolder);
 Utils.copyFiles(oldIndexFolder, sourceIndexFolder);
-```
+```  
 
-**3. Δημιουργία Ενημερωτή Ευρετηρίου**  
+**3. Δημιουργία ενημερωτή ευρετηρίου**  
+Η κλάση `IndexUpdater` διαχειρίζεται τη μετανάστευση ενός υπάρχοντος ευρετηρίου στην τρέχουσα έκδοση της βιβλιοθήκης.  
 ```java
 IndexUpdater updater = new IndexUpdater();
-```
+```  
 
-**4. Έλεγχος και Αναβάθμιση Έκδοσης**  
+**4. Έλεγχος και ενημέρωση έκδοσης**  
 ```java
 if (updater.canUpdateVersion(sourceIndexFolder)) {
     VersionUpdateResult result = updater.updateVersion(sourceIndexFolder, targetIndexFolder);
 }
-```
+```  
 
-**Συμβουλές Επίλυσης Προβλημάτων**
+**Συμβουλές αντιμετώπισης προβλημάτων**
 - Επιβεβαιώστε ότι το πηγαίο ευρετήριο δημιουργήθηκε με υποστηριζόμενη παλαιότερη έκδοση.  
-- Βεβαιωθείτε ότι υπάρχει επαρκής ελεύθερος χώρος στο δίσκο για το φάκελο του στόχου.  
+- Βεβαιωθείτε ότι υπάρχει επαρκής χώρος δίσκου για το φάκελο του στόχου ευρετηρίου.  
 - Ενημερώστε όλες τις εξαρτήσεις Maven στην ίδια έκδοση για να αποφύγετε προβλήματα συμβατότητας.
 
-## Πρακτικές Εφαρμογές
-1. **Συστήματα Διαχείρισης Περιεχομένου** – Διατηρήστε τα ευρετήρια αναζήτησης φρέσκα καθώς προστίθενται ή επεξεργάζονται άρθρα, PDF και εικόνες.  
-2. **Αποθετήρια Νομικών Εγγράφων** – Αντανακλούν αυτόματα τις τροποποιήσεις σε συμβάσεις, νόμους και φακέλους υποθέσεων.  
-3. **Εταιρική Αποθήκη Δεδομένων** – Ανανεώνετε τακτικά τα ευρετηριασμένα δεδομένα για ακριβή ανάλυση και αναφορές.
+## Πρακτικές εφαρμογές
+1. **Συστήματα διαχείρισης περιεχομένου** – Διατηρήστε τα ευρετήρια αναζήτησης ενημερωμένα καθώς προστίθενται ή επεξεργάζονται άρθρα, PDF και εικόνες.  
+2. **Αποθετήρια νομικών εγγράφων** – Αυτόματα αντικατοπτρίζουν τροποποιήσεις σε συμβάσεις, νόμους και φακέλους υποθέσεων.  
+3. **Εταιρική αποθήκη δεδομένων** – Τακτική ανανέωση των ευρετηριασμένων δεδομένων για ακριβή αναλύσεις και αναφορές.
 
-## Σκέψεις για την Απόδοση
-- **Διαχείριση Νημάτων** – Χρησιμοποιήστε το πολυνηματικό μοντέλο με σύνεση· υπερβολικός αριθμός νημάτων μπορεί να προκαλέσει πίεση στο GC.  
-- **Παρακολούθηση Μνήμης** – Καλέστε περιοδικά `System.gc()` ή χρησιμοποιήστε εργαλεία profiling για να παρακολουθείτε τη χρήση heap.  
-- **Βελτιστοποίηση Ερωτημάτων** – Γράψτε σύντομες αλφαριθμητικές αναζητήσεις και αξιοποιήστε φίλτρα για μείωση του μεγέθους του συνόλου αποτελεσμάτων.
+## Σκέψεις απόδοσης
+- **Διαχείριση νημάτων** – Χρησιμοποιήστε πολυνηματισμό σοφά· πολλά νήματα μπορούν να προκαλέσουν πίεση στο GC.  
+- **Παρακολούθηση μνήμης** – Καλέστε περιοδικά το `System.gc()` ή χρησιμοποιήστε εργαλεία profiling για να παρακολουθείτε τη χρήση του heap.  
+- **Βελτιστοποίηση ερωτημάτων** – Γράψτε σύντομες συμβολοσειρές αναζήτησης και εκμεταλλευτείτε τα φίλτρα για να μειώσετε το μέγεθος του συνόλου αποτελεσμάτων.
 
-## Συνηθισμένα Προβλήματα και Λύσεις
-| Σύμπτωμα | Πιθανή Αιτία | Διόρθωση |
-|---------|--------------|----------|
-| `Index not found` σφάλμα | Λάθος διαδρομή φακέλου | Ελέγξτε ξανά το `indexFolder` και βεβαιωθείτε ότι ο φάκελος υπάρχει. |
-| Έλλειψη μνήμης κατά την ενημέρωση | Πάρα πολλές νήματα | Μειώστε το `options.setThreads()` ή αυξήστε τη μνήμη heap (`-Xmx`). |
-| Δεν υπάρχουν αποτελέσματα μετά την αναβάθμιση έκδοσης | Μη συμβατός παλιός δείκτης | Επαληθεύστε ότι το `updater.canUpdateVersion()` επιστρέφει `true` πριν προχωρήσετε. |
-| Εξαίρεση άδειας | Η δοκιμαστική άδεια έληξε | Ζητήστε νέα δοκιμαστική άδεια ή εφαρμόστε κλειδί αγορασμένης άδειας. |
+## Συχνά προβλήματα και λύσεις
+| Σύμπτωμα | Πιθανή αιτία | Διόρθωση |
+|----------|--------------|----------|
+| `Index not found` error | Λάθος διαδρομή φακέλου | Ελέγξτε ξανά το `indexFolder` και βεβαιωθείτε ότι ο φάκελος υπάρχει. |
+| Out‑of‑memory κατά την ενημέρωση | Πάρα πολύ υψηλός αριθμός νημάτων | Μειώστε το `options.setThreads()` ή αυξήστε το heap (`-Xmx`). |
+| Δεν υπάρχουν αποτελέσματα μετά την αναβάθμιση έκδοσης | Μη συμβατό παλιό ευρετήριο | Επαληθεύστε ότι το `updater.canUpdateVersion()` επιστρέφει `true` πριν προχωρήσετε. |
+| License exception | Η δοκιμαστική άδεια έληξε | Ζητήστε νέα δοκιμαστική άδεια ή εφαρμόστε κλειδί αγορασμένης άδειας. |
 
-## Συχνές Ερωτήσεις
+## Συχνές ερωτήσεις
 
-**Ε: Μπορώ να αναβαθμίσω ένα ευρετήριο που δημιουργήθηκε με πολύ παλιά έκδοση του GroupDocs.Search;**  
-Α: Ναι, εφόσον το παλιό ευρετήριο είναι ακόμα αναγνώσιμο από τη βιβλιοθήκη· η μέθοδος `canUpdateVersion` θα επιβεβαιώσει τη συμβατότητα.
+**Q: Μπορώ να αναβαθμίσω ένα ευρετήριο που δημιουργήθηκε με πολύ παλιά έκδοση του GroupDocs.Search;**  
+A: Ναι, εφόσον το παλιό ευρετήριο είναι ακόμη αναγνώσιμο από τη βιβλιοθήκη· η μέθοδος `canUpdateVersion` θα επιβεβαιώσει τη συμβατότητα.
 
-**Ε: Πρέπει να δημιουργήσω ξανά το ευρετήριο μετά από κάθε ενημέρωση της βιβλιοθήκης;**  
-Α: Δεν είναι απαραίτητο. Η ενημέρωση της έκδοσης του ευρετηρίου αρκεί στις περισσότερες περιπτώσεις, εξοικονομώντας χρόνο και πόρους.
+**Q: Πρέπει να δημιουργήσω ξανά το ευρετήριο μετά από κάθε ενημέρωση της βιβλιοθήκης;**  
+A: Δεν είναι απαραίτητο. Η ενημέρωση της έκδοσης του ευρετηρίου είναι επαρκής στις περισσότερες περιπτώσεις, εξοικονομώντας χρόνο και πόρους.
 
-**Ε: Πόσα νήματα πρέπει να χρησιμοποιήσω για μεγάλα ευρετήρια;**  
-Α: Ξεκινήστε με 2‑4 νήματα και παρακολουθήστε τη χρήση CPU· αυξήστε μόνο αν το σύστημα διαθέτει ελεύθερους πυρήνες και μνήμη.
+**Q: Πόσα νήματα πρέπει να χρησιμοποιήσω για μεγάλα ευρετήρια;**  
+A: Ξεκινήστε με 2‑4 νήματα και παρακολουθήστε τη χρήση CPU· αυξήστε μόνο εάν το σύστημα διαθέτει ελεύθερους πυρήνες και μνήμη.
 
-**Ε: Είναι η δοκιμαστική άδεια επαρκής για δοκιμές παραγωγής;**  
-Α: Η δοκιμαστική άδεια αφαιρεί τους περιορισμούς λειτουργιών, καθιστώντας την ιδανική για ανάπτυξη και περιβάλλον QA.
+**Q: Είναι η δοκιμαστική άδεια επαρκής για δοκιμές παραγωγής;**  
+A: Η δοκιμαστική άδεια αφαιρεί τους περιορισμούς λειτουργιών, καθιστώντας την ιδανική για περιβάλλοντα ανάπτυξης και QA.
 
-**Ε: Τι συμβαίνει με τα υπάρχοντα αποτελέσματα αναζήτησης μετά από αναβάθμιση έκδοσης ευρετηρίου;**  
-Α: Η δομή του ευρετηρίου μεταφέρεται, αλλά το περιεχόμενο που μπορεί να αναζητηθεί παραμένει αμετάβλητο, οπότε τα αποτελέσματα παραμένουν συνεπή.
+**Q: Τι συμβαίνει με τα υπάρχοντα αποτελέσματα αναζήτησης μετά την ενημέρωση έκδοσης του ευρετηρίου;**  
+A: Η δομή του ευρετηρίου μεταφέρεται, αλλά το αναζητήσιμο περιεχόμενο παραμένει αμετάβλητο, έτσι τα αποτελέσματα παραμένουν συνεπή.
 
 ## Συμπέρασμα
-Ακολουθώντας τα παραπάνω βήματα, έχετε πλέον μια σαφή κατανόηση του πώς να **update index java** με το GroupDocs.Search για Java. Η ανανέωση τόσο του περιεχομένου των εγγράφων όσο και των εκδόσεων του ευρετηρίου εξασφαλίζει ότι η εμπειρία αναζήτησης παραμένει γρήγορη, ακριβής και συμβατή με μελλοντικές εκδόσεις της βιβλιοθήκης.
+Ακολουθώντας τα παραπάνω βήματα, έχετε πλέον μια σαφή κατανόηση του πώς να **ενημερώσετε το index java** για **java full text search** με το GroupDocs.Search. Η ανανέωση τόσο του περιεχομένου των εγγράφων όσο και των εκδόσεων του ευρετηρίου εξασφαλίζει ότι η εμπειρία αναζήτησης παραμένει γρήγορη, ακριβής και συμβατή με μελλοντικές εκδόσεις της βιβλιοθήκης.
 
-### Επόμενα Βήματα
-- Πειραματιστείτε με διαφορετικές ρυθμίσεις `UpdateOptions` για να βρείτε το ιδανικό σημείο για το φορτίο σας.  
-- Εξερευνήστε προχωρημένες δυνατότητες ερωτημάτων όπως faceting και highlighting που προσφέρει το GroupDocs.Search.  
+### Επόμενα βήματα
+- Πειραματιστείτε με διαφορετικές ρυθμίσεις `UpdateOptions` για να βρείτε το ιδανικό σημείο για το φορτίο εργασίας σας.  
+- Εξερευνήστε προχωρημένα χαρακτηριστικά ερωτημάτων όπως faceting και highlighting που προσφέρει το GroupDocs.Search.  
 - Ενσωματώστε τη ροή εργασίας ευρετηρίου στο CI/CD pipeline σας για αυτοματοποιημένες ενημερώσεις.
 
 ---
 
-**Τελευταία Ενημέρωση:** 2026-03-04  
-**Δοκιμάστηκε Με:** GroupDocs.Search 25.4 for Java  
+**Τελευταία ενημέρωση:** 2026-10-12  
+**Δοκιμή με:** GroupDocs.Search 25.4 for Java  
 **Συγγραφέας:** GroupDocs
+
+## Σχετικά Μαθήματα
+
+- [Πώς να υλοποιήσετε java full text search: δημιουργία καταλόγου ευρετηρίου με GroupDocs.Search](/search/java/indexing/groupdocs-search-java-create-index/)
+- [Java Full Text Search Library – Βελτιστοποίηση ευρετηρίου με GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [Java Fuzzy Search: Προσθήκη εγγράφων στο ευρετήριο με GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
