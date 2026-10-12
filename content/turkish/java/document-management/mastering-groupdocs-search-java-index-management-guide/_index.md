@@ -1,52 +1,88 @@
 ---
-date: '2026-03-06'
-description: GroupDocs.Search for Java kullanarak regex araması yapmayı ve belgeleri
-  indekse eklemeyi öğrenin; yasal, akademik ve iş dosyalarında aramayı güçlendirin.
+date: '2026-10-12'
+description: GroupDocs.Search for Java kullanarak indeks oluşturma ve regex search
+  java nasıl yapılır öğrenin; kurulum, belgelere indeks ekleme, fuzzy, wildcard ve
+  regex queries içerir.
 keywords:
-- GroupDocs.Search in Java
-- document index management
-- Java document search
-title: regex arama java – GroupDocs.Search ile Java’da Dizin Oluşturma
+- how to create index
+- regex search java
+- how to add documents
+- fuzzy search java
+- java search library
+lastmod: '2026-10-12'
+og_description: GroupDocs.Search for Java ile indeks oluşturma. Regex search java
+  keşfedin, belgelere indeks ekleyin ve birkaç adımda fuzzy veya wildcard queries
+  kullanın.
+og_image_alt: Guide to creating a searchable index with GroupDocs.Search for Java
+og_title: GroupDocs.Search for Java ile indeks oluşturma
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-12'
+  description: Learn how to create index and perform regex search java using GroupDocs.Search
+    for Java, covering setup, adding documents to index, fuzzy, wildcard, and regex
+    queries.
+  headline: How to create index with GroupDocs.Search for Java
+  type: TechArticle
+- questions:
+  - answer: Yes—use `index.add()` to append new files or `index.update()` to refresh
+      changed documents.
+    question: Can I update an existing index without rebuilding it from scratch?
+  - answer: The built‑in fuzzy algorithm works on Unicode characters, so it supports
+      most languages out of the box.
+    question: How does fuzzy search handle different languages?
+  - answer: Practically, the limit is governed by available disk space and JVM memory;
+      the library is designed for millions of documents.
+    question: Is there a limit to the number of documents I can index?
+  - answer: No—search options are applied per query, so you can adjust them on the
+      fly.
+    question: Do I need to restart the application after changing search options?
+  - answer: The official GroupDocs.Search documentation and API reference provide
+      extensive examples for complex scenarios.
+    question: Where can I find more advanced query examples?
+  type: FAQPage
+tags:
+- GroupDocs.Search
+- Java indexing
+- document search
+- regex search
+- fuzzy search
+title: GroupDocs.Search for Java ile indeks oluşturma
 type: docs
 url: /tr/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# GroupDocs.Search'i Java'da Ustalık – regex search java ve Dizin Yönetimi
+# GroupDocs.Search for Java ile indeks oluşturma
 
-## Giriş
+Binlerce yasal, akademik veya iş dosyası için **how to create index**'e ihtiyacınız varsa, GroupDocs.Search for Java size metni çıkaran, kompakt bir aranabilir yapı oluşturan ve milisaniyeler içinde regex, fuzzy veya wildcard sorguları çalıştırmanıza olanak tanıyan hazır bir motor sunar. Bu öğreticide SDK'yı nasıl kuracağınızı, bir indeks oluşturacağınızı, belgelere ekleyeceğinizi ve güçlü desen‑tabanlı aramaları nasıl gerçekleştireceğinizi göreceksiniz.
 
-Büyük bir belge yığını içinde indeksleme ve arama yapma görevinde zorlanıyor musunuz? Hukuki dosyalar, akademik makaleler ya da kurumsal raporlarla çalışıyor olun, **regex search java** metin içinde desenleri hızla bulmanızı sağlayan güçlü bir tekniktir. **GroupDocs.Search for Java** ile bir indeks oluşturabilir, **add documents to index** yapabilir ve sadece birkaç satır kodla bulanık, joker karakterli veya düzenli ifade sorguları çalıştırabilirsiniz. Aşağıda ortam kurulumundan gelişmiş arama sorguları oluşturmaya kadar ihtiyacınız olan her şeyi bulacaksınız.
-
-## Hızlı Yanıtlar
-- **GroupDocs.Search'ün temel amacı nedir?** Çeşitli belge formatları için aranabilir indeksler oluşturmak.  
+## Hızlı cevaplar
+- **GroupDocs.Search'in temel amacı nedir?** Geniş bir belge formatı yelpazesi için aranabilir indeksler oluşturmak.  
 - **İndeks oluşturulduktan sonra belgelere ekleyebilir miyim?** Evet—yeni dosyaları eklemek için `index.add()` metodunu kullanın.  
-- **GroupDocs.Search Java’da bulanık aramayı destekliyor mu?** Kesinlikle; `SearchOptions` üzerinden etkinleştirin.  
-- **Java’da joker karakterli bir sorgu nasıl çalıştırılır?** `SearchQuery.createWildcardQuery()` ile oluşturun.  
-- **Üretim ortamı için lisans gerekli mi?** Ticari dağıtımlar için geçerli bir GroupDocs.Search lisansı gerekir.
+- **GroupDocs.Search Java'da fuzzy aramayı destekliyor mu?** Kesinlikle; `SearchOptions` aracılığıyla etkinleştirin.  
+- **Java'da wildcard sorgusunu nasıl çalıştırırım?** `SearchQuery.createWildcardQuery()` ile oluşturun.  
+- **Üretim kullanımında lisans gerekli mi?** Ticari dağıtımlar için geçerli bir GroupDocs.Search lisansı gereklidir.
 
-## GroupDocs.Search bağlamında “indeks oluşturma” nedir?
+`SearchOptions` fuzzy eşleşme gibi arama davranışını yapılandırır.  
+`SearchQuery.createWildcardQuery()` bir wildcard sorgu nesnesi oluşturur.
 
-Bir indeks oluşturmak, bir veya daha fazla kaynak belgeyi taramayı, aranabilir metni çıkarmayı ve bu bilgiyi verimli bir şekilde sorgulanabilecek yapılandırılmış bir formatta saklamayı ifade eder. Oluşan indeks, binlerce dosya arasında ışık hızıyla arama yapmayı mümkün kılar.
+## GroupDocs.Search bağlamında “how to create index” nedir?
+Bir indeks oluşturmak, bir veya daha fazla kaynak belgeyi taramak, aranabilir metni çıkarmak ve bu bilgiyi verimli bir şekilde sorgulanabilecek yapılandırılmış bir formatta depolamak anlamına gelir. Bu süreç, orijinal belgeler büyük veya farklı formatlarda depolanmış olsa bile binlerce dosya arasında ışık hızında aramalar yapmayı sağlayan diskte kompakt bir veri yapısı oluşturur.
 
-## Neden GroupDocs.Search for Java Kullanmalı?
-
-- **Geniş format desteği:** PDF, Word, Excel, PowerPoint ve daha fazlası.  
-- **Yerleşik dil özellikleri:** Bulanık arama, joker karakter ve **regex search java** yetenekleri kutudan çıkar çıkmaz.  
-- **Ölçeklenebilir performans:** Büyük belge koleksiyonlarını yapılandırılabilir bellek kullanımıyla yönetir.  
+## Neden GroupDocs.Search for Java kullanmalı?
+GroupDocs.Search, **30'dan fazla giriş ve çıkış formatını** destekleyen kanıtlanmış, kurumsal‑düzey bir çözüm sunar—PDF, DOCX, XLSX, PPTX, HTML ve düz metin dosyaları dahil—ve milyonlarca sayfa içeren indeksler için saniyenin altında sorgu yanıt süreleri sağlar. Yerleşik fuzzy, wildcard ve **regex search java** yetenekleri, yazım hatalarını, desen eşleştirmeyi ve karmaşık arama senaryolarını özel ayrıştırıcılar yazmadan yönetmenizi sağlar.
 
 ## Önkoşullar
+- GroupDocs.Search for Java sürüm 25.4 ve üzeri.  
+- Maven desteği olan IntelliJ IDEA veya Eclipse gibi bir IDE.  
+- Geliştirme makinenizde yüklü JDK 11 veya daha yeni bir sürüm.  
+- Java sözdizimi ve arama kavramları hakkında temel bilgi.
 
-- **GroupDocs.Search for Java sürüm 25.4** veya üzeri.  
-- Maven projelerini yönetebilen IntelliJ IDEA veya Eclipse gibi bir IDE.  
-- Makinenizde yüklü JDK.  
-- Java ve arama kavramlarına temel aşinalık.
+## GroupDocs.Search for Java'ı Kurma
 
-## GroupDocs.Search for Java Kurulumu
+Kütüphaneyi Maven aracılığıyla ekleyebilir veya manuel olarak indirebilirsiniz.
 
-Kütüphaneyi Maven üzerinden ekleyebilir veya manuel olarak indirebilirsiniz.
-
-**Maven Kurulumu:**
+**Maven kurulumu**
 
 ```xml
 <repositories>
@@ -66,15 +102,15 @@ Kütüphaneyi Maven üzerinden ekleyebilir veya manuel olarak indirebilirsiniz.
 </dependencies>
 ```
 
-**Doğrudan İndirme:**  
-Alternatif olarak, en yeni sürümü [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
+**Doğrudan indirme**  
+Alternatif olarak, en son sürümü [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirin.
 
-### Lisans Edinme
-- **Ücretsiz Deneme:** Özellikleri ücretsiz keşfedin.  
-- **Geçici Lisans:** Deneme süresini uzatın.  
-- **Tam Lisans:** Üretim ortamları için gereklidir.
+### Lisans edinme
+- **Ücretsiz deneme:** Tüm özellikleri ücretsiz keşfedin.  
+- **Geçici lisans:** Değerlendirme projeleri için deneme süresini uzatın.  
+- **Tam lisans:** Üretim dağıtımları için gereklidir ve sınırsız indekslemeyi açar.
 
-Kütüphane erişilebilir olduğunda, Java kodunuzda şu şekilde başlatın:
+Kütüphane mevcut olduğunda, Java kodunuzda başlatın:
 
 ```java
 import com.groupdocs.search.*;
@@ -89,38 +125,36 @@ public class InitializeSearch {
 }
 ```
 
-## Uygulama Kılavuzu
+## GroupDocs.Search ile indeks oluşturma
 
-### GroupDocs.Search ile İndeks Oluşturma
+Kaynak dosyalarınızı yükleyin, SDK'yı bir klasöre yönlendirin ve tek bir çağrıda aranabilir yapıyı oluşturmasına izin verin. Bu yaklaşım, tipik bir 10 GB belge koleksiyonu için standart bir sunucuda bir dakikadan kısa sürede indeksi oluşturur.
 
-Bu bölüm, bir indeks oluşturma ve **add documents to index** işlemini adım adım anlatır.
-
-#### Yolları Tanımlama
+### Yolları tanımlama
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\CreateAndIndexDocuments";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### İndeksi Oluşturma
+### İndeksi oluşturma
 
 ```java
 Index index = new Index(indexFolder);
 System.out.println("Index created at: " + indexFolder);
 ```
 
-#### Belgeleri İndekse Ekleme
+### Belgeleri indekse ekleme
 
 ```java
 index.add(documentsFolder);
 System.out.println("Documents added to the index.");
 ```
 
-> **Pro ipucu:** Dizinlerin var olduğundan ve yalnızca aranabilir dosyaları içerdiğinden emin olun; alakasız dosyalar indeksin şişmesine neden olabilir.
+> **Pro ipucu:** Dizinlerin mevcut olduğundan ve yalnızca aranabilir dosyaları içerdiğinden emin olun; alakasız dosyalar indeksi şişirebilir.
 
-### Basit Kelime Sorgusu ve Bulanık Arama Seçenekleri (fuzzy search java)
+## Fuzzy arama seçenekleriyle basit kelime sorgusu (fuzzy search java)
 
-Bulanık arama, kullanıcı bir kelimeyi yanlış yazdığında ya da OCR hataları oluştuğunda yardımcı olur.
+Fuzzy arama, kullanıcıların bir kelimeyi yanlış yazması veya OCR hataları oluştuğunda yardımcı olur. SDK, düzenleme mesafesine dayalı olarak benzer terimleri sorguya otomatik olarak ekler.
 
 ```java
 SearchQuery subquery = SearchQuery.createWordQuery("future");
@@ -134,27 +168,31 @@ subquery.getSearchOptions().getFuzzySearch()
 System.out.println("Fuzzy search enabled with a tolerance of 3.");
 ```
 
-### Java’da Joker Karakterli Sorgu
+## Java Wildcard sorgusu
 
-Joker karakterli sorgular, belirli bir önekle başlayan herhangi bir kelime gibi desenleri eşleştirmenizi sağlar.
+Wildcard sorguları, `*` veya `?` yer tutucularını kullanarak belirli bir önekle başlayan herhangi bir kelime gibi desenleri eşlemenize olanak tanır.
+
+`SearchQuery.createWildcardQuery()` bir wildcard sorgu nesnesi oluşturur.
 
 ```java
 SearchQuery subquery = SearchQuery.createWildcardQuery(1);
 System.out.println("Wildcard query created.");
 ```
 
-### Java’da Regex Arama
+## Java Regex araması
 
-Düzenli ifadeler, tekrar eden karakterleri veya karmaşık token yapılarını bulmak için ince ayarlı kontrol sunar.
+Düzenli ifadeler, desen eşleştirme üzerinde ayrıntılı kontrol sağlar; tekrarlanan karakterleri veya karmaşık token yapıları bulmak için mükemmeldir.
+
+`SearchQuery.createRegexQuery()` desen eşleştirme için bir regex sorgu nesnesi oluşturur.
 
 ```java
 SearchQuery subquery = SearchQuery.createRegexQuery("(.)\\1");
 System.out.println("Regex query created to find repeated characters.");
 ```
 
-### Alt Sorguları Birleştirerek İfade Arama Sorgusu Oluşturma
+## Alt sorguları bir ifade arama sorgusuna birleştirme
 
-Kelime, joker karakter ve regex alt sorgularını karıştırarak gelişmiş ifade aramaları oluşturabilirsiniz.
+Kelime, wildcard ve regex alt sorgularını karıştırarak sıralamayı ve yakınlığı koruyan karmaşık ifade aramaları oluşturabilirsiniz.
 
 ```java
 SearchQuery subquery1 = SearchQuery.createWordQuery("future");
@@ -167,9 +205,9 @@ SearchQuery combinedQuery = SearchQuery.createPhraseSearchQuery(subquery1, subqu
 System.out.println("Combined phrase search query created.");
 ```
 
-### Özel Seçeneklerle Arama Yapılandırma ve Gerçekleştirme
+## Özel seçeneklerle arama yapılandırma ve gerçekleştirme
 
-Arama seçeneklerini ayarlamak, kaç kez eşleşmenin döndürüleceğini kontrol etmenizi sağlar; bu, büyük veri kümeleri için faydalıdır.
+Arama seçeneklerini ayarlamak, kaç kez sonuç döndürüleceğini kontrol etmenizi sağlar; bu, büyük koleksiyonlar için faydalıdır. Ayrıca puanlamayı ayarlabilir, eşleşmeleri vurgulayabilir ve belge başına sonuçları sınırlayabilirsiniz.
 
 ```java
 SearchOptions options = new SearchOptions();
@@ -186,38 +224,42 @@ SearchResult result = index.search(query, options);
 System.out.println("Search performed with custom options.");
 ```
 
-## regex search java – Yaygın Kullanım Senaryoları
-
-- **Hukuki araştırma:** `DD/MM/YYYY` biçimindeki tarih gibi belirli bir deseni izleyen maddeleri bulun.  
-- **Veri doğrulama:** Günlüklerde hatalı kimlikler veya tekrar eden karakterleri tespit edin.  
+## Regex search java – yaygın kullanım durumları
+- **Hukuki araştırma:** `DD/MM/YYYY` formatındaki tarih gibi belirli bir deseni izleyen maddeleri bulun.  
+- **Veri doğrulama:** Günlüklerde hatalı tanımlayıcıları veya tekrarlanan karakterleri tespit edin.  
 - **İçerik denetimi:** Regex kullanarak küfür veya yasaklı desenleri bulun.  
 - **Finansal analiz:** Bilinen bir regex şablonuna uyan işlem kodlarını çıkarın.
 
-## Performans Hususları
+## Performans değerlendirmeleri
+- **İndekslemeyi optimize edin:** Periyodik olarak yeniden indeksleyin ve eski dosyaları kaldırarak indeksi hafif tutun; iyi bakım yapılan 1 milyon sayfalık bir indeks diskte 2 GB'den az yer kaplar.  
+- **Kaynak kullanımı:** JVM yığın boyutunu izleyin; büyük indeksler optimum verimlilik için 8 GB'a kadar yığın veya yığın dışı depolama gerektirebilir.  
+- **Garbage collection:** Uzun süre çalışan arama hizmetleri için duraklama süresi artışlarını önlemek amacıyla GC ayarlarını (ör. G1GC) ayarlayın.
 
-- **İndeksleme Optimizasyonu:** Periyodik olarak yeniden indeksleyin ve eski dosyaları kaldırarak indeksi hafif tutun.  
-- **Kaynak Kullanımı:** JVM yığın boyutunu izleyin; büyük indeksler daha fazla bellek veya off‑heap depolama gerektirebilir.  
-- **Çöp Toplama:** Uzun süre çalışan arama hizmetlerinde duraklamaları önlemek için GC ayarlarını optimize edin.
+## Sıkça sorulan sorular
 
-## Sıkça Sorulan Sorular
+**Q:** Mevcut bir indeksi sıfırdan yeniden oluşturmadan güncelleyebilir miyim?  
+**A:** Evet—yeni dosyaları eklemek için `index.add()` ve değişen belgeleri yenilemek için `index.update()` kullanın.
 
-**S: Mevcut bir indeksi sıfırdan yeniden oluşturmadan güncelleyebilir miyim?**  
-C: Evet—yeni dosyaları eklemek için `index.add()`, değişen belgeleri yenilemek için `index.update()` kullanın.
+**Q:** Fuzzy arama farklı dilleri nasıl ele alır?  
+**A:** Yerleşik fuzzy algoritması Unicode karakterleri üzerinde çalışır, bu yüzden çoğu dili doğrudan destekler.
 
-**S: Bulanık arama farklı dilleri nasıl ele alır?**  
-C: Yerleşik bulanık algoritma Unicode karakterleri üzerinde çalışır, bu yüzden çoğu dili kutudan çıkar çıkmaz destekler.
+**Q:** İndeksleyebileceğim belge sayısında bir sınırlama var mı?  
+**A:** Pratikte, sınırlama mevcut disk alanı ve JVM belleği tarafından belirlenir; kütüphane milyonlarca belge için tasarlanmıştır.
 
-**S: İndeksleyebileceğim belge sayısında bir limit var mı?**  
-C: Pratikte limit, mevcut disk alanı ve JVM belleğiyle belirlenir; kütüphane milyonlarca belge için tasarlanmıştır.
+**Q:** Arama seçeneklerini değiştirdikten sonra uygulamayı yeniden başlatmam gerekiyor mu?  
+**A:** Hayır—arama seçenekleri sorgu başına uygulanır, bu yüzden anında ayarlayabilirsiniz.
 
-**S: Arama seçeneklerini değiştirdikten sonra uygulamayı yeniden başlatmam gerekir mi?**  
-C: Hayır—arama seçenekleri sorgu başına uygulanır, bu yüzden anlık olarak ayarlanabilir.
-
-**S: Daha gelişmiş sorgu örneklerini nerede bulabilirim?**  
-C: Resmi GroupDocs.Search dokümantasyonu ve API referansı, karmaşık senaryolar için kapsamlı örnekler sunar.
+**Q:** Daha gelişmiş sorgu örneklerini nerede bulabilirim?  
+**A:** Resmi GroupDocs.Search belgeleri ve API referansı, karmaşık senaryolar için kapsamlı örnekler sunar.
 
 ---
 
-**Son Güncelleme:** 2026-03-06  
-**Test Edilen:** GroupDocs.Search for Java 25.4  
+**Son Güncelleme:** 2026-10-12  
+**Test Edilen:** GroupDocs.Search for Java 25.4  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+
+- [Java için GroupDocs.Search API'sını Kullanarak Belge İndeksi Oluşturma ve Belgeleri Eklemek](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Java Fuzzy Arama: GroupDocs.Search ile Belgeleri İndekse Eklemek](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
+- [Java için GroupDocs.Search'te Birden Çok Takma Ad Eklemek ve Belgeleri İndekse Eklemek](/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/)

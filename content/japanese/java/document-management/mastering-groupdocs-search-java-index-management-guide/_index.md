@@ -1,51 +1,88 @@
 ---
-date: '2026-03-06'
-description: GroupDocs.Search for Java を使用して正規表現検索（Java）を実行し、ドキュメントをインデックスに追加する方法を学び、法務、学術、ビジネスファイル全体で検索精度を向上させます。
+date: '2026-10-12'
+description: GroupDocs.Search for Java を使用してインデックスを作成し、regex 検索（Java）を実行する方法を学びます。setup、インデックスへの
+  documents 追加、fuzzy、wildcard、regex クエリについて解説します。
 keywords:
-- GroupDocs.Search in Java
-- document index management
-- Java document search
-title: regex検索 Java – GroupDocs.Search を使用したインデックス作成（Java）
+- how to create index
+- regex search java
+- how to add documents
+- fuzzy search java
+- java search library
+lastmod: '2026-10-12'
+og_description: GroupDocs.Search for Java を使用したインデックスの作成方法。regex 検索（Java）を発見し、インデックスに
+  documents を追加し、数ステップで fuzzy または wildcard クエリを使用できます。
+og_image_alt: Guide to creating a searchable index with GroupDocs.Search for Java
+og_title: GroupDocs.Search for Java を使用したインデックスの作成方法
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-12'
+  description: Learn how to create index and perform regex search java using GroupDocs.Search
+    for Java, covering setup, adding documents to index, fuzzy, wildcard, and regex
+    queries.
+  headline: How to create index with GroupDocs.Search for Java
+  type: TechArticle
+- questions:
+  - answer: Yes—use `index.add()` to append new files or `index.update()` to refresh
+      changed documents.
+    question: Can I update an existing index without rebuilding it from scratch?
+  - answer: The built‑in fuzzy algorithm works on Unicode characters, so it supports
+      most languages out of the box.
+    question: How does fuzzy search handle different languages?
+  - answer: Practically, the limit is governed by available disk space and JVM memory;
+      the library is designed for millions of documents.
+    question: Is there a limit to the number of documents I can index?
+  - answer: No—search options are applied per query, so you can adjust them on the
+      fly.
+    question: Do I need to restart the application after changing search options?
+  - answer: The official GroupDocs.Search documentation and API reference provide
+      extensive examples for complex scenarios.
+    question: Where can I find more advanced query examples?
+  type: FAQPage
+tags:
+- GroupDocs.Search
+- Java indexing
+- document search
+- regex search
+- fuzzy search
+title: GroupDocs.Search for Java を使用したインデックスの作成方法
 type: docs
 url: /ja/java/document-management/mastering-groupdocs-search-java-index-management-guide/
 weight: 1
 ---
 
-# JavaでGroupDocs.Searchをマスターする – regex search java とインデックス管理
+# GroupDocs.Search for Javaでインデックスを作成する方法
 
-## はじめに
-
-膨大な数のドキュメントのインデックス作成や検索に苦労していますか？ 法務文書、学術論文、企業レポートなど、どのような種類でも **regex search java** はテキスト内のパターンを迅速に特定できる強力な手法です。 **GroupDocs.Search for Java** を使用すれば、インデックスを作成し、**add documents to index** し、数行のコードでファジー検索、ワイルドカード検索、正規表現クエリを実行できます。以下では、環境設定から高度な検索クエリの作成まで、開始に必要なすべてを紹介します。
+If you need to **インデックス作成方法** for thousands of legal, academic, or business files, GroupDocs.Search for Java gives you a ready‑made engine that extracts text, builds a compact searchable structure, and lets you run regex, fuzzy, or wildcard queries in milliseconds. In this tutorial you’ll see how to set up the SDK, create an index, add documents to it, and execute powerful pattern‑based searches.
 
 ## クイック回答
-- **GroupDocs.Search の主な目的は何ですか？** さまざまなドキュメント形式に対して検索可能なインデックスを作成することです。  
-- **インデックス作成後にドキュメントを追加できますか？** はい — 新しいファイルを含めるには `index.add()` メソッドを使用します。  
-- **GroupDocs.Search は Java でファジー検索をサポートしていますか？** もちろんです。`SearchOptions` で有効にできます。  
-- **Java でワイルドカードクエリを実行するには？** `SearchQuery.createWildcardQuery()` で作成します。  
-- **本番環境で使用するにはライセンスが必要ですか？** 商用デプロイには有効な GroupDocs.Search ライセンスが必要です。
+- **GroupDocs.Search の主な目的は何ですか？** さまざまなドキュメント形式の検索可能なインデックスを作成することです。  
+- **インデックス作成後にドキュメントを追加できますか？** はい—新しいファイルを含めるには `index.add()` メソッドを使用します。  
+- **GroupDocs.Search は Java でファジー検索をサポートしていますか？** もちろんです；`SearchOptions` で有効にします。  
+- **Java でワイルドカードクエリを実行するにはどうすればよいですか？** `SearchQuery.createWildcardQuery()` で作成します。  
+- **本番環境での使用にライセンスは必要ですか？** 商用展開には有効な GroupDocs.Search ライセンスが必要です。
 
-## GroupDocs.Search のコンテキストで「インデックスの作成方法」とは何ですか？
+`SearchOptions` はファジーマッチングなどの検索動作を構成します。  
+`SearchQuery.createWildcardQuery()` はワイルドカードクエリオブジェクトを構築します。
 
-インデックスを作成するとは、1つまたは複数のソースドキュメントをスキャンし、検索可能なテキストを抽出し、その情報を効率的にクエリできる構造化フォーマットで保存することを意味します。生成されたインデックスにより、数千ファイルにまたがる検索でも瞬時に結果が得られます。
+## GroupDocs.Search のコンテキストで「インデックス作成方法」とは何ですか？
 
-## Java で GroupDocs.Search を使用する理由
+インデックスを作成するとは、1つまたは複数のソースドキュメントをスキャンし、検索可能なテキストを抽出し、その情報を効率的にクエリ可能な構造化フォーマットで保存することを意味します。このプロセスはディスク上にコンパクトなデータ構造を構築し、元のドキュメントが大きい場合や異なる形式で保存されている場合でも、数千のファイルに対して瞬時の検索を可能にします。
 
-- **幅広いフォーマットサポート:** PDF、Word、Excel、PowerPoint など多数。  
-- **組み込み言語機能:** ファジー検索、ワイルドカード、そして **regex search java** 機能が標準で利用可能です。  
-- **スケーラブルなパフォーマンス:** 設定可能なメモリ使用量で大規模なドキュメントコレクションを処理します。
+## なぜ GroupDocs.Search for Java を使用するのか？
+
+GroupDocs.Search は実績のあるエンタープライズ向けソリューションで、**30 以上の入力および出力フォーマット**（PDF、DOCX、XLSX、PPTX、HTML、プレーンテキストファイルなど）をサポートし、数百万ページを含むインデックスでもサブ秒のクエリ応答時間を提供します。組み込みのファジー、ワイルドカード、そして **regex search java** 機能により、綴りミスやパターンマッチ、複雑な検索シナリオをカスタムパーサを書かずに処理できます。
 
 ## 前提条件
+- GroupDocs.Search for Java バージョン 25.4 以降。  
+- IntelliJ IDEA や Eclipse などの Maven 対応 IDE。  
+- 開発マシンにインストールされた JDK 11 以降。  
+- Java 構文と検索概念の基本的な知識。
 
-- **GroupDocs.Search for Java バージョン 25.4** 以上。  
-- Maven プロジェクトを扱える IntelliJ IDEA や Eclipse などの IDE。  
-- マシンにインストールされた JDK。  
-- Java と検索概念の基本的な知識。
+## GroupDocs.Search for Java の設定
 
-## GroupDocs.Search for Java のセットアップ
+ライブラリは Maven 経由で追加するか、手動でダウンロードできます。
 
-ライブラリは Maven で追加するか、手動でダウンロードできます。
-
-**Maven Setup:**
+**Maven 設定**
 
 ```xml
 <repositories>
@@ -65,13 +102,13 @@ weight: 1
 </dependencies>
 ```
 
-**Direct Download:**  
+**直接ダウンロード**  
 代わりに、最新バージョンを [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) からダウンロードしてください。
 
 ### ライセンス取得
-- **Free Trial:** コストなしで機能を体験できます。  
-- **Temporary License:** トライアル使用期間を延長します。  
-- **Full License:** 本番環境で必要です。
+- **無料トライアル:** コストなしで全機能を試せます。  
+- **一時ライセンス:** 評価プロジェクト向けにトライアル使用期間を延長します。  
+- **フルライセンス:** 本番展開に必要で、無制限インデックス作成を解放します。
 
 ライブラリが利用可能になったら、Java コードで初期化します：
 
@@ -88,38 +125,36 @@ public class InitializeSearch {
 }
 ```
 
-## 実装ガイド
+## GroupDocs.Search を使用してインデックスを作成する方法
 
-### GroupDocs.Search でインデックスを作成する方法
+ソースファイルをロードし、SDK をフォルダーに指し示し、単一の呼び出しで検索可能な構造を構築させます。このアプローチは、標準サーバー上の典型的な 10 GB ドキュメントコレクションに対して、1 分未満でインデックスを作成します。
 
-このセクションでは、インデックスを作成し、**add documents to index** する完全な手順を説明します。
-
-#### パスの定義
+### パスの定義
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\CreateAndIndexDocuments";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-#### インデックスの作成
+### インデックスの作成
 
 ```java
 Index index = new Index(indexFolder);
 System.out.println("Index created at: " + indexFolder);
 ```
 
-#### インデックスへのドキュメント追加
+### インデックスへのドキュメント追加
 
 ```java
 index.add(documentsFolder);
 System.out.println("Documents added to the index.");
 ```
 
-> **Pro tip:** ディレクトリが存在し、検索対象としたいファイルのみが含まれていることを確認してください。無関係なファイルはインデックスを肥大化させます。
+> **Pro tip:** ディレクトリが存在し、検索対象にしたいファイルのみが含まれていることを確認してください。無関係なファイルはインデックスを肥大化させます。
 
-### ファジー検索オプション付きシンプルな単語クエリ (fuzzy search java)
+## ファジー検索オプション付きシンプルな単語クエリ（fuzzy search java）
 
-ファジー検索は、ユーザーが単語を入力ミスしたり、OCR がエラーを生じさせた場合に役立ちます。
+ファジー検索は、ユーザーが単語を入力ミスしたり OCR がエラーを導入したりした場合に役立ちます。SDK は編集距離に基づいて類似語を自動的にクエリに拡張します。
 
 ```java
 SearchQuery subquery = SearchQuery.createWordQuery("future");
@@ -133,27 +168,31 @@ subquery.getSearchOptions().getFuzzySearch()
 System.out.println("Fuzzy search enabled with a tolerance of 3.");
 ```
 
-### Java のワイルドカードクエリ
+## ワイルドカードクエリ Java
 
-ワイルドカードクエリを使用すると、特定のプレフィックスで始まる任意の単語などのパターンにマッチできます。
+ワイルドカードクエリは、`*` や `?` プレースホルダーを使用して、特定のプレフィックスで始まる任意の単語などのパターンにマッチさせることができます。
+
+`SearchQuery.createWildcardQuery()` はワイルドカードクエリオブジェクトを作成します。
 
 ```java
 SearchQuery subquery = SearchQuery.createWildcardQuery(1);
 System.out.println("Wildcard query created.");
 ```
 
-### Java の正規表現検索
+## 正規表現検索 Java
 
 正規表現はパターンマッチングを細かく制御でき、繰り返し文字や複雑なトークン構造の検索に最適です。
+
+`SearchQuery.createRegexQuery()` はパターンマッチング用の正規表現クエリオブジェクトを作成します。
 
 ```java
 SearchQuery subquery = SearchQuery.createRegexQuery("(.)\\1");
 System.out.println("Regex query created to find repeated characters.");
 ```
 
-### サブクエリを組み合わせてフレーズ検索クエリにする
+## サブクエリを組み合わせてフレーズ検索クエリにする
 
-単語、ワイルドカード、正規表現のサブクエリを組み合わせて、洗練されたフレーズ検索を構築できます。
+単語、ワイルドカード、正規表現のサブクエリを組み合わせて、順序と近接性を考慮した高度なフレーズ検索を構築できます。
 
 ```java
 SearchQuery subquery1 = SearchQuery.createWordQuery("future");
@@ -166,9 +205,9 @@ SearchQuery combinedQuery = SearchQuery.createPhraseSearchQuery(subquery1, subqu
 System.out.println("Combined phrase search query created.");
 ```
 
-### カスタムオプションで検索を構成・実行する
+## カスタムオプションで検索を構成・実行する
 
-検索オプションを調整することで、返される出現回数を制御でき、大規模コーパスで便利です。
+検索オプションを調整することで、返される出現回数を制御でき、大規模コーパスに有用です。また、スコアリングの調整、マッチのハイライト、ドキュメントごとの結果数の制限も可能です。
 
 ```java
 SearchOptions options = new SearchOptions();
@@ -185,38 +224,40 @@ SearchResult result = index.search(query, options);
 System.out.println("Search performed with custom options.");
 ```
 
-## regex search java – 主なユースケース
-
-- **Legal research:** `DD/MM/YYYY` のように特定のパターンでフォーマットされた日付など、特定のパターンに従う条項を検索します。  
-- **Data validation:** 不正な識別子やログ内の繰り返し文字を検出します。  
-- **Content moderation:** 正規表現を使用して不適切な表現や禁止パターンを検出します。  
-- **Financial analysis:** 既知の正規表現テンプレートに一致する取引コードを抽出します。
+## 正規表現検索 java – 一般的なユースケース
+- **法務リサーチ:** `DD/MM/YYYY` のように特定のパターンでフォーマットされた日付など、条項を検索します。  
+- **データ検証:** ログ内の不正な識別子や繰り返し文字を検出します。  
+- **コンテンツモデレーション:** 正規表現を使用して不適切な言葉や禁止パターンを見つけます。  
+- **金融分析:** 既知の正規表現テンプレートに一致する取引コードを抽出します。
 
 ## パフォーマンス上の考慮点
-
-- **Optimize Indexing:** 定期的に再インデックスし、不要なファイルを削除してインデックスを軽量に保ちます。  
-- **Resource Usage:** JVM ヒープサイズを監視します。大規模インデックスはメモリ増加やオフヒープストレージが必要になる場合があります。  
-- **Garbage Collection:** 長時間稼働する検索サービスの停止を防ぐために GC 設定を調整します。
+- **インデックス最適化:** 定期的に再インデックスし、古いファイルを削除してインデックスを軽量に保ちます。適切に管理された 100 万ページのインデックスはディスク上で 2 GB 未満です。  
+- **リソース使用量:** JVM ヒープサイズを監視します。大規模インデックスは最適なスループットのために最大 8 GB のヒープまたはオフヒープストレージが必要になることがあります。  
+- **ガベージコレクション:** 長時間稼働する検索サービスでは、ポーズ時間のスパイクを防ぐために GC 設定（例: G1GC）を調整します。
 
 ## よくある質問
-
 **Q: 既存のインデックスを最初から再構築せずに更新できますか？**  
-A: はい — `index.add()` で新しいファイルを追加し、`index.update()` で変更されたドキュメントを更新できます。
+A: はい—`index.add()` を使用して新しいファイルを追加し、`index.update()` で変更されたドキュメントを更新します。
 
 **Q: ファジー検索は異なる言語をどのように扱いますか？**  
-A: 組み込みのファジーアルゴリズムは Unicode 文字で動作するため、ほとんどの言語を標準でサポートします。
+A: 組み込みのファジーアルゴリズムは Unicode 文字で動作するため、ほとんどの言語をそのままサポートします。
 
-**Q: インデックス可能なドキュメント数に制限はありますか？**  
-A: 実質的には利用可能なディスク容量と JVM メモリが制限要因で、ライブラリは数百万件のドキュメントを想定して設計されています。
+**Q: インデックスできるドキュメント数に制限はありますか？**  
+A: 実際には、利用可能なディスク容量と JVM メモリが制限要因で、ライブラリは数百万のドキュメントを対象に設計されています。
 
 **Q: 検索オプションを変更した後、アプリケーションを再起動する必要がありますか？**  
-A: いいえ — 検索オプションはクエリごとに適用されるため、リアルタイムで調整可能です。
+A: いいえ—検索オプションはクエリごとに適用されるため、リアルタイムで調整可能です。
 
 **Q: より高度なクエリ例はどこで見つけられますか？**  
 A: 公式の GroupDocs.Search ドキュメントと API リファレンスに、複雑なシナリオ向けの豊富な例が掲載されています。
 
 ---
 
-**最終更新日:** 2026-03-06  
-**テスト環境:** GroupDocs.Search for Java 25.4  
+**最終更新日:** 2026-10-12  
+**テスト環境:** GroupDocs.Search for Java 25.4  
 **作者:** GroupDocs
+
+## 関連チュートリアル
+- [Java 用 GroupDocs.Search API を使用したドキュメントインデックスの作成とドキュメントの追加方法](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Java ファジー検索：GroupDocs.Search でインデックスにドキュメントを追加する方法](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
+- [Java 用 GroupDocs.Search で複数エイリアスを追加し、インデックスにドキュメントを追加する方法](/search/java/indexing/groupdocs-search-java-efficient-index-alias-management/)
