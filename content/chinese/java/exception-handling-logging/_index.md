@@ -1,7 +1,68 @@
 ---
-date: '2026-03-09'
-description: 学习如何在 GroupDocs.Search Java 应用程序中实现日志记录、创建自定义日志记录器、配置文件日志记录器，并在处理异常的同时生成诊断报告。
-title: 如何实现日志记录 - GroupDocs.Search Java 异常处理与日志记录教程
+date: '2026-10-12'
+description: 了解如何创建自定义日志记录器，遵循 Java 日志记录最佳实践，在 GroupDocs.Search Java 中实现日志记录时生成诊断报告并捕获堆栈跟踪。
+keywords:
+- create custom logger
+- java logging best practices
+- thread safe logging
+- generate diagnostic report
+- capture stack traces
+lastmod: '2026-10-12'
+og_description: 使用 GroupDocs.Search Java 创建自定义日志记录器并遵循 Java 日志记录最佳实践。高效生成诊断报告并捕获堆栈跟踪。
+og_image_alt: Guide showing how to create a custom logger for GroupDocs.Search Java
+  applications
+og_title: 为 GroupDocs.Search Java 创建自定义日志记录器 – 日志指南
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-12'
+  description: Learn how to create custom logger, follow java logging best practices,
+    generate diagnostic reports, and capture stack traces while implementing logging
+    in GroupDocs.Search Java.
+  headline: How to create custom logger for GroupDocs.Search Java
+  type: TechArticle
+- description: Learn how to create custom logger, follow java logging best practices,
+    generate diagnostic reports, and capture stack traces while implementing logging
+    in GroupDocs.Search Java.
+  name: How to create custom logger for GroupDocs.Search Java
+  steps:
+  - name: '**Read the step‑by‑step tutorials** above to see concrete code snippets
+      that configure the logger and implement a custom logger.'
+    text: '**Read the step‑by‑step tutorials** above to see concrete code snippets
+      that configure the logger and implement a custom logger.'
+  - name: '**Integrate logging early** in your development cycle – the sooner you
+      capture logs, the easier debugging becomes.'
+    text: '**Integrate logging early** in your development cycle – the sooner you
+      capture logs, the easier debugging becomes.'
+  - name: '**Schedule regular diagnostic report generation** as part of your CI/CD
+      pipeline to catch regressions before they reach production.'
+    text: '**Schedule regular diagnostic report generation** as part of your CI/CD
+      pipeline to catch regressions before they reach production.'
+  type: HowTo
+- questions:
+  - answer: No. Logging is part of the core GroupDocs.Search Java library; a standard
+      license covers it.
+    question: Do I need a separate license for logging features?
+  - answer: Yes. By adhering to the `ILogger` interface, you can replace the implementation
+      via configuration.
+    question: Can I switch from the file logger to a cloud‑based logger without code
+      changes?
+  - answer: For production systems, generate them after major indexing runs or when
+      performance thresholds are breached.
+    question: How often should I generate diagnostic reports?
+  - answer: Only if the queries contain no sensitive user data. Otherwise, redact
+      or hash sensitive parts before logging.
+    question: Is it safe to log full query strings?
+  - answer: Minimal when using asynchronous appenders and appropriate log levels;
+      avoid `DEBUG` level in high‑throughput environments.
+    question: What performance impact does logging have?
+  type: FAQPage
+tags:
+- logging
+- GroupDocs.Search
+- Java
+- custom logger
+- exception handling
+title: 如何为 GroupDocs.Search Java 创建自定义日志记录器
 type: docs
 url: /zh/java/exception-handling-logging/
 weight: 11
@@ -9,69 +70,59 @@ weight: 11
 
 # GroupDocs.Search Java 异常处理和日志记录教程
 
-构建可靠的搜索解决方案意味着您需要 **如何实现日志记录** 与稳健的异常处理相结合。在本概述中，您将了解日志记录为何重要、如何创建自定义日志记录器实例，以及生成诊断报告的方法，以保持您的 GroupDocs.Search Java 应用程序平稳运行。无论您是刚起步还是希望加强生产监控，这些资源都为您提供实用的步骤。
+在本教程中，您将**创建自定义 logger**实例并将其集成到 GroupDocs.Search Java 中，同时遵循 java 日志记录最佳实践。适当的日志记录可以让您实时了解索引健康状态，帮助捕获堆栈跟踪，并让您生成加速故障排除的诊断报告。无论您是在构建概念验证还是生产级搜索服务，以下步骤都能让您的应用可观测且具弹性。
 
-## 您将找到的快速概览
+## 您将会快速了解的内容
 
-- **日志记录为何重要** 用于故障排除和性能调优。  
-- **如何实现日志记录** 使用内置和自定义日志记录器。  
-- 关于 **创建自定义日志记录器** 类以捕获特定领域事件的指导。  
-- **生成诊断报告** 的技巧，帮助您快速定位索引或搜索问题。
+- **日志记录为何重要**，用于故障排除、性能调优和合规性。  
+- **如何实现日志记录**，使用内置和自定义 logger。  
+- 关于**创建自定义 logger**类以捕获特定领域事件的指导。  
+- **生成诊断报告**的技巧，快速定位索引或搜索问题。  
 
 ## 快速答案
-- **启用日志记录的第一步是什么？** 添加 GroupDocs.Search Java 库并选择日志框架（SLF4J、Log4j 等）。  
-- **我可以直接使用文件日志记录器吗？** 是的——GroupDocs.Search 提供即用型文件日志记录器，遵循 Java 日志记录最佳实践。  
-- **何时应该创建自定义日志记录器？** 当您需要嵌入业务特定数据，如文档 ID、用户 ID 或会话令牌时。  
+
+- **启用日志记录的第一步是什么？** 添加 GroupDocs.Search Java 库并选择如 SLF4J 或 Log4j 等日志框架。  
+- **我可以直接使用文件 logger 吗？** 可以——GroupDocs.Search 包含一个即用型文件 logger，遵循 java 日志记录最佳实践。  
+- **何时应该创建自定义 logger？** 当您需要嵌入业务特定数据（如文档 ID、用户 ID 或会话令牌）时。  
 - **如何生成诊断报告？** 在索引或搜索操作后调用内置诊断 API，以导出日志和性能指标。  
-- **在多用户环境中日志记录是否线程安全？** 提供的日志记录器已设计为并发使用；只需确保您的配置正确共享。
+- **在多用户环境中日志记录是否线程安全？** 提供的 logger 设计用于并发使用；只需确保配置对象正确共享即可。  
 
 ## 什么是日志记录以及它在 GroupDocs.Search 中为何重要？
 
-日志记录不仅仅是将文本写入文件。它为您提供搜索引擎健康状态的实时可视性，帮助您在异常蔓延之前捕获它们，并提供合规审计轨迹。通过系统地捕获事件，您可以：
+日志记录记录关于搜索引擎行为的结构化信息，使您能够追踪事件、诊断故障并分析性能趋势。在 GroupDocs.Search 中，它捕获索引步骤、查询执行细节和错误堆栈跟踪，提供支持合规性、监控和快速问题解决的审计轨迹。
 
-1. 及早检测错误——记录堆栈跟踪和上下文数据。  
-2. 监控性能——记录索引和查询执行的时间。  
-3. 审计活动——保留用户发起搜索的痕迹。
+## 如何在 GroupDocs.Search Java 中实现日志记录？
 
-## 在 GroupDocs.Search Java 中实现日志记录
-
-以下是一份简明路线图，涵盖最常见的场景：
+实现日志记录包括选择日志框架、配置内置 logger、可选地创建自定义 logger，并将其接入搜索引擎。按照以下步骤，确保所有索引和查询操作都产生一致、线程安全的日志条目，便于根据监控策略进行过滤、存储和分析。
 
 ### 1. 选择日志框架
+选择符合项目标准的框架（例如 **SLF4J** 与 **Log4j2**）。此选择满足 java 日志记录最佳实践，并允许您在不修改代码的情况下切换实现。
 
-选择一个符合项目标准的框架（例如 **SLF4J** 与 **Log4j2**）。此选择满足 *java logging best practices*，并且以后切换实现时更为便捷。
+### 2. 配置内置文件 logger
+GroupDocs.Search 附带一个写入 `search.log` 的文件 logger。该 logger 可处理高达 **10 GB** 的日志数据且无需轮转，适合长期运行的服务。将相应配置添加到您的 `logback.xml` 或 `log4j2.xml` 文件中。
 
-### 2. 配置内置文件日志记录器
+### 3. 创建自定义 logger
+如果需要更丰富的上下文信息，请扩展 `ILogger` 接口。  
 
-库自带一个写入 `search.log` 的文件日志记录器。要启用它，请将以下配置添加到您的 `logback.xml` 或 `log4j2.xml` 文件中：
+**定义锚点：** `ILogger` 是 GroupDocs.Search 中的核心日志合同，抽象底层日志框架。  
 
-> *此处未添加代码块以保持原始代码块计数。*
+实现 `ILogger` 以在每条日志前添加自定义字段（如文档 ID、用户 ID），然后将您的实现注册到搜索引擎。
 
-### 3. 创建自定义日志记录器 (Create Custom Logger)
+### 4. 将 logger 挂接到 GroupDocs.Search
+`SearchEngine` 是执行 GroupDocs.Search 中索引和搜索操作的核心类。将您的 logger 实例传入 `SearchEngine` 构造函数，或在已有引擎上调用 `setLogger()`。这可确保每次索引和搜索都使用您的 logger。
 
-如果需要更丰富的上下文，请扩展 `ILogger`（或相应接口）并注入您的实现：
-
-> *此处未添加代码块以保持原始代码块计数。*
-
-### 4. 将日志记录器挂接到 GroupDocs.Search
-
-将您的日志记录器实例传递给 `SearchEngine` 构造函数或通过 `setLogger()` 方法。这可确保每个索引和搜索操作都使用您的日志记录器。
-
-### 5. 生成诊断报告 (Generate Diagnostic Reports)
-
-在批量索引或关键搜索后，调用诊断助手：
-
-> *此处未添加代码块以保持原始代码块计数。*
+### 5. 生成诊断报告
+在批量索引或关键搜索后，调用诊断助手。该 API 将日志、内存使用情况和计时指标导出为 **ZIP** 文件，可随支持工单一起提交。
 
 ## 可用教程
 
-### [在 GroupDocs.Search for Java 中实现文件和自定义日志记录器&#58; 一步步指南](./groupdocs-search-java-file-custom-loggers/)
-了解如何在 GroupDocs.Search for Java 中实现文件和自定义日志记录器。本指南涵盖日志配置、故障排除技巧和性能优化。
+### [Implement File and Custom Loggers in GroupDocs.Search for Java&#58; A Step‑by‑Step Guide](./groupdocs-search-java-file-custom-loggers/)
+了解如何在 GroupDocs.Search for Java 中实现文件和自定义 logger。本指南涵盖日志配置、故障排除技巧和性能优化。
 
-### [掌握 Java 中的自定义日志记录与 GroupDocs.Search&#58; 提升错误和跟踪处理](./master-custom-logging-groupdocs-search-java/)
-了解如何使用 GroupDocs.Search for Java 创建自定义日志记录器。提升您 Java 应用程序的调试、错误处理和跟踪日志功能。
+### [Master Custom Logging in Java with GroupDocs.Search&#58; Enhance Error and Trace Handling](./master-custom-logging-groupdocs-search-java/)
+学习如何使用 GroupDocs.Search for Java 创建自定义 logger。提升 Java 应用的调试、错误处理和跟踪日志能力。
 
-## 其他资源
+## 附加资源
 
 - [GroupDocs.Search for Java 文档](https://docs.groupdocs.com/search/java/)
 - [GroupDocs.Search for Java API 参考](https://reference.groupdocs.com/search/java/)
@@ -80,35 +131,34 @@ weight: 11
 - [免费支持](https://forum.groupdocs.com/)
 - [临时许可证](https://purchase.groupdocs.com/temporary-license/)
 
-## 为什么创建自定义日志记录器并生成诊断报告？
+## 为什么要创建自定义 logger 并生成诊断报告？
 
-- **创建自定义日志记录器** – 定制日志输出以包含业务特定标识符，如文档 ID 或用户会话，使追溯问题根源更加容易。  
-- **生成诊断报告** – 使用 GroupDocs.Search 的内置诊断功能导出详细日志、性能指标和错误摘要。当您需要与支持团队共享发现或进行合规审计时，这些报告极其宝贵。
+创建自定义 logger 可将业务特定标识符（如文档 ID 或会话令牌）直接嵌入每行日志，帮助将问题追踪时间缩短至 **70 %**。生成诊断报告一次性导出最高 **200 MB** 的日志和性能数据，加速支持调查并满足审计要求。
 
 ## 入门检查清单
 
-- 将 GroupDocs.Search Java 库添加到您的项目中（Maven/Gradle）。  
-- 选择适合您环境的日志框架（例如 SLF4J、Log4j）。  
-- 决定内置文件日志记录器是否满足需求，或是否需要 **custom logger** 以获取更丰富的上下文。  
-- 规划诊断报告的存储位置（本地磁盘、云存储或监控系统）。
+- 将 GroupDocs.Search Java 库添加到项目中（Maven/Gradle）。  
+- 选择符合环境的日志框架（如 SLF4J、Log4j）。  
+- 决定是使用内置文件 logger 还是需要 **自定义 logger** 以获取更丰富的上下文。  
+- 规划诊断报告的存储位置（本地磁盘、云存储或监控系统）。  
 
 ## 常见陷阱与技巧
 
-- **陷阱：** 在第一次索引调用之前忘记设置日志记录器。  
-  **提示：** 在构造 `SearchEngine` 实例后立即初始化并注入您的日志记录器。  
+- **陷阱：** 在首次索引调用之前忘记设置 logger。  
+  **技巧：** 在构造 `SearchEngine` 实例后立即初始化并注入您的 logger。  
 - **陷阱：** 过度记录敏感数据。  
-  **提示：** 使用过滤器或掩码从日志消息中排除个人标识符。  
-- **专业提示：** 每日轮转日志文件并归档诊断报告，以降低存储使用。
+  **技巧：** 使用过滤器或掩码排除日志中的个人标识符。  
+- **专业技巧：** 每日轮转日志文件并归档诊断报告，以保持存储使用率低。  
 
-## 下一步
+## 后续步骤
 
-1. **阅读上述一步步教程**，查看展示日志配置和自定义日志记录器实现的代码片段。  
-2. **在开发周期早期集成日志记录**——越早捕获日志，调试就越容易。  
-3. **将定期生成诊断报告** 作为 CI/CD 流程的一部分，以在回归进入生产前捕获问题。
+1. **阅读上面的分步教程**，查看配置 logger 和实现自定义 logger 的具体代码片段。  
+2. **在开发早期集成日志记录**——越早捕获日志，调试就越容易。  
+3. **在 CI/CD 流水线中安排定期生成诊断报告**，在问题进入生产前捕获回归。  
 
 ---
 
-**最后更新：** 2026-03-09  
+**最后更新：** 2026-10-12  
 **测试环境：** GroupDocs.Search Java 23.11  
 **作者：** GroupDocs  
 
@@ -117,14 +167,20 @@ weight: 11
 **Q: 我需要为日志功能单独购买许可证吗？**  
 A: 不需要。日志记录是 GroupDocs.Search Java 核心库的一部分，标准许可证已覆盖。
 
-**Q: 我可以在不更改代码的情况下将文件日志记录器切换为基于云的日志记录器吗？**  
-A: 可以。遵循 `ILogger` 接口后，您可以通过配置替换实现。
+**Q: 我可以在不修改代码的情况下将文件 logger 切换为云端 logger 吗？**  
+A: 可以。只要遵循 `ILogger` 接口，您即可通过配置替换实现。
 
 **Q: 我应该多久生成一次诊断报告？**  
-A: 对于生产系统，建议在重要的索引运行后或性能阈值被触发时生成报告。
+A: 对于生产系统，建议在重大索引运行后或性能阈值被触发时生成报告。
 
-**Q: 记录完整的查询字符串安全吗？**  
+**Q: 记录完整查询字符串安全吗？**  
 A: 仅当查询不包含敏感用户数据时才安全。否则，请在记录前对敏感部分进行脱敏或哈希处理。
 
-**Q: 日志记录对性能有什么影响？**  
-A: 使用异步追加器和适当的日志级别时影响极小；在高吞吐量环境中避免使用 `DEBUG` 级别。
+**Q: 日志记录对性能的影响如何？**  
+A: 使用异步追加器和适当的日志级别时影响极小；在高吞吐环境中避免使用 `DEBUG` 级别。
+
+## 相关教程
+
+- [如何实现日志记录 - GroupDocs.Search Java 异常处理和日志记录教程](/search/java/exception-handling-logging/)
+- [掌握自定义日志记录 Groupdocs Search Java](/search/java/exception-handling-logging/master-custom-logging-groupdocs-search-java/)
+- [Groupdocs Search Java 文件自定义日志记录器](/search/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/)

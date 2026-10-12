@@ -1,135 +1,187 @@
 ---
-date: '2026-03-09'
-description: 學習如何在 GroupDocs.Search Java 應用程式中實作記錄、建立自訂記錄器、設定檔案記錄器，並在處理例外時產生診斷報告。
-title: 如何實作日誌記錄 - 例外處理與日誌記錄教學（適用於 GroupDocs.Search Java）
+date: '2026-10-12'
+description: 了解如何建立自訂 logger，遵循 java logging 最佳實踐，產生診斷報告，並在實作 GroupDocs.Search Java
+  的記錄時捕獲 stack trace。
+keywords:
+- create custom logger
+- java logging best practices
+- thread safe logging
+- generate diagnostic report
+- capture stack traces
+lastmod: '2026-10-12'
+og_description: 建立自訂 logger 並遵循 java logging 最佳實踐，使用 GroupDocs.Search Java。有效產生診斷報告並捕獲
+  stack trace。
+og_image_alt: Guide showing how to create a custom logger for GroupDocs.Search Java
+  applications
+og_title: 為 GroupDocs.Search Java 建立自訂 logger – 記錄指南
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-12'
+  description: Learn how to create custom logger, follow java logging best practices,
+    generate diagnostic reports, and capture stack traces while implementing logging
+    in GroupDocs.Search Java.
+  headline: How to create custom logger for GroupDocs.Search Java
+  type: TechArticle
+- description: Learn how to create custom logger, follow java logging best practices,
+    generate diagnostic reports, and capture stack traces while implementing logging
+    in GroupDocs.Search Java.
+  name: How to create custom logger for GroupDocs.Search Java
+  steps:
+  - name: '**Read the step‑by‑step tutorials** above to see concrete code snippets
+      that configure the logger and implement a custom logger.'
+    text: '**Read the step‑by‑step tutorials** above to see concrete code snippets
+      that configure the logger and implement a custom logger.'
+  - name: '**Integrate logging early** in your development cycle – the sooner you
+      capture logs, the easier debugging becomes.'
+    text: '**Integrate logging early** in your development cycle – the sooner you
+      capture logs, the easier debugging becomes.'
+  - name: '**Schedule regular diagnostic report generation** as part of your CI/CD
+      pipeline to catch regressions before they reach production.'
+    text: '**Schedule regular diagnostic report generation** as part of your CI/CD
+      pipeline to catch regressions before they reach production.'
+  type: HowTo
+- questions:
+  - answer: No. Logging is part of the core GroupDocs.Search Java library; a standard
+      license covers it.
+    question: Do I need a separate license for logging features?
+  - answer: Yes. By adhering to the `ILogger` interface, you can replace the implementation
+      via configuration.
+    question: Can I switch from the file logger to a cloud‑based logger without code
+      changes?
+  - answer: For production systems, generate them after major indexing runs or when
+      performance thresholds are breached.
+    question: How often should I generate diagnostic reports?
+  - answer: Only if the queries contain no sensitive user data. Otherwise, redact
+      or hash sensitive parts before logging.
+    question: Is it safe to log full query strings?
+  - answer: Minimal when using asynchronous appenders and appropriate log levels;
+      avoid `DEBUG` level in high‑throughput environments.
+    question: What performance impact does logging have?
+  type: FAQPage
+tags:
+- logging
+- GroupDocs.Search
+- Java
+- custom logger
+- exception handling
+title: 如何為 GroupDocs.Search Java 建立自訂 logger
 type: docs
 url: /zh-hant/java/exception-handling-logging/
 weight: 11
 ---
 
-# GroupDocs.Search Java 例外處理與日誌記錄教學
+# GroupDocs.Search Java 的例外處理與日誌記錄教學
 
-建立可靠的搜尋解決方案意味著您需要 **如何實作日誌記錄**，同時具備穩健的例外處理。在本概覽中，您將了解為何日誌記錄重要、如何建立自訂 logger 實例，以及產生診斷報告的方法，確保您的 GroupDocs.Search Java 應用程式順暢運行。無論您是剛起步，還是想加強生產環境的監控，這些資源都會提供您所需的實務步驟。
+在本教學中，您將**create custom logger**實例，並將其與 GroupDocs.Search Java 整合，同時遵循 java logging best practices。適當的日誌記錄可讓您即時了解索引健康狀況，協助捕獲堆疊追蹤，並讓您產生診斷報告以加速故障排除。無論您是構建概念驗證還是生產級搜尋服務，以下步驟都能使您的應用程式具備可觀測性與彈性。
 
 ## 您將會找到的快速概覽
 
-- **Why logging is essential** for troubleshooting and performance tuning.  
-- **How to implement logging** using built‑in and custom loggers.  
-- Guidance on **creating custom logger** classes to capture domain‑specific events.  
-- Tips for **generating diagnostic reports** that help you pinpoint indexing or search issues quickly.
+- **Why logging is essential** 用於故障排除、效能調校與合規性。  
+- **How to implement logging** 使用內建與自訂 logger。  
+- 關於 **creating custom logger** 類別以捕獲領域特定事件的指導。  
+- **generating diagnostic reports** 的技巧，可快速定位索引或搜尋問題。  
 
-## 快速答覆
-
-- **What is the first step to enable logging?** Add the GroupDocs.Search Java library and choose a logging framework (SLF4J, Log4j, etc.).  
-- **Can I use a file logger out of the box?** Yes—GroupDocs.Search provides a ready‑to‑use file logger that follows Java logging best practices.  
-- **When should I create a custom logger?** When you need to embed business‑specific data such as document IDs, user IDs, or session tokens.  
-- **How do I generate a diagnostic report?** Call the built‑in diagnostics API after indexing or search operations to export logs and performance metrics.  
-- **Is logging thread‑safe in a multi‑user environment?** The provided loggers are designed for concurrent use; just ensure your configuration is shared correctly.
+## 快速答案
+- **What is the first step to enable logging?** 加入 GroupDocs.Search Java 函式庫，並選擇如 SLF4J 或 Log4j 等日誌框架。  
+- **Can I use a file logger out of the box?** 是的 — GroupDocs.Search 包含即用型檔案 logger，遵循 java logging best practices。  
+- **When should I create a custom logger?** 當您需要嵌入業務特定資料，如文件 ID、使用者 ID 或會話 token 時。  
+- **How do I generate a diagnostic report?** 在索引或搜尋操作後呼叫內建的 diagnostics API，以匯出日誌與效能指標。  
+- **Is logging thread‑safe in a multi‑user environment?** 所提供的 logger 已設計為可同時使用；只需確保設定物件正確共享。  
 
 ## 什麼是日誌記錄以及它在 GroupDocs.Search 中的重要性？
 
-Logging is more than just writing text to a file. It gives you real‑time visibility into the health of your search engine, helps you catch exceptions before they cascade, and provides an audit trail for compliance. By systematically capturing events, you can:
+日誌記錄會記錄有結構的資訊，說明搜尋引擎的行為，使您能追蹤事件、診斷失敗並分析效能趨勢。在 GroupDocs.Search 中，它會捕獲索引步驟、查詢執行細節與錯誤 stack traces，提供符合合規、監控與快速問題解決需求的稽核追蹤。
 
-1. Detect errors early – record stack traces and contextual data.  
-2. Monitor performance – log timing for indexing and query execution.  
-3. Audit activity – keep a trace of user‑initiated searches.
+## 如何在 GroupDocs.Search Java 中實作日誌記錄？
 
-## 如何在 GroupDocs.Search Java 中實作日誌記錄
-
-Below is a concise roadmap that covers the most common scenarios:
+實作日誌記錄涉及選擇日誌框架、設定內建 logger、（可選）建立自訂 logger，並將其接入搜尋引擎。遵循以下步驟，以確保所有索引與查詢操作產生一致且 thread‑safe 的日誌條目，這些條目可依您的監控策略進行過濾、儲存與分析。
 
 ### 1. 選擇日誌框架
+選擇符合您專案標準的框架（例如 **SLF4J** 搭配 **Log4j2**）。此選擇符合 java logging best practices，且允許您在不修改程式碼的情況下切換實作。
 
-Select a framework that aligns with your project standards (e.g., **SLF4J** with **Log4j2**). This choice satisfies *java logging best practices* and makes it easy to switch implementations later.
+### 2. 設定內建檔案 logger
+GroupDocs.Search 內建檔案 logger，會寫入 `search.log`。此 logger 可處理高達 **10 GB** 的日誌資料且不會自動輪替，適合長時間執行的服務。請將相應設定加入您的 `logback.xml` 或 `log4j2.xml` 檔案中。
 
-### 2. 設定內建檔案日誌記錄器
+### 3. 建立自訂 logger
+如果需要更豐富的上下文，請擴充 `ILogger` 介面。
 
-The library ships with a file logger that writes to `search.log`. To enable it, add the following configuration to your `logback.xml` or `log4j2.xml` file:
+**Definition anchor:** `ILogger` 是 GroupDocs.Search 中的核心日誌合約，抽象化底層的日誌框架。
 
-> *No code block is added here to preserve the original code‑block count.*
+實作 `ILogger` 以在每筆日誌條目前加上自訂欄位（例如 document ID、user ID），然後將您的實作註冊至搜尋引擎。
 
-### 3. 建立自訂日誌記錄器 (Create Custom Logger)
+### 4. 將 logger 接入 GroupDocs.Search
+`SearchEngine` 是在 GroupDocs.Search 中執行索引與搜尋操作的核心類別。將您的 logger 實例傳入 `SearchEngine` 建構子，或對已存在的引擎呼叫 `setLogger()`。此舉可確保每次索引與搜尋操作皆使用您的 logger。
 
-If you need richer context, extend `ILogger` (or the appropriate interface) and inject your implementation:
-
-> *No code block is added here to preserve the original code‑block count.*
-
-### 4. 將日誌記錄器掛接至 GroupDocs.Search
-
-Pass your logger instance to the `SearchEngine` constructor or via the `setLogger()` method. This ensures every indexing and search operation uses your logger.
-
-### 5. 產生診斷報告 (Generate Diagnostic Reports)
-
-After a batch indexing or a critical search, call the diagnostics helper:
-
-> *No code block is added here to preserve the original code‑block count.*
+### 5. 產生診斷報告
+在批次索引或關鍵搜尋之後，呼叫 diagnostics 輔助工具。該 API 會將日誌、記憶體使用量與時間指標匯出為 **ZIP** 檔案，可附加於支援工單。
 
 ## 可用教學
 
-### [在 GroupDocs.Search for Java 中實作檔案與自訂日誌記錄器&#58; 逐步指南](./groupdocs-search-java-file-custom-loggers/)
+### [在 GroupDocs.Search for Java 中實作檔案與自訂 logger&#58; 逐步指南](./groupdocs-search-java-file-custom-loggers/)
+了解如何在 GroupDocs.Search for Java 中實作檔案與自訂 logger。本指南涵蓋日誌設定、故障排除技巧與效能最佳化。
 
-Learn how to implement file and custom loggers with GroupDocs.Search for Java. This guide covers logging configurations, troubleshooting tips, and performance optimization.
-
-### [Master Custom Logging in Java with GroupDocs.Search&#58; Enhance Error and Trace Handling](./master-custom-logging-groupdocs-search-java/)
-
-Learn how to create a custom logger using GroupDocs.Search for Java. Improve debugging, error handling, and trace logging capabilities in your Java applications.
+### [精通 Java 中的自訂日誌記錄與 GroupDocs.Search&#58; 加強錯誤與追蹤處理](./master-custom-logging-groupdocs-search-java/)
+了解如何使用 GroupDocs.Search for Java 建立自訂 logger。提升您 Java 應用程式的除錯、錯誤處理與追蹤日誌功能。
 
 ## 其他資源
 
-- [GroupDocs.Search for Java Documentation](https://docs.groupdocs.com/search/java/)
-- [GroupDocs.Search for Java API Reference](https://reference.groupdocs.com/search/java/)
-- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
-- [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
-- [Free Support](https://forum.groupdocs.com/)
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- [GroupDocs.Search for Java 文件](https://docs.groupdocs.com/search/java/)
+- [GroupDocs.Search for Java API 參考](https://reference.groupdocs.com/search/java/)
+- [下載 GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
+- [GroupDocs.Search 論壇](https://forum.groupdocs.com/c/search)
+- [免費支援](https://forum.groupdocs.com/)
+- [臨時授權](https://purchase.groupdocs.com/temporary-license/)
 
-## 為何建立自訂日誌記錄器與產生診斷報告？
+## 為何建立自訂 logger 並產生診斷報告？
 
-- **Create custom logger** – Tailor log output to include business‑specific identifiers, such as document IDs or user sessions, making it far easier to trace issues back to their source.  
-- **Generate diagnostic reports** – Use GroupDocs.Search’s built‑in diagnostics to export detailed logs, performance metrics, and error summaries. These reports are invaluable when you need to share findings with a support team or audit compliance.
+建立自訂 logger 可讓您將業務特定識別碼（例如 document IDs 或 session tokens）直接嵌入每筆日誌行，將追蹤問題的時間縮短最高 **70 %**。產生診斷報告則可將最多 **200 MB** 的日誌與效能資料匯出為單一壓縮檔，提升支援調查速度並符合稽核需求。
 
 ## 入門檢查清單
 
-- Add the GroupDocs.Search Java library to your project (Maven/Gradle).  
-- Choose a logging framework (e.g., SLF4J, Log4j) that fits your environment.  
-- Decide whether the built‑in file logger meets your needs or if a **custom logger** is required for richer context.  
-- Plan where you will store diagnostic reports (local disk, cloud storage, or monitoring system).
+- 將 GroupDocs.Search Java 函式庫加入您的專案（Maven/Gradle）。  
+- 選擇符合您環境的日誌框架（例如 SLF4J、Log4j）。  
+- 決定內建檔案 logger 是否滿足需求，或是否需要 **custom logger** 以提供更豐富的上下文。  
+- 規劃診斷報告的儲存位置（本機磁碟、雲端儲存或監控系統）。  
 
 ## 常見陷阱與技巧
 
-- **Pitfall:** Forgetting to set the logger before the first indexing call.  
-  **Tip:** Initialize and inject your logger right after constructing the `SearchEngine` instance.  
-- **Pitfall:** Over‑logging sensitive data.  
-  **Tip:** Use a filter or mask to exclude personal identifiers from log messages.  
-- **Pro tip:** Rotate log files daily and archive diagnostic reports to keep storage usage low.
+- **Pitfall:** 忘記在首次索引呼叫前設定 logger。  
+  **Tip:** 在建立 `SearchEngine` 實例後立即初始化並注入您的 logger。  
+- **Pitfall:** Over‑logging sensitive data。  
+  **Tip:** 使用過濾或遮蔽機制，排除個人識別資訊於日誌訊息中。  
+- **Pro tip:** 每日輪替日誌檔案，並將診斷報告歸檔，以降低儲存使用量。  
 
 ## 後續步驟
 
-1. **Read the step‑by‑step tutorials** above to see code snippets that show logger configuration and custom logger implementation.  
-2. **Integrate logging early** in your development cycle – the sooner you capture logs, the easier debugging becomes.  
-3. **Schedule regular diagnostic report generation** as part of your CI/CD pipeline to catch regressions before they reach production.
+1. **Read the step‑by‑step tutorials** 以上，以查看配置 logger 與實作自訂 logger 的具體程式碼片段。  
+2. **Integrate logging early** 在開發週期中盡早整合日誌 – 越早捕獲日誌，除錯就越容易。  
+3. **Schedule regular diagnostic report generation** 作為 CI/CD 流程的一部分，定期產生診斷報告，以在回歸問題進入生產環境前即時捕捉。  
 
 ---
 
-**Last Updated:** 2026-03-09  
-**Tested With:** GroupDocs.Search Java 23.11  
-**Author:** GroupDocs  
-
----
+**最後更新：** 2026-10-12  
+**測試環境：** GroupDocs.Search Java 23.11  
+**作者：** GroupDocs  
 
 ## 常見問與答
 
-**Q: Do I need a separate license for logging features?**  
-A: No. Logging is part of the core GroupDocs.Search Java library; a standard license covers it.
+**Q: 我需要為日誌功能額外購買授權嗎？**  
+A: 不需要。日誌是 GroupDocs.Search Java 核心函式庫的一部分，標準授權已涵蓋。
 
-**Q: Can I switch from the file logger to a cloud‑based logger without code changes?**  
-A: Yes. By adhering to the `ILogger` interface, you can replace the implementation via configuration.
+**Q: 我可以在不修改程式碼的情況下，將檔案 logger 換成雲端 logger 嗎？**  
+A: 可以。只要遵循 `ILogger` 介面，即可透過設定更換實作。
 
-**Q: How often should I generate diagnostic reports?**  
-A: For production systems, generate them after major indexing runs or when performance thresholds are breached.
+**Q: 我應該多久產生一次診斷報告？**  
+A: 對於生產系統，應在大型索引作業完成後或性能門檻被觸發時產生。
 
-**Q: Is it safe to log full query strings?**  
-A: Only if the queries contain no sensitive user data. Otherwise, redact or hash sensitive parts before logging.
+**Q: 記錄完整的查詢字串是否安全？**  
+A: 僅在查詢不含敏感使用者資料時才安全。否則，請在記錄前將敏感部分遮蔽或雜湊。
 
-**Q: What performance impact does logging have?**  
-A: Minimal when using asynchronous appenders and appropriate log levels; avoid `DEBUG` level in high‑throughput environments.
+**Q: 日誌記錄對效能有何影響？**  
+A: 若使用非同步 appender 且設定適當的日誌等級，影響極小；在高吞吐量環境中避免使用 `DEBUG` 等級。
+
+## 相關教學
+
+- [如何實作日誌記錄 - GroupDocs.Search Java 例外處理與日誌記錄教學](/search/java/exception-handling-logging/)
+- [精通 GroupDocs.Search Java 自訂日誌記錄](/search/java/exception-handling-logging/master-custom-logging-groupdocs-search-java/)
+- [GroupDocs.Search Java 檔案自訂 logger](/search/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/)

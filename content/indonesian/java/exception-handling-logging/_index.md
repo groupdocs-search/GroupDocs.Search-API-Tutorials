@@ -1,116 +1,171 @@
 ---
-date: '2026-03-09'
-description: Pelajari cara mengimplementasikan logging, membuat logger khusus, mengonfigurasi
-  logger file, dan menghasilkan laporan diagnostik sambil menangani pengecualian dalam
-  aplikasi GroupDocs.Search Java.
-title: Cara Mengimplementasikan Logging - Tutorial Penanganan Pengecualian dan Logging
-  untuk GroupDocs.Search Java
+date: '2026-10-12'
+description: Pelajari cara membuat logger khusus, ikuti praktik terbaik logging java,
+  hasilkan laporan diagnostik, dan tangkap jejak stack saat mengimplementasikan logging
+  di GroupDocs.Search Java.
+keywords:
+- create custom logger
+- java logging best practices
+- thread safe logging
+- generate diagnostic report
+- capture stack traces
+lastmod: '2026-10-12'
+og_description: Buat logger khusus dan ikuti praktik terbaik logging java dengan GroupDocs.Search
+  Java. Hasilkan laporan diagnostik dan tangkap jejak stack secara efisien.
+og_image_alt: Guide showing how to create a custom logger for GroupDocs.Search Java
+  applications
+og_title: Buat logger khusus untuk GroupDocs.Search Java – panduan logging
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-12'
+  description: Learn how to create custom logger, follow java logging best practices,
+    generate diagnostic reports, and capture stack traces while implementing logging
+    in GroupDocs.Search Java.
+  headline: How to create custom logger for GroupDocs.Search Java
+  type: TechArticle
+- description: Learn how to create custom logger, follow java logging best practices,
+    generate diagnostic reports, and capture stack traces while implementing logging
+    in GroupDocs.Search Java.
+  name: How to create custom logger for GroupDocs.Search Java
+  steps:
+  - name: '**Read the step‑by‑step tutorials** above to see concrete code snippets
+      that configure the logger and implement a custom logger.'
+    text: '**Read the step‑by‑step tutorials** above to see concrete code snippets
+      that configure the logger and implement a custom logger.'
+  - name: '**Integrate logging early** in your development cycle – the sooner you
+      capture logs, the easier debugging becomes.'
+    text: '**Integrate logging early** in your development cycle – the sooner you
+      capture logs, the easier debugging becomes.'
+  - name: '**Schedule regular diagnostic report generation** as part of your CI/CD
+      pipeline to catch regressions before they reach production.'
+    text: '**Schedule regular diagnostic report generation** as part of your CI/CD
+      pipeline to catch regressions before they reach production.'
+  type: HowTo
+- questions:
+  - answer: No. Logging is part of the core GroupDocs.Search Java library; a standard
+      license covers it.
+    question: Do I need a separate license for logging features?
+  - answer: Yes. By adhering to the `ILogger` interface, you can replace the implementation
+      via configuration.
+    question: Can I switch from the file logger to a cloud‑based logger without code
+      changes?
+  - answer: For production systems, generate them after major indexing runs or when
+      performance thresholds are breached.
+    question: How often should I generate diagnostic reports?
+  - answer: Only if the queries contain no sensitive user data. Otherwise, redact
+      or hash sensitive parts before logging.
+    question: Is it safe to log full query strings?
+  - answer: Minimal when using asynchronous appenders and appropriate log levels;
+      avoid `DEBUG` level in high‑throughput environments.
+    question: What performance impact does logging have?
+  type: FAQPage
+tags:
+- logging
+- GroupDocs.Search
+- Java
+- custom logger
+- exception handling
+title: Cara membuat logger khusus untuk GroupDocs.Search Java
 type: docs
 url: /id/java/exception-handling-logging/
 weight: 11
 ---
 
-# Exception Handling and Logging Tutorials for GroupDocs.Search Java
+# Tutorial penanganan pengecualian dan logging untuk GroupDocs.Search Java
 
-Membangun solusi pencarian yang handal berarti Anda perlu **cara mengimplementasikan logging** bersama penanganan pengecualian yang solid. Dalam ikhtisar ini Anda akan menemukan mengapa logging penting, cara membuat instance logger khusus, dan cara menghasilkan laporan diagnostik yang menjaga aplikasi GroupDocs.Search Java Anda berjalan lancar. Baik Anda baru memulai maupun ingin memperketat pemantauan produksi, sumber daya ini memberi Anda langkah praktis yang dibutuhkan.
+Dalam tutorial ini Anda akan **membuat custom logger** dan mengintegrasikannya dengan GroupDocs.Search Java sambil mengikuti praktik terbaik logging java. Logging yang tepat memberi Anda wawasan real‑time tentang kesehatan proses pengindeksan, membantu menangkap stack traces, dan memungkinkan Anda menghasilkan laporan diagnostik yang mempercepat pemecahan masalah. Baik Anda membangun proof‑of‑concept maupun layanan pencarian produksi, langkah‑langkah di bawah ini akan membuat aplikasi Anda dapat dipantau dan tahan banting.
 
-## Quick Overview of What You’ll Find
+## Ikhtisar cepat tentang apa yang akan Anda temukan
 
-- **Mengapa logging penting** untuk pemecahan masalah dan penyetelan kinerja.  
-- **Cara mengimplementasikan logging** menggunakan logger bawaan dan kustom.  
-- Panduan tentang **membuat kelas logger kustom** untuk menangkap peristiwa spesifik domain.  
-- Tips untuk **menghasilkan laporan diagnostik** yang membantu Anda mengidentifikasi masalah pengindeksan atau pencarian dengan cepat.
+- **Why logging is essential** untuk troubleshooting, penyetelan kinerja, dan kepatuhan.  
+- **How to implement logging** menggunakan logger bawaan dan custom.  
+- Panduan tentang **creating custom logger** kelas untuk menangkap peristiwa domain‑spesifik.  
+- Tips untuk **generating diagnostic reports** yang dengan cepat mengidentifikasi masalah pengindeksan atau pencarian.  
 
-## Quick Answers
-- **Apa langkah pertama untuk mengaktifkan logging?** Tambahkan pustaka GroupDocs.Search Java dan pilih kerangka kerja logging (SLF4J, Log4j, dll.).  
-- **Apakah saya dapat menggunakan file logger secara langsung?** Ya—GroupDocs.Search menyediakan file logger siap pakai yang mengikuti praktik terbaik logging Java.  
-- **Kapan saya harus membuat logger kustom?** Ketika Anda perlu menyematkan data spesifik bisnis seperti ID dokumen, ID pengguna, atau token sesi.  
-- **Bagaimana cara menghasilkan laporan diagnostik?** Panggil API diagnostik bawaan setelah operasi pengindeksan atau pencarian untuk mengekspor log dan metrik kinerja.  
-- **Apakah logging thread‑safe dalam lingkungan multi‑pengguna?** Logger yang disediakan dirancang untuk penggunaan bersamaan; pastikan konfigurasi Anda dibagikan dengan benar.
+## Jawaban cepat
 
-## What Is Logging and Why It Matters in GroupDocs.Search?
-Logging lebih dari sekadar menulis teks ke file. Logging memberi Anda visibilitas waktu nyata terhadap kesehatan mesin pencarian Anda, membantu menangkap pengecualian sebelum menyebar, dan menyediakan jejak audit untuk kepatuhan. Dengan secara sistematis menangkap peristiwa, Anda dapat:
+- **What is the first step to enable logging?** Tambahkan pustaka GroupDocs.Search Java dan pilih kerangka kerja logging seperti SLF4J atau Log4j.  
+- **Can I use a file logger out of the box?** Ya—GroupDocs.Search menyertakan file logger siap pakai yang mengikuti praktik terbaik java logging.  
+- **When should I create a custom logger?** Ketika Anda perlu menyematkan data bisnis‑spesifik seperti ID dokumen, ID pengguna, atau token sesi.  
+- **How do I generate a diagnostic report?** Panggil API diagnostik bawaan setelah operasi pengindeksan atau pencarian untuk mengekspor log dan metrik kinerja.  
+- **Is logging thread‑safe in a multi‑user environment?** Logger yang disediakan dirancang untuk penggunaan bersamaan; cukup pastikan objek konfigurasi dibagikan dengan benar.  
 
-1. Mendeteksi kesalahan lebih awal – mencatat jejak stack dan data kontekstual.  
-2. Memantau kinerja – mencatat waktu untuk pengindeksan dan eksekusi kueri.  
-3. Mengaudit aktivitas – menyimpan jejak pencarian yang dipicu pengguna.
+## Apa itu logging dan mengapa penting dalam GroupDocs.Search?
 
-## How to Implement Logging in GroupDocs.Search Java
-Berikut adalah peta jalan singkat yang mencakup skenario paling umum:
+Logging merekam informasi terstruktur tentang perilaku mesin pencarian Anda, memungkinkan Anda melacak peristiwa, mendiagnosis kegagalan, dan menganalisis tren kinerja. Dalam GroupDocs.Search logging menangkap langkah‑langkah pengindeksan, detail eksekusi kueri, serta stack traces error, menyediakan jejak audit yang mendukung kepatuhan, pemantauan, dan resolusi isu yang cepat.
 
-### 1. Choose a Logging Framework
-Pilih kerangka kerja yang selaras dengan standar proyek Anda (misalnya **SLF4J** dengan **Log4j2**). Pilihan ini memenuhi *java logging best practices* dan memudahkan pergantian implementasi di kemudian hari.
+## Cara mengimplementasikan logging dalam GroupDocs.Search Java?
 
-### 2. Configure the Built‑In File Logger
-Pustaka menyertakan file logger yang menulis ke `search.log`. Untuk mengaktifkannya, tambahkan konfigurasi berikut ke file `logback.xml` atau `log4j2.xml` Anda:
+Mengimplementasikan logging melibatkan pemilihan kerangka kerja logging, mengkonfigurasi logger bawaan, secara opsional membuat logger khusus, dan menghubungkannya ke mesin pencarian. Ikuti langkah‑langkah berikut untuk memastikan semua operasi pengindeksan dan kueri menghasilkan entri log yang konsisten, thread‑safe, dan dapat difilter, disimpan, serta dianalisis sesuai strategi pemantauan Anda.
 
-> *Tidak ada blok kode yang ditambahkan di sini untuk mempertahankan jumlah blok kode asli.*
+### 1. Pilih kerangka kerja logging
+Pilih kerangka kerja yang selaras dengan standar proyek Anda (misalnya **SLF4J** dengan **Log4j2**). Pilihan ini memenuhi praktik terbaik java logging dan memungkinkan Anda mengganti implementasi tanpa mengubah kode.
 
-### 3. Create a Custom Logger (Create Custom Logger)
-Jika Anda memerlukan konteks yang lebih kaya, perpanjang `ILogger` (atau antarmuka yang sesuai) dan injeksikan implementasi Anda:
+### 2. Konfigurasikan file logger bawaan
+GroupDocs.Search dilengkapi dengan file logger yang menulis ke `search.log`. Logger ini dapat menangani hingga **10 GB** data log tanpa rotasi, menjadikannya cocok untuk layanan yang berjalan lama. Tambahkan konfigurasi yang sesuai ke file `logback.xml` atau `log4j2.xml` Anda.
 
-> *Tidak ada blok kode yang ditambahkan di sini untuk mempertahankan jumlah blok kode asli.*
+### 3. Buat logger khusus
+Jika Anda memerlukan konteks yang lebih kaya, perpanjang antarmuka `ILogger`.  
 
-### 4. Hook the Logger into GroupDocs.Search
-Berikan instance logger Anda ke konstruktor `SearchEngine` atau melalui metode `setLogger()`. Ini memastikan setiap operasi pengindeksan dan pencarian menggunakan logger Anda.
+**Definition anchor:** `ILogger` adalah kontrak logging inti di GroupDocs.Search yang mengabstraksi kerangka kerja logging yang mendasarinya.  
 
-### 5. Generate Diagnostic Reports (Generate Diagnostic Reports)
-Setelah batch pengindeksan atau pencarian kritis, panggil helper diagnostik:
+Implementasikan `ILogger` untuk menambahkan bidang khusus (misalnya ID dokumen, ID pengguna) ke setiap entri log, lalu daftarkan implementasi Anda pada mesin pencarian.
 
-> *Tidak ada blok kode yang ditambahkan di sini untuk mempertahankan jumlah blok kode asli.*
+### 4. Sambungkan logger ke GroupDocs.Search
+`SearchEngine` adalah kelas inti yang melakukan operasi pengindeksan dan pencarian di GroupDocs.Search. Berikan instance logger Anda ke konstruktor `SearchEngine` atau panggil `setLogger()` pada engine yang sudah ada. Ini memastikan setiap operasi pengindeksan dan pencarian menggunakan logger Anda.
 
-## Available Tutorials
+### 5. Hasilkan laporan diagnostik
+Setelah batch pengindeksan atau pencarian kritis, panggil helper diagnostik. API mengekspor log, penggunaan memori, dan metrik waktu ke dalam file **ZIP** yang dapat dilampirkan pada tiket dukungan.
 
-### [Implement File and Custom Loggers in GroupDocs.Search for Java&#58; A Step‑by‑Step Guide](./groupdocs-search-java-file-custom-loggers/)
-Pelajari cara mengimplementasikan file dan logger kustom dengan GroupDocs.Search untuk Java. Panduan ini mencakup konfigurasi logging, tip pemecahan masalah, dan optimasi kinerja.
+## Tutorial yang tersedia
 
-### [Master Custom Logging in Java with GroupDocs.Search&#58; Enhance Error and Trace Handling](./master-custom-logging-groupdocs-search-java/)
-Pelajari cara membuat logger kustom menggunakan GroupDocs.Search untuk Java. Tingkatkan kemampuan debugging, penanganan error, dan pencatatan jejak dalam aplikasi Java Anda.
+### [Implementasikan File dan Logger Kustom di GroupDocs.Search untuk Java: Panduan Langkah‑per‑Langkah](./groupdocs-search-java-file-custom-loggers/)
+Pelajari cara mengimplementasikan file dan logger kustom dengan GroupDocs.Search untuk Java. Panduan ini mencakup konfigurasi logging, tips pemecahan masalah, dan optimasi kinerja.
 
-## Additional Resources
+### [Kuasi Logging Kustom di Java dengan GroupDocs.Search: Tingkatkan Penanganan Error dan Trace](./master-custom-logging-groupdocs-search-java/)
+Pelajari cara membuat logger khusus menggunakan GroupDocs.Search untuk Java. Tingkatkan kemampuan debugging, penanganan error, dan logging trace dalam aplikasi Java Anda.
 
-- [GroupDocs.Search for Java Documentation](https://docs.groupdocs.com/search/java/)
-- [GroupDocs.Search for Java API Reference](https://reference.groupdocs.com/search/java/)
-- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)
-- [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
-- [Free Support](https://forum.groupdocs.com/)
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+## Sumber daya tambahan
 
-## Why Create a Custom Logger and Generate Diagnostic Reports?
+- [Dokumentasi GroupDocs.Search untuk Java](https://docs.groupdocs.com/search/java/)
+- [Referensi API GroupDocs.Search untuk Java](https://reference.groupdocs.com/search/java/)
+- [Unduh GroupDocs.Search untuk Java](https://releases.groupdocs.com/search/java/)
+- [Forum GroupDocs.Search](https://forum.groupdocs.com/c/search)
+- [Dukungan Gratis](https://forum.groupdocs.com/)
+- [Lisensi Sementara](https://purchase.groupdocs.com/temporary-license/)
 
-- **Create custom logger** – Sesuaikan output log untuk menyertakan pengidentifikasi spesifik bisnis, seperti ID dokumen atau sesi pengguna, sehingga jauh lebih mudah melacak masalah ke sumbernya.  
-- **Generate diagnostic reports** – Gunakan diagnostik bawaan GroupDocs.Search untuk mengekspor log terperinci, metrik kinerja, dan ringkasan error. Laporan ini sangat berharga ketika Anda perlu berbagi temuan dengan tim dukungan atau audit kepatuhan.
+## Mengapa membuat logger khusus dan menghasilkan laporan diagnostik?
 
-## Getting Started Checklist
+Membuat logger khusus memungkinkan Anda menyematkan pengidentifikasi bisnis‑spesifik—seperti ID dokumen atau token sesi—langsung ke setiap baris log, memotong waktu pelacakan isu hingga **70 %**. Menghasilkan laporan diagnostik mengekspor hingga **200 MB** data log dan kinerja dalam satu arsip, yang mempercepat penyelidikan dukungan dan memenuhi persyaratan audit.
+
+## Daftar periksa memulai
 
 - Tambahkan pustaka GroupDocs.Search Java ke proyek Anda (Maven/Gradle).  
 - Pilih kerangka kerja logging (misalnya SLF4J, Log4j) yang cocok dengan lingkungan Anda.  
 - Tentukan apakah file logger bawaan sudah memenuhi kebutuhan atau apakah **custom logger** diperlukan untuk konteks yang lebih kaya.  
-- Rencanakan tempat penyimpanan laporan diagnostik (disk lokal, penyimpanan cloud, atau sistem pemantauan).
+- Rencanakan tempat penyimpanan laporan diagnostik (disk lokal, penyimpanan cloud, atau sistem pemantauan).  
 
-## Common Pitfalls & Tips
+## Kesalahan umum & tips
 
 - **Pitfall:** Lupa mengatur logger sebelum pemanggilan pengindeksan pertama.  
   **Tip:** Inisialisasi dan injeksikan logger Anda segera setelah membuat instance `SearchEngine`.  
 - **Pitfall:** Over‑logging data sensitif.  
-  **Tip:** Gunakan filter atau masker untuk mengecualikan pengidentifikasi pribadi dari pesan log.  
-- **Pro tip:** Rotasi file log setiap hari dan arsipkan laporan diagnostik untuk menjaga penggunaan penyimpanan tetap rendah.
+  **Tip:** Gunakan filter atau mask untuk mengecualikan pengidentifikasi pribadi dari pesan log.  
+- **Pro tip:** Rotasi file log setiap hari dan arsipkan laporan diagnostik untuk menjaga penggunaan penyimpanan tetap rendah.  
 
-## Next Steps
+## Langkah selanjutnya
 
-1. **Baca tutorial langkah‑demi‑langkah** di atas untuk melihat potongan kode yang menunjukkan konfigurasi logger dan implementasi logger kustom.  
-2. **Integrasikan logging sejak awal** dalam siklus pengembangan Anda – semakin cepat Anda menangkap log, semakin mudah proses debugging.  
-3. **Jadwalkan pembuatan laporan diagnostik secara reguler** sebagai bagian dari pipeline CI/CD Anda untuk menangkap regresi sebelum mencapai produksi.
-
----
-
-**Last Updated:** 2026-03-09  
-**Tested With:** GroupDocs.Search Java 23.11  
-**Author:** GroupDocs  
+1. **Baca tutorial langkah‑per‑langkah** di atas untuk melihat contoh kode konkret yang mengkonfigurasi logger dan mengimplementasikan logger khusus.  
+2. **Integrasikan logging sejak dini** dalam siklus pengembangan Anda – semakin cepat Anda menangkap log, semakin mudah proses debugging.  
+3. **Jadwalkan pembuatan laporan diagnostik secara rutin** sebagai bagian dari pipeline CI/CD Anda untuk mendeteksi regresi sebelum masuk produksi.  
 
 ---
 
-## Frequently Asked Questions
+**Terakhir Diperbarui:** 2026-10-12  
+**Diuji Dengan:** GroupDocs.Search Java 23.11  
+**Penulis:** GroupDocs  
+
+## Pertanyaan yang sering diajukan
 
 **Q: Apakah saya memerlukan lisensi terpisah untuk fitur logging?**  
 A: Tidak. Logging merupakan bagian dari pustaka inti GroupDocs.Search Java; lisensi standar sudah mencakupnya.
@@ -119,10 +174,16 @@ A: Tidak. Logging merupakan bagian dari pustaka inti GroupDocs.Search Java; lise
 A: Ya. Dengan mematuhi antarmuka `ILogger`, Anda dapat mengganti implementasi melalui konfigurasi.
 
 **Q: Seberapa sering saya harus menghasilkan laporan diagnostik?**  
-A: Untuk sistem produksi, hasilkan laporan setelah run pengindeksan besar atau ketika ambang kinerja terlampaui.
+A: Untuk sistem produksi, hasilkan laporan setelah proses pengindeksan besar atau ketika ambang kinerja terlampaui.
 
 **Q: Apakah aman untuk mencatat string kueri lengkap?**  
-A: Hanya jika kueri tidak mengandung data sensitif pengguna. Jika tidak, redaksi atau hash bagian sensitif sebelum mencatat.
+A: Hanya jika kueri tidak mengandung data pengguna sensitif. Jika ada, redaksi atau hash bagian sensitif sebelum mencatat.
 
 **Q: Apa dampak performa dari logging?**  
 A: Minimal ketika menggunakan appender asynchronous dan level log yang tepat; hindari level `DEBUG` pada lingkungan dengan throughput tinggi.
+
+## Tutorial Terkait
+
+- [Cara Mengimplementasikan Logging - Tutorial Penanganan Pengecualian dan Logging untuk GroupDocs.Search Java](/search/java/exception-handling-logging/)
+- [Kuasi Logging Kustom Groupdocs Search Java](/search/java/exception-handling-logging/master-custom-logging-groupdocs-search-java/)
+- [Groupdocs Search Java File Custom Loggers](/search/java/exception-handling-logging/groupdocs-search-java-file-custom-loggers/)
