@@ -1,101 +1,177 @@
 ---
-date: 2026-03-06
-description: Leer hoe je fuzzy-zoekopdrachten inschakelt in GroupDocs.Search voor
-  Java, met uitleg over installatie, licenties en het bouwen van je eerste doorzoekbare
+date: 2026-10-17
+description: Leer hoe je fuzzy search java kunt inschakelen met GroupDocs.Search,
+  inclusief installatie, licenties, configuratie en het bouwen van een doorzoekbare
   oplossing met fuzzy matching.
-title: Hoe fuzzy zoeken inschakelen met GroupDocs.Search – Aan de slag tutorial voor
-  Java
+keywords:
+- enable fuzzy search java
+- GroupDocs.Search Java
+- fuzzy matching Java
+lastmod: 2026-10-17
+og_description: Fuzzy search java met GroupDocs.Search in enkele minuten inschakelen.
+  Deze tutorial leidt je door installatie, licenties, configuratie van fuzzy matching
+  en het indexeren van documenten voor robuuste zoekresultaten.
+og_image_alt: Guide showing how to enable fuzzy search java using GroupDocs.Search
+og_title: Fuzzy search java inschakelen met GroupDocs.Search – Snelle gids
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-17'
+  description: Learn how to enable fuzzy search java using GroupDocs.Search, covering
+    installation, licensing, configuration, and building a searchable solution with
+    fuzzy matching.
+  headline: How to enable fuzzy search java with GroupDocs.Search – Getting started
+    tutorial
+  type: TechArticle
+- description: Learn how to enable fuzzy search java using GroupDocs.Search, covering
+    installation, licensing, configuration, and building a searchable solution with
+    fuzzy matching.
+  name: How to enable fuzzy search java with GroupDocs.Search – Getting started tutorial
+  steps:
+  - name: add GroupDocs.Search to your project
+    text: Add the GroupDocs.Search dependency to your `pom.xml` (Maven) or `build.gradle`
+      (Gradle). This makes the library available on the classpath for compilation
+      and runtime.
+  - name: apply your license
+    text: '`License` loads and validates the GroupDocs.Search license file, unlocking
+      all premium features such as fuzzy matching. Create a `License` instance and
+      point it at the `.lic` file you received from GroupDocs.'
+  - name: initialize the index settings
+    text: Define a folder on disk where the index files will be stored. You can also
+      configure case‑sensitivity, stop‑words, and other indexing options at this stage.
+  - name: index your documents
+    text: The `Indexer` class reads files, extracts searchable text, and writes the
+      data to the index folder. It automatically detects the file type, so you can
+      feed a mix of PDFs, DOCX, XLSX, and images without extra code.
+  - name: enable fuzzy search in your query
+    text: '`SearchOptions` configures parameters for a search operation, such as fuzzy
+      matching and filters. When you create a `SearchOptions` object, set its `fuzzySearch`
+      flag to `true`. You may also adjust the `fuzzinessLevel` (e.g., `2`) to control
+      how tolerant the engine should be.'
+  - name: perform a search query
+    text: The `search` method executes the query against the index and returns matching
+      results. Call the `search` method with the query string and the configured `SearchOptions`.
+      The method returns a list of `SearchResult` objects, each containing a document
+      path and a relevance score that reflects fuzzy mat
+  - name: review results
+    text: '`SearchResult` represents a single document match, including its path and
+      relevance score. Iterate over the `SearchResult` collection, display file names,
+      and optionally highlight matched terms in your UI. Fuzzy matches typically have
+      a slightly lower relevance score than exact matches, which you ca'
+  type: HowTo
+- questions:
+  - answer: Yes, the library is platform‑independent and works on any operating system
+      that supports Java.
+    question: Can I run GroupDocs.Search on a Linux server?
+  - answer: Invoke the `Indexer` again with the new files; the SDK merges them into
+      the current index automatically.
+    question: How do I add new files to an existing index?
+  - answer: Yes, set a folder filter in `SearchOptions` before executing the query.
+    question: Is it possible to limit search results to a specific folder?
+  - answer: The API switches to evaluation mode with limited features; replace the
+      temporary key with a permanent license to regain full functionality.
+    question: What happens after the temporary license expires?
+  - answer: Absolutely—enable the `fuzzySearch` flag in `SearchOptions` to retrieve
+      results that contain minor spelling variations.
+    question: Does GroupDocs.Search support fuzzy search?
+  type: FAQPage
+tags:
+- fuzzy search
+- GroupDocs.Search
+- Java search library
+- document indexing
+title: Hoe fuzzy search java met GroupDocs.Search in te schakelen – Startgids tutorial
 type: docs
 url: /nl/java/getting-started/
 weight: 1
 ---
 
-# Hoe Fuzzy Search Inschakelen met GroupDocs.Search – Aan de slag tutorial voor Java
+# Hoe fuzzy search java inschakelen met GroupDocs.Search – Startgids
 
-Welkom bij de ultieme gids over **hoe GroupDocs.Search te configureren** voor Java‑applicaties — en specifiek hoe je **fuzzy search inschakelt** zodat je gebruikers relevante documenten kunnen vinden, zelfs wanneer ze een woord verkeerd spellen of een iets andere terminologie gebruiken. In deze tutorial leer je de essentiële stappen om de bibliotheek te installeren, licenties in te stellen, fuzzy matching te configureren en je eerste doorzoekbare documentoplossing te bouwen. Of je nu een nieuw project start of zoekfunctionaliteit toevoegt aan een bestaande codebase, we leiden je door alles wat je nodig hebt om binnen 15 minuten operationeel te zijn.
+In deze uitgebreide gids leer je hoe je **enable fuzzy search java** gebruikt met de GroupDocs.Search‑bibliotheek. We lopen door het installeren van de SDK, het toepassen van een licentie, het configureren van fuzzy matching en het indexeren van verschillende documenttypen zodat je gebruikers relevante inhoud kunnen vinden, zelfs wanneer ze spelfouten maken of alternatieve terminologie gebruiken. Aan het einde van de tutorial heb je een volledig functionele zoekoplossing klaar in minder dan 15 minuten.
 
-## Snelle Antwoorden
-- **Wat is de eerste stap?** Installeer het GroupDocs.Search Java‑pakket via Maven of Gradle.  
-- **Heb ik een licentie nodig?** Ja—een tijdelijke licentie werkt voor ontwikkeling; een volledige licentie is vereist voor productie.  
-- **Welke IDE werkt het beste?** Elke Java‑IDE (IntelliJ IDEA, Eclipse, VS Code) die Maven/Gradle‑projecten ondersteunt.  
-- **Kan ik PDFs en Word‑bestanden indexeren?** Absoluut—GroupDocs.Search ondersteunt een breed scala aan documentformaten direct uit de doos.  
-- **Hoe schakel ik fuzzy search in?** Stel de `fuzzySearch`‑vlag in `SearchOptions` in voordat je een query uitvoert.  
-- **Hoe lang duurt de installatie?** Meestal minder dan 15 minuten voor een nieuw project.
+## Snelle antwoorden
+- **Wat is de eerste stap?** Voeg de GroupDocs.Search‑dependency toe aan je Maven `pom.xml` of Gradle `build.gradle`.  
+- **Heb ik een licentie nodig?** Ja—een tijdelijke ontwikkelingslicentie werkt voor testen; een permanente licentie is vereist voor productie‑implementaties.  
+- **Welke IDE werkt het beste?** Elke Java‑IDE die Maven of Gradle ondersteunt (IntelliJ IDEA, Eclipse, VS Code).  
+- **Kan ik PDFs, Word‑ en Excel‑bestanden indexeren?** Absoluut—GroupDocs.Search ondersteunt native meer dan 50 bestandsformaten, inclusief PDF, DOCX, XLSX, PPTX en vele afbeeldingsformaten.  
+- **Hoe schakel ik fuzzy search in?** Zet de `fuzzySearch`‑eigenschap op `true` in een `SearchOptions`‑instantie voordat je een query uitvoert.  
+- **Hoe lang duurt de volledige setup?** Meestal minder dan 15 minuten voor een nieuw project.
 
 ## Wat betekent “enable fuzzy search” in GroupDocs.Search?
-Fuzzy search inschakelen betekent dat je een tolerantieniveau activeert dat de zoekmachine in staat stelt termen te matchen met kleine spelfouten, ontbrekende tekens of verwisselde letters. Deze functie verbetert de gebruikerservaring aanzienlijk in scenario's waarin exacte spelling niet gegarandeerd kan worden—zoals typefouten, door OCR gegenereerde tekst of meertalige inhoud.
+
+Fuzzy search inschakelen vertelt de engine om kleine spellingvariaties, ontbrekende tekens of verwisselde letters te tolereren bij het matchen van zoektermen. Deze functie verbetert de vindbaarheid aanzienlijk in scenario’s zoals typefouten van gebruikers, OCR‑gegenereerde tekst of meertalige inhoud, omdat het zoekalgoritme relevante documenten retourneert zelfs wanneer het exacte trefwoord niet aanwezig is.
 
 ## Waarom GroupDocs.Search voor Java configureren en fuzzy search inschakelen?
-- **Snelle implementatie** – Minimale code is vereist om te beginnen met indexeren, zoeken en fuzzy matching toe te voegen.  
-- **Schaalbare indexering** – Verwerkt grote documentcollecties zonder prestatieverlies.  
-- **Brede formatondersteuning** – Werkt met PDF’s, DOCX, XLSX, PPTX en vele andere bestandstypen.  
-- **Veilige licentiëring** – Garandeert naleving en ontgrendelt alle premium‑functies, inclusief fuzzy search.  
-- **Betere gebruikerservaring** – Fuzzy search helpt gebruikers te vinden wat ze nodig hebben, zelfs met onvolmaakte zoekopdrachten.
 
-## Voorwaarden
-- Java Development Kit (JDK) 8 of hoger.  
-- Maven 3 of Gradle 5 voor afhankelijkheidsbeheer.  
-- Toegang tot een tijdelijke of volledige GroupDocs.Search‑licentiesleutel.  
+Je krijgt direct productie‑klare zoekfunctionaliteit met minimale code, terwijl je ook een soepelere gebruikerservaring levert. GroupDocs.Search indexeert documenten zonder ze volledig in het geheugen te laden, ondersteunt **50+ invoer‑ en uitvoerformaten** en kan opschalen naar **miljoenen bestanden** op standaard hardware. Fuzzy search toevoegen voegt een tolerantielaag toe die mislukte queries met tot **80 %** vermindert, waardoor verkeerd gespelde invoer van gebruikers wordt omgezet in accurate resultaten zonder extra ontwikkelingsinspanningen.
 
-## Stapsgewijze Gids
+## Vereisten
+- Java Development Kit (JDK) 8 of nieuwer.  
+- Maven 3 of Gradle 5 voor dependency‑beheer.  
+- Een tijdelijke of permanente GroupDocs.Search‑licentiesleutel.  
 
-### Stap 1: Voeg GroupDocs.Search toe aan je project
-Neem de GroupDocs.Search‑dependency op in je `pom.xml` (Maven) of `build.gradle` (Gradle). Hierdoor is de bibliotheek beschikbaar voor je code.
+## Stapsgewijze handleiding
 
-### Stap 2: Pas je licentie toe
-Maak een `License`‑object aan en laad je tijdelijke of permanente licentiebestand. Deze stap ontgrendelt de volledige functionaliteit, inclusief fuzzy search, en verwijdert evaluatielimieten.
+### Stap 1: voeg GroupDocs.Search toe aan je project
+Voeg de GroupDocs.Search‑dependency toe aan je `pom.xml` (Maven) of `build.gradle` (Gradle). Hierdoor wordt de bibliotheek beschikbaar op het classpath voor compilatie en runtime.
 
-### Stap 3: Initialiseer de indexinstellingen
-Definieer waar de indexbestanden op schijf worden opgeslagen en configureer eventuele aangepaste indexeeropties die je nodig hebt (bijv. hoofdlettergevoeligheid, stopwoorden).
+### Stap 2: pas je licentie toe
+`License` laadt en valideert het GroupDocs.Search‑licentiebestand, waardoor alle premium‑functies zoals fuzzy matching worden ontgrendeld. Maak een `License`‑instantie aan en verwijs naar het `.lic`‑bestand dat je van GroupDocs hebt ontvangen.
 
-### Stap 4: Indexeer je documenten
-Gebruik de `Indexer`‑klasse om bestanden of mappen aan de index toe te voegen. GroupDocs.Search detecteert automatisch bestandstypen en extraheert doorzoekbare tekst.
+### Stap 3: initialiseert de indexinstellingen
+Definieer een map op schijf waar de indexbestanden worden opgeslagen. Je kunt op dit moment ook hoofdlettergevoeligheid, stop‑woorden en andere indexeeropties configureren.
 
-### Stap 5: Schakel fuzzy search in je query in
-Wanneer je een `SearchOptions`‑object bouwt, stel je de `fuzzySearch`‑vlag (of de equivalente eigenschap) in op `true`. Je kunt ook het fuzziness‑niveau aanpassen als je strengere of lossere overeenkomsten nodig hebt.
+### Stap 4: indexeer je documenten
+De `Indexer`‑klasse leest bestanden, extraheert doorzoekbare tekst en schrijft de gegevens naar de indexmap. Hij detecteert automatisch het bestandstype, zodat je een mix van PDFs, DOCX, XLSX en afbeeldingen kunt verwerken zonder extra code.
 
-### Stap 6: Voer een zoekquery uit
-Voer de zoekopdracht uit met de geconfigureerde `SearchOptions`. De API retourneert een lijst met overeenkomende documenten met relevantiescores die nu fuzzy matches weergeven.
+### Stap 5: schakel fuzzy search in je query
+`SearchOptions` configureert parameters voor een zoekoperatie, zoals fuzzy matching en filters.  
+Wanneer je een `SearchOptions`‑object maakt, zet je de `fuzzySearch`‑vlag op `true`. Je kunt ook het `fuzzinessLevel` (bijv. `2`) aanpassen om te bepalen hoe tolerant de engine moet zijn.
 
-### Stap 7: Bekijk de resultaten
-Itereer over de zoekresultaten, toon bestandsnamen en markeer eventueel overeenkomende termen in de UI. Fuzzy matches worden aangegeven met een iets lagere relevantiescore vergeleken met exacte matches.
+### Stap 6: voer een zoekquery uit
+De `search`‑methode voert de query uit tegen de index en retourneert overeenkomende resultaten.  
+Roep de `search`‑methode aan met de zoekstring en de geconfigureerde `SearchOptions`. De methode geeft een lijst van `SearchResult`‑objecten terug, elk met een documentpad en een relevantiescore die fuzzy matches weerspiegelt. `SearchResult` vertegenwoordigt een enkele documentmatch, inclusief pad en relevantiescore.
 
-## Veelvoorkomende Problemen en Oplossingen
-- **Licentie niet herkend** – Controleer het pad van het licentiebestand en zorg dat het overeenkomt met de versie van GroupDocs.Search die je gebruikt.  
-- **Ontbrekende documentformaten** – Installeer de optionele `groupdocs-conversion`‑add‑on als je ondersteuning nodig hebt voor minder gangbare bestandstypen.  
-- **Fuzzy search geeft geen resultaten** – Bevestig dat de `fuzzySearch`‑vlag op `true` staat en dat de query‑lengte voldoet aan het minimum aantal vereiste tekens voor fuzzy matching.  
-- **Prestatieknelpunten** – Gebruik incrementele indexering en configureer de indexmap op SSD‑opslag voor snellere toegang.  
+### Stap 7: bekijk resultaten
+`SearchResult` vertegenwoordigt een enkele documentmatch, inclusief pad en relevantiescore.  
+Itereer over de `SearchResult`‑collectie, toon bestandsnamen en markeer eventueel overeenkomende termen in je UI. Fuzzy matches hebben doorgaans een iets lagere relevantiescore dan exacte matches, wat je kunt gebruiken om resultaten te rangschikken.
 
-## Veelgestelde Vragen
+## Veelvoorkomende problemen en oplossingen
+- **Licentie niet herkend** – Controleer of het pad naar het licentiebestand correct is en of het bestand overeenkomt met de versie van GroupDocs.Search die je gebruikt.  
+- **Ontbrekende documentformaten** – Installeer de optionele `groupdocs-conversion`‑add‑on om ondersteuning voor minder gangbare bestandstypen te krijgen.  
+- **Fuzzy search levert geen resultaten** – Zorg ervoor dat de `fuzzySearch`‑vlag `true` is en dat de querylengte voldoet aan de minimale tekenvereiste (meestal drie tekens).  
+- **Prestatieknelpunten** – Gebruik incrementeel indexeren en sla de indexmap op een SSD op om lees‑/schrijfsnelheid te verbeteren.  
 
-**Q: Kan ik GroupDocs.Search gebruiken op een Linux‑server?**  
-**A:** Ja, de bibliotheek is platform‑onafhankelijk en draait op elk OS dat Java ondersteunt.
+## Veelgestelde vragen
 
-**Q: Hoe werk ik de index bij na het toevoegen van nieuwe bestanden?**  
-**A:** Roep de `Indexer` opnieuw aan met de nieuwe bestanden; de bibliotheek zal ze samenvoegen met de bestaande index.
+**Q:** Kan ik GroupDocs.Search op een Linux‑server draaien?  
+**A:** Ja, de bibliotheek is platform‑onafhankelijk en werkt op elk besturingssysteem dat Java ondersteunt.
 
-**Q: Is er een manier om zoekresultaten te beperken tot een specifieke map?**  
-**A:** Ja, stel de `SearchOptions` in om een mapfilter op te nemen voordat je de query uitvoert.
+**Q:** Hoe voeg ik nieuwe bestanden toe aan een bestaande index?  
+**A:** Roep de `Indexer` opnieuw aan met de nieuwe bestanden; de SDK voegt ze automatisch samen met de huidige index.
 
-**Q: Wat gebeurt er als ik de tijdelijke licentieperiode overschrijd?**  
-**A:** De API blijft werken in evaluatiemodus met beperkte functies; vervang het licentiebestand door een permanente sleutel om de volledige functionaliteit te herstellen.
+**Q:** Is het mogelijk om zoekresultaten te beperken tot een specifieke map?  
+**A:** Ja, stel een mapfilter in `SearchOptions` in voordat je de query uitvoert.
 
-**Q: Ondersteunt GroupDocs.Search fuzzy search?**  
-**A:** Absoluut—schakel fuzzy matching in de `SearchOptions` in om resultaten met kleine spellingvariaties op te halen.
+**Q:** Wat gebeurt er als de tijdelijke licentie verloopt?  
+**A:** De API schakelt over naar evaluatiemodus met beperkte functionaliteit; vervang de tijdelijke sleutel door een permanente licentie om de volledige functionaliteit te herstellen.
 
-**Q: Kan ik fuzzy search combineren met andere filters (bijv. datumbereik)?**  
-**A:** Ja, je kunt extra filters toevoegen aan `SearchOptions` terwijl fuzzy search ingeschakeld blijft.
+**Q:** Ondersteunt GroupDocs.Search fuzzy search?  
+**A:** Absoluut—schakel de `fuzzySearch`‑vlag in `SearchOptions` in om resultaten te krijgen die kleine spellingvariaties bevatten.
 
-## Aanvullende Bronnen
+**Q:** Kan ik fuzzy search combineren met andere filters, zoals datumbereiken?  
+**A:** Ja, je kunt extra filters toevoegen aan `SearchOptions` terwijl fuzzy matching actief blijft.
 
-### Beschikbare Tutorials
+## Aanvullende bronnen
 
-### [Deploy GroupDocs.Search for Java&#58; Comprehensive Setup Guide](./deploy-groupdocs-search-java-setup-guide/)
-Leer hoe je GroupDocs.Search voor Java kunt implementeren en configureren met deze stapsgewijze gids. Verbeter documentindexering en zoekfunctionaliteit in je projecten.
+### Beschikbare tutorials
 
-### Handige Links
+### [Deploy GroupDocs.Search voor Java: Uitgebreide Installatiehandleiding](./deploy-groupdocs-search-java-setup-guide/)
+Leer hoe je GroupDocs.Search voor Java implementeert en configureert met deze stapsgewijze gids. Verhoog documentindexering en zoekfunctionaliteit in je projecten.
+
+### Handige links
 - [GroupDocs.Search voor Java Documentatie](https://docs.groupdocs.com/search/java/)
-- [GroupDocs.Search voor Java API-referentie](https://reference.groupdocs.com/search/java/)
+- [GroupDocs.Search voor Java API Referentie](https://reference.groupdocs.com/search/java/)
 - [Download GroupDocs.Search voor Java](https://releases.groupdocs.com/search/java/)
 - [GroupDocs.Search Forum](https://forum.groupdocs.com/c/search)
 - [Gratis ondersteuning](https://forum.groupdocs.com/)
@@ -103,8 +179,12 @@ Leer hoe je GroupDocs.Search voor Java kunt implementeren en configureren met de
 
 ---
 
-**Laatst bijgewerkt:** 2026-03-06  
-**Getest met:** GroupDocs.Search 23.12 voor Java  
-**Auteur:** GroupDocs  
+**Last Updated:** 2026-10-17  
+**Tested With:** GroupDocs.Search 23.12 for Java  
+**Author:** GroupDocs
 
----
+## Gerelateerde tutorials
+
+- [Licentie instellen Java – GroupDocs.Search Java Configuratiegids](/search/java/licensing-configuration/)
+- [Java Fuzzy Search: Documenten toevoegen aan index met GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
+- [Java GroupDocs Search Spelling Correctie Tutorial](/search/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/)
