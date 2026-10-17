@@ -79,14 +79,13 @@ tags:
 - GroupDocs.Search
 - Java indexing
 - search indexing
-title: How to implement full text search java with GroupDocs.Search – create and manage
-  a search index
+title: Create and manage a GroupDocs.Search index for Java full‑text search
 type: docs
 url: /java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# Full text search java – mastering GroupDocs.Search Java – create and manage a search index
+# Create and manage a GroupDocs.Search index for Java full‑text search
 
 In today’s data‑driven applications, running an efficient **full text search java** against large document collections is a must‑have capability. Whether you’re building an internal document portal, an e‑commerce catalog, or a content‑heavy CMS, a well‑structured search index powers fast, accurate results. This tutorial walks you through setting up GroupDocs.Search for Java, creating a searchable index, **adding documents to index**, and executing a **full text search java** query—all explained in a friendly, step‑by‑step style.
 
@@ -284,6 +283,6 @@ A: GroupDocs.Search scans the folder recursively, extracts text from each suppor
 
 ## Related Tutorials
 
-- [How to add documents to index with Metadata Indexing in Java using GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-- [Implement Full Text Search Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
-- [Java Full Text Search Library – Optimize Index with GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [How to add documents to index with Metadata Indexing in Java using GroupDocs.Search]({{< relref "search/java/indexing/groupdocs-search-java-metadata-indexing/_index.md" >}})
+- [Implement Full Text Search Java Groupdocs Search]({{< relref "search/java/searching/implement-full-text-search-java-groupdocs-search/_index.md" >}})
+- [Java Full Text Search Library – Optimize Index with GroupDocs.Search]({{< relref "search/java/performance-optimization/groupdocs-search-java-index-optimization/_index.md" >}})
