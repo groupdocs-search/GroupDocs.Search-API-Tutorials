@@ -47,7 +47,7 @@ tags:
 - GroupDocs.Search
 - Java indexing
 - alias dictionary
-title: How to add folder to index and manage aliases in GroupDocs.Search Java
+title: How to add folders to a GroupDocs.Search index and bulk‑manage aliases with the Java API
 type: docs
 url: /java/indexing/groupdocs-search-java-efficient-index-alias-management/
 weight: 1
@@ -110,7 +110,7 @@ Add the repository and dependency to your `pom.xml`:
 
 ### Direct download
 Alternatively, download the latest JAR from the official site:  
-{{< relref "search/java/downloads/_index.md" >}}GroupDocs.Search for Java releases{{< /relref >}}.
+[GroupDocs.Search for Java releases](search/java/downloads/_index.md).
 
 #### License acquisition steps
 1. **Free trial** – explore all features without a commitment.  
@@ -284,9 +284,9 @@ A: Verify that the alias definitions are correct, re‑index any newly added doc
 
 ## Related Tutorials
 
-{{< relref "search/java/searching/master-groupdocs-search-java-indexing-search/_index.md" >}}How to create index repository java with GroupDocs.Search: Efficient Document Indexing & Search{{< /relref >}}
-{{< relref "search/java/indexing/groupdocs-search-java-metadata-indexing/_index.md" >}}How to add documents to index with Metadata Indexing in Java using GroupDocs.Search{{< /relref >}}
-{{< relref "search/java/performance-optimization/create-efficient-search-index/_index.md" >}}Create Efficient Search Index with GroupDocs.Search Java{{< /relref >}}
+[How to create index repository java with GroupDocs.Search: Efficient Document Indexing & Search](search/java/searching/master-groupdocs-search-java-indexing-search/_index.md)
+[How to add documents to index with Metadata Indexing in Java using GroupDocs.Search](search/java/indexing/groupdocs-search-java-metadata-indexing/_index.md)
+[Create Efficient Search Index with GroupDocs.Search Java](search/java/performance-optimization/create-efficient-search-index/_index.md)
 
 {{< /blocks/products/pf/tutorial-page-section >}}
 

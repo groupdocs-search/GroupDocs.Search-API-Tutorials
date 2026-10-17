@@ -79,13 +79,13 @@ tags:
 - GroupDocs.Search
 - Java indexing
 - search indexing
-title: Create and manage a GroupDocs.Search index for Java full‑text search
+title: Guide to building and maintaining a searchable index
 type: docs
 url: /java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1
 ---
 
-# Create and manage a GroupDocs.Search index for Java full‑text search
+# Guide to building and maintaining a searchable index
 
 In today’s data‑driven applications, running an efficient **full text search java** against large document collections is a must‑have capability. Whether you’re building an internal document portal, an e‑commerce catalog, or a content‑heavy CMS, a well‑structured search index powers fast, accurate results. This tutorial walks you through setting up GroupDocs.Search for Java, creating a searchable index, **adding documents to index**, and executing a **full text search java** query—all explained in a friendly, step‑by‑step style.
 
