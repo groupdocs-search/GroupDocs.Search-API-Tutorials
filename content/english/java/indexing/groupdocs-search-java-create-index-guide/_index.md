@@ -79,7 +79,7 @@ tags:
 - GroupDocs.Search
 - Java indexing
 - search indexing
-title: Guide to building and maintaining a searchable index
+title: Guide to building and maintaining a searchable index using GroupDocs.Search for Java
 type: docs
 url: /java/indexing/groupdocs-search-java-create-index-guide/
 weight: 1

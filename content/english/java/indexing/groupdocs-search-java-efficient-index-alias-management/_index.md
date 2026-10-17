@@ -47,7 +47,7 @@ tags:
 - GroupDocs.Search
 - Java indexing
 - alias dictionary
-title: How to add folders to a GroupDocs.Search index and bulk‑manage aliases with the Java API
+title: Create a GroupDocs.Search index, add folders, and bulk‑manage aliases using the Java API
 type: docs
 url: /java/indexing/groupdocs-search-java-efficient-index-alias-management/
 weight: 1

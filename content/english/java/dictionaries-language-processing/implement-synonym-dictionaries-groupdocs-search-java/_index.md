@@ -63,7 +63,7 @@ tags:
 - GroupDocs.Search
 - Java search indexing
 - document retrieval
-title: Add synonym support in Java search applications
+title: Implement synonym support in Java search applications with GroupDocs.Search
 type: docs
 url: /java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/
 weight: 1
@@ -73,7 +73,7 @@ weight: 1
 {{< blocks/products/pf/main-container >}}
 {{< blocks/products/pf/tutorial-page-section >}}
 
-# Add synonym support in Java search applications
+# Implement synonym support in Java search applications with GroupDocs.Search
 
 If you want your users to find the right content even when they type different words, **search with synonyms** is the answer. In this guide you’ll learn how to create a synonym dictionary, import or export it, manage synonym groups, and run a search that automatically expands queries using those synonyms. Whether you’re building a CMS, an e‑commerce catalog, or a legal document repository, adding synonym support can dramatically boost relevance and conversion rates.
 

@@ -81,13 +81,13 @@ tags:
 - GroupDocs.Search
 - Java search library
 - document indexing
-title: Enable Fuzzy Search in Java Using GroupDocs.Search – A Step‑by‑Step Guide
+title: Implement Fuzzy Search in Java with GroupDocs.Search – A Step‑by‑Step Guide
 type: docs
 url: /java/getting-started/
 weight: 1
 ---
 
-# Enable Fuzzy Search in Java Using GroupDocs.Search – A Step‑by‑Step Guide
+# Implement Fuzzy Search in Java with GroupDocs.Search – A Step‑by‑Step Guide
 
 In this comprehensive guide you’ll learn how to **enable fuzzy search java** using the GroupDocs.Search library. We’ll walk through installing the SDK, applying a license, configuring fuzzy matching, and indexing a variety of document types so your users can find relevant content even when they make spelling mistakes or use alternate terminology. By the end of the tutorial you’ll have a fully functional search solution ready in under 15 minutes.
 
