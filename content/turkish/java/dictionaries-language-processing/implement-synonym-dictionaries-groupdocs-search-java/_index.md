@@ -1,58 +1,115 @@
 ---
-date: '2026-03-04'
-description: GroupDocs.Search kullanarak Java'da eşanlamlılarla nasıl arama yapılacağını
-  öğrenin, eşanlamlı sözlüklerini içe aktarın, eşanlamlı gruplarını yönetin ve daha
-  iyi sonuçlar için arama indeksinizi optimize edin.
+date: '2026-10-17'
+description: Java'da GroupDocs.Search ile eşanlamlıları nasıl kullanacağınızı öğrenin,
+  eşanlamlı sözlüklerini içe aktarın, eşanlamlı gruplarını yönetin ve daha iyi alaka
+  düzeyi için arama dizininizi optimize edin.
 keywords:
-- synonym dictionaries java
-- groupdocs.search synonym implementation
-- java search functionality enhancement
-title: GroupDocs.Search Kullanarak Java'da Eş Anlamlılarla Nasıl Arama Yapılır – Kapsamlı
-  Bir Rehber
+- how to use synonyms
+- add synonym support
+- manage synonym groups
+- import synonym dictionary
+- optimize search index
+lastmod: '2026-10-17'
+og_description: Java'da GroupDocs.Search ile eşanlamlıları nasıl kullanacağınızı öğrenin,
+  eşanlamlı sözlüklerini içe aktarın, eşanlamlı gruplarını yönetin ve daha iyi alaka
+  düzeyi için arama dizininizi optimize edin.
+og_image_alt: Developer guide showing synonym dictionary integration in GroupDocs.Search
+  for Java
+og_title: Java'da GroupDocs.Search ile eşanlamlıları nasıl kullanılır
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-17'
+  description: Learn how to use synonyms in Java with GroupDocs.Search, import synonym
+    dictionaries, manage synonym groups, and optimize your search index for better
+    relevance.
+  headline: How to use synonyms in Java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to use synonyms in Java with GroupDocs.Search, import synonym
+    dictionaries, manage synonym groups, and optimize your search index for better
+    relevance.
+  name: How to use synonyms in Java with GroupDocs.Search
+  steps:
+  - name: '**Content management systems (CMS):** Users find articles even when they
+      use alternative terminology.'
+    text: '**Content management systems (CMS):** Users find articles even when they
+      use alternative terminology.'
+  - name: '**E‑commerce platforms:** Product searches become tolerant to synonyms
+      like “laptop” vs. “notebook”.'
+    text: '**E‑commerce platforms:** Product searches become tolerant to synonyms
+      like “laptop” vs. “notebook”.'
+  - name: '**Document repositories:** Legal or medical archives benefit from domain‑specific
+      synonym groups, improving discoverability for professionals.'
+    text: '**Document repositories:** Legal or medical archives benefit from domain‑specific
+      synonym groups, improving discoverability for professionals.'
+  type: HowTo
+- questions:
+  - answer: Any modern OS with a compatible JDK (Java 8 or newer) is sufficient.
+    question: What is the minimum system requirement for using GroupDocs.Search?
+  - answer: Update it whenever new terminology emerges—use `clear()` followed by `addRange()`
+      for a clean refresh.
+    question: How often should I refresh my synonym dictionary?
+  - answer: A free trial works for evaluation, but a license is required for production
+      deployments.
+    question: Can I run GroupDocs.Search without purchasing a license?
+  - answer: Split data into logical batches, monitor heap usage, and schedule regular
+      index maintenance.
+    question: What are best practices for indexing large data sets?
+  - answer: Verify that the dictionary is correctly imported, that `setUseSynonymSearch(true)`
+      is active, and that the terms are present in the synonym groups.
+    question: I’m not seeing expected synonym matches—what should I check?
+  type: FAQPage
+tags:
+- synonym search
+- GroupDocs.Search
+- Java search indexing
+- document retrieval
+title: Java'da GroupDocs.Search ile eşanlamlıları nasıl kullanılır
 type: docs
 url: /tr/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/
 weight: 1
 ---
 
-# Java'da GroupDocs.Search Kullanarak Eşanlamlılarla Arama
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Kullanıcılarınızın farklı kelimeler yazsalar bile doğru içeriği bulmalarını istiyorsanız, **eşanlamlılarla arama** çözümüdür. Bu rehberde, bilmeniz gereken her şeyi adım adım ele alacağız—eşanlamlı sözlüğü oluşturma, içe/dışa aktarma, eşanlamlı gruplarını yönetme ve sonunda sorguları otomatik olarak bu eşanlamlılarla genişleten bir arama çalıştırma. Bir CMS, e‑ticaret kataloğu veya yasal belge deposu oluşturuyor olun, eşanlamlı desteği eklemek alaka düzeyini ve dönüşüm oranlarını büyük ölçüde artırabilir.
+# Java'da GroupDocs.Search ile eşanlamlıları nasıl kullanılır
 
-## Hızlı Yanıtlar
-- **Eşanlamlı eklemenin birincil adımı nedir?** `Index` başlatın ve `SynonymDictionary` API'sini kullanın.  
-- **Bir eşanlamlı sözlüğü içe aktarabilir miyim?** Evet – önceden oluşturulmuş dosyayı yüklemek için `importDictionary(path)` kullanın.  
-- **Eşanlamlılarla aramayı nasıl etkinleştiririm?** `SearchOptions.setUseSynonymSearch(true)` ayarlayın.  
-- **Eşanlamlı gruplarını yönetmek mümkün mü?** Kesinlikle – sözlük API'si aracılığıyla grupları temizleyebilir, ekleyebilir veya alabilirsiniz.  
-- **Arama indeksini optimize ederken neyi göz önünde bulundurmalıyım?** Kullanılmayan girdileri düzenli olarak temizleyin ve büyük veri setleri için JVM yığınını ayarlayın.  
+Kullanıcılarınızın farklı kelimeler yazsalar bile doğru içeriği bulmasını istiyorsanız, **search with synonyms** cevaptır. Bu rehberde eşanlamlı sözlüğü nasıl oluşturacağınızı, içe ve dışa aktaracağınızı, eşanlamlı gruplarını nasıl yöneteceğinizi ve bu eşanlamlıları kullanarak sorguları otomatik olarak genişleten bir arama nasıl çalıştıracağınızı öğreneceksiniz. Bir CMS, bir e‑ticaret kataloğu veya bir hukuk belge deposu oluşturuyor olun, eşanlamlı desteği eklemek alaka düzeyini ve dönüşüm oranlarını önemli ölçüde artırabilir.
 
-## Eşanlamlılarla Arama Nedir?
-“Eşanlamlılarla arama”, motorun bir dizi kelimeyi veya ifadeyi birbirinin yerine geçebilecek şekilde ele alması anlamına gelir. Bir kullanıcı **“better”** (daha iyi) yazdığında, motor aynı eşanlamlı grubunda tanımladığınız **“improve”**, **“enhance”** veya diğer terimleri de arar ve kullanıcının sorgusunu değiştirmeden daha zengin sonuçlar sunar.
+## Hızlı cevaplar
+- **Eşanlamlıları eklemenin ilk adımı nedir?** `Index` örneği oluşturun ve `SynonymDictionary` API'si ile çalışın.  
+- **Hazır bir eşanlamlı sözlüğü içe aktarabilir miyim?** Evet – dosya konumuyla `importDictionary(path)` çağırın.  
+- **Eşanlamlı duyarlı aramayı nasıl etkinleştiririm?** `SearchOptions.setUseSynonymSearch(true)`'ı etkinleştirin.  
+- **Çalışma zamanında eşanlamlı grupları düzenlemek mümkün mü?** Kesinlikle – sözlük API'si aracılığıyla grupları temizleyebilir, ekleyebilir veya alabilirsiniz.  
+- **İndeksi ölçeklendirirken neyi izlemeliyim?** Kullanılmayan girişleri düzenli olarak temizleyin ve büyük eşanlamlı dosyaları için JVM yığınını ayarlayın.  
 
-## GroupDocs.Search'te Eşanlamlı Desteği Neden Etkinleştirilmeli?
-- **Daha iyi kullanıcı deneyimi:** Ziyaretçiler farklı terminoloji kullansalar bile ilgili belgeleri bulur.  
-- **Daha yüksek dönüşüm oranları:** E‑ticaret platformları, çeşitli ürün terimlerini eşleştirerek daha fazla satış elde eder.  
-- **Basitleştirilmiş bakım:** Tek bir merkezi sözlük birden çok uygulamaya hizmet edebilir, güncellemeler zahmetsiz olur.  
+## Eşanlamlılarla arama nedir?
+**Search with synonyms**, motorun bir kelime veya ifade kümesini birbirinin yerine geçebilecek şekilde ele alması demektir. Bir kullanıcı **“better”** yazdığında, motor aynı eşanlamlı grubunda tanımladığınız **“improve”**, **“enhance”** veya başka herhangi bir terimi de arar, kullanıcı sorgusunu değiştirmeden daha zengin sonuçlar sunar.
+
+## GroupDocs.Search'te eşanlamlı desteği neden etkinleştirilir?
+Eşanlamlı desteğini etkinleştirmek, motorun sorguları otomatik olarak eşdeğer terimleri içerecek şekilde genişletmesini sağlar; bu da sonuç alakasını artırır, kullanıcı memnuniyetini yükseltir ve e‑ticaret veya içerik odaklı siteler için dönüşüm oranlarını artırabilir. Ayrıca terim yönetimini merkezileştirir, birden fazla uygulama arasında bakım yükünü azaltır.
 
 ## Önkoşullar
-- GroupDocs.Search for Java sürüm 25.4 veya daha yeni.  
+- GroupDocs.Search for Java sürümü **25.4** veya daha yeni.  
 - Maven desteği olan bir Java IDE (IntelliJ IDEA, Eclipse vb.).  
 - Temel Java bilgisi ve Maven proje yapısına aşinalık.
 
-### Gerekli Kütüphaneler ve Sürümler
-- GroupDocs.Search for Java sürüm 25.4 veya üzeri.
+### Gerekli kütüphaneler ve sürümler
+- GroupDocs.Search for Java **25.4** veya üzeri.
 
-### Ortam Kurulumu
-- Seçtiğiniz IDE (IntelliJ IDEA, Eclipse vb.).  
+### Ortam kurulumu
+- Tercih ettiğiniz IDE (IntelliJ IDEA, Eclipse vb.).  
 - Bağımlılık yönetimi için Maven.
 
-### Bilgi Gereksinimleri
+### Bilgi gereksinimleri
 - Java'da nesne yönelimli programlama.  
 - Temel dosya I/O işlemleri.
 
-## GroupDocs.Search for Java Kurulumu
+## GroupDocs.Search for Java'ı kurma
 
-### Kurulum Bilgileri
-Depoyu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
+### Kurulum bilgileri
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -72,15 +129,15 @@ Depoyu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
 </dependencies>
 ```
 
-**Doğrudan İndirme** – ayrıca en son JAR dosyasını [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
+**Direct download** – ayrıca en son JAR dosyasını [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
 
-### Lisans Edinimi
-- **Ücretsiz Deneme:** Lisans olmadan temel özellikleri test edin.  
-- **Geçici Lisans:** Değerlendirme sırasında deneme yeteneklerini genişletir.  
-- **Satın Alma:** Üretim kullanımı ve tam özellik seti için gereklidir.
+### Lisans edinimi
+- **Ücretsiz deneme:** Lisans olmadan temel özellikleri test edin.  
+- **Geçici lisans:** Değerlendirme sırasında deneme yeteneklerini genişletir.  
+- **Satın alma:** Üretim kullanımı ve tam özellik seti için gereklidir.
 
-#### Temel Başlatma ve Kurulum
-`Index` örneği oluşturun, ardından aranabilir belgeleri ekleyin:
+#### Temel başlatma ve kurulum
+Create an `Index` instance, then add documents to be searchable:
 
 ```java
 import com.groupdocs.search.*;
@@ -95,10 +152,11 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-## Arama İndeksinize Eşanlamlılar Nasıl Eklenir
-Bir indeks oluşturmak temeldir. Aşağıda, ihtiyacınız olan tam kodla eşleştirilmiş temel adımları adım adım gösteriyoruz.
+## Arama indeksinize eşanlamlıları nasıl eklersiniz
 
-### Özellik 1: Bir İndeks Oluşturma ve İndeksleme
+### Özellik 1: bir indeks oluşturma ve indeksleme
+The `Index` class represents a searchable collection of documents stored on disk or in memory.  
+
 ```java
 // Create an index in the specified folder
 Index index = new Index(indexFolder);
@@ -107,17 +165,23 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-### Özellik 2: Bir Kelime İçin Eşanlamlıları Getirme
+### Özellik 2: bir kelime için eşanlamlıları alma
+`SynonymDictionary` manages synonym groups and provides methods to query synonyms for a term.  
+
 ```java
 String[] synonyms = index.getDictionaries().getSynonymDictionary().getSynonyms("make");
 ```
 
-### Özellik 3: Eşanlamlı Grupları Getirme
+### Özellik 3: eşanlamlı grupları alma
+`SynonymDictionary.getGroups()` returns a list of all defined synonym groups with their identifiers.  
+
 ```java
 String[][] synonymGroups = index.getDictionaries().getSynonymDictionary().getSynonymGroups("make");
 ```
 
-### Özellik 4: Eşanlamlı Sözlük Girdilerini Yönetme
+### Özellik 4: eşanlamlı sözlük girişlerini yönetme
+`add(word, synonym)` inserts a new synonym relationship into the dictionary. `clear()` removes all entries, and `remove(word)` deletes a specific term from the dictionary.  
+
 ```java
 if (index.getDictionaries().getSynonymDictionary().getCount() > 0) {
     index.getDictionaries().getSynonymDictionary().clear();
@@ -132,18 +196,24 @@ String[][] newSynonymGroups = new String[][]{
 index.getDictionaries().getSynonymDictionary().addRange(newSynonymGroups);
 ```
 
-### Özellik 5: Eşanlamlıları Bir Dosyaya Dışa Aktarma
+### Özellik 5: eşanlamlıları bir dosyaya dışa aktarma
+`exportDictionary(path)` writes the current synonym dictionary to a binary .dat file at the specified location.  
+
 ```java
 String exportFilePath = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/ManagingDictionaries/SynonymDictionary/Synonyms.dat";
 index.getDictionaries().getSynonymDictionary().exportDictionary(exportFilePath);
 ```
 
-### Özellik 6: Eşanlamlıları Bir Dosyadan İçe Aktarma
+### Özellik 6: bir dosyadan eşanlamlıları içe aktarma
+`importDictionary(path)` loads a previously exported .dat file into the synonym dictionary.  
+
 ```java
 index.getDictionaries().getSynonymDictionary().importDictionary(exportFilePath);
 ```
 
-### Özellik 7: Eşanlamlı Desteği ile Arama Yapma
+### Özellik 7: eşanlamlı desteğiyle arama gerçekleştirme
+`SearchOptions` configures query behavior, including whether synonym expansion is enabled. `setUseSynonymSearch(true)` turns on synonym‑aware searching for the upcoming query.  
+
 ```java
 String query = "better";
 SearchOptions options = new SearchOptions();
@@ -152,65 +222,78 @@ options.setUseSynonymSearch(true);
 SearchResult result = index.search(query, options);
 ```
 
-## Eşanlamlılarla Nasıl Arama Yapılır
-`setUseSynonymSearch(true)` etkinleştirildiğinde, motor sorguyu oluşturduğunuz veya içe aktardığınız eşanlamlı sözlüğü kullanarak otomatik olarak genişletir. Bu adım, kullanıcının arama davranışını değiştirmeden daha zengin sonuçlar sunmak için kritiktir.
+## Eşanlamlılarla nasıl arama yapılır
+`Index`'inizi yükleyin, eşanlamlı aramayı etkinleştirin ve bir sorgu çalıştırın. Motor, oluşturduğunuz veya içe aktardığınız eşanlamlı sözlüğü kullanarak sorguyu otomatik olarak genişletir ve ilgili tüm terimler için eşleşmeler döndürür.
 
-## Eşanlamlı Sözlüğü Nasıl İçe Aktarılır
-Başka bir ortamda hazırlanmış bir `.dat` dosyanız varsa, sadece `importDictionary(path)` çağırın. Bu, sözlükleri geliştirme, test ve üretim sunucuları arasında senkronize etmek için idealdir.
+## Eşanlamlı sözlüğü nasıl içe aktarılır
+Başka bir ortamda hazırlanmış bir `.dat` dosyanız zaten varsa, sadece `importDictionary(path)` çağırın. Bu, sözlükleri geliştirme, test ve üretim sunucuları arasında senkronize etmek için idealdir.
 
-## Eşanlamlı Grupları Nasıl Yönetilir
-Eşanlamlı gruplar, bir dizi terimi tek bir mantıksal varlık olarak ele almanızı sağlar. Grupları ekleme, temizleme veya getirme, yukarıdaki kod parçacıklarında gösterildiği gibi `SynonymDictionary` API'si aracılığıyla yapılır.
+## Eşanlamlı grupları nasıl yönetilir
+Eşanlamlı gruplar, bir dizi terimi tek bir mantıksal varlık olarak ele almanızı sağlar. Grupları ekleme, temizleme veya alma işlemleri, yukarıdaki kod parçacıklarında gösterildiği gibi `SynonymDictionary` API'si aracılığıyla yapılır.
 
-## Arama İndeksini Nasıl Optimize Edebilirsiniz
-- **Kullanılmayan girdileri düzenli olarak temizleyin:** Toplu güncellemelerden önce `clear()` kullanın.  
-- **JVM yığınını ayarlayın:** Büyük sözlükler daha fazla bellek gerektirebilir.  
-- **Kütüphaneyi güncel tutun:** Yeni sürümler performans iyileştirmeleri içerir.
+## Arama indeksini nasıl optimize edersiniz
+- **Kullanılmayan girişleri düzenli olarak temizleyin:** Toplu güncellemelerden önce `clear()` kullanın.  
+- **JVM yığınını ayarlayın:** Büyük sözlükler daha fazla bellek gerektirebilir; `-Xmx` parametresini buna göre artırın.  
+- **Kütüphaneyi güncel tutun:** Yeni sürümler performans iyileştirmeleri ve hata düzeltmeleri içerir.
 
-## Pratik Uygulamalar
-1. **İçerik Yönetim Sistemleri (CMS):** Kullanıcılar alternatif terminoloji kullansalar bile makaleleri bulur.  
-2. **E‑ticaret Platformları:** Ürün aramaları “laptop” ve “notebook” gibi eşanlamlılara tolerans gösterir.  
-3. **Belge Depoları:** Hukuki veya tıbbi arşivler, alan‑spesifik eşanlamlı gruplardan faydalanır.
+## Pratik uygulamalar
+1. **İçerik yönetim sistemleri (CMS):** Kullanıcılar alternatif terminoloji kullansalar bile makaleleri bulur.  
+2. **E‑ticaret platformları:** Ürün aramaları “laptop” ve “notebook” gibi eşanlamlılara toleranslı hale gelir.  
+3. **Belge depoları:** Hukuki veya tıbbi arşivler, alana özgü eşanlamlı gruplardan faydalanarak profesyoneller için keşfedilebilirliği artırır.
 
-## Performans Düşünceleri
-- **İndeks Depolamayı Optimize Edin:** Eski verileri kaldırmak için periyodik olarak indeksi yeniden oluşturun.  
-- **Bellek Kullanımını Yönetin:** Büyük eşanlamlı dosyalarını yüklerken yığın tüketimini izleyin.  
-- **Düzenli Güncellemeler:** Hata düzeltmeleri ve hız artışları için en son GroupDocs.Search sürümünü kullanın.
+## Performans dikkate alması gerekenler
+- **İndeks depolamayı optimize edin:** Eski verileri kaldırmak için periyodik olarak indeksi yeniden oluşturun.  
+- **Bellek kullanımını yönetin:** Büyük eşanlamlı dosyaları yüklerken yığın tüketimini izleyin; 500 MB bir sözlük genellikle 64‑bit JVM'de 2 GB yığın gerektirir.  
+- **Düzenli güncellemeler:** Hata düzeltmeleri ve hız artışları için en son GroupDocs.Search sürümünü kullanın.
 
-## Yaygın Sorunlar ve Çözümler
+## Yaygın sorunlar ve çözümler
 
-| Sorun | Muhtemel Neden | Çözüm |
+| Sorun | Muhtemel neden | Çözüm |
 |-------|----------------|-------|
 | Eşanlamlı eşleşmeleri görünmüyor | `setUseSynonymSearch(true)` ayarlanmamış veya sözlük içe aktarılmamış | Seçeneğin etkin olduğundan ve sözlük dosyasının mevcut olduğundan emin olun. |
 | İçe aktarım sırasında bellek yetersizliği hataları | Çok büyük `.dat` dosyası JVM yığınını aşıyor | `-Xmx` yığın boyutunu artırın veya daha küçük partiler halinde içe aktarın. |
-| Sonuçlarda yinelenen girdiler | Aynı terim birden fazla eşanlamlı grubunda görünüyor | Çakışan grupları `clear()` ardından `addRange()` kullanarak birleştirin. |
+| Sonuçlarda yinelenen girişler | Aynı terim birden fazla eşanlamlı grubunda yer alıyor | Çakışan grupları `clear()` ardından `addRange()` kullanarak birleştirin. |
 
 ## Sıkça Sorulan Sorular
 
 **S: GroupDocs.Search kullanmak için minimum sistem gereksinimi nedir?**  
-C: Java 8 veya daha yeni bir uyumlu JDK'ya sahip herhangi bir modern işletim sistemi yeterlidir.
+C: Uyumlu bir JDK (Java 8 veya daha yeni) ile herhangi bir modern işletim sistemi yeterlidir.
 
 **S: Eşanlamlı sözlüğümü ne sıklıkta yenilemeliyim?**  
-C: Yeni terminoloji ortaya çıktığında güncelleyin—temiz bir yenileme için `clear()` ardından `addRange()` kullanın.
+C: Yeni terminoloji ortaya çıktıkça güncelleyin—temiz bir yenileme için `clear()` ardından `addRange()` kullanın.
 
 **S: GroupDocs.Search'i lisans satın almadan çalıştırabilir miyim?**  
 C: Ücretsiz deneme değerlendirme için çalışır, ancak üretim dağıtımları için lisans gereklidir.
 
 **S: Büyük veri setlerini indekslemek için en iyi uygulamalar nelerdir?**  
-C: Veriyi mantıksal partilere bölün, yığın kullanımını izleyin ve düzenli indeks bakımını planlayın.
+C: Veriyi mantıksal partilere bölün, yığın kullanımını izleyin ve düzenli indeks bakımı planlayın.
 
-**S: Beklenen eşanlamlı eşleşmeleri görmüyorum—ne kontrol etmeliyim?**  
-C: Sözlüğün doğru içe aktarıldığını, `setUseSynonymSearch(true)` seçeneğinin etkin olduğunu ve terimlerin eşanlamlı gruplarında bulunduğunu doğrulayın.
+**S: Beklenen eşanlamlı eşleşmeleri göremiyorum—ne kontrol etmeliyim?**  
+C: Sözlüğün doğru şekilde içe aktarıldığını, `setUseSynonymSearch(true)`'ın etkin olduğunu ve terimlerin eşanlamlı gruplarında bulunduğunu doğrulayın.
 
 **Kaynaklar**  
 - [Dokümantasyon](https://docs.groupdocs.com/search/java/)  
 - [API Referansı](https://reference.groupdocs.com/search/java)  
-- [GroupDocs.Search for Java İndir](https://releases.groupdocs.com/search/java/)  
+- [GroupDocs.Search for Java'ı İndir](https://releases.groupdocs.com/search/java/)  
 - [GitHub Deposu](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
 - [Ücretsiz Destek Forumu](https://forum.groupdocs.com/c/search/10)  
-- [Geçici Lisans Edinimi](https://purchase.groupdocs.com/temporary-license/) 
+- [Geçici Lisans Alımı](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Son Güncelleme:** 2026-03-04  
-**Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java  
+**Son Güncelleme:** 2026-10-17  
+**Test Edilen:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Eğitimler
+
+- [GroupDocs Search Java İndeksi Oluşturma ve Yönetme](/search/java/indexing/create-manage-groupdocs-search-java-index/)
+- [Java Tam Metin Arama Kütüphanesi – GroupDocs.Search ile İndeksi Optimize Etme](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [Java Bulanık Arama: GroupDocs.Search ile Belgeleri İndekse Ekleme](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+
+{{< blocks/products/products-backtop-button >}}
