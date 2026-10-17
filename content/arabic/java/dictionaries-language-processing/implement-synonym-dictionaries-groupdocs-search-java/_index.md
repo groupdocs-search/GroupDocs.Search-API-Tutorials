@@ -1,57 +1,111 @@
 ---
-date: '2026-03-04'
-description: تعلم كيفية البحث باستخدام المرادفات في جافا باستخدام GroupDocs.Search،
-  استيراد قواميس المرادفات، إدارة مجموعات المرادفات، وتحسين فهرس البحث للحصول على
-  نتائج أفضل.
+date: '2026-10-17'
+description: تعلم كيفية استخدام المرادفات في Java مع GroupDocs.Search، استيراد قواميس
+  المرادفات، إدارة مجموعات المرادفات، وتحسين فهرس البحث للحصول على صلة أفضل.
 keywords:
-- synonym dictionaries java
-- groupdocs.search synonym implementation
-- java search functionality enhancement
-title: كيفية البحث باستخدام المرادفات في جافا باستخدام GroupDocs.Search – دليل شامل
+- how to use synonyms
+- add synonym support
+- manage synonym groups
+- import synonym dictionary
+- optimize search index
+lastmod: '2026-10-17'
+og_description: تعلم كيفية استخدام المرادفات في Java مع GroupDocs.Search، استيراد
+  قواميس المرادفات، إدارة مجموعات المرادفات، وتحسين فهرس البحث للحصول على صلة أفضل.
+og_image_alt: Developer guide showing synonym dictionary integration in GroupDocs.Search
+  for Java
+og_title: كيفية استخدام المرادفات في Java مع GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-17'
+  description: Learn how to use synonyms in Java with GroupDocs.Search, import synonym
+    dictionaries, manage synonym groups, and optimize your search index for better
+    relevance.
+  headline: How to use synonyms in Java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to use synonyms in Java with GroupDocs.Search, import synonym
+    dictionaries, manage synonym groups, and optimize your search index for better
+    relevance.
+  name: How to use synonyms in Java with GroupDocs.Search
+  steps:
+  - name: '**Content management systems (CMS):** Users find articles even when they
+      use alternative terminology.'
+    text: '**Content management systems (CMS):** Users find articles even when they
+      use alternative terminology.'
+  - name: '**E‑commerce platforms:** Product searches become tolerant to synonyms
+      like “laptop” vs. “notebook”.'
+    text: '**E‑commerce platforms:** Product searches become tolerant to synonyms
+      like “laptop” vs. “notebook”.'
+  - name: '**Document repositories:** Legal or medical archives benefit from domain‑specific
+      synonym groups, improving discoverability for professionals.'
+    text: '**Document repositories:** Legal or medical archives benefit from domain‑specific
+      synonym groups, improving discoverability for professionals.'
+  type: HowTo
+- questions:
+  - answer: Any modern OS with a compatible JDK (Java 8 or newer) is sufficient.
+    question: What is the minimum system requirement for using GroupDocs.Search?
+  - answer: Update it whenever new terminology emerges—use `clear()` followed by `addRange()`
+      for a clean refresh.
+    question: How often should I refresh my synonym dictionary?
+  - answer: A free trial works for evaluation, but a license is required for production
+      deployments.
+    question: Can I run GroupDocs.Search without purchasing a license?
+  - answer: Split data into logical batches, monitor heap usage, and schedule regular
+      index maintenance.
+    question: What are best practices for indexing large data sets?
+  - answer: Verify that the dictionary is correctly imported, that `setUseSynonymSearch(true)`
+      is active, and that the terms are present in the synonym groups.
+    question: I’m not seeing expected synonym matches—what should I check?
+  type: FAQPage
+tags:
+- synonym search
+- GroupDocs.Search
+- Java search indexing
+- document retrieval
+title: كيفية استخدام المرادفات في Java مع GroupDocs.Search
 type: docs
 url: /ar/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/
 weight: 1
 ---
 
-# كيفية البحث باستخدام المرادفات في Java باستخدام GroupDocs.Search
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-إذا كنت تريد أن يتمكن المستخدمون من العثور على المحتوى الصحيح حتى عندما يكتبون كلمات مختلفة، فإن **search with synonyms** هو الحل. في هذا الدليل سنستعرض كل ما تحتاج إلى معرفته—إنشاء قاموس مرادفات، استيراده/تصديره، إدارة مجموعات المرادفات، وأخيرًا تشغيل بحث يوسّع الاستعلامات تلقائيًا باستخدام تلك المرادفات. سواء كنت تبني نظام إدارة محتوى (CMS)، أو كتالوجًا للتجارة الإلكترونية، أو مستودع مستندات قانونية، فإن إضافة دعم المرادفات يمكن أن تعزز الصلة ومعدلات التحويل بشكل كبير.
+# كيفية استخدام المرادفات في Java مع GroupDocs.Search
 
 ## إجابات سريعة
-- **ما هي الخطوة الأساسية لإضافة المرادفات؟** تهيئة `Index` واستخدام واجهة برمجة تطبيقات `SynonymDictionary`.  
-- **هل يمكنني استيراد قاموس مرادفات؟** نعم – استخدم `importDictionary(path)` لتحميل ملف مُعد مسبقًا.  
-- **كيف يمكنني تمكين البحث باستخدام المرادفات؟** اضبط `SearchOptions.setUseSynonymSearch(true)`.  
-- **هل يمكن إدارة مجموعات المرادفات؟** بالتأكيد – يمكنك مسح، إضافة، أو استرجاع المجموعات عبر واجهة القاموس.  
-- **ما الذي يجب مراعاته عند تحسين فهرس البحث؟** احذف بانتظام الإدخالات غير المستخدمة واضبط حجم ذاكرة JVM للبيانات الكبيرة.  
+- **ما هي الخطوة الأولى لإضافة المرادفات؟** إنشاء مثيل `Index` والعمل مع واجهة برمجة تطبيقات `SynonymDictionary`.  
+- **هل يمكنني استيراد قاموس مرادفات جاهز؟** نعم – استدعِ `importDictionary(path)` مع موقع الملف.  
+- **كيف يمكنني تفعيل البحث المدعم بالمرادفات؟** فعّل `SearchOptions.setUseSynonymSearch(true)`.  
+- **هل يمكن تعديل مجموعات المرادفات أثناء التشغيل؟** بالتأكيد – يمكنك مسح، إضافة، أو استرجاع المجموعات عبر واجهة برمجة تطبيقات القاموس.  
+- **ما الذي يجب مراقبته عند توسيع الفهرس؟** احذف بانتظام الإدخالات غير المستخدمة واضبط مساحة الذاكرة JVM للملفات الكبيرة للمرادفات.
 
-## ما هو البحث باستخدام المرادفات؟
-يعني “search with synonyms” أن المحرك يتعامل مع مجموعة من الكلمات أو العبارات كبدائل لبعضها. عندما يكتب المستخدم **“better”**، يبحث المحرك أيضًا عن **“improve”**، **“enhance”** أو أي مصطلح آخر قمت بتعريفه في نفس مجموعة المرادفات، مما يقدم نتائج أغنى دون تغيير استعلام المستخدم.
+## ما هو البحث بالمرادفات؟
+**Search with synonyms** يعني أن المحرك يتعامل مع مجموعة من الكلمات أو العبارات كبدائل بعضها لبعض. عندما يكتب المستخدم **“better”**، يبحث المحرك أيضًا عن **“improve”**, **“enhance”**, أو أي مصطلح آخر قمت بتعريفه في نفس مجموعة المرادفات، مما يقدم نتائج أغنى دون تغيير استعلام المستخدم.
 
-## لماذا تفعيل دعم المرادفات في GroupDocs.Search؟
-- **تحسين تجربة المستخدم:** يجد الزوار المستندات ذات الصلة حتى إذا استخدموا مصطلحات مختلفة.  
-- **زيادة معدلات التحويل:** تلتقط منصات التجارة الإلكترونية المزيد من المبيعات عبر مطابقة مصطلحات المنتجات المتنوعة.  
-- **تبسيط الصيانة:** يمكن لقاموس مركزي واحد خدمة تطبيقات متعددة، مما يجعل التحديثات سهلة وسلسة.  
+## لماذا تمكين دعم المرادفات في GroupDocs.Search؟
+تمكين دعم المرادفات يسمح للمحرك بتوسيع الاستعلامات تلقائيًا لتشمل المصطلحات المكافئة، مما يحسن صلة النتائج، يزيد من رضا المستخدم، ويمكن أن يرفع معدلات التحويل للمواقع التجارية أو المواقع القائمة على المحتوى. كما أنه يركز إدارة المصطلحات، مما يقلل من عبء الصيانة عبر تطبيقات متعددة.
 
 ## المتطلبات المسبقة
-- GroupDocs.Search for Java الإصدار 25.4 أو أحدث.  
+- نسخة GroupDocs.Search for Java **25.4** أو أحدث.  
 - بيئة تطوير Java (IntelliJ IDEA، Eclipse، إلخ) مع دعم Maven.  
 - معرفة أساسية بـ Java وإلمام بهيكل مشروع Maven.
 
 ### المكتبات المطلوبة والإصدارات
-- GroupDocs.Search for Java الإصدار 25.4 أو أعلى.
+- GroupDocs.Search for Java **25.4** أو أعلى.
 
 ### إعداد البيئة
-- IDE من اختيارك (IntelliJ IDEA، Eclipse، إلخ).  
-- Maven لإدارة الاعتمادات.
+- بيئة التطوير التي تختارها (IntelliJ IDEA، Eclipse، إلخ).  
+- Maven لإدارة التبعيات.
 
-### المتطلبات المعرفية
-- البرمجة كائنية التوجه في Java.  
+### متطلبات المعرفة
+- برمجة كائنية التوجه في Java.  
 - عمليات الإدخال/الإخراج الأساسية للملفات.
 
-## إعداد GroupDocs.Search for Java
+## إعداد GroupDocs.Search للـ Java
 
 ### معلومات التثبيت
-أضف المستودع والاعتماد إلى ملف `pom.xml` الخاص بك:
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -71,15 +125,15 @@ weight: 1
 </dependencies>
 ```
 
-**التنزيل المباشر** – يمكنك أيضًا تنزيل أحدث ملف JAR من [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+**تحميل مباشر** – يمكنك أيضًا تحميل أحدث JAR من [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### الحصول على الترخيص
 - **تجربة مجانية:** اختبار الميزات الأساسية دون ترخيص.  
 - **ترخيص مؤقت:** توسيع قدرات التجربة أثناء التقييم.  
-- **شراء:** مطلوب للاستخدام في بيئة الإنتاج وللوصول إلى جميع الميزات.
+- **شراء:** مطلوب للاستخدام في الإنتاج وللحصول على مجموعة الميزات الكاملة.
 
 #### التهيئة الأساسية والإعداد
-أنشئ كائن `Index`، ثم أضف المستندات لتكون قابلة للبحث:
+Create an `Index` instance, then add documents to be searchable:
 
 ```java
 import com.groupdocs.search.*;
@@ -94,10 +148,11 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-## كيفية إضافة مرادفات إلى فهرس البحث الخاص بك
-إنشاء الفهرس هو الأساس. أدناه نستعرض الخطوات الأساسية، كل منها مصحوبًا بالكود المطلوب.
+## كيفية إضافة المرادفات إلى فهرس البحث الخاص بك
 
-### الميزة 1: إنشاء وفهرسة Index
+### الميزة 1: إنشاء وفهرسة الفهرس
+فئة `Index` تمثل مجموعة قابلة للبحث من المستندات المخزنة على القرص أو في الذاكرة.  
+
 ```java
 // Create an index in the specified folder
 Index index = new Index(indexFolder);
@@ -106,17 +161,23 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-### الميزة 2: استرجاع المرادفات لكلمة معينة
+### الميزة 2: استرجاع المرادفات لكلمة
+`SynonymDictionary` تدير مجموعات المرادفات وتوفر طرقًا لاستعلام المرادفات لمصطلح.  
+
 ```java
 String[] synonyms = index.getDictionaries().getSynonymDictionary().getSynonyms("make");
 ```
 
 ### الميزة 3: استرجاع مجموعات المرادفات
+`SynonymDictionary.getGroups()` تُرجع قائمة بجميع مجموعات المرادفات المعرفة مع معرّفاتها.  
+
 ```java
 String[][] synonymGroups = index.getDictionaries().getSynonymDictionary().getSynonymGroups("make");
 ```
 
 ### الميزة 4: إدارة إدخالات قاموس المرادفات
+`add(word, synonym)` يضيف علاقة مرادفة جديدة إلى القاموس. `clear()` يزيل جميع الإدخالات، و `remove(word)` يحذف مصطلحًا محددًا من القاموس.  
+
 ```java
 if (index.getDictionaries().getSynonymDictionary().getCount() > 0) {
     index.getDictionaries().getSynonymDictionary().clear();
@@ -132,17 +193,23 @@ index.getDictionaries().getSynonymDictionary().addRange(newSynonymGroups);
 ```
 
 ### الميزة 5: تصدير المرادفات إلى ملف
+`exportDictionary(path)` يكتب قاموس المرادفات الحالي إلى ملف .dat ثنائي في الموقع المحدد.  
+
 ```java
 String exportFilePath = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/ManagingDictionaries/SynonymDictionary/Synonyms.dat";
 index.getDictionaries().getSynonymDictionary().exportDictionary(exportFilePath);
 ```
 
 ### الميزة 6: استيراد المرادفات من ملف
+`importDictionary(path)` يحمل ملف .dat الذي تم تصديره مسبقًا إلى قاموس المرادفات.  
+
 ```java
 index.getDictionaries().getSynonymDictionary().importDictionary(exportFilePath);
 ```
 
-### الميزة 7: تنفيذ بحث مع دعم المرادفات
+### الميزة 7: إجراء بحث مدعم بالمرادفات
+`SearchOptions` يضبط سلوك الاستعلام، بما في ذلك ما إذا كان توسيع المرادفات مفعلاً. `setUseSynonymSearch(true)` يفعّل البحث المدعم بالمرادفات للاستعلام القادم.  
+
 ```java
 String query = "better";
 SearchOptions options = new SearchOptions();
@@ -151,36 +218,36 @@ options.setUseSynonymSearch(true);
 SearchResult result = index.search(query, options);
 ```
 
-## كيفية البحث باستخدام المرادفات
-عن طريق تمكين `setUseSynonymSearch(true)`, يقوم المحرك تلقائيًا بتوسيع الاستعلام باستخدام قاموس المرادفات الذي قمت بإنشائه أو استيراده. هذه الخطوة أساسية لتقديم نتائج أغنى دون تغيير سلوك البحث للمستخدم.
+## كيفية البحث بالمرادفات
+حمّل `Index` الخاص بك، فعّل البحث بالمرادفات، ونفّذ استعلامًا. يقوم المحرك تلقائيًا بتوسيع الاستعلام باستخدام قاموس المرادفات الذي أنشأته أو استوردته، ويعيد المطابقات لجميع المصطلحات ذات الصلة.
 
 ## كيفية استيراد قاموس المرادفات
-إذا كان لديك ملف `.dat` جاهز من بيئة أخرى، ما عليك سوى استدعاء `importDictionary(path)`. هذا مثالي لمزامنة القواميس عبر خوادم التطوير، والاختبار، والإنتاج.
+إذا كان لديك بالفعل ملف `.dat` مُعد من بيئة أخرى، ما عليك سوى استدعاء `importDictionary(path)`. هذا مثالي لمزامنة القواميس عبر خوادم التطوير، والاختبار، والإنتاج.
 
 ## كيفية إدارة مجموعات المرادفات
-تسمح لك مجموعات المرادفات بمعاملة مجموعة من المصطلحات ككيان منطقي واحد. يتم إضافة، مسح، أو استرجاع المجموعات عبر واجهة `SynonymDictionary`، كما هو موضح في مقتطفات الكود أعلاه.
+تسمح لك مجموعات المرادفات بمعاملة مجموعة من المصطلحات ككيان منطقي واحد. يتم إضافة أو مسح أو استرجاع المجموعات عبر واجهة برمجة تطبيقات `SynonymDictionary`، كما هو موضح في مقتطفات الشيفرة أعلاه.
 
 ## كيفية تحسين فهرس البحث
-- **احذف بانتظام الإدخالات غير المستخدمة:** استخدم `clear()` قبل عمليات التحديث الضخمة.  
-- **ضبط حجم ذاكرة JVM:** قد تتطلب القواميس الكبيرة مزيدًا من الذاكرة.  
-- **حافظ على تحديث المكتبة:** الإصدارات الجديدة تحتوي على تحسينات في الأداء.
+- **احذف بانتظام الإدخالات غير المستخدمة:** استخدم `clear()` قبل التحديثات الضخمة.  
+- **ضبط مساحة الذاكرة JVM:** القواميس الكبيرة قد تحتاج إلى المزيد من الذاكرة؛ زد قيمة المعامل `-Xmx` وفقًا لذلك.  
+- **حافظ على تحديث المكتبة:** الإصدارات الجديدة تحتوي على تحسينات في الأداء وإصلاحات للأخطاء.
 
 ## تطبيقات عملية
 1. **أنظمة إدارة المحتوى (CMS):** يجد المستخدمون المقالات حتى عندما يستخدمون مصطلحات بديلة.  
-2. **منصات التجارة الإلكترونية:** تصبح عمليات البحث عن المنتجات متسامحة مع مرادفات مثل “laptop” مقابل “notebook”.  
-3. **مستودعات المستندات:** تستفيد الأرشيفات القانونية أو الطبية من مجموعات مرادفات متخصصة بالمجال.
+2. **منصات التجارة الإلكترونية:** يصبح البحث عن المنتجات متسامحًا مع المرادفات مثل “laptop” مقابل “notebook”.  
+3. **مستودعات المستندات:** تستفيد الأرشيفات القانونية أو الطبية من مجموعات المرادفات المتخصصة بالمجال، مما يحسن إمكانية الاكتشاف للمهنيين.
 
 ## اعتبارات الأداء
 - **تحسين تخزين الفهرس:** أعد بناء الفهرس دوريًا لإزالة البيانات القديمة.  
-- **إدارة استهلاك الذاكرة:** راقب استهلاك الـ heap عند تحميل ملفات مرادفات كبيرة.  
-- **تحديثات منتظمة:** احرص على استخدام أحدث نسخة من GroupDocs.Search للحصول على إصلاحات الأخطاء وتحسين السرعة.
+- **إدارة استهلاك الذاكرة:** راقب استهلاك الذاكرة heap عند تحميل ملفات مرادفات كبيرة؛ عادةً ما يتطلب قاموس بحجم 500 ميغابايت مساحة heap بحجم 2 جيجابايت على JVM 64‑bit.  
+- **تحديثات دورية:** ابق على أحدث نسخة من GroupDocs.Search للحصول على إصلاحات الأخطاء وتحسينات السرعة.
 
 ## المشكلات الشائعة والحلول
 | المشكلة | السبب المحتمل | الحل |
 |-------|--------------|-----|
-| عدم ظهور أي تطابقات للمرادفات | عدم ضبط `setUseSynonymSearch(true)` أو عدم استيراد القاموس | تحقق من تفعيل الخيار ووجود ملف القاموس. |
-| أخطاء نفاد الذاكرة أثناء الاستيراد | ملف `.dat` كبير جدًا يتجاوز حجم heap في JVM | زد حجم `-Xmx` أو استورد على دفعات أصغر. |
-| تكرار النتائج | ظهور نفس المصطلح في مجموعات مرادفات متعددة | دمج المجموعات المتداخلة باستخدام `clear()` ثم `addRange()`. |
+| لا تظهر أي مطابقة للمرادفات | `setUseSynonymSearch(true)` غير مفعّل أو القاموس غير مستورد | تحقق من تمكين الخيار ووجود ملف القاموس. |
+| أخطاء نفاد الذاكرة أثناء الاستيراد | ملف `.dat` كبير جدًا يتجاوز مساحة heap في JVM | زد حجم heap باستخدام `-Xmx` أو استورد على دفعات أصغر. |
+| تكرار الإدخالات في النتائج | نفس المصطلح يظهر في مجموعات مرادفات متعددة | دمج المجموعات المتداخلة باستخدام `clear()` ثم `addRange()`. |
 
 ## الأسئلة المتكررة
 
@@ -188,29 +255,40 @@ SearchResult result = index.search(query, options);
 ج: أي نظام تشغيل حديث مع JDK متوافق (Java 8 أو أحدث) يكفي.
 
 **س: كم مرة يجب أن أقوم بتحديث قاموس المرادفات؟**  
-ج: حدّثه كلما ظهرت مصطلحات جديدة—استخدم `clear()` ثم `addRange()` لتجديد القاموس بنظافة.
+ج: حدّثه كلما ظهرت مصطلحات جديدة—استخدم `clear()` ثم `addRange()` لتحديث نظيف.
 
-**س: هل يمكن تشغيل GroupDocs.Search بدون شراء ترخيص؟**  
-ج: النسخة التجريبية مجانية للتقييم، لكن الترخيص مطلوب للبيئات الإنتاجية.
+**س: هل يمكن تشغيل GroupDocs.Search دون شراء ترخيص؟**  
+ج: تجربة مجانية تعمل للتقييم، لكن الترخيص مطلوب للنشر في بيئة الإنتاج.
 
-**س: ما هي أفضل الممارسات لفهرسة مجموعات بيانات كبيرة؟**  
-ج: قسّم البيانات إلى دفعات منطقية، راقب استهلاك الـ heap، وجدول صيانة دورية للفهرس.
+**س: ما هي أفضل الممارسات لفهرسة مجموعات البيانات الكبيرة؟**  
+ج: قسّم البيانات إلى دفعات منطقية، راقب استهلاك الheap، وجدول صيانة دورية للفهرس.
 
-**س: لا أحصل على تطابقات المرادفات المتوقعة—ماذا أفحص؟**  
-ج: تأكد من استيراد القاموس بشكل صحيح، وتفعيل `setUseSynonymSearch(true)`, وتواجد المصطلحات في مجموعات المرادفات.
+**س: لا أرى مطابقة المرادفات المتوقعة—ما الذي يجب التحقق منه؟**  
+ج: تأكد من أن القاموس مستورد بشكل صحيح، وأن `setUseSynonymSearch(true)` مفعّل، وأن المصطلحات موجودة في مجموعات المرادفات.
 
 **الموارد**  
-- [Documentation](https://docs.groupdocs.com/search/java/)  
-- [API Reference](https://reference.groupdocs.com/search/java)  
-- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
-- [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/) 
+- [التوثيق](https://docs.groupdocs.com/search/java/)  
+- [مرجع API](https://reference.groupdocs.com/search/java)  
+- [تحميل GroupDocs.Search للـ Java](https://releases.groupdocs.com/search/java/)  
+- [مستودع GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- [منتدى الدعم المجاني](https://forum.groupdocs.com/c/search/10)  
+- [الحصول على ترخيص مؤقت](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**آخر تحديث:** 2026-03-04  
-**تم الاختبار مع:** GroupDocs.Search 25.4 for Java  
-**المؤلف:** GroupDocs  
+**آخر تحديث:** 2026-10-17  
+**تم الاختبار مع:** GroupDocs.Search 25.4 للـ Java  
+**المؤلف:** GroupDocs
 
----
+## دروس ذات صلة
+
+- [إنشاء وإدارة فهرس Groupdocs Search للـ Java](/search/java/indexing/create-manage-groupdocs-search-java-index/)
+- [مكتبة البحث النصي الكامل للـ Java – تحسين الفهرس باستخدام GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [بحث غير دقيق في Java: إضافة مستندات إلى الفهرس باستخدام GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+
+{{< blocks/products/products-backtop-button >}}

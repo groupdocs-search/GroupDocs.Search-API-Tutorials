@@ -1,44 +1,102 @@
 ---
-date: '2026-03-04'
-description: Leer hoe u met synoniemen kunt zoeken in Java met GroupDocs.Search, importeer
-  synoniemenwoordenboeken, beheer synoniemengroepen en optimaliseer uw zoekindex voor
-  betere resultaten.
+date: '2026-10-17'
+description: Leer hoe je synoniemen kunt gebruiken in Java met GroupDocs.Search, importeer
+  synoniemdictionaries, beheer synoniemgroepen en optimaliseer je zoekindex voor betere
+  relevantie.
 keywords:
-- synonym dictionaries java
-- groupdocs.search synonym implementation
-- java search functionality enhancement
-title: Zoeken met synoniemen in Java met GroupDocs.Search – Een uitgebreide gids
+- how to use synonyms
+- add synonym support
+- manage synonym groups
+- import synonym dictionary
+- optimize search index
+lastmod: '2026-10-17'
+og_description: Leer hoe je synoniemen kunt gebruiken in Java met GroupDocs.Search,
+  importeer synoniemdictionaries, beheer synoniemgroepen en optimaliseer je zoekindex
+  voor betere relevantie.
+og_image_alt: Developer guide showing synonym dictionary integration in GroupDocs.Search
+  for Java
+og_title: Hoe synoniemen te gebruiken in Java met GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-17'
+  description: Learn how to use synonyms in Java with GroupDocs.Search, import synonym
+    dictionaries, manage synonym groups, and optimize your search index for better
+    relevance.
+  headline: How to use synonyms in Java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to use synonyms in Java with GroupDocs.Search, import synonym
+    dictionaries, manage synonym groups, and optimize your search index for better
+    relevance.
+  name: How to use synonyms in Java with GroupDocs.Search
+  steps:
+  - name: '**Content management systems (CMS):** Users find articles even when they
+      use alternative terminology.'
+    text: '**Content management systems (CMS):** Users find articles even when they
+      use alternative terminology.'
+  - name: '**E‑commerce platforms:** Product searches become tolerant to synonyms
+      like “laptop” vs. “notebook”.'
+    text: '**E‑commerce platforms:** Product searches become tolerant to synonyms
+      like “laptop” vs. “notebook”.'
+  - name: '**Document repositories:** Legal or medical archives benefit from domain‑specific
+      synonym groups, improving discoverability for professionals.'
+    text: '**Document repositories:** Legal or medical archives benefit from domain‑specific
+      synonym groups, improving discoverability for professionals.'
+  type: HowTo
+- questions:
+  - answer: Any modern OS with a compatible JDK (Java 8 or newer) is sufficient.
+    question: What is the minimum system requirement for using GroupDocs.Search?
+  - answer: Update it whenever new terminology emerges—use `clear()` followed by `addRange()`
+      for a clean refresh.
+    question: How often should I refresh my synonym dictionary?
+  - answer: A free trial works for evaluation, but a license is required for production
+      deployments.
+    question: Can I run GroupDocs.Search without purchasing a license?
+  - answer: Split data into logical batches, monitor heap usage, and schedule regular
+      index maintenance.
+    question: What are best practices for indexing large data sets?
+  - answer: Verify that the dictionary is correctly imported, that `setUseSynonymSearch(true)`
+      is active, and that the terms are present in the synonym groups.
+    question: I’m not seeing expected synonym matches—what should I check?
+  type: FAQPage
+tags:
+- synonym search
+- GroupDocs.Search
+- Java search indexing
+- document retrieval
+title: Hoe synoniemen te gebruiken in Java met GroupDocs.Search
 type: docs
 url: /nl/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/
 weight: 1
 ---
 
-# Zoeken met Synoniemen in Java met GroupDocs.Search
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Als je wilt dat je gebruikers de juiste inhoud vinden, zelfs wanneer ze verschillende woorden typen, is **zoeken met synoniemen** de oplossing. In deze gids lopen we alles door wat je moet weten — het maken van een synoniemwoordenboek, importeren/exporteren, beheren van synoniemgroepen en uiteindelijk een zoekopdracht uitvoeren die automatisch de query uitbreidt met die synoniemen. Of je nu een CMS, een e‑commercecatalogus of een juridisch documentarchief bouwt, het toevoegen van synoniemondersteuning kan de relevantie en conversieratio’s aanzienlijk verhogen.
+# Hoe synoniemen te gebruiken in Java met GroupDocs.Search
 
-## Snelle Antwoorden
-- **Wat is de eerste stap om synoniemen toe te voegen?** Initialiseer een `Index` en gebruik de `SynonymDictionary` API.  
-- **Kan ik een synoniemwoordenboek importeren?** Ja — gebruik `importDictionary(path)` om een vooraf gebouwd bestand te laden.  
-- **Hoe schakel ik zoeken met synoniemen in?** Stel `SearchOptions.setUseSynonymSearch(true)` in.  
-- **Is het mogelijk om synoniemgroepen te beheren?** Absoluut — je kunt groepen wissen, toevoegen of ophalen via de dictionary‑API.  
-- **Waar moet ik op letten bij het optimaliseren van de zoekindex?** Verwijder regelmatig ongebruikte items en stem de JVM‑heap af voor grote datasets.  
+Als je wilt dat je gebruikers de juiste inhoud vinden, zelfs wanneer ze verschillende woorden typen, **search with synonyms** is het antwoord. In deze gids leer je hoe je een synoniemwoordenboek maakt, het importeert of exporteert, synoniemgroepen beheert en een zoekopdracht uitvoert die automatisch zoekopdrachten uitbreidt met die synoniemen. Of je nu een CMS, een e‑commercecatalogus of een juridisch documentarchief bouwt, het toevoegen van synoniemondersteuning kan de relevantie en conversieratio's drastisch verhogen.
 
-## Wat is Zoeken met Synoniemen?
-“Zoeken met synoniemen” betekent dat de engine een reeks woorden of zinnen als uitwisselbaar beschouwt. Wanneer een gebruiker **“better”** typt, zoekt de engine ook naar **“improve”**, **“enhance”** of elke andere term die je in dezelfde synoniemgroep hebt gedefinieerd, waardoor rijkere resultaten worden geleverd zonder de query van de gebruiker te wijzigen.
+## Snelle antwoorden
+- **Wat is de eerste stap om synoniemen toe te voegen?** Maak een `Index`‑instantie aan en werk met de `SynonymDictionary` API.  
+- **Kan ik een kant‑klaar synoniemwoordenboek importeren?** Ja – roep `importDictionary(path)` aan met de bestandslocatie.  
+- **Hoe schakel ik synonym‑aware zoeken in?** Schakel `SearchOptions.setUseSynonymSearch(true)` in.  
+- **Is het mogelijk om synoniemgroepen tijdens runtime te bewerken?** Absoluut – je kunt groepen wissen, toevoegen of ophalen via de dictionary‑API.  
+- **Wat moet ik in de gaten houden bij het schalen van de index?** Verwijder regelmatig ongebruikte items en stem de JVM‑heap af voor grote synoniem‑bestanden.
 
-## Waarom Synoniemondersteuning Inschakelen in GroupDocs.Search?
-- **Betere gebruikerservaring:** Bezoekers vinden relevante documenten, zelfs als ze andere terminologie gebruiken.  
-- **Hogere conversieratio’s:** E‑commerceplatforms behalen meer verkopen door verschillende producttermen te matchen.  
-- **Vereenvoudigd onderhoud:** Eén centraal woordenboek kan meerdere applicaties bedienen, waardoor updates moeiteloos verlopen.  
+## Wat is search with synonyms?
+**Search with synonyms** betekent dat de engine een set woorden of zinnen als uitwisselbaar beschouwt. Wanneer een gebruiker **“better”** typt, zoekt de engine ook naar **“improve”**, **“enhance”**, of elke andere term die je in dezelfde synoniemgroep hebt gedefinieerd, en levert rijkere resultaten zonder de zoekopdracht van de gebruiker te wijzigen.
+
+## Waarom synoniemondersteuning inschakelen in GroupDocs.Search?
+Het inschakelen van synoniemondersteuning laat de engine automatisch zoekopdrachten uitbreiden met equivalente termen, wat de relevantie van resultaten verbetert, de gebruikerstevredenheid verhoogt en de conversieratio's voor e‑commerce- of content‑gedreven sites kan verhogen. Het centraliseert ook het beheer van terminologie, waardoor de onderhoudslast over meerdere applicaties wordt verminderd.
 
 ## Vereisten
-- GroupDocs.Search voor Java versie 25.4 of nieuwer.  
-- Een Java‑IDE (IntelliJ IDEA, Eclipse, enz.) met Maven‑ondersteuning.  
-- Basiskennis van Java en bekendheid met de Maven‑projectstructuur.
+- GroupDocs.Search voor Java versie **25.4** of nieuwer.  
+- Een Java IDE (IntelliJ IDEA, Eclipse, enz.) met Maven‑ondersteuning.  
+- Basiskennis van Java en vertrouwdheid met de Maven‑projectstructuur.
 
-### Vereiste Bibliotheken en Versies
-- GroupDocs.Search voor Java versie 25.4 of hoger.
+### Vereiste bibliotheken en versies
+- GroupDocs.Search voor Java **25.4** of hoger.
 
 ### Omgevingsconfiguratie
 - IDE naar keuze (IntelliJ IDEA, Eclipse, enz.).  
@@ -48,10 +106,10 @@ Als je wilt dat je gebruikers de juiste inhoud vinden, zelfs wanneer ze verschil
 - Object‑georiënteerd programmeren in Java.  
 - Basis bestands‑I/O‑bewerkingen.
 
-## GroupDocs.Search voor Java Installeren
+## GroupDocs.Search voor Java instellen
 
 ### Installatie‑informatie
-Voeg de repository en afhankelijkheid toe aan je `pom.xml`:
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -71,15 +129,15 @@ Voeg de repository en afhankelijkheid toe aan je `pom.xml`:
 </dependencies>
 ```
 
-**Directe Download** – je kunt ook de nieuwste JAR downloaden via [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+**Direct download** – je kunt de nieuwste JAR ook downloaden van [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Licentie‑acquisitie
 - **Gratis proefversie:** Test kernfuncties zonder licentie.  
-- **Tijdelijke licentie:** Breid proeffunctionaliteit uit tijdens evaluatie.  
-- **Aankoop:** Vereist voor productiegebruik en volledige functionaliteit.
+- **Tijdelijke licentie:** Breid proefmogelijkheden uit tijdens evaluatie.  
+- **Aankoop:** Vereist voor productiegebruik en de volledige functionaliteit.
 
-#### Basisinitialisatie en Setup
-Maak een `Index`‑instantie en voeg vervolgens documenten toe die doorzoekbaar moeten zijn:
+#### Basisinitialisatie en -configuratie
+Maak een `Index`‑instantie aan en voeg vervolgens documenten toe die doorzoekbaar zijn:
 
 ```java
 import com.groupdocs.search.*;
@@ -94,10 +152,11 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-## Hoe Synoniemen Toevoegen aan je Zoekindex
-Het maken van een index is de basis. Hieronder lopen we de essentiële stappen door, elk gekoppeld aan de exacte code die je nodig hebt.
+## Hoe synoniemen toe te voegen aan je zoekindex
 
-### Functie 1: Een Index Maken en Indexeren
+### Functie 1: een index maken en indexeren
+De `Index`‑klasse vertegenwoordigt een doorzoekbare verzameling documenten die op schijf of in het geheugen zijn opgeslagen.  
+
 ```java
 // Create an index in the specified folder
 Index index = new Index(indexFolder);
@@ -106,17 +165,23 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-### Functie 2: Synoniemen Ophalen voor een Woord
+### Functie 2: synoniemen ophalen voor een woord
+`SynonymDictionary` beheert synoniemgroepen en biedt methoden om synoniemen voor een term op te vragen.  
+
 ```java
 String[] synonyms = index.getDictionaries().getSynonymDictionary().getSynonyms("make");
 ```
 
-### Functie 3: Synoniemgroepen Ophalen
+### Functie 3: synoniemgroepen ophalen
+`SynonymDictionary.getGroups()` retourneert een lijst van alle gedefinieerde synoniemgroepen met hun identifiers.  
+
 ```java
 String[][] synonymGroups = index.getDictionaries().getSynonymDictionary().getSynonymGroups("make");
 ```
 
-### Functie 4: Synoniemwoordenboek‑Items Beheren
+### Functie 4: synoniemwoordenboek‑items beheren
+`add(word, synonym)` voegt een nieuwe synoniemrelatie toe aan het woordenboek. `clear()` verwijdert alle items, en `remove(word)` verwijdert een specifieke term uit het woordenboek.  
+
 ```java
 if (index.getDictionaries().getSynonymDictionary().getCount() > 0) {
     index.getDictionaries().getSynonymDictionary().clear();
@@ -131,18 +196,24 @@ String[][] newSynonymGroups = new String[][]{
 index.getDictionaries().getSynonymDictionary().addRange(newSynonymGroups);
 ```
 
-### Functie 5: Synoniemen Exporteren naar een Bestand
+### Functie 5: synoniemen exporteren naar een bestand
+`exportDictionary(path)` schrijft het huidige synoniemwoordenboek naar een binair .dat‑bestand op de opgegeven locatie.  
+
 ```java
 String exportFilePath = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/ManagingDictionaries/SynonymDictionary/Synonyms.dat";
 index.getDictionaries().getSynonymDictionary().exportDictionary(exportFilePath);
 ```
 
-### Functie 6: Synoniemen Importeren vanuit een Bestand
+### Functie 6: synoniemen importeren uit een bestand
+`importDictionary(path)` laadt een eerder geëxporteerd .dat‑bestand in het synoniemwoordenboek.  
+
 ```java
 index.getDictionaries().getSynonymDictionary().importDictionary(exportFilePath);
 ```
 
-### Functie 7: Zoeken Uitvoeren met Synoniemondersteuning
+### Functie 7: zoeken uitvoeren met synoniemondersteuning
+`SearchOptions` configureert het gedrag van de query, inclusief of synoniemuitbreiding is ingeschakeld. `setUseSynonymSearch(true)` schakelt synonym‑aware zoeken in voor de komende query.  
+
 ```java
 String query = "better";
 SearchOptions options = new SearchOptions();
@@ -151,66 +222,78 @@ options.setUseSynonymSearch(true);
 SearchResult result = index.search(query, options);
 ```
 
-## Hoe Zoeken met Synoniemen
-Door `setUseSynonymSearch(true)` in te schakelen, breidt de engine automatisch de query uit met het synoniemwoordenboek dat je hebt gebouwd of geïmporteerd. Deze stap is cruciaal om rijkere resultaten te leveren zonder het zoekgedrag van de gebruiker te wijzigen.
+## Hoe te zoeken met synoniemen
+Laad je `Index`, schakel synoniemzoeken in, en voer een query uit. De engine breidt de query automatisch uit met behulp van het synoniemwoordenboek dat je hebt gebouwd of geïmporteerd, en retourneert overeenkomsten voor alle gerelateerde termen.
 
-## Hoe een Synoniemwoordenboek Importeren
-Als je al een `.dat`‑bestand hebt dat door een andere omgeving is aangemaakt, roep je simpelweg `importDictionary(path)` aan. Dit is ideaal voor het synchroniseren van woordenboeken tussen ontwikkel‑, test‑ en productie‑servers.
+## Hoe een synoniemwoordenboek te importeren
+Als je al een `.dat`‑bestand hebt dat door een andere omgeving is voorbereid, roep dan simpelweg `importDictionary(path)` aan. Dit is ideaal voor het synchroniseren van woordenboeken tussen ontwikkelings-, test‑ en productie‑servers.
 
-## Hoe Synoniemgroepen Beheren
-Synoniemgroepen laten je een set termen behandelen als één logische entiteit. Toevoegen, wissen of ophalen van groepen gebeurt via de `SynonymDictionary` API, zoals getoond in de bovenstaande code‑fragmenten.
+## Hoe synoniemgroepen te beheren
+Synoniemgroepen laten je een set termen behandelen als één logische entiteit. Het toevoegen, wissen of ophalen van groepen gebeurt via de `SynonymDictionary`‑API, zoals getoond in de bovenstaande code‑fragmenten.
 
-## Hoe de Zoekindex Optimaliseren
+## Hoe de zoekindex te optimaliseren
 - **Regelmatig ongebruikte items verwijderen:** Gebruik `clear()` vóór bulk‑updates.  
-- **JVM‑heap aanpassen:** Grote woordenboeken kunnen meer geheugen vereisen.  
-- **Bibliotheek up‑to‑date houden:** Nieuwe releases bevatten prestatie‑verbeteringen.
+- **JVM‑heap aanpassen:** Grote woordenboeken kunnen meer geheugen vereisen; verhoog de `-Xmx`‑parameter dienovereenkomstig.  
+- **Houd de bibliotheek up‑to‑date:** Nieuwe releases bevatten prestatieverbeteringen en bugfixes.
 
-## Praktische Toepassingen
-1. **Content Management Systems (CMS):** Gebruikers vinden artikelen zelfs wanneer ze alternatieve terminologie gebruiken.  
-2. **E‑commerce Platforms:** Productzoekopdrachten worden tolerant voor synoniemen zoals “laptop” versus “notebook”.  
-3. **Documentarchieven:** Juridische of medische collecties profiteren van domeinspecifieke synoniemgroepen.
+## Praktische toepassingen
+1. **Content management systemen (CMS):** Gebruikers vinden artikelen zelfs wanneer ze alternatieve terminologie gebruiken.  
+2. **E‑commerceplatforms:** Productzoekopdrachten worden tolerant voor synoniemen zoals “laptop” versus “notebook”.  
+3. **Documentopslagplaatsen:** Juridische of medische archieven profiteren van domeinspecifieke synoniemgroepen, waardoor de vindbaarheid voor professionals verbetert.
 
 ## Prestatie‑overwegingen
-- **Indexopslag Optimaliseren:** Bouw de index periodiek opnieuw om verouderde data te verwijderen.  
-- **Geheugenverbruik Beheren:** Houd heap‑gebruik in de gaten bij het laden van grote synoniem‑bestanden.  
-- **Regelmatige Updates:** Blijf op de nieuwste GroupDocs.Search‑versie voor bug‑fixes en snelheidswinst.
+- **Indexopslag optimaliseren:** Bouw de index periodiek opnieuw op om verouderde gegevens te verwijderen.  
+- **Geheugengebruik beheren:** Houd het heap‑verbruik in de gaten bij het laden van grote synoniem‑bestanden; een woordenboek van 500 MB vereist doorgaans een 2 GB heap op een 64‑bit JVM.  
+- **Regelmatige updates:** Blijf op de nieuwste GroupDocs.Search‑versie voor bugfixes en snelheidsverbeteringen.
 
-## Veelvoorkomende Problemen en Oplossingen
-| Probleem | Waarschijnlijke Oorzaak | Oplossing |
+## Veelvoorkomende problemen en oplossingen
+| Probleem | Waarschijnlijke oorzaak | Oplossing |
 |----------|--------------------------|-----------|
-| Geen synoniem‑matches | `setUseSynonymSearch(true)` niet ingesteld of woordenboek niet geïmporteerd | Controleer of de optie is ingeschakeld en het woordenboekbestand bestaat. |
+| Geen synoniemmatches verschijnen | `setUseSynonymSearch(true)` niet ingesteld of woordenboek niet geïmporteerd | Controleer of de optie is ingeschakeld en of het woordenboekbestand bestaat. |
 | Out‑of‑memory‑fouten tijdens import | Zeer groot `.dat`‑bestand overschrijdt JVM‑heap | Verhoog de `-Xmx`‑heap‑grootte of importeer in kleinere batches. |
-| Dubbele items in resultaten | Zelfde term staat in meerdere synoniemgroepen | Consolideer overlappende groepen met `clear()` en daarna `addRange()`. |
+| Dubbele items in resultaten | Dezelfde term verschijnt in meerdere synoniemgroepen | Consolideer overlappende groepen met `clear()` gevolgd door `addRange()`. |
 
-## Veelgestelde Vragen
+## Veelgestelde vragen
 
 **Q: Wat is de minimale systeemvereiste voor het gebruik van GroupDocs.Search?**  
-A: Elk modern besturingssysteem met een compatibele JDK (Java 8 of nieuwer) volstaat.
+A: Elk modern besturingssysteem met een compatibele JDK (Java 8 of nieuwer) is voldoende.
 
 **Q: Hoe vaak moet ik mijn synoniemwoordenboek vernieuwen?**  
-A: Werk het bij zodra nieuwe terminologie opduikt — gebruik `clear()` gevolgd door `addRange()` voor een schone refresh.
+A: Werk het bij zodra er nieuwe terminologie ontstaat — gebruik `clear()` gevolgd door `addRange()` voor een schone vernieuwing.
 
 **Q: Kan ik GroupDocs.Search gebruiken zonder een licentie aan te schaffen?**  
 A: Een gratis proefversie werkt voor evaluatie, maar een licentie is vereist voor productie‑implementaties.
 
-**Q: Wat zijn best practices voor het indexeren van grote datasets?**  
-A: Splits data in logische batches, monitor heap‑gebruik en plan regelmatige index‑onderhoudstaken.
+**Q: Wat zijn de beste praktijken voor het indexeren van grote datasets?**  
+A: Splits data in logische batches, houd heap‑gebruik in de gaten, en plan regelmatige indexonderhoud.
 
-**Q: Ik zie geen verwachte synoniem‑matches — wat moet ik controleren?**  
+**Q: Ik zie niet de verwachte synoniemmatches — wat moet ik controleren?**  
 A: Controleer of het woordenboek correct is geïmporteerd, of `setUseSynonymSearch(true)` actief is, en of de termen aanwezig zijn in de synoniemgroepen.
 
-**Resources**  
-- [Documentation](https://docs.groupdocs.com/search/java/)  
-- [API Reference](https://reference.groupdocs.com/search/java)  
-- [Download GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
-- [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license/) 
+## Bronnen
+- [Documentatie](https://docs.groupdocs.com/search/java/)  
+- [API‑referentie](https://reference.groupdocs.com/search/java)  
+- [Download GroupDocs.Search voor Java](https://releases.groupdocs.com/search/java/)  
+- [GitHub‑repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- [Gratis ondersteuningsforum](https://forum.groupdocs.com/c/search/10)  
+- [Tijdelijke licentie‑acquisitie](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Laatst Bijgewerkt:** 2026-03-04  
-**Getest Met:** GroupDocs.Search 25.4 for Java  
-**Auteur:** GroupDocs  
+**Laatste update:** 2026-10-17  
+**Getest met:** GroupDocs.Search 25.4 for Java  
+**Auteur:** GroupDocs
 
----
+## Gerelateerde tutorials
+
+- [Maak en beheer GroupDocs Search Java-index](/search/java/indexing/create-manage-groupdocs-search-java-index/)
+- [Java Full Text Search Library – Index optimaliseren met GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [Java Fuzzy Search: Documenten toevoegen aan index met GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+
+{{< blocks/products/products-backtop-button >}}
