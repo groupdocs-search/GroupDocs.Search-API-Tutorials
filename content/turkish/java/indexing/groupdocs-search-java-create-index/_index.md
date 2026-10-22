@@ -1,47 +1,82 @@
 ---
-date: '2026-03-09'
-description: GroupDocs.Search for Java kullanarak bir indeks dizini oluşturarak Java
-  tam metin aramasını nasıl uygulayacağınızı öğrenin, arama performansını ve yönetimini
-  artırın.
+date: '2026-10-22'
+description: Java tam metin aramayı, GroupDocs.Search for Java kullanarak bir index
+  directory oluşturarak nasıl uygulayacağınızı öğrenin, arama performansını ve yönetimini
+  boosting.
 keywords:
-- GroupDocs.Search for Java
-- search indexing Java
-- Java document management
-title: 'Java tam metin araması nasıl uygulanır: GroupDocs.Search ile indeks dizini
+- java full text search
+- how to create index
+- java inverted index
+- java search library
+- search index java
+lastmod: '2026-10-22'
+og_description: Java tam metin arama, hızlı belge geri alma için esastır. Bu kılavuz,
+  GroupDocs.Search for Java kullanarak bir index directory nasıl oluşturulacağını
+  gösterir, Maven kurulumu, licensing ve incremental indexing en iyi uygulamalarını
+  kapsar.
+og_image_alt: 'Developer guide: Create index directory for Java full text search using
+  GroupDocs.Search'
+og_title: 'Java tam metin arama: GroupDocs ile index directory oluşturma'
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-22'
+  description: Learn how to implement java full text search by creating an index directory
+    using GroupDocs.Search for Java, boosting search performance and management.
+  headline: 'How to implement java full text search: create index directory with GroupDocs.Search'
+  type: TechArticle
+- questions:
+  - answer: A search index is a pre‑processed data structure that stores searchable
+      tokens for each document, enabling rapid query responses.
+    question: What is a search index?
+  - answer: Yes, it supports multiple languages and character sets out of the box.
+    question: Can GroupDocs.Search handle non‑English languages?
+  - answer: Update the index whenever documents are added, modified, or removed; schedule
+      regular incremental updates for large repositories.
+    question: How often should I rebuild or update my index?
+  - answer: Common issues include incorrect folder paths, insufficient write permissions,
+      and not handling large file sets efficiently.
+    question: What are typical pitfalls when creating an index directory java?
+  - answer: Visit [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)
+      for comprehensive guides and API references.
+    question: Where can I find more detailed documentation?
+  type: FAQPage
+tags:
+- java search
+- groupdocs search
+- index directory
+- full text search
+title: 'Java tam metin aramayı nasıl uygulamalısınız: GroupDocs.Search ile index directory
   oluşturma'
 type: docs
 url: /tr/java/indexing/groupdocs-search-java-create-index/
 weight: 1
 ---
 
-# java full text search nasıl uygulanır: GroupDocs.Search ile indeks dizini oluşturma
+# Java tam metin aramasını nasıl uygulamalısınız: GroupDocs.Search ile indeks dizini oluşturma
 
-Java'da **index directory** oluşturmak, hızlı ve güvenilir **java full text search**'in temel taşıdır. Bu öğreticide, güçlü GroupDocs.Search kütüphanesini kullanarak **create index directory java**'yi adım adım öğrenecek, ortamı kuracak ve indeksin doğru şekilde oluşturulduğunu doğrulayacaksınız. Sonunda, herhangi bir Java tabanlı belge yönetim sistemini güçlendirebilecek hazır bir arama indeksi elde edeceksiniz.
+Java'da bir **index directory** (indeks dizini) oluşturmak, hızlı ve güvenilir **java full text search** (java tam metin araması) için temel bir yapı taşıdır. Bu öğreticide, güçlü GroupDocs.Search kütüphanesini kullanarak **create index directory java** (indeks dizini oluşturma java) adım adım nasıl yapılır, ortam nasıl kurulur ve indeksin doğru şekilde oluşturulduğu nasıl doğrulanır öğreneceksiniz. Sonunda, herhangi bir Java tabanlı belge yönetim sistemini çalıştırabilecek hazır bir arama indeksi elde edeceksiniz.
 
-## Hızlı Yanıtlar
+## Hızlı cevaplar
 - **create index directory java** ne anlama geliyor? Bu, GroupDocs.Search'ün aranabilir veri yapılarını depoladığı diskte bir klasör başlatmak anlamına gelir.  
 - **Hangi kütüphane bu yeteneği sağlar?** GroupDocs.Search for Java.  
 - **Bir lisansa ihtiyacım var mı?** Test için geçici bir lisans mevcuttur; üretim için tam lisans gereklidir.  
-- **Hangi Java sürümü gereklidir?** Java 8 veya üstü, bağımlılık yönetimi için Maven ile.  
-- **Kurulum ne kadar sürer?** Genellikle 15 dakika altında, Maven yapılandırması ve basit bir test çalıştırması dahil.
+- **Hangi Java sürümü gereklidir?** Java 8 veya üzeri, bağımlılık yönetimi için Maven ile.  
+- **Kurulum ne kadar sürer?** Genellikle Maven yapılandırması ve basit bir test çalıştırması dahil 15 dakikadan az.
 
-## java full text search nedir?
-Java full text search, belgelerin—düz metin, PDF, Office dosyaları vb.—tam içeriğini doğrudan bir Java uygulamasından arama yeteneğini ifade eder. GroupDocs.Search, terimleri içeren belgelere eşleyen bir **inverted index** oluşturur ve büyük koleksiyonlarda bile yıldırım hızında sorgular yapılmasını sağlar.
+## Java tam metin araması nedir?
+`java full text search` tam metin arama, belgelerin tüm içeriğini—düz metin, PDF, Office dosyaları ve daha fazlasını—doğrudan bir Java uygulamasından sorgulama yeteneğidir. GroupDocs.Search, her terimi içeren belgelerle eşleyen bir **inverted index** (ters indeks) oluşturur ve büyük koleksiyonlarda bile yıldırım hızında sorgular sağlar.
 
-## Neden java full text search için GroupDocs.Search kullanmalısınız?
-- **Performance‑focused**: Optimize edilmiş indeksleme algoritmaları arama gecikmesini azaltır.  
-- **Language support**: Çok dilli içeriği kutudan çıkar çıkmaz işler.  
-- **Scalability**: Büyük bellek yükü olmadan binlerce belgeyle çalışır.  
-- **Easy integration**: Basit Maven bağımlılığı ve anlaşılır API.
+## Neden java tam metin araması için GroupDocs.Search kullanmalısınız?
+GroupDocs.Search, **50+ giriş ve çıkış formatını** (DOCX, XLSX, PPTX, HTML ve yaygın görüntü türleri dahil) destekler ve tüm koleksiyonu belleğe yüklemeden **10.000+ belge**yi indeksleyebilir. Çok dilli işleme, düşük bellekli indeksleme ve dakikalar içinde bütünleşen basit bir Maven tabanlı API sunar.
 
 ## Önkoşullar
 - **Java Development Kit (JDK) 8+** yüklü ve yapılandırılmış.  
 - **Maven** bağımlılıkları oluşturmak ve yönetmek için.  
-- Java projeleri ve komut satırı konusunda temel bilgi.
+- Java projeleri ve komut satırıyla temel aşinalık.  
 
-## GroupDocs.Search for Java Kurulumu
+## GroupDocs.Search for Java kurulumu
 
-### Maven Kurulumu
+### Maven kurulumu
 Projenizin `pom.xml` dosyasına GroupDocs deposunu ve kütüphane bağımlılığını ekleyin:
 
 ```xml
@@ -62,15 +97,16 @@ Projenizin `pom.xml` dosyasına GroupDocs deposunu ve kütüphane bağımlılı�
 </dependencies>
 ```
 
-### Doğrudan İndirme (isteğe bağlı)
-Maven kullanmak istemiyorsanız, kütüphaneyi doğrudan [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
+### Doğrudan indirme (isteğe bağlı)
+Maven kullanmak istemiyorsanız, kütüphaneyi doğrudan [GroupDocs.Search for Java sürümleri](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
 
-### Lisans Edinme
-- Tam özellikleri keşfetmek için [buradan](https://purchase.groupdocs.com/temporary-license/) ücretsiz deneme veya geçici lisans alın.  
+### Lisans edinme
+- Tam özellikleri keşfetmek için [geçici lisans sayfasından](https://purchase.groupdocs.com/temporary-license/) ücretsiz deneme veya geçici lisans edinin.  
+- Ayrıca [buraya](https://purchase.groupdocs.com/temporary-license/) tıklayarak geçici bir lisans alabilirsiniz.  
 - Üretim dağıtımları için GroupDocs üzerinden ticari bir lisans satın alın.
 
-## Temel Başlatma ve Kurulum
-Aşağıdaki Java kod parçacığı, `Index` nesnesini başlatarak **create index directory java**'yi nasıl yapacağınızı gösterir:
+## Temel başlatma ve kurulum
+Aşağıdaki Java kod parçacığı, `Index` nesnesini başlatarak **create index directory java** (indeks dizini oluşturma java) nasıl yapılır gösterir:
 
 ```java
 import com.groupdocs.search.Index;
@@ -88,20 +124,23 @@ public class SearchApp {
 }
 ```
 
+### Tanım bağlantısı
+`Index` sınıfı, GroupDocs.Search'in diskte depolanan aranabilir bir indeksi temsil eden temel bileşenidir. Tüm indeksleme ve sorgu işlemleri bir `Index` örneği üzerinden gerçekleştirilir.
+
 ### Açıklama
-- **indexFolder** – İndeks dosyalarının bulunacağı mutlak ya da göreli yol.  
-- **new Index(indexFolder)** – İndeksi oluşturur, dizin mevcut değilse yaratır.
+- **indexFolder** – İndeks dosyalarının bulunacağı mutlak veya göreli yol.  
+- **new Index(indexFolder)** – Dizini oluşturur, mevcut değilse klasörü yaratır.
 
-## Uygulama Kılavuzu
+## Uygulama rehberi
 
-### Adım 1: İndeks Dizinini Belirleyin
+### Adım 1: indeks dizinini belirtin
 İndeks dosyaları için net, yazılabilir bir konum tanımlayın:
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\KeyboardLayoutCorrection";
 ```
 
-### Adım 2: Bir Index Örneği Oluşturun
+### Adım 2: bir indeks örneği oluşturun
 Yukarıda tanımlanan yolu kullanarak `Index` sınıfının bir örneğini oluşturun:
 
 ```java
@@ -109,68 +148,74 @@ Index index = new Index(indexFolder);
 system.out.println("Index created successfully at: " + indexFolder);
 ```
 
-> **Not:** `system.out.println` satırı, orijinal örneğe uygun olması için bilerek olduğu gibi bırakılmıştır. Üretim kodunda, `System.out.println` ile değiştirin.
+> **Not:** `system.out.println` satırı, orijinal örnekle eşleşmesi için kasıtlı olarak olduğu gibi bırakılmıştır. Üretim kodunda, `System.out.println` ile değiştirin.
 
-## Parametreler ve Metotlar Genel Bakışı
+## Parametreler ve yöntemler genel bakışı
 - **indexFolder** – İndeks verileri için hedef klasör.  
 - **Index(indexFolder)** – Disk üzerinde indeks yapısını oluşturur.
 
-## Sorun Giderme İpuçları
-- Hedef klasörün var olduğunu ve çalışan kullanıcının yazma izinlerine sahip olduğunu doğrulayın.  
-- `AccessDeniedException` alırsanız, klasör ACL'lerini ayarlayın veya farklı bir konum seçin.  
-- Yolun Windows'ta çift ters eğik çizgi (`\\`), Linux/macOS'ta ise ileri eğik çizgi (`/`) kullandığından emin olun.
+## Sorun giderme ipuçları
+- Hedef klasörün mevcut olduğunu ve çalışan kullanıcının yazma izinlerine sahip olduğunu doğrulayın.  
+- `AccessDeniedException` ile karşılaşırsanız, klasör ACL'lerini ayarlayın veya farklı bir konum seçin.  
+- Yolu Windows'ta çift ters eğik çizgi (`\\`), Linux/macOS'ta ise ileri eğik çizgi (`/`) kullandığınızdan emin olun.
 
-## Pratik Uygulamalar
-1. **Document Management Systems** – Kurumsal depolarda aramayı hızlandırır.  
-2. **Content‑Heavy Websites** – Bloglar veya bilgi tabanları için site genelinde tam metin aramasını sağlar.  
-3. **Archival Solutions** – Her dosyayı taramadan tarihsel kayıtları hızlıca getirir.
+## Pratik uygulamalar
+1. **Belge yönetim sistemleri** – Kurumsal depolarda aramayı hızlandırır.  
+2. **İçerik yoğun web siteleri** – Bloglar veya bilgi tabanları için site çapında tam metin arama sağlar.  
+3. **Arşivleme çözümleri** – Her dosyayı taramadan tarihsel kayıtları hızlıca getirir.
 
-## Performans Düşünceleri
-- **Incremental indexing java**: Sadece değişen belgeleri yeniden indeksleyerek indeksi güncel tutun ve CPU yükünü azaltın.  
-- **Memory Management**: Çok büyük koleksiyonlarda JVM yığınını izleyin ve gerektiğinde `-Xmx` değerini artırmayı düşünün.  
-- **Batch Indexing**: Büyük içe aktarmalar sırasında uzun duraklamaları önlemek için dosyaları toplu işleyin.
+## Performans değerlendirmeleri
+- **Incremental indexing java**: Sadece değişen belgeleri yeniden indeksleyerek indeksi güncel tutar ve CPU yükünü azaltır.  
+- **Memory management**: Çok büyük koleksiyonlarda JVM yığınını izleyin ve gerektiğinde `-Xmx` değerini artırmayı düşünün.  
+- **Batch indexing**: Büyük ithalatlar sırasında uzun duraklamaları önlemek için dosyaları toplu olarak işleyin.
 
-## Incremental indexing java En İyi Uygulamaları
-Sürekli büyüyen bir belge kümesiyle çalışırken incremental indexing'i benimseyin. Sıfırdan yeniden oluşturmak yerine yeni veya değiştirilmiş dosyaları mevcut indekse ekleyin. Bu yaklaşım indeksi güncel tutarken sistem kaynaklarını korur.
+## Incremental indexing java en iyi uygulamaları
+Sürekli büyüyen bir belge setiyle çalışırken artımlı indekslemeyi benimseyin. Sıfırdan yeniden oluşturmak yerine yeni veya değiştirilmiş dosyaları mevcut indekse ekleyin. Bu yaklaşım indeksi güncel tutarken sistem kaynaklarını korur.
 
-## Yaygın Sorunlar ve Çözümler
+## Yaygın sorunlar ve çözümler
 
 | Sorun | Neden | Çözüm |
 |-------|-------|----------|
-| **Directory not found** | Yanlış yol veya eksik klasör | `Index`'i başlatmadan önce klasörü manuel oluşturun veya `new File(indexFolder).mkdirs();` kullanın. |
-| **Permission denied** | Yetersiz işletim sistemi izinleri | Uygulamayı uygun kullanıcı izinleriyle çalıştırın veya farklı bir dizin seçin. |
-| **OutOfMemoryError** | Incremental indexing olmadan büyük belge seti | İndeks güncellemelerini küçük parçalar halinde etkinleştirin ve JVM yığın boyutunu artırın. |
+| **Dizin bulunamadı** | Yanlış yol veya eksik klasör | Klasörü manuel olarak oluşturun veya `Index` başlatılmadan önce `new File(indexFolder).mkdirs();` kullanın. |
+| **İzin reddedildi** | Yetersiz işletim sistemi izinleri | Uygulamayı uygun kullanıcı izinleriyle çalıştırın veya farklı bir dizin seçin. |
+| **OutOfMemoryError** | Artımlı indeksleme olmadan büyük belge seti | İndeks güncellemelerini küçük parçalar halinde etkinleştirin ve JVM yığın boyutunu artırın. |
 
-## Sıkça Sorulan Sorular
+## Sıkça sorulan sorular
 
 **S: Arama indeksi nedir?**  
-C: Belgeleri aranabilir token'lara ön işleyen bir veri yapısıdır; sorgu yanıt sürelerini büyük ölçüde hızlandırır.
+C: Arama indeksi, her belge için aranabilir token'ları depolayan ön işlenmiş bir veri yapısıdır ve hızlı sorgu yanıtları sağlar.
 
 **S: GroupDocs.Search İngilizce dışı dilleri işleyebilir mi?**  
 C: Evet, kutudan çıkar çıkmaz birden fazla dil ve karakter setini destekler.
 
 **S: İndeksimi ne sıklıkta yeniden oluşturmalı veya güncellemeliyim?**  
-C: Belgeler eklendiğinde, değiştirildiğinde veya kaldırıldığında indeksi güncelleyin; büyük depolar için düzenli incremental güncellemeler planlayın.
+C: Belgeler eklendiğinde, değiştirildiğinde veya kaldırıldığında indeksi güncelleyin; büyük depolar için düzenli artımlı güncellemeler planlayın.
 
 **S: index directory java oluştururken tipik tuzaklar nelerdir?**  
-C: Yanlış klasör yolları, yetersiz yazma izinleri ve büyük dosya setlerini verimli şekilde ele almama yaygın sorunlardır.
+C: Yaygın sorunlar arasında hatalı klasör yolları, yetersiz yazma izinleri ve büyük dosya setlerini verimli bir şekilde ele almama yer alır.
 
 **S: Daha ayrıntılı belgeleri nerede bulabilirim?**  
 C: Kapsamlı kılavuzlar ve API referansları için [GroupDocs Documentation](https://docs.groupdocs.com/search/java/) adresini ziyaret edin.
 
 ## Kaynaklar
 
-- **Dokümantasyon**: [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
-- **API Referansı**: [GroupDocs Search API](https://reference.groupdocs.com/search/java)  
-- **İndirme**: [Latest Releases](https://releases.groupdocs.com/search/java/)  
+- **Dokümantasyon**: [GroupDocs.Search Java Belgeleri](https://docs.groupdocs.com/search/java/)  
+- **API referansı**: [GroupDocs Search API](https://reference.groupdocs.com/search/java)  
+- **İndirme**: [En Son Sürümler](https://releases.groupdocs.com/search/java/)  
 - **GitHub**: [GroupDocs.Search for Java Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Ücretsiz Destek**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **Geçici Lisans**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **Ücretsiz destek**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
+- **Geçici lisans**: [Geçici Lisans Al](https://purchase.groupdocs.com/temporary-license/)  
 
-Bu kılavuzu izleyerek, artık hızlı ve güvenilir arama yetenekleri gerektiren herhangi bir Java uygulamasına entegre edilebilecek işlevsel bir **create index directory java** uygulamanız var.
+Bu rehberi izleyerek, artık hızlı ve güvenilir arama yetenekleri gerektiren herhangi bir Java uygulamasına entegre edilebilecek işlevsel bir **create index directory java** (indeks dizini oluşturma java) uygulamanız var.
 
 ---
 
-**Son Güncelleme:** 2026-03-09  
-**Test Edilen Versiyon:** GroupDocs.Search 25.4 for Java  
+**Son Güncelleme:** 2026-10-22  
+**Test Edilen:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Eğitimler
+
+- [Java için GroupDocs.Search API'si kullanarak Belge İndeksi Oluşturma ve Belgeleri Ekleme](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Java GroupDocs Search ile Tam Metin Arama Uygulama](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Java Tam Metin Arama Kütüphanesi – GroupDocs.Search ile İndeksi Optimize Et](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)

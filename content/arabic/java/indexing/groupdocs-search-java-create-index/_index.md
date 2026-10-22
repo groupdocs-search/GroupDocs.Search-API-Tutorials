@@ -1,43 +1,77 @@
 ---
-date: '2026-03-09'
-description: تعلم كيفية تنفيذ البحث النصي الكامل في جافا بإنشاء دليل فهرس باستخدام
-  GroupDocs.Search for Java، مما يعزز أداء البحث وإدارته.
+date: '2026-10-22'
+description: تعلم كيفية تنفيذ البحث النصي الكامل في Java عن طريق إنشاء دليل فهرس باستخدام
+  GroupDocs.Search for Java، مما يعزز أداء البحث والإدارة.
 keywords:
-- GroupDocs.Search for Java
-- search indexing Java
-- Java document management
-title: 'كيفية تنفيذ البحث النصي الكامل في جافا: إنشاء دليل الفهرس باستخدام GroupDocs.Search'
+- java full text search
+- how to create index
+- java inverted index
+- java search library
+- search index java
+lastmod: '2026-10-22'
+og_description: البحث النصي الكامل في Java ضروري لاسترجاع المستندات بسرعة. يوضح هذا
+  الدليل كيفية إنشاء دليل فهرس باستخدام GroupDocs.Search for Java، مع تغطية إعداد
+  Maven، الترخيص، وأفضل ممارسات الفهرسة المتزايدة.
+og_image_alt: 'Developer guide: Create index directory for Java full text search using
+  GroupDocs.Search'
+og_title: 'البحث النصي الكامل في Java: إنشاء دليل فهرس باستخدام GroupDocs'
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-22'
+  description: Learn how to implement java full text search by creating an index directory
+    using GroupDocs.Search for Java, boosting search performance and management.
+  headline: 'How to implement java full text search: create index directory with GroupDocs.Search'
+  type: TechArticle
+- questions:
+  - answer: A search index is a pre‑processed data structure that stores searchable
+      tokens for each document, enabling rapid query responses.
+    question: What is a search index?
+  - answer: Yes, it supports multiple languages and character sets out of the box.
+    question: Can GroupDocs.Search handle non‑English languages?
+  - answer: Update the index whenever documents are added, modified, or removed; schedule
+      regular incremental updates for large repositories.
+    question: How often should I rebuild or update my index?
+  - answer: Common issues include incorrect folder paths, insufficient write permissions,
+      and not handling large file sets efficiently.
+    question: What are typical pitfalls when creating an index directory java?
+  - answer: Visit [GroupDocs Documentation](https://docs.groupdocs.com/search/java/)
+      for comprehensive guides and API references.
+    question: Where can I find more detailed documentation?
+  type: FAQPage
+tags:
+- java search
+- groupdocs search
+- index directory
+- full text search
+title: 'كيفية تنفيذ البحث النصي الكامل في Java: إنشاء دليل الفهرس باستخدام GroupDocs.Search'
 type: docs
 url: /ar/java/indexing/groupdocs-search-java-create-index/
 weight: 1
 ---
 
-# كيفية تنفيذ البحث النصي الكامل في جافا: إنشاء دليل الفهرس باستخدام GroupDocs.Search
+# كيفية تنفيذ بحث نص كامل في Java: إنشاء دليل الفهرس باستخدام GroupDocs.Search
 
-إنشاء **index directory** في جافا هو الأساس للبحث النصي الكامل السريع والموثوق في **java full text search**. في هذا الدرس ستتعلم خطوة بخطوة كيفية **create index directory java** باستخدام مكتبة GroupDocs.Search القوية، إعداد البيئة، والتحقق من بناء الفهرس بشكل صحيح. في النهاية، ستحصل على فهرس بحث جاهز للاستخدام يمكنه تشغيل أي نظام إدارة مستندات مبني على جافا.
+إنشاء **index directory** في Java هو الأساس للبحث النصي الكامل السريع والموثوق في **java full text search**. في هذا الدليل التعليمي ستتعلم خطوة بخطوة كيفية **create index directory java** باستخدام مكتبة GroupDocs.Search القوية، إعداد البيئة، والتحقق من بناء الفهرس بشكل صحيح. في النهاية، ستحصل على فهرس بحث جاهز للاستخدام يمكنه تشغيل أي نظام إدارة مستندات مبني على Java.
 
 ## إجابات سريعة
-- **ماذا يعني “create index directory java”؟** يعني تهيئة مجلد على القرص حيث يخزن GroupDocs.Search هياكل البيانات القابلة للبحث.  
+- **ماذا يعني “create index directory java”؟** يعني تهيئة مجلد على القرص حيث تقوم GroupDocs.Search بتخزين هياكل البيانات القابلة للبحث.  
 - **أي مكتبة توفر هذه القدرة؟** GroupDocs.Search for Java.  
-- **هل أحتاج إلى ترخيص؟** ترخيص مؤقت متاح للاختبار؛ الترخيص الكامل مطلوب للإنتاج.  
-- **ما نسخة جافا المطلوبة؟** Java 8 أو أعلى، مع Maven لإدارة الاعتمادات.  
-- **كم يستغرق الإعداد؟** عادةً أقل من 15 دقيقة، بما في ذلك تكوين Maven وتشغيل اختبار بسيط.
+- **هل أحتاج إلى ترخيص؟** يتوفر ترخيص مؤقت للاختبار؛ يلزم ترخيص كامل للإنتاج.  
+- **ما نسخة Java المطلوبة؟** Java 8 أو أعلى، مع Maven لإدارة التبعيات.  
+- **كم يستغرق الإعداد؟** عادةً أقل من 15 دقيقة، بما في ذلك إعداد Maven وتشغيل اختبار بسيط.
 
-## ما هو البحث النصي الكامل في جافا؟
-يشير البحث النصي الكامل في جافا إلى القدرة على البحث في محتويات المستندات بالكامل—النص العادي، ملفات PDF، ملفات Office، إلخ—مباشرةً من تطبيق جافا. يبني GroupDocs.Search **inverted index** الذي يربط المصطلحات بالمستندات التي تحتويها، مما يتيح استعلامات سريعة للغاية حتى على مجموعات ضخمة.
+## ما هو بحث النص الكامل في Java؟
+`java full text search` هو القدرة على استعلام المحتوى الكامل للمستندات — النص العادي، PDFs، ملفات Office، وأكثر — مباشرةً من تطبيق Java. تقوم GroupDocs.Search بإنشاء **inverted index** يربط كل مصطلح بالمستندات التي تحتويه، مما يتيح استعلامات سريعة كالبرق حتى على مجموعات ضخمة.
 
-## لماذا نستخدم GroupDocs.Search للبحث النصي الكامل في جافا؟
-- **مركز على الأداء**: خوارزميات الفهرسة المحسّنة تقلل من زمن استجابة البحث.  
-- **دعم اللغات**: يتعامل مع المحتوى متعدد اللغات مباشرةً.  
-- **القابلية للتوسع**: يعمل مع آلاف المستندات دون استهلاك كبير للذاكرة.  
-- **تكامل سهل**: اعتماد Maven بسيط وAPI واضح.
+## لماذا تستخدم GroupDocs.Search للبحث النصي الكامل في Java؟
+GroupDocs.Search يدعم **أكثر من 50 تنسيق إدخال وإخراج** (بما في ذلك DOCX، XLSX، PPTX، HTML، وأنواع الصور الشائعة) ويمكنه فهرسة **أكثر من 10,000 مستند** دون تحميل المجموعة بالكامل في الذاكرة. يقدم معالجة متعددة اللغات، فهرسة منخفضة الذاكرة، وواجهة برمجة تطبيقات بسيطة تعتمد على Maven تتكامل في دقائق.
 
 ## المتطلبات المسبقة
 - **Java Development Kit (JDK) 8+** مثبت ومُعد.  
-- **Maven** لبناء وإدارة الاعتمادات.  
-- إلمام أساسي بمشاريع جافا وسطر الأوامر.
+- **Maven** لإدارة وبناء التبعيات.  
+- إلمام أساسي بمشاريع Java وسطر الأوامر.  
 
-## إعداد GroupDocs.Search لجافا
+## إعداد GroupDocs.Search لـ Java
 
 ### إعداد Maven
 أضف مستودع GroupDocs واعتماد المكتبة إلى ملف `pom.xml` الخاص بمشروعك:
@@ -60,15 +94,16 @@ weight: 1
 </dependencies>
 ```
 
-### التحميل المباشر (اختياري)
-إذا كنت تفضّل عدم استخدام Maven، يمكنك تنزيل المكتبة مباشرةً من [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### تنزيل مباشر (اختياري)
+إذا كنت تفضل عدم استخدام Maven، يمكنك تنزيل المكتبة مباشرةً من [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### الحصول على الترخيص
-- احصل على نسخة تجريبية مجانية أو ترخيص مؤقت من [هنا](https://purchase.groupdocs.com/temporary-license/) لاستكشاف جميع الميزات.  
-- لتطبيقات الإنتاج، اشترِ ترخيصًا تجاريًا عبر GroupDocs.
+- احصل على نسخة تجريبية مجانية أو ترخيص مؤقت من صفحة [temporary license page](https://purchase.groupdocs.com/temporary-license/) لاستكشاف جميع الميزات.  
+- يمكنك أيضًا الحصول على ترخيص مؤقت بالنقر [here](https://purchase.groupdocs.com/temporary-license/).  
+- للنشر في بيئات الإنتاج، اشترِ ترخيصًا تجاريًا عبر GroupDocs.
 
 ## التهيئة الأساسية والإعداد
-المقتطف التالي بلغة جافا يوضح كيفية **create index directory java** عن طريق تهيئة كائن `Index`:
+المقتطف التالي في Java يوضح كيفية **create index directory java** عن طريق تهيئة كائن `Index`:
 
 ```java
 import com.groupdocs.search.Index;
@@ -86,9 +121,12 @@ public class SearchApp {
 }
 ```
 
+### تعريف الفئة
+الفئة `Index` هي المكوّن الأساسي في GroupDocs.Search الذي يمثل فهرسًا قابلًا للبحث مخزنًا على القرص. جميع عمليات الفهرسة والاستعلام تُجرى عبر مثيل `Index`.
+
 ### شرح
 - **indexFolder** – المسار المطلق أو النسبي حيث ستُحفظ ملفات الفهرس.  
-- **new Index(indexFolder)** – يُنشئ الفهرس، ويُنشئ الدليل إذا لم يكن موجودًا.
+- **new Index(indexFolder)** – ينشئ الفهرس، ويخلق الدليل إذا لم يكن موجودًا.
 
 ## دليل التنفيذ
 
@@ -99,76 +137,81 @@ public class SearchApp {
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Searching\\KeyboardLayoutCorrection";
 ```
 
-### الخطوة 2: إنشاء نسخة من الفهرس
-أنشئ نسخة من فئة `Index` باستخدام المسار المحدد أعلاه:
+### الخطوة 2: إنشاء مثيل فهرس
+أنشئ مثيل الفئة `Index` باستخدام المسار المحدد أعلاه:
 
 ```java
 Index index = new Index(indexFolder);
 system.out.println("Index created successfully at: " + indexFolder);
 ```
 
-> **ملاحظة:** تم الحفاظ على السطر `system.out.println` كما هو عمدًا لمطابقة المثال الأصلي. في كود الإنتاج، استبدله بـ `System.out.println`.
+> **ملاحظة:** السطر `system.out.println` تم تركه كما هو عمدًا لمطابقة المثال الأصلي. في كود الإنتاج، استبدله بـ `System.out.println`.
 
 ## نظرة عامة على المعلمات والطرق
 - **indexFolder** – مجلد الوجهة لبيانات الفهرس.  
 - **Index(indexFolder)** – يبني بنية الفهرس على القرص.
 
 ## نصائح استكشاف الأخطاء وإصلاحها
-- تحقق من أن المجلد المستهدف موجود وأن المستخدم المشغّل لديه صلاحيات كتابة.  
-- إذا صادفت `AccessDeniedException`، عدّل أذونات المجلد (ACLs) أو اختر موقعًا مختلفًا.  
-- تأكد من أن المسار يستخدم شرطات مائلة مزدوجة (`\\`) على Windows أو شرطات مائلة أمامية (`/`) على Linux/macOS.
+- تحقق من وجود المجلد المستهدف وأن المستخدم الجاري لديه صلاحيات كتابة.  
+- إذا صادفت `AccessDeniedException`، عدّل أذونات المجلد أو اختر موقعًا مختلفًا.  
+- تأكد من أن المسار يستخدم الشرطتين المائلتين (`\\`) على Windows أو الشرطتين المائلتين للأمام (`/`) على Linux/macOS.
 
 ## تطبيقات عملية
-1. **أنظمة إدارة المستندات** – تسريع البحث عبر مستودعات الشركة.  
-2. **المواقع ذات المحتوى الضخم** – تمكين البحث النصي الكامل على مستوى الموقع للمدونات أو قواعد المعرفة.  
-3. **حلول الأرشفة** – استرجاع السجلات التاريخية بسرعة دون فحص كل ملف.
+1. **Document management systems** – تسريع البحث عبر مستودعات الشركات.  
+2. **Content‑heavy websites** – تمكين بحث نص كامل على مستوى الموقع للمدونات أو قواعد المعرفة.  
+3. **Archival solutions** – استرجاع السجلات التاريخية بسرعة دون فحص كل ملف.
 
 ## اعتبارات الأداء
-- **Incremental indexing java**: أعد فهرسة المستندات التي تغيرت فقط للحفاظ على حداثة الفهرس وتقليل حمل المعالج.  
-- **إدارة الذاكرة**: للمجموعات الكبيرة جدًا، راقب ذاكرة JVM heap وفكّر في زيادة `-Xmx` حسب الحاجة.  
-- **الفهرسة الدفعية**: عالج الملفات على دفعات لتجنب توقفات طويلة أثناء الاستيراد الضخم.
+- **Incremental indexing java**: أعد فهرسة المستندات المتغيرة فقط للحفاظ على حداثة الفهرس وتقليل حمل المعالج.  
+- **Memory management**: للمجموعات الضخمة، راقب ذاكرة JVM وفكر في زيادة `-Xmx` حسب الحاجة.  
+- **Batch indexing**: عالج الملفات على دفعات لتجنب توقفات طويلة أثناء الاستيراد الضخم.
 
-## ممارسات أفضل للفهرسة المتزايدة في جافا
-عند التعامل مع مجموعة مستندات تتزايد باستمرار، اعتمد الفهرسة المتزايدة. أضف الملفات الجديدة أو المعدلة إلى الفهرس الحالي بدلاً من إعادة بناءه من الصفر. هذه الطريقة تحافظ على تحديث الفهرس مع الحفاظ على موارد النظام.
+## ممارسات أفضل للفهرسة المتزايدة في Java
+عند التعامل مع مجموعة مستندات تتوسع باستمرار، اعتمد الفهرسة المتزايدة. أضف الملفات الجديدة أو المعدلة إلى الفهرس الحالي بدلاً من إعادة بناءه من الصفر. هذا النهج يحافظ على تحديث الفهرس مع الحفاظ على موارد النظام.
 
 ## المشكلات الشائعة والحلول
-
-| المشكلة | السبب | الحل |
+| Issue | Cause | Solution |
 |-------|-------|----------|
-| **الدليل غير موجود** | مسار غير صحيح أو مجلد مفقود | إنشاء المجلد يدويًا أو استخدام `new File(indexFolder).mkdirs();` قبل تهيئة `Index`. |
-| **تم رفض الإذن** | حقوق نظام تشغيل غير كافية | تشغيل التطبيق بصلاحيات المستخدم المناسبة أو اختيار دليل مختلف. |
-| **OutOfMemoryError** | مجموعة مستندات كبيرة دون فهرسة متزايدة | تمكين تحديثات الفهرس على دفعات صغيرة وزيادة حجم heap للـ JVM. |
+| **Directory not found** | Wrong path or missing folder | Create the folder manually or use `new File(indexFolder).mkdirs();` before initializing `Index`. |
+| **Permission denied** | Insufficient OS rights | Run the application with appropriate user permissions or choose a different directory. |
+| **OutOfMemoryError** | Large document set without incremental indexing | Enable index updates in small chunks and increase JVM heap size. |
 
 ## الأسئلة المتكررة
 
 **س: ما هو فهرس البحث؟**  
-ج: بنية بيانات تُعالج المستندات مسبقًا إلى رموز قابلة للبحث، مما يسرّع بشكل كبير أوقات استجابة الاستعلامات.
+ج: فهرس البحث هو بنية بيانات مُعالجة مسبقًا تخزن الرموز القابلة للبحث لكل مستند، مما يتيح استجابات استعلام سريعة.
 
 **س: هل يمكن لـ GroupDocs.Search التعامل مع اللغات غير الإنجليزية؟**  
 ج: نعم، يدعم عدة لغات ومجموعات أحرف مباشرةً.
 
 **س: كم مرة يجب أن أعيد بناء أو تحديث فهرسي؟**  
-ج: حدّث الفهرس كلما أضيفت أو عدّلت أو أزيلت مستندات؛ جدولة تحديثات متزايدة منتظمة للمستودعات الكبيرة.
+ج: حدّث الفهرس كلما أضيفت أو عدلت أو حُذفت مستندات؛ جدولة تحديثات متزايدة منتظمة للمستودعات الكبيرة.
 
-**س: ما هي الأخطاء الشائعة عند إنشاء دليل فهرس جافا؟**  
-ج: تشمل المشكلات الشائعة مسارات المجلد غير الصحيحة، صلاحيات كتابة غير كافية، وعدم معالجة مجموعات الملفات الكبيرة بفعالية.
+**س: ما هي المشكلات الشائعة عند إنشاء index directory java؟**  
+ج: تشمل المشكلات الشائعة مسارات المجلد غير الصحيحة، نقص صلاحيات الكتابة، وعدم معالجة مجموعات الملفات الكبيرة بفعالية.
 
-**س: أين يمكنني العثور على وثائق أكثر تفصيلًا؟**  
+**س: أين يمكنني العثور على وثائق أكثر تفصيلاً؟**  
 ج: زر [GroupDocs Documentation](https://docs.groupdocs.com/search/java/) للحصول على أدلة شاملة ومراجع API.
 
 ## الموارد
 
-- **التوثيق**: [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
-- **مرجع API**: [GroupDocs Search API](https://reference.groupdocs.com/search/java)  
-- **التنزيل**: [Latest Releases](https://releases.groupdocs.com/search/java/)  
+- **Documentation**: [GroupDocs.Search Java Docs](https://docs.groupdocs.com/search/java/)  
+- **API reference**: [GroupDocs Search API](https://reference.groupdocs.com/search/java)  
+- **Download**: [Latest Releases](https://releases.groupdocs.com/search/java/)  
 - **GitHub**: [GroupDocs.Search for Java Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **دعم مجاني**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
-- **ترخيص مؤقت**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **Free support**: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10)  
+- **Temporary license**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
-باتباع هذا الدليل، لديك الآن تنفيذ عملي لـ **create index directory java** يمكن دمجه في أي تطبيق جافا يتطلب قدرات بحث سريعة وموثوقة.
+باتباع هذا الدليل، لديك الآن تنفيذ عملي لـ **create index directory java** يمكن دمجه في أي تطبيق Java يتطلب بحثًا سريعًا وموثوقًا.
 
 ---
 
-**آخر تحديث:** 2026-03-09  
-**تم الاختبار مع:** GroupDocs.Search 25.4 for Java  
-**المؤلف:** GroupDocs
+**Last Updated:** 2026-10-22  
+**Tested With:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs
+
+## دروس ذات صلة
+
+- [How to Create Document Index and Add Documents Using the GroupDocs.Search API for Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Implement Full Text Search Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Java Full Text Search Library – Optimize Index with GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
