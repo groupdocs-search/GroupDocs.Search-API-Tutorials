@@ -1,58 +1,107 @@
 ---
-date: '2026-03-09'
-description: GroupDocs.Search kullanarak Java’da arama indeksi oluşturmayı öğrenin.
-  Bu kılavuz, belgeleri Java’da verimli bir şekilde indekslemeyi gösterir.
+date: '2026-10-22'
+description: GroupDocs.Search kullanarak java full text search'i nasıl uygulayacağınızı
+  öğrenin ve birkaç basit adımda java belgelerini verimli bir şekilde nasıl index
+  documents edeceğinizi keşfedin.
 keywords:
-- document indexing
+- java full text search
+- how to index documents java
 - GroupDocs.Search for Java
-- Java application search
-title: GroupDocs.Search for Java ile Arama Dizini Oluşturma - Tam Bir Kılavuz
+lastmod: '2026-10-22'
+og_description: GroupDocs.Search kullanarak java full text search'i nasıl uygulayacağınızı
+  öğrenin ve birkaç basit adımda java belgelerini verimli bir şekilde nasıl index
+  documents edeceğinizi keşfedin.
+og_image_alt: Guide showing java full text search implementation with GroupDocs.Search
+og_title: GroupDocs.Search ile java full text search nasıl uygulanır
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-22'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    and discover how to index documents java efficiently in a few simple steps.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to implement java full text search using GroupDocs.Search
+    and discover how to index documents java efficiently in a few simple steps.
+  name: How to implement java full text search with GroupDocs.Search
+  steps:
+  - name: specify directories
+    text: Define where the index will live and where the source documents are located.
+  - name: create an index
+    text: Instantiate the `Index` object to begin building the searchable structure.
+  - name: add documents to the index
+    text: Feed all files from the source folder into the index with a single call.
+  - name: retrieve indexed documents
+    text: 'Once indexing is complete you can enumerate the indexed entries: **Parameters
+      & method purposes** - `indexFolder`: Path where the index data is stored. -
+      `documentsFolder`: Directory containing files to be indexed. **Troubleshooting
+      tips** - Verify that the folder paths are correct and accessible. -'
+  - name: set up index settings
+    text: Create an `IndexSettings` instance and configure text storage.
+  - name: initialize the index with settings
+    text: Pass the custom settings when constructing the index.
+  - name: retrieve and store document texts
+    text: Extract the full text of a document and save it as HTML (or any supported
+      format). **Key configuration options** - `Compression.High` – Optimizes storage
+      by compressing the extracted text.
+  type: HowTo
+- questions:
+  - answer: It is a powerful library that adds full‑text search capabilities to Java
+      applications, supporting over 50 document formats.
+    question: What is GroupDocs.Search for Java?
+  - answer: Use batch processing, tune `IndexSettings` for memory efficiency, and
+      run indexing in asynchronous threads.
+    question: How do I handle large datasets with GroupDocs.Search?
+  - answer: Yes, you can choose between `Compression.High`, `Compression.Medium`,
+      and `Compression.Low` to balance size and speed.
+    question: Can I customize the compression level in text storage settings?
+  - answer: PDFs, Word, Excel, PowerPoint, HTML, plain text, and many image formats
+      are all supported out of the box.
+    question: What types of documents does GroupDocs.Search support?
+  - answer: Yes, you can access free support through their forum at [GroupDocs Forum](https://forum.groupdocs.com/c/search/10).
+    question: Is there community support for GroupDocs.Search?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- document indexing
+- Java search library
+title: GroupDocs.Search ile java full text search nasıl uygulanır
 type: docs
 url: /tr/java/indexing/groupdocs-search-java-implementation-document-indexing/
 weight: 1
 ---
 
-# GroupDocs.Search for Java ile Arama Dizini Oluşturma - Tam Kılavuz
+# Java tam metin arama nasıl uygulanır GroupDocs.Search ile
 
-Java uygulaması içinde **create search index groupdocs** oluşturmanız gerekiyorsa, doğru yere geldiniz. Bu öğreticide GroupDocs.Search'ı kurma, bir dizin oluşturma, dosyaları ekleme ve belge metnini alma sürecini adım adım kodlarla birlikte ele alacağız; kodları doğrudan projenize kopyalayabilirsiniz. Sonunda **how to index documents java**‑style tam olarak nasıl yapılır öğrenecek ve güçlü arama yeteneklerini herhangi bir kurumsal çözüme entegre etmeye hazır olacaksınız.
+Java uygulaması içinde **java tam metin arama** yeteneği oluşturmanız gerekiyorsa, doğru yere geldiniz. Bu öğretici, GroupDocs.Search'ü kurma, bir indeks yapılandırma, belge ekleme ve indeksi sorgulama adımlarını size gösterir—hepsi kopyala‑yapıştır‑hazır kod parçacıklarıyla. Sonunda **java belgelerini indeksleme**‑stilini anlayacak ve hızlı, ölçeklenebilir aramayı herhangi bir kurumsal çözüme entegre etmeye hazır olacaksınız.
 
-## Hızlı Yanıtlar
-- **GroupDocs.Search'ın temel amacı nedir?**  
-  Java'da geniş bir belge formatı yelpazesi için hızlı tam metin indeksleme ve geri getirme sağlamak.  
+## Hızlı cevaplar
+- **GroupDocs.Search'ün temel amacı nedir?**  
+  Java'da çok çeşitli belge formatları için hızlı tam metin indeksleme ve geri getirme sağlamak.  
 - **Hangi kütüphane sürümü önerilir?**  
-  En son kararlı sürüm (örneğin, yazım zamanı 25.4).  
+  Yazım zamanında en son kararlı sürüm (ör. 25.4).  
 - **Örnekleri çalıştırmak için lisansa ihtiyacım var mı?**  
   Değerlendirme için geçici bir lisans mevcuttur; üretim için ticari lisans gereklidir.  
-- **Arama dizini oluşturmanın ana adımları nelerdir?**  
-  Kütüphaneyi kurun, dizin ayarlarını yapılandırın, belgeleri ekleyin ve dizini sorgulayın.  
+- **Arama indeksi oluşturmanın ana adımları nelerdir?**  
+  Kütüphaneyi kurun, indeks ayarlarını yapılandırın, belgeleri ekleyin ve indeksi sorgulayın.  
 - **İndekslenmiş metni sıkıştırılmış biçimde depolayabilir miyim?**  
   Evet – `Compression.High` ile `TextStorageSettings` kullanın.
 
-## GroupDocs.Search for Java ile arama dizini oluşturma
-Aranabilir bir dizin oluşturmak, hızlı‑arama çözümlerinin temelidir. Aşağıda süreci adım adım bölümlere ayırıyor, her eylemin “neden”ini açıklıyor ve ihtiyacınız olan tam kodu gösteriyoruz.
+## Java tam metin arama nedir?
+Java tam metin arama, bir belge koleksiyonundaki her aranabilir token'ı konumuna eşleyen bir indeks oluşturma sürecine denir; bu sayede her seferinde orijinal dosyaları taramadan anlık anahtar kelime ve ifade aramaları yapılabilir. İndeks, token konumlarını, sıklıklarını ve meta verileri saklar; böylece arama motoru sonuçları alaka düzeyine göre sıralayabilir ve joker karakterler, bulanık eşleşme ve yakınlık aramaları gibi gelişmiş sorguları destekler.
 
-### “create search index groupdocs” nedir?
-GroupDocs ile bir arama dizini oluşturmak, belgelerinizdeki her kelimeyi konumuna bağlayan aranabilir bir veri yapısı inşa etmek anlamına gelir. Bu, her seferinde orijinal dosyaları taramadan anlık anahtar kelime aramaları, ifade aramaları ve gelişmiş filtreleme sağlar.
-
-### Neden GroupDocs.Search for Java kullanmalısınız?
-- **Geniş format desteği** – PDF'ler, Word, Excel, PowerPoint ve daha fazlası.  
-- **Yüksek performans** – Optimize edilmiş indeksleme algoritmaları, milyonlarca dosyada bile arama gecikmesini düşük tutar.  
-- **Kolay entegrasyon** – Basit Java API'si, Maven tabanlı bağımlılık yönetimi ve açık belgeler.
+## Java için GroupDocs.Search neden kullanılmalı?
+GroupDocs.Search **50+ giriş ve çıkış formatını** destekler—PDF, Word, Excel, PowerPoint, HTML ve birçok görüntü türü dahil—ve tüm dosyayı belleğe yüklemeden çok sayfalı belgeleri işleyebilir. İndeksleme motoru, milyonlarca kaydı işlerken bile alt saniyelik sorgu gecikmesi sağlar; bu da onu kurumsal düzeyde arama için güvenilir bir seçenek yapar.
 
 ## Önkoşullar
-### Gerekli Kütüphaneler ve Bağımlılıklar
-- **Java Development Kit (JDK)** 8 ve üzeri.  
-- **Maven** bağımlılık yönetimi için.
+- **Java Development Kit (JDK) 8** veya üzeri.  
+- **Maven** bağımlılık yönetimi için.  
+- Java I/O ve indeksleme kavramlarına temel aşinalık.
 
-### Ortam Kurulum Gereksinimleri
-Maven'ın GroupDocs deposundan artefaktları indirecek şekilde doğru yapılandırıldığından emin olun.
+## Java için GroupDocs.Search kurulumu
+### Maven yapılandırması
+`pom.xml` dosyanıza GroupDocs deposunu ve Search bağımlılığını ekleyin:
 
-### Bilgi Önkoşulları
-Temel Java programlama, dosya G/Ç'ye aşina olma ve indeksleme kavramlarını anlama, içeriği sorunsuz takip etmenize yardımcı olacaktır.
-
-## GroupDocs.Search for Java Kurulumu
-### Maven Yapılandırması
-Add the repository and dependency to your `pom.xml` file:
 ```xml
 <repositories>
     <repository>
@@ -70,45 +119,60 @@ Add the repository and dependency to your `pom.xml` file:
     </dependency>
 </dependencies>
 ```
-### Doğrudan İndirme
-Alternatif olarak, en son sürümü [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) adresinden indirebilirsiniz.
 
-### Lisans Edinme
+### Doğrudan indirme
+Alternatif olarak, en son sürümü [GroupDocs.Search for Java sürümleri](https://releases.groupdocs.com/search/java/) adresinden indirin.
+
+### Lisans edinme
 Satın almadan önce GroupDocs özelliklerini tam olarak keşfetmek için geçici bir lisans alabilirsiniz; bunun için [Temporary License page](https://purchase.groupdocs.com/temporary-license/) sayfasını ziyaret edin. Bu deneme süresi, kütüphaneyi ortamınızda değerlendirmenizi sağlar.
 
-### Temel Başlatma ve Kurulum
-İndeks dosyalarının saklanacağı klasöre işaret eden bir `Index` nesnesi oluşturarak başlayın:
+### Temel başlatma ve kurulum
+`Index` sınıfı, diskteki aranabilir bir veri deposunu temsil eden temel bileşendir. Bir örnek oluşturmak, kütüphaneyi indeks dosyalarının saklanacağı bir klasöre yönlendirir.
+
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
-## Uygulama Kılavuzu
+## GroupDocs.Search for Java ile arama indeksi nasıl oluşturulur
+Aranabilir bir indeks oluşturmak, herhangi bir hızlı‑arama çözümünün temelidir. İndeksi yükleyin, belgeleri ekleyin ve ardından sorgulayın—hepsi birkaç basit adımda.
+
+### “create search index groupdocs” nedir?
+GroupDocs ile bir arama indeksi oluşturmak, belgelerinizdeki her kelimeyi konumuna eşleyen aranabilir bir veri yapısı inşa etmek anlamına gelir. Bu, her seferinde orijinal dosyaları taramadan anlık anahtar kelime aramaları, ifade aramaları ve gelişmiş filtreleme sağlar. Ayrıca sorgular sırasında alaka puanlamasını iyileştirmek için terim sıklıklarını da saklar.
+
+### GroupDocs.Search for Java ile arama indeksi nasıl oluşturulur?
+`Index` nesnesini bir indeks klasörü belirterek yükleyin, ardından kaynak dizinden tüm dosyaları almak için `add` metodunu çağırın. İndeksleme sonrası, basit metin sorguları veya karmaşık Boolean ifadeleriyle indeksi sorgulayabilirsiniz. Bu yaklaşım, tipik belge setleri için tam metin arama sürecini bir dakikadan kısa sürede tamamlar. İndeks oluşturulduktan sonra, diske kalıcı olarak kaydedebilir, uygulama yeniden başlatmalarında yeniden kullanabilir ve tüm indeksi yeniden oluşturmak zorunda kalmadan belge ekleyerek veya silerek artımlı güncellemeler yapabilirsiniz.
+
+## Uygulama rehberi
 ### GroupDocs.Search ile java belgelerini indeksleme
 #### Genel Bakış
-Bir indeks oluşturmak, hızlı arama yeteneklerini etkinleştirmenin ilk adımıdır. Aşağıda gerekli her adımı ele alıyoruz.
+İndeks oluşturmak, hızlı arama yeteneklerini etkinleştirmenin ilk adımıdır. Aşağıda gerekli her adımı adım adım inceliyoruz.
 
-#### Adım 1: Dizinleri Belirleme
+#### Adım 1: dizinleri belirtin
 İndeksin nerede bulunacağını ve kaynak belgelerin nerede olduğunu tanımlayın.
+
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 String documentsFolder = "YOUR_DOCUMENTS_DIRECTORY"; 
 ```
 
-#### Adım 2: Bir İndeks Oluşturma
-Aranabilir yapıyı oluşturmaya başlamak için `Index` nesnesini örnekleyin.
+#### Adım 2: bir indeks oluşturun
+Aranabilir yapıyı oluşturmaya başlamak için `Index` nesnesinin bir örneğini oluşturun.
+
 ```java
 Index index = new Index(indexFolder);
 ```
 
-#### Adım 3: Belgeleri İndekse Ekleyin
-Kaynak klasördeki tüm dosyaları tek bir çağrı ile indekse besleyin.
+#### Adım 3: belgeleri indekse ekleyin
+Kaynak klasörden tüm dosyaları tek bir çağrı ile indekse besleyin.
+
 ```java
 index.add(documentsFolder);
 ```
 
-#### Adım 4: İndekslenmiş Belgeleri Getirme
+#### Adım 4: indekslenmiş belgeleri alın
 İndeksleme tamamlandığında, indekslenmiş girişleri listeleyebilirsiniz:
+
 ```java
 DocumentInfo[] documents = index.getIndexedDocuments();
 for (DocumentInfo document : documents) {
@@ -117,33 +181,36 @@ for (DocumentInfo document : documents) {
 }
 ```
 
-**Parametreler ve Metot Amaçları**  
+**Parametreler ve metod amaçları**  
 - `indexFolder`: İndeks verilerinin saklandığı yol.  
 - `documentsFolder`: İndekslenmesi gereken dosyaları içeren dizin.
 
-**Sorun Giderme İpuçları**  
+**Sorun giderme ipuçları**  
 - Klasör yollarının doğru ve erişilebilir olduğunu doğrulayın.  
-- İndeksleme sırasında “access denied” hatası alırsanız dosya sistemi izinlerini kontrol edin.
+- İndeksleme sırasında “erişim reddedildi” hatası alırsanız dosya sistemi izinlerini kontrol edin.
 
-### Metin Depolama Ayarlarıyla İndeks Oluşturma
-#### Genel Bakış
-Her belgenin ham metninin nasıl depolanacağını ince ayar yapabilirsiniz; örneğin disk kullanımını azaltmak için yüksek sıkıştırma etkinleştirilebilir.
+## Metin depolama ayarlarıyla indeks oluşturma
+### Metin depolama ayarları nedir?
+`TextStorageSettings`, her belgenin ham çıkarılan metninin nasıl kalıcı hale getirileceğini, sıkıştırma seviyesi ve formatı dahil olmak üzere kontrol etmenizi sağlar.
 
-#### Adım 1: İndeks Ayarlarını Yapılandırma
-`IndexSettings` örneği oluşturun ve metin depolamayı yapılandırın.
+#### Adım 1: indeks ayarlarını yapılandırın
+Bir `IndexSettings` örneği oluşturun ve metin depolamayı yapılandırın.
+
 ```java
 IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-#### Adım 2: İndeksi Ayarlarla Başlatma
+#### Adım 2: ayarlarla indeksi başlatın
 İndeksi oluştururken özel ayarları geçirin.
+
 ```java
 Index index = new Index(indexFolder, settings);
 ```
 
-#### Adım 3: Belge Metinlerini Al ve Depola
+#### Adım 3: belge metinlerini al ve depola
 Bir belgenin tam metnini çıkarın ve HTML (veya desteklenen herhangi bir format) olarak kaydedin.
+
 ```java
 DocumentInfo[] documents = index.getIndexedDocuments();
 if (documents.length > 0) {
@@ -153,49 +220,56 @@ if (documents.length > 0) {
 }
 ```
 
-**Ana Yapılandırma Seçenekleri**  
+**Ana yapılandırma seçenekleri**  
 - `Compression.High` – Çıkarılan metni sıkıştırarak depolamayı optimize eder.
 
-## Pratik Uygulamalar
-1. **Kurumsal Belge Yönetimi** – Büyük depolarda sözleşmeleri, politikaları veya raporları hızlıca bulun.  
-2. **İçerik Yönetim Sistemleri (CMS)** – Site çapında aramayı anlık sonuçlarla güçlendirin.  
-3. **Hukuki Belge İşleme** – Dava dosyaları ve kanıt arşivlerinde anahtar kelime tabanlı keşfi etkinleştirin.
+## Pratik uygulamalar
+1. **Kurumsal belge yönetimi** – Büyük depolarda sözleşmeleri, politikaları veya raporları hızlıca bulun.  
+2. **İçerik yönetim sistemleri (CMS)** – Site çapında aramayı anlık sonuçlarla güçlendirin.  
+3. **Hukuki belge işleme** – Dava dosyaları ve kanıt arşivlerinde anahtar kelime tabanlı keşfi etkinleştirin.
 
-## Performans Düşünceleri
-- **İndeks Boyutunu Optimize Etme** – İndeksi hafif tutmak için periyodik olarak eski girişleri temizleyin.  
-- **Bellek Yönetimi** – Büyük ölçekli indeksleme işleri için JVM çöp toplayıcısını ayarlayın.  
-- **En İyi Uygulamalar** – Toplu olarak indeksleyin, `Index` örneklerini yeniden kullanın ve yoğun iş yükleri için asenkron işlemleri tercih edin.
+## Performans değerlendirmeleri
+- **İndeks boyutunu optimize etme** – İndeksi ince tutmak için periyodik olarak eski girişleri temizleyin.  
+- **Bellek yönetimi** – Büyük ölçekli indeksleme işleri için JVM çöp toplayıcısını ayarlayın.  
+- **En iyi uygulamalar** – İndekslemeyi partiler halinde yapın, `Index` örneklerini yeniden kullanın ve yoğun iş yükleri için asenkron işlemleri tercih edin.
 
-## Yaygın Sorunlar ve Çözümler
-| Belirti | Muhtemel Neden | Çözüm |
+## Yaygın sorunlar ve çözümler
+| Semptom | Muhtemel neden | Çözüm |
 |---------|----------------|-------|
-| `index.add()` çağrılırken “Access denied” | Yanlış klasör izinleri | İşlem kullanıcısına okuma/yazma izinleri verin |
-| Bilinen bir terim için sonuç gelmiyor | Metin depolama etkin değil | `TextStorageSettings` etkinleştirin veya uygun ayarlarla yeniden indeksleyin |
+| “`index.add()` çağrılırken “Erişim reddedildi”” | Yanlış klasör izinleri | İşlem kullanıcısına okuma/yazma izinleri verin |
+| Bilinen bir terim için sonuç dönmedi | Metin depolama etkin değil | `TextStorageSettings` etkinleştirin veya uygun ayarlarla yeniden indeksleyin |
 | Büyük partilerde bellek yetersizliği hataları | JVM yığını çok küçük | `-Xmx` bayrağını artırın veya belgeleri daha küçük parçalar halinde işleyin |
 
-## Sıkça Sorulan Sorular
-1. **GroupDocs.Search for Java nedir?**  
-   Geliştiricilerin Java uygulamalarına tam metin arama işlevselliği eklemelerini sağlayan güçlü bir kütüphanedir.  
-2. **GroupDocs.Search ile büyük veri setlerini nasıl yönetirim?**  
-   Toplu işleme kullanın ve kaynakları etkili yönetmek için indeks ayarlarınızı optimize edin.  
-3. **Metin depolama ayarlarında sıkıştırma seviyesini özelleştirebilir miyim?**  
-   Evet, `Compression.High` veya `Compression.Low` gibi farklı sıkıştırma seviyeleri ayarlayabilirsiniz.  
-4. **GroupDocs.Search hangi belge türlerini destekliyor?**  
-   PDF'ler, Word dosyaları, Excel tabloları, PowerPoint sunumları ve daha birçok formatı destekler.  
-5. **GroupDocs.Search için topluluk desteği var mı?**  
-   Evet, [GroupDocs Forum](https://forum.groupdocs.com/c/search/10) üzerinden ücretsiz destek alabilirsiniz.
+## Sıkça sorulan sorular
+**S: GroupDocs.Search for Java nedir?**  
+C: Java uygulamalarına tam metin arama yetenekleri ekleyen, 50'den fazla belge formatını destekleyen güçlü bir kütüphanedir.
+
+**S: GroupDocs.Search ile büyük veri setlerini nasıl yönetirim?**  
+C: Partili işlemeyi kullanın, bellek verimliliği için `IndexSettings` ayarlarını yapın ve indekslemeyi asenkron thread'lerde çalıştırın.
+
+**S: Metin depolama ayarlarında sıkıştırma seviyesini özelleştirebilir miyim?**  
+C: Evet, `Compression.High`, `Compression.Medium` ve `Compression.Low` arasında seçim yaparak boyut ve hız dengesini ayarlayabilirsiniz.
+
+**S: GroupDocs.Search hangi belge türlerini destekliyor?**  
+C: PDF, Word, Excel, PowerPoint, HTML, düz metin ve birçok görüntü formatı kutudan çıktığı gibi desteklenir.
+
+**S: GroupDocs.Search için topluluk desteği var mı?**  
+C: Evet, [GroupDocs Forum](https://forum.groupdocs.com/c/search/10) adresindeki forumları üzerinden ücretsiz destek alabilirsiniz.
 
 ## Kaynaklar
-- **Dokümantasyon:** https://docs.groupdocs.com/search/java/
-- **API Referansı:** https://reference.groupdocs.com/search/java
-- **İndirme:** https://releases.groupdocs.com/search/java/
-- **GitHub Deposu:** https://github.com/groupdocs-search/GroupDocs.Search-for-Java
-- **Ücretsiz Destek Forum:** https://forum.groupdocs.com/c/search/10
+- **Dokümantasyon:** https://docs.groupdocs.com/search/java/  
+- **API referansı:** https://reference.groupdocs.com/search/java  
+- **İndirme:** https://releases.groupdocs.com/search/java/  
+- **GitHub deposu:** https://github.com/groupdocs-search/GroupDocs.Search-for-Java  
+- **Ücretsiz destek forumu:** https://forum.groupdocs.com/c/search/10  
 
-Sağlanan kaynakları kullanarak ve farklı yapılandırmalarla deney yaparak, GroupDocs.Search for Java konusundaki anlayışınızı ve kullanımınızı daha da geliştirebilirsiniz. İyi kodlamalar!
+Ayarlarla deney yapıp API'yi keşfederek performansı ince ayar yapabilir ve arama deneyimini tam ihtiyaçlarınıza göre özelleştirebilirsiniz. Kodlamanın tadını çıkarın!
 
----
-
-**Son Güncelleme:** 2026-03-09  
+**Son Güncelleme:** 2026-10-22  
 **Test Edilen Versiyon:** GroupDocs.Search 25.4  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+- [Java Groupdocs Search ile Tam Metin Arama Uygulama](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Java Tam Metin Arama Kütüphanesi – GroupDocs.Search ile İndeksi Optimize Et](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [GroupDocs.Search kullanarak Java'da Metaveri İndeksleme ile belgelere nasıl indeks eklenir](/search/java/indexing/groupdocs-search-java-metadata-indexing/)

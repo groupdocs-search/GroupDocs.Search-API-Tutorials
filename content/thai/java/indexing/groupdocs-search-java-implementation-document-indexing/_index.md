@@ -1,58 +1,105 @@
 ---
-date: '2026-03-09'
-description: เรียนรู้วิธีสร้างดัชนีการค้นหา GroupDocs ใน Java ด้วย GroupDocs.Search
-  คู่มือนี้แสดงวิธีทำดัชนีเอกสาร Java อย่างมีประสิทธิภาพ.
+date: '2026-10-22'
+description: เรียนรู้วิธีการทำ java full text search ด้วย GroupDocs.Search และค้นพบวิธีการ
+  index documents java อย่างมีประสิทธิภาพในไม่กี่ขั้นตอนง่ายๆ
 keywords:
-- document indexing
+- java full text search
+- how to index documents java
 - GroupDocs.Search for Java
-- Java application search
-title: สร้างดัชนีการค้นหา GroupDocs ด้วย GroupDocs.Search สำหรับ Java - คู่มือฉบับสมบูรณ์
+lastmod: '2026-10-22'
+og_description: เรียนรู้วิธีการทำ java full text search ด้วย GroupDocs.Search และค้นพบวิธีการ
+  index documents java อย่างมีประสิทธิภาพในไม่กี่ขั้นตอนง่ายๆ
+og_image_alt: Guide showing java full text search implementation with GroupDocs.Search
+og_title: วิธีการทำ java full text search ด้วย GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-22'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    and discover how to index documents java efficiently in a few simple steps.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to implement java full text search using GroupDocs.Search
+    and discover how to index documents java efficiently in a few simple steps.
+  name: How to implement java full text search with GroupDocs.Search
+  steps:
+  - name: specify directories
+    text: Define where the index will live and where the source documents are located.
+  - name: create an index
+    text: Instantiate the `Index` object to begin building the searchable structure.
+  - name: add documents to the index
+    text: Feed all files from the source folder into the index with a single call.
+  - name: retrieve indexed documents
+    text: 'Once indexing is complete you can enumerate the indexed entries: **Parameters
+      & method purposes** - `indexFolder`: Path where the index data is stored. -
+      `documentsFolder`: Directory containing files to be indexed. **Troubleshooting
+      tips** - Verify that the folder paths are correct and accessible. -'
+  - name: set up index settings
+    text: Create an `IndexSettings` instance and configure text storage.
+  - name: initialize the index with settings
+    text: Pass the custom settings when constructing the index.
+  - name: retrieve and store document texts
+    text: Extract the full text of a document and save it as HTML (or any supported
+      format). **Key configuration options** - `Compression.High` – Optimizes storage
+      by compressing the extracted text.
+  type: HowTo
+- questions:
+  - answer: It is a powerful library that adds full‑text search capabilities to Java
+      applications, supporting over 50 document formats.
+    question: What is GroupDocs.Search for Java?
+  - answer: Use batch processing, tune `IndexSettings` for memory efficiency, and
+      run indexing in asynchronous threads.
+    question: How do I handle large datasets with GroupDocs.Search?
+  - answer: Yes, you can choose between `Compression.High`, `Compression.Medium`,
+      and `Compression.Low` to balance size and speed.
+    question: Can I customize the compression level in text storage settings?
+  - answer: PDFs, Word, Excel, PowerPoint, HTML, plain text, and many image formats
+      are all supported out of the box.
+    question: What types of documents does GroupDocs.Search support?
+  - answer: Yes, you can access free support through their forum at [GroupDocs Forum](https://forum.groupdocs.com/c/search/10).
+    question: Is there community support for GroupDocs.Search?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- document indexing
+- Java search library
+title: วิธีการทำ java full text search ด้วย GroupDocs.Search
 type: docs
 url: /th/java/indexing/groupdocs-search-java-implementation-document-indexing/
 weight: 1
 ---
 
-# สร้าง Search Index GroupDocs ด้วย GroupDocs.Search สำหรับ Java - คู่มือฉบับสมบูรณ์
+# วิธีการใช้งานการค้นหาข้อความเต็มใน Java ด้วย GroupDocs.Search
 
-หากคุณต้องการ **create search index groupdocs** ภายในแอปพลิเคชัน Java คุณมาถูกที่แล้ว ในบทแนะนำนี้เราจะพาคุณผ่านกระบวนการทั้งหมดของการตั้งค่า GroupDocs.Search, การสร้างดัชนี, การเพิ่มไฟล์, และการดึงข้อความเอกสาร—ทั้งหมดด้วยโค้ดขั้นตอนที่ชัดเจนซึ่งคุณสามารถคัดลอกไปใช้ในโปรเจกต์ของคุณได้ทันที เมื่อเสร็จแล้วคุณจะรู้ **how to index documents java**‑style อย่างแม่นยำและพร้อมผสานความสามารถการค้นหาที่ทรงพลังเข้าไปในโซลูชันระดับองค์กรใด ๆ
+หากคุณต้องการ **สร้างการค้นหาข้อความเต็มใน Java** ภายในแอปพลิเคชัน Java ของคุณ คุณมาถูกที่แล้ว บทแนะนำนี้จะพาคุณผ่านการติดตั้ง GroupDocs.Search, การกำหนดค่าดัชนี, การเพิ่มเอกสาร, และการสืบค้นดัชนี—ทั้งหมดพร้อมโค้ดตัวอย่างที่คัดลอก‑วางได้ทันที เมื่อจบคุณจะเข้าใจ **วิธีทำดัชนีเอกสารแบบ Java** และพร้อมที่จะฝังการค้นหาที่เร็วและขยายได้ในโซลูชันระดับองค์กรใด ๆ
 
-## Quick Answers
-- **What is the primary purpose of GroupDocs.Search?**  
-  เพื่อให้การทำดัชนีและการดึงข้อมูลแบบเต็มข้อความที่รวดเร็วสำหรับรูปแบบเอกสารหลากหลายใน Java.  
-- **Which library version is recommended?**  
-  รุ่นที่เสถียรล่าสุด (เช่น 25.4 ณ เวลาที่เขียน).  
-- **Do I need a license to run the examples?**  
-  มีใบอนุญาตชั่วคราวสำหรับการประเมิน; จำเป็นต้องมีใบอนุญาตเชิงพาณิชย์สำหรับการใช้งานจริง.  
-- **What are the main steps to create a search index?**  
-  ติดตั้งไลบรารี, กำหนดค่าการตั้งค่าดัชนี, เพิ่มเอกสาร, และทำการค้นหาดัชนี.  
-- **Can I store indexed text in compressed form?**  
-  ใช่ – ใช้ `TextStorageSettings` พร้อม `Compression.High`.
+## คำตอบอย่างรวดเร็ว
+- **วัตถุประสงค์หลักของ GroupDocs.Search คืออะไร?**  
+  เพื่อให้การทำดัชนีและการดึงข้อมูลข้อความเต็มที่เร็วสำหรับรูปแบบเอกสารหลากหลายใน Java.  
+- **เวอร์ชันของไลบรารีที่แนะนำคืออะไร?**  
+  รุ่นเสถียรล่าสุด (เช่น 25.4 ณ เวลาที่เขียน).  
+- **ฉันต้องมีลิขสิทธิ์เพื่อรันตัวอย่างหรือไม่?**  
+  มีลิขสิทธิ์ชั่วคราวสำหรับการประเมิน; จำเป็นต้องมีลิขสิทธิ์เชิงพาณิชย์สำหรับการใช้งานจริง.  
+- **ขั้นตอนหลักในการสร้างดัชนีการค้นหาคืออะไร?**  
+  ติดตั้งไลบรารี, กำหนดค่าการตั้งค่าดัชนี, เพิ่มเอกสาร, และสืบค้นดัชนี.  
+- **ฉันสามารถเก็บข้อความที่ทำดัชนีในรูปแบบบีบอัดได้หรือไม่?**  
+  ได้ – ใช้ `TextStorageSettings` กับ `Compression.High`.
 
-## วิธีสร้าง search index groupdocs ด้วย GroupDocs.Search สำหรับ Java
-การสร้างดัชนีที่สามารถค้นหาได้เป็นพื้นฐานของโซลูชันการค้นหาแบบเร็ว ทุกขั้นตอนจะแบ่งเป็นขั้นตอนย่อย ๆ อธิบาย “เหตุผล” ของแต่ละการกระทำ และแสดงโค้ดที่คุณต้องการอย่างแม่นยำ
+## การค้นหาข้อความเต็มใน Java คืออะไร?
+การค้นหาข้อความเต็มใน Java หมายถึงกระบวนการสร้างดัชนีที่แมปทุกโทเค็นที่สามารถค้นหาได้ในชุดเอกสารไปยังตำแหน่งของมัน ทำให้สามารถค้นหาคำสำคัญและวลีได้ทันทีโดยไม่ต้องสแกนไฟล์ต้นฉบับทุกครั้ง ดัชนีจะเก็บตำแหน่งของโทเค็น, ความถี่, และเมตาดาต้า ช่วยให้เครื่องมือค้นหาจัดอันดับผลลัพธ์ตามความเกี่ยวข้องและรองรับการสืบค้นขั้นสูงเช่นไวลด์การ์ด, การจับคู่แบบฟัซซี่, และการค้นหาแบบใกล้เคียง.
 
-### “create search index groupdocs” คืออะไร?
-การสร้าง search index ด้วย GroupDocs หมายถึงการสร้างโครงสร้างข้อมูลที่สามารถค้นหาได้ซึ่งทำการแมปทุกคำในเอกสารของคุณไปยังตำแหน่งของมัน ทำให้สามารถค้นหาคำสำคัญทันที, ค้นหาประโยค, และการกรองขั้นสูงโดยไม่ต้องสแกนไฟล์ต้นฉบับทุกครั้ง
-
-### ทำไมต้องใช้ GroupDocs.Search สำหรับ Java?
-- **Broad format support** – รองรับ PDFs, Word, Excel, PowerPoint และอื่น ๆ อีกมาก  
-- **High performance** – อัลกอริทึมการทำดัชนีที่ปรับแต่งไว้ทำให้ความหน่วงของการค้นต่ำแม้กับไฟล์หลายล้านไฟล์  
-- **Easy integration** – API ของ Java ที่เรียบง่าย, การจัดการ dependency ผ่าน Maven, และเอกสารที่ชัดเจน
+## ทำไมต้องใช้ GroupDocs.Search สำหรับ Java?
+GroupDocs.Search รองรับ **รูปแบบไฟล์เข้าและออกกว่า 50 ประเภท**—รวมถึง PDF, Word, Excel, PowerPoint, HTML, และหลายรูปแบบภาพ—และสามารถประมวลผลเอกสารหลายร้อยหน้าโดยไม่ต้องโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ เครื่องยนต์ทำดัชนีของมันให้ความหน่วงของการสืบค้นระดับมิลลิวินาทีแม้จะจัดการกับข้อมูลหลายล้านรายการ ทำให้เป็นตัวเลือกที่เชื่อถือได้สำหรับการค้นหาระดับองค์กร.
 
 ## ข้อกำหนดเบื้องต้น
-### ไลบรารีและ dependencies ที่จำเป็น
-- **Java Development Kit (JDK)** 8 หรือสูงกว่า.  
-- **Maven** สำหรับการจัดการ dependency.
-
-### ข้อกำหนดการตั้งค่าสภาพแวดล้อม
-ตรวจสอบให้แน่ใจว่า Maven ถูกตั้งค่าอย่างถูกต้องเพื่อดาวน์โหลด artifacts จากรีโพสิตอรีของ GroupDocs.
-
-### ความรู้เบื้องต้นที่จำเป็น
-การเขียนโปรแกรม Java เบื้องต้น, ความคุ้นเคยกับการทำงานไฟล์ I/O, และความเข้าใจในแนวคิดการทำดัชนีจะช่วยให้คุณตามได้อย่างราบรื่น.
+- **Java Development Kit (JDK) 8** หรือสูงกว่า.  
+- **Maven** สำหรับการจัดการ dependencies.  
+- ความคุ้นเคยพื้นฐานกับ Java I/O และแนวคิดการทำดัชนี.
 
 ## การตั้งค่า GroupDocs.Search สำหรับ Java
 ### การกำหนดค่า Maven
-เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณ:
+เพิ่มรีโพซิทอรีของ GroupDocs และ dependency ของ Search ลงในไฟล์ `pom.xml` ของคุณ:
+
 ```xml
 <repositories>
     <repository>
@@ -70,45 +117,56 @@ weight: 1
     </dependency>
 </dependencies>
 ```
-### ดาวน์โหลดโดยตรง
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### การรับใบอนุญาต
-คุณสามารถรับใบอนุญาตชั่วคราวเพื่อสำรวจคุณสมบัติของ GroupDocs อย่างเต็มที่ก่อนซื้อโดยไปที่ [Temporary License page](https://purchase.groupdocs.com/temporary-license/). ช่วงทดลองนี้ช่วยให้คุณประเมินไลบรารีในสภาพแวดล้อมของคุณ.
+### ดาวน์โหลดโดยตรง
+หรือดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+
+### การรับลิขสิทธิ์
+คุณสามารถรับลิขสิทธิ์ชั่วคราวเพื่อสำรวจคุณสมบัติของ GroupDocs อย่างเต็มที่ก่อนซื้อได้โดยไปที่ [Temporary License page](https://purchase.groupdocs.com/temporary-license/). ช่วงทดลองนี้ช่วยให้คุณประเมินไลบรารีในสภาพแวดล้อมของคุณ.
 
 ### การเริ่มต้นและตั้งค่าเบื้องต้น
-เริ่มต้นด้วยการสร้างอ็อบเจ็กต์ `Index` ที่ชี้ไปยังโฟลเดอร์ที่ไฟล์ดัชนีจะถูกจัดเก็บ:
+`คลาส `Index` เป็นส่วนประกอบหลักที่แสดงถึงที่เก็บข้อมูลที่สามารถค้นหาได้บนดิสก์ การสร้างอินสแตนซ์จะชี้ไลบรารีไปยังโฟลเดอร์ที่ไฟล์ดัชนีจะถูกบันทึก.
+
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
+## วิธีสร้างดัชนีการค้นหา groupdocs ด้วย GroupDocs.Search สำหรับ Java
+การสร้างดัชนีที่สามารถค้นหาได้เป็นพื้นฐานของโซลูชันการค้นหาแบบเร็วทุกประเภท โหลดดัชนี, เพิ่มเอกสาร, แล้วสืบค้น—ทั้งหมดในไม่กี่ขั้นตอนที่ง่าย.
+
+### “create search index groupdocs” คืออะไร?
+การสร้างดัชนีการค้นหาด้วย GroupDocs หมายถึงการสร้างโครงสร้างข้อมูลที่สามารถค้นหาได้ซึ่งแมปทุกคำในเอกสารของคุณไปยังตำแหน่งของมัน ซึ่งทำให้สามารถค้นหาคำสำคัญ, คำค้นวลี, และการกรองขั้นสูงได้ทันทีโดยไม่ต้องสแกนไฟล์ต้นฉบับทุกครั้ง นอกจากนี้ยังเก็บความถี่ของคำเพื่อปรับปรุงคะแนนความเกี่ยวข้องระหว่างการสืบค้น.
+
+### วิธีสร้างดัชนีการค้นหา groupdocs ด้วย GroupDocs.Search สำหรับ Java?
+โหลดอ็อบเจ็กต์ `Index` โดยระบุโฟลเดอร์ดัชนี, จากนั้นเรียก `add` เพื่อดึงข้อมูลทั้งหมดจากไดเรกทอรีต้นทาง หลังจากทำดัชนีแล้วคุณสามารถสืบค้นดัชนีโดยใช้ข้อความง่าย ๆ หรือการแสดง Boolean ที่ซับซ้อน วิธีนี้ทำให้กระบวนการค้นหาข้อความเต็มเสร็จสมบูรณ์ภายในน้อยกว่าหนึ่งนาทีสำหรับชุดเอกสารทั่วไป หลังจากดัชนีถูกสร้างแล้วคุณสามารถบันทึกลงดิสก์, ใช้ซ้ำเมื่อตัวแอปรีสตาร์ท, และทำการอัปเดตแบบเพิ่มส่วนโดยการเพิ่มหรือ ลบเอกสารโดยไม่ต้องสร้างดัชนีใหม่ทั้งหมด.
+
 ## คู่มือการใช้งาน
-### วิธีทำดัชนีเอกสาร java ด้วย GroupDocs.Search
+### การทำดัชนีเอกสาร java ด้วย GroupDocs.Search
 #### ภาพรวม
-การสร้างดัชนีเป็นขั้นตอนแรกในการเปิดใช้งานความสามารถการค้นหาอย่างรวดเร็ว ด้านล่างเราจะอธิบายแต่ละการกระทำที่จำเป็น.
+การสร้างดัชนีเป็นขั้นตอนแรกในการเปิดใช้งานความสามารถการค้นหาอย่างรวดเร็ว ด้านล่างเราจะอธิบายแต่ละขั้นตอนที่จำเป็น.
 
 #### ขั้นตอน 1: ระบุไดเรกทอรี
 กำหนดตำแหน่งที่ดัชนีจะถูกเก็บและตำแหน่งที่เอกสารต้นทางตั้งอยู่.
+
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 String documentsFolder = "YOUR_DOCUMENTS_DIRECTORY"; 
 ```
 
 #### ขั้นตอน 2: สร้างดัชนี
-สร้างอ็อบเจ็กต์ `Index` เพื่อเริ่มสร้างโครงสร้างที่สามารถค้นหาได้.
 ```java
 Index index = new Index(indexFolder);
 ```
 
 #### ขั้นตอน 3: เพิ่มเอกสารลงในดัชนี
-ส่งไฟล์ทั้งหมดจากโฟลเดอร์ต้นทางเข้าสู่ดัชนีด้วยการเรียกครั้งเดียว.
 ```java
 index.add(documentsFolder);
 ```
 
-#### ขั้นตอน 4: ดึงเอกสารที่ทำดัชนีแล้ว
-เมื่อการทำดัชนีเสร็จสิ้นคุณสามารถเรียกดูรายการที่ทำดัชนีได้:
+#### ขั้นตอน 4: ดึงเอกสารที่ทำดัชนี
+เมื่อทำดัชนีเสร็จแล้วคุณสามารถแสดงรายการเอนทรีที่ทำดัชนีได้:
+
 ```java
 DocumentInfo[] documents = index.getIndexedDocuments();
 for (DocumentInfo document : documents) {
@@ -117,20 +175,21 @@ for (DocumentInfo document : documents) {
 }
 ```
 
-**Parameters & Method Purposes**  
+**พารามิเตอร์และวัตถุประสงค์ของเมธอด**
 - `indexFolder`: เส้นทางที่เก็บข้อมูลดัชนี.  
-- `documentsFolder`: โฟลเดอร์ที่มีไฟล์ที่จะทำดัชนี.
+- `documentsFolder`: ไดเรกทอรีที่มีไฟล์ที่จะทำดัชนี.
 
-**Troubleshooting Tips**  
+**เคล็ดลับการแก้ไขปัญหา**
 - ตรวจสอบว่าเส้นทางโฟลเดอร์ถูกต้องและเข้าถึงได้.  
 - ตรวจสอบสิทธิ์ของระบบไฟล์หากคุณพบข้อผิดพลาด “access denied” ระหว่างการทำดัชนี.
 
-### การสร้างดัชนีด้วยการตั้งค่า Text Storage Settings
-#### ภาพรวม
-คุณสามารถปรับแต่งวิธีการเก็บข้อความดิบของแต่ละเอกสารได้ เช่น การเปิดใช้งานการบีบอัดสูงเพื่อประหยัดพื้นที่ดิสก์.
+## การสร้างดัชนีด้วยการตั้งค่าการจัดเก็บข้อความ
+### การตั้งค่าการจัดเก็บข้อความคืออะไร?
+`TextStorageSettings` ให้คุณควบคุมวิธีการเก็บข้อความที่สกัดออกมาจากแต่ละเอกสาร, รวมถึงระดับการบีบอัดและรูปแบบ.
 
-#### ขั้นตอน 1: ตั้งค่า Index Settings
-สร้างอินสแตนซ์ `IndexSettings` และกำหนดค่าการเก็บข้อความ.
+#### ขั้นตอน 1: ตั้งค่าดัชนี
+สร้างอินสแตนซ์ `IndexSettings` และกำหนดค่าการจัดเก็บข้อความ.
+
 ```java
 IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
@@ -138,12 +197,14 @@ settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 
 #### ขั้นตอน 2: เริ่มต้นดัชนีด้วยการตั้งค่า
 ส่งการตั้งค่าที่กำหนดเองเมื่อสร้างดัชนี.
+
 ```java
 Index index = new Index(indexFolder, settings);
 ```
 
-#### ขั้นตอน 3: ดึงและเก็บข้อความเอกสาร
+#### ขั้นตอน 3: ดึงและเก็บข้อความของเอกสาร
 สกัดข้อความเต็มของเอกสารและบันทึกเป็น HTML (หรือรูปแบบที่รองรับอื่นใด).
+
 ```java
 DocumentInfo[] documents = index.getIndexedDocuments();
 if (documents.length > 0) {
@@ -153,49 +214,59 @@ if (documents.length > 0) {
 }
 ```
 
-**Key Configuration Options**  
+**ตัวเลือกการกำหนดค่าที่สำคัญ**
 - `Compression.High` – ปรับปรุงการจัดเก็บโดยบีบอัดข้อความที่สกัดออก.
 
-## การประยุกต์ใช้งานจริง
-1. **Enterprise Document Management** – ค้นหาสัญญา, นโยบาย, หรือรายงานได้อย่างรวดเร็วในคลังข้อมูลขนาดใหญ่.  
-2. **Content Management Systems (CMS)** – ให้พลังการค้นหาทั่วทั้งเว็บไซต์ด้วยผลลัพธ์ทันที.  
-3. **Legal Document Handling** – เปิดใช้งานการค้นหาตามคำสำคัญในแฟ้มคดีและคลังหลักฐาน.
+## การใช้งานเชิงปฏิบัติ
+1. **การจัดการเอกสารระดับองค์กร** – ค้นหาสัญญา, นโยบาย, หรือรายงานได้อย่างรวดเร็วในคลังข้อมูลขนาดใหญ่.  
+2. **ระบบจัดการเนื้อหา (CMS)** – ให้การค้นหาทั่วทั้งเว็บไซต์ด้วยผลลัพธ์ทันที.  
+3. **การจัดการเอกสารทางกฎหมาย** – เปิดใช้งานการค้นหาตามคำสำคัญในไฟล์คดีและคลังหลักฐาน.
 
 ## พิจารณาด้านประสิทธิภาพ
-- **Optimizing Index Size** – ทำการลบรายการที่ล้าสมัยเป็นระยะเพื่อให้ดัชนีมีขนาดเล็ก.  
-- **Memory Management** – ปรับแต่ง garbage collector ของ JVM สำหรับงานทำดัชนีขนาดใหญ่.  
-- **Best Practices** – ทำดัชนีเป็นชุด, ใช้อ็อบเจ็กต์ `Index` ซ้ำ, และเลือกใช้การทำงานแบบอะซิงโครนัสสำหรับภาระงานหนัก.
+- **การปรับขนาดดัชนี** – ทำการลบรายการที่ล้าสมัยเป็นระยะเพื่อให้ดัชนีมีขนาดเล็ก.  
+- **การจัดการหน่วยความจำ** – ปรับแต่ง garbage collector ของ JVM สำหรับงานทำดัชนีขนาดใหญ่.  
+- **แนวทางปฏิบัติที่ดีที่สุด** – ทำดัชนีเป็นชุด, ใช้ `Index` ซ้ำ, และเลือกใช้การทำงานแบบอะซิงโครนัสสำหรับภาระงานหนัก.
 
 ## ปัญหาที่พบบ่อยและวิธีแก้
-| Symptom | Likely Cause | Fix |
+| อาการ | สาเหตุที่เป็นไปได้ | วิธีแก้ |
 |---------|--------------|-----|
-| “Access denied” when calling `index.add()` | สิทธิ์โฟลเดอร์ไม่ถูกต้อง | ให้สิทธิ์อ่าน/เขียนแก่ผู้ใช้กระบวนการ |
-| No results returned for a known term | การเก็บข้อความไม่ได้เปิดใช้งาน | เปิดใช้งาน `TextStorageSettings` หรือทำดัชนีใหม่ด้วยการตั้งค่าที่เหมาะสม |
-| Out‑of‑memory errors on large batches | Heap ของ JVM เล็กเกินไป | เพิ่มค่า `-Xmx` หรือประมวลผลเอกสารเป็นชิ้นเล็ก ๆ |
+| “Access denied” เมื่อเรียก `index.add()` | สิทธิ์ของโฟลเดอร์ไม่ถูกต้อง | ให้สิทธิ์การอ่าน/เขียนแก่ผู้ใช้กระบวนการ |
+| ไม่มีผลลัพธ์สำหรับคำที่รู้จัก | การจัดเก็บข้อความไม่ได้เปิดใช้งาน | เปิดใช้งาน `TextStorageSettings` หรือทำดัชนีใหม่ด้วยการตั้งค่าที่เหมาะสม |
+| ข้อผิดพลาดหน่วยความจำไม่พอในชุดข้อมูลขนาดใหญ่ | ขนาด heap ของ JVM เล็กเกินไป | เพิ่มค่า `-Xmx` หรือประมวลผลเอกสารเป็นชิ้นเล็กลง |
 
 ## คำถามที่พบบ่อย
-1. **What is GroupDocs.Search for Java?**  
-   ไลบรารีที่ทรงพลังซึ่งช่วยให้นักพัฒนาสามารถเพิ่มฟังก์ชันการค้นหาแบบเต็มข้อความลงในแอปพลิเคชัน Java ของตนได้อย่างมีประสิทธิภาพ.  
-2. **How do I handle large datasets with GroupDocs.Search?**  
-   ใช้การประมวลผลเป็นชุดและปรับแต่งการตั้งค่าดัชนีเพื่อจัดการทรัพยากรอย่างมีประสิทธิภาพ.  
-3. **Can I customize the compression level in text storage settings?**  
-   ใช่, คุณสามารถตั้งค่าระดับการบีบอัดต่าง ๆ เช่น `Compression.High` หรือ `Compression.Low`.  
-4. **What types of documents does GroupDocs.Search support?**  
-   รองรับรูปแบบไฟล์หลากหลายรวมถึง PDFs, ไฟล์ Word, สเปรดชีต Excel, พรีเซนเทชัน PowerPoint และอื่น ๆ อีกมาก.  
-5. **Is there community support for GroupDocs.Search?**  
-   มี, คุณสามารถเข้าถึงการสนับสนุนฟรีผ่านฟอรั่มของพวกเขาที่ [GroupDocs Forum](https://forum.groupdocs.com/c/search/10).
+**Q: GroupDocs.Search สำหรับ Java คืออะไร?**  
+A: เป็นไลบรารีที่ทรงพลังซึ่งเพิ่มความสามารถการค้นหาข้อความเต็มให้กับแอปพลิเคชัน Java, รองรับรูปแบบเอกสารกว่า 50 ประเภท.
+
+**Q: ฉันจะจัดการกับชุดข้อมูลขนาดใหญ่ด้วย GroupDocs.Search อย่างไร?**  
+A: ใช้การประมวลผลเป็นชุด, ปรับ `IndexSettings` เพื่อประสิทธิภาพหน่วยความจำ, และทำการทำดัชนีในเธรดแบบอะซิงโครนัส.
+
+**Q: ฉันสามารถปรับระดับการบีบอัดในการตั้งค่าการจัดเก็บข้อความได้หรือไม่?**  
+A: ได้, คุณสามารถเลือกระหว่าง `Compression.High`, `Compression.Medium`, และ `Compression.Low` เพื่อสมดุลระหว่างขนาดและความเร็ว.
+
+**Q: GroupDocs.Search รองรับประเภทเอกสารอะไรบ้าง?**  
+A: PDF, Word, Excel, PowerPoint, HTML, plain text, และรูปแบบภาพหลายประเภททั้งหมดรองรับโดยตรง.
+
+**Q: มีการสนับสนุนจากชุมชนสำหรับ GroupDocs.Search หรือไม่?**  
+A: มี, คุณสามารถเข้าถึงการสนับสนุนฟรีผ่านฟอรั่มของพวกเขาที่ [GroupDocs Forum](https://forum.groupdocs.com/c/search/10).
 
 ## แหล่งข้อมูล
-- **Documentation:** https://docs.groupdocs.com/search/java/
-- **API Reference:** https://reference.groupdocs.com/search/java
-- **Download:** https://releases.groupdocs.com/search/java/
-- **GitHub Repository:** https://github.com/groupdocs-search/GroupDocs.Search-for-Java
-- **Free Support Forum:** https://forum.groupdocs.com/c/search/10
+- **เอกสาร:** https://docs.groupdocs.com/search/java/  
+- **อ้างอิง API:** https://reference.groupdocs.com/search/java  
+- **ดาวน์โหลด:** https://releases.groupdocs.com/search/java/  
+- **ที่เก็บ GitHub:** https://github.com/groupdocs-search/GroupDocs.Search-for-Java  
+- **ฟอรั่มสนับสนุนฟรี:** https://forum.groupdocs.com/c/search/10  
 
-โดยการใช้แหล่งข้อมูลที่ให้ไว้และทดลองปรับแต่งการตั้งค่าต่าง ๆ คุณสามารถเพิ่มพูนความเข้าใจและการใช้ GroupDocs.Search สำหรับ Java ได้อย่างต่อเนื่อง ขอให้สนุกกับการเขียนโค้ด!
+โดยการทดลองตั้งค่าและสำรวจ API, คุณสามารถปรับแต่งประสิทธิภาพและทำให้ประสบการณ์การค้นหาเหมาะกับความต้องการของคุณได้อย่างแม่นยำ. ขอให้เขียนโค้ดอย่างสนุก!
 
 ---
 
-**Last Updated:** 2026-03-09  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+**อัปเดตล่าสุด:** 2026-10-22  
+**ทดสอบด้วย:** GroupDocs.Search 25.4  
+**ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [การใช้งานการค้นหาข้อความเต็มใน Java ด้วย Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [ไลบรารีการค้นหาข้อความเต็มใน Java – ปรับปรุงดัชนีด้วย GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [วิธีเพิ่มเอกสารลงในดัชนีด้วยการทำดัชนีเมตาดาต้าใน Java โดยใช้ GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)

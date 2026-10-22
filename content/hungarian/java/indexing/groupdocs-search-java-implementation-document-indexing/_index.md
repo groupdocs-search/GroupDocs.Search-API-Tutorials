@@ -1,60 +1,108 @@
 ---
-date: '2026-03-09'
-description: Tanulja meg, hogyan hozhat létre keresési indexet a GroupDocs-ban Java-ban
-  a GroupDocs.Search használatával. Ez az útmutató bemutatja, hogyan indexelhet dokumentumokat
-  Java-ban hatékonyan.
+date: '2026-10-22'
+description: Ismerje meg, hogyan valósítható meg a java teljes szöveges keresés a
+  GroupDocs.Search használatával, és fedezze fel, hogyan indexelhetők a java dokumentumok
+  hatékonyan néhány egyszerű lépésben.
 keywords:
-- document indexing
+- java full text search
+- how to index documents java
 - GroupDocs.Search for Java
-- Java application search
-title: Keresési index létrehozása a GroupDocs-ban a GroupDocs.Search for Java használatával
-  – Teljes útmutató
+lastmod: '2026-10-22'
+og_description: Ismerje meg, hogyan valósítható meg a java teljes szöveges keresés
+  a GroupDocs.Search használatával, és fedezze fel, hogyan indexelhetők a java dokumentumok
+  hatékonyan néhány egyszerű lépésben.
+og_image_alt: Guide showing java full text search implementation with GroupDocs.Search
+og_title: Hogyan valósítsuk meg a java teljes szöveges keresést a GroupDocs.Search
+  segítségével
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-22'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    and discover how to index documents java efficiently in a few simple steps.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to implement java full text search using GroupDocs.Search
+    and discover how to index documents java efficiently in a few simple steps.
+  name: How to implement java full text search with GroupDocs.Search
+  steps:
+  - name: specify directories
+    text: Define where the index will live and where the source documents are located.
+  - name: create an index
+    text: Instantiate the `Index` object to begin building the searchable structure.
+  - name: add documents to the index
+    text: Feed all files from the source folder into the index with a single call.
+  - name: retrieve indexed documents
+    text: 'Once indexing is complete you can enumerate the indexed entries: **Parameters
+      & method purposes** - `indexFolder`: Path where the index data is stored. -
+      `documentsFolder`: Directory containing files to be indexed. **Troubleshooting
+      tips** - Verify that the folder paths are correct and accessible. -'
+  - name: set up index settings
+    text: Create an `IndexSettings` instance and configure text storage.
+  - name: initialize the index with settings
+    text: Pass the custom settings when constructing the index.
+  - name: retrieve and store document texts
+    text: Extract the full text of a document and save it as HTML (or any supported
+      format). **Key configuration options** - `Compression.High` – Optimizes storage
+      by compressing the extracted text.
+  type: HowTo
+- questions:
+  - answer: It is a powerful library that adds full‑text search capabilities to Java
+      applications, supporting over 50 document formats.
+    question: What is GroupDocs.Search for Java?
+  - answer: Use batch processing, tune `IndexSettings` for memory efficiency, and
+      run indexing in asynchronous threads.
+    question: How do I handle large datasets with GroupDocs.Search?
+  - answer: Yes, you can choose between `Compression.High`, `Compression.Medium`,
+      and `Compression.Low` to balance size and speed.
+    question: Can I customize the compression level in text storage settings?
+  - answer: PDFs, Word, Excel, PowerPoint, HTML, plain text, and many image formats
+      are all supported out of the box.
+    question: What types of documents does GroupDocs.Search support?
+  - answer: Yes, you can access free support through their forum at [GroupDocs Forum](https://forum.groupdocs.com/c/search/10).
+    question: Is there community support for GroupDocs.Search?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- document indexing
+- Java search library
+title: Hogyan valósítsuk meg a java teljes szöveges keresést a GroupDocs.Search segítségével
 type: docs
 url: /hu/java/indexing/groupdocs-search-java-implementation-document-indexing/
 weight: 1
 ---
 
-# Keresési index létrehozása GroupDocs-szal a GroupDocs.Search for Java segítségével – Teljes útmutató
+# Hogyan valósítsuk meg a java teljes szöveges keresést a GroupDocs.Search segítségével
 
-Ha Java alkalmazásban **search index groupdocs**-ot kell létrehoznod, jó helyen jársz. Ebben az útmutatóban végigvezetünk a GroupDocs.Search beállításának, egy index létrehozásának, fájlok hozzáadásának és a dokumentum szövegének lekérdezésének teljes folyamatán – mindezt világos, lépésről‑lépésre kóddal, amelyet közvetlenül beilleszthetsz a projektedbe. A végére pontosan tudni fogod, **hogyan indexelj dokumentumokat Java‑stílusban**, és készen állsz a hatékékony keresési funkciók integrálására bármely vállalati megoldásba.
+Ha **java teljes szöveges keresést** szeretne létrehozni egy Java alkalmazásban, jó helyen jár. Ez az útmutató végigvezet a GroupDocs.Search telepítésén, egy index konfigurálásán, dokumentumok hozzáadásán és az index lekérdezésén – mind mindegyikhez másolás‑beillesztés‑kész kódrészletekkel. A végére megérti, **hogyan kell Java‑stílusban indexelni a dokumentumokat**, és készen áll arra, hogy gyors, skálázható keresést ágyazzon be bármely vállalati megoldásba.
 
-## Quick Answers
+## Gyors válaszok
 - **Mi a GroupDocs.Search elsődleges célja?**  
-  A gyors, teljes szöveges indexelés és lekérdezés biztosítása a különféle dokumentumformátumok széles skálájához Java-ban.  
+  A gyors, teljes szöveges indexelés és visszakeresés biztosítása számos dokumentumformátumhoz Java‑ban.  
 - **Melyik könyvtárverzió ajánlott?**  
-  A legújabb stabil kiadás (pl. 25.4 a írás időpontjában).  
+  A legújabb stabil kiadás (pl. 25.4 a cikk írásakor).  
 - **Szükségem van licencre a példák futtatásához?**  
   Ideiglenes licenc elérhető értékeléshez; a termeléshez kereskedelmi licenc szükséges.  
-- **Mik a fő lépések egy keresési index létrehozásához?**  
+- **Mik a fő lépések egy keresőindex létrehozásához?**  
   A könyvtár telepítése, az index beállításainak konfigurálása, dokumentumok hozzáadása és az index lekérdezése.  
 - **Tárolhatom az indexelt szöveget tömörített formában?**  
-  Igen – használja a `TextStorageSettings`-t a `Compression.High`-val.
+  Igen – használja a `TextStorageSettings`‑t a `Compression.High`‑val.
 
-## How to create search index groupdocs with GroupDocs.Search for Java
-A kereshető index létrehozása bármely gyors‑keresési megoldás alapja. Az alábbiakban a folyamatot kisebb lépésekre bontjuk, elmagyarázzuk az egyes műveletek „miértjét”, és megmutatjuk a pontos kódot, amire szükséged van.
+## Mi a java teljes szöveges keresés?
+A Java teljes szöveges keresés a folyamatot jelenti, amikor egy indexet építünk, amely minden kereshető tokenhez a dokumentumgyűjteményben a helyét rendeli, lehetővé téve a kulcsszavak és kifejezések azonnali keresését anélkül, hogy minden alkalommal az eredeti fájlokat beolvasnánk. Az index tárolja a tokenek pozícióit, gyakoriságát és metaadatait, így a keresőmotor a relevancia alapján rangsorolja az eredményeket, és támogatja a fejlett lekérdezéseket, mint a helyettesítő karakterek, a fuzzy egyezés és a közelségi keresések.
 
-### What is “create search index groupdocs”?
-A GroupDocs-szel történő keresési index létrehozása azt jelenti, hogy egy kereshető adatstruktúrát építünk, amely minden szót a dokumentumaidban a megfelelő helyére térképezi. Ez lehetővé teszi a pillanatnyi kulcsszó‑kereséseket, kifejezés‑kereséseket és fejlett szűrést anélkül, hogy minden alkalommal a forrásfájlokat újra beolvasnánk.
+## Miért használjuk a GroupDocs.Search‑t Java‑hoz?
+A GroupDocs.Search **50+ bemeneti és kimeneti formátumot** támogat – beleértve a PDF‑et, Word‑et, Excelt, PowerPoint‑ot, HTML‑t és számos képformátumot – és képes több száz oldalas dokumentumokat feldolgozni anélkül, hogy az egész fájlt a memóriába töltené. Az indexelő motor alig másodperces lekérdezési késleltetést biztosít még millió rekord kezelésekor is, így megbízható választás vállalati szintű kereséshez.
 
-### Why use GroupDocs.Search for Java?
-- **Széles körű formátumtámogatás** – PDF-ek, Word, Excel, PowerPoint és még sok más.  
-- **Magas teljesítmény** – Optimalizált indexelési algoritmusok alacsony keresési késleltetést biztosítanak még milliók fájlja esetén is.  
-- **Könnyű integráció** – Egyszerű Java API, Maven‑alapú függőségkezelés és átlátható dokumentáció.
+## Előfeltételek
+- **Java Development Kit (JDK) 8** vagy újabb.  
+- **Maven** a függőségkezeléshez.  
+- Alapvető ismeretek a Java I/O‑ról és az indexelés koncepcióiról.
 
-## Prerequisites
-### Required Libraries and Dependencies
-- **Java Development Kit (JDK)** 8 vagy újabb.  
-- **Maven** a függőségkezeléshez.
+## A GroupDocs.Search beállítása Java‑hoz
+### Maven konfiguráció
+Adja hozzá a GroupDocs tárolót és a Search függőséget a `pom.xml` fájlhoz:
 
-### Environment Setup Requirements
-Győződj meg arról, hogy a Maven megfelelően van konfigurálva a GroupDocs tárolóból történő artefaktok letöltéséhez.
-
-### Knowledge Prerequisites
-Alapvető Java programozás, a fájl‑I/O ismerete, valamint az indexelési koncepciók megértése segíti a zökkenőmentes követést.
-
-## Setting Up GroupDocs.Search for Java
-### Maven Configuration
-Add the repository and dependency to your `pom.xml` file:
 ```xml
 <repositories>
     <repository>
@@ -72,45 +120,60 @@ Add the repository and dependency to your `pom.xml` file:
     </dependency>
 </dependencies>
 ```
-### Direct Download
-Alternatív megoldásként töltsd le a legújabb verziót a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
-### License Acquisition
-Ideiglenes licencet szerezhetsz, hogy a GroupDocs funkciókat teljes körűen kipróbáld vásárlás előtt, a [Temporary License page](https://purchase.groupdocs.com/temporary-license/) meglátogatásával. Ez a próbaidőszak lehetővé teszi a könyvtár környezetedben történő értékelését.
+### Közvetlen letöltés
+Alternatívaként töltse le a legújabb verziót a [GroupDocs.Search for Java kiadások](https://releases.groupdocs.com/search/java/) oldalról.
 
-### Basic Initialization and Setup
-Kezdj egy `Index` objektum létrehozásával, amely arra a mappára mutat, ahol az indexfájlok tárolódnak:
+### Licenc beszerzése
+Ideiglenes licencet szerezhet, hogy a GroupDocs funkciókat teljes körűen kipróbálja vásárlás előtt, a [Temporary License oldal](https://purchase.groupdocs.com/temporary-license/) felkeresésével. Ez a próbaidőszak lehetővé teszi a könyvtár értékelését a saját környezetében.
+
+### Alap inicializálás és beállítás
+Az `Index` osztály a fő komponens, amely egy kereshető adatbázist reprezentál a lemezen. Egy példány létrehozása a könyvtárat egy olyan mappára irányítja, ahol az indexfájlok tárolva lesznek.
+
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
-## Implementation Guide
-### How to index documents java with GroupDocs.Search
-#### Overview
-Az index létrehozása az első lépés a gyors keresési képességek engedélyezéséhez. Az alábbiakban minden szükséges műveletet végigvezetünk.
+## Hogyan hozzunk létre keresőindexet a GroupDocs.Search for Java segítségével
+Kereshető index létrehozása bármely gyors keresési megoldás alapja. Töltse be az indexet, adjon hozzá dokumentumokat, majd kérdezze le – mindezt néhány egyszerű lépésben.
 
-#### Step 1: Specify Directories
-Határozd meg, hol lesz az index és hol találhatók a forrásdokumentumok.
+### Mi a “create search index groupdocs”?
+A GroupDocs-szal történő keresőindex létrehozása azt jelenti, hogy egy kereshető adatstruktúrát építünk, amely minden szót a dokumentumaiban a helyéhez rendeli. Ez lehetővé teszi a kulcsszavak azonnali keresését, a kifejezések keresését és a fejlett szűrést anélkül, hogy minden alkalommal az eredeti fájlokat beolvasná. Emellett tárolja a kifejezések gyakoriságát is, hogy javítsa a relevancia pontszámítást a lekérdezések során.
+
+### Hogyan hozzunk létre keresőindexet a GroupDocs.Search for Java segítségével?
+Töltse be az `Index` objektumot egy indexmappa megadásával, majd hívja meg az `add` metódust, hogy az összes fájlt egy forráskönyvtárból beolvassa. Az indexelés után egyszerű szöveges lekérdezésekkel vagy összetett logikai kifejezésekkel kérdezheti le az indexet. Ez a megközelítés a teljes szöveges keresési folyamatot egy perc alatt befejezi a tipikus dokumentumkészletek esetén. Az index felépítése után lemezre menthető, újra felhasználható az alkalmazás újraindításakor, és végrehajthatók inkrementális frissítések dokumentumok hozzáadásával vagy törlésével anélkül, hogy az egész indexet újraépítené.
+
+## Implementációs útmutató
+### Dokumentumok Java‑ban történő indexelése a GroupDocs.Search segítségével
+#### Áttekintés
+Az index létrehozása az első lépés a gyors keresési képességek engedélyezéséhez. Az alábbiakban végigvezetjük a szükséges műveleteken.
+
+#### 1. lépés: könyvtárak megadása
+Határozza meg, hogy hol lesz az index és hol találhatók a forrásdokumentumok.
+
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 String documentsFolder = "YOUR_DOCUMENTS_DIRECTORY"; 
 ```
 
-#### Step 2: Create an Index
-Példányosítsd a `Index` objektumot a kereshető struktúra felépítésének megkezdéséhez.
+#### 2. lépés: index létrehozása
+Példányosítsa az `Index` objektumot a kereshető struktúra építésének megkezdéséhez.
+
 ```java
 Index index = new Index(indexFolder);
 ```
 
-#### Step 3: Add Documents to the Index
-Add hozzá az összes fájlt a forrásmappából egyetlen hívással az indexhez.
+#### 3. lépés: dokumentumok hozzáadása az indexhez
+Az összes fájlt a forrásmappából egyetlen hívással adja hozzá az indexhez.
+
 ```java
 index.add(documentsFolder);
 ```
 
-#### Step 4: Retrieve Indexed Documents
-Az indexelés befejezése után felsorolhatod az indexelt bejegyzéseket:
+#### 4. lépés: indexelt dokumentumok lekérése
+Az indexelés befejezése után felsorolhatja az indexelt bejegyzéseket:
+
 ```java
 DocumentInfo[] documents = index.getIndexedDocuments();
 for (DocumentInfo document : documents) {
@@ -119,33 +182,36 @@ for (DocumentInfo document : documents) {
 }
 ```
 
-**Parameters & Method Purposes**  
-- `indexFolder`: Az az útvonal, ahol az index adatokat tárolja.  
-- `documentsFolder`: A könyvtár, amely a indexelni kívánt fájlokat tartalmazza.
+**Paraméterek és metódusok célja**  
+- `indexFolder`: Az az útvonal, ahol az indexadatok tárolva vannak.  
+- `documentsFolder`: Az a könyvtár, amely a indexelni kívánt fájlokat tartalmazza.
 
-**Troubleshooting Tips**  
-- Ellenőrizze, hogy a mappák útvonalai helyesek és elérhetők.  
+**Hibaelhárítási tippek**  
+- Ellenőrizze, hogy a könyvtárútvonalak helyesek és elérhetők.  
 - Ellenőrizze a fájlrendszer jogosultságait, ha “access denied” hibát kap az indexelés során.
 
-### Creating an Index with Text Storage Settings
-#### Overview
-Finomhangolhatod, hogyan tárolódik az egyes dokumentumok nyers szövege, például magas tömörítés engedélyezésével a lemezhasználat csökkentése érdekében.
+## Index létrehozása szövegtárolási beállításokkal
+### Mi a szövegtárolási beállítás?
+A `TextStorageSettings` lehetővé teszi, hogy szabályozza, hogyan tárolódik az egyes dokumentumok nyers kinyert szövege, beleértve a tömörítési szintet és a formátumot.
 
-#### Step 1: Set Up Index Settings
-Hozz létre egy `IndexSettings` példányt és konfiguráld a szöveg‑tárolást.
+#### 1. lépés: index beállítások konfigurálása
+Hozzon létre egy `IndexSettings` példányt, és konfigurálja a szövegtárolást.
+
 ```java
 IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-#### Step 2: Initialize the Index with Settings
-Add meg a saját beállításokat az index létrehozásakor.
+#### 2. lépés: index inicializálása a beállításokkal
+Adja át az egyedi beállításokat az index létrehozásakor.
+
 ```java
 Index index = new Index(indexFolder, settings);
 ```
 
-#### Step 3: Retrieve and Store Document Texts
-Nyerd ki egy dokumentum teljes szövegét, és mentsd el HTML‑ként (vagy bármely támogatott formátumban).
+#### 3. lépés: dokumentum szövegek lekérése és tárolása
+Kinyeri egy dokumentum teljes szövegét, és HTML‑ként (vagy bármely támogatott formátumban) menti.
+
 ```java
 DocumentInfo[] documents = index.getIndexedDocuments();
 if (documents.length > 0) {
@@ -155,49 +221,59 @@ if (documents.length > 0) {
 }
 ```
 
-**Key Configuration Options**  
-- `Compression.High` – Optimalizálja a tárolást a kinyert szöveg tömörítésével.
+**Kulcsfontosságú konfigurációs beállítások**  
+- `Compression.High` – A tárolás optimalizálása a kinyert szöveg tömörítésével.
 
-## Practical Applications
+## Gyakorlati alkalmazások
 1. **Vállalati dokumentumkezelés** – Gyorsan megtalálja a szerződéseket, irányelveket vagy jelentéseket hatalmas adattárakban.  
-2. **Tartalomkezelő rendszerek (CMS)** – Weboldal‑szintű keresést biztosít azonnali eredményekkel.  
-3. **Jogi dokumentumkezelés** – Kulcsszavas keresést tesz lehetővé az ügyiratok és bizonyítékarchívumok között.
+2. **Tartalomkezelő rendszerek (CMS)** – Teljes oldalszintű keresést biztosít azonnali eredményekkel.  
+3. **Jogi dokumentumkezelés** – Kulcsszavak alapján történő felfedezést tesz lehetővé ügyiratok és bizonyítékarchívumok között.
 
-## Performance Considerations
-- **Az index méretének optimalizálása** – Időnként távolítsa el a régi bejegyzéseket, hogy az index karcsú maradjon.  
+## Teljesítmény szempontok
+- **Az index méretének optimalizálása** – Időnként távolítsa el a elavult bejegyzéseket, hogy az index karcsú maradjon.  
 - **Memóriakezelés** – Hangolja a JVM szemétgyűjtőjét nagy léptékű indexelési feladatokhoz.  
-- **Legjobb gyakorlatok** – Indexeljen kötegekben, újrahasználja az `Index` példányokat, és előnyben részesítse az aszinkron műveleteket nehéz terhelés esetén.
+- **Legjobb gyakorlatok** – Indexeljen kötegekben, újrahasználja az `Index` példányokat, és a nehéz terhelésekhez részesítse előnyben az aszinkron műveleteket.
 
-## Common Issues and Solutions
+## Gyakori problémák és megoldások
 | Tünet | Valószínű ok | Megoldás |
-|---------|--------------|-----|
-| “Access denied” a `index.add()` hívásakor | Helytelen mappa jogosultságok | Adjon olvasási/írási jogot a folyamat felhasználójának |
-| Nem jelenik meg eredmény egy ismert kifejezésre | A szöveg tárolás nincs engedélyezve | Engedélyezze a `TextStorageSettings`-t vagy indexeljen újra a megfelelő beállításokkal |
-| Memóriahiány hibák nagy kötegek esetén | A JVM heap túl kicsi | Növelje a `-Xmx` kapcsolót vagy dolgozzon kisebb darabokban |
+|-------|--------------|----------|
+| “Access denied” a `index.add()` hívásakor | Helytelen könyvtárjogosultságok | Adjon olvasási/írási jogot a folyamat felhasználójának |
+| Nincs eredmény egy ismert kifejezésre | A szövegtárolás nincs engedélyezve | Engedélyezze a `TextStorageSettings`‑t vagy indexeljen újra a megfelelő beállításokkal |
+| Memóriahiányos hibák nagy kötegeknél | A JVM heap túl kicsi | Növelje a `-Xmx` kapcsolót vagy dolgozzon kisebb darabokban a dokumentumokkal |
 
-## Frequently Asked Questions
-1. **Mi a GroupDocs.Search for Java?**  
-   Egy erőteljes könyvtár, amely lehetővé teszi a fejlesztők számára, hogy hatékonyan teljes szöveges keresési funkciókat adjanak Java alkalmazásaikhoz.  
-2. **Hogyan kezeljem a nagy adatállományokat a GroupDocs.Search‑szal?**  
-   Használjon kötegelt feldolgozást, és optimalizálja az index beállításait a források hatékony kezelése érdekében.  
-3. **Testreszabhatom a tömörítési szintet a szöveg‑tárolási beállításokban?**  
-   Igen, beállíthat különböző tömörítési szinteket, például `Compression.High` vagy `Compression.Low`.  
-4. **Milyen típusú dokumentumokat támogat a GroupDocs.Search?**  
-   Széles körű formátumot támogat, beleértve a PDF‑eket, Word fájlokat, Excel táblázatokat, PowerPoint prezentációkat és még sok mást.  
-5. **Van közösségi támogatás a GroupDocs.Search‑hez?**  
-   Igen, ingyenes támogatást érhetsz el a fórumukon a [GroupDocs Forum](https://forum.groupdocs.com/c/search/10) címen.
+## Gyakran ismételt kérdések
+**Q: Mi a GroupDocs.Search for Java?**  
+A: Ez egy erőteljes könyvtár, amely teljes szöveges keresési képességeket ad a Java alkalmazásokhoz, több mint 50 dokumentumformátumot támogatva.
 
-## Resources
-- **Documentation:** https://docs.groupdocs.com/search/java/
-- **API Reference:** https://reference.groupdocs.com/search/java
-- **Download:** https://releases.groupdocs.com/search/java/
-- **GitHub Repository:** https://github.com/groupdocs-search/GroupDocs.Search-for-Java
-- **Free Support Forum:** https://forum.groupdocs.com/c/search/10
+**Q: Hogyan kezeljem a nagy adatállományokat a GroupDocs.Search‑szal?**  
+A: Használjon kötegelt feldolgozást, hangolja a `IndexSettings`‑t a memóriahatékonyságra, és futtassa az indexelést aszinkron szálakban.
 
-A megadott erőforrások használatával és a különböző konfigurációk kipróbálásával tovább mélyítheted a GroupDocs.Search for Java megértését és hasznosítását. Boldog kódolást!
+**Q: Testreszabhatom a tömörítési szintet a szövegtárolási beállításokban?**  
+A: Igen, választhat a `Compression.High`, `Compression.Medium` és `Compression.Low` között, hogy a méret és a sebesség között egyensúlyt teremtsen.
+
+**Q: Milyen típusú dokumentumokat támogat a GroupDocs.Search?**  
+A: PDF‑ek, Word, Excel, PowerPoint, HTML, egyszerű szöveg és számos képformátum alapból támogatott.
+
+**Q: Van közösségi támogatás a GroupDocs.Search-hez?**  
+A: Igen, ingyenes támogatást érhet el a fórumukon a [GroupDocs Fórum](https://forum.groupdocs.com/c/search/10) címen.
+
+## Források
+- **Dokumentáció:** https://docs.groupdocs.com/search/java/  
+- **API referencia:** https://reference.groupdocs.com/search/java  
+- **Letöltés:** https://releases.groupdocs.com/search/java/  
+- **GitHub tároló:** https://github.com/groupdocs-search/GroupDocs.Search-for-Java  
+- **Ingyenes támogatási fórum:** https://forum.groupdocs.com/c/search/10  
+
+A beállítások kísérletezésével és az API felfedezésével finomhangolhatja a teljesítményt, és testre szabhatja a keresési élményt pontos igényei szerint. Jó kódolást!
 
 ---
 
-**Last Updated:** 2026-03-09  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+**Utolsó frissítés:** 2026-10-22  
+**Tesztelve a következővel:** GroupDocs.Search 25.4  
+**Szerző:** GroupDocs
+
+## Kapcsolódó oktatóanyagok
+
+- [Java teljes szöveges keresés implementálása a Groupdocs Search segítségével](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Java teljes szöveges keresési könyvtár – Index optimalizálása a GroupDocs.Search segítségével](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [Hogyan adjunk dokumentumokat az indexhez metaadat-indexeléssel Java-ban a GroupDocs.Search használatával](/search/java/indexing/groupdocs-search-java-metadata-indexing/)

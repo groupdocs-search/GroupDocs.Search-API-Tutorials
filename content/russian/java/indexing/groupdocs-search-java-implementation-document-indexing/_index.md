@@ -1,35 +1,82 @@
 ---
-date: '2026-03-09'
-description: Узнайте, как создать поисковый индекс GroupDocs в Java с помощью GroupDocs.Search.
-  Это руководство показывает, как эффективно индексировать документы Java.
+date: '2026-10-22'
+description: Узнайте, как реализовать полнотекстовый поиск java с использованием GroupDocs.Search
+  и откройте, как эффективно индексировать документы java за несколько простых шагов.
 keywords:
-- document indexing
+- java full text search
+- how to index documents java
 - GroupDocs.Search for Java
-- Java application search
-title: Создание поискового индекса GroupDocs с помощью GroupDocs.Search для Java —
-  Полное руководство
+lastmod: '2026-10-22'
+og_description: Узнайте, как реализовать полнотекстовый поиск java с использованием
+  GroupDocs.Search и откройте, как эффективно индексировать документы java за несколько
+  простых шагов.
+og_image_alt: Guide showing java full text search implementation with GroupDocs.Search
+og_title: Как реализовать полнотекстовый поиск java с помощью GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-22'
+  description: Learn how to implement java full text search using GroupDocs.Search
+    and discover how to index documents java efficiently in a few simple steps.
+  headline: How to implement java full text search with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to implement java full text search using GroupDocs.Search
+    and discover how to index documents java efficiently in a few simple steps.
+  name: How to implement java full text search with GroupDocs.Search
+  steps:
+  - name: specify directories
+    text: Define where the index will live and where the source documents are located.
+  - name: create an index
+    text: Instantiate the `Index` object to begin building the searchable structure.
+  - name: add documents to the index
+    text: Feed all files from the source folder into the index with a single call.
+  - name: retrieve indexed documents
+    text: 'Once indexing is complete you can enumerate the indexed entries: **Parameters
+      & method purposes** - `indexFolder`: Path where the index data is stored. -
+      `documentsFolder`: Directory containing files to be indexed. **Troubleshooting
+      tips** - Verify that the folder paths are correct and accessible. -'
+  - name: set up index settings
+    text: Create an `IndexSettings` instance and configure text storage.
+  - name: initialize the index with settings
+    text: Pass the custom settings when constructing the index.
+  - name: retrieve and store document texts
+    text: Extract the full text of a document and save it as HTML (or any supported
+      format). **Key configuration options** - `Compression.High` – Optimizes storage
+      by compressing the extracted text.
+  type: HowTo
+- questions:
+  - answer: It is a powerful library that adds full‑text search capabilities to Java
+      applications, supporting over 50 document formats.
+    question: What is GroupDocs.Search for Java?
+  - answer: Use batch processing, tune `IndexSettings` for memory efficiency, and
+      run indexing in asynchronous threads.
+    question: How do I handle large datasets with GroupDocs.Search?
+  - answer: Yes, you can choose between `Compression.High`, `Compression.Medium`,
+      and `Compression.Low` to balance size and speed.
+    question: Can I customize the compression level in text storage settings?
+  - answer: PDFs, Word, Excel, PowerPoint, HTML, plain text, and many image formats
+      are all supported out of the box.
+    question: What types of documents does GroupDocs.Search support?
+  - answer: Yes, you can access free support through their forum at [GroupDocs Forum](https://forum.groupdocs.com/c/search/10).
+    question: Is there community support for GroupDocs.Search?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- document indexing
+- Java search library
+title: Как реализовать полнотекстовый поиск java с помощью GroupDocs.Search
 type: docs
 url: /ru/java/indexing/groupdocs-search-java-implementation-document-indexing/
 weight: 1
 ---
 
- each bullet.
+# Как реализовать полнотекстовый поиск java с GroupDocs.Search
 
-Now code block placeholders remain.
-
-Proceed.
-
-Make sure to keep markdown tables.
-
-Now produce final answer.
-
-# Создание поискового индекса GroupDocs с GroupDocs.Search для Java — Полное руководство
-
-Если вам нужно **создать поисковый индекс groupdocs** в Java‑приложении, вы попали по адресу. В этом руководстве мы пройдем весь процесс настройки GroupDocs.Search, создания индекса, добавления файлов и извлечения текста документов — все с понятным пошаговым кодом, который можно сразу скопировать в проект. К концу вы точно узнаете **как индексировать документы java**‑стилем и будете готовы интегрировать мощные возможности поиска в любое корпоративное решение.
+Если вам нужно **создать полнотекстовый поиск java** в Java‑приложении, вы попали в нужное место. Этот учебник проведёт вас через установку GroupDocs.Search, настройку индекса, добавление документов и запросы к индексу — всё с готовыми к копированию и вставке фрагментами кода. К концу вы поймёте **как индексировать документы в стиле java** и будете готовы внедрить быстрый, масштабируемый поиск в любое корпоративное решение.
 
 ## Быстрые ответы
 - **Какова основная цель GroupDocs.Search?**  
-  Предоставлять быстрый полнотекстовый индекс и поиск для широкого спектра форматов документов в Java.  
+  Обеспечить быстрый полнотекстовый индексирование и поиск для широкого спектра форматов документов в Java.  
 - **Какая версия библиотеки рекомендуется?**  
   Последний стабильный релиз (например, 25.4 на момент написания).  
 - **Нужна ли лицензия для запуска примеров?**  
@@ -37,33 +84,23 @@ Now produce final answer.
 - **Каковы основные шаги создания поискового индекса?**  
   Установить библиотеку, настроить параметры индекса, добавить документы и выполнить запрос к индексу.  
 - **Можно ли хранить проиндексированный текст в сжатом виде?**  
-  Да — используйте `TextStorageSettings` с `Compression.High`.
+  Да — используйте `TextStorageSettings` с `Compression.High`.
 
-## Как создать поисковый индекс groupdocs с GroupDocs.Search для Java
-Создание поискового индекса — это фундамент любого решения с быстрым поиском. Ниже мы разбиваем процесс на небольшие шаги, объясняем «почему» каждой операции и показываем точный код, который вам понадобится.
+## Что такое полнотекстовый поиск java?
+Полнотекстовый поиск Java относится к процессу построения индекса, который сопоставляет каждый поисковый токен в коллекции документов с его местоположением, обеспечивая мгновенный поиск ключевых слов и фраз без сканирования оригинальных файлов каждый раз. Индекс хранит позиции токенов, частоты и метаданные, позволяя поисковому движку ранжировать результаты по релевантности и поддерживать расширенные запросы, такие как подстановочные знаки, нечеткое совпадение и поиск по близости.
 
-### Что такое «создать поисковый индекс groupdocs»?
-Создание поискового индекса с GroupDocs означает построение структуры данных, которая сопоставляет каждое слово в ваших документах с его местоположением. Это обеспечивает мгновенный поиск по ключевым словам, фразам и продвинутую фильтрацию без сканирования оригинальных файлов каждый раз.
+## Почему использовать GroupDocs.Search для Java?
+GroupDocs.Search поддерживает **более 50 форматов ввода и вывода** — включая PDF, Word, Excel, PowerPoint, HTML и многие типы изображений — и может обрабатывать документы из сотен страниц без загрузки всего файла в память. Его движок индексирования обеспечивает задержку запросов менее секунды даже при работе с миллионами записей, что делает его надежным выбором для корпоративного поиска.
 
-### Почему стоит использовать GroupDocs.Search для Java?
-- **Широкая поддержка форматов** — PDF, Word, Excel, PowerPoint и многие другие.  
-- **Высокая производительность** — оптимизированные алгоритмы индексации сохраняют низкую задержку поиска даже при миллионах файлов.  
-- **Лёгкая интеграция** — простой Java API, управление зависимостями через Maven и понятная документация.
-
-## Предварительные требования
-### Необходимые библиотеки и зависимости
-- **Java Development Kit (JDK)** 8 или выше.  
-- **Maven** для управления зависимостями.
-
-### Требования к настройке окружения
-Убедитесь, что Maven правильно сконфигурирован для загрузки артефактов из репозитория GroupDocs.
-
-### Требования к знаниям
-Базовое знание Java, знакомство с вводом‑выводом файлов и понимание концепций индексации помогут вам легко следовать инструкциям.
+## Требования
+- **Java Development Kit (JDK) 8** или выше.  
+- **Maven** для управления зависимостями.  
+- Базовое знакомство с Java I/O и концепциями индексирования.
 
 ## Настройка GroupDocs.Search для Java
 ### Конфигурация Maven
-Добавьте репозиторий и зависимость в ваш файл `pom.xml`:
+Добавьте репозиторий GroupDocs и зависимость Search в ваш файл `pom.xml`:
+
 ```xml
 <repositories>
     <repository>
@@ -81,45 +118,60 @@ Now produce final answer.
     </dependency>
 </dependencies>
 ```
-### Прямая загрузка
-Или скачайте последнюю версию с [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Получение лицензии
-Вы можете получить временную лицензию для полного изучения возможностей GroupDocs перед покупкой, посетив их [Temporary License page](https://purchase.groupdocs.com/temporary-license/). Этот пробный период позволяет оценить библиотеку в вашей среде.
+### Прямое скачивание
+В качестве альтернативы скачайте последнюю версию с [GroupDocs.Search для Java (релизы)](https://releases.groupdocs.com/search/java/).
+
+### Приобретение лицензии
+Вы можете получить временную лицензию, чтобы полностью изучить возможности GroupDocs перед покупкой, посетив их [Страницу временной лицензии](https://purchase.groupdocs.com/temporary-license/). Этот пробный период позволяет оценить библиотеку в вашей среде.
 
 ### Базовая инициализация и настройка
-Начните с создания объекта `Index`, указывающего папку, где будут храниться файлы индекса:
+`Index` класс — основной компонент, представляющий на диске хранилище данных, доступных для поиска. Создание экземпляра указывает библиотеке папку, где будут сохраняться файлы индекса.
+
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 Index index = new Index(indexFolder);
 ```
 
-## Руководство по реализации
-### Как индексировать документы java с GroupDocs.Search
-#### Обзор
-Создание индекса — это первый шаг к обеспечению быстрого поиска. Ниже мы пройдем каждый необходимый действие.
+## Как создать поисковый индекс groupdocs с GroupDocs.Search для Java
+Создание поискового индекса — основа любого решения быстрого поиска. Загрузите индекс, добавьте документы и затем выполните запрос — всё в нескольких простых шагах.
 
-#### Шаг 1: Указание каталогов
-Определите, где будет находиться индекс и где находятся исходные документы.
+### Что такое «create search index groupdocs»?
+Создание поискового индекса с помощью GroupDocs означает построение структуры данных, доступной для поиска, которая сопоставляет каждое слово в ваших документах с его местоположением. Это обеспечивает мгновенный поиск ключевых слов, поиск фраз и расширенную фильтрацию без сканирования оригинальных файлов каждый раз. Также сохраняются частоты терминов для улучшения оценки релевантности при запросах.
+
+### Как создать поисковый индекс groupdocs с GroupDocs.Search для Java?
+Загрузите объект `Index`, указав папку индекса, затем вызовите `add` для загрузки всех файлов из исходного каталога. После индексирования вы можете выполнять запросы к индексу с помощью простых текстовых запросов или сложных булевых выражений. Такой подход завершает конвейер полнотекстового поиска менее чем за минуту для типичных наборов документов. После построения индекса вы можете сохранять его на диск, повторно использовать при перезапуске приложения и выполнять инкрементные обновления, добавляя или удаляя документы без полной перестройки индекса.
+
+## Руководство по реализации
+### Индексирование документов java с GroupDocs.Search
+#### Обзор
+Создание индекса — первый шаг к обеспечению быстрых возможностей поиска. Ниже мы пройдем каждый необходимый шаг.
+
+#### Шаг 1: указать каталоги
+Определите, где будет находиться индекс и где расположены исходные документы.
+
 ```java
 String indexFolder = "YOUR_INDEX_DIRECTORY";
 String documentsFolder = "YOUR_DOCUMENTS_DIRECTORY"; 
 ```
 
-#### Шаг 2: Создание индекса
-Создайте объект `Index` для начала построения поисковой структуры.
+#### Шаг 2: создать индекс
+Создайте экземпляр `Index`, чтобы начать построение структуры, доступной для поиска.
+
 ```java
 Index index = new Index(indexFolder);
 ```
 
-#### Шаг 3: Добавление документов в индекс
+#### Шаг 3: добавить документы в индекс
 Передайте все файлы из исходной папки в индекс одним вызовом.
+
 ```java
 index.add(documentsFolder);
 ```
 
-#### Шаг 4: Получение проиндексированных документов
-После завершения индексации вы можете перечислить проиндексированные записи:
+#### Шаг 4: получить проиндексированные документы
+После завершения индексирования вы можете перечислить проиндексированные записи:
+
 ```java
 DocumentInfo[] documents = index.getIndexedDocuments();
 for (DocumentInfo document : documents) {
@@ -128,33 +180,36 @@ for (DocumentInfo document : documents) {
 }
 ```
 
-**Параметры и назначение методов**  
+**Параметры и назначения методов**  
 - `indexFolder`: Путь, где хранятся данные индекса.  
-- `documentsFolder`: Каталог, содержащий файлы для индексации.
+- `documentsFolder`: Каталог, содержащий файлы для индексирования.
 
 **Советы по устранению неполадок**  
-- Проверьте, что пути к папкам указаны правильно и доступны.  
-- Убедитесь в наличии прав доступа к файловой системе, если при индексации появляются ошибки «access denied».
+- Убедитесь, что пути к папкам правильные и доступны.  
+- Проверьте разрешения файловой системы, если вы сталкиваетесь с ошибкой «access denied» во время индексирования.
 
-### Создание индекса с настройками хранения текста
-#### Обзор
-Можно тонко настроить, как будет храниться исходный текст каждого документа, например, включив высокое сжатие для экономии места на диске.
+## Создание индекса с настройками хранения текста
+### Что такое настройки хранения текста?
+`TextStorageSettings` позволяет управлять тем, как сохраняется необработанный извлечённый текст каждого документа, включая уровень сжатия и формат.
 
-#### Шаг 1: Настройка параметров индекса
-Создайте экземпляр `IndexSettings` и сконфигурируйте хранение текста.
+#### Шаг 1: настроить параметры индекса
+Создайте экземпляр `IndexSettings` и настройте хранение текста.
+
 ```java
 IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-#### Шаг 2: Инициализация индекса с настройками
+#### Шаг 2: инициализировать индекс с настройками
 Передайте пользовательские настройки при создании индекса.
+
 ```java
 Index index = new Index(indexFolder, settings);
 ```
 
-#### Шаг 3: Получение и сохранение текста документов
+#### Шаг 3: получить и сохранить тексты документов
 Извлеките полный текст документа и сохраните его как HTML (или любой поддерживаемый формат).
+
 ```java
 DocumentInfo[] documents = index.getIndexedDocuments();
 if (documents.length > 0) {
@@ -165,48 +220,57 @@ if (documents.length > 0) {
 ```
 
 **Ключевые параметры конфигурации**  
-- `Compression.High` — оптимизирует хранение, сжимая извлечённый текст.
+- `Compression.High` – Оптимизирует хранение, сжимая извлечённый текст.
 
 ## Практические применения
-1. **Корпоративное управление документами** — быстрый поиск контрактов, политик или отчётов в огромных репозиториях.  
-2. **Системы управления контентом (CMS)** — обеспечение поиска по всему сайту с мгновенными результатами.  
-3. **Работа с юридическими документами** — поиск по ключевым словам в судебных делах и архивах доказательств.
+1. **Enterprise document management** – Быстро находите контракты, политики или отчёты в огромных репозиториях.  
+2. **Content management systems (CMS)** – Обеспечьте поиск по всему сайту с мгновенными результатами.  
+3. **Legal document handling** – Позволяет выполнять поиск по ключевым словам в судебных делах и архивах доказательств.
 
 ## Соображения по производительности
-- **Оптимизация размера индекса** — периодически удаляйте устаревшие записи, чтобы индекс оставался компактным.  
-- **Управление памятью** — настройте сборщик мусора JVM для больших задач индексации.  
-- **Лучшие практики** — индексируйте пакетами, переиспользуйте экземпляры `Index` и предпочтительно используйте асинхронные операции для тяжёлых нагрузок.
+- **Optimizing index size** – Периодически удаляйте устаревшие записи, чтобы индекс оставался компактным.  
+- **Memory management** – Настройте сборщик мусора JVM для крупномасштабных задач индексирования.  
+- **Best practices** – Индексируйте пакетами, повторно используйте экземпляры `Index` и предпочтительно используйте асинхронные операции для тяжёлых нагрузок.
 
 ## Распространённые проблемы и решения
-| Симптом | Возможная причина | Решение |
-|---------|-------------------|---------|
-| “Access denied” при вызове `index.add()` | Неправильные права доступа к папке | Предоставьте процессу права чтения/записи |
+| Симптом | Вероятная причина | Решение |
+|---------|-------------------|--------|
+| «Access denied» при вызове `index.add()` | Неправильные разрешения папки | Предоставьте права чтения/записи процессу |
 | Нет результатов для известного термина | Хранение текста не включено | Включите `TextStorageSettings` или переиндексируйте с правильными настройками |
-| Ошибки out‑of‑memory при больших пакетах | Недостаточный размер heap JVM | Увеличьте параметр `-Xmx` или обрабатывайте документы небольшими порциями |
+| Ошибки out‑of‑memory при больших пакетах | Размер кучи JVM слишком мал | Увеличьте флаг `-Xmx` или обрабатывайте документы небольшими партиями |
 
 ## Часто задаваемые вопросы
-1. **Что такое GroupDocs.Search для Java?**  
-   Мощная библиотека, позволяющая разработчикам эффективно добавлять полнотекстовый поиск в свои Java‑приложения.  
-2. **Как работать с большими наборами данных в GroupDocs.Search?**  
-   Используйте пакетную обработку и оптимизируйте параметры индекса для эффективного управления ресурсами.  
-3. **Можно ли настроить уровень сжатия в настройках хранения текста?**  
-   Да, можно задать различные уровни сжатия, такие как `Compression.High` или `Compression.Low`.  
-4. **Какие типы документов поддерживает GroupDocs.Search?**  
-   Широкий спектр форматов, включая PDF, Word, Excel, PowerPoint и многие другие.  
-5. **Есть ли сообщество поддержки для GroupDocs.Search?**  
-   Да, бесплатную поддержку можно получить на их форуме: [GroupDocs Forum](https://forum.groupdocs.com/c/search/10).
+**В: Что такое GroupDocs.Search для Java?**  
+**О:** Это мощная библиотека, добавляющая возможности полнотекстового поиска в Java‑приложения, поддерживая более 50 форматов документов.
+
+**В: Как работать с большими наборами данных в GroupDocs.Search?**  
+**О:** Используйте пакетную обработку, настройте `IndexSettings` для эффективности памяти и выполняйте индексирование в асинхронных потоках.
+
+**В: Можно ли настроить уровень сжатия в настройках хранения текста?**  
+**О:** Да, вы можете выбрать между `Compression.High`, `Compression.Medium` и `Compression.Low`, чтобы сбалансировать размер и скорость.
+
+**В: Какие типы документов поддерживает GroupDocs.Search?**  
+**О:** PDF, Word, Excel, PowerPoint, HTML, обычный текст и многие форматы изображений поддерживаются «из коробки».
+
+**В: Есть ли поддержка сообщества для GroupDocs.Search?**  
+**О:** Да, вы можете получить бесплатную поддержку через их форум по адресу [Форум GroupDocs](https://forum.groupdocs.com/c/search/10).
 
 ## Ресурсы
-- **Документация:** https://docs.groupdocs.com/search/java/
-- **Справочник API:** https://reference.groupdocs.com/search/java
-- **Скачать:** https://releases.groupdocs.com/search/java/
-- **GitHub‑репозиторий:** https://github.com/groupdocs-search/GroupDocs.Search-for-Java
-- **Форум бесплатной поддержки:** https://forum.groupdocs.com/c/search/10
+- **Документация:** https://docs.groupdocs.com/search/java/  
+- **Справочник API:** https://reference.groupdocs.com/search/java  
+- **Скачать:** https://releases.groupdocs.com/search/java/  
+- **Репозиторий GitHub:** https://github.com/groupdocs-search/GroupDocs.Search-for-Java  
+- **Форум бесплатной поддержки:** https://forum.groupdocs.com/c/search/10  
 
-Используя предоставленные ресурсы и экспериментируя с различными конфигурациями, вы сможете глубже понять и эффективно применять GroupDocs.Search для Java. Приятного кодинга!
+Экспериментируя с настройками и изучая API, вы можете точно настроить производительность и адаптировать поиск под свои конкретные потребности. Приятного кодирования!
 
 ---
 
-**Последнее обновление:** 2026-03-09  
+**Последнее обновление:** 2026-10-22  
 **Тестировано с:** GroupDocs.Search 25.4  
 **Автор:** GroupDocs
+
+## Связанные учебники
+- [Реализовать полнотекстовый поиск Java Groupdocs Search](/search/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Библиотека полнотекстового поиска Java – Оптимизация индекса с GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [Как добавить документы в индекс с метаданными в Java с использованием GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
