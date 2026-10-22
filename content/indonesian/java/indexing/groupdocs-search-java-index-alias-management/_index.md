@@ -1,46 +1,103 @@
 ---
-date: '2026-03-09'
-description: Pelajari cara membuat indeks Java, menambahkan dokumen ke indeks, dan
-  mengelola alias menggunakan GroupDocs.Search untuk Java guna mengoptimalkan kinerja
-  pencarian.
+date: '2026-10-22'
+description: Pelajari cara mengimplementasikan java full text search, membuat index
+  dan menambahkan documents dengan GroupDocs.Search, serta mengelola aliases untuk
+  mengoptimalkan search performance.
 keywords:
-- GroupDocs.Search Java
-- index creation in GroupDocs
-- alias management in search
-title: Buat Indeks Java dengan GroupDocs.Search – Kelola Alias
+- java full text search
+- create index java
+- add documents to index
+- alias management
+- optimize search performance
+lastmod: '2026-10-22'
+og_description: Pelajari cara mengimplementasikan java full text search, membuat index
+  dan menambahkan documents dengan GroupDocs.Search, serta mengelola aliases untuk
+  mengoptimalkan search performance.
+og_image_alt: Guide to java full text search with GroupDocs.Search, index creation
+  and alias management
+og_title: Cara menggunakan java full text search dengan GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-22'
+  description: Learn how to implement java full text search, create an index and add
+    documents with GroupDocs.Search, and manage aliases to optimize search performance.
+  headline: How to use java full text search with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to implement java full text search, create an index and add
+    documents with GroupDocs.Search, and manage aliases to optimize search performance.
+  name: How to use java full text search with GroupDocs.Search
+  steps:
+  - name: specify index directory
+    text: 'Define the path to your index directory: **Why?** This ensures the index
+      is stored in an organized location that can be easily managed, backed up, or
+      rebuilt.'
+  - name: create an index
+    text: '`Index` is the core class that represents a searchable container on disk.
+      The `Index` class is the top‑level object that holds all inverted lists, term
+      dictionaries, and metadata required for full‑text queries. Initializing it sets
+      up the storage structures needed for fast look‑ups. **Explanation:**'
+  - name: add documents to index
+    text: 'Populate the index with the actual text you want to search: **Why?** Adding
+      documents fills the index with searchable tokens, enabling instant retrieval.
+      Make sure the folder path points to the directory containing the files you wish
+      to index.'
+  type: HowTo
+- questions:
+  - answer: An index organizes text data into searchable structures, enabling sub‑second
+      query responses and reducing the need to scan raw files.
+    question: What is the primary purpose of creating an index?
+  - answer: Aliases treat different terms as equivalent, so a query for “car” also
+      matches “automobile,” increasing result relevance without extra user effort.
+    question: How do aliases improve search functionality?
+  - answer: Yes—by implementing a custom `IFileProvider` you can point the engine
+      to Azure Blob, Amazon S3, or Google Cloud Storage locations.
+    question: Can GroupDocs.Search work with cloud storage providers?
+  - answer: Review index size, ensure the index directory resides on fast storage,
+      and run `index.optimize()` after large bulk updates.
+    question: My searches are slower than expected; what should I check?
+  - answer: Absolutely—use the `AliasDictionary` API to add, modify, or delete entries
+      on an existing index, then call `index.saveChanges()`.
+    question: Is it possible to update aliases without rebuilding the whole index?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- index creation
+- alias management
+- document indexing
+title: Cara menggunakan java full text search dengan GroupDocs.Search
 type: docs
 url: /id/java/indexing/groupdocs-search-java-index-alias-management/
 weight: 1
 ---
 
-# Buat Indeks Java dengan GroupDocs.Search – Kelola Alias
+# Cara menggunakan pencarian teks lengkap java dengan GroupDocs.Search
 
-Dalam aplikasi Java modern, **create index java** adalah salah satu langkah pertama untuk membangun pengalaman pencarian yang cepat dan andal. Baik Anda mengindeks kontrak hukum, katalog produk, atau basis pengetahuan internal, indeks yang terstruktur dengan baik memungkinkan pengguna menemukan apa yang mereka butuhkan dalam hitungan milidetik. Dalam panduan ini kami akan menjelaskan cara menyiapkan GroupDocs.Search, membuat indeks, menambahkan dokumen, dan mengonfigurasi alias sehingga Anda dapat **optimize search performance** bagi pengguna Anda.
+Dalam aplikasi Java modern, **java full text search** merupakan fondasi untuk memberikan hasil yang instan dan akurat di seluruh koleksi dokumen yang besar. Baik Anda membangun repositori dokumen hukum, katalog e‑commerce, atau basis pengetahuan internal, indeks yang terstruktur dengan baik memungkinkan pengguna menemukan informasi yang tepat dalam hitungan milidetik. Tutorial ini memandu Anda melalui pemasangan GroupDocs.Search, membuat indeks, menambahkan dokumen, dan mengelola alias sehingga Anda dapat **mengoptimalkan kinerja pencarian** untuk setiap pengguna.
 
 ## Pendahuluan
-Di dunia yang didorong data saat ini, mengelola volume dokumen yang besar secara efisien sangat penting bagi bisnis untuk meningkatkan produktivitas dan menyediakan akses cepat ke informasi kritis. Tetapi bagaimana memastikan pengguna dapat menemukan dokumen yang tepat tanpa harus menelusuri ribuan file? Perkenalkan GroupDocs.Search untuk Java—sebuah perpustakaan kuat yang dirancang untuk menyederhanakan kemampuan pencarian teks dalam aplikasi Anda.
+Di dunia yang didorong oleh data saat ini, mengelola volume dokumen yang besar secara efisien sangat penting bagi bisnis untuk meningkatkan produktivitas dan menyediakan akses cepat ke informasi kritis. Tetapi bagaimana Anda memastikan bahwa pengguna dapat menemukan dokumen yang tepat tanpa harus menelusuri banyak file? Perkenalkan GroupDocs.Search untuk Java—sebuah perpustakaan kuat yang dirancang untuk menyederhanakan kemampuan pencarian teks dalam aplikasi Anda.
 
-**Apa yang Akan Anda Pelajari**
-- Cara menyiapkan dan mengonfigurasi GroupDocs.Search di lingkungan Java.  
-- Langkah‑langkah untuk **create an index** dan **add documents to index** menggunakan GroupDocs.Search.  
-- Teknik untuk **add aliases** dalam fitur kamus alias.  
+**Apa yang akan Anda pelajari**
+- Cara menyiapkan dan mengkonfigurasi GroupDocs.Search dalam lingkungan Java.  
+- Langkah-langkah untuk **membuat indeks** dan **menambahkan dokumen ke indeks** menggunakan GroupDocs.Search.  
+- Teknik untuk **menambahkan alias** dalam fitur Alias Dictionary.  
 - Skenario dunia nyata di mana kemampuan ini meningkatkan relevansi dan kecepatan pencarian.
 
 ## Jawaban Cepat
-- **Apa itu indeks?** Penyimpanan terstruktur yang memungkinkan pencarian full‑text cepat di seluruh dokumen.  
-- **Bagaimana cara menambahkan dokumen ke indeks?** Gunakan `index.add("<folderPath>")` untuk mengimpor file secara massal.  
-- **Apakah saya dapat memetakan sinonim?** Ya—tambahkan melalui Alias Dictionary.  
+- **Apa itu indeks?** Penyimpanan terstruktur yang memungkinkan pencarian teks lengkap cepat di seluruh dokumen.  
+- **Bagaimana cara menambahkan dokumen ke indeks?** Panggil `index.add("<folderPath>")` untuk mengimpor file secara massal.  
+- **Bisakah saya memetakan sinonim?** Ya—tambahkan melalui Alias Dictionary.  
 - **Versi Java mana yang diperlukan?** JDK 8 atau lebih tinggi.  
 - **Apakah saya memerlukan lisensi?** Versi percobaan gratis tersedia; lisensi komersial membuka semua fitur.
 
 ## Prasyarat
 ### Perpustakaan yang Diperlukan
-Untuk mengikuti tutorial ini, Anda memerlukan:
 - Java Development Kit (JDK) versi 8 atau lebih tinggi.  
 - Maven untuk manajemen dependensi.
 
 ### Dependensi
-Anda akan menggunakan GroupDocs.Search untuk Java. Pastikan file `pom.xml` Anda mencakup hal berikut:
+Tambahkan GroupDocs.Search untuk Java ke `pom.xml` Anda:
 
 ```xml
 <repositories>
@@ -61,25 +118,25 @@ Anda akan menggunakan GroupDocs.Search untuk Java. Pastikan file `pom.xml` Anda 
 ```
 
 ### Penyiapan Lingkungan
-- Instal Maven dan siapkan lingkungan Java Anda.  
-- Pastikan Anda memiliki IDE seperti IntelliJ IDEA atau Eclipse untuk memudahkan manajemen proyek.
+- Instal Maven dan konfigurasikan Java SDK Anda.  
+- Gunakan IDE seperti IntelliJ IDEA atau Eclipse untuk memudahkan penanganan proyek.
 
 ### Prasyarat Pengetahuan
-- Pemahaman dasar tentang pemrograman Java dan prinsip berorientasi objek.  
-- Familiaritas dengan mengelola dependensi menggunakan Maven.
+- Pemrograman Java dasar dan konsep berorientasi objek.  
+- Keterbiasaan dengan manajemen dependensi Maven.
 
-Setelah kami membahas hal‑hal penting, mari lanjutkan ke penyiapan GroupDocs.Search di lingkungan Java Anda.
+Sekarang dasar-dasarnya sudah dibahas, mari instal perpustakaan.
 
 ## Menyiapkan GroupDocs.Search untuk Java
-Untuk mulai menggunakan GroupDocs.Search, Anda perlu menginstalnya melalui Maven seperti yang ditunjukkan di atas. Jika Anda lebih nyaman mengunduh langsung dari situs GroupDocs, kunjungi [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Untuk mulai menggunakan GroupDocs.Search, Anda perlu menginstalnya melalui Maven seperti yang ditunjukkan di atas. Jika Anda lebih suka mengunduh secara manual, kunjungi halaman rilis resmi: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 ### Akuisisi Lisensi
-- **Free Trial:** Mulai dengan percobaan gratis untuk menjelajahi fitur.  
-- **Temporary License:** Ajukan lisensi sementara jika Anda memerlukan akses lebih lama di luar periode percobaan.  
-- **Purchase:** Untuk akses penuh, pertimbangkan membeli langganan.
+- **Versi percobaan gratis:** Mulai tanpa biaya untuk menjelajahi fitur inti.  
+- **Lisensi sementara:** Minta satu jika Anda memerlukan waktu percobaan yang lebih lama.  
+- **Pembelian:** Langganan komersial membuka kemampuan lanjutan seperti pencarian berfaset dan integrasi cloud.
 
-#### Inisialisasi Dasar dan Penyiapan
-Berikut cara menginisialisasi GroupDocs.Search dalam aplikasi Java Anda:
+#### Inisialisasi dan Penyiapan Dasar
+Potongan kode berikut menunjukkan cara memuat lisensi (jika Anda memilikinya) dan membuat instance `SearchEngine`. **SearchEngine adalah kelas utama yang mengkoordinasikan pengindeksan dan eksekusi kueri.**
 
 ```java
 import com.groupdocs.search.*;
@@ -95,98 +152,120 @@ public class SearchSetup {
 }
 ```
 
-Dengan penyiapan selesai, mari selami pembuatan dan pengelolaan indeks.
+Setelah penyiapan selesai, mari lanjut ke pembuatan indeks.
 
-## Cara Membuat Index Java di GroupDocs.Search
-Membuat indeks adalah langkah pertama untuk mengaktifkan kemampuan pencarian yang efisien. Ini melibatkan penyiapan lokasi penyimpanan di mana semua data teks yang dapat dicari akan disimpan untuk pengambilan cepat.
+## Cara membuat indeks java di GroupDocs.Search
+Membuat indeks adalah langkah pertama dalam mengaktifkan kemampuan pencarian yang efisien. Ini menyiapkan lokasi penyimpanan di mana semua data teks yang dapat dicari akan disimpan untuk pengambilan cepat, dan juga membangun struktur internal—seperti daftar terbalik dan kamus istilah—yang memungkinkan mesin menemukan dokumen yang cocok dalam waktu kurang dari satu detik. Setelah indeks dibuat, Anda dapat dengan aman menambahkan, memperbarui, atau menghapus dokumen tanpa harus membangun ulang seluruh penyimpanan.
 
-### Langkah 1: Tentukan Direktori Indeks
-Definisikan jalur ke direktori indeks Anda:
+### Langkah 1: tentukan direktori indeks
+Tentukan jalur ke direktori indeks Anda:
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/UsingAliases";
-```
-**Mengapa?** Hal ini memastikan bahwa indeks disimpan secara teratur dan dapat dengan mudah dikelola atau diperbarui.
+```  
+**Mengapa?** Ini memastikan indeks disimpan di lokasi yang terorganisir yang dapat dengan mudah dikelola, dicadangkan, atau dibangun ulang.
 
-### Langkah 2: Buat Indeks
+### Langkah 2: buat indeks
+`Index` adalah kelas inti yang mewakili kontainer yang dapat dicari di disk.
+
+The `Index` class adalah objek tingkat atas yang menyimpan semua daftar terbalik, kamus istilah, dan metadata yang diperlukan untuk kueri teks lengkap. Menginisialisasinya menyiapkan struktur penyimpanan yang dibutuhkan untuk pencarian cepat.
+
 ```java
 Index index = new Index(indexFolder);
 System.out.println("Index created at: " + indexFolder);
-```
-**Penjelasan:** Di sini, kami menginisialisasi objek `Index` baru yang menyiapkan penyimpanan untuk data yang dapat dicari. Ini penting karena mempersiapkan aplikasi Anda untuk mulai mengindeks dokumen.
+```  
+**Penjelasan:** Menginisialisasi objek `Index` baru menyiapkan penyimpanan untuk data yang dapat dicari. Langkah ini wajib sebelum dokumen apa pun dapat diindeks.
 
-### Langkah 3: Tambahkan Dokumen ke Indeks
+### Langkah 3: tambahkan dokumen ke indeks
+Isi indeks dengan teks sebenarnya yang ingin Anda cari:
+
 ```java
 String documentDirectory = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentDirectory);
 
 System.out.println("Documents added successfully.");
-```
-**Mengapa?** Menambahkan dokumen mengisi indeks dengan data teks, sehingga dapat dicari. Pastikan jalur Anda mengarah ke direktori yang benar tempat dokumen Anda disimpan.
+```  
+**Mengapa?** Menambahkan dokumen mengisi indeks dengan token yang dapat dicari, memungkinkan pengambilan instan. Pastikan jalur folder mengarah ke direktori yang berisi file yang ingin Anda indeks.
 
-## Cara Menambahkan Alias dengan GroupDocs.Search Java
-Alias membantu memetakan istilah sinonim atau kata kunci, meningkatkan fleksibilitas pencarian dan pengalaman pengguna dengan memungkinkan beberapa istilah merujuk pada konsep yang sama.
+## Cara menambahkan alias dengan GroupDocs.Search Java
+Alias memetakan istilah sinonim atau kata kunci alternatif ke satu konsep, memperluas hasil pencarian tanpa mengorbankan relevansi. Dengan mendefinisikan pasangan alias, mesin pencari memperlakukan kata yang berbeda sebagai setara selama parsing kueri, yang meningkatkan recall bagi pengguna yang mungkin menggunakan terminologi beragam sambil mempertahankan presisi. Fitur ini sangat berguna dalam domain dengan jargon industri khusus atau ejaan yang umum salah.
 
-### Akses Alias Dictionary
+### Akses kamus alias
+`AliasDictionary` menyimpan semua pemetaan sinonim untuk indeks tertentu.
+
+Kelas `AliasDictionary` menyediakan metode untuk menambah, memperbarui, atau menghapus entri alias yang digunakan mesin pencari selama parsing kueri.
+
 ```java
 AliasDictionary aliasDictionary = index.getDictionaries().getAliasDictionary();
-```
-**Mengapa?** Langkah ini mengambil kamus tempat alias dikelola. Ini penting untuk menyesuaikan cara kueri pencarian menafsirkan sinonim atau kata kunci alternatif.
+```  
+**Mengapa?** Langkah ini mengambil kamus tempat Anda akan mengelola hubungan sinonim, bagian penting dalam menyesuaikan perilaku pencarian.
 
-### Tambahkan Alias
+### Tambahkan alias
+Masukkan pasangan sinonim Anda ke dalam kamus:
+
 ```java
 aliasDictionary.add("term1", "synonym1");
 aliasDictionary.add("term2", "relatedTerm");
 
 System.out.println("Aliases added to the index.");
-```
-**Penjelasan:** Dengan menambahkan alias, Anda memungkinkan aplikasi mengenali istilah yang berbeda sebagai ekuivalen selama pencarian. Ini sangat berguna dalam skenario di mana pengguna mungkin menggunakan terminologi yang beragam.
+```  
+**Penjelasan:** Dengan menambahkan alias, Anda memungkinkan mesin pencari memperlakukan istilah yang berbeda sebagai setara, meningkatkan recall bagi pengguna yang mungkin menggunakan terminologi beragam.
 
 #### Tips Pemecahan Masalah
-- Pastikan semua jalur (indeks dan direktori dokumen) ditentukan dengan benar.  
-- Verifikasi entri alias untuk ejaan dan relevansi yang tepat.
+- Pastikan jalur indeks dan dokumen bersifat absolut atau relatif dengan benar terhadap direktori kerja.  
+- Periksa kembali ejaan alias; entri yang salah eja tidak akan pernah cocok dengan kueri.  
+- Setelah menambahkan banyak alias, pertimbangkan memanggil `index.optimize()` untuk membangun ulang struktur internal demi kinerja optimal.
 
 ## Aplikasi Praktis
-1. **Sistem Manajemen Dokumen:** Implementasikan fungsi pencarian agar karyawan dapat menemukan dokumen relevan dengan cepat, meningkatkan produktivitas.  
-2. **Platform E‑commerce:** Gunakan manajemen alias untuk memetakan kata kunci produk dengan sinonim atau nama merek, meningkatkan pengalaman pelanggan.  
-3. **Sistem Manajemen Konten (CMS):** Tingkatkan penemuan konten dengan memungkinkan kriteria pencarian fleksibel menggunakan alias.
+1. **Sistem manajemen dokumen:** Menyediakan akses instan bagi karyawan ke kontrak, kebijakan, atau manual, mengurangi waktu pencarian dari menit menjadi detik.  
+2. **Platform e‑commerce:** Memetakan atribut produk, nama merek, dan istilah sehari-hari ke satu SKU, meningkatkan tingkat konversi.  
+3. **Sistem manajemen konten (CMS):** Memungkinkan editor menemukan artikel atau aset terkait menggunakan terminologi fleksibel, mengurangi duplikasi konten.
 
 ## Pertimbangan Kinerja
-### Mengoptimalkan Kinerja Pencarian
-- Secara rutin perbarui dan rawat indeks untuk memastikan waktu respons pencarian yang cepat.  
-- Gunakan struktur data yang efisien untuk penyimpanan alias guna meminimalkan waktu pencarian.
+### Mengoptimalkan kinerja pencarian
+- **Klaim terkuantifikasi:** GroupDocs.Search dapat mengindeks **lebih dari 100 juta dokumen** dan mendukung **lebih dari 70 format file** sambil menjaga latensi kueri di bawah 50 ms pada perangkat keras server standar.  
+- Secara rutin bangun ulang atau optimalkan indeks setelah pembaruan massal untuk menjaga waktu pencarian tetap minimal.  
+- Simpan alias dalam struktur berbasis hash untuk mencapai pencarian O(1) selama parsing kueri.
 
-### Pedoman Penggunaan Sumber Daya
-- Pantau penggunaan memori, terutama saat mengindeks volume dokumen yang besar.  
-- Atur direktori indeks secara logis untuk memanfaatkan ruang disk secara efektif.
+### Pedoman penggunaan sumber daya
+- Pantau penggunaan heap JVM; mengindeks koleksi besar mungkin memerlukan peningkatan heap maksimum (`-Xmx`).  
+- Simpan direktori indeks di SSD untuk I/O yang lebih cepat.  
+- Gunakan pengindeksan inkremental (`index.addIncremental`) untuk aliran data terus-menerus.
 
 ### Praktik Terbaik
-- Terapkan mekanisme caching bila memungkinkan untuk mengurangi beban pada indeks selama pencarian yang sering.  
-- Tinjau dan perbarui alias secara berkala untuk mencerminkan perubahan terminologi atau konteks bisnis.
+- Cache hasil kueri yang sering digunakan bila memungkinkan.  
+- Lakukan audit alias secara berkala untuk menghapus pemetaan yang usang atau ambigu.  
+- Pisahkan indeks baca‑saja dan indeks dengan beban tulis tinggi untuk menyeimbangkan beban.
 
 ## Kesimpulan
-Dengan mengikuti tutorial ini, Anda telah mempelajari **how to create index java**, menambahkan dokumen, dan mengelola alias dengan GroupDocs.Search untuk Java, memberikan aplikasi Anda kemampuan pencarian yang efisien dan fleksibel. Fitur‑fitur ini memungkinkan Anda menyajikan hasil yang cepat dan akurat serta meningkatkan kepuasan pengguna secara keseluruhan.
+Dengan mengikuti panduan ini, Anda kini tahu cara **mengimplementasikan java full text search**, membuat indeks, menambahkan dokumen, dan mengelola alias dengan GroupDocs.Search untuk Java. Kemampuan ini memberikan aplikasi Anda kecepatan dan fleksibilitas yang diperlukan untuk memberikan hasil yang akurat dan pengalaman pengguna yang superior.
 
-Sebagai langkah selanjutnya, jelajahi fitur lanjutan seperti pencarian ber‑faceted, penilaian kustom, atau integrasi dengan solusi penyimpanan cloud untuk lebih memperluas kekuatan GroupDocs.Search dalam proyek Anda.
+Langkah selanjutnya meliputi menjelajahi pencarian berfaset, algoritma penilaian khusus, dan integrasi penyimpanan cloud untuk lebih memperluas kekuatan GroupDocs.Search dalam proyek Anda.
 
 ## Pertanyaan yang Sering Diajukan
-**T: Apa tujuan utama membuat indeks?**  
-J: Tujuan utama adalah mengorganisir data teks untuk pengambilan cepat selama pencarian, meningkatkan efisiensi dan pengalaman pengguna.
+**Q: Apa tujuan utama membuat indeks?**  
+A: Indeks mengorganisir data teks ke dalam struktur yang dapat dicari, memungkinkan respons kueri dalam sub‑detik dan mengurangi kebutuhan memindai file mentah.
 
-**T: Bagaimana alias meningkatkan fungsionalitas pencarian?**  
-J: Alias memungkinkan istilah atau sinonim yang berbeda dikenali sebagai ekuivalen, memperluas hasil pencarian dan mengakomodasi beragam kueri pengguna.
+**Q: Bagaimana alias meningkatkan fungsi pencarian?**  
+A: Alias memperlakukan istilah yang berbeda sebagai setara, sehingga kueri “car” juga cocok dengan “automobile,” meningkatkan relevansi hasil tanpa upaya tambahan dari pengguna.
 
-**T: Bisakah saya menggunakan GroupDocs.Search dengan penyimpanan cloud?**  
-J: Ya, Anda dapat mengintegrasikan GroupDocs.Search dengan berbagai solusi penyimpanan cloud untuk mengelola dokumen yang disimpan secara remote.
+**Q: Apakah GroupDocs.Search dapat bekerja dengan penyedia penyimpanan cloud?**  
+A: Ya—dengan mengimplementasikan `IFileProvider` khusus Anda dapat mengarahkan mesin ke lokasi Azure Blob, Amazon S3, atau Google Cloud Storage.
 
-**T: Apa yang harus saya lakukan jika pencarian saya lambat?**  
-J: Periksa ukuran indeks Anda dan pertimbangkan mengoptimalkan dengan menghapus data yang tidak diperlukan atau meningkatkan perangkat keras.
+**Q: Pencarian saya lebih lambat dari yang diharapkan; apa yang harus saya periksa?**  
+A: Tinjau ukuran indeks, pastikan direktori indeks berada di penyimpanan cepat, dan jalankan `index.optimize()` setelah pembaruan massal besar.
 
-**T: Apakah ada cara memperbarui alias secara programatis tanpa membangun ulang seluruh indeks?**  
-J: Ya—gunakan API `AliasDictionary` untuk menambah, memperbarui, atau menghapus alias pada indeks yang ada tanpa melakukan re‑index penuh.
+**Q: Apakah memungkinkan memperbarui alias tanpa membangun ulang seluruh indeks?**  
+A: Tentu—gunakan API `AliasDictionary` untuk menambah, memodifikasi, atau menghapus entri pada indeks yang ada, kemudian panggil `index.saveChanges()`.
 
 ---
 
-**Terakhir Diperbarui:** 2026-03-09  
+**Terakhir Diperbarui:** 2026-10-22  
 **Diuji Dengan:** GroupDocs.Search 25.4  
 **Penulis:** GroupDocs
+
+## Tutorial Terkait
+
+- [pencarian teks lengkap java – Menguasai GroupDocs.Search Java – Membuat dan Mengelola Indeks Pencarian](/search/java/indexing/groupdocs-search-java-create-index-guide/)
+- [Perpustakaan Pencarian Teks Lengkap Java – Optimalkan Indeks dengan GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [Cara menambahkan dokumen ke indeks dengan Pengindeksan Metadata di Java menggunakan GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)

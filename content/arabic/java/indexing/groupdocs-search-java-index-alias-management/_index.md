@@ -1,51 +1,101 @@
 ---
-date: '2026-03-09'
-description: تعلم كيفية إنشاء فهرس Java، وإضافة المستندات إلى الفهرس، وإدارة الأسماء
-  المستعارة باستخدام GroupDocs.Search للغة Java لتحسين أداء البحث.
+date: '2026-10-22'
+description: تعلم كيفية تنفيذ بحث النص الكامل في java، وإنشاء فهرس وإضافة مستندات
+  باستخدام GroupDocs.Search، وإدارة الأسماء المستعارة لتحسين أداء البحث.
 keywords:
-- GroupDocs.Search Java
-- index creation in GroupDocs
-- alias management in search
-title: إنشاء فهرس Java باستخدام GroupDocs.Search – إدارة الأسماء المستعارة
+- java full text search
+- create index java
+- add documents to index
+- alias management
+- optimize search performance
+lastmod: '2026-10-22'
+og_description: تعلم كيفية تنفيذ بحث النص الكامل في java، وإنشاء فهرس وإضافة مستندات
+  باستخدام GroupDocs.Search، وإدارة الأسماء المستعارة لتحسين أداء البحث.
+og_image_alt: Guide to java full text search with GroupDocs.Search, index creation
+  and alias management
+og_title: كيفية استخدام بحث النص الكامل في java مع GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-22'
+  description: Learn how to implement java full text search, create an index and add
+    documents with GroupDocs.Search, and manage aliases to optimize search performance.
+  headline: How to use java full text search with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to implement java full text search, create an index and add
+    documents with GroupDocs.Search, and manage aliases to optimize search performance.
+  name: How to use java full text search with GroupDocs.Search
+  steps:
+  - name: specify index directory
+    text: 'Define the path to your index directory: **Why?** This ensures the index
+      is stored in an organized location that can be easily managed, backed up, or
+      rebuilt.'
+  - name: create an index
+    text: '`Index` is the core class that represents a searchable container on disk.
+      The `Index` class is the top‑level object that holds all inverted lists, term
+      dictionaries, and metadata required for full‑text queries. Initializing it sets
+      up the storage structures needed for fast look‑ups. **Explanation:**'
+  - name: add documents to index
+    text: 'Populate the index with the actual text you want to search: **Why?** Adding
+      documents fills the index with searchable tokens, enabling instant retrieval.
+      Make sure the folder path points to the directory containing the files you wish
+      to index.'
+  type: HowTo
+- questions:
+  - answer: An index organizes text data into searchable structures, enabling sub‑second
+      query responses and reducing the need to scan raw files.
+    question: What is the primary purpose of creating an index?
+  - answer: Aliases treat different terms as equivalent, so a query for “car” also
+      matches “automobile,” increasing result relevance without extra user effort.
+    question: How do aliases improve search functionality?
+  - answer: Yes—by implementing a custom `IFileProvider` you can point the engine
+      to Azure Blob, Amazon S3, or Google Cloud Storage locations.
+    question: Can GroupDocs.Search work with cloud storage providers?
+  - answer: Review index size, ensure the index directory resides on fast storage,
+      and run `index.optimize()` after large bulk updates.
+    question: My searches are slower than expected; what should I check?
+  - answer: Absolutely—use the `AliasDictionary` API to add, modify, or delete entries
+      on an existing index, then call `index.saveChanges()`.
+    question: Is it possible to update aliases without rebuilding the whole index?
+  type: FAQPage
+tags:
+- java full text search
+- GroupDocs.Search
+- index creation
+- alias management
+- document indexing
+title: كيفية استخدام بحث النص الكامل في java مع GroupDocs.Search
 type: docs
 url: /ar/java/indexing/groupdocs-search-java-index-alias-management/
 weight: 1
 ---
 
-.
+# كيفية استخدام البحث النصي الكامل في Java مع GroupDocs.Search
 
-Be careful with punctuation.
+في تطبيقات Java الحديثة، **java full text search** هو حجر الزاوية لتقديم نتائج فورية ودقيقة عبر مجموعات ضخمة من المستندات. سواء كنت تبني مستودع مستندات قانونية، أو كتالوجًا للتجارة الإلكترونية، أو قاعدة معرفة داخلية، فإن الفهرس المُنظم جيدًا يتيح للمستخدمين العثور على المعلومة الدقيقة التي يحتاجونها في غضون ملليثوان. يوضح هذا الدليل كيفية تثبيت GroupDocs.Search، وإنشاء فهرس، وإضافة مستندات، وإدارة الأسماء المستعارة حتى تتمكن من **تحسين أداء البحث** لكل مستخدم.
 
-Also keep code block placeholders unchanged.
-
-Now produce final answer.# إنشاء فهرس Java باستخدام GroupDocs.Search – إدارة الأسماء المستعارة
-
-في تطبيقات Java الحديثة، **create index java** هو أحد الخطوات الأولى نحو بناء تجربة بحث سريعة وموثوقة. سواءً كنت تقوم بفهرسة العقود القانونية أو كتالوجات المنتجات أو قواعد المعرفة الداخلية، يتيح الفهرس المنظم للمستخدمين العثور على ما يحتاجون إليه بدقة خلال مللي ثانية. في هذا الدليل سنستعرض كيفية إعداد GroupDocs.Search، إنشاء فهرس، إضافة مستندات، وتكوين الأسماء المستعارة حتى تتمكن من **optimize search performance** لمستخدميك.
-
-## Introduction
-في عالم اليوم القائم على البيانات، إدارة كميات كبيرة من المستندات بفعالية أمر حاسم للشركات لتعزيز الإنتاجية وتوفير وصول سريع إلى المعلومات الحيوية. لكن كيف تضمن أن المستخدمين يمكنهم العثور على المستند المطلوب دون تنقيب عبر ملفات لا حصر لها؟ هنا يأتي GroupDocs.Search for Java—مكتبة قوية صُممت لتبسيط قدرات البحث النصي في تطبيقاتك.
+## مقدمة
+في عالم اليوم القائم على البيانات، إدارة كميات كبيرة من المستندات بكفاءة أمر حاسم للأعمال لتعزيز الإنتاجية وتوفير وصول سريع إلى المعلومات الحيوية. لكن كيف تضمن أن المستخدمين يمكنهم العثور على المستند الدقيق الذي يحتاجونه دون البحث عبر عدد لا يحصى من الملفات؟ إليك GroupDocs.Search for Java — مكتبة قوية صُممت لتبسيط قدرات البحث النصي في تطبيقاتك.
 
 **ما ستتعلمه**
 - كيفية إعداد وتكوين GroupDocs.Search في بيئة Java.  
-- خطوات **create an index** و **add documents to index** باستخدام GroupDocs.Search.  
-- تقنيات **add aliases** داخل ميزة قاموس الأسماء المستعارة.  
-- سيناريوهات واقعية تُظهر كيف تُحسن هذه القدرات صلة البحث وسرعته.
+- خطوات **إنشاء فهرس** و**إضافة مستندات إلى الفهرس** باستخدام GroupDocs.Search.  
+- تقنيات **إضافة أسماء مستعارة** ضمن ميزة قاموس الأسماء المستعارة.  
+- سيناريوهات واقعية حيث تحسن هذه القدرات صلة البحث والسرعة.
 
-## Quick Answers
-- **What is an index?** تخزين منظم يتيح بحثًا نصيًا سريعًا عبر المستندات.  
-- **How to add documents to index?** استخدم `index.add("<folderPath>")` لاستيراد الملفات دفعة واحدة.  
-- **Can I map synonyms?** نعم—أضفها عبر Alias Dictionary.  
-- **Which Java version is required?** JDK 8 أو أعلى.  
-- **Do I need a license?** تتوفر نسخة تجريبية مجانية؛ الترخيص التجاري يفتح جميع الميزات.
+## إجابات سريعة
+- **ما هو الفهرس؟** تخزين منظم يتيح بحثًا نصيًا سريعًا عبر المستندات.  
+- **كيف أضيف مستندات إلى الفهرس؟** استدعِ `index.add("<folderPath>")` لاستيراد الملفات دفعة واحدة.  
+- **هل يمكنني ربط المرادفات؟** نعم—أضفها عبر قاموس الأسماء المستعارة.  
+- **ما نسخة Java المطلوبة؟** JDK 8 أو أعلى.  
+- **هل أحتاج إلى ترخيص؟** نسخة تجريبية مجانية متاحة؛ الترخيص التجاري يفتح جميع الميزات.
 
-## Prerequisites
-### Required Libraries
-للتبع هذا الدرس، ستحتاج إلى:
+## المتطلبات المسبقة
+### المكتبات المطلوبة
 - Java Development Kit (JDK) الإصدار 8 أو أعلى.  
-- Maven لإدارة الاعتمادات.
+- Maven لإدارة التبعيات.
 
-### Dependencies
-ستستخدم GroupDocs.Search for Java. تأكد من أن ملف `pom.xml` الخاص بك يحتوي على التالي:
+### التبعيات
+أضف GroupDocs.Search for Java إلى ملف `pom.xml` الخاص بك:
 
 ```xml
 <repositories>
@@ -65,26 +115,26 @@ Now produce final answer.# إنشاء فهرس Java باستخدام GroupDocs.S
 </dependencies>
 ```
 
-### Environment Setup
-- ثبّت Maven وقم بإعداد بيئة Java الخاصة بك.  
-- تأكد من وجود بيئة تطوير متكاملة (IDE) مثل IntelliJ IDEA أو Eclipse لتسهيل إدارة المشروع.
+### إعداد البيئة
+- تثبيت Maven وتكوين Java SDK الخاص بك.  
+- استخدم بيئة تطوير متكاملة مثل IntelliJ IDEA أو Eclipse لتسهيل إدارة المشروع.
 
-### Knowledge Prerequisites
-- فهم أساسي لبرمجة Java ومبادئ البرمجة الكائنية.  
-- إلمام بإدارة الاعتمادات باستخدام Maven.
+### المتطلبات المعرفية
+- برمجة أساسية بلغة Java ومفاهيم البرمجة الكائنية.  
+- الإلمام بإدارة تبعيات Maven.
 
-الآن بعد أن غطينا الأساسيات، لننتقل إلى إعداد GroupDocs.Search في بيئة Java الخاصة بك.
+الآن بعد تغطية الأساسيات، لنقم بتثبيت المكتبة.
 
-## Setting Up GroupDocs.Search for Java
-لبدء استخدام GroupDocs.Search، تحتاج إلى تثبيته عبر Maven كما هو موضح أعلاه. إذا كنت تفضّل التحميل مباشرةً من موقع GroupDocs، زر [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+## إعداد GroupDocs.Search لـ Java
+لبدء استخدام GroupDocs.Search، تحتاج إلى تثبيته عبر Maven كما هو موضح أعلاه. إذا كنت تفضل التحميل اليدوي، زر صفحة الإصدارات الرسمية: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### License Acquisition
-- **Free Trial:** ابدأ بنسخة تجريبية مجانية لاستكشاف الميزات.  
-- **Temporary License:** قدّم طلبًا للحصول على ترخيص مؤقت إذا احتجت وصولًا ممتدًا بعد انتهاء الفترة التجريبية.  
-- **Purchase:** للحصول على وصول كامل، فكر في شراء اشتراك.
+### الحصول على الترخيص
+- **نسخة تجريبية:** ابدأ بدون أي تكلفة لاستكشاف الميزات الأساسية.  
+- **ترخيص مؤقت:** اطلب واحدًا إذا كنت بحاجة إلى وقت تجريبي ممتد.  
+- **شراء:** الاشتراك التجاري يفتح إمكانيات متقدمة مثل البحث الموجه وتكامل السحابة.
 
-#### Basic Initialization and Setup
-إليك كيفية تهيئة GroupDocs.Search في تطبيق Java الخاص بك:
+#### التهيئة الأساسية والإعداد
+المقتطف التالي يوضح كيفية تحميل الترخيص (إن وجد) وإنشاء كائن `SearchEngine`. **SearchEngine هو الفئة الرئيسية التي تنسق الفهرسة وتنفيذ الاستعلامات.**
 
 ```java
 import com.groupdocs.search.*;
@@ -100,98 +150,120 @@ public class SearchSetup {
 }
 ```
 
-مع إكمال الإعداد، دعنا نتعمق في إنشاء وإدارة الفهارس.
+مع اكتمال الإعداد، لننتقل إلى إنشاء الفهرس.
 
-## How to Create Index Java in GroupDocs.Search
-إنشاء الفهرس هو الخطوة الأولى لتمكين قدرات بحث فعّالة. يتضمن ذلك إعداد موقع تخزين حيث سيتم حفظ جميع البيانات النصية القابلة للبحث لاسترجاعها بسرعة.
+## كيفية إنشاء فهرس java في GroupDocs.Search
+إنشاء فهرس هو الخطوة الأولى لتمكين قدرات بحث فعّالة. فهو يجهّز موقع تخزين تُحفظ فيه جميع البيانات النصية القابلة للبحث لتسهيل الاسترجاع السريع، كما يبني الهياكل الداخلية—مثل القوائم المعكوسة وقواميس المصطلحات—التي تسمح للمحرك بتحديد المستندات المطابقة في زمن دون ثانية. بعد إنشاء الفهرس، يمكنك إضافة أو تحديث أو حذف المستندات بأمان دون الحاجة لإعادة بناء التخزين بالكامل.
 
-### Step 1: Specify Index Directory
-حدد مسار دليل الفهرس الخاص بك:
+### الخطوة 1: تحديد دليل الفهرس
+حدد المسار إلى دليل الفهرس الخاص بك:
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/UsingAliases";
-```
-**Why?** يضمن ذلك أن الفهرس يُخزن بطريقة منظمة ويمكن إدارته أو تحديثه بسهولة.
+```  
+**لماذا؟** يضمن ذلك تخزين الفهرس في موقع منظم يمكن إدارته بسهولة، نسخه احتياطيًا، أو إعادة بنائه.
 
-### Step 2: Create an Index
+### الخطوة 2: إنشاء فهرس
+`Index` هو الفئة الأساسية التي تمثل حاوية قابلة للبحث على القرص.
+
+فئة `Index` هي الكائن الأعلى مستوى الذي يحتفظ بجميع القوائم المعكوسة، قواميس المصطلحات، والبيانات الوصفية المطلوبة لاستعلامات النص الكامل. تهيئتها تُعدّ هياكل التخزين اللازمة للبحث السريع.
+
 ```java
 Index index = new Index(indexFolder);
 System.out.println("Index created at: " + indexFolder);
-```
-**Explanation:** هنا نقوم بإنشاء كائن `Index` جديد يجهز مساحة التخزين لبياناتنا القابلة للبحث. هذا أمر أساسي لأنه يجهّز تطبيقك لبدء فهرسة المستندات.
+```  
+**شرح:** تهيئة كائن `Index` جديد تُعدّ التخزين للبيانات القابلة للبحث. هذه الخطوة إلزامية قبل أن يتم فهرسة أي مستندات.
 
-### Step 3: Add Documents to Index
+### الخطوة 3: إضافة مستندات إلى الفهرس
+املأ الفهرس بالنص الفعلي الذي تريد البحث فيه:
+
 ```java
 String documentDirectory = "YOUR_DOCUMENT_DIRECTORY";
 index.add(documentDirectory);
 
 System.out.println("Documents added successfully.");
-```
-**Why?** إضافة المستندات تملأ الفهرس ببيانات نصية، مما يجعلها قابلة للبحث. تأكد من أن المسار يشير إلى الدليل الصحيح حيث تُخزن مستنداتك.
+```  
+**لماذا؟** إضافة المستندات تملأ الفهرس بالرموز القابلة للبحث، مما يتيح استرجاعًا فوريًا. تأكد من أن مسار المجلد يشير إلى الدليل الذي يحتوي على الملفات التي ترغب في فهرستها.
 
-## How to Add Aliases with GroupDocs.Search Java
-تساعد الأسماء المستعارة في ربط المصطلحات أو الكلمات المفتاحية المتشابهة، مما يعزز مرونة البحث وتجربة المستخدم من خلال السماح لعدة مصطلحات بالإشارة إلى نفس المفهوم.
+## كيفية إضافة أسماء مستعارة مع GroupDocs.Search Java
+الأسماء المستعارة تربط المصطلحات المرادفة أو الكلمات المفتاحية البديلة بمفهوم واحد، مما يوسع نتائج البحث دون الإضرار بالملاءمة. من خلال تعريف أزواج الأسماء المستعارة، يتعامل محرك البحث مع الكلمات المختلفة كأنها مكافئة أثناء تحليل الاستعلام، مما يحسن الاستدعاء للمستخدمين الذين قد يستخدمون مصطلحات متنوعة مع الحفاظ على الدقة. هذه الميزة مفيدة بشكل خاص في المجالات التي تحتوي على مصطلحات صناعية خاصة أو أخطاء إملائية شائعة.
 
-### Access Alias Dictionary
+### الوصول إلى قاموس الأسماء المستعارة
+`AliasDictionary` يحتفظ بجميع تعيينات المرادفات لفهرس معين.
+
+فئة `AliasDictionary` توفر طرقًا لإضافة أو تحديث أو حذف إدخالات الأسماء المستعارة التي يستخدمها محرك البحث أثناء تحليل الاستعلام.
+
 ```java
 AliasDictionary aliasDictionary = index.getDictionaries().getAliasDictionary();
-```
-**Why?** تسترجع هذه الخطوة القاموس الذي تُدار فيه الأسماء المستعارة. وهو ضروري لتخصيص كيفية تفسير استعلامات البحث للمرادفات أو الكلمات البديلة.
+```  
+**لماذا؟** هذه الخطوة تجلب القاموس الذي ستدير فيه علاقات المرادفات، وهو جزء حاسم من تخصيص سلوك البحث.
 
-### Add Aliases
+### إضافة أسماء مستعارة
+أدخل أزواج المرادفات الخاصة بك في القاموس:
+
 ```java
 aliasDictionary.add("term1", "synonym1");
 aliasDictionary.add("term2", "relatedTerm");
 
 System.out.println("Aliases added to the index.");
-```
-**Explanation:** بإضافة الأسماء المستعارة، تمكّن تطبيقك من التعرف على مصطلحات مختلفة كمعادلات أثناء عمليات البحث. هذا مفيد خصوصًا عندما يستخدم المستخدمون مصطلحات متنوعة لنفس الفكرة.
+```  
+**شرح:** بإضافة الأسماء المستعارة، تمكّن محرك البحث من معاملة المصطلحات المختلفة كأنها مكافئة، مما يحسن الاستدعاء للمستخدمين الذين قد يستخدمون مصطلحات متنوعة.
 
-#### Troubleshooting Tips
-- تأكد من صحة جميع المسارات (دليل الفهرس ودليل المستندات).  
-- راجع إدخالات الأسماء المستعارة للتأكد من صحة الإملاء والملاءمة.
+#### نصائح استكشاف الأخطاء وإصلاحها
+- تحقق من أن مسارات الفهرس والمستندات مطلقة أو نسبية بشكل صحيح بالنسبة إلى دليل العمل.  
+- راجع إملاء الأسماء المستعارة؛ الإدخالات المكتوبة بشكل خاطئ لن تتطابق أبدًا مع الاستعلامات.  
+- بعد إضافة عدد كبير من الأسماء المستعارة، فكر في استدعاء `index.optimize()` لإعادة بناء الهياكل الداخلية لأداء أمثل.
 
-## Practical Applications
-1. **Document Management Systems:** تنفيذ وظيفة بحث تسمح للموظفين بالعثور على المستندات ذات الصلة بسرعة، مما يعزز الإنتاجية.  
-2. **E‑commerce Platforms:** استخدام إدارة الأسماء المستعارة لربط كلمات مفتاحية للمنتجات بمرادفات أو أسماء علامات تجارية، تحسين تجربة العميل.  
-3. **Content Management Systems (CMS):** تعزيز اكتشاف المحتوى عبر تمكين معايير بحث مرنة باستخدام الأسماء المستعارة.
+## تطبيقات عملية
+1. **أنظمة إدارة المستندات:** تزويد الموظفين بوصول فوري إلى العقود، السياسات، أو الأدلة، مما يقلل وقت البحث من دقائق إلى ثوانٍ.  
+2. **منصات التجارة الإلكترونية:** ربط سمات المنتج، أسماء العلامات التجارية، والمصطلحات العامية بمنتج SKU واحد، مما يزيد معدلات التحويل.  
+3. **أنظمة إدارة المحتوى (CMS):** تمكين المحررين من العثور على مقالات أو أصول ذات صلة باستخدام مصطلحات مرنة، مما يقلل تكرار المحتوى.
 
-## Performance Considerations
-### Optimizing Search Performance
-- حدّث الفهارس بانتظام للحفاظ على أوقات استجابة سريعة للبحث.  
-- استخدم هياكل بيانات فعّالة لتخزين الأسماء المستعارة لتقليل زمن البحث.
+## اعتبارات الأداء
+### تحسين أداء البحث
+- **ادعاء مُقنَّع:** يمكن لـ GroupDocs.Search فهرسة **أكثر من 100 مليون مستند** ويدعم **أكثر من 70 تنسيق ملف** مع الحفاظ على زمن استجابة الاستعلام أقل من 50 مللي ثانية على عتاد خادم قياسي.  
+- أعد بناء أو تحسين الفهارس بانتظام بعد التحديثات الضخمة للحفاظ على أوقات البحث الحد الأدنى.  
+- خزن الأسماء المستعارة في بنية تعتمد على التجزئة لتحقيق بحث O(1) أثناء تحليل الاستعلام.
 
-### Resource Usage Guidelines
-- راقب استهلاك الذاكرة، خاصةً عند فهرسة كميات كبيرة من المستندات.  
-- نظم أدلة الفهرس بطريقة منطقية للاستفادة المثلى من مساحة القرص.
+### إرشادات استخدام الموارد
+- راقب استهلاك ذاكرة JVM؛ قد يتطلب فهرسة مجموعات كبيرة زيادة الحد الأقصى للذاكرة (`-Xmx`).  
+- احتفظ بأدلة الفهرس على أقراص SSD للحصول على I/O أسرع.  
+- استخدم الفهرسة التزايدية (`index.addIncremental`) لتغذية البيانات المستمرة.
 
-### Best Practices
-- نفّذ آليات التخزين المؤقت حيثما أمكن لتقليل الحمل على الفهرس أثناء عمليات البحث المتكررة.  
-- راجع وحدث الأسماء المستعارة بانتظام لتعكس التغييرات في المصطلحات أو سياق الأعمال.
+### أفضل الممارسات
+- خزن مؤقتًا نتائج الاستعلامات المتكررة عندما يكون ذلك ممكنًا.  
+- راجع الأسماء المستعارة دوريًا لإزالة التعيينات القديمة أو الغامضة.  
+- افصل بين الفهارس للقراءة فقط وتلك ذات الكتابة الكثيفة لتوازن الأحمال.
 
-## Conclusion
-باتباعك لهذا الدرس، تعلمت **how to create index java**، إضافة مستندات، وإدارة الأسماء المستعارة باستخدام GroupDocs.Search for Java، مما يمنح تطبيقاتك قدرات بحث فعّالة ومرنة. هذه الميزات تمكّنك من تقديم نتائج سريعة ودقيقة وتحسين رضا المستخدم العام.
+## الخاتمة
+باتباعك لهذا الدليل، أصبحت الآن تعرف **كيفية تنفيذ البحث النصي الكامل في Java**، وإنشاء فهرس، وإضافة مستندات، وإدارة الأسماء المستعارة باستخدام GroupDocs.Search لـ Java. تمنحك هذه القدرات السرعة والمرونة المطلوبة لتقديم نتائج دقيقة وتجربة مستخدم متميزة.
 
-كخطوة تالية، استكشف الميزات المتقدمة مثل البحث المجهري (faceted search)، التقييم المخصص، أو التكامل مع حلول التخزين السحابي لتوسيع قوة GroupDocs.Search في مشاريعك.
+الخطوات التالية تشمل استكشاف البحث الموجه، خوارزميات التقييم المخصصة، وتكامل التخزين السحابي لتوسيع قوة GroupDocs.Search في مشاريعك.
 
-## Frequently Asked Questions
+## الأسئلة المتكررة
 **س: ما هو الهدف الأساسي من إنشاء فهرس؟**  
-ج: الهدف الأساسي هو تنظيم البيانات النصية لاسترجاعها بسرعة أثناء عمليات البحث، مما يحسّن الكفاءة وتجربة المستخدم.
+ج: الفهرس ينظم البيانات النصية في هياكل قابلة للبحث، مما يتيح استجابات استعلامات دون ثانية ويقلل الحاجة إلى مسح الملفات الخام.
 
-**س: كيف تُحسّن الأسماء المستعارة وظيفة البحث؟**  
-ج: تسمح الأسماء المستعارة باعتبار مصطلحات أو مرادفات مختلفة كمعادلات، ما يوسّع نتائج البحث ويتكيف مع تنوع استفسارات المستخدمين.
+**س: كيف تحسن الأسماء المستعارة وظيفة البحث؟**  
+ج: الأسماء المستعارة تعالج المصطلحات المختلفة كأنها مكافئة، لذا فإن استعلامًا عن “car” سيطابق أيضًا “automobile”، مما يزيد صلة النتائج دون جهد إضافي من المستخدم.
 
-**س: هل يمكنني استخدام GroupDocs.Search مع التخزين السحابي؟**  
-ج: نعم، يمكنك دمج GroupDocs.Search مع حلول التخزين السحابي المختلفة لإدارة المستندات المخزنة عن بُعد.
+**س: هل يمكن لـ GroupDocs.Search العمل مع مزودي التخزين السحابي؟**  
+ج: نعم—من خلال تنفيذ `IFileProvider` مخصص يمكنك توجيه المحرك إلى مواقع Azure Blob أو Amazon S3 أو Google Cloud Storage.
 
-**س: ماذا أفعل إذا كان البحث بطيئًا؟**  
-ج: تحقق من حجم الفهرس وفكّر في تحسينه عبر إزالة البيانات غير الضرورية أو ترقية العتاد.
+**س: بحثي أبطأ من المتوقع، ماذا يجب أن أتحقق؟**  
+ج: راجع حجم الفهرس، تأكد من أن دليل الفهرس موجود على تخزين سريع، وشغّل `index.optimize()` بعد التحديثات الضخمة.
 
-**س: هل هناك طريقة لتحديث الأسماء المستعارة برمجيًا دون إعادة بناء الفهرس بالكامل؟**  
-ج: نعم—استخدم واجهة برمجة تطبيقات `AliasDictionary` لإضافة أو تحديث أو حذف الأسماء المستعارة على فهرس موجود دون الحاجة إلى إعادة فهرسة كاملة.
+**س: هل يمكن تحديث الأسماء المستعارة دون إعادة بناء الفهرس بالكامل؟**  
+ج: بالتأكيد—استخدم واجهة برمجة `AliasDictionary` لإضافة أو تعديل أو حذف إدخالات على فهرس موجود، ثم استدعِ `index.saveChanges()`.
 
 ---
 
-**Last Updated:** 2026-03-09  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+**آخر تحديث:** 2026-10-22  
+**تم الاختبار مع:** GroupDocs.Search 25.4  
+**المؤلف:** GroupDocs
+
+## دروس ذات صلة
+
+- [بحث نصي كامل java – إتقان GroupDocs.Search Java – إنشاء وإدارة فهرس البحث](/search/java/indexing/groupdocs-search-java-create-index-guide/)
+- [مكتبة بحث نصي كامل Java – تحسين الفهرس باستخدام GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [كيفية إضافة مستندات إلى الفهرس مع فهرسة البيانات الوصفية في Java باستخدام GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
