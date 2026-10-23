@@ -283,6 +283,6 @@ A: GroupDocs.Search scans the folder recursively, extracts text from each suppor
 
 ## Related Tutorials
 
-- [How to add documents to index with Metadata Indexing in Java using GroupDocs.Search]({{< relref "search/java/indexing/groupdocs-search-java-metadata-indexing/_index.md" >}})
-- [Implement Full Text Search Java Groupdocs Search]({{< relref "search/java/searching/implement-full-text-search-java-groupdocs-search/_index.md" >}})
-- [Java Full Text Search Library – Optimize Index with GroupDocs.Search]({{< relref "search/java/performance-optimization/groupdocs-search-java-index-optimization/_index.md" >}})
+- [How to add documents to index with Metadata Indexing in Java using GroupDocs.Search](/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [Implement Full Text Search Java Groupdocs Search](/java/searching/implement-full-text-search-java-groupdocs-search/)
+- [Java Full Text Search Library – Optimize Index with GroupDocs.Search](/java/performance-optimization/groupdocs-search-java-index-optimization/)

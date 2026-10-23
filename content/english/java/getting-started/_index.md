@@ -201,6 +201,6 @@ Learn how to deploy and configure GroupDocs.Search for Java with this step‑by�
 
 ## Related Tutorials
 
-- [Set License Java – GroupDocs.Search Java Configuration Guide]({{< relref "search/java/licensing-configuration/_index.md" >}})
-- [Java Fuzzy Search: Add Documents to Index with GroupDocs.Search]({{< relref "search/java/searching/groupdocs-search-java-advanced-text-search-guide/_index.md" >}})
-- [Java GroupDocs Search Spelling Correction Tutorial]({{< relref "search/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/_index.md" >}})
+- [Set License Java – GroupDocs.Search Java Configuration Guide](/java/licensing-configuration/)
+- [Java Fuzzy Search: Add Documents to Index with GroupDocs.Search](/java/searching/groupdocs-search-java-advanced-text-search-guide/)
+- [Java GroupDocs Search Spelling Correction Tutorial](/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/)
