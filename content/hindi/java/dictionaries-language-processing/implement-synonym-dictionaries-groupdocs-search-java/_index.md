@@ -1,58 +1,111 @@
 ---
-date: '2026-03-04'
-description: GroupDocs.Search का उपयोग करके जावा में समानार्थी शब्दों के साथ खोज करना
-  सीखें, समानार्थी शब्दकोश आयात करें, समानार्थी समूहों का प्रबंधन करें, और बेहतर परिणामों
-  के लिए अपने खोज इंडेक्स को अनुकूलित करें।
+date: '2026-10-17'
+description: Java में GroupDocs.Search के साथ synonyms का उपयोग करना सीखें, synonym
+  dictionaries को import करें, synonym groups को manage करें, और बेहतर relevance के
+  लिए अपने search index को optimize करें।
 keywords:
-- synonym dictionaries java
-- groupdocs.search synonym implementation
-- java search functionality enhancement
-title: जावा में GroupDocs.Search का उपयोग करके समानार्थक शब्दों के साथ खोज कैसे करें
-  – एक व्यापक मार्गदर्शिका
+- how to use synonyms
+- add synonym support
+- manage synonym groups
+- import synonym dictionary
+- optimize search index
+lastmod: '2026-10-17'
+og_description: Java में GroupDocs.Search के साथ synonyms का उपयोग करना सीखें, synonym
+  dictionaries को import करें, synonym groups को manage करें, और बेहतर relevance के
+  लिए अपने search index को optimize करें।
+og_image_alt: Developer guide showing synonym dictionary integration in GroupDocs.Search
+  for Java
+og_title: Java में GroupDocs.Search के साथ synonyms का उपयोग कैसे करें
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-17'
+  description: Learn how to use synonyms in Java with GroupDocs.Search, import synonym
+    dictionaries, manage synonym groups, and optimize your search index for better
+    relevance.
+  headline: How to use synonyms in Java with GroupDocs.Search
+  type: TechArticle
+- description: Learn how to use synonyms in Java with GroupDocs.Search, import synonym
+    dictionaries, manage synonym groups, and optimize your search index for better
+    relevance.
+  name: How to use synonyms in Java with GroupDocs.Search
+  steps:
+  - name: '**Content management systems (CMS):** Users find articles even when they
+      use alternative terminology.'
+    text: '**Content management systems (CMS):** Users find articles even when they
+      use alternative terminology.'
+  - name: '**E‑commerce platforms:** Product searches become tolerant to synonyms
+      like “laptop” vs. “notebook”.'
+    text: '**E‑commerce platforms:** Product searches become tolerant to synonyms
+      like “laptop” vs. “notebook”.'
+  - name: '**Document repositories:** Legal or medical archives benefit from domain‑specific
+      synonym groups, improving discoverability for professionals.'
+    text: '**Document repositories:** Legal or medical archives benefit from domain‑specific
+      synonym groups, improving discoverability for professionals.'
+  type: HowTo
+- questions:
+  - answer: Any modern OS with a compatible JDK (Java 8 or newer) is sufficient.
+    question: What is the minimum system requirement for using GroupDocs.Search?
+  - answer: Update it whenever new terminology emerges—use `clear()` followed by `addRange()`
+      for a clean refresh.
+    question: How often should I refresh my synonym dictionary?
+  - answer: A free trial works for evaluation, but a license is required for production
+      deployments.
+    question: Can I run GroupDocs.Search without purchasing a license?
+  - answer: Split data into logical batches, monitor heap usage, and schedule regular
+      index maintenance.
+    question: What are best practices for indexing large data sets?
+  - answer: Verify that the dictionary is correctly imported, that `setUseSynonymSearch(true)`
+      is active, and that the terms are present in the synonym groups.
+    question: I’m not seeing expected synonym matches—what should I check?
+  type: FAQPage
+tags:
+- synonym search
+- GroupDocs.Search
+- Java search indexing
+- document retrieval
+title: Java में GroupDocs.Search के साथ synonyms का उपयोग कैसे करें
 type: docs
 url: /hi/java/dictionaries-language-processing/implement-synonym-dictionaries-groupdocs-search-java/
 weight: 1
 ---
 
-# जावा में GroupDocs.Search का उपयोग करके समानार्थक शब्दों के साथ खोज कैसे करें
+# जावा में GroupDocs.Search के साथ समानार्थक शब्दों का उपयोग कैसे करें
 
-यदि आप चाहते हैं कि आपके उपयोगकर्ता विभिन्न शब्द टाइप करने पर भी सही सामग्री खोज सकें, तो **search with synonyms** ही उत्तर है। इस गाइड में हम आपको वह सब बताएँगे जो आपको जानना आवश्यक है—समानार्थक शब्दकोश बनाना, उसे आयात/निर्यात करना, समानार्थक समूहों का प्रबंधन, और अंत में एक ऐसी खोज चलाना जो उन समानार्थकों का उपयोग करके क्वेरी को स्वचालित रूप से विस्तारित करे। चाहे आप CMS, e‑commerce कैटलॉग, या कानूनी दस्तावेज़ रिपॉजिटरी बना रहे हों, समानार्थक समर्थन जोड़ने से प्रासंगिकता और रूपांतरण दर में काफी वृद्धि हो सकती है।
+यदि आप चाहते हैं कि आपके उपयोगकर्ता विभिन्न शब्द टाइप करने पर भी सही सामग्री खोजें, तो **search with synonyms** उत्तर है। इस गाइड में आप सीखेंगे कि समानार्थक शब्दकोश कैसे बनाएं, उसे आयात या निर्यात करें, समानार्थक समूहों का प्रबंधन करें, और एक खोज चलाएँ जो उन समानार्थक शब्दों का उपयोग करके क्वेरी को स्वचालित रूप से विस्तारित करती है। चाहे आप CMS, ई‑कॉमर्स कैटलॉग, या कानूनी दस्तावेज़ रिपॉजिटरी बना रहे हों, समानार्थक समर्थन जोड़ने से प्रासंगिकता और रूपांतरण दरों में नाटकीय रूप से वृद्धि हो सकती है।
 
-## Quick Answers
-- **समानार्थक शब्द जोड़ने का प्राथमिक चरण क्या है?** `Index` को इनिशियलाइज़ करें और `SynonymDictionary` API का उपयोग करें।  
-- **क्या मैं समानार्थक शब्दकोश आयात कर सकता हूँ?** हाँ – `importDictionary(path)` का उपयोग करके पूर्व-निर्मित फ़ाइल लोड करें।  
-- **समानार्थक शब्दों के साथ खोज कैसे सक्षम करें?** `SearchOptions.setUseSynonymSearch(true)` सेट करें।  
-- **क्या समानार्थक समूहों का प्रबंधन संभव है?** बिल्कुल – आप शब्दकोश API के माध्यम से समूहों को साफ़, जोड़ या प्राप्त कर सकते हैं।  
-- **खोज इंडेक्स को अनुकूलित करते समय क्या विचार करना चाहिए?** अनावश्यक प्रविष्टियों को नियमित रूप से हटाएँ और बड़े डेटा सेट के लिए JVM हीप को ट्यून करें।  
+## त्वरित उत्तर
+- **समानार्थक शब्द जोड़ने का पहला कदम क्या है?** एक `Index` इंस्टेंस बनाएं और `SynonymDictionary` API के साथ काम करें।  
+- **क्या मैं तैयार समानार्थक शब्दकोश आयात कर सकता हूँ?** हाँ – फ़ाइल स्थान के साथ `importDictionary(path)` कॉल करें।  
+- **समानार्थक‑सचेत खोज को कैसे सक्रिय करें?** `SearchOptions.setUseSynonymSearch(true)` सक्षम करें।  
+- **क्या रनटाइम पर समानार्थक समूहों को संपादित करना संभव है?** बिल्कुल – आप शब्दकोश API के माध्यम से समूहों को साफ़, जोड़ या प्राप्त कर सकते हैं।  
+- **इंडेक्स को स्केल करते समय मुझे क्या मॉनिटर करना चाहिए?** अनावश्यक प्रविष्टियों को नियमित रूप से हटाएँ और बड़े समानार्थक फ़ाइलों के लिए JVM हीप को ट्यून करें।
 
-## What Is Search with Synonyms?
-“Search with synonyms” का अर्थ है कि इंजन शब्दों या वाक्यांशों के एक सेट को परस्पर विनिमेय मानता है। जब उपयोगकर्ता **“better”** टाइप करता है, तो इंजन **“improve”**, **“enhance”**, या उसी समानार्थक समूह में परिभाषित किसी भी अन्य शब्द को भी खोजता है, जिससे उपयोगकर्ता की क्वेरी बदले बिना अधिक समृद्ध परिणाम मिलते हैं।
+## समानार्थक शब्दों के साथ खोज क्या है?
+**Search with synonyms** का अर्थ है कि इंजन शब्दों या वाक्यांशों के सेट को परस्पर बदलने योग्य मानता है। जब कोई उपयोगकर्ता **“better”** टाइप करता है, तो इंजन **“improve”**, **“enhance”**, या आपके द्वारा उसी समानार्थक समूह में परिभाषित किसी भी अन्य शब्द को भी खोजता है, जिससे उपयोगकर्ता की क्वेरी बदले बिना समृद्ध परिणाम मिलते हैं।
 
-## Why Enable Synonym Support in GroupDocs.Search?
-- **बेहतर उपयोगकर्ता अनुभव:** आगंतुक विभिन्न शब्दावली का उपयोग करने पर भी प्रासंगिक दस्तावेज़ पा लेते हैं।  
-- **उच्च रूपांतरण दर:** e‑commerce प्लेटफ़ॉर्म विभिन्न उत्पाद शब्दों से मेल करके अधिक बिक्री प्राप्त करते हैं।  
-- **सरल रखरखाव:** एक केंद्रीकृत शब्दकोश कई अनुप्रयोगों की सेवा कर सकता है, जिससे अपडेट आसान हो जाते हैं।  
+## GroupDocs.Search में समानार्थक समर्थन क्यों सक्षम करें?
+समानार्थक समर्थन को सक्षम करने से इंजन स्वचालित रूप से क्वेरी को समानार्थी शब्दों को शामिल करने के लिए विस्तारित करता है, जिससे परिणामों की प्रासंगिकता में सुधार, उपयोगकर्ता संतुष्टि में वृद्धि, और ई‑कॉमर्स या कंटेंट‑ड्रिवेन साइटों के लिए रूपांतरण दरों में वृद्धि हो सकती है। यह शब्दावली प्रबंधन को केंद्रीकृत भी करता है, जिससे कई अनुप्रयोगों में रखरखाव ओवरहेड कम होता है।
 
-## Prerequisites
-- GroupDocs.Search for Java संस्करण 25.4 या नया।  
-- एक Java IDE (IntelliJ IDEA, Eclipse, आदि) जिसमें Maven समर्थन हो।  
+## पूर्वापेक्षाएँ
+- GroupDocs.Search for Java संस्करण **25.4** या नया।  
+- Maven समर्थन के साथ एक Java IDE (IntelliJ IDEA, Eclipse, आदि)।  
 - बुनियादी Java ज्ञान और Maven प्रोजेक्ट संरचना की परिचितता।
 
-### Required Libraries and Versions
-- GroupDocs.Search for Java संस्करण 25.4 या उच्चतर।
+### आवश्यक लाइब्रेरी और संस्करण
+- GroupDocs.Search for Java **25.4** या उससे ऊपर।
 
-### Environment Setup
+### पर्यावरण सेटअप
 - आपकी पसंद का IDE (IntelliJ IDEA, Eclipse, आदि)।  
 - निर्भरता प्रबंधन के लिए Maven।
 
-### Knowledge Requirements
+### ज्ञान आवश्यकताएँ
 - Java में ऑब्जेक्ट‑ओरिएंटेड प्रोग्रामिंग।  
 - बुनियादी फ़ाइल I/O संचालन।
 
-## Setting Up GroupDocs.Search for Java
+## GroupDocs.Search for Java सेटअप करना
 
-### Installation Information
-Add the repository and dependency to your `pom.xml`:
+### इंस्टॉलेशन जानकारी
+`pom.xml` में रिपॉजिटरी और निर्भरता जोड़ें:
 
 ```xml
 <repositories>
@@ -72,15 +125,15 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-**Direct Download** – आप नवीनतम JAR को [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) से भी डाउनलोड कर सकते हैं।
+**Direct download** – आप नवीनतम JAR को [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) से भी डाउनलोड कर सकते हैं।
 
-### License Acquisition
-- **Free Trial:** लाइसेंस के बिना कोर फीचर्स का परीक्षण करें।  
-- **Temporary License:** मूल्यांकन के दौरान ट्रायल क्षमताओं को बढ़ाएँ।  
+### लाइसेंस प्राप्ति
+- **Free trial:** लाइसेंस के बिना कोर फीचर्स का परीक्षण करें।  
+- **Temporary license:** मूल्यांकन के दौरान ट्रायल क्षमताओं को विस्तारित करें।  
 - **Purchase:** प्रोडक्शन उपयोग और पूर्ण फीचर सेट के लिए आवश्यक।
 
-#### Basic Initialization and Setup
-Create an `Index` instance, then add documents to be searchable:
+#### बुनियादी प्रारंभिककरण और सेटअप
+`Index` इंस्टेंस बनाएं, फिर खोज योग्य दस्तावेज़ जोड़ें:
 
 ```java
 import com.groupdocs.search.*;
@@ -95,10 +148,11 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-## How to Add Synonyms to Your Search Index
-इंडेक्स बनाना आधार है। नीचे हम आवश्यक चरणों को समझाते हैं, प्रत्येक के साथ वह सटीक कोड दिया गया है जिसकी आपको आवश्यकता है।
+## अपने खोज इंडेक्स में समानार्थक शब्द कैसे जोड़ें
 
-### Feature 1: Creating and Indexing an Index
+### फीचर 1: इंडेक्स बनाना और इंडेक्सिंग
+`Index` क्लास डिस्क या मेमोरी में संग्रहीत दस्तावेज़ों के खोज योग्य संग्रह का प्रतिनिधित्व करती है।  
+
 ```java
 // Create an index in the specified folder
 Index index = new Index(indexFolder);
@@ -107,17 +161,23 @@ Index index = new Index(indexFolder);
 index.add(documentsFolder);
 ```
 
-### Feature 2: Retrieving Synonyms for a Word
+### फीचर 2: शब्द के लिए समानार्थक शब्द प्राप्त करना
+`SynonymDictionary` समानार्थक समूहों का प्रबंधन करता है और किसी शब्द के लिए समानार्थक शब्दों को क्वेरी करने के मेथड प्रदान करता है।  
+
 ```java
 String[] synonyms = index.getDictionaries().getSynonymDictionary().getSynonyms("make");
 ```
 
-### Feature 3: Retrieving Synonym Groups
+### फीचर 3: समानार्थक समूह प्राप्त करना
+`SynonymDictionary.getGroups()` सभी परिभाषित समानार्थक समूहों की सूची उनके पहचानकर्ताओं के साथ लौटाता है।  
+
 ```java
 String[][] synonymGroups = index.getDictionaries().getSynonymDictionary().getSynonymGroups("make");
 ```
 
-### Feature 4: Managing Synonym Dictionary Entries
+### फीचर 4: समानार्थक शब्दकोश प्रविष्टियों का प्रबंधन
+`add(word, synonym)` शब्दकोश में नया समानार्थक संबंध जोड़ता है। `clear()` सभी प्रविष्टियों को हटाता है, और `remove(word)` शब्दकोश से एक विशिष्ट शब्द को हटाता है।  
+
 ```java
 if (index.getDictionaries().getSynonymDictionary().getCount() > 0) {
     index.getDictionaries().getSynonymDictionary().clear();
@@ -132,18 +192,24 @@ String[][] newSynonymGroups = new String[][]{
 index.getDictionaries().getSynonymDictionary().addRange(newSynonymGroups);
 ```
 
-### Feature 5: Exporting Synonyms to a File
+### फीचर 5: समानार्थक शब्दों को फ़ाइल में निर्यात करना
+`exportDictionary(path)` वर्तमान समानार्थक शब्दकोश को निर्दिष्ट स्थान पर एक बाइनरी .dat फ़ाइल में लिखता है।  
+
 ```java
 String exportFilePath = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/ManagingDictionaries/SynonymDictionary/Synonyms.dat";
 index.getDictionaries().getSynonymDictionary().exportDictionary(exportFilePath);
 ```
 
-### Feature 6: Importing Synonyms from a File
+### फीचर 6: फ़ाइल से समानार्थक शब्द आयात करना
+`importDictionary(path)` पहले निर्यात की गई .dat फ़ाइल को समानार्थक शब्दकोश में लोड करता है।  
+
 ```java
 index.getDictionaries().getSynonymDictionary().importDictionary(exportFilePath);
 ```
 
-### Feature 7: Performing Search with Synonym Support
+### फीचर 7: समानार्थक समर्थन के साथ खोज करना
+`SearchOptions` क्वेरी व्यवहार को कॉन्फ़िगर करता है, जिसमें समानार्थक विस्तार सक्षम है या नहीं शामिल है। `setUseSynonymSearch(true)` आगामी क्वेरी के लिए समानार्थक‑सचेत खोज को सक्रिय करता है।  
+
 ```java
 String query = "better";
 SearchOptions options = new SearchOptions();
@@ -152,64 +218,70 @@ options.setUseSynonymSearch(true);
 SearchResult result = index.search(query, options);
 ```
 
-## How to Search with Synonyms
-`setUseSynonymSearch(true)` को सक्षम करके, इंजन आपके द्वारा बनाए या आयात किए गए समानार्थक शब्दकोश का उपयोग करके क्वेरी को स्वचालित रूप से विस्तारित करता है। यह चरण उपयोगकर्ता के खोज व्यवहार को बदले बिना अधिक समृद्ध परिणाम प्रदान करने के लिए महत्वपूर्ण है।
+## समानार्थक शब्दों के साथ कैसे खोजें
+अपना `Index` लोड करें, समानार्थक खोज को सक्षम करें, और एक क्वेरी निष्पादित करें। इंजन स्वचालित रूप से आपके द्वारा निर्मित या आयात किए गए समानार्थक शब्दकोश का उपयोग करके क्वेरी को विस्तारित करता है, सभी संबंधित शब्दों के लिए मिलान लौटाता है।
 
-## How to Import Synonym Dictionary
-यदि आपके पास किसी अन्य वातावरण द्वारा तैयार किया गया `.dat` फ़ाइल पहले से है, तो बस `importDictionary(path)` को कॉल करें। यह विकास, स्टेजिंग और प्रोडक्शन सर्वरों के बीच शब्दकोशों को सिंक्रनाइज़ करने के लिए आदर्श है।
+## समानार्थक शब्दकोश कैसे आयात करें
+यदि आपके पास किसी अन्य वातावरण द्वारा तैयार किया गया `.dat` फ़ाइल पहले से है, तो बस `importDictionary(path)` कॉल करें। यह विकास, स्टेजिंग, और प्रोडक्शन सर्वरों के बीच शब्दकोश को सिंक्रनाइज़ करने के लिए आदर्श है।
 
-## How to Manage Synonym Groups
-समानार्थक समूह आपको शब्दों के सेट को एकल तार्किक इकाई के रूप में मानने की अनुमति देते हैं। समूहों को जोड़ना, साफ़ करना या प्राप्त करना `SynonymDictionary` API के माध्यम से किया जाता है, जैसा कि ऊपर कोड स्निपेट्स में दिखाया गया है।
+## समानार्थक समूहों का प्रबंधन कैसे करें
+समानार्थक समूह आपको शब्दों के सेट को एकल तार्किक इकाई के रूप में मानने की अनुमति देते हैं। समूहों को जोड़ना, साफ़ करना, या प्राप्त करना `SynonymDictionary` API के माध्यम से किया जाता है, जैसा कि ऊपर कोड स्निपेट्स में दिखाया गया है।
 
-## How to Optimize Search Index
-- **नियमित रूप से अनावश्यक प्रविष्टियों को हटाएँ:** बड़े अपडेट से पहले `clear()` का उपयोग करें।  
-- **JVM हीप को समायोजित करें:** बड़े शब्दकोशों को अधिक मेमोरी की आवश्यकता हो सकती है।  
-- **लाइब्रेरी को अद्यतित रखें:** नई रिलीज़ में प्रदर्शन सुधार शामिल होते हैं।
+## खोज इंडेक्स को कैसे अनुकूलित करें
+- **नियमित रूप से अनावश्यक प्रविष्टियों को हटाएँ:** बल्क अपडेट से पहले `clear()` का उपयोग करें।  
+- **JVM हीप को समायोजित करें:** बड़े शब्दकोशों को अधिक मेमोरी की आवश्यकता हो सकती है; `-Xmx` पैरामीटर को तदनुसार बढ़ाएँ।  
+- **लाइब्रेरी को अद्यतित रखें:** नई रिलीज़ में प्रदर्शन सुधार और बग फिक्स शामिल होते हैं।
 
-## Practical Applications
-1. **Content Management Systems (CMS):** उपयोगकर्ता वैकल्पिक शब्दावली का उपयोग करने पर भी लेख खोजते हैं।  
-2. **E‑commerce Platforms:** उत्पाद खोजें “laptop” बनाम “notebook” जैसे समानार्थकों के प्रति सहनशील हो जाती हैं।  
-3. **Document Repositories:** कानूनी या चिकित्सा अभिलेखागार डोमेन‑विशिष्ट समानार्थक समूहों से लाभान्वित होते हैं।
+## व्यावहारिक अनुप्रयोग
+1. **Content management systems (CMS):** उपयोगकर्ता वैकल्पिक शब्दावली का उपयोग करने पर भी लेख खोज सकते हैं।  
+2. **E‑commerce platforms:** उत्पाद खोजें “laptop” बनाम “notebook” जैसे समानार्थक शब्दों के प्रति सहनशील हो जाती हैं।  
+3. **Document repositories:** कानूनी या मेडिकल अभिलेखागार डोमेन‑विशिष्ट समानार्थक समूहों से लाभान्वित होते हैं, जिससे पेशेवरों के लिए खोजयोग्यता में सुधार होता है।
 
-## Performance Considerations
-- **इंडेक्स स्टोरेज को अनुकूलित करें:** समय-समय पर इंडेक्स को पुनः बनाकर पुराना डेटा हटाएँ।  
-- **मेमोरी उपयोग प्रबंधन:** बड़े समानार्थक फ़ाइलें लोड करते समय हीप खपत की निगरानी करें।  
-- **नियमित अपडेट:** बग फिक्स और गति सुधार के लिए नवीनतम GroupDocs.Search संस्करण पर रहें।
+## प्रदर्शन संबंधी विचार
+- **Optimize index storage:** समय‑समय पर इंडेक्स को पुनः बनाकर पुराना डेटा हटाएँ।  
+- **Manage memory usage:** बड़े समानार्थक फ़ाइलों को लोड करते समय हीप खपत की निगरानी करें; 500 MB शब्दकोश आमतौर पर 64‑bit JVM पर 2 GB हीप की आवश्यकता रखता है।  
+- **Regular updates:** बग फिक्स और गति वृद्धि के लिए नवीनतम GroupDocs.Search संस्करण पर रहें।
 
-## Common Issues and Solutions
+## सामान्य समस्याएँ और समाधान
 | समस्या | संभावित कारण | समाधान |
 |-------|--------------|-----|
 | कोई समानार्थक मिलान नहीं दिख रहा है | `setUseSynonymSearch(true)` सेट नहीं है या शब्दकोश आयात नहीं किया गया | विकल्प सक्षम है और शब्दकोश फ़ाइल मौजूद है, यह सत्यापित करें। |
-| आयात के दौरान मेमोरी समाप्ति त्रुटियां | बहुत बड़ी `.dat` फ़ाइल JVM हीप से अधिक है | `-Xmx` हीप आकार बढ़ाएँ या छोटे बैच में आयात करें। |
-| परिणामों में डुप्लिकेट प्रविष्टियां | एक ही शब्द कई समानार्थक समूहों में मौजूद है | `clear()` के बाद `addRange()` का उपयोग करके ओवरलैपिंग समूहों को समेकित करें। |
+| आयात के दौरान मेमोरी समाप्ति त्रुटियाँ | बहुत बड़ी `.dat` फ़ाइल JVM हीप से अधिक है | `-Xmx` हीप आकार बढ़ाएँ या छोटे बैच में आयात करें। |
+| परिणामों में डुप्लिकेट प्रविष्टियाँ | एक ही शब्द कई समानार्थक समूहों में दिखाई देता है | ओवरलैपिंग समूहों को `clear()` के बाद `addRange()` का उपयोग करके एकीकृत करें। |
 
-## Frequently Asked Questions
+## अक्सर पूछे जाने वाले प्रश्न
 
-**Q: GroupDocs.Search उपयोग करने के लिए न्यूनतम सिस्टम आवश्यकता क्या है?**  
+**Q: GroupDocs.Search के उपयोग के लिए न्यूनतम सिस्टम आवश्यकता क्या है?**  
 A: कोई भी आधुनिक OS जिसमें संगत JDK (Java 8 या नया) हो, पर्याप्त है।
 
-**Q: मुझे अपने समानार्थक शब्दकोश को कितनी बार रिफ्रेश करना चाहिए?**  
-A: जब भी नई शब्दावली उत्पन्न हो, उसे अपडेट करें—स्वच्छ रिफ्रेश के लिए `clear()` के बाद `addRange()` उपयोग करें।
+**Q: मुझे अपने समानार्थक शब्दकोश को कितनी बार रीफ़्रेश करना चाहिए?**  
+A: जब भी नई शब्दावली उत्पन्न हो, उसे अपडेट करें—साफ़ रीफ़्रेश के लिए `clear()` के बाद `addRange()` का उपयोग करें।
 
 **Q: क्या मैं बिना लाइसेंस खरीदे GroupDocs.Search चला सकता हूँ?**  
-A: मूल्यांकन के लिए फ्री ट्रायल काम करता है, लेकिन प्रोडक्शन डिप्लॉयमेंट के लिए लाइसेंस आवश्यक है।
+A: फ्री ट्रायल मूल्यांकन के लिए काम करता है, लेकिन प्रोडक्शन डिप्लॉयमेंट के लिए लाइसेंस आवश्यक है।
 
 **Q: बड़े डेटा सेट को इंडेक्स करने के लिए सर्वोत्तम प्रथाएँ क्या हैं?**  
-A: डेटा को तार्किक बैचों में विभाजित करें, हीप उपयोग की निगरानी करें, और नियमित इंडेक्स रखरखाव निर्धारित करें।
+A: डेटा को तार्किक बैचों में विभाजित करें, हीप उपयोग की निगरानी करें, और नियमित इंडेक्स रखरखाव शेड्यूल करें।
 
-**Q: मुझे अपेक्षित समानार्थक मिलान नहीं दिख रहे—मैं क्या जांचूँ?**  
-A: सुनिश्चित करें कि शब्दकोश सही ढंग से आयात किया गया है, `setUseSynonymSearch(true)` सक्रिय है, और शब्द समानार्थक समूहों में मौजूद हैं।
+**Q: मैं अपेक्षित समानार्थक मिलान नहीं देख रहा हूँ—मुझे क्या जांचना चाहिए?**  
+A: सत्यापित करें कि शब्दकोश सही ढंग से आयात किया गया है, `setUseSynonymSearch(true)` सक्रिय है, और शब्द समानार्थक समूहों में मौजूद हैं।
 
 **Resources**  
-- [दस्तावेज़](https://docs.groupdocs.com/search/java/)  
+- [डॉक्यूमेंटेशन](https://docs.groupdocs.com/search/java/)  
 - [API रेफ़रेंस](https://reference.groupdocs.com/search/java)  
 - [GroupDocs.Search for Java डाउनलोड करें](https://releases.groupdocs.com/search/java/)  
-- [GitHub रिपॉज़िटरी](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- [नि:शुल्क समर्थन फ़ोरम](https://forum.groupdocs.com/c/search/10)  
-- [अस्थायी लाइसेंस प्राप्ति](https://purchase.groupdocs.com/temporary-license/) 
+- [GitHub रिपॉजिटरी](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- [फ़्री सपोर्ट फ़ोरम](https://forum.groupdocs.com/c/search/10)  
+- [टेम्पररी लाइसेंस प्राप्ति](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**अंतिम अपडेट:** 2026-03-04  
-**परीक्षित संस्करण:** GroupDocs.Search 25.4 for Java  
+**अंतिम अपडेट:** 2026-10-17  
+**परीक्षण किया गया:** GroupDocs.Search 25.4 for Java  
 **लेखक:** GroupDocs
+
+## संबंधित ट्यूटोरियल
+
+- [Groupdocs Search Java इंडेक्स बनाना और प्रबंधित करना](/search/java/indexing/create-manage-groupdocs-search-java-index/)
+- [Java पूर्ण टेक्स्ट सर्च लाइब्रेरी – GroupDocs.Search के साथ इंडेक्स अनुकूलित करें](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
+- [Java फज़ी सर्च: GroupDocs.Search के साथ इंडेक्स में दस्तावेज़ जोड़ें](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)

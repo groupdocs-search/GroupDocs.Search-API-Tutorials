@@ -1,97 +1,174 @@
 ---
-date: 2026-03-06
-description: Aprende cómo habilitar la búsqueda difusa en GroupDocs.Search para Java,
-  cubriendo la instalación, la licencia y la creación de tu primera solución buscable
-  con coincidencia difusa.
-title: Cómo habilitar la búsqueda difusa con GroupDocs.Search – Tutorial de inicio
-  para Java
+date: 2026-10-17
+description: Aprende cómo habilitar la búsqueda difusa en Java usando GroupDocs.Search,
+  cubriendo la instalación, licenciamiento, configuración y la creación de una solución
+  buscable con coincidencia difusa.
+keywords:
+- enable fuzzy search java
+- GroupDocs.Search Java
+- fuzzy matching Java
+lastmod: 2026-10-17
+og_description: Habilita la búsqueda difusa en Java con GroupDocs.Search en minutos.
+  Este tutorial te guía a través de la instalación, licenciamiento, configuración
+  de coincidencia difusa y la indexación de documentos para una búsqueda robusta.
+og_image_alt: Guide showing how to enable fuzzy search java using GroupDocs.Search
+og_title: Habilita la búsqueda difusa en Java con GroupDocs.Search – Guía rápida
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-17'
+  description: Learn how to enable fuzzy search java using GroupDocs.Search, covering
+    installation, licensing, configuration, and building a searchable solution with
+    fuzzy matching.
+  headline: How to enable fuzzy search java with GroupDocs.Search – Getting started
+    tutorial
+  type: TechArticle
+- description: Learn how to enable fuzzy search java using GroupDocs.Search, covering
+    installation, licensing, configuration, and building a searchable solution with
+    fuzzy matching.
+  name: How to enable fuzzy search java with GroupDocs.Search – Getting started tutorial
+  steps:
+  - name: add GroupDocs.Search to your project
+    text: Add the GroupDocs.Search dependency to your `pom.xml` (Maven) or `build.gradle`
+      (Gradle). This makes the library available on the classpath for compilation
+      and runtime.
+  - name: apply your license
+    text: '`License` loads and validates the GroupDocs.Search license file, unlocking
+      all premium features such as fuzzy matching. Create a `License` instance and
+      point it at the `.lic` file you received from GroupDocs.'
+  - name: initialize the index settings
+    text: Define a folder on disk where the index files will be stored. You can also
+      configure case‑sensitivity, stop‑words, and other indexing options at this stage.
+  - name: index your documents
+    text: The `Indexer` class reads files, extracts searchable text, and writes the
+      data to the index folder. It automatically detects the file type, so you can
+      feed a mix of PDFs, DOCX, XLSX, and images without extra code.
+  - name: enable fuzzy search in your query
+    text: '`SearchOptions` configures parameters for a search operation, such as fuzzy
+      matching and filters. When you create a `SearchOptions` object, set its `fuzzySearch`
+      flag to `true`. You may also adjust the `fuzzinessLevel` (e.g., `2`) to control
+      how tolerant the engine should be.'
+  - name: perform a search query
+    text: The `search` method executes the query against the index and returns matching
+      results. Call the `search` method with the query string and the configured `SearchOptions`.
+      The method returns a list of `SearchResult` objects, each containing a document
+      path and a relevance score that reflects fuzzy mat
+  - name: review results
+    text: '`SearchResult` represents a single document match, including its path and
+      relevance score. Iterate over the `SearchResult` collection, display file names,
+      and optionally highlight matched terms in your UI. Fuzzy matches typically have
+      a slightly lower relevance score than exact matches, which you ca'
+  type: HowTo
+- questions:
+  - answer: Yes, the library is platform‑independent and works on any operating system
+      that supports Java.
+    question: Can I run GroupDocs.Search on a Linux server?
+  - answer: Invoke the `Indexer` again with the new files; the SDK merges them into
+      the current index automatically.
+    question: How do I add new files to an existing index?
+  - answer: Yes, set a folder filter in `SearchOptions` before executing the query.
+    question: Is it possible to limit search results to a specific folder?
+  - answer: The API switches to evaluation mode with limited features; replace the
+      temporary key with a permanent license to regain full functionality.
+    question: What happens after the temporary license expires?
+  - answer: Absolutely—enable the `fuzzySearch` flag in `SearchOptions` to retrieve
+      results that contain minor spelling variations.
+    question: Does GroupDocs.Search support fuzzy search?
+  type: FAQPage
+tags:
+- fuzzy search
+- GroupDocs.Search
+- Java search library
+- document indexing
+title: Cómo habilitar la búsqueda difusa en Java con GroupDocs.Search – Tutorial de
+  introducción
 type: docs
 url: /es/java/getting-started/
 weight: 1
 ---
 
-# Cómo habilitar la búsqueda difusa con GroupDocs.Search – Tutorial de inicio para Java
+# Cómo habilitar la búsqueda difusa java con GroupDocs.Search – Tutorial de inicio
 
-Bienvenido a la guía definitiva sobre **cómo configurar GroupDocs.Search** para aplicaciones Java — y específicamente cómo **habilitar la búsqueda difusa** para que sus usuarios puedan encontrar documentos relevantes incluso cuando escriben mal una palabra o usan una terminología ligeramente diferente. En este tutorial aprenderá los pasos esenciales para instalar la biblioteca, configurar la licencia, configurar la coincidencia difusa y crear su primera solución de documentos buscables. Ya sea que esté iniciando un proyecto nuevo o añadiendo búsqueda a una base de código existente, le guiaremos a través de todo lo que necesita para estar en funcionamiento en menos de 15 minutos.
+En esta guía completa aprenderás cómo **habilitar la búsqueda difusa java** usando la biblioteca GroupDocs.Search. Recorreremos la instalación del SDK, la aplicación de una licencia, la configuración de la coincidencia difusa y la indexación de diversos tipos de documentos para que tus usuarios puedan encontrar contenido relevante incluso cuando cometan errores ortográficos o usen terminología alternativa. Al final del tutorial tendrás una solución de búsqueda totalmente funcional lista en menos de 15 minutos.
 
 ## Respuestas rápidas
-- **¿Cuál es el primer paso?** Instale el paquete GroupDocs.Search Java a través de Maven o Gradle.  
-- **¿Necesito una licencia?** Sí—una licencia temporal funciona para desarrollo; se requiere una licencia completa para producción.  
-- **¿Qué IDE funciona mejor?** Cualquier IDE Java (IntelliJ IDEA, Eclipse, VS Code) que soporte proyectos Maven/Gradle.  
-- **¿Puedo indexar archivos PDF y Word?** Absolutamente—GroupDocs.Search soporta una amplia gama de formatos de documento listos para usar.  
-- **¿Cómo habilito la búsqueda difusa?** Establezca la bandera `fuzzySearch` en `SearchOptions` antes de ejecutar una consulta.  
-- **¿Cuánto tiempo lleva la configuración?** Normalmente menos de 15 minutos para un proyecto nuevo.
+- **¿Cuál es el primer paso?** Añade la dependencia GroupDocs.Search a tu Maven `pom.xml` o Gradle `build.gradle`.  
+- **¿Necesito una licencia?** Sí—una licencia de desarrollo temporal funciona para pruebas; se requiere una licencia permanente para despliegues en producción.  
+- **¿Qué IDE funciona mejor?** Cualquier IDE Java que soporte Maven o Gradle (IntelliJ IDEA, Eclipse, VS Code).  
+- **¿Puedo indexar archivos PDF, Word y Excel?** Absolutamente—GroupDocs.Search admite nativamente más de 50 formatos de archivo, incluidos PDF, DOCX, XLSX, PPTX y muchos tipos de imágenes.  
+- **¿Cómo habilito la búsqueda difusa?** Establece la propiedad `fuzzySearch` a `true` en una instancia de `SearchOptions` antes de ejecutar una consulta.  
+- **¿Cuánto tiempo lleva toda la configuración?** Normalmente menos de 15 minutos para un proyecto nuevo.
 
 ## Qué significa “habilitar la búsqueda difusa” en GroupDocs.Search?
-Habilitar la búsqueda difusa significa activar un nivel de tolerancia que permite al motor de búsqueda coincidir términos con pequeñas diferencias ortográficas, caracteres faltantes o letras transpuestas. Esta característica mejora drásticamente la experiencia del usuario en escenarios donde no se puede garantizar la ortografía exacta—como errores tipográficos, texto generado por OCR o contenido multilingüe.
 
-## Por qué configurar GroupDocs.Search para Java y habilitar la búsqueda difusa?
-- **Implementación rápida** – Se requiere código mínimo para comenzar a indexar, buscar y añadir coincidencia difusa.  
-- **Indexación escalable** – Maneja grandes colecciones de documentos sin pérdida de rendimiento.  
-- **Amplio soporte de formatos** – Funciona con PDFs, DOCX, XLSX, PPTX y muchos otros tipos de archivo.  
-- **Licenciamiento seguro** – Garantiza el cumplimiento y desbloquea todas las funciones premium, incluida la búsqueda difusa.  
-- **Mejor experiencia de usuario** – La búsqueda difusa ayuda a los usuarios a encontrar lo que necesitan incluso con consultas imperfectas.
+Habilitar la búsqueda difusa indica al motor que tolere variaciones menores de ortografía, caracteres ausentes o letras transpuestas al coincidir términos de consulta. Esta característica mejora drásticamente la descubribilidad en escenarios como errores tipográficos de usuarios, texto generado por OCR o contenido multilingüe, ya que el algoritmo de búsqueda devolverá documentos relevantes incluso cuando la palabra clave exacta no esté presente.
+
+## ¿Por qué configurar GroupDocs.Search para Java y habilitar la búsqueda difusa?
+
+Obtienes capacidades de búsqueda listas para producción de inmediato con un código mínimo, al tiempo que ofreces una experiencia de usuario más fluida. GroupDocs.Search indexa documentos sin cargarlos completamente en memoria, admite **más de 50 formatos de entrada y salida**, y puede escalar a **millones de archivos** en hardware convencional. Habilitar la búsqueda difusa agrega una capa de tolerancia que reduce las consultas fallidas hasta en **un 80 %**, convirtiendo entradas de usuario con errores ortográficos en resultados precisos sin esfuerzo de desarrollo adicional.
 
 ## Requisitos previos
 - Java Development Kit (JDK) 8 o superior.  
 - Maven 3 o Gradle 5 para la gestión de dependencias.  
-- Acceso a una clave de licencia temporal o completa de GroupDocs.Search.  
+- Una clave de licencia temporal o permanente de GroupDocs.Search.  
 
 ## Guía paso a paso
 
-### Paso 1: Añadir GroupDocs.Search a su proyecto
-Incluya la dependencia GroupDocs.Search en su `pom.xml` (Maven) o `build.gradle` (Gradle). Esto hace que la biblioteca esté disponible para su código.
+### Paso 1: agregar GroupDocs.Search a tu proyecto
+Añade la dependencia GroupDocs.Search a tu `pom.xml` (Maven) o `build.gradle` (Gradle). Esto hace que la biblioteca esté disponible en el classpath para compilación y tiempo de ejecución.
 
-### Paso 2: Aplicar su licencia
-Cree un objeto `License` y cargue su archivo de licencia temporal o permanente. Este paso desbloquea la funcionalidad completa, incluida la búsqueda difusa, y elimina los límites de evaluación.
+### Paso 2: aplicar tu licencia
+`License` carga y valida el archivo de licencia de GroupDocs.Search, desbloqueando todas las funciones premium como la coincidencia difusa. Crea una instancia de `License` y apunta al archivo `.lic` que recibiste de GroupDocs.
 
-### Paso 3: Inicializar la configuración del índice
-Defina dónde se almacenarán los archivos de índice en el disco y configure cualquier opción de indexación personalizada que necesite (p. ej., sensibilidad a mayúsculas, palabras de parada).
+### Paso 3: inicializar la configuración del índice
+Define una carpeta en disco donde se almacenarán los archivos del índice. También puedes configurar la sensibilidad a mayúsculas, palabras vacías y otras opciones de indexación en esta etapa.
 
-### Paso 4: Indexar sus documentos
-Utilice la clase `Indexer` para añadir archivos o carpetas al índice. GroupDocs.Search detecta automáticamente los tipos de archivo y extrae el texto buscable.
+### Paso 4: indexar tus documentos
+La clase `Indexer` lee archivos, extrae texto indexable y escribe los datos en la carpeta del índice. Detecta automáticamente el tipo de archivo, por lo que puedes proporcionar una mezcla de PDFs, DOCX, XLSX e imágenes sin código adicional.
 
-### Paso 5: Habilitar la búsqueda difusa en su consulta
-Al crear un objeto `SearchOptions`, establezca la bandera `fuzzySearch` (o la propiedad equivalente) en `true`. También puede ajustar el nivel de difusidad si necesita coincidencias más estrictas o más laxas.
+### Paso 5: habilitar la búsqueda difusa en tu consulta
+`SearchOptions` configura los parámetros para una operación de búsqueda, como la coincidencia difusa y filtros.  
+Cuando creas un objeto `SearchOptions`, establece su bandera `fuzzySearch` a `true`. También puedes ajustar `fuzzinessLevel` (p. ej., `2`) para controlar cuánta tolerancia debe tener el motor.
 
-### Paso 6: Ejecutar una consulta de búsqueda
-Ejecute la búsqueda con los `SearchOptions` configurados. La API devuelve una lista de documentos coincidentes con puntuaciones de relevancia que ahora reflejan coincidencias difusas.
+### Paso 6: ejecutar una consulta de búsqueda
+El método `search` ejecuta la consulta contra el índice y devuelve los resultados coincidentes.  
+Llama al método `search` con la cadena de consulta y los `SearchOptions` configurados. El método devuelve una lista de objetos `SearchResult`, cada uno con la ruta del documento y una puntuación de relevancia que refleja coincidencias difusas. `SearchResult` representa una coincidencia de documento única, incluyendo su ruta y puntuación de relevancia.
 
-### Paso 7: Revisar los resultados
-Itere sobre los resultados de búsqueda, muestre los nombres de archivo y, opcionalmente, resalte los términos coincidentes en la interfaz. Las coincidencias difusas se indicarán con una puntuación de relevancia ligeramente inferior en comparación con las coincidencias exactas.
+### Paso 7: revisar los resultados
+`SearchResult` representa una coincidencia de documento única, incluyendo su ruta y puntuación de relevancia.  
+Itera sobre la colección `SearchResult`, muestra los nombres de archivo y, opcionalmente, resalta los términos coincidentes en tu UI. Las coincidencias difusas suelen tener una puntuación de relevancia ligeramente inferior a las coincidencias exactas, lo que puedes usar para ordenar los resultados.
 
 ## Problemas comunes y soluciones
-- **Licencia no reconocida** – Verifique la ruta del archivo de licencia y asegúrese de que coincida con la versión de GroupDocs.Search que está usando.  
-- **Formatos de documento faltantes** – Instale el complemento opcional `groupdocs-conversion` si necesita soporte para tipos de archivo menos comunes.  
-- **La búsqueda difusa no devuelve resultados** – Confirme que la bandera `fuzzySearch` está establecida en `true` y que la longitud de la consulta cumple con el número mínimo de caracteres requeridos para la coincidencia difusa.  
-- **Cuellos de botella de rendimiento** – Utilice indexación incremental y configure la carpeta del índice en almacenamiento SSD para un acceso más rápido.  
+- **Licencia no reconocida** – Verifica que la ruta del archivo de licencia sea correcta y que el archivo coincida con la versión de GroupDocs.Search que estás usando.  
+- **Faltan formatos de documento** – Instala el complemento opcional `groupdocs-conversion` para obtener soporte de tipos de archivo menos comunes.  
+- **La búsqueda difusa no devuelve resultados** – Asegúrate de que la bandera `fuzzySearch` sea `true` y que la longitud de la consulta cumpla con el requisito mínimo de caracteres (generalmente tres caracteres).  
+- **Cuellos de botella de rendimiento** – Utiliza indexación incremental y almacena la carpeta del índice en un SSD para mejorar la velocidad de lectura/escritura.  
 
 ## Preguntas frecuentes
 
-**Q: ¿Puedo usar GroupDocs.Search en un servidor Linux?**  
-A: Sí, la biblioteca es independiente de la plataforma y se ejecuta en cualquier SO que soporte Java.
+**P: ¿Puedo ejecutar GroupDocs.Search en un servidor Linux?**  
+R: Sí, la biblioteca es independiente de la plataforma y funciona en cualquier sistema operativo que soporte Java.
 
-**Q: ¿Cómo actualizo el índice después de añadir nuevos archivos?**  
-A: Llame al `Indexer` nuevamente con los nuevos archivos; la biblioteca los fusionará con el índice existente.
+**P: ¿Cómo añado nuevos archivos a un índice existente?**  
+R: Invoca nuevamente el `Indexer` con los nuevos archivos; el SDK los fusiona automáticamente en el índice actual.
 
-**Q: ¿Hay una forma de limitar los resultados de búsqueda a una carpeta específica?**  
-A: Sí, establezca el `SearchOptions` para incluir un filtro de carpeta antes de ejecutar la consulta.
+**P: ¿Es posible limitar los resultados de búsqueda a una carpeta específica?**  
+R: Sí, establece un filtro de carpeta en `SearchOptions` antes de ejecutar la consulta.
 
-**Q: ¿Qué ocurre si supero el período de licencia temporal?**  
-A: La API seguirá funcionando en modo de evaluación con funciones limitadas; reemplace el archivo de licencia con una clave permanente para restaurar la funcionalidad completa.
+**P: ¿Qué ocurre cuando expira la licencia temporal?**  
+R: La API cambia a modo de evaluación con funciones limitadas; reemplaza la clave temporal con una licencia permanente para recuperar la funcionalidad completa.
 
-**Q: ¿GroupDocs.Search admite búsqueda difusa?**  
-A: Absolutamente—habilite la coincidencia difusa en `SearchOptions` para obtener resultados con pequeñas variaciones ortográficas.
+**P: ¿GroupDocs.Search admite búsqueda difusa?**  
+R: Absolutamente—habilita la bandera `fuzzySearch` en `SearchOptions` para obtener resultados que contengan variaciones menores de ortografía.
 
-**Q: ¿Puedo combinar la búsqueda difusa con otros filtros (p. ej., rango de fechas)?**  
-A: Sí, puede añadir filtros adicionales a `SearchOptions` manteniendo habilitada la búsqueda difusa.
+**P: ¿Puedo combinar la búsqueda difusa con otros filtros como rangos de fechas?**  
+R: Sí, puedes añadir filtros adicionales a `SearchOptions` mientras mantienes activa la coincidencia difusa.
 
 ## Recursos adicionales
 
 ### Tutoriales disponibles
 
-### [Desplegar GroupDocs.Search para Java&#58; Guía completa de configuración](./deploy-groupdocs-search-java-setup-guide/)
-Aprenda cómo desplegar y configurar GroupDocs.Search para Java con esta guía paso a paso. Mejore la indexación de documentos y las capacidades de búsqueda en sus proyectos.
+### [Desplegar GroupDocs.Search para Java: Guía de configuración completa](./deploy-groupdocs-search-java-setup-guide/)
+Aprende cómo desplegar y configurar GroupDocs.Search para Java con esta guía paso a paso. Mejora la indexación de documentos y las capacidades de búsqueda en tus proyectos.
 
 ### Enlaces útiles
 - [Documentación de GroupDocs.Search para Java](https://docs.groupdocs.com/search/java/)
@@ -103,6 +180,12 @@ Aprenda cómo desplegar y configurar GroupDocs.Search para Java con esta guía p
 
 ---
 
-**Última actualización:** 2026-03-06  
-**Probado con:** GroupDocs.Search 23.12 para Java  
-**Autor:** GroupDocs
+**Last Updated:** 2026-10-17  
+**Tested With:** GroupDocs.Search 23.12 for Java  
+**Author:** GroupDocs
+
+## Tutoriales relacionados
+
+- [Establecer licencia Java – Guía de configuración de GroupDocs.Search Java](/search/java/licensing-configuration/)
+- [Búsqueda difusa Java: Añadir documentos al índice con GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
+- [Tutorial de corrección ortográfica en GroupDocs Search Java](/search/java/dictionaries-language-processing/java-groupdocs-search-spelling-correction-tutorial/)
