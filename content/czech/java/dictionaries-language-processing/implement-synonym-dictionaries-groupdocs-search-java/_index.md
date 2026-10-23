@@ -68,10 +68,6 @@ url: /cs/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Jak používat synonyma v Javě s GroupDocs.Search
 
 Pokud chcete, aby vaši uživatelé našli správný obsah i když zadávají různá slova, **search with synonyms** je řešením. V tomto průvodci se naučíte, jak vytvořit slovník synonym, importovat nebo exportovat jej, spravovat skupiny synonym a spustit vyhledávání, které automaticky rozšiřuje dotazy pomocí těchto synonym. Ať už budujete CMS, katalog e‑commerce nebo úložiště právních dokumentů, přidání podpory synonym může výrazně zvýšit relevantnost a míru konverze.
@@ -288,11 +284,3 @@ Skupiny synonym vám umožňují považovat sadu termínů za jedinečnou logick
 - [Vytvořit a spravovat Groupdocs Search Java index](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Java Full Text Search Library – Optimalizace indexu pomocí GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Java Fuzzy Search: Přidání dokumentů do indexu pomocí GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

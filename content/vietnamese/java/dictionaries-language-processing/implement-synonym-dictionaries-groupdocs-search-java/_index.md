@@ -69,10 +69,6 @@ url: /vi/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cách sử dụng từ đồng nghĩa trong Java với GroupDocs.Search
 
 Nếu bạn muốn người dùng của mình tìm được nội dung đúng ngay cả khi họ gõ các từ khác nhau, **search with synonyms** là câu trả lời. Trong hướng dẫn này, bạn sẽ học cách tạo một synonym dictionary, nhập hoặc xuất nó, quản lý các synonym group, và thực hiện tìm kiếm mà tự động mở rộng truy vấn bằng các từ đồng nghĩa đó. Dù bạn đang xây dựng một CMS, một danh mục e‑commerce, hoặc một kho tài liệu pháp lý, việc thêm hỗ trợ synonym có thể tăng đáng kể độ liên quan và tỷ lệ chuyển đổi.
@@ -290,11 +286,3 @@ A: Kiểm tra xem dictionary đã được nhập đúng, `setUseSynonymSearch(t
 - [Tạo và quản lý GroupDocs Search Java Index](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Thư viện tìm kiếm toàn văn Java – Tối ưu hoá chỉ mục với GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Tìm kiếm mờ Java: Thêm tài liệu vào chỉ mục với GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

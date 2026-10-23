@@ -67,10 +67,6 @@ url: /ar/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # كيفية استخدام المرادفات في Java مع GroupDocs.Search
 
 ## إجابات سريعة
@@ -285,10 +281,3 @@ SearchResult result = index.search(query, options);
 - [إنشاء وإدارة فهرس Groupdocs Search للـ Java](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [مكتبة البحث النصي الكامل للـ Java – تحسين الفهرس باستخدام GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [بحث غير دقيق في Java: إضافة مستندات إلى الفهرس باستخدام GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -69,10 +69,6 @@ url: /tr/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Java'da GroupDocs.Search ile eşanlamlıları nasıl kullanılır
 
 Kullanıcılarınızın farklı kelimeler yazsalar bile doğru içeriği bulmasını istiyorsanız, **search with synonyms** cevaptır. Bu rehberde eşanlamlı sözlüğü nasıl oluşturacağınızı, içe ve dışa aktaracağınızı, eşanlamlı gruplarını nasıl yöneteceğinizi ve bu eşanlamlıları kullanarak sorguları otomatik olarak genişleten bir arama nasıl çalıştıracağınızı öğreneceksiniz. Bir CMS, bir e‑ticaret kataloğu veya bir hukuk belge deposu oluşturuyor olun, eşanlamlı desteği eklemek alaka düzeyini ve dönüşüm oranlarını önemli ölçüde artırabilir.
@@ -290,10 +286,3 @@ C: Sözlüğün doğru şekilde içe aktarıldığını, `setUseSynonymSearch(tr
 - [GroupDocs Search Java İndeksi Oluşturma ve Yönetme](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Java Tam Metin Arama Kütüphanesi – GroupDocs.Search ile İndeksi Optimize Etme](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Java Bulanık Arama: GroupDocs.Search ile Belgeleri İndekse Ekleme](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -69,10 +69,6 @@ url: /id/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cara menggunakan sinonim di Java dengan GroupDocs.Search
 
 Jika Anda ingin pengguna menemukan konten yang tepat bahkan ketika mereka mengetik kata yang berbeda, **search with synonyms** adalah jawabannya. Dalam panduan ini Anda akan belajar cara membuat kamus sinonim, mengimpor atau mengekspornya, mengelola grup sinonim, dan menjalankan pencarian yang secara otomatis memperluas kueri menggunakan sinonim tersebut. Baik Anda membangun CMS, katalog e‑commerce, atau repositori dokumen hukum, menambahkan dukungan sinonim dapat secara dramatis meningkatkan relevansi dan tingkat konversi.
@@ -289,11 +285,3 @@ A: Verifikasi bahwa kamus telah diimpor dengan benar, bahwa `setUseSynonymSearch
 - [Buat Kelola Indeks Groupdocs Search Java](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Perpustakaan Pencarian Teks Penuh Java – Optimalkan Indeks dengan GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Pencarian Fuzzy Java: Tambahkan Dokumen ke Indeks dengan GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

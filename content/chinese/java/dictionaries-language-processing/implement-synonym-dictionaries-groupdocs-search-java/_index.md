@@ -67,10 +67,6 @@ url: /zh/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 在 Java 中使用 GroupDocs.Search 同义词
 
 如果您希望用户即使输入不同的词语也能找到正确的内容，**同义词搜索**就是答案。在本指南中，您将学习如何创建同义词词典、导入或导出词典、管理同义词组，以及运行自动使用这些同义词扩展查询的搜索。无论您是在构建 CMS、电子商务目录，还是法律文档库，添加同义词支持都能显著提升相关性和转化率。
@@ -288,8 +284,3 @@ A: 确认词典已正确导入，`setUseSynonymSearch(true)` 已激活，且词�
 - [Create Manage Groupdocs Search Java Index](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Java Full Text Search Library – Optimize Index with GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Java Fuzzy Search: Add Documents to Index with GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

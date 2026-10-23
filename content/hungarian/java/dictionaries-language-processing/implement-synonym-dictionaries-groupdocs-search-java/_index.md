@@ -69,10 +69,6 @@ url: /hu/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hogyan használjunk szinonimákat Java-ban a GroupDocs.Search segítségével
 
 Ha azt szeretné, hogy felhasználói a megfelelő tartalmat megtalálják akkor is, ha különböző szavakat gépelnek, a **szinonimákkal történő keresés** a megoldás. Ebben az útmutatóban megtanulja, hogyan hozhat létre szinonima-szótárat, hogyan importálja vagy exportálja azt, hogyan kezelje a szinonima-csoportokat, és hogyan hajtson végre keresést, amely automatikusan kibővíti a lekérdezéseket a szinonimák segítségével. Legyen szó CMS‑ről, e‑kereskedelmi katalógusról vagy jogi dokumentumtáról, a szinonima‑támogatás jelentősen növelheti a relevanciát és a konverziós arányt.
@@ -289,11 +285,3 @@ V: Győződjön meg róla, hogy a szótár helyesen importálva van, a `setUseSy
 - [Create Manage Groupdocs Search Java Index](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Java Full Text Search Library – Optimize Index with GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Java Fuzzy Search: Add Documents to Index with GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

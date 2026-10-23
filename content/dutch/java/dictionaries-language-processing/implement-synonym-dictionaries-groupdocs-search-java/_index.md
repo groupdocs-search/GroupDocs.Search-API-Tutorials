@@ -69,10 +69,6 @@ url: /nl/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hoe synoniemen te gebruiken in Java met GroupDocs.Search
 
 Als je wilt dat je gebruikers de juiste inhoud vinden, zelfs wanneer ze verschillende woorden typen, **search with synonyms** is het antwoord. In deze gids leer je hoe je een synoniemwoordenboek maakt, het importeert of exporteert, synoniemgroepen beheert en een zoekopdracht uitvoert die automatisch zoekopdrachten uitbreidt met die synoniemen. Of je nu een CMS, een e‑commercecatalogus of een juridisch documentarchief bouwt, het toevoegen van synoniemondersteuning kan de relevantie en conversieratio's drastisch verhogen.
@@ -289,11 +285,3 @@ A: Controleer of het woordenboek correct is geïmporteerd, of `setUseSynonymSear
 - [Maak en beheer GroupDocs Search Java-index](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Java Full Text Search Library – Index optimaliseren met GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Java Fuzzy Search: Documenten toevoegen aan index met GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -69,10 +69,6 @@ url: /el/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Πώς να χρησιμοποιήσετε συνώνυμα σε Java με το GroupDocs.Search
 
 Αν θέλετε οι χρήστες σας να βρίσκουν το σωστό περιεχόμενο ακόμη και όταν πληκτρολογούν διαφορετικές λέξεις, η **search with synonyms** είναι η λύση. Σε αυτόν τον οδηγό θα μάθετε πώς να δημιουργήσετε ένα λεξικό συνωνύμων, να το εισάγετε ή να το εξάγετε, να διαχειριστείτε ομάδες συνωνύμων και να εκτελέσετε μια αναζήτηση που επεκτείνει αυτόματα τα ερωτήματα χρησιμοποιώντας αυτά τα συνώνυμα. Είτε δημιουργείτε ένα CMS, έναν κατάλογο e‑commerce, είτε μια αποθήκη νομικών εγγράφων, η προσθήκη υποστήριξης συνωνύμων μπορεί να αυξήσει δραματικά τη σχετικότητα και τα ποσοστά μετατροπής.
@@ -289,11 +285,3 @@ SearchResult result = index.search(query, options);
 - [Δημιουργία και Διαχείριση Ευρετηρίου Groupdocs Search Java](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Βιβλιοθήκη Αναζήτησης Πλήρους Κειμένου Java – Βελτιστοποίηση Ευρετηρίου με GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Ασαφής Αναζήτηση Java: Προσθήκη Εγγράφων στο Ευρετήριο με GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

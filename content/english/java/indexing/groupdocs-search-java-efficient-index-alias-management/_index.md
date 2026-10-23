@@ -287,10 +287,3 @@ A: Verify that the alias definitions are correct, re‑index any newly added doc
 [How to create index repository java with GroupDocs.Search: Efficient Document Indexing & Search](search/java/searching/master-groupdocs-search-java-indexing-search/_index.md)
 [How to add documents to index with Metadata Indexing in Java using GroupDocs.Search](search/java/indexing/groupdocs-search-java-metadata-indexing/_index.md)
 [Create Efficient Search Index with GroupDocs.Search Java](search/java/performance-optimization/create-efficient-search-index/_index.md)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

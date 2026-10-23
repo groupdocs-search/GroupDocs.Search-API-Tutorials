@@ -69,10 +69,6 @@ url: /pl/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Jak używać synonimów w Javie z GroupDocs.Search
 
 Jeśli chcesz, aby Twoi użytkownicy znajdowali właściwą treść, nawet gdy wpisują różne słowa, **wyszukiwanie z synonimami** jest rozwiązaniem. W tym przewodniku dowiesz się, jak stworzyć słownik synonimów, importować lub eksportować go, zarządzać grupami synonimów oraz wykonać wyszukiwanie, które automatycznie rozszerza zapytania o te synonimy. Niezależnie od tego, czy budujesz CMS, katalog e‑commerce, czy repozytorium dokumentów prawnych, dodanie obsługi synonimów może znacząco zwiększyć trafność wyników i współczynniki konwersji.
@@ -289,11 +285,3 @@ A: Upewnij się, że słownik został poprawnie zaimportowany, że `setUseSynony
 - [Utwórz i zarządzaj indeksem GroupDocs Search w Javie](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Biblioteka pełnotekstowego wyszukiwania Java – Optymalizacja indeksu z GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Rozmyte wyszukiwanie w Javie: Dodawanie dokumentów do indeksu z GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

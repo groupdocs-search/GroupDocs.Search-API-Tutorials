@@ -67,10 +67,6 @@ url: /ja/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # JavaでGroupDocs.Searchの同義語を使用する方法
 
 ユーザーが異なる単語で入力しても適切なコンテンツを見つけられるようにしたい場合、**search with synonyms** が解決策です。このガイドでは、同義語辞書の作成、インポート・エクスポート、同義語グループの管理、そして同義語を使用してクエリを自動的に拡張する検索の実行方法を学びます。CMS、eコマースカタログ、法務文書リポジトリの構築に関わらず、同義語サポートを追加することで、関連性とコンバージョン率を大幅に向上させることができます。
@@ -287,11 +283,3 @@ A: 辞書が正しくインポートされているか、`setUseSynonymSearch(tr
 - [Groupdocs Search Java インデックスの作成と管理](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Java フルテキスト検索ライブラリ – GroupDocs.Searchでインデックス最適化](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Java ファジー検索: GroupDocs.Searchでドキュメントをインデックスに追加](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

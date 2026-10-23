@@ -67,10 +67,6 @@ url: /th/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # วิธีใช้คำพ้องความหมายใน Java กับ GroupDocs.Search
 
 หากคุณต้องการให้ผู้ใช้ของคุณค้นหาเนื้อหาที่ถูกต้องแม้พิมพ์คำต่างกัน **search with synonyms** คือคำตอบ ในคู่มือนี้คุณจะได้เรียนรู้วิธีสร้างพจนานุกรมคำพ้องความหมาย, การนำเข้าและส่งออก, การจัดการกลุ่มคำพ้องความหมาย, และการทำการค้นหาที่ขยายคำค้นโดยอัตโนมัติด้วยคำพ้องความหมายเหล่านั้น ไม่ว่าคุณจะสร้าง CMS, แคตาล็อกอี‑คอมเมิร์ซ, หรือคลังเอกสารกฎหมาย การเพิ่มการสนับสนุนคำพ้องความหมายสามารถเพิ่มความเกี่ยวข้องและอัตราการแปลงได้อย่างมาก
@@ -288,10 +284,3 @@ A: Verify that the dictionary is correctly imported, that `setUseSynonymSearch(t
 - [สร้างและจัดการดัชนี Groupdocs Search Java](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Java Full Text Search Library – ปรับแต่งดัชนีด้วย GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Java Fuzzy Search: เพิ่มเอกสารลงดัชนีด้วย GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

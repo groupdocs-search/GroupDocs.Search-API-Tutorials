@@ -67,10 +67,6 @@ url: /zh-hant/java/dictionaries-language-processing/implement-synonym-dictionari
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 如何在 Java 中使用 GroupDocs.Search 的同義詞
 
 如果您希望使用者即使輸入不同的詞彙仍能找到正確的內容，**search with synonyms**就是答案。在本指南中，您將學習如何建立同義詞字典、匯入或匯出它、管理同義詞群組，並執行自動使用這些同義詞擴展查詢的搜尋。無論您是在建構 CMS、電子商務目錄，或是法律文件庫，加入同義詞支援都能顯著提升相關性與轉換率。
@@ -288,11 +284,3 @@ A: 確認字典已正確匯入、`setUseSynonymSearch(true)` 已啟用，且詞�
 - [建立與管理 Groupdocs Search Java 索引](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Java 全文搜尋庫 – 使用 GroupDocs.Search 最佳化索引](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Java 模糊搜尋：使用 GroupDocs.Search 將文件加入索引](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -69,10 +69,6 @@ url: /pt/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Como usar sinônimos em Java com GroupDocs.Search
 
 Se você deseja que seus usuários encontrem o conteúdo correto mesmo quando digitam palavras diferentes, **pesquisa com sinônimos** é a solução. Neste guia você aprenderá a criar um dicionário de sinônimos, importá‑lo ou exportá‑lo, gerenciar grupos de sinônimos e executar uma pesquisa que expande automaticamente as consultas usando esses sinônimos. Seja construindo um CMS, um catálogo de e‑commerce ou um repositório de documentos legais, adicionar suporte a sinônimos pode aumentar drasticamente a relevância e as taxas de conversão.
@@ -289,11 +285,3 @@ A: Verifique se o dicionário foi importado corretamente, se `setUseSynonymSearc
 - [Criar e Gerenciar Índice GroupDocs Search Java](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Biblioteca Java de Busca Full Text – Otimizar Índice com GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Busca Fuzzy em Java: Adicionar Documentos ao Índice com GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

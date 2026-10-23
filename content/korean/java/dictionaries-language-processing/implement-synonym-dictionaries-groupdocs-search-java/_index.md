@@ -67,10 +67,6 @@ url: /ko/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Java에서 GroupDocs.Search를 사용한 동의어 활용 방법
 
 사용자가 다른 단어를 입력하더라도 올바른 콘텐츠를 찾을 수 있도록 하려면 **동의어 검색**이 해답입니다. 이 가이드에서는 동의어 사전을 생성하고, 가져오거나 내보내며, 동의어 그룹을 관리하고, 해당 동의어를 사용해 자동으로 쿼리를 확장하는 검색을 수행하는 방법을 배웁니다. CMS, 전자상거래 카탈로그, 법률 문서 저장소 등 어떤 시스템을 구축하든 동의어 지원을 추가하면 관련성 및 전환율을 크게 높일 수 있습니다.
@@ -287,11 +283,3 @@ A: 사전이 올바르게 가져와졌는지, `setUseSynonymSearch(true)`가 활
 - [Create Manage Groupdocs Search Java Index](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Java Full Text Search Library – Optimize Index with GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Java Fuzzy Search: Add Documents to Index with GroupDocs.Search](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

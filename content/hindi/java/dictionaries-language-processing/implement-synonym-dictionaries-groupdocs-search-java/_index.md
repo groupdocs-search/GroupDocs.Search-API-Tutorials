@@ -69,10 +69,6 @@ url: /hi/java/dictionaries-language-processing/implement-synonym-dictionaries-gr
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # जावा में GroupDocs.Search के साथ समानार्थक शब्दों का उपयोग कैसे करें
 
 यदि आप चाहते हैं कि आपके उपयोगकर्ता विभिन्न शब्द टाइप करने पर भी सही सामग्री खोजें, तो **search with synonyms** उत्तर है। इस गाइड में आप सीखेंगे कि समानार्थक शब्दकोश कैसे बनाएं, उसे आयात या निर्यात करें, समानार्थक समूहों का प्रबंधन करें, और एक खोज चलाएँ जो उन समानार्थक शब्दों का उपयोग करके क्वेरी को स्वचालित रूप से विस्तारित करती है। चाहे आप CMS, ई‑कॉमर्स कैटलॉग, या कानूनी दस्तावेज़ रिपॉजिटरी बना रहे हों, समानार्थक समर्थन जोड़ने से प्रासंगिकता और रूपांतरण दरों में नाटकीय रूप से वृद्धि हो सकती है।
@@ -289,10 +285,3 @@ A: सत्यापित करें कि शब्दकोश सही 
 - [Groupdocs Search Java इंडेक्स बनाना और प्रबंधित करना](/search/java/indexing/create-manage-groupdocs-search-java-index/)
 - [Java पूर्ण टेक्स्ट सर्च लाइब्रेरी – GroupDocs.Search के साथ इंडेक्स अनुकूलित करें](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Java फज़ी सर्च: GroupDocs.Search के साथ इंडेक्स में दस्तावेज़ जोड़ें](/search/java/searching/groupdocs-search-java-advanced-text-search-guide/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}
