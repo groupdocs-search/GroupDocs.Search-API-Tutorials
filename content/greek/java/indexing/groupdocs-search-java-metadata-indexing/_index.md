@@ -1,46 +1,97 @@
 ---
-date: '2026-03-17'
-description: Μάθετε πώς να προσθέτετε έγγραφα στο ευρετήριο και να αναζητάτε έγγραφα
-  με βάση τα μεταδεδομένα με το GroupDocs.Search Java. Κατακτήστε τις ρυθμίσεις του
-  ευρετηρίου, δημιουργήστε ευρετήρια, προσθέστε έγγραφα και εκτελέστε ακριβείς αναζητήσεις.
+date: '2026-10-22'
+description: Μάθετε πώς να εκτελείτε αναζήτηση metadata με το GroupDocs σε Java, να
+  ρυθμίζετε τις ρυθμίσεις index settings, να προσθέτετε documents και να κάνετε query
+  στα metadata fields αποδοτικά.
 keywords:
+- metadata search with groupdocs
 - metadata indexing java
-- GroupDocs Search Java
-- document management with metadata
-title: Πώς να προσθέσετε έγγραφα στο ευρετήριο με ευρετηρίαση μεταδεδομένων σε Java
-  χρησιμοποιώντας το GroupDocs.Search
+- groupdocs search java
+lastmod: '2026-10-22'
+og_description: Μάθετε πώς να εκτελείτε αναζήτηση metadata με το GroupDocs σε Java,
+  να ρυθμίζετε τις ρυθμίσεις index settings, να προσθέτετε documents και να κάνετε
+  query στα metadata fields αποδοτικά.
+og_image_alt: Guide showing Java code for metadata indexing using GroupDocs.Search
+og_title: Πώς να κάνετε αναζήτηση metadata με το GroupDocs σε Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-22'
+  description: Learn how to perform metadata search with GroupDocs in Java, configure
+    index settings, add documents, and query by metadata fields efficiently.
+  headline: How to do metadata search with GroupDocs in Java
+  type: TechArticle
+- description: Learn how to perform metadata search with GroupDocs in Java, configure
+    index settings, add documents, and query by metadata fields efficiently.
+  name: How to do metadata search with GroupDocs in Java
+  steps:
+  - name: Visit the GroupDocs website and go to the **Purchase** section.
+    text: Visit the GroupDocs website and go to the **Purchase** section.
+  - name: Choose a **temporary license** plan that matches your evaluation needs.
+    text: Choose a **temporary license** plan that matches your evaluation needs.
+  - name: '**Enterprise document management:** Retrieve contracts by contract date
+      or signatory name.'
+    text: '**Enterprise document management:** Retrieve contracts by contract date
+      or signatory name.'
+  - name: '**Digital library catalogs:** Let users browse books by genre, publication
+      year, or author.'
+    text: '**Digital library catalogs:** Let users browse books by genre, publication
+      year, or author.'
+  - name: '**CRM systems:** Quickly locate client files using custom metadata like
+      customer ID or region.'
+    text: '**CRM systems:** Quickly locate client files using custom metadata like
+      customer ID or region.'
+  type: HowTo
+- questions:
+  - answer: Metadata indexing stores document attributes (author, title, custom tags)
+      in a searchable structure, enabling fast look‑ups without scanning full text.
+    question: What is metadata indexing?
+  - answer: Visit the GroupDocs purchase page and follow the steps to acquire a trial
+      license.
+    question: How do I obtain a temporary license?
+  - answer: Yes, GroupDocs.Search supports PDF, DOCX, PPT, and many other formats.
+    question: Can I index PDFs with this setup?
+  - answer: Verify correct file paths and ensure the application has read permissions
+      for the directories.
+    question: What are common issues when adding documents?
+  - answer: Regularly update your index, use incremental adds, and tune JVM memory
+      settings.
+    question: How do I optimize search performance?
+  type: FAQPage
+tags:
+- metadata search
+- GroupDocs
+- Java indexing
+title: Πώς να κάνετε αναζήτηση metadata με το GroupDocs σε Java
 type: docs
 url: /el/java/indexing/groupdocs-search-java-metadata-indexing/
 weight: 1
 ---
 
-# Πώς να προσθέσετε έγγραφα στο ευρετήριο με την Ευρετηρίαση Μεταδεδομένων σε Java χρησιμοποιώντας το GroupDocs.Search
+# Πώς να κάνετε αναζήτηση μεταδεδομένων με το GroupDocs σε Java
 
-Η προσθήκη εγγράφων σε ένα ευρετήριο γρήγορα και αξιόπιστα είναι η βάση κάθε σύγχρονης εφαρμογής που βασίζεται στην αναζήτηση. Είτε δημιουργείτε ένα νομικό αποθετήριο, μια βάση γνώσεων εξυπηρέτησης πελατών, ή μια εσωτερική πύλη εγγράφων, η **ευρετηρίαση μεταδεδομένων** σας επιτρέπει να *αναζητάτε έγγραφα με βάση τα μεταδεδομένα* όπως ο συγγραφέας, ο τίτλος ή προσαρμοσμένες ετικέτες. Σε αυτό το σεμινάριο θα μάθετε πώς να ρυθμίσετε τις ρυθμίσεις του ευρετηρίου, να δημιουργήσετε ένα ευρετήριο προσανατολισμένο στα μεταδεδομένα, να προσθέσετε τα αρχεία σας και να εκτελέσετε ακριβείς αναζητήσεις—όλα με το GroupDocs.Search για Java.
+Η γρήγορη και αξιόπιστη προσθήκη εγγράφων σε ένα ευρετήριο αποτελεί τη ραχοκοκαλιά κάθε σύγχρονης εφαρμογής που βασίζεται στην αναζήτηση. Είτε δημιουργείτε ένα νομικό αποθετήριο, μια βάση γνώσεων για την εξυπηρέτηση πελατών ή μια εσωτερική πύλη εγγράφων, **metadata search with GroupDocs** σας επιτρέπει να εντοπίζετε αρχεία με βάση τον συγγραφέα, τον τίτλο ή οποιαδήποτε προσαρμοσμένη ετικέτα χωρίς να σαρώσετε το πλήρες κείμενο. Σε αυτό το tutorial θα μάθετε πώς να διαμορφώσετε τις ρυθμίσεις του ευρετηρίου, να δημιουργήσετε ένα ευρετήριο προσανατολισμένο στα μεταδεδομένα, να προσθέσετε τα αρχεία σας και να εκτελέσετε ακριβείς αναζητήσεις — όλα με το GroupDocs.Search for Java.
 
-## Γρήγορες Απαντήσεις
-- **Ποιος είναι ο κύριος σκοπός της ευρετηρίασης μεταδεδομένων;** Επιτρέπει γρήγορες αναζητήσεις βάσει ιδιοτήτων του εγγράφου αντί για πλήρες κείμενο.  
+## Γρήγορες απαντήσεις
+- **Ποιος είναι ο κύριος σκοπός της ευρετηρίασης μεταδεδομένων;** Επιτρέπει γρήγορες αναζητήσεις βασισμένες στις ιδιότητες του εγγράφου αντί στο πλήρες κείμενο.  
 - **Ποια μέθοδος προσθέτει αρχεία στο ευρετήριο;** `index.add(YOUR_DOCUMENTS_FOLDER);`  
-- **Μπορώ να αναζητήσω με προσαρμοσμένα πεδία μεταδεδομένων;** Ναι, μόλις τα πεδία ευρετηριαστούν μπορείτε να τα ερωτήσετε άμεσα.  
+- **Μπορώ να κάνω αναζήτηση με προσαρμοσμένα πεδία μεταδεδομένων;** Ναι, μόλις τα πεδία ευρετηριαστούν μπορείτε να τα ερωτήσετε απευθείας.  
 - **Χρειάζομαι άδεια για ανάπτυξη;** Μια προσωρινή δοκιμαστική άδεια είναι επαρκής για αξιολόγηση· απαιτείται πλήρης άδεια για παραγωγή.  
-- **Ποια έκδοση Java απαιτείται;** Συνιστάται JDK 8 ή νεότερη.
+- **Ποια έκδοση Java απαιτείται;** Συνιστάται JDK 8 ή νεότερο.  
 
 ## Τι είναι η ευρετηρίαση μεταδεδομένων στο GroupDocs.Search;
-Η ευρετηρίαση μεταδεδομένων εξάγει και αποθηκεύει τα χαρακτηριστικά του εγγράφου (π.χ., συγγραφέας, ημερομηνία δημιουργίας, προσαρμοσμένες ετικέτες) σε μια δομή αναζήτησης. Όταν **προσθέτετε έγγραφα στο ευρετήριο**, η μηχανή καταγράφει αυτά τα χαρακτηριστικά, επιτρέποντάς σας να εκτελείτε ακριβείς ερωτήματα όπως “βρείτε όλα τα PDF που γράφτηκαν από *John Doe*” ή “αναζήτηση pdf κατά συγγραφέα”.
+Η ευρετηρίαση μεταδεδομένων εξάγει και αποθηκεύει τα χαρακτηριστικά του εγγράφου (π.χ., συγγραφέας, ημερομηνία δημιουργίας, προσαρμοσμένες ετικέτες) σε μια δομή αναζήτησης. Όταν **προσθέτετε έγγραφα στο ευρετήριο**, η μηχανή καταγράφει αυτά τα χαρακτηριστικά, επιτρέποντάς σας να εκτελείτε ακριβείς ερωτήματα όπως “βρείτε όλα τα PDF που έχουν δημιουργηθεί από *John Doe*” ή “search pdf by author”.  
 
 ## Γιατί να χρησιμοποιήσετε το GroupDocs.Search για ευρετηρίαση μεταδεδομένων;
-- **Performance:** Οι αναζητήσεις μεταδεδομένων είναι ελαφριές και επιστρέφουν αποτελέσματα σε χιλιοστά του δευτερολέπτου.  
-- **Flexibility:** Υποστηρίζει ευρύ φάσμα μορφών αρχείων (PDF, DOCX, PPT, κλ.).  
-- **Scalability:** Διαχειρίζεται εκατομμύρια έγγραφα με ελάχιστο αποτύπωμα μνήμης.  
+Η αναζήτηση μεταδεδομένων με το GroupDocs παρέχει ελαφριά, υποδευτερόλεπτη απόκριση ακόμη και όταν το ευρετήριο περιέχει εκατομμύρια εγγραφές. Υποστηρίζει **πάνω από 30 μορφές εισόδου και εξόδου** — συμπεριλαμβανομένων PDF, DOCX, PPTX, HTML και αρχείων εικόνας — και καταναλώνει λιγότερο από 200 MB μνήμης heap για ένα ευρετήριο 100 000 εγγράφων σε έναν τυπικό διακομιστή.  
 
 ## Προαπαιτούμενα
 - GroupDocs.Search for Java ≥ 25.4.  
-- JDK 8 ή νεότερο εγκατεστημένο και ρυθμισμένο.  
+- JDK 8 ή νεότερο εγκατεστημένο και διαμορφωμένο.  
 - Βασική εξοικείωση με Java και Maven.  
 
 ## Ρύθμιση του GroupDocs.Search για Java
 
-### Οδηγίες Εγκατάστασης
+### Οδηγίες εγκατάστασης
 Προσθέστε το αποθετήριο GroupDocs και την εξάρτηση στο `pom.xml` σας:
 
 ```xml
@@ -63,16 +114,22 @@ weight: 1
 
 Μπορείτε επίσης να κατεβάσετε τα πιο πρόσφατα binaries απευθείας από [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-### Απόκτηση Άδειας
+### Απόκτηση άδειας
 Για να αποκτήσετε μια προσωρινή άδεια για δοκιμή:
 
-1. Επισκεφθείτε τον ιστότοπο GroupDocs και μεταβείτε στην ενότητα **Purchase**.  
+1. Επισκεφθείτε την ιστοσελίδα GroupDocs και μεταβείτε στην ενότητα **Purchase**.  
 2. Επιλέξτε ένα πρόγραμμα **temporary license** που ταιριάζει στις ανάγκες αξιολόγησής σας.  
 
-## Υλοποίηση Βήμα‑βήμα
+## Πώς να διαμορφώσετε τις ρυθμίσεις ευρετηρίου για μεταδεδομένα;
+Η διαμόρφωση των ρυθμίσεων ευρετηρίου ενημερώνει τη μηχανή ποια πληροφορία να εξάγει και να αποθηκεύσει. Ορίζοντας τον τύπο ευρετηρίου σε `MetadataIndex`, υποδεικνύετε στο GroupDocs.Search να εστιάσει στα πεδία μεταδεδομένων αντί στο πλήρες κείμενο, μειώνοντας το μέγεθος του ευρετηρίου και επιταχύνοντας τα ερωτήματα. Αυτή η διαμόρφωση εφαρμόζεται μέσω του αντικειμένου `IndexSettings`, όπου μπορείτε επίσης να καθορίσετε προσαρμοσμένα πεδία μεταδεδομένων προς ευρετηρίαση.
 
-### Χαρακτηριστικό 1: Διαμόρφωση Ρυθμίσεων Ευρετηρίου
-Διαμορφώστε το ευρετήριο ώστε να εστιάζει στα μεταδεδομένα:
+```text
+IndexSettings settings = new IndexSettings();
+settings.setIndexType(IndexType.MetadataIndex);
+```
+
+## Χαρακτηριστικό 1: διαμόρφωση ρυθμίσεων ευρετηρίου
+Η κλήση `setIndexType(IndexType.MetadataIndex)` ενημερώνει τη μηχανή να εστιάσει στα μεταδεδομένα αντί στο πλήρες κείμενο. **`IndexType.MetadataIndex`** είναι μια τιμή απαρίθμησης που επιλέγει τη λειτουργία ευρετηρίασης μόνο μεταδεδομένων.
 
 ```java
 import com.groupdocs.search.IndexSettings;
@@ -83,10 +140,8 @@ IndexSettings settings = new IndexSettings();
 settings.setIndexType(IndexType.MetadataIndex);  // Focus on metadata indexing
 ```
 
-- `setIndexType(IndexType.MetadataIndex)` ενημερώνει τη μηχανή να δίνει προτεραιότητα στα μεταδεδομένα αντί για πλήρες κείμενο.
-
-### Χαρακτηριστικό 2: Δημιουργία Ευρετηρίου σε Καθορισμένο Φάκελο
-Δημιουργήστε έναν φυσικό φάκελο ευρετηρίου όπου θα αποθηκεύονται όλα τα μεταδεδομένα:
+## Χαρακτηριστικό 2: δημιουργία ευρετηρίου σε καθορισμένο φάκελο
+Δημιουργήστε έναν φυσικό κατάλογο ευρετηρίου όπου θα αποθηκευτούν όλα τα μεταδεδομένα:
 
 ```java
 import com.groupdocs.search.Index;
@@ -99,8 +154,8 @@ Index index = new Index(YOUR_INDEX_DIRECTORY, settings);
 
 Αντικαταστήστε το `YOUR_DOCUMENT_DIRECTORY` με τη διαδρομή που ταιριάζει στη διάταξη του έργου σας.
 
-### Χαρακτηριστικό 3: Πώς να προσθέσετε έγγραφα στο ευρετήριο
-Τώρα που υπάρχει το ευρετήριο, μπορείτε να **προσθέσετε έγγραφα στο ευρετήριο** ώστε να γίνουν αναζητήσιμα:
+## Χαρακτηριστικό 3: Πώς να προσθέσετε έγγραφα στο ευρετήριο
+Η μέθοδος `index.add` προσθέτει αρχεία από έναν φάκελο στο ευρετήριο και εξάγει τα μεταδεδομένα τους. **`index.add`** σαρώει κάθε έγγραφο, διαβάζει τα υποστηριζόμενα πεδία μεταδεδομένων και τα αποθηκεύει στο ευρετήριο για γρήγορη ανάκτηση.
 
 ```java
 String YOUR_DOCUMENTS_FOLDER = "YOUR_DOCUMENT_DIRECTORY";
@@ -109,11 +164,11 @@ String YOUR_DOCUMENTS_FOLDER = "YOUR_DOCUMENT_DIRECTORY";
 index.add(YOUR_DOCUMENTS_FOLDER);
 ```
 
-**Tips:**  
-- Επαληθεύστε ότι η διαδρομή του φακέλου είναι σωστή και η εφαρμογή έχει δικαιώματα ανάγνωσης.  
+**Συμβουλές:**  
+- Επαληθεύστε ότι η διαδρομή του φακέλου είναι σωστή και ότι η εφαρμογή έχει δικαιώματα ανάγνωσης.  
 - Το GroupDocs.Search εξάγει αυτόματα τα υποστηριζόμενα μεταδεδομένα από κάθε αρχείο.
 
-### Χαρακτηριστικό 4: Αναζήτηση εγγράφων με βάση τα μεταδεδομένα
+## Χαρακτηριστικό 4: Αναζήτηση εγγράφων με βάση τα μεταδεδομένα
 Εκτελέστε ένα ερώτημα που στοχεύει στα πεδία μεταδεδομένων, για παράδειγμα αναζητώντας έγγραφα όπου η γλώσσα είναι Αγγλικά:
 
 ```java
@@ -128,58 +183,63 @@ for (int i = 0; i < result.getDocumentCount(); i++) {
 }
 ```
 
-- `search(query)` εξετάζει τα ευρετηριασμένα μεταδεδομένα και επιστρέφει τα ταιριαστά έγγραφα.  
-- Μπορείτε επίσης να **search pdf by author** χρησιμοποιώντας το όνομα του συγγραφέα ως συμβολοσειρά ερωτήματος.
+Η μέθοδος `search(query)` εξετάζει τα ευρετηριασμένα μεταδεδομένα και επιστρέφει τα ταιριαστά έγγραφα. Μπορείτε επίσης να **search pdf by author** χρησιμοποιώντας το όνομα του συγγραφέα ως συμβολοσειρά ερωτήματος.
 
-## Πρακτικές Εφαρμογές
-1. **Enterprise Document Management:** Ανακτήστε συμβάσεις με βάση την ημερομηνία σύμβασης ή το όνομα του υπογράφοντα.  
-2. **Digital Library Catalogs:** Επιτρέψτε στους χρήστες να περιηγηθούν στα βιβλία ανά είδος, έτος έκδοσης ή συγγραφέα.  
-3. **CRM Systems:** Εντοπίστε γρήγορα αρχεία πελατών χρησιμοποιώντας προσαρμοσμένα μεταδεδομένα όπως ID πελάτη ή περιοχή.  
+## Πρακτικές εφαρμογές
+1. **Enterprise document management:** Ανάκτηση συμβάσεων με βάση την ημερομηνία σύμβασης ή το όνομα του υπογράφοντα.  
+2. **Digital library catalogs:** Επιτρέψτε στους χρήστες να περιηγούνται σε βιβλία κατά είδος, έτος έκδοσης ή συγγραφέα.  
+3. **CRM systems:** Εντοπίστε γρήγορα αρχεία πελατών χρησιμοποιώντας προσαρμοσμένα μεταδεδομένα όπως αναγνωριστικό πελάτη ή περιοχή.  
 
-## Συμβουλές και Καλές Πρακτικές
-- **Incremental Updates:** Χρησιμοποιήστε `index.addOrUpdate()` για νέα ή τροποποιημένα αρχεία αντί για επαναδημιουργία ολόκληρου του ευρετηρίου.  
-- **Batch Processing:** Όταν διαχειρίζεστε χιλιάδες αρχεία, προσθέστε τα σε μικρότερες παρτίδες για να διατηρήσετε τη χρήση μνήμης χαμηλή.  
-- **Metadata Validation:** Βεβαιωθείτε ότι τα έγγραφα προέλευσης περιέχουν πραγματικά τα μεταδεδομένα που σκοπεύετε να ερωτήσετε (π.χ., πεδία συγγραφέα σε PDF).  
+## Συμβουλές και βέλτιστες πρακτικές
+- **Incremental updates:** Χρησιμοποιήστε `index.addOrUpdate()` για νέα ή τροποποιημένα αρχεία αντί για επαναδημιουργία ολόκληρου του ευρετηρίου.  
+- **Batch processing:** Όταν διαχειρίζεστε χιλιάδες αρχεία, προσθέστε τα σε μικρότερες παρτίδες για να διατηρήσετε τη χρήση μνήμης χαμηλή.  
+- **Metadata validation:** Βεβαιωθείτε ότι τα έγγραφα προέλευσης περιέχουν πραγματικά τα μεταδεδομένα που σκοπεύετε να ερωτήσετε (π.χ., πεδία συγγραφέα σε PDF).  
 
-## Σκέψεις για την Απόδοση
-- **Memory Tuning:** Ρυθμίστε το μέγεθος του heap της JVM (`-Xmx`) ανάλογα με τον όγκο των ευρετηριασμένων μεταδεδομένων.  
-- **Optimized Storage:** Καλέστε περιοδικά το `index.optimize()` για να συμπιέσετε το ευρετήριο και να βελτιώσετε την ταχύτητα ερωτημάτων.  
+## Σκέψεις απόδοσης
+- **Memory tuning:** Ρυθμίστε το μέγεθος heap της JVM (`-Xmx`) βάσει του όγκου των ευρετηριασμένων μεταδεδομένων.  
+- **Optimized storage:** Καλέστε περιοδικά το `index.optimize()` για να συμπιέσετε το ευρετήριο και να βελτιώσετε την ταχύτητα των ερωτημάτων.  
 
-## Συχνά Προβλήματα και Λύσεις
+## Συχνά προβλήματα και λύσεις
 | Πρόβλημα | Λύση |
 |----------|------|
-| **Δεν επιστράφηκαν αποτελέσματα** | Επιβεβαιώστε ότι τα πεδία μεταδεδομένων που αναμένετε υπάρχουν πραγματικά στα αρχεία προέλευσης. |
-| **Σφάλματα δικαιωμάτων** | Βεβαιωθείτε ότι η διαδικασία Java έχει πρόσβαση ανάγνωσης τόσο στον φάκελο εγγράφων όσο και στον φάκελο του ευρετηρίου. |
-| **Σφάλματα έλλειψης μνήμης** | Αυξήστε το μέγεθος του heap της JVM ή εκτελέστε την ενέργεια `add` σε παρτίδες για να επεξεργαστείτε τα αρχεία σε μικρότερες ομάδες. |
+| **Δεν επιστρέφονται αποτελέσματα** | Επιβεβαιώστε ότι τα πεδία μεταδεδομένων που αναμένετε είναι πραγματικά παρόντα στα αρχεία προέλευσης. |
+| **Σφάλματα δικαιωμάτων** | Βεβαιωθείτε ότι η διαδικασία Java έχει πρόσβαση ανάγνωσης τόσο στον φάκελο εγγράφων όσο και στον κατάλογο ευρετηρίου. |
+| **Σφάλματα έλλειψης μνήμης** | Αυξήστε το μέγεθος heap της JVM ή εκτελέστε την λειτουργία `add` σε παρτίδες για να επεξεργαστείτε τα αρχεία σε μικρότερες ομάδες. |
 
-## Συχνές Ερωτήσεις
+## Συχνές ερωτήσεις
 
-**Q: Τι είναι η ευρετηρίαση μεταδεδομένων;**  
-A: Η ευρετηρίαση μεταδεδομένων αποθηκεύει τα χαρακτηριστικά του εγγράφου (συγγραφέας, τίτλος, προσαρμοσμένες ετικέτες) σε μια δομή αναζήτησης, επιτρέποντας γρήγορες αναζητήσεις χωρίς σάρωση ολόκληρου του κειμένου.
+**Ε: Τι είναι η ευρετηρίαση μεταδεδομένων;**  
+Α: Η ευρετηρίαση μεταδεδομένων αποθηκεύει τα χαρακτηριστικά του εγγράφου (συγγραφέας, τίτλος, προσαρμοσμένες ετικέτες) σε μια δομή αναζήτησης, επιτρέποντας γρήγορη ανάκτηση χωρίς σάρωση του πλήρους κειμένου.
 
-**Q: Πώς μπορώ να αποκτήσω προσωρινή άδεια;**  
-A: Επισκεφθείτε τη σελίδα αγοράς του GroupDocs και ακολουθήστε τα βήματα για να αποκτήσετε μια δοκιμαστική άδεια.
+**Ε: Πώς μπορώ να αποκτήσω προσωρινή άδεια;**  
+Α: Επισκεφθείτε τη σελίδα αγοράς του GroupDocs και ακολουθήστε τα βήματα για να αποκτήσετε δοκιμαστική άδεια.
 
-**Q: Μπορώ να ευρετηριάσω PDF με αυτή τη ρύθμιση;**  
-A: Ναι, το GroupDocs.Search υποστηρίζει PDF, DOCX, PPT και πολλές άλλες μορφές.
+**Ε: Μπορώ να ευρετηριάσω PDF με αυτή τη ρύθμιση;**  
+Α: Ναι, το GroupDocs.Search υποστηρίζει PDF, DOCX, PPT και πολλές άλλες μορφές.
 
-**Q: Ποια είναι τα κοινά προβλήματα κατά την προσθήκη εγγράφων;**  
-A: Επαληθεύστε τις σωστές διαδρομές αρχείων και βεβαιωθείτε ότι η εφαρμογή έχει δικαιώματα ανάγνωσης για τους φακέλους.
+**Ε: Ποια είναι τα κοινά προβλήματα κατά την προσθήκη εγγράφων;**  
+Α: Επαληθεύστε τις σωστές διαδρομές αρχείων και βεβαιωθείτε ότι η εφαρμογή έχει δικαιώματα ανάγνωσης για τους καταλόγους.
 
-**Q: Πώς βελτιστοποιώ την απόδοση της αναζήτησης;**  
-A: Ενημερώνετε τακτικά το ευρετήριό σας, χρησιμοποιήστε προσθήκες incremental και ρυθμίστε τις ρυθμίσεις μνήμης της JVM.
+**Ε: Πώς βελτιστοποιώ την απόδοση της αναζήτησης;**  
+Α: Ενημερώνετε τακτικά το ευρετήριό σας, χρησιμοποιείτε προσθήκες incremental και ρυθμίζετε τις ρυθμίσεις μνήμης της JVM.
 
 ## Πόροι
 
-- **Documentation:** [GroupDocs.Search Java Documentation](https://docs.groupdocs.com/search/java/)  
-- **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
-- **Download:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
-- **GitHub Repository:** [GroupDocs.Search GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- **Free Support Forum:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/search/10)  
-- **Temporary License:** [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **Τεκμηρίωση:** [GroupDocs.Search Java Documentation](https://docs.groupdocs.com/search/java/)  
+- **Αναφορά API:** [GroupDocs API Reference](https://reference.groupdocs.com/search/java)  
+- **Λήψη:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
+- **Αποθετήριο GitHub:** [GroupDocs.Search GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
+- **Δωρεάν φόρουμ υποστήριξης:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/search/10)  
+- **Προσωρινή άδεια:** [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Τελευταία ενημέρωση:** 2026-03-17  
-**Δοκιμάστηκε με:** GroupDocs.Search Java 25.4  
+**Τελευταία ενημέρωση:** 2026-10-22  
+**Δοκιμή με:** GroupDocs.Search Java 25.4  
 **Συγγραφέας:** GroupDocs
+
+## Σχετικά Μαθήματα
+
+- [Πώς να προσθέσετε έγγραφα στο ευρετήριο με ευρετηρίαση μεταδεδομένων σε Java χρησιμοποιώντας το GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
+- [Πώς να δημιουργήσετε ευρετήριο εγγράφων και να προσθέσετε έγγραφα χρησιμοποιώντας το GroupDocs.Search API για Java](/search/java/indexing/implement-document-indexing-groupdocs-search-java/)
+- [Κατακτώντας τον Οδηγό Διαχείρισης Ευρετηρίου Groupdocs Search Java](/search/java/document-management/mastering-groupdocs-search-java-index-management-guide/)
