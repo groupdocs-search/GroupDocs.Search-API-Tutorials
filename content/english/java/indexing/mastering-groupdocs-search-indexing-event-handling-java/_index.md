@@ -1,6 +1,6 @@
 ---
 date: '2026-10-28'
-description: Learn how to monitor indexing in Java using GroupDocs.Search, covering
+description: Learn how to implement monitoring of indexing in Java using GroupDocs.Search, covering
   setup, event subscription, real‑time progress handling, and best practices.
 images:
 - /java/indexing/mastering-groupdocs-search-indexing-event-handling-java/og-image.png
@@ -78,7 +78,7 @@ tags:
 - indexing events
 - GroupDocs.Search
 - Java search API
-title: How to monitor indexing events in Java with GroupDocs.Search
+title: Learn to monitor indexing events in Java with GroupDocs.Search
 type: docs
 url: /java/indexing/mastering-groupdocs-search-indexing-event-handling-java/
 weight: 1
@@ -176,7 +176,7 @@ To use GroupDocs.Search effectively:
 - **Purchase** – Consider purchasing if the tool meets your production needs.
 
 ### Basic initialization and setup
-Here's how to initialize and set up an index:
+Here’s how to initialize and set up an index:
 
 ```java
 import com.groupdocs.search.Index;

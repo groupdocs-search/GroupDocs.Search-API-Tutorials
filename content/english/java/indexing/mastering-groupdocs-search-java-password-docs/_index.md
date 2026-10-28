@@ -1,8 +1,6 @@
 ---
 date: '2026-10-28'
-description: Learn how to search multiple file types and build a searchable index
-  for password‑protected documents in Java using GroupDocs.Search. Step‑by‑step guide
-  with code, tips, and performance tricks.
+description: Learn how to use the GroupDocs.Search API to search multiple file types and build a searchable index for password‑protected documents in Java. Step‑by‑step guide with code, tips, and performance tricks.
 images:
 - /java/indexing/mastering-groupdocs-search-java-password-docs/og-image.png
 keywords:
@@ -11,19 +9,14 @@ keywords:
 - password protected document indexing java
 - groupdocs.search java api
 lastmod: '2026-10-28'
-og_description: Learn how to search multiple file types and build a searchable index
-  for password‑protected documents in Java using GroupDocs.Search. Step‑by‑step guide
-  with code, tips, and performance tricks.
-og_image_alt: Guide showing Java code to search multiple file types and index password‑protected
-  documents with GroupDocs.Search
-og_title: How to search multiple file types and index docs in Java
+og_description: Learn how to use the GroupDocs.Search API to search multiple file types and build a searchable index for password‑protected documents in Java. Step‑by‑step guide with code, tips, and performance tricks.
+og_image_alt: Guide showing Java code to search multiple file types and index password‑protected documents with GroupDocs.Search
+og_title: How to use GroupDocs.Search to search multiple file types and index docs in Java
 schemas:
 - author: GroupDocs
   dateModified: '2026-10-28'
-  description: Learn how to search multiple file types and build a searchable index
-    for password‑protected documents in Java using GroupDocs.Search. Step‑by‑step
-    guide with code, tips, and performance tricks.
-  headline: How to search multiple file types and index docs in Java
+  description: Learn how to use the GroupDocs.Search API to search multiple file types and build a searchable index for password‑protected documents in Java. Step‑by‑step guide with code, tips, and performance tricks.
+  headline: How to use GroupDocs.Search to search multiple file types and index docs in Java
   type: TechArticle
 - questions:
   - answer: GroupDocs.Search supports 120+ formats including PDF, DOCX, XLSX, PPTX,
@@ -49,7 +42,7 @@ tags:
 - Java indexing
 - password‑protected docs
 - document search
-title: How to search multiple file types and index docs in Java
+title: How to use GroupDocs.Search to search multiple file types and index docs in Java
 type: docs
 url: /java/indexing/mastering-groupdocs-search-java-password-docs/
 weight: 1
