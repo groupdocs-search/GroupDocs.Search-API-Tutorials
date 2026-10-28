@@ -318,9 +318,3 @@ Ready to take the next step? Explore the full API, experiment with additional ev
 
 - [Groupdocs Search Java Advanced Indexing](/search/java/indexing/groupdocs-search-java-advanced-indexing/)
 - [Automate Document Indexing Groupdocs Search Java](/search/java/indexing/automate-document-indexing-groupdocs-search-java/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
