@@ -78,7 +78,7 @@ tags:
 - indexing events
 - GroupDocs.Search
 - Java search API
-title: Learn to monitor indexing events in Java with GroupDocs.Search
+title: Monitor indexing events in Java with GroupDocs.Search
 type: docs
 url: /java/indexing/mastering-groupdocs-search-indexing-event-handling-java/
 weight: 1

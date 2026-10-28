@@ -42,7 +42,7 @@ tags:
 - Java indexing
 - password‑protected docs
 - document search
-title: How to use GroupDocs.Search to search multiple file types and index docs in Java
+title: How to use the GroupDocs.Search API to search multiple file types and index password‑protected documents in Java
 type: docs
 url: /java/indexing/mastering-groupdocs-search-java-password-docs/
 weight: 1
