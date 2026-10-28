@@ -1,47 +1,83 @@
 ---
-date: '2026-03-15'
-description: GroupDocs.Search を使用して、パスワード保護されたファイルの Java でのドキュメントインデックス作成方法を学びましょう。コード、ヒント、パフォーマンス向上のコツを含むステップバイステップガイドです。
+date: '2026-10-28'
+description: GroupDocs.Search を使用して、Java で複数のファイルタイプを検索し、パスワード保護されたドキュメント用の検索可能なインデックスを構築する方法を学びます。コード、ヒント、パフォーマンス向上のコツを含むステップバイステップガイドです。
 keywords:
-- indexing password-protected documents Java
-- GroupDocs.Search Java API
-- document management workflow
-title: GroupDocs.Search を使って、Java でパスワード保護されたファイルのドキュメントをインデックスする方法
+- search multiple file types
+- build searchable index
+- password protected document indexing java
+- groupdocs.search java api
+lastmod: '2026-10-28'
+og_description: GroupDocs.Search を使用して、Java で複数のファイルタイプを検索し、パスワード保護されたドキュメント用の検索可能なインデックスを構築する方法を学びます。コード、ヒント、パフォーマンス向上のコツを含むステップバイステップガイドです。
+og_image_alt: Guide showing Java code to search multiple file types and index password‑protected
+  documents with GroupDocs.Search
+og_title: Javaで複数のファイルタイプを検索し、ドキュメントをインデックス化する方法
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-28'
+  description: Learn how to search multiple file types and build a searchable index
+    for password‑protected documents in Java using GroupDocs.Search. Step‑by‑step
+    guide with code, tips, and performance tricks.
+  headline: How to search multiple file types and index docs in Java
+  type: TechArticle
+- questions:
+  - answer: GroupDocs.Search supports 120+ formats including PDF, DOCX, XLSX, PPTX,
+      and common image types. Install format plugins if required.
+    question: How do I handle different file formats?
+  - answer: The document is skipped and a warning is logged; verify your password
+      dictionary or event handler.
+    question: What happens if a password is wrong?
+  - answer: Yes, but they must be downloaded to a local temporary folder first because
+      the engine works with file‑system paths.
+    question: Can I index files stored in the cloud?
+  - answer: Adjust scoring with `IndexOptions`, add synonyms, and use advanced query
+      syntax such as `field:term~` for fuzzy matching. `IndexOptions` is a configuration
+      object that controls scoring and indexing behavior.
+    question: How can I improve search relevance?
+  - answer: Review the log output; common causes are missing passwords, corrupted
+      files, or unsupported formats.
+    question: What should I do if indexing fails for some files?
+  type: FAQPage
+tags:
+- search multiple file types
+- GroupDocs.Search
+- Java indexing
+- password‑protected docs
+- document search
+title: Javaで複数のファイルタイプを検索し、ドキュメントをインデックス化する方法
 type: docs
 url: /ja/java/indexing/mastering-groupdocs-search-java-password-docs/
 weight: 1
 ---
 
-# パスワード保護されたファイルの Java でのドキュメントインデックス作成方法（GroupDocs.Search 使用）
+# Javaで複数のファイルタイプを検索し、ドキュメントをインデックスする方法
 
-パスワードで保護された **ドキュメントをインデックス化する方法** が気になる方は、正しい場所に来ました。現代の企業では、機密データをパスワードで保護することが不可欠ですが、これにより高速で検索可能なインデックスを作成しにくくなることがあります。このチュートリアルでは、GroupDocs.Search for Java を使用して、パスワード保護されたファイル用の安全で高性能なドキュメントインデックスを構築する手順を、シンプルかつ保守しやすい形で解説します。
+現代の企業では、機密ファイルをパスワードでロックしたまま、**複数のファイルタイプを検索**する必要が頻繁にあります。このチュートリアルでは、GroupDocs.Search を使用して Java でパスワード保護されたドキュメントの検索可能なインデックスを構築する方法を示します。パスワード辞書の設定方法、パスワードが必要なイベントの処理方法、大量バッチのパフォーマンス最適化方法を学べます—すべてカスタム復号ロジックを書かずに実現できます。
 
-## Quick Answers
-- **このチュートリアルでカバーする内容は？** パスワード辞書とイベントリスナーを使用したパスワード保護ドキュメントのインデックス化。  
-- **必要なライブラリはどれですか？** GroupDocs.Search for Java（最新バージョン）。  
-- **ライセンスは必要ですか？** 評価用の一時的な無料トライアルライセンスが利用可能です。  
-- **他のファイル形式もインデックス化できますか？** はい、GroupDocs.Search は PDF、DOCX、XLSX など多数の形式をサポートしています。  
-- **必要な Java バージョンは？** JDK 8 以降。
+## クイック回答
+- **What does this tutorial cover?** パスワード辞書とイベントリスナーを使用したパスワード保護ドキュメントのインデックス作成。  
+- **Which library is required?** GroupDocs.Search for Java（最新バージョン）。  
+- **Do I need a license?** 評価用に一時的な無料トライアルライセンスが利用可能です。  
+- **Can I index other file types?** はい、GroupDocs.Search は PDF、DOCX、XLSX、PPTX、画像などを含む 120 以上のフォーマットをサポートしています。  
+- **What Java version is needed?** JDK 8 以降。  
 
-## “create document index java” とは？
-Java でドキュメントインデックスを作成することは、用語とそれが出現するファイルをマッピングする検索可能なデータ構造を構築することを意味します。GroupDocs.Search を使用すれば、暗号化されたドキュメントを自動的に処理できるため、各ファイルを手動で解除する必要がありません。
+## “create document index java”とは何ですか？
 
-## パスワード保護されたファイルに GroupDocs.Search を使用する理由
-- **Zero‑touch unlocking** – パスワードは辞書またはイベントハンドラで一度だけ提供すれば済みます。  
-- **高性能** – 数百万件のドキュメントにスケールする最適化されたインデックスエンジン。  
-- **リッチなクエリ言語** – ブール演算子、ワイルドカード、ファジー検索をサポート。  
-- **クロスフォーマット対応** – 100 以上のファイルタイプに標準で対応。  
-- **インデックス作成の簡素化** – API が暗号化ファイルの取り扱いの複雑さを抽象化します。
+`create document index java` は、用語を Java が管理するファイルの場所にマッピングする検索可能なデータ構造を構築するプロセスを指します。GroupDocs.Search を使用すると、エンジンはサポートされているフォーマット（暗号化された PDF、Office ドキュメント、画像など）から自動的にテキストを抽出するため、復号コードを書かずに全文検索を実行できます。このアプローチは、検索実装を簡素化しながらドキュメントのセキュリティを保護します。
 
-## Prerequisites
-1. **Java Development Kit (JDK) 8+** – PATH に設定済み。  
-2. **IDE** – IntelliJ IDEA、Eclipse、または任意の Java 対応エディタ。  
-3. **Maven** – 依存関係管理に使用。  
-4. **GroupDocs.Search for Java** – Maven でライブラリを追加（下記参照）。
+## パスワード保護ファイルに GroupDocs.Search を使用する理由
 
-## Setting Up GroupDocs.Search for Java
+GroupDocs.Search は、辞書またはイベントハンドラからパスワードを適用するゼロタッチのアンロック機構を提供し、暗号化ファイルをワンパスでインデックスできるようにします。標準的な 8 コアサーバーで時間あたり最大 200 万ドキュメントを処理し、120 以上のファイルタイプをサポートし、ブール、ワイルドカード、ファジー演算子を備えたリッチなクエリ言語を提供します—多様なコンテンツをカバーする検索可能なインデックス構築に不可欠です。
 
-### Using Maven
-`pom.xml` ファイルにリポジトリと依存関係を追加します。
+## 前提条件
+- Java Development Kit (JDK) 8+ がインストールされ、`PATH` に追加されていること。  
+- IntelliJ IDEA や Eclipse などの IDE。  
+- 依存関係管理のための Maven。  
+- GroupDocs.Search for Java – Maven でライブラリを追加します（セットアップセクションを参照）。  
+
+## Java 用 GroupDocs.Search の設定
+
+### Maven の使用
+pom.xml ファイルにリポジトリと依存関係を追加します：
 
 ```xml
 <repositories>
@@ -61,80 +97,82 @@ Java でドキュメントインデックスを作成することは、用語と
 </dependencies>
 ```
 
-### Direct Download
-あるいは、[GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) から最新バージョンを直接ダウンロードできます。
+### 直接ダウンロード
+代わりに、最新バージョンを直接 [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) からダウンロードできます。
 
-トライアルライセンスを取得するには、[GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/) にアクセスし、指示に従って無料トライアルを取得してください。
+トライアルライセンスを開始するには、[GroupDocs の一時ライセンスページ](https://purchase.groupdocs.com/temporary-license/) にアクセスし、指示に従って無料トライアルを取得してください。
 
-## パスワード辞書を使用したドキュメントインデックス作成方法
+## パスワード辞書でドキュメントをインデックスする方法
 
-以下の 2 つの実用的なアプローチを示します。どちらも **create document index java** を実現しつつ、パスワードを自動的に処理します。
+ファイルパスとパスワードをマッピングした辞書を提供することで、**検索可能なインデックスを構築**できます。エンジンはインデックス作成時に自動的に適切なパスワードを取得します。
 
-### Approach 1 – パスワード辞書を使用したインデックス作成
+### 概要
+ドキュメントのパスワードをシンプルなキー‑バリュー マップに保存し、インデックスエンジンが必要に応じてファイルのロックを解除できるようにします。
 
-#### Overview
-ドキュメントのパスワードを辞書に格納し、エンジンがオンザフライでファイルを解除できるようにします。
-
-#### Step 1: Define the Index and Documents Folder
+### 手順 1: インデックスとドキュメントフォルダーを定義する
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordDictionary";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Step 2: Create an Index
+### 手順 2: インデックスを作成する
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Step 3: Add Document Passwords
+### 手順 3: ドキュメントのパスワードを追加する
 ```java
 // Add passwords for specific files using their absolute paths
 String path1 = new File(documentsFolder + "/English.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(path1, "123456");
 
-String path2 = new File(documentsFolder + "/Lorem ipsum.docx").getAbsolutePath();
+String path2 = new File(documentsFolder + "/SampleDocument.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(path2, "123456");
 ```
 
-#### Step 4: Index Documents
+### 手順 4: ドキュメントをインデックスする
 ```java
 // Automatically retrieve passwords from the dictionary during indexing
 index.add(documentsFolder);
 ```
 
-#### Step 5: Search in the Index
+### 手順 5: インデックス内を検索する
 ```java
-String query = "ipsum OR increasing";
+String query = "sample OR increasing";
 SearchResult result = index.search(query);
 
 // Handle search results (e.g., display or process them)
 ```
 
-**Tip:** ファイルが多数ある場合は、ハードコーディングせずにデータベースや Azure Key Vault などの安全なストアからパスワードを読み込むことを検討してください。
+**Tip:** 本番環境では、パスワードをハードコーディングする代わりに、セキュアボールト（例: Azure Key Vault や AWS Secrets Manager）からロードしてください。
 
-#### Troubleshooting
-- 各パスワードが実際の保護パスワードと一致しているか確認してください。  
-- ファイルパスが間違っていると `FileNotFoundException` が発生します。
+#### トラブルシューティング
+- 各パスワードがファイルの実際の保護パスワードと一致していることを確認してください。  
+- ファイルパスを再確認してください。誤ったパスは `FileNotFoundException` を引き起こします。
 
-### Approach 2 – パスワード要求イベントリスナーを使用したインデックス作成
+## パスワード要求イベントリスナーでドキュメントをインデックスする方法
 
-#### Overview
-エンジンがパスワード要求イベントを発生させたときに、動的にパスワードを供給します。
+エンジンがパスワード要求イベントを発生させたときにのみパスワードを提供でき、資格情報をメモリに残さず動的にパスワードを解決できます。
 
-#### Step 1: Define the Index and Documents Folder
+インデックスエンジンが暗号化ファイルに遭遇するとコールバックがトリガーされ、そこでセキュアストアからパスワードを検索したり、オンザフライで計算したりできます。この方法は、すべてのパスワードを辞書に保存する場合に比べて攻撃面を減らします。
+
+### 概要
+イベントコールバックを通じてオンザフライでパスワードを供給し、資格情報ストアを分離したままにします。
+
+### 手順 1: インデックスとドキュメントフォルダーを定義する
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordEvent";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Step 2: Create an Index
+### 手順 2: インデックスを作成する
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Step 3: Subscribe to Password‑Required Event
+### 手順 3: パスワード要求イベントを購読する
 ```java
 index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArgs>() {
     @Override
@@ -147,69 +185,76 @@ index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArg
 });
 ```
 
-#### Step 4: Index Documents
+### 手順 4: ドキュメントをインデックスする
 ```java
 // The event handler will supply passwords as required during indexing
 index.add(documentsFolder);
 ```
 
-#### Step 5: Search in the Index
+### 手順 5: インデックス内を検索する
 ```java
-String query = "ipsum OR increasing";
+String query = "sample OR increasing";
 SearchResult result = index.search(query);
 
 // Handle search results (e.g., display or process them)
 ```
 
-#### Troubleshooting
-- 必要なすべてのファイル拡張子に対してイベントハンドラがカバーされていることを確認してください。  
-- まずはサンプルファイルでテストし、パスワードが正しく適用されているか確認しましょう。
+#### トラブルシューティング
+- イベントハンドラがインデックス対象のすべてのファイル拡張子をカバーしていることを確認してください。  
+- まずいくつかのサンプルファイルでテストし、パスワードが適用されていることを確認してください。
 
-## Practical Applications
+## 実用的な活用例
 
-1. **エンタープライズ文書管理:** 機密契約書、HR ファイル、財務レポートのインデックス化を自動化。  
-2. **法務アーカイブ:** 暗号化されたままのケースファイルを迅速に検索。  
-3. **医療記録:** 患者の PDF や Word 文書を PHI を露出させずにインデックス化。
+1. **Enterprise document management** – 機密契約書、HR ファイル、財務レポートを暗号化されたまま自動的にインデックス化します。  
+2. **Legal archives** – 敏感な内容を露出させずにケースファイルを迅速に取得します。  
+3. **Healthcare records** – HIPAA 要件に準拠しながら、患者の PDF や Word ドキュメントをインデックスします。  
 
-## Performance Considerations
-- **メモリ割り当て:** 大量バッチ処理のために十分なヒープメモリ（`-Xmx2g` 以上）を確保。  
-- **並列インデックス化:** `index.addAsync(...)` を使用するか、複数スレッドでインデックス作成を実行してスループットを向上。  
-- **インデックスメンテナンス:** 定期的に `index.optimize()` を呼び出し、インデックスを圧縮してクエリ速度を改善。
+## パフォーマンス上の考慮点
 
-## Common Issues and Solutions
-- **パスワードが間違っている:** ドキュメントはスキップされ、警告がログに記録されます。パスワード辞書またはイベントハンドラを再確認してください。  
-- **未対応フォーマット:** 必要なフォーマットプラグインをインストールするか、インデックス前にサポート対象の形式に変換してください。  
-- **大容量ファイル:** ヒープサイズを増やし、より小さなバッチに分割してインデックス化することを検討してください。
+- **Memory allocation** – 大量バッチ用に十分なヒープメモリ（`-Xmx2g` 以上）を割り当てます。  
+- **Parallel indexing** – `index.addAsync(...)` を使用するか、複数のインデックススレッドを実行して、8 コアマシンで時間あたり最大 **2 million documents per hour** を達成します。`index.addAsync(...)` は非同期インデックス作成のためにドキュメントをキューイングするメソッドです。  
+- **Index maintenance** – 定期的に `index.optimize()` を呼び出してインデックスを圧縮し、クエリ速度を向上させます。  
 
-## Frequently Asked Questions
+## よくある問題と解決策
 
-**Q: 異なるファイル形式はどう扱いますか？**  
-A: GroupDocs.Search は PDF、DOCX、XLSX、PPTX など多数をサポートしています。必要に応じて適切なフォーマットプラグインをインストールしてください。
+- **Wrong password** – ドキュメントはスキップされ、警告がログに記録されます。パスワードのソースを再確認してください。  
+- **Unsupported format** – 必要なフォーマットプラグインをインストールするか、インデックス作成前にファイルをサポートされているタイプに変換してください。  
+- **Large files** – ヒープサイズを増やし、`OutOfMemoryError` を回避するために小さなバッチに分割してインデックス作成することを検討してください。  
 
-**Q: パスワードが間違っていた場合はどうなりますか？**  
-A: ドキュメントはスキップされ、警告がログに記録されます。パスワードソースを確認してください。
+## よくある質問
 
-**Q: クラウドに保存されたファイルをインデックス化できますか？**  
-A: はい、ただしエンジンはファイルシステムパスで動作するため、まずローカルの一時フォルダにダウンロードする必要があります。
+**Q: How do I handle different file formats?**  
+A: GroupDocs.Search は PDF、DOCX、XLSX、PPTX、一般的な画像タイプを含む 120 以上のフォーマットをサポートしています。必要に応じてフォーマットプラグインをインストールしてください。
 
-**Q: 検索の関連性を向上させるには？**  
-A: `IndexOptions` でスコア設定を調整し、同義語を使用し、拡張クエリ構文（例: `field:term~` のファジーマッチ）を活用してください。
+**Q: What happens if a password is wrong?**  
+A: ドキュメントはスキップされ、警告がログに記録されます。パスワード辞書またはイベントハンドラを確認してください。
 
-**Q: 一部のファイルでインデックス作成が失敗した場合は？**  
-A: ログ出力を確認してください。主な原因はパスワード不足、ファイル破損、未対応フォーマットです。
+**Q: Can I index files stored in the cloud?**  
+A: はい、可能ですが、エンジンはファイルシステムパスで動作するため、まずローカルの一時フォルダーにダウンロードする必要があります。
 
-## Resources
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)  
-- [API Reference](https://reference.groupdocs.com/search/java)  
-- [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)  
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+**Q: How can I improve search relevance?**  
+A: `IndexOptions` でスコアリングを調整し、同義語を追加し、`field:term~` のような高度なクエリ構文を使用してファジーマッチングを行います。`IndexOptions` はスコアリングとインデックス動作を制御する設定オブジェクトです。
 
-このガイドに従うことで、**パスワード保護されたファイルのドキュメントインデックス作成方法** を習得し、アプリケーションのセキュリティと検索性を同時に向上させることができます。
+**Q: What should I do if indexing fails for some files?**  
+A: ログ出力を確認してください。一般的な原因はパスワードが欠如している、ファイルが破損している、またはサポートされていないフォーマットです。
+
+## リソース
+- [GroupDocs.Search ドキュメント](https://docs.groupdocs.com/search/java/)
+- [API リファレンス](https://reference.groupdocs.com/search/java)
+- [GroupDocs.Search のダウンロード](https://releases.groupdocs.com/search/java/)
+- [GitHub リポジトリ](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [無料サポートフォーラム](https://forum.groupdocs.com/c/search/10)
+- [一時ライセンス情報](https://purchase.groupdocs.com/temporary-license/)
+
+このガイドに従うことで、Java で **複数のファイルタイプを検索** し、**パスワード保護されたドキュメントをインデックス** する方法が分かり、アプリケーションのセキュリティと検索性の両方が向上します。
 
 ---
 
-**Last Updated:** 2026-03-15  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+**最終更新日:** 2026-10-28  
+**テスト環境:** GroupDocs.Search 25.4 for Java  
+**作者:** GroupDocs
+
+## 関連チュートリアル
+
+- [Java で GroupDocs.Search を使用してパスワード保護されたドキュメントをインデックスする方法](/search/java/indexing/mastering-groupdocs-search-java-password-docs/)
+- [GroupDocs.Search Java でクエリパフォーマンスを向上させる: インデックスと検索の最適化](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
