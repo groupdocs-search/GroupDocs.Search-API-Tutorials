@@ -64,11 +64,6 @@ type: docs
 url: /sv/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hur man använder java fulltextssökning med GroupDocs.Search
 
 I den här handledningen kommer du att upptäcka hur du **implementerar java fulltextssökning** med GroupDocs.Search för Java. Vi går igenom hur du konfigurerar en indexmapp, lägger till dokument i indexet och tillämpar bästa praxis‑tekniker som **optimerar sökprestanda** för tusentals PDF‑, DOCX‑, TXT‑ och andra format. I slutet har du en produktionsklar sökkomponent som kör snabbt och skalar smidigt.
@@ -241,19 +236,8 @@ Genom att följa dessa steg vet du nu hur du **skapar ett dokumentindex**, **lä
 **Senast uppdaterad:** 2026-10-22  
 **Testad med:** GroupDocs.Search 25.4 för Java  
 **Författare:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## Relaterade handledningar
 
 - [Implementera Java Full Text Search: Indexera text med GroupDocs.Search](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [Java Full Text Search Library – Optimera index med GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Hur man lägger till dokument i index med metadata‑indexering i Java med GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

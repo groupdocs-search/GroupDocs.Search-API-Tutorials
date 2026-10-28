@@ -62,11 +62,6 @@ type: docs
 url: /zh-hant/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 如何使用 java 全文搜尋與 GroupDocs.Search
 
 在本教學中，您將了解如何使用 GroupDocs.Search for Java **實作 java 全文搜尋**。我們將逐步說明如何設定索引資料夾、將文件加入索引，並套用最佳實踐技術，以 **優化搜尋效能**，處理成千上萬的 PDF、DOCX、TXT 以及其他格式。完成後，您將擁有一個可投入生產環境、執行快速且具彈性擴充性的搜尋元件。
@@ -239,19 +234,8 @@ A: 請前往官方 API 參考文件 [GroupDocs.Search API Reference](https://ref
 **最後更新:** 2026-10-22  
 **測試版本:** GroupDocs.Search 25.4 for Java  
 **作者:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## 相關教學
 
 - [實作 Java 全文搜尋：使用 GroupDocs.Search 建立索引](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [Java 全文搜尋函式庫 – 使用 GroupDocs.Search 最佳化索引](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [如何使用 GroupDocs.Search 於 Java 以中繼資料索引將文件加入索引](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

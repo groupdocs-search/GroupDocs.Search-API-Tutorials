@@ -65,11 +65,6 @@ type: docs
 url: /id/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cara menggunakan java full text search dengan GroupDocs.Search
 
 Pada tutorial ini Anda akan mempelajari cara **mengimplementasikan java full text search** menggunakan GroupDocs.Search untuk Java. Kami akan menjelaskan cara mengkonfigurasi folder indeks, menambahkan dokumen ke indeks, dan menerapkan teknik best‑practice yang **mengoptimalkan kinerja pencarian** untuk ribuan PDF, DOCX, TXT, dan format lainnya. Pada akhir tutorial, Anda akan memiliki komponen pencarian siap produksi yang berjalan cepat dan dapat diskalakan dengan baik.
@@ -242,19 +237,8 @@ Dengan mengikuti langkah‑langkah ini Anda kini tahu cara **create a document i
 **Terakhir Diperbarui:** 2026-10-22  
 **Diuji Dengan:** GroupDocs.Search 25.4 for Java  
 **Penulis:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## Tutorial Terkait
 
 - [Implement Java Full Text Search: Index Text dengan GroupDocs.Search](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [Java Full Text Search Library – Optimalkan Indeks dengan GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Cara menambahkan dokumen ke indeks dengan Metadata Indexing di Java menggunakan GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

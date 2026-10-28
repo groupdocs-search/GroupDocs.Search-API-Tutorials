@@ -65,11 +65,6 @@ type: docs
 url: /el/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Πώς να χρησιμοποιήσετε την αναζήτηση πλήρους κειμένου java με το GroupDocs.Search
 
 Σε αυτό το μάθημα θα ανακαλύψετε πώς να **εφαρμόσετε την αναζήτηση πλήρους κειμένου java** χρησιμοποιώντας το GroupDocs.Search για Java. Θα περάσουμε από τη διαμόρφωση ενός φακέλου ευρετηρίου, την προσθήκη εγγράφων στο ευρετήριο, και την εφαρμογή βέλτιστων πρακτικών που **βελτιστοποιούν την απόδοση της αναζήτησης** για χιλιάδες PDF, DOCX, TXT και άλλες μορφές. Στο τέλος, θα έχετε ένα έτοιμο για παραγωγή στοιχείο αναζήτησης που λειτουργεί γρήγορα και κλιμακώνεται ομαλά.
@@ -239,18 +234,8 @@ index.add(documentsFolder);
 **Τελευταία ενημέρωση:** 2026-10-22  
 **Δοκιμάστηκε με:** GroupDocs.Search 25.4 for Java  
 **Συγγραφέας:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## Σχετικά Μαθήματα
 
 - [Υλοποίηση Αναζήτησης Πλήρους Κειμένου Java: Ευρετηρίαση Κειμένου με το GroupDocs.Search](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [Βιβλιοθήκη Αναζήτησης Πλήρους Κειμένου Java – Βελτιστοποίηση Ευρετηρίου με το GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Πώς να προσθέσετε έγγραφα στο ευρετήριο με Μεταδεδομένα Ευρετηρίαση σε Java χρησιμοποιώντας το GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

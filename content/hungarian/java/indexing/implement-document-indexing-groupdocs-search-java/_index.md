@@ -65,11 +65,6 @@ type: docs
 url: /hu/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hogyan használjuk a java teljes szöveges keresést a GroupDocs.Search segítségével
 
 Ebben az útmutatóban megtudja, hogyan **valósítsa meg a java teljes szöveges keresést** a GroupDocs.Search for Java segítségével. Lépésről lépésre bemutatjuk az index mappa konfigurálását, a dokumentumok indexhez adását, és a legjobb gyakorlatok alkalmazását, amelyek **optimalizálják a keresési teljesítményt** több ezer PDF, DOCX, TXT és egyéb formátum esetén. A végére egy termelésre kész keresőkomponenst kap, amely gyorsan fut és rugalmasan skálázódik.
@@ -242,19 +237,8 @@ Ezeket a lépéseket követve most már tudja, hogyan **hozzon létre dokumentum
 **Legutóbb frissítve:** 2026-10-22  
 **Tesztelve:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## Kapcsolódó útmutatók
 
 - [Java teljes szöveges keresés megvalósítása: szöveg indexelése a GroupDocs.Search segítségével](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [Java teljes szöveges kereső könyvtár – index optimalizálása a GroupDocs.Search segítségével](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Hogyan adjon dokumentumokat az indexhez metaadat indexeléssel Java-ban a GroupDocs.Search használatával](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

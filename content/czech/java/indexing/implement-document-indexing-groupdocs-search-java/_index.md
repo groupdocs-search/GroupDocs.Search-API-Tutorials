@@ -64,11 +64,6 @@ type: docs
 url: /cs/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Jak používat full‑textové vyhledávání v Javě s GroupDocs.Search
 
 V tomto tutoriálu se dozvíte, jak **implementovat full‑textové vyhledávání v Javě** pomocí GroupDocs.Search pro Javu. Provedeme vás nastavením složky indexu, přidáváním dokumentů do indexu a aplikací osvědčených technik, které **optimalizují výkon vyhledávání** pro tisíce PDF, DOCX, TXT a dalších formátů. Na konci budete mít připravenou komponentu pro vyhledávání, která běží rychle a škáluje se plynule.
@@ -241,18 +236,8 @@ Po provedení těchto kroků nyní víte, jak **vytvořit dokumentový index**, 
 **Poslední aktualizace:** 2026-10-22  
 **Testováno s:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## Související tutoriály
 
 - [Implementace full‑textového vyhledávání v Javě: indexování textu pomocí GroupDocs.Search](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [Knihovna pro full‑textové vyhledávání v Javě – optimalizace indexu pomocí GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Jak přidat dokumenty do indexu s metadatovým indexováním v Javě pomocí GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}
