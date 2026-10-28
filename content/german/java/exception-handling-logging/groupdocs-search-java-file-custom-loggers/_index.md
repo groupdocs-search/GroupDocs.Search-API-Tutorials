@@ -123,7 +123,6 @@ Fügen Sie die Bibliothek Ihrem Projekt mit einer der untenstehenden Methoden hi
     </dependency>
 </dependencies>
 ```
-```
 
 **Direkter Download:**  
 Laden Sie das neueste JAR von der offiziellen Seite herunter: [GroupDocs.Search für Java Releases](https://releases.groupdocs.com/search/java/).
@@ -155,7 +154,6 @@ Der `FileLogger` schreibt Log‑Einträge in eine Datei auf dem Datenträger und
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **Indexeinstellungen mit File Logger einrichten**  
 ```text
@@ -168,13 +166,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **Index erstellen oder laden**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Dokumente zum Index hinzufügen**  
@@ -182,13 +178,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **Suchabfrage ausführen**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **Wichtiger Hinweis:** Das zweite Argument des `FileLogger`‑Konstruktors (`4.0`) definiert die **maximale Loggröße** in Megabyte und erfüllt damit die Anforderung **Logdateigröße begrenzen**.
@@ -206,7 +200,6 @@ Wenn Sie sofortige Sichtbarkeit von Log‑Ereignissen benötigen, schreibt der `
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **Indexeinstellungen mit Console Logger einrichten**  
 ```text
@@ -218,13 +211,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **Index erstellen oder laden**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Dokumente hinzufügen und Suche ausführen**  
@@ -232,7 +223,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **Tipp:** Der Console Logger ist während der Entwicklung ideal, da er jeden Logeintrag sofort ausgibt und Ihnen hilft zu überprüfen, dass Indexierung und Suche wie erwartet funktionieren.

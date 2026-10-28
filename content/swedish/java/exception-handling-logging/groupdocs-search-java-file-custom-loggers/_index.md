@@ -122,7 +122,6 @@ Lägg till biblioteket i ditt projekt med någon av metoderna nedan.
     </dependency>
 </dependencies>
 ```
-```
 
 **Direkt nedladdning:**  
 Download the latest JAR from the official site: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
@@ -154,7 +153,6 @@ Att skapa en anpassad logger är enkelt eftersom GroupDocs.Search förlitar sig 
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **Ställ in indexinställningar med File Logger**  
 ```text
@@ -167,13 +165,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **Skapa eller ladda indexet**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Lägg till dokument i indexet**  
@@ -181,13 +177,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **Utför en sökfråga**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **Viktigt:** `FileLogger`‑konstruktorns andra argument (`4.0`) definierar **maximal loggstorlek** i megabyte, vilket direkt adresserar kravet på **begränsning av loggfilens storlek**.
@@ -205,7 +199,6 @@ När du behöver omedelbar synlighet av logghändelser skriver `ConsoleLogger` v
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **Ställ in indexinställningar med Console Logger**  
 ```text
@@ -217,13 +210,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **Skapa eller ladda indexet**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Lägg till dokument och utför en sökning**  
@@ -231,7 +222,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **Tips:** Konsolloggern är idealisk under utveckling eftersom den skriver ut varje loggpost omedelbart, vilket hjälper dig att verifiera att indexering och sökning fungerar som förväntat.

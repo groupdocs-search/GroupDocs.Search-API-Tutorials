@@ -123,7 +123,6 @@ weight: 1
     </dependency>
 </dependencies>
 ```
-```
 
 **Άμεση λήψη:**  
 Κατεβάστε το τελευταίο JAR από την επίσημη ιστοσελίδα: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
@@ -155,7 +154,6 @@ weight: 1
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **Διαμόρφωση ρυθμίσεων ευρετηρίου με File Logger**  
 ```text
@@ -168,13 +166,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **Δημιουργία ή φόρτωση του ευρετηρίου**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Προσθήκη εγγράφων στο ευρετήριο**  
@@ -182,13 +178,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **Εκτέλεση ερωτήματος αναζήτησης**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **Κύριο σημείο:** Το δεύτερο όρισμα του κατασκευαστή `FileLogger` (`4.0`) ορίζει το **set max log size** σε megabytes, αντιμετωπίζοντας άμεσα την απαίτηση **περιορισμού μεγέθους αρχείου καταγραφής**.
@@ -206,7 +200,6 @@ SearchResult result = index.search(query);
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **Διαμόρφωση ρυθμίσεων ευρετηρίου με Console Logger**  
 ```text
@@ -218,13 +211,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **Δημιουργία ή φόρτωση του ευρετηρίου**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Προσθήκη εγγράφων και εκτέλεση αναζήτησης**  
@@ -232,7 +223,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **Συμβουλή:** Ο console logger είναι ιδανικός κατά την ανάπτυξη επειδή εκτυπώνει κάθε καταγραφή άμεσα, βοηθώντας σας να επαληθεύσετε ότι η ευρετηρίαση και η αναζήτηση λειτουργούν όπως αναμένεται.

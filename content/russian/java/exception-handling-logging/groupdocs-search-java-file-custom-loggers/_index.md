@@ -122,7 +122,6 @@ weight: 1
     </dependency>
 </dependencies>
 ```
-```
 
 **Прямое скачивание:**  
 Скачайте последнюю JAR‑файл с официального сайта: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
@@ -154,7 +153,6 @@ weight: 1
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **Настроить параметры индекса с File Logger**  
 ```text
@@ -167,13 +165,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **Создать или загрузить индекс**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Добавить документы в индекс**  
@@ -181,13 +177,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **Выполнить поисковый запрос**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **Ключевой момент:** Второй аргумент конструктора `FileLogger` (`4.0`) определяет **set max log size** в мегабайтах, непосредственно решая требование **limit log file size**.
@@ -205,7 +199,6 @@ SearchResult result = index.search(query);
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **Настроить параметры индекса с Console Logger**  
 ```text
@@ -217,13 +210,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **Создать или загрузить индекс**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Добавить документы и выполнить поиск**  
@@ -231,7 +222,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **Совет:** Консольный логгер идеален в процессе разработки, поскольку он мгновенно выводит каждую запись журнала, помогая убедиться, что индексация и поиск работают как ожидается.

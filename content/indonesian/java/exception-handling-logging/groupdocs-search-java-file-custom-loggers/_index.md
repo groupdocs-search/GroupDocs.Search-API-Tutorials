@@ -122,7 +122,6 @@ Tambahkan pustaka ke proyek Anda menggunakan salah satu metode di bawah ini.
     </dependency>
 </dependencies>
 ```
-```
 
 **Unduh langsung:**  
 Unduh JAR terbaru dari situs resmi: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
@@ -154,7 +153,6 @@ Membuat custom logger cukup sederhana karena GroupDocs.Search bergantung pada an
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **Siapkan pengaturan indeks dengan File Logger**  
 ```text
@@ -167,13 +165,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **Buat atau muat indeks**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Tambahkan dokumen ke indeks**  
@@ -181,13 +177,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **Lakukan kueri pencarian**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **Poin penting:** Argumen kedua konstruktor `FileLogger` (`4.0`) menentukan **set max log size** dalam megabyte, secara langsung memenuhi kebutuhan **limit log file size**.
@@ -205,7 +199,6 @@ Ketika Anda membutuhkan visibilitas instan dari peristiwa log, `ConsoleLogger` m
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **Siapkan pengaturan indeks dengan Console Logger**  
 ```text
@@ -217,13 +210,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **Buat atau muat indeks**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Tambahkan dokumen dan lakukan pencarian**  
@@ -231,7 +222,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **Tip:** Console logger ideal selama pengembangan karena mencetak setiap entri log secara instan, membantu Anda memverifikasi bahwa pengindeksan dan pencarian berperilaku sesuai harapan.

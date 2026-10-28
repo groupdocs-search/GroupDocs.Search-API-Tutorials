@@ -123,7 +123,6 @@ Adja hozzá a könyvtárat a projekthez az alábbi módszerek egyikével.
     </dependency>
 </dependencies>
 ```
-```
 
 **Közvetlen letöltés:**  
 Töltse le a legújabb JAR‑t a hivatalos oldalról: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
@@ -155,7 +154,6 @@ A `FileLogger` osztály naplóbejegyzéseket ír lemezre, és elfogad egy maxim�
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **Index beállítások konfigurálása File Logger‑rel**  
 ```text
@@ -168,13 +166,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **Az index létrehozása vagy betöltése**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Dokumentumok hozzáadása az indexhez**  
@@ -182,13 +178,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **Keresési lekérdezés végrehajtása**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **Kulcsfontosságú pont:** A `FileLogger` konstruktorának második argumentuma (`4.0`) meghatározza a **maximális naplóméret beállítását** megabájtban, közvetlenül a **logfájl méretének korlátozása** követelménynek megfelelően.
@@ -206,7 +200,6 @@ Amikor azonnali láthatóságra van szükség a naplóeseményekhez, a `ConsoleL
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **Index beállítások konfigurálása Console Logger‑rel**  
 ```text
@@ -218,13 +211,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **Az index létrehozása vagy betöltése**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Dokumentumok hozzáadása és keresés végrehajtása**  
@@ -232,7 +223,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **Tipp:** A console logger fejlesztés közben ideális, mivel azonnal kiírja minden naplóbejegyzést, segítve annak ellenőrzését, hogy az indexelés és a keresés a várt módon működik.

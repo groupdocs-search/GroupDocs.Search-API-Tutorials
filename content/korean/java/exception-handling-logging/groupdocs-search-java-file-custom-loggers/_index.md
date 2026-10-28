@@ -121,7 +121,6 @@ weight: 1
     </dependency>
 </dependencies>
 ```
-```
 
 **직접 다운로드:**  
 공식 사이트에서 최신 JAR를 다운로드하세요: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
@@ -153,7 +152,6 @@ weight: 1
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **File Logger와 함께 인덱스 설정 구성**  
 ```text
@@ -166,13 +164,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **인덱스 생성 또는 로드**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **인덱스에 문서 추가**  
@@ -180,13 +176,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **검색 쿼리 수행**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **핵심 포인트:** `FileLogger` 생성자의 두 번째 인수(`4.0`)는 메가바이트 단위의 **set max log size**를 정의하며, 이는 **limit log file size** 요구사항을 직접 해결합니다.
@@ -204,7 +198,6 @@ SearchResult result = index.search(query);
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **Console Logger와 함께 인덱스 설정 구성**  
 ```text
@@ -216,13 +209,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **인덱스 생성 또는 로드**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **문서를 추가하고 검색 수행**  
@@ -230,7 +221,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **팁:** 콘솔 로거는 개발 중에 이상적이며, 각 로그 항목을 즉시 출력해 인덱싱 및 검색이 기대대로 동작하는지 확인하는 데 도움이 됩니다.

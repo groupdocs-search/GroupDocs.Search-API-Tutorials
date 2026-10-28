@@ -122,7 +122,6 @@ The **limit log file size** सेटिंग लॉगर को बतात�
     </dependency>
 </dependencies>
 ```
-```
 
 **सीधा डाउनलोड:**  
 आधिकारिक साइट से नवीनतम JAR डाउनलोड करें: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
@@ -154,7 +153,6 @@ The **limit log file size** सेटिंग लॉगर को बतात�
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **File Logger के साथ इंडेक्स सेटिंग्स सेट करें**  
 ```text
@@ -167,13 +165,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **इंडेक्स बनाएं या लोड करें**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **इंडेक्स में दस्तावेज़ जोड़ें**  
@@ -181,13 +177,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **एक सर्च क्वेरी निष्पादित करें**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **मुख्य बिंदु:** `FileLogger` कंस्ट्रक्टर का दूसरा तर्क (`4.0`) मेगाबाइट में **set max log size** को परिभाषित करता है, जो सीधे **limit log file size** आवश्यकता को संबोधित करता है।
@@ -205,7 +199,6 @@ SearchResult result = index.search(query);
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **Console Logger के साथ इंडेक्स सेटिंग्स सेट करें**  
 ```text
@@ -217,13 +210,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **इंडेक्स बनाएं या लोड करें**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **दस्तावेज़ जोड़ें और सर्च निष्पादित करें**  
@@ -231,7 +222,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **टिप:** कंसोल लॉगर विकास के दौरान आदर्श है क्योंकि यह प्रत्येक लॉग प्रव entry को तुरंत प्रिंट करता है, जिससे आप सत्यापित कर सकते हैं कि इंडेक्सिंग और सर्च अपेक्षित रूप से कार्य कर रहे हैं।
