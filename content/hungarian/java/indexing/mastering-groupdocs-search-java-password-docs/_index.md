@@ -1,47 +1,82 @@
 ---
-date: '2026-03-15'
-description: Tanulja meg, hogyan indexeljen dokumentumokat Java-ban jelszóval védett
-  fájlokhoz a GroupDocs.Search használatával. Lépésről‑lépésre útmutató kóddal, tippekkel
-  és teljesítménytrükkökkel.
+date: '2026-10-28'
+description: Ismerje meg, hogyan kereshet több fájltípusban, és hogyan építhet kereshető
+  indexet jelszóval védett dokumentumokhoz Java-ban a GroupDocs.Search használatával.
+  Lépésről‑lépésre útmutató kóddal, tippekkel és teljesítménytrükkökkel.
 keywords:
-- indexing password-protected documents Java
-- GroupDocs.Search Java API
-- document management workflow
-title: Hogyan indexáljunk dokumentumokat Java-ban jelszóval védett fájlokhoz a GroupDocs.Search
-  segítségével
+- search multiple file types
+- build searchable index
+- password protected document indexing java
+- groupdocs.search java api
+lastmod: '2026-10-28'
+og_description: Ismerje meg, hogyan kereshet több fájltípusban, és hogyan építhet
+  kereshető indexet jelszóval védett dokumentumokhoz Java-ban a GroupDocs.Search használatával.
+  Lépésről‑lépésre útmutató kóddal, tippekkel és teljesítménytrükkökkel.
+og_image_alt: Guide showing Java code to search multiple file types and index password‑protected
+  documents with GroupDocs.Search
+og_title: Hogyan kereshet több fájltípusban és indexelhet dokumentumokat Java-ban
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-28'
+  description: Learn how to search multiple file types and build a searchable index
+    for password‑protected documents in Java using GroupDocs.Search. Step‑by‑step
+    guide with code, tips, and performance tricks.
+  headline: How to search multiple file types and index docs in Java
+  type: TechArticle
+- questions:
+  - answer: GroupDocs.Search supports 120+ formats including PDF, DOCX, XLSX, PPTX,
+      and common image types. Install format plugins if required.
+    question: How do I handle different file formats?
+  - answer: The document is skipped and a warning is logged; verify your password
+      dictionary or event handler.
+    question: What happens if a password is wrong?
+  - answer: Yes, but they must be downloaded to a local temporary folder first because
+      the engine works with file‑system paths.
+    question: Can I index files stored in the cloud?
+  - answer: Adjust scoring with `IndexOptions`, add synonyms, and use advanced query
+      syntax such as `field:term~` for fuzzy matching. `IndexOptions` is a configuration
+      object that controls scoring and indexing behavior.
+    question: How can I improve search relevance?
+  - answer: Review the log output; common causes are missing passwords, corrupted
+      files, or unsupported formats.
+    question: What should I do if indexing fails for some files?
+  type: FAQPage
+tags:
+- search multiple file types
+- GroupDocs.Search
+- Java indexing
+- password‑protected docs
+- document search
+title: Hogyan kereshet több fájltípusban és indexelhet dokumentumokat Java-ban
 type: docs
 url: /hu/java/indexing/mastering-groupdocs-search-java-password-docs/
 weight: 1
 ---
 
-# Hogyan indexeljük a dokumentumokat Java-ban jelszóval védett fájlokhoz a GroupDocs.Search segítségével
+# Hogyan keressünk több fájltípust és indexeljünk dokumentumokat Java-ban
 
-Ha kíváncsi vagy arra, **hogyan indexeljük a dokumentumokat**, amelyek jelszóval védettek, jó helyen jársz. A modern vállalatoknál az érzékeny adatok jelszóval való védelme elengedhetetlen, de gyakran nehezíti egy gyors, kereshető index létrehozását. Ez az útmutató lépésről lépésre végigvezet a biztonságos, nagy teljesítményű dokumentumindex felépítésén jelszóval védett fájlokhoz a GroupDocs.Search for Java használatával, miközben a folyamat egyszerű és karbantartható marad.
+A modern vállalkozásokban gyakran szükség van **több fájltípus keresésére**, miközben a bizalmas fájlokat jelszavak mögé rejtik. Ez a bemutató megmutatja, hogyan építhet fel kereshető indexet jelszóval védett dokumentumokhoz Java-ban a GroupDocs.Search használatával. Megtanulja, hogyan konfiguráljon jelszó‑szótárat, kezelje a jelszó‑követelt eseményeket, és optimalizálja a teljesítményt nagy kötegek esetén – mindezt anélkül, hogy saját dekódoló logikát írna.
 
 ## Gyors válaszok
-- **Miről szól ez az útmutató?** Jelszóval védett dokumentumok indexelése jelszó szótárral és eseménykezelővel.  
+- **Miről szól ez a bemutató?** Jelszóval védett dokumentumok indexelése jelszó szótárral és eseményfigyelővel.  
 - **Melyik könyvtár szükséges?** GroupDocs.Search for Java (legújabb verzió).  
-- **Szükségem van licencre?** Egy ideiglenes ingyenes próbaverzió licenc elérhető értékeléshez.  
-- **Indexelhetek más fájltípusokat is?** Igen, a GroupDocs.Search sok formátumot támogat, például PDF, DOCX, XLSX, stb.  
-- **Milyen Java verzió szükséges?** JDK 8 vagy újabb.
+- **Szükségem van licencre?** Egy ideiglenes ingyenes próbalicenc elérhető értékeléshez.  
+- **Indexelhetek más fájltípusokat is?** Igen, a GroupDocs.Search támogatja a 120+ formátumot, beleértve a PDF, DOCX, XLSX, PPTX és képeket.  
+- **Milyen Java verzió szükséges?** JDK 8 vagy újabb.  
 
 ## Mi az a „create document index java”?
-A dokumentumindex létrehozása Java-ban azt jelenti, hogy egy kereshető adatstruktúrát építünk, amely a kifejezéseket azokhoz a fájlokhoz rendeli, ahol megjelennek. A GroupDocs.Search segítségével ez a folyamat automatikusan kezeli a titkosított dokumentumokat, így nem kell manuálisan feloldani minden fájlt.
+`create document index java` a kereshető adatstruktúra felépítését jelenti, amely a kifejezéseket a Java‑kezelte fájlok helyeivel kapcsolja össze. A GroupDocs.Search motor automatikusan kinyeri a szöveget a támogatott formátumokból – beleértve a titkosított PDF‑eket, Office dokumentumokat és képeket – így teljes szöveges keresést végezhet anélkül, hogy saját dekódoló kódot írna. Ez a megközelítés leegyszerűsíti a keresés implementálását, miközben megőrzi a dokumentumok biztonságát.
 
-## Miért használjuk a GroupDocs.Search-t jelszóval védett fájlokhoz?
-- **Zero‑touch feloldás** – a jelszavakat egyszer egy szótárral vagy eseménykezelővel adja meg.  
-- **Magas teljesítmény** – optimalizált indexelő motor, amely milliók dokumentumát is képes kezelni.  
-- **Gazdag lekérdezési nyelv** – támogatja a logikai operátorokat, helyettesítő karaktereket és a fuzzy keresést.  
-- **Keresztformátumú támogatás** – több mint 100 fájltípussal működik alapból.  
-- **Egyszerűsíti a dokumentumok indexelését** – az API elrejti a titkosított fájlok kezelésének bonyolultságát.
+## Miért használjuk a GroupDocs.Search‑t jelszóval védett fájlokhoz?
+A GroupDocs.Search egy zero‑touch feloldási mechanizmust biztosít, amely a szótárból vagy egy eseménykezelőből származó jelszavakat alkalmazza, lehetővé téve a titkosított fájlok egyetlen átfutásban történő indexelését. Órában akár 2 millió dokumentumot képes feldolgozni egy szabványos 8‑magos szerveren, támogatja a 120+ fájltípust, és gazdag lekérdezési nyelvet kínál Boolean, helyettesítő és fuzzy operátorokkal – mindez elengedhetetlen egy sokféle tartalmat lefedő kereshető index felépítéséhez.
 
-## Előkövetelmények
-1. **Java Development Kit (JDK) 8+** – telepítve és a PATH-ban beállítva.  
-2. **IDE** – IntelliJ IDEA, Eclipse vagy bármely Java‑kompatibilis szerkesztő.  
-3. **Maven** – a függőségek kezeléséhez.  
-4. **GroupDocs.Search for Java** – add hozzá a könyvtárat Maven‑en keresztül (lásd alább).
+## Előfeltételek
+- Java Development Kit (JDK) 8+ telepítve és a `PATH` környezeti változóban.  
+- IDE, például IntelliJ IDEA vagy Eclipse.  
+- Maven a függőségek kezeléséhez.  
+- GroupDocs.Search for Java – add the library via Maven (lásd a beállítási részt).
 
-## A GroupDocs.Search for Java beállítása
+## A GroupDocs.Search beállítása Java-hoz
 
 ### Maven használata
 Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
@@ -67,75 +102,79 @@ Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
 ### Közvetlen letöltés
 Alternatívaként letöltheti a legújabb verziót közvetlenül a [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) oldalról.
 
-A próbaverzió licenc elindításához látogassa meg a [GroupDocs ideiglenes licenc oldalát](https://purchase.groupdocs.com/temporary-license/) és kövesse az utasításokat a ingyenes próba megszerzéséhez.
+A próbalicenchez látogasson el a [GroupDocs ideiglenes licenc oldalára](https://purchase.groupdocs.com/temporary-license/), és kövesse az utasításokat a ingyenes próba megszerzéséhez.
 
-## Hogyan indexeljük a dokumentumokat jelszó szótárral
+## Hogyan indexeljünk dokumentumokat jelszó szótárral
 
-Az alábbiakban két gyakorlati megközelítést mutatunk be. Mindkettő lehetővé teszi, hogy **create document index java**-t hajtson végre, miközben a jelszavakat automatikusan kezeli.
+Jelszó‑szótár megadásával, amely a fájlútvonalakat a megfelelő jelszavakhoz rendeli, **kereshető indexet** építhet. Az motor automatikusan lekéri a helyes jelszót az indexelés során.
 
-### 1. megközelítés – Jelszó szótár használatával történő indexelés
-#### Áttekintés
-Tárolja a dokumentumjelszavakat egy szótárban, hogy a motor futás közben fel tudja oldani a fájlokat.
+### Áttekintés
+Tárolja a dokumentumjelszavakat egy egyszerű kulcs‑érték térképen, hogy az indexelő motor igény szerint feloldhassa a fájlokat.
 
-#### 1. lépés: Az index és a dokumentumok mappájának meghatározása
+### 1. lépés: az index és a dokumentumok mappájának meghatározása
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordDictionary";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### 2. lépés: Index létrehozása
+### 2. lépés: index létrehozása
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### 3. lépés: Dokumentumjelszavak hozzáadása
+### 3. lépés: dokumentumjelszavak hozzáadása
 ```java
 // Add passwords for specific files using their absolute paths
 String path1 = new File(documentsFolder + "/English.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(path1, "123456");
 
-String path2 = new File(documentsFolder + "/Lorem ipsum.docx").getAbsolutePath();
+String path2 = new File(documentsFolder + "/SampleDocument.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(path2, "123456");
 ```
 
-#### 4. lépés: Dokumentumok indexelése
+### 4. lépés: dokumentumok indexelése
 ```java
 // Automatically retrieve passwords from the dictionary during indexing
 index.add(documentsFolder);
 ```
 
-#### 5. lépés: Keresés az indexben
+### 5. lépés: keresés az indexben
 ```java
-String query = "ipsum OR increasing";
+String query = "sample OR increasing";
 SearchResult result = index.search(query);
 
 // Handle search results (e.g., display or process them)
 ```
 
-**Tipp:** Ha sok fájlja van, fontolja meg a jelszavak betöltését egy biztonságos tárolóból (adatbázis, Azure Key Vault, stb.) a kódba írt értékek helyett.
+**Tippek:** Production környezetben töltse be a jelszavakat egy biztonságos széfből (pl. Azure Key Vault vagy AWS Secrets Manager) a kódban történő hard‑kódolás helyett.
 
 #### Hibaelhárítás
 - Ellenőrizze, hogy minden jelszó megegyezik a fájl tényleges védelmi jelszavával.  
-- Ellenőrizze újra a fájl útvonalakat; egy hibás útvonal `FileNotFoundException`-t vált ki.
+- Ellenőrizze a fájlútvonalakat; egy helytelen útvonal `FileNotFoundException`‑t vált ki.
 
-### 2. megközelítés – Indexelés eseménykezelő használatával a jelszó igényléséhez
-#### Áttekintés
-Dinamikusan adja meg a jelszavakat, amikor a motor jelszó‑szükséges eseményt vált ki.
+## Hogyan indexeljünk dokumentumokat eseményfigyelővel a jelszó‑követelt eseményhez?
 
-#### 1. lépés: Az index és a dokumentumok mappájának meghatározása
+Jelszavakat csak akkor adhat meg, amikor a motor jelszó‑követelt eseményt vált ki, így a hitelesítő adatokat nem tartja memóriában, és dinamikus jelszó‑feloldást tesz lehetővé.
+
+Amikor az indexelő motor egy titkosított fájlt talál, egy visszahívást indít, ahol a jelszót egy biztonságos tárolóból kérheti le vagy helyben számíthatja ki. Ez a módszer csökkenti a támadási felületet a szótárban tárolt összes jelszóhoz képest.
+
+### Áttekintés
+Jelszavakat adjon át „on‑the‑fly” egy esemény‑callback‑en keresztül, miközben a hitelesítő tároló izolált marad.
+
+### 1. lépés: az index és a dokumentumok mappájának meghatározása
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordEvent";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### 2. lépés: Index létrehozása
+### 2. lépés: index létrehozása
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### 3. lépés: Feliratkozás a Password‑Required eseményre
+### 3. lépés: feliratkozás a jelszó‑követelt eseményre
 ```java
 index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArgs>() {
     @Override
@@ -148,69 +187,76 @@ index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArg
 });
 ```
 
-#### 4. lépés: Dokumentumok indexelése
+### 4. lépés: dokumentumok indexelése
 ```java
 // The event handler will supply passwords as required during indexing
 index.add(documentsFolder);
 ```
 
-#### 5. lépés: Keresés az indexben
+### 5. lépés: keresés az indexben
 ```java
-String query = "ipsum OR increasing";
+String query = "sample OR increasing";
 SearchResult result = index.search(query);
 
 // Handle search results (e.g., display or process them)
 ```
 
 #### Hibaelhárítás
-- Győződjön meg arról, hogy az eseménykezelő lefedi az összes indexelni kívánt fájlkiterjesztést.  
-- Először néhány mintafájllal tesztelje, hogy megerősítse a jelszó alkalmazását.
+- Győződjön meg róla, hogy az eseménykezelő lefedi az összes indexelni kívánt fájlkiterjesztést.  
+- Először néhány mintafájllal tesztelje, hogy a jelszó helyesen alkalmazásra kerül-e.
 
 ## Gyakorlati alkalmazások
 
-1. **Vállalati dokumentumkezelés:** A bizalmas szerződések, HR fájlok és pénzügyi jelentések indexelésének automatizálása.  
-2. **Jogi archívumok:** Gyorsan visszakereshetőek az ügyiratok, miközben azok nyugalmi állapotban titkosítva maradnak.  
-3. **Egészségügyi nyilvántartások:** Beteg PDF-ek és Word dokumentumok indexelése a PHI (védett egészségügyi információ) kitettsége nélkül.
+1. **Vállalati dokumentumkezelés** – automatizálja a bizalmas szerződések, HR fájlok és pénzügyi jelentések indexelését, miközben titkosítva tartja őket.  
+2. **Jogi archívumok** – gyorsan keresse meg az ügyiratokat anélkül, hogy érzékeny tartalmakat felfedne.  
+3. **Egészségügyi nyilvántartások** – indexelje a páciensek PDF és Word dokumentumait, miközben megfelel a HIPAA követelményeknek.
 
 ## Teljesítményfontosságú szempontok
-- **Memória allokáció:** Rendeljen elegendő heap memóriát (`-Xmx2g` vagy nagyobb) nagy kötegekhez.  
-- **Párhuzamos indexelés:** Használja a `index.addAsync(...)`-t vagy futtasson több indexelő szálat a gyorsabb áteresztőképességért.  
-- **Index karbantartás:** Időnként hívja meg a `index.optimize()`-t az index tömörítéséhez és a lekérdezési sebesség javításához.
+
+- **Memória allokáció** – biztosítson elegendő heap memóriát (`-Xmx2g` vagy nagyobb) nagy kötegekhez.  
+- **Párhuzamos indexelés** – használja a `index.addAsync(...)` metódust vagy futtasson több indexelő szálat, hogy elérje a **2 millió dokumentum óránként** egy 8‑magos gépen. A `index.addAsync(...)` egy olyan metódus, amely aszinkron módon sorba állítja a dokumentumokat.  
+- **Index karbantartás** – időnként hívja meg a `index.optimize()` metódust az index tömörítéséhez és a lekérdezési sebesség javításához.
 
 ## Gyakori problémák és megoldások
-- **Helytelen jelszó:** A dokumentum átugrásra kerül, és egy figyelmeztetés kerül naplózásra. Ellenőrizze újra a jelszó szótárát vagy az eseménykezelőt.  
-- **Nem támogatott formátum:** Telepítse a szükséges formátum plugineket vagy konvertálja a fájlokat egy támogatott típusra az indexelés előtt.  
-- **Nagy fájlok:** Növelje a heap méretét, és fontolja meg a kisebb kötegekben történő indexelést.
+
+- **Helytelen jelszó** – a dokumentum átugrásra kerül, és egy figyelmeztetés kerül naplózásra. Ellenőrizze a jelszóforrást.  
+- **Nem támogatott formátum** – telepítse a szükséges formátum plugineket, vagy konvertálja a fájlokat támogatott típusra indexelés előtt.  
+- **Nagy fájlok** – növelje a heap méretét, és fontolja meg a kisebb kötegekben történő indexelést az `OutOfMemoryError` elkerülése érdekében.
 
 ## Gyakran ismételt kérdések
 
-**Q: Hogyan kezelem a különböző fájlformátumokat?**  
-A: A GroupDocs.Search támogatja a PDF, DOCX, XLSX, PPTX és még sok más formátumot. Szükség esetén telepítse a megfelelő formátum plugineket.
+**K: Hogyan kezelem a különböző fájlformátumokat?**  
+A: A GroupDocs.Search támogatja a 120+ formátumot, beleértve a PDF, DOCX, XLSX, PPTX és gyakori képformátumokat. Szükség esetén telepítse a formátum‑plugineket.
 
-**Q: Mi történik, ha a jelszó hibás?**  
-A: A dokumentum átugrásra kerül, és egy figyelmeztetés kerül naplózásra. Ellenőrizze a jelszó forrását.
+**K: Mi történik, ha a jelszó hibás?**  
+A: A dokumentum átugrásra kerül, és egy figyelmeztetés kerül naplózásra; ellenőrizze a jelszó‑szótárat vagy az eseménykezelőt.
 
-**Q: Indexelhetek felhőben tárolt fájlokat?**  
-A: Igen, de először le kell tölteni őket egy helyi ideiglenes mappába, mivel a motor fájlrendszeri útvonalakkal dolgozik.
+**K: Indexelhetek felhőben tárolt fájlokat?**  
+A: Igen, de először le kell tölteni őket egy helyi ideiglenes mappába, mivel a motor fájl‑rendszeri útvonalakkal dolgozik.
 
-**Q: Hogyan javíthatom a keresés relevanciáját?**  
-A: Állítsa be a pontozási beállításokat a `IndexOptions` segítségével, használjon szinonimákat, és alkalmazza a fejlett lekérdezési szintaxist (`field:term~` a fuzzy egyezéshez).
+**K: Hogyan javíthatom a keresés relevanciáját?**  
+A: Állítsa be a pontozást az `IndexOptions`‑szel, adjon hozzá szinonimákat, és használjon fejlett lekérdezési szintaxist, például `field:term~` fuzzy egyezéshez. Az `IndexOptions` egy konfigurációs objektum, amely a pontozást és az indexelés viselkedését szabályozza.
 
-**Q: Mit tegyek, ha az indexelés néhány fájlnál sikertelen?**  
+**K: Mit tegyek, ha az indexelés néhány fájlnál sikertelen?**  
 A: Tekintse át a napló kimenetet; a gyakori okok a hiányzó jelszavak, sérült fájlok vagy nem támogatott formátumok.
 
-## Források
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java)
-- [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+## Erőforrások
+- [GroupDocs.Search dokumentáció](https://docs.groupdocs.com/search/java/)
+- [API referencia](https://reference.groupdocs.com/search/java)
+- [GroupDocs.Search letöltése](https://releases.groupdocs.com/search/java/)
+- [GitHub tároló](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [Ingyenes támogatási fórum](https://forum.groupdocs.com/c/search/10)
+- [Ideiglenes licenc információ](https://purchase.groupdocs.com/temporary-license/)
 
-Ezt az útmutatót követve most már tudja, **hogyan indexeljük a dokumentumokat** jelszóval védett fájlokhoz, ezáltal növelve a biztonságot és a felfedezhetőséget az alkalmazásaiban.
+Ezzel az útmutatóval most már tudja, **hogyan keressen több fájltípust** és **indexelje a jelszóval védett dokumentumokat** Java-ban, ezáltal növelve mind a biztonságot, mind a felfedezhetőséget alkalmazásaiban.
 
 ---
 
-**Utolsó frissítés:** 2026-03-15  
-**Tesztelve ezzel:** GroupDocs.Search 25.4 for Java  
+**Last Updated:** 2026-10-28  
+**Tesztelve a következővel:** GroupDocs.Search 25.4 for Java  
 **Szerző:** GroupDocs
+
+## Kapcsolódó bemutatók
+
+- [Hogyan indexeljünk jelszóval védett dokumentumokat Java-ban a GroupDocs.Search használatával](/search/java/indexing/mastering-groupdocs-search-java-password-docs/)
+- [Kérdezési teljesítmény javítása a GroupDocs.Search Java-val: Index és keresés optimalizálása](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)

@@ -122,7 +122,6 @@ Thêm thư viện vào dự án của bạn bằng một trong các phương ph�
     </dependency>
 </dependencies>
 ```
-```
 
 **Tải trực tiếp:**  
 Tải JAR mới nhất từ trang chính thức: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
@@ -154,7 +153,6 @@ Tạo một logger tùy chỉnh là rất đơn giản vì GroupDocs.Search dự
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **Cấu hình cài đặt chỉ mục với File Logger**  
 ```text
@@ -167,13 +165,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **Tạo hoặc tải chỉ mục**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Thêm tài liệu vào chỉ mục**  
@@ -181,13 +177,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **Thực hiện truy vấn tìm kiếm**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **Điểm chính:** Tham số thứ hai của hàm khởi tạo `FileLogger` (`4.0`) định nghĩa **đặt kích thước log tối đa** tính bằng megabyte, trực tiếp đáp ứng yêu cầu **giới hạn kích thước tệp log**.
@@ -205,7 +199,6 @@ Khi bạn cần nhìn thấy các sự kiện log ngay lập tức, `ConsoleLogg
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **Cấu hình cài đặt chỉ mục với Console Logger**  
 ```text
@@ -217,13 +210,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **Tạo hoặc tải chỉ mục**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Thêm tài liệu và thực hiện tìm kiếm**  
@@ -231,7 +222,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **Mẹo:** Console logger lý tưởng trong quá trình phát triển vì nó in mỗi mục log ngay lập tức, giúp bạn xác nhận rằng việc lập chỉ mục và tìm kiếm hoạt động như mong đợi.

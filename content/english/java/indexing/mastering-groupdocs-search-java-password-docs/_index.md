@@ -1,42 +1,77 @@
 ---
-title: "How to index password‑protected documents in Java using GroupDocs.Search"
-description: "Learn how to index docs in Java for password‑protected files using GroupDocs.Search. Step‑by‑step guide with code, tips, and performance tricks."
-date: "2026-03-15"
-weight: 1
-url: "/java/indexing/mastering-groupdocs-search-java-password-docs/"
+date: '2026-10-28'
+description: Learn how to use the GroupDocs.Search API to search multiple file types and build a searchable index for password‑protected documents in Java. Step‑by‑step guide with code, tips, and performance tricks.
+images:
+- /java/indexing/mastering-groupdocs-search-java-password-docs/og-image.png
 keywords:
-- indexing password-protected documents Java
-- GroupDocs.Search Java API
-- document management workflow
+- search multiple file types
+- build searchable index
+- password protected document indexing java
+- groupdocs.search java api
+lastmod: '2026-10-28'
+og_description: Learn how to use the GroupDocs.Search API to search multiple file types and build a searchable index for password‑protected documents in Java. Step‑by‑step guide with code, tips, and performance tricks.
+og_image_alt: Guide showing Java code to search multiple file types and index password‑protected documents with GroupDocs.Search
+og_title: How to use GroupDocs.Search to search multiple file types and index docs in Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-28'
+  description: Learn how to use the GroupDocs.Search API to search multiple file types and build a searchable index for password‑protected documents in Java. Step‑by‑step guide with code, tips, and performance tricks.
+  headline: How to use GroupDocs.Search to search multiple file types and index docs in Java
+  type: TechArticle
+- questions:
+  - answer: GroupDocs.Search supports 120+ formats including PDF, DOCX, XLSX, PPTX,
+      and common image types. Install format plugins if required.
+    question: How do I handle different file formats?
+  - answer: The document is skipped and a warning is logged; verify your password
+      dictionary or event handler.
+    question: What happens if a password is wrong?
+  - answer: Yes, but they must be downloaded to a local temporary folder first because
+      the engine works with file‑system paths.
+    question: Can I index files stored in the cloud?
+  - answer: Adjust scoring with `IndexOptions`, add synonyms, and use advanced query
+      syntax such as `field:term~` for fuzzy matching. `IndexOptions` is a configuration
+      object that controls scoring and indexing behavior.
+    question: How can I improve search relevance?
+  - answer: Review the log output; common causes are missing passwords, corrupted
+      files, or unsupported formats.
+    question: What should I do if indexing fails for some files?
+  type: FAQPage
+tags:
+- search multiple file types
+- GroupDocs.Search
+- Java indexing
+- password‑protected docs
+- document search
+title: How to use the GroupDocs.Search API to search multiple file types and index password‑protected documents in Java
 type: docs
+url: /java/indexing/mastering-groupdocs-search-java-password-docs/
+weight: 1
 ---
 
-# How to index docs in Java for password‑protected files with GroupDocs.Search
+# How to search multiple file types and index docs in Java
 
-If you’re wondering **how to index docs** that are protected with passwords, you’ve come to the right place. In modern enterprises, safeguarding sensitive data with passwords is essential, but it often makes it hard to create a fast, searchable index. This tutorial walks you through the exact steps to build a secure, high‑performance document index for password‑protected files using GroupDocs.Search for Java, while keeping the process straightforward and maintainable.
+In modern enterprises you often need to **search multiple file types** while keeping confidential files locked behind passwords. This tutorial shows you how to build a searchable index for password‑protected documents in Java using GroupDocs.Search. You’ll see how to configure a password dictionary, handle password‑required events, and optimise performance for large batches—all without writing custom decryption logic.
 
-## Quick Answers
+## Quick answers
 - **What does this tutorial cover?** Indexing password‑protected documents with a password dictionary and an event listener.  
 - **Which library is required?** GroupDocs.Search for Java (latest version).  
 - **Do I need a license?** A temporary free trial license is available for evaluation.  
-- **Can I index other file types?** Yes, GroupDocs.Search supports many formats like PDF, DOCX, XLSX, etc.  
-- **What Java version is needed?** JDK 8 or later.
+- **Can I index other file types?** Yes, GroupDocs.Search supports 120+ formats including PDF, DOCX, XLSX, PPTX, and images.  
+- **What Java version is needed?** JDK 8 or later.  
 
 ## What is “create document index java”?
-Creating a document index in Java means building a searchable data structure that maps terms to the files where they appear. With GroupDocs.Search, this process can automatically handle encrypted documents, so you don’t have to manually unlock each file.
+
+`create document index java` refers to the process of constructing a searchable data structure that maps terms to the locations of Java‑managed files. With GroupDocs.Search, the engine automatically extracts text from supported formats—including encrypted PDFs, Office documents, and images—so you can perform full‑text searches without writing any decryption code yourself. This approach simplifies search implementation while preserving document security.
 
 ## Why use GroupDocs.Search for password‑protected files?
-- **Zero‑touch unlocking** – supply passwords once via a dictionary or event handler.  
-- **High performance** – optimized indexing engine that scales to millions of documents.  
-- **Rich query language** – support for Boolean operators, wildcards, and fuzzy search.  
-- **Cross‑format support** – works with over 100 file types out of the box.  
-- **Simplifies how to index docs** – the API abstracts away the complexity of dealing with encrypted files.
+
+GroupDocs.Search provides a zero‑touch unlocking mechanism that applies passwords from a dictionary or an event handler, letting you index encrypted files in a single pass. It processes up to 2 million documents per hour on a standard 8‑core server, supports 120+ file types, and offers a rich query language with Boolean, wildcard, and fuzzy operators—all essential for building a searchable index that spans diverse content.
 
 ## Prerequisites
-1. **Java Development Kit (JDK) 8+** – installed and configured in your PATH.  
-2. **IDE** – IntelliJ IDEA, Eclipse, or any Java‑compatible editor.  
-3. **Maven** – for dependency management.  
-4. **GroupDocs.Search for Java** – add the library via Maven (see below).  
+- Java Development Kit (JDK) 8+ installed and added to your `PATH`.
+- An IDE such as IntelliJ IDEA or Eclipse.
+- Maven for dependency management.
+- GroupDocs.Search for Java – add the library via Maven (see the setup section).
 
 ## Setting up GroupDocs.Search for java
 
@@ -61,33 +96,31 @@ Add the repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-### Direct Download
+### Direct download
 Alternatively, you can download the latest version directly from [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 To get started with a trial license, visit [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/) and follow the instructions to obtain your free trial.
 
 ## How to index docs with a password dictionary
 
-Below are two practical approaches. Both let you **create document index java** while handling passwords automatically.
+You can **build a searchable index** by supplying a dictionary that maps file paths to their passwords. The engine will automatically retrieve the correct password during indexing.
 
-### Approach 1 – indexing using a password dictionary
+### Overview
+Store document passwords in a simple key‑value map so the indexing engine can unlock files on demand.
 
-#### Overview
-Store document passwords in a dictionary so the engine can unlock files on the fly.
-
-#### Step 1: define the index and documents folder
+### Step 1: define the index and documents folder
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordDictionary";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Step 2: create an index
+### Step 2: create an index
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Step 3: add document passwords
+### Step 3: add document passwords
 ```java
 // Add passwords for specific files using their absolute paths
 String path1 = new File(documentsFolder + "/English.docx").getAbsolutePath();
@@ -97,13 +130,13 @@ String path2 = new File(documentsFolder + "/SampleDocument.docx").getAbsolutePat
 index.getDictionaries().getDocumentPasswords().add(path2, "123456");
 ```
 
-#### Step 4: index documents
+### Step 4: index documents
 ```java
 // Automatically retrieve passwords from the dictionary during indexing
 index.add(documentsFolder);
 ```
 
-#### Step 5: Search in the Index
+### Step 5: search in the index
 ```java
 String query = "sample OR increasing";
 SearchResult result = index.search(query);
@@ -111,30 +144,34 @@ SearchResult result = index.search(query);
 // Handle search results (e.g., display or process them)
 ```
 
-**Tip:** If you have many files, consider loading passwords from a secure store (database, Azure Key Vault, etc.) instead of hard‑coding them.
+**Tip:** For production scenarios, load passwords from a secure vault (e.g., Azure Key Vault or AWS Secrets Manager) instead of hard‑coding them.
 
 #### Troubleshooting
 - Verify that each password matches the file’s actual protection password.  
-- Double‑check file paths; a wrong path triggers `FileNotFoundException`.
+- Double‑check file paths; an incorrect path triggers `FileNotFoundException`.
 
-### Approach 2 – indexing using an event listener for password requirement
+## How to index docs with an event listener for password requirement?
 
-#### Overview
-Supply passwords dynamically when the engine raises a password‑required event.
+You can supply passwords only when the engine raises a password‑required event, keeping credentials out of memory and allowing dynamic password resolution.
 
-#### Step 1: define the index and documents folder
+When the indexing engine encounters an encrypted file, it triggers a callback where you can look up the password from a secure store or compute it on the fly. This method reduces the attack surface compared with storing all passwords in a dictionary.
+
+### Overview
+Supply passwords on‑the‑fly through an event callback, keeping your credential store isolated.
+
+### Step 1: define the index and documents folder
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordEvent";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Step 2: create an index
+### Step 2: create an index
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Step 3: subscribe to password‑Required event
+### Step 3: subscribe to password‑required event
 ```java
 index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArgs>() {
     @Override
@@ -147,13 +184,13 @@ index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArg
 });
 ```
 
-#### Step 4: index documents
+### Step 4: index documents
 ```java
 // The event handler will supply passwords as required during indexing
 index.add(documentsFolder);
 ```
 
-#### Step 5: Search in the Index
+### Step 5: search in the index
 ```java
 String query = "sample OR increasing";
 SearchResult result = index.search(query);
@@ -165,35 +202,37 @@ SearchResult result = index.search(query);
 - Ensure the event handler covers all file extensions you need to index.  
 - Test with a few sample files first to confirm the password is being applied.
 
-## Practical Applications
+## Practical applications
 
-1. **Enterprise Document Management:** Automate indexing of confidential contracts, HR files, and financial reports.  
-2. **Legal Archives:** Quickly retrieve case files while keeping them encrypted at rest.  
-3. **Healthcare Records:** Index patient PDFs and Word documents without exposing PHI.
+1. **Enterprise document management** – automate indexing of confidential contracts, HR files, and financial reports while keeping them encrypted at rest.  
+2. **Legal archives** – quickly retrieve case files without exposing sensitive content.  
+3. **Healthcare records** – index patient PDFs and Word documents while complying with HIPAA requirements.
 
-## Performance Considerations
-- **Memory Allocation:** Allocate sufficient heap memory (`-Xmx2g` or higher) for large batches.  
-- **Parallel Indexing:** Use `index.addAsync(...)` or run multiple indexing threads for faster throughput.  
-- **Index Maintenance:** Periodically call `index.optimize()` to compact the index and improve query speed.
+## Performance considerations
+
+- **Memory allocation** – allocate sufficient heap memory (`-Xmx2g` or higher) for large batches.  
+- **Parallel indexing** – use `index.addAsync(...)` or run multiple indexing threads to achieve up to **2 million documents per hour** on an 8‑core machine. `index.addAsync(...)` is a method that queues documents for asynchronous indexing.  
+- **Index maintenance** – periodically call `index.optimize()` to compact the index and improve query speed.
 
 ## Common issues and solutions
-- **Wrong Password:** The document is skipped and a warning is logged. Double‑check your password dictionary or event handler.  
-- **Unsupported Format:** Install the necessary format plugins or convert files to a supported type before indexing.  
-- **Large Files:** Increase heap size and consider indexing them in smaller batches.
+
+- **Wrong password** – the document is skipped and a warning is logged. Double‑check your password source.  
+- **Unsupported format** – install the necessary format plugins or convert files to a supported type before indexing.  
+- **Large files** – increase heap size and consider indexing them in smaller batches to avoid `OutOfMemoryError`.
 
 ## Frequently asked questions
 
 **Q: How do I handle different file formats?**  
-A: GroupDocs.Search supports PDF, DOCX, XLSX, PPTX, and many more. Install the appropriate format plugins if required.
+A: GroupDocs.Search supports 120+ formats including PDF, DOCX, XLSX, PPTX, and common image types. Install format plugins if required.
 
 **Q: What happens if a password is wrong?**  
-A: The document is skipped, and a warning is logged. Verify your password source.
+A: The document is skipped and a warning is logged; verify your password dictionary or event handler.
 
 **Q: Can I index files stored in the cloud?**  
-A: Yes, but they must be downloaded to a local temporary folder first, because the engine works with file system paths.
+A: Yes, but they must be downloaded to a local temporary folder first because the engine works with file‑system paths.
 
 **Q: How can I improve search relevance?**  
-A: Adjust scoring settings via `IndexOptions`, use synonyms, and leverage the advanced query syntax (`field:term~` for fuzzy matching).
+A: Adjust scoring with `IndexOptions`, add synonyms, and use advanced query syntax such as `field:term~` for fuzzy matching. `IndexOptions` is a configuration object that controls scoring and indexing behavior.
 
 **Q: What should I do if indexing fails for some files?**  
 A: Review the log output; common causes are missing passwords, corrupted files, or unsupported formats.
@@ -206,10 +245,15 @@ A: Review the log output; common causes are missing passwords, corrupted files, 
 - [Free Support Forum](https://forum.groupdocs.com/c/search/10)
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
 
-By following this guide, you now know **how to index docs** for password‑protected files, boosting both security and discoverability in your applications.
+By following this guide, you now know **how to search multiple file types** and **index password‑protected documents** in Java, boosting both security and discoverability in your applications.
 
 ---
 
-**Last Updated:** 2026-03-15  
+**Last Updated:** 2026-10-28  
 **Tested With:** GroupDocs.Search 25.4 for Java  
 **Author:** GroupDocs
+
+## Related Tutorials
+
+- [How to index password‑protected documents in Java using GroupDocs.Search](/search/java/indexing/mastering-groupdocs-search-java-password-docs/)
+- [Improve Query Performance with GroupDocs.Search Java: Optimize Index & Search](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)

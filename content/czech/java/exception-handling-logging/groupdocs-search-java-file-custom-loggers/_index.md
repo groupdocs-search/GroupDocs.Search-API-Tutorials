@@ -122,7 +122,6 @@ Přidejte knihovnu do svého projektu pomocí jedné z níže uvedených metod.
     </dependency>
 </dependencies>
 ```
-```
 
 **Přímé stažení:**  
 Download the latest JAR from the official site: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
@@ -154,7 +153,6 @@ The `FileLogger` class writes log entries to a file on disk and accepts a maximu
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **Nastavte nastavení indexu s File Logger**  
 ```text
@@ -167,13 +165,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **Vytvořte nebo načtěte index**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Přidejte dokumenty do indexu**  
@@ -181,13 +177,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **Proveďte vyhledávací dotaz**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **Klíčový bod:** Konstruktor `FileLogger` s druhým argumentem (`4.0`) definuje **set max log size** v megabajtech, čímž přímo řeší požadavek **limit log file size**.
@@ -205,7 +199,6 @@ When you need instant visibility of log events, the `ConsoleLogger` writes each 
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **Nastavte nastavení indexu s Console Logger**  
 ```text
@@ -217,13 +210,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **Vytvořte nebo načtěte index**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Přidejte dokumenty a proveďte vyhledávání**  
@@ -231,7 +222,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **Tip:** Console logger je ideální během vývoje, protože okamžitě vypisuje každý záznam, což vám pomáhá ověřit, že indexování a vyhledávání fungují podle očekávání.

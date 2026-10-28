@@ -122,7 +122,6 @@ Kütüphaneyi projenize aşağıdaki yöntemlerden biriyle ekleyin.
     </dependency>
 </dependencies>
 ```
-```
 
 **Doğrudan indirme:**  
 Resmi siteden en son JAR'ı indirin: [GroupDocs.Search for Java sürümleri](https://releases.groupdocs.com/search/java/).
@@ -154,7 +153,6 @@ Deneme sürümü edinin veya [lisans sayfası](https://purchase.groupdocs.com/te
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **File Logger ile indeks ayarlarını yapılandırın**  
 ```text
@@ -167,13 +165,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **İndeksi oluşturun veya yükleyin**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Belgeleri indekse ekleyin**  
@@ -181,13 +177,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **Bir arama sorgusu gerçekleştirin**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **Önemli nokta:** `FileLogger` yapıcısının ikinci argümanı (`4.0`), megabayt cinsinden **maksimum log boyutunu ayarlar** ve doğrudan **log dosyası boyutunu sınırlama** gereksinimini karşılar.
@@ -205,7 +199,6 @@ Log olaylarını anında görmek istediğinizde, `ConsoleLogger` her mesajı `Sy
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **Console Logger ile indeks ayarlarını yapılandırın**  
 ```text
@@ -217,13 +210,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **İndeksi oluşturun veya yükleyin**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **Belgeleri ekleyin ve bir arama gerçekleştirin**  
@@ -231,7 +222,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **İpucu:** Console logger geliştirme sırasında idealdir çünkü her log girişini anında yazdırır, bu da indeksleme ve aramanın beklenildiği gibi çalıştığını doğrulamanıza yardımcı olur.

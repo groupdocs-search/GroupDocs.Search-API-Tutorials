@@ -121,7 +121,6 @@ weight: 1
     </dependency>
 </dependencies>
 ```
-```
 
 **تحميل مباشر:**  
 قم بتنزيل أحدث JAR من الموقع الرسمي: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
@@ -153,7 +152,6 @@ weight: 1
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **إعداد إعدادات الفهرس مع File Logger**  
 ```text
@@ -166,13 +164,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **إنشاء أو تحميل الفهرس**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **إضافة مستندات إلى الفهرس**  
@@ -180,13 +176,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **تنفيذ استعلام بحث**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **نقطة رئيسية:** يحدد المعامل الثاني (`4.0`) في مُنشئ `FileLogger` **set max log size** بالميغابايت، مما يلبي مباشرةً متطلب **limit log file size**.
@@ -204,7 +198,6 @@ SearchResult result = index.search(query);
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **إعداد إعدادات الفهرس مع Console Logger**  
 ```text
@@ -216,13 +209,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **إنشاء أو تحميل الفهرس**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **إضافة مستندات وتنفيذ بحث**  
@@ -230,7 +221,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **نصيحة:** مسجل وحدة التحكم مثالي أثناء التطوير لأنه يطبع كل إدخال سجل فورًا، مما يساعدك على التحقق من أن الفهرسة والبحث يعملان كما هو متوقع.

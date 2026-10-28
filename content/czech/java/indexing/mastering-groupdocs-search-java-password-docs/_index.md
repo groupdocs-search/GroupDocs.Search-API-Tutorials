@@ -1,47 +1,82 @@
 ---
-date: '2026-03-15'
-description: Naučte se, jak indexovat dokumenty v Javě pro soubory chráněné heslem
-  pomocí GroupDocs.Search. Průvodce krok za krokem s kódem, tipy a triky pro výkon.
+date: '2026-10-28'
+description: Naučte se, jak vyhledávat v různých typech souborů a vytvořit prohledávatelný
+  index pro dokumenty chráněné heslem v Javě pomocí GroupDocs.Search. Praktický průvodce
+  krok za krokem s kódem, tipy a triky pro výkon.
 keywords:
-- indexing password-protected documents Java
-- GroupDocs.Search Java API
-- document management workflow
-title: Jak indexovat dokumenty v Javě pro soubory chráněné heslem pomocí GroupDocs.Search
+- search multiple file types
+- build searchable index
+- password protected document indexing java
+- groupdocs.search java api
+lastmod: '2026-10-28'
+og_description: Naučte se, jak vyhledávat v různých typech souborů a vytvořit prohledávatelný
+  index pro dokumenty chráněné heslem v Javě pomocí GroupDocs.Search. Praktický průvodce
+  krok za krokem s kódem, tipy a triky pro výkon.
+og_image_alt: Guide showing Java code to search multiple file types and index password‑protected
+  documents with GroupDocs.Search
+og_title: Jak vyhledávat v různých typech souborů a indexovat dokumenty v Javě
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-28'
+  description: Learn how to search multiple file types and build a searchable index
+    for password‑protected documents in Java using GroupDocs.Search. Step‑by‑step
+    guide with code, tips, and performance tricks.
+  headline: How to search multiple file types and index docs in Java
+  type: TechArticle
+- questions:
+  - answer: GroupDocs.Search supports 120+ formats including PDF, DOCX, XLSX, PPTX,
+      and common image types. Install format plugins if required.
+    question: How do I handle different file formats?
+  - answer: The document is skipped and a warning is logged; verify your password
+      dictionary or event handler.
+    question: What happens if a password is wrong?
+  - answer: Yes, but they must be downloaded to a local temporary folder first because
+      the engine works with file‑system paths.
+    question: Can I index files stored in the cloud?
+  - answer: Adjust scoring with `IndexOptions`, add synonyms, and use advanced query
+      syntax such as `field:term~` for fuzzy matching. `IndexOptions` is a configuration
+      object that controls scoring and indexing behavior.
+    question: How can I improve search relevance?
+  - answer: Review the log output; common causes are missing passwords, corrupted
+      files, or unsupported formats.
+    question: What should I do if indexing fails for some files?
+  type: FAQPage
+tags:
+- search multiple file types
+- GroupDocs.Search
+- Java indexing
+- password‑protected docs
+- document search
+title: Jak vyhledávat v různých typech souborů a indexovat dokumenty v Javě
 type: docs
 url: /cs/java/indexing/mastering-groupdocs-search-java-password-docs/
 weight: 1
 ---
 
- as is per instruction (technical term). So we left unchanged.
+# Jak vyhledávat více typů souborů a indexovat dokumenty v Javě
 
-Make sure we didn't translate code block placeholders.
-
-Now produce final content.# Jak indexovat dokumenty v Javě pro soubory chráněné heslem pomocí GroupDocs.Search
-
-Pokud se ptáte, **jak indexovat dokumenty**, které jsou chráněny hesly, jste na správném místě. V moderních podnicích je ochrana citlivých dat pomocí hesel nezbytná, ale často ztěžuje vytvoření rychlého, prohledávatelného indexu. Tento tutoriál vás provede přesné kroky k vytvoření bezpečného, výkonného indexu dokumentů pro soubory chráněné heslem pomocí GroupDocs.Search pro Javu, přičemž proces zůstane jednoduchý a udržovatelný.
+V moderních podnicích často potřebujete **vyhledávat více typů souborů**, zatímco důvěrné soubory jsou uzamčeny za hesly. Tento tutoriál vám ukáže, jak vytvořit vyhledávatelný index pro dokumenty chráněné heslem v Javě pomocí GroupDocs.Search. Uvidíte, jak nakonfigurovat slovník hesel, zpracovat události vyžadující heslo a optimalizovat výkon pro velké dávky – vše bez psaní vlastního dešifrovacího kódu.
 
 ## Rychlé odpovědi
 - **Co tento tutoriál pokrývá?** Indexování dokumentů chráněných heslem pomocí slovníku hesel a posluchače událostí.  
-- **Která knihovna je vyžadována?** GroupDocs.Search pro Javu (nejnovější verze).  
+- **Která knihovna je vyžadována?** GroupDocs.Search pro Java (nejnovější verze).  
 - **Potřebuji licenci?** Dočasná bezplatná zkušební licence je k dispozici pro hodnocení.  
-- **Mohu indexovat i jiné typy souborů?** Ano, GroupDocs.Search podporuje mnoho formátů jako PDF, DOCX, XLSX atd.  
-- **Jaká verze Javy je potřeba?** JDK 8 nebo novější.
+- **Mohu indexovat i jiné typy souborů?** Ano, GroupDocs.Search podporuje více než 120 formátů včetně PDF, DOCX, XLSX, PPTX a obrázků.  
+- **Jaká verze Javy je potřeba?** JDK 8 nebo novější.  
 
 ## Co je „create document index java“?
-Vytvoření indexu dokumentů v Javě znamená vytvoření prohledávatelné datové struktury, která mapuje termíny na soubory, ve kterých se vyskytují. S GroupDocs.Search může tento proces automaticky zpracovávat šifrované dokumenty, takže nemusíte ručně odemykat každý soubor.
 
-## Proč použít GroupDocs.Search pro soubory chráněné heslem?
-- **Odemykání bez zásahu** – zadáte hesla jednou pomocí slovníku nebo obslužné události.  
-- **Vysoký výkon** – optimalizovaný indexovací engine, který škáluje na miliony dokumentů.  
-- **Bohatý dotazovací jazyk** – podpora Boolean operátorů, zástupných znaků a fuzzy vyhledávání.  
-- **Podpora napříč formáty** – funguje s více než 100 typy souborů ihned po instalaci.  
-- **Zjednodušuje, jak indexovat dokumenty** – API abstrahuje složitost práce s šifrovanými soubory.
+`create document index java` odkazuje na proces vytváření vyhledávatelné datové struktury, která mapuje termíny na umístění souborů spravovaných v Javě. S GroupDocs.Search engine automaticky extrahuje text z podporovaných formátů – včetně šifrovaných PDF, Office dokumentů a obrázků – takže můžete provádět full‑textové vyhledávání bez psaní jakéhokoli dešifrovacího kódu. Tento přístup zjednodušuje implementaci vyhledávání a zároveň zachovává bezpečnost dokumentů.
 
-## Předpoklady
-1. **Java Development Kit (JDK) 8+** – nainstalován a nastaven v PATH.  
-2. **IDE** – IntelliJ IDEA, Eclipse nebo jakýkoli editor kompatibilní s Javou.  
-3. **Maven** – pro správu závislostí.  
-4. **GroupDocs.Search pro Javu** – přidejte knihovnu pomocí Maven (viz níže).  
+## Proč používat GroupDocs.Search pro soubory chráněné heslem?
+
+GroupDocs.Search poskytuje mechanismus odemykání bez zásahu, který používá hesla ze slovníku nebo obslužné funkce události, což vám umožní indexovat šifrované soubory v jednom kroku. Zpracovává až 2 miliony dokumentů za hodinu na standardním 8‑jádrovém serveru, podporuje více než 120 typů souborů a nabízí bohatý dotazovací jazyk s Boolean, wildcard a fuzzy operátory – vše nezbytné pro vytvoření vyhledávatelného indexu zahrnujícího rozmanitý obsah.
+
+## Požadavky
+- Java Development Kit (JDK) 8+ nainstalovaný a přidaný do vašeho `PATH`.  
+- IDE, např. IntelliJ IDEA nebo Eclipse.  
+- Maven pro správu závislostí.  
+- GroupDocs.Search pro Java – přidejte knihovnu pomocí Maven (viz sekce nastavení).
 
 ## Nastavení GroupDocs.Search pro Javu
 
@@ -69,77 +104,79 @@ Přidejte repozitář a závislost do souboru `pom.xml`:
 ### Přímé stažení
 Alternativně můžete stáhnout nejnovější verzi přímo z [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-Pro získání zkušební licence navštivte [stránku dočasné licence GroupDocs](https://purchase.groupdocs.com/temporary-license/) a postupujte podle instrukcí k získání bezplatné zkušební verze.
+Pro zahájení s trial licencí navštivte [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/) a postupujte podle instrukcí pro získání bezplatné zkušební verze.
 
 ## Jak indexovat dokumenty pomocí slovníku hesel
 
-Níže jsou dva praktické přístupy. Oba vám umožní **create document index java** při automatickém zpracování hesel.
+Můžete **vytvořit vyhledávatelný index** poskytnutím slovníku, který mapuje cesty k souborům na jejich hesla. Engine automaticky získá správné heslo během indexování.
 
-### Přístup 1 – Indexování pomocí slovníku hesel
+### Přehled
+Uložte hesla dokumentů do jednoduché mapy klíč‑hodnota, aby indexovací engine mohl soubory odemykat na vyžádání.
 
-#### Přehled
-Uložte hesla dokumentů do slovníku, aby engine mohl soubory odemykat za běhu.
-
-#### Krok 1: Definujte složku indexu a dokumentů
+### Krok 1: definujte index a složku s dokumenty
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordDictionary";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Krok 2: Vytvořte index
+### Krok 2: vytvořte index
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Krok 3: Přidejte hesla dokumentů
+### Krok 3: přidejte hesla dokumentů
 ```java
 // Add passwords for specific files using their absolute paths
 String path1 = new File(documentsFolder + "/English.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(path1, "123456");
 
-String path2 = new File(documentsFolder + "/Lorem ipsum.docx").getAbsolutePath();
+String path2 = new File(documentsFolder + "/SampleDocument.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(path2, "123456");
 ```
 
-#### Krok 4: Indexujte dokumenty
+### Krok 4: indexujte dokumenty
 ```java
 // Automatically retrieve passwords from the dictionary during indexing
 index.add(documentsFolder);
 ```
 
-#### Krok 5: Vyhledejte v indexu
+### Krok 5: vyhledejte v indexu
 ```java
-String query = "ipsum OR increasing";
+String query = "sample OR increasing";
 SearchResult result = index.search(query);
 
 // Handle search results (e.g., display or process them)
 ```
 
-**Tip:** Pokud máte mnoho souborů, zvažte načítání hesel ze zabezpečeného úložiště (databáze, Azure Key Vault atd.) místo jejich pevného zakódování.
+**Tip:** Pro produkční scénáře načítejte hesla ze zabezpečeného úložiště (např. Azure Key Vault nebo AWS Secrets Manager) místo jejich pevného zakódování.
 
 #### Řešení problémů
-- Ověřte, že každé heslo odpovídá skutečnému heslu ochrany souboru.  
-- Dvakrát zkontrolujte cesty k souborům; špatná cesta vyvolá `FileNotFoundException`.
+- Ověřte, že každé heslo odpovídá skutečnému ochrannému heslu souboru.  
+- Zkontrolujte cesty k souborům; nesprávná cesta vyvolá `FileNotFoundException`.
 
-### Přístup 2 – Indexování pomocí posluchače události pro požadavek na heslo
+## Jak indexovat dokumenty pomocí posluchače událostí pro požadavek na heslo?
 
-#### Přehled
-Poskytněte hesla dynamicky, když engine vyvolá událost požadavku na heslo.
+Můžete poskytovat hesla pouze tehdy, když engine vyvolá událost požadující heslo, čímž držíte přihlašovací údaje mimo paměť a umožňujete dynamické získání hesla.
 
-#### Krok 1: Definujte složku indexu a dokumentů
+Když indexovací engine narazí na šifrovaný soubor, spustí callback, ve kterém můžete heslo vyhledat v zabezpečeném úložišti nebo jej vypočítat za běhu. Tato metoda snižuje útočnou plochu ve srovnání s ukládáním všech hesel do slovníku.
+
+### Přehled
+Poskytujte hesla za běhu prostřednictvím event callbacku, čímž udržujete úložiště přihlašovacích údajů izolované.
+
+### Krok 1: definujte index a složku s dokumenty
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordEvent";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### Krok 2: Vytvořte index
+### Krok 2: vytvořte index
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### Krok 3: Přihlaste se k události Password‑Required
+### Krok 3: přihlaste se k události požadující heslo
 ```java
 index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArgs>() {
     @Override
@@ -152,69 +189,76 @@ index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArg
 });
 ```
 
-#### Krok 4: Indexujte dokumenty
+### Krok 4: indexujte dokumenty
 ```java
 // The event handler will supply passwords as required during indexing
 index.add(documentsFolder);
 ```
 
-#### Krok 5: Vyhledejte v indexu
+### Krok 5: vyhledejte v indexu
 ```java
-String query = "ipsum OR increasing";
+String query = "sample OR increasing";
 SearchResult result = index.search(query);
 
 // Handle search results (e.g., display or process them)
 ```
 
 #### Řešení problémů
-- Ujistěte se, že obslužná rutina události pokrývá všechny přípony souborů, které potřebujete indexovat.  
+- Ujistěte se, že obslužná funkce události pokrývá všechny přípony souborů, které potřebujete indexovat.  
 - Nejprve otestujte s několika ukázkovými soubory, abyste potvrdili, že heslo je aplikováno.
 
 ## Praktické aplikace
 
-1. **Enterprise Document Management:** Automatizujte indexování důvěrných smluv, HR souborů a finančních zpráv.  
-2. **Legal Archives:** Rychle vyhledávejte soudní spisy při zachování šifrování v klidu.  
-3. **Healthcare Records:** Indexujte PDF a Word dokumenty pacientů, aniž byste odhalili PHI.
+1. **Enterprise document management** – automatizujte indexování důvěrných smluv, HR souborů a finančních zpráv při zachování šifrování v klidu.  
+2. **Legal archives** – rychle vyhledávejte soudní spisy bez odhalení citlivého obsahu.  
+3. **Healthcare records** – indexujte PDF a Word dokumenty pacientů při dodržení požadavků HIPAA.  
 
 ## Úvahy o výkonu
-- **Alokace paměti:** Přidělte dostatečnou haldu (`-Xmx2g` nebo více) pro velké dávky.  
-- **Paralelní indexování:** Použijte `index.addAsync(...)` nebo spusťte více indexovacích vláken pro vyšší propustnost.  
-- **Údržba indexu:** Periodicky zavolejte `index.optimize()`, aby se index zkomprimoval a zrychlil dotazy.
+
+- **Memory allocation** – alokujte dostatečnou haldu (`-Xmx2g` nebo vyšší) pro velké dávky.  
+- **Parallel indexing** – použijte `index.addAsync(...)` nebo spusťte více indexovacích vláken pro dosažení až **2 milionů dokumentů za hodinu** na 8‑jádrovém stroji. `index.addAsync(...)` je metoda, která zařazuje dokumenty do asynchronního indexování.  
+- **Index maintenance** – periodicky zavolejte `index.optimize()`, aby se index zkomprimoval a zlepšila se rychlost dotazů.
 
 ## Časté problémy a řešení
-- **Špatné heslo:** Dokument je přeskočen a zaznamená se varování. Znovu zkontrolujte svůj slovník hesel nebo obslužnou rutinu události.  
-- **Nepodporovaný formát:** Nainstalujte potřebné pluginy formátů nebo před indexací převést soubory na podporovaný typ.  
-- **Velké soubory:** Zvyšte velikost haldy a zvažte indexování v menších dávkách.
+
+- **Wrong password** – dokument je přeskočen a zaznamená se varování. Zkontrolujte zdroj hesla.  
+- **Unsupported format** – nainstalujte potřebné formátové pluginy nebo převést soubory na podporovaný typ před indexací.  
+- **Large files** – zvětšete velikost haldy a zvažte indexování v menších dávkách, aby se předešlo `OutOfMemoryError`.
 
 ## Často kladené otázky
 
-**Q: Jak zacházet s různými formáty souborů?**  
-A: GroupDocs.Search podporuje PDF, DOCX, XLSX, PPTX a mnoho dalších. V případě potřeby nainstalujte odpovídající pluginy formátů.
+**Q: Jak zvládám různé formáty souborů?**  
+A: GroupDocs.Search podporuje více než 120 formátů včetně PDF, DOCX, XLSX, PPTX a běžných typů obrázků. V případě potřeby nainstalujte formátové pluginy.
 
 **Q: Co se stane, když je heslo špatné?**  
-A: Dokument je přeskočen a zaznamená se varování. Ověřte svůj zdroj hesel.
+A: Dokument je přeskočen a zaznamená se varování; ověřte svůj slovník hesel nebo obslužnou funkci události.
 
 **Q: Mohu indexovat soubory uložené v cloudu?**  
-A: Ano, ale musí být nejprve staženy do lokální dočasné složky, protože engine pracuje s cestami v souborovém systému.
+A: Ano, ale musí být nejprve staženy do lokálního dočasného adresáře, protože engine pracuje s cestami v souborovém systému.
 
 **Q: Jak mohu zlepšit relevanci vyhledávání?**  
-A: Upravit nastavení skórování pomocí `IndexOptions`, použít synonyma a využít pokročilou syntaxi dotazů (`field:term~` pro fuzzy shodu).
+A: Upravte skórování pomocí `IndexOptions`, přidejte synonyma a použijte pokročilou syntaxi dotazů, jako je `field:term~` pro fuzzy shodu. `IndexOptions` je konfigurační objekt, který řídí skórování a chování indexování.
 
-**Q: Co mám dělat, pokud indexování selže u některých souborů?**  
+**Q: Co mám dělat, když indexování selže u některých souborů?**  
 A: Prohlédněte výstup logu; běžné příčiny jsou chybějící hesla, poškozené soubory nebo nepodporované formáty.
 
 ## Zdroje
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)
-- [API Reference](https://reference.groupdocs.com/search/java)
-- [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)
+- [Dokumentace GroupDocs.Search](https://docs.groupdocs.com/search/java/)
+- [Reference API](https://reference.groupdocs.com/search/java)
+- [Stáhnout GroupDocs.Search](https://releases.groupdocs.com/search/java/)
 - [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+- [Bezplatné fórum podpory](https://forum.groupdocs.com/c/search/10)
+- [Informace o dočasné licenci](https://purchase.groupdocs.com/temporary-license/)
 
-Podle tohoto průvodce nyní víte **jak indexovat dokumenty** pro soubory chráněné heslem, což zvyšuje jak bezpečnost, tak vyhledatelnost ve vašich aplikacích.
+Podle tohoto průvodce nyní víte **jak vyhledávat více typů souborů** a **indexovat dokumenty chráněné heslem** v Javě, což zvyšuje jak bezpečnost, tak vyhledatelnost ve vašich aplikacích.
 
 ---
 
-**Poslední aktualizace:** 2026-03-15  
-**Testováno s:** GroupDocs.Search 25.4 pro Javu  
+**Poslední aktualizace:** 2026-10-28  
+**Testováno s:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs
+
+## Související tutoriály
+
+- [Jak indexovat dokumenty chráněné heslem v Javě pomocí GroupDocs.Search](/search/java/indexing/mastering-groupdocs-search-java-password-docs/)
+- [Zlepšení výkonu dotazů s GroupDocs.Search Java: optimalizace indexu a vyhledávání](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)

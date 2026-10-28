@@ -121,7 +121,6 @@ File และ custom logger ให้ความสามารถในกา
     </dependency>
 </dependencies>
 ```
-```
 
 **ดาวน์โหลดโดยตรง:**  
 ดาวน์โหลด JAR ล่าสุดจากเว็บไซต์อย่างเป็นทางการ: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
@@ -153,7 +152,6 @@ File และ custom logger ให้ความสามารถในกา
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **ตั้งค่า index settings ด้วย File Logger**  
 ```text
@@ -166,13 +164,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **สร้างหรือโหลด index**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **เพิ่มเอกสารลงใน index**  
@@ -180,13 +176,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **ทำการค้นหา**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **จุดสำคัญ:** อาร์กิวเมนต์ที่สองของคอนสตรัคเตอร์ `FileLogger` (`4.0`) กำหนด **set max log size** เป็นเมกะไบต์, ตรงกับความต้องการ **limit log file size**.
@@ -204,7 +198,6 @@ SearchResult result = index.search(query);
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **ตั้งค่า index settings ด้วย Console Logger**  
 ```text
@@ -216,13 +209,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **สร้างหรือโหลด index**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **เพิ่มเอกสารและทำการค้นหา**  
@@ -230,7 +221,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **เคล็ดลับ:** console logger เหมาะในระหว่างการพัฒนาเพราะมันพิมพ์แต่ละรายการบันทึกทันที, ช่วยให้คุณตรวจสอบว่าการทำดัชนีและการค้นหาทำงานตามที่คาดหวัง.

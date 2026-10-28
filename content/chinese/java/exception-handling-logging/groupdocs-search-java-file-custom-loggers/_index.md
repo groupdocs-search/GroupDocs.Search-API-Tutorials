@@ -121,7 +121,6 @@ weight: 1
     </dependency>
 </dependencies>
 ```
-```
 
 **Direct download:**  
 下载官方站点上的最新 JAR： [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)。
@@ -153,7 +152,6 @@ weight: 1
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.FileLogger;
 ```
-```
 
 2️⃣ **使用文件日志记录器设置索引设置**  
 ```text
@@ -166,13 +164,11 @@ String logPath = "YOUR_OUTPUT_DIRECTORY/Log.txt";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new FileLogger(logPath, 4.0)); // 4 MB max size → limits log file size
 ```
-```
 
 3️⃣ **创建或加载索引**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **向索引添加文档**  
@@ -180,13 +176,11 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 ```
-```
 
 5️⃣ **执行搜索查询**  
 ```text
 ```java
 SearchResult result = index.search(query);
-```
 ```
 
 **关键点：** `FileLogger` 构造函数的第二个参数 (`4.0`) 定义了以兆字节为单位的 **set max log size**，直接满足 **limit log file size** 的需求。
@@ -204,7 +198,6 @@ SearchResult result = index.search(query);
 import com.groupdocs.search.*;
 import com.groupdocs.search.common.ConsoleLogger;
 ```
-```
 
 2️⃣ **使用控制台日志记录器设置索引设置**  
 ```text
@@ -216,13 +209,11 @@ String query = "Lorem";
 IndexSettings settings = new IndexSettings();
 settings.setLogger(new ConsoleLogger()); // use console logger java
 ```
-```
 
 3️⃣ **创建或加载索引**  
 ```text
 ```java
 Index index = new Index(indexFolder, settings);
-```
 ```
 
 4️⃣ **添加文档并执行搜索**  
@@ -230,7 +221,6 @@ Index index = new Index(indexFolder, settings);
 ```java
 index.add(documentsFolder);
 SearchResult result = index.search(query);
-```
 ```
 
 **提示：** 控制台日志记录器在开发期间非常理想，因为它会即时打印每条日志，帮助你验证索引和搜索是否如预期运行。

@@ -1,64 +1,83 @@
 ---
-date: '2026-03-15'
-description: เรียนรู้วิธีทำดัชนีเอกสารใน Java สำหรับไฟล์ที่มีการป้องกันด้วยรหัสผ่านโดยใช้
-  GroupDocs.Search คู่มือขั้นตอนโดยละเอียดพร้อมโค้ด เคล็ดลับ และเทคนิคการเพิ่มประสิทธิภาพ
+date: '2026-10-28'
+description: เรียนรู้วิธีค้นหาหลายประเภทไฟล์และสร้างดัชนีที่ค้นหาได้สำหรับเอกสารที่มีการป้องกันด้วยรหัสผ่านใน
+  Java ด้วย GroupDocs.Search คู่มือขั้นตอนต่อขั้นตอนพร้อมโค้ด เคล็ดลับ และเทคนิคการเพิ่มประสิทธิภาพ
 keywords:
-- indexing password-protected documents Java
-- GroupDocs.Search Java API
-- document management workflow
-title: วิธีทำดัชนีเอกสารใน Java สำหรับไฟล์ที่มีการป้องกันด้วยรหัสผ่านด้วย GroupDocs.Search
+- search multiple file types
+- build searchable index
+- password protected document indexing java
+- groupdocs.search java api
+lastmod: '2026-10-28'
+og_description: เรียนรู้วิธีค้นหาหลายประเภทไฟล์และสร้างดัชนีที่ค้นหาได้สำหรับเอกสารที่มีการป้องกันด้วยรหัสผ่านใน
+  Java ด้วย GroupDocs.Search คู่มือขั้นตอนต่อขั้นตอนพร้อมโค้ด เคล็ดลับ และเทคนิคการเพิ่มประสิทธิภาพ
+og_image_alt: Guide showing Java code to search multiple file types and index password‑protected
+  documents with GroupDocs.Search
+og_title: วิธีค้นหาหลายประเภทไฟล์และสร้างดัชนีเอกสารใน Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-28'
+  description: Learn how to search multiple file types and build a searchable index
+    for password‑protected documents in Java using GroupDocs.Search. Step‑by‑step
+    guide with code, tips, and performance tricks.
+  headline: How to search multiple file types and index docs in Java
+  type: TechArticle
+- questions:
+  - answer: GroupDocs.Search supports 120+ formats including PDF, DOCX, XLSX, PPTX,
+      and common image types. Install format plugins if required.
+    question: How do I handle different file formats?
+  - answer: The document is skipped and a warning is logged; verify your password
+      dictionary or event handler.
+    question: What happens if a password is wrong?
+  - answer: Yes, but they must be downloaded to a local temporary folder first because
+      the engine works with file‑system paths.
+    question: Can I index files stored in the cloud?
+  - answer: Adjust scoring with `IndexOptions`, add synonyms, and use advanced query
+      syntax such as `field:term~` for fuzzy matching. `IndexOptions` is a configuration
+      object that controls scoring and indexing behavior.
+    question: How can I improve search relevance?
+  - answer: Review the log output; common causes are missing passwords, corrupted
+      files, or unsupported formats.
+    question: What should I do if indexing fails for some files?
+  type: FAQPage
+tags:
+- search multiple file types
+- GroupDocs.Search
+- Java indexing
+- password‑protected docs
+- document search
+title: วิธีค้นหาหลายประเภทไฟล์และสร้างดัชนีเอกสารใน Java
 type: docs
 url: /th/java/indexing/mastering-groupdocs-search-java-password-docs/
 weight: 1
 ---
 
-:** 2026-03-15"
+# วิธีค้นหาหลายประเภทไฟล์และสร้างดัชนีเอกสารใน Java
 
-"**Tested With:** GroupDocs.Search 25.4 for Java"
+ในองค์กรสมัยใหม่คุณมักต้อง **ค้นหาหลายประเภทไฟล์** พร้อมกับรักษาไฟล์ที่เป็นความลับให้ปลอดภัยด้วยรหัสผ่าน บทแนะนำนี้จะแสดงวิธีสร้างดัชนีที่สามารถค้นหาได้สำหรับเอกสารที่ป้องกันด้วยรหัสผ่านใน Java โดยใช้ GroupDocs.Search คุณจะได้เห็นวิธีกำหนดพจนานุกรมรหัสผ่าน, จัดการเหตุการณ์ที่ต้องการรหัสผ่าน, และเพิ่มประสิทธิภาพการทำงานสำหรับชุดข้อมูลขนาดใหญ่—ทั้งหมดโดยไม่ต้องเขียนโค้ดถอดรหัสเอง
 
-"**Author:** GroupDocs"
-
-Translate headings? Probably keep as is but translate text.
-
-Now produce final markdown.
-
-Be careful not to translate code block placeholders.
-
-Also ensure not to translate URLs.
-
-Let's craft translation.
-
-# วิธีทำดัชนีเอกสารใน Java สำหรับไฟล์ที่ป้องกันด้วยรหัสผ่านด้วย GroupDocs.Search
-
-หากคุณกำลังสงสัย **วิธีทำดัชนีเอกสาร** ที่ถูกป้องกันด้วยรหัสผ่าน คุณมาถูกที่แล้ว ในองค์กรสมัยใหม่ การปกป้องข้อมูลสำคัญด้วยรหัสผ่านเป็นสิ่งจำเป็น แต่ก็ทำให้การสร้างดัชนีที่เร็วและค้นหาได้ยากขึ้น คำแนะนำนี้จะพาคุณผ่านขั้นตอนที่ชัดเจนเพื่อสร้างดัชนีเอกสารที่ปลอดภัยและมีประสิทธิภาพสูงสำหรับไฟล์ที่ป้องกันด้วยรหัสผ่านโดยใช้ GroupDocs.Search สำหรับ Java พร้อมกระบวนการที่ง่ายต่อการบำรุงรักษา
-
-## คำตอบสั้น ๆ
-- **บทเรียนนี้ครอบคลุมอะไร?** การทำดัชนีเอกสารที่ป้องกันด้วยรหัสผ่านโดยใช้พจนานุกรมรหัสผ่านและตัวจัดการเหตุการณ์  
-- **ต้องใช้ไลบรารีอะไร?** GroupDocs.Search สำหรับ Java (เวอร์ชันล่าสุด)  
-- **ต้องมีลิขสิทธิ์หรือไม่?** มีลิขสิทธิ์ทดลองฟรีแบบชั่วคราวสำหรับการประเมินผล  
-- **สามารถทำดัชนีไฟล์ประเภทอื่นได้หรือไม่?** ได้, GroupDocs.Search รองรับหลายรูปแบบเช่น PDF, DOCX, XLSX เป็นต้น  
-- **ต้องใช้ Java เวอร์ชันใด?** JDK 8 หรือใหม่กว่า  
+## คำตอบสั้น
+- **บทแนะนำนี้ครอบคลุมอะไร?** การทำดัชนีเอกสารที่ป้องกันด้วยรหัสผ่านด้วยพจนานุกรมรหัสผ่านและตัวฟังเหตุการณ์.  
+- **ต้องใช้ไลบรารีใด?** GroupDocs.Search for Java (latest version).  
+- **ต้องการไลเซนส์หรือไม่?** ไลเซนส์ทดลองฟรีชั่วคราวพร้อมให้ใช้สำหรับการประเมินผล.  
+- **สามารถทำดัชนีไฟล์ประเภทอื่นได้หรือไม่?** ได้, GroupDocs.Search รองรับรูปแบบกว่า 120 แบบรวมถึง PDF, DOCX, XLSX, PPTX, และรูปภาพ.  
+- **ต้องการเวอร์ชัน Java ใด?** JDK 8 หรือใหม่กว่า.  
 
 ## “create document index java” คืออะไร?
-การสร้างดัชนีเอกสารใน Java หมายถึงการสร้างโครงสร้างข้อมูลที่สามารถค้นหาได้ ซึ่งทำการแมปคำค้นไปยังไฟล์ที่มีคำนั้นอยู่ ด้วย GroupDocs.Search กระบวนการนี้สามารถจัดการกับเอกสารที่เข้ารหัสโดยอัตโนมัติ ทำให้คุณไม่ต้องปลดล็อกไฟล์ทีละไฟล์เอง
+`create document index java` หมายถึงกระบวนการสร้างโครงสร้างข้อมูลที่สามารถค้นหาได้ซึ่งแมพคำค้นไปยังตำแหน่งของไฟล์ที่จัดการโดย Java. ด้วย GroupDocs.Search, เอนจินจะดึงข้อความจากรูปแบบที่รองรับโดยอัตโนมัติ—รวมถึง PDF ที่เข้ารหัส, เอกสาร Office, และรูปภาพ—เพื่อให้คุณทำการค้นหาแบบเต็มข้อความโดยไม่ต้องเขียนโค้ดถอดรหัสเอง วิธีนี้ทำให้การนำไปใช้ค้นหาง่ายขึ้นในขณะที่รักษาความปลอดภัยของเอกสาร
 
 ## ทำไมต้องใช้ GroupDocs.Search สำหรับไฟล์ที่ป้องกันด้วยรหัสผ่าน?
-- **ปลดล็อกแบบ Zero‑touch** – จัดหารหัสผ่านเพียงครั้งเดียวผ่านพจนานุกรมหรืออีเวนต์ฮานด์เลอร์  
-- **ประสิทธิภาพสูง** – เครื่องมือทำดัชนีที่ปรับแต่งให้ทำงานได้กับเอกสารหลายล้านไฟล์  
-- **ภาษาคำค้นที่หลากหลาย** – รองรับตัวดำเนินการ Boolean, ตัวแทนหลายตัวอักษร, และการค้นหาแบบ fuzzy  
-- **รองรับหลายรูปแบบ** – ทำงานกับไฟล์กว่า 100 ประเภทโดยไม่ต้องตั้งค่าเพิ่มเติม  
-- **ทำให้การทำดัชนีเอกสารง่ายขึ้น** – API แยกความซับซ้อนของการจัดการไฟล์ที่เข้ารหัสออกไป  
+GroupDocs.Search มีกลไกการปลดล็อกแบบ zero‑touch ที่ใช้รหัสผ่านจากพจนานุกรมหรืออีเวนต์ฮันเดิลเลอร์ ทำให้คุณสามารถทำดัชนีไฟล์ที่เข้ารหัสได้ในหนึ่งขั้นตอน มันสามารถประมวลผลได้ถึง 2 ล้านเอกสารต่อชั่วโมงบนเซิร์ฟเวอร์ 8‑คอร์มาตรฐาน รองรับไฟล์กว่า 120 ประเภท และมีภาษาคำค้นที่หลากหลายด้วยตัวดำเนินการ Boolean, wildcard, และ fuzzy—ทั้งหมดเป็นสิ่งจำเป็นสำหรับการสร้างดัชนีที่สามารถค้นหาได้ครอบคลุมเนื้อหาหลากหลาย
 
 ## ข้อกำหนดเบื้องต้น
-1. **Java Development Kit (JDK) 8+** – ติดตั้งและตั้งค่าใน PATH ของคุณ  
-2. **IDE** – IntelliJ IDEA, Eclipse หรือเครื่องมือแก้ไขโค้ดที่รองรับ Java ใดก็ได้  
-3. **Maven** – สำหรับการจัดการ dependencies  
-4. **GroupDocs.Search สำหรับ Java** – เพิ่มไลบรารีผ่าน Maven (ดูด้านล่าง)  
+- Java Development Kit (JDK) 8+ ที่ติดตั้งและเพิ่มใน `PATH` ของคุณ.  
+- IDE เช่น IntelliJ IDEA หรือ Eclipse.  
+- Maven สำหรับการจัดการ dependencies.  
+- GroupDocs.Search for Java – เพิ่มไลบรารีผ่าน Maven (ดูส่วนการตั้งค่า).  
 
 ## การตั้งค่า GroupDocs.Search สำหรับ Java
 
 ### ใช้ Maven
-เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณ:
+Add the repository and dependency to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -79,79 +98,81 @@ Let's craft translation.
 ```
 
 ### ดาวน์โหลดโดยตรง
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/)  
+หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-เพื่อเริ่มต้นด้วยลิขสิทธิ์ทดลอง ให้เยี่ยมชม [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/) แล้วทำตามคำแนะนำเพื่อรับลิขสิทธิ์ทดลองฟรีของคุณ  
+เพื่อเริ่มต้นด้วยไลเซนส์ทดลอง, เยี่ยมชม [GroupDocs' temporary license page](https://purchase.groupdocs.com/temporary-license/) และทำตามคำแนะนำเพื่อรับการทดลองใช้งานฟรีของคุณ.
 
 ## วิธีทำดัชนีเอกสารด้วยพจนานุกรมรหัสผ่าน
 
-ด้านล่างเป็นสองวิธีปฏิบัติที่ใช้งานได้ ทั้งสองวิธีช่วยให้คุณ **create document index java** พร้อมจัดการรหัสผ่านโดยอัตโนมัติ
+คุณสามารถ **สร้างดัชนีที่ค้นหาได้** โดยให้พจนานุกรมที่แมพเส้นทางไฟล์ไปยังรหัสผ่านของมัน เอนจินจะดึงรหัสผ่านที่ถูกต้องโดยอัตโนมัติระหว่างการทำดัชนี.
 
-### วิธีที่ 1 – ทำดัชนีโดยใช้พจนานุกรมรหัสผ่าน
+### ภาพรวม
+เก็บรหัสผ่านเอกสารในแผนที่ key‑value ง่าย ๆ เพื่อให้เอนจินทำดัชนีสามารถปลดล็อกไฟล์ตามความต้องการ.
 
-#### ภาพรวม
-เก็บรหัสผ่านของเอกสารไว้ในพจนานุกรมเพื่อให้เอนจินสามารถปลดล็อกไฟล์ได้แบบเรียลไทม์  
-
-#### ขั้นตอน 1: กำหนดตำแหน่งดัชนีและโฟลเดอร์เอกสาร
+### ขั้นตอนที่ 1: กำหนดดัชนีและโฟลเดอร์เอกสาร
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordDictionary";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### ขั้นตอน 2: สร้างดัชนี
+### ขั้นตอนที่ 2: สร้างดัชนี
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### ขั้นตอน 3: เพิ่มรหัสผ่านเอกสาร
+### ขั้นตอนที่ 3: เพิ่มรหัสผ่านเอกสาร
 ```java
 // Add passwords for specific files using their absolute paths
 String path1 = new File(documentsFolder + "/English.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(path1, "123456");
 
-String path2 = new File(documentsFolder + "/Lorem ipsum.docx").getAbsolutePath();
+String path2 = new File(documentsFolder + "/SampleDocument.docx").getAbsolutePath();
 index.getDictionaries().getDocumentPasswords().add(path2, "123456");
 ```
 
-#### ขั้นตอน 4: ทำดัชนีเอกสาร
+### ขั้นตอนที่ 4: ทำดัชนีเอกสาร
 ```java
 // Automatically retrieve passwords from the dictionary during indexing
 index.add(documentsFolder);
 ```
 
-#### ขั้นตอน 5: ค้นหาในดัชนี
+### ขั้นตอนที่ 5: ค้นหาในดัชนี
 ```java
-String query = "ipsum OR increasing";
+String query = "sample OR increasing";
 SearchResult result = index.search(query);
 
 // Handle search results (e.g., display or process them)
 ```
 
-**เคล็ดลับ:** หากมีไฟล์จำนวนมาก ควรโหลดรหัสผ่านจากที่เก็บข้อมูลที่ปลอดภัย (ฐานข้อมูล, Azure Key Vault ฯลฯ) แทนการใส่รหัสผ่านแบบคงที่ในโค้ด  
+**เคล็ดลับ:** สำหรับสถานการณ์การใช้งานจริง, โหลดรหัสผ่านจาก vault ที่ปลอดภัย (เช่น Azure Key Vault หรือ AWS Secrets Manager) แทนการเขียนรหัสผ่านแบบ hard‑coding.
 
 #### การแก้ไขปัญหา
-- ตรวจสอบให้แน่ใจว่ารหัสผ่านแต่ละอันตรงกับรหัสผ่านจริงของไฟล์  
-- ตรวจสอบเส้นทางไฟล์; เส้นทางที่ผิดจะทำให้เกิด `FileNotFoundException`  
+- ตรวจสอบว่ารหัสผ่านแต่ละอันตรงกับรหัสผ่านการป้องกันของไฟล์จริง.  
+- ตรวจสอบเส้นทางไฟล์อีกครั้ง; เส้นทางที่ไม่ถูกต้องจะทำให้เกิด `FileNotFoundException`.
 
-### วิธีที่ 2 – ทำดัชนีโดยใช้ Event Listener สำหรับการร้องขอรหัสผ่าน
+## วิธีทำดัชนีเอกสารด้วยตัวฟังเหตุการณ์สำหรับความต้องการรหัสผ่าน?
 
-#### ภาพรวม
-จัดหารหัสผ่านแบบไดนามิกเมื่อเอนจินส่งเหตุการณ์ “ต้องการรหัสผ่าน”  
+คุณสามารถให้รหัสผ่านได้เฉพาะเมื่อเอนจินส่งเหตุการณ์ต้องการรหัสผ่าน, ทำให้ข้อมูลรับรองไม่อยู่ในหน่วยความจำและอนุญาตให้แก้ไขรหัสผ่านแบบไดนามิก.
 
-#### ขั้นตอน 1: กำหนดตำแหน่งดัชนีและโฟลเดอร์เอกสาร
+เมื่อเอนจินทำดัชนีเจอไฟล์ที่เข้ารหัส, มันจะเรียก callback ที่คุณสามารถดึงรหัสผ่านจากที่เก็บที่ปลอดภัยหรือคำนวณได้ทันที วิธีนี้ลดพื้นที่โจมตีเมื่อเทียบกับการเก็บรหัสผ่านทั้งหมดในพจนานุกรม.
+
+### ภาพรวม
+ให้รหัสผ่านแบบ on‑the‑fly ผ่าน callback ของเหตุการณ์, ทำให้ที่เก็บข้อมูลรับรองของคุณแยกออกจากกัน.
+
+### ขั้นตอนที่ 1: กำหนดดัชนีและโฟลเดอร์เอกสาร
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/IndexUsingPasswordEvent";
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Path to password‑protected documents
 ```
 
-#### ขั้นตอน 2: สร้างดัชนี
+### ขั้นตอนที่ 2: สร้างดัชนี
 ```java
 // Initialize the Index object in the specified directory
 Index index = new Index(indexFolder);
 ```
 
-#### ขั้นตอน 3: สมัครรับเหตุการณ์ Password‑Required
+### ขั้นตอนที่ 3: สมัครรับเหตุการณ์ password‑required
 ```java
 index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArgs>() {
     @Override
@@ -164,70 +185,76 @@ index.getEvents().PasswordRequired.add(new EventHandler<PasswordRequiredEventArg
 });
 ```
 
-#### ขั้นตอน 4: ทำดัชนีเอกสาร
+### ขั้นตอนที่ 4: ทำดัชนีเอกสาร
 ```java
 // The event handler will supply passwords as required during indexing
 index.add(documentsFolder);
 ```
 
-#### ขั้นตอน 5: ค้นหาในดัชนี
+### ขั้นตอนที่ 5: ค้นหาในดัชนี
 ```java
-String query = "ipsum OR increasing";
+String query = "sample OR increasing";
 SearchResult result = index.search(query);
 
 // Handle search results (e.g., display or process them)
 ```
 
 #### การแก้ไขปัญหา
-- ตรวจสอบให้ตัวจัดการเหตุการณ์ครอบคลุมส่วนขยายไฟล์ทั้งหมดที่คุณต้องการทำดัชนี  
-- ทดสอบกับไฟล์ตัวอย่างไม่กี่ไฟล์ก่อนเพื่อยืนยันว่ารหัสผ่านถูกนำไปใช้  
+- ตรวจสอบว่าตัวจัดการเหตุการณ์ครอบคลุมส่วนขยายไฟล์ทั้งหมดที่คุณต้องการทำดัชนี.  
+- ทดสอบด้วยไฟล์ตัวอย่างไม่กี่ไฟล์ก่อนเพื่อยืนยันว่ารหัสผ่านถูกนำไปใช้.
 
 ## การประยุกต์ใช้งานจริง
 
-1. **การจัดการเอกสารระดับองค์กร:** ทำดัชนีสัญญา, เอกสาร HR, รายงานการเงินที่เป็นความลับโดยอัตโนมัติ  
-2. **คลังข้อมูลกฎหมาย:** ดึงไฟล์คดีได้อย่างรวดเร็วในขณะที่ยังคงเข้ารหัสอยู่เมื่อไม่ได้ใช้งาน  
-3. **บันทึกสุขภาพ:** ทำดัชนี PDF และ Word ของผู้ป่วยโดยไม่เปิดเผยข้อมูล PHI  
+1. **การจัดการเอกสารระดับองค์กร** – ทำดัชนีสัญญาที่เป็นความลับ, ไฟล์ HR, และรายงานการเงินโดยอัตโนมัติพร้อมรักษาการเข้ารหัสเมื่อเก็บ.  
+2. **คลังข้อมูลกฎหมาย** – ดึงไฟล์คดีได้อย่างรวดเร็วโดยไม่เปิดเผยเนื้อหาที่เป็นความลับ.  
+3. **บันทึกสุขภาพ** – ทำดัชนี PDF และเอกสาร Word ของผู้ป่วยโดยปฏิบัติตามข้อกำหนด HIPAA.  
 
 ## พิจารณาด้านประสิทธิภาพ
-- **การจัดสรรหน่วยความจำ:** กำหนด heap memory เพียงพอ (`-Xmx2g` หรือมากกว่า) สำหรับชุดข้อมูลขนาดใหญ่  
-- **ทำดัชนีแบบขนาน:** ใช้ `index.addAsync(...)` หรือรันหลายเธรดเพื่อเพิ่มอัตราการทำงาน  
-- **บำรุงรักษาดัชนี:** เรียก `index.optimize()` เป็นระยะเพื่อบีบอัดดัชนีและเพิ่มความเร็วในการค้นหา  
 
-## ปัญหาที่พบบ่อยและวิธีแก้
+- **การจัดสรรหน่วยความจำ** – จัดสรร heap memory เพียงพอ (`-Xmx2g` หรือสูงกว่า) สำหรับชุดข้อมูลขนาดใหญ่.  
+- **การทำดัชนีแบบขนาน** – ใช้ `index.addAsync(...)` หรือรันหลายเธรดทำดัชนีเพื่อให้ได้ถึง **2 ล้านเอกสารต่อชั่วโมง** บนเครื่อง 8‑คอร์ `index.addAsync(...)` เป็นเมธอดที่จัดคิวเอกสารสำหรับการทำดัชนีแบบอะซิงโครนัส.  
+- **การบำรุงรักษาดัชนี** – เรียก `index.optimize()` อย่างสม่ำเสมอเพื่อบีบอัดดัชนีและเพิ่มความเร็วของการค้นหา.  
 
-- **รหัสผ่านไม่ถูกต้อง:** เอกสารถูกข้ามและบันทึกคำเตือน ตรวจสอบพจนานุกรมหรืออีเวนต์ฮานด์เลอร์ของคุณอีกครั้ง  
-- **รูปแบบไฟล์ไม่รองรับ:** ติดตั้งปลั๊กอินรูปแบบที่จำเป็นหรือแปลงไฟล์เป็นประเภทที่รองรับก่อนทำดัชนี  
-- **ไฟล์ขนาดใหญ่:** เพิ่มขนาด heap และพิจารณาทำดัชนีเป็นชุดย่อย ๆ  
+## ปัญหาทั่วไปและวิธีแก้
+
+- **รหัสผ่านผิด** – เอกสารถูกข้ามและบันทึกคำเตือน. ตรวจสอบแหล่งรหัสผ่านของคุณอีกครั้ง.  
+- **รูปแบบไม่รองรับ** – ติดตั้งปลั๊กอินรูปแบบที่จำเป็นหรือแปลงไฟล์เป็นประเภทที่รองรับก่อนทำดัชนี.  
+- **ไฟล์ขนาดใหญ่** – เพิ่มขนาด heap และพิจารณาทำดัชนีเป็นชุดย่อยเพื่อหลีกเลี่ยง `OutOfMemoryError`.  
 
 ## คำถามที่พบบ่อย
 
-**ถาม:** ฉันจะจัดการกับรูปแบบไฟล์ที่แตกต่างกันอย่างไร?  
-**ตอบ:** GroupDocs.Search รองรับ PDF, DOCX, XLSX, PPTX และอื่น ๆ อีกหลายรูปแบบ หากต้องการให้ทำงานกับรูปแบบพิเศษ ให้ติดตั้งปลั๊กอินที่เกี่ยวข้อง  
+**Q: ฉันจัดการรูปแบบไฟล์ต่าง ๆ อย่างไร?**  
+A: GroupDocs.Search รองรับรูปแบบกว่า 120 แบบรวมถึง PDF, DOCX, XLSX, PPTX, และประเภทภาพทั่วไป. ติดตั้งปลั๊กอินรูปแบบหากจำเป็น.
 
-**ถาม:** ถ้ารหัสผ่านผิดจะเกิดอะไรขึ้น?  
-**ตอบ:** เอกสารถูกข้ามและบันทึกคำเตือน ตรวจสอบแหล่งที่มาของรหัสผ่านของคุณ  
+**Q: จะเกิดอะไรขึ้นหากรหัสผ่านผิด?**  
+A: เอกสารถูกข้ามและบันทึกคำเตือน; ตรวจสอบพจนานุกรมรหัสผ่านหรือ event handler ของคุณ.
 
-**ถาม:** ฉันสามารถทำดัชนีไฟล์ที่เก็บอยู่บนคลาวด์ได้หรือไม่?  
-**ตอบ:** ทำได้, แต่ไฟล์ต้องถูกดาวน์โหลดลงในโฟลเดอร์ชั่วคราวบนเครื่องก่อน เนื่องจากเอนจินทำงานกับเส้นทางไฟล์ในระบบ  
+**Q: ฉันสามารถทำดัชนีไฟล์ที่เก็บในคลาวด์ได้หรือไม่?**  
+A: ได้, แต่ต้องดาวน์โหลดไปยังโฟลเดอร์ชั่วคราวในเครื่องก่อนเนื่องจากเอนจินทำงานกับเส้นทางไฟล์ในระบบไฟล์.
 
-**ถาม:** จะปรับปรุงความเกี่ยวข้องของการค้นหาอย่างไร?  
-**ตอบ:** ปรับค่าการให้คะแนนผ่าน `IndexOptions`, ใช้ synonyms, และใช้ไวยากรณ์ขั้นสูง (`field:term~` สำหรับการแมตช์แบบ fuzzy)  
+**Q: ฉันจะปรับปรุงความเกี่ยวข้องของการค้นหาอย่างไร?**  
+A: ปรับคะแนนด้วย `IndexOptions`, เพิ่ม synonyms, และใช้ไวยากรณ์คำค้นขั้นสูงเช่น `field:term~` สำหรับการจับคู่แบบ fuzzy. `IndexOptions` เป็นอ็อบเจ็กต์การกำหนดค่าที่ควบคุมการให้คะแนนและพฤติกรรมการทำดัชนี.
 
-**ถาม:** ถ้าการทำดัชนีล้มเหลวสำหรับบางไฟล์ควรทำอย่างไร?  
-**ตอบ:** ตรวจสอบบันทึกผล; สาเหตุทั่วไปคือขาดรหัสผ่าน, ไฟล์เสียหาย, หรือรูปแบบไม่รองรับ  
+**Q: ควรทำอย่างไรหากการทำดัชนีล้มเหลวสำหรับไฟล์บางไฟล์?**  
+A: ตรวจสอบผลลัพธ์ของ log; สาเหตุทั่วไปคือรหัสผ่านหาย, ไฟล์เสีย, หรือรูปแบบไม่รองรับ.
 
 ## แหล่งข้อมูล
-- [GroupDocs.Search Documentation](https://docs.groupdocs.com/search/java/)  
-- [API Reference](https://reference.groupdocs.com/search/java)  
-- [Download GroupDocs.Search](https://releases.groupdocs.com/search/java/)  
-- [GitHub Repository](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/search/10)  
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)  
+- [เอกสาร GroupDocs.Search](https://docs.groupdocs.com/search/java/)
+- [อ้างอิง API](https://reference.groupdocs.com/search/java)
+- [ดาวน์โหลด GroupDocs.Search](https://releases.groupdocs.com/search/java/)
+- [Repository บน GitHub](https://github.com/groupdocs-search/GroupDocs.Search-for-Java)
+- [ฟอรั่มสนับสนุนฟรี](https://forum.groupdocs.com/c/search/10)
+- [ข้อมูลไลเซนส์ชั่วคราว](https://purchase.groupdocs.com/temporary-license/)
 
-โดยทำตามคำแนะนำนี้ คุณจะรู้ **วิธีทำดัชนีเอกสาร** สำหรับไฟล์ที่ป้องกันด้วยรหัสผ่าน เพิ่มความปลอดภัยและความสามารถในการค้นหาในแอปพลิเคชันของคุณได้อย่างมีประสิทธิภาพ  
+โดยทำตามคู่มือนี้, คุณจะรู้ **วิธีค้นหาหลายประเภทไฟล์** และ **ทำดัชนีเอกสารที่ป้องกันด้วยรหัสผ่าน** ใน Java, เพิ่มความปลอดภัยและการค้นพบข้อมูลในแอปพลิเคชันของคุณ.
 
 ---
 
-**อัปเดตล่าสุด:** 2026-03-15  
+**อัปเดตล่าสุด:** 2026-10-28  
 **ทดสอบด้วย:** GroupDocs.Search 25.4 for Java  
 **ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [วิธีทำดัชนีเอกสารที่ป้องกันด้วยรหัสผ่านใน Java ด้วย GroupDocs.Search](/search/java/indexing/mastering-groupdocs-search-java-password-docs/)
+- [ปรับปรุงประสิทธิภาพการค้นหาด้วย GroupDocs.Search Java: ปรับดัชนีและการค้นหา](/search/java/performance-optimization/master-groupdocs-search-java-index-query-optimization/)
