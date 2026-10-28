@@ -63,11 +63,6 @@ type: docs
 url: /th/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # วิธีใช้การค้นหาข้อความเต็มใน Java ด้วย GroupDocs.Search
 
 ในบทแนะนำนี้คุณจะได้เรียนรู้วิธี **implement java full text search** ด้วย GroupDocs.Search สำหรับ Java เราจะอธิบายการกำหนดค่าโฟลเดอร์ดัชนี การเพิ่มเอกสารลงในดัชนี และการใช้เทคนิคแนวปฏิบัติที่ดีที่สุดที่ **optimize search performance** สำหรับไฟล์ PDF, DOCX, TXT และรูปแบบอื่น ๆ จำนวนหลายพันไฟล์ สุดท้ายคุณจะมีส่วนประกอบการค้นหาที่พร้อมใช้งานในระบบผลิตที่ทำงานเร็วและขยายตัวได้อย่างราบรื่น.
@@ -238,17 +233,8 @@ A: เยี่ยมชมอ้างอิง API อย่างเป็น
 **อัปเดตล่าสุด:** 2026-10-22  
 **ทดสอบด้วย:** GroupDocs.Search 25.4 for Java  
 **ผู้เขียน:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## บทแนะนำที่เกี่ยวข้อง
 
 - [ทำการค้นหาข้อความเต็มใน Java: ดัชนีข้อความด้วย GroupDocs.Search](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [ไลบรารีการค้นหาข้อความเต็มใน Java – ปรับปรุงดัชนีด้วย GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [วิธีเพิ่มเอกสารลงในดัชนีด้วยการทำดัชนีเมทาดาต้าใน Java โดยใช้ GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -63,11 +63,6 @@ type: docs
 url: /ja/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs.Search を使用した Java フルテキスト検索の使い方
 
 このチュートリアルでは、GroupDocs.Search for Java を使用して **java フルテキスト検索を実装**する方法を学びます。インデックスフォルダーの設定、ドキュメントのインデックスへの追加、数千の PDF、DOCX、TXT、その他の形式に対して **検索パフォーマンスを最適化**するベストプラクティス技術を説明します。最後まで実装すれば、速く動作しスケーラブルな本番環境向け検索コンポーネントが手に入ります。
@@ -239,19 +234,8 @@ A: 公式 API リファレンス [GroupDocs.Search API Reference](https://refere
 **最終更新日:** 2026-10-22  
 **テスト環境:** GroupDocs.Search 25.4 for Java  
 **作者:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## 関連チュートリアル
 
 - [Java フルテキスト検索の実装: GroupDocs.Search でテキストをインデックス化](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [Java フルテキスト検索ライブラリ – GroupDocs.Search でインデックスを最適化](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [GroupDocs.Search を使用した Java のメタデータインデックスでドキュメントをインデックスに追加する方法](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

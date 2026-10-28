@@ -64,11 +64,6 @@ type: docs
 url: /es/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cómo usar la búsqueda de texto completo en Java con GroupDocs.Search
 
 En este tutorial descubrirás cómo **implementar la búsqueda de texto completo en Java** usando GroupDocs.Search para Java. Revisaremos la configuración de una carpeta de índice, la adición de documentos al índice y la aplicación de técnicas de mejores prácticas que **optimicen el rendimiento de búsqueda** para miles de PDFs, DOCX, TXT y otros formatos. Al final, tendrás un componente de búsqueda listo para producción que funciona rápido y escala de manera eficiente.
@@ -241,19 +236,8 @@ Siguiendo estos pasos ahora sabes cómo **crear un índice de documentos**, **a�
 **Última actualización:** 2026-10-22  
 **Probado con:** GroupDocs.Search 25.4 for Java  
 **Autor:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## Tutoriales relacionados
 
 - [Implementar búsqueda de texto completo en Java: indexar texto con GroupDocs.Search](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [Biblioteca de búsqueda de texto completo en Java – Optimizar índice con GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Cómo añadir documentos al índice con indexación de metadatos en Java usando GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -64,11 +64,6 @@ type: docs
 url: /vi/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cách sử dụng tìm kiếm toàn văn java với GroupDocs.Search
 
 Trong hướng dẫn này, bạn sẽ khám phá cách **triển khai tìm kiếm toàn văn java** bằng cách sử dụng GroupDocs.Search cho Java. Chúng tôi sẽ hướng dẫn cấu hình thư mục chỉ mục, thêm tài liệu vào chỉ mục và áp dụng các kỹ thuật thực tiễn tốt nhất để **tối ưu hiệu suất tìm kiếm** cho hàng ngàn tệp PDF, DOCX, TXT và các định dạng khác. Khi kết thúc, bạn sẽ có một thành phần tìm kiếm sẵn sàng cho sản xuất, chạy nhanh và mở rộng một cách linh hoạt.
@@ -238,19 +233,8 @@ Bằng cách làm theo các bước này, bạn đã biết cách **tạo chỉ 
 **Cập nhật lần cuối:** 2026-10-22  
 **Kiểm thử với:** GroupDocs.Search 25.4 for Java  
 **Tác giả:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## Hướng dẫn liên quan
 
 - [Triển khai Tìm kiếm toàn văn Java: Lập chỉ mục văn bản với GroupDocs.Search](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [Thư viện Tìm kiếm toàn văn Java – Tối ưu chỉ mục với GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [Cách thêm tài liệu vào chỉ mục với Metadata Indexing trong Java bằng GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

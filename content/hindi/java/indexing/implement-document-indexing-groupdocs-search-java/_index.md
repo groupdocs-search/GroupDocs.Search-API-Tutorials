@@ -64,11 +64,6 @@ type: docs
 url: /hi/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs.Search के साथ जावा फुल टेक्स्ट सर्च कैसे उपयोग करें
 
 इस ट्यूटोरियल में आप जानेंगे कि GroupDocs.Search for Java का उपयोग करके **java फुल टेक्स्ट सर्च** कैसे लागू किया जाता है। हम एक इंडेक्स फ़ोल्डर को कॉन्फ़िगर करने, इंडेक्स में दस्तावेज़ जोड़ने, और सर्वोत्तम‑प्रैक्टिस तकनीकों को लागू करने के माध्यम से चलेंगे, जो हजारों PDFs, DOCX, TXT, और अन्य फ़ॉर्मैट्स के लिए **search performance को अनुकूलित** करती हैं। अंत तक, आपके पास एक प्रोडक्शन‑रेडी सर्च कॉम्पोनेन्ट होगा जो तेज़ चलता है और सुगमता से स्केल करता है।
@@ -240,19 +235,8 @@ A: आधिकारिक API रेफ़रेंस पर जाएँ: [G
 **अंतिम अपडेट:** 2026-10-22  
 **परीक्षण किया गया:** GroupDocs.Search 25.4 for Java  
 **लेखक:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## संबंधित ट्यूटोरियल
 
 - [जावा फुल टेक्स्ट सर्च लागू करें: GroupDocs.Search के साथ टेक्स्ट इंडेक्स करें](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [जावा फुल टेक्स्ट सर्च लाइब्रेरी – GroupDocs.Search के साथ इंडेक्स ऑप्टिमाइज़ करें](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [GroupDocs.Search का उपयोग करके जावा में मेटाडेटा इंडेक्सिंग के साथ इंडेक्स में दस्तावेज़ कैसे जोड़ें](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

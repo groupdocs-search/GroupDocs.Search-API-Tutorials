@@ -65,11 +65,6 @@ type: docs
 url: /tr/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs.Search ile java tam metin araması nasıl kullanılır
 
 Bu öğreticide, GroupDocs.Search for Java kullanarak **java tam metin aramasını uygulamayı** keşfedeceksiniz. Bir indeks klasörünün yapılandırılmasını, belgelerin indekse eklenmesini ve binlerce PDF, DOCX, TXT ve diğer formatlar için **arama performansını optimize eden** en iyi uygulama tekniklerini adım adım göstereceğiz. Sonunda, hızlı çalışan ve sorunsuz ölçeklenen, üretime hazır bir arama bileşenine sahip olacaksınız.
@@ -241,19 +236,8 @@ Bu adımları izleyerek artık GroupDocs.Search for Java ile **belge indeksi olu
 **Son Güncelleme:** 2026-10-22  
 **Test Edilen:** GroupDocs.Search 25.4 for Java  
 **Yazar:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## İlgili Öğreticiler
 
 - [Java Tam Metin Aramasını Uygula: Metni GroupDocs.Search ile İndeksle](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [Java Tam Metin Arama Kütüphanesi – İndeksi GroupDocs.Search ile Optimize Et](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [GroupDocs.Search kullanarak Java’da Metaveri İndeksleme ile belgeleri indekse nasıl eklenir](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -63,11 +63,6 @@ type: docs
 url: /ar/java/indexing/implement-document-indexing-groupdocs-search-java/
 weight: 1
 ---
-
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # كيفية استخدام البحث النصي الكامل في java مع GroupDocs.Search
 
 في هذا الدرس ستكتشف كيفية **تنفيذ البحث النصي الكامل في java** باستخدام GroupDocs.Search للـ Java. سنستعرض خطوات تكوين مجلد الفهرس، إضافة المستندات إلى الفهرس، وتطبيق تقنيات أفضل الممارسات التي **تحسن أداء البحث** لآلاف ملفات PDF و DOCX و TXT وغيرها من الصيغ. في النهاية، ستحصل على مكوّن بحث جاهز للإنتاج يعمل بسرعة ويتوسع بسلاسة.
@@ -239,19 +234,8 @@ index.add(documentsFolder);
 **آخر تحديث:** 2026-10-22  
 **تم الاختبار مع:** GroupDocs.Search 25.4 for Java  
 **المؤلف:** GroupDocs  
-
-{{< blocks/products/pf/products-backtop-button >}}
-
 ## دروس ذات صلة
 
 - [تنفيذ بحث نصي كامل في Java: فهرسة النص باستخدام GroupDocs.Search](/search/java/indexing/master-text-indexing-java-groupdocs-search-guide/)
 - [مكتبة بحث نصي كامل في Java – تحسين الفهرس مع GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
 - [كيفية إضافة مستندات إلى الفهرس مع فهرسة البيانات الوصفية في Java باستخدام GroupDocs.Search](/search/java/indexing/groupdocs-search-java-metadata-indexing/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}
