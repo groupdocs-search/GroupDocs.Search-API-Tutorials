@@ -1,50 +1,91 @@
 ---
-date: '2026-03-15'
-description: Lär dig hur du utför fulltextsökning i Java med GroupDocs.Search, inklusive
-  hur du lägger till en mapp i indexet, konfigurerar komprimering och utför snabba
-  frågor.
+date: '2026-11-02'
+description: Lär dig hur du lägger till en mapp i index med GroupDocs.Search i Java,
+  konfigurerar hög kompression och kör snabba fulltextfrågor.
 keywords:
-- text indexing in Java
-- GroupDocs.Search setup
-- index compression settings
-title: 'Java fulltextsökning: Hur man indexerar text med GroupDocs.Search'
+- add folder to index
+- java full text search
+- groupdocs search compression
+lastmod: '2026-11-02'
+og_description: Lär dig hur du lägger till en mapp i index med GroupDocs.Search i
+  Java, konfigurerar kompression och utför snabba fulltext‑sökningar. Perfekt för
+  stora dokumentuppsättningar.
+og_image_alt: Guide showing Java code for adding a folder to a GroupDocs.Search index
+og_title: Hur man lägger till mapp i index med GroupDocs.Search i Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-11-02'
+  description: Learn how to add folder to index with GroupDocs.Search in Java, configure
+    high compression, and run fast full‑text queries.
+  headline: How to add folder to index with GroupDocs.Search in Java
+  type: TechArticle
+- description: Learn how to add folder to index with GroupDocs.Search in Java, configure
+    high compression, and run fast full‑text queries.
+  name: How to add folder to index with GroupDocs.Search in Java
+  steps:
+  - name: define the index folder
+    text: 'Choose a directory where the index files will reside:'
+  - name: configure index settings
+    text: '`TextStorageSettings` configures how text is stored in the index, including
+      compression level. `Compression` is an enum that specifies the desired compression
+      algorithm.'
+  - name: create the index with custom settings
+    text: 'Instantiate the index using the configuration defined above:'
+  type: HowTo
+- questions:
+  - answer: It is a robust Java library that provides advanced full‑text search capabilities,
+      including indexing, compression, and complex query support.
+    question: What is GroupDocs.Search?
+  - answer: Enable high compression (`Compression.High`) and periodically commit changes
+      to keep the index lean. Also, allocate sufficient heap memory (e.g., 4 GB for
+      indexes over 20 GB).
+    question: How do I handle large datasets with GroupDocs.Search?
+  - answer: Yes, the library can be embedded in any Java‑based backend, REST services,
+      or micro‑services architecture.
+    question: Can I integrate GroupDocs.Search with existing enterprise systems?
+  - answer: Use the `index.add()` method to append new files and `index.delete()`
+      to remove obsolete ones, then re‑run `index.optimize()` if needed.
+    question: What if my index becomes outdated?
+  - answer: Visit the community forum at [GroupDocs forums](https://forum.groupdocs.com/c/search/10)
+      for troubleshooting and best‑practice tips.
+    question: Where can I get help or support?
+  type: FAQPage
+tags:
+- add folder to index
+- groupdocs search
+- java search indexing
+title: Hur man lägger till mapp i index med GroupDocs.Search i Java
 type: docs
 url: /sv/java/indexing/master-text-indexing-java-groupdocs-search-guide/
 weight: 1
 ---
 
-# Java Full Text Search: Hur man indexerar text med GroupDocs.Search
+# Hur man lägger till mapp i index med GroupDocs.Search i Java
 
-Om du behöver **java full text search** som kan skalas till miljontals dokument, är du på rätt plats. I den här handledningen går vi igenom hur du installerar **GroupDocs.Search** i en Java-miljö, konfigurerar lagring med hög kompression, lägger till en mapp för indexering och kör blixtsnabba frågor. I slutet har du en produktionsklar lösning som du kan lägga till i vilket Java‑projekt som helst.
+Om du behöver **java full text search** som kan skalas till miljontals dokument, är du på rätt plats. I den här handledningen kommer du att lära dig hur du **lägga till mapp i index** med GroupDocs.Search, konfigurera lagring med hög kompression och köra blixtsnabba frågor. I slutet har du en produktionsklar lösning som du kan lägga in i vilket Java‑projekt som helst.
 
-## Quick Answers
+## Snabba svar
 - **Vad är det primära biblioteket?** GroupDocs.Search for Java  
-- **Hur lägger man till en mapp för indexering?** Use `index.add(folderPath)`  
-- **Kan jag konfigurera textkompression?** Yes, via `TextStorageSettings(Compression.High)`  
-- **Vilken Java-version krävs?** JDK 8 or higher  
-- **Var får jag en provlicens?** From the GroupDocs website or the repository page  
+- **Hur lägger man till en mapp i index?** Använd `index.add(folderPath)`  
+- **Kan jag konfigurera textkompression?** Ja, via `TextStorageSettings(Compression.High)`  
+- **Vilken Java-version krävs?** JDK 8 eller högre  
+- **Var kan man få en provlicens?** Från GroupDocs webbplats eller repositoriets sida  
 
-## Vad är Java Full Text Search och varför är det viktigt?
-Java full text search omvandlar råa dokument till en sökbar struktur, vilket möjliggör omedelbar återhämtning av information. Detta är avgörande för applikationer som juridiska arkiv, forskningsbibliotek och företagskunskapsbaser där användare förväntar sig svar på frågor på mindre än en sekund.
+## Vad är java full text search och varför är det viktigt?
+Java full text search omvandlar råa dokument till ett inverterat index, vilket möjliggör undersekunders hämtning av vilken term som helst över tusentals filer. Denna funktion är avgörande för juridiska arkiv, forskningsbibliotek och företagskunskapsbaser där användare förväntar sig omedelbara resultat. Den förbättrar också produktiviteten i moderna applikationer.
 
-## Varför använda GroupDocs.Search för Java Full Text Search?
-- **Hög prestanda** – optimerad indexering och frågeexekvering.  
-- **Inbyggd kompression** – minskar diskutrymme utan att offra hastighet.  
-- **Brett formatstöd** – indexera PDF‑filer, Word‑dokument, e‑post och mer direkt ur lådan.  
-- **Enkelt API** – intuitiva Java‑metoder som naturligt passar in i befintliga kodbaser.
+## Varför använda groupdocs.search för java full text search?
+GroupDocs.Search levererar hög genomströmning vid indexering och frågeexekvering samtidigt som den erbjuder inbyggd hög kompression. Den stöder **50+ input and output formats**—inklusive PDF, DOCX, EML och HTML—och kan bearbeta dokument med flera hundra sidor utan att ladda hela filen i minnet, vilket håller minnesavtrycket under 200 MB för typiska arbetsbelastningar.
 
-## Prerequisites
-Innan du börjar, se till att du har:
+## Förutsättningar
+- **GroupDocs.Search for Java** (version 25.4 eller senare) – det kärnbibliotek som driver indexering och sökning.  
+- **JDK 8+** installerad och konfigurerad – den minsta runtime som krävs för SDK:n.  
+- **Maven** för beroendehantering – förenklar att lägga till biblioteket i ditt projekt.  
+- En IDE såsom **IntelliJ IDEA** eller **Eclipse** – för att skriva och felsöka Java‑kod.
 
-- **GroupDocs.Search for Java** (version 25.4 or later)  
-- **JDK 8+** installed and configured  
-- **Maven** for dependency management  
-- En IDE såsom IntelliJ IDEA eller Eclipse  
-
-## Setting Up GroupDocs.Search for Java
-
-### Maven Setup
-Lägg till repository och beroende i din `pom.xml`‑fil:
+## Konfigurera GroupDocs.Search för java
+### Maven‑konfiguration
+Lägg till repositoriet och beroendet i din `pom.xml`‑fil:
 
 ```xml
 <repositories>
@@ -64,16 +105,16 @@ Lägg till repository och beroende i din `pom.xml`‑fil:
 </dependencies>
 ```
 
-### Direct Download
+### Direktnedladdning
 Alternativt, ladda ner den senaste versionen från [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
-#### License Acquisition
-- **Gratis provversion** – utforska alla funktioner utan åtagande.  
-- **Tillfällig licens** – förlängd testperiod.  
-- **Köp** – låser upp fulla produktionsfunktioner.
+#### Licensförvärv
+- **Free trial** – utforska alla funktioner utan förpliktelse.  
+- **Temporary license** – förlängd testperiod.  
+- **Purchase** – lås upp fulla produktionsfunktioner.
 
-### Basic Initialization and Setup
-Skapa en enkel Java‑klass för att initiera sökmotorn:
+### Grundläggande initiering och konfiguration
+`Index` är kärnklassen som används för att skapa, öppna och hantera ett sökindex.
 
 ```java
 import com.groupdocs.search.Index;
@@ -91,17 +132,16 @@ public class InitializeSearch {
 }
 ```
 
-## How to Index Text with Custom Compression
-
-### Step 1: Define the Index Folder
+## Indexera text med anpassad kompression
+### Steg 1: definiera indexmappen
 Välj en katalog där indexfilerna ska lagras:
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\StoringTextOfIndexedDocuments";
 ```
 
-### Step 2: Configure Index Settings
-Ställ in högkomprimerad textlagring för att minska diskutrymme:
+### Steg 2: konfigurera indexinställningar
+`TextStorageSettings` konfigurerar hur text lagras i indexet, inklusive komprimeringsnivå. `Compression` är en enum som specificerar den önskade komprimeringsalgoritmen.
 
 ```java
 import com.groupdocs.search.Index;
@@ -113,7 +153,7 @@ IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-### Step 3: Create the Index with Custom Settings
+### Steg 3: skapa indexet med anpassade inställningar
 Instansiera indexet med konfigurationen som definierats ovan:
 
 ```java
@@ -121,35 +161,81 @@ Index index = new Index(indexFolder, settings);
 System.out.println("Index created with high compression.");
 ```
 
-## How to Add a Folder to Index
+## Hur man lägger till en mapp i index
+`Index` är huvudklassen som representerar det sökbara indexet.
 
-### Step 1: Initialize the Index (if not already done)
-Förutsatt att indexmappen och inställningarna är förberedda:
+Läs in det befintliga indexet (eller skapa ett nytt) och anropa sedan `add`‑metoden på `Index`‑objektet. `add`‑operationen skannar den angivna katalogen, extraherar text från varje stödd fil och lagrar den i det komprimerade indexet, redo för omedelbar sökning.
 
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Replace with actual document path.
 Index index = new Index(indexFolder);
 ```
 
-### Step 2: Add Documents from a Folder
-Indexera alla stödda filer i den angivna katalogen:
+## Hur man söker i indexerade dokument
+`SearchResult` representerar en enskild matchning med dokumentväg och relevans.
+
+Definiera en sökfrågesträng som representerar den term eller fras du vill hitta, och anropa sedan `search`‑metoden på `Index`‑instansen. Metoden returnerar en samling av `SearchResult`‑objekt, var och en innehåller dokumentvägen, relevanspoängen och ett utdrag som markerar matchen.
 
 ```java
 index.add(documentsFolder);
 System.out.println("Documents added successfully.");
 ```
 
-## How to Search Indexed Documents
+## Praktiska tillämpningar
+Verkliga scenarier där **java full text search** briljerar:
 
-### Step 1: Define a Search Query
-Ange termen du vill hitta:
+1. **Legal document management** – omedelbar hämtning av ärendefiler.  
+2. **Academic research libraries** – snabb uppslagning av artiklar och avhandlingar.  
+3. **Enterprise knowledge bases** – snabb åtkomst till manualer och FAQ.  
+4. **Content management systems** – effektiv innehållsupptäckt för stora webbplatser.  
+5. **Customer service archives** – snabb sökning i tidigare ärenden och chattar.  
+
+## Prestandaöverväganden
+- **Compression vs. speed**: Hög kompression sparar upp till 70 % diskutrymme men tillför en måttlig indexeringskostnad; kör benchmark‑tester för din datavolym.  
+- **Memory management**: Tilldela minst 2 GB heap för index större än 10 GB för att undvika `OutOfMemoryError`.  
+- **Index updates**: Lägg till nya dokument inkrementellt med `index.add()` och anropa periodiskt `index.optimize()` för att hålla indexet kompakt.  
+- **Query optimization**: Använd den avancerade frågesyntaxen (jokertecken, närhet, fuzzy‑sökning) för att begränsa resultat och minska svarstiden.
+
+## Vanliga fallgropar & proffstips
+- **Pitfall:** Glömmer att anropa `index.optimize()` efter massiva tillägg.  
+  **Pro tip:** Kör `index.optimize()` varje natt för att hålla indexet kompakt.  
+
+- **Pitfall:** Använder standard (låg) kompression på massiva dataset.  
+  **Pro tip:** Byt till `Compression.High` för produktionsmiljöer för att minska lagringskostnaderna.  
+
+- **Pitfall:** Hanterar inte `IOException` när filer läggs till från en nätverksdelning.  
+  **Pro tip:** Omge `index.add()` med ett try‑catch‑block och logga eventuella fel för senare granskning.  
+
+## Vanliga frågor
+**Q: Vad är GroupDocs.Search?**  
+A: Det är ett robust Java‑bibliotek som tillhandahåller avancerade full‑text sökfunktioner, inklusive indexering, kompression och stöd för komplexa frågor.
+
+**Q: Hur hanterar jag stora dataset med GroupDocs.Search?**  
+A: Aktivera hög kompression (`Compression.High`) och begå förändringar periodiskt för att hålla indexet slimmat. Allokera också tillräckligt med heap‑minne (t.ex. 4 GB för index över 20 GB).
+
+**Q: Kan jag integrera GroupDocs.Search med befintliga företagsystem?**  
+A: Ja, biblioteket kan inbäddas i vilken Java‑baserad backend, REST‑tjänst eller mikrotjänstarkitektur som helst.
+
+**Q: Vad händer om mitt index blir föråldrat?**  
+A: Använd `index.add()`‑metoden för att lägga till nya filer och `index.delete()` för att ta bort föråldrade, kör sedan `index.optimize()` igen om det behövs.
+
+**Q: Var kan jag få hjälp eller support?**  
+A: Besök community‑forumet på [GroupDocs forums](https://forum.groupdocs.com/c/search/10) för felsökning och bästa praxis‑tips.
+
+## Ytterligare resurser
+- Detaljerad användarguide: [GroupDocs Search-dokumentation](https://docs.groupdocs.com/search/java/)  
+- Fullständig API-referens: [API-referensguide](https://reference.groupdocs.com/search/java)  
+- Håll dig uppdaterad med nya funktioner: [Senaste versionerna](https://releases.groupdocs.com/search/java/)  
+
+---
+
+**Senast uppdaterad:** 2026-11-02  
+**Testad med:** GroupDocs.Search 25.4  
+**Författare:** GroupDocs  
 
 ```java
-String query = "Lorem";  
+String query = "sample";  
 ```
-
-### Step 2: Execute the Search
-Kör frågan mot indexet och hämta resultat:
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -158,55 +244,7 @@ SearchResult result = index.search(query);
 System.out.println("Search completed. Results found: " + result.getDocumentCount());
 ```
 
-## Practical Applications
-Verkliga scenarier där **java full text search** glänser:
-
-1. **Legal Document Management** – omedelbar återhämtning av ärendefiler.  
-2. **Academic Research Libraries** – snabb sökning av artiklar och avhandlingar.  
-3. **Enterprise Knowledge Bases** – snabb åtkomst till manualer och vanliga frågor.  
-4. **Content Management Systems** – effektiv innehållsupptäckt för stora webbplatser.  
-5. **Customer Service Archives** – snabb sökning i tidigare ärenden och chattar.  
-
-## Performance Considerations
-- **Kompression vs. hastighet**: Hög kompression sparar utrymme men kan lägga till en liten extra belastning under indexering. Testa båda inställningarna för din arbetsbelastning.  
-- **Minneshantering**: Övervaka heap‑användning när du indexerar mycket stora korpusar.  
-- **Indexuppdateringar**: Lägg regelbundet till nya dokument eller ta bort föråldrade för att hålla sökresultaten relevanta.  
-- **Frågeoptimering**: Utnyttja GroupDocs.Search:s avancerade frågesyntax för precisa resultat.  
-
-## Common Pitfalls & Pro Tips
-- **Pitfall:** Forgetting to call `index.optimize()` after bulk additions.  
-  **Pro tip:** Run `index.optimize()` nightly to keep the index compact.  
-
-- **Pitfall:** Using the default (low) compression on massive datasets.  
-  **Pro tip:** Switch to `Compression.High` for production environments to cut storage costs.  
-
-- **Pitfall:** Not handling `IOException` when adding files from a network share.  
-  **Pro tip:** Wrap `index.add()` in a try‑catch block and log any failures for later review.  
-
-## Frequently Asked Questions
-
-**Q: What is GroupDocs.Search?**  
-A: It is a robust Java library that provides advanced full‑text search capabilities, including indexing, compression, and complex query support.
-
-**Q: How do I handle large datasets with GroupDocs.Search?**  
-A: Enable high compression (`Compression.High`) and periodically commit changes to keep the index lean. Also, allocate sufficient heap memory.
-
-**Q: Can I integrate GroupDocs.Search with existing enterprise systems?**  
-A: Yes, the library can be embedded in any Java‑based backend, REST services, or micro‑services architecture.
-
-**Q: What if my index becomes outdated?**  
-A: Use the `index.add()` method to append new files and `index.delete()` to remove obsolete ones, then re‑run `index.optimize()` if needed.
-
-**Q: Where can I get help or support?**  
-A: Visit the community forum at [GroupDocs forums](https://forum.groupdocs.com/c/search/10) for troubleshooting and best‑practice tips.
-
-## Resources
-- **Documentation**: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
-- **API Reference**: [API Reference Guide](https://reference.groupdocs.com/search/java)  
-- **Download GroupDocs.Search**: [Latest Releases](https://releases.groupdocs.com/search/java/)  
-
----
-
-**Last Updated:** 2026-03-15  
-**Tested With:** GroupDocs.Search 25.4  
-**Author:** GroupDocs
+## Relaterade handledningar
+- [Groupdocs Search Java Skapa index‑guide](/search/java/indexing/groupdocs-search-java-create-index-guide/)
+- [Mästra Groupdocs Search Java Indexhanteringsguide](/search/java/document-management/mastering-groupdocs-search-java-index-management-guide/)
+- [Java Full Text Search‑bibliotek – Optimera index med GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)

@@ -1,59 +1,78 @@
 ---
-date: '2026-03-17'
-description: เรียนรู้วิธีสร้างดัชนีด้วย GroupDocs.Search สำหรับ Java, กำหนดค่าตัวอักษรปกติและผสม,
-  และเพิ่มประสิทธิภาพการค้นหาสำหรับหมายเลขคดีทางกฎหมายและภาพ OCR.
+date: '2026-11-02'
+description: สร้างดัชนีการค้นหาแบบกำหนดเอง java โดยใช้ GroupDocs.Search เพื่อจัดการอักขระปกติและอักขระผสม,
+  ปรับให้การค้นหารูปภาพ OCR มีประสิทธิภาพมากขึ้น, และปรับปรุงการดึงข้อมูล legal case
+  number
 keywords:
+- custom search index java
 - GroupDocs.Search Java
-- Java OCR character recognition
+- character recognition java
+- OCR search Java
 - search library Java
-title: วิธีสร้างดัชนีด้วยการจดจำตัวอักษรใน Java
+lastmod: '2026-11-02'
+og_description: สร้างดัชนีการค้นหาแบบกำหนดเอง java โดยใช้ GroupDocs.Search เพื่อจัดการอักขระปกติและอักขระผสม,
+  ปรับให้การค้นหารูปภาพ OCR มีประสิทธิภาพมากขึ้น, และปรับปรุงการดึงข้อมูล legal case
+  number
+og_image_alt: Guide showing custom search index creation in Java with GroupDocs.Search
+og_title: สร้างดัชนีการค้นหาแบบกำหนดเอง java ด้วย GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-11-02'
+  description: Create a custom search index java using GroupDocs.Search to handle
+    regular and blended characters, optimize OCR image search, and improve legal case
+    number retrieval.
+  headline: Create a custom search index java with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: It means configuring an index to treat specific symbols as letters or
+      blended characters, rather than ignoring them.
+    question: What does “create custom search index” mean?
+  - answer: GroupDocs.Search for Java (v25.4 at the time of writing).
+    question: Which library is used?
+  - answer: A free trial works for development; a paid license is required for production.
+    question: Do I need a license?
+  - answer: Yes—GroupDocs.Search supports OCR on images and PDFs when properly configured.
+    question: Can I index both PDFs and images?
+  - answer: Maven is the recommended way to manage dependencies, but you can also
+      use Gradle or manual JARs.
+    question: Is Maven required?
+  type: FAQPage
+tags:
+- custom search index
+- GroupDocs.Search
+- Java OCR
+- character recognition
+- search library
+title: สร้างดัชนีการค้นหาแบบกำหนดเอง java ด้วย GroupDocs.Search
 type: docs
 url: /th/java/ocr-image-search/groupdocs-search-java-character-recognition/
 weight: 1
 ---
 
-:** By aligning the index’s character set with the OCR engine’s output, you reduce false negatives and improve overall search relevance.
+# สร้างดัชนีการค้นหาที่กำหนดเองสำหรับ Java ด้วย GroupDocs.Search
 
-Translate.
-
-Then footer:
-
-**Last Updated:** 2026-03-17  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs  
-
-Translate labels but keep dates.
-
-Now produce final markdown with translations.
-
-Be careful to preserve all markdown formatting exactly.
-
-Let's craft final answer.# วิธีสร้างดัชนีด้วยการรับรู้ตัวอักษรโดยใช้ GroupDocs.Search สำหรับ Java
-
-ในแอปพลิเคชันที่มีเอกสารจำนวนมากในยุคปัจจุบัน, **วิธีสร้างดัชนี** ที่เคารพความละเอียดของข้อความของคุณ—เช่น เครื่องหมายขีดกลาง, เครื่องหมายขีดล่าง, หรือสัญลักษณ์เฉพาะของภาษา—เป็นสิ่งสำคัญสำหรับการดึงข้อมูลที่เร็วและแม่นยำ ในบทแนะนำนี้เราจะอธิบายการกำหนดค่าการรับรู้ตัวอักษรใน **GroupDocs.Search for Java**, ครอบคลุมทั้งตัวอักษรปกติ (letters, digits, underscores) และตัวอักษรผสม (เช่น hyphens) เมื่อเสร็จสิ้นคุณจะสามารถปรับดัชนีให้ตรงกับความต้องการของสถานการณ์ OCR หรือการค้นหาภาพของคุณ ไม่ว่าจะเป็นการทำดัชนีหมายเลขคดีทางกฎหมาย, ที่เก็บซอร์สโค้ด, หรือ PDF หลายภาษา
+ในแอปพลิเคชันที่จัดการเอกสารเป็นจำนวนมากในยุคปัจจุบัน การสร้าง **custom search index java** ที่เคารพความละเอียดของข้อความของคุณ—เช่น เครื่องหมายขีดกลาง, เครื่องหมายขีดล่าง, หรือสัญลักษณ์เฉพาะภาษา—เป็นสิ่งสำคัญสำหรับการดึงข้อมูลที่รวดเร็วและแม่นยำ บทแนะนำนี้จะพาคุณผ่านการกำหนดค่าการจดจำอักขระใน **GroupDocs.Search for Java** โดยครอบคลุมทั้งอักขระปกติ (ตัวอักษร, ตัวเลข, เครื่องหมายขีดล่าง) และอักขระผสม (เช่น เครื่องหมายขีดกลาง) เมื่อเสร็จสิ้น คุณจะสามารถปรับแต่งดัชนีให้ตรงกับความต้องการของสถานการณ์ OCR หรือการค้นหาภาพ ไม่ว่าจะเป็นการทำดัชนีหมายเลขคดีทางกฎหมาย, ที่เก็บรหัสต้นฉบับ, หรือไฟล์ PDF หลายภาษา
 
 ## คำตอบอย่างรวดเร็ว
-- **What does “create custom search index” mean?** หมายถึงการกำหนดค่าดัชนีให้จัดการสัญลักษณ์เฉพาะเป็นตัวอักษรหรืออักขระผสม แทนที่จะละเลยมัน.  
-- **Which library is used?** GroupDocs.Search for Java (v25.4 at the time of writing).  
-- **Do I need a license?** การทดลองใช้ฟรีทำงานได้สำหรับการพัฒนา; จำเป็นต้องมีใบอนุญาตแบบชำระเงินสำหรับการใช้งานจริง.  
-- **Can I index both PDFs and images?** ใช่—GroupDocs.Search รองรับ OCR บนรูปภาพและ PDF เมื่อกำหนดค่าอย่างถูกต้อง.  
-- **Is Maven required?** Maven เป็นวิธีที่แนะนำสำหรับการจัดการ dependencies, แต่คุณก็สามารถใช้ Gradle หรือ JARs แบบแมนนวลได้.  
+- **“create custom search index” หมายถึงอะไร?** หมายถึงการกำหนดค่าดัชนีให้ถือสัญลักษณ์เฉพาะเป็นตัวอักษรหรืออักขระผสม แทนที่จะละเลยมัน  
+- **ใช้ไลบรารีอะไร?** GroupDocs.Search for Java (v25.4 at the time of writing)  
+- **ต้องการไลเซนส์หรือไม่?** การทดลองใช้ฟรีทำงานสำหรับการพัฒนา; จำเป็นต้องมีไลเซนส์แบบชำระเงินสำหรับการใช้งานจริง  
+- **ฉันสามารถทำดัชนีทั้ง PDF และรูปภาพได้หรือไม่?** ได้—GroupDocs.Search รองรับ OCR บนรูปภาพและ PDF เมื่อกำหนดค่าอย่างถูกต้อง  
+- **ต้องใช้ Maven หรือไม่?** Maven เป็นวิธีที่แนะนำในการจัดการ dependencies, แต่คุณก็สามารถใช้ Gradle หรือ JARs แบบแมนนวลได้  
 
-## ดัชนีการค้นหาแบบกำหนดเองคืออะไร?
-ดัชนีการค้นหาแบบกำหนดเองให้คุณกำหนดวิธีที่เครื่องมือค้นหาแปลความหมายของตัวอักษร โดยค่าเริ่มต้นหลายสัญลักษณ์จะถูกละเลย ซึ่งอาจทำให้พลาดการจับคู่สำหรับสิ่งเช่นหมายเลขคดี (`2023-AB-456`) หรือโค้ดสแนปเพต (`my_variable`) การปรับพจนานุกรมอัลฟาเบตทำให้คุณควบคุมได้เต็มที่ว่าตัวเครื่องมือจะถือว่าอะไรเป็นข้อความที่สามารถค้นหาได้
+## custom search index java คืออะไร?
+**custom search index java** คือโครงสร้างข้อมูลที่สามารถค้นหาได้ซึ่งคุณสามารถกำหนดรูปแบบโดยการระบุว่าตัวอักษรใดจะถือเป็นตัวอักษร, ตัวเลข, หรือสัญลักษณ์ผสม โดยค่าเริ่มต้นหลายสัญลักษณ์จะถูกละเลย ซึ่งอาจทำให้การจับคู่ที่ต้องการ เช่น หมายเลขคดี (`2023-AB-456`) หรือโค้ดส่วนหนึ่ง (`my_variable`) ไม่พบ การปรับพจนานุกรมอักขระให้คุณควบคุมการทำ tokenization ได้เต็มที่ ส่งผลให้ความเกี่ยวข้องสูงขึ้นและการประมวลผลคำค้นเร็วขึ้น  
 
-## ทำไมต้องกำหนดค่าตัวอักษรปกติและตัวอักษรผสมสำหรับหมายเลขคดีทางกฎหมาย?
-- **Regular characters** (letters, digits, underscores) จะถูกแยกเป็นโทเคน ทำให้การค้นหาแบบตรงกับตัวระบุเป็นไปได้อย่างแม่นยำ.  
-- **Blended characters** (hyphens, slashes) จะทำให้โทเคนที่เกี่ยวข้องอยู่ด้วยกัน ป้องกันการแยกส่วนที่ไม่ต้องการของหมายเลขคดี, รหัสสินค้า, หรือเส้นทางไฟล์.  
-- การกำหนดค่านี้ **optimizes search index** ประสิทธิภาพโดยลดการแยกโทเคนและเพิ่มความเกี่ยวข้องสำหรับเนื้อหา OCR  
+## ทำไมต้องกำหนดค่าตัวอักษรปกติและผสมสำหรับหมายเลขคดีทางกฎหมาย?
+การถือเครื่องหมายขีดกลางและเครื่องหมายทับเป็นอักขระผสมทำให้โทเคนที่เกี่ยวข้องอยู่ด้วยกัน ไม่แยกส่วนของตัวระบุเช่นหมายเลขคดี, รหัสสินค้า, หรือเส้นทางไฟล์ การกำหนดค่านี้ **เพิ่มประสิทธิภาพการทำงานของดัชนีการค้นหา** โดยลดการแยกโทเคนและปรับปรุงความเกี่ยวข้องสำหรับเนื้อหา OCR‑generated โดยเฉพาะเมื่อจัดการกับเอกสารทางกฎหมายที่พึ่งพาตัวระบุโครงสร้างอย่างมาก  
 
 ## ข้อกำหนดเบื้องต้น
-- **JDK 8** หรือใหม่กว่า ต้องติดตั้งไว้.  
-- **Maven** สำหรับการจัดการ dependencies.  
-- เข้าถึง **GroupDocs.Search for Java** library (ดาวน์โหลดผ่าน Maven หรือเว็บไซต์ทางการ).  
+- **JDK 8** หรือใหม่กว่า  
+- **Maven** สำหรับการจัดการ dependencies  
+- เข้าถึงไลบรารี **GroupDocs.Search for Java** (ดาวน์โหลดผ่าน Maven หรือเว็บไซต์อย่างเป็นทางการ)  
 
 ### ไลบรารีและ dependencies ที่จำเป็น
-เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณ (ตามตัวอย่างด้านล่าง) ส่วน XML ต้องคงไว้โดยไม่เปลี่ยนแปลง
+เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณ (ตามตัวอย่างด้านล่าง) ส่วน XML ต้องคงไว้โดยไม่เปลี่ยนแปลง  
 
 ```xml
 <repositories>
@@ -73,17 +92,17 @@ Let's craft final answer.# วิธีสร้างดัชนีด้ว�
 </dependencies>
 ```
 
-คุณสามารถดาวน์โหลด JAR ล่าสุดได้จาก [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+คุณสามารถดาวน์โหลด JAR ล่าสุดได้จาก [การปล่อย GroupDocs.Search for Java](https://releases.groupdocs.com/search/java/)  
 
-### การรับใบอนุญาต
-- **Free Trial** – เหมาะสำหรับการทดลองในขั้นต้น.  
-- **Temporary License** – มีประโยชน์สำหรับวงจรการพัฒนาที่ยาวนาน.  
-- **Production License** – จำเป็นสำหรับการใช้งานเชิงพาณิชย์.  
+### การรับไลเซนส์
+- **Free trial** – เหมาะสำหรับการทดลองเบื้องต้น  
+- **Temporary license** – มีประโยชน์สำหรับวงจรการพัฒนาที่ยาวนาน  
+- **Production license** – จำเป็นสำหรับการใช้งานเชิงพาณิชย์  
 
-รับใบอนุญาตจากพอร์ทัลอย่างเป็นทางการ: [GroupDocs](https://purchase.groupdocs.com/temporary-license/).
+รับไลเซนส์จากพอร์ทัลอย่างเป็นทางการ: [GroupDocs](https://purchase.groupdocs.com/temporary-license/)  
 
 ### การเริ่มต้นพื้นฐาน
-โค้ดตัวอย่างด้านล่างแสดงวิธีการสร้างดัชนีเปล่าแบบขั้นต่ำ เก็บไว้ตามเดิม; เราจะต่อยอดจากนี้ในภายหลัง
+โค้ดตัวอย่างด้านล่างแสดงวิธีการสร้างดัชนีเปล่าอย่างง่าย `Index` เป็นคอมโพเนนต์หลักที่เก็บและจัดการข้อมูลที่สามารถค้นหาได้ คงไว้ตามเดิม; เราจะต่อยอดในขั้นตอนต่อไป  
 
 ```java
 import com.groupdocs.search.*;
@@ -100,44 +119,44 @@ public class GroupDocsSearchSetup {
 }
 ```
 
-## การตั้งค่า GroupDocs.Search สำหรับ Java
+## การตั้งค่า GroupDocs.Search for Java
 
 ### การติดตั้งผ่าน Maven
-การกำหนดค่า Maven จากส่วน *ข้อกำหนดเบื้องต้น* คือทั้งหมดที่คุณต้องการ หลังจากเพิ่มแล้วให้รัน `mvn clean install` เพื่อดึงไบนารี
+การกำหนดค่า Maven จากส่วน **ข้อกำหนดเบื้องต้น** คือทั้งหมดที่คุณต้องทำ หลังจากเพิ่มแล้วให้รัน `mvn clean install` เพื่อดึงไบนารี  
 
 ### ความต้องการการตั้งค่าสภาพแวดล้อม
-- ตรวจสอบให้แน่ใจว่า **index folder** และ **document folder** มีอยู่บนดิสก์.  
-- ใช้เส้นทางแบบ absolute หรือกำหนดค่า IDE ของคุณให้แก้ไขเส้นทาง relative อย่างถูกต้อง.  
+- ตรวจสอบให้แน่ใจว่า **โฟลเดอร์ดัชนี** และ **โฟลเดอร์เอกสาร** มีอยู่บนดิสก์  
+- ใช้เส้นทางแบบ absolute หรือกำหนดค่า IDE ของคุณให้แก้ไขเส้นทาง relative อย่างถูกต้อง  
 
-## คู่มือการใช้งาน
+## คู่มือการดำเนินการ
 
-ด้านล่างเราจะอธิบายสองฟีเจอร์ที่แตกต่างกัน: **regular characters** และ **blended characters** แต่ละฟีเจอร์ทำตามรูปแบบเดียวกัน—กำหนดเส้นทาง, สร้างดัชนี, ตั้งค่าพจนานุกรมอักขระ, และสุดท้ายทำการทำดัชนีเอกสารของคุณ
+ด้านล่างนี้เราจะอธิบายสองฟีเจอร์ที่แตกต่างกัน: **ตัวอักษรปกติ** และ **ตัวอักษรผสม** แต่ละฟีเจอร์ทำตามรูปแบบเดียวกัน—กำหนดเส้นทาง, สร้างดัชนี, ตั้งค่าพจนานุกรมอักขระ, แล้วทำดัชนีเอกสารของคุณ  
 
-### ฟีเจอร์ 1 – ตัวอักษรปกติ
+### ฟีเจอร์ 1 – ตัวอักษรปกติ
 
 #### ภาพรวม
-ตัวอักษรปกติจะถูกจัดการเป็นโทเคนอิสระ เหมาะเมื่อคุณต้องการให้ตัวเลข, ตัวอักษร, และเครื่องหมายขีดล่างสามารถค้นหาได้อย่างตรงตามที่ปรากฏ
+ตัวอักษรปกติจะถือเป็นโทเคนอิสระ เหมาะเมื่อคุณต้องการให้ตัวเลข, ตัวอักษร, และเครื่องหมายขีดล่างสามารถค้นหาได้ตามที่ปรากฏ  
 
-#### การดำเนินการขั้นตอนต่อขั้นตอน
+#### การดำเนินการแบบขั้นตอน
 
-**1️⃣ Set Up Paths**  
-กำหนดตำแหน่งที่ดัชนีจะถูกเก็บและตำแหน่งที่เอกสารต้นทางของคุณอยู่
+**1️⃣ ตั้งค่าเส้นทาง**  
+กำหนดตำแหน่งที่ดัชนีจะถูกเก็บและตำแหน่งที่เอกสารต้นฉบับของคุณอยู่  
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/CharacterTypes/RegularCharacters";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-**2️⃣ Create and Configure Index**  
-สร้างอินสแตนซ์ของดัชนีและล้างการกำหนดค่าอัลฟาเบตที่มีอยู่ก่อนหน้า
+**2️⃣ สร้างและกำหนดค่าดัชนี**  
+สร้างอินสแตนซ์ของดัชนีและล้างการกำหนดค่าพจนานุกรมอักขระที่มีอยู่ก่อนหน้า  
 
 ```java
 Index index = new Index(indexFolder);
 index.getDictionaries().getAlphabet().clear();
 ```
 
-**3️⃣ Define Regular Characters**  
-สร้างอาร์เรย์ของอักขระที่รวมตัวเลข, ตัวอักษรละติน, และเครื่องหมายขีดล่าง
+**3️⃣ กำหนดตัวอักษรปกติ**  
+สร้างอาร์เรย์อักขระที่รวมตัวเลข, ตัวอักษรละติน, และเครื่องหมายขีดล่าง  
 
 ```java
 StringBuilder sb = new StringBuilder();
@@ -158,41 +177,41 @@ sb.getChars(0, sb.length(), characters, 0);
 index.getDictionaries().getAlphabet().setRange(characters, CharacterType.Letter);
 ```
 
-**4️⃣ Index Documents**  
-เพิ่มไฟล์ทั้งหมดจากโฟลเดอร์ต้นทางเข้าสู่ดัชนีที่กำหนดค่าใหม่
+**4️⃣ ทำดัชนีเอกสาร**  
+เพิ่มไฟล์ทั้งหมดจากโฟลเดอร์ต้นฉบับเข้าสู่ดัชนีที่กำหนดค่าใหม่  
 
 ```java
 index.add(documentFolder);
 ```
 
-### ฟีเจอร์ 2 – ตัวอักษรผสม
+### ฟีเจอร์ 2 – ตัวอักษรผสม
 
 #### ภาพรวม
-ตัวอักษรผสม (เช่น hyphens) มักเชื่อมคำสองคำ การทำเครื่องหมายเป็น *blended* จะบอกเครื่องมือให้เก็บโทเคนรอบข้างไว้ด้วยกันระหว่างการทำดัชนี
+ตัวอักษรผสม (เช่นเครื่องหมายขีดกลาง) มักเชื่อมคำสองคำ การทำเครื่องหมายเป็น *blended* จะบอกให้เอนจินเก็บโทเคนรอบข้างไว้ด้วยกันระหว่างทำดัชนี  
 
-#### การดำเนินการขั้นตอนต่อขั้นตอน
+#### การดำเนินการแบบขั้นตอน
 
-**1️⃣ Set Up Paths**  
+**1️⃣ ตั้งค่าเส้นทาง**  
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/CharacterTypes/BlendedCharacters";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-**2️⃣ Create and Configure Index**  
+**2️⃣ สร้างและกำหนดค่าดัชนี**  
 
 ```java
 Index index = new Index(indexFolder);
 ```
 
-**3️⃣ Define Blended Characters**  
-ที่นี่เราบอกพจนานุกรมให้ถือว่า hyphen เป็นอักขระผสม
+**3️⃣ กำหนดตัวอักษรผสม**  
+ที่นี่เราบอกพจนานุกรมให้ถือเครื่องหมายขีดกลางเป็นอักขระผสม  
 
 ```java
 index.getDictionaries().getAlphabet().setRange(new char[] { '-' }, CharacterType.Blended);
 ```
 
-**4️⃣ Index Documents**  
+**4️⃣ ทำดัชนีเอกสาร**  
 
 ```java
 index.add(documentFolder);
@@ -200,50 +219,58 @@ index.add(documentFolder);
 
 ## การประยุกต์ใช้งานจริง
 
-### กรณีการใช้งาน 1 – การจัดการเอกสารทางกฎหมาย
-ไฟล์กฎหมายมักมีหมายเลขคดีเช่น `2023-AB-456` การกำหนดค่าเครื่องหมายขีดล่างและ hyphens ทำให้การค้นหาสามารถคืนผลลัพธ์ที่ตรงกันโดยไม่แยกตัวระบุ ช่วยให้คุณ **search legal case numbers** ได้อย่างมีประสิทธิภาพ
+### กรณีการใช้งาน 1 – การจัดการเอกสารทางกฎหมาย
+ไฟล์กฎหมายมักมีหมายเลขคดีเช่น `2023-AB-456` การกำหนดค่าเครื่องหมายขีดล่างและขีดกลางทำให้การค้นหาสามารถคืนผลลัพธ์ที่ตรงกันโดยไม่แยกส่วนตัวระบุ ช่วยให้ **search legal case numbers** มีประสิทธิภาพ  
 
-### กรณีการใช้งาน 2 – ที่เก็บซอร์สโค้ด
-นักพัฒนาต้องการค้นหาโค้ดสแนปเพตที่เครื่องหมายขีดล่าง (`my_variable`) และ hyphens (`my-function`) มีความหมาย การรับรู้ตัวอักษรแบบกำหนดเองทำให้เครื่องมือค้นหาเคารพสัญลักษณ์เหล่านี้
+### กรณีการใช้งาน 2 – ที่เก็บรหัสต้นฉบับ
+นักพัฒนาต้องการค้นหาโค้ดที่มีเครื่องหมายขีดล่าง (`my_variable`) และขีดกลาง (`my-function`) มีความหมาย การจดจำอักขระที่กำหนดเองทำให้เครื่องมือค้นหาเคารพสัญลักษณ์เหล่านี้  
 
-### กรณีการใช้งาน 3 – ชุดข้อมูลหลายภาษา
-เมื่อทำงานกับภาษาที่ใช้อัลฟาเบตเพิ่มเติม คุณสามารถ **extend Unicode character set** เพื่อรวมช่วงอักขระเหล่านั้นได้ รับประกันผลการค้นหาข้ามภาษาอย่างแม่นยำ
+### กรณีการใช้งาน 3 – ชุดข้อมูลหลายภาษา
+เมื่อทำงานกับภาษาที่ใช้ตัวอักษรเพิ่มเติม คุณสามารถ **extend the Unicode character set** เพื่อรวมช่วงเหล่านั้น ทำให้การค้นหาแบบข้ามภาษาแม่นยำ  
 
-### กรณีการใช้งาน 4 – ดัชนี PDF รูปภาพ
-หากคุณทำดัชนี PDF สแกนหรือไฟล์รูปภาพ ผลลัพธ์ OCR มักมีอักขระผสม การกำหนดค่าตัวอักษรปกติและผสมอย่างเหมาะสม **optimizes search index** ประสิทธิภาพสำหรับเนื้อหาที่มาจากภาพ
+### กรณีการใช้งาน 4 – ทำดัชนีภาพ PDF
+หากทำดัชนี PDF สแกนหรือไฟล์ภาพ ผลลัพธ์ OCR มักมีอักขระผสม การกำหนดค่าตัวอักษรปกติและผสมอย่างเหมาะสม **optimizes search index** สำหรับเนื้อหาแบบภาพ  
 
 ## ข้อควรพิจารณาด้านประสิทธิภาพ
 
-- **Resource Management** – ตรวจสอบการใช้ heap; ดัชนีขนาดใหญ่จะได้ประโยชน์จากการ commit แบบ incremental.  
-- **Garbage Collection** – ปล่อยออบเจ็กต์ `Index` เมื่อเสร็จเพื่อให้ JVM คืนหน่วยความจำ.  
-- **Index Optimization** – เรียก `index.optimize()` อย่างสม่ำเสมอ (ถ้ามี) เพื่อบีบอัดดัชนีและเพิ่มความเร็วของการ query.  
+- **Resource management** – ตรวจสอบการใช้ heap; ดัชนีขนาดใหญ่ได้ประโยชน์จากการ commit แบบเพิ่มทีละส่วน  
+- **Garbage collection** – ปล่อยอ็อบเจกต์ `Index` เมื่อเสร็จเพื่อให้ JVM คืนหน่วยความจำ  
+- **Index optimization** – เรียก `index.optimize()` อย่างสม่ำเสมอ (ถ้ามี) เพื่อบีบอัดดัชนีและเพิ่มความเร็วของการค้นหา  
 
 ## สรุป
 
-คุณได้เรียนรู้ **วิธีสร้างดัชนี** ที่แยกแยะระหว่างตัวอักษรปกติและตัวอักษรผสมโดยใช้ GroupDocs.Search for Java การควบคุมในระดับละเอียดนี้ทำให้คุณสร้างโซลูชันการค้นหาที่รับรู้ OCR, มีประสิทธิภาพสูง และปรับให้เหมาะกับสภาพแวดล้อมทางกฎหมาย, การพัฒนา, หรือหลายภาษา
+คุณได้เรียนรู้ **how to create a custom search index java** ที่แยกแยะระหว่างตัวอักษรปกติและผสมโดยใช้ GroupDocs.Search for Java การควบคุมระดับละเอียดนี้ทำให้คุณสร้างโซลูชันการค้นหา OCR‑aware ที่มีประสิทธิภาพสูงสำหรับสภาพแวดล้อมทางกฎหมาย, การพัฒนา, หรือหลายภาษา  
 
 ### ขั้นตอนต่อไป
-- ทดลองเพิ่มช่วง Unicode เพิ่มเติมสำหรับอักษรที่ไม่ใช่ละติน.  
-- ผสานการกำหนดค่าตัวอักษรกับฟีเจอร์อื่นของ GroupDocs.Search เช่น stemming หรือ synonyms.  
-- รวมดัชนีเข้ากับ REST API เพื่อเปิดเผยความสามารถการค้นหาให้กับแอปพลิเคชัน front‑end.
+- ทดลองใช้ช่วง Unicode เพิ่มเติมสำหรับอักษรที่ไม่ใช่ละติน  
+- รวมการกำหนดค่าตัวอักษรกับฟีเจอร์อื่นของ GroupDocs.Search เช่น stemming หรือ synonyms  
+- เปิดเผยดัชนีผ่าน REST API เพื่อให้แอปพลิเคชัน front‑end ทำการค้นหาผ่าน HTTP  
 
 ## คำถามที่พบบ่อย
 
-**Q:** *What is the purpose of `CharacterType.Letter`?*  
-**A:** มันบอกดัชนีให้ถือว่าอักขระที่ระบุเป็นตัวอักษรปกติ ดังนั้นจะถูกแยกเป็นโทเคนแยกกันระหว่างการทำดัชนี
+**Q:** *วัตถุประสงค์ของ `CharacterType.Letter` คืออะไร?*  
+**A:** มันบอกดัชนีให้ถืออักขระที่ระบุเป็นตัวอักษรปกติ ดังนั้นจะถูก tokenized แยกจากกันระหว่างทำดัชนี  
 
-**Q:** *Can I mix regular and blended characters in the same index?*  
-**A:** ได้—แค่เรียก `setRange` สำหรับแต่ละประเภท; พจนานุกรมจะจัดการการกำหนดค่าทั้งสองพร้อมกัน
+**Q:** *ฉันสามารถผสมตัวอักษรปกติและผสมในดัชนีเดียวกันได้หรือไม่?*  
+**A:** ได้—เพียงเรียก `setRange` สำหรับแต่ละประเภท; พจนานุกรมจะจัดการการกำหนดค่าทั้งสองพร้อมกัน  
 
-**Q:** *Do I need to rebuild the index after changing the alphabet?*  
-**A:** แน่นอน. การเปลี่ยนแปลงพจนานุกรมอักขระมีผลต่อการแยกโทเคน ดังนั้นคุณต้องทำการทำดัชนีใหม่ของเอกสารเพื่อให้กฎใหม่มีผล
+**Q:** *ต้องสร้างดัชนีใหม่หลังจากเปลี่ยนพจนานุกรมอักขระหรือไม่?*  
+**A:** แน่นอน การเปลี่ยนแปลงพจนานุกรมอักขระส่งผลต่อการ tokenization ดังนั้นต้องทำดัชนีใหม่เพื่อให้กฎใหม่มีผล  
 
-**Q:** *Is there a limit to the number of custom characters I can define?*  
-**A:** ไลบรารีรองรับช่วง Unicode ทั้งหมด; ประสิทธิภาพอาจลดลงหากคุณเพิ่มชุดอักขระที่ใหญ่มากเกินไป ดังนั้นควรจำกัดไว้ที่อักขระที่คุณต้องการใช้จริง
+**Q:** *มีขีดจำกัดจำนวนอักขระที่กำหนดเองที่ฉันสามารถกำหนดได้หรือไม่?*  
+**A:** ไลบรารีรองรับช่วง Unicode ทั้งหมด; ประสิทธิภาพอาจลดลงหากเพิ่มชุดอักขระที่ใหญ่มากเกินไป จึงควรกำหนดเฉพาะอักขระที่จำเป็น  
 
-**Q:** *How does this affect OCR accuracy?*  
-**A:** การทำให้ชุดอักขระของดัชนีสอดคล้องกับผลลัพธ์ของ OCR ช่วยลด false negatives และปรับปรุงความเกี่ยวข้องของการค้นหาโดยรวม
+**Q:** *การกำหนดค่านี้ส่งผลต่อความแม่นยำของ OCR อย่างไร?*  
+**A:** โดยการทำให้ชุดอักขระของดัชนีสอดคล้องกับผลลัพธ์ของ OCR คุณจะลด false negatives และปรับปรุงความเกี่ยวข้องของการค้นหาโดยรวม  
 
-**Last Updated:** 2026-03-17  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+---  
+
+**Last Updated:** 2026-11-02  
+**Tested with:** GroupDocs.Search 25.4 for Java  
+**Author:** GroupDocs  
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [สร้างและจัดการดัชนี Groupdocs Search Java](/search/java/indexing/create-manage-groupdocs-search-java-index/)  
+- [สร้าง Search Index Directory & ตั้งค่า License – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)  
+- [Java Full Text Search Library – ปรับแต่งดัชนีด้วย GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)

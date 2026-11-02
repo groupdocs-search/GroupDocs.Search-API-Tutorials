@@ -1,45 +1,75 @@
 ---
-date: '2026-03-17'
-description: Tanulja meg, hogyan hozhat létre indexet a GroupDocs.Search for Java
-  segítségével, hogyan konfigurálhatja a szabályos és kevert karaktereket, és hogyan
-  optimalizálhatja a keresést jogi ügyiratszámok és OCR képek esetén.
+date: '2026-11-02'
+description: Egyedi keresőindex létrehozása Java-val a GroupDocs.Search használatával,
+  amely kezeli a normál és kevert karaktereket, optimalizálja az OCR képes keresést,
+  és javítja a jogi ügyszámok visszakeresését.
 keywords:
+- custom search index java
 - GroupDocs.Search Java
-- Java OCR character recognition
+- character recognition java
+- OCR search Java
 - search library Java
-title: Hogyan hozzunk létre indexet karakterfelismeréssel Java-ban
+lastmod: '2026-11-02'
+og_description: Egyedi keresőindex létrehozása Java-val a GroupDocs.Search használatával,
+  amely kezeli a normál és kevert karaktereket, optimalizálja az OCR képes keresést,
+  és javítja a jogi ügyszámok visszakeresését.
+og_image_alt: Guide showing custom search index creation in Java with GroupDocs.Search
+og_title: Egyedi keresőindex létrehozása Java-val a GroupDocs.Search segítségével
+schemas:
+- author: GroupDocs
+  dateModified: '2026-11-02'
+  description: Create a custom search index java using GroupDocs.Search to handle
+    regular and blended characters, optimize OCR image search, and improve legal case
+    number retrieval.
+  headline: Create a custom search index java with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: It means configuring an index to treat specific symbols as letters or
+      blended characters, rather than ignoring them.
+    question: What does “create custom search index” mean?
+  - answer: GroupDocs.Search for Java (v25.4 at the time of writing).
+    question: Which library is used?
+  - answer: A free trial works for development; a paid license is required for production.
+    question: Do I need a license?
+  - answer: Yes—GroupDocs.Search supports OCR on images and PDFs when properly configured.
+    question: Can I index both PDFs and images?
+  - answer: Maven is the recommended way to manage dependencies, but you can also
+      use Gradle or manual JARs.
+    question: Is Maven required?
+  type: FAQPage
+tags:
+- custom search index
+- GroupDocs.Search
+- Java OCR
+- character recognition
+- search library
+title: Egyedi keresőindex létrehozása Java-val a GroupDocs.Search segítségével
 type: docs
 url: /hu/java/ocr-image-search/groupdocs-search-java-character-recognition/
 weight: 1
 ---
 
-, links unchanged.
+# Egyedi keresési index Java létrehozása a GroupDocs.Search segítségével
 
-Check for any missing shortcodes: none.
-
-Now produce final content.# Hogyan hozzunk létre indexet karakterfelismeréssel a GroupDocs.Search for Java használatával
-
-A modern, dokumentum‑intenzív alkalmazásokban elengedhetetlen, hogy a **how to create index** figyelembe vegye a szöveg finomságait – például a kötőjeleket, aláhúzásokat vagy nyelvspecifikus szimbólumokat – a gyors és pontos visszakeresés érdekében. Ebben az útmutatóban végigvezetünk a karakterfelismerés beállításán a **GroupDocs.Search for Java**‑ban, lefedve a szabályos karaktereket (betűk, számok, aláhúzások) és a kevert karaktereket (például kötőjelek). A végére képes lesz testre szabni egy indexet, amely pontosan megfelel az OCR vagy képes keresési forgatókönyvének, legyen szó jogi ügyiratszámok, forráskód-repozitóriumok vagy többnyelvű PDF‑ek indexeléséről.
+A modern dokumentum‑intenzív alkalmazásokban egy **custom search index java** létrehozása, amely figyelembe veszi a szöveg finomságait – például a kötőjeleket, aláhúzásokat vagy nyelvspecifikus szimbólumokat – elengedhetetlen a gyors, pontos visszakereséshez. Ez az útmutató végigvezeti a karakterfelismerés beállításán a **GroupDocs.Search for Java**‑ban, lefedve a szabályos karaktereket (betűk, számjegyek, aláhúzások) és a kevert karaktereket (pl. kötőjelek). A végére képes lesz egy olyan index testreszabására, amely pontosan megfelel az OCR vagy képes keresési forgatókönyvek igényeinek, legyen szó jogi ügyiratszámok, forráskód‑tárak vagy többnyelvű PDF‑ek indexeléséről.
 
 ## Gyors válaszok
-- **What does “create custom search index” mean?** Azt jelenti, hogy egy indexet úgy konfigurálunk, hogy bizonyos szimbólumokat betűként vagy kevert karakterként kezelje, ahelyett, hogy figyelmen kívül hagyná őket.  
-- **Which library is used?** GroupDocs.Search for Java (v25.4 a írás időpontjában).  
-- **Do I need a license?** Egy ingyenes próba a fejlesztéshez megfelelő; a termeléshez fizetett licenc szükséges.  
-- **Can I index both PDFs and images?** Igen – a GroupDocs.Search támogatja az OCR‑t képeken és PDF‑eken, ha megfelelően van beállítva.  
-- **Is Maven required?** A Maven a javasolt módja a függőségek kezelésének, de használhat Gradle‑t vagy manuális JAR‑okat is.
+- **Mit jelent a “create custom search index”?** Ez azt jelenti, hogy egy indexet konfigurálunk úgy, hogy bizonyos szimbólumokat betűként vagy kevert karakterként kezelje, ahelyett, hogy figyelmen kívül hagyná őket.  
+- **Melyik könyvtár van használatban?** GroupDocs.Search for Java (v25.4 at the time of writing).  
+- **Szükségem van licencre?** A free trial fejlesztéshez működik; egy fizetett licenc szükséges a termeléshez.  
+- **Indexelhetek PDF‑eket és képeket is?** Igen—GroupDocs.Search támogatja az OCR‑t képeken és PDF‑eken, ha megfelelően van beállítva.  
+- **Szükséges a Maven?** A Maven az ajánlott módja a függőségek kezelésének, de használhatod a Gradle‑t vagy manuális JAR‑okat is.
 
-## Mi az egyedi keresőindex?
-Az egyedi keresőindex lehetővé teszi, hogy meghatározd, a keresőmotor hogyan értelmezi a karaktereket. Alapértelmezés szerint sok szimbólum figyelmen kívül marad, ami hiányzó egyezéseket eredményezhet például ügyiratszámok (`2023-AB-456`) vagy kódrészletek (`my_variable`) esetén. Az ábécé szótár beállításával teljes irányítást kapsz arról, hogy a motor mi tekinthető kereshető szövegnek.
+## Mi az a custom search index java?
+A **custom search index java** egy kereshető adatstruktúra, amelyet úgy alakíthatsz, hogy meghatározod, mely karaktereket kezelje betűként, számjegyként vagy kevert szimbólumként. Alapértelmezés szerint sok szimbólum figyelmen kívül marad, ami hiányzó egyezéseket eredményezhet azonosítók, például ügyiratszámok (`2023-AB-456`) vagy kódrészletek (`my_variable`) esetén. Az ábécé szótár beállítása teljes irányítást ad a tokenizálás felett, ami nagyobb relevanciához és gyorsabb lekérdezés‑végrehajtáshoz vezet.
 
-## Miért konfiguráljunk szabályos és kevert karaktereket jogi ügyiratszámokhoz?
-- **Regular characters** (betűk, számok, aláhúzások) külön tokenizálódnak, lehetővé téve a pontos egyezésű kereséseket az azonosítókra.  
-- **Blended characters** (kötőjelek, perjelek) egyesítik a kapcsolódó tokeneket, megakadályozva a nem kívánt szétválást az ügyiratszámok, termékkódok vagy fájlutak esetén.  
-- Ez a beállítás **optimalizálja a keresőindex** teljesítményét azáltal, hogy csökkenti a token fragmentációt és javítja a relevanciát az OCR‑által generált tartalmaknál.
+## Miért konfiguráljuk a szabályos és kevert karaktereket a jogi ügyiratszámokhoz?
+A kötőjelek és perjelek kevert karakterként történő kezelése egyesíti a kapcsolódó tokeneket, megakadályozva az azonosítók, például ügyiratszámok, termékkódok vagy fájlutak nem kívánt felosztását. Ez a konfiguráció **optimizes search index performance** a token fragmentáció csökkentésével, és javítja az OCR‑generált tartalom relevanciáját, különösen jogi dokumentumok esetén, amelyek erősen támaszkodnak a strukturált azonosítókra.
 
-## Előkövetelmények
-- **JDK 8** vagy újabb telepítve.  
+## Előfeltételek
+- **JDK 8** vagy újabb telepítve.  
 - **Maven** a függőségkezeléshez.  
-- Hozzáférés a **GroupDocs.Search for Java** könyvtárhoz (letölthető Maven‑on vagy a hivatalos oldalról).
+- Hozzáférés a **GroupDocs.Search for Java** könyvtárhoz (letölthető Maven‑en vagy a hivatalos oldalon).  
 
 ### Szükséges könyvtárak és függőségek
 Adja hozzá a tárolót és a függőségi bejegyzéseket a `pom.xml`‑hez (az alább látható módon). Az XML blokkot változatlanul kell hagyni.
@@ -62,17 +92,17 @@ Adja hozzá a tárolót és a függőségi bejegyzéseket a `pom.xml`‑hez (az 
 </dependencies>
 ```
 
-A legújabb JAR‑okat letöltheti innen: [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+A legújabb JAR‑okat letöltheted a [GroupDocs.Search for Java kiadások](https://releases.groupdocs.com/search/java/) oldalról.
 
 ### Licenc beszerzése
-- **Free Trial** – tökéletes a korai kísérletezéshez.  
-- **Temporary License** – hasznos hosszabb fejlesztési ciklusokhoz.  
-- **Production License** – szükséges a kereskedelmi üzembe helyezéshez.  
+- **Free trial** – tökéletes a korai kísérletezéshez.  
+- **Temporary license** – hasznos hosszabb fejlesztési ciklusokhoz.  
+- **Production license** – szükséges a kereskedelmi üzembe helyezéshez.  
 
-Szerezzen licencet a hivatalos portálon: [GroupDocs](https://purchase.groupdocs.com/temporary-license/).
+Licencet szerezhetsz a hivatalos portálon: [GroupDocs](https://purchase.groupdocs.com/temporary-license/).
 
 ### Alap inicializálás
-Az alábbi kódrészlet mutatja a minimális kódot egy üres index elindításához. Hagyja változatlanul; később bővítjük.
+Az alábbi kódrészlet mutatja a minimális kódot egy üres index elindításához. Az `Index` osztály a fő komponens, amely a kereshető adatokat tárolja és kezeli. Hagyd változatlanul; később tovább építünk rá.
 
 ```java
 import com.groupdocs.search.*;
@@ -89,44 +119,44 @@ public class GroupDocsSearchSetup {
 }
 ```
 
-## A GroupDocs.Search for Java beállítása
+## GroupDocs.Search for Java beállítása
 
-### Telepítés Maven‑nel
-A *Prerequisites* szakaszból származó Maven‑konfiguráció minden, amire szüksége van. Hozzáadás után futtassa a `mvn clean install` parancsot a binárisok letöltéséhez.
+### Telepítés Maven‑en keresztül
+A *Prerequisites* szakaszból származó Maven‑konfiguráció minden, amire szükséged van. Hozzáadás után futtasd a `mvn clean install` parancsot a binárisok letöltéséhez.
 
-### Környezet beállítási követelmények
-- Győződjön meg róla, hogy a **index mappa** és a **dokumentum mappa** létezik a lemezen.  
-- Használjon abszolút útvonalakat, vagy konfigurálja az IDE‑t, hogy helyesen oldja fel a relatív útvonalakat.
+### Környezeti beállítási követelmények
+- Győződj meg róla, hogy a **index folder** és a **document folder** létezik a lemezen.  
+- Használj abszolút útvonalakat, vagy konfiguráld az IDE‑det, hogy helyesen oldja fel a relatív útvonalakat.
 
-## Implementációs útmutató
+## Megvalósítási útmutató
 
-Az alábbiakban két különálló funkciót mutatunk be: **regular characters** és **blended characters**. Minden funkció ugyanazt a mintát követi – meghatározza az útvonalakat, létrehozza az indexet, beállítja a karakter szótárat, és végül indexeli a dokumentumokat.
+Az alábbiakban két különálló funkción keresztül vezetünk: **regular characters** és **blended characters**. Minden funkció ugyanazt a mintát követi – meghatározod az útvonalakat, létrehozod az indexet, beállítod a karakter szótárat, és végül indexeled a dokumentumokat.
 
-### 1. funkció – Szabályos karakterek
+### 1. funkció – regular characters
 
 #### Áttekintés
-A szabályos karaktereket független tokenekként kezelik. Ideális, ha a számok, betűk és aláhúzások pontosan úgy legyenek kereshetők, ahogy megjelennek.
+A regular characters független tokenekként kerülnek kezelve. Ideális, ha a számjegyeket, betűket és aláhúzásokat pontosan úgy szeretnéd keresni, ahogy megjelennek.
 
 #### Lépésről‑lépésre megvalósítás
 
-**1️⃣ Set Up Paths**  
-Határozza meg, hogy hol tárolódik az index és hol vannak a forrásdokumentumok.
+**1️⃣ Útvonalak beállítása**  
+Határozd meg, hol lesz tárolva az index és hol vannak a forrásdokumentumok.
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/CharacterTypes/RegularCharacters";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-**2️⃣ Create and Configure Index**  
-Példányosítsa az indexet, és törölje az esetleg korábban beállított ábécé konfigurációt.
+**2️⃣ Index létrehozása és konfigurálása**  
+Példányosítsd az indexet és töröld a korábban létező ábécé beállításokat.
 
 ```java
 Index index = new Index(indexFolder);
 index.getDictionaries().getAlphabet().clear();
 ```
 
-**3️⃣ Define Regular Characters**  
-Hozzon létre egy karaktertömböt, amely tartalmazza a számokat, latin betűket és az aláhúzást.
+**3️⃣ Regular characters meghatározása**  
+Készíts egy karaktertömböt, amely tartalmazza a számjegyeket, a latin betűket és az aláhúzást.
 
 ```java
 StringBuilder sb = new StringBuilder();
@@ -147,41 +177,41 @@ sb.getChars(0, sb.length(), characters, 0);
 index.getDictionaries().getAlphabet().setRange(characters, CharacterType.Letter);
 ```
 
-**4️⃣ Index Documents**  
-Adja hozzá az összes fájlt a forrásmappából az újonnan konfigurált indexhez.
+**4️⃣ Dokumentumok indexelése**  
+Add hozzá az összes fájlt a forrásmappából az újonnan konfigurált indexhez.
 
 ```java
 index.add(documentFolder);
 ```
 
-### 2. funkció – Kevert karakterek
+### 2. funkció – blended characters
 
 #### Áttekintés
-A kevert karakterek (például a kötőjelek) gyakran összekapcsolnak két szót. Ha *blended*-ként jelöljük őket, a motor a tokenek körülötte egyben tartja az indexelés során.
+A blended characters (például a kötőjelek) gyakran összekapcsolnak két szót. Ha *blended*-ként jelöljük őket, a motor a környező tokeneket együtt tartja az indexelés során.
 
 #### Lépésről‑lépésre megvalósítás
 
-**1️⃣ Set Up Paths**  
+**1️⃣ Útvonalak beállítása**  
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/CharacterTypes/BlendedCharacters";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-**2️⃣ Create and Configure Index**  
+**2️⃣ Index létrehozása és konfigurálása**  
 
 ```java
 Index index = new Index(indexFolder);
 ```
 
-**3️⃣ Define Blended Characters**  
-Itt azt mondjuk a szótárnak, hogy a kötőjelet kevert karakterként kezelje.
+**3️⃣ Blended characters meghatározása**  
+Itt mondjuk meg a szótárnak, hogy a kötőjelet blended character‑ként kezelje.
 
 ```java
 index.getDictionaries().getAlphabet().setRange(new char[] { '-' }, CharacterType.Blended);
 ```
 
-**4️⃣ Index Documents**  
+**4️⃣ Dokumentumok indexelése**  
 
 ```java
 index.add(documentFolder);
@@ -189,52 +219,54 @@ index.add(documentFolder);
 
 ## Gyakorlati alkalmazások
 
-### 1. eset – Jogi dokumentumkezelés
-A jogi fájlok gyakran tartalmaznak ügyiratszámokat, például `2023-AB-456`. Az aláhúzások és kötőjelek konfigurálásával a keresés pontos egyezéseket ad anélkül, hogy szétbontaná az azonosítót, így hatékonyan **kereshet jogi ügyiratszámokat**.
+### 1. eset – jogi dokumentumkezelés
+A jogi fájlok gyakran tartalmaznak ügyiratszámokat, például `2023-AB-456`. Az aláhúzások és kötőjelek konfigurálásával a keresések pontos egyezéseket adnak, anélkül, hogy felosztanák az azonosítót, segítve a **jogi ügyiratszámok keresését** hatékonyan.
 
-### 2. eset – Forráskód-repozitóriumok
-A fejlesztőknek kódrészleteket kell keresniük, ahol az aláhúzások (`my_variable`) és a kötőjelek (`my-function`) jelentőséggel bírnak. Az egyedi karakterfelismerés biztosítja, hogy a keresőmotor tiszteletben tartja ezeket a szimbólumokat.
+### 2. eset – forráskód tárolók
+A fejlesztőknek szükségük van a kódrészletek keresésére, ahol az aláhúzások (`my_variable`) és a kötőjelek (`my-function`) jelentőséggel bírnak. Az egyedi karakterfelismerés biztosítja, hogy a keresőmotor tiszteletben tartsa ezeket a szimbólumokat.
 
-### 3. eset – Többnyelvű adatkészletek
-Ha olyan nyelvekkel dolgozik, amelyek további ábécéket használnak, **kiterjesztheti a Unicode karakterkészletet** ezeknek a tartományoknak a belefoglalásával, ezáltal biztosítva a pontos többnyelvű keresési eredményeket.
+### 3. eset – többnyelvű adathalmazok
+Amikor olyan nyelvekkel dolgozol, amelyek további ábécéket használnak, **extend the Unicode character set**-et bővítheted, hogy tartalmazza ezeket a tartományokat, ezáltal biztosítva a pontos többnyelvű keresési eredményeket.
 
-### 4. eset – PDF‑képek indexelése
-Ha beolvasott PDF‑eket vagy képfájlokat indexel, az OCR kimenete gyakran vegyes karaktereket tartalmaz. A szabályos és kevert karakterek megfelelő beállítása **optimalizálja a keresőindex** teljesítményét a képalapú tartalmaknál.
+### 4. eset – PDF képek indexelése
+Ha beolvasott PDF‑eket vagy képfájlokat indexelsz, az OCR‑kimenet gyakran vegyes karaktereket tartalmaz. A szabályos és kevert karakterek megfelelő beállítása **optimizes search index** teljesítményt biztosít a képalapú tartalomhoz.
 
-## Teljesítményfontosságú szempontok
-
-- **Resource Management** – Figyelje a heap használatát; a nagy indexek előnyben részesítik az inkrementális commit‑okat.  
-- **Garbage Collection** – Szabadítsa fel a `Index` objektumokat, amikor már nincs rájuk szükség, hogy a JVM visszanyerje a memóriát.  
-- **Index Optimization** – Időnként hívja meg a `index.optimize()` (ha elérhető) metódust az index tömörítéséhez és a lekérdezési sebesség javításához.
+## Teljesítmény szempontok
+- **Resource management** – figyeld a heap használatot; a nagy indexek előnyben részesítik a fokozatos commit‑okat.  
+- **Garbage collection** – szabadítsd fel a `Index` objektumokat, amikor kész vagy, hogy a JVM visszanyerje a memóriát.  
+- **Index optimization** – időnként hívd meg a `index.optimize()`‑t (ha elérhető), hogy tömörítsd az indexet és javítsd a lekérdezés sebességét.  
 
 ## Következtetés
-
-Most már tudja, **hogyan hozzunk létre indexet**, amely megkülönbözteti a szabályos és kevert karaktereket a GroupDocs.Search for Java használatával. Ez a finomhangolt vezérlés lehetővé teszi, hogy OCR‑tudatos, nagy teljesítményű keresési megoldásokat építsen, amelyek a jogi, fejlesztési vagy többnyelvű környezetekhez igazodnak.
+Most már tudod, **how to create a custom search index java**, amely megkülönbözteti a szabályos és kevert karaktereket a GroupDocs.Search for Java használatával. Ez a finomhangolt vezérlés lehetővé teszi, hogy OCR‑tudatos, nagy teljesítményű keresési megoldásokat építs, amelyek a jogi, fejlesztési vagy többnyelvű környezetekhez vannak szabva.
 
 ### Következő lépések
-- Kísérletezzen további Unicode tartományokkal a nem latin ábécékhez.  
-- Kombinálja a karakterbeállítást más GroupDocs.Search funkciókkal, például stemminggel vagy szinonimákkal.  
-- Integrálja az indexet egy REST API‑ba, hogy a keresési képességeket front‑end alkalmazások számára elérhetővé tegye.
+- Kísérletezz további Unicode tartományokkal a nem latin ábécékhez.  
+- Kombináld a karakterkonfigurációt más GroupDocs.Search funkciókkal, mint a stemming vagy szinonimák.  
+- Tedd elérhetővé az indexet egy REST API‑n keresztül, hogy a front‑end alkalmazások HTTP‑n keresztül hajthassanak végre kereséseket.
 
-## Gyakran Ismételt Kérdések
+## Gyakran ismételt kérdések
 
 **Q:** *Mi a célja a `CharacterType.Letter`-nek?*  
-**A:** Azt mondja az indexnek, hogy a megadott karaktereket szabályos betűként kezelje, így az indexelés során külön tokenizálódnak.
+**A:** Azt mondja az indexnek, hogy a megadott karaktereket szabályos betűként kezelje, így az indexelés során külön tokenekre bontja őket.
 
-**Q:** *Keverhetek szabályos és kevert karaktereket ugyanabban az indexben?*  
-**A:** Igen – egyszerűen hívja meg a `setRange`‑t minden típusra; a szótár egyszerre kezeli mindkét konfigurációt.
+**Q:** *Keverhetem a regular és blended karaktereket ugyanabban az indexben?*  
+**A:** Igen—egyszerűen hívd meg a `setRange`‑t minden típusra; a szótár egyidejűleg kezeli mindkét konfigurációt.
 
-**Q:** *Újra kell építeni az indexet az ábécé módosítása után?*  
-**A:** Határozottan. A karakter szótár változásai befolyásolják a tokenizálást, ezért újra kell indexelni a dokumentumokat az új szabályok alkalmazásához.
+**Q:** *Újra kell építenem az indexet az ábécé módosítása után?*  
+**A:** Teljesen igaz. A karakter szótár változásai befolyásolják a tokenizálást, ezért újra kell indexelni a dokumentumokat az új szabályok alkalmazásához.
 
-**Q:** *Van korlát a definiálható egyedi karakterek számában?*  
-**A:** A könyvtár támogatja a teljes Unicode tartományt; a teljesítmény romolhat, ha rendkívül nagy halmazt ad hozzá, ezért korlátozza a ténylegesen szükséges karakterekre.
+**Q:** *Van korlátja a definiálható egyedi karakterek számának?*  
+**A:** A könyvtár támogatja a teljes Unicode tartományt; a teljesítmény romolhat, ha rendkívül nagy halmazt adsz hozzá, ezért korlátozd a ténylegesen szükséges karakterekre.
 
 **Q:** *Hogyan befolyásolja ez az OCR pontosságát?*  
-**A:** Az index karakterkészletének az OCR motor kimenetéhez való igazításával csökkenti a hamis negatív találatokat és javítja a keresés általános relevanciáját.
+**A:** Az index karakterkészletének az OCR motor kimenetéhez való igazításával csökkented a hamis negatív eredményeket és javítod a keresés általános relevanciáját.
 
----
+**Legutóbb frissítve:** 2026-11-02  
+**Tesztelve:** GroupDocs.Search 25.4 for Java  
+**Szerző:** GroupDocs
 
-**Last Updated:** 2026-03-17  
-**Tested With:** GroupDocs.Search 25.4 for Java  
-**Author:** GroupDocs
+## Kapcsolódó oktatóanyagok
+
+- [GroupDocs Search Java index létrehozása és kezelése](/search/java/indexing/create-manage-groupdocs-search-java-index/)
+- [Keresési index könyvtár létrehozása és licenc beállítása – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)
+- [Java teljes szöveges keresőkönyvtár – Index optimalizálása a GroupDocs.Search segítségével](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)

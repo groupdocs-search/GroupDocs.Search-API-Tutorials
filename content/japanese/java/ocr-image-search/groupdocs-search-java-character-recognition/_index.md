@@ -1,43 +1,74 @@
 ---
-date: '2026-03-17'
-description: GroupDocs.Search for Java を使ってインデックスを作成する方法を学び、通常文字とブレンド文字を設定し、法的事件番号や
-  OCR 画像の検索を最適化します。
+date: '2026-11-02'
+description: GroupDocs.Search を使用して java のカスタム検索インデックスを作成し、通常文字と混合文字を処理し、OCR 画像検索を最適化し、法的ケース番号の取得を改善します。
 keywords:
+- custom search index java
 - GroupDocs.Search Java
-- Java OCR character recognition
+- character recognition java
+- OCR search Java
 - search library Java
-title: Javaで文字認識を使用してインデックスを作成する方法
+lastmod: '2026-11-02'
+og_description: GroupDocs.Search を使用して java のカスタム検索インデックスを作成し、通常文字と混合文字を処理し、OCR 画像検索を最適化し、法的ケース番号の取得を改善します。
+og_image_alt: Guide showing custom search index creation in Java with GroupDocs.Search
+og_title: GroupDocs.Search を使用して java のカスタム検索インデックスを作成する
+schemas:
+- author: GroupDocs
+  dateModified: '2026-11-02'
+  description: Create a custom search index java using GroupDocs.Search to handle
+    regular and blended characters, optimize OCR image search, and improve legal case
+    number retrieval.
+  headline: Create a custom search index java with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: It means configuring an index to treat specific symbols as letters or
+      blended characters, rather than ignoring them.
+    question: What does “create custom search index” mean?
+  - answer: GroupDocs.Search for Java (v25.4 at the time of writing).
+    question: Which library is used?
+  - answer: A free trial works for development; a paid license is required for production.
+    question: Do I need a license?
+  - answer: Yes—GroupDocs.Search supports OCR on images and PDFs when properly configured.
+    question: Can I index both PDFs and images?
+  - answer: Maven is the recommended way to manage dependencies, but you can also
+      use Gradle or manual JARs.
+    question: Is Maven required?
+  type: FAQPage
+tags:
+- custom search index
+- GroupDocs.Search
+- Java OCR
+- character recognition
+- search library
+title: GroupDocs.Search を使用して java のカスタム検索インデックスを作成する
 type: docs
 url: /ja/java/ocr-image-search/groupdocs-search-java-character-recognition/
 weight: 1
 ---
 
-# GroupDocs.Search for Java を使用した文字認識付きインデックスの作成方法
+# GroupDocs.Search を使用したカスタム検索インデックス Java の作成
 
-現代の文書が大量に扱われるアプリケーションでは、テキストのニュアンス（ハイフン、アンダースコア、言語固有の記号など）を考慮した **インデックスの作成方法** が、迅速かつ正確な検索に不可欠です。このチュートリアルでは、**GroupDocs.Search for Java** における文字認識の設定方法を解説し、通常文字（文字、数字、アンダースコア）とブレンド文字（例：ハイフン）の両方をカバーします。最後まで読むと、OCR や画像検索シナリオに合わせて、法的ケース番号、ソースコードリポジトリ、マルチリンガル PDF など、あらゆるニーズに合ったインデックスを作成できるようになります。
+モダンな文書中心のアプリケーションでは、ハイフン、アンダースコア、言語固有の記号などテキストのニュアンスを考慮した **カスタム検索インデックス Java** を作成することが、迅速かつ正確な検索に不可欠です。このチュートリアルでは、**GroupDocs.Search for Java** における文字認識の設定方法を解説します。通常文字（文字、数字、アンダースコア）と混合文字（例：ハイフン）の両方を扱う方法を学び、OCR や画像検索シナリオに最適なインデックスを構築できるようになります。法的ケース番号、ソースコードリポジトリ、マルチリンガル PDF など、さまざまなユースケースに対応可能です。
 
 ## クイック回答
-- **“create custom search index” とは何ですか？** インデックスを構成し、特定の記号を文字またはブレンド文字として扱い、無視しないようにすることを意味します。  
-- **使用しているライブラリはどれですか？** GroupDocs.Search for Java（執筆時点のバージョンは v25.4）。  
-- **ライセンスは必要ですか？** 開発には無料トライアルで動作しますが、本番環境では有料ライセンスが必要です。  
-- **PDF と画像の両方をインデックスできますか？** はい。適切に構成すれば、GroupDocs.Search は画像と PDF の OCR をサポートします。  
-- **Maven は必須ですか？** Maven は依存関係管理の推奨方法ですが、Gradle や手動で JAR を使用することも可能です。  
+- **「カスタム検索インデックスを作成する」とは何ですか？** 特定の記号を文字または混合文字として扱うようインデックスを設定し、無視しないようにすることを意味します。  
+- **使用するライブラリは？** GroupDocs.Search for Java（執筆時点のバージョン 25.4）。  
+- **ライセンスは必要ですか？** 開発には無料トライアルで十分です。商用環境では有料ライセンスが必要です。  
+- **PDF と画像の両方をインデックスできますか？** はい。適切に設定すれば、画像と PDF の OCR をサポートします。  
+- **Maven は必須ですか？** 依存関係管理の推奨手段は Maven ですが、Gradle や手動 JAR でも構いません。
 
-## カスタム検索インデックスとは？
-カスタム検索インデックスを使用すると、検索エンジンが文字をどのように解釈するかを定義できます。デフォルトでは多くの記号が無視されるため、ケース番号（`2023-AB-456`）やコードスニペット（`my_variable`）のようなものがマッチしなくなることがあります。アルファベット辞書を調整することで、エンジンが検索可能なテキストとして扱う内容を完全にコントロールできます。
+## カスタム検索インデックス Java とは何ですか？
+**カスタム検索インデックス Java** は、文字を文字、数字、または混合記号として扱うかを定義できる検索可能なデータ構造です。デフォルトでは多くの記号が無視され、ケース番号（`2023-AB-456`）やコードスニペット（`my_variable`）などの識別子がマッチしなくなることがあります。アルファベット辞書を調整することでトークン化を完全に制御でき、関連性が向上しクエリ実行が高速化します。
 
-## 法的ケース番号のために通常文字とブレンド文字を設定する理由は？
-- **通常文字**（文字、数字、アンダースコア）は個別にトークン化され、識別子の完全一致検索を可能にします。  
-- **ブレンド文字**（ハイフン、スラッシュ）は関連するトークンを一緒に保持し、ケース番号、製品コード、ファイルパスなどが不要に分割されるのを防ぎます。  
-- この設定により、トークンの断片化が減少し、OCR 生成コンテンツの関連性が向上するため、**検索インデックスのパフォーマンスが最適化**されます。
+## 法的ケース番号のために通常文字と混合文字を設定する理由は？
+ハイフンやスラッシュを混合文字として扱うことで、ケース番号や製品コード、ファイルパスなどの識別子が分割されずにトークンとして保持されます。この設定は **検索インデックスのパフォーマンスを最適化** し、トークンの断片化を減らすと同時に、OCR 生成コンテンツの関連性を向上させます。特に構造化された識別子が多用される法務文書で有効です。
 
 ## 前提条件
-- **JDK 8** 以上がインストールされていること。  
-- 依存関係管理のための **Maven**。  
-- **GroupDocs.Search for Java** ライブラリへのアクセス（Maven もしくは公式サイトからダウンロード）。
+- **JDK 8** 以上がインストールされていること。  
+- **Maven** による依存関係管理。  
+- **GroupDocs.Search for Java** ライブラリへのアクセス（Maven か公式サイトから取得）。  
 
 ### 必要なライブラリと依存関係
-`pom.xml` にリポジトリと依存関係のエントリを追加します（以下参照）。XML ブロックは変更しないでください。
+`pom.xml` に以下のリポジトリと依存関係エントリを追加してください。XML ブロックは変更しないでください。
 
 ```xml
 <repositories>
@@ -57,17 +88,17 @@ weight: 1
 </dependencies>
 ```
 
-最新の JAR は [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) からもダウンロードできます。
+最新の JAR は [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/) からダウンロード可能です。
 
 ### ライセンス取得
-- **Free Trial** – 初期の実験に最適です。  
-- **Temporary License** – 長期の開発サイクルに便利です。  
-- **Production License** – 商用展開には必須です。  
+- **無料トライアル** – 初期実験に最適。  
+- **一時ライセンス** – 長期開発サイクルに便利。  
+- **本番ライセンス** – 商用デプロイに必須。  
 
-公式ポータルからライセンスを取得してください: [GroupDocs](https://purchase.groupdocs.com/temporary-license/).
+公式ポータルからライセンスを取得してください: [GroupDocs](https://purchase.groupdocs.com/temporary-license/)。
 
 ### 基本的な初期化
-以下のスニペットは、空のインデックスを作成するために必要な最小限のコードを示しています。そのまま保持してください。後でこの上に構築します。
+以下のスニペットは空のインデックスを起動する最小コードを示します。`Index` クラスは検索可能データを格納・管理するコアコンポーネントです。そのまま残しておき、後で拡張します。
 
 ```java
 import com.groupdocs.search.*;
@@ -86,23 +117,23 @@ public class GroupDocsSearchSetup {
 
 ## GroupDocs.Search for Java の設定
 
-### Maven によるインストール
-*Prerequisites* セクションの Maven 設定がすべてです。追加したら、`mvn clean install` を実行してバイナリを取得してください。
+### Maven を使用したインストール
+*前提条件* セクションの Maven 設定をそのまま使用します。追加後に `mvn clean install` を実行してバイナリを取得してください。
 
 ### 環境設定要件
-- ディスク上に **index フォルダー** と **document フォルダー** が存在することを確認してください。  
-- 絶対パスを使用するか、IDE が相対パスを正しく解決できるように設定してください。
+- **インデックスフォルダー** と **ドキュメントフォルダー** がディスク上に存在することを確認。  
+- 絶対パスを使用するか、IDE で相対パスが正しく解決されるよう設定してください。  
 
 ## 実装ガイド
 
-以下では、**通常文字** と **ブレンド文字** の 2 つの機能を順に説明します。各機能は同じパターンに従います—パスを定義し、インデックスを作成し、文字辞書を設定し、最後にドキュメントをインデックス化します。
+以下では **通常文字** と **混合文字** の 2 つの機能を順に解説します。各機能は「パス定義 → インデックス作成 → 文字辞書設定 → ドキュメントインデックス」の流れで実装します。
 
 ### 機能 1 – 通常文字
 
 #### 概要
-通常文字は独立したトークンとして扱われます。数字、文字、アンダースコアをそのまま検索可能にしたい場合に最適です。
+通常文字は独立したトークンとして扱われます。数字、文字、アンダースコアをそのまま検索対象にしたい場合に最適です。
 
-#### 手順実装
+#### ステップバイステップ実装
 
 **1️⃣ パスの設定**  
 インデックスの保存先とソースドキュメントの場所を定義します。
@@ -112,8 +143,8 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/CharacterType
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-**2️⃣ インデックスの作成と設定**  
-インデックスをインスタンス化し、事前に設定されたアルファベット構成をクリアします。
+**2️⃣ インデックスの作成と構成**  
+インデックスをインスタンス化し、既存のアルファベット設定をクリアします。
 
 ```java
 Index index = new Index(indexFolder);
@@ -142,19 +173,19 @@ sb.getChars(0, sb.length(), characters, 0);
 index.getDictionaries().getAlphabet().setRange(characters, CharacterType.Letter);
 ```
 
-**4️⃣ ドキュメントのインデックス化**  
-ソースフォルダー内のすべてのファイルを新しく設定したインデックスに追加します。
+**4️⃣ ドキュメントのインデックス作成**  
+ソースフォルダー内のすべてのファイルを新しく構成したインデックスに追加します。
 
 ```java
 index.add(documentFolder);
 ```
 
-### 機能 2 – ブレンド文字
+### 機能 2 – 混合文字
 
 #### 概要
-ブレンド文字（ハイフンなど）はしばしば 2 つの単語を結びつけます。*ブレンド* としてマークすることで、インデックス作成時にエンジンは周囲のトークンを一緒に保持します。
+ハイフンなどの混合文字は 2 つの単語を結びつけることが多いです。これらを *混合* としてマークすると、インデックス作成時に周囲のトークンが一緒に保持されます。
 
-#### 手順実装
+#### ステップバイステップ実装
 
 **1️⃣ パスの設定**  
 
@@ -163,71 +194,79 @@ String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/CharacterType
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-**2️⃣ インデックスの作成と設定**  
+**2️⃣ インデックスの作成と構成**  
 
 ```java
 Index index = new Index(indexFolder);
 ```
 
-**3️⃣ ブレンド文字の定義**  
-ここでは、ハイフンをブレンド文字として扱うよう辞書に指示します。
+**3️⃣ 混合文字の定義**  
+ここではハイフンを混合文字として扱うよう辞書に指示します。
 
 ```java
 index.getDictionaries().getAlphabet().setRange(new char[] { '-' }, CharacterType.Blended);
 ```
 
-**4️⃣ ドキュメントのインデックス化**  
+**4️⃣ ドキュメントのインデックス作成**  
 
 ```java
 index.add(documentFolder);
 ```
 
-## 実用的な応用例
+## 実用的な応用
 
 ### ユースケース 1 – 法務文書管理
-法務ファイルには `2023-AB-456` のようなケース番号が含まれることが多いです。アンダースコアとハイフンを設定することで、識別子が分割されずに正確な一致が返され、**法的ケース番号の検索**を効率的に行えます。
+法務ファイルには `2023-AB-456` のようなケース番号が頻出します。アンダースコアとハイフンを設定すれば、識別子が分割されずに正確に検索でき、**法的ケース番号の検索** が効率化されます。
 
 ### ユースケース 2 – ソースコードリポジトリ
-開発者は、アンダースコア（`my_variable`）やハイフン（`my-function`）が意味を持つコードスニペットを検索する必要があります。カスタム文字認識により、検索エンジンがこれらの記号を正しく扱うようになります。
+開発者はアンダースコア（`my_variable`）やハイフン（`my-function`）が意味を持つコードスニペットを検索したい場面があります。カスタム文字認識により、検索エンジンがこれらの記号を正しく扱います。
 
 ### ユースケース 3 – 多言語データセット
-追加のアルファベットを使用する言語を扱う場合、**Unicode 文字セットを拡張**してそれらの範囲を含めることで、正確なクロスランゲージ検索結果を保証できます。
+追加のアルファベット範囲を **Unicode 文字セットに拡張** すれば、非ラテン文字を含むデータでも正確なクロスランゲージ検索が可能です。
 
-### ユースケース 4 – PDF 画像のインデックス化
-スキャンした PDF や画像ファイルをインデックス化する場合、OCR の出力には混在した文字が含まれることが多いです。通常文字とブレンド文字を適切に設定することで、画像ベースのコンテンツに対する **検索インデックスのパフォーマンスが最適化** されます。
+### ユースケース 4 – PDF 画像のインデックス作成
+スキャンした PDF や画像ファイルをインデックス化する場合、OCR 出力には混在した文字が含まれます。通常文字と混合文字を適切に設定することで、**画像ベースコンテンツの検索インデックス** パフォーマンスが最適化されます。
 
-## パフォーマンス考慮事項
-- **リソース管理** – ヒープ使用量に注意してください。大規模インデックスはインクリメンタルコミットの恩恵を受けます。  
-- **ガベージコレクション** – 終了時に `Index` オブジェクトを解放し、JVM にメモリ回収をさせます。  
-- **インデックス最適化** – 定期的に `index.optimize()`（利用可能な場合）を呼び出してインデックスを圧縮し、クエリ速度を向上させます。
+## パフォーマンス上の考慮点
+
+- **リソース管理** – ヒープ使用量を監視。大規模インデックスはインクリメンタルコミットが有効です。  
+- **ガベージコレクション** – 使用後は `Index` オブジェクトを解放し、JVM にメモリ回収を促します。  
+- **インデックス最適化** – 利用可能なら定期的に `index.optimize()` を呼び出し、インデックスを圧縮してクエリ速度を向上させます。  
 
 ## 結論
-これで、GroupDocs.Search for Java を使用して、通常文字とブレンド文字を区別する **インデックスの作成方法** が分かりました。この細かな制御により、法務、開発、または多言語環境に合わせた OCR 対応の高性能検索ソリューションを構築できるようになります。
+
+これで **GroupDocs.Search for Java** を用いて、通常文字と混合文字を区別できる **カスタム検索インデックス Java** の作成方法が理解できました。この細かな制御により、OCR 対応の高性能検索ソリューションを法務、開発、マルチリンガル環境向けに構築できます。
 
 ### 次のステップ
-- ラテン文字以外のアルファベット用に追加の Unicode 範囲を試してみてください。  
-- 文字設定をステミングや同義語など、他の GroupDocs.Search 機能と組み合わせます。  
-- インデックスを REST API に統合し、フロントエンドアプリケーションに検索機能を提供します。
+- 非ラテン文字用に追加の Unicode 範囲を実験。  
+- 文字設定と併せて、ステミングや同義語など GroupDocs.Search の他機能も組み合わせる。  
+- インデックスを REST API で公開し、フロントエンドアプリから HTTP 経由で検索できるようにする。  
 
 ## よくある質問
 
 **Q:** *`CharacterType.Letter` の目的は何ですか？*  
-**A:** インデックスに対し、提供された文字を通常の文字として扱うよう指示し、インデックス作成時に個別にトークン化されます。
+**A:** インデックスに対し、指定した文字を通常の文字として扱うよう指示し、インデックス作成時に個別のトークンとして分割されます。
 
-**Q:** *同じインデックスで通常文字とブレンド文字を混在させられますか？*  
+**Q:** *同じインデックス内で通常文字と混合文字を混在させられますか？*  
 **A:** はい。各タイプに対して `setRange` を呼び出すだけで、辞書は両方の設定を同時に処理します。
 
 **Q:** *アルファベットを変更した後、インデックスを再構築する必要がありますか？*  
-**A:** 必要です。文字辞書の変更はトークン化に影響するため、新しいルールを適用するにはドキュメントを再インデックス化する必要があります。
+**A:** 必要です。文字辞書の変更はトークン化に影響するため、変更を反映させるにはドキュメントを再インデックス化する必要があります。
 
-**Q:** *定義できるカスタム文字の数に制限はありますか？*  
-**A:** ライブラリは Unicode 全域をサポートしていますが、極端に大量の文字を追加するとパフォーマンスが低下する可能性があるため、実際に必要な文字に限定してください。
+**Q:** *カスタム文字の上限はありますか？*  
+**A:** ライブラリは Unicode 全域をサポートしますが、極端に大量の文字を追加するとパフォーマンスが低下する可能性があるため、実際に必要な文字だけを定義してください。
 
-**Q:** *これが OCR の精度にどのように影響しますか？*  
-**A:** インデックスの文字セットを OCR エンジンの出力と合わせることで、偽陰性を減らし、検索全体の関連性を向上させます。
+**Q:** *これが OCR の精度に与える影響は？*  
+**A:** インデックスの文字セットを OCR エンジンの出力と合わせることで、偽陰性を減らし、検索関連性全体を向上させます。
 
 ---
 
-**最終更新日:** 2026-03-17  
-**テスト環境:** GroupDocs.Search 25.4 for Java  
+**最終更新日:** 2026-11-02  
+**テスト済み:** GroupDocs.Search 25.4 for Java  
 **作者:** GroupDocs
+
+## 関連チュートリアル
+
+- [Create Manage Groupdocs Search Java Index](/search/java/indexing/create-manage-groupdocs-search-java-index/)  
+- [Create Search Index Directory & Set License – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)  
+- [Java Full Text Search Library – Optimize Index with GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)

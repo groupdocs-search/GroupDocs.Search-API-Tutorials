@@ -1,45 +1,77 @@
 ---
-date: '2026-03-17'
-description: Aprenda a criar um índice com o GroupDocs.Search para Java, configurar
-  caracteres regulares e combinados e otimizar a pesquisa para números de processos
-  judiciais e imagens OCR.
+date: '2026-11-02'
+description: Criar um índice de pesquisa personalizado em java usando o GroupDocs.Search
+  para lidar com caracteres regulares e combinados, otimizar a pesquisa de imagens
+  OCR e melhorar a recuperação de números de processos judiciais.
 keywords:
+- custom search index java
 - GroupDocs.Search Java
-- Java OCR character recognition
+- character recognition java
+- OCR search Java
 - search library Java
-title: Como criar índice com reconhecimento de caracteres em Java
+lastmod: '2026-11-02'
+og_description: Criar um índice de pesquisa personalizado em java usando o GroupDocs.Search
+  para lidar com caracteres regulares e combinados, otimizar a pesquisa de imagens
+  OCR e melhorar a recuperação de números de processos judiciais.
+og_image_alt: Guide showing custom search index creation in Java with GroupDocs.Search
+og_title: Criar um índice de pesquisa personalizado em java com GroupDocs.Search
+schemas:
+- author: GroupDocs
+  dateModified: '2026-11-02'
+  description: Create a custom search index java using GroupDocs.Search to handle
+    regular and blended characters, optimize OCR image search, and improve legal case
+    number retrieval.
+  headline: Create a custom search index java with GroupDocs.Search
+  type: TechArticle
+- questions:
+  - answer: It means configuring an index to treat specific symbols as letters or
+      blended characters, rather than ignoring them.
+    question: What does “create custom search index” mean?
+  - answer: GroupDocs.Search for Java (v25.4 at the time of writing).
+    question: Which library is used?
+  - answer: A free trial works for development; a paid license is required for production.
+    question: Do I need a license?
+  - answer: Yes—GroupDocs.Search supports OCR on images and PDFs when properly configured.
+    question: Can I index both PDFs and images?
+  - answer: Maven is the recommended way to manage dependencies, but you can also
+      use Gradle or manual JARs.
+    question: Is Maven required?
+  type: FAQPage
+tags:
+- custom search index
+- GroupDocs.Search
+- Java OCR
+- character recognition
+- search library
+title: Criar um índice de pesquisa personalizado em java com GroupDocs.Search
 type: docs
 url: /pt/java/ocr-image-search/groupdocs-search-java-character-recognition/
 weight: 1
 ---
 
- URLs.
+# Criar um índice de pesquisa personalizado java com GroupDocs.Search
 
-Now produce final markdown content.# Como Criar Índice com Reconhecimento de Caracteres usando GroupDocs.Search para Java
+Em aplicações modernas que lidam com muitos documentos, criar um **índice de pesquisa personalizado java** que respeite as nuances do seu texto — como hífens, sublinhados ou símbolos específicos de idioma — é essencial para uma recuperação rápida e precisa. Este tutorial orienta você na configuração do reconhecimento de caracteres no **GroupDocs.Search for Java**, abrangendo tanto caracteres regulares (letras, dígitos, sublinhados) quanto caracteres combinados (por exemplo, hífens). Ao final, você será capaz de adaptar um índice que atenda exatamente às necessidades de cenários de OCR ou busca em imagens, seja indexando números de processos judiciais, repositórios de código‑fonte ou PDFs multilíngues.
 
-Em aplicações modernas que lidam com muitos documentos, **how to create index** que respeita as nuances do seu texto—como hífens, sublinhados ou símbolos específicos de idioma—é essencial para uma recuperação rápida e precisa. Neste tutorial, vamos percorrer a configuração de reconhecimento de caracteres no **GroupDocs.Search for Java**, abordando tanto caracteres regulares (letras, dígitos, sublinhados) quanto caracteres combinados (por exemplo, hífens). Ao final, você será capaz de personalizar um índice que atenda às necessidades exatas do seu cenário de OCR ou busca de imagens, seja indexando números de processos judiciais, repositórios de código‑fonte ou PDFs multilíngues.
+## Respostas rápidas
+- **O que significa “criar índice de pesquisa personalizado”?** Significa configurar um índice para tratar símbolos específicos como letras ou caracteres combinados, em vez de ignorá‑los.  
+- **Qual biblioteca é usada?** GroupDocs.Search for Java (v25.4 na data de escrita).  
+- **Preciso de licença?** Um teste gratuito funciona para desenvolvimento; uma licença paga é necessária para produção.  
+- **Posso indexar PDFs e imagens?** Sim — o GroupDocs.Search oferece suporte a OCR em imagens e PDFs quando configurado corretamente.  
+- **É necessário Maven?** Maven é a forma recomendada de gerenciar dependências, mas você também pode usar Gradle ou JARs manuais.
 
-## Respostas Rápidas
-- **What does “create custom search index” mean?** Significa configurar um índice para tratar símbolos específicos como letras ou caracteres combinados, em vez de ignorá‑los.  
-- **Which library is used?** GroupDocs.Search for Java (v25.4 at the time of writing).  
-- **Do I need a license?** Um teste gratuito funciona para desenvolvimento; uma licença paga é necessária para produção.  
-- **Can I index both PDFs and images?** Sim—GroupDocs.Search suporta OCR em imagens e PDFs quando configurado corretamente.  
-- **Is Maven required?** Maven é a forma recomendada de gerenciar dependências, mas você também pode usar Gradle ou JARs manuais.
+## O que é um índice de pesquisa personalizado java?
+O **índice de pesquisa personalizado java** é uma estrutura de dados pesquisável que pode ser moldada definindo quais caracteres são tratados como letras, dígitos ou símbolos combinados. Por padrão, muitos símbolos são ignorados, o que pode causar falhas de correspondência para identificadores como números de processos (`2023-AB-456`) ou trechos de código (`my_variable`). Ajustar o dicionário alfabético oferece controle total sobre a tokenização, resultando em maior relevância e execução de consultas mais rápida.
 
-## O que é um Índice de Busca Personalizado?
-Um índice de busca personalizado permite definir como o motor de busca interpreta os caracteres. Por padrão, muitos símbolos são ignorados, o que pode levar a correspondências perdidas para coisas como números de processos (`2023-AB-456`) ou trechos de código (`my_variable`). Ajustar o dicionário de alfabeto lhe dá controle total sobre o que o motor trata como texto pesquisável.
-
-## Por que Configurar Caracteres Regulares e Combinados para Números de Processos Legais?
-- **Regular characters** (letters, digits, underscores) são tokenizados separadamente, permitindo buscas de correspondência exata para identificadores.  
-- **Blended characters** (hyphens, slashes) mantêm tokens relacionados juntos, evitando a divisão indesejada de números de processos, códigos de produto ou caminhos de arquivos.  
-- Esta configuração **optimizes search index** o desempenho ao reduzir a fragmentação de tokens e melhorar a relevância para conteúdo gerado por OCR.
+## Por que configurar caracteres regulares e combinados para números de processos judiciais?
+Tratar hífens e barras como caracteres combinados mantém os tokens relacionados juntos, evitando a divisão indesejada de identificadores como números de processos, códigos de produto ou caminhos de arquivos. Essa configuração **otimiza o desempenho do índice de pesquisa** ao reduzir a fragmentação de tokens e melhora a relevância para conteúdo gerado por OCR, especialmente ao lidar com documentos legais que dependem fortemente de identificadores estruturados.
 
 ## Pré-requisitos
-- **JDK 8** ou posterior instalado.  
+- **JDK 8** ou superior instalado.  
 - **Maven** para gerenciamento de dependências.  
-- Acesso à biblioteca **GroupDocs.Search for Java** (baixada via Maven ou site oficial).  
+- Acesso à biblioteca **GroupDocs.Search for Java** (baixada via Maven ou pelo site oficial).  
 
-### Bibliotecas e Dependências Necessárias
+### Bibliotecas e dependências necessárias
 Adicione as entradas de repositório e dependência ao seu `pom.xml` (conforme mostrado abaixo). O bloco XML deve permanecer inalterado.
 
 ```xml
@@ -60,17 +92,17 @@ Adicione as entradas de repositório e dependência ao seu `pom.xml` (conforme m
 </dependencies>
 ```
 
-Você também pode baixar os JARs mais recentes em [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+Você também pode baixar os JARs mais recentes em [lançamentos do GroupDocs.Search para Java](https://releases.groupdocs.com/search/java/).
 
-### Aquisição de Licença
-- **Free Trial** – perfeito para experimentação inicial.  
-- **Temporary License** – útil para ciclos de desenvolvimento mais longos.  
-- **Production License** – necessária para implantação comercial.  
+### Aquisição de licença
+- **Teste gratuito** – ideal para experimentação inicial.  
+- **Licença temporária** – útil para ciclos de desenvolvimento mais longos.  
+- **Licença de produção** – necessária para implantação comercial.  
 
 Obtenha uma licença no portal oficial: [GroupDocs](https://purchase.groupdocs.com/temporary-license/).
 
-### Inicialização Básica
-O trecho abaixo mostra o código mínimo necessário para iniciar um índice vazio. Mantenha‑o como está; construiremos sobre ele mais tarde.
+### Inicialização básica
+O trecho abaixo mostra o código mínimo necessário para iniciar um índice vazio. A classe `Index` é o componente central que armazena e gerencia os dados pesquisáveis. Mantenha‑o como está; construiremos sobre ele mais adiante.
 
 ```java
 import com.groupdocs.search.*;
@@ -87,35 +119,35 @@ public class GroupDocsSearchSetup {
 }
 ```
 
-## Configurando GroupDocs.Search para Java
+## Configurando o GroupDocs.Search para Java
 
 ### Instalação via Maven
-A configuração Maven da seção *Pré-requisitos* é tudo o que você precisa. Após adicioná‑la, execute `mvn clean install` para obter os binários.
+A configuração Maven da seção *Pré-requisitos* é tudo o que você precisa. Após adicioná‑la, execute `mvn clean install` para baixar os binários.
 
-### Requisitos de Configuração do Ambiente
-- Garanta que a **index folder** e a **document folder** existam no disco.  
+### Requisitos de configuração do ambiente
+- Garanta que a **pasta do índice** e a **pasta de documentos** existam no disco.  
 - Use caminhos absolutos ou configure sua IDE para resolver caminhos relativos corretamente.  
 
-## Guia de Implementação
+## Guia de implementação
 
-A seguir, percorremos duas funcionalidades distintas: **regular characters** e **blended characters**. Cada funcionalidade segue o mesmo padrão—definir caminhos, criar o índice, definir o dicionário de caracteres e, finalmente, indexar seus documentos.
+A seguir, percorremos duas funcionalidades distintas: **caracteres regulares** e **caracteres combinados**. Cada funcionalidade segue o mesmo padrão — definir caminhos, criar o índice, definir o dicionário de caracteres e, finalmente, indexar seus documentos.
 
-### Recurso 1 – Caracteres Regulares
+### Recurso 1 – caracteres regulares
 
-#### Visão Geral
+#### Visão geral
 Caracteres regulares são tratados como tokens independentes. Isso é ideal quando você deseja que dígitos, letras e sublinhados sejam pesquisáveis exatamente como aparecem.
 
-#### Implementação Passo a Passo
+#### Implementação passo a passo
 
-**1️⃣ Set Up Paths**  
-Defina onde o índice será armazenado e onde seus documentos de origem estão.
+**1️⃣ Definir caminhos**  
+Especifique onde o índice será armazenado e onde seus documentos de origem estão localizados.
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/CharacterTypes/RegularCharacters";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-**2️⃣ Create and Configure Index**  
+**2️⃣ Criar e configurar o índice**  
 Instancie o índice e limpe qualquer configuração de alfabeto pré‑existente.
 
 ```java
@@ -123,7 +155,7 @@ Index index = new Index(indexFolder);
 index.getDictionaries().getAlphabet().clear();
 ```
 
-**3️⃣ Define Regular Characters**  
+**3️⃣ Definir caracteres regulares**  
 Construa um array de caracteres que inclua dígitos, letras latinas e o sublinhado.
 
 ```java
@@ -145,96 +177,100 @@ sb.getChars(0, sb.length(), characters, 0);
 index.getDictionaries().getAlphabet().setRange(characters, CharacterType.Letter);
 ```
 
-**4️⃣ Index Documents**  
+**4️⃣ Indexar documentos**  
 Adicione todos os arquivos da pasta de origem ao índice recém‑configurado.
 
 ```java
 index.add(documentFolder);
 ```
 
-### Recurso 2 – Caracteres Combinados
+### Recurso 2 – caracteres combinados
 
-#### Visão Geral
-Caracteres combinados (como hífens) frequentemente conectam duas palavras. Marcá‑los como *blended* indica ao motor para manter os tokens circundantes juntos durante a indexação.
+#### Visão geral
+Caracteres combinados (como hífens) costumam conectar duas palavras. Marcá‑los como *combinados* indica ao mecanismo que mantenha os tokens circundantes juntos durante a indexação.
 
-#### Implementação Passo a Passo
+#### Implementação passo a passo
 
-**1️⃣ Set Up Paths**  
+**1️⃣ Definir caminhos**  
 
 ```java
 String indexFolder = "YOUR_OUTPUT_DIRECTORY/AdvancedUsage/Indexing/CharacterTypes/BlendedCharacters";
 String documentFolder = "YOUR_DOCUMENT_DIRECTORY";
 ```
 
-**2️⃣ Create and Configure Index**  
+**2️⃣ Criar e configurar o índice**  
 
 ```java
 Index index = new Index(indexFolder);
 ```
 
-**3️⃣ Define Blended Characters**  
-Aqui informamos ao dicionário que o hífen deve ser tratado como um caractere blended.
+**3️⃣ Definir caracteres combinados**  
+Aqui informamos ao dicionário que o hífen deve ser tratado como um caractere combinado.
 
 ```java
 index.getDictionaries().getAlphabet().setRange(new char[] { '-' }, CharacterType.Blended);
 ```
 
-**4️⃣ Index Documents**  
+**4️⃣ Indexar documentos**  
 
 ```java
 index.add(documentFolder);
 ```
 
-## Aplicações Práticas
+## Aplicações práticas
 
-### Caso de Uso 1 – Gerenciamento de Documentos Legais
-Arquivos legais frequentemente contêm números de processos como `2023-AB-456`. Ao configurar sublinhados e hífens, as buscas retornam correspondências exatas sem dividir o identificador, ajudando você a **search legal case numbers** de forma eficiente.
+### Caso de uso 1 – gerenciamento de documentos legais
+Arquivos jurídicos frequentemente contêm números de processos como `2023-AB-456`. Ao configurar sublinhados e hífens, as buscas retornam correspondências exatas sem dividir o identificador, ajudando você a **pesquisar números de processos legais** de forma eficiente.
 
-### Caso de Uso 2 – Repositórios de Código‑Fonte
+### Caso de uso 2 – repositórios de código‑fonte
 Desenvolvedores precisam buscar trechos de código onde sublinhados (`my_variable`) e hífens (`my-function`) são significativos. O reconhecimento de caracteres personalizado garante que o motor de busca respeite esses símbolos.
 
-### Caso de Uso 3 – Conjuntos de Dados Multilíngues
-Ao trabalhar com idiomas que utilizam alfabetos adicionais, você pode **extend Unicode character set** para incluir esses intervalos, garantindo resultados de busca precisos entre idiomas.
+### Caso de uso 3 – conjuntos de dados multilíngues
+Ao trabalhar com idiomas que utilizam alfabetos adicionais, você pode **estender o conjunto de caracteres Unicode** para incluir esses intervalos, garantindo resultados de busca precisos entre diferentes línguas.
 
-### Caso de Uso 4 – Indexar Imagens PDF
-Se você está indexando PDFs escaneados ou arquivos de imagem, a saída de OCR frequentemente contém caracteres misturados. Configurar corretamente caracteres regulares e combinados **optimizes search index** o desempenho para conteúdo baseado em imagens.
+### Caso de uso 4 – indexar imagens PDF
+Se você está indexando PDFs escaneados ou arquivos de imagem, a saída do OCR costuma conter caracteres mistos. Configurar corretamente caracteres regulares e combinados **otimiza o desempenho do índice de pesquisa** para conteúdo baseado em imagens.
 
-## Considerações de Performance
+## Considerações de desempenho
 
-- **Resource Management** – Monitore o uso de heap; índices grandes se beneficiam de commits incrementais.  
-- **Garbage Collection** – Libere objetos `Index` quando terminar para que a JVM recupere a memória.  
-- **Index Optimization** – Chame periodicamente `index.optimize()` (se disponível) para compactar o índice e melhorar a velocidade de consulta.  
+- **Gerenciamento de recursos** – monitore o uso de heap; índices grandes se beneficiam de commits incrementais.  
+- **Coleta de lixo** – libere objetos `Index` ao terminar para que a JVM recupere a memória.  
+- **Otimização do índice** – chame periodicamente `index.optimize()` (se disponível) para compactar o índice e melhorar a velocidade das consultas.  
 
 ## Conclusão
 
-Agora você sabe **how to create index** que distingue entre caracteres regulares e combinados usando GroupDocs.Search para Java. Esse controle granular permite que você construa soluções de busca de alto desempenho e conscientes de OCR, adaptadas a ambientes legais, de desenvolvimento ou multilíngues.
+Agora você sabe **como criar um índice de pesquisa personalizado java** que distingue entre caracteres regulares e combinados usando o GroupDocs.Search for Java. Esse controle granular permite construir soluções de busca conscientes de OCR, de alto desempenho e adaptadas a ambientes legais, de desenvolvimento ou multilíngues.
 
-### Próximos Passos
-- Experimente intervalos Unicode adicionais para alfabetos não‑Latinos.  
+### Próximos passos
+- Experimente intervalos Unicode adicionais para alfabetos não latinos.  
 - Combine a configuração de caracteres com outros recursos do GroupDocs.Search, como stemming ou sinônimos.  
-- Integre o índice em uma API REST para expor capacidades de busca a aplicações front‑end.
+- Exponha o índice por meio de uma API REST para que aplicações front‑end realizem buscas via HTTP.  
 
-## Perguntas Frequentes
+## Perguntas frequentes
 
-**Q:** *What is the purpose of `CharacterType.Letter`?*  
-**A:** Ele informa ao índice para tratar os caracteres fornecidos como letras regulares, de modo que sejam tokenizados separadamente durante a indexação.
+**Q:** *Qual é a finalidade de `CharacterType.Letter`?*  
+**A:** Ele indica ao índice que os caracteres fornecidos devem ser tratados como letras regulares, de modo que sejam tokenizados separadamente durante a indexação.
 
-**Q:** *Can I mix regular and blended characters in the same index?*  
-**A:** Sim—basta chamar `setRange` para cada tipo; o dicionário lidará com ambas as configurações simultaneamente.
+**Q:** *Posso misturar caracteres regulares e combinados no mesmo índice?*  
+**A:** Sim — basta chamar `setRange` para cada tipo; o dicionário lidará com ambas as configurações simultaneamente.
 
-**Q:** *Do I need to rebuild the index after changing the alphabet?*  
-**A:** Absolutamente. Alterações no dicionário de caracteres afetam a tokenização, portanto você deve re‑indexar os documentos para aplicar as novas regras.
+**Q:** *Preciso reconstruir o índice após alterar o alfabeto?*  
+**A:** Absolutamente. Alterações no dicionário de caracteres afetam a tokenização, portanto é necessário reindexar os documentos para aplicar as novas regras.
 
-**Q:** *Is there a limit to the number of custom characters I can define?*  
-**A:** A biblioteca suporta todo o intervalo Unicode; o desempenho pode degradar se você adicionar um conjunto extremamente grande, portanto limite aos caracteres que realmente precisa.
+**Q:** *Existe um limite para a quantidade de caracteres personalizados que posso definir?*  
+**A:** A biblioteca suporta todo o intervalo Unicode; o desempenho pode degradar se você adicionar um conjunto extremamente grande, portanto limite‑se aos caracteres realmente necessários.
 
-**Q:** *How does this affect OCR accuracy?*  
-**A:** Ao alinhar o conjunto de caracteres do índice com a saída do motor de OCR, você reduz falsos negativos e melhora a relevância geral da busca.
+**Q:** *Como isso afeta a precisão do OCR?*  
+**A:** Ao alinhar o conjunto de caracteres do índice com a saída do motor OCR, você reduz falsos negativos e melhora a relevância geral da busca.
 
 ---
 
-**Última Atualização:** 2026-03-17  
+**Última atualização:** 2026-11-02  
 **Testado com:** GroupDocs.Search 25.4 for Java  
-**Autor:** GroupDocs  
+**Autor:** GroupDocs
 
----
+## Tutoriais relacionados
+
+- [Criar e Gerenciar Índice de Pesquisa GroupDocs Java](/search/java/indexing/create-manage-groupdocs-search-java-index/)
+- [Criar Diretório de Índice de Busca & Definir Licença – GroupDocs.Search Java](/search/java/licensing-configuration/groupdocs-search-java-implementation-license/)
+- [Biblioteca Java de Busca de Texto Completo – Otimizar Índice com GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
