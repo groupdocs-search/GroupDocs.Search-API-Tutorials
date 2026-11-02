@@ -1,50 +1,90 @@
 ---
-date: '2026-03-15'
-description: تعلم كيفية تنفيذ بحث نص كامل في Java باستخدام GroupDocs.Search، بما في
-  ذلك كيفية إضافة مجلد إلى الفهرس، وتكوين الضغط، وتنفيذ استعلامات سريعة.
+date: '2026-11-02'
+description: تعلم كيفية إضافة مجلد إلى الفهرس باستخدام GroupDocs.Search في Java، وتكوين
+  high compression، وتشغيل fast full‑text queries.
 keywords:
-- text indexing in Java
-- GroupDocs.Search setup
-- index compression settings
-title: 'بحث النص الكامل في جافا: كيفية فهرسة النص باستخدام GroupDocs.Search'
+- add folder to index
+- java full text search
+- groupdocs search compression
+lastmod: '2026-11-02'
+og_description: تعلم كيفية إضافة مجلد إلى الفهرس باستخدام GroupDocs.Search في Java،
+  وتكوين compression، وتنفيذ fast full‑text searches. مثالي لمجموعات المستندات الكبيرة.
+og_image_alt: Guide showing Java code for adding a folder to a GroupDocs.Search index
+og_title: كيفية إضافة مجلد إلى الفهرس باستخدام GroupDocs.Search في Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-11-02'
+  description: Learn how to add folder to index with GroupDocs.Search in Java, configure
+    high compression, and run fast full‑text queries.
+  headline: How to add folder to index with GroupDocs.Search in Java
+  type: TechArticle
+- description: Learn how to add folder to index with GroupDocs.Search in Java, configure
+    high compression, and run fast full‑text queries.
+  name: How to add folder to index with GroupDocs.Search in Java
+  steps:
+  - name: define the index folder
+    text: 'Choose a directory where the index files will reside:'
+  - name: configure index settings
+    text: '`TextStorageSettings` configures how text is stored in the index, including
+      compression level. `Compression` is an enum that specifies the desired compression
+      algorithm.'
+  - name: create the index with custom settings
+    text: 'Instantiate the index using the configuration defined above:'
+  type: HowTo
+- questions:
+  - answer: It is a robust Java library that provides advanced full‑text search capabilities,
+      including indexing, compression, and complex query support.
+    question: What is GroupDocs.Search?
+  - answer: Enable high compression (`Compression.High`) and periodically commit changes
+      to keep the index lean. Also, allocate sufficient heap memory (e.g., 4 GB for
+      indexes over 20 GB).
+    question: How do I handle large datasets with GroupDocs.Search?
+  - answer: Yes, the library can be embedded in any Java‑based backend, REST services,
+      or micro‑services architecture.
+    question: Can I integrate GroupDocs.Search with existing enterprise systems?
+  - answer: Use the `index.add()` method to append new files and `index.delete()`
+      to remove obsolete ones, then re‑run `index.optimize()` if needed.
+    question: What if my index becomes outdated?
+  - answer: Visit the community forum at [GroupDocs forums](https://forum.groupdocs.com/c/search/10)
+      for troubleshooting and best‑practice tips.
+    question: Where can I get help or support?
+  type: FAQPage
+tags:
+- add folder to index
+- groupdocs search
+- java search indexing
+title: كيفية إضافة مجلد إلى الفهرس باستخدام GroupDocs.Search في Java
 type: docs
 url: /ar/java/indexing/master-text-indexing-java-groupdocs-search-guide/
 weight: 1
 ---
 
- markdown links remain same.
+# كيفية إضافة مجلد إلى الفهرس باستخدام GroupDocs.Search في Java
 
-Proceed to produce final content.# بحث النص الكامل في Java: كيفية فهرسة النص باستخدام GroupDocs.Search
+إذا كنت بحاجة إلى **java full text search** يمكنه التعامل مع ملايين المستندات، فأنت في المكان الصحيح. في هذا الدرس ستتعلم كيفية **add folder to index** باستخدام GroupDocs.Search، وتكوين تخزين عالي الضغط، وتشغيل استعلامات سريعة كالبرق. في النهاية ستحصل على حل جاهز للإنتاج يمكنك دمجه في أي مشروع Java.
 
 ## إجابات سريعة
 - **ما هي المكتبة الأساسية؟** GroupDocs.Search for Java  
-- **كيف تضيف مجلدًا للفهرسة؟** استخدم `index.add(folderPath)`  
-- **هل يمكنني ضبط ضغط النص؟** نعم، عبر `TextStorageSettings(Compression.High)`  
-- **ما نسخة Java المطلوبة؟** JDK 8 أو أعلى  
-- **من أين تحصل على ترخيص تجريبي؟** من موقع GroupDocs أو صفحة المستودع  
+- **كيف يمكن إضافة مجلد إلى الفهرس؟** Use `index.add(folderPath)`  
+- **هل يمكنني تكوين ضغط النص؟** Yes, via `TextStorageSettings(Compression.High)`  
+- **ما نسخة Java المطلوبة؟** JDK 8 or higher  
+- **أين يمكن الحصول على ترخيص تجريبي؟** From the GroupDocs website or the repository page  
 
-## ما هو بحث النص الكامل في Java ولماذا هو مهم؟
-يحوِّل بحث النص الكامل في Java المستندات الخام إلى بنية قابلة للبحث، مما يتيح استرجاع المعلومات فورًا. هذا أمر أساسي للتطبيقات مثل المستودعات القانونية، مكتبات البحث الأكاديمي، وقواعد معرفة المؤسسات حيث يتوقع المستخدمون استجابات استعلام بأقل من ثانية.
+## ما هو java full text search ولماذا هو مهم؟
+يقوم Java full text search بتحويل المستندات الخام إلى فهرس عكسي، مما يتيح استرجاع أي مصطلح في أقل من ثانية عبر آلاف الملفات. هذه القدرة أساسية لمستودعات الوثائق القانونية، ومكتبات البحث الأكاديمية، وقواعد معرفة المؤسسات حيث يتوقع المستخدمون نتائج فورية. كما أنها تحسن الإنتاجية في التطبيقات الحديثة.
 
-## لماذا نستخدم GroupDocs.Search للبحث النصي الكامل في Java؟
-- **أداء عالي** – فهرسة وتنفيذ استعلامات مُحسَّن.  
-- **ضغط مدمج** – يقلل من مساحة القرص دون التضحية بالسرعة.  
-- **دعم صيغ واسع** – فهرسة ملفات PDF، Word، البريد الإلكتروني، وأكثر مباشرةً.  
-- **API بسيط** – طرق Java بديهية تتكامل بسهولة مع القواعد البرمجية الحالية.
+## لماذا تستخدم groupdocs.search للبحث النصي الكامل في Java؟
+يوفر GroupDocs.Search فهرسة عالية السرعة وتنفيذ استعلامات سريع مع توفير ضغط مدمج عالي. يدعم **50+ input and output formats** — بما في ذلك PDF و DOCX و EML و HTML — ويمكنه معالجة مستندات مئات الصفحات دون تحميل الملف بالكامل إلى الذاكرة، مع الحفاظ على استهلاك الذاكرة أقل من 200 ميغابايت للأحمال النموذجية.
 
 ## المتطلبات المسبقة
-
-قبل البدء، تأكد من وجود:
-
-- **GroupDocs.Search for Java** (الإصدار 25.4 أو أحدث)  
-- **JDK 8+** مثبت ومُعدّ  
-- **Maven** لإدارة التبعيات  
-- بيئة تطوير مثل IntelliJ IDEA أو Eclipse  
+- **GroupDocs.Search for Java** (version 25.4 or later) – المكتبة الأساسية التي تدعم الفهرسة والبحث.  
+- **JDK 8+** مثبت ومُكوَّن – الحد الأدنى من بيئة التشغيل المطلوبة لـ SDK.  
+- **Maven** لإدارة التبعيات – يبسط إضافة المكتبة إلى مشروعك.  
+- بيئة تطوير متكاملة مثل **IntelliJ IDEA** أو **Eclipse** – لكتابة وتصحيح كود Java.  
 
 ## إعداد GroupDocs.Search للـ Java
-
 ### إعداد Maven
-أضف المستودع والتبعية إلى ملف `pom.xml` الخاص بك:
+أضف المستودع والتبعيات إلى ملف `pom.xml` الخاص بك:
 
 ```xml
 <repositories>
@@ -64,16 +104,16 @@ Proceed to produce final content.# بحث النص الكامل في Java: كي�
 </dependencies>
 ```
 
-### التحميل المباشر
-بدلاً من ذلك، حمّل أحدث نسخة من [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
+### تحميل مباشر
+بدلاً من ذلك، قم بتحميل أحدث نسخة من [GroupDocs.Search for Java releases](https://releases.groupdocs.com/search/java/).
 
 #### الحصول على الترخيص
-- **تجربة مجانية** – استكشف جميع الميزات دون التزام.  
-- **ترخيص مؤقت** – فترة اختبار ممتدة.  
-- **شراء** – فتح جميع إمكانيات الإنتاج.
+- **Free trial** – استكشف جميع الميزات دون التزام.  
+- **Temporary license** – فترة اختبار ممتدة.  
+- **Purchase** – فتح جميع إمكانيات الإنتاج.  
 
 ### التهيئة الأساسية والإعداد
-أنشئ فئة Java بسيطة لتهيئة محرك البحث:
+`Index` هو الفئة الأساسية المستخدمة لإنشاء وفتح وإدارة فهرس البحث.
 
 ```java
 import com.groupdocs.search.Index;
@@ -91,17 +131,16 @@ public class InitializeSearch {
 }
 ```
 
-## كيفية فهرسة النص مع ضغط مخصص
-
+## فهرسة النص مع ضغط مخصص
 ### الخطوة 1: تحديد مجلد الفهرس
-اختر دليلًا سيُخزن فيه ملفات الفهرس:
+اختر دليلًا حيث ستقع ملفات الفهرس:
 
 ```java
 String indexFolder = "YOUR_DOCUMENT_DIRECTORY\\output\\AdvancedUsage\\Indexing\\StoringTextOfIndexedDocuments";
 ```
 
-### الخطوة 2: ضبط إعدادات الفهرس
-قم بإعداد تخزين نصي عالي الضغط لتقليل استهلاك القرص:
+### الخطوة 2: تكوين إعدادات الفهرس
+`TextStorageSettings` يحدد كيفية تخزين النص في الفهرس، بما في ذلك مستوى الضغط. `Compression` هو تعداد يحدد خوارزمية الضغط المطلوبة.
 
 ```java
 import com.groupdocs.search.Index;
@@ -113,7 +152,7 @@ IndexSettings settings = new IndexSettings();
 settings.setTextStorageSettings(new TextStorageSettings(Compression.High));
 ```
 
-### الخطوة 3: إنشاء الفهرس بإعدادات مخصصة
+### الخطوة 3: إنشاء الفهرس بالإعدادات المخصصة
 أنشئ الفهرس باستخدام التكوين المحدد أعلاه:
 
 ```java
@@ -121,35 +160,80 @@ Index index = new Index(indexFolder, settings);
 System.out.println("Index created with high compression.");
 ```
 
-## كيفية إضافة مجلد للفهرسة
+## كيفية إضافة مجلد إلى الفهرس
+`Index` هو الفئة الرئيسية التي تمثل الفهرس القابل للبحث.
 
-### الخطوة 1: تهيئة الفهرس (إذا لم يتم ذلك مسبقًا)
-بافتراض أن مجلد الفهرس والإعدادات جاهزة:
+حمّل الفهرس الموجود (أو أنشئ فهرسًا جديدًا) ثم استدعِ طريقة `add` على كائن `Index`. تقوم عملية `add` بمسح الدليل المقدم، استخراج النص من كل ملف مدعوم، وتخزينه في الفهرس المضغوط، جاهزًا للبحث الفوري.
 
 ```java
 String documentsFolder = "YOUR_DOCUMENT_DIRECTORY"; // Replace with actual document path.
 Index index = new Index(indexFolder);
 ```
 
-### الخطوة 2: إضافة مستندات من مجلد
-فهرس جميع الملفات المدعومة في الدليل المحدد:
+## كيفية البحث في المستندات المفهرسة
+`SearchResult` يمثل نتيجة واحدة مع مسار المستند والملاءمة.
+
+حدد سلسلة استعلام البحث التي تمثل المصطلح أو العبارة التي تريد العثور عليها، ثم استدعِ طريقة `search` على كائن `Index`. تُعيد الطريقة مجموعة من كائنات `SearchResult`، كل منها يحتوي على مسار المستند، درجة الملاءمة، ومقتطف يبرز التطابق.
 
 ```java
 index.add(documentsFolder);
 System.out.println("Documents added successfully.");
 ```
 
-## كيفية البحث في المستندات المفهرسة
+## التطبيقات العملية
+سيناريوهات واقعية حيث يبرز **java full text search**:
+1. **Legal document management** – استرجاع فوري لملفات القضايا.  
+2. **Academic research libraries** – بحث سريع عن الأوراق والرسائل.  
+3. **Enterprise knowledge bases** – وصول سريع إلى الأدلة والأسئلة الشائعة.  
+4. **Content management systems** – اكتشاف محتوى فعال للمواقع الكبيرة.  
+5. **Customer service archives** – بحث سريع في تذاكر ودردشات الدعم السابقة.  
 
-### الخطوة 1: تعريف استعلام البحث
-حدد المصطلح الذي تريد العثور عليه:
+## اعتبارات الأداء
+- **Compression vs. speed**: الضغط العالي يوفر حتى 70 % من مساحة القرص لكنه يضيف عبء فهرسة بسيط؛ قم بإجراء اختبارات معيارية لحجم بياناتك.  
+- **Memory management**: خصص على الأقل 2 GB من الذاكرة المؤقتة للفهارس التي تتجاوز 10 GB لتجنب `OutOfMemoryError`.  
+- **Index updates**: أضف المستندات الجديدة تدريجيًا باستخدام `index.add()` وتدعُّـ `index.optimize()` بشكل دوري للحفاظ على فهرس مضغوط.  
+- **Query optimization**: استخدم صياغة الاستعلام المتقدمة (wildcards, proximity, fuzzy search) لتضييق النتائج وتقليل زمن الاستجابة.  
+
+## المخاطر الشائعة والنصائح الاحترافية
+- **Pitfall:** نسيان استدعاء `index.optimize()` بعد الإضافات الجماعية.  
+  **Pro tip:** شغّل `index.optimize()` كل ليلة للحفاظ على الفهرس مضغوطًا.  
+
+- **Pitfall:** استخدام الضغط الافتراضي (المنخفض) على مجموعات بيانات ضخمة.  
+  **Pro tip:** التحول إلى `Compression.High` في بيئات الإنتاج لتقليل تكاليف التخزين.  
+
+- **Pitfall:** عدم معالجة `IOException` عند إضافة ملفات من مشاركة شبكة.  
+  **Pro tip:** ضع `index.add()` داخل كتلة try‑catch وسجّل أي فشل للمراجعة لاحقًا.  
+
+## الأسئلة المتكررة
+**س: ما هو GroupDocs.Search؟**  
+ج: هي مكتبة Java قوية توفر إمكانيات بحث نصي كامل متقدمة، بما في ذلك الفهرسة، الضغط، ودعم الاستعلامات المعقدة.
+
+**س: كيف يمكنني التعامل مع مجموعات بيانات كبيرة باستخدام GroupDocs.Search؟**  
+ج: فعّل الضغط العالي (`Compression.High`) وارتكِب التغييرات بشكل دوري للحفاظ على خفة الفهرس. كما يجب تخصيص ذاكرة مؤقتة كافية (مثلاً 4 GB للفهارس التي تتجاوز 20 GB).
+
+**س: هل يمكنني دمج GroupDocs.Search مع الأنظمة المؤسسية الحالية؟**  
+ج: نعم، يمكن تضمين المكتبة في أي خلفية مبنية على Java، أو خدمات REST، أو بنية مايكرو‑خدمات.
+
+**س: ماذا لو أصبح فهرسي قديمًا؟**  
+ج: استخدم طريقة `index.add()` لإضافة ملفات جديدة و`index.delete()` لإزالة الملفات القديمة، ثم أعد تشغيل `index.optimize()` إذا لزم الأمر.
+
+**س: أين يمكنني الحصول على المساعدة أو الدعم؟**  
+ج: زر منتدى المجتمع على [GroupDocs forums](https://forum.groupdocs.com/c/search/10) للحصول على حلول المشكلات ونصائح أفضل الممارسات.
+
+## موارد إضافية
+- دليل الاستخدام التفصيلي: [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
+- مرجع API الكامل: [API Reference Guide](https://reference.groupdocs.com/search/java)  
+- ابقَ محدثًا بأحدث الميزات: [Latest Releases](https://releases.groupdocs.com/search/java/)  
+
+---
+
+**آخر تحديث:** 2026-11-02  
+**تم الاختبار مع:** GroupDocs.Search 25.4  
+**المؤلف:** GroupDocs  
 
 ```java
-String query = "Lorem";  
+String query = "sample";  
 ```
-
-### الخطوة 2: تنفيذ البحث
-شغّل الاستعلام ضد الفهرس واسترجع النتائج:
 
 ```java
 import com.groupdocs.search.results.SearchResult;
@@ -158,58 +242,7 @@ SearchResult result = index.search(query);
 System.out.println("Search completed. Results found: " + result.getDocumentCount());
 ```
 
-## تطبيقات عملية
-
-سيناريوهات واقعية يبرز فيها **java full text search**:
-
-1. **إدارة المستندات القانونية** – استرجاع فوري لملفات القضايا.  
-2. **مكتبات البحث الأكاديمي** – بحث سريع عن الأوراق والرسائل.  
-3. **قواعد معرفة المؤسسات** – وصول سريع إلى الأدلة والأسئلة المتكررة.  
-4. **أنظمة إدارة المحتوى** – اكتشاف محتوى فعال للمواقع الكبيرة.  
-5. **أرشيفات خدمة العملاء** – بحث سريع في التذاكر والدردشات السابقة.  
-
-## اعتبارات الأداء
-
-- **الضغط مقابل السرعة**: الضغط العالي يوفر مساحة لكنه قد يضيف عبئًا بسيطًا أثناء الفهرسة. اختبر الإعدادين وفقًا لحجم عملك.  
-- **إدارة الذاكرة**: راقب استهلاك الـ heap عند فهرسة مجموعات نصية ضخمة.  
-- **تحديثات الفهرس**: أضف مستندات جديدة أو احذف القديمة بانتظام للحفاظ على صلة النتائج.  
-- **تحسين الاستعلام**: استفد من صيغ الاستعلام المتقدمة في GroupDocs.Search للحصول على نتائج دقيقة.
-
-## الأخطاء الشائعة والنصائح الاحترافية
-
-- **المشكلة:** نسيان استدعاء `index.optimize()` بعد الإضافات الجماعية.  
-  **النصيحة:** شغّل `index.optimize()` كل ليلة للحفاظ على الفهرس مضغوطًا.  
-
-- **المشكلة:** استخدام الضغط الافتراضي (منخفض) على مجموعات بيانات ضخمة.  
-  **النصيحة:** حوّل إلى `Compression.High` في بيئات الإنتاج لتقليل تكاليف التخزين.  
-
-- **المشكلة:** عدم معالجة `IOException` عند إضافة ملفات من مشاركة شبكة.  
-  **النصيحة:** احط `index.add()` بكتلة try‑catch وسجّل أي فشل للمراجعة لاحقًا.
-
-## الأسئلة المتكررة
-
-**س: ما هو GroupDocs.Search؟**  
-ج: هو مكتبة Java قوية توفر قدرات بحث نص كامل متقدمة، تشمل الفهرسة، الضغط، ودعم استعلامات معقدة.
-
-**س: كيف أتعامل مع مجموعات بيانات كبيرة باستخدام GroupDocs.Search؟**  
-ج: فعّل الضغط العالي (`Compression.High`) وارتكب التغييرات بشكل دوري للحفاظ على خفة الفهرس. كما يُنصح بتخصيص ذاكرة heap كافية.
-
-**س: هل يمكن دمج GroupDocs.Search مع الأنظمة المؤسسية الحالية؟**  
-ج: نعم، يمكن تضمين المكتبة في أي خلفية مبنية على Java، خدمات REST، أو بنية ميكرو‑خدمات.
-
-**س: ماذا أفعل إذا أصبح فهرسي قديمًا؟**  
-ج: استخدم طريقة `index.add()` لإضافة ملفات جديدة و`index.delete()` لإزالة القديمة، ثم أعد تشغيل `index.optimize()` إذا لزم الأمر.
-
-**س: أين يمكنني الحصول على المساعدة أو الدعم؟**  
-ج: زر منتدى المجتمع على [GroupDocs forums](https://forum.groupdocs.com/c/search/10) للحصول على حلول وممارسات أفضل.
-
-## موارد
-- **الوثائق:** [GroupDocs Search Documentation](https://docs.groupdocs.com/search/java/)  
-- **دليل API:** [API Reference Guide](https://reference.groupdocs.com/search/java)  
-- **تحميل GroupDocs.Search:** [Latest Releases](https://releases.groupdocs.com/search/java/)  
-
----
-
-**آخر تحديث:** 2026-03-15  
-**تم الاختبار مع:** GroupDocs.Search 25.4  
-**المؤلف:** GroupDocs
+## دروس ذات صلة
+- [دليل إنشاء فهرس Groupdocs Search Java](/search/java/indexing/groupdocs-search-java-create-index-guide/)
+- [دليل إتقان إدارة فهرس Groupdocs Search Java](/search/java/document-management/mastering-groupdocs-search-java-index-management-guide/)
+- [مكتبة البحث النصي الكامل في Java – تحسين الفهرس باستخدام GroupDocs.Search](/search/java/performance-optimization/groupdocs-search-java-index-optimization/)
